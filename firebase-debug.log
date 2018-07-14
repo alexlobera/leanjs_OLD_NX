@@ -1,0 +1,17 @@
+[debug] [2018-07-11T17:37:09.208Z] ----------------------------------------------------------------------
+[debug] [2018-07-11T17:37:09.210Z] Command:       /usr/local/bin/node /usr/local/bin/firebase functions:log
+[debug] [2018-07-11T17:37:09.210Z] CLI Version:   3.18.2
+[debug] [2018-07-11T17:37:09.210Z] Platform:      darwin
+[debug] [2018-07-11T17:37:09.210Z] Node Version:  v9.2.1
+[debug] [2018-07-11T17:37:09.211Z] Time:          Wed Jul 11 2018 18:37:09 GMT+0100 (BST)
+[debug] [2018-07-11T17:37:09.211Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-07-11T17:37:09.222Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-11T17:37:09.222Z] > authorizing via signed-in user
+[debug] [2018-07-11T17:37:09.224Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/leanjscom-web  
+  
+ Wed Jul 11 2018 18:37:09 GMT+0100 (BST)
+[debug] [2018-07-11T17:37:09.795Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-11T17:37:09.796Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/leanjscom-web/tokens  
+  
+ Wed Jul 11 2018 18:37:09 GMT+0100 (BST)
