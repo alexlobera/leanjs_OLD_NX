@@ -2,13 +2,13 @@ import React from 'react'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section from '../components/layout/Section'
-import Button from '../components/buttons/Button'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Card from '../components/layout/Card'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H3 } from '../components/text'
-import Input from '../components/form/Input'
+import Ul, { Li } from '../components/Layout/Ul'
+import ContactForm from '../components/form/Contact'
 
 const PartTime = () => (
   <div>
@@ -69,21 +69,21 @@ const PartTime = () => (
     <Section color="lightGrey">
       <Grid>
         <H1>
-          Is this part-time course right for me? (should we say instead: "Target audience")
+          Is this part-time course right for me?
         </H1>
         <Row>
           <Col xs={5}>
             <ImagePlaceholder width="100%" />
           </Col>
           <Col xs={7}>
-            <ul>
-              <li><strong>Continue working</strong>, don't miss a single precious day of your developer time with your company or clients.</li>
-              <li>Perfect for <strong>professional developers</strong> who are familiar with good programming practices. This is NOT a learn-to-code bootcamp.</li>
-              <li>Learn how to <strong>build production ready</strong> React applications.</li>
-              <li>Discuss <strong>real-world projects</strong> to learn best practices for building scalable React applications.</li>
-              <li>Our team is expert practicioners working with React every single day - <strong>not just teaching</strong></li>
-              <li>Carefully designed curriculum and teaching material. Our <strong>team of coaches</strong> have been teaching and improving it since early 2016.</li>
-            </ul>
+            <Ul>
+              <Li><strong>Continue working</strong>, don't miss a single precious day of your developer time with your company or clients.</Li>
+              <Li>Perfect for <strong>professional developers</strong> who are familiar with good programming practices. This is NOT a learn-to-code bootcamp.</Li>
+              <Li>Learn how to <strong>build production ready</strong> React applications.</Li>
+              <Li>Discuss <strong>real-world projects</strong> to learn best practices for building scalable React applications.</Li>
+              <Li>Our team is expert practicioners working with React every single day - <strong>not just teaching</strong></Li>
+              <Li>Carefully designed curriculum and teaching material. Our <strong>team of coaches</strong> have been teaching and improving it since early 2016.</Li>
+            </Ul>
           </Col>
         </Row>
         <P align="center">
@@ -95,7 +95,7 @@ const PartTime = () => (
       <Grid>
         <H1>
           The most complete curriculum
-                </H1>
+        </H1>
         <H2>Day 1</H2>
         <H3>ES6 & ESNEXT, React Fundamentals, React Router</H3>
         <Link to="/">Click here for more detail</Link>
@@ -139,19 +139,7 @@ const PartTime = () => (
     </Section>
     <Section>
       <Grid>
-        <H2>
-          More info and some pre-course learning resources
-                </H2>
-        <H3>
-          Enter your email below and we'll email you with our latest training and free learning resources. We are very serious about your privacy and the safety of your information. Not convinced? Check out our <Link to="/privacy-policy">privacy policy</Link>.
-                </H3>
-        <P>
-          <Input
-            placeholder='Email'
-          />
-        </P><P>
-          <Button children="Submit email" />
-        </P>
+        <ContactForm />
       </Grid>
     </Section>
   </div>
