@@ -1,32 +1,64 @@
 import React from 'react'
-import Card from '../layout/Card'
+import styled from 'styled-components'
 import P from '../layout/P'
 import ImagePlaceholder from '../wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H3 } from '../text'
 import { Col, Row } from '../layout/Grid'
 
-const AttendeeQuote = ({ quote, fullname, company, job }) => (
-    <Card width={256}>
-        <Blockquote>
-            {quote || 'This is a quote from a trainee.'}
-        </Blockquote>
-        <Row>
-            <Col xs={5}>
-                <ImagePlaceholder width="100%" />
-            </Col>
-            <Col xs={5}>
-                <P>
-                    <strong>{fullname || 'Joe Bloggs'}</strong>
-                </P>
-                <P>
-                    {job || 'CTO'}
-                </P>
-                <P>
-                    {company || 'ASOS.com'}
-                </P>
-            </Col>
-        </Row>
-    </Card>
+const Card = styled.div`
+  background-color: white;
+  display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 6px;
+  }
+`
+
+const StyledBlockquote = styled(Blockquote)`
+  @media (min-width: 768px) {
+    padding: 5px 10px;
+  }
+`
+
+const Attendee = styled.div`
+  display: flex;
+  margin-left: auto;
+  position: relative;
+`
+const AttendeeInfo = styled.div`
+  padding: 5px;
+  @media (min-width: 768px) {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+  }
+`
+const UserProfile = styled(ImagePlaceholder)`
+  @media (max-width: 768px) {
+    max-width: 40%;
+  }
+  @media (min-width: 768px) {
+    max-width: 250px;
+  }
+`
+
+const AttendeeQuoteDesktop = ({ quote, fullname, company, job }) => (
+  <Card>
+    <StyledBlockquote>
+      {quote || 'This is a quote from a trainee.'}
+    </StyledBlockquote>
+    <Attendee>
+      <UserProfile />
+      <AttendeeInfo>
+        <strong>{fullname || 'Joe Bloggs'}</strong>
+        <br />
+        {job || 'CTO'}
+        <br />
+        {company || 'ASOS.com'}
+      </AttendeeInfo>
+    </Attendee>
+  </Card>
 )
 
-export default AttendeeQuote
+export default AttendeeQuoteDesktop
