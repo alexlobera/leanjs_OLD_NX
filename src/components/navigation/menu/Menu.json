@@ -1,6 +1,6 @@
 [
   {
-    "to": "/bootcamp",
+    "to": "/react-redux-graphql-bootcamp",
     "text": "Bootcamp",
     "onlyOn": null
   },

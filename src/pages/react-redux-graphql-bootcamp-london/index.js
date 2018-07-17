@@ -34,9 +34,11 @@ const BootcampLondon = ({ width }) => (
               <Li>
                 <Link>Pricing</Link>
               </Li>
+              <Li>|</Li>
               <Li>
                 <Link>Curriculum</Link>
               </Li>
+              <Li>|</Li>
               <Li>
                 <Link>Target audience</Link>
               </Li>
@@ -45,6 +47,7 @@ const BootcampLondon = ({ width }) => (
               Take your dev career to the next level by mastering the React
               ecosystem - in only 7 days!
             </H3>
+            <p>Training for professional developers</p>
           </Col>
         </Row>
       </Grid>
@@ -79,7 +82,7 @@ const BootcampLondon = ({ width }) => (
               <P>Early bird tickes available until 20th July 2018.</P>
               <H3>
                 &pound;1740
-                <Button fontSize={3} style={{ float: 'right' }}>
+                <Button extraLarge style={{ float: 'right' }}>
                   Buy now
                 </Button>
               </H3>
@@ -95,7 +98,7 @@ const BootcampLondon = ({ width }) => (
               </P>
               <H3>
                 &pound;2160
-                <Button fontSize={3} style={{ float: 'right' }}>
+                <Button extraLarge style={{ float: 'right' }}>
                   Contact us
                 </Button>
               </H3>

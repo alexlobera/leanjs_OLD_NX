@@ -8,7 +8,7 @@ const Ul = styled.ul`
     margin: 0;
     > li {
         display: inline-block;
-        padding: 5px;
+        padding: 8px;
         :first-child {
             padding-left: 0;
         }

@@ -8,6 +8,8 @@ import { Col, Row } from '../layout/Grid'
 const Card = styled.div`
   background-color: white;
   display: flex;
+  border: 1px solid #ccc;
+  border-radius: 2px;
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 6px;
@@ -31,10 +33,11 @@ const AttendeeInfo = styled.div`
     bottom: 0;
     left: 0;
     position: absolute;
-    display: block;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 `
-const UserProfile = styled(ImagePlaceholder)`
+const AttendeePicture = styled(ImagePlaceholder)`
   @media (max-width: 768px) {
     max-width: 40%;
   }
@@ -43,13 +46,13 @@ const UserProfile = styled(ImagePlaceholder)`
   }
 `
 
-const AttendeeQuoteDesktop = ({ quote, fullname, company, job }) => (
-  <Card>
+const AttendeeQuoteDesktop = ({ quote, fullname, company, job, ...props }) => (
+  <Card {...props}>
     <StyledBlockquote>
       {quote || 'This is a quote from a trainee.'}
     </StyledBlockquote>
     <Attendee>
-      <UserProfile />
+      <AttendeePicture />
       <AttendeeInfo>
         <strong>{fullname || 'Joe Bloggs'}</strong>
         <br />

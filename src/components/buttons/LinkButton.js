@@ -2,7 +2,15 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 
 export default styled(Link)`
-  font-size: 14px;
+  font-size: ${props => {
+    if (props.extraLarge) {
+      return 20
+    } else if (props.large) {
+      return 16
+    } else {
+      return 12
+    }
+  }}px;
   font-weight: 700;
   line-height: 1.14286;
   padding-left: 16px;

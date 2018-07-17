@@ -6,7 +6,7 @@ import { Blockquote, H1, H2, H3 } from '../text'
 import AttendedBy from './AttendedBy'
 
 const AttendedBySection = ({ videoUrl }) => (
-  <Section>
+  <Section color="lightGrey">
     <AttendedBy />
     <Grid>
       <iframe
