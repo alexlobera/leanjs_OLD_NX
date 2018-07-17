@@ -5,7 +5,7 @@ import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H1, H2, H3 } from '../components/text'
+import { H1, H2, H3, H2Ref } from '../components/text'
 import { CurriculumBootcamp } from '../components/curriculum'
 import AttendedBySection from '../components/training/AttendedBySection'
 import Ul, { Li } from '../components/Layout/Ul'
@@ -37,45 +37,8 @@ const Bootcamp = () => (
         </Row>
       </Grid>
     </Section>
-    <Section>
-      <Grid>
-        <H1>Upcoming bootcamps</H1>
-        <Row>
-          <Col md={6}>
-            <Row>
-              <Col xs={5}>
-                <ImagePlaceholder width="100%" />
-              </Col>
-              <Col xs={7}>
-                London, UK
-                <P>20-27, August 2018</P>
-                <LinkButton
-                  to="/react-redux-graphql-bootcamp-london"
-                  children="London Bootcamp"
-                />
-              </Col>
-            </Row>
-          </Col>
-          <Col md={6}>
-            <Row>
-              <Col xs={5}>
-                <ImagePlaceholder width="100%" />
-              </Col>
-              <Col xs={7}>
-                Lisbon district, Portugal
-                <P>7-13, October 2018</P>
-                <LinkButton
-                  to="/react-redux-graphql-bootcamp-lisbon"
-                  children="Lisbon Bootcamp"
-                />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
     {/* <AttendedBySection videoUrl="https://www.youtube.com/embed/yGwmF4AT1Fg" /> */}
-    <Section color="lightGrey">
+    <Section>
       {/* <AttendedBy /> */}
       <Grid>
         <Row>
@@ -119,16 +82,16 @@ const Bootcamp = () => (
         </Row>
         <AttendeeQuote
           style={{ marginTop: '20px' }}
-          quote="Best training ever! lorem "
-          fullname="Joe Foo s sss sss 2"
-          job="CTO2"
-          company="ASOS.com"
+          quote="Loved it! I was able to master React is just 7 days with a curriculum that covered everything I need to go back to my job and implement React properly. The trainers were friendly and worked with us one-on-one which really aided my learning."
+          fullname="Alex William"
+          job="Front-end developer"
+          company="Tesco"
         />
       </Grid>
     </Section>
-    <Section>
+    <Section color="lightGrey">
       <Grid>
-        <H1>Is this bootcamp right for me?</H1>
+        <H2>Is this bootcamp right for me?</H2>
         <Row>
           <Col xs={5}>
             <ImagePlaceholder width="100%" />
@@ -165,18 +128,55 @@ const Bootcamp = () => (
           </Col>
         </Row>
         <P align="center">
-          <Link to="/">Next bootcamps</Link>
-          <br />{' '}
-          <strong>
-            Where does this link go? should we say "Next bootcamp" and redirect
-            the user to the next bootcamp landing page?
-          </strong>
+          <a href="#next-bootcamps">Next bootcamps</a>
         </P>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <CurriculumBootcamp />
       </Grid>
     </Section>
     <Section color="lightGrey">
       <Grid>
-        <CurriculumBootcamp />
+        <H2Ref>
+          Upcoming bootcamps{' '}
+          <a name="next-bootcamps" href="#next-bootcamps">
+            #
+          </a>
+        </H2Ref>
+        <Row>
+          <Col md={6}>
+            <Row>
+              <Col xs={5}>
+                <ImagePlaceholder width="100%" />
+              </Col>
+              <Col xs={7}>
+                London, UK
+                <P>20-27, August 2018</P>
+                <LinkButton
+                  to="/react-redux-graphql-bootcamp-london"
+                  children="London Bootcamp"
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col md={6}>
+            <Row>
+              <Col xs={5}>
+                <ImagePlaceholder width="100%" />
+              </Col>
+              <Col xs={7}>
+                Lisbon district, Portugal
+                <P>7-13, October 2018</P>
+                <LinkButton
+                  to="/react-redux-graphql-bootcamp-lisbon"
+                  children="Lisbon Bootcamp"
+                />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </Grid>
     </Section>
     <Section>

@@ -3,12 +3,12 @@ import withWidth, { SMALL } from 'react-width'
 import styled from 'styled-components'
 import Link from '../../components/navigation/Link'
 import Section from '../../components/layout/Section'
-import Button from '../../components/buttons/Button'
+import Button, { ButtonSecondary } from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import Card from '../../components/layout/Card'
 import P from '../../components/layout/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
-import { Blockquote, H1, H2, H3, Badge } from '../../components/text'
+import { Blockquote, H1, H2, H2Ref, H3, Badge } from '../../components/text'
 import Input from '../../components/form/Input'
 import Ul, { Li } from '../../components/Layout/Ul'
 import AttendedBy from '../../components/training/AttendedBy'
@@ -32,15 +32,15 @@ const BootcampLondon = ({ width }) => (
             <H2>20-25 August, 2018</H2>
             <Ul inline>
               <Li>
-                <Link>Pricing</Link>
+                <a href="#pricing">Pricing</a>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link>Curriculum</Link>
+                <a href="#curriculum">Curriculum</a>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link>Target audience</Link>
+                <a href="#target-audience">Is it right for me</a>
               </Li>
             </Ul>
             <H3>
@@ -69,7 +69,12 @@ const BootcampLondon = ({ width }) => (
             />
           </Col>
           <Col xs={12} md={5}>
-            <H2>Prices</H2>
+            <H2Ref>
+              Prices{' '}
+              <a href="#pricing" name="pricing">
+                #
+              </a>
+            </H2Ref>
             <P>
               Please be aware that the tickets cover the cost of the training,
               it does not include the cost of the flights and accomodation.
@@ -98,9 +103,9 @@ const BootcampLondon = ({ width }) => (
               </P>
               <H3>
                 &pound;2160
-                <Button extraLarge style={{ float: 'right' }}>
+                <ButtonSecondary extraLarge style={{ float: 'right' }}>
                   Contact us
-                </Button>
+                </ButtonSecondary>
               </H3>
             </Card>
           </Col>
@@ -118,7 +123,12 @@ const BootcampLondon = ({ width }) => (
           <Col md={7}>
             <Row>
               <Col>
-                <H2>Is this bootcamp right for me? Are you...</H2>
+                <H2Ref>
+                  Is this bootcamp right for me? Are you...{' '}
+                  <a href="#target-audience" name="target-audience">
+                    #
+                  </a>
+                </H2Ref>
               </Col>
             </Row>
             <Row>
@@ -159,10 +169,10 @@ const BootcampLondon = ({ width }) => (
               "ReactJS Academy".
             </P>
             <AttendeeQuote
-              quote="Best training ever! lorem "
-              fullname="Joe Foo s sss sss 2"
-              job="CTO2"
-              company="ASOS.com"
+              quote="I enjoyed the bootcamp so much. It was challenging and so rewarding - the mentors were so helpful, making sense of really complex concepts.... Recommended."
+              fullname="Senior Developer"
+              job="Cameron Diaz"
+              company="Spotify"
             />
           </Col>
         </Row>

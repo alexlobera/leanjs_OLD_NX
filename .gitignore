@@ -3,6 +3,7 @@
 node_modules
 yarn-error.log
 firebase/firebase.js
+firebase-debug.log
 
 # Build directory
 /public

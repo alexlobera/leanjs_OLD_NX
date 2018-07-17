@@ -25,32 +25,34 @@ const IndexPage = () => (
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
             <H1>Take your career further by mastering the React ecosystem</H1>
             <H2>
-              The most complete curriculum from experienced practitioners who
-              were the first in Europe to teach React
+              The most complete curriculum from experts who were the first in
+              Europe to teach React
             </H2>
-            <Row>
-              <Col xs={6} lg={3} lgOffset={1}>
-                <LinkButton
-                  extraLarge
-                  to="/react-redux-graphql-bootcamp"
-                  children="Bootcamp"
-                />
-              </Col>
-              <Col xs={6} lg={7}>
-                <Ul inline>
-                  <Li>
-                    <Link to="/part-time" children="Part-time" />
-                  </Li>
-                  <Li>|</Li>
-                  <Li>
-                    <Link
-                      to="/about-us#private-on-site-corporate-training"
-                      children="Corporate training"
-                    />
-                  </Li>
-                </Ul>
-              </Col>
-            </Row>
+            <p>
+              <Ul inline>
+                <Li>
+                  <LinkButton
+                    secondary
+                    to="/part-time"
+                    children="12-week part-time"
+                  />
+                </Li>
+                <Li>
+                  <LinkButton
+                    secondary
+                    to="/about-us#private-on-site-corporate-training"
+                    children="Corporate training"
+                  />
+                </Li>
+              </Ul>
+            </p>
+            <p>
+              <LinkButton
+                extraLarge
+                to="/react-redux-graphql-bootcamp"
+                children="1-week bootcamp"
+              />
+            </p>
           </Col>
         </Row>
       </Grid>
@@ -97,12 +99,14 @@ const IndexPage = () => (
               </Col>
             </Row>
             <P align="right">
-              <Link to="/">Checkout the curriculum</Link>
+              <Link to="/react-redux-graphql-bootcamp#curriculum">
+                Checkout the curriculum
+              </Link>
             </P>
             <AttendeeQuote
-              quote="Best training ever! lorem "
-              fullname="Joe Foo s sss sss 2"
-              job="CTO2"
+              quote="After being a developer for 10 years and with the increasing amount of people coming into tech, I wanted to ensure I stayed ahead of the curve in my skills to make my career further. Simply put, ReactJS Academy gave me that!"
+              fullname="Joe Woodley"
+              job="Senior Front-end developer"
               company="ASOS.com"
             />
           </Col>
@@ -209,18 +213,16 @@ const IndexPage = () => (
         <Row>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
-              <strong>
-                Shall we have a video about a client talking about the training
-                instead of a photo? John Lewis
-              </strong>
               <ImagePlaceholder width="100%" height="500px" />
             </Col>
           </HideSingleComponentUsingCss>
           <Col md={7}>
             <Row>
               <Col>
-                What's in for your company - Why is ReactJS Academy great for
-                your team
+                <H2>
+                  What's in for your company - Why is ReactJS Academy great for
+                  your team
+                </H2>
               </Col>
             </Row>
             <Row>
@@ -240,7 +242,7 @@ const IndexPage = () => (
                     an organization by learning from experienced practicioners.
                   </Li>
                   <Li>
-                    <strong>Avoid common mitakes</strong>, they could cause
+                    <strong>Avoid common mistakes</strong>, they could cause
                     delays and loses to your business if made later in real
                     projects. Let developers make mistakes in our safe
                     environment and learn from them.
@@ -260,13 +262,15 @@ const IndexPage = () => (
               </Col>
             </Row>
             <P align="right">
-              <Link to="/">Checkout the curriculum</Link>
+              <Link to="/react-redux-graphql-bootcamp#curriculum">
+                Checkout the curriculum
+              </Link>
             </P>
             <AttendeeQuote
               quote="My devs were on training for a week, but when they came back they were React Masters. We adpoted the ecosystem much quicker than we thought possible and now we work faster and more efficiently."
-              fullname="Joe home"
+              fullname="Richard Moss"
               job="CTO"
-              company="ASOS.com"
+              company="Financial Times"
             />
             <Row style={{ marginTop: '30px' }}>
               <Col xs={6} md={5}>

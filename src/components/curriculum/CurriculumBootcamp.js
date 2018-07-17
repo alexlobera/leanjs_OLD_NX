@@ -1,12 +1,17 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { H1, H2, H3 } from '../text'
+import { H1Ref, H2, H3 } from '../text'
 import { CurriculumSection } from './'
 import { Col, Row } from '../layout/Grid'
 
 const CurriculumBootcamp = () => (
   <div>
-    <H1>The most complete curriculum</H1>
+    <H1Ref>
+      The most complete curriculum{' '}
+      <a href="#curriculum" name="curriculum">
+        #
+      </a>
+    </H1Ref>
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <CurriculumSection>

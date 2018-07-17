@@ -11,14 +11,19 @@ export default styled(Link)`
       return 12
     }
   }}px;
-  font-weight: 700;
+  ${props =>
+    props.secondary
+      ? 'box-shadow: rgb(0, 103, 238) 0px 0px 0px 2px inset;'
+      : ''} font-weight: 700;
   line-height: 1.14286;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 103, 238);
+  color: ${props =>
+    props.secondary ? 'rgb(0, 103, 238)' : 'rgb(255, 255, 255)'};
+  background-color: ${props =>
+    props.secondary ? 'transparent' : 'rgb(0, 103, 238)'};
   font-family: inherit;
   -webkit-font-smoothing: antialiased;
   display: inline-block;

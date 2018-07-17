@@ -55,17 +55,21 @@ const PartTime = () => (
         allowFullScreen
       />
       <Card width={256}>
-        <Blockquote>This is a quote from a trainee.</Blockquote>
+        <Blockquote>
+          The ReactJS Academy part time course really worked for me. I needed to
+          learn React but flexibility around my schedule was super important -
+          not only that, it was great fun!
+        </Blockquote>
         <Row>
           <Col xs={5}>
             <ImagePlaceholder width="100%" />
           </Col>
           <Col xs={5}>
             <P>
-              <strong>Joe Bloggs</strong>
+              <strong>Horacio Voelcker</strong>
             </P>
-            <P>CTO</P>
-            <P>ASOS.com</P>
+            <P>Front End Contractor</P>
+            <P>Prev. RBS</P>
           </Col>
         </Row>
       </Card>
