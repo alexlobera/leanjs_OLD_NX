@@ -2,25 +2,35 @@ import React from 'react'
 import Link from '../navigation/Link'
 import Button from '../buttons/Button'
 import P from '../layout/P'
-import { Blockquote, H1, H2, H3 } from '../text'
+import { H2, H3 } from '../text'
 import Input from './Input'
+import { Col, Row } from '../layout/Grid'
 
 const ContactForm = () => (
-    <div>
-        <H2>
-            More info and some pre-course learning resources
-                </H2>
-        <H3>
-            Enter your email below and we'll email you with our latest training and free learning resources. We are very serious about your privacy and the safety of your information. Not convinced? Check out our <Link to="/privacy-policy">privacy policy</Link>.
-                </H3>
+  <div>
+    <Row>
+      <Col lg={6}>
+        <H2>I would like more info and some pre-course learning resources</H2>
+      </Col>
+    </Row>
+    <Row>
+      <Col lg={6}>
+        <p>
+          Enter your email below and we'll email you with our latest training
+          and free learning resources. And no, we don't spam you with anything
+          else, as per our <Link to="/privacy-policy">Privacy Policy</Link>.
+        </p>
+      </Col>
+      <Col lg={6}>
         <P>
-            <Input
-                placeholder='Email'
-            />
-        </P><P>
-            <Button children="Submit email" />
+          <Input placeholder="Email" />
         </P>
-    </div>
+        <P>
+          <Button children="Submit email" />
+        </P>
+      </Col>
+    </Row>
+  </div>
 )
 
 export default ContactForm

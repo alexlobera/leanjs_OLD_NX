@@ -2,6 +2,10 @@ import React from 'react'
 import AttendedBy from '../../components/training/AttendedBy'
 import Section from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
+import { H2, H3, Badge } from '../../components/text'
+import P from '../../components/layout/P'
+import Card from '../../components/layout/Card'
+import Button from '../../components/buttons/Button'
 
 const AttendedBySectionLondon = props => (
   <Section>

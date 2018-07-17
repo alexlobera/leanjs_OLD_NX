@@ -2,8 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Ul = styled.ul`
-    ${props => props.inline ? `
-    margin-left: 0;
+  ${props =>
+    props.inline
+      ? `
+    margin: 0;
     > li {
         display: inline-block;
         padding: 5px;
@@ -14,12 +16,11 @@ const Ul = styled.ul`
             padding-right: 0;
         }
     }
-    `: ''}
+    `
+      : ''};
 `
 
-const Li = styled.li`
-    
-`
+const Li = styled.li``
 
 export { Ul, Li }
 export default Ul

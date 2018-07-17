@@ -14,35 +14,49 @@ const IndexPage = () => (
   <div>
     <Section color="lightGrey">
       <Grid>
-        <H1>
-          Take your career further by mastering ReactJS
-        </H1>
-        <H2>The most complete curriculum from experienced practitioners who were the first in Europe to teach React</H2>
         <Row>
-          <Col xs={6}>
-            <LinkButton to="/bootcamp" children="Bootcamp" />
-          </Col>
-          <Col xs={6}>
-            <LinkButton to="/part-time" children="Part-time" />
+          <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
+            <H1>Take your career further by mastering ReactJS</H1>
+            <H2>
+              The most complete curriculum from experienced practitioners who
+              were the first in Europe to teach React
+            </H2>
+            <Row>
+              <Col xs={6}>
+                <LinkButton to="/bootcamp" children="Bootcamp" />
+              </Col>
+              <Col xs={6}>
+                <LinkButton to="/part-time" children="Part-time" />
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <H2>
-          What will I get from a ReactJS Academy course?
-        </H2>
+        <H2>What will I get from a ReactJS Academy course?</H2>
         <Row>
           <Col xs={5}>
             <ImagePlaceholder width="100%" />
           </Col>
           <Col xs={7}>
             <Ul>
-              <Li>Learn how to <strong>build production ready</strong> React applications.</Li>
-              <Li>Discuss <strong>real-world projects</strong> to learn best practices for building scalable React applications.</Li>
-              <Li><strong>One-to-One mentoring</strong> by the ReactJS Academy coaches and mentors</Li>
-              <Li>Expand your developer knowleadge and <strong>stay ahead</strong></Li>
+              <Li>
+                Learn how to <strong>build production ready</strong> React
+                applications.
+              </Li>
+              <Li>
+                Discuss <strong>real-world projects</strong> to learn best
+                practices for building scalable React applications.
+              </Li>
+              <Li>
+                <strong>One-to-One mentoring</strong> by the ReactJS Academy
+                coaches and mentors
+              </Li>
+              <Li>
+                Expand your developer knowleadge and <strong>stay ahead</strong>
+              </Li>
             </Ul>
           </Col>
         </Row>
@@ -59,19 +73,31 @@ const IndexPage = () => (
     </Section>
     <Section color="lightGrey">
       <Grid>
-        <H2>
-          Is this training right for me? Why ReactJS Academy
-        </H2>
+        <H2>Is this training right for me? Why ReactJS Academy</H2>
         <Row>
           <Col xs={5}>
             <ImagePlaceholder width="100%" />
           </Col>
           <Col xs={7}>
             <Ul>
-              <Li>Perfect for <strong>professional developers</strong> who are familiar with good programming practices. This is NOT a learn-to-code bootcamp.</Li>
-              <Li>Great if you are ready for a new challenge - very <strong>intense project-based training</strong>.</Li>
-              <Li>It's not just a course, it's a <strong>full hands-on experience</strong>.</Li>
-              <Li>Learn in a collaborative environment. Pair programming and discussions with <strong>like-minded people</strong> interested in becoming better developers.</Li>
+              <Li>
+                Perfect for <strong>professional developers</strong> who are
+                familiar with good programming practices. This is NOT a
+                learn-to-code bootcamp.
+              </Li>
+              <Li>
+                Great if you are ready for a new challenge - very{' '}
+                <strong>intense project-based training</strong>.
+              </Li>
+              <Li>
+                It's not just a course, it's a{' '}
+                <strong>full hands-on experience</strong>.
+              </Li>
+              <Li>
+                Learn in a collaborative environment. Pair programming and
+                discussions with <strong>like-minded people</strong> interested
+                in becoming better developers.
+              </Li>
             </Ul>
           </Col>
         </Row>
@@ -87,9 +113,7 @@ const IndexPage = () => (
     </Section>
     <Section>
       <Grid>
-        <H2>
-          Developers from all these companies have trusted us
-        </H2>
+        <H2>Developers from all these companies have trusted us</H2>
         <Row>
           <Col xs={6}>
             <ImagePlaceholder width="100%" />
@@ -105,12 +129,21 @@ const IndexPage = () => (
           </Col>
         </Row>
       </Grid>
-      <iframe style={{ marginTop: '30px', border: 0 }} width="100%" height="315" src="https://www.youtube.com/embed/yGwmF4AT1Fg" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <iframe
+        style={{ marginTop: '30px', border: 0 }}
+        width="100%"
+        height="315"
+        src="https://www.youtube.com/embed/yGwmF4AT1Fg"
+        frameBorder="0"
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+      />
     </Section>
     <Section color="lightGrey">
       <Grid>
         <H2>
-          What's in for your company - Why is ReactJS Academy great for your team
+          What's in for your company - Why is ReactJS Academy great for your
+          team
         </H2>
         <Row>
           <Col xs={5}>
@@ -118,16 +151,41 @@ const IndexPage = () => (
           </Col>
           <Col xs={7}>
             <Ul>
-              <Li><strong>Increase dev capabilities</strong> - ability to work quicker and with more reliable code.</Li>
-              <Li><strong>Minimize the risk</strong> of onboarding new tech in an organization by learning from experienced practicioners.</Li>
-              <Li><strong>Avoid common mitakes</strong>, they could cause delays and loses to your business if made later in real projects. Let developers make mistakes in our safe environment and learn from them.</Li>
-              <Li><strong>Increase employee retention, motivation, and productivity</strong> with the right training. Up skill your team with a top quality world-class training.</Li>
-              <Li>Offer <strong>more services</strong> to internal and external clients</Li>
+              <Li>
+                <strong>Increase dev capabilities</strong> - ability to work
+                quicker and with more reliable code.
+              </Li>
+              <Li>
+                <strong>Minimize the risk</strong> of onboarding new tech in an
+                organization by learning from experienced practicioners.
+              </Li>
+              <Li>
+                <strong>Avoid common mitakes</strong>, they could cause delays
+                and loses to your business if made later in real projects. Let
+                developers make mistakes in our safe environment and learn from
+                them.
+              </Li>
+              <Li>
+                <strong>
+                  Increase employee retention, motivation, and productivity
+                </strong>{' '}
+                with the right training. Up skill your team with a top quality
+                world-class training.
+              </Li>
+              <Li>
+                Offer <strong>more services</strong> to internal and external
+                clients
+              </Li>
             </Ul>
           </Col>
         </Row>
         <P align="right">
-          <Link to="/">Checkout the curriculum (should we say "checkout what other companies say -> then video company talking about the training, john lewis video? should we get other videos from companies about business benefits after training?")</Link>
+          <Link to="/">
+            Checkout the curriculum (should we say "checkout what other
+            companies say -> then video company talking about the training, john
+            lewis video? should we get other videos from companies about
+            business benefits after training?")
+          </Link>
         </P>
         <AttendeeQuote
           quote="My devs were on training for a week, but when they came back they were React Masters. We adpoted the ecosystem much quicker than we thought possible and now we work faster and more efficiently."

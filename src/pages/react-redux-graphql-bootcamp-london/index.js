@@ -2,7 +2,6 @@ import React from 'react'
 import withWidth, { SMALL } from 'react-width'
 import styled from 'styled-components'
 import Link from '../../components/navigation/Link'
-import { LinkButton } from '../../components/buttons'
 import Section from '../../components/layout/Section'
 import Button from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
@@ -12,105 +11,16 @@ import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H3, Badge } from '../../components/text'
 import Input from '../../components/form/Input'
 import Ul, { Li } from '../../components/Layout/Ul'
-// import AttendedBySection from './AttendedBySection'
 import AttendedBy from '../../components/training/AttendedBy'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import AttendeeQuoteSection from './AttendeeQuoteSection'
 import ContactForm from '../../components/form/Contact'
+import Ribbon from '../../components/elements/Ribbon'
 import AttendeeQuote from '../../components/training/AttendeeQuote'
-
-const SCREEN_XS_MAX = '767px'
-const SCREEN_SM_MIN = '768px'
-const SCREEN_SM_MAX = '991px'
-const SCREEN_MD_MIN = '992px'
-const SCREEN_MD_MAX = '1199px'
-const SCREEN_LG_MIN = '1200px'
-
-const UseThisInGatsby2WithReact163ToHidDisplayMultipleComponents = ({
-  children,
-  ...props
-}) =>
-  React.Children.map(children, child =>
-    React.cloneElement(child, {
-      className: props.className,
-    })
-  )
-
-const Comp = ({ children, ...props }) =>
-  React.cloneElement(children, {
-    className: props.className,
-  })
-
-const HideSingleComponentOn = styled(Comp)`
-    ${props =>
-      props.xs
-        ? `
-        @media (max-width: ${SCREEN_XS_MAX}) {
-            display:none;
-        }
-    `
-        : ''}
-    ${props =>
-      props.sm
-        ? `
-        @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
-            display:none;
-        }
-    `
-        : ''}
-    ${props =>
-      props.md
-        ? `
-        @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
-            display:none;
-        }
-    `
-        : ''}
-    ${props =>
-      props.lg
-        ? `
-       @media (min-width: ${SCREEN_LG_MIN}) {
-        display: none;
-       }
-    `
-        : ''}
-`
-
-const DisplaySingleComponentOn = styled(Comp)`
-    display:none;
-    ${props =>
-      props.xs
-        ? `
-        @media (max-width: ${SCREEN_XS_MAX}) {
-            display:block;
-        }
-    `
-        : ''}
-    ${props =>
-      props.sm
-        ? `
-        @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
-            display:block;
-        }
-    `
-        : ''}
-    ${props =>
-      props.md
-        ? `
-        @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
-            display:block;
-        }
-    `
-        : ''}
-    ${props =>
-      props.lg
-        ? `
-       @media (min-width: ${SCREEN_LG_MIN}) {
-        display: block;
-       }
-    `
-        : ''}
-`
+import {
+  HideSingleComponentUsingCss,
+  DisplaySingleComponentUsingCss,
+} from '../../components/utils'
 
 const BootcampLondon = ({ width }) => (
   <div>
@@ -162,20 +72,22 @@ const BootcampLondon = ({ width }) => (
               it does not include the cost of the flights and accomodation.
             </P>
             <Card>
-              <P>
+              <H3>
                 <strong>Early bird ticket</strong>
-                <Badge style={{ float: 'right' }}>Save 20%</Badge>
-              </P>
+                <Ribbon>Save 24%</Ribbon>
+              </H3>
               <P>Early bird tickes available until 20th July 2018.</P>
               <H3>
                 &pound;1740
-                <Button style={{ float: 'right' }}>Buy now</Button>
+                <Button fontSize={3} style={{ float: 'right' }}>
+                  Buy now
+                </Button>
               </H3>
             </Card>
             <Card style={{ marginTop: '20px' }}>
-              <P>
+              <H3>
                 <strong>Pay by Installments</strong>
-              </P>
+              </H3>
               <P>
                 Pay in 3 installments - the first one being 50% of the total
                 cost and the others to follow over 6 months. Contact us and we
@@ -183,7 +95,9 @@ const BootcampLondon = ({ width }) => (
               </P>
               <H3>
                 &pound;2160
-                <Button style={{ float: 'right' }}>Contact us</Button>
+                <Button fontSize={3} style={{ float: 'right' }}>
+                  Contact us
+                </Button>
               </H3>
             </Card>
           </Col>
@@ -231,11 +145,11 @@ const BootcampLondon = ({ width }) => (
                             <ImagePlaceholder width="100%" height="500px" />
                         </Col>
                     ) : ''} */}
-          <HideSingleComponentOn xs sm>
+          <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
               <ImagePlaceholder width="100%" height="500px" />
             </Col>
-          </HideSingleComponentOn>
+          </HideSingleComponentUsingCss>
           <Col md={7}>
             <Row>
               <Col>
@@ -248,11 +162,11 @@ const BootcampLondon = ({ width }) => (
                                     <ImagePlaceholder width="100%" height="500px" />
                                 </Col>
                             ) : ''} */}
-              <DisplaySingleComponentOn xs sm>
+              <DisplaySingleComponentUsingCss xs sm>
                 <Col xs={5}>
                   <ImagePlaceholder width="100%" height="500px" />
                 </Col>
-              </DisplaySingleComponentOn>
+              </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
                 <Ul>
                   <Li>

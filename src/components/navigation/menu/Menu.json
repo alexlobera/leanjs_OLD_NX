@@ -1,0 +1,27 @@
+[
+  {
+    "to": "/bootcamp",
+    "text": "Bootcamp",
+    "onlyOn": null
+  },
+  {
+    "to": "/part-time",
+    "text": "Part-time",
+    "onlyOn": null
+  },
+  {
+    "to": "/community",
+    "text": "Community",
+    "onlyOn": null
+  },
+  {
+    "to": "/about-us",
+    "text": "About us",
+    "onlyOn": null
+  },
+  {
+    "to": "/contact",
+    "text": "Contact",
+    "onlyOn": null
+  }
+]

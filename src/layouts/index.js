@@ -4,13 +4,16 @@ import Helmet from 'react-helmet'
 // import 'normalize.css'
 import './reset.css'
 import styled from 'styled-components'
+import withWidth, { MEDIUM } from 'react-width'
 import { Provider } from 'rebass'
 import { ThemeProvider, injectGlobal } from 'styled-components'
 
+import Ul, { Li } from '../components/Layout/Ul'
+import Link from '../components/navigation/Link'
 import rebassTheme, { globalStyles } from './rebass-theme'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import ReactJSAcademyLogo from '../components/logos/ReactJSAcademy'
-import Menu, { MenuItem } from '../components/navigation/Menu'
+import { DesktopMenu, PhoneMenu } from '../components/navigation/menu'
 
 // Inject global styles required by Rebass
 injectGlobal(globalStyles)
@@ -22,14 +25,13 @@ const gridTheme = {
     container: {
       sm: 46, // rem
       md: 64, // rem
-      lg: 64 // rem
-    }
-  }
+      lg: 64, // rem
+    },
+  },
 }
 
 const Header = styled.div`
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 15px;
 `
 
 const StyledFooter = styled.footer`
@@ -45,15 +47,22 @@ const Footer = () => (
         <Col xs={6}>
           <ReactJSAcademyLogo />
         </Col>
-        <Col xs={6} style={{ paddingTop: "15px", textAlign: "right" }}>
-          Copyright 2018
+        <Col xs={6} style={{ paddingTop: '15px', textAlign: 'right' }}>
+          <Ul inline>
+            <Li>
+              <Link>Sponsors & Partners</Link>
+            </Li>
+            <Li>Copyright 2018</Li>
+          </Ul>
         </Col>
       </Row>
     </Grid>
   </StyledFooter>
 )
 
-const Layout = ({ children, data }) => (
+const canIGuessTheScreenSizeUsingJS = typeof window !== 'undefined'
+
+const Layout = ({ children, data, width }) => (
   <ThemeProvider theme={gridTheme}>
     <Provider theme={rebassTheme}>
       <Helmet
@@ -63,17 +72,13 @@ const Layout = ({ children, data }) => (
           { name: 'keywords', content: 'sample, something' },
         ]}
       />
-      <Menu>
-        <MenuItem to="/bootcamp">Bootcamp</MenuItem>
-        <MenuItem to="/part-time">Part-time</MenuItem>
-        <MenuItem to="/community">Community</MenuItem>
-        <MenuItem to="/about-us">About us</MenuItem>
-        <MenuItem to="/partners-sponsors">Partners & Sponsors</MenuItem>
-      </Menu>
       <Header>
-        <Grid>
-          <ReactJSAcademyLogo />
-        </Grid>
+        <ReactJSAcademyLogo />
+        {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
+          <PhoneMenu />
+        ) : (
+          <DesktopMenu />
+        )}
       </Header>
       {children()}
       <Footer />
@@ -85,14 +90,14 @@ Layout.propTypes = {
   children: PropTypes.func,
 }
 
-export default Layout
+export default withWidth()(Layout)
 
 export const query = graphql`
   query SiteTitleQuery {
     site {
       siteMetadata {
         title
+      }
     }
   }
-}
-      `
+`
