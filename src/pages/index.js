@@ -22,10 +22,10 @@ const IndexPage = () => (
               were the first in Europe to teach React
             </H2>
             <Row>
-              <Col xs={6}>
+              <Col xs={6} lg={3} lgOffset={3}>
                 <LinkButton to="/bootcamp" children="Bootcamp" />
               </Col>
-              <Col xs={6}>
+              <Col xs={6} lg={3}>
                 <LinkButton to="/part-time" children="Part-time" />
               </Col>
             </Row>

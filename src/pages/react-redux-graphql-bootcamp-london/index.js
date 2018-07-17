@@ -104,47 +104,9 @@ const BootcampLondon = ({ width }) => (
         </Row>
       </Grid>
     </Section>
-    {/* <Section color="lightGrey">
-            <Grid>
-                <H2>Prices</H2>
-                <P>
-                    Please be aware that the tickets cover the cost of the training, it does not include the cost of the flights and accomodation.
-                </P>
-                <Card>
-                    <P>
-                        <strong>Early bird ticket</strong>
-                        <Badge style={{ float: 'right' }}>Save 20%</Badge>
-                    </P>
-                    <P>
-                        Early bird tickes available until 20th July 2018.
-                    </P>
-                    <H3>
-                        &pound;1740
-                        <Button style={{ float: 'right' }}>Buy now</Button>
-                    </H3>
-                </Card>
-                <Card style={{ marginTop: '20px' }}>
-                    <P>
-                        <strong>Pay by Installments</strong>
-                    </P>
-                    <P>
-                        Pay in 3 installments - the first one being 50% of the total cost and the others to follow over 6 months. Contact us and we can talk things through with you.
-                    </P>
-                    <H3>
-                        &pound;2160
-                        <Button style={{ float: 'right' }}>Contact us</Button>
-                    </H3>
-                </Card>
-            </Grid>
-        </Section> */}
     <Section color="lightGrey">
       <Grid>
         <Row>
-          {/* {width > SMALL ? (
-                        <Col md={5}>
-                            <ImagePlaceholder width="100%" height="500px" />
-                        </Col>
-                    ) : ''} */}
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
               <ImagePlaceholder width="100%" height="500px" />
@@ -157,11 +119,6 @@ const BootcampLondon = ({ width }) => (
               </Col>
             </Row>
             <Row>
-              {/* {width <= SMALL ? (
-                                <Col xs={5}>
-                                    <ImagePlaceholder width="100%" height="500px" />
-                                </Col>
-                            ) : ''} */}
               <DisplaySingleComponentUsingCss xs sm>
                 <Col xs={5}>
                   <ImagePlaceholder width="100%" height="500px" />
