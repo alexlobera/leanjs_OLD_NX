@@ -67,6 +67,7 @@ const Footer = () => (
 
 const Layout = ({ children, data, width }) => {
   const canIGuessTheScreenSizeUsingJS = typeof window !== 'undefined'
+
   return (
     <ThemeProvider theme={gridTheme}>
       <Provider theme={rebassTheme}>
@@ -95,7 +96,7 @@ Layout.propTypes = {
   children: PropTypes.func,
 }
 
-export default Layout
+export default withWidth()(Layout)
 
 export const query = graphql`
   query SiteTitleQuery {
