@@ -214,9 +214,7 @@ class CurriculumBootcamp extends React.Component {
                         <Li>Fetching data from the server to Redux</Li>
                       </Ul>
                     </Li>
-
                     <Li>Configure Redux from scratch in a React app</Li>
-
                     <Li>
                       Testing Principales
                       <Ul>
