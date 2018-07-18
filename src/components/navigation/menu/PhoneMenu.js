@@ -18,8 +18,10 @@ PhoneMenuItem.displayName = 'PhoneMenuItem'
 
 const PhoneMenu = () => (
   <Menu>
-    {MenuData.map(item => (
-      <PhoneMenuItem to={item.to}>{item.text}</PhoneMenuItem>
+    {MenuData.map((item, i) => (
+      <PhoneMenuItem key={i} to={item.to}>
+        {item.text}
+      </PhoneMenuItem>
     ))}
   </Menu>
 )

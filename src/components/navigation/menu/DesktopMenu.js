@@ -24,8 +24,10 @@ const DesktopMenuContainer = styled(Ul)`
 const DesktopMenu = () => (
   <HideSingleComponentUsingCss xs sm>
     <DesktopMenuContainer inline>
-      {MenuData.map(item => (
-        <DesktopMenuItem to={item.to}>{item.text}</DesktopMenuItem>
+      {MenuData.map((item, i) => (
+        <DesktopMenuItem key={i} to={item.to}>
+          {item.text}
+        </DesktopMenuItem>
       ))}
     </DesktopMenuContainer>
   </HideSingleComponentUsingCss>

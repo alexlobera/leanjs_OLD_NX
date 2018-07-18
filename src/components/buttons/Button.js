@@ -1,3 +1,4 @@
+import React from 'react'
 import { Button, ButtonOutline } from 'rebass'
 import styled from 'styled-components'
 
@@ -11,9 +12,14 @@ const StyleButtonFontSize = props => {
   }
 }
 
-export default styled(Button)`
+export default styled(({ extraLarge, large, ...props }) => (
+  <Button {...props} />
+))`
   font-size: ${StyleButtonFontSize}px;
 `
-export const ButtonSecondary = styled(ButtonOutline)`
+
+export const ButtonSecondary = styled(({ extraLarge, large, ...props }) => (
+  <ButtonOutline {...props} />
+))`
   font-size: ${StyleButtonFontSize}px;
 `
