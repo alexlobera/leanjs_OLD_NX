@@ -1,8 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import Link from '../navigation/Link'
 import { H1Ref, H2, H3 } from '../text'
 import { CurriculumSection } from './'
 import { Col, Row } from '../layout/Grid'
+import Ul, { Li } from '../layout/Ul'
+
+export const CurriculumSubSection = styled.div`
+  display: none;
+`
 
 const CurriculumBootcamp = () => (
   <div>
@@ -18,6 +24,27 @@ const CurriculumBootcamp = () => (
           <H2>Day 1</H2>
           <H3>ES6 & ESNEXT, React Fundamentals, React Router</H3>
           <Link to="/">Click here for more detail</Link>
+          <CurriculumSubSection>
+            <Ul>
+              <Li>
+                ES6 and ESNEXT
+                <Ul>
+                  <Li>
+                    Understanding language updates - difference between ES6,
+                    ES7, and ESNEXT
+                  </Li>
+                  <Li>Arrow Functions, Class syntax, Template strings</Li>
+                  <Li>Destructuring</Li>
+                  <Li>Default parameters, Rest operator, Spread operator</Li>
+                  <Li>Let and Const vs Var</Li>
+                  <Li>Rest + Spread properties</Li>
+                  <Li>ES6 iterators and functional programming in JS</Li>
+                  <Li>Modules</Li>
+                  <Li>Promises</Li>
+                </Ul>
+              </Li>
+            </Ul>
+          </CurriculumSubSection>
         </CurriculumSection>
         <CurriculumSection>
           <H2>Day 2</H2>

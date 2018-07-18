@@ -65,7 +65,6 @@ const Footer = () => (
 )
 
 const Layout = ({ children, data, width }) => {
-  console.log('layout width', width, MEDIUM)
   const canIGuessTheScreenSizeUsingJS = typeof window !== 'undefined'
   return (
     <ThemeProvider theme={gridTheme}>

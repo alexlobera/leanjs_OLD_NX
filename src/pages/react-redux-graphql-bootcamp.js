@@ -13,6 +13,7 @@ import ContactForm from '../components/form/Contact'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import AttendedBy from '../components/training/AttendedBy'
 import Video from '../components/elements/Video'
+import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 
 const Bootcamp = () => (
   <div>
@@ -45,27 +46,21 @@ const Bootcamp = () => (
           <Col md={6}>
             <H2>Developers from all these companies have trusted us</H2>
             <Row>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col xs={12} md={6}>
+                <Trainline />
               </Col>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col xs={12} md={6}>
+                <Blockchain />
               </Col>
-            </Row>
-            <Row>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col xs={12} md={6} style={{ paddingTop: '55px' }}>
+                <ASOS />
               </Col>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
-              </Col>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col
+                xs={12}
+                md={6}
+                style={{ paddingTop: '35px', paddingBottom: '15px' }}
+              >
+                <ABInBev />
               </Col>
             </Row>
           </Col>

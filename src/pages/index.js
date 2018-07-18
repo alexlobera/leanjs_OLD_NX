@@ -9,13 +9,14 @@ import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H1, H2, H3 } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
-import Ul, { Li } from '../components/Layout/Ul'
+import Ul, { Li } from '../components/layout/Ul'
 import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
 import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
+import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 
 const IndexPage = () => (
   <div>
@@ -182,17 +183,21 @@ const IndexPage = () => (
           <Col md={5}>
             <H2>Developers from all these companies have trusted us</H2>
             <Row>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col xs={12} md={6}>
+                <Trainline />
               </Col>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col xs={12} md={6}>
+                <Blockchain />
               </Col>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col xs={12} md={6} style={{ paddingTop: '55px' }}>
+                <ASOS />
               </Col>
-              <Col xs={6}>
-                <ImagePlaceholder width="100%" />
+              <Col
+                xs={12}
+                md={6}
+                style={{ paddingTop: '35px', paddingBottom: '15px' }}
+              >
+                <ABInBev />
               </Col>
             </Row>
           </Col>
