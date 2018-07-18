@@ -18,37 +18,39 @@ import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 
+const HeaderButton = styled(LinkButton)`
+  margin-top: 15px;
+`
+
 const IndexPage = () => (
   <div>
     <Section color="lightGrey">
       <Grid>
         <Row>
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>Take your career further by mastering the React ecosystem2</H1>
+            <H1>Take your career further by mastering the React ecosystem</H1>
             <H2>
               The most complete curriculum from experts who were the first in
               Europe to teach React
             </H2>
+            <Row>
+              <Col xs={12} sm={4} smOffset={2}>
+                <HeaderButton
+                  secondary
+                  to="/part-time"
+                  children="12-week part-time"
+                />
+              </Col>
+              <Col xs={12} sm={4}>
+                <HeaderButton
+                  secondary
+                  to="/about-us#private-on-site-corporate-training"
+                  children="Corporate training"
+                />
+              </Col>
+            </Row>
             <p>
-              <Ul inline>
-                <Li>
-                  <LinkButton
-                    secondary
-                    to="/part-time"
-                    children="12-week part-time"
-                  />
-                </Li>
-                <Li>
-                  <LinkButton
-                    secondary
-                    to="/about-us#private-on-site-corporate-training"
-                    children="Corporate training"
-                  />
-                </Li>
-              </Ul>
-            </p>
-            <p>
-              <LinkButton
+              <HeaderButton
                 extraLarge
                 to="/react-redux-graphql-bootcamp"
                 children="1-week bootcamp"

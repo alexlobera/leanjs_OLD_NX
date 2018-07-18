@@ -14,6 +14,7 @@ import rebassTheme, { globalStyles } from './rebass-theme'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import ReactJSAcademyLogo from '../components/logos/ReactJSAcademy'
 import { DesktopMenu, PhoneMenu } from '../components/navigation/menu'
+import './index.css'
 
 // Inject global styles required by Rebass
 injectGlobal(globalStyles)
