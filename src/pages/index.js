@@ -37,7 +37,7 @@ const IndexPage = () => (
               <Col xs={12} sm={4} smOffset={2}>
                 <HeaderButton
                   secondary
-                  to="/part-time"
+                  to="/react-redux-graphql-part-time-course"
                   children="12-week part-time"
                 />
               </Col>
@@ -170,7 +170,7 @@ const IndexPage = () => (
               <Col xs={6} md={5}>
                 <LinkButton
                   extraLarge
-                  to="/part-time"
+                  to="/react-redux-graphql-part-time-course"
                   children="Part-time courses"
                 />
               </Col>
@@ -290,7 +290,7 @@ const IndexPage = () => (
               <Col xs={6} md={5}>
                 <LinkButton
                   extraLarge
-                  to="/part-time"
+                  to="/react-redux-graphql-part-time-course"
                   children="Part-time courses"
                 />
               </Col>
