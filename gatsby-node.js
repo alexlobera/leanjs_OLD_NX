@@ -3,11 +3,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+const Webpack = require('webpack')
 
- exports.modifyBabelrc = ({ babelrc }) => ({
-   ...babelrc,
-   plugins: babelrc.plugins.concat(
-     ['transform-regenerator'],
-     ['transform-runtime']
-   ),
- })
+exports.modifyBabelrc = ({ babelrc }) => ({
+  ...babelrc,
+  plugins: babelrc.plugins.concat(
+    ['transform-regenerator'],
+    ['transform-runtime']
+  ),
+})

@@ -64,37 +64,38 @@ const Footer = () => (
   </StyledFooter>
 )
 
-const canIGuessTheScreenSizeUsingJS = typeof window !== 'undefined'
-
-const Layout = ({ children, data, width }) => (
-  <ThemeProvider theme={gridTheme}>
-    <Provider theme={rebassTheme}>
-      <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
-        ]}
-      />
-      <Header>
-        <ReactJSAcademyLogo />
-        {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
-          <PhoneMenu />
-        ) : (
-          <DesktopMenu />
-        )}
-      </Header>
-      {children()}
-      <Footer />
-    </Provider>
-  </ThemeProvider>
-)
-
+const Layout = ({ children, data, width }) => {
+  console.log('layout width', width, MEDIUM)
+  const canIGuessTheScreenSizeUsingJS = typeof window !== 'undefined'
+  return (
+    <ThemeProvider theme={gridTheme}>
+      <Provider theme={rebassTheme}>
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: 'Sample' },
+            { name: 'keywords', content: 'sample, something' },
+          ]}
+        />
+        <Header>
+          <ReactJSAcademyLogo />
+          {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
+            <PhoneMenu />
+          ) : (
+            <DesktopMenu />
+          )}
+        </Header>
+        {children()}
+        <Footer />
+      </Provider>
+    </ThemeProvider>
+  )
+}
 Layout.propTypes = {
   children: PropTypes.func,
 }
 
-export default withWidth()(Layout)
+export default Layout
 
 export const query = graphql`
   query SiteTitleQuery {

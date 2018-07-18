@@ -23,7 +23,7 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>Take your career further by mastering the React ecosystem</H1>
+            <H1>Take your career further by mastering the React ecosystem2</H1>
             <H2>
               The most complete curriculum from experts who were the first in
               Europe to teach React
