@@ -25,7 +25,7 @@ class CurriculumSection extends React.Component {
 
   render() {
     const { isOpen } = this.state
-    const { title, subTitle, sessions = [] } = this.props
+    const { title, subTitle, children } = this.props
     const { toggleSubSection } = this
 
     return (
@@ -34,7 +34,7 @@ class CurriculumSection extends React.Component {
         {subTitle ? <H3>{subTitle}</H3> : ''}
         {isOpen ? (
           <CurriculumSubSection>
-            <Ul>{sessions}</Ul>
+            <Ul>{children}</Ul>
             <Link onClick={toggleSubSection}>Hide detail</Link>
           </CurriculumSubSection>
         ) : (

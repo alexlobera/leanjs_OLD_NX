@@ -36,56 +36,44 @@ const CurriculumPartTime = () => (
     </H1Ref>
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <CurriculumSections
-          subTitle="Session 1 - ES6"
-          sessions={[<ES6Session />]}
-        />
-        <CurriculumSections
-          subTitle="Session 2 - Thinking in React"
-          sessions={[<IntroReactSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 3 - Routing & Data Fetching"
-          sessions={[<RoutingAndDataFetchingSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 4 - Forms & Auth"
-          sessions={[<FormsAndAuthSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 5 - Recap React Fundamentals"
-          sessions={[<ReactFundamentalsRecapSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 6 - Styling in React"
-          sessions={[<StylingInReactSession />]}
-        />
+        <CurriculumSections subTitle="Session 1 - ES6">
+          <ES6Session />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 2 - Thinking in React">
+          <IntroReactSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 3 - Routing & Data Fetching">
+          <RoutingAndDataFetchingSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 4 - Forms & Auth">
+          <FormsAndAuthSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 5 - Recap React Fundamentals">
+          <ReactFundamentalsRecapSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 6 - Styling in React">
+          <StylingInReactSession />
+        </CurriculumSections>
       </Col>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <CurriculumSections
-          subTitle="Session 7 - Introduction to Redux"
-          sessions={[<IntroReduxSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 8 - Introduction to Testing in JS"
-          sessions={[<TestingIntroSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 9 - Testing in React"
-          sessions={[<TestingInReactSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 10 - Advanced Patterns I"
-          sessions={[<HoCsAndRenderPropsSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 11 - GraphQL & Apollo Client"
-          sessions={[<GraphQLSession />]}
-        />
-        <CurriculumSections
-          subTitle="Session 12 - Last session React mini hackathon"
-          sessions={[<PartTimeFinalProject />]}
-        />
+        <CurriculumSections subTitle="Session 7 - Introduction to Redux">
+          <IntroReduxSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 8 - Introduction to Testing in JS">
+          <TestingIntroSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 9 - Testing in React">
+          <TestingInReactSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 10 - Advanced Patterns I">
+          <HoCsAndRenderPropsSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 11 - GraphQL & Apollo Client">
+          <GraphQLSession />
+        </CurriculumSections>
+        <CurriculumSections subTitle="Session 12 - Last session React mini hackathon">
+          <PartTimeFinalProject />
+        </CurriculumSections>
       </Col>
     </Row>
   </div>
