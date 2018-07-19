@@ -17,7 +17,7 @@ const AttendedBySectionLondon = props => (
             style={{ marginTop: '30px', marginBottom: '30px', border: 0 }}
             width="100%"
             height="315"
-            src="https://www.youtube.com/embed/yGwmF4AT1Fg"
+            src="https://www.youtube.com/embed/yvROXLQ1jHg"
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen

@@ -4,19 +4,16 @@ import Grid, { Col, Row } from '../layout/Grid'
 import ImagePlaceholder from '../wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H3 } from '../text'
 import AttendedBy from './AttendedBy'
+import Video from '../../components/elements/Video'
 
 const AttendedBySection = ({ videoUrl }) => (
   <Section color="lightGrey">
     <AttendedBy />
     <Grid>
-      <iframe
+      <Video
         style={{ marginTop: '30px', marginBottom: '30px', border: 0 }}
-        width="100%"
         height="315"
         src={videoUrl}
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
       />
     </Grid>
   </Section>

@@ -38,7 +38,7 @@ const IndexPage = () => (
                 <HeaderButton
                   secondary
                   to="/react-redux-graphql-part-time-course"
-                  children="12-week part-time"
+                  children="6-week part-time"
                 />
               </Col>
               <Col xs={12} sm={4}>
@@ -204,13 +204,7 @@ const IndexPage = () => (
             </Row>
           </Col>
           <Col md={7}>
-            <Video
-              width="100%"
-              src="https://www.youtube.com/embed/yGwmF4AT1Fg"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
+            <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
           </Col>
         </Row>
       </Grid>

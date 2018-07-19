@@ -21,6 +21,7 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../../components/utils'
+import Video from '../../components/elements/Video'
 
 const BootcampLondon = ({ width }) => (
   <div>
@@ -57,15 +58,9 @@ const BootcampLondon = ({ width }) => (
       <Grid>
         <Row>
           <Col xs={12} md={7}>
-            {/* <iframe style={{ marginTop: '30px', marginBottom: '30px', border: 0 }} width="100%" height="315" src="https://www.youtube.com/embed/yGwmF4AT1Fg" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe> */}
-            <iframe
-              style={{ border: 0 }}
-              width="100%"
+            <Video
               height="415"
-              src="https://www.youtube.com/embed/yGwmF4AT1Fg"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
+              src="https://www.youtube.com/embed/yvROXLQ1jHg"
             />
           </Col>
           <Col xs={12} md={5}>

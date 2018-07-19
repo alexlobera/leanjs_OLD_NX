@@ -66,12 +66,8 @@ const Bootcamp = () => (
           </Col>
           <Col md={6}>
             <Video
-              width="100%"
               height="315"
-              src="https://www.youtube.com/embed/yGwmF4AT1Fg"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
+              src="https://www.youtube.com/embed/yvROXLQ1jHg"
             />
           </Col>
         </Row>
