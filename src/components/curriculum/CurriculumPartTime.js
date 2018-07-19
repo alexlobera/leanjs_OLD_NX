@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from '../navigation/Link'
 import { H1Ref, H2, H3 } from '../text'
-import CurriculumSections from './CurriculumSections'
+import Sections from './CurriculumSections'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import ES6Session from './sessions/ES6Session'
@@ -36,44 +36,44 @@ const CurriculumPartTime = () => (
     </H1Ref>
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <CurriculumSections subTitle="Session 1 - ES6">
+        <Sections subTitle="Session 1 - ES6">
           <ES6Session />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 2 - Thinking in React">
+        </Sections>
+        <Sections subTitle="Session 2 - Thinking in React">
           <IntroReactSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 3 - Routing & Data Fetching">
+        </Sections>
+        <Sections subTitle="Session 3 - Routing & Data Fetching">
           <RoutingAndDataFetchingSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 4 - Forms & Auth">
+        </Sections>
+        <Sections subTitle="Session 4 - Forms & Auth">
           <FormsAndAuthSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 5 - Recap React Fundamentals">
+        </Sections>
+        <Sections subTitle="Session 5 - Recap React Fundamentals">
           <ReactFundamentalsRecapSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 6 - Styling in React">
+        </Sections>
+        <Sections subTitle="Session 6 - Styling in React">
           <StylingInReactSession />
-        </CurriculumSections>
+        </Sections>
       </Col>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <CurriculumSections subTitle="Session 7 - Introduction to Redux">
+        <Sections subTitle="Session 7 - Introduction to Redux">
           <IntroReduxSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 8 - Introduction to Testing in JS">
+        </Sections>
+        <Sections subTitle="Session 8 - Introduction to Testing in JS">
           <TestingIntroSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 9 - Testing in React">
+        </Sections>
+        <Sections subTitle="Session 9 - Testing in React">
           <TestingInReactSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 10 - Advanced Patterns I">
+        </Sections>
+        <Sections subTitle="Session 10 - Advanced Patterns I">
           <HoCsAndRenderPropsSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 11 - GraphQL & Apollo Client">
+        </Sections>
+        <Sections subTitle="Session 11 - GraphQL & Apollo Client">
           <GraphQLSession />
-        </CurriculumSections>
-        <CurriculumSections subTitle="Session 12 - Last session React mini hackathon">
+        </Sections>
+        <Sections subTitle="Session 12 - Last session React mini hackathon">
           <PartTimeFinalProject />
-        </CurriculumSections>
+        </Sections>
       </Col>
     </Row>
   </div>

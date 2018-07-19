@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from '../navigation/Link'
 import { H1Ref, H2, H3 } from '../text'
-import CurriculumSections from './CurriculumSections'
+import Sections from './CurriculumSections'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import ES6Session from './sessions/ES6Session'
@@ -31,15 +31,15 @@ const CurriculumBootcamp = () => (
     </H1Ref>
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <CurriculumSections
+        <Sections
           title="Day 1"
           subTitle="ES6 & ESNEXT, Thinking in React, Routing & Data Fetching"
         >
           <ES6Session title="ES6 and ESNEXT" />
           <IntroReactSession title="Thinking in React" />
           <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
-        </CurriculumSections>
-        <CurriculumSections
+        </Sections>
+        <Sections
           title="Day 2"
           subTitle="Forms, Authentication, Styling in React"
         >
@@ -49,25 +49,22 @@ const CurriculumBootcamp = () => (
             consolidate:"
           />
           <StylingInReactSession title="Styling in React" />
-        </CurriculumSections>
-        <CurriculumSections
-          title="Day 3"
-          subTitle="Redux, and Testing Principles"
-        >
+        </Sections>
+        <Sections title="Day 3" subTitle="Redux, and Testing Principles">
           <IntroReduxSession title="Introduction to Redux" />
           <TestingIntroSession title="Testing Principales" />
-        </CurriculumSections>
+        </Sections>
       </Col>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <CurriculumSections
+        <Sections
           title="Day 4"
           subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
         >
           <HoCsAndRenderPropsSession title="FP & Advanced React Patterns I" />
           <GraphQLSession title="GraphQL and Apollo client" />
           <AdvancedReduxSession title="Advanced Redux" />
-        </CurriculumSections>
-        <CurriculumSections
+        </Sections>
+        <Sections
           title="Day 5"
           subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
         >
@@ -77,13 +74,13 @@ const CurriculumBootcamp = () => (
           UIs"
           />
           <ServerSideRenderingSession title="Server Side Rendering (SSR) with React" />
-        </CurriculumSections>
-        <CurriculumSections title="Day 6" subTitle="Hackathon">
+        </Sections>
+        <Sections title="Day 6" subTitle="Hackathon">
           <Hackathon
             title="Last day real-world React challenge. We'll implement an app
           in teams from scratch"
           />
-        </CurriculumSections>
+        </Sections>
       </Col>
     </Row>
   </div>
