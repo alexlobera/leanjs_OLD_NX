@@ -14,7 +14,7 @@ import StylingInReactSession from './sessions/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import GraphQLSession from './sessions/GraphQLSession'
-import TestingInReact from './sessions/TestingInReact'
+import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 
 const PartTimeFinalProject = () => (
@@ -72,7 +72,7 @@ const CurriculumPartTime = () => (
         />
         <CurriculumSections
           subTitle="Session 9 - Testing in React"
-          sessions={[<TestingInReact />]}
+          sessions={[<TestingInReactSession />]}
         />
         <CurriculumSections
           subTitle="Session 10 - Advanced Patterns I"

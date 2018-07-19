@@ -15,7 +15,7 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import GraphQLSession from './sessions/GraphQLSession'
-import TestingInReact from './sessions/TestingInReact'
+import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
@@ -75,7 +75,7 @@ const CurriculumBootcamp = () => (
           title="Day 5"
           subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
           sessions={[
-            <TestingInReact title="Testing in React" />,
+            <TestingInReactSession title="Testing in React" />,
             <CompoundCompAndContextSession
               title="Advanced React patterns to create even more reusable
             UIs"
