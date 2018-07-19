@@ -10,7 +10,7 @@ const ContactForm = () => (
   <div>
     <Row>
       <Col lg={6}>
-        <H2>I would like more info and some pre-course learning resources</H2>
+        <H2>I would like more info and some pre-training learning resources</H2>
       </Col>
     </Row>
     <Row>

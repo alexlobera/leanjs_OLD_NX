@@ -12,7 +12,7 @@ import { Blockquote, H1, H2, H2Ref, H3, Badge } from '../../components/text'
 import Input from '../../components/form/Input'
 import Ul, { Li } from '../../components/Layout/Ul'
 import AttendedBy from '../../components/training/AttendedBy'
-import { CurriculumBootcamp } from '../../components/curriculum'
+import { CurriculumPartTime } from '../../components/curriculum'
 import ContactForm from '../../components/form/Contact'
 import Ribbon from '../../components/elements/Ribbon'
 import AttendeeQuote from '../../components/training/AttendeeQuote'
@@ -22,25 +22,25 @@ import {
 } from '../../components/utils'
 import Video from '../../components/elements/Video'
 
-const BootcampLondon = ({ width }) => (
+const PartTimeLondon = ({ width }) => (
   <div>
     <Section color="lightGrey">
       <Grid>
         <Row>
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>Master React, Redux, GraphQL in London in a week</H1>
-            <H2>20-25 August, 2018</H2>
+            <H1>React, Redux, GraphQL part-time course in London</H1>
+            <H2>October 2nd to November 8th, 2018</H2>
             <Ul inline>
               <Li>
-                <Link to="#pricing">Pricing</Link>
+                <a href="#pricing">Pricing</a>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="#curriculum">Curriculum</Link>
+                <a href="#curriculum">Curriculum</a>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="#target-audience">Is it right for me</Link>
+                <a href="#target-audience">Is it right for me</a>
               </Li>
             </Ul>
             <H3>
@@ -174,7 +174,7 @@ const BootcampLondon = ({ width }) => (
     </Section>
     <Section>
       <Grid>
-        <CurriculumBootcamp />
+        <CurriculumPartTime />
       </Grid>
     </Section>
     <Section color="lightGrey">
@@ -185,4 +185,4 @@ const BootcampLondon = ({ width }) => (
   </div>
 )
 
-export default BootcampLondon
+export default PartTimeLondon

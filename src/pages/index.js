@@ -17,6 +17,7 @@ import {
 import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
+import { CurriculumBootcamp } from '../components/curriculum'
 
 const HeaderButton = styled(LinkButton)`
   margin-top: 15px;
@@ -28,24 +29,24 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>Take your career further by mastering the React ecosystem</H1>
+            <H1>Take your career further by mastering React</H1>
             <H2>
-              The most complete curriculum from experts who were the first in
-              Europe to teach React
+              In-person training from experts who were the first in Europe to
+              teach React
             </H2>
             <Row>
               <Col xs={12} sm={4} smOffset={2}>
                 <HeaderButton
                   secondary
                   to="/react-redux-graphql-part-time-course"
-                  children="6-week part-time"
+                  children="6-week part-time course"
                 />
               </Col>
               <Col xs={12} sm={4}>
                 <HeaderButton
                   secondary
                   to="/about-us#private-on-site-corporate-training"
-                  children="Corporate training"
+                  children="Corporate team training"
                 />
               </Col>
             </Row>
@@ -60,6 +61,13 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
+
+    <Section>
+      <Grid>
+        <CurriculumBootcamp />
+      </Grid>
+    </Section>
+
     <Section>
       <Grid>
         <Row>
@@ -71,7 +79,7 @@ const IndexPage = () => (
           <Col md={7}>
             <Row>
               <Col>
-                <H2>What will I get from a ReactJS Academy course?</H2>
+                <H2>What will I get from a ReactJS Academy training?</H2>
               </Col>
             </Row>
             <Row>
@@ -83,20 +91,22 @@ const IndexPage = () => (
               <Col xs={7} md={12}>
                 <Ul>
                   <Li>
-                    Learn how to <strong>build production ready</strong> React
-                    applications.
+                    <strong>Build production ready</strong> React apps.
                   </Li>
                   <Li>
-                    Discuss <strong>real-world projects</strong> to learn best
-                    practices for building scalable React applications.
+                    Discuss <strong>real-world projects</strong>.
                   </Li>
                   <Li>
-                    <strong>One-to-One mentoring</strong> by the ReactJS Academy
-                    coaches and mentors
+                    Learn <strong>best practices</strong>.
                   </Li>
                   <Li>
-                    Expand your developer knowleadge and{' '}
-                    <strong>stay ahead</strong>
+                    <strong>Mentoring</strong> by our expert coaches.
+                  </Li>
+                  <Li>
+                    Alumni <strong>community</strong>.
+                  </Li>
+                  <Li>
+                    <strong>Stay ahead</strong> in modern development.
                   </Li>
                 </Ul>
               </Col>
@@ -139,26 +149,32 @@ const IndexPage = () => (
               <Col xs={7} md={12}>
                 <Ul>
                   <Li>
-                    Perfect for <strong>professional developers</strong> who are
-                    familiar with good programming practices. This is NOT a
-                    learn-to-code bootcamp.
+                    For working developers - <strong>not for beginners!</strong>
                   </Li>
                   <Li>
-                    Great if you are ready for a new challenge - very{' '}
-                    <strong>intense project-based training</strong>.
+                    <strong>Hands-on project-based</strong> training.
                   </Li>
                   <Li>
-                    It's not just a course, it's a{' '}
-                    <strong>full hands-on experience</strong>.
+                    A <strong>collaborative</strong> learning environment.
                   </Li>
                   <Li>
-                    Learn in a collaborative environment. Pair programming and
-                    discussions with <strong>like-minded people</strong>{' '}
-                    interested in becoming better developers.
+                    <Link to="/react-redux-graphql-bootcamp">Bootcamps</Link>{' '}
+                    for accelerated learning.
+                  </Li>
+                  <Li>
+                    <Link to="/react-redux-graphql-part-time-course">
+                      Part-time courses
+                    </Link>{' '}
+                    for accelerated learning.
                   </Li>
                 </Ul>
               </Col>
             </Row>
+            <P>
+              <Link to="/react-redux-graphql-bootcamp#curriculum">
+                Checkout the curriculum
+              </Link>
+            </P>
             <Row>
               <Col xs={6} md={5}>
                 <LinkButton
@@ -221,8 +237,8 @@ const IndexPage = () => (
             <Row>
               <Col>
                 <H2>
-                  What's in for your company - Why is ReactJS Academy great for
-                  your team
+                  What's in it for your company - Why is ReactJS Academy great
+                  for your team
                 </H2>
               </Col>
             </Row>
@@ -234,31 +250,13 @@ const IndexPage = () => (
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
                 <Ul>
+                  <Li>Avoid delays and business losses</Li>
+                  <Li>Minimize risk of on boarding React</Li>
+                  <Li>Safe environment for developers to learn</Li>
                   <Li>
-                    <strong>Increase dev capabilities</strong> - ability to work
-                    quicker and with more reliable code.
+                    Increase employee retention, motivation and productivity
                   </Li>
-                  <Li>
-                    <strong>Minimize the risk</strong> of onboarding new tech in
-                    an organization by learning from experienced practicioners.
-                  </Li>
-                  <Li>
-                    <strong>Avoid common mistakes</strong>, they could cause
-                    delays and loses to your business if made later in real
-                    projects. Let developers make mistakes in our safe
-                    environment and learn from them.
-                  </Li>
-                  <Li>
-                    <strong>
-                      Increase employee retention, motivation, and productivity
-                    </strong>{' '}
-                    with the right training. Up skill your team with a top
-                    quality world-class training.
-                  </Li>
-                  <Li>
-                    Offer <strong>more services</strong> to internal and
-                    external clients
-                  </Li>
+                  <Li>Offer more services to internal and external clients</Li>
                 </Ul>
               </Col>
             </Row>
@@ -274,18 +272,22 @@ const IndexPage = () => (
               company="Financial Times"
             />
             <Row style={{ marginTop: '30px' }}>
-              <Col xs={6} md={5}>
+              <Col xs={12} sm={4}>
                 <LinkButton
-                  extraLarge
-                  to="/react-redux-graphql-bootcamp"
-                  children="1-week bootcamps"
+                  to="/about-us#private-on-site-corporate-training"
+                  children="Corporate team training"
                 />
               </Col>
-              <Col xs={6} md={5}>
+              <Col xs={12} sm={4}>
                 <LinkButton
-                  extraLarge
                   to="/react-redux-graphql-part-time-course"
-                  children="Part-time courses"
+                  children="6-week Part-time courses"
+                />
+              </Col>
+              <Col xs={12} sm={4}>
+                <LinkButton
+                  to="/react-redux-graphql-bootcamp"
+                  children="1-week bootcamp"
                 />
               </Col>
             </Row>

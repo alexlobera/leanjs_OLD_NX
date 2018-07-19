@@ -24,7 +24,7 @@ import Hackathon from './sessions/Hackathon'
 const CurriculumBootcamp = () => (
   <div>
     <H1Ref>
-      The most complete curriculum{' '}
+      The most complete curriculum out there{' '}
       <a href="#curriculum" name="curriculum">
         #
       </a>
@@ -32,7 +32,7 @@ const CurriculumBootcamp = () => (
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section
-          title="Day 1"
+          title="Bootcamp Day 1"
           subTitle="ES6 & ESNEXT, Thinking in React, Routing & Data Fetching"
         >
           <ES6Session title="ES6 and ESNEXT" />
@@ -40,7 +40,7 @@ const CurriculumBootcamp = () => (
           <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
         </Section>
         <Section
-          title="Day 2"
+          title="Bootcamp Day 2"
           subTitle="Forms, Authentication, Styling in React"
         >
           <FormsAndAuthSession title="Forms and Authentication" />
@@ -50,14 +50,17 @@ const CurriculumBootcamp = () => (
           />
           <StylingInReactSession title="Styling in React" />
         </Section>
-        <Section title="Day 3" subTitle="Redux, and Testing Principles">
+        <Section
+          title="Bootcamp Day 3"
+          subTitle="Redux, and Testing Principles"
+        >
           <IntroReduxSession title="Introduction to Redux" />
           <TestingIntroSession title="Testing Principales" />
         </Section>
       </Col>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section
-          title="Day 4"
+          title="Bootcamp Day 4"
           subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
         >
           <HoCsAndRenderPropsSession title="FP & Advanced React Patterns I" />
@@ -65,7 +68,7 @@ const CurriculumBootcamp = () => (
           <AdvancedReduxSession title="Advanced Redux" />
         </Section>
         <Section
-          title="Day 5"
+          title="Bootcamp Day 5"
           subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
         >
           <TestingInReactSession title="Testing in React" />
@@ -75,7 +78,7 @@ const CurriculumBootcamp = () => (
           />
           <ServerSideRenderingSession title="Server Side Rendering (SSR) with React" />
         </Section>
-        <Section title="Day 6" subTitle="Hackathon">
+        <Section title="Bootcamp Day 6" subTitle="Hackathon">
           <Hackathon
             title="Last day real-world React challenge. We'll implement an app
           in teams from scratch"

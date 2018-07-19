@@ -29,7 +29,7 @@ const PartTimeFinalProject = () => (
 const CurriculumPartTime = () => (
   <div>
     <H1Ref>
-      The most progressive curriculum{' '}
+      The most progressive curriculum out there{' '}
       <a href="#curriculum" name="curriculum">
         #
       </a>
