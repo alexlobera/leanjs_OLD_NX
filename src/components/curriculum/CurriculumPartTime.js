@@ -5,17 +5,17 @@ import { H1Ref, H2, H3 } from '../text'
 import CurriculumSections from './CurriculumSections'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
-import ES6Session from './ES6Session'
-import IntroReactSession from './IntroReactSession'
-import RoutingAndDataFetchingSession from './RoutingAndDataFetchingSession'
-import ReactFundamentalsRecapSession from './ReactFundamentalsRecapSession'
-import FormsAndAuthSession from './FormsAndAuthSession'
-import StylingInReactSession from './StylingInReactSession'
-import IntroReduxSession from './IntroReduxSession'
-import TestingIntroSession from './TestingIntroSession'
-import GraphQLSession from './GraphQLSession'
-import TestingInReact from './TestingInReact'
-import HoCsAndRenderPropsSession from './HoCsAndRenderPropsSession'
+import ES6Session from './sessions/ES6Session'
+import IntroReactSession from './sessions/IntroReactSession'
+import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
+import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
+import FormsAndAuthSession from './sessions/FormsAndAuthSession'
+import StylingInReactSession from './sessions/StylingInReactSession'
+import IntroReduxSession from './sessions/IntroReduxSession'
+import TestingIntroSession from './sessions/TestingIntroSession'
+import GraphQLSession from './sessions/GraphQLSession'
+import TestingInReact from './sessions/TestingInReact'
+import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -41,7 +41,7 @@ const CurriculumPartTime = () => (
           sessions={[<ES6Session />]}
         />
         <CurriculumSections
-          subTitle="Session 2 - Introduction to React"
+          subTitle="Session 2 - Thinking in React"
           sessions={[<IntroReactSession />]}
         />
         <CurriculumSections

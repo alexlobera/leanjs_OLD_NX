@@ -1,5 +1,5 @@
 import React from 'react'
-import Ul, { Li } from '../layout/Ul'
+import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
 const ServerSideRenderingSession = ({ title }) => (

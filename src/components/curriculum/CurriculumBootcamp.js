@@ -5,21 +5,21 @@ import { H1Ref, H2, H3 } from '../text'
 import CurriculumSections from './CurriculumSections'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
-import ES6Session from './ES6Session'
-import IntroReactSession from './IntroReactSession'
-import RoutingAndDataFetchingSession from './RoutingAndDataFetchingSession'
-import ReactFundamentalsRecapSession from './ReactFundamentalsRecapSession'
-import FormsAndAuthSession from './FormsAndAuthSession'
-import StylingInReactSession from './StylingInReactSession'
-import IntroReduxSession from './IntroReduxSession'
-import TestingIntroSession from './TestingIntroSession'
-import AdvancedReduxSession from './AdvancedReduxSession'
-import GraphQLSession from './GraphQLSession'
-import TestingInReact from './TestingInReact'
-import HoCsAndRenderPropsSession from './HoCsAndRenderPropsSession'
-import CompoundCompAndContextSession from './CompoundCompAndContextSession'
-import ServerSideRenderingSession from './ServerSideRenderingSession'
-import Hackathon from './Hackathon'
+import ES6Session from './sessions/ES6Session'
+import IntroReactSession from './sessions/IntroReactSession'
+import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
+import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
+import FormsAndAuthSession from './sessions/FormsAndAuthSession'
+import StylingInReactSession from './sessions/StylingInReactSession'
+import IntroReduxSession from './sessions/IntroReduxSession'
+import TestingIntroSession from './sessions/TestingIntroSession'
+import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+import GraphQLSession from './sessions/GraphQLSession'
+import TestingInReact from './sessions/TestingInReact'
+import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
+import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
+import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
+import Hackathon from './sessions/Hackathon'
 
 const CurriculumBootcamp = () => (
   <div>
@@ -33,7 +33,7 @@ const CurriculumBootcamp = () => (
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <CurriculumSections
           title="Day 1"
-          subTitle="ES6 & ESNEXT, React Fundamentals, Routing & Data Fetching"
+          subTitle="ES6 & ESNEXT, Thinking in React, Routing & Data Fetching"
           sessions={[
             <ES6Session title="ES6 and ESNEXT" />,
             <IntroReactSession title="Thinking in React" />,
