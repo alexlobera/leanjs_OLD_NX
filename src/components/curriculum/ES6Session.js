@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const ES6Session = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="ES6 and ESNEXT">
+const ES6Session = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>
         Understanding language updates - difference between ES6, ES7, and ESNEXT

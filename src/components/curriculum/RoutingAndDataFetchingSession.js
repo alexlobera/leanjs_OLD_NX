@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const RoutingAndDataFetchingSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="Routing and Data Fetching">
+const RoutingAndDataFetchingSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>
         React Router v4

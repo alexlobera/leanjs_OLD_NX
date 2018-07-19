@@ -35,24 +35,30 @@ const CurriculumBootcamp = () => (
           title="Day 1"
           subTitle="ES6 & ESNEXT, React Fundamentals, Routing & Data Fetching"
           sessions={[
-            <ES6Session />,
-            <IntroReactSession />,
-            <RoutingAndDataFetchingSession />,
+            <ES6Session title="ES6 and ESNEXT" />,
+            <IntroReactSession title="Thinking in React" />,
+            <RoutingAndDataFetchingSession title="Routing and Data Fetching" />,
           ]}
         />
         <CurriculumSections
           title="Day 2"
           subTitle="Forms, Authentication, Styling in React"
           sessions={[
-            <ReactFundamentalsRecapSession />,
-            <FormsAndAuthSession />,
-            <StylingInReactSession />,
+            <FormsAndAuthSession title="Forms and Authentication" />,
+            <ReactFundamentalsRecapSession
+              title="React Fundamentals recap, build a React app from scratch on your own to
+            consolidate:"
+            />,
+            <StylingInReactSession title="Styling in React" />,
           ]}
         />
         <CurriculumSections
           title="Day 3"
           subTitle="Redux, and Testing Principles"
-          sessions={[<IntroReduxSession />, <TestingIntroSession />]}
+          sessions={[
+            <IntroReduxSession title="Introduction to Redux" />,
+            <TestingIntroSession title="Testing Principales" />,
+          ]}
         />
       </Col>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
@@ -60,24 +66,32 @@ const CurriculumBootcamp = () => (
           title="Day 4"
           subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
           sessions={[
-            <HoCsAndRenderPropsSession />,
-            <GraphQLSession />,
-            <AdvancedReduxSession />,
+            <HoCsAndRenderPropsSession title="FP & Advanced React Patterns I" />,
+            <GraphQLSession title="GraphQL and Apollo client" />,
+            <AdvancedReduxSession title="Advanced Redux" />,
           ]}
         />
         <CurriculumSections
           title="Day 5"
           subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
           sessions={[
-            <TestingInReact />,
-            <CompoundCompAndContextSession />,
-            <ServerSideRenderingSession />,
+            <TestingInReact title="Testing in React" />,
+            <CompoundCompAndContextSession
+              title="Advanced React patterns to create even more reusable
+            UIs"
+            />,
+            <ServerSideRenderingSession title="Server Side Rendering (SSR) with React" />,
           ]}
         />
         <CurriculumSections
           title="Day 6"
           subTitle="Hackathon"
-          sessions={[<Hackathon />]}
+          sessions={[
+            <Hackathon
+              title="Last day real-world React challenge. We'll implement an app
+          in teams from scratch"
+            />,
+          ]}
         />
       </Col>
     </Row>

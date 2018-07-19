@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const GraphQLSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="GraphQL and Apollo client">
+const GraphQLSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>
         GraphQL

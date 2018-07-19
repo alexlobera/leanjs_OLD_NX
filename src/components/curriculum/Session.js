@@ -1,8 +1,8 @@
 import React from 'react'
 import { Li } from '../layout/Ul'
 
-const Session = ({ hideTitle, children, title }) =>
-  hideTitle ? (
+const Session = ({ children, title }) =>
+  !title ? (
     children
   ) : (
     <Li>

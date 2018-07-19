@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const IntroReactSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="Thinking in React">
+const IntroReactSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>The Imperative to Declarative Shift</Li>
       <Li>Componentization</Li>

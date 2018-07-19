@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const FormsAndAuthSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="Forms and Authentication">
+const FormsAndAuthSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>
         Forms management in React

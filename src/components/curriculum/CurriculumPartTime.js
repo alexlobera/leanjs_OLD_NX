@@ -38,53 +38,53 @@ const CurriculumPartTime = () => (
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <CurriculumSections
           subTitle="Session 1 - ES6"
-          sessions={[<ES6Session hideTitle />]}
+          sessions={[<ES6Session />]}
         />
         <CurriculumSections
           subTitle="Session 2 - Introduction to React"
-          sessions={[<IntroReactSession hideTitle />]}
+          sessions={[<IntroReactSession />]}
         />
         <CurriculumSections
           subTitle="Session 3 - Routing & Data Fetching"
-          sessions={[<RoutingAndDataFetchingSession hideTitle />]}
+          sessions={[<RoutingAndDataFetchingSession />]}
         />
         <CurriculumSections
           subTitle="Session 4 - Forms & Auth"
-          sessions={[<FormsAndAuthSession hideTitle />]}
+          sessions={[<FormsAndAuthSession />]}
         />
         <CurriculumSections
           subTitle="Session 5 - Recap React Fundamentals"
-          sessions={[<ReactFundamentalsRecapSession hideTitle />]}
+          sessions={[<ReactFundamentalsRecapSession />]}
         />
         <CurriculumSections
           subTitle="Session 6 - Styling in React"
-          sessions={[<StylingInReactSession hideTitle />]}
+          sessions={[<StylingInReactSession />]}
         />
       </Col>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <CurriculumSections
           subTitle="Session 7 - Introduction to Redux"
-          sessions={[<IntroReduxSession hideTitle />]}
+          sessions={[<IntroReduxSession />]}
         />
         <CurriculumSections
           subTitle="Session 8 - Introduction to Testing in JS"
-          sessions={[<TestingIntroSession hideTitle />]}
+          sessions={[<TestingIntroSession />]}
         />
         <CurriculumSections
           subTitle="Session 9 - Testing in React"
-          sessions={[<TestingInReact hideTitle />]}
+          sessions={[<TestingInReact />]}
         />
         <CurriculumSections
           subTitle="Session 10 - Advanced Patterns I"
-          sessions={[<HoCsAndRenderPropsSession hideTitle />]}
+          sessions={[<HoCsAndRenderPropsSession />]}
         />
         <CurriculumSections
           subTitle="Session 11 - GraphQL & Apollo Client"
-          sessions={[<GraphQLSession hideTitle />]}
+          sessions={[<GraphQLSession />]}
         />
         <CurriculumSections
           subTitle="Session 12 - Last session React mini hackathon"
-          sessions={[<PartTimeFinalProject hideTitle />]}
+          sessions={[<PartTimeFinalProject />]}
         />
       </Col>
     </Row>

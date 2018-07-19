@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const TestingIntroSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="Testing Principales">
+const TestingIntroSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>Build your own test framework in JavaScript</Li>
       <Li>Testing Redux using Jest</Li>

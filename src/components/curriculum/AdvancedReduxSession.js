@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const AdvancedReduxSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="Advanced Redux">
+const AdvancedReduxSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>
         Functional programming (FP)

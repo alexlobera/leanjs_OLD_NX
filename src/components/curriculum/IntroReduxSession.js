@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const IntroReduxSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="Introduction to Redux">
+const IntroReduxSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>
         Introduction to functional programming

@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const HoCsAndRenderPropsSession = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="FP & Advanced React Patterns I">
+const HoCsAndRenderPropsSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>
         Functional programming (FP)

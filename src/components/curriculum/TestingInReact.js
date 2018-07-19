@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../layout/Ul'
 import Session from './Session'
 
-const TestingInReact = ({ hideTitle }) => (
-  <Session hideTitle={hideTitle} title="Testing in React">
+const TestingInReact = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>Unit Testing, Integration Testing, and Shapshot Testing</Li>
       <Li>Tooling: Enzyme & Jest</Li>
