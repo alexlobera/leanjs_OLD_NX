@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import CurriculumBootcamp from './CurriculumBootcamp'
+import CurriculumPartTime from './CurriculumPartTime'
 
-export const CurriculumSection = styled.div`
-    padding-top: 2em;
-`
-
-export { CurriculumBootcamp }
+export { CurriculumBootcamp, CurriculumPartTime }
