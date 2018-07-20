@@ -18,7 +18,7 @@ import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { blue1, BLUE_3 } from '../styles'
+import { blue1, blue5, BLUE3, blue4 } from '../styles'
 
 const HeaderButton = styled(LinkButton)`
   margin-top: 15px;
@@ -32,7 +32,7 @@ const H1 = styled(BaseH1)`
   line-height: 1.5;
   letter-spacing: normal;
   color: #ffffff;
-  text-shadow: 1px -1px 17px ${BLUE_3};
+  text-shadow: 1px -1px 17px ${BLUE3};
 `
 
 const TitleBackground = styled.span`
@@ -56,12 +56,16 @@ const H2 = styled(BaseH2)`
   line-height: 1.5;
   letter-spacing: normal;
   color: #ffffff;
-  text-shadow: 1px -1px 17px rgba(34, 85, 106, 0.58);
+  text-shadow: 1px -1px 17px ${blue5(0.58)};
+`
+
+const BlueSection = styled(Section)`
+  background-color: ${blue4(0.84)};
 `
 
 const IndexPage = () => (
   <div>
-    <Section color="lightGrey">
+    <BlueSection top>
       <Grid>
         <Row>
           <Col>
@@ -101,7 +105,7 @@ const IndexPage = () => (
           </Col>
         </Row>
       </Grid>
-    </Section>
+    </BlueSection>
 
     <Section>
       <Grid>
