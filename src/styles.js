@@ -2,4 +2,4 @@ export const reactBlueColour = opacity => `rgba(111, 207, 240, ${opacity});` // 
 
 export const blue1Colour = opacity => `rgba(31,50,58, ${opacity});` // #1f323a
 
-export const blue3Colour = '#367088'
+export const BLUE_2_COLOUR = '#367088'
