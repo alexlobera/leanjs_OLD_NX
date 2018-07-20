@@ -50,11 +50,11 @@ const AboutUs = () => (
     </Section>
     <Section color="lightGrey">
       <Grid style={{ textAlign: 'center' }}>
-        <H2>Our core coaches - professional developers who love to teach</H2>
+        <H2>Our coaches - professional developers who love to teach</H2>
         <H3>
-          Our core coaches are the builders behind{' '}
-          <Link to="https://leanjs.com">LeanJS</Link> - working developers who
-          are React ecoysystem
+          ReactJS Academy is a <Link to="https://leanjs.com">LeanJS</Link>{' '}
+          brand. LeanJS is an innovation agency focused on Lean, UX, JavaScript,
+          and people.
         </H3>
       </Grid>
     </Section>
