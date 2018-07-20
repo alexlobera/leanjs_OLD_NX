@@ -1,6 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import ReactJSAcademy from './ReactJSAcademy'
+import { Logo } from './ReactJSAcademy'
 
-storiesOf('ReactJS Academy Logo', module)
-  .add('Standard logo', () => <ReactJSAcademy />)
+storiesOf('ReactJS Academy Logo', module).add('Standard logo', () => <Logo />)
