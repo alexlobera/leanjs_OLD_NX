@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 // import 'normalize.css'
 import './reset.css'
-import styled from 'styled-components'
 import { Provider } from 'rebass'
 import { ThemeProvider, injectGlobal } from 'styled-components'
 
@@ -27,10 +26,6 @@ const gridTheme = {
   },
 }
 
-const Header = styled.div`
-  padding: 15px;
-`
-
 const Layout = ({ children, data }) => (
   <ThemeProvider theme={gridTheme}>
     <Provider theme={rebassTheme}>
@@ -41,9 +36,7 @@ const Layout = ({ children, data }) => (
           { name: 'keywords', content: 'sample, something' },
         ]}
       />
-      <Header>
-        <Menu />
-      </Header>
+      <Menu />
       {children()}
       <Footer />
     </Provider>
