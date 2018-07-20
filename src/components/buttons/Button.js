@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, ButtonOutline } from 'rebass'
 import styled from 'styled-components'
-import { BLUE2, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
+import { BLUE2, CALLTOACTIONRED } from '../../styles'
 
 const StyleButtonFontSize = props => {
   if (props.extraLarge) {
@@ -19,7 +19,6 @@ export default styled(({ extraLarge, large, ...props }) => (
   font-size: ${StyleButtonFontSize}px;
   background-color: ${props => (props.cta ? CALLTOACTIONRED : BLUE2)};
   border-radius: 0;
-  ${FONT_FAMILY}
   font-weight: ${props => (props.cta ? 'bold' : '')};
   font-style: normal;
   font-stretch: normal;
@@ -33,11 +32,17 @@ export const ButtonSecondary = styled(({ extraLarge, large, ...props }) => (
   <ButtonOutline {...props} />
 ))`
   font-size: ${StyleButtonFontSize}px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
   width: 223px;
   height: 58px;
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   background-color: #ffffff;
   border: solid 1px #002938;
-  color: ${BLUE2};
+  color: #002938;
+  font-family: Barlow;
 `
