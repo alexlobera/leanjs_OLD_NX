@@ -18,7 +18,7 @@ import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { blue1, blue5, BLUE3, blue4 } from '../styles'
+import { blue1, blue5, BLUE3, blue4, BOX_SHADOW } from '../styles'
 
 const HeaderButton = styled(LinkButton)`
   margin-top: 15px;
@@ -63,6 +63,14 @@ const BlueSection = styled(Section)`
   background-color: ${blue4(0.84)};
 `
 
+const StyledCurriculum = styled.div`
+  ${BOX_SHADOW};
+`
+const CallToActionRow = styled(Row)`
+  margin-bottom: -20px;
+  text-align: center;
+`
+
 const IndexPage = () => (
   <div>
     <BlueSection top>
@@ -79,29 +87,6 @@ const IndexPage = () => (
                 Europe to teach React
               </TitleBackground>
             </H2>
-            <Row>
-              <Col xs={12} sm={4} smOffset={2}>
-                <HeaderButton
-                  secondary
-                  to="/react-redux-graphql-part-time-course"
-                  children="6-week part-time course"
-                />
-              </Col>
-              <Col xs={12} sm={4}>
-                <HeaderButton
-                  secondary
-                  to="/about-us#private-on-site-corporate-training"
-                  children="Corporate team training"
-                />
-              </Col>
-            </Row>
-            <p>
-              <HeaderButton
-                extraLarge
-                to="/react-redux-graphql-bootcamp"
-                children="1-week bootcamp"
-              />
-            </p>
           </Col>
         </Row>
       </Grid>
@@ -109,7 +94,32 @@ const IndexPage = () => (
 
     <Section>
       <Grid>
-        <CurriculumBootcamp />
+        <CallToActionRow>
+          <Col xs={12} sm={4}>
+            <HeaderButton
+              extraLarge
+              to="/react-redux-graphql-bootcamp"
+              children="1-week bootcamp"
+            />
+          </Col>
+          <Col xs={12} sm={4}>
+            <HeaderButton
+              secondary
+              to="/react-redux-graphql-part-time-course"
+              children="6-week part-time course"
+            />
+          </Col>
+          <Col xs={12} sm={4}>
+            <HeaderButton
+              secondary
+              to="/about-us#private-on-site-corporate-training"
+              children="Corporate team training"
+            />
+          </Col>
+        </CallToActionRow>
+        <StyledCurriculum>
+          <CurriculumBootcamp />
+        </StyledCurriculum>
       </Grid>
     </Section>
 

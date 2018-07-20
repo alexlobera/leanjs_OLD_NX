@@ -17,3 +17,6 @@ export const blue4 = (opacity = 1) => `rgba(87,178,212, ${opacity})` // #57B2D4
 export const blue5 = (opacity = 1) => `rgba(34,85,106, ${opacity})` // #22556A
 
 export const CALLTOACTIONRED = '#be6045'
+
+export const BOX_SHADOW =
+  'box-shadow: 0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);'
