@@ -1,16 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from '../navigation/Link'
-import logo from './ReactLogo.svg'
-
-// const ReactSVG =
 
 const ReactLogo = props => (
-  <svg
-    viewBox="0 0 1210 1321"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid slice"
-  >
+  <svg viewBox="0 0 1210 1321" preserveAspectRatio="xMidYMid slice">
     <defs>
       <path
         d="M601.5,783 C672.3152,783 729,729.155666 729,662.5 C729,595.898763 672.3152,542 601.5,542 C530.6848,542 474,595.844334 474,662.5 C474,729.101237 530.6848,783 601.5,783 Z"
@@ -20,9 +13,9 @@ const ReactLogo = props => (
     <g
       id="UI_v0101"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="RJSA_UI_bootcamp/parttime_v0101-Copy"
