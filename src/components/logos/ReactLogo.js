@@ -7,11 +7,9 @@ import logo from './ReactLogo.svg'
 
 const ReactLogo = props => (
   <svg
-    width="1130px"
-    height="1321px"
-    viewBox="0 0 1130 1321"
-    version="1.1"
+    viewBox="0 0 1210 1321"
     xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid slice"
   >
     <defs>
       <path
