@@ -6,5 +6,5 @@ storiesOf('Button', module)
   .add('Default', () => <Button>Click me</Button>)
   .add('Call to action', () => <Button cta>Call to action</Button>)
   .add('Secondary button', () => (
-    <ButtonSecondary>Secondary button</ButtonSecondary>
+    <ButtonSecondary large>Secondary button>></ButtonSecondary>
   ))
