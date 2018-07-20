@@ -7,7 +7,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import Card from '../components/layout/Card'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H1, H2, H3 } from '../components/text'
+import { H1 as BaseH1, H2 as BaseH2, H3 } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import {
@@ -21,6 +21,28 @@ import { CurriculumBootcamp } from '../components/curriculum'
 
 const HeaderButton = styled(LinkButton)`
   margin-top: 15px;
+`
+
+const H1 = styled(BaseH1)`
+  font-size: 64px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-shadow: 1px -1px 17px #367088;
+`
+
+const H2 = styled(BaseH2)`
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-shadow: 1px -1px 17px rgba(34, 85, 106, 0.58);
 `
 
 const IndexPage = () => (

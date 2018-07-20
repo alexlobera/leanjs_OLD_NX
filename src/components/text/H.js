@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const FONT_FAMILY =
-  "font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;"
+const FONT_FAMILY = "font-family: 'Barlow', sans-serif;"
 const REF = `
     :hover {
         a {
@@ -15,9 +14,7 @@ const REF = `
 }
 `
 export const H1 = styled.h1`
-  ${FONT_FAMILY} font-weight: 700;
-  line-height: 1.2;
-  font-size: 2em;
+  ${FONT_FAMILY};
 `
 
 export const H1Ref = styled(H1)`
@@ -25,9 +22,7 @@ export const H1Ref = styled(H1)`
 `
 
 export const H2 = styled.h2`
-  ${FONT_FAMILY} font-size: 1.5em;
-  line-height: 1.2;
-  font-weight: 400;
+  ${FONT_FAMILY};
 `
 
 export const H2Ref = styled(H2)`
