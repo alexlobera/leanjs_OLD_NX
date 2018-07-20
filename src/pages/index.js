@@ -97,6 +97,7 @@ const IndexPage = () => (
             </Row>
             <p>
               <HeaderButton
+                cta
                 extraLarge
                 to="/react-redux-graphql-bootcamp"
                 children="1-week bootcamp"
@@ -223,6 +224,7 @@ const IndexPage = () => (
             <Row>
               <Col xs={6} md={5}>
                 <LinkButton
+                  cta
                   extraLarge
                   to="/react-redux-graphql-bootcamp"
                   children="1-week bootcamps"
