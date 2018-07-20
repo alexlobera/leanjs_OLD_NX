@@ -34,8 +34,10 @@ const H1 = styled(BaseH1)`
   color: #ffffff;
   text-shadow: 1px -1px 17px ${BLUE_3};
 `
-const H1Background = styled.span`
-  background-color: ${blue1()};
+const TitleBackground = styled.span`
+  background-color: ${blue1(0.75)};
+  padding: 15px;
+  display: inline-block;
 `
 
 const H2 = styled(BaseH2)`
@@ -54,11 +56,16 @@ const IndexPage = () => (
     <Section color="lightGrey">
       <Grid>
         <Row>
-          <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>Take your career further by mastering React</H1>
+          <Col>
+            <H1>
+              <TitleBackground>Take your dev career further</TitleBackground>
+              <TitleBackground>by mastering React</TitleBackground>
+            </H1>
             <H2>
-              In-person training from experts who were the first in Europe to
-              teach React
+              <TitleBackground>
+                In-person training from experts who were <br /> the first in
+                Europe to teach React
+              </TitleBackground>
             </H2>
             <Row>
               <Col xs={12} sm={4} smOffset={2}>

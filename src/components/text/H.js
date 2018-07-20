@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FONT_FAMILY } from '../../styles'
 
-const FONT_FAMILY = "font-family: 'Barlow', sans-serif;"
 const REF = `
     :hover {
         a {
