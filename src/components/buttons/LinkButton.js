@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import Link from '../navigation/Link'
 
 export default styled(Link)`
   font-size: ${props => {
