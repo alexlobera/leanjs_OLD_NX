@@ -3,9 +3,12 @@ import styled from 'styled-components'
 import { H2, H3 } from '../text'
 import Ul, { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
+import { BLUE2 } from '../../styles'
 
 const Section = styled.div`
-  padding-top: 2em;
+  margin-top: 2em;
+  border-left: 3px solid ${BLUE2};
+  padding-left: 20px;
 `
 
 export const CurriculumSubSection = styled.div`

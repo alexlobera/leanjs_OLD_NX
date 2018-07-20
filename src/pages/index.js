@@ -18,11 +18,7 @@ import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { blue1, blue5, BLUE3, blue4, BOX_SHADOW } from '../styles'
-
-const HeaderButton = styled(LinkButton)`
-  margin-top: 15px;
-`
+import { blue1, blue5, BLUE3, blue4, BOX_SHADOW, WHITE } from '../styles'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;
@@ -59,21 +55,28 @@ const H2 = styled(BaseH2)`
   text-shadow: 1px -1px 17px ${blue5(0.58)};
 `
 
-const BlueSection = styled(Section)`
+const HeaderSection = styled(Section)`
   background-color: ${blue4(0.84)};
+  padding: 175px 0;
 `
 
-const StyledCurriculum = styled.div`
+const CurriculumBox = styled.div`
   ${BOX_SHADOW};
+  padding: 80px 0 50px;
+  background-color: ${WHITE};
 `
 const CallToActionRow = styled(Row)`
-  margin-bottom: -20px;
+  margin-bottom: -15px;
   text-align: center;
+`
+
+const CurriculumSection = styled(Section)`
+  margin-top: -125px;
 `
 
 const IndexPage = () => (
   <div>
-    <BlueSection top>
+    <HeaderSection top>
       <Grid>
         <Row>
           <Col>
@@ -90,38 +93,37 @@ const IndexPage = () => (
           </Col>
         </Row>
       </Grid>
-    </BlueSection>
-
-    <Section>
+    </HeaderSection>
+    <CurriculumSection>
       <Grid>
         <CallToActionRow>
           <Col xs={12} sm={4}>
-            <HeaderButton
+            <LinkButton
               extraLarge
               to="/react-redux-graphql-bootcamp"
               children="1-week bootcamp"
             />
           </Col>
           <Col xs={12} sm={4}>
-            <HeaderButton
+            <LinkButton
               secondary
               to="/react-redux-graphql-part-time-course"
               children="6-week part-time course"
             />
           </Col>
           <Col xs={12} sm={4}>
-            <HeaderButton
+            <LinkButton
               secondary
               to="/about-us#private-on-site-corporate-training"
               children="Corporate team training"
             />
           </Col>
         </CallToActionRow>
-        <StyledCurriculum>
+        <CurriculumBox>
           <CurriculumBootcamp />
-        </StyledCurriculum>
+        </CurriculumBox>
       </Grid>
-    </Section>
+    </CurriculumSection>
 
     <Section>
       <Grid>
