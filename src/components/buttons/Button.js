@@ -17,13 +17,10 @@ export default styled(({ extraLarge, large, ...props }) => (
   <Button {...props} />
 ))`
   font-size: ${StyleButtonFontSize}px;
-  background-color: ${props => (props.cta ? CALLTOACTIONRED : BLUE2)}
-  width: 280px;
-  height: 55px;
+  background-color: ${props => (props.cta ? CALLTOACTIONRED : BLUE2)};
   border-radius: 0;
   font-family: Barlow;
-  font-size: 18px;
-  font-weight: bold;
+  font-weight: ${props => (props.cta ? 'bold' : '')};
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
