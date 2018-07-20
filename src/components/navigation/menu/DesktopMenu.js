@@ -11,14 +11,14 @@ const Item = ({ children, ...props }) => (
   </Li>
 )
 
-const DesktopMenuItem = styled(Item)``
+const DesktopMenuItem = styled(Item)`
+  color: white;
+`
 
 DesktopMenuItem.displayName = 'DesktopMenuItem'
 
 const DesktopMenuContainer = styled(Ul)`
-  position: absolute;
-  right: 20px;
-  top: 18px;
+  float: right;
 `
 
 const DesktopMenu = () => (
