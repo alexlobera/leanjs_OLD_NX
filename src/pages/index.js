@@ -18,7 +18,7 @@ import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { reactBlue, blue1, BLUE_3 } from '../styles'
+import { blue1, BLUE_3 } from '../styles'
 
 const HeaderButton = styled(LinkButton)`
   margin-top: 15px;
