@@ -8,10 +8,12 @@ export const reactBlue = (opacity = 1) => `rgba(111, 207, 240, ${opacity});` // 
 
 export const blue1 = (opacity = 1) => `rgba(31,50,58, ${opacity});` // #1f323a
 
-export const BLUE3 = '#367088'
+export const BLUE2 = '#002938' // rgb(0,41,56)
 
-export const BLUE2 = '#002938'
+export const BLUE3 = '#367088' // rgb(54,112,136)
 
-export const blue4 = (opacity = 1) => `rgba(87,178,212, ${opacity})`
+export const blue4 = (opacity = 1) => `rgba(87,178,212, ${opacity})` // #57B2D4
+
+export const blue5 = (opacity = 1) => `rgba(34,85,106, ${opacity})` // #22556A
 
 export const CALLTOACTIONRED = '#be6045'
