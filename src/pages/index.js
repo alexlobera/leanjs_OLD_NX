@@ -18,7 +18,7 @@ import ContactForm from '../components/form/Contact'
 import Video from '../components/elements/Video'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { reactBlueColour, blue1Colour, BLUE_2_COLOUR } from '../styles'
+import { reactBlue, blue1, BLUE_3 } from '../styles'
 
 const HeaderButton = styled(LinkButton)`
   margin-top: 15px;
@@ -32,10 +32,10 @@ const H1 = styled(BaseH1)`
   line-height: 1.5;
   letter-spacing: normal;
   color: #ffffff;
-  text-shadow: 1px -1px 17px ${BLUE_2_COLOUR};
+  text-shadow: 1px -1px 17px ${BLUE_3};
 `
 const H1Background = styled.span`
-  background-color: ${blue1Colour()};
+  background-color: ${blue1()};
 `
 
 const H2 = styled(BaseH2)`
