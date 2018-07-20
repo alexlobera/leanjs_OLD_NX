@@ -1,1 +1,3 @@
-export const REACT_BLUE_COLOR = 'rgba(111, 207, 240, 0.14);'
+export const reactBlueColour = opacity => `rgba(111, 207, 240, ${opacity});`
+
+export const darkGreenColour = opacity => `rgba(31,50,58, ${opacity});`
