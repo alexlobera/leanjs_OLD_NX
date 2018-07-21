@@ -352,17 +352,11 @@ const IndexPage = () => (
                 </Ul>
               </Col>
             </Row>
-            <P align="right">
+            <P>
               <Link to="/react-redux-graphql-bootcamp#curriculum">
                 Checkout the curriculum
               </Link>
             </P>
-            <AttendeeQuote
-              quote="My devs were on training for a week, but when they came back they were React Masters. We adpoted the ecosystem much quicker than we thought possible and now we work faster and more efficiently."
-              fullname="Richard Moss"
-              job="CTO"
-              company="Financial Times"
-            />
             <Row style={{ marginTop: '30px' }}>
               <Col xs={12} sm={4}>
                 <LinkButton
@@ -383,6 +377,21 @@ const IndexPage = () => (
                 />
               </Col>
             </Row>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+
+    <Section>
+      <Grid>
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <AttendeeQuote
+              quote="My devs were on training for a week, but when they came back they were React Masters. We adpoted the ecosystem much quicker than we thought possible and now we work faster and more efficiently."
+              fullname="Richard Moss"
+              job="CTO"
+              company="Financial Times"
+            />
           </Col>
         </Row>
       </Grid>
