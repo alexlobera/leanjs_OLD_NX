@@ -15,7 +15,18 @@ import {
 } from '../components/utils'
 import ContactForm from '../components/form/Contact'
 import { Video } from '../components/elements'
-import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
+import {
+  Trainline,
+  ASOS,
+  ABInBev,
+  Blockchain,
+  JohnLewis,
+  Capgemini,
+  FinancialTimes,
+  SainBurys,
+  Tesco,
+  Telegraph,
+} from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
 import {
   blue1,
@@ -26,6 +37,7 @@ import {
   BOX_SHADOW,
   WHITE,
   BROWN,
+  GREY,
 } from '../styles'
 
 const H1 = styled(BaseH1)`
@@ -296,20 +308,31 @@ const IndexPage = () => (
                   <H2>Developers from all these companies have trusted us</H2>
                   <Row>
                     <Col xs={12} md={6}>
-                      <Trainline />
+                      <ASOS colour={GREY} />
                     </Col>
                     <Col xs={12} md={6}>
-                      <Blockchain />
+                      <Blockchain colour={GREY} />
                     </Col>
-                    <Col xs={12} md={6} style={{ paddingTop: '55px' }}>
-                      <ASOS />
+                    <Col xs={12} md={6}>
+                      <Capgemini colour={GREY} secColour={GREY} />
                     </Col>
-                    <Col
-                      xs={12}
-                      md={6}
-                      style={{ paddingTop: '35px', paddingBottom: '15px' }}
-                    >
-                      <ABInBev />
+                    <Col xs={12} md={6}>
+                      <JohnLewis colour={GREY} />
+                    </Col>
+                    <Col xs={12} md={6}>
+                      <FinancialTimes colour={GREY} />
+                    </Col>
+                    <Col xs={12} md={6}>
+                      <SainBurys colour={GREY} />
+                    </Col>
+                    <Col xs={12} md={6}>
+                      <Tesco colour={GREY} secColour={GREY} stroke={GREY} />
+                    </Col>
+                    <Col xs={12} md={6}>
+                      <Telegraph colour={GREY} />
+                    </Col>
+                    <Col xs={12} md={6}>
+                      <Trainline colour={GREY} />
                     </Col>
                   </Row>
                 </Col>

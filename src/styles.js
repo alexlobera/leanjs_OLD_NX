@@ -18,6 +18,8 @@ export const blue5 = (opacity = 1) => `rgba(34,85,106, ${opacity})` // #22556A
 
 export const BROWN = '#979797'
 
+export const GREY = '#c4c4c4'
+
 export const WHITE = '#fff'
 
 export const CALLTOACTIONRED = '#be6045'
