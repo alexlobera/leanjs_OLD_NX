@@ -47,7 +47,7 @@ const H1 = styled(BaseH1)`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  color: #ffffff;
+  color: ${WHITE};
   text-shadow: 1px -1px 17px ${BLUE3};
 `
 
@@ -71,7 +71,7 @@ const H2Header = styled(BaseH2)`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  color: #ffffff;
+  color: ${WHITE};
   text-shadow: 1px -1px 17px ${blue5(0.58)};
 `
 
@@ -81,7 +81,9 @@ const H2 = styled(BaseH2)`
   font-style: normal;
   font-stretch: normal;
   line-height: 1.5;
-  letter-spa
+  letter-spacing: normal;
+  color: ${WHITE};
+  margin-bottom: 55px;
 `
 
 const HeaderSection = styled(Section)`
@@ -108,6 +110,7 @@ const CurriculumSection = styled(Section)`
 const DarkBox = styled.div`
   background-color: ${BLUE2};
   border: solid 1px ${BROWN};
+  padding: 55px;
 `
 
 const IndexPage = () => (
@@ -301,11 +304,15 @@ const IndexPage = () => (
     <Section>
       <Grid>
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col xs={12}>
             <DarkBox>
               <Row>
-                <Col md={5}>
+                <Col xs={12}>
                   <H2>Developers from all these companies have trusted us</H2>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
                   <Row>
                     <Col xs={12} md={5}>
                       <ASOS colour={GREY} height={35} />
@@ -314,29 +321,34 @@ const IndexPage = () => (
                       <Blockchain colour={GREY} />
                     </Col>
                     <Col xs={12} md={6}>
-                      <Capgemini colour={GREY} secColour={GREY} />
+                      <Capgemini colour={GREY} secColour={GREY} height={47} />
                     </Col>
                     <Col xs={12} md={6}>
-                      <JohnLewis colour={GREY} />
+                      <JohnLewis colour={GREY} height={47} />
+                    </Col>
+                    <Col xs={12}>
+                      <FinancialTimes colour={GREY} height={30} />
                     </Col>
                     <Col xs={12} md={6}>
-                      <FinancialTimes colour={GREY} />
+                      <SainBurys colour={GREY} height={35} />
                     </Col>
                     <Col xs={12} md={6}>
-                      <SainBurys colour={GREY} />
+                      <Tesco
+                        colour={GREY}
+                        secColour={GREY}
+                        stroke={GREY}
+                        height={40}
+                      />
                     </Col>
                     <Col xs={12} md={6}>
-                      <Tesco colour={GREY} secColour={GREY} stroke={GREY} />
+                      <Telegraph colour={GREY} height={40} />
                     </Col>
                     <Col xs={12} md={6}>
-                      <Telegraph colour={GREY} />
-                    </Col>
-                    <Col xs={12} md={6}>
-                      <Trainline colour={GREY} />
+                      <Trainline colour={GREY} height={55} />
                     </Col>
                   </Row>
                 </Col>
-                <Col md={7}>
+                <Col md={6}>
                   <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
                 </Col>
               </Row>

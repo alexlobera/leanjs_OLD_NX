@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from '../navigation/Link'
 
 const BussinesseIcon = props => (
-  <svg viewBox="0 0 32 32" preserveAspectRatio="xMidYMid slice">
+  <svg viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet">
     <g
       id="UI_v0101"
       stroke="none"

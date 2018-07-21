@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from '../navigation/Link'
 
 const MadeCom = props => (
-  <svg viewBox="0 0 525 71" preserveAspectRatio="xMidYMid slice">
+  <svg viewBox="0 0 525 71" preserveAspectRatio="xMidYMid meet">
     <defs>
       <rect id="path-1" x="0" y="0" width="533" height="91" />
       <rect x="-37" y="-170" width="607" height="429.149" id="rect-3" />

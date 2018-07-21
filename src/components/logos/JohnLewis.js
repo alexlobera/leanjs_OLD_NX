@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const JohnLewis = ({ colour = '#003e24', width, height }) => (
   <svg
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 260 61"
     width={width}
     height={height}

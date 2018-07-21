@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Telegraph = ({ colour = '#1d1d1b', width, height }) => (
   <svg
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 117 19.1"
     width={width}
     height={height}

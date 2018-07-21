@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Trainline = ({ colour = '#00d5b5', width, height }) => (
   <svg
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 400.00001 115"
     width={width}
     height={height}

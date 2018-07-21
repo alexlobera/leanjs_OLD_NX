@@ -8,7 +8,7 @@ const Capgemini = ({
   height,
 }) => (
   <svg
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 171 38"
     width={width}
     height={height}

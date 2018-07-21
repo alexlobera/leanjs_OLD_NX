@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from '../navigation/Link'
 
 const ReactLogo = props => (
-  <svg viewBox="0 0 1210 1321" preserveAspectRatio="xMidYMid slice">
+  <svg viewBox="0 0 1210 1321" preserveAspectRatio="xMidYMid meet">
     <defs>
       <path
         d="M601.5,783 C672.3152,783 729,729.155666 729,662.5 C729,595.898763 672.3152,542 601.5,542 C530.6848,542 474,595.844334 474,662.5 C474,729.101237 530.6848,783 601.5,783 Z"

@@ -6,7 +6,7 @@ import { width } from 'window-size'
 
 const ASOS = ({ colour = '#0B0B0A', width, height }) => (
   <svg
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 110 32"
     width={width}
     height={height}

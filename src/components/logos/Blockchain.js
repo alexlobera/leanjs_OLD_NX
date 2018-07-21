@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Blockchain = ({ colour = '#049BD4', width, height }) => (
   <svg
     viewBox="0 0 1426 153"
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     width={width}
     height={height}
   >

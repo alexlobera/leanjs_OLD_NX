@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const SainBurys = ({ colour = '#f47320', width, height }) => (
   <svg
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 306 58"
     width={width}
     height={height}

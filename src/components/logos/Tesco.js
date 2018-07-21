@@ -9,7 +9,7 @@ const Tesco = ({
   height,
 }) => (
   <svg
-    preserveAspectRatio="xMidYMid slice"
+    preserveAspectRatio="xMidYMid meet"
     viewBox="0 -0.976 200 53.292"
     width={width}
     height={height}
