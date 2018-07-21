@@ -1,9 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
+import PropTypes from 'prop-types'
 
-const Capgemini = ({ colour = '#12ABDB', secColour = '#0070AD' }) => (
-  <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 171 38">
+const Capgemini = ({
+  colour = '#12ABDB',
+  secColour = '#0070AD',
+  width,
+  height,
+}) => (
+  <svg
+    preserveAspectRatio="xMidYMid slice"
+    viewBox="0 0 171 38"
+    width={width}
+    height={height}
+  >
     <g fill="none" fillRule="evenodd">
       <path
         fill={colour}
@@ -16,5 +25,12 @@ const Capgemini = ({ colour = '#12ABDB', secColour = '#0070AD' }) => (
     </g>
   </svg>
 )
+
+Capgemini.propTypes = {
+  colour: PropTypes.string,
+  secColour: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+}
 
 export default Capgemini

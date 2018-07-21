@@ -307,10 +307,10 @@ const IndexPage = () => (
                 <Col md={5}>
                   <H2>Developers from all these companies have trusted us</H2>
                   <Row>
-                    <Col xs={12} md={6}>
-                      <ASOS colour={GREY} />
+                    <Col xs={12} md={5}>
+                      <ASOS colour={GREY} height={35} />
                     </Col>
-                    <Col xs={12} md={6}>
+                    <Col xs={12} md={7}>
                       <Blockchain colour={GREY} />
                     </Col>
                     <Col xs={12} md={6}>

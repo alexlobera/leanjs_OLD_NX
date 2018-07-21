@@ -1,9 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
+import PropTypes from 'prop-types'
 
-const JohnLewis = ({ colour = '#003e24' }) => (
-  <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 260 61">
+const JohnLewis = ({ colour = '#003e24', width, height }) => (
+  <svg
+    preserveAspectRatio="xMidYMid slice"
+    viewBox="0 0 260 61"
+    width={width}
+    height={height}
+  >
     <defs id="defs5319" />
     <g transform="translate(-298.06905,-463.32268)" id="layer1">
       <path
@@ -108,5 +112,11 @@ const JohnLewis = ({ colour = '#003e24' }) => (
     </g>
   </svg>
 )
+
+JohnLewis.propTypes = {
+  colour: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+}
 
 export default JohnLewis

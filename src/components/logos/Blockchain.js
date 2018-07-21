@@ -1,8 +1,13 @@
 import React from 'react'
-import './sprite_logos.css'
+import PropTypes from 'prop-types'
 
-const Blockchain = ({ colour = '#049BD4' }) => (
-  <svg viewBox="0 0 1426 153">
+const Blockchain = ({ colour = '#049BD4', width, height }) => (
+  <svg
+    viewBox="0 0 1426 153"
+    preserveAspectRatio="xMidYMid slice"
+    width={width}
+    height={height}
+  >
     <g id="g3" transform="translate(0,-464.2)">
       <g id="g5">
         <path
@@ -80,5 +85,11 @@ const Blockchain = ({ colour = '#049BD4' }) => (
     </g>
   </svg>
 )
+
+Blockchain.propTypes = {
+  colour: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+}
 
 export default Blockchain
