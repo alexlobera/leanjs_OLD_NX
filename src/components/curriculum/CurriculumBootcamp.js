@@ -23,12 +23,16 @@ import Hackathon from './sessions/Hackathon'
 
 const CurriculumBootcamp = () => (
   <div>
-    <H1Ref>
-      The most complete curriculum out there{' '}
-      <a href="#curriculum" name="curriculum">
-        #
-      </a>
-    </H1Ref>
+    <Row>
+      <Col xs={12} md={12} lg={10} lgOffset={1}>
+        <H1Ref>
+          The most complete curriculum out there{' '}
+          <a href="#curriculum" name="curriculum">
+            #
+          </a>
+        </H1Ref>
+      </Col>
+    </Row>
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section
@@ -58,7 +62,7 @@ const CurriculumBootcamp = () => (
           <TestingIntroSession title="Testing Principales" />
         </Section>
       </Col>
-      <Col xs={12} md={6} lg={5} lgOffset={1}>
+      <Col xs={12} md={6} lg={5}>
         <Section
           title="Bootcamp Day 4"
           subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"

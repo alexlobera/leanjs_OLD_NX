@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import P from '../layout/P'
 import ImagePlaceholder from '../wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H3 } from '../text'
+import { Image } from '../elements'
 import { Col, Row } from '../layout/Grid'
 
 const Card = styled.div`
@@ -37,7 +38,7 @@ const AttendeeInfo = styled.div`
     background-color: rgba(0, 0, 0, 0.1);
   }
 `
-const AttendeePicture = styled(ImagePlaceholder)`
+const AttendeePicture = styled(Image)`
   @media (max-width: 768px) {
     max-width: 40%;
   }
@@ -52,7 +53,7 @@ const AttendeeQuoteDesktop = ({ quote, fullname, company, job, ...props }) => (
       {quote || 'This is a quote from a trainee.'}
     </StyledBlockquote>
     <Attendee>
-      <AttendeePicture />
+      <AttendeePicture src="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg" />
       <AttendeeInfo>
         <strong>{fullname || 'Joe Bloggs'}</strong>
         <br />

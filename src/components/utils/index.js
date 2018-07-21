@@ -28,7 +28,7 @@ export const HideSingleComponentUsingCss = styled(Comp)`
       props.xs
         ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
-            display:none;
+            display:none !important;
         }
     `
         : ''}
@@ -36,7 +36,7 @@ export const HideSingleComponentUsingCss = styled(Comp)`
       props.sm
         ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
-            display:none;
+            display:none !important;
         }
     `
         : ''}
@@ -44,7 +44,7 @@ export const HideSingleComponentUsingCss = styled(Comp)`
       props.md
         ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
-            display:none;
+            display:none !important;
         }
     `
         : ''}
@@ -52,19 +52,19 @@ export const HideSingleComponentUsingCss = styled(Comp)`
       props.lg
         ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
-        display: none;
+        display: none !important;
        }
     `
         : ''}
 `
 
 export const DisplaySingleComponentUsingCss = styled(Comp)`
-    display:none;
+    display:none !important;
     ${props =>
       props.xs
         ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
-            display:block;
+            display:block !important;
         }
     `
         : ''}
@@ -72,7 +72,7 @@ export const DisplaySingleComponentUsingCss = styled(Comp)`
       props.sm
         ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
-            display:block;
+            display:block !important;
         }
     `
         : ''}
@@ -80,7 +80,7 @@ export const DisplaySingleComponentUsingCss = styled(Comp)`
       props.md
         ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
-            display:block;
+            display:block !important;
         }
     `
         : ''}
@@ -88,7 +88,7 @@ export const DisplaySingleComponentUsingCss = styled(Comp)`
       props.lg
         ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
-        display: block;
+        display: block !important;
        }
     `
         : ''}
