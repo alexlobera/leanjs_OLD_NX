@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Trainline = ({ colour = '#00d5b5', width, height }) => (
+const Trainline = ({ colour = '#00d5b5', width, height, y }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
-    viewBox="0 0 400.00001 115"
+    viewBox={`0 ${y} 400 115`}
     width={width}
     height={height}
   >
@@ -19,6 +19,7 @@ Trainline.propTypes = {
   colour: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number,
+  y: PropTypes.number,
 }
 
 export default Trainline

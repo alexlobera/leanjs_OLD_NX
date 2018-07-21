@@ -113,6 +113,11 @@ const DarkBox = styled.div`
   padding: 55px;
 `
 
+const CompanyRow = styled(Row)`
+  margin-top: 35px;
+  margin-bottom: 35px;
+`
+
 const IndexPage = () => (
   <div>
     <HeaderSection top>
@@ -313,22 +318,28 @@ const IndexPage = () => (
               </Row>
               <Row>
                 <Col md={6}>
-                  <Row>
+                  <CompanyRow>
                     <Col xs={12} md={5}>
                       <ASOS colour={GREY} height={35} />
                     </Col>
                     <Col xs={12} md={7}>
                       <Blockchain colour={GREY} />
                     </Col>
+                  </CompanyRow>
+                  <CompanyRow>
                     <Col xs={12} md={6}>
                       <Capgemini colour={GREY} secColour={GREY} height={47} />
                     </Col>
                     <Col xs={12} md={6}>
                       <JohnLewis colour={GREY} height={47} />
                     </Col>
+                  </CompanyRow>
+                  <CompanyRow>
                     <Col xs={12}>
                       <FinancialTimes colour={GREY} height={30} />
                     </Col>
+                  </CompanyRow>
+                  <CompanyRow>
                     <Col xs={12} md={6}>
                       <SainBurys colour={GREY} height={35} />
                     </Col>
@@ -340,13 +351,15 @@ const IndexPage = () => (
                         height={40}
                       />
                     </Col>
+                  </CompanyRow>
+                  <CompanyRow>
                     <Col xs={12} md={6}>
                       <Telegraph colour={GREY} height={40} />
                     </Col>
                     <Col xs={12} md={6}>
-                      <Trainline colour={GREY} height={55} />
+                      <Trainline colour={GREY} height={55} y={17} />
                     </Col>
-                  </Row>
+                  </CompanyRow>
                 </Col>
                 <Col md={6}>
                   <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
