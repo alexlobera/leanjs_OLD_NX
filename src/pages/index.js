@@ -285,9 +285,9 @@ const IndexPage = () => (
     </Section>
     <Section>
       <Grid>
-        <DarkBox>
-          <Row>
-            <Col lg={10} lgOffset={1}>
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <DarkBox>
               <Row>
                 <Col md={5}>
                   <H2>Developers from all these companies have trusted us</H2>
@@ -314,9 +314,9 @@ const IndexPage = () => (
                   <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
                 </Col>
               </Row>
-            </Col>
-          </Row>
-        </DarkBox>
+            </DarkBox>
+          </Col>
+        </Row>
       </Grid>
     </Section>
     <Section color="lightGrey">
