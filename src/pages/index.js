@@ -146,6 +146,9 @@ const IndexPage = () => (
         </CallToActionRow>
         <CurriculumBox>
           <CurriculumBootcamp />
+          <LinkButton large to="/curriculum">
+            Full curriculum>>
+          </LinkButton>
         </CurriculumBox>
       </Grid>
     </CurriculumSection>
