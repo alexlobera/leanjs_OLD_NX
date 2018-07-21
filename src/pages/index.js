@@ -4,7 +4,6 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import Card from '../components/layout/Card'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H1 as BaseH1, H2 as BaseH2, H3 } from '../components/text'
@@ -15,10 +14,19 @@ import {
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
 import ContactForm from '../components/form/Contact'
-import Video from '../components/elements/Video'
+import { Video } from '../components/elements'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { blue1, blue5, BLUE3, blue4, BOX_SHADOW, WHITE } from '../styles'
+import {
+  blue1,
+  BLUE2,
+  BLUE3,
+  blue4,
+  blue5,
+  BOX_SHADOW,
+  WHITE,
+  BROWN,
+} from '../styles'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;
@@ -44,7 +52,7 @@ const TitleBackground = styled.span`
   }
 `
 
-const H2 = styled(BaseH2)`
+const H2Header = styled(BaseH2)`
   font-size: 24px;
   font-weight: normal;
   font-style: normal;
@@ -55,9 +63,20 @@ const H2 = styled(BaseH2)`
   text-shadow: 1px -1px 17px ${blue5(0.58)};
 `
 
+const H2 = styled(BaseH2)`
+  font-size: 36px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spa
+`
+
 const HeaderSection = styled(Section)`
   background-color: ${blue4(0.84)};
   padding: 175px 0;
+  height: 100vh;
+  min-height: 700px;
 `
 
 const CurriculumBox = styled.div`
@@ -74,6 +93,11 @@ const CurriculumSection = styled(Section)`
   margin-top: -125px;
 `
 
+const DarkBox = styled.div`
+  background-color: ${BLUE2};
+  border: solid 1px ${BROWN};
+`
+
 const IndexPage = () => (
   <div>
     <HeaderSection top>
@@ -84,12 +108,12 @@ const IndexPage = () => (
               <TitleBackground>Take your dev career further</TitleBackground>
               <TitleBackground>by mastering React</TitleBackground>
             </H1>
-            <H2>
+            <H2Header>
               <TitleBackground>
                 In-person training from experts who were <br /> the first in
                 Europe to teach React
               </TitleBackground>
-            </H2>
+            </H2Header>
           </Col>
         </Row>
       </Grid>
@@ -124,7 +148,6 @@ const IndexPage = () => (
         </CurriculumBox>
       </Grid>
     </CurriculumSection>
-
     <Section>
       <Grid>
         <Row>
@@ -135,17 +158,17 @@ const IndexPage = () => (
           </HideSingleComponentUsingCss>
           <Col md={7}>
             <Row>
-              <Col>
+              <Col lg={11} lgOffset={1}>
                 <H2>What will I get from a ReactJS Academy training?</H2>
               </Col>
             </Row>
             <Row>
               <DisplaySingleComponentUsingCss xs sm>
                 <Col xs={5}>
-                  <ImagePlaceholder width="100%" height="500px" />
+                  <ImagePlaceholder />
                 </Col>
               </DisplaySingleComponentUsingCss>
-              <Col xs={7} md={12}>
+              <Col xs={7} md={12} lg={11} lgOffset={1}>
                 <Ul>
                   <Li>
                     <strong>Build production ready</strong> React apps.
@@ -166,13 +189,17 @@ const IndexPage = () => (
                     <strong>Stay ahead</strong> in modern development.
                   </Li>
                 </Ul>
+                <P>
+                  <Link to="/react-redux-graphql-bootcamp#curriculum">
+                    Checkout the curriculum
+                  </Link>
+                </P>
               </Col>
             </Row>
-            <P align="right">
-              <Link to="/react-redux-graphql-bootcamp#curriculum">
-                Checkout the curriculum
-              </Link>
-            </P>
+          </Col>
+        </Row>
+        <Row>
+          <Col lgOffset={1} lg={10}>
             <AttendeeQuote
               quote="After being a developer for 10 years and with the increasing amount of people coming into tech, I wanted to ensure I stayed ahead of the curve in my skills to make my career further. Simply put, ReactJS Academy gave me that!"
               fullname="Joe Woodley"
@@ -186,15 +213,12 @@ const IndexPage = () => (
     <Section color="lightGrey">
       <Grid>
         <Row>
-          <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
-            </Col>
-          </HideSingleComponentUsingCss>
-          <Col md={7}>
+          <Col md={7} lg={6} lgOffset={1}>
             <Row>
               <Col>
-                <H2>Is this training right for me? Why ReactJS Academy</H2>
+                <H2>
+                  Is this training right for me?<br />Why ReactJS Academy
+                </H2>
               </Col>
             </Row>
             <Row>
@@ -249,37 +273,48 @@ const IndexPage = () => (
               </Col>
             </Row>
           </Col>
+          <HideSingleComponentUsingCss xs sm>
+            <Col md={5}>
+              <ImagePlaceholder width="100%" height="500px" />
+            </Col>
+          </HideSingleComponentUsingCss>
         </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <Row>
-          <Col md={5}>
-            <H2>Developers from all these companies have trusted us</H2>
-            <Row>
-              <Col xs={12} md={6}>
-                <Trainline />
-              </Col>
-              <Col xs={12} md={6}>
-                <Blockchain />
-              </Col>
-              <Col xs={12} md={6} style={{ paddingTop: '55px' }}>
-                <ASOS />
-              </Col>
-              <Col
-                xs={12}
-                md={6}
-                style={{ paddingTop: '35px', paddingBottom: '15px' }}
-              >
-                <ABInBev />
-              </Col>
-            </Row>
-          </Col>
-          <Col md={7}>
-            <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
-          </Col>
-        </Row>
+        <DarkBox>
+          <Row>
+            <Col lg={10} lgOffset={1}>
+              <Row>
+                <Col md={5}>
+                  <H2>Developers from all these companies have trusted us</H2>
+                  <Row>
+                    <Col xs={12} md={6}>
+                      <Trainline />
+                    </Col>
+                    <Col xs={12} md={6}>
+                      <Blockchain />
+                    </Col>
+                    <Col xs={12} md={6} style={{ paddingTop: '55px' }}>
+                      <ASOS />
+                    </Col>
+                    <Col
+                      xs={12}
+                      md={6}
+                      style={{ paddingTop: '35px', paddingBottom: '15px' }}
+                    >
+                      <ABInBev />
+                    </Col>
+                  </Row>
+                </Col>
+                <Col md={7}>
+                  <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </DarkBox>
       </Grid>
     </Section>
     <Section color="lightGrey">
