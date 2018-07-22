@@ -1,25 +1,19 @@
 import React from 'react'
-import withWidth, { SMALL } from 'react-width'
-import styled from 'styled-components'
-import Link from '../../components/navigation/Link'
 import Section from '../../components/layout/Section'
 import Button, { ButtonSecondary } from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import P from '../../components/layout/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
-import { Blockquote, H1, H2, H2Ref, H3, Badge } from '../../components/text'
-import Input from '../../components/form/Input'
+import { H1, H2, H2Ref, H3 } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
-// import AttendedBy from '../../components/training/AttendedBy'
 import { CurriculumPartTime } from '../../components/curriculum'
-import ContactForm from '../../components/form/Contact'
 import Ribbon from '../../components/elements/Ribbon'
 import AttendeeQuote from '../../components/training/AttendeeQuote'
 import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../../components/utils'
-import Video from '../../components/elements/Video'
+import { Card, Video } from '../../components/elements'
 
 const PartTimeLondon = ({ width }) => (
   <div>
@@ -52,7 +46,6 @@ const PartTimeLondon = ({ width }) => (
       </Grid>
     </Section>
     <Section>
-      {/* <AttendedBy /> */}
       <Grid>
         <Row>
           <Col xs={12} md={7}>
@@ -174,11 +167,6 @@ const PartTimeLondon = ({ width }) => (
     <Section>
       <Grid>
         <CurriculumPartTime />
-      </Grid>
-    </Section>
-    <Section>
-      <Grid>
-        <ContactForm />
       </Grid>
     </Section>
   </div>

@@ -136,7 +136,7 @@ const Boocamps = () => (
               </Col>
             </Row>
           </Col>
-          <Col lg={5}>
+          {/* <Col lg={5}>
             <Row>
               <Col xs={5}>
                 <ImagePlaceholder width="100%" />
@@ -150,7 +150,7 @@ const Boocamps = () => (
                 />
               </Col>
             </Row>
-          </Col>
+          </Col> */}
         </Row>
       </Grid>
     </Section>
