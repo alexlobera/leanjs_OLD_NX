@@ -16,14 +16,29 @@ const PhoneMenuItem = styled(Item)`
 
 PhoneMenuItem.displayName = 'PhoneMenuItem'
 
-const PhoneMenu = () => (
-  <Menu>
-    {MenuData.map((item, i) => (
-      <PhoneMenuItem key={i} to={item.to}>
-        {item.text}
-      </PhoneMenuItem>
-    ))}
-  </Menu>
-)
+class PhoneMenu extends React.Component {
+  state = {
+    isOpen: false,
+  }
+
+  closeMenu = () => {
+    this.setState({ isOpen: false })
+  }
+
+  render() {
+    const { isOpen } = this.state
+    const { closeMenu } = this
+
+    return (
+      <Menu isOpen={isOpen}>
+        {MenuData.map((item, i) => (
+          <PhoneMenuItem onClick={closeMenu} key={i} to={item.to}>
+            {item.text}
+          </PhoneMenuItem>
+        ))}
+      </Menu>
+    )
+  }
+}
 
 export default PhoneMenu

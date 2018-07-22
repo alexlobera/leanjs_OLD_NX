@@ -46,7 +46,7 @@ const Footer = () => (
                 </Li>
                 <Li>
                   <Link to="/react-redux-graphql-part-time-course">
-                    Part-time
+                    Part-time course
                   </Link>
                 </Li>
                 <Li>

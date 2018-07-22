@@ -70,7 +70,7 @@ const IndexPage = () => (
           <Col xs={12} sm={4}>
             <LinkButton
               large
-              to="/about-us#private-on-site-corporate-training >>"
+              to="/about-us#corporate-training"
               children="Corporate team training >>"
             />
           </Col>

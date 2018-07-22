@@ -3,16 +3,11 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 //import 'normalize.css'
 import './reset.css'
-import { Provider } from 'rebass'
 import { ThemeProvider, injectGlobal } from 'styled-components'
 
-import rebassTheme, { globalStyles } from './rebass-theme'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
 import './index.css'
-
-// Inject global styles required by Rebass
-injectGlobal(globalStyles)
 
 const gridTheme = {
   flexboxgrid: {
@@ -28,7 +23,7 @@ const gridTheme = {
 
 const Layout = ({ children, data }) => (
   <ThemeProvider theme={gridTheme}>
-    <Provider theme={rebassTheme}>
+    <div>
       <Helmet
         title={data.site.siteMetadata.title}
         meta={[
@@ -39,7 +34,7 @@ const Layout = ({ children, data }) => (
       <Menu />
       {children()}
       <Footer />
-    </Provider>
+    </div>
   </ThemeProvider>
 )
 
