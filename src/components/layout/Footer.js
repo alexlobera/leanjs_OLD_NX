@@ -50,7 +50,7 @@ const Footer = () => (
             <Col md={6}>
               <LinkList>
                 <Li>
-                  <Link>Privacey Policy</Link>
+                  <Link>Privacy Policy</Link>
                 </Li>
               </LinkList>
             </Col>
