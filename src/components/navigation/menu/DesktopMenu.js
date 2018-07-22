@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import Link from '../../navigation/Link'
 import React from 'react'
 import Ul, { Li } from '../../Layout/Ul'
 import MenuData from './Menu.json'

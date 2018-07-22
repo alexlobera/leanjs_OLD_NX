@@ -15,18 +15,13 @@
     "onlyOn": null
   },
   {
-    "to": "/community",
-    "text": "Community",
-    "onlyOn": null
-  },
-  {
     "to": "/about-us",
     "text": "About us",
     "onlyOn": null
   },
   {
-    "to": "/contact",
-    "text": "Contact",
+    "to": "mailto:hello@reactjs.academy",
+    "text": "hello@reactjs.academy",
     "onlyOn": null
   }
 ]
