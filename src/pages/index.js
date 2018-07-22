@@ -6,14 +6,13 @@ import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H1 as BaseH1, H2 as BaseH2, H3 } from '../components/text'
+import { H2 } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import { Video } from '../components/elements'
 import {
   Trainline,
   ASOS,
@@ -26,85 +25,10 @@ import {
   Telegraph,
 } from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import {
-  blue1,
-  BLUE2,
-  BLUE3,
-  blue4,
-  blue5,
-  BOX_SHADOW,
-  WHITE,
-  BROWN,
-  GREY,
-} from '../styles'
-import {
-  SCREEN_SM_MAX,
-  SCREEN_SM_MIN,
-  SCREEN_XS_MAX,
-} from '../components/utils'
-
-// TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
-const FinancialTimes = styled(DefaultFinancialTimes)`
-  @media (max-width: ${SCREEN_SM_MAX}) {
-    height: 18;
-  }
-`
-const H1 = styled(BaseH1)`
-  font-size: 64px;
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${WHITE};
-  text-shadow: 1px -1px 17px ${BLUE3};
-  @media (max-width: ${SCREEN_SM_MAX}) {
-    font-size: 58px;
-  }
-`
-
-const TitleBackground = styled.span`
-  background-color: ${blue1(0.75)};
-  padding-left: 15px;
-  padding-right: 15px;
-  display: inline-block;
-  &:first-child  {
-    padding-top: 15px;
-  }
-  &:last-child {
-    padding-bottom: 15px;
-  }
-`
-
-const H2Header = styled(BaseH2)`
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${WHITE};
-  text-shadow: 1px -1px 17px ${blue5(0.58)};
-`
-
-const H2 = styled(BaseH2)`
-  font-size: 36px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  margin-bottom: 55px;
-`
-
-const HeaderSection = styled(Section)`
-  background-color: ${blue4(0.84)};
-  min-height: 700px;
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    height: 100vh;
-    padding: 175px 0;
-  }
-`
+import { BOX_SHADOW, WHITE } from '../styles'
+import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
+import Header from '../components/layout/Header'
+import TrustedBy from '../components/training/TrustedBy'
 
 const CurriculumBox = styled.div`
   ${BOX_SHADOW};
@@ -130,22 +54,6 @@ const CurriculumSection = styled(Section)`
   }
 `
 
-const CompaniesBox = styled.div`
-  background-color: ${BLUE2};
-  border: solid 1px ${BROWN};
-  padding: 60px 0 40px 0;
-  h2 {
-    color: ${WHITE};
-  }
-`
-
-const CompanyList = styled(Ul)`
-  overflow: hidden;
-  li {
-    margin-left: 10px;
-  }
-`
-
 const ForYourCompantCallToActionsRow = styled(Row)`
   margin-top: 30px;
   @media (max-width: ${SCREEN_XS_MAX}) {
@@ -158,24 +66,11 @@ const ForYourCompantCallToActionsRow = styled(Row)`
 
 const IndexPage = () => (
   <div>
-    <HeaderSection top>
-      <Grid>
-        <Row>
-          <Col>
-            <H1>
-              <TitleBackground>Take your dev career further</TitleBackground>
-              <TitleBackground>by mastering React</TitleBackground>
-            </H1>
-            <H2Header>
-              <TitleBackground>
-                In-person training from experts who were <br /> the first in
-                Europe to teach React
-              </TitleBackground>
-            </H2Header>
-          </Col>
-        </Row>
-      </Grid>
-    </HeaderSection>
+    <Header
+      titleLines={['Take your dev career further', 'by mastering React']}
+      subtitle="In-person training from experts who were <br /> the first in
+      Europe to teach React"
+    />
     <CurriculumSection>
       <Grid>
         <CallToActionRow>
@@ -268,6 +163,7 @@ const IndexPage = () => (
               fullname="Joe Woodley"
               job="Senior Front-end developer"
               company="ASOS.com"
+              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
             />
           </Col>
         </Row>
@@ -345,58 +241,7 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-    <Section>
-      <Grid>
-        <CompaniesBox>
-          <Row>
-            <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Developers from all these companies have trusted us</H2>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6} lg={5} lgOffset={1}>
-              <CompanyList inline>
-                <Li>
-                  <ASOS colour={GREY} height={35} />
-                </Li>
-                <Li>
-                  <Blockchain colour={GREY} height={30} />
-                </Li>
-                <Li>
-                  <Capgemini colour={GREY} secColour={GREY} height={47} />
-                </Li>
-                <Li>
-                  <JohnLewis colour={GREY} height={35} />
-                </Li>
-                <Li>
-                  <FinancialTimes colour={GREY} height={30} />
-                </Li>
-                <Li>
-                  <SainBurys colour={GREY} height={35} />
-                </Li>
-                <Li>
-                  <Tesco
-                    colour={GREY}
-                    secColour={GREY}
-                    stroke={GREY}
-                    height={40}
-                  />
-                </Li>
-                <Li>
-                  <Telegraph colour={GREY} height={40} />
-                </Li>
-                <Li>
-                  <Trainline colour={GREY} height={48} y={5} />
-                </Li>
-              </CompanyList>
-            </Col>
-            <Col md={6} lg={5}>
-              <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
-            </Col>
-          </Row>
-        </CompaniesBox>
-      </Grid>
-    </Section>
+    <TrustedBy />
     <Section color="lightGrey">
       <Grid>
         <Row>
@@ -470,6 +315,7 @@ const IndexPage = () => (
               fullname="Richard Moss"
               job="CTO"
               company="Financial Times"
+              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
             />
           </Col>
         </Row>

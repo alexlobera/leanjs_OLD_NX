@@ -1,133 +1,137 @@
 import React from 'react'
+import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H1, H2, H3, H2Ref } from '../components/text'
-import { CurriculumBootcamp } from '../components/curriculum'
-import AttendedBySection from '../components/training/AttendedBySection'
-import Ul, { Li } from '../components/Layout/Ul'
-import ContactForm from '../components/form/Contact'
+import { H2, H2Ref } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
-import AttendedBy from '../components/training/AttendedBy'
-import Video from '../components/elements/Video'
-import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
+import Ul, { Li } from '../components/layout/Ul'
+import {
+  HideSingleComponentUsingCss,
+  DisplaySingleComponentUsingCss,
+} from '../components/utils'
+import { CurriculumBootcamp } from '../components/curriculum'
+import { BOX_SHADOW, WHITE } from '../styles'
+import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
+import Header from '../components/layout/Header'
+import TrustedBy from '../components/training/TrustedBy'
 
-const Bootcamp = () => (
+const CurriculumBox = styled.div`
+  ${BOX_SHADOW};
+  padding: 80px 0 50px;
+  background-color: ${WHITE};
+`
+const CallToActionRow = styled(Row)`
+  text-align: ${props => (props.left ? 'left' : 'center')};
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    margin-bottom: -25px;
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+`
+
+const CurriculumSection = styled(Section)`
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    margin-top: -125px;
+  }
+`
+
+const ForYourCompantCallToActionsRow = styled(Row)`
+  margin-top: 30px;
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+`
+
+const Boocamps = () => (
   <div>
+    <Header
+      titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
+      subtitle="In 7 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"
+    />
+    <CurriculumSection>
+      <Grid>
+        <CallToActionRow left>
+          <Col xs={12} sm={5} smOffset={1}>
+            <LinkButton
+              cta
+              large
+              to="/react-redux-graphql-bootcamp-london"
+              children="Next bootcamp: 20th August, London >>"
+            />
+          </Col>
+        </CallToActionRow>
+        <CurriculumBox>
+          <CurriculumBootcamp />
+        </CurriculumBox>
+      </Grid>
+    </CurriculumSection>
     <Section color="lightGrey">
       <Grid>
         <Row>
-          <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>1-week React Redux GraphQL Bootcamp</H1>
-            <H2>
-              In 7 days, expert coaches and mentors will work alongside you to
-              master the React ecosystem so you return to work as a React
-              specialist
-            </H2>
-            <P style={{ textAlign: 'center' }}>
-              <LinkButton
-                extraLarge
-                to="/react-redux-graphql-bootcamp-london"
-                children="Next bootcamp: 20th Aug, London"
-              />
-            </P>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
-    {/* <AttendedBySection videoUrl="https://www.youtube.com/embed/yGwmF4AT1Fg" /> */}
-    <Section>
-      {/* <AttendedBy /> */}
-      <Grid>
-        <Row>
-          <Col md={6}>
-            <H2>Developers from all these companies have trusted us</H2>
+          <HideSingleComponentUsingCss xs sm>
+            <Col md={5}>
+              <ImagePlaceholder width="100%" height="500px" />
+            </Col>
+          </HideSingleComponentUsingCss>
+          <Col md={7}>
             <Row>
-              <Col xs={12} md={6}>
-                <Trainline />
+              <Col lg={11} lgOffset={1}>
+                <H2>Is this bootcamp right for me?</H2>
               </Col>
-              <Col xs={12} md={6}>
-                <Blockchain />
-              </Col>
-              <Col xs={12} md={6} style={{ paddingTop: '55px' }}>
-                <ASOS />
-              </Col>
-              <Col
-                xs={12}
-                md={6}
-                style={{ paddingTop: '35px', paddingBottom: '15px' }}
-              >
-                <ABInBev />
+            </Row>
+            <Row>
+              <DisplaySingleComponentUsingCss xs sm>
+                <Col xs={5}>
+                  <ImagePlaceholder />
+                </Col>
+              </DisplaySingleComponentUsingCss>
+              <Col xs={7} md={12} lg={11} lgOffset={1}>
+                <Ul>
+                  <Li>Extremely rapid, intense learning</Li>
+                  <Li>
+                    Ideal for experienced programmers familiar with good
+                    practices. Not for beginners!
+                  </Li>
+                  <Li>
+                    Small classes with mentoring from experts developers &
+                    coaches
+                  </Li>
+                  <Li>
+                    Hands-on project-based training - most of the time you are
+                    coding.
+                  </Li>
+                  <Li>
+                    Join a network of alumni for advice, knowledge and social
+                    fun!
+                  </Li>
+                </Ul>
+                <P>
+                  <LinkButton
+                    cta
+                    large
+                    to="/react-redux-graphql-bootcamp-london"
+                  >
+                    Next bootcamp: August 20th, London
+                  </LinkButton>
+                </P>
               </Col>
             </Row>
           </Col>
-          <Col md={6}>
-            <Video
-              height="315"
-              src="https://www.youtube.com/embed/yvROXLQ1jHg"
-            />
-          </Col>
         </Row>
-        <AttendeeQuote
-          style={{ marginTop: '20px' }}
-          quote="Loved it! I was able to master React is just 7 days with a curriculum that covered everything I need to go back to my job and implement React properly. The trainers were friendly and worked with us one-on-one which really aided my learning."
-          fullname="Alex William"
-          job="Front-end developer"
-          company="Tesco"
-        />
       </Grid>
     </Section>
-    <Section color="lightGrey">
-      <Grid>
-        <H2>Is this bootcamp right for me?</H2>
-        <Row>
-          <Col xs={5}>
-            <ImagePlaceholder width="100%" />
-          </Col>
-          <Col xs={7}>
-            <Ul>
-              <Li>
-                Master React very quickly, get up to speed in{' '}
-                <strong>one week of intense hands-on training</strong>.
-              </Li>
-              <Li>
-                Perfect for <strong>professional developers</strong> who are
-                familiar with good programming practices. This is NOT a
-                learn-to-code bootcamp.
-              </Li>
-              <Li>
-                Learn how to <strong>build production ready</strong> React
-                applications.
-              </Li>
-              <Li>
-                Discuss <strong>real-world projects</strong> to learn best
-                practices for building scalable React applications.
-              </Li>
-              <Li>
-                Our team is expert practicioners working with React every single
-                day - <strong>not just teaching</strong>
-              </Li>
-              <Li>
-                Carefully designed curriculum and teaching material. Our{' '}
-                <strong>team of coaches</strong> have been teaching and
-                improving it since early 2016.
-              </Li>
-            </Ul>
-          </Col>
-        </Row>
-        <P align="center">
-          <a href="#next-bootcamps">Next bootcamps</a>
-        </P>
-      </Grid>
-    </Section>
-    <Section>
-      <Grid>
-        <CurriculumBootcamp />
-      </Grid>
-    </Section>
+    <TrustedBy />
     <Section color="lightGrey">
       <Grid>
         <H2Ref>
@@ -170,12 +174,7 @@ const Bootcamp = () => (
         </Row>
       </Grid>
     </Section>
-    <Section>
-      <Grid>
-        <ContactForm />
-      </Grid>
-    </Section>
   </div>
 )
 
-export default Bootcamp
+export default Boocamps

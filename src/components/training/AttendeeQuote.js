@@ -49,7 +49,14 @@ const Picture = styled(Image)`
   }
 `
 
-const AttendeeQuote = ({ quote, fullname, company, job, ...props }) => (
+const AttendeeQuote = ({
+  quote,
+  fullname,
+  company,
+  job,
+  profilePicUrl,
+  ...props
+}) => (
   <Card {...props}>
     <Text>
       <StyledBlockquote>
@@ -61,7 +68,7 @@ const AttendeeQuote = ({ quote, fullname, company, job, ...props }) => (
         </strong>
       </Profile>
     </Text>
-    <Picture src="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg" />
+    <Picture src={profilePicUrl} />
   </Card>
 )
 
