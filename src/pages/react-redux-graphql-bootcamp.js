@@ -134,14 +134,18 @@ const Boocamps = () => (
     <TrustedBy />
     <Section color="lightGrey">
       <Grid>
-        <H2Ref>
-          Upcoming bootcamps{' '}
-          <a name="next-bootcamps" href="#next-bootcamps">
-            #
-          </a>
-        </H2Ref>
         <Row>
-          <Col md={6}>
+          <Col lg={10} lgOffset={1}>
+            <H2Ref>
+              Upcoming bootcamps{' '}
+              <a name="next-bootcamps" href="#next-bootcamps">
+                #
+              </a>
+            </H2Ref>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={5} lgOffset={1}>
             <Row>
               <Col xs={5}>
                 <ImagePlaceholder width="100%" />
@@ -156,7 +160,7 @@ const Boocamps = () => (
               </Col>
             </Row>
           </Col>
-          <Col md={6}>
+          <Col lg={5}>
             <Row>
               <Col xs={5}>
                 <ImagePlaceholder width="100%" />
