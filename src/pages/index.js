@@ -13,12 +13,10 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import ContactForm from '../components/form/Contact'
 import { Video } from '../components/elements'
 import {
   Trainline,
   ASOS,
-  ABInBev,
   Blockchain,
   JohnLewis,
   Capgemini,
@@ -438,11 +436,6 @@ const IndexPage = () => (
             />
           </Col>
         </Row>
-      </Grid>
-    </Section>
-    <Section>
-      <Grid>
-        <ContactForm />
       </Grid>
     </Section>
   </div>

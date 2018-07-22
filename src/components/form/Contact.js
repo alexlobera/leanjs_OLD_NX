@@ -1,35 +1,61 @@
 import React from 'react'
-import Link from '../navigation/Link'
+import styled from 'styled-components'
+
+import DefaultLink from '../navigation/Link'
 import Button from '../buttons/Button'
-import P from '../layout/P'
-import { H2, H3 } from '../text'
-import Input from './Input'
+import DefaultP from '../layout/P'
+import { H3 as DefaultH3, Label as DefaultLabel } from '../text'
+import DefaultInput from './Input'
 import { Col, Row } from '../layout/Grid'
+import { WHITE } from '../../styles'
+
+const H3 = styled(DefaultH3)`
+  color: ${WHITE};
+`
+const P = styled(DefaultP)`
+  color: ${WHITE};
+`
+const Label = styled(DefaultLabel)`
+  color: ${WHITE};
+`
+const Link = styled(DefaultLink)`
+  color: ${WHITE};
+`
+const Input = styled(DefaultInput)`
+  background-color: ${WHITE};
+`
+
+const Unsubscribe = styled(P)`
+  padding-top: 25px;
+`
 
 const ContactForm = () => (
   <div>
+    <H3>I would like more info and some pre-training learning resources</H3>
+    <P>
+      Enter your email below and we'll email you with our latest training and
+      free learning resources. And no, we don't spam you with anything else, as
+      per our <Link to="/privacy-policy">Privacy Policy</Link>.
+    </P>
     <Row>
-      <Col lg={6}>
-        <H2>I would like more info and some pre-training learning resources</H2>
+      <Col md={8}>
+        <Label for="email">Your email address:</Label>
       </Col>
     </Row>
     <Row>
-      <Col lg={6}>
-        <p>
-          Enter your email below and we'll email you with our latest training
-          and free learning resources. And no, we don't spam you with anything
-          else, as per our <Link to="/privacy-policy">Privacy Policy</Link>.
-        </p>
+      <Col md={8}>
+        <Input name="email" placeholder="name@email.com" />
       </Col>
-      <Col lg={6}>
-        <P>
-          <Input placeholder="Email" />
-        </P>
-        <P>
-          <Button children="Submit email" />
-        </P>
+      <Col md={4}>
+        <Button children="Submit email" />
       </Col>
     </Row>
+    <Unsubscribe>
+      Looking to unsubscribe? contact us at{' '}
+      <Link to="mailto:unsubscribe@reactjs.academy">
+        unsubscribe@reactjs.academy
+      </Link>
+    </Unsubscribe>
   </div>
 )
 

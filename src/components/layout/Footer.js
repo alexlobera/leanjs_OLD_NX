@@ -1,26 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import ReactJSAcademyLogo from '../logos/ReactJSAcademy'
 import Ul, { Li } from './Ul'
 import Link from '../navigation/Link'
+import { BLUE2, WHITE, BROWN } from '../../styles'
 
 const StyledFooter = styled.footer`
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 12px;
-  border-top: 1px solid #ccc;
+  background-color: ${BLUE2};
+  border: solid 1px ${BROWN};
+  padding: 60px 0 40px 0;
+  h2 {
+    color: ${WHITE};
+  }
 `
 
 const Footer = () => (
-  <StyledFooter>
-    <Grid>
+  <Grid>
+    <StyledFooter>
       <Row>
-        <Col xs={6}>
-          <ReactJSAcademyLogo />
+        <Col lg={5} lgOffset={1}>
+          <ContactForm />
         </Col>
-        <Col xs={6} style={{ paddingTop: '15px', textAlign: 'right' }}>
+        <Col lg={4} lgOffset={1}>
+          <ReactJSAcademyLogo />
           <Ul inline>
             <Li>
               <Link>On-site Corporate Training</Link>
@@ -32,8 +37,8 @@ const Footer = () => (
           </Ul>
         </Col>
       </Row>
-    </Grid>
-  </StyledFooter>
+    </StyledFooter>
+  </Grid>
 )
 
 export default Footer
