@@ -20,7 +20,7 @@ import {
   Blockchain,
   JohnLewis,
   Capgemini,
-  FinancialTimes,
+  FinancialTimes as DefaultFinancialTimes,
   SainBurys,
   Tesco,
   Telegraph,
@@ -37,7 +37,14 @@ import {
   BROWN,
   GREY,
 } from '../styles'
+import { SCREEN_SM_MAX } from '../components/utils'
 
+// TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
+const FinancialTimes = styled(DefaultFinancialTimes)`
+  @media (max-width: ${SCREEN_SM_MAX}) {
+    height: 18;
+  }
+`
 const H1 = styled(BaseH1)`
   font-size: 64px;
   font-weight: 900;
@@ -47,6 +54,9 @@ const H1 = styled(BaseH1)`
   letter-spacing: normal;
   color: ${WHITE};
   text-shadow: 1px -1px 17px ${BLUE3};
+  @media (max-width: ${SCREEN_SM_MAX}) {
+    font-size: 58px;
+  }
 `
 
 const TitleBackground = styled.span`
@@ -114,6 +124,7 @@ const CompaniesBox = styled.div`
 `
 
 const CompanyList = styled(Ul)`
+  overflow: hidden;
   li {
     margin-left: 10px;
   }
