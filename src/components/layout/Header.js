@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
+import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, BLUE3, blue4, blue5, WHITE } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
+import Link from '../navigation/Link'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;
@@ -65,6 +67,16 @@ const Header = ({ titleLines = [], subtitle, links = [] }) => (
           <H2Header>
             <TitleBackground dangerouslySetInnerHTML={{ __html: subtitle }} />
           </H2Header>
+          {/* {links && links.length ? (
+                        <Ul inline>
+                            {links.map((link, index) => (
+                                <Li>
+                                    <Link to={link.to}>{link.text}</Link>
+                                </Li>
+                            ))}
+                        </Ul>
+                    ) : ''
+                    } */}
         </Col>
       </Row>
     </Grid>
