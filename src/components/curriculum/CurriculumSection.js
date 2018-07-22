@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { H2, H3 } from '../text'
+import { H3, H4 } from '../text'
 import Ul, { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
 import { BLUE2 } from '../../styles'
@@ -33,8 +33,8 @@ class CurriculumSection extends React.Component {
 
     return (
       <Section>
-        {title ? <H2>{title}</H2> : ''}
-        {subTitle ? <H3>{subTitle}</H3> : ''}
+        {title ? <H3>{title}</H3> : ''}
+        {subTitle ? <H4>{subTitle}</H4> : ''}
         {isOpen ? (
           <CurriculumSubSection>
             <Ul>{children}</Ul>
