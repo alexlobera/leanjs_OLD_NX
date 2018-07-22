@@ -37,7 +37,11 @@ import {
   BROWN,
   GREY,
 } from '../styles'
-import { SCREEN_SM_MAX } from '../components/utils'
+import {
+  SCREEN_SM_MAX,
+  SCREEN_SM_MIN,
+  SCREEN_XS_MAX,
+} from '../components/utils'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
 const FinancialTimes = styled(DefaultFinancialTimes)`
@@ -95,9 +99,11 @@ const H2 = styled(BaseH2)`
 
 const HeaderSection = styled(Section)`
   background-color: ${blue4(0.84)};
-  padding: 175px 0;
-  height: 100vh;
   min-height: 700px;
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    height: 100vh;
+    padding: 175px 0;
+  }
 `
 
 const CurriculumBox = styled.div`
@@ -106,12 +112,22 @@ const CurriculumBox = styled.div`
   background-color: ${WHITE};
 `
 const CallToActionRow = styled(Row)`
-  margin-bottom: -25px;
   text-align: center;
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    margin-bottom: -25px;
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
 `
 
 const CurriculumSection = styled(Section)`
-  margin-top: -125px;
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    margin-top: -125px;
+  }
 `
 
 const CompaniesBox = styled.div`
@@ -127,6 +143,16 @@ const CompanyList = styled(Ul)`
   overflow: hidden;
   li {
     margin-left: 10px;
+  }
+`
+
+const ForYourCompantCallToActionsRow = styled(Row)`
+  margin-top: 30px;
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    a {
+      display: block;
+      margin: 5px 0;
+    }
   }
 `
 
@@ -411,7 +437,7 @@ const IndexPage = () => (
                 Checkout the curriculum
               </Link>
             </P>
-            <Row style={{ marginTop: '30px' }}>
+            <ForYourCompantCallToActionsRow>
               <Col xs={12} sm={4}>
                 <LinkButton
                   to="/about-us#private-on-site-corporate-training"
@@ -430,7 +456,7 @@ const IndexPage = () => (
                   children="1-week bootcamp"
                 />
               </Col>
-            </Row>
+            </ForYourCompantCallToActionsRow>
           </Col>
         </Row>
       </Grid>
