@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import Section from '../components/layout/Section'
+import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref } from '../components/text'
-import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import {
   HideSingleComponentUsingCss,
@@ -36,30 +34,13 @@ const CallToActionRow = styled(Row)`
     }
   }
 `
-
-const CurriculumSection = styled(Section)`
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    margin-top: -125px;
-  }
-`
-
-const ForYourCompantCallToActionsRow = styled(Row)`
-  margin-top: 30px;
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-`
-
 const Boocamps = () => (
   <div>
     <Header
       titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
       subtitle="In 7 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"
     />
-    <CurriculumSection>
+    <TopSection>
       <Grid>
         <CallToActionRow left>
           <Col xs={12} sm={5} smOffset={1}>
@@ -75,7 +56,7 @@ const Boocamps = () => (
           <CurriculumBootcamp />
         </CurriculumBox>
       </Grid>
-    </CurriculumSection>
+    </TopSection>
     <Section color="lightGrey">
       <Grid>
         <Row>
