@@ -5,16 +5,27 @@ import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import ReactJSAcademyLogo from '../logos/ReactJSAcademy'
 import Ul, { Li } from './Ul'
-import Link from '../navigation/Link'
+import DefaultLink from '../navigation/Link'
 import { BLUE2, WHITE, BROWN } from '../../styles'
 
 const StyledFooter = styled.footer`
   background-color: ${BLUE2};
   border: solid 1px ${BROWN};
   padding: 60px 0 40px 0;
+  color: ${WHITE};
   h2 {
     color: ${WHITE};
   }
+`
+
+const Link = styled(DefaultLink)`
+  color: ${WHITE};
+`
+
+const LinkList = styled(Ul)`
+  padding-left: 0;
+  list-style: none;
+  margin-left: 0;
 `
 
 const Footer = () => (
@@ -25,16 +36,35 @@ const Footer = () => (
           <ContactForm />
         </Col>
         <Col lg={4} lgOffset={1}>
-          <ReactJSAcademyLogo />
-          <Ul inline>
-            <Li>
-              <Link>On-site Corporate Training</Link>
-            </Li>
-            <Li>
-              <Link>Sponsors & Partners</Link>
-            </Li>
-            <Li>Copyright 2018</Li>
-          </Ul>
+          <Row>
+            <Col md={6}>
+              <LinkList>
+                <Li>
+                  <Link>Corporate Training</Link>
+                </Li>
+                <Li>
+                  <Link>Sponsors & Partners</Link>
+                </Li>
+              </LinkList>
+            </Col>
+            <Col md={6}>
+              <LinkList>
+                <Li>
+                  <Link>Privacey Policy</Link>
+                </Li>
+              </LinkList>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col md={6}>
+              Copyright &copy; 2018, ReactJS Academy is a{' '}
+              <Link to="https://leanjs.com">LeanJS</Link> product
+            </Col>
+            <Col md={6}>
+              <ReactJSAcademyLogo />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </StyledFooter>

@@ -1,6 +1,7 @@
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import styled from 'styled-components'
+import { FONT_FAMILY } from '../../styles'
 
 const ANCHOR_STYLE = `
     cursor: pointer;
@@ -8,7 +9,7 @@ const ANCHOR_STYLE = `
     text-decoration: underline;
 `
 const BasicLink = styled.a`
-  ${ANCHOR_STYLE};
+  ${ANCHOR_STYLE} ${FONT_FAMILY};
 `
 
 const RouterLink = styled(GatsbyLink)`
