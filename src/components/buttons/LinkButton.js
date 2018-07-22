@@ -24,4 +24,5 @@ export default styled(Link)`
   text-align: center;
   color: #ffffff;
   padding: 1em;
+  display:inline-block;
 `

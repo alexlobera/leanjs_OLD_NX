@@ -1,6 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
+import { LinkButton } from '../buttons'
 import { H1Ref, H2, H3 } from '../text'
 import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -88,6 +87,13 @@ const CurriculumBootcamp = () => (
           in teams from scratch"
           />
         </Section>
+      </Col>
+    </Row>
+    <Row>
+      <Col style={{ paddingTop: '25px;' }} xs={12} md={12} lg={10} lgOffset={1}>
+        <LinkButton large to="/curriculum">
+          Full curriculum>>
+        </LinkButton>
       </Col>
     </Row>
   </div>

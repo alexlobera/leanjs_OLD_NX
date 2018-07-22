@@ -99,7 +99,7 @@ const CurriculumBox = styled.div`
   background-color: ${WHITE};
 `
 const CallToActionRow = styled(Row)`
-  margin-bottom: -15px;
+  margin-bottom: -25px;
   text-align: center;
 `
 
@@ -107,15 +107,16 @@ const CurriculumSection = styled(Section)`
   margin-top: -125px;
 `
 
-const DarkBox = styled.div`
+const CompaniesBox = styled.div`
   background-color: ${BLUE2};
   border: solid 1px ${BROWN};
-  padding: 55px;
+  padding: 60px 0 40px 0;
 `
 
-const CompanyRow = styled(Row)`
-  margin-top: 35px;
-  margin-bottom: 35px;
+const CompanyList = styled(Ul)`
+  li {
+    margin-left: 10px;
+  }
 `
 
 const IndexPage = () => (
@@ -166,9 +167,6 @@ const IndexPage = () => (
         </CallToActionRow>
         <CurriculumBox>
           <CurriculumBootcamp />
-          <LinkButton large to="/curriculum">
-            Full curriculum>>
-          </LinkButton>
         </CurriculumBox>
       </Grid>
     </CurriculumSection>
@@ -308,66 +306,54 @@ const IndexPage = () => (
     </Section>
     <Section>
       <Grid>
-        <Row>
-          <Col xs={12}>
-            <DarkBox>
-              <Row>
-                <Col xs={12}>
-                  <H2>Developers from all these companies have trusted us</H2>
-                </Col>
-              </Row>
-              <Row>
-                <Col md={6}>
-                  <CompanyRow>
-                    <Col xs={12} md={5}>
-                      <ASOS colour={GREY} height={35} />
-                    </Col>
-                    <Col xs={12} md={7}>
-                      <Blockchain colour={GREY} />
-                    </Col>
-                  </CompanyRow>
-                  <CompanyRow>
-                    <Col xs={12} md={6}>
-                      <Capgemini colour={GREY} secColour={GREY} height={47} />
-                    </Col>
-                    <Col xs={12} md={6}>
-                      <JohnLewis colour={GREY} height={47} />
-                    </Col>
-                  </CompanyRow>
-                  <CompanyRow>
-                    <Col xs={12}>
-                      <FinancialTimes colour={GREY} height={30} />
-                    </Col>
-                  </CompanyRow>
-                  <CompanyRow>
-                    <Col xs={12} md={6}>
-                      <SainBurys colour={GREY} height={35} />
-                    </Col>
-                    <Col xs={12} md={6}>
-                      <Tesco
-                        colour={GREY}
-                        secColour={GREY}
-                        stroke={GREY}
-                        height={40}
-                      />
-                    </Col>
-                  </CompanyRow>
-                  <CompanyRow>
-                    <Col xs={12} md={6}>
-                      <Telegraph colour={GREY} height={40} />
-                    </Col>
-                    <Col xs={12} md={6}>
-                      <Trainline colour={GREY} height={55} y={17} />
-                    </Col>
-                  </CompanyRow>
-                </Col>
-                <Col md={6}>
-                  <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
-                </Col>
-              </Row>
-            </DarkBox>
-          </Col>
-        </Row>
+        <CompaniesBox>
+          <Row>
+            <Col xs={12} lg={10} lgOffset={1}>
+              <H2>Developers from all these companies have trusted us</H2>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} lg={5} lgOffset={1}>
+              <CompanyList inline>
+                <Li>
+                  <ASOS colour={GREY} height={35} />
+                </Li>
+                <Li>
+                  <Blockchain colour={GREY} height={30} />
+                </Li>
+                <Li>
+                  <Capgemini colour={GREY} secColour={GREY} height={47} />
+                </Li>
+                <Li>
+                  <JohnLewis colour={GREY} height={35} />
+                </Li>
+                <Li>
+                  <FinancialTimes colour={GREY} height={30} />
+                </Li>
+                <Li>
+                  <SainBurys colour={GREY} height={35} />
+                </Li>
+                <Li>
+                  <Tesco
+                    colour={GREY}
+                    secColour={GREY}
+                    stroke={GREY}
+                    height={40}
+                  />
+                </Li>
+                <Li>
+                  <Telegraph colour={GREY} height={40} />
+                </Li>
+                <Li>
+                  <Trainline colour={GREY} height={48} y={5} />
+                </Li>
+              </CompanyList>
+            </Col>
+            <Col md={6} lg={5}>
+              <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
+            </Col>
+          </Row>
+        </CompaniesBox>
       </Grid>
     </Section>
     <Section color="lightGrey">
@@ -434,7 +420,6 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
