@@ -1,15 +1,17 @@
 import React from 'react'
 import withWidth, { SMALL } from 'react-width'
 import styled from 'styled-components'
-import Section, { TopSection } from '../../components/layout/Section'
+import Section, {
+  TopSection,
+  TopSectionBox,
+} from '../../components/layout/Section'
 import Button, { ButtonSecondary } from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import Card from '../../components/layout/Card'
 import P from '../../components/layout/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
-import { Blockquote, H1, H2, H2Ref, H3, Badge } from '../../components/text'
+import { H2, H2Ref, H3 } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
-import AttendedBy from '../../components/training/AttendedBy'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import ContactForm from '../../components/form/Contact'
 import Ribbon from '../../components/elements/Ribbon'
@@ -20,7 +22,7 @@ import {
 } from '../../components/utils'
 import Video from '../../components/elements/Video'
 import Header from '../../components/layout/Header'
-import TrustedBy from '../../components/training/TrustedBy'
+import { TrustedByLogoList } from '../../components/training/TrustedBy'
 
 const BootcampLondon = ({ width }) => (
   <div>
@@ -34,7 +36,18 @@ const BootcampLondon = ({ width }) => (
       ]}
     />
     <TopSection>
-      <AttendedBy />
+      <Grid>
+        <TopSectionBox style={{ paddingTop: '35px' }}>
+          <Row>
+            <Col xs={12} lg={10} lgOffset={1}>
+              <H2>Developers from all these companies have trusted us...</H2>
+              <TrustedByLogoList />
+            </Col>
+          </Row>
+        </TopSectionBox>
+      </Grid>
+    </TopSection>
+    <Section>
       <Grid>
         <Row>
           <Col xs={12} md={7}>
@@ -86,7 +99,7 @@ const BootcampLondon = ({ width }) => (
           </Col>
         </Row>
       </Grid>
-    </TopSection>
+    </Section>
     <Section color="lightGrey">
       <Grid>
         <Row>

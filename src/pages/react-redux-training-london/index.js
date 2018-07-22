@@ -11,7 +11,7 @@ import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H2Ref, H3, Badge } from '../../components/text'
 import Input from '../../components/form/Input'
 import Ul, { Li } from '../../components/Layout/Ul'
-import AttendedBy from '../../components/training/AttendedBy'
+// import AttendedBy from '../../components/training/AttendedBy'
 import { CurriculumPartTime } from '../../components/curriculum'
 import ContactForm from '../../components/form/Contact'
 import Ribbon from '../../components/elements/Ribbon'
@@ -53,7 +53,7 @@ const PartTimeLondon = ({ width }) => (
       </Grid>
     </Section>
     <Section>
-      <AttendedBy />
+      {/* <AttendedBy /> */}
       <Grid>
         <Row>
           <Col xs={12} md={7}>

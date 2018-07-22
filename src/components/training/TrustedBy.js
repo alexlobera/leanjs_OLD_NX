@@ -41,6 +41,37 @@ const CompanyList = styled(Ul)`
     margin-left: 10px;
   }
 `
+export const TrustedByLogoList = () => (
+  <CompanyList inline>
+    <Li>
+      <ASOS colour={GREY} height={35} />
+    </Li>
+    <Li>
+      <Blockchain colour={GREY} height={30} />
+    </Li>
+    <Li>
+      <Capgemini colour={GREY} secColour={GREY} height={47} />
+    </Li>
+    <Li>
+      <JohnLewis colour={GREY} height={35} />
+    </Li>
+    <Li>
+      <FinancialTimes colour={GREY} height={30} />
+    </Li>
+    <Li>
+      <SainBurys colour={GREY} height={35} />
+    </Li>
+    <Li>
+      <Tesco colour={GREY} secColour={GREY} stroke={GREY} height={40} />
+    </Li>
+    <Li>
+      <Telegraph colour={GREY} height={40} />
+    </Li>
+    <Li>
+      <Trainline colour={GREY} height={48} y={5} />
+    </Li>
+  </CompanyList>
+)
 
 const TrustedBy = () => (
   <Section>
@@ -53,40 +84,7 @@ const TrustedBy = () => (
         </Row>
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
-            <CompanyList inline>
-              <Li>
-                <ASOS colour={GREY} height={35} />
-              </Li>
-              <Li>
-                <Blockchain colour={GREY} height={30} />
-              </Li>
-              <Li>
-                <Capgemini colour={GREY} secColour={GREY} height={47} />
-              </Li>
-              <Li>
-                <JohnLewis colour={GREY} height={35} />
-              </Li>
-              <Li>
-                <FinancialTimes colour={GREY} height={30} />
-              </Li>
-              <Li>
-                <SainBurys colour={GREY} height={35} />
-              </Li>
-              <Li>
-                <Tesco
-                  colour={GREY}
-                  secColour={GREY}
-                  stroke={GREY}
-                  height={40}
-                />
-              </Li>
-              <Li>
-                <Telegraph colour={GREY} height={40} />
-              </Li>
-              <Li>
-                <Trainline colour={GREY} height={48} y={5} />
-              </Li>
-            </CompanyList>
+            <TrustedByLogoList />
           </Col>
           <Col md={6} lg={5}>
             <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />

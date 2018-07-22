@@ -2,7 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import Section, { TopSection } from '../components/layout/Section'
+import Section, {
+  TopSection,
+  TopSectionBox,
+} from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
@@ -14,16 +17,10 @@ import {
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { BOX_SHADOW, WHITE } from '../styles'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import TrustedBy from '../components/training/TrustedBy'
 
-const CurriculumBox = styled.div`
-  ${BOX_SHADOW};
-  padding: 80px 0 50px;
-  background-color: ${WHITE};
-`
 const CallToActionRow = styled(Row)`
   text-align: center;
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -80,9 +77,9 @@ const IndexPage = () => (
             />
           </Col>
         </CallToActionRow>
-        <CurriculumBox>
+        <TopSectionBox>
           <CurriculumBootcamp />
-        </CurriculumBox>
+        </TopSectionBox>
       </Grid>
     </TopSection>
     <Section color="lightGrey">
