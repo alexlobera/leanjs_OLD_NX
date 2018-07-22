@@ -90,7 +90,7 @@ const CurriculumBootcamp = () => (
     </Row>
     <Row>
       <Col style={{ paddingTop: '25px;' }} xs={12} md={12} lg={10} lgOffset={1}>
-        <LinkButton large to="/curriculum">
+        <LinkButton secondary to="/curriculum">
           Full curriculum>>
         </LinkButton>
       </Col>
