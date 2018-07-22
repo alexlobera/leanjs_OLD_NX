@@ -39,6 +39,20 @@ const Footer = () => (
             <Col md={6}>
               <LinkList>
                 <Li>
+                  <Link to="/curriculum">Curriculum</Link>
+                </Li>
+                <Li>
+                  <Link to="/react-redux-graphql-bootcamp">Bootcamp</Link>
+                </Li>
+                <Li>
+                  <Link to="/react-redux-graphql-part-time-course">
+                    Part-time
+                  </Link>
+                </Li>
+                <Li>
+                  <Link to="/about-us">About us</Link>
+                </Li>
+                <Li>
                   <Link to="/about-us#corporate-training">
                     Corporate Training
                   </Link>
@@ -51,10 +65,18 @@ const Footer = () => (
             <Col md={6}>
               <LinkList>
                 <Li>
-                  <Link>Privacy Policy</Link>
+                  <Link to="/privacy-policy">Privacy Policy</Link>
                 </Li>
                 <Li>
-                  <Link to="terms-of-service">Terms of service</Link>
+                  <Link to="/terms-of-service">Terms of service</Link>
+                </Li>
+                <Li>
+                  <Link
+                    style={{ fontSize: '17px' }}
+                    to="mailto:hello@reactjs.academy"
+                  >
+                    hello@reactjs.academy
+                  </Link>
                 </Li>
               </LinkList>
             </Col>
