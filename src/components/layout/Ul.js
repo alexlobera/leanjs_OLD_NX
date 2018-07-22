@@ -6,6 +6,7 @@ const Ul = styled.ul`
     props.inline
       ? `
     margin: 0;
+    padding: 0;
     > li {
         display: inline-block;
         padding: 8px;

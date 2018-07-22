@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const SCREEN_XS_MAX = '767px'
-const SCREEN_SM_MIN = '768px'
-const SCREEN_SM_MAX = '991px'
-const SCREEN_MD_MIN = '992px'
-const SCREEN_MD_MAX = '1199px'
-const SCREEN_LG_MIN = '1200px'
+export const SCREEN_XS_MAX = '767px'
+export const SCREEN_SM_MIN = '768px'
+export const SCREEN_SM_MAX = '991px'
+export const SCREEN_MD_MIN = '992px'
+export const SCREEN_MD_MAX = '1199px'
+export const SCREEN_LG_MIN = '1200px'
 
 const UseThisInGatsby2WithReact163ToHidDisplayMultipleComponents = ({
   children,

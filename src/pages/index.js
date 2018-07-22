@@ -82,7 +82,6 @@ const H2 = styled(BaseH2)`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  color: ${WHITE};
   margin-bottom: 55px;
 `
 
@@ -111,6 +110,9 @@ const CompaniesBox = styled.div`
   background-color: ${BLUE2};
   border: solid 1px ${BROWN};
   padding: 60px 0 40px 0;
+  h2 {
+    color: ${WHITE};
+  }
 `
 
 const CompanyList = styled(Ul)`
@@ -170,7 +172,7 @@ const IndexPage = () => (
         </CurriculumBox>
       </Grid>
     </CurriculumSection>
-    <Section>
+    <Section color="lightGrey">
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>
@@ -220,6 +222,10 @@ const IndexPage = () => (
             </Row>
           </Col>
         </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
         <Row>
           <Col lgOffset={1} lg={10}>
             <AttendeeQuote

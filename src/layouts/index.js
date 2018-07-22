@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-// import 'normalize.css'
+//import 'normalize.css'
 import './reset.css'
 import { Provider } from 'rebass'
 import { ThemeProvider, injectGlobal } from 'styled-components'

@@ -20,6 +20,8 @@ export const BROWN = '#979797'
 
 export const GREY = '#c4c4c4'
 
+export const GREY2 = '#4a4a4a'
+
 export const WHITE = '#fff'
 
 export const CALLTOACTIONRED = '#be6045'
