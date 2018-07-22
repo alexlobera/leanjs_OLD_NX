@@ -1,17 +1,17 @@
 import React from 'react'
 import withWidth, { SMALL } from 'react-width'
 import styled from 'styled-components'
-import Link from '../../components/navigation/Link'
-import Section from '../../components/layout/Section'
+import Section, {
+  TopSection,
+  TopSectionBox,
+} from '../../components/layout/Section'
 import Button, { ButtonSecondary } from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import Card from '../../components/layout/Card'
 import P from '../../components/layout/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
-import { Blockquote, H1, H2, H2Ref, H3, Badge } from '../../components/text'
-import Input from '../../components/form/Input'
+import { H2, H2Ref, H3 } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
-import AttendedBy from '../../components/training/AttendedBy'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import ContactForm from '../../components/form/Contact'
 import Ribbon from '../../components/elements/Ribbon'
@@ -21,39 +21,33 @@ import {
   DisplaySingleComponentUsingCss,
 } from '../../components/utils'
 import Video from '../../components/elements/Video'
+import Header from '../../components/layout/Header'
+import { TrustedByLogoList } from '../../components/training/TrustedBy'
 
 const BootcampLondon = ({ width }) => (
   <div>
-    <Section color="lightGrey">
+    <Header
+      titleLines={['React Redux GraphQL Bootcamp', '20-25 Aug, 2018 - London']}
+      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      links={[
+        { text: 'Pricing', to: '#pricing' },
+        { text: 'Curriculum', to: '#curriculum' },
+        { text: 'Is it right for me?', to: '#target-audience' },
+      ]}
+    />
+    <TopSection>
       <Grid>
-        <Row>
-          <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>Master React, Redux, GraphQL in London in a week</H1>
-            <H2>20-25 August, 2018</H2>
-            <Ul inline>
-              <Li>
-                <Link to="#pricing">Pricing</Link>
-              </Li>
-              <Li>|</Li>
-              <Li>
-                <Link to="#curriculum">Curriculum</Link>
-              </Li>
-              <Li>|</Li>
-              <Li>
-                <Link to="#target-audience">Is it right for me</Link>
-              </Li>
-            </Ul>
-            <H3>
-              Take your dev career to the next level by mastering the React
-              ecosystem - in only 7 days!
-            </H3>
-            <p>Training for professional developers</p>
-          </Col>
-        </Row>
+        <TopSectionBox style={{ paddingTop: '35px' }}>
+          <Row>
+            <Col xs={12} lg={10} lgOffset={1}>
+              <H2>Developers from all these companies have trusted us...</H2>
+              <TrustedByLogoList />
+            </Col>
+          </Row>
+        </TopSectionBox>
       </Grid>
-    </Section>
+    </TopSection>
     <Section>
-      <AttendedBy />
       <Grid>
         <Row>
           <Col xs={12} md={7}>

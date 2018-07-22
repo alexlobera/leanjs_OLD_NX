@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import Section from '../components/layout/Section'
+import Section, {
+  TopSection,
+  TopSectionBox,
+} from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref } from '../components/text'
-import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import {
   HideSingleComponentUsingCss,
@@ -19,11 +20,6 @@ import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import TrustedBy from '../components/training/TrustedBy'
 
-const CurriculumBox = styled.div`
-  ${BOX_SHADOW};
-  padding: 80px 0 50px;
-  background-color: ${WHITE};
-`
 const CallToActionRow = styled(Row)`
   text-align: ${props => (props.left ? 'left' : 'center')};
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -36,30 +32,13 @@ const CallToActionRow = styled(Row)`
     }
   }
 `
-
-const CurriculumSection = styled(Section)`
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    margin-top: -125px;
-  }
-`
-
-const ForYourCompantCallToActionsRow = styled(Row)`
-  margin-top: 30px;
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-`
-
 const Boocamps = () => (
   <div>
     <Header
       titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
       subtitle="In 7 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"
     />
-    <CurriculumSection>
+    <TopSection>
       <Grid>
         <CallToActionRow left>
           <Col xs={12} sm={5} smOffset={1}>
@@ -71,11 +50,11 @@ const Boocamps = () => (
             />
           </Col>
         </CallToActionRow>
-        <CurriculumBox>
+        <TopSectionBox>
           <CurriculumBootcamp />
-        </CurriculumBox>
+        </TopSectionBox>
       </Grid>
-    </CurriculumSection>
+    </TopSection>
     <Section color="lightGrey">
       <Grid>
         <Row>
@@ -134,14 +113,18 @@ const Boocamps = () => (
     <TrustedBy />
     <Section color="lightGrey">
       <Grid>
-        <H2Ref>
-          Upcoming bootcamps{' '}
-          <a name="next-bootcamps" href="#next-bootcamps">
-            #
-          </a>
-        </H2Ref>
         <Row>
-          <Col md={6}>
+          <Col lg={10} lgOffset={1}>
+            <H2Ref>
+              Upcoming bootcamps{' '}
+              <a name="next-bootcamps" href="#next-bootcamps">
+                #
+              </a>
+            </H2Ref>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={5} lgOffset={1}>
             <Row>
               <Col xs={5}>
                 <ImagePlaceholder width="100%" />
@@ -156,7 +139,7 @@ const Boocamps = () => (
               </Col>
             </Row>
           </Col>
-          <Col md={6}>
+          <Col lg={5}>
             <Row>
               <Col xs={5}>
                 <ImagePlaceholder width="100%" />

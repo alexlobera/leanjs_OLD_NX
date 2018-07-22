@@ -2,7 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import Section from '../components/layout/Section'
+import Section, {
+  TopSection,
+  TopSectionBox,
+} from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
@@ -13,28 +16,11 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import {
-  Trainline,
-  ASOS,
-  Blockchain,
-  JohnLewis,
-  Capgemini,
-  FinancialTimes as DefaultFinancialTimes,
-  SainBurys,
-  Tesco,
-  Telegraph,
-} from '../components/logos'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { BOX_SHADOW, WHITE } from '../styles'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import TrustedBy from '../components/training/TrustedBy'
 
-const CurriculumBox = styled.div`
-  ${BOX_SHADOW};
-  padding: 80px 0 50px;
-  background-color: ${WHITE};
-`
 const CallToActionRow = styled(Row)`
   text-align: center;
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -45,12 +31,6 @@ const CallToActionRow = styled(Row)`
       display: block;
       margin: 5px 0;
     }
-  }
-`
-
-const CurriculumSection = styled(Section)`
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    margin-top: -125px;
   }
 `
 
@@ -71,7 +51,7 @@ const IndexPage = () => (
       subtitle="In-person training from experts who were <br /> the first in
       Europe to teach React"
     />
-    <CurriculumSection>
+    <TopSection>
       <Grid>
         <CallToActionRow>
           <Col xs={12} sm={4}>
@@ -97,11 +77,11 @@ const IndexPage = () => (
             />
           </Col>
         </CallToActionRow>
-        <CurriculumBox>
+        <TopSectionBox>
           <CurriculumBootcamp />
-        </CurriculumBox>
+        </TopSectionBox>
       </Grid>
-    </CurriculumSection>
+    </TopSection>
     <Section color="lightGrey">
       <Grid>
         <Row>
