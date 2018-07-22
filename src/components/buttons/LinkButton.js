@@ -35,11 +35,10 @@ export default styled(Link)`
   letter-spacing: ${props => (props.secondary ? '0.8px' : '0.6px')};
   text-align: center;
   color: ${props => (props.secondary ? 'buttontext' : '#ffffff')};
-  width: ${props => props.secondary && '223px'};
-  height: ${props => props.secondary && '58px'};
   border: ${props => props.secondary && 'solid 1px #002938'};
   align-items: flex-start;
   text-align: center;
   cursor: pointer;
   padding: 1em;
+  display: inline-block;
 `
