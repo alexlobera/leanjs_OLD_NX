@@ -13,16 +13,33 @@ export default styled(Link)`
     }
   }}px;
   ${FONT_FAMILY}
-  background-color: ${props => (props.cta ? CALLTOACTIONRED : BLUE2)};
+  background-color: ${props => {
+    if (props.secondary) {
+      return '#ffffff'
+    } else if (props.cta) {
+      return CALLTOACTIONRED
+    } else {
+      return BLUE2
+    }
+  }};
   font-weight: ${props => (props.cta ? 'bold' : '')};
   border-radius: 2px;
-  box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
+  box-shadow: ${props =>
+    props.secondary
+      ? '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)'
+      : '0 18px 29px -2px rgba(0, 0, 0, 0.26)'};
   font-style: normal;
   font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 0.6px;
+  line-height: ${props => (props.secondary ? '1.5' : 'normal')};
+  letter-spacing: ${props => (props.secondary ? '0.8px' : '0.6px')};
   text-align: center;
-  color: #ffffff;
+  color: ${props => (props.secondary ? 'buttontext' : '#ffffff')};
   padding: 1em;
   display:inline-block;
+  width: ${props => (props.secondary ? '223px' : undefined)};
+  height: ${props => (props.secondary ? '58px' : undefined)};
+  border: ${props => (props.secondary ? 'solid 1px #002938' : undefined)};
 `
+
+// font-weight: 500;
+// background-color: #ffffff;

@@ -45,5 +45,4 @@ export const ButtonSecondary = styled(({ extraLarge, large, ...props }) => (
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12);
   background-color: #ffffff;
   border: solid 1px #002938;
-  font-family: Barlow;
 `

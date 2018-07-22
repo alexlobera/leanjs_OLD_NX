@@ -6,4 +6,6 @@ storiesOf('LinkButton', module)
   .add('Mailto', () => (
     <LinkButton to="mailto:asdfa@sadfs.com">Click me</LinkButton>
   ))
-  .add('Secondary', () => <LinkButton secondary />)
+  .add('Secondary', () => (
+    <LinkButton secondary> I'm a secondary button </LinkButton>
+  ))
