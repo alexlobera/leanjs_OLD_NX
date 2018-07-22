@@ -39,17 +39,22 @@ const Footer = () => (
             <Col md={6}>
               <LinkList>
                 <Li>
-                  <Link>Corporate Training</Link>
+                  <Link to="/about-us#corporate-training">
+                    Corporate Training
+                  </Link>
                 </Li>
-                <Li>
-                  <Link>Sponsors & Partners</Link>
-                </Li>
+                {/* <Li>
+                                    <Link>Sponsors & Partners</Link>
+                                </Li> */}
               </LinkList>
             </Col>
             <Col md={6}>
               <LinkList>
                 <Li>
                   <Link>Privacy Policy</Link>
+                </Li>
+                <Li>
+                  <Link to="terms-of-service">Terms of service</Link>
                 </Li>
               </LinkList>
             </Col>

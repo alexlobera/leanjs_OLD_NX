@@ -8,6 +8,7 @@ import { H2, H2Ref, H3 } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import { Ribbon, Card, Video } from '../../components/elements'
+import Link from '../../components/navigation/Link'
 import AttendeeQuote from '../../components/training/AttendeeQuote'
 import {
   HideSingleComponentUsingCss,
@@ -72,6 +73,10 @@ const BootcampLondon = ({ width }) => (
                     Buy now
                   </Button>
                 </H3>
+                <P>
+                  By purchasing a training, you agree to our{' '}
+                  <Link to="terms-of-service">Terms & Conditions</Link>
+                </P>
               </Card>
               <Card small dark border="white" style={{ marginTop: '20px' }}>
                 <H3>
