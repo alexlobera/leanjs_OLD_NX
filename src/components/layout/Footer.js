@@ -10,7 +10,6 @@ import { BLUE2, WHITE, BROWN } from '../../styles'
 
 const StyledFooter = styled.footer`
   background-color: ${BLUE2};
-  border: solid 1px ${BROWN};
   padding: 60px 0 40px 0;
   color: ${WHITE};
   h2 {
@@ -55,7 +54,6 @@ const Footer = () => (
               </LinkList>
             </Col>
           </Row>
-
           <Row>
             <Col md={6}>
               Copyright &copy; 2018, ReactJS Academy is a{' '}
