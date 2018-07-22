@@ -4,7 +4,6 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import Card from '../components/layout/Card'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H1, H2, H2Ref, H3 } from '../components/text'
@@ -14,8 +13,7 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import ContactForm from '../components/form/Contact'
-import Video from '../components/elements/Video'
+import { Card } from '../components/elements'
 import { Blockquote } from '../../node_modules/glamorous'
 
 const AboutUs = () => (
@@ -48,7 +46,7 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid style={{ textAlign: 'center' }}>
         <H2>Our coaches - professional developers who love to teach</H2>
         <H3>
@@ -120,7 +118,7 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <Col xs={12} md={5}>
@@ -198,7 +196,7 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <Col xs={12} md={5}>
@@ -282,7 +280,7 @@ const AboutUs = () => (
       </Grid>
     </Section>
 
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <Col xs={12} md={5}>
@@ -346,7 +344,7 @@ const AboutUs = () => (
                 </Row>
             </Grid>
         </Section>
-        <Section color="lightGrey">
+        <Section>
             <Grid>
                 <Row>
                     <Col xs={12} md={7}>

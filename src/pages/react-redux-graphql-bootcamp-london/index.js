@@ -1,26 +1,18 @@
 import React from 'react'
-import withWidth, { SMALL } from 'react-width'
-import styled from 'styled-components'
-import Section, {
-  TopSection,
-  TopSectionBox,
-} from '../../components/layout/Section'
+import Section, { TopSection } from '../../components/layout/Section'
 import Button, { ButtonSecondary } from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import Card from '../../components/layout/Card'
 import P from '../../components/layout/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref, H3 } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
-import ContactForm from '../../components/form/Contact'
-import Ribbon from '../../components/elements/Ribbon'
+import { Ribbon, Card, Video } from '../../components/elements'
 import AttendeeQuote from '../../components/training/AttendeeQuote'
 import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../../components/utils'
-import Video from '../../components/elements/Video'
 import Header from '../../components/layout/Header'
 import { TrustedByLogoList } from '../../components/training/TrustedBy'
 
@@ -37,70 +29,72 @@ const BootcampLondon = ({ width }) => (
     />
     <TopSection>
       <Grid>
-        <TopSectionBox style={{ paddingTop: '35px' }}>
+        <Card border="shadow" style={{ paddingTop: '35px', marginTop: '26px' }}>
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
               <H2>Developers from all these companies have trusted us...</H2>
               <TrustedByLogoList />
             </Col>
           </Row>
-        </TopSectionBox>
+        </Card>
       </Grid>
     </TopSection>
     <Section>
       <Grid>
-        <Row>
-          <Col xs={12} md={7}>
-            <Video
-              height="415"
-              src="https://www.youtube.com/embed/yvROXLQ1jHg"
-            />
-          </Col>
-          <Col xs={12} md={5}>
-            <H2Ref>
-              Prices{' '}
-              <a href="#pricing" name="pricing">
-                #
-              </a>
-            </H2Ref>
-            <P>
-              Please be aware that the tickets cover the cost of the training,
-              it does not include the cost of the flights and accomodation.
-            </P>
-            <Card>
-              <H3>
-                <strong>Early bird ticket</strong>
-                <Ribbon>Save 24%</Ribbon>
-              </H3>
-              <P>Early bird tickes available until 20th July 2018.</P>
-              <H3>
-                &pound;1740
-                <Button extraLarge style={{ float: 'right' }}>
-                  Buy now
-                </Button>
-              </H3>
-            </Card>
-            <Card style={{ marginTop: '20px' }}>
-              <H3>
-                <strong>Pay by Installments</strong>
-              </H3>
+        <Card dark>
+          <Row>
+            <Col xs={12} md={6} lg={5} lgOffset={1}>
+              <Video
+                height="415"
+                src="https://www.youtube.com/embed/yvROXLQ1jHg"
+              />
+            </Col>
+            <Col xs={12} md={6} lg={5}>
+              <H2Ref>
+                Prices{' '}
+                <a href="#pricing" name="pricing">
+                  #
+                </a>
+              </H2Ref>
               <P>
-                Pay in 3 installments - the first one being 50% of the total
-                cost and the others to follow over 6 months. Contact us and we
-                can talk things through with you.
+                Please be aware that the tickets cover the cost of the training,
+                it does not include the cost of the flights and accomodation.
               </P>
-              <H3>
-                &pound;2160
-                <ButtonSecondary extraLarge style={{ float: 'right' }}>
-                  Contact us
-                </ButtonSecondary>
-              </H3>
-            </Card>
-          </Col>
-        </Row>
+              <Card small>
+                <H3>
+                  <strong>Early bird ticket</strong>
+                  <Ribbon>Save 24%</Ribbon>
+                </H3>
+                <P>Early bird tickes available until 20th July 2018.</P>
+                <H3>
+                  &pound;1740
+                  <Button extraLarge style={{ float: 'right' }}>
+                    Buy now
+                  </Button>
+                </H3>
+              </Card>
+              <Card small dark border="white" style={{ marginTop: '20px' }}>
+                <H3>
+                  <strong>Pay by Installments</strong>
+                </H3>
+                <P>
+                  Pay in 3 installments - the first one being 50% of the total
+                  cost and the others to follow over 6 months. Contact us and we
+                  can talk things through with you.
+                </P>
+                <H3>
+                  &pound;2160
+                  <ButtonSecondary extraLarge style={{ float: 'right' }}>
+                    Contact us
+                  </ButtonSecondary>
+                </H3>
+              </Card>
+            </Col>
+          </Row>
+        </Card>
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>
@@ -108,7 +102,7 @@ const BootcampLondon = ({ width }) => (
               <ImagePlaceholder width="100%" height="500px" />
             </Col>
           </HideSingleComponentUsingCss>
-          <Col md={7}>
+          <Col md={6}>
             <Row>
               <Col>
                 <H2Ref>
@@ -156,24 +150,30 @@ const BootcampLondon = ({ width }) => (
               </a>. PLUS you'll get a &pound;250 discount using our reference
               "ReactJS Academy".
             </P>
-            <AttendeeQuote
-              quote="I enjoyed the bootcamp so much. It was challenging and so rewarding - the mentors were so helpful, making sense of really complex concepts.... Recommended."
-              fullname="Senior Developer"
-              job="Cameron Diaz"
-              company="Spotify"
-            />
           </Col>
         </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <CurriculumBootcamp />
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <AttendeeQuote
+              quote="I enjoyed the bootcamp so much. It was challenging and so rewarding - the mentors were so helpful, making sense of really complex concepts.... Recommended."
+              fullname="Senior Developer"
+              job="Cameron Diaz"
+              company="Spotify"
+              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
+            />
+          </Col>
+        </Row>
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section style={{ paddingBottom: 0 }}>
       <Grid>
-        <ContactForm />
+        <Card white border="shadow">
+          <CurriculumBootcamp />
+        </Card>
       </Grid>
     </Section>
   </div>

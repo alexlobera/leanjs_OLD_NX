@@ -2,10 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import Section, {
-  TopSection,
-  TopSectionBox,
-} from '../components/layout/Section'
+import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
@@ -19,6 +16,7 @@ import {
 import { CurriculumBootcamp } from '../components/curriculum'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
+import { Card } from '../components/elements'
 import TrustedBy from '../components/training/TrustedBy'
 
 const CallToActionRow = styled(Row)`
@@ -77,12 +75,12 @@ const IndexPage = () => (
             />
           </Col>
         </CallToActionRow>
-        <TopSectionBox>
+        <Card border="shadow">
           <CurriculumBootcamp />
-        </TopSectionBox>
+        </Card>
       </Grid>
     </TopSection>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>
@@ -149,7 +147,7 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <Col md={7} lg={6} lgOffset={1}>
@@ -222,7 +220,7 @@ const IndexPage = () => (
       </Grid>
     </Section>
     <TrustedBy />
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>

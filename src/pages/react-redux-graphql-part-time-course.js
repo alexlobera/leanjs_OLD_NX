@@ -3,20 +3,19 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import Card from '../components/layout/Card'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H2Ref, H3 } from '../components/text'
 import Ul, { Li } from '../components/Layout/Ul'
 import ContactForm from '../components/form/Contact'
 import AttendeeQuote from '../components/training/AttendeeQuote'
-import Video from '../components/elements/Video'
+import { Video, Card } from '../components/elements'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumPartTime } from '../components/curriculum'
 
 const PartTime = () => (
   <div>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
@@ -78,7 +77,7 @@ const PartTime = () => (
         />
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <H2>Is this React part-time course right for me?</H2>
         <Row>
@@ -126,7 +125,7 @@ const PartTime = () => (
         <CurriculumPartTime />
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <H2Ref>
           Upcoming React part-time courses{' '}

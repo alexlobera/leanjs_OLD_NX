@@ -5,7 +5,6 @@ import Link from '../../components/navigation/Link'
 import Section from '../../components/layout/Section'
 import Button, { ButtonSecondary } from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import Card from '../../components/layout/Card'
 import P from '../../components/layout/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { Blockquote, H1, H2, H2Ref, H3, Badge } from '../../components/text'
@@ -24,7 +23,7 @@ import Video from '../../components/elements/Video'
 
 const PartTimeLondon = ({ width }) => (
   <div>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
@@ -106,7 +105,7 @@ const PartTimeLondon = ({ width }) => (
         </Row>
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>
@@ -177,7 +176,7 @@ const PartTimeLondon = ({ width }) => (
         <CurriculumPartTime />
       </Grid>
     </Section>
-    <Section color="lightGrey">
+    <Section>
       <Grid>
         <ContactForm />
       </Grid>
