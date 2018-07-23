@@ -17,6 +17,8 @@ import {
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { TrainingItem, TrainingList } from '../components/training'
+import london from '../../img/london.png'
+import lisbon from '../../img/lisbon.png'
 
 const AboutUs = () => (
   <div>
@@ -314,22 +316,30 @@ const AboutUs = () => (
     </Section>
     <Section>
       <Grid>
+        <H2Ref>
+          <Col lg={10} lgOffset={1}>
+            Upcoming Bootcamps{' '}
+            <a name="next-part-time-courses" href="#next-part-time-courses">
+              #
+            </a>
+          </Col>
+        </H2Ref>
         <Row>
           <Col lg={10} lgOffset={1}>
             <TrainingList>
               <TrainingItem
-                location="London, UK"
-                startDate="Oct 2nd to Nov 8th, 2018"
-                name="London part-time"
-                path="/react-redux-training-london"
-                imageSrc="https://reactjs.academy/react-redux-training-london"
+                location="Makers Academy, London"
+                startDate="August 20th to 25th, 2018"
+                name="London bootcamp"
+                path="/react-redux-graphql-bootcamp-london"
+                imageSrc={london}
               />
               <TrainingItem
-                location="London, UK"
-                startDate="Oct 2nd to Nov 8th, 2018"
-                name="London part-time"
-                path="/react-redux-training-london"
-                imageSrc="https://reactjs.academy/react-redux-training-london"
+                location="Lisbon, Portugal"
+                startDate="TBD"
+                name="Lisbon bootcamp"
+                path="/react-redux-graphql-bootcamp-lisbon"
+                imageSrc={lisbon}
               />
             </TrainingList>
           </Col>
