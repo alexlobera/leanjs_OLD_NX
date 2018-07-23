@@ -14,7 +14,7 @@ import {
 import { CurriculumBootcamp } from '../components/curriculum'
 import { SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
-import { Card } from '../components/elements'
+import { Card, Image } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
@@ -93,7 +93,7 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <img src={courseCollab} width="100%" />
+            <Image src={courseCollab} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>What will I get from a ReactJS Academy training?</H2>
@@ -203,7 +203,7 @@ const IndexPage = () => (
           </Col>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5} mdOffset={1}>
-              <img src={whyReactJSAcademy} width="100%" />
+              <Image src={whyReactJSAcademy} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
         </Row>
@@ -214,7 +214,7 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <img src={companyPitch} width="100%" />
+            <Image src={companyPitch} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
