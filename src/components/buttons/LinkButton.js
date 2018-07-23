@@ -38,7 +38,7 @@ const LinkButton = styled(Link)`
   align-items: flex-start;
   text-align: center;
   cursor: pointer;
-  padding: 0.7em;
+  padding: 1.2em;
   display: inline-block;
   text-decoration: none;
 `
