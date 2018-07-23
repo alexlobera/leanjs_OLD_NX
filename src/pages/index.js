@@ -38,11 +38,11 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import london from '..//assets/img/london.png'
-import lisbon from '..//assets/img/lisbon.png'
-import courseCollab from '..//assets/img/courseCollab.png'
-import whyReactJSAcademy from '..//assets/img/whyReactJSAcademy.png'
-import companyPitch from '..//assets/img/companyPitch.png'
+import london from '../assets/img/london.png'
+import lisbon from '../assets/img/lisbon.png'
+import courseCollab from '../assets/img/courseCollab.png'
+import whyReactJSAcademy from '../assets/img/whyReactJSAcademy.png'
+import companyPitch from '../assets/img/companyPitch.png'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
@@ -92,57 +92,42 @@ const IndexPage = () => (
     <Section>
       <Grid>
         <Row>
-          <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
-              <img src={courseCollab} width="100%" />
-            </Col>
-          </HideSingleComponentUsingCss>
-          <Col md={7}>
-            <Row>
-              <Col lg={11} lgOffset={1}>
-                <H2>What will I get from a ReactJS Academy training?</H2>
-              </Col>
-            </Row>
-            <Row>
-              <DisplaySingleComponentUsingCss xs sm>
-                <Col xs={5}>
-                  <img src={courseCollab} width="100%" />
-                </Col>
-              </DisplaySingleComponentUsingCss>
-              <Col xs={7} md={12} lg={11} lgOffset={1}>
-                <Ul unstyled>
-                  <Li>
-                    <BulletIcon icon={ProductionReadyIcon} />
-                    <strong>Build production ready</strong> React apps.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={CollabsIcon} />
-                    Discuss <strong>real-world projects</strong>.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={StarIcon} />
-                    Learn <strong>best practices</strong>.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={TrainerIcon} />
-                    <strong>Mentoring</strong> by our expert coaches.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={HeartIcon} />
-                    Alumni <strong>community</strong>.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={CodeIcon} />
-                    <strong>Stay ahead</strong> in modern development.
-                  </Li>
-                </Ul>
-                <P>
-                  <Link to="/react-redux-graphql-bootcamp#curriculum">
-                    Checkout the curriculum
-                  </Link>
-                </P>
-              </Col>
-            </Row>
+          <Col md={5}>
+            <img src={courseCollab} width="100%" />
+          </Col>
+          <Col md={5} mdOffset={1}>
+            <H2>What will I get from a ReactJS Academy training?</H2>
+            <Ul unstyled>
+              <Li>
+                <BulletIcon icon={ProductionReadyIcon} />
+                <strong>Build production ready</strong> React apps.
+              </Li>
+              <Li>
+                <BulletIcon icon={CollabsIcon} />
+                Discuss <strong>real-world projects</strong>.
+              </Li>
+              <Li>
+                <BulletIcon icon={StarIcon} />
+                Learn <strong>best practices</strong>.
+              </Li>
+              <Li>
+                <BulletIcon icon={TrainerIcon} />
+                <strong>Mentoring</strong> by our expert coaches.
+              </Li>
+              <Li>
+                <BulletIcon icon={HeartIcon} />
+                Alumni <strong>community</strong>.
+              </Li>
+              <Li>
+                <BulletIcon icon={CodeIcon} />
+                <strong>Stay ahead</strong> in modern development.
+              </Li>
+            </Ul>
+            <P>
+              <Link to="/react-redux-graphql-bootcamp#curriculum">
+                Checkout the curriculum
+              </Link>
+            </P>
           </Col>
         </Row>
       </Grid>
@@ -150,7 +135,7 @@ const IndexPage = () => (
     <Section>
       <Grid>
         <Row>
-          <Col lgOffset={1} lg={10}>
+          <Col mdOffset={1} md={10}>
             <AttendeeQuote
               quote="After being a developer for 10 years and with the increasing amount of people coming into tech, I wanted to ensure I stayed ahead of the curve in my skills to make my career further. Simply put, ReactJS Academy gave me that!"
               fullname="Joe Woodley"
@@ -165,65 +150,50 @@ const IndexPage = () => (
     <Section>
       <Grid>
         <Row>
-          <Col md={7} lg={6} lgOffset={1}>
-            <Row>
-              <Col>
-                <H2>
-                  Is this training right for me?<br />Why ReactJS Academy
-                </H2>
-              </Col>
-            </Row>
-            <Row>
-              <DisplaySingleComponentUsingCss xs sm>
-                <Col xs={5}>
-                  <img src={whyReactJSAcademy} width="100%" />
-                </Col>
-              </DisplaySingleComponentUsingCss>
-              <Col xs={7} md={12}>
-                <Ul unstyled>
-                  <Li>
-                    <BulletIcon icon={NotBegginerIcon} />
-                    For working developers - <strong>not for beginners!</strong>
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={SpannerIcon} />
-                    <strong>Hands-on project-based</strong> training.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={CollabsIcon} />
-                    A <strong>collaborative</strong> learning environment.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={TimeIcon} />
-                    <Link to="/react-redux-graphql-bootcamp">
-                      Bootcamps
-                    </Link>{' '}
-                    for accelerated learning.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={CalendarIcon} />
-                    <Link to="/react-redux-graphql-part-time-course">
-                      Part-time courses
-                    </Link>{' '}
-                    for accelerated learning.
-                  </Li>
-                </Ul>
-              </Col>
-            </Row>
+          <Col md={5} mdOffset={1}>
+            <H2>
+              Is this training right for me?<br />Why ReactJS Academy
+            </H2>
+            <Ul unstyled>
+              <Li>
+                <BulletIcon icon={NotBegginerIcon} />
+                For working developers - <strong>not for beginners!</strong>
+              </Li>
+              <Li>
+                <BulletIcon icon={SpannerIcon} />
+                <strong>Hands-on project-based</strong> training.
+              </Li>
+              <Li>
+                <BulletIcon icon={CollabsIcon} />
+                A <strong>collaborative</strong> learning environment.
+              </Li>
+              <Li>
+                <BulletIcon icon={TimeIcon} />
+                <Link to="/react-redux-graphql-bootcamp">Bootcamps</Link> for
+                accelerated learning.
+              </Li>
+              <Li>
+                <BulletIcon icon={CalendarIcon} />
+                <Link to="/react-redux-graphql-part-time-course">
+                  Part-time courses
+                </Link>{' '}
+                for accelerated learning.
+              </Li>
+            </Ul>
             <P>
               <Link to="/react-redux-graphql-bootcamp#curriculum">
                 Checkout the curriculum
               </Link>
             </P>
             <SectionButtonRow>
-              <Col xs={12} md={6}>
+              <Col sm={6}>
                 <LinkButton
                   cta
                   to="/react-redux-graphql-bootcamp"
                   children="1-week bootcamps"
                 />
               </Col>
-              <Col xs={6} md={6}>
+              <Col sm={6}>
                 <LinkButton
                   to="/react-redux-graphql-part-time-course"
                   children="Part-time courses"
@@ -232,7 +202,7 @@ const IndexPage = () => (
             </SectionButtonRow>
           </Col>
           <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
+            <Col md={5} mdOffset={1}>
               <img src={whyReactJSAcademy} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
@@ -243,78 +213,61 @@ const IndexPage = () => (
     <Section>
       <Grid>
         <Row>
-          <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
-              <img src={companyPitch} width="100%" />
-            </Col>
-          </HideSingleComponentUsingCss>
-          <Col md={7}>
-            <Row>
-              <Col lg={10} lgOffset={1}>
-                <H2>
-                  What's in it for your company - Why is ReactJS Academy great
-                  for your team
-                </H2>
+          <Col md={5}>
+            <img src={companyPitch} width="100%" />
+          </Col>
+          <Col md={5} mdOffset={1}>
+            <H2>
+              What's in it for your company - Why is ReactJS Academy great for
+              your team
+            </H2>
+            <Ul unstyled>
+              <Li>
+                <BulletIcon icon={TickBadgeIcon} />
+                Avoid delays and business losses
+              </Li>
+              <Li>
+                <BulletIcon icon={ReactIcon} />
+                Minimize risk of on boarding React
+              </Li>
+              <Li>
+                <BulletIcon icon={EnterMindIcon} />
+                Safe environment for developers to learn
+              </Li>
+              <Li>
+                <BulletIcon icon={HeartIcon} />
+                Increase employee retention, motivation and productivity
+              </Li>
+              <Li>
+                <BulletIcon icon={BussinessIcon} />
+                Offer more services to internal and external clients
+              </Li>
+            </Ul>
+            <P>
+              <Link to="/react-redux-graphql-bootcamp#curriculum">
+                Checkout the curriculum
+              </Link>
+            </P>
+            <SectionButtonRow>
+              <Col md={4}>
+                <LinkButton
+                  to="/about-us#private-on-site-corporate-training"
+                  children="Corporate training"
+                />
               </Col>
-            </Row>
-            <Row>
-              <DisplaySingleComponentUsingCss xs sm>
-                <Col xs={5}>
-                  <img src={companyPitch} width="100%" />
-                </Col>
-              </DisplaySingleComponentUsingCss>
-              <Col xs={7} md={12} lg={10} lgOffset={1}>
-                <Ul unstyled>
-                  <Li>
-                    <BulletIcon icon={TickBadgeIcon} />
-                    Avoid delays and business losses
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={ReactIcon} />
-                    Minimize risk of on boarding React
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={EnterMindIcon} />
-                    Safe environment for developers to learn
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={HeartIcon} />
-                    Increase employee retention, motivation and productivity
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={BussinessIcon} />
-                    Offer more services to internal and external clients
-                  </Li>
-                </Ul>
+              <Col md={4}>
+                <LinkButton
+                  to="/react-redux-graphql-part-time-course"
+                  children="Part-time courses"
+                />
               </Col>
-              <Col md={12} lg={10} lgOffset={1}>
-                <P>
-                  <Link to="/react-redux-graphql-bootcamp#curriculum">
-                    Checkout the curriculum
-                  </Link>
-                </P>
-                <SectionButtonRow>
-                  <Col md={4}>
-                    <LinkButton
-                      to="/about-us#private-on-site-corporate-training"
-                      children="Corporate team training"
-                    />
-                  </Col>
-                  <Col md={4}>
-                    <LinkButton
-                      to="/react-redux-graphql-part-time-course"
-                      children="6-week Part-time courses"
-                    />
-                  </Col>
-                  <Col md={4}>
-                    <LinkButton
-                      to="/react-redux-graphql-bootcamp"
-                      children="1-week bootcamp"
-                    />
-                  </Col>
-                </SectionButtonRow>
+              <Col md={4}>
+                <LinkButton
+                  to="/react-redux-graphql-bootcamp"
+                  children="1-week bootcamps"
+                />
               </Col>
-            </Row>
+            </SectionButtonRow>
           </Col>
         </Row>
       </Grid>
@@ -322,7 +275,7 @@ const IndexPage = () => (
     <Section>
       <Grid>
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col md={10} mdOffset={1}>
             <AttendeeQuote
               quote="My devs were on training for a week, but when they came back they were React Masters. We adpoted the ecosystem much quicker than we thought possible and now we work faster and more efficiently."
               fullname="Richard Moss"
@@ -337,12 +290,12 @@ const IndexPage = () => (
     <Section>
       <Grid>
         <H2>
-          <Col lg={10} lgOffset={1}>
+          <Col md={10} mdOffset={1}>
             Upcoming Bootcamps
           </Col>
         </H2>
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col md={10} mdOffset={1}>
             <TrainingList>
               <TrainingItem
                 location="Makers Academy, London"

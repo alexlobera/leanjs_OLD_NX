@@ -39,10 +39,10 @@ const Footer = () => (
     <Grid>
       <footer>
         <Row>
-          <Col lg={5} lgOffset={1}>
+          <Col md={5} mdOffset={1}>
             <ContactForm />
           </Col>
-          <Col lg={4} lgOffset={1}>
+          <Col md={4} mdOffset={1}>
             <Row>
               <Col md={6}>
                 <LinkList>

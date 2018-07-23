@@ -71,7 +71,7 @@ export const TrustedByLogoList = () => (
 )
 
 const TrustedBySection = () => (
-  <Section>
+  <Section xsBgDark>
     <Grid>
       <Card bg="dark">
         <Row>

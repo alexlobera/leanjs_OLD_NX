@@ -6,12 +6,12 @@ import Link from '../navigation/Link'
 
 const TrainingItem = ({ name, location, startDate, path, imageSrc }) => (
   <React.Fragment>
-    <Col xs={5} lg={2}>
+    <Col xs={5} md={2}>
       <Link to={path}>
         <img with="100%" src={imageSrc} />
       </Link>
     </Col>
-    <Col xs={7} lg={4}>
+    <Col xs={7} md={4}>
       Venue: {location}
       <P>Starts: {startDate}</P>
       <LinkButton to={path} children={name} />
