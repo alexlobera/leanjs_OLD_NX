@@ -74,9 +74,7 @@ const PartTimeLondon = ({ width }) => (
               <P>Early bird tickes available until 20th July 2018.</P>
               <H3>
                 &pound;1740
-                <Button extraLarge style={{ float: 'right' }}>
-                  Buy now
-                </Button>
+                <Button style={{ float: 'right' }}>Buy now</Button>
               </H3>
             </Card>
             <Card style={{ marginTop: '20px' }}>

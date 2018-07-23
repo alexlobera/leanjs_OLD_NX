@@ -48,42 +48,42 @@ const CurriculumPartTime = () => (
 
       <Row>
         <Col xs={12} md={6}>
-          <Section subTitle="Session 1 - ES6">
+          <Section title="Session 1 - ES6">
             <ES6Session />
           </Section>
-          <Section subTitle="Session 2 - Thinking in React">
+          <Section title="Session 2 - Thinking in React">
             <IntroReactSession />
           </Section>
-          <Section subTitle="Session 3 - Routing & Data Fetching">
+          <Section title="Session 3 - Routing & Data Fetching">
             <RoutingAndDataFetchingSession />
           </Section>
-          <Section subTitle="Session 4 - Forms & Auth">
+          <Section title="Session 4 - Forms & Auth">
             <FormsAndAuthSession />
           </Section>
-          <Section subTitle="Session 5 - Recap React Fundamentals">
+          <Section title="Session 5 - Recap React Fundamentals">
             <ReactFundamentalsRecapSession />
           </Section>
-          <Section subTitle="Session 6 - Styling in React">
+          <Section title="Session 6 - Styling in React">
             <StylingInReactSession />
           </Section>
         </Col>
         <Col xs={12} md={6}>
-          <Section subTitle="Session 7 - Introduction to Redux">
+          <Section title="Session 7 - Introduction to Redux">
             <IntroReduxSession />
           </Section>
-          <Section subTitle="Session 8 - Introduction to Testing in JS">
+          <Section title="Session 8 - Introduction to Testing in JS">
             <TestingIntroSession />
           </Section>
-          <Section subTitle="Session 9 - Testing in React">
+          <Section title="Session 9 - Testing in React">
             <TestingInReactSession />
           </Section>
-          <Section subTitle="Session 10 - Advanced Patterns I">
+          <Section title="Session 10 - Advanced Patterns I">
             <HoCsAndRenderPropsSession />
           </Section>
-          <Section subTitle="Session 11 - GraphQL & Apollo Client">
+          <Section title="Session 11 - GraphQL & Apollo Client">
             <GraphQLSession />
           </Section>
-          <Section subTitle="Session 12 - Last session React mini hackathon">
+          <Section title="Session 12 - Last session React mini hackathon">
             <PartTimeFinalProject />
           </Section>
         </Col>

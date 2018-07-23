@@ -79,7 +79,7 @@ const BootcampLondon = () => (
                 <P>Early bird tickes available until 20th July 2018.</P>
                 <P>
                   <Price>&pound;1740</Price>
-                  <Button cta extraLarge style={{ float: 'right' }}>
+                  <Button cta style={{ float: 'right', marginTop: '10px' }}>
                     Buy now
                   </Button>
                 </P>

@@ -56,7 +56,7 @@ const AboutUs = () => (
           <Col xs={12} md={5}>
             <ImagePlaceholder />
           </Col>
-          <Col xs={12} md={6} mdOffset={1}>
+          <Col xs={12} md={5} mdOffset={1}>
             <H2Ref>
               Alex Lobera{' '}
               <a name="coach-profiles" href="#coaches-profile">
@@ -66,6 +66,21 @@ const AboutUs = () => (
             <H3>
               Tech Lead at <Link to="https://leanjs.com">LeanJS</Link>
             </H3>
+            <Ul inline>
+              <Li>
+                <Link to="https://github.com/alexlbr">GitHub profile</Link>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <Link to="https://uk.linkedin.com/in/alexlobera">
+                  LinkedIn profile
+                </Link>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <Link to="https://twitter.com/alex_Lobera">Twitter</Link>
+              </Li>
+            </Ul>
             <Ul>
               <Li>
                 Full-stack JavaScript Developer passionate about{' '}
@@ -88,26 +103,11 @@ const AboutUs = () => (
                 and other popular meetups in the EU
               </Li>
             </Ul>
-            <Blockquote>
+            <Blockquote bg="primary">
               Teaching other developers is super rewarding. I love sharing what
               I've learned in my career to help others grow and give back. I
               think is what really makes our industry move forward.
             </Blockquote>
-            <Ul inline>
-              <Li>
-                <Link to="https://github.com/alexlbr">GitHub profile</Link>
-              </Li>
-              <Li>|</Li>
-              <Li>
-                <Link to="https://uk.linkedin.com/in/alexlobera">
-                  LinkedIn profile
-                </Link>
-              </Li>
-              <Li>|</Li>
-              <Li>
-                <Link to="https://twitter.com/alex_Lobera">Twitter</Link>
-              </Li>
-            </Ul>
           </Col>
         </Row>
       </Grid>
@@ -115,17 +115,12 @@ const AboutUs = () => (
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={6} mdOffset={1}>
+          <Col xs={12} md={5} mdOffset={1}>
             <H2>Richard Moss</H2>
             <H3>
               Senior React Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
             </H3>
-            <Blockquote>
-              Collaboratively working with developers to help them understand
-              concepts such as the functional programming paradigm helps them
-              take their skills to the next level - and I learn a lot too!
-            </Blockquote>
             <Ul inline>
               <Li>
                 <Link to="https://www.linkedin.com/in/richard-moss-55881b82/">
@@ -137,6 +132,11 @@ const AboutUs = () => (
                 <Link to="https://github.com/ric9176">LinkedIn profile</Link>
               </Li>
             </Ul>
+            <Blockquote bg="primary">
+              Collaboratively working with developers to help them understand
+              concepts such as the functional programming paradigm helps them
+              take their skills to the next level - and I learn a lot too!
+            </Blockquote>
           </Col>
           <Col xs={12} md={5}>
             <ImagePlaceholder />
@@ -150,27 +150,12 @@ const AboutUs = () => (
           <Col xs={12} md={5}>
             <ImagePlaceholder />
           </Col>
-          <Col xs={12} md={6} mdOffset={1}>
+          <Col xs={12} md={5} mdOffset={1}>
             <H2>Horacio Herrera</H2>
             <H3>
               Designer and Developer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
             </H3>
-            <Ul>
-              <Li>
-                Holds a Digital Design degree and is a self-taught Developer
-              </Li>
-              <Li>Works with cross-functional product teams since 2010</Li>
-              <Li>
-                Organizer of the{' '}
-                <Link to="https://www.meetup.com/JavaScript-Barcelona/">
-                  JavaScript Barcelona Meetup
-                </Link>
-              </Li>
-            </Ul>
-            <Blockquote>
-              "I love teaching and see other developers grow... "
-            </Blockquote>
             <Ul inline>
               <Li>
                 <Link to="https://github.com/horacioh">GitHub profile</Link>
@@ -186,6 +171,21 @@ const AboutUs = () => (
                 <Link to="https://twitter.com/hhg2288">Twitter</Link>
               </Li>
             </Ul>
+            <Ul>
+              <Li>
+                Holds a Digital Design degree and is a self-taught Developer
+              </Li>
+              <Li>Works with cross-functional product teams since 2010</Li>
+              <Li>
+                Organizer of the{' '}
+                <Link to="https://www.meetup.com/JavaScript-Barcelona/">
+                  JavaScript Barcelona Meetup
+                </Link>
+              </Li>
+            </Ul>
+            <Blockquote bg="primary">
+              I love teaching and see other developers grow...
+            </Blockquote>
           </Col>
         </Row>
       </Grid>
@@ -263,7 +263,6 @@ const AboutUs = () => (
             <p>
               <LinkButton
                 target="_self"
-                extraLarge
                 to="mailto:hello@leanjs.com?subject=become a coach"
               >
                 Become a coach

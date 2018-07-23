@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FONT_FAMILY } from '../../styles'
+import { FONT_FAMILY, reactBlue } from '../../styles'
 
 const Blockquote = styled.blockquote`
   ${FONT_FAMILY} margin: 0;
@@ -12,6 +12,17 @@ const Blockquote = styled.blockquote`
   :after {
     content: close-quote;
   }
+
+  ${props => {
+    if (props.bg === 'primary') {
+      return `
+        padding: 24px;
+        background-color: ${reactBlue()};
+        font-size: 16px;
+        font-style: italic;
+      `
+    }
+  }};
 `
 
 export default Blockquote
