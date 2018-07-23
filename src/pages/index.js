@@ -21,12 +21,14 @@ import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import BulletIcon from '../components/icons'
 
-const ForYourCompantCallToActionsRow = styled(Row)`
-  margin-top: 30px;
+const ForYourCompanyCallToActions = styled(Ul)`
   @media (max-width: ${SCREEN_XS_MAX}) {
+    li {
+      padding: 5px 0;
+      display: block;
+    }
     a {
       display: block;
-      margin: 5px 0;
     }
   }
 `
@@ -268,32 +270,33 @@ const IndexPage = () => (
                     Offer more services to internal and external clients
                   </Li>
                 </Ul>
-
+              </Col>
+              <Col md={12} lg={10} lgOffset={1}>
                 <P>
                   <Link to="/react-redux-graphql-bootcamp#curriculum">
                     Checkout the curriculum
                   </Link>
                 </P>
-                <ForYourCompantCallToActionsRow>
-                  <Col xs={12} sm={4}>
+                <ForYourCompanyCallToActions inline>
+                  <Li>
                     <LinkButton
                       to="/about-us#private-on-site-corporate-training"
                       children="Corporate team training"
                     />
-                  </Col>
-                  <Col xs={12} sm={4}>
+                  </Li>
+                  <Li>
                     <LinkButton
                       to="/react-redux-graphql-part-time-course"
                       children="6-week Part-time courses"
                     />
-                  </Col>
-                  <Col xs={12} sm={4}>
+                  </Li>
+                  <Li>
                     <LinkButton
                       to="/react-redux-graphql-bootcamp"
                       children="1-week bootcamp"
                     />
-                  </Col>
-                </ForYourCompantCallToActionsRow>
+                  </Li>
+                </ForYourCompanyCallToActions>
               </Col>
             </Row>
           </Col>
