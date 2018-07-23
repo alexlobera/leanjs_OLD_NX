@@ -93,29 +93,16 @@ const PartTime = () => (
                     <BulletIcon icon={CollabsIcon} />
                     Meaningful, collaborative learning
                   </Li>
+                  <Li>Personal mentoring over online learning</Li>
                   <Li>
-                    <BulletIcon />
-                    Personal mentoring over online learning
-                  </Li>
-                  <Li>
-                    <BulletIcon />
                     Don't miss a single day of work - only 2 evenings a week
                   </Li>
                   <Li>
-                    <BulletIcon />
                     Not for beginners! Looking for a{' '}
-                    <Link to="https://makers.tech/">
-                      Learn-to-Code course?
-                    </Link>{' '}
+                    <Link to="https://makers.tech/">Learn-to-Code course?</Link>{' '}
                   </Li>
-                  <Li>
-                    <BulletIcon />
-                    Discuss real-world projects to learn best practices
-                  </Li>
-                  <Li>
-                    <BulletIcon />
-                    Coaches are expert React developers
-                  </Li>
+                  <Li>Discuss real-world projects to learn best practices</Li>
+                  <Li>Coaches are expert React developers</Li>
                 </Ul>
               </Col>
             </Row>

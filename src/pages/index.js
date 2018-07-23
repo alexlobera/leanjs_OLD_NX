@@ -183,26 +183,26 @@ const IndexPage = () => (
               <Col xs={7} md={12}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="notBegginer" />
+                    <BulletIcon icon="notBegginer" />
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
                   <Li>
-                    <Icon icon="spanner" />
+                    <BulletIcon icon="spanner" />
                     <strong>Hands-on project-based</strong> training.
                   </Li>
                   <Li>
-                    <Icon icon="collabs" />
+                    <BulletIcon icon="collabs" />
                     A <strong>collaborative</strong> learning environment.
                   </Li>
                   <Li>
-                    <Icon icon="time" />
+                    <BulletIcon icon="time" />
                     <Link to="/react-redux-graphql-bootcamp">
                       Bootcamps
                     </Link>{' '}
                     for accelerated learning.
                   </Li>
                   <Li>
-                    <Icon icon="calendar" />
+                    <BulletIcon icon="calendar" />
                     <Link to="/react-redux-graphql-part-time-course">
                       Part-time courses
                     </Link>{' '}
@@ -269,23 +269,23 @@ const IndexPage = () => (
               <Col xs={7} md={12} lg={10} lgOffset={1}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="tickBadge" />
+                    <BulletIcon icon="tickBadge" />
                     Avoid delays and business losses
                   </Li>
                   <Li>
-                    <Icon icon="react" />
+                    <BulletIcon icon="react" />
                     Minimize risk of on boarding React
                   </Li>
                   <Li>
-                    <Icon icon="enterMind" />
+                    <BulletIcon icon="enterMind" />
                     Safe environment for developers to learn
                   </Li>
                   <Li>
-                    <Icon icon="heart" />
+                    <BulletIcon icon="heart" />
                     Increase employee retention, motivation and productivity
                   </Li>
                   <Li>
-                    <Icon icon="bussiness" />
+                    <BulletIcon icon="bussiness" />
                     Offer more services to internal and external clients
                   </Li>
                 </Ul>
