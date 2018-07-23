@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BLUE2, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
+import { blue1, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
 
 export const DEFAULT_BUTTON_STYLE = `
   font-size: 18px;
@@ -16,7 +16,7 @@ export const DEFAULT_BUTTON_STYLE = `
 export default styled(({ large, ...props }) => <button {...props} />)`
   ${DEFAULT_BUTTON_STYLE}
   ${FONT_FAMILY}
-  background-color: ${props => (props.cta ? CALLTOACTIONRED : BLUE2)};
+  background-color: ${props => (props.cta ? CALLTOACTIONRED : blue1())};
   font-weight: ${props => (props.cta ? 'bold' : '')};
   box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
   color: ${WHITE};
