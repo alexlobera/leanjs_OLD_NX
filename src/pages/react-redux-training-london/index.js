@@ -1,9 +1,11 @@
 import React from 'react'
 import Section from '../../components/layout/Section'
-import Button, { ButtonSecondary } from '../../components/buttons/Button'
+import Button from '../../components/buttons/Button'
+import LinkButton from '../../components/buttons/LinkButton'
 import Grid, { Col, Row } from '../../components/layout/Grid'
+import P from '../../components/text/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
-import { H1, H2, H2Ref, H3, P } from '../../components/text'
+import { H1, H2, H2Ref, H3 } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
 import { CurriculumPartTime } from '../../components/curriculum'
 import Ribbon from '../../components/elements/Ribbon'
@@ -88,9 +90,13 @@ const PartTimeLondon = ({ width }) => (
               </P>
               <H3>
                 &pound;2160
-                <ButtonSecondary extraLarge style={{ float: 'right' }}>
+                <LinkButton
+                  secondary
+                  to="mailto:hello@reactjs.academy"
+                  style={{ float: 'right' }}
+                >
                   Contact us
-                </ButtonSecondary>
+                </LinkButton>
               </H3>
             </Card>
           </Col>

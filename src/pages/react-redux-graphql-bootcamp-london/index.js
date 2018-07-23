@@ -1,6 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
 import Section, { TopSection } from '../../components/layout/Section'
-import Button, { ButtonSecondary } from '../../components/buttons/Button'
+import LinkButton from '../../components/buttons/LinkButton'
+import Button from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref, H3, P } from '../../components/text'
@@ -14,9 +16,20 @@ import {
   DisplaySingleComponentUsingCss,
 } from '../../components/utils'
 import Header from '../../components/layout/Header'
+import { GREY2, FONT_FAMILY } from '../../styles'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 
-const BootcampLondon = ({ width }) => (
+const Price = styled.span`
+  ${FONT_FAMILY} font-size: 36px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: ${GREY2};
+`
+
+const BootcampLondon = () => (
   <div>
     <Header
       titleLines={['React Redux GraphQL Bootcamp', '20-25 Aug, 2018 - London']}
@@ -55,20 +68,21 @@ const BootcampLondon = ({ width }) => (
               </H2Ref>
               <P>
                 Please be aware that the tickets cover the cost of the training,
-                it does not include the cost of the flights and accomodation.
+                it does not include the cost of the flights, accomodation, or
+                food.
               </P>
-              <Card small>
+              <Card small style={{ position: 'relative' }}>
+                <Ribbon>Save 24%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
-                  <Ribbon>Save 24%</Ribbon>
                 </H3>
                 <P>Early bird tickes available until 20th July 2018.</P>
-                <H3>
-                  &pound;1740
-                  <Button extraLarge style={{ float: 'right' }}>
+                <P>
+                  <Price>&pound;1740</Price>
+                  <Button cta extraLarge style={{ float: 'right' }}>
                     Buy now
                   </Button>
-                </H3>
+                </P>
                 <P>
                   By purchasing a training, you agree to our{' '}
                   <Link to="terms-of-service">Terms & Conditions</Link>
@@ -85,9 +99,13 @@ const BootcampLondon = ({ width }) => (
                 </P>
                 <H3>
                   &pound;2160
-                  <ButtonSecondary extraLarge style={{ float: 'right' }}>
+                  <LinkButton
+                    secondary
+                    to="mailto:hello@reactjs.academy"
+                    style={{ float: 'right' }}
+                  >
                     Contact us
-                  </ButtonSecondary>
+                  </LinkButton>
                 </H3>
               </Card>
             </Col>
