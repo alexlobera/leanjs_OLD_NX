@@ -160,7 +160,7 @@ const IndexPage = () => (
                 </Col>
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
-                <Ul>
+                <Ul unstyled>
                   <Li>
                     <BulletIcon icon="notbegginer" />
                     For working developers - <strong>not for beginners!</strong>
