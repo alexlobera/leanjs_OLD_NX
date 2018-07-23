@@ -37,15 +37,15 @@ const ContactForm = () => (
       per our <Link to="/privacy-policy">Privacy Policy</Link>.
     </P>
     <Row>
-      <Col md={8}>
+      <Col md={7}>
         <Label for="email">Your email address:</Label>
       </Col>
     </Row>
     <Row>
-      <Col md={8}>
+      <Col md={7}>
         <Input name="email" placeholder="name@email.com" />
       </Col>
-      <Col md={4}>
+      <Col md={5}>
         <Button children="Submit email" />
       </Col>
     </Row>

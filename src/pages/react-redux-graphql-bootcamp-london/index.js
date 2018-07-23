@@ -66,7 +66,7 @@ const BootcampLondon = () => (
                   #
                 </a>
               </H2Ref>
-              <P>
+              <P style={{ paddingBottom: '20px' }}>
                 Please be aware that the tickets cover the cost of the training,
                 it does not include the cost of the flights, accomodation, or
                 food.
@@ -77,9 +77,9 @@ const BootcampLondon = () => (
                   <strong>Early bird ticket</strong>
                 </H3>
                 <P>Early bird tickes available until 20th July 2018.</P>
-                <P>
+                <P style={{ margin: '10px 0' }}>
                   <Price>&pound;1740</Price>
-                  <Button cta style={{ float: 'right', marginTop: '10px' }}>
+                  <Button cta style={{ float: 'right' }}>
                     Buy now
                   </Button>
                 </P>
@@ -97,8 +97,8 @@ const BootcampLondon = () => (
                   cost and the others to follow over 6 months. Contact us and we
                   can talk things through with you.
                 </P>
-                <H3>
-                  &pound;2160
+                <P>
+                  <Price>&pound;2160</Price>
                   <LinkButton
                     secondary
                     to="mailto:hello@reactjs.academy"
@@ -106,7 +106,7 @@ const BootcampLondon = () => (
                   >
                     Contact us
                   </LinkButton>
-                </H3>
+                </P>
               </Card>
             </Col>
           </Row>
