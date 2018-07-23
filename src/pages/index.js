@@ -7,10 +7,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
-import {
-  HideSingleComponentUsingCss,
-  DisplaySingleComponentUsingCss,
-} from '../components/utils'
+import { HideSingleComponentUsingCss } from '../components/utils'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'

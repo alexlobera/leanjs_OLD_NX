@@ -12,7 +12,7 @@ import {
 import { CurriculumBootcamp } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import TrustedBy from '../components/training/TrustedBySection'
-import { Card } from '../components/elements'
+import { Card, Image } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
 import london from '../assets/img/london.png'
@@ -42,50 +42,33 @@ const Boocamps = () => (
     <Section>
       <Grid>
         <Row>
-          <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
-            </Col>
-          </HideSingleComponentUsingCss>
-          <Col md={7}>
-            <Row>
-              <Col lg={11} lgOffset={1}>
-                <H2>Is this bootcamp right for me?</H2>
-              </Col>
-            </Row>
-            <Row>
-              <DisplaySingleComponentUsingCss xs sm>
-                <Col xs={5}>
-                  <ImagePlaceholder />
-                </Col>
-              </DisplaySingleComponentUsingCss>
-              <Col xs={7} md={12} lg={11} lgOffset={1}>
-                <Ul>
-                  <Li>Extremely rapid, intense learning</Li>
-                  <Li>
-                    Ideal for experienced programmers familiar with good
-                    practices. Not for beginners!
-                  </Li>
-                  <Li>
-                    Small classes with mentoring from experts developers &
-                    coaches
-                  </Li>
-                  <Li>
-                    Hands-on project-based training - most of the time you are
-                    coding.
-                  </Li>
-                  <Li>
-                    Join a network of alumni for advice, knowledge and social
-                    fun!
-                  </Li>
-                </Ul>
-                <P>
-                  <LinkButton cta to="/react-redux-graphql-bootcamp-london">
-                    Next bootcamp: August 20th, London
-                  </LinkButton>
-                </P>
-              </Col>
-            </Row>
+          <Col md={5}>
+            <ImagePlaceholder />
+          </Col>
+          <Col md={5} mdOffset={1}>
+            <H2>Is this bootcamp right for me?</H2>
+            <Ul>
+              <Li>Extremely rapid, intense learning</Li>
+              <Li>
+                Ideal for experienced programmers familiar with good practices.
+                Not for beginners!
+              </Li>
+              <Li>
+                Small classes with mentoring from experts developers & coaches
+              </Li>
+              <Li>
+                Hands-on project-based training - most of the time you are
+                coding.
+              </Li>
+              <Li>
+                Join a network of alumni for advice, knowledge and social fun!
+              </Li>
+            </Ul>
+            <P>
+              <LinkButton cta to="/react-redux-graphql-bootcamp-london">
+                Next bootcamp: August 20th, London
+              </LinkButton>
+            </P>
           </Col>
         </Row>
       </Grid>
@@ -94,12 +77,12 @@ const Boocamps = () => (
     <Section>
       <Grid>
         <H2>
-          <Col lg={10} lgOffset={1}>
+          <Col md={10} mdOffset={1}>
             Upcoming Bootcamps
           </Col>
         </H2>
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col md={10} mdOffset={1}>
             <TrainingList>
               <TrainingItem
                 location="Makers Academy, London"
