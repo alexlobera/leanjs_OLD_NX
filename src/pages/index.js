@@ -236,7 +236,7 @@ const IndexPage = () => (
               </Li>
               <Li>
                 <BulletIcon icon={HeartIcon} />
-                Increase employee retention, motivation and productivity
+                Increase employee retention and productivity
               </Li>
               <Li>
                 <BulletIcon icon={BussinessIcon} />
