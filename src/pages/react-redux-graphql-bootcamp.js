@@ -110,36 +110,21 @@ const Boocamps = () => (
           </Col>
         </Row>
         <Row>
-          <Col lg={5} lgOffset={1}>
+          <Col md={6}>
             <Row>
               <Col xs={5}>
                 <ImagePlaceholder width="100%" />
               </Col>
               <Col xs={7}>
                 London, UK
-                <P>20-27, August 2018</P>
+                <P>Oct 2nd to Nov 8th, 2018</P>
                 <LinkButton
-                  to="/react-redux-graphql-bootcamp-london"
-                  children="London Bootcamp"
+                  to="/react-redux-training-london"
+                  children="London part-time"
                 />
               </Col>
             </Row>
           </Col>
-          {/* <Col lg={5}>
-            <Row>
-              <Col xs={5}>
-                <ImagePlaceholder width="100%" />
-              </Col>
-              <Col xs={7}>
-                Lisbon district, Portugal
-                <P>7-13, October 2018</P>
-                <LinkButton
-                  to="/react-redux-graphql-bootcamp-lisbon"
-                  children="Lisbon Bootcamp"
-                />
-              </Col>
-            </Row>
-          </Col> */}
         </Row>
       </Grid>
     </Section>
