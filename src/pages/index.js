@@ -18,20 +18,7 @@ import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
-import BulletIcon from '../components/icons'
-
-const CallToActionRow = styled(Row)`
-  text-align: center;
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    margin-bottom: -25px;
-  }
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-`
+import CallToActionRow from '../components/layout/CallToActionRow'
 
 const ForYourCompantCallToActionsRow = styled(Row)`
   margin-top: 30px;

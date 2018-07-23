@@ -2,63 +2,60 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import Section from '../components/layout/Section'
+import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H1, H2, H2Ref, H3 } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
+import Header from '../components/layout/Header'
+import CallToActionRow from '../components/layout/CallToActionRow'
 import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
 import { Card } from '../components/elements'
-import { Blockquote } from '../../node_modules/glamorous'
+import { Blockquote } from '../components/text'
 
 const AboutUs = () => (
   <div>
-    <Section>
+    <Header
+      titleLines={['About us']}
+      subtitle="Our trainers are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> Academy journey"
+    />
+    <TopSection>
       <Grid>
-        <Row>
-          <Col style={{ textAlign: 'center' }} mdOffset={2} md={8}>
-            <H1>About us</H1>
-            <Ul inline>
-              <Li>
-                <a href="#coach-profiles">Coach profiles</a>
-              </Li>
-              <Li>|</Li>
-              <Li>
-                <a href="#continuous-coach-development">
-                  Continuous coach development
-                </a>
-              </Li>
-              <Li>|</Li>
-              <Li>
-                <a href="#corporate-training">Corporate team training</a>
-              </Li>
-            </Ul>
-            <H2>
-              Our coaches are expert, every day developers who will mentor you
-              throughout your ReactJS Academy journey
-            </H2>
+        <CallToActionRow left>
+          <Col xs={12} sm={5} smOffset={1}>
+            <LinkButton
+              cta
+              large
+              to="/react-redux-graphql-bootcamp-london"
+              children="Next bootcamp: 20th August, London >>"
+            />
           </Col>
-        </Row>
+        </CallToActionRow>
+        <Card border="shadow">
+          <Row>
+            <Col lg={10} lgOffset={1}>
+              <H2>Our coaches - professional developers who love to teach</H2>
+              <P>
+                ReactJS Academy is a <Link to="https://leanjs.com">LeanJS</Link>{' '}
+                brand. LeanJS is an innovation agency focused on Lean, UX,
+                JavaScript, and people.
+              </P>
+            </Col>
+          </Row>
+        </Card>
       </Grid>
-    </Section>
-    <Section>
-      <Grid style={{ textAlign: 'center' }}>
-        <H2>Our coaches - professional developers who love to teach</H2>
-        <H3>
-          ReactJS Academy is a <Link to="https://leanjs.com">LeanJS</Link>{' '}
-          brand. LeanJS is an innovation agency focused on Lean, UX, JavaScript,
-          and people.
-        </H3>
-      </Grid>
-    </Section>
+    </TopSection>
     <Section>
       <Grid>
         <Row>
+          <Col xs={12} md={5}>
+            <ImagePlaceholder />
+          </Col>
           <Col xs={12} md={7}>
             <H2Ref>
               Alex Lobera{' '}
@@ -111,9 +108,6 @@ const AboutUs = () => (
                 <Link to="https://twitter.com/alex_Lobera">Twitter</Link>
               </Li>
             </Ul>
-          </Col>
-          <Col xs={12} md={5}>
-            <ImagePlaceholder />
           </Col>
         </Row>
       </Grid>
