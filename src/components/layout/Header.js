@@ -5,7 +5,7 @@ import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
-import { blue1, BLUE3, blue4, blue5, WHITE } from '../../styles'
+import { blue1, WHITE, reactBlue } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
 import Link from '../navigation/Link'
 
@@ -17,13 +17,13 @@ const H1 = styled(BaseH1)`
   line-height: 1.5;
   letter-spacing: normal;
   color: ${WHITE};
-  text-shadow: 1px -1px 17px ${BLUE3};
+  text-shadow: 1px -1px 17px ${reactBlue(0.4)};
   @media (max-width: ${SCREEN_SM_MAX}) {
     font-size: 58px;
   }
 `
 const HeaderSection = styled(Section)`
-  background-color: ${blue4(0.84)};
+  background-color: ${reactBlue()};
   min-height: 700px;
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: 100vh;
@@ -38,7 +38,7 @@ const H2Header = styled(BaseH2)`
   line-height: 1.5;
   letter-spacing: normal;
   color: ${WHITE};
-  text-shadow: 1px -1px 17px ${blue5(0.58)};
+  text-shadow: 1px -1px 17px ${reactBlue(0.4)};
 `
 
 const TitleBackground = styled.span`

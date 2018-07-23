@@ -112,7 +112,7 @@ const IndexPage = () => (
               <Col xs={7} md={12} lg={11} lgOffset={1}>
                 <Ul unstyled>
                   <Li>
-                    <BulletIcon icon={WorldIcon} />
+                    <BulletIcon icon={ProductionReadyIcon} />
                     <strong>Build production ready</strong> React apps.
                   </Li>
                   <Li>

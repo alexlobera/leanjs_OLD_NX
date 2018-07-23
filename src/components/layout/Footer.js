@@ -6,10 +6,10 @@ import Grid, { Col, Row } from './Grid'
 import ReactJSAcademyLogo from '../logos/ReactJSAcademy'
 import Ul, { Li } from './Ul'
 import DefaultLink from '../navigation/Link'
-import { BLUE2, WHITE, BROWN } from '../../styles'
+import { blue1, WHITE } from '../../styles'
 
 const StyledFooter = styled.footer`
-  background-color: ${BLUE2};
+  background-color: ${blue1()};
   padding: 60px 0 40px 0;
   color: ${WHITE};
   h2 {

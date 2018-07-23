@@ -1,16 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { Blockquote, H1, H2, H2Ref, H3, P } from '../components/text'
+import { H2, H2Ref, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import ContactForm from '../components/form/Contact'
 import AttendeeQuote from '../components/training/AttendeeQuote'
-import { Video, Card } from '../components/elements'
-import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
+import { Card } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
@@ -18,9 +15,11 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import TrustedBySection from '../components/training/TrustedBySection'
-import TrainingItem from '../components/training/TrainingItem'
-import TrainingList from '../components/training/TrainingList'
+import {
+  TrainingItem,
+  TrainingList,
+  TrustedBySection,
+} from '../components/training'
 import {
   BussinessIcon,
   CalendarIcon,

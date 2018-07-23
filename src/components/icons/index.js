@@ -46,7 +46,7 @@ const BulletIcon = ({ icon, ...rest }) => (
 )
 
 BulletIcon.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.func.isRequired,
 }
 
 export {
