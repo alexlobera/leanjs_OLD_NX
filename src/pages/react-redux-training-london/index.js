@@ -32,7 +32,7 @@ const BootcampLondon = () => (
   <div>
     <Header
       titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
-      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without mising a day at work!"
+      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
       links={[
         { text: 'Pricing', to: '#pricing' },
         { text: 'Curriculum', to: '#curriculum' },
