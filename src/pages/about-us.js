@@ -32,7 +32,6 @@ const AboutUs = () => (
           <Col xs={12} sm={5} smOffset={1}>
             <LinkButton
               cta
-              large
               to="/react-redux-graphql-bootcamp-london"
               children="Next bootcamp: 20th August, London >>"
             />

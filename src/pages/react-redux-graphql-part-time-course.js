@@ -55,7 +55,6 @@ const PartTime = () => (
           <Col lg={11} lgOffset={1}>
             <LinkButton
               cta
-              large
               to="/react-redux-training-london"
               children="Next course: 2nd October, London >>"
             />

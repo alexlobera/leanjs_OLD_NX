@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -30,7 +29,6 @@ const Boocamps = () => (
           <Col xs={12} sm={5} smOffset={1}>
             <LinkButton
               cta
-              large
               to="/react-redux-graphql-bootcamp-london"
               children="Next bootcamp: 20th August, London >>"
             />
@@ -82,11 +80,7 @@ const Boocamps = () => (
                   </Li>
                 </Ul>
                 <P>
-                  <LinkButton
-                    cta
-                    large
-                    to="/react-redux-graphql-bootcamp-london"
-                  >
+                  <LinkButton cta to="/react-redux-graphql-bootcamp-london">
                     Next bootcamp: August 20th, London
                   </LinkButton>
                 </P>
@@ -97,7 +91,6 @@ const Boocamps = () => (
       </Grid>
     </Section>
     <TrustedBy />
-
     <Section>
       <Grid>
         <H2>

@@ -13,7 +13,7 @@ export const DEFAULT_BUTTON_STYLE = `
   padding: 13px 25px;
   border-radius: 2px;
 `
-export default styled(({ large, ...props }) => <button {...props} />)`
+export default styled(props => <button {...props} />)`
   ${DEFAULT_BUTTON_STYLE}
   ${FONT_FAMILY}
   background-color: ${props => (props.cta ? CALLTOACTIONRED : blue1())};
