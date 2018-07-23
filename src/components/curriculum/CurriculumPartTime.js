@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from '../navigation/Link'
+import { LinkButton } from '../buttons'
 import { H1Ref, H2, H3 } from '../text'
+import P from '../layout/P'
 import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
@@ -16,6 +18,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
+import { CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -26,6 +29,14 @@ const PartTimeFinalProject = () => (
   </Ul>
 )
 
+const BootcampCard = styled.div`
+  background-color: ${CALLTOACTIONRED};
+  padding: 2em;
+  color: #ffffff
+  margin-top: 2em;
+  ${FONT_FAMILY}
+`
+
 const CurriculumPartTime = () => (
   <div>
     <Col xs={12} md={12} lg={10} lgOffset={1}>
@@ -35,49 +46,63 @@ const CurriculumPartTime = () => (
           #
         </a>
       </H1Ref>
+
+      <Row>
+        <Col xs={12} md={6}>
+          <Section subTitle="Session 1 - ES6">
+            <ES6Session />
+          </Section>
+          <Section subTitle="Session 2 - Thinking in React">
+            <IntroReactSession />
+          </Section>
+          <Section subTitle="Session 3 - Routing & Data Fetching">
+            <RoutingAndDataFetchingSession />
+          </Section>
+          <Section subTitle="Session 4 - Forms & Auth">
+            <FormsAndAuthSession />
+          </Section>
+          <Section subTitle="Session 5 - Recap React Fundamentals">
+            <ReactFundamentalsRecapSession />
+          </Section>
+          <Section subTitle="Session 6 - Styling in React">
+            <StylingInReactSession />
+          </Section>
+        </Col>
+        <Col xs={12} md={6}>
+          <Section subTitle="Session 7 - Introduction to Redux">
+            <IntroReduxSession />
+          </Section>
+          <Section subTitle="Session 8 - Introduction to Testing in JS">
+            <TestingIntroSession />
+          </Section>
+          <Section subTitle="Session 9 - Testing in React">
+            <TestingInReactSession />
+          </Section>
+          <Section subTitle="Session 10 - Advanced Patterns I">
+            <HoCsAndRenderPropsSession />
+          </Section>
+          <Section subTitle="Session 11 - GraphQL & Apollo Client">
+            <GraphQLSession />
+          </Section>
+          <Section subTitle="Session 12 - Last session React mini hackathon">
+            <PartTimeFinalProject />
+          </Section>
+        </Col>
+      </Row>
+      <BootcampCard>
+        <Row>
+          <Col lg={5} lgOffset={1}>
+            <span>
+              Looking for the most complete React curriculum? Our 1-week
+              bootcamp has it...
+            </span>
+          </Col>
+          <Col lg={6} center>
+            <LinkButton secondary>1 week bootcamp >></LinkButton>
+          </Col>
+        </Row>
+      </BootcampCard>
     </Col>
-    <Row>
-      <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <Section subTitle="Session 1 - ES6">
-          <ES6Session />
-        </Section>
-        <Section subTitle="Session 2 - Thinking in React">
-          <IntroReactSession />
-        </Section>
-        <Section subTitle="Session 3 - Routing & Data Fetching">
-          <RoutingAndDataFetchingSession />
-        </Section>
-        <Section subTitle="Session 4 - Forms & Auth">
-          <FormsAndAuthSession />
-        </Section>
-        <Section subTitle="Session 5 - Recap React Fundamentals">
-          <ReactFundamentalsRecapSession />
-        </Section>
-        <Section subTitle="Session 6 - Styling in React">
-          <StylingInReactSession />
-        </Section>
-      </Col>
-      <Col xs={12} md={6} lg={5} lgOffset={1}>
-        <Section subTitle="Session 7 - Introduction to Redux">
-          <IntroReduxSession />
-        </Section>
-        <Section subTitle="Session 8 - Introduction to Testing in JS">
-          <TestingIntroSession />
-        </Section>
-        <Section subTitle="Session 9 - Testing in React">
-          <TestingInReactSession />
-        </Section>
-        <Section subTitle="Session 10 - Advanced Patterns I">
-          <HoCsAndRenderPropsSession />
-        </Section>
-        <Section subTitle="Session 11 - GraphQL & Apollo Client">
-          <GraphQLSession />
-        </Section>
-        <Section subTitle="Session 12 - Last session React mini hackathon">
-          <PartTimeFinalProject />
-        </Section>
-      </Col>
-    </Row>
   </div>
 )
 

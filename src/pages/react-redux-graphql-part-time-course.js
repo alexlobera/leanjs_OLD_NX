@@ -16,8 +16,6 @@ import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
 
-const BootcampCard = styled.div``
-
 const PartTime = () => (
   <div>
     <Header
@@ -144,11 +142,6 @@ const PartTime = () => (
     </Section>
     <Section>
       <Grid>
-        <CurriculumPartTime />
-      </Grid>
-    </Section>
-    <Section>
-      <Grid>
         <H2Ref>
           Upcoming React part-time courses{' '}
           <a name="next-part-time-courses" href="#next-part-time-courses">
@@ -172,11 +165,6 @@ const PartTime = () => (
             </Row>
           </Col>
         </Row>
-      </Grid>
-    </Section>
-    <Section>
-      <Grid>
-        <ContactForm />
       </Grid>
     </Section>
   </div>
