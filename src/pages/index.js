@@ -39,13 +39,11 @@ import {
   BulletIcon,
 } from '../components/icons'
 
-const ForYourCompanyCallToActions = styled(Ul)`
+const SectionButtonRow = styled(Row)`
+  margin-top: 30px;
   @media (max-width: ${SCREEN_XS_MAX}) {
-    li {
-      padding: 5px 0;
-      display: block;
-    }
     a {
+      margin-top: 5px;
       display: block;
     }
   }
@@ -64,21 +62,18 @@ const IndexPage = () => (
           <Col xs={12} sm={4}>
             <LinkButton
               cta
-              large
               to="/react-redux-graphql-bootcamp"
               children="1-week bootcamp >>"
             />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              large
               to="/react-redux-graphql-part-time-course"
               children="6-week part-time course >>"
             />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              large
               to="/about-us#corporate-training"
               children="Corporate team training >>"
             />
@@ -215,23 +210,21 @@ const IndexPage = () => (
                 Checkout the curriculum
               </Link>
             </P>
-            <Row>
-              <Col xs={6} md={5}>
+            <SectionButtonRow>
+              <Col xs={12} md={6}>
                 <LinkButton
                   cta
-                  extraLarge
                   to="/react-redux-graphql-bootcamp"
                   children="1-week bootcamps"
                 />
               </Col>
-              <Col xs={6} md={5}>
+              <Col xs={6} md={6}>
                 <LinkButton
-                  extraLarge
                   to="/react-redux-graphql-part-time-course"
                   children="Part-time courses"
                 />
               </Col>
-            </Row>
+            </SectionButtonRow>
           </Col>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
@@ -295,26 +288,26 @@ const IndexPage = () => (
                     Checkout the curriculum
                   </Link>
                 </P>
-                <ForYourCompanyCallToActions inline>
-                  <Li>
+                <SectionButtonRow>
+                  <Col md={4}>
                     <LinkButton
                       to="/about-us#private-on-site-corporate-training"
                       children="Corporate team training"
                     />
-                  </Li>
-                  <Li>
+                  </Col>
+                  <Col md={4}>
                     <LinkButton
                       to="/react-redux-graphql-part-time-course"
                       children="6-week Part-time courses"
                     />
-                  </Li>
-                  <Li>
+                  </Col>
+                  <Col md={4}>
                     <LinkButton
                       to="/react-redux-graphql-bootcamp"
                       children="1-week bootcamp"
                     />
-                  </Li>
-                </ForYourCompanyCallToActions>
+                  </Col>
+                </SectionButtonRow>
               </Col>
             </Row>
           </Col>

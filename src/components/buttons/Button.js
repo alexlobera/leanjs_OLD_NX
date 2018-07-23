@@ -1,31 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BLUE2, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
+import { BLUE2, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
 
-const StyleButtonFontSize = props => {
-  if (props.extraLarge) {
-    return 22
-  } else if (props.large) {
-    return 20
-  } else {
-    return 18
-  }
-}
-
-export default styled(({ extraLarge, large, ...props }) => (
-  <button {...props} />
-))`
-  ${FONT_FAMILY}
-  font-size: ${StyleButtonFontSize}px;
-  background-color: ${props => (props.cta ? CALLTOACTIONRED : BLUE2)};
-  font-weight: ${props => (props.cta ? 'bold' : '')};
-  border-radius: 2px;
-  box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
+export const DEFAULT_BUTTON_STYLE = `
+  font-size: 18px;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: 0.6px;
+  align-items: flex-start;
   text-align: center;
-  color: #ffffff;
-  padding: 5px 10px;
+  padding: 17px 25px;
+  border-radius: 2px;
+`
+export default styled(({ large, ...props }) => <button {...props} />)`
+  ${DEFAULT_BUTTON_STYLE}
+  ${FONT_FAMILY}
+  background-color: ${props => (props.cta ? CALLTOACTIONRED : BLUE2)};
+  font-weight: ${props => (props.cta ? 'bold' : '')};
+  box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
+  color: ${WHITE};
+  display: ${props => (props.block ? 'block' : 'inline-block')};
 `

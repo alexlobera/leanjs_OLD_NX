@@ -263,7 +263,6 @@ const AboutUs = () => (
             <p>
               <LinkButton
                 target="_self"
-                extraLarge
                 to="mailto:hello@leanjs.com?subject=become a coach"
               >
                 Become a coach
