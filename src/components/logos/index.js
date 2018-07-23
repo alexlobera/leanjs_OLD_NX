@@ -1,5 +1,4 @@
 import ASOS from './ASOS'
-import ABInBev from './ABInBev'
 import Blockchain from './Blockchain'
 import Capgemini from './Capgemini'
 import FinancialTimes from './FinancialTimes'
@@ -14,7 +13,6 @@ import Trainline from './Trainline'
 
 export {
   ASOS,
-  ABInBev,
   Blockchain,
   Capgemini,
   FinancialTimes,
