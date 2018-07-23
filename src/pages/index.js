@@ -232,7 +232,7 @@ const IndexPage = () => (
           </HideSingleComponentUsingCss>
           <Col md={7}>
             <Row>
-              <Col>
+              <Col lg={10} lgOffset={1}>
                 <H2>
                   What's in it for your company - Why is ReactJS Academy great
                   for your team
@@ -245,8 +245,8 @@ const IndexPage = () => (
                   <ImagePlaceholder width="100%" height="500px" />
                 </Col>
               </DisplaySingleComponentUsingCss>
-              <Col xs={7} md={12}>
-                <Ul>
+              <Col xs={7} md={12} lg={10} lgOffset={1}>
+                <Ul unstyled>
                   <Li>
                     <BulletIcon icon="tickbadge" />
                     Avoid delays and business losses
@@ -268,33 +268,34 @@ const IndexPage = () => (
                     Offer more services to internal and external clients
                   </Li>
                 </Ul>
+
+                <P>
+                  <Link to="/react-redux-graphql-bootcamp#curriculum">
+                    Checkout the curriculum
+                  </Link>
+                </P>
+                <ForYourCompantCallToActionsRow>
+                  <Col xs={12} sm={4}>
+                    <LinkButton
+                      to="/about-us#private-on-site-corporate-training"
+                      children="Corporate team training"
+                    />
+                  </Col>
+                  <Col xs={12} sm={4}>
+                    <LinkButton
+                      to="/react-redux-graphql-part-time-course"
+                      children="6-week Part-time courses"
+                    />
+                  </Col>
+                  <Col xs={12} sm={4}>
+                    <LinkButton
+                      to="/react-redux-graphql-bootcamp"
+                      children="1-week bootcamp"
+                    />
+                  </Col>
+                </ForYourCompantCallToActionsRow>
               </Col>
             </Row>
-            <P>
-              <Link to="/react-redux-graphql-bootcamp#curriculum">
-                Checkout the curriculum
-              </Link>
-            </P>
-            <ForYourCompantCallToActionsRow>
-              <Col xs={12} sm={4}>
-                <LinkButton
-                  to="/about-us#private-on-site-corporate-training"
-                  children="Corporate team training"
-                />
-              </Col>
-              <Col xs={12} sm={4}>
-                <LinkButton
-                  to="/react-redux-graphql-part-time-course"
-                  children="6-week Part-time courses"
-                />
-              </Col>
-              <Col xs={12} sm={4}>
-                <LinkButton
-                  to="/react-redux-graphql-bootcamp"
-                  children="1-week bootcamp"
-                />
-              </Col>
-            </ForYourCompantCallToActionsRow>
           </Col>
         </Row>
       </Grid>
