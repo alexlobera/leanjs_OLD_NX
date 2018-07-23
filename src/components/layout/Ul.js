@@ -1,10 +1,10 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const Ul = styled.ul`
   ${props =>
     props.inline
-      ? css`
+      ? `
           margin: 0;
           padding: 0;
           > li {
@@ -24,7 +24,7 @@ const Ul = styled.ul`
 const Li = styled.li`
   ${props =>
     props.withIcon &&
-    css`
+    `
       list-style-type: none;
     `};
 `
