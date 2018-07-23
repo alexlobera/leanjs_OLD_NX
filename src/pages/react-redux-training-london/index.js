@@ -6,18 +6,17 @@ import Grid, { Col, Row } from '../../components/layout/Grid'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
-import { CurriculumBootcamp } from '../../components/curriculum'
+import { CurriculumPartTime } from '../../components/curriculum'
 import { Ribbon, Card, Video } from '../../components/elements'
 import Link from '../../components/navigation/Link'
 import AttendeeQuote from '../../components/training/AttendeeQuote'
-import {
-  HideSingleComponentUsingCss,
-  DisplaySingleComponentUsingCss,
-} from '../../components/utils'
+import { HideSingleComponentUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
 import { GREY2, FONT_FAMILY } from '../../styles'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 import CallToActionRow from '../../components/layout/CallToActionRow'
+import { TrainingItem, TrainingList } from '../../components/training'
+import LondonThumbnailImage from '../react-redux-graphql-bootcamp-london/ThumbnailImage'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -32,8 +31,8 @@ const Price = styled.span`
 const BootcampLondon = () => (
   <div>
     <Header
-      titleLines={['React Redux GraphQL Bootcamp', '20-25 Aug, 2018 - London']}
-      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
+      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without mising a day at work!"
       links={[
         { text: 'Pricing', to: '#pricing' },
         { text: 'Curriculum', to: '#curriculum' },
@@ -44,7 +43,7 @@ const BootcampLondon = () => (
       <Grid>
         <CallToActionRow left>
           <Col lg={11} lgOffset={1}>
-            <Button cta children="Buy London bootcamp for &pound;1740" />
+            <Button cta children="Buy London part-time course for &pound;995" />
           </Col>
         </CallToActionRow>
         <Card border="shadow">
@@ -81,9 +80,9 @@ const BootcampLondon = () => (
                 <H3>
                   <strong>Early bird ticket</strong>
                 </H3>
-                <P>Early bird tickes available until 20th July 2018.</P>
+                <P>Early bird tickes available until 20th August 2018.</P>
                 <P style={{ margin: '10px 0' }}>
-                  <Price>&pound;1740</Price>
+                  <Price>&pound;995</Price>
                   <Button cta style={{ float: 'right' }}>
                     Buy now
                   </Button>
@@ -103,7 +102,7 @@ const BootcampLondon = () => (
                   can talk things through with you.
                 </P>
                 <P>
-                  <Price>&pound;2160</Price>
+                  <Price>&pound;1500</Price>
                   <LinkButton
                     secondary
                     to="mailto:hello@reactjs.academy"
@@ -128,7 +127,7 @@ const BootcampLondon = () => (
           </HideSingleComponentUsingCss>
           <Col xs={12} md={6}>
             <H2Ref>
-              Is this bootcamp right for me? Are you...{' '}
+              Is this part-time course right for me? Are you...{' '}
               <a href="#target-audience" name="target-audience">
                 #
               </a>
@@ -174,6 +173,7 @@ const BootcampLondon = () => (
               fullname="Senior Developer"
               job="Cameron Diaz"
               company="Spotify"
+              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
             />
           </Col>
         </Row>
@@ -182,8 +182,30 @@ const BootcampLondon = () => (
     <Section>
       <Grid>
         <Card white border="shadow">
-          <CurriculumBootcamp />
+          <CurriculumPartTime />
         </Card>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <H2>
+          <Col md={10} mdOffset={1}>
+            Upcoming Bootcamps
+          </Col>
+        </H2>
+        <Row>
+          <Col md={10} mdOffset={1}>
+            <TrainingList>
+              <TrainingItem
+                location="Makers Academy, London"
+                startDate="August 20th to 25th, 2018"
+                name="London bootcamp"
+                path="/react-redux-graphql-bootcamp-london"
+                image={<LondonThumbnailImage />}
+              />
+            </TrainingList>
+          </Col>
+        </Row>
       </Grid>
     </Section>
   </div>
