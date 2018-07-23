@@ -16,7 +16,7 @@ import {
 } from '../components/utils'
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
-import UpcomingBootcampsSection from '../components/sections/UpcomingBootcampsSection'
+import { TrainingItem, TrainingList } from '../components/training'
 
 const AboutUs = () => (
   <div>
@@ -312,7 +312,30 @@ const AboutUs = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingBootcampsSection />
+    <Section>
+      <Grid>
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <TrainingList>
+              <TrainingItem
+                location="London, UK"
+                startDate="Oct 2nd to Nov 8th, 2018"
+                name="London part-time"
+                path="/react-redux-training-london"
+                imageSrc="https://reactjs.academy/react-redux-training-london"
+              />
+              <TrainingItem
+                location="London, UK"
+                startDate="Oct 2nd to Nov 8th, 2018"
+                name="London part-time"
+                path="/react-redux-training-london"
+                imageSrc="https://reactjs.academy/react-redux-training-london"
+              />
+            </TrainingList>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
 
     {/* <Section>
             <Grid>
