@@ -15,6 +15,11 @@ import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
+import {
+  HideSingleComponentUsingCss,
+  DisplaySingleComponentUsingCss,
+} from '../components/utils'
+import BulletIcon from '../components/icons'
 
 const PartTime = () => (
   <div>
@@ -43,18 +48,82 @@ const PartTime = () => (
     <Section>
       <Grid>
         <Row>
-          <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <P style={{ textAlign: 'center' }}>
-              <LinkButton
-                extraLarge
-                to="/react-redux-training-london"
-                children="Next part-time course"
-              />
+          <HideSingleComponentUsingCss xs sm>
+            <Col md={5}>
+              <ImagePlaceholder width="100%" height="500px" />
+            </Col>
+          </HideSingleComponentUsingCss>
+          <Col md={7} lg={5} lgOffset={1}>
+            <Row>
+              <Col>
+                <H2>Is this React part-time course right for me?</H2>
+              </Col>
+            </Row>
+            <Row>
+              <DisplaySingleComponentUsingCss xs sm>
+                <Col xs={5}>
+                  <ImagePlaceholder width="100%" height="500px" />
+                </Col>
+              </DisplaySingleComponentUsingCss>
+              <Col xs={7} md={12}>
+                <Ul>
+                  <Li withIcon>
+                    <BulletIcon icon="collabs" />
+                    Meaningful, collaborative learning
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="group-2" />
+                    Personal mentoring over online learning
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="spanner" />
+                    Don't miss a single day of work - only 2 evenings a week
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="notbegginers" />
+                    Not for beginners! Looking for a{' '}
+                    <Link to="https://makers.tech/">
+                      Learn-to-Code course?
+                    </Link>{' '}
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="group-2-copy" />
+                    Discuss real-world projects to learn best practices
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="notbegginer" />
+                    Coaches are expert React developers
+                  </Li>
+                </Ul>
+              </Col>
+            </Row>
+            <P>
+              <Link to="/react-redux-graphql-bootcamp#curriculum">
+                Checkout the curriculum
+              </Link>
             </P>
+            <Row>
+              <Col xs={6} md={5}>
+                <LinkButton
+                  cta
+                  extraLarge
+                  to="/react-redux-graphql-bootcamp"
+                  children="1-week bootcamps"
+                />
+              </Col>
+              <Col xs={6} md={5}>
+                <LinkButton
+                  extraLarge
+                  to="/react-redux-graphql-part-time-course"
+                  children="Part-time courses"
+                />
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Grid>
     </Section>
+
     <Section>
       <Grid>
         <Row>

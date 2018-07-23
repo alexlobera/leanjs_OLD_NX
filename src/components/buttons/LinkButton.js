@@ -41,4 +41,5 @@ export default styled(Link)`
   cursor: pointer;
   padding: 0.7em;
   display: inline-block;
+  text-decoration: none;
 `
