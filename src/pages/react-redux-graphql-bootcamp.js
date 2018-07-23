@@ -16,19 +16,8 @@ import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import TrustedBy from '../components/training/TrustedBySection'
 import { Card } from '../components/elements'
+import CallToActionRow from '../components/layout/CallToActionRow'
 
-const CallToActionRow = styled(Row)`
-  text-align: ${props => (props.left ? 'left' : 'center')};
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    margin-bottom: -25px;
-  }
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-`
 const Boocamps = () => (
   <div>
     <Header

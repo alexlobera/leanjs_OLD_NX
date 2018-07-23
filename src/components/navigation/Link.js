@@ -2,11 +2,17 @@ import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import styled from 'styled-components'
 import { FONT_FAMILY } from '../../styles'
+import { GREY2 } from '../../styles'
 
 const ANCHOR_STYLE = `
     cursor: pointer;
     color: blue;
     text-decoration: underline;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.5;
+    color: ${GREY2};
 `
 const BasicLink = styled.a`
   ${ANCHOR_STYLE} ${FONT_FAMILY};

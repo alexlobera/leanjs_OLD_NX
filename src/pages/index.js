@@ -18,19 +18,7 @@ import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
-
-const CallToActionRow = styled(Row)`
-  text-align: center;
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    margin-bottom: -25px;
-  }
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-`
+import CallToActionRow from '../components/layout/CallToActionRow'
 
 const ForYourCompantCallToActionsRow = styled(Row)`
   margin-top: 30px;
@@ -102,22 +90,28 @@ const IndexPage = () => (
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12} lg={11} lgOffset={1}>
                 <Ul>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="productionready" />
                     <strong>Build production ready</strong> React apps.
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="collabs" />
                     Discuss <strong>real-world projects</strong>.
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="star" />
                     Learn <strong>best practices</strong>.
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="trainer" />
                     <strong>Mentoring</strong> by our expert coaches.
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="heart" />
                     Alumni <strong>community</strong>.
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="code" />
                     <strong>Stay ahead</strong> in modern development.
                   </Li>
                 </Ul>
@@ -166,20 +160,27 @@ const IndexPage = () => (
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
                 <Ul>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="notbegginer" />
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="spanner" />
                     <strong>Hands-on project-based</strong> training.
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="collabs" />
                     A <strong>collaborative</strong> learning environment.
                   </Li>
-                  <Li>
-                    <Link to="/react-redux-graphql-bootcamp">Bootcamps</Link>{' '}
+                  <Li withIcon>
+                    <BulletIcon icon="time" />
+                    <Link to="/react-redux-graphql-bootcamp">
+                      Bootcamps
+                    </Link>{' '}
                     for accelerated learning.
                   </Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="calendar" />
                     <Link to="/react-redux-graphql-part-time-course">
                       Part-time courses
                     </Link>{' '}
@@ -245,13 +246,26 @@ const IndexPage = () => (
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
                 <Ul>
-                  <Li>Avoid delays and business losses</Li>
-                  <Li>Minimize risk of on boarding React</Li>
-                  <Li>Safe environment for developers to learn</Li>
-                  <Li>
+                  <Li withIcon>
+                    <BulletIcon icon="tickbadge" />
+                    Avoid delays and business losses
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="react" />
+                    Minimize risk of on boarding React
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="entermind" />
+                    Safe environment for developers to learn
+                  </Li>
+                  <Li withIcon>
+                    <BulletIcon icon="heart" />
                     Increase employee retention, motivation and productivity
                   </Li>
-                  <Li>Offer more services to internal and external clients</Li>
+                  <Li withIcon>
+                    <BulletIcon icon="bussiness" />
+                    Offer more services to internal and external clients
+                  </Li>
                 </Ul>
               </Col>
             </Row>
