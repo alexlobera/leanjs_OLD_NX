@@ -8,6 +8,7 @@ const CallToActionRow = styled(Row)`
     margin-bottom: -25px;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
+    padding-bottom: 30px;
     a {
       display: block;
       margin: 5px 0;
