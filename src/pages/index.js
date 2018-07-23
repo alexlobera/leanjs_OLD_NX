@@ -42,6 +42,7 @@ import {
 } from '../components/icons'
 import london from '../../img/london.png'
 import lisbon from '../../img/lisbon.png'
+import courseCollab from '../../img/courseCollab.png'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
@@ -93,7 +94,7 @@ const IndexPage = () => (
         <Row>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
+              <img src={courseCollab} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
           <Col md={7}>
