@@ -65,48 +65,30 @@ const PartTime = () => (
         </Card>
       </Grid>
     </TopSection>
-
     <Section>
       <Grid>
         <Row>
-          <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
-            </Col>
-          </HideSingleComponentUsingCss>
-          <Col md={7} lg={5} lgOffset={1}>
-            <Row>
-              <Col>
-                <H2>Is this React part-time course right for me?</H2>
-              </Col>
-            </Row>
-            <Row>
-              <DisplaySingleComponentUsingCss xs sm>
-                <Col xs={5}>
-                  <ImagePlaceholder width="100%" height="500px" />
-                </Col>
-              </DisplaySingleComponentUsingCss>
-              <Col xs={7} md={12}>
-                <Ul unstyled>
-                  <Li>
-                    <BulletIcon icon={CollabsIcon} />
-                    Meaningful, collaborative learning
-                  </Li>
-                  <Li>Personal mentoring over online learning</Li>
-                  <Li>
-                    Don't miss a single day of work - only 2 evenings a week
-                  </Li>
-                  <Li>
-                    Not for beginners! Looking for a{' '}
-                    <Link to="https://makers.tech/">Learn-to-Code course?</Link>{' '}
-                  </Li>
-                  <Li>Discuss real-world projects to learn best practices</Li>
-                  <Li>Coaches are expert React developers</Li>
-                </Ul>
-              </Col>
-            </Row>
+          <Col md={5}>
+            <ImagePlaceholder />
+          </Col>
+          <Col md={5} mdOffset={1}>
+            <H2>Is this React part-time course right for me?</H2>
+            <Ul unstyled>
+              <Li>
+                <BulletIcon icon={CollabsIcon} />
+                Meaningful, collaborative learning
+              </Li>
+              <Li>Personal mentoring over online learning</Li>
+              <Li>Don't miss a single day of work - only 2 evenings a week</Li>
+              <Li>
+                Not for beginners! Looking for a{' '}
+                <Link to="https://makers.tech/">Learn-to-Code course?</Link>{' '}
+              </Li>
+              <Li>Discuss real-world projects to learn best practices</Li>
+              <Li>Coaches are expert React developers</Li>
+            </Ul>
             <P>
-              <Link to="/react-redux-graphql-bootcamp-london">
+              <Link to="/react-redux-training-london">
                 Next part-time course: London - 2nd October 2018
               </Link>
             </P>

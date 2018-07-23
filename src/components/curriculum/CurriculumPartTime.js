@@ -45,7 +45,6 @@ const CurriculumPartTime = () => (
           #
         </a>
       </H1Ref>
-
       <Row>
         <Col xs={12} md={6}>
           <Section title="Session 1 - ES6">
@@ -97,7 +96,9 @@ const CurriculumPartTime = () => (
             </span>
           </Col>
           <Col lg={6} center>
-            <LinkButton secondary>1 week bootcamp >></LinkButton>
+            <LinkButton to="/react-redux-graphql-bootcamp" secondary>
+              1 week bootcamp >>
+            </LinkButton>
           </Col>
         </Row>
       </BootcampCard>

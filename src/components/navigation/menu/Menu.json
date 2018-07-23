@@ -1,5 +1,10 @@
 [
   {
+    "to": "/",
+    "text": "ReactJS Academy",
+    "onlyOn": null
+  },
+  {
     "to": "/react-redux-graphql-bootcamp",
     "text": "Bootcamp",
     "onlyOn": null
