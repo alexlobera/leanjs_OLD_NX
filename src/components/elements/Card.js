@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { BLUE2, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../styles'
+import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../styles'
 
 const fontColor = color => `
   color: ${color};
@@ -28,7 +28,7 @@ const Card = styled.div`
     switch (props.bg) {
       case 'dark':
         return `
-    background-color: ${BLUE2};
+    background-color: ${blue1()};
     border: solid 1px ${BROWN};
     ${fontColor(WHITE)}
   `

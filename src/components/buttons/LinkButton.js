@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Link from '../navigation/Link'
-import { BLUE2, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
+import { blue1, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
 import { DEFAULT_BUTTON_STYLE } from './Button'
 
 const LinkButton = styled(Link)`
@@ -12,7 +12,7 @@ const LinkButton = styled(Link)`
     } else if (props.cta) {
       return CALLTOACTIONRED
     } else {
-      return BLUE2
+      return blue1()
     }
   }};
   font-weight: ${props => (props.cta ? 800 : 400)};

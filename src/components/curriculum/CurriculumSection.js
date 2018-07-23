@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { H4, P } from '../text'
 import Ul, { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
-import { BLUE2 } from '../../styles'
+import { blue1 } from '../../styles'
 
 const Section = styled.div`
   margin-top: 2em;
-  border-left: 3px solid ${BLUE2};
+  border-left: 3px solid ${blue1()};
   padding-left: 20px;
 `
 
