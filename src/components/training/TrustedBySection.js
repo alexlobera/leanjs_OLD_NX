@@ -64,7 +64,7 @@ export const TrustedByLogoList = () => (
   </CompanyList>
 )
 
-const TrustedBy = () => (
+const TrustedBySection = () => (
   <Section>
     <Grid>
       <Card dark>
@@ -86,4 +86,4 @@ const TrustedBy = () => (
   </Section>
 )
 
-export default TrustedBy
+export default TrustedBySection

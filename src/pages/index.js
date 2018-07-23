@@ -17,7 +17,7 @@ import { CurriculumBootcamp } from '../components/curriculum'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
-import TrustedBy from '../components/training/TrustedBy'
+import TrustedBySection from '../components/training/TrustedBySection'
 
 const CallToActionRow = styled(Row)`
   text-align: center;
@@ -219,7 +219,7 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-    <TrustedBy />
+    <TrustedBySection />
     <Section>
       <Grid>
         <Row>

@@ -15,7 +15,7 @@ import {
   DisplaySingleComponentUsingCss,
 } from '../../components/utils'
 import Header from '../../components/layout/Header'
-import { TrustedByLogoList } from '../../components/training/TrustedBy'
+import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 
 const BootcampLondon = ({ width }) => (
   <div>

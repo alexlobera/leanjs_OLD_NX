@@ -11,10 +11,14 @@ const Section = styled.section`
   }
 `
 
+Section.displayName = 'Section'
+
 export const TopSection = styled(Section)`
   @media (min-width: ${SCREEN_SM_MIN}) {
     margin-top: -125px;
   }
 `
+
+TopSection.displayName = 'TopSection'
 
 export default Section

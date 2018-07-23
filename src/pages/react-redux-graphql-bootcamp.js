@@ -14,7 +14,7 @@ import {
 import { CurriculumBootcamp } from '../components/curriculum'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
-import TrustedBy from '../components/training/TrustedBy'
+import TrustedBy from '../components/training/TrustedBySection'
 import { Card } from '../components/elements'
 
 const CallToActionRow = styled(Row)`
