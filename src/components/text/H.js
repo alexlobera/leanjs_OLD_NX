@@ -29,7 +29,7 @@ export const H2 = styled.h2`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  margin-bottom: 55px;
+  margin-bottom: 40px;
 `
 
 export const H2Ref = styled(H2)`

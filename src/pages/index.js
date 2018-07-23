@@ -42,6 +42,9 @@ import {
 } from '../components/icons'
 import london from '../../img/london.png'
 import lisbon from '../../img/lisbon.png'
+import courseCollab from '../../img/courseCollab.png'
+import whyReactJSAcademy from '../../img/whyReactJSAcademy.png'
+import companyPitch from '../../img/companyPitch.png'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
@@ -93,7 +96,7 @@ const IndexPage = () => (
         <Row>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
+              <img src={courseCollab} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
           <Col md={7}>
@@ -105,7 +108,7 @@ const IndexPage = () => (
             <Row>
               <DisplaySingleComponentUsingCss xs sm>
                 <Col xs={5}>
-                  <ImagePlaceholder />
+                  <img src={courseCollab} width="100%" />
                 </Col>
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12} lg={11} lgOffset={1}>
@@ -175,7 +178,7 @@ const IndexPage = () => (
             <Row>
               <DisplaySingleComponentUsingCss xs sm>
                 <Col xs={5}>
-                  <ImagePlaceholder width="100%" height="500px" />
+                  <img src={whyReactJSAcademy} width="100%" />
                 </Col>
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
@@ -232,7 +235,7 @@ const IndexPage = () => (
           </Col>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
+              <img src={whyReactJSAcademy} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
         </Row>
@@ -244,7 +247,7 @@ const IndexPage = () => (
         <Row>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
+              <img src={companyPitch} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
           <Col md={7}>
@@ -259,7 +262,7 @@ const IndexPage = () => (
             <Row>
               <DisplaySingleComponentUsingCss xs sm>
                 <Col xs={5}>
-                  <ImagePlaceholder width="100%" height="500px" />
+                  <img src={companyPitch} width="100%" />
                 </Col>
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12} lg={10} lgOffset={1}>
