@@ -41,7 +41,7 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import london from '../../img/london.png'
+import london from '..//assets/img/london.png'
 
 const PartTime = () => (
   <div>

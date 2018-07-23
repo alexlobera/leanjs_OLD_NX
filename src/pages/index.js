@@ -17,8 +17,7 @@ import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import TrainingItem from '../components/training/TrainingItem'
-import TrainingList from '../components/training/TrainingList'
+import { TrainingItem, TrainingList } from '../components/training'
 import {
   BussinessIcon,
   CalendarIcon,
@@ -39,11 +38,11 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import london from '../../img/london.png'
-import lisbon from '../../img/lisbon.png'
-import courseCollab from '../../img/courseCollab.png'
-import whyReactJSAcademy from '../../img/whyReactJSAcademy.png'
-import companyPitch from '../../img/companyPitch.png'
+import london from '..//assets/img/london.png'
+import lisbon from '..//assets/img/lisbon.png'
+import courseCollab from '..//assets/img/courseCollab.png'
+import whyReactJSAcademy from '..//assets/img/whyReactJSAcademy.png'
+import companyPitch from '..//assets/img/companyPitch.png'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;

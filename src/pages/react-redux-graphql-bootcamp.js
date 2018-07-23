@@ -11,11 +11,12 @@ import {
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import TrustedBy from '../components/training/TrustedBySection'
 import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
+import { TrainingItem, TrainingList } from '../components/training'
+import london from '../assets/img/london.png'
 
 const Boocamps = () => (
   <div>
@@ -96,33 +97,25 @@ const Boocamps = () => (
       </Grid>
     </Section>
     <TrustedBy />
+
     <Section>
       <Grid>
+        <H2>
+          <Col lg={10} lgOffset={1}>
+            Upcoming Bootcamps
+          </Col>
+        </H2>
         <Row>
           <Col lg={10} lgOffset={1}>
-            <H2Ref>
-              Upcoming bootcamps{' '}
-              <a name="next-bootcamps" href="#next-bootcamps">
-                #
-              </a>
-            </H2Ref>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            <Row>
-              <Col xs={5}>
-                <ImagePlaceholder width="100%" />
-              </Col>
-              <Col xs={7}>
-                London, UK
-                <P>Oct 2nd to Nov 8th, 2018</P>
-                <LinkButton
-                  to="/react-redux-training-london"
-                  children="London part-time"
-                />
-              </Col>
-            </Row>
+            <TrainingList>
+              <TrainingItem
+                location="Makers Academy, London"
+                startDate="August 20th to 25th, 2018"
+                name="London bootcamp"
+                path="/react-redux-graphql-bootcamp-london"
+                imageSrc={london}
+              />
+            </TrainingList>
           </Col>
         </Row>
       </Grid>

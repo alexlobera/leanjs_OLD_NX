@@ -7,7 +7,7 @@ import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
-import headerImg from '../../../img/homepage_topPage.png'
+import headerImg from '../..//assets/img/homepage_topPage.png'
 import Link from '../navigation/Link'
 
 const H1 = styled(BaseH1)`

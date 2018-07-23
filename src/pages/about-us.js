@@ -17,8 +17,8 @@ import {
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { TrainingItem, TrainingList } from '../components/training'
-import london from '../../img/london.png'
-import lisbon from '../../img/lisbon.png'
+import london from '..//assets/img/london.png'
+import lisbon from '..//assets/img/lisbon.png'
 
 const AboutUs = () => (
   <div>
