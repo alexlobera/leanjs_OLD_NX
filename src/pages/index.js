@@ -90,28 +90,28 @@ const IndexPage = () => (
                 </Col>
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12} lg={11} lgOffset={1}>
-                <Ul>
-                  <Li withIcon>
+                <Ul unstyled>
+                  <Li>
                     <BulletIcon icon="productionready" />
                     <strong>Build production ready</strong> React apps.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="collabs" />
                     Discuss <strong>real-world projects</strong>.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="star" />
                     Learn <strong>best practices</strong>.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="trainer" />
                     <strong>Mentoring</strong> by our expert coaches.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="heart" />
                     Alumni <strong>community</strong>.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="code" />
                     <strong>Stay ahead</strong> in modern development.
                   </Li>
@@ -161,26 +161,26 @@ const IndexPage = () => (
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
                 <Ul>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="notbegginer" />
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="spanner" />
                     <strong>Hands-on project-based</strong> training.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="collabs" />
                     A <strong>collaborative</strong> learning environment.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="time" />
                     <Link to="/react-redux-graphql-bootcamp">
                       Bootcamps
                     </Link>{' '}
                     for accelerated learning.
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="calendar" />
                     <Link to="/react-redux-graphql-part-time-course">
                       Part-time courses
@@ -247,23 +247,23 @@ const IndexPage = () => (
               </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
                 <Ul>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="tickbadge" />
                     Avoid delays and business losses
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="react" />
                     Minimize risk of on boarding React
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="entermind" />
                     Safe environment for developers to learn
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="heart" />
                     Increase employee retention, motivation and productivity
                   </Li>
-                  <Li withIcon>
+                  <Li>
                     <BulletIcon icon="bussiness" />
                     Offer more services to internal and external clients
                   </Li>
