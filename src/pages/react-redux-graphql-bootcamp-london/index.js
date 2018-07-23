@@ -44,13 +44,10 @@ const BootcampLondon = ({ width }) => (
       <Grid>
         <Card dark>
           <Row>
-            <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <Video
-                height="415"
-                src="https://www.youtube.com/embed/yvROXLQ1jHg"
-              />
+            <Col xs={12} md={6} lg={4} lgOffset={1}>
+              <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
             </Col>
-            <Col xs={12} md={6} lg={5}>
+            <Col xs={12} md={6} lg={5} lgOffset={1}>
               <H2Ref>
                 Prices{' '}
                 <a href="#pricing" name="pricing">
