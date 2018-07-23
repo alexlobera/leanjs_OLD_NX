@@ -41,6 +41,7 @@ const LinkButton = styled(Link)`
   cursor: pointer;
   padding: 0.7em;
   display: inline-block;
+  text-decoration: none;
 `
 
 LinkButton.displayName = 'LinkButton'

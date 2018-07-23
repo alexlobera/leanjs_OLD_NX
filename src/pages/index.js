@@ -93,11 +93,11 @@ const IndexPage = () => (
               <Col xs={7} md={12} lg={11} lgOffset={1}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="productionready" />
+                    <Icon icon="production" />
                     <strong>Build production ready</strong> React apps.
                   </Li>
                   <Li>
-                    <Icon icon="collabs" />
+                    <Icon icon="discuss" />
                     Discuss <strong>real-world projects</strong>.
                   </Li>
                   <Li>
@@ -109,7 +109,7 @@ const IndexPage = () => (
                     <strong>Mentoring</strong> by our expert coaches.
                   </Li>
                   <Li>
-                    <Icon icon="heart" />
+                    <Icon icon="people" />
                     Alumni <strong>community</strong>.
                   </Li>
                   <Li>
@@ -163,7 +163,7 @@ const IndexPage = () => (
               <Col xs={7} md={12}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="notbegginer" />
+                    <Icon icon="notBegginer" />
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
                   <Li>
@@ -249,7 +249,7 @@ const IndexPage = () => (
               <Col xs={7} md={12} lg={10} lgOffset={1}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="tickbadge" />
+                    <Icon icon="tickBadge" />
                     Avoid delays and business losses
                   </Li>
                   <Li>
@@ -257,7 +257,7 @@ const IndexPage = () => (
                     Minimize risk of on boarding React
                   </Li>
                   <Li>
-                    <Icon icon="entermind" />
+                    <Icon icon="enterMind" />
                     Safe environment for developers to learn
                   </Li>
                   <Li>
