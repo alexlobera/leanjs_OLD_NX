@@ -1,7 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import Section from '../components/layout/Section'
+import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
@@ -12,18 +13,39 @@ import AttendeeQuote from '../components/training/AttendeeQuote'
 import { Video, Card } from '../components/elements'
 import { Trainline, ASOS, ABInBev, Blockchain } from '../components/logos'
 import { CurriculumPartTime } from '../components/curriculum'
+import Header from '../components/layout/Header'
+import CallToActionRow from '../components/layout/CallToActionRow'
+
+const BootcampCard = styled.div``
 
 const PartTime = () => (
   <div>
+    <Header
+      titleLines={['6-week part-time React', 'Redux GraphQL course']}
+      subtitle="Expert coaches work alongside you, 2 evenings a week, <br /> to master the React ecosystem without having to cut <br /> into valuable work-days"
+    />
+    <TopSection>
+      <Grid>
+        <CallToActionRow left>
+          <Col lg={11} lgOffset={1}>
+            <LinkButton
+              cta
+              large
+              to="/react-redux-training-london"
+              children="Next course: 2nd October, London >>"
+            />
+          </Col>
+        </CallToActionRow>
+        <Card border="shadow">
+          <CurriculumPartTime />
+        </Card>
+      </Grid>
+    </TopSection>
+
     <Section>
       <Grid>
         <Row>
           <Col style={{ textAlign: 'center' }} mdOffset={3} md={6}>
-            <H1>6-week part-time React Redux GraphQL course</H1>
-            <H2>
-              Expert coaches and mentors will work alongside you to master the
-              React ecosystem witout having to leave 1 day of work
-            </H2>
             <P style={{ textAlign: 'center' }}>
               <LinkButton
                 extraLarge
