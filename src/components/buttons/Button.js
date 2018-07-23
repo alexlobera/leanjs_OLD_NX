@@ -10,7 +10,7 @@ export const DEFAULT_BUTTON_STYLE = `
   letter-spacing: 0.6px;
   align-items: flex-start;
   text-align: center;
-  padding: 17px 25px;
+  padding: 13px 25px;
   border-radius: 2px;
 `
 export default styled(({ large, ...props }) => <button {...props} />)`
