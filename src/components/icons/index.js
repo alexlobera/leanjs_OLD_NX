@@ -15,6 +15,8 @@ import TargetIcon from './TargetIcon'
 import TickBadgeIcon from './TickBadgeIcon'
 import TimeIcon from './TimeIcon'
 import TrainerIcon from './TrainerIcon'
+import ReactIcon from './ReactIcon'
+import WorldIcon from './WorldIcon'
 
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -134,6 +136,18 @@ const BulletIcon = ({ icon }) => {
           <TrainerIcon />
         </StyledIcon>
       )
+    case 'react':
+      return (
+        <StyledIcon>
+          <ReactIcon />
+        </StyledIcon>
+      )
+    case 'world':
+      return (
+        <StyledIcon>
+          <WorldIcon />
+        </StyledIcon>
+      )
     default:
       return null
   }
@@ -160,6 +174,8 @@ export {
   TickBadgeIcon,
   TimeIcon,
   TrainerIcon,
+  ReactIcon,
+  WorldIcon,
 }
 
 export default BulletIcon

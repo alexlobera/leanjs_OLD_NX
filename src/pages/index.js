@@ -264,7 +264,7 @@ const IndexPage = () => (
                     Avoid delays and business losses
                   </Li>
                   <Li withIcon>
-                    <BulletIcon icon="code" />
+                    <BulletIcon icon="react" />
                     Minimize risk of on boarding React
                   </Li>
                   <Li withIcon>
