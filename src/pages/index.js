@@ -18,7 +18,27 @@ import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import Icon from '../components/icons'
+import {
+  BussinessIcon,
+  CalendarIcon,
+  CodeIcon,
+  CollabsIcon,
+  EnterMindIcon,
+  HeartIcon,
+  NotBegginerIcon,
+  NotBegginersIcon,
+  ProductionReadyIcon,
+  RunFastIcon,
+  SpannerIcon,
+  StarIcon,
+  TargetIcon,
+  TickBadgeIcon,
+  TimeIcon,
+  TrainerIcon,
+  ReactIcon,
+  WorldIcon,
+  BulletIcon,
+} from '../components/icons'
 
 const ForYourCompanyCallToActions = styled(Ul)`
   @media (max-width: ${SCREEN_XS_MAX}) {
@@ -93,27 +113,27 @@ const IndexPage = () => (
               <Col xs={7} md={12} lg={11} lgOffset={1}>
                 <Ul unstyled>
                   <Li>
-                    <BulletIcon icon="production" />
+                    <BulletIcon icon={WorldIcon} />
                     <strong>Build production ready</strong> React apps.
                   </Li>
                   <Li>
-                    <Icon icon="collabs" />
+                    <BulletIcon icon={CollabsIcon} />
                     Discuss <strong>real-world projects</strong>.
                   </Li>
                   <Li>
-                    <Icon icon="star" />
+                    <BulletIcon icon={StarIcon} />
                     Learn <strong>best practices</strong>.
                   </Li>
                   <Li>
-                    <Icon icon="trainer" />
+                    <BulletIcon icon={TrainerIcon} />
                     <strong>Mentoring</strong> by our expert coaches.
                   </Li>
                   <Li>
-                    <Icon icon="heart" />
+                    <BulletIcon icon={HeartIcon} />
                     Alumni <strong>community</strong>.
                   </Li>
                   <Li>
-                    <Icon icon="code" />
+                    <BulletIcon icon={CodeIcon} />
                     <strong>Stay ahead</strong> in modern development.
                   </Li>
                 </Ul>
@@ -163,7 +183,7 @@ const IndexPage = () => (
               <Col xs={7} md={12}>
                 <Ul unstyled>
                   <Li>
-                    <BulletIcon icon="notBegginer" />
+                    <Icon icon="notBegginer" />
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
                   <Li>
@@ -249,7 +269,7 @@ const IndexPage = () => (
               <Col xs={7} md={12} lg={10} lgOffset={1}>
                 <Ul unstyled>
                   <Li>
-                    <BulletIcon icon="tickBadge" />
+                    <Icon icon="tickBadge" />
                     Avoid delays and business losses
                   </Li>
                   <Li>
@@ -257,7 +277,7 @@ const IndexPage = () => (
                     Minimize risk of on boarding React
                   </Li>
                   <Li>
-                    <BulletIcon icon="enterMind" />
+                    <Icon icon="enterMind" />
                     Safe environment for developers to learn
                   </Li>
                   <Li>

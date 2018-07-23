@@ -18,10 +18,30 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import Icon from '../components/icons'
 import TrustedBySection from '../components/training/TrustedBySection'
 import TrainingItem from '../components/training/TrainingItem'
 import TrainingList from '../components/training/TrainingList'
+import {
+  BussinessIcon,
+  CalendarIcon,
+  CodeIcon,
+  CollabsIcon,
+  EnterMindIcon,
+  HeartIcon,
+  NotBegginerIcon,
+  NotBegginersIcon,
+  ProductionReadyIcon,
+  RunFastIcon,
+  SpannerIcon,
+  StarIcon,
+  TargetIcon,
+  TickBadgeIcon,
+  TimeIcon,
+  TrainerIcon,
+  ReactIcon,
+  WorldIcon,
+  BulletIcon,
+} from '../components/icons'
 
 const PartTime = () => (
   <div>
@@ -70,30 +90,30 @@ const PartTime = () => (
               <Col xs={7} md={12}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="collabs" />
+                    <BulletIcon icon={CollabsIcon} />
                     Meaningful, collaborative learning
                   </Li>
                   <Li>
-                    <Icon icon="group-2" />
+                    <BulletIcon />
                     Personal mentoring over online learning
                   </Li>
                   <Li>
-                    <Icon icon="spanner" />
+                    <BulletIcon />
                     Don't miss a single day of work - only 2 evenings a week
                   </Li>
                   <Li>
-                    <Icon icon="notbegginers" />
+                    <BulletIcon />
                     Not for beginners! Looking for a{' '}
                     <Link to="https://makers.tech/">
                       Learn-to-Code course?
                     </Link>{' '}
                   </Li>
                   <Li>
-                    <Icon icon="group-2-copy" />
+                    <BulletIcon />
                     Discuss real-world projects to learn best practices
                   </Li>
                   <Li>
-                    <Icon icon="notbegginer" />
+                    <BulletIcon />
                     Coaches are expert React developers
                   </Li>
                 </Ul>

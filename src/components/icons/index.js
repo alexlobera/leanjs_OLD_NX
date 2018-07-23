@@ -21,7 +21,7 @@ import WorldIcon from './WorldIcon'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const StyledIcon = styled.div`
+export const StyledIcon = styled.div`
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
@@ -37,36 +37,9 @@ const StyledIcon = styled.div`
     left: 0;
   }
 `
-
-const BulletIcon = ({ icon }) => {
-  const iconsList = {
-    bussiness: BussinessIcon,
-    calendar: CalendarIcon,
-    code: CodeIcon,
-    collabs: CollabsIcon,
-    enterMind: EnterMindIcon,
-    heart: HeartIcon,
-    notBegginer: NotBegginerIcon,
-    notBegginers: NotBegginersIcon,
-    production: ProductionReadyIcon,
-    runFast: RunFastIcon,
-    spanner: SpannerIcon,
-    star: StarIcon,
-    target: TargetIcon,
-    tickBadge: TickBadgeIcon,
-    time: TimeIcon,
-    trainer: TrainerIcon,
-    react: ReactIcon,
-    world: WorldIcon,
-  }
-
-  const Icon = iconsList[icon]
-  return (
-    <StyledIcon>
-      <Icon />
-    </StyledIcon>
-  )
-}
+const BulletIcon = ({ icon, ...rest }) => (
+  <StyledIcon>{React.createElement(icon, rest)}</StyledIcon>
+)
 
 BulletIcon.propTypes = {
   icon: PropTypes.string.isRequired,
@@ -91,6 +64,5 @@ export {
   TrainerIcon,
   ReactIcon,
   WorldIcon,
+  BulletIcon,
 }
-
-export default BulletIcon

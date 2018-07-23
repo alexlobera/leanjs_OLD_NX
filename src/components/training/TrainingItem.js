@@ -1,5 +1,5 @@
 import React from 'react'
-import P from '../layout/P'
+import P from '../text'
 import { Col } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import ImagePlaceholder from '../wireframes/ImagePlaceholder'
