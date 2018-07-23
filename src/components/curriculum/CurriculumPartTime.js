@@ -28,12 +28,14 @@ const PartTimeFinalProject = () => (
 
 const CurriculumPartTime = () => (
   <div>
-    <H1Ref>
-      The most progressive curriculum out there{' '}
-      <a href="#curriculum" name="curriculum">
-        #
-      </a>
-    </H1Ref>
+    <Col xs={12} md={12} lg={10} lgOffset={1}>
+      <H1Ref>
+        The most progressive curriculum out there{' '}
+        <a href="#curriculum" name="curriculum">
+          #
+        </a>
+      </H1Ref>
+    </Col>
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section subTitle="Session 1 - ES6">
