@@ -3,8 +3,11 @@ import BussinessIcon from './BussinessIcon'
 import CalendarIcon from './CalendarIcon'
 import CodeIcon from './CodeIcon'
 import CollabsIcon from './CollabsIcon'
+import DiscussIcon from './DiscussIcon'
 import EnterMindIcon from './EnterMindIcon'
+import FacebookIcon from './FacebookIcon'
 import HeartIcon from './HeartIcon'
+import InstagramIcon from './InstagramIcon'
 import NotBegginerIcon from './NotBegginerIcon'
 import NotBegginersIcon from './NotBegginersIcon'
 import ProductionReadyIcon from './ProductionReadyIcon'
@@ -16,6 +19,7 @@ import TickBadgeIcon from './TickBadgeIcon'
 import TimeIcon from './TimeIcon'
 import TrainerIcon from './TrainerIcon'
 import ReactIcon from './ReactIcon'
+import PeopleNetWorkIcon from './PeopleNetWorkIcon'
 import WorldIcon from './WorldIcon'
 
 import PropTypes from 'prop-types'
@@ -43,9 +47,12 @@ const BulletIcon = ({ icon }) => {
     bussiness: BussinessIcon,
     calendar: CalendarIcon,
     code: CodeIcon,
+    discuss: DiscussIcon,
     collabs: CollabsIcon,
     enterMind: EnterMindIcon,
+    facebook: FacebookIcon,
     heart: HeartIcon,
+    instagram: InstagramIcon,
     notBegginer: NotBegginerIcon,
     notBegginers: NotBegginersIcon,
     production: ProductionReadyIcon,
@@ -57,6 +64,7 @@ const BulletIcon = ({ icon }) => {
     time: TimeIcon,
     trainer: TrainerIcon,
     react: ReactIcon,
+    people: PeopleNetWorkIcon,
     world: WorldIcon,
   }
 
@@ -70,27 +78,6 @@ const BulletIcon = ({ icon }) => {
 
 BulletIcon.propTypes = {
   icon: PropTypes.string.isRequired,
-}
-
-export {
-  BussinessIcon,
-  CalendarIcon,
-  CodeIcon,
-  CollabsIcon,
-  EnterMindIcon,
-  HeartIcon,
-  NotBegginerIcon,
-  NotBegginersIcon,
-  ProductionReadyIcon,
-  RunFastIcon,
-  SpannerIcon,
-  StarIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  TimeIcon,
-  TrainerIcon,
-  ReactIcon,
-  WorldIcon,
 }
 
 export default BulletIcon
