@@ -44,7 +44,7 @@ const BootcampLondon = () => (
       <Grid>
         <CallToActionRow left>
           <Col lg={11} lgOffset={1}>
-            <Button cta children="Buy now for &pound;1740" />
+            <Button cta children="Buy London bootcamp for &pound;1740" />
           </Col>
         </CallToActionRow>
         <Card border="shadow">
@@ -126,39 +126,28 @@ const BootcampLondon = () => (
               <ImagePlaceholder width="100%" height="500px" />
             </Col>
           </HideSingleComponentUsingCss>
-          <Col md={6}>
-            <Row>
-              <Col>
-                <H2Ref>
-                  Is this bootcamp right for me? Are you...{' '}
-                  <a href="#target-audience" name="target-audience">
-                    #
-                  </a>
-                </H2Ref>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={7} md={12}>
-                <Ul>
-                  <Li>
-                    A developer with 1+ year of development under your belt?
-                  </Li>
-                  <Li>
-                    Familiar with front-end technologies like JavaScript, CSS,
-                    and HTML?
-                  </Li>
-                  <Li>
-                    Taking a step forward to become a React JS Specialist able
-                    to make critical decisions in the architecture of a React
-                    application.
-                  </Li>
-                  <Li>
-                    Unhappy with online learning and it's lack of 1-on-1
-                    mentoring?
-                  </Li>
-                </Ul>
-              </Col>
-            </Row>
+          <Col xs={12} md={6}>
+            <H2Ref>
+              Is this bootcamp right for me? Are you...{' '}
+              <a href="#target-audience" name="target-audience">
+                #
+              </a>
+            </H2Ref>
+            <Ul>
+              <Li>A developer with 1+ year of development under your belt?</Li>
+              <Li>
+                Familiar with front-end technologies like JavaScript, CSS, and
+                HTML?
+              </Li>
+              <Li>
+                Taking a step forward to become a React JS Specialist able to
+                make critical decisions in the architecture of a React
+                application.
+              </Li>
+              <Li>
+                Unhappy with online learning and it's lack of 1-on-1 mentoring?
+              </Li>
+            </Ul>
             <P>If you've said 'yes' to these, our bootcamp could be for you!</P>
             <H3>Not for beginner devs!</H3>
             <P>
