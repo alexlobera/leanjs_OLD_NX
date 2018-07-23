@@ -3,3 +3,5 @@ export { default as Blockquote } from './Blockquote'
 export { default as Badge } from './Badge'
 export { default as Label } from './Label'
 export { default as P } from './P'
+
+export const textSize = {}
