@@ -6,7 +6,7 @@ export default styled.input`
   background-color: ${WHITE};
   display: block;
   width: 100%;
-  padding: 14px 10px;
+  padding: 11px 10px;
   font-size: 1rem;
   line-height: 1.5;
   color: ${GREY2};
