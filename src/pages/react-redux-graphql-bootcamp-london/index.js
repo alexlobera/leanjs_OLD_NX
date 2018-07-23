@@ -2,9 +2,8 @@ import React from 'react'
 import Section, { TopSection } from '../../components/layout/Section'
 import Button, { ButtonSecondary } from '../../components/buttons/Button'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import P from '../../components/layout/P'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
-import { H2, H2Ref, H3 } from '../../components/text'
+import { H2, H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import { Ribbon, Card, Video } from '../../components/elements'
@@ -42,7 +41,7 @@ const BootcampLondon = ({ width }) => (
     </TopSection>
     <Section>
       <Grid>
-        <Card dark>
+        <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />

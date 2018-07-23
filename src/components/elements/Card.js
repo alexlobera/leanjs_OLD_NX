@@ -22,19 +22,29 @@ const Card = styled.div`
     padding: 30px;
   `
       : `
-    padding: 60px 0 40px 0; 
+    padding: 60px 0 40px 0;
   `}
-  ${props =>
-    props.dark
-      ? `
+  ${props => {
+    switch (props.bg) {
+      case 'dark':
+        return `
     background-color: ${BLUE2};
     border: solid 1px ${BROWN};
     ${fontColor(WHITE)}
   `
-      : `
+      case 'darkGrey':
+        return `
+    background-color: ${GREY2};
+    ${fontColor(WHITE)}
+  `
+      default:
+        return `
     background-color: ${WHITE};
     ${fontColor(GREY2)}
-  `}
+  `
+    }
+  }}
+
   ${props => {
     switch (props.border) {
       case 'white':

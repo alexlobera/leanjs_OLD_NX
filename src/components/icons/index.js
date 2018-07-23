@@ -39,118 +39,33 @@ const StyledIcon = styled.div`
 `
 
 const BulletIcon = ({ icon }) => {
-  switch (icon) {
-    case 'bussiness':
-      return (
-        <StyledIcon>
-          <BussinessIcon />
-        </StyledIcon>
-      )
-    case 'calendar':
-      return (
-        <StyledIcon>
-          <CalendarIcon />
-        </StyledIcon>
-      )
-    case 'code':
-      return (
-        <StyledIcon>
-          <CodeIcon />
-        </StyledIcon>
-      )
-    case 'collabs':
-      return (
-        <StyledIcon>
-          <CollabsIcon />
-        </StyledIcon>
-      )
-    case 'entermind':
-      return (
-        <StyledIcon>
-          <EnterMindIcon />
-        </StyledIcon>
-      )
-    case 'heart':
-      return (
-        <StyledIcon>
-          <HeartIcon />
-        </StyledIcon>
-      )
-    case 'notbegginer':
-      return (
-        <StyledIcon>
-          <NotBegginerIcon />
-        </StyledIcon>
-      )
-    case 'notbegginers':
-      return (
-        <StyledIcon>
-          <NotBegginersIcon />
-        </StyledIcon>
-      )
-    case 'productionready':
-      return (
-        <StyledIcon>
-          <ProductionReadyIcon />
-        </StyledIcon>
-      )
-    case 'runfast':
-      return (
-        <StyledIcon>
-          <RunFastIcon />
-        </StyledIcon>
-      )
-    case 'spanner':
-      return (
-        <StyledIcon>
-          <SpannerIcon />
-        </StyledIcon>
-      )
-    case 'star':
-      return (
-        <StyledIcon>
-          <StarIcon />
-        </StyledIcon>
-      )
-    case 'target':
-      return (
-        <StyledIcon>
-          <TargetIcon />
-        </StyledIcon>
-      )
-    case 'tickbadge':
-      return (
-        <StyledIcon>
-          <TickBadgeIcon />
-        </StyledIcon>
-      )
-    case 'time':
-      return (
-        <StyledIcon>
-          <TimeIcon />
-        </StyledIcon>
-      )
-    case 'trainer':
-      return (
-        <StyledIcon>
-          <TrainerIcon />
-        </StyledIcon>
-      )
-    case 'react':
-      return (
-        <StyledIcon>
-          <ReactIcon />
-        </StyledIcon>
-      )
-    case 'world':
-      return (
-        <StyledIcon>
-          <WorldIcon />
-        </StyledIcon>
-      )
-    default:
-      return null
+  const iconsList = {
+    bussiness: BussinessIcon,
+    calendar: CalendarIcon,
+    code: CodeIcon,
+    collabs: CollabsIcon,
+    enterMind: EnterMindIcon,
+    heart: HeartIcon,
+    notBegginer: NotBegginerIcon,
+    notBegginers: NotBegginersIcon,
+    production: ProductionReadyIcon,
+    runFast: RunFastIcon,
+    spanner: SpannerIcon,
+    star: StarIcon,
+    target: TargetIcon,
+    tickBadge: TickBadgeIcon,
+    time: TimeIcon,
+    trainer: TrainerIcon,
+    react: ReactIcon,
+    world: WorldIcon,
   }
+
+  const Icon = iconsList[icon]
+  return (
+    <StyledIcon>
+      <Icon />
+    </StyledIcon>
+  )
 }
 
 BulletIcon.propTypes = {

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Link from '../navigation/Link'
 import { BLUE2, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
 
-export default styled(Link)`
+const LinkButton = styled(Link)`
   font-size: ${props => {
     if (props.extraLarge) {
       return 20
@@ -43,3 +43,7 @@ export default styled(Link)`
   display: inline-block;
   text-decoration: none;
 `
+
+LinkButton.displayName = 'LinkButton'
+
+export default LinkButton

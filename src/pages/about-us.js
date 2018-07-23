@@ -4,9 +4,8 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H1, H2, H2Ref, H3 } from '../components/text'
+import { H1, H2, H2Ref, H3, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
@@ -17,6 +16,7 @@ import {
 } from '../components/utils'
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
+import UpcomingBootcampsSection from '../components/sections/UpcomingBootcampsSection'
 
 const AboutUs = () => (
   <div>
@@ -56,7 +56,7 @@ const AboutUs = () => (
           <Col xs={12} md={5}>
             <ImagePlaceholder />
           </Col>
-          <Col xs={12} md={7}>
+          <Col xs={12} md={6} mdOffset={1}>
             <H2Ref>
               Alex Lobera{' '}
               <a name="coach-profiles" href="#coaches-profile">
@@ -115,10 +115,7 @@ const AboutUs = () => (
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={5}>
-            <ImagePlaceholder />
-          </Col>
-          <Col xs={12} md={7}>
+          <Col xs={12} md={6} mdOffset={1}>
             <H2>Richard Moss</H2>
             <H3>
               Senior React Engineer at{' '}
@@ -141,13 +138,19 @@ const AboutUs = () => (
               </Li>
             </Ul>
           </Col>
+          <Col xs={12} md={5}>
+            <ImagePlaceholder />
+          </Col>
         </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={7}>
+          <Col xs={12} md={5}>
+            <ImagePlaceholder />
+          </Col>
+          <Col xs={12} md={6} mdOffset={1}>
             <H2>Horacio Herrera</H2>
             <H3>
               Designer and Developer at{' '}
@@ -184,19 +187,13 @@ const AboutUs = () => (
               </Li>
             </Ul>
           </Col>
-          <Col xs={12} md={5}>
-            <ImagePlaceholder />
-          </Col>
         </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={5}>
-            <ImagePlaceholder />
-          </Col>
-          <Col xs={12} md={7}>
+          <Col xs={12} md={6} mdOffset={1}>
             <H2>Will Voelcker</H2>
             <H3>
               Senior Full-stack JavaScript Engineer at{' '}
@@ -219,6 +216,9 @@ const AboutUs = () => (
               </Li>
             </Ul>
           </Col>
+          <Col xs={12} md={5}>
+            <ImagePlaceholder />
+          </Col>
         </Row>
       </Grid>
     </Section>
@@ -226,7 +226,10 @@ const AboutUs = () => (
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={7}>
+          <Col xs={12} md={5}>
+            <ImagePlaceholder />
+          </Col>
+          <Col xs={12} md={6} mdOffset={1}>
             <H2Ref>
               How we continuously improve{' '}
               <a
@@ -267,50 +270,51 @@ const AboutUs = () => (
               </LinkButton>
             </p>
           </Col>
-          <Col xs={12} md={5}>
-            <ImagePlaceholder />
-          </Col>
         </Row>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
-        <Row>
-          <Col xs={12} md={5}>
-            <ImagePlaceholder />
-          </Col>
-          <Col xs={12} md={7}>
-            <H2Ref>
-              Corporate team training<a
-                href="#corporate-training"
-                name="corporate-training"
-              >
-                #
-              </a>
-            </H2Ref>
-            <Ul>
-              <Li>Delivered at your office.</Li>
-              <Li>You choose the dates.</Li>
-              <Li>
-                Delivered by our parent company{' '}
-                <Link to="https://leanjs.com/training/private-react-redux-graphql-training">
-                  LeanJS
-                </Link>
-              </Li>
-            </Ul>
-            <p>
-              <LinkButton
-                extraLarge
-                to="https://leanjs.com/training/private-react-redux-graphql-training"
-              >
-                Visit LeanJS
-              </LinkButton>
-            </p>
-          </Col>
-        </Row>
+        <Card bg="darkGrey" border="shadow">
+          <Row>
+            <Col xs={12} md={5} mdOffset={1}>
+              <ImagePlaceholder />
+            </Col>
+            <Col xs={12} md={5}>
+              <H2Ref>
+                Corporate team training<a
+                  href="#corporate-training"
+                  name="corporate-training"
+                >
+                  #
+                </a>
+              </H2Ref>
+              <Ul>
+                <Li>Delivered at your office.</Li>
+                <Li>You choose the dates.</Li>
+                <Li>
+                  Delivered by our parent company{' '}
+                  <Link to="https://leanjs.com/training/private-react-redux-graphql-training">
+                    LeanJS
+                  </Link>
+                </Li>
+              </Ul>
+              <p>
+                <LinkButton
+                  secondary
+                  large
+                  to="https://leanjs.com/training/private-react-redux-graphql-training"
+                >
+                  Visit LeanJS
+                </LinkButton>
+              </p>
+            </Col>
+          </Row>
+        </Card>
       </Grid>
     </Section>
+    <UpcomingBootcampsSection />
 
     {/* <Section>
             <Grid>
