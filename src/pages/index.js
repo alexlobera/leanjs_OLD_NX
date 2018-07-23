@@ -5,7 +5,7 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H2, P } from '../components/text'
+import { H2, H2Ref, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import {
@@ -18,6 +18,8 @@ import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
+import TrainingItem from '../components/training/TrainingItem'
+import TrainingList from '../components/training/TrainingList'
 import {
   BussinessIcon,
   CalendarIcon,
@@ -38,6 +40,8 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
+import london from '../../img/london.png'
+import lisbon from '../../img/lisbon.png'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
@@ -325,6 +329,38 @@ const IndexPage = () => (
               company="Financial Times"
               profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
             />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <H2Ref>
+          <Col lg={10} lgOffset={1}>
+            Upcoming Bootcamps{' '}
+            <a name="next-part-time-courses" href="#next-part-time-courses">
+              #
+            </a>
+          </Col>
+        </H2Ref>
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <TrainingList>
+              <TrainingItem
+                location="Makers Academy, London"
+                startDate="August 20th to 25th, 2018"
+                name="London bootcamp"
+                path="/react-redux-graphql-bootcamp-london"
+                imageSrc={london}
+              />
+              <TrainingItem
+                location="Lisbon, Portugal"
+                startDate="TBD"
+                name="Lisbon bootcamp"
+                path="/react-redux-graphql-bootcamp-lisbon"
+                imageSrc={lisbon}
+              />
+            </TrainingList>
           </Col>
         </Row>
       </Grid>

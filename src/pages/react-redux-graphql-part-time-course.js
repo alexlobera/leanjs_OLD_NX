@@ -41,6 +41,7 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
+import london from '../../img/london.png'
 
 const PartTime = () => (
   <div>
@@ -147,17 +148,17 @@ const PartTime = () => (
           <Col lg={10} lgOffset={1}>
             <TrainingList>
               <TrainingItem
-                location="London, UK"
+                location="Makers Academy, London"
                 startDate="Oct 2nd to Nov 8th, 2018"
                 name="London part-time"
                 path="/react-redux-training-london"
-                imageSrc="https://reactjs.academy/react-redux-training-london"
+                imageSrc={london}
               />
               <TrainingItem
-                location="London, UK"
-                startDate="Oct 2nd to Nov 8th, 2018"
-                name="London part-time"
-                path="/react-redux-training-london"
+                location="Barcelona, Spain"
+                startDate="TBD"
+                name="Barcelona part-time"
+                path="/react-redux-training-barcelona"
                 imageSrc="https://reactjs.academy/react-redux-training-london"
               />
             </TrainingList>
