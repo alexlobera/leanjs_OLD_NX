@@ -19,6 +19,7 @@ import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
+import BulletIcon from '../components/icons'
 
 const ForYourCompantCallToActionsRow = styled(Row)`
   margin-top: 30px;
