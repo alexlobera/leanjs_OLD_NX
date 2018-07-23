@@ -4,9 +4,8 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H2 } from '../components/text'
+import { H2, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import {
@@ -19,7 +18,7 @@ import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import BulletIcon from '../components/icons'
+import Icon from '../components/icons'
 
 const ForYourCompanyCallToActions = styled(Ul)`
   @media (max-width: ${SCREEN_XS_MAX}) {
@@ -98,23 +97,23 @@ const IndexPage = () => (
                     <strong>Build production ready</strong> React apps.
                   </Li>
                   <Li>
-                    <BulletIcon icon="collabs" />
+                    <Icon icon="collabs" />
                     Discuss <strong>real-world projects</strong>.
                   </Li>
                   <Li>
-                    <BulletIcon icon="star" />
+                    <Icon icon="star" />
                     Learn <strong>best practices</strong>.
                   </Li>
                   <Li>
-                    <BulletIcon icon="trainer" />
+                    <Icon icon="trainer" />
                     <strong>Mentoring</strong> by our expert coaches.
                   </Li>
                   <Li>
-                    <BulletIcon icon="heart" />
+                    <Icon icon="heart" />
                     Alumni <strong>community</strong>.
                   </Li>
                   <Li>
-                    <BulletIcon icon="code" />
+                    <Icon icon="code" />
                     <strong>Stay ahead</strong> in modern development.
                   </Li>
                 </Ul>
@@ -168,22 +167,22 @@ const IndexPage = () => (
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
                   <Li>
-                    <BulletIcon icon="spanner" />
+                    <Icon icon="spanner" />
                     <strong>Hands-on project-based</strong> training.
                   </Li>
                   <Li>
-                    <BulletIcon icon="collabs" />
+                    <Icon icon="collabs" />
                     A <strong>collaborative</strong> learning environment.
                   </Li>
                   <Li>
-                    <BulletIcon icon="time" />
+                    <Icon icon="time" />
                     <Link to="/react-redux-graphql-bootcamp">
                       Bootcamps
                     </Link>{' '}
                     for accelerated learning.
                   </Li>
                   <Li>
-                    <BulletIcon icon="calendar" />
+                    <Icon icon="calendar" />
                     <Link to="/react-redux-graphql-part-time-course">
                       Part-time courses
                     </Link>{' '}
@@ -254,7 +253,7 @@ const IndexPage = () => (
                     Avoid delays and business losses
                   </Li>
                   <Li>
-                    <BulletIcon icon="react" />
+                    <Icon icon="react" />
                     Minimize risk of on boarding React
                   </Li>
                   <Li>
@@ -262,11 +261,11 @@ const IndexPage = () => (
                     Safe environment for developers to learn
                   </Li>
                   <Li>
-                    <BulletIcon icon="heart" />
+                    <Icon icon="heart" />
                     Increase employee retention, motivation and productivity
                   </Li>
                   <Li>
-                    <BulletIcon icon="bussiness" />
+                    <Icon icon="bussiness" />
                     Offer more services to internal and external clients
                   </Li>
                 </Ul>

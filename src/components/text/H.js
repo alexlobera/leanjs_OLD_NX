@@ -42,8 +42,26 @@ export const H3 = styled.h3`
   font-weight: 500;
 `
 
+export const H3Ref = styled(H3)`
+  ${REF};
+`
+
 export const H4 = styled.h4`
   ${FONT_FAMILY} font-size: 1.1em;
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 500;
+`
+
+export const H4Ref = styled(H4)`
+  ${REF};
+`
+
+export const H5 = styled.h5`
+  ${FONT_FAMILY} font-size: 1em;
+  line-height: 1.2;
+  font-weight: 700;
+`
+
+export const H5Ref = styled(H5)`
+  ${REF};
 `

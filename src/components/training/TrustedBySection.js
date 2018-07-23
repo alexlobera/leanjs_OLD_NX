@@ -67,7 +67,7 @@ export const TrustedByLogoList = () => (
 const TrustedBySection = () => (
   <Section>
     <Grid>
-      <Card dark>
+      <Card bg="dark">
         <Row>
           <Col xs={12} lg={10} lgOffset={1}>
             <H2>Developers from all these companies have trusted us</H2>
