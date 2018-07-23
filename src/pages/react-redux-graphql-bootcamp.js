@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import P from '../components/layout/P'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H2, H2Ref } from '../components/text'
+import { H2, H2Ref, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import {
   HideSingleComponentUsingCss,
