@@ -89,9 +89,9 @@ const AboutUs = () => (
               </Li>
             </Ul>
             <Blockquote>
-              "Teaching other developers is super rewarding. I love sharing what
+              Teaching other developers is super rewarding. I love sharing what
               I've learned in my career to help others grow and give back. I
-              think is what really makes our industry move forward."
+              think is what really makes our industry move forward.
             </Blockquote>
             <Ul inline>
               <Li>
@@ -239,11 +239,11 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <p>
+            <P>
               ReactJS Academy is made of a{' '}
               <strong>group of developers & teachers</strong> that continuously
               improve their teaching skills and training material
-            </p>
+            </P>
             <Ul>
               <Li>
                 We improve the material and training resources collaboratively
@@ -303,7 +303,6 @@ const AboutUs = () => (
               <p>
                 <LinkButton
                   secondary
-                  large
                   to="https://leanjs.com/training/private-react-redux-graphql-training"
                 >
                   Visit LeanJS

@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FONT_FAMILY } from '../../styles'
 
 const Blockquote = styled.blockquote`
-  margin: 0;
+  ${FONT_FAMILY} margin: 0;
   padding: 0;
   quotes: '“' '”' '‘' '’';
   :before {

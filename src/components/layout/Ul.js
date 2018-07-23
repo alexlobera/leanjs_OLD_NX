@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FONT_FAMILY } from '../../styles'
 
 const Ul = styled.ul`
   ${props =>
@@ -29,7 +30,9 @@ const Ul = styled.ul`
       : ''};
 `
 
-const Li = styled.li``
+const Li = styled.li`
+  ${FONT_FAMILY};
+`
 
 export { Ul, Li }
 export default Ul
