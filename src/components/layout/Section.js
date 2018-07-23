@@ -14,6 +14,8 @@ const Section = styled.section`
 Section.displayName = 'Section'
 
 export const TopSection = styled(Section)`
+  position: relative;
+  z-index: 1;
   @media (min-width: ${SCREEN_SM_MIN}) {
     margin-top: -125px;
   }

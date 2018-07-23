@@ -13,6 +13,7 @@ export { DesktopMenu, PhoneMenu }
 const MenuContainer = styled.div`
   padding: 20px;
   position: relative;
+  z-index: 1;
   background-color: ${blue1(0.75)};
 `
 

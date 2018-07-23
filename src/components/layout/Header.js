@@ -7,6 +7,7 @@ import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
+import headerImg from '../../../img/homepage_topPage.png'
 import Link from '../navigation/Link'
 
 const H1 = styled(BaseH1)`
@@ -23,8 +24,22 @@ const H1 = styled(BaseH1)`
   }
 `
 const HeaderSection = styled(Section)`
-  background-color: ${reactBlue()};
+  background-color: ${reactBlue(0.4)};
   min-height: 700px;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url(${headerImg});
+    background-blend-mode: luminosity;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: 100vh;
     padding: 175px 0;
@@ -53,6 +68,8 @@ const TitleBackground = styled.span`
     padding-bottom: 15px;
   }
 `
+
+const TopImg = styled.img``
 
 const Header = ({ titleLines = [], subtitle, links = [] }) => (
   <HeaderSection top>
