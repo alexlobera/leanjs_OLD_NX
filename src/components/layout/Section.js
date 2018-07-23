@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SCREEN_SM_MIN } from '../utils'
+import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
+import { blue1 } from '../../styles'
 
 const Section = styled.section`
   padding-top: ${props => (props.top ? '150px' : '30px')};
@@ -9,6 +10,14 @@ const Section = styled.section`
     margin-bottom: 0;
     padding-bottom: 0;
   }
+  ${props =>
+    props.xsBgDark
+      ? `
+    @media (max-width: ${SCREEN_XS_MAX}) {
+      background-color: ${blue1()};
+    }
+  `
+      : ''};
 `
 
 Section.displayName = 'Section'

@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section, { TopSection } from '../../components/layout/Section'
-import LinkButton from '../../components/buttons/LinkButton'
-import Button from '../../components/buttons/Button'
+import { Button, LinkButton } from '../../components/buttons'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref, H3, P } from '../../components/text'
@@ -18,6 +17,7 @@ import {
 import Header from '../../components/layout/Header'
 import { GREY2, FONT_FAMILY } from '../../styles'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
+import CallToActionRow from '../../components/layout/CallToActionRow'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -42,7 +42,12 @@ const BootcampLondon = () => (
     />
     <TopSection>
       <Grid>
-        <Card border="shadow" style={{ paddingTop: '35px', marginTop: '26px' }}>
+        <CallToActionRow left>
+          <Col lg={11} lgOffset={1}>
+            <Button cta children="Buy now for &pound;1740" />
+          </Col>
+        </CallToActionRow>
+        <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
               <H2>Developers from all these companies have trusted us...</H2>
@@ -52,7 +57,7 @@ const BootcampLondon = () => (
         </Card>
       </Grid>
     </TopSection>
-    <Section>
+    <Section xsBgDark>
       <Grid>
         <Card bg="dark">
           <Row>
@@ -88,7 +93,7 @@ const BootcampLondon = () => (
                   <Link to="terms-of-service">Terms & Conditions</Link>
                 </P>
               </Card>
-              <Card small dark border="white" style={{ marginTop: '20px' }}>
+              <Card small border="white" style={{ marginTop: '20px' }}>
                 <H3>
                   <strong>Pay by Installments</strong>
                 </H3>
@@ -133,11 +138,6 @@ const BootcampLondon = () => (
               </Col>
             </Row>
             <Row>
-              <DisplaySingleComponentUsingCss xs sm>
-                <Col xs={5}>
-                  <ImagePlaceholder width="100%" height="500px" />
-                </Col>
-              </DisplaySingleComponentUsingCss>
               <Col xs={7} md={12}>
                 <Ul>
                   <Li>
@@ -188,7 +188,7 @@ const BootcampLondon = () => (
         </Row>
       </Grid>
     </Section>
-    <Section style={{ paddingBottom: 0 }}>
+    <Section>
       <Grid>
         <Card white border="shadow">
           <CurriculumBootcamp />

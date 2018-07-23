@@ -28,6 +28,11 @@ const Unsubscribe = styled(P)`
   padding-top: 25px;
 `
 
+const ColField = styled(Col)`
+  padding-top: 5px;
+  padding-bottom: 5px;
+`
+
 const ContactForm = () => (
   <div>
     <H3>I would like more info and some pre-training learning resources</H3>
@@ -37,17 +42,17 @@ const ContactForm = () => (
       per our <Link to="/privacy-policy">Privacy Policy</Link>.
     </P>
     <Row>
-      <Col md={7}>
+      <ColField md={7}>
         <Label for="email">Your email address:</Label>
-      </Col>
+      </ColField>
     </Row>
     <Row>
-      <Col md={7}>
+      <ColField md={7}>
         <Input name="email" placeholder="name@email.com" />
-      </Col>
-      <Col md={5}>
+      </ColField>
+      <ColField md={5}>
         <Button children="Submit email" />
-      </Col>
+      </ColField>
     </Row>
     <Unsubscribe>
       Looking to unsubscribe? contact us at{' '}

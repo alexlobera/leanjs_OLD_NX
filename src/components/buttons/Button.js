@@ -12,6 +12,7 @@ export const DEFAULT_BUTTON_STYLE = `
   text-align: center;
   padding: 13px 25px;
   border-radius: 2px;
+  cursor: pointer;
 `
 export default styled(props => <button {...props} />)`
   ${DEFAULT_BUTTON_STYLE}

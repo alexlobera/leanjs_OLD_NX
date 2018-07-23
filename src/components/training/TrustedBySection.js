@@ -17,7 +17,7 @@ import {
   Telegraph,
 } from '../logos'
 import { GREY } from '../../styles'
-import { SCREEN_SM_MAX } from '../utils'
+import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
 const FinancialTimes = styled(DefaultFinancialTimes)`
@@ -30,6 +30,12 @@ const CompanyList = styled(Ul)`
   overflow: hidden;
   li {
     margin-left: 10px;
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    li {
+      margin-left: 0;
+      padding-left: 0;
+    }
   }
 `
 export const TrustedByLogoList = () => (

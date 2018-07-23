@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../styles'
+import { SCREEN_XS_MAX } from '../utils'
 
 const fontColor = color => `
   color: ${color};
@@ -15,12 +16,13 @@ const fontColor = color => `
     color: ${color};
   }
 `
+
 const Card = styled.div`
   ${props =>
     props.small
       ? `
-    padding: 30px;
-  `
+      padding: 30px;
+    `
       : `
     padding: 60px 0 40px 0;
   `}
@@ -53,6 +55,20 @@ const Card = styled.div`
         return BOX_SHADOW
     }
   }}
+
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    border: 0;
+    box-shadow: none;
+    ${props =>
+      !props.small
+        ? `    
+        padding: 0;
+      `
+        : `
+      padding-left: 5px;
+      padding-right: 5px;
+      `}
+  }
 `
 
 export default Card

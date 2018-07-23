@@ -20,7 +20,7 @@ import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 
 const CurriculumBootcamp = () => (
-  <div>
+  <React.Fragment>
     <Row>
       <Col xs={12} md={12} lg={10} lgOffset={1}>
         <H1Ref>
@@ -88,14 +88,14 @@ const CurriculumBootcamp = () => (
         </Section>
       </Col>
     </Row>
-    <Row>
-      <Col style={{ paddingTop: '25px;' }} xs={12} md={12} lg={10} lgOffset={1}>
+    {/* <Row>
+      <Col style={{ paddingTop: '25px', paddingBottom: '25px' }} xs={12} md={12} lg={10} lgOffset={1}>
         <LinkButton secondary to="/curriculum">
           Full curriculum>>
         </LinkButton>
       </Col>
-    </Row>
-  </div>
+    </Row> */}
+  </React.Fragment>
 )
 
 export default CurriculumBootcamp

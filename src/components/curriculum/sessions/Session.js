@@ -1,14 +1,14 @@
 import React from 'react'
-import { Li } from '../../layout/Ul'
+import { Ul, Li } from '../../layout/Ul'
 
 const Session = ({ children, title }) =>
   !title ? (
     children
   ) : (
-    <Li>
-      {title}
+    <Ul>
+      <Li>{title}</Li>
       {children}
-    </Li>
+    </Ul>
   )
 
 export default Session

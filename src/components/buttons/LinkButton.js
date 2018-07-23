@@ -4,8 +4,8 @@ import { blue1, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
 import { DEFAULT_BUTTON_STYLE } from './Button'
 
 const LinkButton = styled(Link)`
-  ${DEFAULT_BUTTON_STYLE} ${FONT_FAMILY}
-  cursor: pointer;
+  ${DEFAULT_BUTTON_STYLE} 
+  ${FONT_FAMILY}
   background-color: ${props => {
     if (props.secondary) {
       return '#ffffff'

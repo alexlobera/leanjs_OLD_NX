@@ -37,7 +37,7 @@ class CurriculumSection extends React.Component {
         {subTitle ? <P>{subTitle}</P> : ''}
         {isOpen ? (
           <CurriculumSubSection>
-            <Ul>{children}</Ul>
+            {children}
             <Link onClick={toggleSubSection}>Hide detail</Link>
           </CurriculumSubSection>
         ) : (

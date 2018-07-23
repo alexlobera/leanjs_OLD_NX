@@ -153,13 +153,6 @@ const PartTime = () => (
                 path="/react-redux-training-london"
                 imageSrc={london}
               />
-              <TrainingItem
-                location="Barcelona, Spain"
-                startDate="TBD"
-                name="Barcelona part-time"
-                path="/react-redux-training-barcelona"
-                imageSrc="https://reactjs.academy/react-redux-training-london"
-              />
             </TrainingList>
           </Col>
         </Row>

@@ -69,8 +69,6 @@ const TitleBackground = styled.span`
   }
 `
 
-const TopImg = styled.img``
-
 const Header = ({ titleLines = [], subtitle, links = [] }) => (
   <HeaderSection top>
     <Grid>
