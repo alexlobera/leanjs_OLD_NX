@@ -9,7 +9,6 @@ import FacebookIcon from './FacebookIcon'
 import HeartIcon from './HeartIcon'
 import InstagramIcon from './InstagramIcon'
 import NotBegginerIcon from './NotBegginerIcon'
-import NotBegginersIcon from './NotBegginersIcon'
 import ProductionReadyIcon from './ProductionReadyIcon'
 import RunFastIcon from './RunFastIcon'
 import SpannerIcon from './SpannerIcon'
@@ -58,7 +57,6 @@ export {
   EnterMindIcon,
   HeartIcon,
   NotBegginerIcon,
-  NotBegginersIcon,
   ProductionReadyIcon,
   RunFastIcon,
   SpannerIcon,

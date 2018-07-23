@@ -26,7 +26,6 @@ import {
   EnterMindIcon,
   HeartIcon,
   NotBegginerIcon,
-  NotBegginersIcon,
   ProductionReadyIcon,
   RunFastIcon,
   SpannerIcon,
@@ -183,26 +182,26 @@ const IndexPage = () => (
               <Col xs={7} md={12}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="notBegginer" />
+                    <BulletIcon icon={NotBegginerIcon} />
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
                   <Li>
-                    <BulletIcon icon="spanner" />
+                    <BulletIcon icon={SpannerIcon} />
                     <strong>Hands-on project-based</strong> training.
                   </Li>
                   <Li>
-                    <BulletIcon icon="collabs" />
+                    <BulletIcon icon={CollabsIcon} />
                     A <strong>collaborative</strong> learning environment.
                   </Li>
                   <Li>
-                    <BulletIcon icon="time" />
+                    <BulletIcon icon={TimeIcon} />
                     <Link to="/react-redux-graphql-bootcamp">
                       Bootcamps
                     </Link>{' '}
                     for accelerated learning.
                   </Li>
                   <Li>
-                    <BulletIcon icon="calendar" />
+                    <BulletIcon icon={CalendarIcon} />
                     <Link to="/react-redux-graphql-part-time-course">
                       Part-time courses
                     </Link>{' '}
@@ -269,23 +268,23 @@ const IndexPage = () => (
               <Col xs={7} md={12} lg={10} lgOffset={1}>
                 <Ul unstyled>
                   <Li>
-                    <Icon icon="tickBadge" />
+                    <BulletIcon icon={TickBadgeIcon} />
                     Avoid delays and business losses
                   </Li>
                   <Li>
-                    <BulletIcon icon="react" />
+                    <BulletIcon icon={ReactIcon} />
                     Minimize risk of on boarding React
                   </Li>
                   <Li>
-                    <Icon icon="enterMind" />
+                    <BulletIcon icon={EnterMindIcon} />
                     Safe environment for developers to learn
                   </Li>
                   <Li>
-                    <BulletIcon icon="heart" />
+                    <BulletIcon icon={HeartIcon} />
                     Increase employee retention, motivation and productivity
                   </Li>
                   <Li>
-                    <BulletIcon icon="bussiness" />
+                    <BulletIcon icon={BussinessIcon} />
                     Offer more services to internal and external clients
                   </Li>
                 </Ul>
