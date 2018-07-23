@@ -41,7 +41,7 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import london from '..//assets/img/london.png'
+import LondonThumbnailImage from './react-redux-graphql-bootcamp-london/ThumbnailImage'
 
 const PartTime = () => (
   <div>
@@ -130,10 +130,10 @@ const PartTime = () => (
             <TrainingList>
               <TrainingItem
                 location="Makers Academy, London"
-                startDate="Oct 2nd to Nov 8th, 2018"
-                name="London part-time"
-                path="/react-redux-training-london"
-                imageSrc={london}
+                startDate="August 20th to 25th, 2018"
+                name="London bootcamp"
+                path="/react-redux-graphql-bootcamp-london"
+                image={<LondonThumbnailImage />}
               />
             </TrainingList>
           </Col>

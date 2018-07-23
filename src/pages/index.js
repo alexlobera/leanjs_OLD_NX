@@ -35,8 +35,8 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import london from '../assets/img/london.png'
-import lisbon from '../assets/img/lisbon.png'
+import LondonThumbnailImage from './react-redux-graphql-bootcamp-london/ThumbnailImage'
+import LisbonThumbnailImage from './react-redux-graphql-bootcamp-lisbon/ThumbnailImage'
 import courseCollab from '../assets/img/courseCollab.png'
 import whyReactJSAcademy from '../assets/img/whyReactJSAcademy.png'
 import companyPitch from '../assets/img/companyPitch.png'
@@ -299,14 +299,14 @@ const IndexPage = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                imageSrc={london}
+                image={<LondonThumbnailImage />}
               />
               <TrainingItem
                 location="Lisbon, Portugal"
                 startDate="TBD"
                 name="Lisbon bootcamp"
                 path="/react-redux-graphql-bootcamp-lisbon"
-                imageSrc={lisbon}
+                image={<LisbonThumbnailImage />}
               />
             </TrainingList>
           </Col>

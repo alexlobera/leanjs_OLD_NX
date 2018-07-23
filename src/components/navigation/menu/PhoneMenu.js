@@ -1,6 +1,6 @@
 import { slide as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import Link from '../Link'
 import React from 'react'
 import MenuData from './Menu.json'
 import './PhoneMenu.css'
@@ -31,6 +31,11 @@ class PhoneMenu extends React.Component {
 
     return (
       <Menu isOpen={isOpen}>
+        <p>
+          <Link style={{ color: 'white' }} to="/">
+            RJA Logo
+          </Link>
+        </p>
         {MenuData.map((item, i) => (
           <PhoneMenuItem onClick={closeMenu} key={i} to={item.to}>
             {item.text}

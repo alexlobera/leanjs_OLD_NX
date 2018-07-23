@@ -4,12 +4,10 @@ import { Col } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
 
-const TrainingItem = ({ name, location, startDate, path, imageSrc }) => (
+const TrainingItem = ({ name, location, startDate, path, image }) => (
   <React.Fragment>
     <Col xs={5} md={2}>
-      <Link to={path}>
-        <img with="100%" src={imageSrc} />
-      </Link>
+      <Link to={path}>{image}</Link>
     </Col>
     <Col xs={7} md={4}>
       Venue: {location}

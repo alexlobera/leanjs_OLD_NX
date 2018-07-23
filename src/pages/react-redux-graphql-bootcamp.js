@@ -3,7 +3,7 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
-import { H2, H2Ref, P } from '../components/text'
+import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import {
   HideSingleComponentUsingCss,
@@ -15,7 +15,7 @@ import TrustedBy from '../components/training/TrustedBySection'
 import { Card, Image } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
-import london from '../assets/img/london.png'
+import LondonThumbnailImage from './react-redux-graphql-bootcamp-london/ThumbnailImage'
 
 const Boocamps = () => (
   <div>
@@ -89,7 +89,7 @@ const Boocamps = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                imageSrc={london}
+                image={<LondonThumbnailImage />}
               />
             </TrainingList>
           </Col>
