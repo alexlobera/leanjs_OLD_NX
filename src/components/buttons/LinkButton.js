@@ -39,6 +39,6 @@ export default styled(Link)`
   align-items: flex-start;
   text-align: center;
   cursor: pointer;
-  padding: 1em;
+  padding: 0.7em;
   display: inline-block;
 `
