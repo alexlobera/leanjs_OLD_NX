@@ -13,6 +13,14 @@ export const DEFAULT_BUTTON_STYLE = `
   padding: 13px 25px;
   border-radius: 2px;
   cursor: pointer;
+
+  :disabled {
+    opacity: 0.2;
+
+    :hover {
+      cursor: not-allowed
+    }
+  }
 `
 export default styled(props => <button {...props} />)`
   ${DEFAULT_BUTTON_STYLE}

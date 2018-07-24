@@ -11,8 +11,9 @@ import {
 } from '../text'
 import DefaultInput from './Input'
 import { Col, Row } from '../layout/Grid'
-import { WHITE } from '../../styles'
+import { WHITE, FONT_FAMILY } from '../../styles'
 import { TickBadgeIcon } from '../icons'
+import { validate } from 'email-validator'
 
 const H3 = styled(DefaultH3)`
   color: ${WHITE};
@@ -44,15 +45,37 @@ const ThanksTitle = styled(H3)`
   margin: 1em 0;
 ` //TODO: animate this later
 
+const ErrorMssg = styled.p`
+  font-size: 12px;
+  color: yellow;
+  ${FONT_FAMILY};
+`
+
 class ContactForm extends Component {
   state = {
+    email: '',
     formSubmited: false,
+    emailValid: false,
+    inputDirty: false,
   }
   handleFormSubmit = e => {
     e.preventDefault()
     this.setState({ formSubmited: true })
   }
+
+  handleEmailChange = e => {
+    this.setState(
+      { email: e.target.value, inputDirty: true },
+      this.validateEmail
+    )
+  }
+
+  validateEmail = () => {
+    this.setState({ emailValid: validate(this.state.email) })
+  }
+
   render() {
+    const { email, emailValid, inputDirty } = this.state
     return (
       <div>
         <H3>I would like more info and some pre-training learning resources</H3>
@@ -70,10 +93,23 @@ class ContactForm extends Component {
             </Row>
             <Row>
               <ColField md={7}>
-                <Input name="email" placeholder="name@email.com" />
+                <Input
+                  value={email}
+                  onChange={this.handleEmailChange}
+                  name="email"
+                  placeholder="name@email.com"
+                />
+                {inputDirty ? (
+                  emailValid ? null : (
+                    <ErrorMssg>must enter a valid email</ErrorMssg>
+                  )
+                ) : null}
               </ColField>
               <ColField md={5}>
-                <Button children="Submit email" />
+                <Button
+                  disabled={!emailValid || !inputDirty}
+                  children="Submit email"
+                />
               </ColField>
             </Row>
           </form>
