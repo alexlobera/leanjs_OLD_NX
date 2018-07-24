@@ -42,6 +42,14 @@ Layout.propTypes = {
   children: PropTypes.func,
 }
 
+Layout.defaultProps = {
+  data: {
+    site: {
+      siteMetadata: {},
+    },
+  },
+}
+
 export default Layout
 
 export const query = graphql`

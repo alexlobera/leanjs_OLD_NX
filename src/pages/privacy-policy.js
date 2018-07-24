@@ -4,6 +4,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
+import Link from '../components/navigation/Link'
 
 const PrivacyPolicy = () => (
   <React.Fragment>
@@ -12,7 +13,6 @@ const PrivacyPolicy = () => (
       <Grid>
         <Row>
           <Col md={10} mdOffset={1}>
-            <H1>ReactJS.academy Privacy Policy</H1>
             <P>
               Here at ReactJS.academy, we take your privacy seriously and are
               always aiming to ensure your personal information is kept safe. We
