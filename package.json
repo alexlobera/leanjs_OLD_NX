@@ -49,7 +49,8 @@
     "prebuild": "npm run format",
     "build": "gatsby build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "precommit": "npm run format"
   },
   "devDependencies": {
     "@storybook/react": "^3.4.8",
@@ -67,10 +68,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": [
-        "lint-staged",
-        "test"
-      ],
+      "pre-commit": "precommit",
       "pre-push": "test"
     }
   },
