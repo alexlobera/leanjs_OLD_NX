@@ -16,6 +16,14 @@ import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
 import { Image } from '../components/elements'
 import { LONDON, BOOTCAMP_RIGHT } from '../imageConstants'
+import {
+  NotBegginersIcon,
+  RunFastIcon,
+  TargetIcon,
+  TickBadgeIcon,
+  BulletIcon,
+  PeopleNetWorkIcon,
+} from '../components/icons'
 
 const Boocamps = () => (
   <div>
@@ -48,20 +56,27 @@ const Boocamps = () => (
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this bootcamp right for me?</H2>
-            <Ul>
-              <Li>Extremely rapid, intense learning</Li>
+            <Ul unstyled>
               <Li>
+                <BulletIcon icon={RunFastIcon} />
+                Extremely rapid, intense learning
+              </Li>
+              <Li>
+                <BulletIcon icon={NotBegginersIcon} />
                 Ideal for experienced programmers familiar with good practices.
                 Not for beginners!
               </Li>
               <Li>
+                <BulletIcon icon={TickBadgeIcon} />
                 Small classes with mentoring from experts developers & coaches
               </Li>
               <Li>
+                <BulletIcon icon={TargetIcon} />
                 Hands-on project-based training - most of the time you are
                 coding.
               </Li>
               <Li>
+                <BulletIcon icon={PeopleNetWorkIcon} />
                 Join a network of alumni for advice, knowledge and social fun!
               </Li>
             </Ul>

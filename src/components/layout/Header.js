@@ -64,8 +64,7 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: -2;
-    ${backgroundImg} background-blend-mode: luminosity;
-    background-repeat: no-repeat;
+    ${backgroundImg} background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {

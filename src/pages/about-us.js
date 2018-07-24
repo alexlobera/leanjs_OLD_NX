@@ -4,7 +4,6 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H1, H2, H2Ref, H3, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
@@ -17,7 +16,17 @@ import {
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { TrainingItem, TrainingList } from '../components/training'
-import { LONDON, LISBON } from '../imageConstants'
+import { Image } from '../components/elements'
+import {
+  LONDON,
+  LISBON,
+  ALEX,
+  RICHARD,
+  HORACIO,
+  WILL,
+  ABOUT_CONTINUOUS,
+  ABOUT_CORPORATE,
+} from '../imageConstants'
 
 const AboutUs = () => (
   <div>
@@ -55,7 +64,7 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5}>
-            <ImagePlaceholder />
+            <Image src={ALEX} width="100%" />
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
             <H2Ref>
@@ -140,7 +149,7 @@ const AboutUs = () => (
             </Blockquote>
           </Col>
           <Col xs={12} md={5}>
-            <ImagePlaceholder />
+            <Image src={RICHARD} width="100%" />
           </Col>
         </Row>
       </Grid>
@@ -149,7 +158,7 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5}>
-            <ImagePlaceholder />
+            <Image src={HORACIO} width="100%" />
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
             <H2>Horacio Herrera</H2>
@@ -218,7 +227,7 @@ const AboutUs = () => (
             </Ul>
           </Col>
           <Col xs={12} md={5}>
-            <ImagePlaceholder />
+            <Image src={WILL} width="100%" />
           </Col>
         </Row>
       </Grid>
@@ -228,7 +237,7 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5}>
-            <ImagePlaceholder />
+            <Image src={ABOUT_CONTINUOUS} width="100%" />
           </Col>
           <Col xs={12} md={6} mdOffset={1}>
             <H2Ref>
@@ -279,7 +288,7 @@ const AboutUs = () => (
         <Card bg="darkGrey" border="shadow">
           <Row>
             <Col xs={12} md={5} mdOffset={1}>
-              <ImagePlaceholder />
+              <Image src={ABOUT_CORPORATE} width="100%" />
             </Col>
             <Col xs={12} md={5}>
               <H2Ref>
