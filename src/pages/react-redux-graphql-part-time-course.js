@@ -41,7 +41,7 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import london from '../assets/img/london.png'
+import { LONDON } from '../imageConstants'
 
 const PartTime = () => (
   <div>
@@ -133,7 +133,7 @@ const PartTime = () => (
                 startDate="Oct 2nd to Nov 8th, 2018."
                 name="London part-time"
                 path="/react-redux-training-london"
-                imageSrc={london}
+                imageSrc={LONDON}
               />
             </TrainingList>
           </Col>
