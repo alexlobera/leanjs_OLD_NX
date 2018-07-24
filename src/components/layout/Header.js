@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
@@ -8,7 +8,14 @@ import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
 import Link from '../navigation/Link'
-import { HEADER_IMG } from '../../imageConstants'
+import {
+  HOME_IMG,
+  PART_TIME_IMG,
+  FULL_TIME_IMG,
+  TRAINING_EVENT_IMG,
+  CURRICULUM_IMG,
+  COMMUNITY_IMG,
+} from '../../imageConstants'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;
@@ -23,9 +30,31 @@ const H1 = styled(BaseH1)`
     font-size: 58px;
   }
 `
+
+const backgroundImg = css`
+  ${({ bgImg }) => {
+    switch (bgImg) {
+      case 'home':
+        return `background-image: url(${HOME_IMG});`
+      case 'part-time':
+        return `background-image: url(${PART_TIME_IMG});`
+      case 'full-time':
+        return `background-image: url(${FULL_TIME_IMG});`
+      case 'training-event':
+        return `background-image: url(${TRAINING_EVENT_IMG});`
+      case 'about-us':
+        return `background-image: url(${PART_TIME_IMG});`
+      case 'curriculum':
+        return `background-image: url(${CURRICULUM_IMG});`
+      case 'community':
+        return `background-image: url(${COMMUNITY_IMG});`
+    }
+  }};
+`
 const HeaderSection = styled(Section)`
-  background-color: ${reactBlue(0.4)};
-  min-height: 700px;
+  ${({ bgImg }) =>
+    bgImg === 'home' &&
+    `background-color: ${reactBlue(0.4)};`} min-height: 700px;
   position: relative;
   &:before {
     content: '';
@@ -35,8 +64,7 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: -2;
-    background-image: url(${HEADER_IMG});
-    background-blend-mode: luminosity;
+    ${backgroundImg} background-blend-mode: luminosity;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -69,8 +97,8 @@ const TitleBackground = styled.span`
   }
 `
 
-const Header = ({ titleLines = [], subtitle, links = [] }) => (
-  <HeaderSection top>
+const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
+  <HeaderSection top bgImg={bgImg}>
     <Grid>
       <Row>
         <Col>
@@ -106,6 +134,7 @@ Header.propTypes = {
   titleLines: PropTypes.array.isRequired,
   subtitle: PropTypes.string.isRequired,
   links: PropTypes.array,
+  bgImg: PropTypes.string,
 }
 
 export default Header

@@ -25,12 +25,12 @@ const PrivacyPolicy = () => (
                 ReactJS.academy is part of the LeanJS family. LeanJS is a
                 digital design, development and training company who produces
                 digital products, trainings and associated services based in
-                London, UK. For more information, please check out
+                London, UK. For more information, please check out{' '}
                 <Link to="https://leanjs.com/" target="_blank">
                   https://leanjs.com/
-                </Link>
+                </Link>{' '}
                 and if you have any question, please don’t hesitate in
-                contacting us on
+                contacting us on{' '}
                 <Link to="mailto:hello@leanjs.com">hello@leanjs.com</Link>
                 .
               </P>
@@ -154,12 +154,12 @@ const PrivacyPolicy = () => (
             </P>
             <H3>Our hosting providers</H3>
             <P>
-              All our information is stored on servers owned by
+              All our information is stored on servers owned by{' '}
               <Link to="https://aws.amazon.com/" target="_blank">
                 Amazon Web Services, Inc
-              </Link>
+              </Link>{' '}
               and what you share with us will inevitably be stored on their
-              property. Please find Amazon Web Services' Privacy Policy
+              property. Please find Amazon Web Services' Privacy Policy{' '}
               <Link to="https://aws.amazon.com/privacy/" target="_blank">
                 here
               </Link>
@@ -187,10 +187,10 @@ const PrivacyPolicy = () => (
               <Link name="9" />How do I remove my details from your servers?
             </H2>
             <P>
-              Easily! Just email us at
+              Easily! Just email us at{' '}
               <Link to="mailto:hello@reactjs.academy">
                 hello@reactjs.academy
-              </Link>
+              </Link>{' '}
               and let us know and we’ll remove all your details (forever).
             </P>
             <H2>
@@ -203,7 +203,7 @@ const PrivacyPolicy = () => (
               small text file that our site may place on your computer that
               helps us understand how people use ReactJS.academy - this in turn
               helps us improve our service. For more information about cookies,
-              click
+              click{' '}
               <Link
                 to="https://www.theguardian.com/technology/2012/apr/23/cookies-and-web-tracking-intro"
                 target="_blank"
@@ -237,7 +237,7 @@ const PrivacyPolicy = () => (
               transmits website data to their servers in the United States of
               America. Google Analytics does not identify individual users to
               your IP addresses or any other data that Google holds. For more
-              information, please check out
+              information, please check out{' '}
               <Link
                 to="https://www.google.com/analytics/terms/us.html"
                 target="_blank"
@@ -250,7 +250,7 @@ const PrivacyPolicy = () => (
             <P>
               Our payment system is Stripe which also employs cookies to help
               improve our services. For more information about Stripe and its
-              use of cookies, please click
+              use of cookies, please click{' '}
               <Link
                 to="https://stripe.com/cookies-policy/legal"
                 target="_blank"
