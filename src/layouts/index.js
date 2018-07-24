@@ -27,8 +27,8 @@ const Layout = ({ children, data }) => (
       <Helmet
         title={data.site.siteMetadata.title}
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'description', content: data.site.siteMetadata.description },
+          { name: 'keywords', content: data.site.siteMetadata.keywords },
         ]}
       />
       <Menu />
@@ -49,6 +49,8 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        description
+        keywords
       }
     }
   }
