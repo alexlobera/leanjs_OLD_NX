@@ -142,6 +142,20 @@ const AboutUs = () => (
                 <Link to="https://github.com/ric9176">LinkedIn profile</Link>
               </Li>
             </Ul>
+            <Ul>
+              <Li>
+                Loves working with and helping others learn React, Redux and
+                GraphQL.
+              </Li>
+              <Li>Serial entrepreneur and digital nomad</Li>
+              <Li>
+                Organizer of the{' '}
+                <Link to="https://www.meetup.com/JavaScript-Lisbon/">
+                  JavaScript Lisbon Meetup{' '}
+                </Link>
+                and ReactJS Academy bootcamps
+              </Li>
+            </Ul>
             <Blockquote bg="primary">
               Collaboratively working with developers to help them understand
               concepts such as the functional programming paradigm helps them
@@ -185,7 +199,7 @@ const AboutUs = () => (
               <Li>
                 Holds a Digital Design degree and is a self-taught Developer
               </Li>
-              <Li>Works with cross-functional product teams since 2010</Li>
+              <Li>Working with cross-functional product teams since 2010</Li>
               <Li>
                 Organizer of the{' '}
                 <Link to="https://www.meetup.com/JavaScript-Barcelona/">
@@ -194,7 +208,7 @@ const AboutUs = () => (
               </Li>
             </Ul>
             <Blockquote bg="primary">
-              I love teaching and see other developers grow...
+              I love teaching and seeing other developers grow...
             </Blockquote>
           </Col>
         </Row>
@@ -209,10 +223,9 @@ const AboutUs = () => (
               Senior Full-stack JavaScript Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
             </H3>
-            <Blockquote>
-              Collaboratively working with developers to help them understand
-              concepts such as the functional programming paradigm helps them
-              take their skills to the next level - and I learn a lot too!
+            <Blockquote bg="primary">
+              Serverless specialist at LeanJS. Will is an experienced full stack
+              developer with a passion for cutting-edge stacks.
             </Blockquote>
             <Ul inline>
               <Li>
@@ -250,9 +263,9 @@ const AboutUs = () => (
               </a>
             </H2Ref>
             <P>
-              ReactJS Academy is made of a{' '}
+              ReactJS Academy is made up of a{' '}
               <strong>group of developers & teachers</strong> that continuously
-              improve their teaching skills and training material
+              strive improve their teaching skills and training material
             </P>
             <Ul>
               <Li>
@@ -265,9 +278,9 @@ const AboutUs = () => (
                 maximize the learning of the trainees.
               </Li>
               <Li>
-                We share our expertice working at different top companies to
-                create the best training, as well as the less opinionated as
-                possible.
+                We share our expertice working at various top companies to
+                create excellence in training, taking an open approach to new
+                tecnologies without being prescriptive.
               </Li>
             </Ul>
             <p>
