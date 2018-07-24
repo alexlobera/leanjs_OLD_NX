@@ -153,12 +153,13 @@ const BootcampLondon = () => (
               <Li>
                 <BulletIcon icon={ReactIcon} />
                 Taking a step forward to become a React JS Specialist able to
-                make critical decisions in the architecture of a React
+                make critical decisions about the architecture of a React
                 application.
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
-                Unhappy with online learning and it's lack of 1-on-1 mentoring?
+                Not satisfied with the pace of online learning and it's lack of
+                1-on-1 mentoring?
               </Li>
             </Ul>
             <P>If you've said 'yes' to these, our bootcamp could be for you!</P>
