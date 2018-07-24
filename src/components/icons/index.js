@@ -17,6 +17,7 @@ import StarIcon from './StarIcon'
 import TargetIcon from './TargetIcon'
 import TickBadgeIcon from './TickBadgeIcon'
 import TimeIcon from './TimeIcon'
+import TwitterIcon from './TwitterIcon'
 import TrainerIcon from './TrainerIcon'
 import ReactIcon from './ReactIcon'
 import PeopleNetWorkIcon from './PeopleNetWorkIcon'
@@ -29,9 +30,16 @@ export const StyledIcon = styled.div`
   display: inline-block;
   vertical-align: middle;
   margin-right: 15px;
-  width: 32px;
-  height: 32px;
-  position: relative;
+  ${({ social }) =>
+    !social
+      ? `
+      width: 24px;
+      height: 24px;
+    `
+      : `
+      width: 24px;
+      height: 24px;
+    `} position: relative;
   svg {
     position: absolute;
     width: 100%;
@@ -42,8 +50,8 @@ export const StyledIcon = styled.div`
   }
 `
 
-const BulletIcon = ({ icon, ...rest }) => (
-  <StyledIcon>{React.createElement(icon, rest)}</StyledIcon>
+const BulletIcon = ({ icon, social, ...rest }) => (
+  <StyledIcon social={social}>{React.createElement(icon, rest)}</StyledIcon>
 )
 
 BulletIcon.propTypes = {
@@ -67,6 +75,7 @@ export {
   TickBadgeIcon,
   TimeIcon,
   TrainerIcon,
+  TwitterIcon,
   ReactIcon,
   WorldIcon,
   PeopleNetWorkIcon,

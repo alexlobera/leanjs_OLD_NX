@@ -4,6 +4,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
+import AttendeeQuote from '../components/training/AttendeeQuote'
 import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
@@ -15,7 +16,7 @@ import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
 import { Image } from '../components/elements'
-import { LONDON, BOOTCAMP_RIGHT } from '../imageConstants'
+import { LONDON, BOOTCAMP_RIGHT, OLU } from '../imageConstants'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -68,16 +69,17 @@ const Boocamps = () => (
               </Li>
               <Li>
                 <BulletIcon icon={TickBadgeIcon} />
-                Small classes with mentoring from experts developers & coaches
+                Small classes with mentoring from expert developers & coaches
               </Li>
               <Li>
                 <BulletIcon icon={TargetIcon} />
-                Hands-on project-based training - most of the time you are
+                Hands-on project-based training - most of the time you'll be
                 coding.
               </Li>
               <Li>
                 <BulletIcon icon={PeopleNetWorkIcon} />
-                Join a network of alumni for advice, knowledge and social fun!
+                Join a growing network of alumni for advice, knowledge and
+                social fun!
               </Li>
             </Ul>
             <P>
@@ -85,6 +87,21 @@ const Boocamps = () => (
                 Next bootcamp: August 20th, London
               </LinkButton>
             </P>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <AttendeeQuote
+              quote="“Small numbers of students means you’re guaranteed to get the attention you need.  We programmed in pairs, feeding off people sitting next to you who also have a lot of knowledge - something  you don’t get in a lot of training. It’s a really good environment to learn"
+              fullname="Olu Omoniyi"
+              job="React & React Native Developer"
+              company="S&P Global"
+              profilePicUrl={OLU}
+            />
           </Col>
         </Row>
       </Grid>
@@ -101,7 +118,7 @@ const Boocamps = () => (
           <Col md={10} mdOffset={1}>
             <TrainingList>
               <TrainingItem
-                location="Makers Academy, London"
+                location="TBD"
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"

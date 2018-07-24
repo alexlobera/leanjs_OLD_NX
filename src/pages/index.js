@@ -42,6 +42,8 @@ import {
   COURSE_COLLAB,
   WHY_REACTJS_ACADEMY,
   COMPANY_PITCH,
+  DAN,
+  NASSAR,
 } from '../imageConstants.js'
 
 const SectionButtonRow = styled(Row)`
@@ -137,11 +139,11 @@ const IndexPage = () => (
         <Row>
           <Col mdOffset={1} md={10}>
             <AttendeeQuote
-              quote="After being a developer for 10 years and with the increasing amount of people coming into tech, I wanted to ensure I stayed ahead of the curve in my skills to make my career further. Simply put, ReactJS Academy gave me that!"
-              fullname="Joe Woodley"
-              job="Senior Front-end developer"
-              company="ASOS.com"
-              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
+              quote="The ReactJS Academy bootcamp has literally taken me from being someone who has no React experience to feeling like I can go back to my company and be one of the experts in house. It’s forwarded my career significantly."
+              fullname="Dan Jones"
+              job="React developer"
+              company="AgilityWorks"
+              profilePicUrl={DAN}
             />
           </Col>
         </Row>
@@ -218,7 +220,7 @@ const IndexPage = () => (
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
-              What's in it for your company - Why is ReactJS Academy great for
+              What's in it for your company - Why ReactJS Academy is great for
               your team
             </H2>
             <Ul unstyled>
@@ -228,7 +230,7 @@ const IndexPage = () => (
               </Li>
               <Li>
                 <BulletIcon icon={ReactIcon} />
-                Minimize risk of on boarding React
+                Minimize risk of onboarding React
               </Li>
               <Li>
                 <BulletIcon icon={EnterMindIcon} />
@@ -277,11 +279,11 @@ const IndexPage = () => (
         <Row>
           <Col md={10} mdOffset={1}>
             <AttendeeQuote
-              quote="My devs were on training for a week, but when they came back they were React Masters. We adpoted the ecosystem much quicker than we thought possible and now we work faster and more efficiently."
-              fullname="Richard Moss"
-              job="CTO"
-              company="Financial Times"
-              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
+              quote="You get the real in-person learning experience - you actually see what’s happening. It’s better than just watching a video where you can’t ask questions."
+              fullname="Nassar Kasirye"
+              job="Web Developer"
+              company=""
+              profilePicUrl={NASSAR}
             />
           </Col>
         </Row>
@@ -298,7 +300,7 @@ const IndexPage = () => (
           <Col md={10} mdOffset={1}>
             <TrainingList>
               <TrainingItem
-                location="Makers Academy, London"
+                location="TBC"
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"

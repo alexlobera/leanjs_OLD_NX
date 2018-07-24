@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 import Link from '../../navigation/Link'
 import React from 'react'
-import Ul, { Li } from '../../Layout/Ul'
+import Ul, { Li as defaultLi } from '../../layout/Ul'
 import MenuData from './Menu.json'
 import { HideSingleComponentUsingCss } from '../../utils'
+
+const Li = styled(defaultLi)`
+  margin: 0 !important;
+`
 
 const Item = ({ children, ...props }) => (
   <Li>
@@ -13,23 +17,22 @@ const Item = ({ children, ...props }) => (
 
 const DesktopMenuItem = styled(Item)`
   color: white;
+  margin: 0;
 `
 
 DesktopMenuItem.displayName = 'DesktopMenuItem'
 
-const DesktopMenuContainer = styled(Ul)`
-  float: right;
-`
+const DesktopMenuContainer = styled(Ul)``
 
 const DesktopMenu = () => (
   <HideSingleComponentUsingCss xs sm>
-    <DesktopMenuContainer inline>
+    <Ul inline>
       {MenuData.map((item, i) => (
         <DesktopMenuItem key={i} to={item.to}>
           {item.text}
         </DesktopMenuItem>
       ))}
-    </DesktopMenuContainer>
+    </Ul>
   </HideSingleComponentUsingCss>
 )
 

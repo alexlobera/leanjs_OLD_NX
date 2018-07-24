@@ -5,7 +5,7 @@ import { blue1 } from '../../styles'
 
 const Section = styled.section`
   padding-top: ${props => (props.top ? '150px' : '30px')};
-  ${props => (props.top ? 'margin-top: -85px;' : '')} padding-bottom: 30px;
+  ${props => (props.top ? 'margin-top: -117px;' : '')} padding-bottom: 30px;
   p:last-child {
     margin-bottom: 0;
     padding-bottom: 0;

@@ -4,7 +4,7 @@ import Section, { TopSection } from '../../components/layout/Section'
 import { Button, LinkButton } from '../../components/buttons'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../../components/text'
-import Ul, { Li } from '../../components/Layout/Ul'
+import Ul, { Li } from '../../components/layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import { Ribbon, Card, Video } from '../../components/elements'
 import Link from '../../components/navigation/Link'
@@ -22,7 +22,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../../components/icons'
-import { LONDON, BOOTCAMP_COLLAB } from '../../imageConstants'
+import { LONDON, BOOTCAMP_COLLAB, CATALIN } from '../../imageConstants'
 import { Image } from '../../components/elements'
 import BuyQuantityButton from '../../components/old_checkout/containers/PurchaseQuantityContainer'
 
@@ -58,7 +58,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Developers from all these companies have trusted us...</H2>
+              <H2>We've trained developers from a range of companies</H2>
               <TrustedByLogoList />
             </Col>
           </Row>
@@ -163,12 +163,13 @@ const BootcampLondon = () => (
               <Li>
                 <BulletIcon icon={ReactIcon} />
                 Taking a step forward to become a React JS Specialist able to
-                make critical decisions in the architecture of a React
+                make critical decisions about the architecture of a React
                 application.
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
-                Unhappy with online learning and it's lack of 1-on-1 mentoring?
+                Not satisfied with the pace of online learning and it's lack of
+                1-on-1 mentoring?
               </Li>
             </Ul>
             <P>If you've said 'yes' to these, our bootcamp could be for you!</P>
@@ -190,11 +191,11 @@ const BootcampLondon = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="I enjoyed the bootcamp so much. It was challenging and so rewarding - the mentors were so helpful, making sense of really complex concepts.... Recommended."
-              fullname="Senior Developer"
-              job="Cameron Diaz"
-              company="Spotify"
-              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
+              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory - it’s very balanced."
+              fullname="Catalin Cislariu"
+              job="Senior Developer"
+              company="KLEIDO LTD"
+              profilePicUrl={CATALIN}
             />
           </Col>
         </Row>
@@ -219,7 +220,7 @@ const BootcampLondon = () => (
           <Col md={10} mdOffset={1}>
             <TrainingList>
               <TrainingItem
-                location="Makers Academy, London"
+                location="TBD"
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"

@@ -4,7 +4,7 @@ import Capgemini from './Capgemini'
 import FinancialTimes from './FinancialTimes'
 import JohnLewis from './JohnLewis'
 import MadeCom from './MadeCom'
-import ReactJSAcademy from './ReactJSAcademy'
+import { RJSALogo } from './RJSALogo'
 import ReactLogo from './ReactLogo'
 import SainBurys from './SainBurys'
 import Telegraph from './Telegraph'
@@ -18,7 +18,8 @@ export {
   FinancialTimes,
   JohnLewis,
   MadeCom,
-  ReactJSAcademy,
+  RJSALogo,
+  ReactLogo,
   SainBurys,
   Telegraph,
   Tesco,
