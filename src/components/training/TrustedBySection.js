@@ -76,7 +76,7 @@ const TrustedBySection = () => (
       <Card bg="dark">
         <Row>
           <Col xs={12} lg={10} lgOffset={1}>
-            <H2>Developers from all these companies have trusted us</H2>
+            <H2>We've trained developers from a range of companies</H2>
           </Col>
         </Row>
         <Row>
