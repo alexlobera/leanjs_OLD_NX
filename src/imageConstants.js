@@ -45,3 +45,16 @@ export const HORACIO =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio-pic.png?alt=media&token=c9e4e065-c541-4924-bae8-d9c83923c632'
 export const WILL =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fwill.png?alt=media&token=8ab839e8-2714-47b4-b0dc-f14cfb76c87e'
+
+// Tesimonials
+
+export const CATALIN =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FCatalinCislariu.png?alt=media&token=01a4217b-1385-43ab-af97-36c56044bc99'
+export const DAN =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FDanJones.png?alt=media&token=00e3410a-9bb1-4670-a0ef-49a7bc5f6cad'
+export const NASSAR =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FNassarKasirye.png?alt=media&token=100fb610-183b-4166-8c38-bc06e4c53369'
+export const OLU =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FOluOmoniyi.png?alt=media&token=c331eba9-1339-4db0-a697-04d3ff66f4f3'
+export const STEFANO =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FStefanoMezza.png?alt=media&token=a069416d-2c6b-4937-bb2c-089956bea663'

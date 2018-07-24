@@ -64,7 +64,7 @@ const AttendeeQuote = ({
       </StyledBlockquote>
       <Profile>
         <strong>
-          {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'ASOS.com'}{' '}
+          {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'Freelance'}{' '}
         </strong>
       </Profile>
     </Text>
