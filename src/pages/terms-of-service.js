@@ -9,7 +9,7 @@ import { Card } from '../components/elements'
 
 const TermsOfService = () => (
   <React.Fragment>
-    <Header titleLines={['Terms of service']} />
+    <Header bgImg="about-us" titleLines={['Terms of service']} />
     <TopSection>
       <Grid>
         <Card border="shadow">
