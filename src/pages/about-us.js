@@ -133,13 +133,13 @@ const AboutUs = () => (
             </H3>
             <Ul inline>
               <Li>
-                <Link to="https://www.linkedin.com/in/richard-moss-55881b82/">
-                  GitHub profile
-                </Link>
+                <Link to="https://github.com/ric9176">GitHub profile</Link>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://github.com/ric9176">LinkedIn profile</Link>
+                <Link to="https://www.linkedin.com/in/richard-moss-55881b82/">
+                  LinkedIn profile
+                </Link>
               </Li>
             </Ul>
             <Ul>
