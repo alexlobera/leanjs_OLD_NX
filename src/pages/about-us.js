@@ -24,6 +24,7 @@ const AboutUs = () => (
     <Header
       titleLines={['About us']}
       subtitle="Our trainers are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> Academy journey"
+      bgImg="about-us"
     />
     <TopSection>
       <Grid>
