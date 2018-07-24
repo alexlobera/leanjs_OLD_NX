@@ -31,7 +31,6 @@ export const RJS_Academy = () => (
 )
 
 const LinkLogo = styled(Link)`
-  margin-top: 15px;
   display: inline-block;
   text-decoration: none;
 `
