@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Grid,
-  Row,
-  Col as FlexboxCol,
-} from 'react-styled-flexboxgrid'
+import { Grid, Row, Col as FlexboxCol } from 'react-styled-flexboxgrid'
 
 const Col = ({ xs, sm, md, lg, center, style = {}, ...rest }) => {
   const sizes = {

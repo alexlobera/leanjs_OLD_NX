@@ -32,10 +32,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop",
-    "deploy": "npm run build && firebase deploy",
+    "deploy": "gatsby build && firebase deploy",
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
+    "prebuild": "yarn format",
+    "build": "gatsby build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
