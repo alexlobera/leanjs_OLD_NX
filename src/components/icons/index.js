@@ -33,12 +33,12 @@ export const StyledIcon = styled.div`
   ${({ social }) =>
     !social
       ? `
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
     `
       : `
-      width: 35px;
-      height: 35px;
+      width: 24px;
+      height: 24px;
     `} position: relative;
   svg {
     position: absolute;
@@ -51,7 +51,7 @@ export const StyledIcon = styled.div`
 `
 
 const BulletIcon = ({ icon, social, ...rest }) => (
-  <StyledIcon social>{React.createElement(icon, rest)}</StyledIcon>
+  <StyledIcon social={social}>{React.createElement(icon, rest)}</StyledIcon>
 )
 
 BulletIcon.propTypes = {

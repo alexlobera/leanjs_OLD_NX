@@ -39,7 +39,6 @@ const SocialSection = styled.div`
   margin: 50px 0;
 `
 const SocialMenu = styled(Ul)`
-  margin-top: 10px;
   > li {
     padding: 0;
   }
@@ -94,7 +93,7 @@ const Footer = () => (
                   </Li>
                   <Li>
                     <Link
-                      style={{ fontSize: '17px' }}
+                      style={{ fontSize: '16px' }}
                       to="mailto:hello@reactjs.academy"
                     >
                       hello@reactjs.academy
@@ -125,8 +124,10 @@ const Footer = () => (
             </Row>
             <Row>
               <Col md={6}>
-                Copyright &copy; 2018, ReactJS Academy is a{' '}
-                <Link to="https://leanjs.com">LeanJS</Link> product
+                <P sm>
+                  Copyright &copy; 2018, ReactJS Academy is a{' '}
+                  <Link to="https://leanjs.com">LeanJS</Link> product
+                </P>
               </Col>
               <Col md={6}>
                 <RJSALogo />
