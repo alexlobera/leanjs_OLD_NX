@@ -57,6 +57,7 @@ const IndexPage = () => (
       titleLines={['Take your dev career further', 'by mastering React']}
       subtitle="In-person training from experts who were <br /> the first in
       Europe to teach React"
+      bgImg="home"
     />
     <TopSection>
       <Grid>

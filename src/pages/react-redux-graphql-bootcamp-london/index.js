@@ -38,6 +38,7 @@ const BootcampLondon = () => (
         { text: 'Curriculum', to: '#curriculum' },
         { text: 'Is it right for me?', to: '#target-audience' },
       ]}
+      bgImg="training-event"
     />
     <TopSection>
       <Grid>

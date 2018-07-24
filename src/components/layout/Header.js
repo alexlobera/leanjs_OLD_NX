@@ -1,13 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
-import headerImg from '../..//assets/img/homepage_topPage.png'
+import homeImg from '../../assets/img/homepage_topPage.jpg'
+import partTimeImg from '../../assets/img/partTime_splash.jpg'
+import fullTimeImg from '../../assets/img/bootcamp_Splash.jpg'
+import trainingEvent from '../../assets/img/londonBootcamp_splash.jpg'
+import curriculum from '../../assets/img/curriculum_splash.jpg'
+import community from '../../assets/img/community_splash.jpg'
 import Link from '../navigation/Link'
 
 const H1 = styled(BaseH1)`
@@ -23,9 +28,31 @@ const H1 = styled(BaseH1)`
     font-size: 58px;
   }
 `
+
+const backgroundImg = css`
+  ${({ bgImg }) => {
+    switch (bgImg) {
+      case 'home':
+        return `background-image: url(${homeImg});`
+      case 'part-time':
+        return `background-image: url(${partTimeImg});`
+      case 'full-time':
+        return `background-image: url(${fullTimeImg});`
+      case 'training-event':
+        return `background-image: url(${trainingEvent});`
+      case 'about-us':
+        return `background-image: url(${partTimeImg});`
+      case 'curriculum':
+        return `background-image: url(${curriculum});`
+      case 'community':
+        return `background-image: url(${community});`
+    }
+  }};
+`
 const HeaderSection = styled(Section)`
-  background-color: ${reactBlue(0.4)};
-  min-height: 700px;
+  ${({ bgImg }) =>
+    bgImg === 'home' &&
+    `background-color: ${reactBlue(0.4)};`} min-height: 700px;
   position: relative;
   &:before {
     content: '';
@@ -35,9 +62,7 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: -2;
-    background-image: url(${headerImg});
-    background-blend-mode: luminosity;
-    background-repeat: no-repeat;
+    ${backgroundImg} background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -69,8 +94,8 @@ const TitleBackground = styled.span`
   }
 `
 
-const Header = ({ titleLines = [], subtitle, links = [] }) => (
-  <HeaderSection top>
+const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
+  <HeaderSection top bgImg={bgImg}>
     <Grid>
       <Row>
         <Col>
@@ -102,6 +127,7 @@ Header.propTypes = {
   titleLines: PropTypes.array.isRequired,
   subtitle: PropTypes.string.isRequired,
   links: PropTypes.array,
+  bgImg: PropTypes.string,
 }
 
 export default Header
