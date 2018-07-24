@@ -19,6 +19,7 @@ const Ul = styled.ul`
           > li {
             display: inline-block;
             padding: 8px;
+            margin-bottom:0;
             :first-child {
               padding-left: 0;
             }

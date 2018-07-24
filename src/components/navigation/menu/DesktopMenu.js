@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from '../../navigation/Link'
 import React from 'react'
-import Ul, { Li } from '../../Layout/Ul'
+import Ul, { Li } from '../../layout/Ul'
 import MenuData from './Menu.json'
 import { HideSingleComponentUsingCss } from '../../utils'
 
@@ -23,13 +23,13 @@ const DesktopMenuContainer = styled(Ul)`
 
 const DesktopMenu = () => (
   <HideSingleComponentUsingCss xs sm>
-    <DesktopMenuContainer inline>
+    <Ul inline>
       {MenuData.map((item, i) => (
         <DesktopMenuItem key={i} to={item.to}>
           {item.text}
         </DesktopMenuItem>
       ))}
-    </DesktopMenuContainer>
+    </Ul>
   </HideSingleComponentUsingCss>
 )
 

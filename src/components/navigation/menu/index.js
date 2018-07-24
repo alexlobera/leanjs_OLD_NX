@@ -11,6 +11,10 @@ import { blue1 } from '../../../styles'
 export { DesktopMenu, PhoneMenu }
 
 const MenuContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   padding: 20px;
   position: relative;
   z-index: 1;
