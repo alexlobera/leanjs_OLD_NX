@@ -79,9 +79,13 @@ const Header = ({ titleLines = [], subtitle, links = [] }) => (
               <TitleBackground key={i} children={line} />
             ))}
           </H1>
-          <H2Header>
-            <TitleBackground dangerouslySetInnerHTML={{ __html: subtitle }} />
-          </H2Header>
+          {subtitle ? (
+            <H2Header>
+              <TitleBackground dangerouslySetInnerHTML={{ __html: subtitle }} />
+            </H2Header>
+          ) : (
+            ''
+          )}
           {/* {links && links.length ? (
                         <Ul inline>
                             {links.map((link, index) => (

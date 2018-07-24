@@ -5,34 +5,45 @@ import { H2, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import Link from '../components/navigation/Link'
+import { Card } from '../components/elements'
 
 const PrivacyPolicy = () => (
   <React.Fragment>
     <Header titleLines={['Privacy Policy']} />
+    <TopSection>
+      <Grid>
+        <Card border="shadow">
+          <Row>
+            <Col md={10} mdOffset={1}>
+              <P>
+                Here at ReactJS.academy, we take your privacy seriously and are
+                always aiming to ensure your personal information is kept safe.
+                We aim to instill trust in everything that we do and give you
+                the best quality experience with us.
+              </P>
+              <P>
+                ReactJS.academy is part of the LeanJS family. LeanJS is a
+                digital design, development and training company who produces
+                digital products, trainings and associated services based in
+                London, UK. For more information, please check out
+                <Link to="https://leanjs.com/" target="_blank">
+                  https://leanjs.com/
+                </Link>
+                and if you have any question, please don’t hesitate in
+                contacting us on
+                <Link to="mailto:hello@leanjs.com">hello@leanjs.com</Link>
+                .
+              </P>
+            </Col>
+          </Row>
+        </Card>
+      </Grid>
+    </TopSection>
     <Section>
       <Grid>
         <Row>
           <Col md={10} mdOffset={1}>
-            <P>
-              Here at ReactJS.academy, we take your privacy seriously and are
-              always aiming to ensure your personal information is kept safe. We
-              aim to instill trust in everything that we do and give you the
-              best quality experience with us.
-            </P>
-            <P>
-              ReactJS.academy is part of the LeanJS family. LeanJS is a digital
-              design, development and training company who produces digital
-              products, trainings and associated services based in London, UK.
-              For more information, please check out
-              <Link to="https://leanjs.com/" target="_blank">
-                https://leanjs.com/
-              </Link>
-              and if you have any question, please don’t hesitate in contacting
-              us on
-              <Link to="mailto:hello@leanjs.com">hello@leanjs.com</Link>
-              .
-            </P>
-            <H3>What’s on this page:</H3>
+            <H2>What’s on this page:</H2>
             <Ul>
               <Li>
                 <Link to="#1">
