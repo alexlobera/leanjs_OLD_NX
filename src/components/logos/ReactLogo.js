@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
 
 const ReactLogo = props => (
   <svg viewBox="0 0 1210 1321" preserveAspectRatio="xMidYMid meet">
