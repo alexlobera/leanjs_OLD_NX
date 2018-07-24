@@ -23,3 +23,6 @@ export const COMPANY_PITCH =
 
 export const BOOTCAMP_RIGHT =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamps.png?alt=media&token=691dae6e-28d1-4ae7-aa93-74ddd76bd4c5'
+
+export const PART_TIME =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/part-time.png?alt=media&token=6e68aa64-945e-4268-8c53-e3200a10b441'
