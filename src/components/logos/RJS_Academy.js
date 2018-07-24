@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Link from '../navigation/Link'
 
 export const RJS_Academy = () => (
@@ -35,18 +35,26 @@ const LinkLogo = styled(Link)`
   text-decoration: none;
 `
 
+const svgPosition = css`
+  ${({ position }) => {
+    switch (position) {
+      case 'menu':
+        return `
+          width: 295px;
+          height: 76px;
+        `
+      case 'footer':
+        return `
+          width: 145px;
+          height: 56px;
+        `
+    }
+  }};
+`
+
 const SvgContainer = styled.div`
   position: relative;
-  ${({ position }) =>
-    position === 'menu'
-      ? `
-        width: 295px;
-        height: 76px;
-      `
-      : `
-        width:185px;
-        height:35px;
-      `} overflow:hidden;
+  ${svgPosition} overflow:hidden;
   > svg {
     position: absolute;
     top: 0;

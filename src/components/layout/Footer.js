@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
-import ReactJSAcademyLogo from '../logos/ReactJSAcademy'
+import { RJALogo } from '../logos'
 import Ul, { Li } from './Ul'
 import DefaultLink from '../navigation/Link'
 import { blue1, WHITE } from '../../styles'
@@ -95,7 +95,7 @@ const Footer = () => (
                 <Link to="https://leanjs.com">LeanJS</Link> product
               </Col>
               <Col md={6}>
-                <ReactJSAcademyLogo />
+                <RJALogo position="footer" />
               </Col>
             </Row>
           </Col>
