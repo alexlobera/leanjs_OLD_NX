@@ -29,7 +29,7 @@ import {
   DiscussIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
-import { LONDON, PART_TIME } from '../imageConstants'
+import { LONDON, PART_TIME, STEFANO } from '../imageConstants'
 
 const PartTime = () => (
   <div>
@@ -106,11 +106,11 @@ const PartTime = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="The ReactJS Academy part time course really worked for me. I needed to learn React but flexibility around my schedule was super important - not only that, it was great fun!"
-              fullname="Richard Moss"
-              job="CTO"
-              company="Financial Times"
-              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
+              quote="I like the fact that you meet other developers that are in the same professional situation as you. I really felt comfortable."
+              fullname="Stefano Mezza"
+              job="Core Developer"
+              company="SISLAB UniTN"
+              profilePicUrl={STEFANO}
             />
           </Col>
         </Row>

@@ -22,7 +22,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../../components/icons'
-import { LONDON, PART_TIME } from '../../imageConstants'
+import { LONDON, PART_TIME, CATALIN } from '../../imageConstants'
 import { Image } from '../../components/elements'
 
 const Price = styled.span`
@@ -183,11 +183,11 @@ const BootcampLondon = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="I enjoyed the bootcamp so much. It was challenging and so rewarding - the mentors were so helpful, making sense of really complex concepts.... Recommended."
-              fullname="Senior Developer"
-              job="Cameron Diaz"
-              company="Spotify"
-              profilePicUrl="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg"
+              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory - it’s very balanced."
+              fullname="Catalin Cislariu"
+              job="Senior Developer"
+              company="KLEIDO LTD"
+              profilePicUrl={CATALIN}
             />
           </Col>
         </Row>
