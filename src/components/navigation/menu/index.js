@@ -1,7 +1,7 @@
 import React from 'react'
 import withWidth, { MEDIUM } from 'react-width'
 
-import ReactJSAcademyLogo from '../../logos/ReactJSAcademy'
+import { RJALogo } from '../../logos'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'
@@ -23,7 +23,7 @@ const Menu = ({ width }) => {
   return (
     <Grid>
       <MenuContainer>
-        <ReactJSAcademyLogo menu />
+        <RJALogo position="menu" />
         {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
           <PhoneMenu />
         ) : (
