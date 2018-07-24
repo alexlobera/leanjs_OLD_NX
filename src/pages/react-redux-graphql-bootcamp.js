@@ -69,16 +69,17 @@ const Boocamps = () => (
               </Li>
               <Li>
                 <BulletIcon icon={TickBadgeIcon} />
-                Small classes with mentoring from experts developers & coaches
+                Small classes with mentoring from expert developers & coaches
               </Li>
               <Li>
                 <BulletIcon icon={TargetIcon} />
-                Hands-on project-based training - most of the time you are
+                Hands-on project-based training - most of the time you'll be
                 coding.
               </Li>
               <Li>
                 <BulletIcon icon={PeopleNetWorkIcon} />
-                Join a network of alumni for advice, knowledge and social fun!
+                Join a growing network of alumni for advice, knowledge and
+                social fun!
               </Li>
             </Ul>
             <P>
