@@ -143,7 +143,7 @@ const BootcampLondon = () => (
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={NotBegginerIcon} />
-                A developer with 1+ year of development under your belt?
+                A developer with ~1 year of development under your belt?
               </Li>
               <Li>
                 <BulletIcon icon={CodeIcon} />
@@ -152,13 +152,14 @@ const BootcampLondon = () => (
               </Li>
               <Li>
                 <BulletIcon icon={ReactIcon} />
-                Taking a step forward to become a React JS Specialist able to
+                Taking a step forward to become a React JS specialist, able to
                 make critical decisions in the architecture of a React
                 application.
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
-                Unhappy with online learning and it's lack of 1-on-1 mentoring?
+                Not satisfied with online learning and it's lack of 1-on-1
+                mentoring?
               </Li>
             </Ul>
             <P>
@@ -167,8 +168,8 @@ const BootcampLondon = () => (
             </P>
             <H3>Not for beginner devs!</H3>
             <P>
-              This is not a lear-to-code course. If you want to learn to code,
-              we recommend you to contact our London-based partner{' '}
+              This is not a learn-to-code course. If you want to learn to code,
+              we recommend you contact our London-based partner{' '}
               <a href="https://makers.tech/" target="_blanck">
                 Makers
               </a>. PLUS you'll get a &pound;250 discount using our reference
