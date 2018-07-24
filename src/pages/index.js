@@ -300,7 +300,7 @@ const IndexPage = () => (
           <Col md={10} mdOffset={1}>
             <TrainingList>
               <TrainingItem
-                location="Makers Academy, London"
+                location="TBC"
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
