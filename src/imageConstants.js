@@ -11,3 +11,6 @@ export const WHY_REACTJS_ACADEMY =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/whyReactJSAcademy.png?alt=media&token=11da0b2e-4409-4bc4-86dd-124b9cd73d58'
 export const COMPANY_PITCH =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/companyPitch.png?alt=media&token=fda8a9c0-e366-42cc-832c-9233aae5d38e'
+
+export const BOOTCAMP_RIGHT =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamps.png?alt=media&token=691dae6e-28d1-4ae7-aa93-74ddd76bd4c5'
