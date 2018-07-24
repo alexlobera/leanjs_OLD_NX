@@ -16,7 +16,7 @@ import { GREY2, FONT_FAMILY } from '../../styles'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 import CallToActionRow from '../../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../../components/training'
-import LondonThumbnailImage from '../react-redux-graphql-bootcamp-london/ThumbnailImage'
+import london from '../../assets/img/london.png'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -201,7 +201,7 @@ const BootcampLondon = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                image={<LondonThumbnailImage />}
+                imageSrc={london}
               />
             </TrainingList>
           </Col>

@@ -15,7 +15,7 @@ import TrustedBy from '../components/training/TrustedBySection'
 import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
-import LondonThumbnailImage from './react-redux-graphql-bootcamp-london/ThumbnailImage'
+import london from '../assets/img/london.png'
 
 const Boocamps = () => (
   <div>
@@ -89,7 +89,7 @@ const Boocamps = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                image={<LondonThumbnailImage />}
+                imageSrc={london}
               />
             </TrainingList>
           </Col>

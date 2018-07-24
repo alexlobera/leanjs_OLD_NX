@@ -17,8 +17,8 @@ import {
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { TrainingItem, TrainingList } from '../components/training'
-import LondonThumbnailImage from './react-redux-graphql-bootcamp-london/ThumbnailImage'
-import LisbonThumbnailImage from './react-redux-graphql-bootcamp-lisbon/ThumbnailImage'
+import london from '../assets/img/london.png'
+import lisbon from '../assets/img/lisbon.png'
 
 const AboutUs = () => (
   <div>
@@ -331,14 +331,14 @@ const AboutUs = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                image={<LondonThumbnailImage />}
+                imageSrc={london}
               />
               <TrainingItem
                 location="Lisbon, Portugal"
                 startDate="TBD"
                 name="Lisbon bootcamp"
                 path="/react-redux-graphql-bootcamp-lisbon"
-                image={<LisbonThumbnailImage />}
+                imageSrc={lisbon}
               />
             </TrainingList>
           </Col>
