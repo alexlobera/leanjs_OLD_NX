@@ -20,25 +20,13 @@ import {
   TrustedBySection,
 } from '../components/training'
 import {
-  BussinessIcon,
-  CalendarIcon,
-  CodeIcon,
   CollabsIcon,
-  EnterMindIcon,
-  HeartIcon,
   NotBegginerIcon,
   NotBegginersIcon,
-  ProductionReadyIcon,
-  RunFastIcon,
   SpannerIcon,
-  StarIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  TimeIcon,
   TrainerIcon,
-  ReactIcon,
-  WorldIcon,
   BulletIcon,
+  DiscussIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
 import { LONDON, PART_TIME } from '../imageConstants'
@@ -79,14 +67,29 @@ const PartTime = () => (
                 <BulletIcon icon={CollabsIcon} />
                 Meaningful, collaborative learning
               </Li>
-              <Li>Personal mentoring over online learning</Li>
-              <Li>Don't miss a single day of work - only 2 evenings a week</Li>
               <Li>
-                Not for beginners! Looking for a{' '}
-                <Link to="https://makers.tech/">Learn-to-Code course?</Link>{' '}
+                <BulletIcon icon={TrainerIcon} />
+                Personal mentoring over online learning
               </Li>
-              <Li>Discuss real-world projects to learn best practices</Li>
-              <Li>Coaches are expert React developers</Li>
+              <Li>
+                <BulletIcon icon={SpannerIcon} />
+                Don't miss a single day of work - only 2 evenings a week
+              </Li>
+              <Li>
+                <BulletIcon icon={NotBegginersIcon} />
+                Not for beginners! Looking for a{' '}
+                <Link to="https://makers.tech/">
+                  Learn-to-Code course?
+                </Link>{' '}
+              </Li>
+              <Li>
+                <BulletIcon icon={DiscussIcon} />
+                Discuss real-world projects to learn best practices
+              </Li>
+              <Li>
+                <BulletIcon icon={NotBegginerIcon} />
+                Coaches are expert React developers
+              </Li>
             </Ul>
             <P>
               <Link to="/react-redux-training-london">

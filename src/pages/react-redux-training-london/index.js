@@ -15,6 +15,13 @@ import { GREY2, FONT_FAMILY } from '../../styles'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 import CallToActionRow from '../../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../../components/training'
+import {
+  BulletIcon,
+  NotBegginerIcon,
+  CodeIcon,
+  ReactIcon,
+  CollabsIcon,
+} from '../../components/icons'
 import { LONDON, PART_TIME } from '../../imageConstants'
 import { Image } from '../../components/elements'
 
@@ -38,6 +45,7 @@ const BootcampLondon = () => (
         { text: 'Curriculum', to: '#curriculum' },
         { text: 'Is it right for me?', to: '#target-audience' },
       ]}
+      bgImg="part-time"
     />
     <TopSection>
       <Grid>
@@ -132,18 +140,24 @@ const BootcampLondon = () => (
                 #
               </a>
             </H2Ref>
-            <Ul>
-              <Li>A developer with 1+ year of development under your belt?</Li>
+            <Ul unstyled>
               <Li>
+                <BulletIcon icon={NotBegginerIcon} />
+                A developer with 1+ year of development under your belt?
+              </Li>
+              <Li>
+                <BulletIcon icon={CodeIcon} />
                 Familiar with front-end technologies like JavaScript, CSS, and
                 HTML?
               </Li>
               <Li>
+                <BulletIcon icon={ReactIcon} />
                 Taking a step forward to become a React JS Specialist able to
                 make critical decisions in the architecture of a React
                 application.
               </Li>
               <Li>
+                <BulletIcon icon={CollabsIcon} />
                 Unhappy with online learning and it's lack of 1-on-1 mentoring?
               </Li>
             </Ul>
