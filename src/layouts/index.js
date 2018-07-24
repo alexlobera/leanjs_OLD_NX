@@ -1,10 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-//import 'normalize.css'
-import './reset.css'
-import { ThemeProvider, injectGlobal } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+import { createHttpLink } from 'apollo-link-http'
+import { ApolloProvider } from 'react-apollo'
+import { ApolloLink } from 'apollo-link'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { ApolloClient } from 'apollo-client'
 
+// TODO REMOVE THE OLD_CHECKOUT CSS WHEN WE REIMPLEMENT IT
+import '../components/old_checkout'
+import './reset.css'
+
+import { API_BASE_URL } from '../config'
+import Modal from '../components/old_checkout/components/Modal'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
 import './index.css'
@@ -21,20 +30,35 @@ const gridTheme = {
   },
 }
 
+const configLink = {
+  uri: `${API_BASE_URL}/graphql`,
+  credentials: 'include',
+}
+
+const graphqlClient = new ApolloClient({
+  link: ApolloLink.from([createHttpLink(configLink)]),
+  cache: new InMemoryCache(),
+})
+
 const Layout = ({ children, data }) => (
   <ThemeProvider theme={gridTheme}>
-    <div>
-      <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          { name: 'description', content: data.site.siteMetadata.description },
-          { name: 'keywords', content: data.site.siteMetadata.keywords },
-        ]}
-      />
-      <Menu />
-      {children()}
-      <Footer />
-    </div>
+    <ApolloProvider client={graphqlClient}>
+      <React.Fragment>
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description,
+            },
+            { name: 'keywords', content: data.site.siteMetadata.keywords },
+          ]}
+        />
+        <Menu />
+        <Modal>{children()}</Modal>
+        <Footer />
+      </React.Fragment>
+    </ApolloProvider>
   </ThemeProvider>
 )
 

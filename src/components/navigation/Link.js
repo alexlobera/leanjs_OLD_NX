@@ -22,8 +22,9 @@ const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
 `
 
-const Link = ({ to = '', children = '', target = '_blank', ...rest }) => {
+const Link = ({ to = '', children = '', ...rest }) => {
   if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
+    const { target = '_blank' } = rest
     return (
       <BasicLink {...rest} target={target} href={to}>
         {children}

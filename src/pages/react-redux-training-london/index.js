@@ -49,11 +49,11 @@ const BootcampLondon = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionRow left>
+        {/* <CallToActionRow left>
           <Col lg={11} lgOffset={1}>
             <Button cta children="Buy London part-time course for &pound;995" />
           </Col>
-        </CallToActionRow>
+        </CallToActionRow> */}
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
@@ -91,9 +91,15 @@ const BootcampLondon = () => (
                 <P>Early bird tickes available until 20th August 2018.</P>
                 <P style={{ margin: '10px 0' }}>
                   <Price>&pound;995</Price>
-                  <Button cta style={{ float: 'right' }}>
-                    Buy now
-                  </Button>
+                  <div
+                    class="checkout-course-btn text-center"
+                    data-training-instance-id="5b1c2197b8340f47a4b8e3e7"
+                    data-course-price="995"
+                    data-course-title="React Part-Time London"
+                    data-checkout-btn-text="Buy course"
+                    data-currency="gbp"
+                    data-button="btn_3colheader_bootcamp"
+                  />
                 </P>
                 <P>
                   By purchasing a training, you agree to our{' '}

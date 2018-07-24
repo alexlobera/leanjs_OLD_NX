@@ -6,5 +6,5 @@ export default styled.p`
   ${FONT_FAMILY}
   text-align: ${props => props.align || 'left'};
   margin: 0;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 `

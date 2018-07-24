@@ -31,7 +31,9 @@ const PrivacyPolicy = () => (
                 </Link>{' '}
                 and if you have any question, please don’t hesitate in
                 contacting us on{' '}
-                <Link to="mailto:hello@leanjs.com">hello@leanjs.com</Link>
+                <Link to="mailto:hello@reactjs.academy">
+                  hello@reactjs.academy
+                </Link>
                 .
               </P>
             </Col>

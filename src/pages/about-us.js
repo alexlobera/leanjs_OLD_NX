@@ -273,7 +273,7 @@ const AboutUs = () => (
             <p>
               <LinkButton
                 target="_self"
-                to="mailto:hello@leanjs.com?subject=become a coach"
+                to="mailto:hello@reactjs.academy?subject=become a coach"
               >
                 Become a coach
               </LinkButton>

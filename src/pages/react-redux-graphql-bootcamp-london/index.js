@@ -24,6 +24,7 @@ import {
 } from '../../components/icons'
 import { LONDON, BOOTCAMP_COLLAB } from '../../imageConstants'
 import { Image } from '../../components/elements'
+import BuyQuantityButton from '../../components/old_checkout/containers/PurchaseQuantityContainer'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -49,11 +50,11 @@ const BootcampLondon = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionRow left>
+        {/* <CallToActionRow left>
           <Col lg={11} lgOffset={1}>
             <Button cta children="Buy London bootcamp for &pound;1740" />
           </Col>
-        </CallToActionRow>
+        </CallToActionRow> */}
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
@@ -90,14 +91,23 @@ const BootcampLondon = () => (
                 </H3>
                 <P>Early bird tickes available until 20th July 2018.</P>
                 <P style={{ margin: '10px 0' }}>
-                  <Price>&pound;1740</Price>
-                  <Button cta style={{ float: 'right' }}>
-                    Buy now
-                  </Button>
+                  <BuyQuantityButton
+                    course={{
+                      price: 1590,
+                      trainingInstanceId: '5b3605d7b8340f47a4b8e420',
+                      title: 'Bootcamp London',
+                    }}
+                  />
                 </P>
                 <P>
                   By purchasing a training, you agree to our{' '}
-                  <Link to="terms-of-service">Terms & Conditions</Link>
+                  <Link
+                    target="_blank"
+                    style={{ fontSize: '14px' }}
+                    to="terms-of-service"
+                  >
+                    Terms of Service
+                  </Link>
                 </P>
               </Card>
               <Card small border="white" style={{ marginTop: '20px' }}>
