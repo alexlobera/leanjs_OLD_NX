@@ -3,7 +3,6 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import AttendeeQuote from '../components/training/AttendeeQuote'
@@ -41,7 +40,8 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import { LONDON } from '../imageConstants'
+import { Image } from '../components/elements'
+import { LONDON, PART_TIME } from '../imageConstants'
 
 const PartTime = () => (
   <div>
@@ -69,7 +69,7 @@ const PartTime = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <ImagePlaceholder />
+            <Image src={PART_TIME} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React part-time course right for me?</H2>
