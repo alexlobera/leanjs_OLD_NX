@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Section, { TopSection } from '../../components/layout/Section'
 import { Button, LinkButton } from '../../components/buttons'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import ImagePlaceholder from '../../components/wireframes/ImagePlaceholder'
 import { H2, H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/Layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
@@ -16,7 +15,6 @@ import { GREY2, FONT_FAMILY } from '../../styles'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 import CallToActionRow from '../../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../../components/training'
-import { LONDON } from '../../imageConstants'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -24,6 +22,8 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../../components/icons'
+import { LONDON, BOOTCAMP_COLLAB } from '../../imageConstants'
+import { Image } from '../../components/elements'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -130,7 +130,7 @@ const BootcampLondon = () => (
         <Row>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5}>
-              <ImagePlaceholder width="100%" height="500px" />
+              <Image src={BOOTCAMP_COLLAB} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
           <Col xs={12} md={6}>
