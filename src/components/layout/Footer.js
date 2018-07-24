@@ -8,6 +8,8 @@ import Ul, { Li } from './Ul'
 import DefaultLink from '../navigation/Link'
 import { blue1, WHITE } from '../../styles'
 import { SCREEN_XS_MAX } from '../utils'
+import { P } from '../text'
+import { BulletIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons'
 
 const StyledFooter = styled.div`
   footer {
@@ -33,7 +35,19 @@ const LinkList = styled(Ul)`
   list-style: none;
   margin-left: 0;
 `
+const SocialSection = styled.div`
+  margin: 50px 0;
+`
+const SocialMenu = styled(Ul)`
+  margin-top: 10px;
+  > li {
+    padding: 0;
+  }
+`
 
+const SocialLink = styled(Link)`
+  text-decoration: none;
+`
 const Footer = () => (
   <StyledFooter>
     <Grid>
@@ -87,6 +101,26 @@ const Footer = () => (
                     </Link>
                   </Li>
                 </LinkList>
+                <SocialSection>
+                  <P>Follow us...</P>
+                  <SocialMenu unstyled inline>
+                    <Li>
+                      <SocialLink to="https://twitter.com/reactjsacademy">
+                        <BulletIcon social icon={TwitterIcon} />
+                      </SocialLink>
+                    </Li>
+                    <Li>
+                      <SocialLink to="https://www.instagram.com/reactjsacademy/">
+                        <BulletIcon social icon={InstagramIcon} />
+                      </SocialLink>
+                    </Li>
+                    <Li>
+                      <SocialLink to="https://www.facebook.com/reactjsacademy/">
+                        <BulletIcon social icon={FacebookIcon} />
+                      </SocialLink>
+                    </Li>
+                  </SocialMenu>
+                </SocialSection>
               </Col>
             </Row>
             <Row>

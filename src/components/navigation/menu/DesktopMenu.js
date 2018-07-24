@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from '../../navigation/Link'
 import React from 'react'
-import Ul, { Li as defaultLi } from '../../Layout/Ul'
+import Ul, { Li as defaultLi } from '../../layout/Ul'
 import MenuData from './Menu.json'
 import { HideSingleComponentUsingCss } from '../../utils'
 
