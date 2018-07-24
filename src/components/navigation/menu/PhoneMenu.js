@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Link from '../Link'
 import React from 'react'
 import MenuData from './Menu.json'
+import { RJSALogo } from '../../logos'
 import './PhoneMenu.css'
 
 const Item = ({ children, ...props }) => <Link {...props}>{children}</Link>
@@ -31,11 +32,7 @@ class PhoneMenu extends React.Component {
 
     return (
       <Menu isOpen={isOpen}>
-        <p>
-          <Link style={{ color: 'white' }} to="/">
-            RJA Logo
-          </Link>
-        </p>
+        <RJSALogo />
         {MenuData.map((item, i) => (
           <PhoneMenuItem onClick={closeMenu} key={i} to={item.to}>
             {item.text}

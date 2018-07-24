@@ -1,7 +1,7 @@
 import React from 'react'
 import withWidth, { MEDIUM } from 'react-width'
 
-import { RJALogo } from '../../logos'
+import { RJSALogo } from '../../logos'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'
@@ -19,6 +19,9 @@ const MenuContainer = styled.div`
   position: relative;
   z-index: 1;
   background-color: ${blue1(0.75)};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const Menu = ({ width }) => {
@@ -27,7 +30,7 @@ const Menu = ({ width }) => {
   return (
     <Grid>
       <MenuContainer>
-        <RJALogo position="menu" />
+        <RJSALogo />
         {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
           <PhoneMenu />
         ) : (
