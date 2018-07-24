@@ -43,7 +43,7 @@ import {
   WHY_REACTJS_ACADEMY,
   COMPANY_PITCH,
   DAN,
-  STEFANO,
+  NASSAR,
 } from '../imageConstants.js'
 
 const SectionButtonRow = styled(Row)`
@@ -220,7 +220,7 @@ const IndexPage = () => (
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
-              What's in it for your company - Why is ReactJS Academy great for
+              What's in it for your company - Why ReactJS Academy is great for
               your team
             </H2>
             <Ul unstyled>
@@ -230,7 +230,7 @@ const IndexPage = () => (
               </Li>
               <Li>
                 <BulletIcon icon={ReactIcon} />
-                Minimize risk of on boarding React
+                Minimize risk of onboarding React
               </Li>
               <Li>
                 <BulletIcon icon={EnterMindIcon} />
@@ -283,7 +283,7 @@ const IndexPage = () => (
               fullname="Nassar Kasirye"
               job="Web Developer"
               company=""
-              profilePicUrl={STEFANO}
+              profilePicUrl={NASSAR}
             />
           </Col>
         </Row>
