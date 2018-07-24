@@ -35,11 +35,14 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import london from '../assets/img/london.png'
-import lisbon from '../assets/img/lisbon.png'
-import courseCollab from '../assets/img/courseCollab.png'
-import whyReactJSAcademy from '../assets/img/whyReactJSAcademy.png'
-import companyPitch from '../assets/img/companyPitch.png'
+
+import {
+  LONDON,
+  LISBON,
+  COURSE_COLLAB,
+  WHY_REACTJS_ACADEMY,
+  COMPANY_PITCH,
+} from '../imageConstants.js'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
@@ -50,7 +53,6 @@ const SectionButtonRow = styled(Row)`
     }
   }
 `
-
 const IndexPage = () => (
   <div>
     <Header
@@ -91,7 +93,7 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={courseCollab} width="100%" />
+            <Image src={COURSE_COLLAB} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>What will I get from a ReactJS Academy training?</H2>
@@ -201,7 +203,7 @@ const IndexPage = () => (
           </Col>
           <HideSingleComponentUsingCss xs sm>
             <Col md={5} mdOffset={1}>
-              <Image src={whyReactJSAcademy} width="100%" />
+              <Image src={WHY_REACTJS_ACADEMY} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
         </Row>
@@ -212,7 +214,7 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={companyPitch} width="100%" />
+            <Image src={COMPANY_PITCH} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
@@ -300,14 +302,14 @@ const IndexPage = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                imageSrc={london}
+                imageSrc={LONDON}
               />
               <TrainingItem
                 location="Lisbon, Portugal"
                 startDate="TBD"
                 name="Lisbon bootcamp"
                 path="/react-redux-graphql-bootcamp-lisbon"
-                imageSrc={lisbon}
+                imageSrc={LISBON}
               />
             </TrainingList>
           </Col>

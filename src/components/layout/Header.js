@@ -7,13 +7,15 @@ import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
-import homeImg from '../../assets/img/homepage_topPage.jpg'
-import partTimeImg from '../../assets/img/partTime_splash.jpg'
-import fullTimeImg from '../../assets/img/bootcamp_Splash.jpg'
-import trainingEvent from '../../assets/img/londonBootcamp_splash.jpg'
-import curriculum from '../../assets/img/curriculum_splash.jpg'
-import community from '../../assets/img/community_splash.jpg'
 import Link from '../navigation/Link'
+import {
+  HOME_IMG,
+  PART_TIME_IMG,
+  FULL_TIME_IMG,
+  TRAINING_EVENT_IMG,
+  CURRICULUM_IMG,
+  COMMUNITY_IMG,
+} from '../../imageConstants'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;
@@ -33,19 +35,19 @@ const backgroundImg = css`
   ${({ bgImg }) => {
     switch (bgImg) {
       case 'home':
-        return `background-image: url(${homeImg});`
+        return `background-image: url(${HOME_IMG});`
       case 'part-time':
-        return `background-image: url(${partTimeImg});`
+        return `background-image: url(${PART_TIME_IMG});`
       case 'full-time':
-        return `background-image: url(${fullTimeImg});`
+        return `background-image: url(${FULL_TIME_IMG});`
       case 'training-event':
-        return `background-image: url(${trainingEvent});`
+        return `background-image: url(${TRAINING_EVENT_IMG});`
       case 'about-us':
-        return `background-image: url(${partTimeImg});`
+        return `background-image: url(${PART_TIME_IMG});`
       case 'curriculum':
-        return `background-image: url(${curriculum});`
+        return `background-image: url(${CURRICULUM_IMG});`
       case 'community':
-        return `background-image: url(${community});`
+        return `background-image: url(${COMMUNITY_IMG});`
     }
   }};
 `
@@ -62,7 +64,8 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: -2;
-    ${backgroundImg} background-repeat: no-repeat;
+    ${backgroundImg} background-blend-mode: luminosity;
+    background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {

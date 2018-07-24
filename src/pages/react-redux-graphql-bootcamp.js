@@ -2,7 +2,6 @@ import React from 'react'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import ImagePlaceholder from '../components/wireframes/ImagePlaceholder'
 import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import {
@@ -15,7 +14,8 @@ import TrustedBy from '../components/training/TrustedBySection'
 import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
-import london from '../assets/img/london.png'
+import { Image } from '../components/elements'
+import { LONDON, BOOTCAMP_RIGHT } from '../imageConstants'
 
 const Boocamps = () => (
   <div>
@@ -44,7 +44,7 @@ const Boocamps = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <ImagePlaceholder />
+            <Image src={BOOTCAMP_RIGHT} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this bootcamp right for me?</H2>
@@ -90,7 +90,7 @@ const Boocamps = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                imageSrc={london}
+                imageSrc={LONDON}
               />
             </TrainingList>
           </Col>

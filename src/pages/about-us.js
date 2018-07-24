@@ -17,8 +17,7 @@ import {
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { TrainingItem, TrainingList } from '../components/training'
-import london from '../assets/img/london.png'
-import lisbon from '../assets/img/lisbon.png'
+import { LONDON, LISBON } from '../imageConstants'
 
 const AboutUs = () => (
   <div>
@@ -332,14 +331,14 @@ const AboutUs = () => (
                 startDate="August 20th to 25th, 2018"
                 name="London bootcamp"
                 path="/react-redux-graphql-bootcamp-london"
-                imageSrc={london}
+                imageSrc={LONDON}
               />
               <TrainingItem
                 location="Lisbon, Portugal"
                 startDate="TBD"
                 name="Lisbon bootcamp"
                 path="/react-redux-graphql-bootcamp-lisbon"
-                imageSrc={lisbon}
+                imageSrc={LISBON}
               />
             </TrainingList>
           </Col>
