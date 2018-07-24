@@ -29,3 +29,19 @@ export const BOOTCAMP_COLLAB =
 
 export const PART_TIME =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/part-time.png?alt=media&token=6e68aa64-945e-4268-8c53-e3200a10b441'
+
+export const ABOUT_CONTINUOUS =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUs_continuousImprove.png?alt=media&token=ad65a48b-d8ff-4164-9d35-be3c5ca1a985'
+
+export const ABOUT_CORPORATE =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.png?alt=media&token=468b5c08-d69e-4fdc-9080-3668a482cb00'
+// Team members
+
+export const ALEX =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Falex.png?alt=media&token=53e46088-9e37-4a41-830b-d3d5fef801c5'
+export const RICHARD =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.png?alt=media&token=417d5d3f-877c-4964-b19f-b86e2c4b18a1'
+export const HORACIO =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio-pic.png?alt=media&token=c9e4e065-c541-4924-bae8-d9c83923c632'
+export const WILL =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fwill.png?alt=media&token=8ab839e8-2714-47b4-b0dc-f14cfb76c87e'
