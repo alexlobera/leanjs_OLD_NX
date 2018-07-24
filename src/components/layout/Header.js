@@ -7,8 +7,10 @@ import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
-import headerImg from '../..//assets/img/homepage_topPage.png'
 import Link from '../navigation/Link'
+
+const HEADER_IMG =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_topPage.png?alt=media&token=240a38aa-0b53-4c22-a41a-acbaf743385d'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;
@@ -35,7 +37,7 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: -2;
-    background-image: url(${headerImg});
+    background-image: url(${HEADER_IMG});
     background-blend-mode: luminosity;
     background-repeat: no-repeat;
     background-size: cover;
