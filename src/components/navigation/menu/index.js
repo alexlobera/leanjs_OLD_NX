@@ -23,7 +23,7 @@ const Menu = ({ width }) => {
   return (
     <Grid>
       <MenuContainer>
-        <ReactJSAcademyLogo />
+        <ReactJSAcademyLogo menu />
         {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
           <PhoneMenu />
         ) : (
