@@ -69,11 +69,11 @@ const PartTime = () => (
               </Li>
               <Li>
                 <BulletIcon icon={TrainerIcon} />
-                Personal mentoring over online learning
+                Personal mentoring rather than online learning
               </Li>
               <Li>
                 <BulletIcon icon={SpannerIcon} />
-                Don't miss a single day of work - only 2 evenings a week
+                Don't miss work days or projects - only 2 evenings a week
               </Li>
               <Li>
                 <BulletIcon icon={NotBegginersIcon} />
@@ -88,7 +88,7 @@ const PartTime = () => (
               </Li>
               <Li>
                 <BulletIcon icon={NotBegginerIcon} />
-                Coaches are expert React developers
+                Expert coaches with extensive React experience
               </Li>
             </Ul>
             <P>
