@@ -1,11 +1,11 @@
 import React from 'react'
 import withWidth, { MEDIUM } from 'react-width'
+import styled from 'styled-components'
 
 import { RJSALogo } from '../../logos'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'
-import styled from '../../../../node_modules/styled-components'
 import { blue1 } from '../../../config/styles'
 
 export { DesktopMenu, PhoneMenu }
