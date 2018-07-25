@@ -7,6 +7,7 @@ import { ApolloProvider } from 'react-apollo'
 import { ApolloLink } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
+import fetch from 'node-fetch'
 
 // TODO REMOVE THE OLD_CHECKOUT CSS WHEN WE REIMPLEMENT IT
 import '../components/old_checkout'
@@ -33,6 +34,7 @@ const gridTheme = {
 const configLink = {
   uri: `${API_BASE_URL}/graphql`,
   credentials: 'include',
+  fetch,
 }
 
 const graphqlClient = new ApolloClient({
