@@ -56,6 +56,9 @@ const Layout = ({ children, data }) => (
             { name: 'keywords', content: data.site.siteMetadata.keywords },
           ]}
         />
+        <Helmet script={[{
+          type: 'text/javascript', src: 'https://js.stripe.com/v2/', async: true
+        }]} />
         <Menu />
         <Modal>{children()}</Modal>
         <Footer />
