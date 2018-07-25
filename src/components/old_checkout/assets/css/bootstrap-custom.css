@@ -1,3 +1,7 @@
+button {
+  outline: 0;
+}
+
 .img-responsive {
   display: block;
   max-width: 100%;
@@ -529,8 +533,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+  outline: 0;
 }
 .btn:hover,
 .btn:focus,

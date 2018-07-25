@@ -7,19 +7,21 @@ import getCurrencySymbol from '../utils/currency'
 const PurchaseWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  margin: 12px 0;
 `
 
 const QuantityActions = styled.div`
   justify-content: space-between;
   text-align: center;
+  margin: 8px 0;
 `
 const QuantityButton = styled.button`
   border: 0;
-  font-size:40px;
+  font-size: 40px;
   margin: 0;
   border: none;
   padding: 0 25px;
-  background-color:transparent;
+  background-color: transparent;
 `
 
 const Quantity = styled.span`
@@ -37,11 +39,11 @@ const Price = styled.span`
   line-height: 1.5;
   letter-spacing: normal;
   color: ${GREY2};
-  display:block;
+  display: block;
 `
 
 const ButtonWrapper = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin-left: auto;
   float: left;
@@ -52,23 +54,23 @@ class PurchaseQuantityContainer extends React.Component {
     super(props)
     this.state = {
       quantity: 1,
-      maxSeats: 30
+      maxSeats: 30,
     }
   }
 
   addCourse = () => {
     this.setState({
-      quantity: this.state.quantity + 1 > 30 ? 30 : this.state.quantity + 1
+      quantity: this.state.quantity + 1 > 30 ? 30 : this.state.quantity + 1,
     })
-  };
+  }
 
   remCourse = () => {
     this.setState({
-      quantity: this.state.quantity - 1 <= 0 ? 1 : this.state.quantity - 1
+      quantity: this.state.quantity - 1 <= 0 ? 1 : this.state.quantity - 1,
     })
-  };
+  }
 
-  inputCourse = (event) => {
+  inputCourse = event => {
     let value = event.target.value
 
     if (!isNaN(value)) {
@@ -78,11 +80,11 @@ class PurchaseQuantityContainer extends React.Component {
         this.setState({ quantity: value })
       } else {
         this.setState({
-          quantity: value < 1 ? 1 : 30
+          quantity: value < 1 ? 1 : 30,
         })
       }
     }
-  };
+  }
 
   render() {
     const { course } = this.props
@@ -91,9 +93,7 @@ class PurchaseQuantityContainer extends React.Component {
 
     return (
       <PurchaseWrapper>
-        <Price>
-          {getCurrencySymbol(course.currency, totalPrice)}
-        </Price>
+        <Price>{getCurrencySymbol(course.currency, totalPrice)}</Price>
         <ButtonWrapper>
           <CheckoutButton course={course} quantity={quantity}>
             Buy now
@@ -114,7 +114,7 @@ class PurchaseQuantityContainer extends React.Component {
 // }
 
 PurchaseQuantityContainer.defaultProps = {
-  quantity: 1
+  quantity: 1,
 }
 
 export default PurchaseQuantityContainer

@@ -26,6 +26,7 @@
     "graphql-tag": "^2.9.2",
     "normalize.css": "^8.0.0",
     "payment": "^2.3.0",
+    "pre-commit": "^1.2.2",
     "prop-types": "^15.6.2",
     "react-apollo": "^2.1.9",
     "react-bootstrap": "^0.32.1",
@@ -43,12 +44,14 @@
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
-    "deploy": "gatsby build && firebase deploy",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy",
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
-    "prebuild": "yarn format",
+    "prebuild": "npm run format",
     "build": "gatsby build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "precommit": "npm run format"
   },
   "devDependencies": {
     "@storybook/react": "^3.4.8",
@@ -56,7 +59,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^4.12.0",
     "eslint-plugin-promise": "^3.6.0",
-    "husky": "^1.0.0-rc.13",
+    "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "prettier": "^1.12.0"
   },

@@ -23,7 +23,7 @@ export const BOX_SHADOW =
 
 export const TEXT_SIZE = ({ sm = false, lg = false }) => {
   if (sm) return `font-size: 12px;`
-  if (lg) return `font-size: 12px;`
+  if (lg) return `font-size: 18px;`
 
-  return `font-size: 12px;`
+  return `font-size: 16px;`
 }
