@@ -73,6 +73,8 @@ const HeaderSection = styled(Section)`
   }
 `
 const H2Header = styled(BaseH2)`
+  padding:0;
+  margin:0;
   font-size: 24px;
   font-weight: normal;
   font-style: normal;
@@ -83,16 +85,30 @@ const H2Header = styled(BaseH2)`
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
 `
 
-const TitleBackground = styled.span`
+const TITLE_BACKGROUND = `
   background-color: ${blue1(0.75)};
   padding-left: 15px;
   padding-right: 15px;
   display: inline-block;
+`
+const TitleBackground = styled.span`
   &:first-child  {
     padding-top: 15px;
   }
   &:last-child {
-    padding-bottom: 15px;
+    padding-bottom: 20px;
+  }
+  ${TITLE_BACKGROUND}
+`
+
+const SubTitleBackground = styled.div`
+  ${TITLE_BACKGROUND}
+  padding: 15px;
+  a {
+    color: ${WHITE};
+  }
+  ul {
+    margin-top: 20px;
   }
 `
 
@@ -106,13 +122,23 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
               <TitleBackground key={i} children={line} />
             ))}
           </H1>
-          {subtitle ? (
-            <H2Header>
-              <TitleBackground dangerouslySetInnerHTML={{ __html: subtitle }} />
-            </H2Header>
+          {subtitle || links && links.length ? (
+            <SubTitleBackground>
+              <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
+              {links && links.length ? (
+                <Ul inline>
+                  {links.map((link, index) => (
+                    <Li>
+                      <Link to={link.to}>{link.text}</Link>
+                    </Li>
+                  ))}
+                </Ul>
+              ) : ''
+              }
+            </SubTitleBackground>
           ) : (
-            ''
-          )}
+              ''
+            )}
           {/* {links && links.length ? (
                         <Ul inline>
                             {links.map((link, index) => (
