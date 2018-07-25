@@ -57,37 +57,19 @@ const AttendeeQuote = ({
   profilePicUrl,
   ...props
 }) => (
-  <Card {...props}>
-    <Text>
-      <StyledBlockquote>
-        {quote || 'This is a quote from a trainee.'}
-      </StyledBlockquote>
-      <Profile>
-        <strong>
-          {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'Freelance'}{' '}
-        </strong>
-      </Profile>
-    </Text>
-    <Picture src={profilePicUrl} />
-  </Card>
-)
-
-// const AttendeeQuoteDesktop = ({ quote, fullname, company, job, ...props }) => (
-//   <Card {...props}>
-//     <StyledBlockquote>
-//       {quote || 'This is a quote from a trainee.'}
-//     </StyledBlockquote>
-//     <Attendee>
-//       <AttendeePicture src="https://storage.googleapis.com/upmentoring_user_profile_image/400x400_5a6740a52755c83e82f7d829.jpeg" />
-//       <AttendeeInfo>
-//         <strong>{fullname || 'Joe Bloggs'}</strong>
-//         <br />
-//         {job || 'CTO'}
-//         <br />
-//         {company || 'ASOS.com'}
-//       </AttendeeInfo>
-//     </Attendee>
-//   </Card>
-// )
+    <Card {...props}>
+      <Text>
+        <StyledBlockquote>
+          {quote || 'This is a quote from a trainee.'}
+        </StyledBlockquote>
+        <Profile>
+          <strong>
+            {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'Freelance'}{' '}
+          </strong>
+        </Profile>
+      </Text>
+      <Picture src={profilePicUrl} />
+    </Card>
+  )
 
 export default AttendeeQuote
