@@ -168,6 +168,7 @@ class PaymentContainer extends React.Component {
         urlParams={this.state.urlParams}
         quantity={this.props.quantity}
         price={this.state.price}
+        title={this.props.title}
         currency={this.state.currency}
         isVoucherValidated={this.state.isVoucherValidated}
         priceWithDiscount={this.state.priceWithDiscount}

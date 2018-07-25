@@ -163,8 +163,8 @@ class Payment extends React.Component {
       ? this.validateCompanyVAT(paymentData.vatCountry, paymentData.vatNumber)
       : Promise.resolve(true)
     // const { trackUserBehaviour } = this.context
-    
-    isCompanyVATValidPromise.then( isCompanyVATValid => {
+
+    isCompanyVATValidPromise.then(isCompanyVATValid => {
       if (
         isEmailValid &&
         isNumberValid &&
@@ -186,7 +186,7 @@ class Payment extends React.Component {
         this.context.modal.shake()
       }
     })
-    
+
   };
 
   render() {
@@ -235,13 +235,6 @@ class Payment extends React.Component {
             <form>
               <FormGroup className={voucherGroupCssClass}>
                 <InputGroup>
-                  <InputGroup.Addon>
-                    <i
-                      style={{ color: style.defaultGreyColor }}
-                      className="fa fa-ticket"
-                      aria-hidden="true"
-                    />
-                  </InputGroup.Addon>
                   <FormControl
                     disabled={this.props.isVoucherValidated}
                     type="text"
@@ -269,29 +262,20 @@ class Payment extends React.Component {
                   ? <span className="glyphicon glyphicon-ok form-control-feedback" />
                   : ''}
               </FormGroup>
-              <FormGroup>
-                <InputGroup className={this.state.emailIsValid ? '' : 'has-error'}>
-                  <InputGroup.Addon>
-                    <i
-                      style={{ color: style.defaultGreyColor }}
-                      className="fa fa-envelope-o"
-                      aria-hidden="true"
-                    />
-                  </InputGroup.Addon>
-                  <FormControl
-                    type="email"
-                    onChange={(e) => {
-                      this.validateEmail(e.target.value)
-                    }}
-                    placeholder="Enter your email"
-                    inputRef={(node) => {
-                      this.email = node
-                    }}
-                    onFocus={() => {
-                      // trackUserBehaviour(CHECKOUT_EMAIL_FOCUSED)
-                    }}
-                  />
-                </InputGroup>
+              <FormGroup className={this.state.emailIsValid ? '' : 'has-error'}>
+                <FormControl
+                  type="email"
+                  onChange={(e) => {
+                    this.validateEmail(e.target.value)
+                  }}
+                  placeholder="Enter your email"
+                  inputRef={(node) => {
+                    this.email = node
+                  }}
+                  onFocus={() => {
+                    // trackUserBehaviour(CHECKOUT_EMAIL_FOCUSED)
+                  }}
+                />
               </FormGroup>
               {!this.state.displayCompanyDetails
                 ? <Row className="companyDetRow">
@@ -310,59 +294,41 @@ class Payment extends React.Component {
                   </Col>
                 </Row>
                 : [
-                  <FormGroup key="companyNameGroup">
-                    <InputGroup className={this.state.companyNameIsValid ? '' : 'has-error'}>
-                      <InputGroup.Addon>
-                        <i
-                          style={{ color: style.defaultGreyColor }}
-                          className="fa fa-building"
-                          aria-hidden="true"
-                        />
-                      </InputGroup.Addon>
-                      <FormControl
-                        type="text"
-                        placeholder="Company name"
-                        name="CompanyName"
-                        value={this.companyName.value}
-                        inputRef={(node) => {
-                          this.companyName = node
-                        }}
-                        onChange={(e) => {
-                          this.validateCompanyName(e.target.value)
-                        }}
-                        onFocus={() => {
-                          // trackUserBehaviour(CHECKOUT_COMPANYNAME_FOCUSED)
-                        }}
-                      />
-                    </InputGroup>
+                  <FormGroup key="companyNameGroup" className={this.state.companyNameIsValid ? '' : 'has-error'}>
+                    <FormControl
+                      type="text"
+                      placeholder="Company name"
+                      name="CompanyName"
+                      value={this.companyName.value}
+                      inputRef={(node) => {
+                        this.companyName = node
+                      }}
+                      onChange={(e) => {
+                        this.validateCompanyName(e.target.value)
+                      }}
+                      onFocus={() => {
+                        // trackUserBehaviour(CHECKOUT_COMPANYNAME_FOCUSED)
+                      }}
+                    />
                   </FormGroup>,
                   <Row style={style.bootstrap.row} key="companyVATGroup">
                     <Col xs={4} style={style.bootstrap.col}>
-                      <FormGroup>
-                        <InputGroup className={this.state.companyVATIsValid ? '' : 'has-error'}>
-                          <InputGroup.Addon>
-                            <i
-                              style={{ color: style.defaultGreyColor }}
-                              className="fa fa-institution"
-                              aria-hidden="true"
-                            />
-                          </InputGroup.Addon>
-                          <DropdownButton
-                            className={this.state.companyVATIsValid ? '' : 'has-error'}
-                            title={this.state.vatCountry}
-                            key="countryVatData"
-                            id="countryVatData"
-                            onSelect={(value) => {
-                              this.validateCompanyVAT(value, this.state.vatNumber)
-                            }}
-                          >
-                            {vatCountries.map(country => (
-                              <MenuItem key={country.code} eventKey={country.code}>
-                                {`${country.code} - ${country.name}`}
-                              </MenuItem>
-                            ))}
-                          </DropdownButton>
-                        </InputGroup>
+                      <FormGroup className={this.state.companyVATIsValid ? '' : 'has-error'}>
+                        <DropdownButton
+                          className={this.state.companyVATIsValid ? '' : 'has-error'}
+                          title={this.state.vatCountry}
+                          key="countryVatData"
+                          id="countryVatData"
+                          onSelect={(value) => {
+                            this.validateCompanyVAT(value, this.state.vatNumber)
+                          }}
+                        >
+                          {vatCountries.map(country => (
+                            <MenuItem key={country.code} eventKey={country.code}>
+                              {`${country.code} - ${country.name}`}
+                            </MenuItem>
+                          ))}
+                        </DropdownButton>
                       </FormGroup>
                     </Col>
                     <Col xs={8} style={style.bootstrap.col}>
@@ -384,72 +350,52 @@ class Payment extends React.Component {
                   </Row>
                 ]}
               <FormGroup>
-                <InputGroup>
-                  <InputGroup.Addon>
-                    <i
-                      style={{ color: style.defaultGreyColor }}
-                      className="fa fa-address-card-o"
-                      aria-hidden="true"
-                    />
-                  </InputGroup.Addon>
-                  <FormControl
-                    type="text"
-                    placeholder="Cardholder’s name"
-                    name="CCname"
-                    inputRef={(node) => {
-                      this.cardholderName = node
-                    }}
-                    onFocus={() => {
-                      // trackUserBehaviour(CHECKOUT_CHARDHOLDERNAME_FOCUSED)
-                    }}
-                  />
-                </InputGroup>
+                <FormControl
+                  type="text"
+                  placeholder="Cardholder’s name"
+                  name="CCname"
+                  inputRef={(node) => {
+                    this.cardholderName = node
+                  }}
+                  onFocus={() => {
+                    // trackUserBehaviour(CHECKOUT_CHARDHOLDERNAME_FOCUSED)
+                  }}
+                />
               </FormGroup>
-              <FormGroup id="cardNumber">
-                <InputGroup className={this.state.numberIsValid ? '' : 'has-error'}>
-                  <InputGroup.Addon>
-                    <i
-                      style={{ color: style.defaultGreyColor }}
-                      className="fa fa-credit-card"
-                      aria-hidden="true"
-                    />
-                  </InputGroup.Addon>
-                  <FormControl
-                    type="tel"
-                    placeholder="Card number"
-                    name="CCnumber"
-                    inputMode="numeric"
-                    onChange={(e) => {
-                      this.validateCardNumber(e.target.value)
-                    }}
-                    onKeyPress={(e) => {
-                      this.validateCardNumber(e.target.value)
-                    }}
-                    autoComplete="cc-number"
-                    autoCorrect="no"
-                    autoCapitalize="no"
-                    spellCheck="no"
-                    inputRef={(node) => {
-                      this.cardNumber = node
-                    }}
-                    onFocus={() => {
-                      // trackUserBehaviour(CHECKOUT_CARDNUMBER_FOCUSED)
-                    }}
-                  />
-                </InputGroup>
+              <FormGroup id="cardNumber" className={this.state.numberIsValid ? '' : 'has-error'}>
+                <FormControl
+                  type="tel"
+                  placeholder="Card number"
+                  name="CCnumber"
+                  inputMode="numeric"
+                  onChange={(e) => {
+                    this.validateCardNumber(e.target.value)
+                  }}
+                  onKeyPress={(e) => {
+                    this.validateCardNumber(e.target.value)
+                  }}
+                  autoComplete="cc-number"
+                  autoCorrect="no"
+                  autoCapitalize="no"
+                  spellCheck="no"
+                  inputRef={(node) => {
+                    this.cardNumber = node
+                  }}
+                  onFocus={() => {
+                    // trackUserBehaviour(CHECKOUT_CARDNUMBER_FOCUSED)
+                  }}
+                />
               </FormGroup>
 
               <Row style={style.bootstrap.row}>
                 <Col xs={7} style={style.bootstrap.col}>
-                  <InputGroup className={this.state.expirationDateIsValid ? '' : 'has-error'}>
-                    <InputGroup.Addon>
-                      <i
-                        style={{ color: style.defaultGreyColor }}
-                        className="fa fa-calendar-o"
-                        aria-hidden="true"
-                      />
-                    </InputGroup.Addon>
+
+                </Col>
+                <Col xs={5} style={style.bootstrap.col}>
+                  <InputGroup >
                     <FormControl
+                      className={this.state.expirationDateIsValid ? '' : 'has-error'}
+                      style={{ width: '50%' }}
                       name="CCexpiry"
                       maxLength="9"
                       type="text"
@@ -464,21 +410,12 @@ class Payment extends React.Component {
                         // trackUserBehaviour(CHECKOUT_EXPIRATIONDATE_FOCUSED)
                       }}
                     />
-                  </InputGroup>
-                </Col>
-                <Col xs={5} style={style.bootstrap.col}>
-                  <InputGroup className={this.state.cvcIsValid ? '' : 'has-error'}>
-                    <InputGroup.Addon>
-                      <i
-                        style={{ color: style.defaultGreyColor }}
-                        className="fa fa-lock"
-                        aria-hidden="true"
-                      />
-                    </InputGroup.Addon>
                     <FormControl
+                      className={this.state.cvcIsValid ? '' : 'has-error'}
                       name="CCcvc"
                       type="text"
                       placeholder="CVC"
+                      style={{ width: '50%' }}
                       onChange={(e) => {
                         this.validateCvc(e.target.value)
                       }}
