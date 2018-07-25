@@ -21,18 +21,11 @@ import isPhone from '../utils/phone'
 import style from '../styles'
 import { VAT_RATE, vatCountries } from '../config'
 import Spinner from './Spinner'
-import {
+import trackUserBehaviour, {
   CHECKOUT_OPENED_MODAL,
   VOUCHER_VALIDATE,
-  CHECKOUT_EMAIL_FOCUSED,
-  CHECKOUT_CHARDHOLDERNAME_FOCUSED,
-  CHECKOUT_COMPANYNAME_FOCUSED,
-  CHECKOUT_VATNUMBER_FOCUSED,
   CHECKOUT_PAYMENT_VALIDATE_ERROR,
-  CHECKOUT_CARDNUMBER_FOCUSED,
-  CHECKOUT_EXPIRATIONDATE_FOCUSED,
-  CHECKOUT_CVC_FOCUSED
-} from '../utils/mixpanel-events'
+} from '../../utils/trackUserBehaviour'
 import getCurrencySymbol from '../utils/currency'
 
 class Payment extends React.Component {
@@ -62,8 +55,9 @@ class Payment extends React.Component {
   }
 
   componentDidMount() {
-    // const { trackUserBehaviour } = this.context
-    // trackUserBehaviour(CHECKOUT_OPENED_MODAL)
+    trackUserBehaviour({
+      event: CHECKOUT_OPENED_MODAL
+    })
 
     if (this.voucher.value) {
       this.props.validateVoucher(this.voucher.value)
@@ -162,7 +156,6 @@ class Payment extends React.Component {
     const isCompanyVATValidPromise = this.state.displayCompanyDetails
       ? this.validateCompanyVAT(paymentData.vatCountry, paymentData.vatNumber)
       : Promise.resolve(true)
-    // const { trackUserBehaviour } = this.context
 
     isCompanyVATValidPromise.then(isCompanyVATValid => {
       if (
@@ -175,14 +168,17 @@ class Payment extends React.Component {
       ) {
         this.props.pay(paymentData)
       } else {
-        // trackUserBehaviour(CHECKOUT_PAYMENT_VALIDATE_ERROR, {
-        //   isEmailValid,
-        //   isNumberValid,
-        //   isCvcValid,
-        //   isExpirationDateValid,
-        //   isCompanyNameValid,
-        //   isCompanyVATValid
-        // })
+        trackUserBehaviour({
+          event: CHECKOUT_PAYMENT_VALIDATE_ERROR,
+          payload: {
+            isEmailValid,
+            isNumberValid,
+            isCvcValid,
+            isExpirationDateValid,
+            isCompanyNameValid,
+            isCompanyVATValid
+          }
+        })
         this.context.modal.shake()
       }
     })
@@ -200,7 +196,6 @@ class Payment extends React.Component {
     let totalPrice = this.props.price * this.props.quantity
     totalPrice *= 1 + this.state.vatRate / 100
 
-    // const { trackUserBehaviour } = this.context
     const div = props => <div>{props.children}</div>
 
     return (
@@ -248,7 +243,10 @@ class Payment extends React.Component {
                     : <InputGroup.Button>
                       <Button
                         onClick={() => {
-                          // trackUserBehaviour(VOUCHER_VALIDATE, { voucher: this.voucher.value })
+                          trackUserBehaviour({
+                            event: VOUCHER_VALIDATE,
+                            payload: { voucher: this.voucher.value }
+                          })
                           this.props.validateVoucher(this.voucher.value)
                         }}
                         bsStyle="info"
@@ -271,9 +269,6 @@ class Payment extends React.Component {
                   placeholder="Enter your email"
                   inputRef={(node) => {
                     this.email = node
-                  }}
-                  onFocus={() => {
-                    // trackUserBehaviour(CHECKOUT_EMAIL_FOCUSED)
                   }}
                 />
               </FormGroup>
@@ -305,9 +300,6 @@ class Payment extends React.Component {
                       }}
                       onChange={(e) => {
                         this.validateCompanyName(e.target.value)
-                      }}
-                      onFocus={() => {
-                        // trackUserBehaviour(CHECKOUT_COMPANYNAME_FOCUSED)
                       }}
                     />
                   </FormGroup>,
@@ -341,9 +333,6 @@ class Payment extends React.Component {
                           onChange={(e) => {
                             this.validateCompanyVAT(this.state.vatCountry, e.target.value)
                           }}
-                          onFocus={() => {
-                            // trackUserBehaviour(CHECKOUT_VATNUMBER_FOCUSED)
-                          }}
                         />
                       </FormGroup>
                     </Col>
@@ -356,9 +345,6 @@ class Payment extends React.Component {
                   name="CCname"
                   inputRef={(node) => {
                     this.cardholderName = node
-                  }}
-                  onFocus={() => {
-                    // trackUserBehaviour(CHECKOUT_CHARDHOLDERNAME_FOCUSED)
                   }}
                 />
               </FormGroup>
@@ -380,9 +366,6 @@ class Payment extends React.Component {
                   spellCheck="no"
                   inputRef={(node) => {
                     this.cardNumber = node
-                  }}
-                  onFocus={() => {
-                    // trackUserBehaviour(CHECKOUT_CARDNUMBER_FOCUSED)
                   }}
                 />
               </FormGroup>
@@ -406,9 +389,6 @@ class Payment extends React.Component {
                       inputRef={(node) => {
                         this.expirationDate = node
                       }}
-                      onFocus={() => {
-                        // trackUserBehaviour(CHECKOUT_EXPIRATIONDATE_FOCUSED)
-                      }}
                     />
                     <FormControl
                       className={this.state.cvcIsValid ? '' : 'has-error'}
@@ -421,9 +401,6 @@ class Payment extends React.Component {
                       }}
                       inputRef={(node) => {
                         this.cvc = node
-                      }}
-                      onFocus={() => {
-                        // trackUserBehaviour(CHECKOUT_CVC_FOCUSED)
                       }}
                     />
                   </InputGroup>

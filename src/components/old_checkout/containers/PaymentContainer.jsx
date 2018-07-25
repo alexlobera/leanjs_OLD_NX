@@ -9,12 +9,10 @@ import PaymentConfirmation from '../components/PaymentConfirmation'
 import { VAT_RATE } from '../config'
 import { getMonthFromCardDate, getYearFromCardDate } from '../utils/cardDate'
 
-import {
+import trackUserBehaviour, {
   CHECKOUT_PAYMENT_SUCCESS,
   CHECKOUT_PAYMENT_REQUEST,
-  CHECKOUT_PAYMENT_ERROR_API,
-  CHECKOUT_PAYMENT_ERROR_STRIPE
-} from '../utils/mixpanel-events'
+} from '../../utils/trackUserBehaviour'
 
 const VALIDATE_VOUCHER = gql`
   query validateVoucher(
@@ -72,8 +70,13 @@ class PaymentContainer extends React.Component {
     const expirationYear = getYearFromCardDate(expirationDate)
     const { quantity } = this.props
     const { trainingInstanceId, title } = this.props.course
-    // const { trackUserBehaviour } = this.context
-    // trackUserBehaviour(CHECKOUT_PAYMENT_REQUEST, { email })
+    trackUserBehaviour({
+      event: CHECKOUT_PAYMENT_REQUEST,
+      payload: {
+        email,
+        trainingInstanceId
+      }
+    })
 
     this.setPaymentInProgress(true)
     this.setState({ errorMessage: false })
@@ -102,7 +105,15 @@ class PaymentContainer extends React.Component {
             }
           })
           .then(({ errors, makePayment }) => {
-            // trackUserBehaviour(CHECKOUT_PAYMENT_SUCCESS, { email, makePayment })
+            trackUserBehaviour({
+              event: CHECKOUT_PAYMENT_SUCCESS,
+              payload: {
+                email,
+                makePayment,
+                trainingInstanceId
+              }
+            })
+
             this.setPaymentInProgress(false)
             if (!errors) {
               this.setState({ errorMessage: false })
@@ -113,6 +124,7 @@ class PaymentContainer extends React.Component {
             } else {
               this.setState({ errorMessage: true })
               this.setPaymentInProgress(false)
+              // TODO SEND TO SENTRY LOG
               // trackUserBehaviour(CHECKOUT_PAYMENT_ERROR_API, { email, errors })
             }
           })
