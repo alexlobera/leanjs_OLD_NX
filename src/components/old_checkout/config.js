@@ -32,13 +32,4 @@ const config = {
   ],
 }
 
-// if (typeof window && window.__config_checkout_api__) {
-//   if (window.__config_checkout_api__.STRIPE_PUBLIC_KEY) {
-//     config.STRIPE_PUBLIC_KEY = window.__config_checkout_api__.STRIPE_PUBLIC_KEY
-//   }
-//   if (window.__config_checkout_api__.API_CHECKOUT_BASE_URL) {
-//     config.API_CHECKOUT_BASE_URL = window.__config_checkout_api__.API_CHECKOUT_BASE_URL
-//   }
-// }
-
 module.exports = config
