@@ -36,6 +36,10 @@ const Price = styled.span`
   color: ${GREY2};
 `
 
+const InstallmentsContainer = styled.div`
+  margin: 12px 0;
+`
+
 const BootcampLondon = () => (
   <div>
     <Header
@@ -90,22 +94,18 @@ const BootcampLondon = () => (
                   <strong>Early bird ticket</strong>
                 </H3>
                 <P>Early bird tickes available until 20th July 2018.</P>
-                <P style={{ margin: '10px 0' }}>
-                  <BuyQuantityButton
-                    course={{
-                      price: 1590,
-                      trainingInstanceId: '5b3605d7b8340f47a4b8e420',
-                      title: 'Bootcamp London',
-                    }}
-                  />
-                </P>
-                <P>
+
+                <BuyQuantityButton
+                  course={{
+                    price: 1590,
+                    trainingInstanceId: '5b3605d7b8340f47a4b8e420',
+                    title: 'Bootcamp London',
+                  }}
+                />
+
+                <P sm>
                   By purchasing a training, you agree to our{' '}
-                  <Link
-                    target="_blank"
-                    style={{ fontSize: '14px' }}
-                    to="terms-of-service"
-                  >
+                  <Link target="_blank" to="terms-of-service">
                     Terms of Service
                   </Link>
                 </P>
@@ -119,7 +119,7 @@ const BootcampLondon = () => (
                   cost and the others to follow over 6 months. Contact us and we
                   can talk things through with you.
                 </P>
-                <P>
+                <InstallmentsContainer>
                   <Price>&pound;2160</Price>
                   <LinkButton
                     secondary
@@ -128,7 +128,7 @@ const BootcampLondon = () => (
                   >
                     Contact us
                   </LinkButton>
-                </P>
+                </InstallmentsContainer>
               </Card>
             </Col>
           </Row>

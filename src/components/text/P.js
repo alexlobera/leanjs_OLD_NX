@@ -10,7 +10,7 @@ export default styled.p`
   padding-bottom: 10px;
   line-height: 1.2;
 
-  span, a {
+  > a {
     ${TEXT_SIZE}
   }
 `
