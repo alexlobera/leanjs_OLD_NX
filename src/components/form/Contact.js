@@ -11,7 +11,7 @@ import {
 } from '../text'
 import DefaultInput from './Input'
 import { Col, Row } from '../layout/Grid'
-import { WHITE, FONT_FAMILY } from '../../styles'
+import { WHITE, FONT_FAMILY } from '../../config/styles'
 import { TickBadgeIcon } from '../icons'
 import { validate } from 'email-validator'
 

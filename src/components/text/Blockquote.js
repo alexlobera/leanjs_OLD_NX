@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FONT_FAMILY, reactBlue } from '../../styles'
+import { FONT_FAMILY, reactBlue } from '../../config/styles'
 
 const Blockquote = styled.blockquote`
   ${FONT_FAMILY} margin: 0;

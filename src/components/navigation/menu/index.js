@@ -6,7 +6,7 @@ import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'
 import styled from '../../../../node_modules/styled-components'
-import { blue1 } from '../../../styles'
+import { blue1 } from '../../../config/styles'
 
 export { DesktopMenu, PhoneMenu }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Blockquote } from '../text'
 import { Image } from '../elements'
-import { reactBlue, GREY2, FONT_FAMILY } from '../../styles'
+import { reactBlue, GREY2, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
 
 const Card = styled.div`

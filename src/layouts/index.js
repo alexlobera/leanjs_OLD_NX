@@ -13,7 +13,7 @@ import fetch from 'node-fetch'
 import '../components/old_checkout'
 import './reset.css'
 
-import { API_BASE_URL } from '../config'
+import { UPMENTORING_API_URL } from '../config/apps'
 import Modal from '../components/old_checkout/components/Modal'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
@@ -32,7 +32,7 @@ const gridTheme = {
 }
 
 const configLink = {
-  uri: `${API_BASE_URL}/graphql`,
+  uri: UPMENTORING_API_URL,
   credentials: 'include',
   fetch,
 }

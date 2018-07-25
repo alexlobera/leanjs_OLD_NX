@@ -16,7 +16,7 @@ import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { TrainingItem, TrainingList } from '../components/training'
 import { Image } from '../components/elements'
-import { LONDON, BOOTCAMP_RIGHT, OLU } from '../imageConstants'
+import { LONDON, BOOTCAMP_RIGHT, OLU } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,

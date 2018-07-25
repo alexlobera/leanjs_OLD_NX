@@ -26,7 +26,7 @@ import {
   WILL,
   ABOUT_CONTINUOUS,
   ABOUT_CORPORATE,
-} from '../imageConstants'
+} from '../config/images'
 
 const AboutUs = () => (
   <div>

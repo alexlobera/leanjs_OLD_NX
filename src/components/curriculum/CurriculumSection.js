@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { H4, P } from '../text'
 import Ul, { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
-import { blue1 } from '../../styles'
+import { blue1 } from '../../config/styles'
 
 const Section = styled.div`
   margin-top: 2em;

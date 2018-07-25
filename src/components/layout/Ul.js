@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FONT_FAMILY } from '../../styles'
+import { FONT_FAMILY } from '../../config/styles'
 
 const Ul = styled.ul`
   ${props =>

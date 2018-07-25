@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { blue1, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
+import { blue1, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../config/styles'
 
 export const DEFAULT_BUTTON_STYLE = `
   font-size: 18px;

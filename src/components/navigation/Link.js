@@ -1,8 +1,8 @@
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import styled from 'styled-components'
-import { FONT_FAMILY } from '../../styles'
-import { GREY2 } from '../../styles'
+import { FONT_FAMILY } from '../../config/styles'
+import { GREY2 } from '../../config/styles'
 
 const ANCHOR_STYLE = `
     cursor: pointer;

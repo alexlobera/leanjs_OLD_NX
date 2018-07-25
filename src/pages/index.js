@@ -44,7 +44,7 @@ import {
   COMPANY_PITCH,
   DAN,
   NASSAR,
-} from '../imageConstants.js'
+} from '../config/images.js'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;

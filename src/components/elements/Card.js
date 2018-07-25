@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../styles'
+import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 
 const fontColor = color => `

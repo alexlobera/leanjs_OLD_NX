@@ -29,7 +29,7 @@ import {
   DiscussIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
-import { LONDON, PART_TIME, STEFANO } from '../imageConstants'
+import { LONDON, PART_TIME, STEFANO } from '../config/images'
 
 const PartTime = () => (
   <div>

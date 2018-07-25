@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { WHITE, BROWN, GREY2 } from '../../styles'
+import { WHITE, BROWN, GREY2 } from '../../config/styles'
 
 export default styled.input`
   background-color: ${WHITE};

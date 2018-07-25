@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Link from '../navigation/Link'
-import { blue1, CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
+import { blue1, CALLTOACTIONRED, FONT_FAMILY } from '../../config/styles'
 import { DEFAULT_BUTTON_STYLE } from './Button'
 
 const LinkButton = styled(Link)`

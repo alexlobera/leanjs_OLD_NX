@@ -5,7 +5,7 @@ import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
-import { blue1, WHITE, reactBlue } from '../../styles'
+import { blue1, WHITE, reactBlue } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
 import Link from '../navigation/Link'
 import {
@@ -15,7 +15,7 @@ import {
   TRAINING_EVENT_IMG,
   CURRICULUM_IMG,
   COMMUNITY_IMG,
-} from '../../imageConstants'
+} from '../../config/images'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;

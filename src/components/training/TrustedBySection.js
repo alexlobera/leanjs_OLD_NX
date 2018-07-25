@@ -16,7 +16,7 @@ import {
   Tesco,
   Telegraph,
 } from '../logos'
-import { GREY } from '../../styles'
+import { GREY } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE

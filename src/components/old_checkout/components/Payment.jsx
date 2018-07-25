@@ -193,7 +193,7 @@ class Payment extends React.Component {
       voucherGroupCssClass = 'has-error'
     }
 
-    let totalPrice = this.props.price * this.props.quantity
+    let totalPrice = this.props.priceWithDiscount || this.props.price * this.props.quantity
     totalPrice *= 1 + this.state.vatRate / 100
 
     const div = props => <div>{props.children}</div>
@@ -239,7 +239,7 @@ class Payment extends React.Component {
                     }}
                   />
                   {this.props.isVoucherValidated === true
-                    ? ''
+                    ? <span className="input-group-addon">valid</span>
                     : <InputGroup.Button>
                       <Button
                         onClick={() => {
@@ -256,9 +256,6 @@ class Payment extends React.Component {
                       </Button>
                     </InputGroup.Button>}
                 </InputGroup>
-                {this.props.isVoucherValidated === true
-                  ? <span className="glyphicon glyphicon-ok form-control-feedback" />
-                  : ''}
               </FormGroup>
               <FormGroup className={this.state.emailIsValid ? '' : 'has-error'}>
                 <FormControl

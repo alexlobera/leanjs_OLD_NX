@@ -17,7 +17,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
-import { CALLTOACTIONRED, FONT_FAMILY } from '../../styles'
+import { CALLTOACTIONRED, FONT_FAMILY } from '../../config/styles'
 
 const PartTimeFinalProject = () => (
   <Ul>

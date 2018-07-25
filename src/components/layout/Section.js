@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
-import { blue1 } from '../../styles'
+import { blue1 } from '../../config/styles'
 
 const Section = styled.section`
   padding-top: ${props => (props.top ? '150px' : '30px')};

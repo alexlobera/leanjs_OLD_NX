@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import { STRIPE_PUBLIC_KEY } from '../../../config'
+import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
 import Payment from '../components/Payment'
 import PaymentConfirmation from '../components/PaymentConfirmation'
 import { VAT_RATE } from '../config'
