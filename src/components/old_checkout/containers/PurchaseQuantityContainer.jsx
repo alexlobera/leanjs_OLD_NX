@@ -1,7 +1,7 @@
 import React from 'react'
 import CheckoutButton from '../components/CheckoutButton'
 import styled from 'styled-components'
-import { GREY2, FONT_FAMILY } from '../../../styles'
+import { GREY2, FONT_FAMILY } from '../../../config/styles'
 import getCurrencySymbol from '../utils/currency'
 
 const PurchaseWrapper = styled.div`
