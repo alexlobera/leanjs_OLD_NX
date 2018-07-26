@@ -25,6 +25,7 @@ import {
 import { LONDON, PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
+import header from '../components/layout/Header.json'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -41,11 +42,7 @@ const BootcampLondon = () => (
     <Header
       titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
-      links={[
-        { text: 'Pricing', to: '#pricing' },
-        { text: 'Curriculum', to: '#curriculum' },
-        { text: 'Is it right for me?', to: '#target-audience' },
-      ]}
+      links={header.landingTraining.links}
       bgImg="part-time"
     />
     <TopSection>

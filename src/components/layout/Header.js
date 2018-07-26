@@ -73,8 +73,8 @@ const HeaderSection = styled(Section)`
   }
 `
 const H2Header = styled(BaseH2)`
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   font-size: 24px;
   font-weight: normal;
   font-style: normal;
@@ -98,12 +98,11 @@ const TitleBackground = styled.span`
   &:last-child {
     padding-bottom: 20px;
   }
-  ${TITLE_BACKGROUND}
+  ${TITLE_BACKGROUND};
 `
 
 const SubTitleBackground = styled.div`
-  ${TITLE_BACKGROUND}
-  padding: 15px;
+  ${TITLE_BACKGROUND} padding: 15px;
   a {
     color: ${WHITE};
   }
@@ -122,7 +121,7 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
               <TitleBackground key={i} children={line} />
             ))}
           </H1>
-          {subtitle || links && links.length ? (
+          {subtitle || (links && links.length) ? (
             <SubTitleBackground>
               <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
               {links && links.length ? (
@@ -133,12 +132,13 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
                     </Li>
                   ))}
                 </Ul>
-              ) : ''
-              }
+              ) : (
+                ''
+              )}
             </SubTitleBackground>
           ) : (
-              ''
-            )}
+            ''
+          )}
           {/* {links && links.length ? (
                         <Ul inline>
                             {links.map((link, index) => (
