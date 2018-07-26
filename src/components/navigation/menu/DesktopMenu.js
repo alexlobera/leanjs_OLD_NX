@@ -6,17 +6,9 @@ import MenuData from './Menu.json'
 import { HideSingleComponentUsingCss } from '../../utils'
 import { WHITE } from '../../../config/styles'
 
+console.log('WHITE', WHITE)
 const Li = styled(defaultLi)`
   margin: 0 !important;
-`
-
-const Item = ({ children, ...props }) => (
-  <Li>
-    <Link {...props}>{children}</Link>
-  </Li>
-)
-
-const DesktopMenuItem = styled(Item)`
   color: ${WHITE};
   a {
     color: ${WHITE};
@@ -33,6 +25,15 @@ const DesktopMenuItem = styled(Item)`
   a:active {
     color: ${WHITE};
   }
+`
+
+const Item = ({ children, ...props }) => (
+  <Li>
+    <Link {...props}>{children}</Link>
+  </Li>
+)
+
+const DesktopMenuItem = styled(Item)`
   margin: 0;
 `
 
