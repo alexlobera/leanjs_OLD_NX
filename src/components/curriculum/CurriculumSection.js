@@ -4,14 +4,7 @@ import { H4, P } from '../text'
 import Ul, { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
 import { blue1 } from '../../config/styles'
-import {
-  Link as LinkScroll,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll'
+import { Link as LinkScroll, Element } from 'react-scroll'
 import { ANCHOR_STYLE } from '../navigation/Link'
 
 const Section = styled.div`
@@ -24,7 +17,7 @@ export const CurriculumSubSection = styled.div`
   padding-top: 5px;
 `
 
-const LinkScrollStyled = styled(LinkScroll)`
+const StyledLinkScroll = styled(LinkScroll)`
   ${ANCHOR_STYLE};
 `
 
@@ -52,13 +45,13 @@ class CurriculumSection extends React.Component {
         {isOpen ? (
           <CurriculumSubSection>
             {children}
-            <LinkScrollStyled
+            <StyledLinkScroll
               duration={500}
               to={title}
               onClick={toggleSubSection}
             >
               Hide detail
-            </LinkScrollStyled>
+            </StyledLinkScroll>
           </CurriculumSubSection>
         ) : (
           <Link onClick={toggleSubSection}>Click here for more detail</Link>

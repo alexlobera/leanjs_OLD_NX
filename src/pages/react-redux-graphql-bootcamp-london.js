@@ -25,6 +25,8 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
+import { Element } from 'react-scroll'
+import { Link as LinkScroll } from 'react-scroll'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;

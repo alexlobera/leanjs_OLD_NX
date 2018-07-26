@@ -7,7 +7,7 @@ import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
-import Link from '../navigation/Link'
+import { ANCHOR_STYLE } from '../navigation/Link'
 import {
   HOME_IMG,
   PART_TIME_IMG,
@@ -16,6 +16,7 @@ import {
   CURRICULUM_IMG,
   COMMUNITY_IMG,
 } from '../../config/images'
+import { Link as LinkScroll } from 'react-scroll'
 
 const H1 = styled(BaseH1)`
   font-size: 64px;
@@ -109,6 +110,10 @@ const SubTitleBackground = styled.div`
   }
 `
 
+const StyledLinkScroll = styled(LinkScroll)`
+  ${ANCHOR_STYLE};
+`
+
 const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
   <HeaderSection top bgImg={bgImg}>
     <Grid>
@@ -124,9 +129,15 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
               <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
               {links && links.length ? (
                 <Ul inline>
-                  {links.map((link, index) => (
-                    <Li>
-                      <Link to={link.to}>{link.text}</Link>
+                  {links.map((link, i) => (
+                    <Li key={i}>
+                      <StyledLinkScroll
+                        smooth={true}
+                        duration={500}
+                        to={link.to}
+                      >
+                        {link.text}
+                      </StyledLinkScroll>
                     </Li>
                   ))}
                 </Ul>
