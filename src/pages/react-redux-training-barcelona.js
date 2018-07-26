@@ -9,6 +9,7 @@ import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { UpcomingBootcampsSection } from '../components/training'
+import Link from '../components/navigation/Link'
 
 const BootcampBarcelona = () => (
   <React.Fragment>
@@ -40,9 +41,12 @@ const BootcampBarcelona = () => (
               <H2>React Redux GraphQL in Barcelona, Spain.</H2>
               <P>
                 Join us for our first addition of the React, Redux, GraphQL
-                bootcamp in Barcelona, Spain. Over 6 days we'll cover everything
+                bootcamp in Barcelona, Spain. Over 6 intense days we'll cover everything
                 you need to know to become an expert in the react ecosystem with
                 our accelerated learning format.
+              </P>
+              <P>
+                Our head coach <Link to="/about-us">Alex</Link> is a Barcelona native and our React Native Specialist Horacio works from Barcelona and runs the popular <Link to="https://www.meetup.com/JavaScript-Barcelona/">JavaScript Barcelona Meetup</Link>.
               </P>
               <P>
                 Check out the 3 minute video on the left to get a feel for our
