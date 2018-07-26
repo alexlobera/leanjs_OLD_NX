@@ -43,7 +43,7 @@ const BootcampAustin = () => (
               Join us for our first addition of the React, Redux GraphQL bootcamp NYC.
               Over 6 days we'll cover everything you need to know to become an expert in the react ecosystem with our accelerated learning format.
             </P>
-            <P>We've worked with JS Guru and Austin native, Kyle Simpson in one of our previous bootcamps who'll also join us for the first day in Austin.
+            <P>We've worked with JS Guru and Austin native Kyle Simpson in one of our previous bootcamps, who'll also join us for the first day in Austin.
             Here what he had to say about our bootcamps and teaching style
             <Video src="https://www.youtube.com/embed/Th32gt1XeEI" />
             </P>
