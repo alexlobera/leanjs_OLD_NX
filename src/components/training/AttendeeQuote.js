@@ -49,7 +49,7 @@ const Picture = styled(Image)`
     margin-right: -3px;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    margin: 20px auto 0;
+    margin: 20px auto 0 !important;
   }
 `
 
