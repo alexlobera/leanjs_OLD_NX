@@ -7,7 +7,6 @@ import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import CallToActionRow from '../components/layout/CallToActionRow'
 import { UpcomingBootcampsSection } from '../components/training'
 
 const BootcampAustin = () => (
