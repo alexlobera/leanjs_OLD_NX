@@ -133,12 +133,12 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
                   ))}
                 </Ul>
               ) : (
-                  ''
-                )}
+                ''
+              )}
             </SubTitleBackground>
           ) : (
-              ''
-            )}
+            ''
+          )}
         </Col>
       </Row>
     </Grid>
