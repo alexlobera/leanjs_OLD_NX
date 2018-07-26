@@ -78,6 +78,11 @@ const Footer = () => (
                       Corporate Training
                     </Link>
                   </Li>
+                  <Li>
+                    <Link to="/react-redux-graphql-training">
+                      Training list
+                    </Link>
+                  </Li>
                   {/* <Li>
                                     <Link>Sponsors & Partners</Link>
                                 </Li> */}

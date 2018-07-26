@@ -37,13 +37,17 @@ const BootcampNYC = () => (
               <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-            <P>
-              Join us for our first addition of the React, Redux GraphQL bootcamp NYC.
-              Over 6 days we'll cover everything you need to know to become an expert in the react ecosystem with our accelerated learning format.
-            </P>
-            <P>
-              Check out the 3 minute video on the left to get a feel for our bootcamps and here what some of our preivous students think about the experience :-)
-            </P>
+              <P>
+                Join us for our first addition of the React, Redux GraphQL
+                bootcamp NYC. Over 6 days we'll cover everything you need to
+                know to become an expert in the react ecosystem with our
+                accelerated learning format.
+              </P>
+              <P>
+                Check out the 3 minute video on the left to get a feel for our
+                bootcamps and here what some of our preivous students think
+                about the experience :-)
+              </P>
             </Col>
           </Row>
         </Card>
