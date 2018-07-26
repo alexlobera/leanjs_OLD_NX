@@ -28,6 +28,7 @@
     "payment": "^2.3.0",
     "pre-commit": "^1.2.2",
     "prop-types": "^15.6.2",
+    "raven-js": "^3.26.4",
     "react-apollo": "^2.1.9",
     "react-bootstrap": "^0.32.1",
     "react-burger-menu": "^2.5.2",
