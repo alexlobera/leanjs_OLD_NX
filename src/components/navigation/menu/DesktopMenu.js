@@ -6,7 +6,6 @@ import MenuData from './Menu.json'
 import { HideSingleComponentUsingCss } from '../../utils'
 import { WHITE } from '../../../config/styles'
 
-console.log('WHITE', WHITE)
 const Li = styled(defaultLi)`
   margin: 0 !important;
   color: ${WHITE};

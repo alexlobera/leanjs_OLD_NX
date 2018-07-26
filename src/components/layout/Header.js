@@ -76,14 +76,9 @@ const HeaderSection = styled(Section)`
   }
 `
 const H2Header = styled(BaseH2)`
-  padding: 0;
-  margin: 0;
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 24px !important;
   color: ${WHITE};
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
 `
