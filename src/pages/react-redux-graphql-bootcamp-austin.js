@@ -39,7 +39,7 @@ const BootcampAustin = () => (
               <H2>React Redux GraphQL in Austin, Texas, USA.</H2>
               <P>
                 Join us for our first addition of the React, Redux GraphQL
-                bootcamp NYC. Over 6 days we'll cover everything you need to
+                bootcamp Austin, Texas. Over 6 days we'll cover everything you need to
                 know to become an expert in the react ecosystem with our
                 accelerated learning format.
               </P>
