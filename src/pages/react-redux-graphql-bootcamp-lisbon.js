@@ -22,7 +22,7 @@ const BootcampLisbon = () => (
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
-              <H2>We've trained developers from a range of companies</H2>
+              <H2>Trusted by industy leaders</H2>
               <TrustedByLogoList />
             </Col>
           </Row>
