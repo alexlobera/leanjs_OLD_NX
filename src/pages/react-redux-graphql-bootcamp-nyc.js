@@ -9,6 +9,7 @@ import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { UpcomingBootcampsSection } from '../components/training'
+import Link from '../components/navigation/Link'
 
 const BootcampNYC = () => (
   <React.Fragment>
@@ -43,6 +44,10 @@ const BootcampNYC = () => (
                 bootcamp NYC. Over 6 days we'll cover everything you need to
                 know to become an expert in the react ecosystem with our
                 accelerated learning format.
+              </P>
+              <P>
+                We have been working with local partners to organize a great venue which is easy to reach for East-coast based devs.
+                In a hurry to do the bootcamp? We don't have a date yet for NYC but check out our upcoming <Link to="/react-redux-graphql-bootcamp-london">London bootcamp</Link> in a few weeks time. 
               </P>
               <P>
                 Check out the 3 minute video on the left to get a feel for our
