@@ -37,6 +37,9 @@ const BootcampLisbon = () => (
               <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
+              <H2>
+                React Redux GraphQL in Lisbon, Portugal.
+              </H2>
               <P>
                 Join us for our next addition of the React, Redux GraphQL bootcamp Lisbon.
                 ReactJS Academy has delivered 3 iterations of our Portugal based bootcamp with developers joining from over
