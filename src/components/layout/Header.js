@@ -6,7 +6,7 @@ import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2 } from '../text'
 import { blue1, WHITE, reactBlue } from '../../config/styles'
-import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
+import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link from '../navigation/Link'
 import {
   HOME_IMG,
@@ -28,6 +28,9 @@ const H1 = styled(BaseH1)`
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
   @media (max-width: ${SCREEN_SM_MAX}) {
     font-size: 58px;
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    font-size: 40px;
   }
 `
 
