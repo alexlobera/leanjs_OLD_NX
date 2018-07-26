@@ -4,6 +4,7 @@ import React from 'react'
 import Ul, { Li as defaultLi } from '../../layout/Ul'
 import MenuData from './Menu.json'
 import { HideSingleComponentUsingCss } from '../../utils'
+import { WHITE } from '../../../config/styles'
 
 const Li = styled(defaultLi)`
   margin: 0 !important;
@@ -16,7 +17,22 @@ const Item = ({ children, ...props }) => (
 )
 
 const DesktopMenuItem = styled(Item)`
-  color: white;
+  color: ${WHITE};
+  a {
+    color: ${WHITE};
+  }
+  a:link {
+    color: ${WHITE};
+  }
+  a:visited {
+    color: ${WHITE};
+  }
+  a:hover {
+    color: ${WHITE};
+  }
+  a:active {
+    color: ${WHITE};
+  }
   margin: 0;
 `
 

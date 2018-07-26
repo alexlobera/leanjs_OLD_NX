@@ -41,11 +41,18 @@ const BootcampAmsterdam = () => (
               <H2>React Redux GraphQL in Amsterdam, Holland.</H2>
               <P>
                 Join us for our first addition of the React, Redux GraphQL
-                bootcamp in Amsterdam, Holland. Over the 6 days you'll learn all the essentials
-                to build production applications with confidence within the react
-                ecosystem. The date is currently, TBD but watch this space :-)
+                bootcamp in Amsterdam, Holland. Over the 6 days you'll learn all
+                the essentials to build production applications with confidence
+                within the react ecosystem. The date is currently, TBD but watch
+                this space :-)
               </P>
-              <P>We have run several private trainings with local companies and run the popular <Link to="https://www.meetup.com/JavaScript-Amsterdam/">JavaScript Amserdam meetup group</Link>, we'd love to see you in the next one!</P>
+              <P>
+                We have run several private trainings with local companies and
+                run the popular{' '}
+                <Link to="https://www.meetup.com/JavaScript-Amsterdam/">
+                  JavaScript Amserdam meetup group
+                </Link>, we'd love to see you in the next one!
+              </P>
               <P>
                 Check out the 3 minute video on the left to get a feel for our
                 bootcamps and here what some of our preivous students think
