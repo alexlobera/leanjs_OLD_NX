@@ -5,7 +5,11 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import AttendeeQuote from '../components/training/AttendeeQuote'
+import {
+  AttendeeQuote,
+  UpcomingPartTimeCoursesSection,
+  TrustedBySection,
+} from '../components/training'
 import { Card } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -14,11 +18,6 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import {
-  TrainingItem,
-  TrainingList,
-  TrustedBySection,
-} from '../components/training'
 import {
   CollabsIcon,
   NotBegginerIcon,
@@ -119,31 +118,7 @@ const PartTime = () => (
 
     <TrustedBySection />
 
-    <Section>
-      <Grid>
-        <H2Ref>
-          <Col lg={10} lgOffset={1}>
-            Upcoming React part-time courses{' '}
-            <a name="next-part-time-courses" href="#next-part-time-courses">
-              #
-            </a>
-          </Col>
-        </H2Ref>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <TrainingList>
-              <TrainingItem
-                location="Makers Academy, London"
-                startDate="Oct 2nd to Nov 8th, 2018."
-                name="London part-time"
-                path="/react-redux-training-london"
-                imageSrc={LONDON}
-              />
-            </TrainingList>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
+    <UpcomingPartTimeCoursesSection />
   </React.Fragment>
 )
 
