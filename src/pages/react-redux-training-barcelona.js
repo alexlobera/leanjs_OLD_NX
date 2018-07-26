@@ -10,11 +10,11 @@ import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { UpcomingBootcampsSection } from '../components/training'
 
-const BootcampAmsterdam = () => (
+const BootcampBarcelona = () => (
   <React.Fragment>
     <Header
-      titleLines={['React Redux GraphQL Bootcamp', 'Training in Amsterdam']}
-      subtitle="Take your dev career to the next level in Amsterdam - Holland - by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      titleLines={['React Redux GraphQL Bootcamp', 'Training in Barcelona']}
+      subtitle="Take your dev career to the next level in Barcelona - Spain - by mastering<br />React, Redux, and GraphQL - in just 7 days!"
       bgImg="training-event"
     />
     <TopSection>
@@ -38,10 +38,10 @@ const BootcampAmsterdam = () => (
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
             <H2>
-              React Redux GraphQL in Amsterdam, Holland.
+              React Redux GraphQL in Barcelona, Spain.
             </H2>
             <P>
-              Join us for our first addition of the React, Redux GraphQL bootcamp in  Amsterdam, Holland.
+              Join us for our first addition of the React, Redux, GraphQL bootcamp in Barcelona, Spain.
               Over 6 days we'll cover everything you need to know to become an expert in the react ecosystem with our accelerated learning format.
             </P>
             <P>
@@ -64,4 +64,4 @@ const BootcampAmsterdam = () => (
   </React.Fragment>
 )
 
-export default BootcampAmsterdam
+export default BootcampBarcelona
