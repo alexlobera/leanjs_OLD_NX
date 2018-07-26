@@ -46,8 +46,14 @@ const BootcampNYC = () => (
                 accelerated learning format.
               </P>
               <P>
-                We have been working with local partners to organize a great venue which is easy to reach for East-coast based devs.
-                In a hurry to do the bootcamp? We don't have a date yet for NYC but check out our upcoming <Link to="/react-redux-graphql-bootcamp-london">London bootcamp</Link> in a few weeks time. 
+                We have been working with local partners to organize a great
+                venue which is easy to reach for East-coast based devs. In a
+                hurry to do the bootcamp? We don't have a date yet for NYC but
+                check out our upcoming{' '}
+                <Link to="/react-redux-graphql-bootcamp-london">
+                  London bootcamp
+                </Link>{' '}
+                in a few weeks time.
               </P>
               <P>
                 Check out the 3 minute video on the left to get a feel for our
