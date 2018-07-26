@@ -38,7 +38,7 @@ const Price = styled.span`
 `
 
 const BootcampLondon = () => (
-  <div>
+  <React.Fragment>
     <Header
       titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
@@ -217,7 +217,7 @@ const BootcampLondon = () => (
         </Row>
       </Grid>
     </Section>
-  </div>
+  </React.Fragment>
 )
 
 export default BootcampLondon

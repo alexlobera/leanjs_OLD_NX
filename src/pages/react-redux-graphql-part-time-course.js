@@ -32,7 +32,7 @@ import { Image } from '../components/elements'
 import { LONDON, PART_TIME, STEFANO } from '../config/images'
 
 const PartTime = () => (
-  <div>
+  <React.Fragment>
     <Header
       titleLines={['6-week part-time React', 'Redux GraphQL course']}
       subtitle="Expert coaches work alongside you, 2 evenings a week, <br /> to master the React ecosystem without having to cut <br /> into valuable work-days"
@@ -144,7 +144,7 @@ const PartTime = () => (
         </Row>
       </Grid>
     </Section>
-  </div>
+  </React.Fragment>
 )
 
 export default PartTime

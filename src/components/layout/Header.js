@@ -133,22 +133,12 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
                   ))}
                 </Ul>
               ) : (
-                ''
-              )}
+                  ''
+                )}
             </SubTitleBackground>
           ) : (
-            ''
-          )}
-          {/* {links && links.length ? (
-                        <Ul inline>
-                            {links.map((link, index) => (
-                                <Li>
-                                    <Link to={link.to}>{link.text}</Link>
-                                </Li>
-                            ))}
-                        </Ul>
-                    ) : ''
-                    } */}
+              ''
+            )}
         </Col>
       </Row>
     </Grid>

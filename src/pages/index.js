@@ -56,7 +56,7 @@ const SectionButtonRow = styled(Row)`
   }
 `
 const IndexPage = () => (
-  <div>
+  <React.Fragment>
     <Header
       titleLines={['Take your dev career further', 'by mastering React']}
       subtitle="In-person training from experts who were <br /> the first in
@@ -318,7 +318,7 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-  </div>
+  </React.Fragment>
 )
 
 export default IndexPage

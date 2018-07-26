@@ -29,7 +29,7 @@ import {
 } from '../config/images'
 
 const AboutUs = () => (
-  <div>
+  <React.Fragment>
     <Header
       titleLines={['About us']}
       subtitle="Our trainers are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> Academy journey"
@@ -420,7 +420,7 @@ const AboutUs = () => (
                 </Row>
             </Grid>
         </Section> */}
-  </div>
+  </React.Fragment>
 )
 
 export default AboutUs

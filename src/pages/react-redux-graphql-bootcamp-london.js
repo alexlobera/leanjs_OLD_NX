@@ -42,7 +42,7 @@ const InstallmentsContainer = styled.div`
 `
 
 const BootcampLondon = () => (
-  <div>
+  <React.Fragment>
     <Header
       titleLines={['React Redux GraphQL Bootcamp', '20-25 Aug, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
@@ -221,7 +221,7 @@ const BootcampLondon = () => (
         </Row>
       </Grid>
     </Section>
-  </div>
+  </React.Fragment>
 )
 
 export default BootcampLondon

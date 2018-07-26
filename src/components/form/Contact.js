@@ -77,7 +77,7 @@ class ContactForm extends Component {
   render() {
     const { email, emailValid, inputDirty } = this.state
     return (
-      <div>
+      <React.Fragment>
         <H3>I would like more info and some pre-training learning resources</H3>
         <P>
           Enter your email below and we'll email you with our latest training
@@ -114,12 +114,12 @@ class ContactForm extends Component {
             </Row>
           </form>
         ) : (
-          <Row>
-            <Col>
-              <ThanksTitle>thanks for submitting!</ThanksTitle>
-            </Col>
-          </Row>
-        )}
+            <Row>
+              <Col>
+                <ThanksTitle>thanks for submitting!</ThanksTitle>
+              </Col>
+            </Row>
+          )}
 
         <Unsubscribe>
           Looking to unsubscribe? contact us at{' '}
@@ -127,7 +127,7 @@ class ContactForm extends Component {
             unsubscribe@reactjs.academy
           </Link>
         </Unsubscribe>
-      </div>
+      </React.Fragment>
     )
   }
 }
