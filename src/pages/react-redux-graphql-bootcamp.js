@@ -4,17 +4,19 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import AttendeeQuote from '../components/training/AttendeeQuote'
 import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
 import { CurriculumBootcamp } from '../components/curriculum'
 import Header from '../components/layout/Header'
-import TrustedBy from '../components/training/TrustedBySection'
+import {
+  TrustedBySection,
+  AttendeeQuote,
+  UpcomingBootcampsSection,
+} from '../components/training'
 import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import { TrainingItem, TrainingList } from '../components/training'
 import { Image } from '../components/elements'
 import { LONDON, BOOTCAMP_RIGHT, OLU } from '../config/images'
 import {
@@ -106,29 +108,8 @@ const Boocamps = () => (
         </Row>
       </Grid>
     </Section>
-    <TrustedBy />
-    <Section>
-      <Grid>
-        <H2>
-          <Col md={10} mdOffset={1}>
-            Upcoming Bootcamps
-          </Col>
-        </H2>
-        <Row>
-          <Col md={10} mdOffset={1}>
-            <TrainingList>
-              <TrainingItem
-                location="TBD"
-                startDate="August 20th to 25th, 2018"
-                name="London bootcamp"
-                path="/react-redux-graphql-bootcamp-london"
-                imageSrc={LONDON}
-              />
-            </TrainingList>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
+    <TrustedBySection />
+    <UpcomingBootcampsSection />
   </React.Fragment>
 )
 
