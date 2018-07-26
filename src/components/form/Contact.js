@@ -114,12 +114,12 @@ class ContactForm extends Component {
             </Row>
           </form>
         ) : (
-            <Row>
-              <Col>
-                <ThanksTitle>thanks for submitting!</ThanksTitle>
-              </Col>
-            </Row>
-          )}
+          <Row>
+            <Col>
+              <ThanksTitle>thanks for submitting!</ThanksTitle>
+            </Col>
+          </Row>
+        )}
 
         <Unsubscribe>
           Looking to unsubscribe? contact us at{' '}
