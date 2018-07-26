@@ -37,6 +37,9 @@ const BootcampNYC = () => (
               <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
+            <H2>
+              React Redux GraphQL in Lisbon, Portugal.
+            </H2>
             <P>
               Join us for our first addition of the React, Redux GraphQL bootcamp NYC.
               Over 6 days we'll cover everything you need to know to become an expert in the react ecosystem with our accelerated learning format.
