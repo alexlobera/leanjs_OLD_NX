@@ -39,19 +39,31 @@ const BootcampAustin = () => (
               <H2>The value of giving to our community</H2>
               <H3>Feedback</H3>
               <P>
-              The JavaScript community is very active, and the React ecosystem evolves very fast. We need to keep our curriculum up to date, adding new topics and exercises. We test our curriculum in our community. They tell us what works and what doesn't work, it helps us to continuously improve it.
+                The JavaScript community is very active, and the React ecosystem
+                evolves very fast. We need to keep our curriculum up to date,
+                adding new topics and exercises. We test our curriculum in our
+                community. They tell us what works and what doesn't work, it
+                helps us to continuously improve it.
               </P>
-              <H3 style={{paddingTop: '20px'}}>Practise makes perfect</H3>
+              <H3 style={{ paddingTop: '20px' }}>Practise makes perfect</H3>
               <P>
-              The more we explain something, the better we become at teaching it. If cutting-edge JavaScript moves that fast then we can't stop practising. By teaching the community, we are exposed to a lot of developers, with different backgrounds, experiences and challenges. We learn from teaching them.
+                The more we explain something, the better we become at teaching
+                it. If cutting-edge JavaScript moves that fast then we can't
+                stop practising. By teaching the community, we are exposed to a
+                lot of developers, with different backgrounds, experiences and
+                challenges. We learn from teaching them.
               </P>
-              <H3 style={{paddingTop: '20px'}}>Word of mouth</H3>
+              <H3 style={{ paddingTop: '20px' }}>Word of mouth</H3>
               <P>
-              The community is open, and it spreads the word of what they think it's good. We help the community, we do a great job, and they talk about us.
+                The community is open, and it spreads the word of what they
+                think it's good. We help the community, we do a great job, and
+                they talk about us.
               </P>
-              <H3 style={{paddingTop: '20px'}}>Networking</H3>
+              <H3 style={{ paddingTop: '20px' }}>Networking</H3>
               <P>
-              Organising events for the community connects us deeply with the community. It opens extraordinary opportunities for business, recruitment, learning and working on cool projects.
+                Organising events for the community connects us deeply with the
+                community. It opens extraordinary opportunities for business,
+                recruitment, learning and working on cool projects.
               </P>
             </Col>
           </Row>
