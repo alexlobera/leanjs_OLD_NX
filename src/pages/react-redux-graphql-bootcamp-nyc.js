@@ -38,7 +38,7 @@ const BootcampNYC = () => (
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
             <H2>
-              React Redux GraphQL in Lisbon, Portugal.
+              React Redux GraphQL in New York, USA.
             </H2>
             <P>
               Join us for our first addition of the React, Redux GraphQL bootcamp NYC.
