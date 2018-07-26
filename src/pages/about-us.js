@@ -5,7 +5,7 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H1, H2, H2Ref, H3, P } from '../components/text'
-import AttendeeQuote from '../components/training/AttendeeQuote'
+import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
@@ -15,7 +15,6 @@ import {
 } from '../components/utils'
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
-import { TrainingItem, TrainingList } from '../components/training'
 import { Image } from '../components/elements'
 import {
   LONDON,
@@ -335,39 +334,7 @@ const AboutUs = () => (
         </Card>
       </Grid>
     </Section>
-    <Section>
-      <Grid>
-        <H2Ref>
-          <Col lg={10} lgOffset={1}>
-            Upcoming Bootcamps{' '}
-            <a name="next-part-time-courses" href="#next-part-time-courses">
-              #
-            </a>
-          </Col>
-        </H2Ref>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <TrainingList>
-              <TrainingItem
-                location="TBD"
-                startDate="August 20th to 25th, 2018"
-                name="London bootcamp"
-                path="/react-redux-graphql-bootcamp-london"
-                imageSrc={LONDON}
-              />
-              <TrainingItem
-                location="Lisbon, Portugal"
-                startDate="TBD"
-                name="Lisbon bootcamp"
-                path="/react-redux-graphql-bootcamp-lisbon"
-                imageSrc={LISBON}
-              />
-            </TrainingList>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
-
+    <UpcomingBootcampsSection />
     {/* <Section>
             <Grid>
                 <Row>

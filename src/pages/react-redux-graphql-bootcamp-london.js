@@ -8,14 +8,13 @@ import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { Ribbon, Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
-import AttendeeQuote from '../components/training/AttendeeQuote'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { GREY2, FONT_FAMILY } from '../config/styles'
 import { LONDON, BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import { TrainingItem, TrainingList } from '../components/training'
+import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -199,28 +198,7 @@ const BootcampLondon = () => (
       </Grid>
     </Section>
 
-    <Section>
-      <Grid>
-        <H2>
-          <Col md={10} mdOffset={1}>
-            Upcoming Bootcamps
-          </Col>
-        </H2>
-        <Row>
-          <Col md={10} mdOffset={1}>
-            <TrainingList>
-              <TrainingItem
-                location="TBD"
-                startDate="August 20th to 25th, 2018"
-                name="London bootcamp"
-                path="/react-redux-graphql-bootcamp-london"
-                imageSrc={LONDON}
-              />
-            </TrainingList>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
+    <UpcomingBootcampsSection />
   </React.Fragment>
 )
 
