@@ -32,11 +32,17 @@ const Card = styled.div`
         return `
     background-color: ${blue1()};
     border: solid 1px ${BROWN};
+    a {
+      color: ${WHITE}
+    }
     ${fontColor(WHITE)}
   `
       case 'darkGrey':
         return `
     background-color: ${GREY2};
+    a {
+      color: ${WHITE}
+    }
     ${fontColor(WHITE)}
   `
       default:
@@ -60,11 +66,11 @@ const Card = styled.div`
     border: 0;
     box-shadow: none;
     ${props =>
-      !props.small
-        ? `    
+    !props.small
+      ? `    
         padding: 0;
       `
-        : `
+      : `
       padding-left: 5px;
       padding-right: 5px;
       `}
