@@ -9,8 +9,8 @@ const Card = styled.div`
   background-color: ${reactBlue()};
   display: flex;
   @media (min-width: ${SCREEN_SM_MIN}) {
-    border-top-right-radius: 150px;
-    border-bottom-right-radius: 150px;
+    border-top-right-radius: 160px;
+    border-bottom-right-radius: 160px;
   }
   @media (max-width: ${SCREEN_SM_MAX}) {
     flex-direction: column-reverse;
@@ -46,6 +46,7 @@ const Picture = styled(Image)`
     max-width: 250px;
     max-height: 250px;
     border-radius: 50%;
+    margin-right: -3px;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
     margin: 20px auto 0;

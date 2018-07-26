@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FONT_FAMILY } from '../../config/styles'
 import { GREY2 } from '../../config/styles'
 
-const ANCHOR_STYLE = `
+export const ANCHOR_STYLE = `
     cursor: pointer;
     color: blue;
     text-decoration: underline;
@@ -13,9 +13,10 @@ const ANCHOR_STYLE = `
     font-style: normal;
     line-height: 1.5;
     color: ${GREY2};
+    ${FONT_FAMILY}
 `
 const BasicLink = styled.a`
-  ${ANCHOR_STYLE} ${FONT_FAMILY};
+  ${ANCHOR_STYLE};
 `
 
 const RouterLink = styled(GatsbyLink)`
