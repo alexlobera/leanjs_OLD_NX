@@ -33,7 +33,7 @@ const BootcampAustin = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
+              <Video src="https://www.youtube.com/embed/Th32gt1XeEI" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <H2>React Redux GraphQL in Austin, Texas, USA.</H2>
@@ -48,7 +48,6 @@ const BootcampAustin = () => (
                 of our previous bootcamps, who'll also join us for the first day
                 in Austin. Here what he had to say about our bootcamps and
                 teaching style
-                <Video src="https://www.youtube.com/embed/Th32gt1XeEI" />
               </P>
             </Col>
           </Row>
