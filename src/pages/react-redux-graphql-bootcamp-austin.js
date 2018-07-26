@@ -36,9 +36,7 @@ const BootcampAustin = () => (
               <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-            <H2>
-              React Redux GraphQL in Austin, Texas, USA.
-            </H2>
+              <H2>React Redux GraphQL in Austin, Texas, USA.</H2>
               <P>
                 ADD SOME COOL TEXT with: - city, state or country - react,
                 redux, graphql - shall we mention Kyle simpson partnership to
