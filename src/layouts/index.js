@@ -18,6 +18,7 @@ import Modal from '../components/old_checkout/components/Modal'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
 import './index.css'
+import favicon from './favicon.ico'
 
 const gridTheme = {
   flexboxgrid: {
@@ -54,6 +55,9 @@ const Layout = ({ children, data }) => (
               content: data.site.siteMetadata.description,
             },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
+          ]}
+          link={[
+            { rel: 'icon', type: 'image/x-icon', href: `${favicon}` }
           ]}
         />
         <Helmet
