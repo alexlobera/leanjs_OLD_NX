@@ -15,8 +15,6 @@ export const DEFAULT_BUTTON_STYLE = `
   cursor: pointer;
 
   :disabled {
-    opacity: 0.2;
-
     :hover {
       cursor: not-allowed
     }
@@ -30,4 +28,7 @@ export default styled(props => <button {...props} />)`
   box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
   color: ${WHITE};
   display: ${props => (props.block ? 'block' : 'inline-block')};
+  :disabled {
+    border-color: rgba(255,255,255, 0.2);
+  }
 `

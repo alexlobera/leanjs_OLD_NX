@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import { Blockquote } from '../text'
 import { Image } from '../elements'
 import { reactBlue, GREY2, FONT_FAMILY } from '../../config/styles'
-import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
+import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 
 const Card = styled.div`
   background-color: ${reactBlue()};
   display: flex;
   @media (min-width: ${SCREEN_SM_MIN}) {
-    border-top-right-radius: 150px;
-    border-bottom-right-radius: 150px;
+    border-top-right-radius: 160px;
+    border-bottom-right-radius: 160px;
   }
   @media (max-width: ${SCREEN_SM_MAX}) {
     flex-direction: column-reverse;
@@ -46,6 +46,10 @@ const Picture = styled(Image)`
     max-width: 250px;
     max-height: 250px;
     border-radius: 50%;
+    margin-right: -3px;
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    margin: 20px auto 0 !important;
   }
 `
 

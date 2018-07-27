@@ -15,6 +15,21 @@ const fontColor = color => `
   p {
     color: ${color};
   }
+  a {
+    color: ${color};
+  }
+  a:link {
+    color: ${color};
+  }
+  a:visited {
+    color: ${color};
+  }
+  a:hover {
+    color: ${color};
+  }
+  a:active {
+    color: ${color};
+  }
 `
 
 const Card = styled.div`
@@ -32,17 +47,11 @@ const Card = styled.div`
         return `
     background-color: ${blue1()};
     border: solid 1px ${BROWN};
-    a {
-      color: ${WHITE}
-    }
     ${fontColor(WHITE)}
   `
       case 'darkGrey':
         return `
     background-color: ${GREY2};
-    a {
-      color: ${WHITE}
-    }
     ${fontColor(WHITE)}
   `
       default:

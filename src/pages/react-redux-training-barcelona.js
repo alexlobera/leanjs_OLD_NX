@@ -23,7 +23,7 @@ const BootcampBarcelona = () => (
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Trusted by industy leaders</H2>
+              <H2>Trusted by industry leaders</H2>
               <TrustedByLogoList />
             </Col>
           </Row>
@@ -41,12 +41,17 @@ const BootcampBarcelona = () => (
               <H2>React Redux GraphQL in Barcelona, Spain.</H2>
               <P>
                 Join us for our first addition of the React, Redux, GraphQL
-                bootcamp in Barcelona, Spain. Over 6 intense days we'll cover everything
-                you need to know to become an expert in the react ecosystem with
-                our accelerated learning format.
+                bootcamp in Barcelona, Spain. Over 6 intense days we'll cover
+                everything you need to know to become an expert in the react
+                ecosystem with our accelerated learning format.
               </P>
               <P>
-                Our head coach <Link to="/about-us">Alex</Link> is a Barcelona native and our React Native Specialist Horacio works from Barcelona and runs the popular <Link to="https://www.meetup.com/JavaScript-Barcelona/">JavaScript Barcelona Meetup</Link>.
+                Our head coach <Link to="/about-us">Alex</Link> is a Barcelona
+                native and our React Native Specialist Horacio works from
+                Barcelona and runs the popular{' '}
+                <Link to="https://www.meetup.com/JavaScript-Barcelona/">
+                  JavaScript Barcelona Meetup
+                </Link>.
               </P>
               <P>
                 Check out the 3 minute video on the left to get a feel for our

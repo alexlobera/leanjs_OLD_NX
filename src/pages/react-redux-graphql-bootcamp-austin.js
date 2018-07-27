@@ -21,7 +21,7 @@ const BootcampAustin = () => (
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Trusted by industy leaders</H2>
+              <H2>Trusted by industry leaders</H2>
               <TrustedByLogoList />
             </Col>
           </Row>
@@ -39,8 +39,8 @@ const BootcampAustin = () => (
               <H2>React Redux GraphQL in Austin, Texas, USA.</H2>
               <P>
                 Join us for our first addition of the React, Redux GraphQL
-                bootcamp NYC. Over 6 days we'll cover everything you need to
-                know to become an expert in the react ecosystem with our
+                bootcamp Austin, Texas. Over 6 days we'll cover everything you
+                need to know to become an expert in the react ecosystem with our
                 accelerated learning format.
               </P>
               <P>

@@ -52,7 +52,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Trusted by industy leaders</H2>
+              <H2>Trusted by industry leaders</H2>
               <TrustedByLogoList />
             </Col>
           </Row>

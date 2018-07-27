@@ -25,6 +25,8 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
+import { Element } from 'react-scroll'
+import { Link as LinkScroll } from 'react-scroll'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -53,7 +55,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Trusted by industy leaders</H2>
+              <H2>Trusted by industry leaders</H2>
               <TrustedByLogoList />
             </Col>
           </Row>
