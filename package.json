@@ -52,7 +52,7 @@
     "build": "gatsby build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "pre-commit": "npm run format"
+    "precommit": "npm run format"
   },
   "devDependencies": {
     "@storybook/react": "^3.4.8",
