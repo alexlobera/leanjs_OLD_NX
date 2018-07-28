@@ -54,7 +54,7 @@ const BootcampLondon = () => (
       <Grid>
         <Card border="shadow">
           <Row>
-            <Col xs={12} lg={10} lgOffset={1}>
+            <Col lg={10} lgOffset={1}>
               <H2>Trusted by industry leaders</H2>
               <TrustedByLogoList />
             </Col>
@@ -130,11 +130,11 @@ const BootcampLondon = () => (
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
+            <Col md={6} lg={5}>
               <Image src={BOOTCAMP_COLLAB} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
-          <Col xs={12} md={6}>
+          <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this bootcamp right for me? Are you...{' '}
               <a href="#target-audience" name="target-audience">

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
-import { Button, LinkButton } from '../components/buttons'
+import { LinkButton } from '../components/buttons'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
@@ -16,7 +16,6 @@ import {
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { GREY2, FONT_FAMILY } from '../config/styles'
-import CallToActionRow from '../components/layout/CallToActionRow'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -24,7 +23,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { LONDON, PART_TIME, CATALIN } from '../config/images'
+import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
@@ -51,7 +50,7 @@ const BootcampLondon = () => (
       <Grid>
         <Card border="shadow">
           <Row>
-            <Col xs={12} lg={10} lgOffset={1}>
+            <Col lg={10} lgOffset={1}>
               <H2>Trusted by industry leaders</H2>
               <TrustedByLogoList />
             </Col>
@@ -125,11 +124,11 @@ const BootcampLondon = () => (
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>
-            <Col md={5}>
+            <Col md={6} lg={5}>
               <Image src={PART_TIME} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
-          <Col xs={12} md={6}>
+          <Col md={6} lg={5} lgOffset={1} >
             <H2Ref>
               Is this part-time course right for me? Are you...{' '}
               <a href="#target-audience" name="target-audience">
