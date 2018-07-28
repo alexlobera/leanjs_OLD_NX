@@ -5,7 +5,7 @@ import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import { RJSALogo } from '../logos'
 import Ul, { Li } from './Ul'
-import DefaultLink from '../navigation/Link'
+import Link, { styleChildLinkColor } from '../navigation/Link'
 import { blue1, WHITE } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 import { P } from '../text'
@@ -19,15 +19,12 @@ const StyledFooter = styled.div`
     h2 {
       color: ${WHITE};
     }
+    ${styleChildLinkColor(WHITE)};
   }
 
   @media (max-width: ${SCREEN_XS_MAX}) {
     background-color: ${blue1()};
   }
-`
-
-const Link = styled(DefaultLink)`
-  color: ${WHITE};
 `
 
 const LinkList = styled(Ul)`

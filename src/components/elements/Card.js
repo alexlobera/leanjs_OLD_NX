@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
+import { styleChildLinkColor } from '../navigation/Link'
 
 const fontColor = color => `
   color: ${color};
@@ -15,21 +16,7 @@ const fontColor = color => `
   p {
     color: ${color};
   }
-  a {
-    color: ${color};
-  }
-  a:link {
-    color: ${color};
-  }
-  a:visited {
-    color: ${color};
-  }
-  a:hover {
-    color: ${color};
-  }
-  a:active {
-    color: ${color};
-  }
+  ${styleChildLinkColor(color)}
 `
 
 const Card = styled.div`

@@ -40,8 +40,10 @@ const BootcampBerlin = () => (
               <H2>React Redux GraphQL in Berlin, Germany.</H2>
               <P>
                 Join us for our first addition of the React, Redux, GraphQL
-                bootcamp in Berlin, Germany. Our bootcamp format is made up of 6 intensive training days
-                where you'll learn through practical hand-on projects how to build production ready Reacy applications. 
+                bootcamp in Berlin, Germany. Our bootcamp format is made up of 6
+                intensive training days where you'll learn through practical
+                hand-on projects how to build production ready Reacy
+                applications.
               </P>
               <P>
                 Check out the 3 minute video on the left to get a feel for our

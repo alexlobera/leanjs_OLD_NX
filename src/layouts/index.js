@@ -59,9 +59,7 @@ const Layout = ({ children, data }) => (
             },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
           ]}
-          link={[
-            { rel: 'icon', type: 'image/x-icon', href: `${favicon}` }
-          ]}
+          link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
         />
         <Helmet
           script={[

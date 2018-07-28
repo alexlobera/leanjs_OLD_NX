@@ -18,6 +18,23 @@ export const ANCHOR_STYLE = `
 const BasicLink = styled.a`
   ${ANCHOR_STYLE};
 `
+export const styleChildLinkColor = color => `
+  a {
+    color: ${color};
+  }
+  a:link {
+    color: ${color};
+  }
+  a:visited {
+    color: ${color};
+  }
+  a:hover {
+    color: ${color};
+  }
+  a:active {
+    color: ${color};
+  }
+`
 
 const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
