@@ -106,10 +106,7 @@ class ContactForm extends Component {
                 ) : null}
               </ColField>
               <ColField md={5}>
-                <Button
-                  disabled={!emailValid || !inputDirty}
-                  children="Submit email"
-                />
+                <Button children="Submit email" />
               </ColField>
             </Row>
           </form>
