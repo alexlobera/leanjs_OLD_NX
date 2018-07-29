@@ -128,7 +128,12 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={4} mdOffset={1}>
-            <H2>Richard Moss</H2>
+            <H2Ref>
+              Richard Moss
+              <a name="richard-moss" href="#richard-moss">
+                #
+              </a>
+            </H2Ref>
             <H3>
               Senior React Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
@@ -177,7 +182,12 @@ const AboutUs = () => (
             <Image src={HORACIO} width="100%" />
           </Col>
           <Col xs={12} md={4} mdOffset={1}>
-            <H2>Horacio Herrera</H2>
+            <H2Ref>
+              Horacio Herrera
+              <a name="horacio-herrera" href="#horacio-herrera">
+                #
+              </a>
+            </H2Ref>
             <H3>
               Designer and Developer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
@@ -220,7 +230,12 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={4} mdOffset={1}>
-            <H2>Will Voelcker</H2>
+            <H2Ref>
+              Will Voelcker
+              <a name="will-voelcker" href="#will-voelcker">
+                #
+              </a>
+            </H2Ref>
             <H3>
               Senior Full-stack JavaScript Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
