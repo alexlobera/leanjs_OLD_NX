@@ -116,9 +116,9 @@ const AboutUs = () => (
               </Li>
             </Ul>
             <Blockquote bg="primary">
-              Teaching other developers is super rewarding. I love sharing what
+              Teaching other developers is very rewarding. I love sharing what
               I've learned in my career to help others grow and give back. I
-              think is what really makes our industry move forward.
+              think this is what really makes our industry move forward.
             </Blockquote>
           </Col>
         </Row>
