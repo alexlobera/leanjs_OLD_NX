@@ -18,6 +18,7 @@ export const DEFAULT_BUTTON_STYLE = `
     :hover {
       cursor: not-allowed
     }
+    opacity: 0.3;
   }
 `
 export default styled(props => <button {...props} />)`

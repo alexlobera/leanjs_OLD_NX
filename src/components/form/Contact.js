@@ -56,7 +56,6 @@ class ContactForm extends Component {
     email: '',
     formSubmited: false,
     emailValid: false,
-    inputDirty: false,
   }
   handleFormSubmit = e => {
     e.preventDefault()
@@ -64,10 +63,7 @@ class ContactForm extends Component {
   }
 
   handleEmailChange = e => {
-    this.setState(
-      { email: e.target.value, inputDirty: true },
-      this.validateEmail
-    )
+    this.setState({ email: e.target.value }, this.validateEmail)
   }
 
   validateEmail = () => {
@@ -75,7 +71,8 @@ class ContactForm extends Component {
   }
 
   render() {
-    const { email, emailValid, inputDirty } = this.state
+    const { email, emailValid } = this.state
+    const isValid = emailValid && email.length > 0
     return (
       <React.Fragment>
         <H3>I would like more info and some pre-training learning resources</H3>
@@ -99,14 +96,14 @@ class ContactForm extends Component {
                   name="email"
                   placeholder="name@email.com"
                 />
-                {inputDirty ? (
+                {email.length > 0 ? (
                   emailValid ? null : (
                     <ErrorMssg>must enter a valid email</ErrorMssg>
                   )
                 ) : null}
               </ColField>
               <ColField md={5}>
-                <Button children="Submit email" />
+                <Button children="Submit email" disabled={!isValid} />
               </ColField>
             </Row>
           </form>
