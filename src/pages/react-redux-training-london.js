@@ -128,7 +128,7 @@ const BootcampLondon = () => (
               <Image src={PART_TIME} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
-          <Col md={6} lg={5} lgOffset={1} >
+          <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this part-time course right for me? Are you...{' '}
               <a href="#target-audience" name="target-audience">

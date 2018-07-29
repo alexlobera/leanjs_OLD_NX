@@ -32,7 +32,10 @@ const AboutUs = () => (
       subtitle="Our coaches are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> journey"
       links={[
         { text: 'Coach profiles ', to: 'alex-lobera' },
-        { text: 'Continuous coach development ', to: 'continuous-coach-development' },
+        {
+          text: 'Continuous coach development ',
+          to: 'continuous-coach-development',
+        },
         { text: 'Corporate team training', to: 'corporate-team-training' },
       ]}
       bgImg="about-us"
@@ -84,9 +87,7 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://uk.linkedin.com/in/alexlobera">
-                  LinkedIn
-                </Link>
+                <Link to="https://uk.linkedin.com/in/alexlobera">LinkedIn</Link>
               </Li>
               <Li>|</Li>
               <Li>
@@ -250,9 +251,7 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://www.linkedin.com/in/willv/">
-                  LinkedIn
-                </Link>
+                <Link to="https://www.linkedin.com/in/willv/">LinkedIn</Link>
               </Li>
             </Ul>
           </Col>

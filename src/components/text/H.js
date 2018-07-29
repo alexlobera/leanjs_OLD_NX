@@ -31,7 +31,7 @@ export const H2 = styled.h2`
   margin-bottom: 40px;
   font-size: 36px;
   a {
-    font-size: 36px; 
+    font-size: 36px;
   }
 `
 
@@ -40,12 +40,11 @@ export const H2Ref = styled(H2)`
 `
 
 export const H3 = styled.h3`
-  ${FONT_FAMILY}
-  line-height: 1.2;
+  ${FONT_FAMILY} line-height: 1.2;
   font-weight: 500;
   font-size: 24px;
   a {
-    font-size: 24px; 
+    font-size: 24px;
   }
 `
 
