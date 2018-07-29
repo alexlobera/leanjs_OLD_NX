@@ -23,13 +23,16 @@ export const H1Ref = styled(H1)`
 
 export const H2 = styled.h2`
   ${FONT_FAMILY};
-  font-size: 36px;
   font-weight: 800;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
   margin-bottom: 40px;
+  font-size: 36px;
+  a {
+    font-size: 36px; 
+  }
 `
 
 export const H2Ref = styled(H2)`
@@ -37,9 +40,13 @@ export const H2Ref = styled(H2)`
 `
 
 export const H3 = styled.h3`
-  ${FONT_FAMILY} font-size: 24px;
+  ${FONT_FAMILY}
   line-height: 1.2;
   font-weight: 500;
+  font-size: 24px;
+  a {
+    font-size: 24px; 
+  }
 `
 
 export const H3Ref = styled(H3)`
