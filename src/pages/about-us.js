@@ -17,8 +17,6 @@ import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { Image } from '../components/elements'
 import {
-  LONDON,
-  LISBON,
   ALEX,
   RICHARD,
   HORACIO,
@@ -31,7 +29,12 @@ const AboutUs = () => (
   <React.Fragment>
     <Header
       titleLines={['About us']}
-      subtitle="Our trainers are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> Academy journey"
+      subtitle="Our coaches are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> journey"
+      links={[
+        { text: 'Coach profiles ', to: 'alex-lobera' },
+        { text: 'Continuous coach development ', to: 'continuous-coach-development' },
+        { text: 'Corporate team training', to: 'corporate-team-training' },
+      ]}
       bgImg="about-us"
     />
     <TopSection>
@@ -65,10 +68,10 @@ const AboutUs = () => (
           <Col xs={12} md={5}>
             <Image src={ALEX} width="100%" />
           </Col>
-          <Col xs={12} md={5} mdOffset={1}>
+          <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Alex Lobera{' '}
-              <a name="coach-profiles" href="#coaches-profile">
+              <a name="alex-lobera" href="#alex-lobera">
                 #
               </a>
             </H2Ref>
@@ -77,12 +80,12 @@ const AboutUs = () => (
             </H3>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/alexlbr">GitHub profile</Link>
+                <Link to="https://github.com/alexlbr">GitHub</Link>
               </Li>
               <Li>|</Li>
               <Li>
                 <Link to="https://uk.linkedin.com/in/alexlobera">
-                  LinkedIn profile
+                  LinkedIn
                 </Link>
               </Li>
               <Li>|</Li>
@@ -124,7 +127,7 @@ const AboutUs = () => (
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={5} mdOffset={1}>
+          <Col xs={12} md={4} mdOffset={1}>
             <H2>Richard Moss</H2>
             <H3>
               Senior React Engineer at{' '}
@@ -132,12 +135,12 @@ const AboutUs = () => (
             </H3>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/ric9176">GitHub profile</Link>
+                <Link to="https://github.com/ric9176">GitHub</Link>
               </Li>
               <Li>|</Li>
               <Li>
                 <Link to="https://www.linkedin.com/in/richard-moss-55881b82/">
-                  LinkedIn profile
+                  LinkedIn
                 </Link>
               </Li>
             </Ul>
@@ -161,7 +164,7 @@ const AboutUs = () => (
               take their skills to the next level - and I learn a lot too!
             </Blockquote>
           </Col>
-          <Col xs={12} md={5}>
+          <Col xs={12} md={5} mdOffset={1}>
             <Image src={RICHARD} width="100%" />
           </Col>
         </Row>
@@ -173,7 +176,7 @@ const AboutUs = () => (
           <Col xs={12} md={5}>
             <Image src={HORACIO} width="100%" />
           </Col>
-          <Col xs={12} md={5} mdOffset={1}>
+          <Col xs={12} md={4} mdOffset={1}>
             <H2>Horacio Herrera</H2>
             <H3>
               Designer and Developer at{' '}
@@ -181,12 +184,12 @@ const AboutUs = () => (
             </H3>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/horacioh">GitHub profile</Link>
+                <Link to="https://github.com/horacioh">GitHub</Link>
               </Li>
               <Li>|</Li>
               <Li>
                 <Link to="https://www.linkedin.com/in/horacioherrera/">
-                  LinkedIn profile
+                  LinkedIn
                 </Link>
               </Li>
               <Li>|</Li>
@@ -216,7 +219,7 @@ const AboutUs = () => (
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={6} mdOffset={1}>
+          <Col xs={12} md={4} mdOffset={1}>
             <H2>Will Voelcker</H2>
             <H3>
               Senior Full-stack JavaScript Engineer at{' '}
@@ -228,17 +231,17 @@ const AboutUs = () => (
             </Blockquote>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/wvoelcker">GitHub profile</Link>
+                <Link to="https://github.com/wvoelcker">GitHub</Link>
               </Li>
               <Li>|</Li>
               <Li>
                 <Link to="https://www.linkedin.com/in/willv/">
-                  LinkedIn profile
+                  LinkedIn
                 </Link>
               </Li>
             </Ul>
           </Col>
-          <Col xs={12} md={5}>
+          <Col xs={12} md={5} mdOffset={1}>
             <Image src={WILL} width="100%" />
           </Col>
         </Row>
@@ -263,7 +266,7 @@ const AboutUs = () => (
             </H2Ref>
             <P>
               ReactJS Academy is made up of a{' '}
-              <strong>group of developers & teachers</strong> that continuously
+              <strong>group of developers & coaches</strong> that continuously
               strive improve their teaching skills and training material
             </P>
             <Ul>
@@ -305,8 +308,8 @@ const AboutUs = () => (
             <Col xs={12} md={5}>
               <H2Ref>
                 Corporate team training<a
-                  href="#corporate-training"
-                  name="corporate-training"
+                  href="#corporate-team-training"
+                  name="corporate-team-training"
                 >
                   #
                 </a>
@@ -351,10 +354,10 @@ const AboutUs = () => (
                         </Blockquote>
                         <Ul>
                             <Li>
-                                <Link to="https://github.com/">GitHub profile ???</Link>
+                                <Link to="https://github.com/">GitHub ???</Link>
                             </Li>
                             <Li>
-                                <Link to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">LinkedIn profile ???</Link>
+                                <Link to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">LinkedIn ???</Link>
                             </Li>
                         </Ul>
                     </Col>
@@ -374,10 +377,10 @@ const AboutUs = () => (
                         </Blockquote>
                         <Ul>
                             <Li>
-                                <Link to="https://github.com/">GitHub profile ??? </Link>
+                                <Link to="https://github.com/">GitHub ??? </Link>
                             </Li>
                             <Li>
-                                <Link to="https://www.linkedin.com/in/evamhoffmann/">LinkedIn profile</Link>
+                                <Link to="https://www.linkedin.com/in/evamhoffmann/">LinkedIn</Link>
                             </Li>
                         </Ul>
                     </Col>
