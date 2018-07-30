@@ -166,7 +166,7 @@ const BootcampLondon = () => (
             <P>If you've said 'yes' to these, our bootcamp could be for you!</P>
             <H3>Not for beginner devs!</H3>
             <P>
-              This is not a lear-to-code bootcamp. If you want to learn to code,
+              This is not a learn-to-code bootcamp. If you want to learn to code,
               we recommend you to contact our London-based partner{' '}
               <a href="https://makers.tech/" target="_blanck">
                 Makers
