@@ -9,10 +9,6 @@ import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import {
-  HideSingleComponentUsingCss,
-  DisplaySingleComponentUsingCss,
-} from '../components/utils'
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { Image } from '../components/elements'
@@ -21,6 +17,7 @@ import {
   RICHARD,
   HORACIO,
   WILL,
+  ADAM,
   ABOUT_CONTINUOUS,
   ABOUT_CORPORATE,
 } from '../config/images'
@@ -241,10 +238,6 @@ const AboutUs = () => (
               Senior Full-stack JavaScript Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
             </H3>
-            <Blockquote bg="primary">
-              Serverless specialist at LeanJS. Will is an experienced full stack
-              developer with a passion for cutting-edge stacks.
-            </Blockquote>
             <Ul inline>
               <Li>
                 <Link to="https://github.com/wvoelcker">GitHub</Link>
@@ -254,9 +247,54 @@ const AboutUs = () => (
                 <Link to="https://www.linkedin.com/in/willv/">LinkedIn</Link>
               </Li>
             </Ul>
+            <Blockquote bg="primary">
+              Serverless specialist at LeanJS. Will is an experienced full stack
+              developer with a passion for cutting-edge stacks.
+            </Blockquote>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
             <Image src={WILL} width="100%" />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+
+    <Section>
+      <Grid>
+        <Row>
+          <Col xs={12} md={5}>
+            <Image src={ADAM} width="100%" />
+          </Col>
+          <Col xs={12} md={4} mdOffset={1}>
+            <H2>Adam Lancaster</H2>
+            <H3>
+              Software Engineer at <Link to="https://nested.com">Nested</Link>
+            </H3>
+            <Ul inline>
+              <Li>
+                <Link to="https://github.com/Adzz">GitHub</Link>
+              </Li>
+              <Li>
+                <Link to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">LinkedIn</Link>
+              </Li>
+              <Li>
+                <Link to="https://twitter.com/ItizAdz/">Twitter</Link>
+              </Li>
+            </Ul>
+            <Ul>
+              <Li>
+                Full stack software engineer currently playing with Elixir and React
+              </Li>
+              <Li>
+                Started working in startups and no one has told him to leave yet, which he takes as encouragement
+              </Li>
+              <Li>
+                Always looking for new ~ways to procrastinate~ things to learn
+              </Li>
+            </Ul>
+            <Blockquote bg="primary">
+              Teaching is always rewarding, but it is one of the most undervalued skills in our industry. I always enjoy the chance to practice it.
+            </Blockquote>
           </Col>
         </Row>
       </Grid>
@@ -352,32 +390,7 @@ const AboutUs = () => (
       </Grid>
     </Section>
     <UpcomingBootcampsSection />
-    {/* <Section>
-            <Grid>
-                <Row>
-                    <Col xs={12} md={5}>
-                        <ImagePlaceholder />
-                    </Col>
-                    <Col xs={12} md={7}>
-                        <H2>Adam Lancaster</H2>
-                        <H3>
-                            Senior Full-stack JavaScript Engineer at <Link to="https://nested.com">Nested</Link>
-                        </H3>
-                        <Blockquote>
-                            "quote about 1) experience as dev 2) why/ motivation teaching"
-                        </Blockquote>
-                        <Ul>
-                            <Li>
-                                <Link to="https://github.com/">GitHub ???</Link>
-                            </Li>
-                            <Li>
-                                <Link to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">LinkedIn ???</Link>
-                            </Li>
-                        </Ul>
-                    </Col>
-                </Row>
-            </Grid>
-        </Section>
+    {/* 
         <Section>
             <Grid>
                 <Row>
