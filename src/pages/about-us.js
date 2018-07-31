@@ -275,7 +275,9 @@ const AboutUs = () => (
                 <Link to="https://github.com/Adzz">GitHub</Link>
               </Li>
               <Li>
-                <Link to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">LinkedIn</Link>
+                <Link to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
+                  LinkedIn
+                </Link>
               </Li>
               <Li>
                 <Link to="https://twitter.com/ItizAdz/">Twitter</Link>
@@ -283,17 +285,21 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Full stack software engineer currently playing with Elixir and React
+                Full stack software engineer currently playing with Elixir and
+                React
               </Li>
               <Li>
-                Started working in startups and no one has told him to leave yet, which he takes as encouragement
+                Started working in startups and no one has told him to leave
+                yet, which he takes as encouragement
               </Li>
               <Li>
                 Always looking for new ~ways to procrastinate~ things to learn
               </Li>
             </Ul>
             <Blockquote bg="primary">
-              Teaching is always rewarding, but it is one of the most undervalued skills in our industry. I always enjoy the chance to practice it.
+              Teaching is always rewarding, but it is one of the most
+              undervalued skills in our industry. I always enjoy the chance to
+              practice it.
             </Blockquote>
           </Col>
         </Row>
