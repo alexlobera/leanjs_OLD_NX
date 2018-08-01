@@ -18,9 +18,7 @@ const Video = ({ youtubeID }) => (
     frameBorder="0"
     allow="autoplay; encrypted-media"
     allowFullScreen
-    src={`https://www.youtube-nocookie.com/embed/${
-      youtubeID
-    }?rel=0&controls=0&showinfo=0&wmode=opaque`}
+    src={`https://www.youtube-nocookie.com/embed/${youtubeID}?rel=0&controls=0&showinfo=0&wmode=opaque`}
   />
 )
 
