@@ -46,7 +46,7 @@ export const HORACIO =
 export const WILL =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fwill.png?alt=media&token=8ab839e8-2714-47b4-b0dc-f14cfb76c87e'
 export const ADAM =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fadam-lancaster.jpeg?alt=media&token=1f57815b-0a6b-419a-b5af-63634ba0395f'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fadam-lancaster.jpeg?alt=media&token=affbe015-640c-4db1-8af5-6bf437f981e0'
 
 // Tesimonials
 
