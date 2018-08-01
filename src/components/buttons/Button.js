@@ -21,7 +21,7 @@ export const DEFAULT_BUTTON_STYLE = `
     opacity: 0.3;
   }
 `
-export default styled(props => <button {...props} />)`
+export default styled.button`
   ${DEFAULT_BUTTON_STYLE}
   ${FONT_FAMILY}
   background-color: ${props => (props.cta ? CALLTOACTIONRED : blue1())};

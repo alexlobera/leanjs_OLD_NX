@@ -545,7 +545,6 @@ Payment.defaultProps = {
 
 Payment.contextTypes = {
   modal: PropTypes.object,
-  trackUserBehaviour: PropTypes.func.isRequired,
 }
 
 export default withApollo(Payment)

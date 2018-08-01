@@ -180,7 +180,7 @@ class PaymentContainer extends React.Component {
         urlParams={this.state.urlParams}
         quantity={this.props.quantity}
         price={this.state.price}
-        title={this.props.title}
+        title={this.props.title || "Payment"}
         currency={this.state.currency}
         isVoucherValidated={this.state.isVoucherValidated}
         priceWithDiscount={this.state.priceWithDiscount}
@@ -197,7 +197,7 @@ class PaymentContainer extends React.Component {
 
 PaymentContainer.contextTypes = {
   modal: PropTypes.object,
-  trackUserBehaviour: PropTypes.func.isRequired
+  
 }
 
 const PAY = gql`

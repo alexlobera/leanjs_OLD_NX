@@ -35,7 +35,7 @@ const BootcampBarcelona = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video yourubeID="yvROXLQ1jHg" />
+              <Video youtubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <H2>React Redux GraphQL in Barcelona, Spain.</H2>

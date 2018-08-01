@@ -73,7 +73,6 @@ class ContactForm extends Component {
   render() {
     const { email, emailValid } = this.state
     const isValid = emailValid && email.length > 0
-    console.log(isValid)
     return (
       <React.Fragment>
         <H3>I would like more info and some pre-training learning resources</H3>
