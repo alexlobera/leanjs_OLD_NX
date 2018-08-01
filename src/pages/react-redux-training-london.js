@@ -63,7 +63,7 @@ const BootcampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
+              <Video yourubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <H2Ref>
@@ -137,8 +137,8 @@ const BootcampLondon = () => (
             </H2Ref>
             <Ul unstyled>
               <Li>
-                <BulletIcon icon={NotBegginerIcon} />
-                A developer with ~1 year of development under your belt?
+                <BulletIcon icon={NotBegginerIcon} />A developer with ~1 year of
+                development under your belt?
               </Li>
               <Li>
                 <BulletIcon icon={CodeIcon} />
@@ -167,7 +167,8 @@ const BootcampLondon = () => (
               we recommend you contact our London-based partner{' '}
               <a href="https://makers.tech/" target="_blanck">
                 Makers
-              </a>. PLUS you'll get a &pound;250 discount using our reference
+              </a>
+              . PLUS you'll get a &pound;250 discount using our reference
               "ReactJS Academy".
             </P>
           </Col>

@@ -35,7 +35,8 @@ const TermsOfService = () => (
                 need to. Please let us know as soon as possible – email{' '}
                 <Link to="mailto:hello@reactjs.academy">
                   hello@reactjs.academy
-                </Link>.
+                </Link>
+                .
               </P>
               <P>
                 If for any reason you can’t attend at all, you’ll need to let us

@@ -61,15 +61,6 @@ const Layout = ({ children, data }) => (
           ]}
           link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
         />
-        <Helmet
-          script={[
-            {
-              type: 'text/javascript',
-              src: 'https://js.stripe.com/v2/',
-              async: true,
-            },
-          ]}
-        />
         <Menu />
         <Modal>{children()}</Modal>
         <Footer />

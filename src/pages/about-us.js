@@ -99,7 +99,8 @@ const AboutUs = () => (
                   <Link to="https://www.meetup.com/JavaScript-London/events/230287691/">
                     May, 2016
                   </Link>
-                </strong>.
+                </strong>
+                .
               </Li>
               <Li>
                 Alex holds a <strong>computer science degree</strong> and he is
@@ -365,7 +366,8 @@ const AboutUs = () => (
             </Col>
             <Col xs={12} md={5}>
               <H2Ref>
-                Corporate team training<a
+                Corporate team training
+                <a
                   href="#corporate-team-training"
                   name="corporate-team-training"
                 >

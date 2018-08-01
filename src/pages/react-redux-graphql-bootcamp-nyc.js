@@ -35,7 +35,7 @@ const BootcampNYC = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video src="https://www.youtube.com/embed/yvROXLQ1jHg" />
+              <Video yourubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <H2>React Redux GraphQL in New York, USA.</H2>

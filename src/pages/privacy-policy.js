@@ -85,30 +85,35 @@ const PrivacyPolicy = () => (
               </Li>
             </Ul>
             <H2>
-              <Link name="1" />What information of mine is being collected?
+              <Link name="1" />
+              What information of mine is being collected?
             </H2>
             <P>
               As a base level of information, we might collect your email
               address.
             </P>
             <H2>
-              <Link name="2" />Who is collecting my information?
+              <Link name="2" />
+              Who is collecting my information?
             </H2>
             <P>
               ReactJS.academy is collecting your email through a sign-up form.
             </P>
             <H2>
-              <Link name="3" />How are my details collected?
+              <Link name="3" />
+              How are my details collected?
             </H2>
             As mentioned above, your email address will be collected through a
             sign-up form.
             <H2>
-              <Link name="4" />Why is it collected?
+              <Link name="4" />
+              Why is it collected?
             </H2>
             In the first instance, your email address is used to send you
             newsletters about ReactJS.academy news.
             <H2>
-              <Link name="5" />How is my information used?
+              <Link name="5" />
+              How is my information used?
             </H2>
             <P>
               Using your email as the primary way of setting up the account
@@ -134,10 +139,12 @@ const PrivacyPolicy = () => (
               contactin us at{' '}
               <Link to="mailto:hello@reactjs.academy">
                 hello@reactjs.academy
-              </Link>.
+              </Link>
+              .
             </P>
             <H2>
-              <Link name="6" />Who will my information be shared with?
+              <Link name="6" />
+              Who will my information be shared with?
             </H2>
             <P>
               Your information security is very important to us so we will never
@@ -168,7 +175,8 @@ const PrivacyPolicy = () => (
               .
             </P>
             <H2>
-              <Link name="7" />How long will my details be kept for?
+              <Link name="7" />
+              How long will my details be kept for?
             </H2>
             <P>
               ReactJS.academy promises that we will not keep your details on
@@ -176,7 +184,8 @@ const PrivacyPolicy = () => (
               whether you would like us to keep your information on file.
             </P>
             <H2>
-              <Link name="8" />What will be the effect of this to me?
+              <Link name="8" />
+              What will be the effect of this to me?
             </H2>
             <P>
               There shouldn’t be any difference in the way that you have
@@ -186,7 +195,8 @@ const PrivacyPolicy = () => (
               ReactJS.academy or any other LeanJS-related parties.
             </P>
             <H2>
-              <Link name="9" />How do I remove my details from your servers?
+              <Link name="9" />
+              How do I remove my details from your servers?
             </H2>
             <P>
               Easily! Just email us at{' '}
@@ -196,8 +206,8 @@ const PrivacyPolicy = () => (
               and let us know and we’ll remove all your details (forever).
             </P>
             <H2>
-              <Link name="10" />What are cookies and what do they do with my
-              information?
+              <Link name="10" />
+              What are cookies and what do they do with my information?
             </H2>
             <P>
               In addition to personal information that you give us, there is

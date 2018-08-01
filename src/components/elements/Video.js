@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SCREEN_XS_MAX } from '../utils'
 
@@ -11,14 +12,20 @@ height: 390px;
 // }
 `
 
-const Video = props => (
+const Video = ({ youtubeID }) => (
   <Iframe
     width="100%"
     frameBorder="0"
     allow="autoplay; encrypted-media"
     allowFullScreen
-    {...props}
+    src={`https://www.youtube-nocookie.com/embed/${
+      youtubeID
+    }?rel=0&controls=0&showinfo=0&wmode=opaque`}
   />
 )
+
+Video.propTypes = {
+  youtubeID: PropTypes.string.isRequired,
+}
 
 export default Video

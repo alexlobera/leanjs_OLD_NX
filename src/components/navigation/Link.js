@@ -57,6 +57,10 @@ const Link = ({ to = '', children = '', ...rest }) => {
   } else if (!to) {
     return <BasicLink {...rest}>{children}</BasicLink>
   } else {
+    // this two attrs where causing an anoying error while developing...
+    // GatsbyLink does not support strange props
+    delete rest.cta
+    delete rest.secondary
     return (
       <RouterLink {...rest} to={to}>
         {children}

@@ -158,7 +158,9 @@ const IndexPage = () => (
         <Row>
           <Col md={5} mdOffset={1}>
             <H2>
-              Is this training right for me?<br />Why ReactJS Academy
+              Is this training right for me?
+              <br />
+              Why ReactJS Academy
             </H2>
             <Ul unstyled>
               <Li>
@@ -170,8 +172,8 @@ const IndexPage = () => (
                 <strong>Hands-on project-based</strong> training.
               </Li>
               <Li>
-                <BulletIcon icon={CollabsIcon} />
-                A <strong>collaborative</strong> learning environment.
+                <BulletIcon icon={CollabsIcon} />A{' '}
+                <strong>collaborative</strong> learning environment.
               </Li>
               <Li>
                 <BulletIcon icon={TimeIcon} />
