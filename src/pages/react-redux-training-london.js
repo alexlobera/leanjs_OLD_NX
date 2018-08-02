@@ -46,19 +46,7 @@ const BootcampLondon = () => (
       links={header.landingTraining.links}
       bgImg="part-time"
     />
-    <TopSection>
-      <Grid>
-        <Card border="shadow">
-          <Row>
-            <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
-            </Col>
-          </Row>
-        </Card>
-      </Grid>
-    </TopSection>
-    <Section xsBgDark>
+    <TopSection xsBgDark>
       <Grid>
         <Card bg="dark">
           <Row>
@@ -118,8 +106,12 @@ const BootcampLondon = () => (
             </Col>
           </Row>
         </Card>
+        <Card white border="shadow">
+          <CurriculumPartTime />
+        </Card>
       </Grid>
-    </Section>
+    </TopSection>
+    
     <Section>
       <Grid>
         <Row>
@@ -192,8 +184,13 @@ const BootcampLondon = () => (
     </Section>
     <Section>
       <Grid>
-        <Card white border="shadow">
-          <CurriculumPartTime />
+        <Card border="shadow">
+          <Row>
+            <Col lg={10} lgOffset={1}>
+              <H2>Trusted by industry leaders</H2>
+              <TrustedByLogoList />
+            </Col>
+          </Row>
         </Card>
       </Grid>
     </Section>
