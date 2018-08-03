@@ -25,12 +25,34 @@ import {
 } from '../config/images'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import { WHITE } from '../config/styles';
+import trackUserBehaviour, { SOCIAL_NETWORK_LINK_CLICK } from '../components/utils/trackUserBehaviour'
 
 const LeanJSLink = styled(Link)`
   position:absolute;
   top:20px;
   right:20px;
 `
+
+const CoachTitle = styled(H3)`
+  &{
+    padding-top:0;
+  }
+`
+
+const SocialLink = ({ to, children }) => (
+  <Link to={to} onClick={() => {
+    trackUserBehaviour({
+      event: SOCIAL_NETWORK_LINK_CLICK,
+      payload: {
+        network: children,
+        to
+      }
+    })
+  }}
+    target='_blank'>
+    {children}
+  </Link>
+)
 
 const AboutUs = () => (
   <React.Fragment>
@@ -132,20 +154,20 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Tech Lead at <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/alexlbr">GitHub</Link>
+                <SocialLink to="https://github.com/alexlbr">GitHub</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://uk.linkedin.com/in/alexlobera">LinkedIn</Link>
+                <SocialLink to="https://uk.linkedin.com/in/alexlobera">LinkedIn</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://twitter.com/alex_Lobera">Twitter</Link>
+                <SocialLink to="https://twitter.com/alex_Lobera">Twitter</SocialLink>
               </Li>
             </Ul>
             <Ul>
@@ -190,19 +212,19 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Senior React Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/ric9176">GitHub</Link>
+                <SocialLink to="https://github.com/ric9176">GitHub</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://www.linkedin.com/in/richard-moss-55881b82/">
+                <SocialLink to="https://www.linkedin.com/in/richard-moss-55881b82/">
                   LinkedIn
-                </Link>
+                </SocialLink>
               </Li>
             </Ul>
             <Ul>
@@ -244,23 +266,23 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Designer and Developer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/horacioh">GitHub</Link>
+                <SocialLink to="https://github.com/horacioh">GitHub</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://www.linkedin.com/in/horacioherrera/">
+                <SocialLink to="https://www.linkedin.com/in/horacioherrera/">
                   LinkedIn
-                </Link>
+                </SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://twitter.com/hhg2288">Twitter</Link>
+                <SocialLink to="https://twitter.com/hhg2288">Twitter</SocialLink>
               </Li>
             </Ul>
             <Ul>
@@ -292,17 +314,17 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Senior Full-stack JavaScript Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/wvoelcker">GitHub</Link>
+                <SocialLink to="https://github.com/wvoelcker">GitHub</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <Link to="https://www.linkedin.com/in/willv/">LinkedIn</Link>
+                <SocialLink to="https://www.linkedin.com/in/willv/">LinkedIn</SocialLink>
               </Li>
             </Ul>
             <Blockquote bg="primary">
@@ -325,20 +347,20 @@ const AboutUs = () => (
           </Col>
           <Col xs={12} md={4} mdOffset={1}>
             <H2>Adam Lancaster</H2>
-            <H3>
+            <CoachTitle>
               Software Engineer at <Link to="https://nested.com">Nested</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
-                <Link to="https://github.com/Adzz">GitHub</Link>
+                <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
               </Li>
               <Li>
-                <Link to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
+                <SocialLink to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
                   LinkedIn
-                </Link>
+                </SocialLink>
               </Li>
               <Li>
-                <Link to="https://twitter.com/ItizAdz/">Twitter</Link>
+                <SocialLink to="https://twitter.com/ItizAdz/">Twitter</SocialLink>
               </Li>
             </Ul>
             <Ul>
