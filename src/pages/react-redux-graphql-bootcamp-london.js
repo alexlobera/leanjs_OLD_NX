@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
-import { Button, LinkButton } from '../components/buttons'
+import { LinkButton } from '../components/buttons'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
@@ -11,9 +11,8 @@ import Link from '../components/navigation/Link'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { GREY2, FONT_FAMILY } from '../config/styles'
-import { LONDON, BOOTCAMP_COLLAB, CATALIN } from '../config/images'
+import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import CallToActionRow from '../components/layout/CallToActionRow'
 import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
 import {
   BulletIcon,
@@ -25,8 +24,6 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { Element } from 'react-scroll'
-import { Link as LinkScroll } from 'react-scroll'
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -50,19 +47,7 @@ const BootcampLondon = () => (
       links={header.landingTraining.links}
       bgImg="training-event"
     />
-    <TopSection>
-      <Grid>
-        <Card border="shadow">
-          <Row>
-            <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
-            </Col>
-          </Row>
-        </Card>
-      </Grid>
-    </TopSection>
-    <Section xsBgDark>
+    <TopSection xsBgDark>
       <Grid>
         <Card bg="dark">
           <Row>
@@ -124,8 +109,11 @@ const BootcampLondon = () => (
             </Col>
           </Row>
         </Card>
+        <Card white border="shadow">
+          <CurriculumBootcamp />
+        </Card>
       </Grid>
-    </Section>
+    </TopSection>
     <Section>
       <Grid>
         <Row>
@@ -193,14 +181,19 @@ const BootcampLondon = () => (
         </Row>
       </Grid>
     </Section>
+
     <Section>
       <Grid>
-        <Card white border="shadow">
-          <CurriculumBootcamp />
+        <Card border="shadow">
+          <Row>
+            <Col lg={10} lgOffset={1}>
+              <H2>Trusted by industry leaders</H2>
+              <TrustedByLogoList />
+            </Col>
+          </Row>
         </Card>
       </Grid>
     </Section>
-
     <UpcomingBootcampsSection />
   </React.Fragment>
 )
