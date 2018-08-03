@@ -83,7 +83,9 @@ const BootcampLondon = () => (
                   By purchasing a training, you agree to our{' '}
                   <Link target="_blank" to="terms-of-service">
                     Terms of Service
-                  </Link> & <Link target="_blank" to="code-of-conduct">
+                  </Link>{' '}
+                  &{' '}
+                  <Link target="_blank" to="code-of-conduct">
                     Code of conduct
                   </Link>
                 </P>
