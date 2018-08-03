@@ -80,6 +80,11 @@ const Footer = () => (
                       Training list
                     </Link>
                   </Li>
+                  <Li>
+                    <Link to="/code-of-conduct">
+                      Code of conduct
+                    </Link>
+                  </Li>
                   {/* <Li>
                                     <Link>Sponsors & Partners</Link>
                                 </Li> */}
