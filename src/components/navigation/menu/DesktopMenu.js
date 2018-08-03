@@ -24,8 +24,6 @@ const DesktopMenuItem = styled(Item)`
 
 DesktopMenuItem.displayName = 'DesktopMenuItem'
 
-const DesktopMenuContainer = styled(Ul)``
-
 const DesktopMenu = () => (
   <HideSingleComponentUsingCss xs sm>
     <Ul inline>

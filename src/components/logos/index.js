@@ -10,6 +10,7 @@ import SainBurys from './SainBurys'
 import Telegraph from './Telegraph'
 import Tesco from './Tesco'
 import Trainline from './Trainline'
+import LeanJS from './LeanJS'
 
 export {
   ASOS,
@@ -24,4 +25,5 @@ export {
   Telegraph,
   Tesco,
   Trainline,
+  LeanJS,
 }

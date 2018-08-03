@@ -30,6 +30,10 @@ export const H2 = styled.h2`
   letter-spacing: normal;
   margin-bottom: 40px;
   font-size: 36px;
+  padding-top: 25px;
+  :first-child {
+    padding-top: 0;
+  }
   a {
     font-size: 36px;
   }
@@ -42,6 +46,10 @@ export const H2Ref = styled(H2)`
 export const H3 = styled.h3`
   ${FONT_FAMILY} line-height: 1.2;
   font-weight: 500;
+  padding-top: 20px;
+  :first-child {
+    padding-top: 0;
+  }
   font-size: 24px;
   a {
     font-size: 24px;
