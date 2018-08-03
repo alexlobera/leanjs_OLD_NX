@@ -12,8 +12,8 @@ const Ul = styled.ul`
     }
   `
       : ''} ${props =>
-        props.inline
-          ? `
+    props.inline
+      ? `
           margin: 0;
           padding: 0;
           > li {
@@ -28,7 +28,7 @@ const Ul = styled.ul`
             }
           }
         `
-          : `
+      : `
           padding-top: 10px;
       `};
 `

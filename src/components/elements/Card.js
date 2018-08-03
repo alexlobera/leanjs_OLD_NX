@@ -63,11 +63,11 @@ const Card = styled.div`
     border: 0;
     box-shadow: none;
     ${props =>
-    !props.small
-      ? `    
+      !props.small
+        ? `    
         padding: 0;
       `
-      : `
+        : `
       padding-left: 5px;
       padding-right: 5px;
       `}

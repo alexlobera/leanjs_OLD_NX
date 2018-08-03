@@ -35,7 +35,8 @@ export const ABOUT_CONTINUOUS =
 
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.png?alt=media'
-export const ABOUT_VALUES = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutus_values.jpg?alt=media'
+export const ABOUT_VALUES =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutus_values.jpg?alt=media'
 // Team members
 
 export const ALEX =

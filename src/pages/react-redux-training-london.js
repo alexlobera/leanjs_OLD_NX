@@ -111,7 +111,7 @@ const BootcampLondon = () => (
         </Card>
       </Grid>
     </TopSection>
-    
+
     <Section>
       <Grid>
         <Row>
