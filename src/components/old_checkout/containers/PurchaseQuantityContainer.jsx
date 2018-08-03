@@ -92,7 +92,7 @@ class PurchaseQuantityContainer extends React.Component {
     const totalPrice = course.price * quantity * 1.2
 
     return (
-      <PurchaseWrapper>
+      <PurchaseWrapper className="gtm-purchase-box">
         <Price>{getCurrencySymbol(course.currency, totalPrice)}</Price>
         <ButtonWrapper>
           <CheckoutButton course={course} quantity={quantity}>

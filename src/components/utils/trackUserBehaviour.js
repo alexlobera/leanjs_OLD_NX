@@ -6,6 +6,8 @@ export const CHECKOUT_PAYMENT_REQUEST = 'CHECKOUT_PAYMENT_REQUEST'
 export const CHECKOUT_PAYMENT_SUCCESS = 'CHECKOUT_PAYMENT_SUCCESS'
 export const CURRICULUM_MORE_DETAILS = 'CURRICULUM_MORE_DETAILS'
 export const SOCIAL_NETWORK_LINK_CLICK = 'SOCIAL_NETWORK_LINK_CLICK'
+export const CLICK_ON_CTA = 'CLICK_ON_CTA'
+export const BUY_BUTTON_CLICK = 'BUY_BUTTON_CLICK'
 
 const trackUserBehaviour = ({ event, payload = {} }) => {
   if (typeof window === 'undefined') {

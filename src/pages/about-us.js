@@ -21,21 +21,26 @@ import {
   ABOUT_CONTINUOUS,
   ABOUT_CORPORATE,
 } from '../config/images'
-import trackUserBehaviour, { SOCIAL_NETWORK_LINK_CLICK } from '../components/utils/trackUserBehaviour'
+import trackUserBehaviour, {
+  SOCIAL_NETWORK_LINK_CLICK,
+} from '../components/utils/trackUserBehaviour'
 
-const SocialLink = ({to, children}) => (
-  <Link to={to} onClick={() => {
-    trackUserBehaviour({
-      event: SOCIAL_NETWORK_LINK_CLICK,
-      payload: {
-        network: children,
-        to
-      }
-    })
-  }}
-  target='_blank'>
+const SocialLink = ({ to, children }) => (
+  <Link
+    to={to}
+    onClick={() => {
+      trackUserBehaviour({
+        event: SOCIAL_NETWORK_LINK_CLICK,
+        payload: {
+          network: children,
+          to,
+        },
+      })
+    }}
+    target="_blank"
+  >
     {children}
-    </Link>
+  </Link>
 )
 
 const AboutUs = () => (
@@ -100,11 +105,15 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://uk.linkedin.com/in/alexlobera">LinkedIn</SocialLink>
+                <SocialLink to="https://uk.linkedin.com/in/alexlobera">
+                  LinkedIn
+                </SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://twitter.com/alex_Lobera">Twitter</SocialLink>
+                <SocialLink to="https://twitter.com/alex_Lobera">
+                  Twitter
+                </SocialLink>
               </Li>
             </Ul>
             <Ul>
@@ -219,7 +228,9 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://twitter.com/hhg2288">Twitter</SocialLink>
+                <SocialLink to="https://twitter.com/hhg2288">
+                  Twitter
+                </SocialLink>
               </Li>
             </Ul>
             <Ul>
@@ -257,11 +268,15 @@ const AboutUs = () => (
             </H3>
             <Ul inline>
               <Li>
-                <SocialLink to="https://github.com/wvoelcker">GitHub</SocialLink>
+                <SocialLink to="https://github.com/wvoelcker">
+                  GitHub
+                </SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://www.linkedin.com/in/willv/">LinkedIn</SocialLink>
+                <SocialLink to="https://www.linkedin.com/in/willv/">
+                  LinkedIn
+                </SocialLink>
               </Li>
             </Ul>
             <Blockquote bg="primary">
@@ -297,7 +312,9 @@ const AboutUs = () => (
                 </SocialLink>
               </Li>
               <Li>
-                <SocialLink to="https://twitter.com/ItizAdz/">Twitter</SocialLink>
+                <SocialLink to="https://twitter.com/ItizAdz/">
+                  Twitter
+                </SocialLink>
               </Li>
             </Ul>
             <Ul>
@@ -414,7 +431,7 @@ const AboutUs = () => (
       </Grid>
     </Section>
     <UpcomingBootcampsSection />
-    {/* 
+    {/*
         <Section>
             <Grid>
                 <Row>
