@@ -51,13 +51,14 @@ export default props => (
     {...props}
     onClick={
       props.cta
-        ? () => {
+        ? e => {
             trackUserBehaviour({
               event: CLICK_ON_CTA,
               payload: {
                 to: props.to || 'Not Provided',
               },
             })
+            props.onClick && props.onClick(e)
           }
         : null
     }

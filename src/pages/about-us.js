@@ -25,10 +25,10 @@ import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
 
-const SocialLink = ({ to, children }) => (
+const SocialLink = ({ to, children, onClick }) => (
   <Link
     to={to}
-    onClick={() => {
+    onClick={e => {
       trackUserBehaviour({
         event: SOCIAL_NETWORK_LINK_CLICK,
         payload: {
@@ -36,6 +36,7 @@ const SocialLink = ({ to, children }) => (
           to,
         },
       })
+      onClick && onClick(e)
     }}
     target="_blank"
   >
