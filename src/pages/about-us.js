@@ -4,7 +4,7 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H1, H2, H2Ref, H3, P } from '../components/text'
+import { H2, H2Ref, H3, P } from '../components/text'
 import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
@@ -12,6 +12,7 @@ import CallToActionRow from '../components/layout/CallToActionRow'
 import { Card } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { Image } from '../components/elements'
+import { LeanJS } from '../components/logos'
 import {
   ALEX,
   RICHARD,
@@ -20,15 +21,30 @@ import {
   ADAM,
   ABOUT_CONTINUOUS,
   ABOUT_CORPORATE,
+  ABOUT_VALUES,
 } from '../config/images'
+import { HideSingleComponentUsingCss } from '../components/utils'
+import { WHITE } from '../config/styles'
 import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
 
-const SocialLink = ({ to, children, onClick }) => (
+const LeanJSLink = styled(Link)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+`
+
+const CoachTitle = styled(H3)`
+  & {
+    padding-top: 0;
+  }
+`
+
+const SocialLink = ({ to, children }) => (
   <Link
     to={to}
-    onClick={e => {
+    onClick={() => {
       trackUserBehaviour({
         event: SOCIAL_NETWORK_LINK_CLICK,
         payload: {
@@ -55,6 +71,7 @@ const AboutUs = () => (
           text: 'Continuous coach development ',
           to: 'continuous-coach-development',
         },
+        { text: 'Manifesto', to: 'manifesto' },
         { text: 'Corporate team training', to: 'corporate-team-training' },
       ]}
       bgImg="about-us"
@@ -72,13 +89,41 @@ const AboutUs = () => (
         </CallToActionRow>
         <Card border="shadow">
           <Row>
-            <Col lg={10} lgOffset={1}>
+            <Col md={10} mdOffset={1}>
               <H2>Our coaches - professional developers who love to teach</H2>
-              <P>
+              <H3 style={{ paddingTop: 0 }}>
+                The ReactJS Academy coach values:{' '}
+              </H3>
+              {/* <P>
                 ReactJS Academy is a <Link to="https://leanjs.com">LeanJS</Link>{' '}
                 brand. LeanJS is an innovation agency focused on Lean, UX,
                 JavaScript, and people.
-              </P>
+              </P> */}
+              <Row>
+                <Col xs={6} sm={6} md={4}>
+                  <Ul>
+                    <Li>Passion</Li>
+                    <Li>Empathy</Li>
+                    <Li>Community</Li>
+                    <Li>Excellence</Li>
+                    <Li>Continuous learning</Li>
+                  </Ul>
+                </Col>
+                <Col xs={6} sm={6} md={4}>
+                  <Ul>
+                    <Li>Forward thinking</Li>
+                    <Li>Determination</Li>
+                    <Li>Feedback</Li>
+                    <Li>Best-practices</Li>
+                    <Li>Cutting-edge</Li>
+                  </Ul>
+                </Col>
+                <HideSingleComponentUsingCss xs>
+                  <Col xs={12} sm={12} md={4}>
+                    <Image src={ABOUT_VALUES} />
+                  </Col>
+                </HideSingleComponentUsingCss>
+              </Row>
             </Col>
           </Row>
         </Card>
@@ -97,9 +142,9 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Tech Lead at <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
                 <SocialLink to="https://github.com/alexlbr">GitHub</SocialLink>
@@ -159,10 +204,10 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Senior React Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
                 <SocialLink to="https://github.com/ric9176">GitHub</SocialLink>
@@ -213,10 +258,10 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Designer and Developer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
                 <SocialLink to="https://github.com/horacioh">GitHub</SocialLink>
@@ -263,10 +308,10 @@ const AboutUs = () => (
                 #
               </a>
             </H2Ref>
-            <H3>
+            <CoachTitle>
               Senior Full-stack JavaScript Engineer at{' '}
               <Link to="https://leanjs.com">LeanJS</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
                 <SocialLink to="https://github.com/wvoelcker">
@@ -300,9 +345,9 @@ const AboutUs = () => (
           </Col>
           <Col xs={12} md={4} mdOffset={1}>
             <H2>Adam Lancaster</H2>
-            <H3>
+            <CoachTitle>
               Software Engineer at <Link to="https://nested.com">Nested</Link>
-            </H3>
+            </CoachTitle>
             <Ul inline>
               <Li>
                 <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
@@ -390,8 +435,106 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
+      <Grid>
+        <Row>
+          <Col md={10} mdOffset={1}>
+            <H2Ref>
+              The ReactJS Academy coach manifesto
+              <a href="#manifesto" name="manifesto">
+                #
+              </a>
+            </H2Ref>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <H3>Coaches are curious</H3>
+            <P>
+              We know technology changes constantly, we embrace change and we
+              always keep learning. Learning is a never-ending process.
+            </P>
+            <H3>
+              Coaches provide alternatives to help students make informed
+              decisions
+            </H3>
+            <P>
+              Coaches explain why we use a given stack and which problem(s) it
+              solves, and we should also explain alternative choices. This way,
+              trainees can make their own informed decisions about what stack to
+              use.
+            </P>
+            <H3>Coaches guide students</H3>
+            <P>
+              Everyone learns differently. We shouldn’t tell students what they
+              can do or what they can’t do. We make recommendations, and we
+              explain the rationale behind our recommendations, then trainees
+              choose. We should try to balance the amount of freedom.
+            </P>
+            <H3>Coaches are professional developers</H3>
+            <P>
+              Bring your experience to the classroom. We try to explain things
+              in the classroom using real-world examples we’ve worked on.
+              Expressions like “in my experience” are very helpful.
+            </P>
+            <H3>Coaches are honest and humble</H3>
+            <P>
+              Coaches don’t have to know everything. It’s better to say “I don’t
+              have any experience on that”, than trying to pretend you know. We
+              also learn from students, and students appreciate when coaches say
+              things like “thanks for sharing, I didn’t know”.
+            </P>
+            <H3>Teaching is not simple</H3>
+            <P>
+              Building real-world software is not a simple problem. Normally
+              what a developer should do or not do depends on the case.
+              Sometimes students want a simple answer: “what should I do, A or
+              B?”. The answer in many cases is “it depends”. Our job is to make
+              sure we understand trainees’ problems, and they understand the
+              pros & cons of each approach we might recommend depending on the
+              case.
+            </P>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <H3>Coaches are proactive and self-managed</H3>
+            <P>
+              Coaches don’t join to be told what to do. Coaches communicate,
+              have initiative, and collaborate for the common good of the group.
+            </P>
+            <H3>Coaches are generous</H3>
+            <P>
+              We share and help others. Helping is not a transactional event.
+              Being able to help has nothing to do with status, experience or
+              knowledge. Being able to help has to do with being willing to
+              help. We can learn from anyone, everyone has something to teach.
+            </P>
+            <H3>We respect each other</H3>
+            <P>
+              Treat people as you would like them to treat you. If you mentor
+              another coach, you expect the other coach to appreciate and get
+              the most of your time and effort and to replicate at least the
+              same amount of effort. We don’t mentor another coach over and over
+              again if we don’t see enough effort and dedication on the other
+              end. If someone mentors you, you should also mentor.
+            </P>
+            <H3>Coaches pursue excellence</H3>
+            <P>
+              We believe being excellent has nothing to do with not making
+              mistakes. Being excellent means working hard to do things right,
+              and to learn from our mistakes so we do our best to not make them
+              again.
+            </P>
+            <H3>Our community is open</H3>
+            <P>
+              We are not an exclusive VIP group, meaning we are inclusive. We
+              welcome new coaches and people to our community. The only barrier
+              to entry is motivation and attitude, those who work with us as
+              coaches will be proactive people that want to help others.
+            </P>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+
+    <Section xsBgDarkGrey>
       <Grid>
         <Card bg="darkGrey" border="shadow">
           <Row>
@@ -408,15 +551,21 @@ const AboutUs = () => (
                   #
                 </a>
               </H2Ref>
+              <LeanJSLink to="https://leanjs.com/">
+                <LeanJS height={60} color={WHITE} />
+              </LeanJSLink>
+              <P>Looking for a way to train your whole team? No problem!</P>
+              <P>
+                Our parent company LeanJS delivers high quality, bespoke team
+                training on a host of different subjects - not just React…
+              </P>
               <Ul>
-                <Li>Delivered at your office.</Li>
-                <Li>You choose the dates.</Li>
                 <Li>
-                  Delivered by our parent company{' '}
-                  <Link to="https://leanjs.com/training/private-react-redux-graphql-training">
-                    LeanJS
-                  </Link>
+                  React, React Native, Javascript, GraphQL, Redux, Lean/Agile
+                  methodologies and UX design training available
                 </Li>
+                <Li>Delivered in your office - worldwide.</Li>
+                <Li>Tailored to your business needs - you choose the dates.</Li>
               </Ul>
               <p>
                 <LinkButton

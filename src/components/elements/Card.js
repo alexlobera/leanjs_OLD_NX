@@ -19,7 +19,8 @@ const fontColor = color => `
   ${styleChildLinkColor(color)}
 `
 
-const Card = styled.div`
+const Card = styled.div` 
+  position: relative;
   ${props =>
     props.small
       ? `

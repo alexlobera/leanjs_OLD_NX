@@ -28,7 +28,9 @@ const Ul = styled.ul`
             }
           }
         `
-      : ''};
+      : `
+          padding-top: 10px;
+      `};
 `
 
 const Li = styled.li`

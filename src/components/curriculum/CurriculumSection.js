@@ -6,7 +6,9 @@ import Link from '../navigation/Link'
 import { blue1 } from '../../config/styles'
 import { Link as LinkScroll, Element } from 'react-scroll'
 import { ANCHOR_STYLE } from '../navigation/Link'
-import trackUserBehaviour, { CURRICULUM_MORE_DETAILS } from '../utils/trackUserBehaviour'
+import trackUserBehaviour, {
+  CURRICULUM_MORE_DETAILS,
+} from '../utils/trackUserBehaviour'
 
 const Section = styled.div`
   margin-top: 2em;
@@ -28,16 +30,22 @@ class CurriculumSection extends React.Component {
   }
 
   toggleSubSection = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    }, () => {
-      if (this.state.isOpen) {
-        // send event to analytics
-        trackUserBehaviour({event: CURRICULUM_MORE_DETAILS, payload: {
-          section: this.props.title
-        }});
+    this.setState(
+      {
+        isOpen: !this.state.isOpen,
+      },
+      () => {
+        if (this.state.isOpen) {
+          // send event to analytics
+          trackUserBehaviour({
+            event: CURRICULUM_MORE_DETAILS,
+            payload: {
+              section: this.props.title,
+            },
+          })
+        }
       }
-    })
+    )
   }
 
   render() {

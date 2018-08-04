@@ -35,6 +35,8 @@ export const ABOUT_CONTINUOUS =
 
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.png?alt=media'
+export const ABOUT_VALUES =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutus_values.jpg?alt=media'
 // Team members
 
 export const ALEX =
@@ -60,3 +62,11 @@ export const OLU =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FOluOmoniyi.png?alt=media'
 export const STEFANO =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FStefanoMezza.png?alt=media'
+
+// Code of conduct
+export const CODE_OF_CONDUCT_SPLASH =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeconduct_splash.jpg?alt=media'
+export const CODE_OF_CONDUCT_KEYPOINTS =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_keypoints.jpg?alt=media'
+export const CODE_OF_CONDUCT_MORE_DETAIL =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_moredetail.jpg?alt=media'
