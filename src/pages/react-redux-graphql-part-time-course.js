@@ -28,7 +28,7 @@ import {
   DiscussIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
-import { LONDON, PART_TIME, STEFANO } from '../config/images'
+import { PART_TIME, STEFANO } from '../config/images'
 
 const PartTime = () => (
   <React.Fragment>
