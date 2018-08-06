@@ -71,7 +71,7 @@ const BootcampLondon = () => (
                 <H3>
                   <strong>Early bird ticket</strong>
                 </H3>
-                <P>Early bird tickes available until 20th July 2018.</P>
+                <P>Discount tickes available until 10th August 2018.</P>
                 <BuyQuantityButton
                   course={{
                     price: 1590,
