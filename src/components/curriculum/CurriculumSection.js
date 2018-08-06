@@ -29,7 +29,7 @@ class CurriculumSection extends React.Component {
     super(props)
 
     this.state = {
-      isOpen: props.isOpen || false
+      isOpen: props.isOpen || false,
     }
   }
 
@@ -74,8 +74,8 @@ class CurriculumSection extends React.Component {
             </StyledLinkScroll>
           </CurriculumSubSection>
         ) : (
-            <Link onClick={toggleSubSection}>Click here for more detail</Link>
-          )}
+          <Link onClick={toggleSubSection}>Click here for more detail</Link>
+        )}
       </Section>
     )
   }

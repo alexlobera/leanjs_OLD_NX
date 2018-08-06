@@ -2,9 +2,7 @@ import AttendeeQuote from './AttendeeQuote'
 import TrainingItem from './TrainingItem'
 import TrainingList from './TrainingList'
 import TrustedBySection from './TrustedBySection'
-import UpcomingBootcampsSection from './UpcomingBootcampsSection'
-import UpcomingPartTimeCoursesSection from './UpcomingPartTimeCoursesSection'
-import UpcominReactNativesSection from './UpcominReactNativesSection'
+import UpcomingTrainingSection from './UpcomingTrainingSection'
 import { TrustedByLogoList } from './TrustedBySection'
 import Price from './Price'
 
@@ -14,8 +12,6 @@ export {
   TrainingList,
   TrustedBySection,
   TrustedByLogoList,
-  UpcomingPartTimeCoursesSection,
-  UpcomingBootcampsSection,
-  UpcominReactNativesSection,
+  UpcomingTrainingSection,
   Price,
 }

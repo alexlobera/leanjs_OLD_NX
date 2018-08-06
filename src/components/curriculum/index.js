@@ -3,4 +3,9 @@ import CurriculumPartTime from './CurriculumPartTime'
 import FullCurriculum from './FullCurriculum'
 import CurriculumReactNative from './CurriculumReactNative'
 
-export { CurriculumBootcamp, CurriculumPartTime, CurriculumReactNative, FullCurriculum }
+export {
+  CurriculumBootcamp,
+  CurriculumPartTime,
+  CurriculumReactNative,
+  FullCurriculum,
+}

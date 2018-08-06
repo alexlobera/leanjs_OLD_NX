@@ -13,12 +13,12 @@ import Header from '../components/layout/Header'
 import {
   TrustedBySection,
   AttendeeQuote,
-  UpcomingBootcampsSection,
+  UpcomingTrainingSection,
 } from '../components/training'
 import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { Image } from '../components/elements'
-import { LONDON, BOOTCAMP_RIGHT, OLU } from '../config/images'
+import { BOOTCAMP_RIGHT, OLU } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -32,7 +32,7 @@ const Boocamps = () => (
   <React.Fragment>
     <Header
       titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
-      subtitle="In 7 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"
+      subtitle="For a week, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"
       bgImg="full-time"
     />
     <TopSection>
@@ -109,7 +109,7 @@ const Boocamps = () => (
       </Grid>
     </Section>
     <TrustedBySection />
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 

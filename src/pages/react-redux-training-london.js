@@ -10,7 +10,7 @@ import { Ribbon, Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
 import {
   AttendeeQuote,
-  UpcomingPartTimeCoursesSection,
+  UpcomingTrainingSection,
   TrustedByLogoList,
 } from '../components/training'
 import { HideSingleComponentUsingCss } from '../components/utils'
@@ -194,7 +194,7 @@ const BootcampLondon = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingPartTimeCoursesSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 

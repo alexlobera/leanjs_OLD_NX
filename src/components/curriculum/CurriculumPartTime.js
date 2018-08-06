@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
 import { H1Ref, H2, H3, P } from '../text'
 import Section from './CurriculumSection'
@@ -17,7 +15,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
-import { CALLTOACTIONRED, FONT_FAMILY } from '../../config/styles'
+import CurriculumCard from './CurriculumCard'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -28,16 +26,8 @@ const PartTimeFinalProject = () => (
   </Ul>
 )
 
-const BootcampCard = styled.div`
-  background-color: ${CALLTOACTIONRED};
-  padding: 2em;
-  color: #ffffff
-  margin-top: 2em;
-  ${FONT_FAMILY}
-`
-
 const CurriculumPartTime = () => (
-  <div>
+  <React.Fragment>
     <Col xs={12} md={12} lg={10} lgOffset={1}>
       <H1Ref>
         Part-time course curriculum{' '}
@@ -87,13 +77,11 @@ const CurriculumPartTime = () => (
           </Section>
         </Col>
       </Row>
-      <BootcampCard>
+      <CurriculumCard>
         <Row>
           <Col lg={5} lgOffset={1}>
-            <span>
-              Looking for the most complete React curriculum? Our 1-week
-              bootcamp has it...
-            </span>
+            Looking for the most complete React curriculum? Our 1-week
+            bootcamp has it...
           </Col>
           <Col lg={6} center>
             <LinkButton to="/react-redux-graphql-bootcamp" secondary>
@@ -101,9 +89,9 @@ const CurriculumPartTime = () => (
             </LinkButton>
           </Col>
         </Row>
-      </BootcampCard>
+      </CurriculumCard>
     </Col>
-  </div>
+  </React.Fragment>
 )
 
 export default CurriculumPartTime

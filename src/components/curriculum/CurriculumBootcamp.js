@@ -21,18 +21,20 @@ import Hackathon from './sessions/Hackathon'
 
 const CurriculumBootcamp = ({ showTitle = true }) => (
   <React.Fragment>
-    {showTitle?(
-    <Row>
-      <Col xs={12} md={12} lg={10} lgOffset={1}>
-        <H1Ref>
-          React Bootcamp Curriculum{' '}
-          <a href="#curriculum" name="curriculum">
-            #
-          </a>
-        </H1Ref>
-      </Col>
-    </Row>
-    ) : '' }
+    {showTitle ? (
+      <Row>
+        <Col xs={12} md={12} lg={10} lgOffset={1}>
+          <H1Ref>
+            React Bootcamp Curriculum{' '}
+            <a href="#curriculum" name="curriculum">
+              #
+            </a>
+          </H1Ref>
+        </Col>
+      </Row>
+    ) : (
+      ''
+    )}
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section

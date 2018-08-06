@@ -10,10 +10,9 @@ import { Ribbon, Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import { GREY2, FONT_FAMILY } from '../config/styles'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
+import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -58,7 +57,7 @@ const BootcampLondon = () => (
                 food.
               </P>
               <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 24%</Ribbon>
+                <Ribbon>Save 12%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
                 </H3>
@@ -189,7 +188,7 @@ const BootcampLondon = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 
