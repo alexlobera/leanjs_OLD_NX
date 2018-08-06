@@ -58,9 +58,7 @@ const CodeOfConduct = () => (
                 </Col>
                 <Col md={6} mdOffset={1}>
                   <H2>
-                    <H2>
-                      Summary
-                    </H2>
+                    Summary
                   </H2>
                   <P>
                     Every person at our trainings will be required to agree with
