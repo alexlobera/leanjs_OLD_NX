@@ -96,7 +96,7 @@ const BootcampLondon = () => (
                 </H3>
                 <P>
                   Pay in 3 installments - the first one being 50% of the total
-                  cost and the others to follow over 6 months. Contact us and we
+                  cost and the others to follow over 3 months. Contact us and we
                   can talk things through with you.
                 </P>
                 <InstallmentsContainer>
