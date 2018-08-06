@@ -1,10 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
-import Link from '../components/navigation/Link'
-import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2, H2Ref, P } from '../components/text'
 import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
@@ -22,10 +19,6 @@ const CodeOfConduct = () => (
       subtitle="All students, coaches, sponsors and volunteers at our trainings are<br /> required to agree with the following code of conduct.            "
       links={[
         { text: 'Key takeaways ', to: 'key-takeaways' },
-        {
-          text: 'Summary',
-          to: 'summary',
-        },
         { text: 'More detail', to: 'more-detail' },
       ]}
       bgImg="about-us"
@@ -37,7 +30,15 @@ const CodeOfConduct = () => (
             <Col lg={10} lgOffset={1}>
               <Row>
                 <Col md={5}>
-                  <H2>Key takeways</H2>
+                  <H2Ref>
+                    Key takeways
+                    <a
+                      href="#key-takeaways"
+                      name="key-takeaways"
+                    >
+                      #
+                    </a>
+                  </H2Ref>
                   <Ul>
                     <Li>
                       Everyone is required to adhere to the code of conduct -{' '}
@@ -56,7 +57,9 @@ const CodeOfConduct = () => (
                   <Image src={CODE_OF_CONDUCT_KEYPOINTS} />
                 </Col>
                 <Col md={6} mdOffset={1}>
-                  <H2>Summary</H2>
+                  <H2>
+                    Summary
+                  </H2>
                   <P>
                     Every person at our trainings will be required to agree with
                     this code of conduct and organisers will enforce this code
@@ -107,7 +110,15 @@ const CodeOfConduct = () => (
       <Grid>
         <Row>
           <Col xs={12} md={10} mdOffset={1}>
-            <H2>More detail</H2>
+            <H2Ref>
+              More detail
+              <a
+                href="#more-detail"
+                name="more-detail"
+              >
+                #
+              </a>
+            </H2Ref>
           </Col>
         </Row>
         <Row>
