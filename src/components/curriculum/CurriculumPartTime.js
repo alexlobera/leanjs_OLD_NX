@@ -80,8 +80,8 @@ const CurriculumPartTime = () => (
       <CurriculumCard>
         <Row>
           <Col lg={5} lgOffset={1}>
-            Looking for the most complete React curriculum? Our 1-week
-            bootcamp has it...
+            Looking for the most complete React curriculum? Our 1-week bootcamp
+            has it...
           </Col>
           <Col lg={6} center>
             <LinkButton to="/react-redux-graphql-bootcamp" secondary>

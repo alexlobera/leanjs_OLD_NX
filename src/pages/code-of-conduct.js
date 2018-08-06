@@ -32,10 +32,7 @@ const CodeOfConduct = () => (
                 <Col md={5}>
                   <H2Ref>
                     Key takeways
-                    <a
-                      href="#key-takeaways"
-                      name="key-takeaways"
-                    >
+                    <a href="#key-takeaways" name="key-takeaways">
                       #
                     </a>
                   </H2Ref>
@@ -57,9 +54,7 @@ const CodeOfConduct = () => (
                   <Image src={CODE_OF_CONDUCT_KEYPOINTS} />
                 </Col>
                 <Col md={6} mdOffset={1}>
-                  <H2>
-                    Summary
-                  </H2>
+                  <H2>Summary</H2>
                   <P>
                     Every person at our trainings will be required to agree with
                     this code of conduct and organisers will enforce this code
@@ -112,10 +107,7 @@ const CodeOfConduct = () => (
           <Col xs={12} md={10} mdOffset={1}>
             <H2Ref>
               More detail
-              <a
-                href="#more-detail"
-                name="more-detail"
-              >
+              <a href="#more-detail" name="more-detail">
                 #
               </a>
             </H2Ref>
