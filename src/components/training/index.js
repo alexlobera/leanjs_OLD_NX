@@ -4,7 +4,9 @@ import TrainingList from './TrainingList'
 import TrustedBySection from './TrustedBySection'
 import UpcomingBootcampsSection from './UpcomingBootcampsSection'
 import UpcomingPartTimeCoursesSection from './UpcomingPartTimeCoursesSection'
+import UpcominReactNativesSection from './UpcominReactNativesSection'
 import { TrustedByLogoList } from './TrustedBySection'
+import Price from './Price'
 
 export {
   AttendeeQuote,
@@ -14,4 +16,6 @@ export {
   TrustedByLogoList,
   UpcomingPartTimeCoursesSection,
   UpcomingBootcampsSection,
+  UpcominReactNativesSection,
+  Price,
 }

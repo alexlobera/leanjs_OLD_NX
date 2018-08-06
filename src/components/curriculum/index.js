@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
 import CurriculumBootcamp from './CurriculumBootcamp'
 import CurriculumPartTime from './CurriculumPartTime'
+import FullCurriculum from './FullCurriculum'
+import CurriculumReactNative from './CurriculumReactNative'
 
-export { CurriculumBootcamp, CurriculumPartTime }
+export { CurriculumBootcamp, CurriculumPartTime, CurriculumReactNative, FullCurriculum }

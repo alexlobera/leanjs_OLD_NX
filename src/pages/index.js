@@ -8,15 +8,13 @@ import { H2, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import { HideSingleComponentUsingCss } from '../components/utils'
-import { CurriculumBootcamp } from '../components/curriculum'
+import { FullCurriculum } from '../components/curriculum'
 import { SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import { Card, Image } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import {
-  TrainingItem,
-  TrainingList,
   UpcomingBootcampsSection,
 } from '../components/training'
 import {
@@ -91,7 +89,7 @@ const IndexPage = () => (
           </Col>
         </CallToActionRow>
         <Card border="shadow">
-          <CurriculumBootcamp />
+          <FullCurriculum />
         </Card>
       </Grid>
     </TopSection>

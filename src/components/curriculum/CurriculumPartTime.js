@@ -40,7 +40,7 @@ const CurriculumPartTime = () => (
   <div>
     <Col xs={12} md={12} lg={10} lgOffset={1}>
       <H1Ref>
-        Part-time course, the most progressive curriculum out there{' '}
+        Part-time course curriculum{' '}
         <a href="#curriculum" name="curriculum">
           #
         </a>

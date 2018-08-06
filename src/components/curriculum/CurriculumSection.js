@@ -25,8 +25,12 @@ const StyledLinkScroll = styled(LinkScroll)`
 `
 
 class CurriculumSection extends React.Component {
-  state = {
-    isOpen: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isOpen: props.isOpen || false
+    }
   }
 
   toggleSubSection = () => {
@@ -70,8 +74,8 @@ class CurriculumSection extends React.Component {
             </StyledLinkScroll>
           </CurriculumSubSection>
         ) : (
-          <Link onClick={toggleSubSection}>Click here for more detail</Link>
-        )}
+            <Link onClick={toggleSubSection}>Click here for more detail</Link>
+          )}
       </Section>
     )
   }

@@ -24,16 +24,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-
-const Price = styled.span`
-  ${FONT_FAMILY} font-size: 36px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${GREY2};
-`
+import { Price } from '../components/training'
 
 const InstallmentsContainer = styled.div`
   margin: 12px 0;
