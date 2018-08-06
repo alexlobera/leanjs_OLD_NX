@@ -42,7 +42,7 @@ const InstallmentsContainer = styled.div`
 const BootcampLondon = () => (
   <React.Fragment>
     <Header
-      titleLines={['React Redux GraphQL Bootcamp', '20-25 Aug, 2018 - London']}
+      titleLines={['React Redux GraphQL Bootcamp', '20-25 Aug, 2018 - Greenwich, London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
       links={header.landingTraining.links}
       bgImg="training-event"

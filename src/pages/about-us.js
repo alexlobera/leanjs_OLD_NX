@@ -52,6 +52,7 @@ const SocialLink = ({ to, children }) => (
           to,
         },
       })
+      onClick && onClick(e)
     }}
     target="_blank"
   >
@@ -580,7 +581,7 @@ const AboutUs = () => (
       </Grid>
     </Section>
     <UpcomingBootcampsSection />
-    {/* 
+    {/*
         <Section>
             <Grid>
                 <Row>
