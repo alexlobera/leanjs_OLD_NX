@@ -81,7 +81,7 @@ const IndexPage = () => (
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              to="/about-us#corporate-training"
+              to="/about-us#corporate-team-training"
               children="Corporate team training >>"
             />
           </Col>
@@ -255,7 +255,7 @@ const IndexPage = () => (
             <SectionButtonRow>
               <Col md={4}>
                 <LinkButton
-                  to="/about-us#private-on-site-corporate-training"
+                  to="/about-us#private-on-site-corporate-team-training"
                   children="Corporate training"
                 />
               </Col>
