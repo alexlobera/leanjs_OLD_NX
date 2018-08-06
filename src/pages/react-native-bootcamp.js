@@ -28,7 +28,7 @@ import {
   PeopleNetWorkIcon,
 } from '../components/icons'
 
-const ReactNativeBoocamps = () => (
+const ReactNativeBoocamp = () => (
   <React.Fragment>
     <Header
       titleLines={['React Native Training']}
@@ -113,4 +113,4 @@ const ReactNativeBoocamps = () => (
   </React.Fragment>
 )
 
-export default ReactNativeBoocamps
+export default ReactNativeBoocamp
