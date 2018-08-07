@@ -7,9 +7,9 @@ import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import { UpcomingBootcampsSection } from '../components/training'
+import { UpcomingTrainingSection } from '../components/training'
 
-const BootcampAustin = () => (
+const FullstackBootcamp = () => (
   <React.Fragment>
     <Header
       titleLines={['1-Week back-end JS Bootcamp', 'GraphQL API, Node, Mongo']}
@@ -119,8 +119,8 @@ const BootcampAustin = () => (
       </Grid>
     </Section>
 
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 
-export default BootcampAustin
+export default FullstackBootcamp

@@ -10,10 +10,9 @@ import { Ribbon, Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import { GREY2, FONT_FAMILY } from '../config/styles'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
+import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -24,16 +23,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-
-const Price = styled.span`
-  ${FONT_FAMILY} font-size: 36px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${GREY2};
-`
+import { Price } from '../components/training'
 
 const InstallmentsContainer = styled.div`
   margin: 12px 0;
@@ -70,11 +60,11 @@ const BootcampLondon = () => (
                 food.
               </P>
               <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 24%</Ribbon>
+                <Ribbon>Save 12%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
                 </H3>
-                <P>Early bird tickes available until 20th July 2018.</P>
+                <P>Discount tickes available until 10th August 2018.</P>
                 <BuyQuantityButton
                   course={{
                     price: 1590,
@@ -99,7 +89,7 @@ const BootcampLondon = () => (
                 </H3>
                 <P>
                   Pay in 3 installments - the first one being 50% of the total
-                  cost and the others to follow over 6 months. Contact us and we
+                  cost and the others to follow over 3 months. Contact us and we
                   can talk things through with you.
                 </P>
                 <InstallmentsContainer>
@@ -201,7 +191,7 @@ const BootcampLondon = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 

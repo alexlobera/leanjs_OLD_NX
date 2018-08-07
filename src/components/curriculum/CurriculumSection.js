@@ -25,8 +25,12 @@ const StyledLinkScroll = styled(LinkScroll)`
 `
 
 class CurriculumSection extends React.Component {
-  state = {
-    isOpen: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isOpen: props.isOpen || false,
+    }
   }
 
   toggleSubSection = () => {

@@ -7,7 +7,7 @@ import { H2, H2Ref, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import {
   AttendeeQuote,
-  UpcomingPartTimeCoursesSection,
+  UpcomingTrainingSection,
   TrustedBySection,
 } from '../components/training'
 import { Card } from '../components/elements'
@@ -118,7 +118,7 @@ const PartTime = () => (
 
     <TrustedBySection />
 
-    <UpcomingPartTimeCoursesSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 

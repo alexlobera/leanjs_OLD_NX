@@ -2,7 +2,7 @@ import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, P } from '../components/text'
-import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
+import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
@@ -167,7 +167,7 @@ const CodeOfConduct = () => (
         </Row>
       </Grid>
     </Section>
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 
