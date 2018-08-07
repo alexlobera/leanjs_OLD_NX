@@ -69,9 +69,7 @@ const Curriculum = () => (
       </Grid>
     </TopSection>
     <Section>
-      <Grid>
-        afdadfa  fads
-      </Grid>
+      <Grid>afdadfa fads</Grid>
     </Section>
   </React.Fragment>
 )

@@ -1,15 +1,19 @@
 import styled from 'styled-components'
 import Link, { styleChildLinkColor } from '../../navigation/Link'
 import React from 'react'
-import Ul, { Li as defaultLi } from '../../layout/Ul'
+import DefaultUl, { Li } from '../../layout/Ul'
 import MenuData from './Menu.json'
 import { HideSingleComponentUsingCss } from '../../utils'
 import { WHITE } from '../../../config/styles'
 
-const Li = styled(defaultLi)`
-  margin: 0 !important;
-  color: ${WHITE};
-  ${styleChildLinkColor(WHITE)};
+const Ul = styled(DefaultUl)`
+  > li {
+    margin: 0 !important;
+    padding-left: 10px;
+    padding-right: 12px;
+    color: ${WHITE};
+    ${styleChildLinkColor(WHITE)};
+  }
 `
 
 const Item = ({ children, ...props }) => (

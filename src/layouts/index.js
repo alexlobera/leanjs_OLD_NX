@@ -62,8 +62,10 @@ const Layout = ({ children, data }) => (
           link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
         />
         <Menu />
-        <Modal>{children()}</Modal>
-        <Footer />
+        <Modal>
+          {children()}
+          <Footer />
+        </Modal>
       </React.Fragment>
     </ApolloProvider>
   </ThemeProvider>

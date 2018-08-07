@@ -4,8 +4,8 @@ import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
 import { blue1, GREY2 } from '../../config/styles'
 
 const Section = styled.section`
-  padding-top: ${props => (props.top ? '150px' : '30px')};
-  ${props => (props.top ? 'margin-top: -117px;' : '')} padding-bottom: 30px;
+  padding-top: ${props => (props.top ? '50px' : '30px')};
+  padding-bottom: 30px;
   p:last-child {
     margin-bottom: 0;
     padding-bottom: 0;

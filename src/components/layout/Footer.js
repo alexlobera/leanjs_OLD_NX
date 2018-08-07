@@ -32,9 +32,7 @@ const LinkList = styled(Ul)`
   list-style: none;
   margin-left: 0;
 `
-const SocialSection = styled.div`
-  margin: 50px 0;
-`
+
 const SocialMenu = styled(Ul)`
   > li {
     padding: 0;
@@ -110,26 +108,24 @@ const Footer = () => (
                     </Link>
                   </Li>
                 </LinkList>
-                <SocialSection>
-                  <P>Follow us...</P>
-                  <SocialMenu unstyled inline>
-                    <Li>
-                      <SocialLink to="https://twitter.com/reactjsacademy">
-                        <BulletIcon social icon={TwitterIcon} />
-                      </SocialLink>
-                    </Li>
-                    <Li>
-                      <SocialLink to="https://www.instagram.com/reactjsacademy/">
-                        <BulletIcon social icon={InstagramIcon} />
-                      </SocialLink>
-                    </Li>
-                    <Li>
-                      <SocialLink to="https://www.facebook.com/reactjsacademy/">
-                        <BulletIcon social icon={FacebookIcon} />
-                      </SocialLink>
-                    </Li>
-                  </SocialMenu>
-                </SocialSection>
+                <P>Follow us...</P>
+                <SocialMenu unstyled inline>
+                  <Li>
+                    <SocialLink to="https://twitter.com/reactjsacademy">
+                      <BulletIcon social icon={TwitterIcon} />
+                    </SocialLink>
+                  </Li>
+                  <Li>
+                    <SocialLink to="https://www.instagram.com/reactjsacademy/">
+                      <BulletIcon social icon={InstagramIcon} />
+                    </SocialLink>
+                  </Li>
+                  <Li>
+                    <SocialLink to="https://www.facebook.com/reactjsacademy/">
+                      <BulletIcon social icon={FacebookIcon} />
+                    </SocialLink>
+                  </Li>
+                </SocialMenu>
               </Col>
             </Row>
             <Row>

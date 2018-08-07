@@ -73,7 +73,11 @@ const HeaderSection = styled(Section)`
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: 100vh;
-    padding: 175px 0;
+    min-height: 750px;
+    padding: 200px 0;
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    padding: 150px 0 20px;
   }
 `
 const H2Header = styled(BaseH2)`
