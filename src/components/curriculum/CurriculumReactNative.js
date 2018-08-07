@@ -21,8 +21,8 @@ const CurriculumReactNative = ({ showTitle = true, isOpen = true }) => (
         </Col>
       </Row>
     ) : (
-        ''
-      )}
+      ''
+    )}
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section
