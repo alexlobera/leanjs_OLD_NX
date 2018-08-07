@@ -1,4 +1,4 @@
 import Price from './Price'
-import Price from './InstallmentsCard'
+import InstallmentsCard from './InstallmentsCard'
 
 export { Price, InstallmentsCard }
