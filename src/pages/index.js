@@ -190,14 +190,20 @@ const IndexPage = () => (
               </Link>
             </P>
             <SectionButtonRow>
-              <Col sm={6}>
+              <Col sm={4}>
                 <LinkButton
                   cta
                   to="/react-redux-graphql-bootcamp"
-                  children="1-week bootcamps"
+                  children="React bootcamps"
                 />
               </Col>
-              <Col sm={6}>
+              <Col sm={4}>
+                <LinkButton
+                  to="/react-native-bootcamp"
+                  children="React Native"
+                />
+              </Col>
+              <Col sm={4}>
                 <LinkButton
                   to="/react-redux-graphql-part-time-course"
                   children="Part-time courses"
@@ -268,7 +274,7 @@ const IndexPage = () => (
               <Col md={4}>
                 <LinkButton
                   to="/react-redux-graphql-bootcamp"
-                  children="1-week bootcamps"
+                  children="React bootcamps"
                 />
               </Col>
             </SectionButtonRow>
