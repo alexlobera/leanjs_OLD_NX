@@ -64,9 +64,9 @@ const ReactNativeBoocampLondon = () => (
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this training right for me? Are you...{' '}
-              <a href="#target-audience" name="target-audience">
+              <Link to="#target-audience" name="target-audience">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>

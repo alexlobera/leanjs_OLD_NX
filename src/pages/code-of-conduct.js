@@ -11,6 +11,7 @@ import {
   CODE_OF_CONDUCT_KEYPOINTS,
   CODE_OF_CONDUCT_MORE_DETAIL,
 } from '../config/images'
+import Link from '../components/navigation/Link'
 
 const CodeOfConduct = () => (
   <React.Fragment>
@@ -32,9 +33,9 @@ const CodeOfConduct = () => (
                 <Col md={5}>
                   <H2Ref>
                     Key takeways
-                    <a href="#key-takeaways" name="key-takeaways">
+                    <Link to="#key-takeaways" name="key-takeaways">
                       #
-                    </a>
+                    </Link>
                   </H2Ref>
                   <Ul>
                     <Li>
@@ -107,9 +108,9 @@ const CodeOfConduct = () => (
           <Col xs={12} md={10} mdOffset={1}>
             <H2Ref>
               More detail
-              <a href="#more-detail" name="more-detail">
+              <Link to="#more-detail" name="more-detail">
                 #
-              </a>
+              </Link>
             </H2Ref>
           </Col>
         </Row>

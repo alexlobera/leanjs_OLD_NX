@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Modal as BootstrapModal } from 'react-bootstrap'
 
+import Link from '../../navigation/Link'
 import style from '../styles'
 
 const PaymentConfirmation = ({ email }, { modal }) => (
@@ -21,7 +22,7 @@ const PaymentConfirmation = ({ email }, { modal }) => (
         {email}
         . Contact us at
         {' '}
-        <a href="mailto:hello@reactjs.academy">hello@reactjs.academy</a>
+        <Link to="mailto:hello@reactjs.academy">hello@reactjs.academy</Link>
         {' '}
         if you have any questions.
       </p>

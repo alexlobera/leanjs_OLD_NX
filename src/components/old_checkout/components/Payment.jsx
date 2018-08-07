@@ -17,6 +17,7 @@ import CardReactFormContainer from 'card-react'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import Link from '../../navigation/Link'
 import { getMonthFromCardDate, getYearFromCardDate } from '../utils/cardDate'
 import isPhone from '../utils/phone'
 import style from '../styles'
@@ -257,26 +258,26 @@ class Payment extends React.Component {
                   {this.props.isVoucherValidated === true ? (
                     <span className="input-group-addon">valid</span>
                   ) : (
-                    <InputGroup.Button>
-                      <Button
-                        onClick={() => {
-                          trackUserBehaviour({
-                            event: VOUCHER_VALIDATE,
-                            payload: { voucher: this.voucher.value },
-                          })
-                          this.props.validateVoucher(this.voucher.value)
-                        }}
-                        bsStyle="info"
-                        disabled={this.props.isVoucherInProgress}
-                      >
-                        {this.props.isVoucherInProgress ? (
-                          <Spinner />
-                        ) : (
-                          <span>Validate</span>
-                        )}
-                      </Button>
-                    </InputGroup.Button>
-                  )}
+                      <InputGroup.Button>
+                        <Button
+                          onClick={() => {
+                            trackUserBehaviour({
+                              event: VOUCHER_VALIDATE,
+                              payload: { voucher: this.voucher.value },
+                            })
+                            this.props.validateVoucher(this.voucher.value)
+                          }}
+                          bsStyle="info"
+                          disabled={this.props.isVoucherInProgress}
+                        >
+                          {this.props.isVoucherInProgress ? (
+                            <Spinner />
+                          ) : (
+                              <span>Validate</span>
+                            )}
+                        </Button>
+                      </InputGroup.Button>
+                    )}
                 </InputGroup>
               </FormGroup>
               <FormGroup className={this.state.emailIsValid ? '' : 'has-error'}>
@@ -308,76 +309,76 @@ class Payment extends React.Component {
                   </Col>
                 </Row>
               ) : (
-                [
-                  <FormGroup
-                    key="companyNameGroup"
-                    className={this.state.companyNameIsValid ? '' : 'has-error'}
-                  >
-                    <FormControl
-                      type="text"
-                      placeholder="Company name"
-                      name="CompanyName"
-                      value={this.companyName.value}
-                      inputRef={node => {
-                        this.companyName = node
-                      }}
-                      onChange={e => {
-                        this.validateCompanyName(e.target.value)
-                      }}
-                    />
-                  </FormGroup>,
-                  <Row style={style.bootstrap.row} key="companyVATGroup">
-                    <Col xs={4} style={style.bootstrap.col}>
-                      <FormGroup
-                        className={
-                          this.state.companyVATIsValid ? '' : 'has-error'
-                        }
-                      >
-                        <DropdownButton
+                  [
+                    <FormGroup
+                      key="companyNameGroup"
+                      className={this.state.companyNameIsValid ? '' : 'has-error'}
+                    >
+                      <FormControl
+                        type="text"
+                        placeholder="Company name"
+                        name="CompanyName"
+                        value={this.companyName.value}
+                        inputRef={node => {
+                          this.companyName = node
+                        }}
+                        onChange={e => {
+                          this.validateCompanyName(e.target.value)
+                        }}
+                      />
+                    </FormGroup>,
+                    <Row style={style.bootstrap.row} key="companyVATGroup">
+                      <Col xs={4} style={style.bootstrap.col}>
+                        <FormGroup
                           className={
                             this.state.companyVATIsValid ? '' : 'has-error'
                           }
-                          title={this.state.vatCountry}
-                          key="countryVatData"
-                          id="countryVatData"
-                          onSelect={value => {
-                            this.validateCompanyVAT(value, this.state.vatNumber)
-                          }}
                         >
-                          {vatCountries.map(country => (
-                            <MenuItem
-                              key={country.code}
-                              eventKey={country.code}
-                            >
-                              {`${country.code} - ${country.name}`}
-                            </MenuItem>
-                          ))}
-                        </DropdownButton>
-                      </FormGroup>
-                    </Col>
-                    <Col xs={8} style={style.bootstrap.col}>
-                      <FormGroup
-                        className={
-                          this.state.companyVATIsValid ? '' : 'has-error'
-                        }
-                      >
-                        <FormControl
-                          type="text"
-                          placeholder="VAT number"
-                          name="VatNumber"
-                          value={this.state.vatNumber}
-                          onChange={e => {
-                            this.validateCompanyVAT(
-                              this.state.vatCountry,
-                              e.target.value
-                            )
-                          }}
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>,
-                ]
-              )}
+                          <DropdownButton
+                            className={
+                              this.state.companyVATIsValid ? '' : 'has-error'
+                            }
+                            title={this.state.vatCountry}
+                            key="countryVatData"
+                            id="countryVatData"
+                            onSelect={value => {
+                              this.validateCompanyVAT(value, this.state.vatNumber)
+                            }}
+                          >
+                            {vatCountries.map(country => (
+                              <MenuItem
+                                key={country.code}
+                                eventKey={country.code}
+                              >
+                                {`${country.code} - ${country.name}`}
+                              </MenuItem>
+                            ))}
+                          </DropdownButton>
+                        </FormGroup>
+                      </Col>
+                      <Col xs={8} style={style.bootstrap.col}>
+                        <FormGroup
+                          className={
+                            this.state.companyVATIsValid ? '' : 'has-error'
+                          }
+                        >
+                          <FormControl
+                            type="text"
+                            placeholder="VAT number"
+                            name="VatNumber"
+                            value={this.state.vatNumber}
+                            onChange={e => {
+                              this.validateCompanyVAT(
+                                this.state.vatCountry,
+                                e.target.value
+                              )
+                            }}
+                          />
+                        </FormGroup>
+                      </Col>
+                    </Row>,
+                  ]
+                )}
               <FormGroup>
                 <FormControl
                   type="text"
@@ -458,15 +459,15 @@ class Payment extends React.Component {
               >
                 {`${
                   this.props.quantity > 1 ? `${this.props.quantity} x ` : ''
-                } ${getCurrencySymbol(
-                  this.props.currency,
-                  this.props.price
-                )}`}{' '}
+                  } ${getCurrencySymbol(
+                    this.props.currency,
+                    this.props.price
+                  )}`}{' '}
                 {this.props.discount
                   ? ` - ${getCurrencySymbol(
-                      this.props.currency,
-                      this.props.discount
-                    )} `
+                    this.props.currency,
+                    this.props.discount
+                  )} `
                   : ' '}
                 + {this.state.vatRate}% VAT ={' '}
                 {getCurrencySymbol(this.props.currency, totalPrice)}
@@ -478,13 +479,13 @@ class Payment extends React.Component {
                 >
                   We could not process your credit card. If the problem persists
                   please contact{' '}
-                  <a href="mailto:hello@reactjs.academy">
+                  <Link to="mailto:hello@reactjs.academy">
                     hello@reactjs.academy
-                  </a>
+                  </Link>
                 </div>
               ) : (
-                ''
-              )}
+                  ''
+                )}
               <FormGroup>
                 <Button
                   onClick={this.pay}
@@ -496,10 +497,10 @@ class Payment extends React.Component {
                   {this.props.isPaymentInProgress ? (
                     <Spinner />
                   ) : (
-                    <span>
-                      Pay {getCurrencySymbol(this.props.currency, totalPrice)}
-                    </span>
-                  )}
+                      <span>
+                        Pay {getCurrencySymbol(this.props.currency, totalPrice)}
+                      </span>
+                    )}
                 </Button>
               </FormGroup>
             </form>

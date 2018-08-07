@@ -1,6 +1,7 @@
 import React from 'react'
 import { LinkButton } from '../buttons'
-import { H1Ref, H2, H3, P } from '../text'
+import { H1Ref } from '../text'
+import Link from '../navigation/Link'
 import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
@@ -31,9 +32,9 @@ const CurriculumPartTime = () => (
     <Col xs={12} md={12} lg={10} lgOffset={1}>
       <H1Ref>
         Part-time course curriculum{' '}
-        <a href="#curriculum" name="curriculum">
+        <Link to="#curriculum" name="curriculum">
           #
-        </a>
+        </Link>
       </H1Ref>
       <Row>
         <Col xs={12} md={6}>

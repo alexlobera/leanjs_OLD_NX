@@ -20,6 +20,7 @@ import {
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import Link from '../components/navigation/Link'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -68,9 +69,9 @@ const BootcampLondon = () => (
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this bootcamp right for me? Are you...{' '}
-              <a href="#target-audience" name="target-audience">
+              <Link to="#target-audience" name="target-audience">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>
@@ -99,9 +100,9 @@ const BootcampLondon = () => (
             <P>
               This is not a learn-to-code bootcamp. If you want to learn to
               code, we recommend you to contact our London-based partner{' '}
-              <a href="https://makers.tech/" target="_blanck">
+              <Link to="https://makers.tech/" target="_blanck">
                 Makers
-              </a>
+              </Link>
               . PLUS you'll get a &pound;250 discount using our reference
               "ReactJS Academy".
             </P>

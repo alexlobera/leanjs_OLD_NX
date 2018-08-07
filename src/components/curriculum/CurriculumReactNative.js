@@ -1,5 +1,6 @@
 import React from 'react'
 import { H1Ref } from '../text'
+import Link from '../navigation/Link'
 import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ReactNativeFoundationSession from './sessions/ReactNativeFoundationSession'
@@ -13,15 +14,15 @@ const CurriculumReactNative = ({ showTitle = true, isOpen = true }) => (
         <Col xs={12} md={12} lg={10} lgOffset={1}>
           <H1Ref>
             React Native Curriculum
-            <a href="#curriculum" name="curriculum">
+            <Link to="#curriculum" name="curriculum">
               #
-            </a>
+            </Link>
           </H1Ref>
         </Col>
       </Row>
     ) : (
-      ''
-    )}
+        ''
+      )}
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section
