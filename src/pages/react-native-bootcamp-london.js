@@ -49,30 +49,6 @@ const ReactNativeBoocampLondon = () => (
                 it does not include the cost of the flights, accomodation, or
                 food.
               </P>
-              {/* <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 21%</Ribbon>
-                <H3>
-                  <strong>Early bird ticket</strong>
-                </H3>
-                <P>Price goes up to &pound;450 on August 31st, 2018.</P>
-                <BuyQuantityButton
-                  course={{
-                    price: 332.5,
-                    trainingInstanceId: '5b68c95eaff9b939d15e509c',
-                    title: 'React Native London',
-                  }}
-                />
-                <P sm>
-                  By purchasing a training, you agree to our{' '}
-                  <Link target="_blank" to="terms-of-service">
-                    Terms of Service
-                  </Link>{' '}
-                  &{' '}
-                  <Link target="_blank" to="code-of-conduct">
-                    Code of conduct
-                  </Link>
-                </P>
-              </Card> */}
               <CheckoutCard
                 trainingInstanceId="5b68c95eaff9b939d15e509c"
                 price={332.5}

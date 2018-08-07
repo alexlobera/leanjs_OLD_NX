@@ -53,24 +53,6 @@ const BootcampLondon = () => (
                 it does not include the cost of the flights, accomodation, or
                 food.
               </P>
-              {/* <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 24%</Ribbon>
-                <H3>
-                  <strong>Early bird ticket</strong>
-                </H3>
-                <P>Early bird tickes available until 20th August 2018.</P>
-                <BuyQuantityButton
-                  course={{
-                    price: 995,
-                    trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
-                    title: 'React Part-Time London',
-                  }}
-                />
-                <P>
-                  By purchasing a training, you agree to our{' '}
-                  <Link to="terms-of-service">Terms & Conditions</Link>
-                </P>
-              </Card> */}
               <CheckoutCard
                 trainingInstanceId="5b1c2197b8340f47a4b8e3e7"
                 price={995}

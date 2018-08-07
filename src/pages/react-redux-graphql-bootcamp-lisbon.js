@@ -52,30 +52,6 @@ const BootcampLisbon = () => (
                 Please be aware that the tickets cover the cost of the training,
                 it does not include the cost of the flights, accomodation.
               </P>
-              {/* <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 12%</Ribbon>
-                <H3>
-                  <strong>Early bird ticket</strong>
-                </H3>
-                <P>Discount tickes available until August 31st, 2018.</P>
-                <BuyQuantityButton
-                  course={{
-                    price: 1495,
-                    trainingInstanceId: '5b3605d7b8340f47a4b8e420',
-                    title: 'Bootcamp London',
-                  }}
-                />
-                <P sm>
-                  By purchasing a training, you agree to our{' '}
-                  <Link target="_blank" to="terms-of-service">
-                    Terms of Service
-                  </Link>{' '}
-                  &{' '}
-                  <Link target="_blank" to="code-of-conduct">
-                    Code of conduct
-                  </Link>
-                </P>
-              </Card> */}
               <CheckoutCard
                 trainingInstanceId="5b699e97aff9b939d15e50a1"
                 price={1495}
