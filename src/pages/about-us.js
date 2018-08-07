@@ -5,7 +5,7 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
-import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
+import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
@@ -580,7 +580,7 @@ const AboutUs = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
     {/*
         <Section>
             <Grid>
