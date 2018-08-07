@@ -6,7 +6,7 @@ import ReactNativeFoundationSession from './sessions/ReactNativeFoundationSessio
 import ReactNativeGesturesSession from './sessions/ReactNativeGesturesSession'
 import ReactNativeAnimationsSession from './sessions/ReactNativeAnimationsSession'
 
-const CurriculumReactNative = ({ showTitle = true }) => (
+const CurriculumReactNative = ({ showTitle = true, isOpen = true }) => (
   <React.Fragment>
     {showTitle ? (
       <Row>
@@ -20,14 +20,14 @@ const CurriculumReactNative = ({ showTitle = true }) => (
         </Col>
       </Row>
     ) : (
-      ''
-    )}
+        ''
+      )}
     <Row>
       <Col xs={12} md={6} lg={5} lgOffset={1}>
         <Section
           title="React Native Day 1"
           subTitle="Foundation, Animations, and Gestures"
-          isOpen={true}
+          isOpen={isOpen}
         >
           <ReactNativeFoundationSession title="Foundation" />
           <ReactNativeAnimationsSession title="Animations" />

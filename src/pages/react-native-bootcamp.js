@@ -62,7 +62,7 @@ const ReactNativeBoocamp = () => (
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={NotBegginersIcon} />
-                Ideal for React developers who want to expand their skills onto
+                Ideal for React developers who want to expand their skills into
                 React Native. Not for React beginners!
               </Li>
               <Li>

@@ -17,7 +17,7 @@ const FullCurriculum = () => (
       </Col>
     </Row>
     <CurriculumBootcamp showTitle={false} />
-    <CurriculumReactNative showTitle={false} />
+    <CurriculumReactNative showTitle={false} isOpen={false} />
   </React.Fragment>
 )
 
