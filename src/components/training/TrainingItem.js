@@ -1,22 +1,27 @@
 import React from 'react'
+import styled from 'styled-components'
 import { P } from '../text'
 import { Col } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
 import { Image } from '../elements'
 
+const TrainingItemCol = styled(Col)`
+  padding-bottom: 16px;
+`
+
 const TrainingItem = ({ name, location, startDate, path, imageSrc }) => (
   <React.Fragment>
-    <Col xs={5} md={2}>
+    <TrainingItemCol xs={5} md={2}>
       <Link to={path}>
         <Image src={imageSrc} />
       </Link>
-    </Col>
-    <Col xs={7} md={4}>
+    </TrainingItemCol>
+    <TrainingItemCol xs={7} md={4}>
       Venue: {location}
       <P>Starts: {startDate}</P>
       <LinkButton to={path} children={name} />
-    </Col>
+    </TrainingItemCol>
   </React.Fragment>
 )
 

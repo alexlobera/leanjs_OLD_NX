@@ -1,13 +1,12 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H3, P } from '../components/text'
-import Ul, { Li } from '../components/layout/Ul'
+import { H2, P } from '../components/text'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingBootcampsSection } from '../components/training'
+import { UpcomingTrainingSection } from '../components/training'
 
 const BootcampAustin = () => (
   <React.Fragment>
@@ -62,7 +61,7 @@ const BootcampAustin = () => (
       </Grid>
     </Section>
 
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 

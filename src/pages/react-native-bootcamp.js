@@ -8,7 +8,7 @@ import {
   HideSingleComponentUsingCss,
   DisplaySingleComponentUsingCss,
 } from '../components/utils'
-import { CurriculumBootcamp } from '../components/curriculum'
+import { CurriculumReactNative } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import {
   TrustedBySection,
@@ -28,11 +28,11 @@ import {
   PeopleNetWorkIcon,
 } from '../components/icons'
 
-const Boocamps = () => (
+const ReactNativeBoocamp = () => (
   <React.Fragment>
     <Header
-      titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
-      subtitle="For a week, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"
+      titleLines={['React Native Training']}
+      subtitle="Intense hands-on React Native training, <br /> return to work as a React Native specialist"
       bgImg="full-time"
     />
     <TopSection>
@@ -41,13 +41,13 @@ const Boocamps = () => (
           <Col xs={12} sm={5} smOffset={1}>
             <LinkButton
               cta
-              to="/react-redux-graphql-bootcamp-london"
-              children="Next bootcamp: 20th August, London >>"
+              to="/react-native-bootcamp-london"
+              children="Next React Native: 17th Sept, London >>"
             />
           </Col>
         </CallToActionRow>
         <Card border="shadow">
-          <CurriculumBootcamp />
+          <CurriculumReactNative />
         </Card>
       </Grid>
     </TopSection>
@@ -58,16 +58,16 @@ const Boocamps = () => (
             <Image src={BOOTCAMP_RIGHT} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
-            <H2>Is this bootcamp right for me?</H2>
+            <H2>Is this training right for me?</H2>
             <Ul unstyled>
+              <Li>
+                <BulletIcon icon={NotBegginersIcon} />
+                Ideal for React developers who want to expand their skills into
+                React Native. Not for React beginners!
+              </Li>
               <Li>
                 <BulletIcon icon={RunFastIcon} />
                 Extremely rapid, intense learning
-              </Li>
-              <Li>
-                <BulletIcon icon={NotBegginersIcon} />
-                Ideal for experienced programmers familiar with good practices.
-                Not for beginners!
               </Li>
               <Li>
                 <BulletIcon icon={TickBadgeIcon} />
@@ -85,8 +85,8 @@ const Boocamps = () => (
               </Li>
             </Ul>
             <P>
-              <LinkButton cta to="/react-redux-graphql-bootcamp-london">
-                Next bootcamp: August 20th, London
+              <LinkButton cta to="/react-native-bootcamp-london">
+                Next React Native: 17th Sept, London >>
               </LinkButton>
             </P>
           </Col>
@@ -113,4 +113,4 @@ const Boocamps = () => (
   </React.Fragment>
 )
 
-export default Boocamps
+export default ReactNativeBoocamp

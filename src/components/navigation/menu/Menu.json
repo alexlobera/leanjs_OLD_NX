@@ -1,7 +1,12 @@
 [
   {
     "to": "/react-redux-graphql-bootcamp",
-    "text": "Bootcamp",
+    "text": "React bootcamp",
+    "onlyOn": null
+  },
+  {
+    "to": "/react-native-bootcamp",
+    "text": "React Native",
     "onlyOn": null
   },
   {

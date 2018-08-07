@@ -1,50 +1,33 @@
 import React from 'react'
-import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
-import { LinkButton } from '../components/buttons'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumPartTime } from '../components/curriculum'
+import { CurriculumReactNative } from '../components/curriculum'
 import { Ribbon, Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
-import {
-  AttendeeQuote,
-  UpcomingTrainingSection,
-  TrustedByLogoList,
-} from '../components/training'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import { GREY2, FONT_FAMILY } from '../config/styles'
+import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
+import { TrustedByLogoList } from '../components/training/TrustedBySection'
+import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import {
   BulletIcon,
-  NotBegginerIcon,
-  CodeIcon,
+  NotBegginersIcon,
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
 
-const Price = styled.span`
-  ${FONT_FAMILY} font-size: 36px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${GREY2};
-`
-
-const BootcampLondon = () => (
+const ReactNativeBoocampLondon = () => (
   <React.Fragment>
     <Header
-      titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
-      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
+      titleLines={['React Native Training', '17 September, 2018 - London']}
+      subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
       links={header.landingTraining.links}
-      bgImg="part-time"
+      bgImg="training-event"
     />
     <TopSection xsBgDark>
       <Grid>
@@ -60,108 +43,84 @@ const BootcampLondon = () => (
                   #
                 </a>
               </H2Ref>
-              <P style={{ paddingBottom: '20px' }}>
+              <P>
                 Please be aware that the tickets cover the cost of the training,
                 it does not include the cost of the flights, accomodation, or
                 food.
               </P>
               <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 24%</Ribbon>
+                <Ribbon>Save 21%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
                 </H3>
-                <P>Early bird tickes available until 20th August 2018.</P>
+                <P>Price goes up to &pound;450 on August 31st, 2018.</P>
                 <BuyQuantityButton
                   course={{
-                    price: 995,
-                    trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
-                    title: 'React Part-Time London',
+                    price: 332.5,
+                    trainingInstanceId: '5b68c95eaff9b939d15e509c',
+                    title: 'React Native London',
                   }}
                 />
-                <P>
+                <P sm>
                   By purchasing a training, you agree to our{' '}
-                  <Link to="terms-of-service">Terms & Conditions</Link>
-                </P>
-              </Card>
-              <Card small border="white" style={{ marginTop: '20px' }}>
-                <H3>
-                  <strong>Pay by Installments</strong>
-                </H3>
-                <P>
-                  Pay in 3 installments - the first one being 50% of the total
-                  cost and the others to follow over 3 months. Contact us and we
-                  can talk things through with you.
-                </P>
-                <P>
-                  <Price>&pound;1500</Price>
-                  <LinkButton
-                    secondary
-                    to="mailto:hello@reactjs.academy"
-                    style={{ float: 'right' }}
-                  >
-                    Contact us
-                  </LinkButton>
+                  <Link target="_blank" to="terms-of-service">
+                    Terms of Service
+                  </Link>{' '}
+                  &{' '}
+                  <Link target="_blank" to="code-of-conduct">
+                    Code of conduct
+                  </Link>
                 </P>
               </Card>
             </Col>
           </Row>
         </Card>
         <Card white border="shadow">
-          <CurriculumPartTime />
+          <CurriculumReactNative />
         </Card>
       </Grid>
     </TopSection>
-
     <Section>
       <Grid>
         <Row>
           <HideSingleComponentUsingCss xs sm>
             <Col md={6} lg={5}>
-              <Image src={PART_TIME} width="100%" />
+              <Image src={BOOTCAMP_COLLAB} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
-              Is this part-time course right for me? Are you...{' '}
+              Is this training right for me? Are you...{' '}
               <a href="#target-audience" name="target-audience">
                 #
               </a>
             </H2Ref>
             <Ul unstyled>
               <Li>
-                <BulletIcon icon={NotBegginerIcon} />A developer with ~1 year of
-                development under your belt?
-              </Li>
-              <Li>
-                <BulletIcon icon={CodeIcon} />
-                Familiar with front-end technologies like JavaScript, CSS, and
-                HTML?
+                <BulletIcon icon={NotBegginersIcon} />
+                You have at least a few months of experience using React on the
+                web. If you don't know React, we recommend you first to attend
+                our{' '}
+                <Link to="/react-redux-graphql-bootcamp">React Bootcamp</Link>
               </Li>
               <Li>
                 <BulletIcon icon={ReactIcon} />
-                Taking a step forward to become a React JS specialist, able to
-                make critical decisions in the architecture of a React
-                application.
+                Taking a step forward to become a React Native Specialist able
+                to make critical decisions about the architecture of a React
+                Native application.
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
-                Not satisfied with online learning and it's lack of 1-on-1
-                mentoring?
+                Not satisfied with the pace of online learning and it's lack of
+                1-on-1 mentoring?
               </Li>
             </Ul>
-            <P>
-              If you've said 'yes' to these, our part-time course could be for
-              you!
-            </P>
+            <P>If you've said 'yes' to these, our training could be for you!</P>
             <H3>Not for beginner devs!</H3>
             <P>
-              This is not a learn-to-code course. If you want to learn to code,
-              we recommend you contact our London-based partner{' '}
-              <a href="https://makers.tech/" target="_blanck">
-                Makers
-              </a>
-              . PLUS you'll get a &pound;250 discount using our reference
-              "ReactJS Academy".
+              This is not a training for React beginners. If you don't know
+              React, we recommend you first to attend our{' '}
+              <Link to="/react-redux-graphql-bootcamp">React Bootcamp</Link>.
             </P>
           </Col>
         </Row>
@@ -182,6 +141,7 @@ const BootcampLondon = () => (
         </Row>
       </Grid>
     </Section>
+
     <Section>
       <Grid>
         <Card border="shadow">
@@ -198,4 +158,4 @@ const BootcampLondon = () => (
   </React.Fragment>
 )
 
-export default BootcampLondon
+export default ReactNativeBoocampLondon

@@ -10,10 +10,9 @@ import { Ribbon, Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import { GREY2, FONT_FAMILY } from '../config/styles'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingBootcampsSection, AttendeeQuote } from '../components/training'
+import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -24,16 +23,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-
-const Price = styled.span`
-  ${FONT_FAMILY} font-size: 36px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${GREY2};
-`
+import { Price } from '../components/training'
 
 const InstallmentsContainer = styled.div`
   margin: 12px 0;
@@ -42,7 +32,10 @@ const InstallmentsContainer = styled.div`
 const BootcampLondon = () => (
   <React.Fragment>
     <Header
-      titleLines={['React Redux GraphQL Bootcamp', '20-25 Aug, 2018 - Greenwich, London']}
+      titleLines={[
+        'React Redux GraphQL Bootcamp',
+        '20-25 Aug, 2018 - Greenwich, London',
+      ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
       links={header.landingTraining.links}
       bgImg="training-event"
@@ -67,7 +60,7 @@ const BootcampLondon = () => (
                 food.
               </P>
               <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 24%</Ribbon>
+                <Ribbon>Save 12%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
                 </H3>
@@ -198,7 +191,7 @@ const BootcampLondon = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 
