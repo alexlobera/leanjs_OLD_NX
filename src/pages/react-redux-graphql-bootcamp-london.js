@@ -23,11 +23,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { Price } from '../components/training'
-
-const InstallmentsContainer = styled.div`
-  margin: 12px 0;
-`
+import { Price, InstallmentsContainer } from '../components/training'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -54,7 +50,7 @@ const BootcampLondon = () => (
                   #
                 </a>
               </H2Ref>
-              <P style={{ paddingBottom: '20px' }}>
+              <P>
                 Please be aware that the tickets cover the cost of the training,
                 it does not include the cost of the flights, accomodation, or
                 food.
