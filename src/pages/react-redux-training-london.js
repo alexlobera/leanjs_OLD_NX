@@ -5,7 +5,6 @@ import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumPartTime } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
-// import Link from '../components/navigation/Link'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
@@ -22,9 +21,8 @@ import {
 } from '../components/icons'
 import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
-//import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, CheckoutCard } from '../components/payment'
+import { InstallmentsCard, CheckoutSection } from '../components/payment'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -42,18 +40,7 @@ const BootcampLondon = () => (
               <Video youtubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2Ref>
-                Prices{' '}
-                <a href="#pricing" name="pricing">
-                  #
-                </a>
-              </H2Ref>
-              <P style={{ paddingBottom: '20px' }}>
-                Please be aware that the tickets cover the cost of the training,
-                it does not include the cost of the flights, accomodation, or
-                food.
-              </P>
-              <CheckoutCard
+              <CheckoutSection
                 trainingInstanceId="5b1c2197b8340f47a4b8e3e7"
                 price={995}
                 title="React Part-Time London"

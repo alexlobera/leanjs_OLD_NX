@@ -4,8 +4,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { Ribbon, Card, Video } from '../components/elements'
-import Link from '../components/navigation/Link'
+import { Card, Video } from '../components/elements'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
@@ -19,9 +18,8 @@ import {
   CollabsIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
-import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, CheckoutCard } from '../components/payment'
+import { InstallmentsCard, CheckoutSection } from '../components/payment'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -42,18 +40,7 @@ const BootcampLondon = () => (
               <Video youtubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2Ref>
-                Prices{' '}
-                <a href="#pricing" name="pricing">
-                  #
-                </a>
-              </H2Ref>
-              <P>
-                Please be aware that the tickets cover the cost of the training,
-                it does not include the cost of the flights, accomodation, or
-                food.
-              </P>
-              <CheckoutCard
+              <CheckoutSection
                 trainingInstanceId="5b3605d7b8340f47a4b8e420"
                 price={1590}
                 title="Bootcamp London"
