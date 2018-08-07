@@ -56,9 +56,9 @@ const Footer = () => (
             <Row>
               <Col md={6}>
                 <LinkList>
-                  {/* <Li>
+                  <Li>
                     <Link to="/curriculum">Curriculum</Link>
-                  </Li> */}
+                  </Li>
                   <Li>
                     <Link to="/react-redux-graphql-bootcamp">
                       React bootcamp

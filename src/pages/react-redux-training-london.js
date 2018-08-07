@@ -69,7 +69,7 @@ const BootcampLondon = () => (
           </HideSingleComponentUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
-              Is this part-time course right for me? Are you...{' '}
+              Is this React part-time course right for me? Are you...{' '}
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>
