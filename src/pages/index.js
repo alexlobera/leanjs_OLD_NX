@@ -24,21 +24,16 @@ import {
   HeartIcon,
   NotBegginerIcon,
   ProductionReadyIcon,
-  RunFastIcon,
   SpannerIcon,
   StarIcon,
-  TargetIcon,
   TickBadgeIcon,
   TimeIcon,
   TrainerIcon,
   ReactIcon,
-  WorldIcon,
   BulletIcon,
 } from '../components/icons'
 
 import {
-  LONDON,
-  LISBON,
   COURSE_COLLAB,
   WHY_REACTJS_ACADEMY,
   COMPANY_PITCH,
