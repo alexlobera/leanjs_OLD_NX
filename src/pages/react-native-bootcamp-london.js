@@ -43,7 +43,7 @@ const ReactNativeBoocampLondon = () => (
                   #
                 </a>
               </H2Ref>
-              <P style={{ paddingBottom: '20px' }}>
+              <P>
                 Please be aware that the tickets cover the cost of the training,
                 it does not include the cost of the flights, accomodation, or
                 food.
