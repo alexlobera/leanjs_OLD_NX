@@ -9,7 +9,7 @@ const InstallmentsContainer = styled.div`
   margin: 12px 0;
 `
 
-const InstallmentsCard = ({ price, currency = '&pound;' }) => (
+const InstallmentsCard = ({ price }) => (
   <Card small border="white" style={{ marginTop: '20px' }}>
     <H3>
       <strong>Pay by Installments</strong>
@@ -20,7 +20,10 @@ const InstallmentsCard = ({ price, currency = '&pound;' }) => (
       with you.
     </P>
     <InstallmentsContainer>
-      <Price>&pound;2160</Price>
+      <Price>
+        &pound;
+        {price}
+      </Price>
       <LinkButton
         secondary
         to="mailto:hello@reactjs.academy"

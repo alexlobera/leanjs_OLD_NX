@@ -20,6 +20,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
+import { CheckoutCard } from '../components/payment'
 
 const ReactNativeBoocampLondon = () => (
   <React.Fragment>
@@ -48,7 +49,7 @@ const ReactNativeBoocampLondon = () => (
                 it does not include the cost of the flights, accomodation, or
                 food.
               </P>
-              <Card small style={{ position: 'relative' }}>
+              {/* <Card small style={{ position: 'relative' }}>
                 <Ribbon>Save 21%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
@@ -71,7 +72,15 @@ const ReactNativeBoocampLondon = () => (
                     Code of conduct
                   </Link>
                 </P>
-              </Card>
+              </Card> */}
+              <CheckoutCard
+                trainingInstanceId="5b68c95eaff9b939d15e509c"
+                price={332.5}
+                title="5b68c95eaff9b939d15e509c"
+                discountPercentage={21}
+                priceGoesUpOn="Price goes up to &pound;450 on August 31st, 2018."
+                ticketName="Early bird ticket"
+              />
             </Col>
           </Row>
         </Card>

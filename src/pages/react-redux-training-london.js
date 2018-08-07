@@ -4,8 +4,8 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumPartTime } from '../components/curriculum'
-import { Ribbon, Card, Video } from '../components/elements'
-import Link from '../components/navigation/Link'
+import { Card, Video } from '../components/elements'
+// import Link from '../components/navigation/Link'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
@@ -22,9 +22,9 @@ import {
 } from '../components/icons'
 import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
-import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
+//import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard } from '../components/payment'
+import { InstallmentsCard, CheckoutCard } from '../components/payment'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -53,7 +53,7 @@ const BootcampLondon = () => (
                 it does not include the cost of the flights, accomodation, or
                 food.
               </P>
-              <Card small style={{ position: 'relative' }}>
+              {/* <Card small style={{ position: 'relative' }}>
                 <Ribbon>Save 24%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
@@ -70,8 +70,16 @@ const BootcampLondon = () => (
                   By purchasing a training, you agree to our{' '}
                   <Link to="terms-of-service">Terms & Conditions</Link>
                 </P>
-              </Card>
-              <InstallmentsCard price={2160} />
+              </Card> */}
+              <CheckoutCard
+                trainingInstanceId="5b1c2197b8340f47a4b8e3e7"
+                price={995}
+                title="React Part-Time London"
+                discountPercentage={24}
+                priceGoesUpOn="Price goes up to &pound;1295 on August 31st, 2018."
+                ticketName="Early bird ticket"
+              />
+              <InstallmentsCard price={1500} />
             </Col>
           </Row>
         </Card>

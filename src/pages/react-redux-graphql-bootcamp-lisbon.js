@@ -21,7 +21,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard } from '../components/payment'
+import { InstallmentsCard, CheckoutCard } from '../components/payment'
 
 const BootcampLisbon = () => (
   <React.Fragment>
@@ -52,7 +52,7 @@ const BootcampLisbon = () => (
                 Please be aware that the tickets cover the cost of the training,
                 it does not include the cost of the flights, accomodation.
               </P>
-              <Card small style={{ position: 'relative' }}>
+              {/* <Card small style={{ position: 'relative' }}>
                 <Ribbon>Save 12%</Ribbon>
                 <H3>
                   <strong>Early bird ticket</strong>
@@ -75,7 +75,15 @@ const BootcampLisbon = () => (
                     Code of conduct
                   </Link>
                 </P>
-              </Card>
+              </Card> */}
+              <CheckoutCard
+                trainingInstanceId="5b699e97aff9b939d15e50a1"
+                price={1495}
+                title="Bootcamp Lisbon"
+                discountPercentage={24}
+                priceGoesUpOn="Price goes up to &pound;1895 on August 31st, 2018."
+                ticketName="Early bird ticket"
+              />
               <InstallmentsCard price={2160} />
             </Col>
           </Row>
