@@ -60,7 +60,10 @@ const Footer = () => (
                     <Link to="/curriculum">Curriculum</Link>
                   </Li> */}
                   <Li>
-                    <Link to="/react-redux-graphql-bootcamp">Bootcamp</Link>
+                    <Link to="/react-redux-graphql-bootcamp">React bootcamp</Link>
+                  </Li>
+                  <Li>
+                    <Link to="/react-native-bootcamp">React Native</Link>
                   </Li>
                   <Li>
                     <Link to="/react-redux-graphql-part-time-course">
