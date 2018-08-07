@@ -325,9 +325,19 @@ const AboutUs = () => (
                 </SocialLink>
               </Li>
             </Ul>
+            <Ul>
+              <Li>
+                Professional web developer since 2005
+              </Li>
+              <Li>
+                Experience working for start-ups and international corporations
+              </Li>
+              <Li>
+                Qualified teacher, experienced teaching in a variety of settings
+              </Li>
+            </Ul>
             <Blockquote bg="primary">
-              Serverless specialist at LeanJS. Will is an experienced full stack
-              developer with a passion for cutting-edge stacks.
+              I love working with developers to help them improve their skills, stretch their brains, further their understanding, and advance their career
             </Blockquote>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
