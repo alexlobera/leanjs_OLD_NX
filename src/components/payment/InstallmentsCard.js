@@ -1,16 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LinkButton } from '../components/buttons'
-import { H3, P } from '../components/text'
-import { Card } from '../components/elements'
-// import {
-//     BulletIcon,
-//     NotBegginerIcon,
-//     CodeIcon,
-//     ReactIcon,
-//     CollabsIcon,
-// } from '../components/icons'
-import { Price, InstallmentsContainer } from '../components/training'
+import { LinkButton } from '../buttons'
+import { H3, P } from '../text'
+import { Card } from '../elements'
+import Price from './Price'
 
 const InstallmentsContainer = styled.div`
   margin: 12px 0;

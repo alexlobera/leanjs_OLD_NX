@@ -21,7 +21,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard } from '../components/payment'
+import { InstallmentsCard, CheckoutCard } from '../components/payment'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -53,30 +53,7 @@ const BootcampLondon = () => (
                 it does not include the cost of the flights, accomodation, or
                 food.
               </P>
-              <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 12%</Ribbon>
-                <H3>
-                  <strong>Early bird ticket</strong>
-                </H3>
-                <P>Discount tickes available until 10th August 2018.</P>
-                <BuyQuantityButton
-                  course={{
-                    price: 1590,
-                    trainingInstanceId: '5b3605d7b8340f47a4b8e420',
-                    title: 'Bootcamp London',
-                  }}
-                />
-                <P sm>
-                  By purchasing a training, you agree to our{' '}
-                  <Link target="_blank" to="terms-of-service">
-                    Terms of Service
-                  </Link>{' '}
-                  &{' '}
-                  <Link target="_blank" to="code-of-conduct">
-                    Code of conduct
-                  </Link>
-                </P>
-              </Card>
+              <CheckoutCard price={111} />
               <InstallmentsCard price={2160} />
             </Col>
           </Row>
