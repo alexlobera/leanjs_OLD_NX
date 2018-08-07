@@ -1,7 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
-import { LinkButton } from '../components/buttons'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
@@ -15,7 +13,6 @@ import {
 } from '../components/training'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import { GREY2, FONT_FAMILY } from '../config/styles'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -27,16 +24,7 @@ import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-
-const Price = styled.span`
-  ${FONT_FAMILY} font-size: 36px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${GREY2};
-`
+import { InstallmentsCard } from '../components/payment'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -83,26 +71,7 @@ const BootcampLondon = () => (
                   <Link to="terms-of-service">Terms & Conditions</Link>
                 </P>
               </Card>
-              <Card small border="white" style={{ marginTop: '20px' }}>
-                <H3>
-                  <strong>Pay by Installments</strong>
-                </H3>
-                <P>
-                  Pay in 3 installments - the first one being 50% of the total
-                  cost and the others to follow over 3 months. Contact us and we
-                  can talk things through with you.
-                </P>
-                <P>
-                  <Price>&pound;1500</Price>
-                  <LinkButton
-                    secondary
-                    to="mailto:hello@reactjs.academy"
-                    style={{ float: 'right' }}
-                  >
-                    Contact us
-                  </LinkButton>
-                </P>
-              </Card>
+              <InstallmentsCard price={2160} />
             </Col>
           </Row>
         </Card>

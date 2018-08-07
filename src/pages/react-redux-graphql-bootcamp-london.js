@@ -1,7 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
-import { LinkButton } from '../components/buttons'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
@@ -23,7 +21,7 @@ import {
 import { Image } from '../components/elements'
 import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { Price, InstallmentsContainer } from '../components/training'
+import { InstallmentsCard } from '../components/payment'
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -79,26 +77,7 @@ const BootcampLondon = () => (
                   </Link>
                 </P>
               </Card>
-              <Card small border="white" style={{ marginTop: '20px' }}>
-                <H3>
-                  <strong>Pay by Installments</strong>
-                </H3>
-                <P>
-                  Pay in 3 installments - the first one being 50% of the total
-                  cost and the others to follow over 3 months. Contact us and we
-                  can talk things through with you.
-                </P>
-                <InstallmentsContainer>
-                  <Price>&pound;2160</Price>
-                  <LinkButton
-                    secondary
-                    to="mailto:hello@reactjs.academy"
-                    style={{ float: 'right' }}
-                  >
-                    Contact us
-                  </LinkButton>
-                </InstallmentsContainer>
-              </Card>
+              <InstallmentsCard price={2160} />
             </Col>
           </Row>
         </Card>

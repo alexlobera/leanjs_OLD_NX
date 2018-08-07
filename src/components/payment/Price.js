@@ -12,8 +12,4 @@ const Price = styled.span`
   color: ${GREY2};
 `
 
-export const InstallmentsContainer = styled.div`
-  margin: 12px 0;
-`
-
 export default Price

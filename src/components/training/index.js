@@ -4,7 +4,6 @@ import TrainingList from './TrainingList'
 import TrustedBySection from './TrustedBySection'
 import UpcomingTrainingSection from './UpcomingTrainingSection'
 import { TrustedByLogoList } from './TrustedBySection'
-import Price, { InstallmentsContainer } from './Price'
 
 export {
   AttendeeQuote,
@@ -13,6 +12,4 @@ export {
   TrustedBySection,
   TrustedByLogoList,
   UpcomingTrainingSection,
-  Price,
-  InstallmentsContainer,
 }
