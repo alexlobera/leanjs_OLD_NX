@@ -14,7 +14,7 @@ import Header from '../components/layout/Header'
 import { Card, Image } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import { UpcomingBootcampsSection } from '../components/training'
+import { UpcomingTrainingSection } from '../components/training'
 import {
   BussinessIcon,
   CalendarIcon,
@@ -291,7 +291,7 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
-    <UpcomingBootcampsSection />
+    <UpcomingTrainingSection />
   </React.Fragment>
 )
 

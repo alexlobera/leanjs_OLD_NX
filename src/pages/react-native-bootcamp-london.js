@@ -120,8 +120,7 @@ const ReactNativeBoocampLondon = () => (
             <P>
               This is not a training for React beginners. If you don't know
               React, we recommend you first to attend our{' '}
-              <Link to="/react-redux-graphql-bootcamp">React Bootcamp</Link>
-              .
+              <Link to="/react-redux-graphql-bootcamp">React Bootcamp</Link>.
             </P>
           </Col>
         </Row>
