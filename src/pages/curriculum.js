@@ -4,8 +4,18 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
 import { H2Ref, H2, P, H3 } from '../components/text'
-import { Link, Tabs, TabItem, TabLabel } from '../components/navigation'
-import { CurriculumReactNative } from '../components/curriculum'
+import {
+  Link,
+  LinkScroll as DefaultLinkScroll,
+  Tabs,
+  TabItem,
+  TabLabel,
+} from '../components/navigation'
+import {
+  CurriculumReactNative,
+  CurriculumBootcamp,
+  CurriculumPartTime,
+} from '../components/curriculum'
 import Header from '../components/layout/Header'
 import {
   TrustedBySection,
@@ -24,6 +34,10 @@ import {
   BulletIcon,
   PeopleNetWorkIcon,
 } from '../components/icons'
+
+const LinkScroll = props => (
+  <DefaultLinkScroll {...props} smooth={true} duration={500} />
+)
 
 const Curriculum = () => (
   <React.Fragment>
@@ -58,77 +72,53 @@ const Curriculum = () => (
             <Col md={3} mdOffset={1}>
               {/* <Image src={BOOTCAMP_RIGHT} width="100%" /> */}
               image
-          </Col>
+            </Col>
             <Col md={6} mdOffset={1}>
               <H3>React bootcamp</H3>
               <P>
-                Our React bootcamp has the most complete curriculum on the market, with a syllabus that covers:
+                Our React bootcamp has the most complete curriculum on the
+                market, with a syllabus that covers:
               </P>
               <Ul>
-                <Li>
-                  Server-side rendering
-              </Li>
-                <Li>
-                  Advanced React patterns
-              </Li>
-                <Li>
-                  Advanced Redux
-              </Li>
-                <Li>
-                  Functional programming
-              </Li>
-                <Li>
-                  Hackathon to consolidate knowleadge
-              </Li>
+                <Li>Server-side rendering</Li>
+                <Li>Advanced React patterns</Li>
+                <Li>Advanced Redux</Li>
+                <Li>Functional programming</Li>
+                <Li>Hackathon to consolidate knowleadge</Li>
               </Ul>
               <P>
                 <Link>See React bootcamp curriculum</Link>
               </P>
               <H3>React Native bootcamp</H3>
               <P>
-                Our React Native bootcamp is the smoothest transition between React and Native.
+                Our React Native bootcamp is the smoothest transition between
+                React and Native.
               </P>
               <Ul>
-                <Li>
-                  React Native foundation
-                </Li>
-                <Li>
-                  Native animations
-                </Li>
-                <Li>
-                  Gestures
-                </Li>
+                <Li>React Native foundation</Li>
+                <Li>Native animations</Li>
+                <Li>Gestures</Li>
               </Ul>
               <P>
                 <Link>See React Native curriculum</Link>
               </P>
               <H3>React part-time course</H3>
               <P>
-                The part-time course has a condensed version of the React bootcamp curriculum, ideal for those who value flexible learning and can’t miss a day at work.
+                The part-time course has a condensed version of the React
+                bootcamp curriculum, ideal for those who value flexible learning
+                and can’t miss a day at work.
               </P>
               <P>
                 <Link>See React part-time course curriculum</Link>
               </P>
               <H3>With all courses you will:</H3>
               <Ul>
-                <Li>
-                  Build production ready React applications
-                </Li>
-                <Li>
-                  Discuss real-world projects
-                </Li>
-                <Li>
-                  Learn best practices
-                </Li>
-                <Li>
-                  Be mentored by the our expert coaches
-                </Li>
-                <Li>
-                  Join our alumni community
-                </Li>
-                <Li>
-                  Stay ahead in modern development
-                </Li>
+                <Li>Build production ready React applications</Li>
+                <Li>Discuss real-world projects</Li>
+                <Li>Learn best practices</Li>
+                <Li>Be mentored by the our expert coaches</Li>
+                <Li>Join our alumni community</Li>
+                <Li>Stay ahead in modern development</Li>
               </Ul>
             </Col>
           </Row>
@@ -140,20 +130,94 @@ const Curriculum = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <Tabs>
-              <TabLabel>
-                Choose a curriculum:
-              </TabLabel>
+              <TabLabel>Choose a curriculum:</TabLabel>
               <TabItem default name="react-bootcamp">
                 React 1-week bootcamp
               </TabItem>
-              <TabItem name="react-part-time">
-                React Native bootcamp
-              </TabItem>
-              <TabItem name="react-native">
-                Part-time course
-              </TabItem>
+              <TabItem name="react-part-time">React Native bootcamp</TabItem>
+              <TabItem name="react-native">Part-time course</TabItem>
             </Tabs>
             <H2>React 1-week bootcamp curriculum</H2>
+            <P>
+              <strong>
+                On completion of the React bootcamp each student will:
+              </strong>
+            </P>
+            <Ul>
+              <Li>
+                Understand the core principles and libraries of the React
+                ecosystem{' '}
+                <code>
+                  react, react-router, redux, react-redux, graphql,
+                  apollo-client, styled-components
+                </code>
+              </Li>
+              <Li>
+                Be able to develop and test complex and reliable React
+                applications: <code>enzyme, jest</code>
+              </Li>
+              <Li>
+                Comprehend the best practices for front-end JavaScript:{' '}
+                <code>Functional Programming, ES6, Webpack</code>
+              </Li>
+              <Li>
+                Understand the best practices and patterns for building
+                real-world production-ready React applications
+              </Li>
+            </Ul>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={1} lgOffset={1}>
+            <Ul inline>
+              <Li>Jump to:</Li>
+            </Ul>
+          </Col>
+          <Col lg={9}>
+            <Ul unstyled>
+              <Li>
+                <LinkScroll to="day1">
+                  Day 1: ES6 & ESNEXT, Thinking in React, Routing & Data
+                  Fetching
+                </LinkScroll>
+              </Li>
+              <Li>
+                <LinkScroll to="day2">
+                  Day 2: Forms, Authentication, Styling in React
+                </LinkScroll>
+              </Li>
+              <Li>
+                <LinkScroll to="day3">
+                  Day 3: Redux, and Testing Principles
+                </LinkScroll>
+              </Li>
+              <Li>
+                <LinkScroll to="day4">
+                  Day 4: Functional Programming, Advanced Patterns I, GraphQL,
+                  and Advanced Redux
+                </LinkScroll>
+              </Li>
+              <Li>
+                <LinkScroll to="day5">
+                  Day 5: Testing in React, Advanced React Patterns II,
+                  Server-side Rendering
+                </LinkScroll>
+              </Li>
+              <Li>
+                <LinkScroll to="day6">Day 6: Hackathon</LinkScroll>
+              </Li>
+            </Ul>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col lg={1} lgOffset={1} />
+          <Col lg={9}>
+            <CurriculumBootcamp
+              showToggle={false}
+              showTitle={false}
+              list={true}
+            />
           </Col>
         </Row>
       </Grid>

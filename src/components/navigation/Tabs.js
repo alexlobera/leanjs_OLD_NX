@@ -5,21 +5,23 @@ import Ul from '../layout/Ul'
 import { reactBlue } from '../../config/styles'
 
 const TabContainer = styled(Ul)`
-    margin: 0;
-    padding: 0;
-    > li {
-        list-style-type: none;
-        display: inline-block;
-        margin: 0 8px;
-        span, a {
-            padding: 8px;
-        }
-        
+  margin: 0;
+  padding: 0;
+  > li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 8px;
+    span,
+    a {
+      padding: 8px;
     }
+  }
 `
 
 const TabLi = styled.li`
-    ${props => props.active ? `
+  ${props =>
+    props.active
+      ? `
         position:relative;
         text-align:center;
         a::after {
@@ -33,40 +35,35 @@ const TabLi = styled.li`
             bottom:-10px;
             left:0;
         }
-    `: ''}
+    `
+      : ''};
 `
 
 export const TabItem = ({ children, active, ...props }) => (
-    <TabLi active={active}>
-        <a {...props}>
-            {children}
-        </a>
-    </TabLi>
+  <TabLi active={active}>
+    <a {...props}>{children}</a>
+  </TabLi>
 )
 
 export const TabLabel = ({ children, ...props }) => (
-    <span {...props}>{children}</span>
+  <span {...props}>{children}</span>
 )
 
 class Tabs extends React.Component {
-    state = {
-        active: null
-    }
+  state = {
+    active: null,
+  }
 
-    render() {
-        const { active } = this.state
-        const newChildren = React.Children.map(this.props.children, child => (
-            React.cloneElement(child, {
-                active: child.props.name === active || (!active && child.props.default)
-            })
-        ))
+  render() {
+    const { active } = this.state
+    const newChildren = React.Children.map(this.props.children, child =>
+      React.cloneElement(child, {
+        active: child.props.name === active || (!active && child.props.default),
+      })
+    )
 
-        return (
-            <TabContainer>
-                {newChildren}
-            </TabContainer>
-        )
-    }
+    return <TabContainer>{newChildren}</TabContainer>
+  }
 }
 
 export default Tabs

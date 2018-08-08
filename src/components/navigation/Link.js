@@ -1,6 +1,7 @@
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import styled from 'styled-components'
+import { Link as DefaultLinkScroll } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
 import { GREY2 } from '../../config/styles'
 
@@ -37,6 +38,10 @@ export const styleChildLinkColor = color => `
 `
 
 const RouterLink = styled(GatsbyLink)`
+  ${ANCHOR_STYLE};
+`
+
+export const LinkScroll = styled(DefaultLinkScroll)`
   ${ANCHOR_STYLE};
 `
 

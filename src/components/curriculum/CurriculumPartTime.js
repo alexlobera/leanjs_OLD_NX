@@ -29,7 +29,7 @@ const PartTimeFinalProject = () => (
 
 const CurriculumPartTime = () => (
   <React.Fragment>
-    <Col xs={12} md={12} lg={10} lgOffset={1}>
+    <Col lg={10} lgOffset={1}>
       <H1Ref>
         Part-time course curriculum{' '}
         <Link to="#curriculum" name="curriculum">
@@ -38,42 +38,51 @@ const CurriculumPartTime = () => (
       </H1Ref>
       <Row>
         <Col xs={12} md={6}>
-          <Section title="Session 1 - ES6">
+          <Section title="Session 1 - ES6" name="session">
             <ES6Session />
           </Section>
-          <Section title="Session 2 - Thinking in React">
+          <Section title="Session 2 - Thinking in React" name="session2">
             <IntroReactSession />
           </Section>
-          <Section title="Session 3 - Routing & Data Fetching">
+          <Section title="Session 3 - Routing & Data Fetching" name="session3">
             <RoutingAndDataFetchingSession />
           </Section>
-          <Section title="Session 4 - Forms & Auth">
+          <Section title="Session 4 - Forms & Auth" name="session4">
             <FormsAndAuthSession />
           </Section>
-          <Section title="Session 5 - Recap React Fundamentals">
+          <Section title="Session 5 - Recap React Fundamentals" name="session5">
             <ReactFundamentalsRecapSession />
           </Section>
-          <Section title="Session 6 - Styling in React">
+          <Section title="Session 6 - Styling in React" name="session6">
             <StylingInReactSession />
           </Section>
         </Col>
         <Col xs={12} md={6}>
-          <Section title="Session 7 - Introduction to Redux">
+          <Section title="Session 7 - Introduction to Redux" name="session7">
             <IntroReduxSession />
           </Section>
-          <Section title="Session 8 - Introduction to Testing in JS">
+          <Section
+            title="Session 8 - Introduction to Testing in JS"
+            name="session8"
+          >
             <TestingIntroSession />
           </Section>
-          <Section title="Session 9 - Testing in React">
+          <Section title="Session 9 - Testing in React" name="session9">
             <TestingInReactSession />
           </Section>
-          <Section title="Session 10 - Advanced Patterns I">
+          <Section title="Session 10 - Advanced Patterns I" name="session10">
             <HoCsAndRenderPropsSession />
           </Section>
-          <Section title="Session 11 - GraphQL & Apollo Client">
+          <Section
+            title="Session 11 - GraphQL & Apollo Client"
+            name="session11"
+          >
             <GraphQLSession />
           </Section>
-          <Section title="Session 12 - Last session React mini hackathon">
+          <Section
+            title="Session 12 - Last session React mini hackathon"
+            name="session12"
+          >
             <PartTimeFinalProject />
           </Section>
         </Col>
