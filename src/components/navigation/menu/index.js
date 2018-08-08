@@ -24,7 +24,7 @@ const MenuContainer = styled.div`
   justify-content: space-between;
 `
 
-const Navbar = styled.div`
+const Navbar = styled.nav`
   width: 100%;
   position: absolute;
   top: 0;

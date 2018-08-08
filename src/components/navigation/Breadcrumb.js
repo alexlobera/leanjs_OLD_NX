@@ -7,7 +7,7 @@ import Link from './Link'
 import { reactBlue } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 
-const BreadcrumbContainer = styled.div`
+const BreadcrumbContainer = styled.nav`
   position: absolute;
   top: 103px;
   left: 0;
@@ -18,8 +18,17 @@ const BreadcrumbContainer = styled.div`
 const BreadcrumbUl = styled(Ul)`
   background-color: ${reactBlue()};
   padding-left: 16px;
-  li a {
-    font-size: 16px;
+  li {
+    padding-left: 0px;
+    padding-right: 8px;
+    a {
+      font-size: 16px;
+    }
+  }
+  li+li:before {
+    padding-right: 8px;
+    padding-left:0;
+    content: "/";
   }
 
   @media (max-width: ${SCREEN_XS_MAX}) {
@@ -31,7 +40,7 @@ const BreadcrumbUl = styled(Ul)`
 
 const Breadcrumb = ({ path }) =>
   path && path.length ? (
-    <BreadcrumbContainer>
+    <BreadcrumbContainer ariaLabel="Breadcrumb">
       <Grid>
         <Row>
           <Col>
