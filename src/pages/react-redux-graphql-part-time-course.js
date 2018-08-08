@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from '../components/navigation/Link'
+import { Link, Breadcrumb } from '../components/navigation'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, P } from '../components/text'
+import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import {
   AttendeeQuote,
@@ -14,10 +14,6 @@ import { Card } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import {
-  HideSingleComponentUsingCss,
-  DisplaySingleComponentUsingCss,
-} from '../components/utils'
 import {
   CollabsIcon,
   NotBegginerIcon,
@@ -32,6 +28,12 @@ import { PART_TIME, STEFANO } from '../config/images'
 
 const PartTime = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
+      ]}
+    />
     <Header
       titleLines={['6-week part-time React', 'Redux GraphQL course']}
       subtitle="Expert coaches work alongside you, 2 evenings a week, <br /> to master the React ecosystem without having to cut <br /> into valuable work-days"

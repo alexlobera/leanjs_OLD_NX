@@ -1,33 +1,46 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P } from '../components/text'
+import { H2, H2Ref, H3, P } from '../components/text'
+import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
+import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
+import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingTrainingSection } from '../components/training'
+import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
+import {
+  BulletIcon,
+  NotBegginerIcon,
+  CodeIcon,
+  ReactIcon,
+  CollabsIcon,
+} from '../components/icons'
+import { Image } from '../components/elements'
+import header from '../components/layout/Header.json'
+import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLisbon = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
+        { to: '/react-redux-graphql-bootcamp-lisbon', label: 'Lisbon' },
+      ]}
+    />
     <Header
-      titleLines={['React Redux GraphQL Bootcamp', 'Training in Lisbon']}
-      subtitle="Take your dev career to the next level in Lisbon -Portugal- by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      titleLines={[
+        'React Redux GraphQL Bootcamp',
+        '7-13 Oct, 2018 - Lisbon distr., Portugal',
+      ]}
+      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      links={header.landingTraining.links}
       bgImg="training-event"
     />
-    <TopSection>
-      <Grid>
-        <Card border="shadow">
-          <Row>
-            <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
-            </Col>
-          </Row>
-        </Card>
-      </Grid>
-    </TopSection>
-    <Section xsBgDark>
+    <TopSection xsBgDark>
       <Grid>
         <Card bg="dark">
           <Row>
@@ -35,31 +48,103 @@ const BootcampLisbon = () => (
               <Video youtubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2>React Redux GraphQL in Lisbon, Portugal.</H2>
-              <P>
-                Join us for our next addition of the React, Redux GraphQL
-                bootcamp Lisbon. ReactJS Academy has delivered 3 iterations of
-                our Portugal based bootcamp with developers joining from over 12
-                countries from as far away as USA and Saudi Arabia!
-              </P>
-              <P>
-                Check out the 3 minute video on the left to get a feel for our
-                bootcamps and here what some of our preivous students think
-                about the experience :-)
-              </P>
+              <CheckoutSection
+                trainingInstanceId="5b699e97aff9b939d15e50a1"
+                price={1495}
+                title="Bootcamp Lisbon"
+                discountPercentage={24}
+                priceGoesUpOn="Price goes up to &pound;1895 on August 31st, 2018."
+                ticketName="Early bird ticket"
+              />
+              <InstallmentsCard price={2160} />
+            </Col>
+          </Row>
+        </Card>
+        <Card white border="shadow">
+          <CurriculumBootcamp />
+        </Card>
+      </Grid>
+    </TopSection>
+    <Section>
+      <Grid>
+        <Row>
+          <HideSingleComponentUsingCss xs sm>
+            <Col md={6} lg={5}>
+              <Image src={BOOTCAMP_COLLAB} width="100%" />
+            </Col>
+          </HideSingleComponentUsingCss>
+          <Col md={6} lg={5} lgOffset={1}>
+            <H2Ref>
+              Is this bootcamp right for me? Are you...{' '}
+              <Link to="#target-audience" name="target-audience">
+                #
+              </Link>
+            </H2Ref>
+            <Ul unstyled>
+              <Li>
+                <BulletIcon icon={NotBegginerIcon} />A developer with 1+ year of
+                development under your belt?
+              </Li>
+              <Li>
+                <BulletIcon icon={CodeIcon} />
+                Familiar with front-end technologies like JavaScript, CSS, and
+                HTML?
+              </Li>
+              <Li>
+                <BulletIcon icon={ReactIcon} />
+                Taking a step forward to become a React JS Specialist able to
+                make critical decisions about the architecture of a React
+                application.
+              </Li>
+              <Li>
+                <BulletIcon icon={CollabsIcon} />
+                Not satisfied with the pace of online learning and it's lack of
+                1-on-1 mentoring?
+              </Li>
+            </Ul>
+            <P>If you've said 'yes' to these, our bootcamp could be for you!</P>
+            <H3>Not for beginner devs!</H3>
+            <P>
+              This is not a learn-to-code bootcamp. If you want to learn to
+              code, we recommend you to contact our London-based partner{' '}
+              <Link to="https://makers.tech/" target="_blanck">
+                Makers
+              </Link>
+              . PLUS you'll get a &pound;250 discount using our reference
+              "ReactJS Academy".
+            </P>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <AttendeeQuote
+              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory - it’s very balanced."
+              fullname="Catalin Cislariu"
+              job="Senior Developer"
+              company="KLEIDO LTD"
+              profilePicUrl={CATALIN}
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+
+    <Section>
+      <Grid>
+        <Card border="shadow">
+          <Row>
+            <Col lg={10} lgOffset={1}>
+              <H2>Trusted by industry leaders</H2>
+              <TrustedByLogoList />
             </Col>
           </Row>
         </Card>
       </Grid>
     </Section>
-    <Section>
-      <Grid>
-        <Card white border="shadow">
-          <CurriculumBootcamp />
-        </Card>
-      </Grid>
-    </Section>
-
     <UpcomingTrainingSection />
   </React.Fragment>
 )

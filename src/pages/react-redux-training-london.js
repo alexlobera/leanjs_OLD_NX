@@ -1,13 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
-import { LinkButton } from '../components/buttons'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumPartTime } from '../components/curriculum'
-import { Ribbon, Card, Video } from '../components/elements'
-import Link from '../components/navigation/Link'
+import { Card, Video } from '../components/elements'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
@@ -15,7 +12,6 @@ import {
 } from '../components/training'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import { GREY2, FONT_FAMILY } from '../config/styles'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -25,21 +21,19 @@ import {
 } from '../components/icons'
 import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
-import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-
-const Price = styled.span`
-  ${FONT_FAMILY} font-size: 36px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: ${GREY2};
-`
+import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
+        { to: '/react-redux-training-london', label: 'London' },
+      ]}
+    />
     <Header
       titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
@@ -54,55 +48,15 @@ const BootcampLondon = () => (
               <Video youtubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2Ref>
-                Prices{' '}
-                <a href="#pricing" name="pricing">
-                  #
-                </a>
-              </H2Ref>
-              <P style={{ paddingBottom: '20px' }}>
-                Please be aware that the tickets cover the cost of the training,
-                it does not include the cost of the flights, accomodation, or
-                food.
-              </P>
-              <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 24%</Ribbon>
-                <H3>
-                  <strong>Early bird ticket</strong>
-                </H3>
-                <P>Early bird tickes available until 20th August 2018.</P>
-                <BuyQuantityButton
-                  course={{
-                    price: 995,
-                    trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
-                    title: 'React Part-Time London',
-                  }}
-                />
-                <P>
-                  By purchasing a training, you agree to our{' '}
-                  <Link to="terms-of-service">Terms & Conditions</Link>
-                </P>
-              </Card>
-              <Card small border="white" style={{ marginTop: '20px' }}>
-                <H3>
-                  <strong>Pay by Installments</strong>
-                </H3>
-                <P>
-                  Pay in 3 installments - the first one being 50% of the total
-                  cost and the others to follow over 3 months. Contact us and we
-                  can talk things through with you.
-                </P>
-                <P>
-                  <Price>&pound;1500</Price>
-                  <LinkButton
-                    secondary
-                    to="mailto:hello@reactjs.academy"
-                    style={{ float: 'right' }}
-                  >
-                    Contact us
-                  </LinkButton>
-                </P>
-              </Card>
+              <CheckoutSection
+                trainingInstanceId="5b1c2197b8340f47a4b8e3e7"
+                price={995}
+                title="React Part-Time London"
+                discountPercentage={24}
+                priceGoesUpOn="Price goes up to &pound;1295 on August 31st, 2018."
+                ticketName="Early bird ticket"
+              />
+              <InstallmentsCard price={1500} />
             </Col>
           </Row>
         </Card>
@@ -122,10 +76,10 @@ const BootcampLondon = () => (
           </HideSingleComponentUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
-              Is this part-time course right for me? Are you...{' '}
-              <a href="#target-audience" name="target-audience">
+              Is this React part-time course right for me? Are you...{' '}
+              <Link to="#target-audience" name="target-audience">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>
@@ -157,11 +111,8 @@ const BootcampLondon = () => (
             <P>
               This is not a learn-to-code course. If you want to learn to code,
               we recommend you contact our London-based partner{' '}
-              <a href="https://makers.tech/" target="_blanck">
-                Makers
-              </a>
-              . PLUS you'll get a &pound;250 discount using our reference
-              "ReactJS Academy".
+              <Link to="https://makers.tech/">Makers</Link>. PLUS you'll get a
+              &pound;250 discount using our reference "ReactJS Academy".
             </P>
           </Col>
         </Row>

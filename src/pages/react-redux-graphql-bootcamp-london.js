@@ -1,13 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
-import { LinkButton } from '../components/buttons'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
-import { Ribbon, Card, Video } from '../components/elements'
-import Link from '../components/navigation/Link'
+import { Card, Video } from '../components/elements'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
@@ -21,16 +18,19 @@ import {
   CollabsIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
-import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
-import { Price } from '../components/training'
-
-const InstallmentsContainer = styled.div`
-  margin: 12px 0;
-`
+import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
+        { to: '/react-redux-graphql-bootcamp-london', label: 'London' },
+      ]}
+    />
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',
@@ -48,61 +48,15 @@ const BootcampLondon = () => (
               <Video youtubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2Ref>
-                Prices{' '}
-                <a href="#pricing" name="pricing">
-                  #
-                </a>
-              </H2Ref>
-              <P style={{ paddingBottom: '20px' }}>
-                Please be aware that the tickets cover the cost of the training,
-                it does not include the cost of the flights, accomodation, or
-                food.
-              </P>
-              <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 12%</Ribbon>
-                <H3>
-                  <strong>Early bird ticket</strong>
-                </H3>
-                <P>Discount tickes available until 10th August 2018.</P>
-                <BuyQuantityButton
-                  course={{
-                    price: 1590,
-                    trainingInstanceId: '5b3605d7b8340f47a4b8e420',
-                    title: 'Bootcamp London',
-                  }}
-                />
-                <P sm>
-                  By purchasing a training, you agree to our{' '}
-                  <Link target="_blank" to="terms-of-service">
-                    Terms of Service
-                  </Link>{' '}
-                  &{' '}
-                  <Link target="_blank" to="code-of-conduct">
-                    Code of conduct
-                  </Link>
-                </P>
-              </Card>
-              <Card small border="white" style={{ marginTop: '20px' }}>
-                <H3>
-                  <strong>Pay by Installments</strong>
-                </H3>
-                <P>
-                  Pay in 3 installments - the first one being 50% of the total
-                  cost and the others to follow over 3 months. Contact us and we
-                  can talk things through with you.
-                </P>
-                <InstallmentsContainer>
-                  <Price>&pound;2160</Price>
-                  <LinkButton
-                    secondary
-                    to="mailto:hello@reactjs.academy"
-                    style={{ float: 'right' }}
-                  >
-                    Contact us
-                  </LinkButton>
-                </InstallmentsContainer>
-              </Card>
+              <CheckoutSection
+                trainingInstanceId="5b3605d7b8340f47a4b8e420"
+                price={1590}
+                title="Bootcamp London"
+                discountPercentage={12}
+                priceGoesUpOn="Price goes up to &pound;2160 on August 10th, 2018."
+                ticketName="Discount ticket"
+              />
+              <InstallmentsCard price={2160} />
             </Col>
           </Row>
         </Card>
@@ -122,9 +76,9 @@ const BootcampLondon = () => (
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this bootcamp right for me? Are you...{' '}
-              <a href="#target-audience" name="target-audience">
+              <Link to="#target-audience" name="target-audience">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>
@@ -153,9 +107,9 @@ const BootcampLondon = () => (
             <P>
               This is not a learn-to-code bootcamp. If you want to learn to
               code, we recommend you to contact our London-based partner{' '}
-              <a href="https://makers.tech/" target="_blanck">
+              <Link to="https://makers.tech/" target="_blanck">
                 Makers
-              </a>
+              </Link>
               . PLUS you'll get a &pound;250 discount using our reference
               "ReactJS Academy".
             </P>
