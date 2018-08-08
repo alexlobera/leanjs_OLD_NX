@@ -2,18 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Ul from '../layout/Ul'
-import { reactBlue } from '../../config/styles'
+import { reactBlue, FONT_FAMILY } from '../../config/styles'
 
 const TabContainer = styled(Ul)`
-  margin: 0;
+  margin: 0 0 32px 0;
   padding: 0;
   > li {
     list-style-type: none;
     display: inline-block;
     margin: 0 8px;
+    :first-child {
+      margin-left: 0;
+      a, span {
+        padding-left: 0;
+      }
+    }
+    :last-child {
+      margin-right: 0;
+    }
     span,
     a {
       padding: 8px;
+      ${FONT_FAMILY}
     }
   }
 `
@@ -46,7 +56,7 @@ export const TabItem = ({ children, active, ...props }) => (
 )
 
 export const TabLabel = ({ children, ...props }) => (
-  <span {...props}>{children}</span>
+  <TabLi><span {...props}>{children}</span></TabLi>
 )
 
 class Tabs extends React.Component {
