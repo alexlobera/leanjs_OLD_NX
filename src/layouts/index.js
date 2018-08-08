@@ -60,6 +60,12 @@ const Layout = ({ children, data }) => (
             { name: 'keywords', content: data.site.siteMetadata.keywords },
           ]}
           link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
+          script={[
+            {
+              type: 'text/javascript',
+              src: 'https://unpkg.com/jquery/dist/jquery.min.js',
+            },
+          ]}
         />
         <Menu />
         <Modal>{children()}</Modal>
