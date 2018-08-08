@@ -4,10 +4,6 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import {
-  HideSingleComponentUsingCss,
-  DisplaySingleComponentUsingCss,
-} from '../components/utils'
 import { CurriculumBootcamp } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import {
@@ -27,9 +23,16 @@ import {
   BulletIcon,
   PeopleNetWorkIcon,
 } from '../components/icons'
+import { Breadcrumb } from '../components/navigation'
 
 const Boocamps = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
+      ]}
+    />
     <Header
       titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
       subtitle="For a week, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"

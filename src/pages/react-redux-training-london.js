@@ -23,10 +23,17 @@ import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, CheckoutSection } from '../components/payment'
-import Link from '../components/navigation/Link'
+import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
+        { to: '/react-redux-training-london', label: 'London' },
+      ]}
+    />
     <Header
       titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"

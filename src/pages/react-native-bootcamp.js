@@ -4,10 +4,6 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import {
-  HideSingleComponentUsingCss,
-  DisplaySingleComponentUsingCss,
-} from '../components/utils'
 import { CurriculumReactNative } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import {
@@ -27,9 +23,16 @@ import {
   BulletIcon,
   PeopleNetWorkIcon,
 } from '../components/icons'
+import { Breadcrumb } from '../components/navigation'
 
 const ReactNativeBoocamp = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-native-bootcamp', label: 'React Native' },
+      ]}
+    />
     <Header
       titleLines={['React Native Training']}
       subtitle="Intense hands-on React Native training, <br /> return to work as a React Native specialist"

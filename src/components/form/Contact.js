@@ -67,7 +67,8 @@ class ContactForm extends Component {
   }
 
   validateEmail = () => {
-    this.setState({ emailValid: validate(this.state.email) })
+    let emailValid = validate(this.state.email)
+    this.setState({ emailValid })
   }
 
   render() {

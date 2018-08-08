@@ -20,10 +20,17 @@ import {
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, CheckoutSection } from '../components/payment'
-import Link from '../components/navigation/Link'
+import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLisbon = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
+        { to: '/react-redux-graphql-bootcamp-lisbon', label: 'Lisbon' },
+      ]}
+    />
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',

@@ -1,10 +1,5 @@
 [
   {
-    "to": "/curriculum",
-    "text": "Curriculum",
-    "onlyOn": null
-  },
-  {
     "to": "/react-redux-graphql-bootcamp",
     "text": "React bootcamp",
     "onlyOn": null

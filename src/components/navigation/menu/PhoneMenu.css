@@ -10,6 +10,7 @@
   height: 30px;
   right: 20px;
   top: 20px;
+  z-index: 9991;
 }
 
 /* Color/shape of burger icon bars */
@@ -59,4 +60,5 @@
   background: rgba(0, 0, 0, 0.3);
   top: 0;
   left: 0;
+  z-index: 99999;
 }
