@@ -4,7 +4,7 @@ import Ul, { Li } from '../layout/Ul'
 import Grid, { Row, Col } from '../layout/Grid'
 import Link, { styleChildLinkColor } from './Link'
 
-import { reactBlue, WHITE } from '../../config/styles'
+import { BLUE2, WHITE } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 
 const BreadcrumbContainer = styled.nav`
@@ -16,13 +16,12 @@ const BreadcrumbContainer = styled.nav`
 `
 
 const BreadcrumbUl = styled(Ul)`
-  background-color: ${reactBlue()};
+  background-color: ${BLUE2};
   padding-left: 16px;
   li {
     padding-left: 0px;
     padding-right: 4px;
-    ${styleChildLinkColor(WHITE)}
-    a {
+    ${styleChildLinkColor(WHITE)} a {
       font-size: 16px;
       text-shadow: 1px -1px 17px #367088;
     }
