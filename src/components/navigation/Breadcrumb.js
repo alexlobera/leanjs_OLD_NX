@@ -13,29 +13,28 @@ const BreadcrumbContainer = styled.nav`
   left: 0;
   width: 100%;
   z-index: 999;
-`
-
-const BreadcrumbUl = styled(Ul)`
-  background-color: ${BLUE2};
-  padding-left: 16px;
-  li {
-    padding-left: 0px;
-    padding-right: 4px;
-    ${styleChildLinkColor(WHITE)} a {
-      font-size: 16px;
-      text-shadow: 1px -1px 17px #367088;
-    }
-  }
-  li + li:before {
-    padding-right: 4px;
-    padding-left: 0;
-    color: ${WHITE};
-    content: '>';
-  }
-
-  @media (max-width: ${SCREEN_XS_MAX}) {
+  ul {
+    background-color: ${BLUE2};
+    padding-left: 16px;
     li {
-      padding: 5px;
+      padding-left: 0px;
+      padding-right: 4px;
+      ${styleChildLinkColor(WHITE)} a {
+        font-size: 16px;
+        text-shadow: 1px -1px 17px #367088;
+      }
+    }
+    li + li:before {
+      padding-right: 4px;
+      padding-left: 0;
+      color: ${WHITE};
+      content: '>';
+    }
+
+    @media (max-width: ${SCREEN_XS_MAX}) {
+      li {
+        padding: 5px;
+      }
     }
   }
 `
@@ -46,11 +45,11 @@ const Breadcrumb = ({ path }) =>
       <Grid>
         <Row>
           <Col>
-            <BreadcrumbUl inline>
+            <Ul inline>
               {path.map(({ to, label }, i) => (
-                <Li>{to ? <Link to={to}>{label}</Link> : label}</Li>
+                <Li key={to}>{to ? <Link to={to}>{label}</Link> : label}</Li>
               ))}
-            </BreadcrumbUl>
+            </Ul>
           </Col>
         </Row>
       </Grid>

@@ -74,7 +74,8 @@ const HeaderSection = styled(Section)`
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: 100vh;
     min-height: 750px;
-    padding: 200px 0;
+    padding-bottom: 200px !important;
+    padding-top: 200px !important;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
     padding: 150px 0 20px;
