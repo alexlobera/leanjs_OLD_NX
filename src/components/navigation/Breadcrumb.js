@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Ul, { Li } from '../layout/Ul'
 import Grid, { Row, Col } from '../layout/Grid'
-import Link from './Link'
+import Link, { styleChildLinkColor } from './Link'
 
-import { reactBlue } from '../../config/styles'
+import { reactBlue, WHITE } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 
 const BreadcrumbContainer = styled.nav`
@@ -20,15 +20,18 @@ const BreadcrumbUl = styled(Ul)`
   padding-left: 16px;
   li {
     padding-left: 0px;
-    padding-right: 8px;
+    padding-right: 4px;
+    ${styleChildLinkColor(WHITE)}
     a {
       font-size: 16px;
+      text-shadow: 1px -1px 17px #367088;
     }
   }
-  li+li:before {
-    padding-right: 8px;
-    padding-left:0;
-    content: "/";
+  li + li:before {
+    padding-right: 4px;
+    padding-left: 0;
+    color: ${WHITE};
+    content: '>';
   }
 
   @media (max-width: ${SCREEN_XS_MAX}) {
