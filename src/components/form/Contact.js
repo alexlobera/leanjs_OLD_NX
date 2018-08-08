@@ -46,9 +46,12 @@ const ThanksTitle = styled(H3)`
 ` //TODO: animate this later
 
 const ErrorMssg = styled.p`
-  font-size: 12px;
-  color: yellow;
+  font-size: 14px;
+  padding: 0 8px;
+  color: #002938;
+  background-color: #f388a2;
   ${FONT_FAMILY};
+  font-weight: bold;
 `
 
 class ContactForm extends Component {
@@ -107,7 +110,7 @@ class ContactForm extends Component {
               ) : null}
             </ColField>
             <ColField md={5}>
-              <Button children="Submit email" disabled={!isValid} />
+              <Button cta children="Submit email" disabled={!isValid} />
             </ColField>
           </Row>
         </form>
