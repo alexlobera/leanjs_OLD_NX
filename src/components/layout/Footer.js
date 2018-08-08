@@ -55,9 +55,7 @@ const Footer = () => (
               <Col md={6}>
                 <LinkList>
                   <Li>
-                    <Link to="/curriculum">
-                      Curriculum
-                    </Link>
+                    <Link to="/curriculum">Curriculum</Link>
                   </Li>
                   <Li>
                     <Link to="/react-redux-graphql-bootcamp">

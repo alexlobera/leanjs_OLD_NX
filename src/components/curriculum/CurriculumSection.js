@@ -68,8 +68,8 @@ class CurriculumSection extends React.Component {
         </LinkScroll>
       </CurriculumSubSection>
     ) : (
-        <Link onClick={toggleSubSection}>Click here for more detail</Link>
-      )
+      <Link onClick={toggleSubSection}>Click here for more detail</Link>
+    )
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
     )

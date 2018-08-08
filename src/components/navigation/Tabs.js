@@ -13,17 +13,22 @@ const TabContainer = styled(Ul)`
     margin: 0 8px;
     :first-child {
       margin-left: 0;
-      a, span {
+      a,
+      span {
         padding-left: 0;
       }
     }
     :last-child {
       margin-right: 0;
     }
+    a {
+      cursor: pointer;
+    }
+
     span,
     a {
       padding: 8px;
-      ${FONT_FAMILY}
+      ${FONT_FAMILY};
     }
   }
 `
@@ -49,14 +54,16 @@ const TabLi = styled.li`
       : ''};
 `
 
-export const TabItem = ({ children, active, ...props }) => (
+export const TabItem = ({ children, active, onClick, ...props }) => (
   <TabLi active={active}>
-    <a {...props}>{children}</a>
+    <a {...props} onClick={onClick}>{children}</a>
   </TabLi>
 )
 
 export const TabLabel = ({ children, ...props }) => (
-  <TabLi><span {...props}>{children}</span></TabLi>
+  <TabLi>
+    <span {...props}>{children}</span>
+  </TabLi>
 )
 
 class Tabs extends React.Component {
@@ -69,11 +76,15 @@ class Tabs extends React.Component {
     const newChildren = React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
         active: child.props.name === active || (!active && child.props.default),
+        onClick: () => {
+          this.setState({ active: child.props.name })
+          this.props.onChange && this.props.onChange(child.props.name)
+        }
       })
     )
 
     return <TabContainer>{newChildren}</TabContainer>
-  }
+  } name
 }
 
 export default Tabs
