@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Ul from '../layout/Ul'
+import { reactBlue } from '../../config/styles'
 
 const TabContainer = styled(Ul)`
     margin: 0;
@@ -9,7 +10,7 @@ const TabContainer = styled(Ul)`
     > li {
         list-style-type: none;
         display: inline-block;
-        margin:0;
+        margin: 0 8px;
         span, a {
             padding: 8px;
         }
@@ -19,35 +20,33 @@ const TabContainer = styled(Ul)`
 
 const TabLi = styled.li`
     ${props => props.active ? `
+        position:relative;
+        text-align:center;
         a::after {
-            border-color: red;
-            border-style: solid;
-            position: absolute;
-            top: 100%; 
-            left: 10px; 
-            width: 50%;
-            height: 0px;
+            height: 3px;
+            display: block;
+            width: 100%;
+            background: ${reactBlue()};
+            border-right: 3px red;
             content: '';
-            opacity: 0;
-            -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-            -moz-transition: opacity 0.3s, -moz-transform 0.3s;
-            transition: opacity 0.3s, transform 0.3s;
-            -webkit-transform: translateY(20px);
-            -moz-transform: translateY(20px);
-            transform: translateY(20px);
+            position: absolute;
+            bottom:-10px;
+            left:0;
         }
     `: ''}
 `
 
 export const TabItem = ({ children, active, ...props }) => (
     <TabLi active={active}>
-        <Link {...props}>
+        <a {...props}>
             {children}
-        </Link>
+        </a>
     </TabLi>
 )
 
-export const TabLabel = styled.span
+export const TabLabel = ({ children, ...props }) => (
+    <span {...props}>{children}</span>
+)
 
 class Tabs extends React.Component {
     state = {
@@ -55,9 +54,10 @@ class Tabs extends React.Component {
     }
 
     render() {
+        const { active } = this.state
         const newChildren = React.Children.map(this.props.children, child => (
             React.cloneElement(child, {
-                active: child.props.name === this.state.active
+                active: child.props.name === active || (!active && child.props.default)
             })
         ))
 

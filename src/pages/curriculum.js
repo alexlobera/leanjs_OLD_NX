@@ -3,12 +3,8 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
-import { H2Ref, P, H3 } from '../components/text'
-import Link from '../components/navigation/Link'
-import {
-  HideSingleComponentUsingCss,
-  DisplaySingleComponentUsingCss,
-} from '../components/utils'
+import { H2Ref, H2, P, H3 } from '../components/text'
+import { Link, Tabs, TabItem, TabLabel } from '../components/navigation'
 import { CurriculumReactNative } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import {
@@ -143,20 +139,21 @@ const Curriculum = () => (
       <Grid>
         <Row>
           <Col lg={10} lgOffset={1}>
-            <Ul inline>
-              <Li>
+            <Tabs>
+              <TabLabel>
                 Choose a curriculum:
-              </Li>
-              <Li>
+              </TabLabel>
+              <TabItem default name="react-bootcamp">
                 React 1-week bootcamp
-              </Li>
-              <Li>
+              </TabItem>
+              <TabItem name="react-part-time">
                 React Native bootcamp
-              </Li>
-              <Li>
+              </TabItem>
+              <TabItem name="react-native">
                 Part-time course
-              </Li>
-            </Ul>
+              </TabItem>
+            </Tabs>
+            <H2>React 1-week bootcamp curriculum</H2>
           </Col>
         </Row>
       </Grid>
