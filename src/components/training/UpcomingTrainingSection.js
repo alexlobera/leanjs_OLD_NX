@@ -3,7 +3,7 @@ import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import { H2 } from '../text'
 import { TrainingItem, TrainingList } from './'
-import { LONDON } from '../../config/images'
+import { LONDON, LISBON } from '../../config/images'
 
 const UpcomingTrainingSection = () => (
   <Section>
@@ -36,6 +36,13 @@ const UpcomingTrainingSection = () => (
               name="London part-time"
               path="/react-redux-training-london"
               imageSrc={LONDON}
+            />
+            <TrainingItem
+              location="Torres Vedras, Lisbon distr."
+              startDate="October 7th to 13th, 2018"
+              name="Lisbon bootcamp"
+              path="/react-redux-graphql-bootcamp-lisbon"
+              imageSrc={LISBON}
             />
           </TrainingList>
         </Col>

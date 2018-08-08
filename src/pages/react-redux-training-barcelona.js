@@ -7,10 +7,17 @@ import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
-import Link from '../components/navigation/Link'
+import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampBarcelona = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
+        { to: '/react-redux-training-barcelon', label: 'Barcelona' },
+      ]}
+    />
     <Header
       titleLines={['React Redux GraphQL Bootcamp', 'Training in Barcelona']}
       subtitle="Take your dev career to the next level in Barcelona - Spain - by mastering<br />React, Redux, and GraphQL - in just 7 days!"

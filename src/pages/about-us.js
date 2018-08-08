@@ -138,9 +138,9 @@ const AboutUs = () => (
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Alex Lobera{' '}
-              <a name="alex-lobera" href="#alex-lobera">
+              <Link name="alex-lobera" to="#alex-lobera">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <CoachTitle>
               Tech Lead at <Link to="https://leanjs.com">LeanJS</Link>
@@ -200,9 +200,9 @@ const AboutUs = () => (
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Richard Moss
-              <a name="richard-moss" href="#richard-moss">
+              <Link name="richard-moss" to="#richard-moss">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <CoachTitle>
               Senior React Engineer at{' '}
@@ -254,9 +254,9 @@ const AboutUs = () => (
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Horacio Herrera
-              <a name="horacio-herrera" href="#horacio-herrera">
+              <Link name="horacio-herrera" to="#horacio-herrera">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <CoachTitle>
               Designer and Developer at{' '}
@@ -304,9 +304,9 @@ const AboutUs = () => (
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Will Voelcker
-              <a name="will-voelcker" href="#will-voelcker">
+              <Link name="will-voelcker" to="#will-voelcker">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <CoachTitle>
               Senior Full-stack JavaScript Engineer at{' '}
@@ -405,12 +405,12 @@ const AboutUs = () => (
           <Col xs={12} md={6} mdOffset={1}>
             <H2Ref>
               How we continuously improve{' '}
-              <a
-                href="#continuous-coach-development"
+              <Link
+                to="#continuous-coach-development"
                 name="continuous-coach-development"
               >
                 #
-              </a>
+              </Link>
             </H2Ref>
             <P>
               ReactJS Academy is made up of a{' '}
@@ -451,9 +451,9 @@ const AboutUs = () => (
           <Col md={10} mdOffset={1}>
             <H2Ref>
               The ReactJS Academy coach manifesto
-              <a href="#manifesto" name="manifesto">
+              <Link to="#manifesto" name="manifesto">
                 #
-              </a>
+              </Link>
             </H2Ref>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
@@ -554,12 +554,12 @@ const AboutUs = () => (
             <Col xs={12} md={5}>
               <H2Ref>
                 Corporate team training
-                <a
-                  href="#corporate-team-training"
+                <Link
+                  to="#corporate-team-training"
                   name="corporate-team-training"
                 >
                   #
-                </a>
+                </Link>
               </H2Ref>
               <LeanJSLink to="https://leanjs.com/">
                 <LeanJS height={60} color={WHITE} />

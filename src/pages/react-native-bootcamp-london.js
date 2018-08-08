@@ -4,8 +4,8 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumReactNative } from '../components/curriculum'
-import { Ribbon, Card, Video } from '../components/elements'
-import Link from '../components/navigation/Link'
+import { Card, Video } from '../components/elements'
+import { Link, Breadcrumb } from '../components/navigation'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
@@ -18,11 +18,18 @@ import {
   CollabsIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
-import BuyQuantityButton from '../components/old_checkout/containers/PurchaseQuantityContainer'
 import header from '../components/layout/Header.json'
+import { CheckoutSection } from '../components/payment'
 
 const ReactNativeBoocampLondon = () => (
   <React.Fragment>
+    <Breadcrumb
+      path={[
+        { to: '/', label: 'Home' },
+        { to: '/react-native-bootcamp', label: 'React Native' },
+        { to: '/react-native-bootcamp-london', label: 'London' },
+      ]}
+    />
     <Header
       titleLines={['React Native Training', '17 September, 2018 - London']}
       subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
@@ -37,41 +44,14 @@ const ReactNativeBoocampLondon = () => (
               <Video youtubeID="yvROXLQ1jHg" />
             </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2Ref>
-                Prices{' '}
-                <a href="#pricing" name="pricing">
-                  #
-                </a>
-              </H2Ref>
-              <P>
-                Please be aware that the tickets cover the cost of the training,
-                it does not include the cost of the flights, accomodation, or
-                food.
-              </P>
-              <Card small style={{ position: 'relative' }}>
-                <Ribbon>Save 21%</Ribbon>
-                <H3>
-                  <strong>Early bird ticket</strong>
-                </H3>
-                <P>Price goes up to &pound;450 on August 31st, 2018.</P>
-                <BuyQuantityButton
-                  course={{
-                    price: 332.5,
-                    trainingInstanceId: '5b68c95eaff9b939d15e509c',
-                    title: 'React Native London',
-                  }}
-                />
-                <P sm>
-                  By purchasing a training, you agree to our{' '}
-                  <Link target="_blank" to="terms-of-service">
-                    Terms of Service
-                  </Link>{' '}
-                  &{' '}
-                  <Link target="_blank" to="code-of-conduct">
-                    Code of conduct
-                  </Link>
-                </P>
-              </Card>
+              <CheckoutSection
+                trainingInstanceId="5b68c95eaff9b939d15e509c"
+                price={332.5}
+                title="5b68c95eaff9b939d15e509c"
+                discountPercentage={21}
+                priceGoesUpOn="Price goes up to &pound;450 on August 31st, 2018."
+                ticketName="Early bird ticket"
+              />
             </Col>
           </Row>
         </Card>
@@ -91,9 +71,9 @@ const ReactNativeBoocampLondon = () => (
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this training right for me? Are you...{' '}
-              <a href="#target-audience" name="target-audience">
+              <Link to="#target-audience" name="target-audience">
                 #
-              </a>
+              </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>

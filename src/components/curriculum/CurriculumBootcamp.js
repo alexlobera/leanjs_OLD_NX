@@ -1,6 +1,6 @@
 import React from 'react'
-import { LinkButton } from '../buttons'
-import { H1Ref, H2, H3 } from '../text'
+import Link from '../navigation/Link'
+import { H2Ref } from '../text'
 import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -24,12 +24,12 @@ const CurriculumBootcamp = ({ showTitle = true }) => (
     {showTitle ? (
       <Row>
         <Col xs={12} md={12} lg={10} lgOffset={1}>
-          <H1Ref>
+          <H2Ref>
             React Bootcamp Curriculum{' '}
-            <a href="#curriculum" name="curriculum">
+            <Link to="#curriculum" name="curriculum">
               #
-            </a>
-          </H1Ref>
+            </Link>
+          </H2Ref>
         </Col>
       </Row>
     ) : (

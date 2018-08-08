@@ -24,20 +24,30 @@ const MenuContainer = styled.div`
   justify-content: space-between;
 `
 
+const Navbar = styled.nav`
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9992;
+`
+
 const Menu = ({ width }) => {
   const canIGuessTheScreenSizeUsingJS = typeof window !== 'undefined'
 
   return (
-    <Grid>
-      <MenuContainer>
-        <RJSALogo />
-        {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
-          <PhoneMenu />
-        ) : (
-          <DesktopMenu />
-        )}
-      </MenuContainer>
-    </Grid>
+    <Navbar>
+      <Grid>
+        <MenuContainer>
+          <RJSALogo />
+          {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
+            <PhoneMenu />
+          ) : (
+            <DesktopMenu />
+          )}
+        </MenuContainer>
+      </Grid>
+    </Navbar>
   )
 }
 

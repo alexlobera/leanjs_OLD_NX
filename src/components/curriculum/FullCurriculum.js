@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H1Ref } from '../text'
+import Link from '../navigation/Link'
 import CurriculumBootcamp from './CurriculumBootcamp'
 import CurriculumReactNative from './CurriculumReactNative'
 
@@ -10,9 +11,9 @@ const FullCurriculum = () => (
       <Col xs={12} md={12} lg={10} lgOffset={1}>
         <H1Ref>
           Our full learning curriculum{' '}
-          <a href="#curriculum" name="curriculum">
+          <Link to="#curriculum" name="curriculum">
             #
-          </a>
+          </Link>
         </H1Ref>
       </Col>
     </Row>

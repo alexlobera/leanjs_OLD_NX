@@ -4,6 +4,8 @@ export const reactBlue = (opacity = 1) => `rgba(111, 207, 240, ${opacity})` // #
 
 export const blue1 = (opacity = 1) => `rgba(0,41,56, ${opacity})` // #002938
 
+export const BLUE2 = '#57b2d4'
+
 export const BROWN = '#979797'
 
 export const GREY = '#c4c4c4'
