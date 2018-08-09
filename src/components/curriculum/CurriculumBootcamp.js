@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
 import { H2Ref } from '../text'
-import Section, { List, curryedToggleNavigateTo } from './CurriculumSection'
+import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
 import IntroReactSession from './sessions/IntroReactSession'
@@ -20,7 +20,7 @@ import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 
 const CurriculumBootcamp = ({ showTitle = true, list, showToggle, toggleNavigateTo = '/curriculum?tab=react-bootcamp' }) => {
-  const toggleNavigateToSection = curryedToggleNavigateTo(toggleNavigateTo)
+  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
     <React.Fragment>

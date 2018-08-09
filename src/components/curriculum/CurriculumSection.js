@@ -9,7 +9,7 @@ import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
 
-export const curryedToggleNavigateTo = to => section => to ? `${to}&section=${section}` : false
+export const curriedToggleNavigateTo = to => section => to ? `${to}&section=${section}` : false
 
 const Section = styled.div`
   margin-top: 2em;

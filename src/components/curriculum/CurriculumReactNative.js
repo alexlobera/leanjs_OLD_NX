@@ -1,14 +1,14 @@
 import React from 'react'
 import { H1Ref } from '../text'
 import Link from '../navigation/Link'
-import Section, { List, curryedToggleNavigateTo } from './CurriculumSection'
+import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ReactNativeFoundationSession from './sessions/ReactNativeFoundationSession'
 import ReactNativeGesturesSession from './sessions/ReactNativeGesturesSession'
 import ReactNativeAnimationsSession from './sessions/ReactNativeAnimationsSession'
 
 const CurriculumReactNative = ({ showTitle = true, list, showToggle, toggleNavigateTo = '/curriculum?tab=react-native' }) => {
-  const toggleNavigateToSection = curryedToggleNavigateTo(toggleNavigateTo)
+  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
     <Section
