@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Ul from '../layout/Ul'
 import { reactBlue, FONT_FAMILY } from '../../config/styles'
 
-const TabContainer = styled(Ul)`
+const Ul = styled.ul`
   margin: 0 0 32px 0;
   padding: 0;
   > li {
@@ -33,7 +32,21 @@ const TabContainer = styled(Ul)`
   }
 `
 
-const TabLi = styled.li`
+export const TabList = ({ active, setActive, children }) =>
+  <Ul>
+    {React.Children.map(children, child =>
+      React.cloneElement(child, {
+        active: child.props.name === active, //|| (!active && child.props.default),
+        onClick: child.props.name ? () => {
+          setActive(child.props.name)
+        } : undefined,
+      })
+    )}
+  </Ul>
+
+TabList.displayName = 'TabList'
+
+const Li = styled.li`
   ${props =>
     props.active
       ? `
@@ -55,36 +68,56 @@ const TabLi = styled.li`
 `
 
 export const TabItem = ({ children, active, onClick, ...props }) => (
-  <TabLi active={active}>
+  <Li active={active}>
     <a {...props} onClick={onClick}>{children}</a>
-  </TabLi>
+  </Li>
 )
+TabItem.displayName = 'TabItem'
 
 export const TabLabel = ({ children, ...props }) => (
-  <TabLi>
+  <Li>
     <span {...props}>{children}</span>
-  </TabLi>
+  </Li>
 )
+TabLabel.displayName = 'TabLabel'
+
+export const TabContent = ({ active, children }) =>
+  React.Children.map(children, child =>
+    React.cloneElement(child, {
+      active: child.props.name === active,
+    })
+  )
+
+TabContent.displayName = 'TabContent'
+
+export const ContentItem = ({ active, children }) => active ?
+  children : null
+
+ContentItem.displayName = 'ContentItem'
 
 class Tabs extends React.Component {
-  state = {
-    active: null,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      active: props.default,
+    }
+  }
+
+  setActive = active => {
+    this.setState({ active })
   }
 
   render() {
     const { active } = this.state
-    const newChildren = React.Children.map(this.props.children, child =>
+    const { setActive } = this
+    return React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
-        active: child.props.name === active || (!active && child.props.default),
-        onClick: () => {
-          this.setState({ active: child.props.name })
-          this.props.onChange && this.props.onChange(child.props.name)
-        }
+        active,
+        setActive,
       })
     )
-
-    return <TabContainer>{newChildren}</TabContainer>
-  } name
+  }
 }
 
 export default Tabs

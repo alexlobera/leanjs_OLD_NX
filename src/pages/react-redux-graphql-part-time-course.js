@@ -51,7 +51,7 @@ const PartTime = () => (
           </Col>
         </CallToActionRow>
         <Card border="shadow">
-          <CurriculumPartTime />
+          <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
       </Grid>
     </TopSection>

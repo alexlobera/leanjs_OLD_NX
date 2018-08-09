@@ -8,8 +8,11 @@ import {
   Link,
   LinkScroll as DefaultLinkScroll,
   Tabs,
+  TabList,
   TabItem,
   TabLabel,
+  TabContent,
+  ContentItem,
 } from '../components/navigation'
 import {
   CurriculumReactNative,
@@ -44,29 +47,29 @@ const TAB_REACT_NATIVE = 'react-native'
 const TAB_PART_TIME = 'part-time'
 
 class Curriculum extends React.Component {
-  state = {
-    selectedTab: TAB_REACT_BOOTCAMP
-  }
+  // state = {
+  //   selectedTab: TAB_REACT_BOOTCAMP
+  // }
 
-  selectTab = selectedTab => {
-    this.setState({ selectedTab })
-  }
+  // selectTab = selectedTab => {
+  //   this.setState({ selectedTab })
+  // }
 
   render() {
-    const { selectedTab } = this.state
-    const { selectTab } = this
-    let TabContent = null
-    switch (selectedTab) {
-      case TAB_REACT_BOOTCAMP:
-        TabContent = CurriculumBootcamp
-        break
-      case TAB_REACT_NATIVE:
-        TabContent = CurriculumReactNative
-        break
-      case TAB_PART_TIME:
-        TabContent = CurriculumPartTime
-        break
-    }
+    // const { selectedTab } = this.state
+    // const { selectTab } = this
+    // let TabContent = null
+    // switch (selectedTab) {
+    //   case TAB_REACT_BOOTCAMP:
+    //     TabContent = CurriculumBootcamp
+    //     break
+    //   case TAB_REACT_NATIVE:
+    //     TabContent = CurriculumReactNative
+    //     break
+    //   case TAB_PART_TIME:
+    //     TabContent = CurriculumPartTime
+    //     break
+    // }
 
     return (
       <React.Fragment>
@@ -158,95 +161,263 @@ class Curriculum extends React.Component {
           <Grid>
             <Row>
               <Col lg={10} lgOffset={1}>
-                <Tabs onChange={selectTab} selected={selectedTab}>
-                  <TabLabel>Choose a curriculum:</TabLabel>
-                  <TabItem default name={TAB_REACT_BOOTCAMP}>
-                    React 1-week bootcamp
-                  </TabItem>
-                  <TabItem name={TAB_REACT_NATIVE}>React Native bootcamp</TabItem>
-                  <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
-                </Tabs>
-                <H2>React 1-week bootcamp curriculum</H2>
-                <P>
-                  <strong>
-                    On completion of the React bootcamp each student will:
-                  </strong>
-                </P>
-                <Ul>
-                  <Li>
-                    Understand the core principles and libraries of the React
+                <Tabs default={TAB_REACT_BOOTCAMP}>
+                  <TabList>
+                    <TabLabel>Choose a curriculum:</TabLabel>
+                    <TabItem name={TAB_REACT_BOOTCAMP}>
+                      React 1-week bootcamp
+                    </TabItem>
+                    <TabItem name={TAB_REACT_NATIVE}>React Native bootcamp</TabItem>
+                    <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
+                  </TabList>
+                  <TabContent>
+                    <ContentItem name={TAB_REACT_BOOTCAMP}>
+                      <H2>React 1-week bootcamp curriculum</H2>
+                      <P>
+                        <strong>
+                          On completion of the React bootcamp each student will:
+                        </strong>
+                      </P>
+                      <Ul>
+                        <Li>
+                          Understand the core principles and libraries of the React
                     ecosystem{' '}
-                    <code>
-                      react, react-router, redux, react-redux, graphql,
-                      apollo-client, styled-components
-                    </code>
-                  </Li>
-                  <Li>
-                    Be able to develop and test complex and reliable React
+                          <code>
+                            react, react-router, redux, react-redux, graphql,
+                            apollo-client, styled-components
+                          </code>
+                        </Li>
+                        <Li>
+                          Be able to develop and test complex and reliable React
                     applications: <code>enzyme, jest</code>
-                  </Li>
-                  <Li>
-                    Comprehend the best practices for front-end JavaScript:{' '}
-                    <code>Functional Programming, ES6, Webpack</code>
-                  </Li>
-                  <Li>
-                    Understand the best practices and patterns for building
-                    real-world production-ready React applications
-                  </Li>
-                </Ul>
-              </Col>
-            </Row>
-            <Row>
-              <Col lg={1} lgOffset={1}>
-                <Ul inline>
-                  <Li>Jump to:</Li>
-                </Ul>
-              </Col>
-              <Col lg={9}>
-                <Ul unstyled>
-                  <Li>
-                    <LinkScroll to="day1">
-                      Day 1: ES6 & ESNEXT, Thinking in React, Routing & Data
-                      Fetching
-                    </LinkScroll>
-                  </Li>
-                  <Li>
-                    <LinkScroll to="day2">
-                      Day 2: Forms, Authentication, Styling in React
-                    </LinkScroll>
-                  </Li>
-                  <Li>
-                    <LinkScroll to="day3">
-                      Day 3: Redux, and Testing Principles
-                    </LinkScroll>
-                  </Li>
-                  <Li>
-                    <LinkScroll to="day4">
-                      Day 4: Functional Programming, Advanced Patterns I, GraphQL,
-                      and Advanced Redux
-                    </LinkScroll>
-                  </Li>
-                  <Li>
-                    <LinkScroll to="day5">
-                      Day 5: Testing in React, Advanced React Patterns II,
-                      Server-side Rendering
-                    </LinkScroll>
-                  </Li>
-                  <Li>
-                    <LinkScroll to="day6">Day 6: Hackathon</LinkScroll>
-                  </Li>
-                </Ul>
-              </Col>
-            </Row>
+                        </Li>
+                        <Li>
+                          Comprehend the best practices for front-end JavaScript:{' '}
+                          <code>Functional Programming, ES6, Webpack</code>
+                        </Li>
+                        <Li>
+                          Understand the best practices and patterns for building
+                          real-world production-ready React applications
+                        </Li>
+                      </Ul>
+                      <Row>
+                        <Col md={2}>
+                          <Ul inline>
+                            <Li>Jump to:</Li>
+                          </Ul>
+                        </Col>
+                        <Col md={10}>
+                          <Ul unstyled>
+                            <Li>
+                              <LinkScroll to="day1">
+                                Day 1: ES6 & ESNEXT, Thinking in React, Routing & Data
+                                Fetching
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="day2">
+                                Day 2: Forms, Authentication, Styling in React
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="day3">
+                                Day 3: Redux, and Testing Principles
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="day4">
+                                Day 4: Functional Programming, Advanced Patterns I, GraphQL,
+                                and Advanced Redux
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="day5">
+                                Day 5: Testing in React, Advanced React Patterns II,
+                                Server-side Rendering
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="day6">Day 6: Hackathon</LinkScroll>
+                            </Li>
+                          </Ul>
+                        </Col>
+                      </Row>
 
-            <Row>
-              <Col lg={1} lgOffset={1} />
-              <Col lg={9}>
-                <TabContent
-                  showToggle={false}
-                  showTitle={false}
-                  list={true}
-                />
+                      <Row>
+                        <Col lg={1} lgOffset={1} />
+                        <Col lg={9}>
+                          <CurriculumBootcamp
+                            showToggle={false}
+                            showTitle={false}
+                            list={true}
+                          />
+                        </Col>
+                      </Row>
+                    </ContentItem>
+
+                    <ContentItem name={TAB_REACT_NATIVE}>
+                      <H2>React Native bootcamp curriculum</H2>
+                      <P>
+                        <strong>
+                          On completion of the React Native bootcamp each student will:
+                        </strong>
+                      </P>
+                      <Ul>
+                        <Li>
+                          Understand the core user interactions in React Native
+                        </Li>
+                        <Li>
+                          Be able to create reusable and maintanable React Native UI
+                        </Li>
+                        <Li>
+                          Understand the best practices and patterns for building
+                          real-world production-ready React Native applications
+                        </Li>
+                      </Ul>
+                      {/* <Row>
+                        <Col md={2}>
+                          <Ul inline>
+                            <Li>Jump to:</Li>
+                          </Ul>
+                        </Col>
+                        <Col md={10}>
+                          <Ul unstyled>
+                            <Li>
+                              <LinkScroll to="day1">
+                                Day 1: Foundation, Animations, and Gestures
+                              </LinkScroll>
+                            </Li>
+                          </Ul>
+                        </Col>
+                      </Row> */}
+
+                      <Row>
+                        <Col lg={1} lgOffset={1} />
+                        <Col lg={9}>
+                          <CurriculumReactNative
+                            showToggle={false}
+                            showTitle={false}
+                            list={true}
+                          />
+                        </Col>
+                      </Row>
+                    </ContentItem>
+
+                    <ContentItem name={TAB_PART_TIME}>
+                      <H2>React 1-week bootcamp curriculum</H2>
+                      <P>
+                        <strong>
+                          On completion of the React bootcamp each student will:
+                        </strong>
+                      </P>
+                      <Ul>
+                        <Li>
+                          Understand the core principles and libraries of the React
+                    ecosystem{' '}
+                          <code>
+                            react, react-router, redux, react-redux, graphql,
+                            apollo-client, styled-components
+                          </code>
+                        </Li>
+                        <Li>
+                          Be able to develop and test complex and reliable React
+                    applications: <code>enzyme, jest</code>
+                        </Li>
+                        <Li>
+                          Comprehend the best practices for front-end JavaScript:{' '}
+                          <code>Functional Programming, ES6, Webpack</code>
+                        </Li>
+                        <Li>
+                          Understand the best practices and patterns for building
+                          real-world production-ready React applications
+                        </Li>
+                      </Ul>
+                      <Row>
+                        <Col md={2}>
+                          <Ul inline>
+                            <Li>Jump to:</Li>
+                          </Ul>
+                        </Col>
+                        <Col md={10}>
+                          <Ul unstyled>
+                            <Li>
+                              <LinkScroll to="session1">
+                                Session 1: ES6
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session2">
+                                Session 2: Thinking in React
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session3">
+                                Session 3: Routing & Data Fetching
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session4">
+                                Session 4: Forms & Auth
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session5">
+                                Session 5: Recap React Fundamentals
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session6">
+                                Session 6: Styling in React
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session7">
+                                Session 7: Introduction to Redux
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session8">
+                                Session 8: Introduction to Testing in JS
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session9">
+                                Session 9: Testing in React
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session10">
+                                Session 10: Advanced React Patterns
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session11">
+                                Session 11: GraphQL & Apollo Client
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="session12">
+                                Session 12: React mini hackathon
+                              </LinkScroll>
+                            </Li>
+                          </Ul>
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col lg={1} lgOffset={1} />
+                        <Col lg={9}>
+                          <CurriculumPartTime
+                            showToggle={false}
+                            showTitle={false}
+                            list={true}
+                          />
+                        </Col>
+                      </Row>
+                    </ContentItem>
+                  </TabContent>
+                </Tabs>
+
               </Col>
             </Row>
           </Grid>
