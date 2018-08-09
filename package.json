@@ -11,6 +11,7 @@
     "babel-loader": "^6.4.1",
     "babel-polyfill": "^6.26.0",
     "card-react": "^1.2.7",
+    "common-tags": "^1.8.0",
     "email-validator": "^2.0.4",
     "firebase": "4.x",
     "firebase-admin": "^5.12.1",
