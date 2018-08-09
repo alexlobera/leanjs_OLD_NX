@@ -46,9 +46,12 @@ const ThanksTitle = styled(H3)`
 ` //TODO: animate this later
 
 const ErrorMssg = styled.p`
-  font-size: 12px;
-  color: yellow;
+  font-size: 14px;
+  padding: 0 8px;
+  color: #002938;
+  background-color: #f388a2;
   ${FONT_FAMILY};
+  font-weight: bold;
 `
 
 class ContactForm extends Component {
@@ -82,40 +85,42 @@ class ContactForm extends Component {
           and free learning resources. And no, we don't spam you with anything
           else, as per our <Link to="/privacy-policy">Privacy Policy</Link>.
         </P>
-        {!this.state.formSubmited ? (
-          <form id="subscribe-form" onSubmit={this.handleFormSubmit}>
-            <Row>
-              <ColField md={7}>
-                <Label for="email">Your email address:</Label>
-              </ColField>
-            </Row>
-            <Row>
-              <ColField md={7}>
-                <Input
-                  value={email}
-                  onChange={this.handleEmailChange}
-                  name="email"
-                  placeholder="name@email.com"
-                />
-                {email.length > 0 ? (
-                  emailValid ? null : (
-                    <ErrorMssg>must enter a valid email</ErrorMssg>
-                  )
-                ) : null}
-              </ColField>
-              <ColField md={5}>
-                <Button children="Submit email" disabled={!isValid} />
-              </ColField>
-            </Row>
-          </form>
-        ) : (
+        <form
+          id="subscribe-form"
+          onSubmit={this.handleFormSubmit}
+          style={this.state.formSubmited ? { display: 'none' } : {}}
+        >
+          <Row>
+            <ColField md={7}>
+              <Label for="email">Your email address:</Label>
+            </ColField>
+          </Row>
+          <Row>
+            <ColField md={7}>
+              <Input
+                value={email}
+                onChange={this.handleEmailChange}
+                name="email"
+                placeholder="name@email.com"
+              />
+              {email.length > 0 ? (
+                emailValid ? null : (
+                  <ErrorMssg>must enter a valid email</ErrorMssg>
+                )
+              ) : null}
+            </ColField>
+            <ColField md={5}>
+              <Button cta children="Submit email" disabled={!isValid} />
+            </ColField>
+          </Row>
+        </form>
+        {this.state.formSubmited ? (
           <Row>
             <Col>
               <ThanksTitle>thanks for submitting!</ThanksTitle>
             </Col>
           </Row>
-        )}
-
+        ) : null}
         <Unsubscribe>
           Looking to unsubscribe? contact us at{' '}
           <Link to="mailto:unsubscribe@reactjs.academy">

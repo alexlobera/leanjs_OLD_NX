@@ -14,7 +14,30 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "redirects": [
+      {
+        "source": "/react-redux-training-usa",
+        "destination": "/react-redux-graphql-bootcamp-nyc",
+        "type": 301
+      },
+      {
+        "source": "/become-a-coach",
+        "destination": "/about-us",
+        "type": 301
+      },
+      {
+        "source": "/thanks-for-opting-in",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/why-training",
+        "destination": "/about-us",
+        "type": 301
+      }
+    ],
+    "trailingSlash": false
   },
   "storage": {
     "rules": "storage.rules"
