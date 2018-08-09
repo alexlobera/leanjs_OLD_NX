@@ -37,6 +37,7 @@ import {
   BulletIcon,
   PeopleNetWorkIcon,
 } from '../components/icons'
+import { Element } from 'react-scroll'
 
 const LinkScroll = props => (
   <DefaultLinkScroll {...props} smooth={true} duration={500} />
@@ -47,30 +48,15 @@ const TAB_REACT_NATIVE = 'react-native'
 const TAB_PART_TIME = 'part-time'
 
 class Curriculum extends React.Component {
-  // state = {
-  //   selectedTab: TAB_REACT_BOOTCAMP
-  // }
+  state = {
+    active: TAB_REACT_BOOTCAMP
+  }
 
-  // selectTab = selectedTab => {
-  //   this.setState({ selectedTab })
-  // }
+  setActive = active => {
+    this.setState({ active })
+  }
 
   render() {
-    // const { selectedTab } = this.state
-    // const { selectTab } = this
-    // let TabContent = null
-    // switch (selectedTab) {
-    //   case TAB_REACT_BOOTCAMP:
-    //     TabContent = CurriculumBootcamp
-    //     break
-    //   case TAB_REACT_NATIVE:
-    //     TabContent = CurriculumReactNative
-    //     break
-    //   case TAB_PART_TIME:
-    //     TabContent = CurriculumPartTime
-    //     break
-    // }
-
     return (
       <React.Fragment>
         <Header
@@ -96,7 +82,7 @@ class Curriculum extends React.Component {
                     Bootcamps/part-time course - what's the difference?{' '}
                     <Link to="#difference" name="difference">
                       #
-                    </Link>
+                        </Link>
                   </H2Ref>
                 </Col>
               </Row>
@@ -104,13 +90,13 @@ class Curriculum extends React.Component {
                 <Col md={3} mdOffset={1}>
                   {/* <Image src={BOOTCAMP_RIGHT} width="100%" /> */}
                   image
-                </Col>
+                    </Col>
                 <Col md={6} mdOffset={1}>
                   <H3>React bootcamp</H3>
                   <P>
                     Our React bootcamp has the most complete curriculum on the
                     market, with a syllabus that covers:
-                  </P>
+                      </P>
                   <Ul>
                     <Li>Server-side rendering</Li>
                     <Li>Advanced React patterns</Li>
@@ -119,29 +105,29 @@ class Curriculum extends React.Component {
                     <Li>Hackathon to consolidate knowleadge</Li>
                   </Ul>
                   <P>
-                    <Link>See React bootcamp curriculum</Link>
+                    <LinkScroll to="curriculum">See React bootcamp curriculum</LinkScroll>
                   </P>
                   <H3>React Native bootcamp</H3>
                   <P>
                     Our React Native bootcamp is the smoothest transition between
                     React and Native.
-                  </P>
+                      </P>
                   <Ul>
                     <Li>React Native foundation</Li>
                     <Li>Native animations</Li>
                     <Li>Gestures</Li>
                   </Ul>
                   <P>
-                    <Link>See React Native curriculum</Link>
+                    <LinkScroll>See React Native curriculum</LinkScroll>
                   </P>
                   <H3>React part-time course</H3>
                   <P>
                     The part-time course has a condensed version of the React
                     bootcamp curriculum, ideal for those who value flexible learning
                     and can’t miss a day at work.
-                  </P>
+                      </P>
                   <P>
-                    <Link>See React part-time course curriculum</Link>
+                    <LinkScroll>See React part-time course curriculum</LinkScroll>
                   </P>
                   <H3>With all courses you will:</H3>
                   <Ul>
@@ -161,17 +147,18 @@ class Curriculum extends React.Component {
           <Grid>
             <Row>
               <Col lg={10} lgOffset={1}>
-                <Tabs default={TAB_REACT_BOOTCAMP}>
+                <Tabs active={this.state.active}>
                   <TabList>
                     <TabLabel>Choose a curriculum:</TabLabel>
                     <TabItem name={TAB_REACT_BOOTCAMP}>
                       React 1-week bootcamp
-                    </TabItem>
+                        </TabItem>
                     <TabItem name={TAB_REACT_NATIVE}>React Native bootcamp</TabItem>
                     <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
                   </TabList>
                   <TabContent>
                     <ContentItem name={TAB_REACT_BOOTCAMP}>
+                      <Element name="curriculum" />
                       <H2>React 1-week bootcamp curriculum</H2>
                       <P>
                         <strong>
@@ -181,24 +168,24 @@ class Curriculum extends React.Component {
                       <Ul>
                         <Li>
                           Understand the core principles and libraries of the React
-                    ecosystem{' '}
+                        ecosystem{' '}
                           <code>
                             react, react-router, redux, react-redux, graphql,
                             apollo-client, styled-components
-                          </code>
+                              </code>
                         </Li>
                         <Li>
                           Be able to develop and test complex and reliable React
-                    applications: <code>enzyme, jest</code>
+                        applications: <code>enzyme, jest</code>
                         </Li>
                         <Li>
-                          Comprehend the best practices for front-end JavaScript:{' '}
-                          <code>Functional Programming, ES6, Webpack</code>
+                          Comprehend modern front-end JavaScript:{' '}
+                          <code>Functional Programming, Webpack</code>
                         </Li>
                         <Li>
                           Understand the best practices and patterns for building
                           real-world production-ready React applications
-                        </Li>
+                            </Li>
                       </Ul>
                       <Row>
                         <Col md={2}>
@@ -212,29 +199,29 @@ class Curriculum extends React.Component {
                               <LinkScroll to="day1">
                                 Day 1: ES6 & ESNEXT, Thinking in React, Routing & Data
                                 Fetching
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day2">
                                 Day 2: Forms, Authentication, Styling in React
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day3">
                                 Day 3: Redux, and Testing Principles
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day4">
                                 Day 4: Functional Programming, Advanced Patterns I, GraphQL,
                                 and Advanced Redux
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day5">
                                 Day 5: Testing in React, Advanced React Patterns II,
                                 Server-side Rendering
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day6">Day 6: Hackathon</LinkScroll>
@@ -260,36 +247,36 @@ class Curriculum extends React.Component {
                       <P>
                         <strong>
                           On completion of the React Native bootcamp each student will:
-                        </strong>
+                            </strong>
                       </P>
                       <Ul>
                         <Li>
                           Understand the core user interactions in React Native
-                        </Li>
+                            </Li>
                         <Li>
                           Be able to create reusable and maintanable React Native UI
-                        </Li>
+                            </Li>
                         <Li>
                           Understand the best practices and patterns for building
                           real-world production-ready React Native applications
-                        </Li>
+                            </Li>
                       </Ul>
                       {/* <Row>
-                        <Col md={2}>
-                          <Ul inline>
-                            <Li>Jump to:</Li>
-                          </Ul>
-                        </Col>
-                        <Col md={10}>
-                          <Ul unstyled>
-                            <Li>
-                              <LinkScroll to="day1">
-                                Day 1: Foundation, Animations, and Gestures
-                              </LinkScroll>
-                            </Li>
-                          </Ul>
-                        </Col>
-                      </Row> */}
+                            <Col md={2}>
+                              <Ul inline>
+                                <Li>Jump to:</Li>
+                              </Ul>
+                            </Col>
+                            <Col md={10}>
+                              <Ul unstyled>
+                                <Li>
+                                  <LinkScroll to="day1">
+                                    Day 1: Foundation, Animations, and Gestures
+                                  </LinkScroll>
+                                </Li>
+                              </Ul>
+                            </Col>
+                          </Row> */}
 
                       <Row>
                         <Col lg={1} lgOffset={1} />
@@ -304,33 +291,29 @@ class Curriculum extends React.Component {
                     </ContentItem>
 
                     <ContentItem name={TAB_PART_TIME}>
-                      <H2>React 1-week bootcamp curriculum</H2>
+                      <H2>React part-time course curriculum</H2>
                       <P>
                         <strong>
                           On completion of the React bootcamp each student will:
-                        </strong>
+                            </strong>
                       </P>
                       <Ul>
                         <Li>
                           Understand the core principles and libraries of the React
-                    ecosystem{' '}
+                        ecosystem{' '}
                           <code>
                             react, react-router, redux, react-redux, graphql,
                             apollo-client, styled-components
-                          </code>
+                              </code>
                         </Li>
                         <Li>
                           Be able to develop and test complex and reliable React
-                    applications: <code>enzyme, jest</code>
+                        applications: <code>enzyme, jest</code>
                         </Li>
                         <Li>
-                          Comprehend the best practices for front-end JavaScript:{' '}
-                          <code>Functional Programming, ES6, Webpack</code>
-                        </Li>
-                        <Li>
-                          Understand the best practices and patterns for building
+                          Understand some of the best practices and patterns for building
                           real-world production-ready React applications
-                        </Li>
+                            </Li>
                       </Ul>
                       <Row>
                         <Col md={2}>
@@ -343,62 +326,62 @@ class Curriculum extends React.Component {
                             <Li>
                               <LinkScroll to="session1">
                                 Session 1: ES6
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session2">
                                 Session 2: Thinking in React
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session3">
                                 Session 3: Routing & Data Fetching
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session4">
                                 Session 4: Forms & Auth
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session5">
                                 Session 5: Recap React Fundamentals
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session6">
                                 Session 6: Styling in React
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session7">
                                 Session 7: Introduction to Redux
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session8">
                                 Session 8: Introduction to Testing in JS
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session9">
                                 Session 9: Testing in React
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session10">
                                 Session 10: Advanced React Patterns
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session11">
                                 Session 11: GraphQL & Apollo Client
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session12">
                                 Session 12: React mini hackathon
-                              </LinkScroll>
+                                  </LinkScroll>
                             </Li>
                           </Ul>
                         </Col>
