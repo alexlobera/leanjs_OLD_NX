@@ -7,7 +7,7 @@ const Hackathon = ({ title }) => (
     <Ul>
       <Li>Create teams</Li>
       <Li>Discussion about architecture, features and tools</Li>
-      <Li>Mini Hackathon! - work in teams to build apps</Li>
+      <Li>Hackathon! - work in teams to build apps</Li>
       <Li>
         Practice extreme programming and get support from the coaches and
         mentors

@@ -1,10 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Col, Row } from '../layout/Grid'
 import { H1Ref } from '../text'
 import Link from '../navigation/Link'
+import { LinkButton } from '../buttons'
 import CurriculumBootcamp from './CurriculumBootcamp'
 import CurriculumReactNative from './CurriculumReactNative'
 
+const RowCTA = styled(Row)`
+  padding-top: 50px;
+  padding-bottom: 25px;
+`
 const FullCurriculum = () => (
   <React.Fragment>
     <Row>
@@ -19,6 +25,13 @@ const FullCurriculum = () => (
     </Row>
     <CurriculumBootcamp showTitle={false} />
     <CurriculumReactNative showTitle={false} isOpen={false} />
+    <RowCTA>
+      <Col lg={10} lgOffset={1}>
+        <LinkButton secondary to="/curriculum">
+          Full curriculum>>
+        </LinkButton>
+      </Col>
+    </RowCTA>
   </React.Fragment>
 )
 

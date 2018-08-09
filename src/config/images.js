@@ -37,6 +37,9 @@ export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.png?alt=media'
 export const ABOUT_VALUES =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutus_values.jpg?alt=media'
+
+export const CURRICULUM_FULL_TRAINING_IMG = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/curriculum_parttimetulltime.jpg?alt=media'
+
 // Team members
 
 export const ALEX =

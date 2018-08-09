@@ -83,7 +83,7 @@ const BootcampLondon = () => (
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={NotBegginerIcon} />A developer with 1+ year of
-                development under your belt?
+                development under your belt using JavaScript?
               </Li>
               <Li>
                 <BulletIcon icon={CodeIcon} />

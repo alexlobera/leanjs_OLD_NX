@@ -61,7 +61,7 @@ const BootcampLondon = () => (
           </Row>
         </Card>
         <Card white border="shadow">
-          <CurriculumPartTime />
+          <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
       </Grid>
     </TopSection>
