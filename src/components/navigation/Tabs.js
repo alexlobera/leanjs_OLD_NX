@@ -32,12 +32,13 @@ const Ul = styled.ul`
   }
 `
 
-export const TabList = ({ active, setActive, children }) =>
+export const TabList = ({ active, setActive, onChange, children }) =>
   <Ul>
     {React.Children.map(children, child =>
       React.cloneElement(child, {
         active: child.props.name === active, //|| (!active && child.props.default),
         onClick: child.props.name ? () => {
+          onChange && onChange(child.props.name)
           setActive(child.props.name)
         } : undefined,
       })
@@ -100,7 +101,7 @@ class Tabs extends React.Component {
     super(props)
 
     this.state = {
-      active: props.default,
+      active: props.default || props.active,
     }
   }
 
@@ -111,10 +112,13 @@ class Tabs extends React.Component {
   render() {
     const { active } = this.state
     const { setActive } = this
+    const { onChange, active: activeProp } = this.props
+
     return React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
-        active,
+        active: activeProp || active,
         setActive,
+        onChange
       })
     )
   }

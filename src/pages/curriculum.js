@@ -1,4 +1,5 @@
 import React from 'react'
+import { Element, scroller } from 'react-scroll'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -28,7 +29,6 @@ import {
 import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { Image } from '../components/elements'
-import { BOOTCAMP_RIGHT } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -37,7 +37,7 @@ import {
   BulletIcon,
   PeopleNetWorkIcon,
 } from '../components/icons'
-import { Element } from 'react-scroll'
+import { getURLParameter } from '../components/utils/url'
 
 const LinkScroll = props => (
   <DefaultLinkScroll {...props} smooth={true} duration={500} />
@@ -50,6 +50,17 @@ const TAB_PART_TIME = 'part-time'
 class Curriculum extends React.Component {
   state = {
     active: TAB_REACT_BOOTCAMP
+  }
+
+  componentDidMount() {
+    const defaultTab = getURLParameter('tab')
+    if (defaultTab) {
+      this.setActive(defaultTab)
+      setTimeout(
+        () => scroller.scrollTo('curriculum', {
+          smooth: true, duration: 500
+        }), 500)
+    }
   }
 
   setActive = active => {
@@ -105,7 +116,7 @@ class Curriculum extends React.Component {
                     <Li>Hackathon to consolidate knowleadge</Li>
                   </Ul>
                   <P>
-                    <LinkScroll to="curriculum">See React bootcamp curriculum</LinkScroll>
+                    <LinkScroll onClick={() => this.setActive(TAB_REACT_BOOTCAMP)} to="curriculum">See React bootcamp curriculum</LinkScroll>
                   </P>
                   <H3>React Native bootcamp</H3>
                   <P>
@@ -118,7 +129,7 @@ class Curriculum extends React.Component {
                     <Li>Gestures</Li>
                   </Ul>
                   <P>
-                    <LinkScroll>See React Native curriculum</LinkScroll>
+                    <LinkScroll onClick={() => this.setActive(TAB_REACT_NATIVE)} to="curriculum">See React Native curriculum</LinkScroll>
                   </P>
                   <H3>React part-time course</H3>
                   <P>
@@ -127,7 +138,7 @@ class Curriculum extends React.Component {
                     and can’t miss a day at work.
                       </P>
                   <P>
-                    <LinkScroll>See React part-time course curriculum</LinkScroll>
+                    <LinkScroll onClick={() => this.setActive(TAB_PART_TIME)} to="curriculum">See React part-time course curriculum</LinkScroll>
                   </P>
                   <H3>With all courses you will:</H3>
                   <Ul>
@@ -147,7 +158,7 @@ class Curriculum extends React.Component {
           <Grid>
             <Row>
               <Col lg={10} lgOffset={1}>
-                <Tabs active={this.state.active}>
+                <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
                     <TabLabel>Choose a curriculum:</TabLabel>
                     <TabItem name={TAB_REACT_BOOTCAMP}>
@@ -243,6 +254,7 @@ class Curriculum extends React.Component {
                     </ContentItem>
 
                     <ContentItem name={TAB_REACT_NATIVE}>
+                      <Element name="curriculum" />
                       <H2>React Native bootcamp curriculum</H2>
                       <P>
                         <strong>
@@ -291,6 +303,7 @@ class Curriculum extends React.Component {
                     </ContentItem>
 
                     <ContentItem name={TAB_PART_TIME}>
+                      <Element name="curriculum" />
                       <H2>React part-time course curriculum</H2>
                       <P>
                         <strong>
