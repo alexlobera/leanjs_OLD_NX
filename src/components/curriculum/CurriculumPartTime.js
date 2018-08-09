@@ -27,7 +27,13 @@ const PartTimeFinalProject = () => (
   </Ul>
 )
 
-const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigateTo = '/curriculum?tab=part-time', showCallToActionBottom = false }) => {
+const CurriculumPartTime = ({
+  showTitle = true,
+  list,
+  showToggle,
+  toggleNavigateTo = '/curriculum?tab=part-time',
+  showCallToActionBottom = false,
+}) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
@@ -35,20 +41,39 @@ const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigate
       <Section {...commonProps} title="Session 1 - ES6" name="session1">
         <ES6Session />
       </Section>
-      <Section {...commonProps} title="Session 2 - Thinking in React" name="session2"
+      <Section
+        {...commonProps}
+        title="Session 2 - Thinking in React"
+        name="session2"
       >
         <IntroReactSession />
       </Section>
-      <Section {...commonProps} title="Session 3 - Routing & Data Fetching" name="session3">
+      <Section
+        {...commonProps}
+        title="Session 3 - Routing & Data Fetching"
+        name="session3"
+      >
         <RoutingAndDataFetchingSession />
       </Section>
-      <Section {...commonProps} title="Session 4 - Forms & Auth" name="session4">
+      <Section
+        {...commonProps}
+        title="Session 4 - Forms & Auth"
+        name="session4"
+      >
         <FormsAndAuthSession />
       </Section>
-      <Section {...commonProps} title="Session 5 - Recap React Fundamentals" name="session5">
+      <Section
+        {...commonProps}
+        title="Session 5 - Recap React Fundamentals"
+        name="session5"
+      >
         <ReactFundamentalsRecapSession />
       </Section>
-      <Section {...commonProps} title="Session 6 - Styling in React" name="session6">
+      <Section
+        {...commonProps}
+        title="Session 6 - Styling in React"
+        name="session6"
+      >
         <StylingInReactSession />
       </Section>
     </React.Fragment>
@@ -56,7 +81,11 @@ const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigate
 
   const secondHalf = (
     <React.Fragment>
-      <Section {...commonProps} title="Session 7 - Introduction to Redux" name="session7">
+      <Section
+        {...commonProps}
+        title="Session 7 - Introduction to Redux"
+        name="session7"
+      >
         <IntroReduxSession />
       </Section>
       <Section
@@ -66,10 +95,18 @@ const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigate
       >
         <TestingIntroSession />
       </Section>
-      <Section {...commonProps} title="Session 9 - Testing in React" name="session9">
+      <Section
+        {...commonProps}
+        title="Session 9 - Testing in React"
+        name="session9"
+      >
         <TestingInReactSession />
       </Section>
-      <Section {...commonProps} title="Session 10 - Advanced Patterns I" name="session10">
+      <Section
+        {...commonProps}
+        title="Session 10 - Advanced Patterns I"
+        name="session10"
+      >
         <HoCsAndRenderPropsSession />
       </Section>
       <Section
@@ -103,8 +140,8 @@ const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigate
           </Col>
         </Row>
       ) : (
-          ''
-        )}
+        ''
+      )}
 
       {list ? (
         <List>
@@ -112,15 +149,15 @@ const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigate
           {secondHalf}
         </List>
       ) : (
-          <Row>
-            <Col md={6} lg={5} lgOffset={1}>
-              {firstHalf}
-            </Col>
-            <Col md={6} lg={5}>
-              {secondHalf}
-            </Col>
-          </Row>
-        )}
+        <Row>
+          <Col md={6} lg={5} lgOffset={1}>
+            {firstHalf}
+          </Col>
+          <Col md={6} lg={5}>
+            {secondHalf}
+          </Col>
+        </Row>
+      )}
 
       {showCallToActionBottom ? (
         <Row>
@@ -128,21 +165,22 @@ const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigate
             <CurriculumCard>
               <Row>
                 <Col lg={5} lgOffset={1}>
-                  Looking for the most complete React curriculum? Our 1-week bootcamp
-                  has it...
-              </Col>
+                  Looking for the most complete React curriculum? Our 1-week
+                  bootcamp has it...
+                </Col>
                 <Col lg={6} center>
                   <LinkButton to="/react-redux-graphql-bootcamp" secondary>
                     1 week bootcamp >>
-                </LinkButton>
+                  </LinkButton>
                 </Col>
               </Row>
             </CurriculumCard>
           </Col>
         </Row>
-      ) : ''}
-
-    </React.Fragment >
+      ) : (
+        ''
+      )}
+    </React.Fragment>
   )
 }
 

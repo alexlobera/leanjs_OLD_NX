@@ -7,7 +7,12 @@ import ReactNativeFoundationSession from './sessions/ReactNativeFoundationSessio
 import ReactNativeGesturesSession from './sessions/ReactNativeGesturesSession'
 import ReactNativeAnimationsSession from './sessions/ReactNativeAnimationsSession'
 
-const CurriculumReactNative = ({ showTitle = true, list, showToggle, toggleNavigateTo = '/curriculum?tab=react-native' }) => {
+const CurriculumReactNative = ({
+  showTitle = true,
+  list,
+  showToggle,
+  toggleNavigateTo = '/curriculum?tab=react-native',
+}) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
@@ -30,26 +35,24 @@ const CurriculumReactNative = ({ showTitle = true, list, showToggle, toggleNavig
           <Col lg={10} lgOffset={1}>
             <H1Ref>
               React Native Curriculum
-            <Link to="#curriculum" name="curriculum">
+              <Link to="#curriculum" name="curriculum">
                 #
-            </Link>
+              </Link>
             </H1Ref>
           </Col>
         </Row>
       ) : (
-          ''
-        )}
+        ''
+      )}
       {list ? (
-        <List>
-          {firstHalf}
-        </List>
+        <List>{firstHalf}</List>
       ) : (
-          <Row>
-            <Col md={6} lg={5} lgOffset={1}>
-              {firstHalf}
-            </Col>
-          </Row>
-        )}
+        <Row>
+          <Col md={6} lg={5} lgOffset={1}>
+            {firstHalf}
+          </Col>
+        </Row>
+      )}
     </React.Fragment>
   )
 }

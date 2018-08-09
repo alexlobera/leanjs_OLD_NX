@@ -19,7 +19,12 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 
-const CurriculumBootcamp = ({ showTitle = true, list, showToggle, toggleNavigateTo = '/curriculum?tab=react-bootcamp' }) => {
+const CurriculumBootcamp = ({
+  showTitle = true,
+  list,
+  showToggle,
+  toggleNavigateTo = '/curriculum?tab=react-bootcamp',
+}) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
