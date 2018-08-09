@@ -9,6 +9,8 @@ import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
 
+export const curryedToggleNavigateTo = to => section => to ? `${to}&section=${section}` : false
+
 const Section = styled.div`
   margin-top: 2em;
   border-left: 3px solid ${blue1()};
@@ -54,8 +56,11 @@ class CurriculumSection extends React.Component {
 
   render() {
     const { isOpen } = this.state
-    const { title, name, subTitle, children, showToggle = true } = this.props
+    const { title, name, subTitle, children, showToggle = true, toggleNavigateTo } = this.props
     const { toggleSubSection } = this
+    const toogleLinkProps = toggleNavigateTo ?
+      { to: typeof toggleNavigateTo === 'function' ? toggleNavigateTo(name) : toggleNavigateTo }
+      : { onClick: toggleSubSection }
     const childrenWithToggle = isOpen ? (
       <CurriculumSubSection>
         {children}
@@ -68,8 +73,8 @@ class CurriculumSection extends React.Component {
         </LinkScroll>
       </CurriculumSubSection>
     ) : (
-      <Link onClick={toggleSubSection}>Click here for more detail</Link>
-    )
+        <Link {...toogleLinkProps}>Click here for more detail</Link>
+      )
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
     )

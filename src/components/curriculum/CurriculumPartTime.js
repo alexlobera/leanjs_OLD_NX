@@ -2,7 +2,7 @@ import React from 'react'
 import { LinkButton } from '../buttons'
 import { H1Ref } from '../text'
 import Link from '../navigation/Link'
-import Section, { List } from './CurriculumSection'
+import Section, { List, curryedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import ES6Session from './sessions/ES6Session'
@@ -27,25 +27,28 @@ const PartTimeFinalProject = () => (
   </Ul>
 )
 
-const CurriculumPartTime = ({ showTitle = true, list, showToggle, showCallToActionBottom = false }) => {
+const CurriculumPartTime = ({ showTitle = true, list, showToggle, toggleNavigateTo = '/curriculum?tab=part-time', showCallToActionBottom = false }) => {
+  const toggleNavigateToSection = curryedToggleNavigateTo(toggleNavigateTo)
+  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
     <React.Fragment>
-      <Section showToggle={showToggle} title="Session 1 - ES6" name="session1">
+      <Section {...commonProps} title="Session 1 - ES6" name="session1">
         <ES6Session />
       </Section>
-      <Section showToggle={showToggle} title="Session 2 - Thinking in React" name="session2">
+      <Section {...commonProps} title="Session 2 - Thinking in React" name="session2"
+      >
         <IntroReactSession />
       </Section>
-      <Section showToggle={showToggle} title="Session 3 - Routing & Data Fetching" name="session3">
+      <Section {...commonProps} title="Session 3 - Routing & Data Fetching" name="session3">
         <RoutingAndDataFetchingSession />
       </Section>
-      <Section showToggle={showToggle} title="Session 4 - Forms & Auth" name="session4">
+      <Section {...commonProps} title="Session 4 - Forms & Auth" name="session4">
         <FormsAndAuthSession />
       </Section>
-      <Section showToggle={showToggle} title="Session 5 - Recap React Fundamentals" name="session5">
+      <Section {...commonProps} title="Session 5 - Recap React Fundamentals" name="session5">
         <ReactFundamentalsRecapSession />
       </Section>
-      <Section showToggle={showToggle} title="Session 6 - Styling in React" name="session6">
+      <Section {...commonProps} title="Session 6 - Styling in React" name="session6">
         <StylingInReactSession />
       </Section>
     </React.Fragment>
@@ -53,31 +56,31 @@ const CurriculumPartTime = ({ showTitle = true, list, showToggle, showCallToActi
 
   const secondHalf = (
     <React.Fragment>
-      <Section showToggle={showToggle} title="Session 7 - Introduction to Redux" name="session7">
+      <Section {...commonProps} title="Session 7 - Introduction to Redux" name="session7">
         <IntroReduxSession />
       </Section>
       <Section
-        showToggle={showToggle}
+        {...commonProps}
         title="Session 8 - Introduction to Testing in JS"
         name="session8"
       >
         <TestingIntroSession />
       </Section>
-      <Section showToggle={showToggle} title="Session 9 - Testing in React" name="session9">
+      <Section {...commonProps} title="Session 9 - Testing in React" name="session9">
         <TestingInReactSession />
       </Section>
-      <Section showToggle={showToggle} title="Session 10 - Advanced Patterns I" name="session10">
+      <Section {...commonProps} title="Session 10 - Advanced Patterns I" name="session10">
         <HoCsAndRenderPropsSession />
       </Section>
       <Section
-        showToggle={showToggle}
+        {...commonProps}
         title="Session 11 - GraphQL & Apollo Client"
         name="session11"
       >
         <GraphQLSession />
       </Section>
       <Section
-        showToggle={showToggle}
+        {...commonProps}
         title="Session 12 - Last session React mini hackathon"
         name="session12"
       >

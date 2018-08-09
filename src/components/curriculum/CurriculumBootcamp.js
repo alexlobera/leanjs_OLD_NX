@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
 import { H2Ref } from '../text'
-import Section, { List } from './CurriculumSection'
+import Section, { List, curryedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
 import IntroReactSession from './sessions/IntroReactSession'
@@ -19,11 +19,13 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 
-const CurriculumBootcamp = ({ showTitle = true, list, showToggle }) => {
+const CurriculumBootcamp = ({ showTitle = true, list, showToggle, toggleNavigateTo = '/curriculum?tab=react-bootcamp' }) => {
+  const toggleNavigateToSection = curryedToggleNavigateTo(toggleNavigateTo)
+  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
     <React.Fragment>
       <Section
-        showToggle={showToggle}
+        {...commonProps}
         title="React Bootcamp Day 1"
         name="day1"
         subTitle="ES6 & ESNEXT, Thinking in React, Routing & Data Fetching"
@@ -33,7 +35,7 @@ const CurriculumBootcamp = ({ showTitle = true, list, showToggle }) => {
         <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
       </Section>
       <Section
-        showToggle={showToggle}
+        {...commonProps}
         title="React Bootcamp Day 2"
         name="day2"
         subTitle="Forms, Authentication, Styling in React"
@@ -46,9 +48,9 @@ const CurriculumBootcamp = ({ showTitle = true, list, showToggle }) => {
         <StylingInReactSession title="Styling in React" />
       </Section>
       <Section
-        showToggle={showToggle}
-        name="day3"
+        {...commonProps}
         title="React Bootcamp Day 3"
+        name="day3"
         subTitle="Redux, and Testing Principles"
       >
         <IntroReduxSession title="Introduction to Redux" />
@@ -59,9 +61,9 @@ const CurriculumBootcamp = ({ showTitle = true, list, showToggle }) => {
   const secondHalf = (
     <React.Fragment>
       <Section
-        showToggle={showToggle}
-        name="day4"
+        {...commonProps}
         title="React Bootcamp Day 4"
+        name="day4"
         subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
       >
         <HoCsAndRenderPropsSession title="FP & Advanced React Patterns I" />
@@ -69,9 +71,9 @@ const CurriculumBootcamp = ({ showTitle = true, list, showToggle }) => {
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
       <Section
-        showToggle={showToggle}
-        name="day5"
+        {...commonProps}
         title="React Bootcamp Day 5"
+        name="day5"
         subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
       >
         <TestingInReactSession title="Testing in React" />
@@ -82,9 +84,9 @@ const CurriculumBootcamp = ({ showTitle = true, list, showToggle }) => {
         <ServerSideRenderingSession title="Server Side Rendering (SSR) with React" />
       </Section>
       <Section
-        showToggle={showToggle}
-        name="day6"
+        {...commonProps}
         title="React Bootcamp Day 6"
+        name="day6"
         subTitle="Hackathon"
       >
         <Hackathon

@@ -54,12 +54,13 @@ class Curriculum extends React.Component {
 
   componentDidMount() {
     const defaultTab = getURLParameter('tab')
-    if (defaultTab) {
+    const defaultSection = getURLParameter('section')
+    if (defaultTab || defaultSection) {
       this.setActive(defaultTab)
       setTimeout(
-        () => scroller.scrollTo('curriculum', {
+        () => scroller.scrollTo(defaultSection || 'curriculum', {
           smooth: true, duration: 500
-        }), 500)
+        }), 200)
     }
   }
 
@@ -99,8 +100,7 @@ class Curriculum extends React.Component {
               </Row>
               <Row>
                 <Col md={3} mdOffset={1}>
-                  {/* <Image src={BOOTCAMP_RIGHT} width="100%" /> */}
-                  image
+                    {/* <Image src={WAITING_FOR_PAUL_TO_PROVIDE_PICTURE} width="100%" /> */}
                     </Col>
                 <Col md={6} mdOffset={1}>
                   <H3>React bootcamp</H3>
