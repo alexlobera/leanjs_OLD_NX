@@ -1,10 +1,11 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
+import styled from 'styled-components'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
-import { H2Ref, H2, P, H3 } from '../components/text'
+import { H2Ref, H2, P, H3, Span } from '../components/text'
 import {
   Link,
   LinkScroll as DefaultLinkScroll,
@@ -39,6 +40,8 @@ import {
 } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
+import { CALLTOACTIONRED } from '../config/styles'
+import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../components/utils'
 
 const LinkScroll = props => (
   <DefaultLinkScroll {...props} smooth={true} duration={500} />
@@ -48,6 +51,38 @@ const TAB_REACT_BOOTCAMP = 'react-bootcamp'
 const TAB_REACT_NATIVE = 'react-native'
 const TAB_PART_TIME = 'part-time'
 
+const CardTraining = styled.div`
+  margin-top: 36px;
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    a {
+      display:block;
+      margin: 8px 0;
+    }
+  }
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    padding: 50px 8px;
+    border: solid 4px ${CALLTOACTIONRED};
+    margin-bottom: 72px;
+    position: relative;
+    text-align: center;
+  }
+`
+const BottomCallToActionRow = styled(Row)`
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    padding-top: 16px;
+    a {
+      display:block;
+      margin: 8px 0;
+    }
+  }
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    text-align: center;
+    position: absolute;
+    bottom:-26px;
+    left: 0;
+    width:100%;
+  }
+`
 class Curriculum extends React.Component {
   state = {
     active: TAB_REACT_BOOTCAMP,
@@ -301,22 +336,6 @@ class Curriculum extends React.Component {
                           applications
                         </Li>
                       </Ul>
-                      {/* <Row>
-                            <Col md={2}>
-                              <Ul inline>
-                                <Li>Jump to:</Li>
-                              </Ul>
-                            </Col>
-                            <Col md={10}>
-                              <Ul unstyled>
-                                <Li>
-                                  <LinkScroll to="day1">
-                                    Day 1: Foundation, Animations, and Gestures
-                                  </LinkScroll>
-                                </Li>
-                              </Ul>
-                            </Col>
-                          </Row> */}
 
                       <Row>
                         <Col lg={1} lgOffset={1} />
@@ -442,6 +461,30 @@ class Curriculum extends React.Component {
                     </ContentItem>
                   </TabContent>
                 </Tabs>
+                <CardTraining>
+                  <Span>Whether you need rapid, flexible or React Native training, we’ve got it covered….</Span>
+                  <BottomCallToActionRow>
+                    <Col md={4}>
+                      <LinkButton
+                        cta
+                        to="/react-redux-graphql-bootcamp"
+                        children="React bootcamp >>"
+                      />
+                    </Col>
+                    <Col md={4}>
+                      <LinkButton
+                        to="/react-native-bootcamp"
+                        children="React Native training >>"
+                      />
+                    </Col>
+                    <Col md={4}>
+                      <LinkButton
+                        to="/react-redux-graphql-part-time-course"
+                        children="Part-time course >>"
+                      />
+                    </Col>
+                  </BottomCallToActionRow>
+                </CardTraining>
               </Col>
             </Row>
           </Grid>
