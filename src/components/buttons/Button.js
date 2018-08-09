@@ -33,3 +33,18 @@ export default styled.button`
     border-color: rgba(255,255,255, 0.2);
   }
 `
+
+export const InputButton = styled.input.attrs({
+  type: 'submit',
+})`
+  ${DEFAULT_BUTTON_STYLE}
+  ${FONT_FAMILY}
+  background-color: ${props => (props.cta ? CALLTOACTIONRED : blue1())};
+  font-weight: ${props => (props.cta ? 'bold' : '')};
+  box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
+  color: ${WHITE};
+  display: ${props => (props.block ? 'block' : 'inline-block')};
+  :disabled {
+    border-color: rgba(255,255,255, 0.2);
+  }
+`
