@@ -48,12 +48,12 @@ export const TabList = ({ active, setActive, onChange, children }) => (
   <Ul>
     {React.Children.map(children, child =>
       React.cloneElement(child, {
-        active: child.props.name === active, //|| (!active && child.props.default),
+        active: child.props.name === active,
         onClick: child.props.name
           ? () => {
-              onChange && onChange(child.props.name)
-              setActive(child.props.name)
-            }
+            onChange && onChange(child.props.name)
+            setActive(child.props.name)
+          }
           : undefined,
       })
     )}
@@ -121,7 +121,7 @@ class Tabs extends React.Component {
     super(props)
 
     this.state = {
-      active: props.default || props.active,
+      active: props.active,
     }
   }
 
