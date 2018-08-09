@@ -9,7 +9,7 @@ import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import { Card } from '../components/elements'
+import { Card, Video } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { Image } from '../components/elements'
 import { LeanJS } from '../components/logos'
@@ -400,7 +400,7 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5}>
-            <Image src={ABOUT_CONTINUOUS} width="100%" />
+            <Video youtubeID="Rx2v_6I7PMM" />
           </Col>
           <Col xs={12} md={6} mdOffset={1}>
             <H2Ref>
