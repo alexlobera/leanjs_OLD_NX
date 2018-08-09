@@ -128,13 +128,6 @@ const CurriculumBootcamp = ({ showTitle = true, list, showToggle, toggleNavigate
           </Col>
         </Row>
       )}
-      {/* <Row>
-      <Col style={{ paddingTop: '25px', paddingBottom: '25px' }} xs={12} md={12} lg={10} lgOffset={1}>
-        <LinkButton secondary to="/curriculum">
-          Full curriculum>>
-        </LinkButton>
-      </Col>
-    </Row> */}
     </React.Fragment>
   )
 }
