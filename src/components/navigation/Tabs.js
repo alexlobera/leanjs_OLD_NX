@@ -48,7 +48,7 @@ export const TabList = ({ active, setActive, onChange, children }) => (
   <Ul>
     {React.Children.map(children, child =>
       React.cloneElement(child, {
-        active: child.props.name === active,
+        isActive: child.props.name === active,
         onClick: child.props.name
           ? () => {
             onChange && onChange(child.props.name)
@@ -64,7 +64,7 @@ TabList.displayName = 'TabList'
 
 const Li = styled.li`
   ${props =>
-    props.active
+    props.isActive
       ? `
       @media (min-width: ${SCREEN_SM_MIN}) {
         position:relative;
@@ -87,8 +87,8 @@ const Li = styled.li`
       : ''};
 `
 
-export const TabItem = ({ children, active, onClick, ...props }) => (
-  <Li active={active}>
+export const TabItem = ({ children, isActive, onClick, ...props }) => (
+  <Li isActive={isActive}>
     <a {...props} onClick={onClick}>
       {children}
     </a>
@@ -96,7 +96,7 @@ export const TabItem = ({ children, active, onClick, ...props }) => (
 )
 TabItem.displayName = 'TabItem'
 
-export const TabLabel = ({ children, ...props }) => (
+export const TabLabel = ({ isActive, children, ...props }) => (
   <Li>
     <span {...props}>{children}</span>
   </Li>
@@ -106,13 +106,13 @@ TabLabel.displayName = 'TabLabel'
 export const TabContent = ({ active, children }) =>
   React.Children.map(children, child =>
     React.cloneElement(child, {
-      active: child.props.name === active,
+      isActive: child.props.name === active,
     })
   )
 
 TabContent.displayName = 'TabContent'
 
-export const ContentItem = ({ active, children }) => (active ? children : null)
+export const ContentItem = ({ isActive, children }) => (isActive ? children : null)
 
 ContentItem.displayName = 'ContentItem'
 

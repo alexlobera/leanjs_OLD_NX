@@ -38,6 +38,7 @@ import {
   PeopleNetWorkIcon,
 } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
+import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
 
 const LinkScroll = props => (
   <DefaultLinkScroll {...props} smooth={true} duration={500} />
@@ -104,7 +105,7 @@ class Curriculum extends React.Component {
               </Row>
               <Row>
                 <Col md={3} mdOffset={1}>
-                  {/* <Image src={WAITING_FOR_PAUL_TO_PROVIDE_PICTURE} width="100%" /> */}
+                  <Image style={{ marginBottom: '36px' }} src={CURRICULUM_FULL_TRAINING_IMG} width="100%" />
                 </Col>
                 <Col md={6} mdOffset={1}>
                   <H3>React bootcamp</H3>
