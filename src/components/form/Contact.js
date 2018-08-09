@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import DefaultLink from '../navigation/Link'
-import Button from '../buttons/Button'
+import { InputButton } from '../buttons/Button'
 import {
   H3 as DefaultH3,
   Label as DefaultLabel,
@@ -52,6 +52,7 @@ const ErrorMssg = styled.p`
   background-color: #f388a2;
   ${FONT_FAMILY};
   font-weight: bold;
+  margin-bottom: 16px;
 `
 
 class ContactForm extends Component {
@@ -110,7 +111,7 @@ class ContactForm extends Component {
               ) : null}
             </ColField>
             <ColField md={5}>
-              <Button cta children="Submit email" disabled={!isValid} />
+              <InputButton cta value="Submit email" disabled={!isValid} />
             </ColField>
           </Row>
         </form>

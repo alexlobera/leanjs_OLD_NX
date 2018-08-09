@@ -3074,7 +3074,7 @@ common-tags@0.1.1:
   dependencies:
     babel-runtime "^6.6.1"
 
-common-tags@^1.4.0, common-tags@^1.7.2:
+common-tags@^1.4.0, common-tags@^1.7.2, common-tags@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/common-tags/-/common-tags-1.8.0.tgz#8e3153e542d4a39e9b10554434afaaf98956a937"
 
