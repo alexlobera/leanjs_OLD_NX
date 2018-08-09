@@ -52,6 +52,7 @@ const ErrorMssg = styled.p`
   background-color: #f388a2;
   ${FONT_FAMILY};
   font-weight: bold;
+  margin-bottom: 16px;
 `
 
 class ContactForm extends Component {
