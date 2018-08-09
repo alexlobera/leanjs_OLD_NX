@@ -2,7 +2,7 @@ import React from 'react'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P } from '../components/text'
+import { H2, P, Span } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -35,7 +35,7 @@ const Boocamps = () => (
     />
     <Header
       titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
-      subtitle="For a week, expert coaches and mentors will work<br />alongside you to master the React ecosystem so you<br />  return to work as a React specialist"
+      subtitle="For a week, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a React specialist"
       bgImg="full-time"
     />
     <TopSection>

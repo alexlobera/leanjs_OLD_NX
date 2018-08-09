@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2, H2Ref, H3, P, Span } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -37,6 +37,10 @@ const BootcampLondon = () => (
         '20-25 Aug, 2018 - Greenwich, London',
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      details={[
+        <Span>Location: Greenwich, London. <Link to="https://maps.google.com/">See on map</Link></Span>,
+        'Timings: 9am-6:30pm, everyday',
+      ]}
       links={header.landingTraining.links}
       bgImg="training-event"
     />

@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
-import { H1 as BaseH1, H2 as BaseH2 } from '../text'
-import { blue1, WHITE, reactBlue } from '../../config/styles'
+import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
+import { blue1, blue2, WHITE, reactBlue } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
-import { LinkScroll } from '../navigation/Link'
+import { LinkScroll, styleChildLinkColor } from '../navigation/Link'
 import {
   HOME_IMG,
   PART_TIME_IMG,
@@ -18,6 +18,7 @@ import {
 } from '../../config/images'
 
 const H1 = styled(BaseH1)`
+  margin-bottom:0;
   font-size: 64px;
   font-weight: 900;
   font-style: normal;
@@ -72,7 +73,7 @@ const HeaderSection = styled(Section)`
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: 100vh;
-    min-height: 750px;
+    min-height: 800px;
     padding-bottom: 200px !important;
     padding-top: 200px !important;
   }
@@ -114,7 +115,45 @@ const SubTitleBackground = styled.div`
   }
 `
 
-const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
+const DetailList = styled(Ul)`
+  display:block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  li {
+    margin: 0;
+    color: ${WHITE};
+    &:last-child {
+      margin-bottom: 8px;
+    }
+  }
+`
+
+const Subnav = styled.div`
+  display: block; 
+`
+
+const SubnavCard = styled.div`
+  display: inline-block;
+  text-shadow: 1px -1px 17px #367088;
+  ${styleChildLinkColor(WHITE)}
+  span {
+    color: ${WHITE};
+  }
+  @media (min-width: ${SCREEN_SM_MIN}) {
+
+    background-color: ${blue2(0.9)};
+    margin-top:36px;
+    padding: 16px;
+    ul {
+      display:inline-block;
+    }
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    
+  }
+`
+
+const Header = ({ titleLines = [], subtitle, details = [], links = [], bgImg }) => (
   <HeaderSection top bgImg={bgImg}>
     <Grid>
       <Row>
@@ -124,11 +163,23 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
               <TitleBackground key={i} children={line} />
             ))}
           </H1>
-          {subtitle || (links && links.length) ? (
+          {subtitle ? (
             <SubTitleBackground>
               <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
-              {links && links.length ? (
+            </SubTitleBackground>
+          ) : null}
+          {(details.length || links.length) ? (
+            <Subnav>
+              <SubnavCard>
+                {details.length ? (
+                  <DetailList unstyled>
+                    {details.map(detail => (
+                      <Li>{detail}</Li>
+                    ))}
+                  </DetailList>
+                ) : null}
                 <Ul inline>
+                  <Li><Span>On this page:</Span></Li>
                   {links.map((link, i) => (
                     <Li key={i}>
                       <LinkScroll smooth={true} duration={500} to={link.to}>
@@ -137,13 +188,9 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
                     </Li>
                   ))}
                 </Ul>
-              ) : (
-                ''
-              )}
-            </SubTitleBackground>
-          ) : (
-            ''
-          )}
+              </SubnavCard>
+            </Subnav>
+          ) : null}
         </Col>
       </Row>
     </Grid>

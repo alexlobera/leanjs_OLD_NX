@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2, H2Ref, H3, P, Span } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumReactNative } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -33,6 +33,10 @@ const ReactNativeBoocampLondon = () => (
     <Header
       titleLines={['React Native Training', '17 September, 2018 - London']}
       subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
+      details={[
+        <Span>Location: , London. <Link to="https://maps.google.com/">See on map</Link></Span>,
+        'Timings: 9am-6:30pm, everyday',
+      ]}
       links={header.landingTraining.links}
       bgImg="training-event"
     />
