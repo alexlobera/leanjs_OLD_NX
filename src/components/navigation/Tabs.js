@@ -51,9 +51,9 @@ export const TabList = ({ active, setActive, onChange, children }) => (
         isActive: child.props.name === active,
         onClick: child.props.name
           ? () => {
-            onChange && onChange(child.props.name)
-            setActive(child.props.name)
-          }
+              onChange && onChange(child.props.name)
+              setActive(child.props.name)
+            }
           : undefined,
       })
     )}
@@ -112,7 +112,8 @@ export const TabContent = ({ active, children }) =>
 
 TabContent.displayName = 'TabContent'
 
-export const ContentItem = ({ isActive, children }) => (isActive ? children : null)
+export const ContentItem = ({ isActive, children }) =>
+  isActive ? children : null
 
 ContentItem.displayName = 'ContentItem'
 

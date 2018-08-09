@@ -55,7 +55,7 @@ const CardTraining = styled.div`
   margin-top: 36px;
   @media (max-width: ${SCREEN_XS_MAX}) {
     a {
-      display:block;
+      display: block;
       margin: 8px 0;
     }
   }
@@ -71,16 +71,16 @@ const BottomCallToActionRow = styled(Row)`
   @media (max-width: ${SCREEN_XS_MAX}) {
     padding-top: 16px;
     a {
-      display:block;
+      display: block;
       margin: 8px 0;
     }
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
     text-align: center;
     position: absolute;
-    bottom:-26px;
+    bottom: -26px;
     left: 0;
-    width:100%;
+    width: 100%;
   }
 `
 class Curriculum extends React.Component {
@@ -140,7 +140,11 @@ class Curriculum extends React.Component {
               </Row>
               <Row>
                 <Col md={3} mdOffset={1}>
-                  <Image style={{ marginBottom: '36px' }} src={CURRICULUM_FULL_TRAINING_IMG} width="100%" />
+                  <Image
+                    style={{ marginBottom: '36px' }}
+                    src={CURRICULUM_FULL_TRAINING_IMG}
+                    width="100%"
+                  />
                 </Col>
                 <Col md={6} mdOffset={1}>
                   <H3>React bootcamp</H3>
@@ -462,7 +466,10 @@ class Curriculum extends React.Component {
                   </TabContent>
                 </Tabs>
                 <CardTraining>
-                  <Span>Whether you need rapid, flexible or React Native training, we’ve got it covered….</Span>
+                  <Span>
+                    Whether you need rapid, flexible or React Native training,
+                    we’ve got it covered….
+                  </Span>
                   <BottomCallToActionRow>
                     <Col md={4}>
                       <LinkButton
