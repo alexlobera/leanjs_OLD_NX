@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P, Span } from '../components/text'
+import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -38,7 +38,7 @@ const BootcampLondon = () => (
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
       details={[
-        <Span>Location: Greenwich, London. <Link to="https://maps.google.com/">See on map</Link></Span>,
+        <React.Fragment>Location: 21 Randall Pl, SE10 9LA, London. <Link to="https://www.google.co.uk/maps/place/James+Wolfe+Primary+School/@51.4795106,-0.0128294,17z/data=!4m5!3m4!1s0x4876028f69ad1c31:0xf60af68c0cfb8748!8m2!3d51.4795663!4d-0.0129411">See on map</Link></React.Fragment>,
         'Timings: 9am-6:30pm, everyday',
       ]}
       links={header.landingTraining.links}

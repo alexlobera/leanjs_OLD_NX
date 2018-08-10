@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P, Span } from '../components/text'
+import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumPartTime } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -38,7 +38,7 @@ const BootcampLondon = () => (
       titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
       details={[
-        <Span>Location: Makers, Commercial St. 50,  London. <Link to="https://maps.google.com/">See on map</Link></Span>,
+        <React.Fragment>Location: 50 Commercial St, E1 6LT, London . <Link to="https://www.google.com/maps/place/Makers/@51.5173403,-0.0754695,17z/data=!3m1!4b1!4m5!3m4!1s0x48761caf26599a83:0x9b451d586c649129!8m2!3d51.5173403!4d-0.0732808">See on map</Link></React.Fragment>,
         'Timings: 6pm-9pm, Tuesdays & Thursdays',
       ]}
       links={header.landingTraining.links}

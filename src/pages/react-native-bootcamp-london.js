@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P, Span } from '../components/text'
+import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumReactNative } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -34,7 +34,7 @@ const ReactNativeBoocampLondon = () => (
       titleLines={['React Native Training', '17 September, 2018 - London']}
       subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
       details={[
-        <Span>Location: , London. <Link to="https://maps.google.com/">See on map</Link></Span>,
+        <React.Fragment>Location: 8 Spital Square E1 6DU, London. <Link to="https://www.google.com/maps/place/Eden+House,+8+Spital+Square,+London+E1+6DQ/@51.5207898,-0.0778216,17z/data=!3m1!4b1!4m5!3m4!1s0x48761cb166ce716f:0x7309676fc6ea9b2b!8m2!3d51.5207898!4d-0.0778216">See on map</Link></React.Fragment>,
         'Timings: 9am-6:30pm, everyday',
       ]}
       links={header.landingTraining.links}

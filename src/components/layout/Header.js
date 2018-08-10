@@ -5,7 +5,7 @@ import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
-import { blue1, blue2, WHITE, reactBlue } from '../../config/styles'
+import { blue1, blue2, WHITE, reactBlue, FONT_FAMILY, TEXT_SIZE } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import { LinkScroll, styleChildLinkColor } from '../navigation/Link'
 import {
@@ -121,7 +121,6 @@ const DetailList = styled(Ul)`
   padding: 0 !important;
   li {
     margin: 0;
-    color: ${WHITE};
     &:last-child {
       margin-bottom: 8px;
     }
@@ -132,24 +131,26 @@ const Subnav = styled.div`
   display: block; 
 `
 
-const SubnavCard = styled.div`
-  display: inline-block;
-  text-shadow: 1px -1px 17px #367088;
-  ${styleChildLinkColor(WHITE)}
-  span {
-    color: ${WHITE};
-  }
+const SubnavBackground = styled.div`
+  ${FONT_FAMILY}
+  ${TEXT_SIZE({ lg: true })}
   @media (min-width: ${SCREEN_SM_MIN}) {
-
+    ${styleChildLinkColor(WHITE)}
+    color: ${WHITE};
+    text-shadow: 1px -1px 17px #367088;
     background-color: ${blue2(0.9)};
     margin-top:36px;
+    display: inline-block;
     padding: 16px;
     ul {
       display:inline-block;
     }
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    
+    margin-top:36px;
+    li {
+      display:block;
+    }
   }
 `
 
@@ -170,7 +171,7 @@ const Header = ({ titleLines = [], subtitle, details = [], links = [], bgImg }) 
           ) : null}
           {(details.length || links.length) ? (
             <Subnav>
-              <SubnavCard>
+              <SubnavBackground>
                 {details.length ? (
                   <DetailList unstyled>
                     {details.map(detail => (
@@ -188,7 +189,7 @@ const Header = ({ titleLines = [], subtitle, details = [], links = [], bgImg }) 
                     </Li>
                   ))}
                 </Ul>
-              </SubnavCard>
+              </SubnavBackground>
             </Subnav>
           ) : null}
         </Col>
