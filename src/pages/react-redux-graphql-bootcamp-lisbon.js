@@ -37,6 +37,10 @@ const BootcampLisbon = () => (
         '7-13 Oct, 2018 - Lisbon distr., Portugal',
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      details={[
+        <React.Fragment>Location: Torres Vedras, Portugal. <Link to="https://maps.google.com/">See on map</Link></React.Fragment>,
+        'Timings: 9am-6:30pm, everyday',
+      ]}
       links={header.landingTraining.links}
       bgImg="training-event"
     />
