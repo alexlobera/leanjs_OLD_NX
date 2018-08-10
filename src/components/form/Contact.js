@@ -73,6 +73,7 @@ class ContactForm extends Component {
   validateEmail = () => {
     let emailValid = validate(this.state.email)
     this.setState({ emailValid })
+    window.Autopilot && window.Autopilot.run('associate', this.state.email)
   }
 
   render() {
