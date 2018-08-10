@@ -4,7 +4,7 @@ import { Row } from './Grid'
 
 const CallToActionRow = styled(Row)`
   text-align: ${props => (props.left ? 'left' : 'center')};
-  z-index: 9999;
+  z-index: 999;
   position: relative;
   @media (min-width: ${SCREEN_SM_MIN}) {
     margin-bottom: -25px;

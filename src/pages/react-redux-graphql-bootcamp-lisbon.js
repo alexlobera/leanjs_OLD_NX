@@ -38,7 +38,10 @@ const BootcampLisbon = () => (
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
       details={[
-        <React.Fragment>Location: Torres Vedras, Portugal. <Link to="https://maps.google.com/">See on map</Link></React.Fragment>,
+        <React.Fragment>
+          Location: Torres Vedras, Portugal.{' '}
+          <Link to="https://maps.google.com/">See on map</Link>
+        </React.Fragment>,
         'Timings: 9am-6:30pm, everyday',
       ]}
       links={header.landingTraining.links}

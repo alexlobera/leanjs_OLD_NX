@@ -5,7 +5,14 @@ import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
-import { blue1, blue2, WHITE, reactBlue, FONT_FAMILY, TEXT_SIZE } from '../../config/styles'
+import {
+  blue1,
+  blue2,
+  WHITE,
+  reactBlue,
+  FONT_FAMILY,
+  TEXT_SIZE,
+} from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import { LinkScroll, styleChildLinkColor } from '../navigation/Link'
 import {
@@ -18,7 +25,7 @@ import {
 } from '../../config/images'
 
 const H1 = styled(BaseH1)`
-  margin-bottom:0;
+  margin-bottom: 0;
   font-size: 64px;
   font-weight: 900;
   font-style: normal;
@@ -126,7 +133,7 @@ const SubTitleBackground = styled.div`
 `
 
 const DetailList = styled(Ul)`
-  display:block !important;
+  display: block !important;
   margin: 0 !important;
   padding: 0 !important;
   li {
@@ -164,7 +171,13 @@ const Nav = styled.div`
   }
 `
 
-const Header = ({ titleLines = [], subtitle, details = [], links = [], bgImg }) => (
+const Header = ({
+  titleLines = [],
+  subtitle,
+  details = [],
+  links = [],
+  bgImg,
+}) => (
   <HeaderSection top bgImg={bgImg}>
     <Grid>
       <Row>
@@ -183,7 +196,7 @@ const Header = ({ titleLines = [], subtitle, details = [], links = [], bgImg }) 
       </Row>
       <Row>
         <Col>
-          {(details.length || links.length) ? (
+          {details.length || links.length ? (
             <Nav>
               {details.length ? (
                 <DetailList unstyled>
@@ -193,7 +206,9 @@ const Header = ({ titleLines = [], subtitle, details = [], links = [], bgImg }) 
                 </DetailList>
               ) : null}
               <Ul inline>
-                <Li><Span>On this page:</Span></Li>
+                <Li>
+                  <Span>On this page:</Span>
+                </Li>
                 {links.map((link, i) => (
                   <Li key={i}>
                     <LinkScroll smooth={true} duration={500} to={link.to}>
