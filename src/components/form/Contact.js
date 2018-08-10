@@ -64,6 +64,11 @@ class ContactForm extends Component {
   handleFormSubmit = e => {
     e.preventDefault()
     this.setState({ formSubmited: true })
+    window.Autopilot &&
+      window.Autopilot.run('associate', {
+        _simpleAssociate: true,
+        Email: this.state.email,
+      })
   }
 
   handleEmailChange = e => {
@@ -73,7 +78,6 @@ class ContactForm extends Component {
   validateEmail = () => {
     let emailValid = validate(this.state.email)
     this.setState({ emailValid })
-    window.Autopilot && window.Autopilot.run('associate', this.state.email)
   }
 
   render() {
