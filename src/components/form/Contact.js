@@ -68,6 +68,9 @@ class ContactForm extends Component {
       window.Autopilot.run('associate', {
         _simpleAssociate: true,
         Email: this.state.email,
+        custom: {
+          'string--From--Path': window.location.pathname,
+        },
       })
   }
 
