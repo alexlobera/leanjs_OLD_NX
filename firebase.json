@@ -36,8 +36,7 @@
         "destination": "/about-us",
         "type": 301
       }
-    ],
-    "trailingSlash": false
+    ]
   },
   "storage": {
     "rules": "storage.rules"
