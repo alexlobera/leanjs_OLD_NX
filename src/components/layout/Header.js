@@ -35,6 +35,17 @@ const H1 = styled(BaseH1)`
   }
 `
 
+const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
+  @media (min-width: ${SCREEN_SM_MIN}) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @media (max-width: ${SCREEN_XS_MAX}) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+`
+
 const backgroundImg = css`
   ${({ bgImg }) => {
     switch (bgImg) {
@@ -78,7 +89,7 @@ const HeaderSection = styled(Section)`
     padding-top: 200px !important;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    padding: 150px 0 20px;
+    padding-top: 150px;
   }
 `
 const H2Header = styled(BaseH2)`
@@ -91,9 +102,8 @@ const H2Header = styled(BaseH2)`
 
 const TITLE_BACKGROUND = `
   background-color: ${blue1(0.75)};
-  padding-left: 15px;
-  padding-right: 15px;
   display: inline-block;
+  ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
 const TitleBackground = styled.span`
   &:first-child  {
@@ -106,7 +116,7 @@ const TitleBackground = styled.span`
 `
 
 const SubTitleBackground = styled.div`
-  ${TITLE_BACKGROUND} padding: 15px;
+  ${TITLE_BACKGROUND} padding: 16px;
   a {
     color: ${WHITE};
   }
@@ -127,25 +137,25 @@ const DetailList = styled(Ul)`
   }
 `
 
-const Subnav = styled.div`
-  display: block; 
-`
-
-const SubnavBackground = styled.div`
+const Nav = styled.div`
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
+  ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
+  background-color: ${blue2(0.9)};
+  color: ${WHITE};
+  ${styleChildLinkColor(WHITE)}
+  padding-top: 20px
+  padding-bottom: 12px;
+
   @media (min-width: ${SCREEN_SM_MIN}) {
-    ${styleChildLinkColor(WHITE)}
-    color: ${WHITE};
     text-shadow: 1px -1px 17px #367088;
-    background-color: ${blue2(0.9)};
     margin-top:36px;
     display: inline-block;
-    padding: 16px;
     ul {
       display:inline-block;
     }
   }
+
   @media (max-width: ${SCREEN_XS_MAX}) {
     margin-top:36px;
     li {
@@ -169,28 +179,30 @@ const Header = ({ titleLines = [], subtitle, details = [], links = [], bgImg }) 
               <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
             </SubTitleBackground>
           ) : null}
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           {(details.length || links.length) ? (
-            <Subnav>
-              <SubnavBackground>
-                {details.length ? (
-                  <DetailList unstyled>
-                    {details.map(detail => (
-                      <Li>{detail}</Li>
-                    ))}
-                  </DetailList>
-                ) : null}
-                <Ul inline>
-                  <Li><Span>On this page:</Span></Li>
-                  {links.map((link, i) => (
-                    <Li key={i}>
-                      <LinkScroll smooth={true} duration={500} to={link.to}>
-                        {link.text}
-                      </LinkScroll>
-                    </Li>
+            <Nav>
+              {details.length ? (
+                <DetailList unstyled>
+                  {details.map(detail => (
+                    <Li>{detail}</Li>
                   ))}
-                </Ul>
-              </SubnavBackground>
-            </Subnav>
+                </DetailList>
+              ) : null}
+              <Ul inline>
+                <Li><Span>On this page:</Span></Li>
+                {links.map((link, i) => (
+                  <Li key={i}>
+                    <LinkScroll smooth={true} duration={500} to={link.to}>
+                      {link.text}
+                    </LinkScroll>
+                  </Li>
+                ))}
+              </Ul>
+            </Nav>
           ) : null}
         </Col>
       </Row>
