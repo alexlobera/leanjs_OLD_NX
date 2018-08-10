@@ -64,6 +64,15 @@ class ContactForm extends Component {
   handleFormSubmit = e => {
     e.preventDefault()
     this.setState({ formSubmited: true })
+    window &&
+      window.Autopilot &&
+      window.Autopilot.run('associate', {
+        _simpleAssociate: true,
+        Email: this.state.email,
+        custom: {
+          'string--From--Path': window.location.pathname,
+        },
+      })
   }
 
   handleEmailChange = e => {
