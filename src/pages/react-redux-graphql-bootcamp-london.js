@@ -59,11 +59,10 @@ const BootcampLondon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <CheckoutSection
                 trainingInstanceId="5b3605d7b8340f47a4b8e420"
-                price={1590}
+                price={1800}
                 title="Bootcamp London"
                 discountPercentage={12}
-                priceGoesUpOn="Price goes up to &pound;2160 on August 10th, 2018."
-                ticketName="Discount ticket"
+                ticketName="Regular ticket"
               />
               <InstallmentsCard price={2160} />
             </Col>
