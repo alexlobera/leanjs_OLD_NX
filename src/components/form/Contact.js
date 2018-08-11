@@ -52,7 +52,26 @@ const ErrorMssg = styled.p`
   background-color: #f388a2;
   ${FONT_FAMILY};
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 0;
+`
+
+const Form = styled.form`
+  display: block;
+  width: 100%;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input[type='email'] {
+    border-color: transparent;
+    border-width: 0;
+  }
+
+  input[type='submit'] {
+    margin-top: 8px;
+  }
 `
 
 class ContactForm extends Component {
@@ -95,19 +114,16 @@ class ContactForm extends Component {
           and free learning resources. And no, we don't spam you with anything
           else, as per our <Link to="/privacy-policy">Privacy Policy</Link>.
         </P>
-        <form
-          id="subscribe-form"
-          onSubmit={this.handleFormSubmit}
-          style={this.state.formSubmited ? { display: 'none' } : {}}
-        >
-          <Row>
-            <ColField md={7}>
+        <Row>
+          <Col>
+            <Form
+              id="subscribe-form"
+              onSubmit={this.handleFormSubmit}
+              style={this.state.formSubmited ? { display: 'none' } : {}}
+            >
               <Label for="email">Your email address:</Label>
-            </ColField>
-          </Row>
-          <Row>
-            <ColField md={7}>
               <Input
+                type="email"
                 value={email}
                 onChange={this.handleEmailChange}
                 name="email"
@@ -118,12 +134,11 @@ class ContactForm extends Component {
                   <ErrorMssg>must enter a valid email</ErrorMssg>
                 )
               ) : null}
-            </ColField>
-            <ColField md={5}>
+
               <InputButton cta value="Submit email" disabled={!isValid} />
-            </ColField>
-          </Row>
-        </form>
+            </Form>
+          </Col>
+        </Row>
         {this.state.formSubmited ? (
           <Row>
             <Col>
