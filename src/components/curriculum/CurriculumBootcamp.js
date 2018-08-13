@@ -24,6 +24,7 @@ const CurriculumBootcamp = ({
   list,
   showToggle,
   toggleNavigateTo = '/curriculum?tab=react-bootcamp',
+  marketingCard = null,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
@@ -61,6 +62,7 @@ const CurriculumBootcamp = ({
         <IntroReduxSession title="Introduction to Redux" />
         <TestingIntroSession title="Testing Principales" />
       </Section>
+      {marketingCard}
     </React.Fragment>
   )
   const secondHalf = (

@@ -5,7 +5,6 @@ import { H1Ref } from '../text'
 import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
 import CurriculumBootcamp from './CurriculumBootcamp'
-import CurriculumReactNative from './CurriculumReactNative'
 
 const RowCTA = styled(Row)`
   padding-top: 50px;
@@ -16,7 +15,7 @@ const FullCurriculum = () => (
     <Row>
       <Col xs={12} md={12} lg={10} lgOffset={1}>
         <H1Ref>
-          Our full learning curriculum{' '}
+          Our React curriculum{' '}
           <Link to="#curriculum" name="curriculum">
             #
           </Link>
@@ -24,7 +23,6 @@ const FullCurriculum = () => (
       </Col>
     </Row>
     <CurriculumBootcamp showTitle={false} />
-    <CurriculumReactNative showTitle={false} isOpen={false} />
     <RowCTA>
       <Col lg={10} lgOffset={1}>
         <LinkButton secondary to="/curriculum">
