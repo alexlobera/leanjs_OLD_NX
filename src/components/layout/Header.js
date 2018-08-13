@@ -159,51 +159,46 @@ const Nav = styled.div`
   }
 `
 
-const Header = ({
-  titleLines = [],
-  subtitle,
-  links = [],
-  bgImg,
-}) => (
-    <HeaderSection top bgImg={bgImg}>
-      <Grid>
-        <Row>
-          <Col>
-            <H1>
-              {titleLines.map((line, i) => (
-                <TitleBackground key={i} children={line} />
-              ))}
-            </H1>
-            {subtitle ? (
-              <SubTitleBackground>
-                <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
-              </SubTitleBackground>
-            ) : null}
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            {links.length ? (
-              <Nav>
-                <Ul inline>
-                  <Li>
-                    <Span>On this page:</Span>
+const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
+  <HeaderSection top bgImg={bgImg}>
+    <Grid>
+      <Row>
+        <Col>
+          <H1>
+            {titleLines.map((line, i) => (
+              <TitleBackground key={i} children={line} />
+            ))}
+          </H1>
+          {subtitle ? (
+            <SubTitleBackground>
+              <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
+            </SubTitleBackground>
+          ) : null}
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {links.length ? (
+            <Nav>
+              <Ul inline>
+                <Li>
+                  <Span>On this page:</Span>
+                </Li>
+                {links.map((link, i) => (
+                  <Li key={i}>
+                    <LinkScroll smooth={true} duration={500} to={link.to}>
+                      {link.text}
+                    </LinkScroll>
                   </Li>
-                  {links.map((link, i) => (
-                    <Li key={i}>
-                      <LinkScroll smooth={true} duration={500} to={link.to}>
-                        {link.text}
-                      </LinkScroll>
-                    </Li>
-                  ))}
-                </Ul>
-              </Nav>
-            ) : null}
-          </Col>
-        </Row>
-      </Grid>
-    </HeaderSection>
-  )
+                ))}
+              </Ul>
+            </Nav>
+          ) : null}
+        </Col>
+      </Row>
+    </Grid>
+  </HeaderSection>
+)
 
 Header.propTypes = {
   titleLines: PropTypes.array.isRequired,

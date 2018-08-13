@@ -11,47 +11,38 @@ export const ALEX_LOBERA = 'alex-lobera'
 export const ADAM_LANCASTER = 'adam-lancaster'
 
 const CoachItem = ({ path, name }) => (
-    <Li>
-        <Link to={`/about-us#${path}`}>
-            {name}
-        </Link>
-    </Li>
+  <Li>
+    <Link to={`/about-us#${path}`}>{name}</Link>
+  </Li>
 )
 
-const TrainingDetails = ({ date, timing, location, foodIncluded = false, coaches = [] }) => (
-    <React.Fragment>
-        <H3>
-            Details
-        </H3>
-        <Ul>
-            <Li>
-                Date: {date}
-            </Li>
-            <Li>
-                Timing: {timing}
-            </Li>
-            <Li>
-                Location: {location}
-            </Li>
-            <Li>
-                {foodIncluded ?
-                    'Food included'
-                    : 'Food not included'
-                }
-            </Li>
-            <Li>
-                Accomodation not included
-            </Li>
-        </Ul>
-        <H3>
-            Teaching staff
-        </H3>
-        <Ul>
-            {coaches.map(coachKey => (
-                <CoachItem key={coachKey} path={coachKey} name={coachesData[coachKey]} />
-            ))}
-        </Ul>
-    </React.Fragment>
+const TrainingDetails = ({
+  date,
+  timing,
+  location,
+  foodIncluded = false,
+  coaches = [],
+}) => (
+  <React.Fragment>
+    <H3>Details</H3>
+    <Ul>
+      <Li>Date: {date}</Li>
+      <Li>Timing: {timing}</Li>
+      <Li>Location: {location}</Li>
+      <Li>{foodIncluded ? 'Food included' : 'Food not included'}</Li>
+      <Li>Accomodation not included</Li>
+    </Ul>
+    <H3>Teaching staff</H3>
+    <Ul>
+      {coaches.map(coachKey => (
+        <CoachItem
+          key={coachKey}
+          path={coachKey}
+          name={coachesData[coachKey]}
+        />
+      ))}
+    </Ul>
+  </React.Fragment>
 )
 
 export default TrainingDetails

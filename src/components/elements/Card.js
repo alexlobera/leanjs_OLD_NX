@@ -29,8 +29,7 @@ const Card = styled.div`
       ? `
       margin-top: ${props.top}px;
     `
-      : null
-  }
+      : null}
   position: relative;
   ${props =>
     props.small
@@ -74,11 +73,11 @@ const Card = styled.div`
     border: 0;
     box-shadow: none;
     ${props =>
-    !props.small
-      ? `    
+      !props.small
+        ? `    
         padding: 0;
       `
-      : `
+        : `
       padding-left: 5px;
       padding-right: 5px;
       `}
