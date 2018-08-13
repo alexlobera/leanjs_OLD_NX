@@ -26,7 +26,7 @@ import {
 } from '../components/icons'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import { CheckoutSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
@@ -58,7 +58,6 @@ const BootcampLondon = () => (
                 title="Advanced React London"
                 ticketName="Regular ticket"
               />
-              <InstallmentsCard price={2160} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
