@@ -19,7 +19,6 @@ import {
   HORACIO,
   WILL,
   ADAM,
-  ABOUT_CONTINUOUS,
   ABOUT_CORPORATE,
   ABOUT_VALUES,
 } from '../config/images'
@@ -354,7 +353,12 @@ const AboutUs = () => (
             <Image src={ADAM} width="100%" />
           </Col>
           <Col xs={12} md={4} mdOffset={1}>
-            <H2>Adam Lancaster</H2>
+            <H2Ref>
+              Adam Lancaster
+              <Link name="adam-lancaster" to="#adam-lancaster">
+                #
+              </Link>
+            </H2Ref>
             <CoachTitle>
               Software Engineer at <Link to="https://nested.com">Nested</Link>
             </CoachTitle>
