@@ -1,6 +1,5 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
-import styled from 'styled-components'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -20,11 +19,10 @@ import {
   CurriculumReactNative,
   CurriculumBootcamp,
   CurriculumPartTime,
+  MarketingCard,
 } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import {
-  TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
 } from '../components/training'
 import { Card } from '../components/elements'
@@ -40,8 +38,6 @@ import {
 } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
-import { CALLTOACTIONRED } from '../config/styles'
-import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../components/utils'
 
 const LinkScroll = props => (
   <DefaultLinkScroll {...props} smooth={true} duration={500} />
@@ -51,38 +47,6 @@ const TAB_REACT_BOOTCAMP = 'react-bootcamp'
 const TAB_REACT_NATIVE = 'react-native'
 const TAB_PART_TIME = 'part-time'
 
-const CardTraining = styled.div`
-  margin-top: 36px;
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      display: block;
-      margin: 8px 0;
-    }
-  }
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    padding: 50px 8px;
-    border: solid 4px ${CALLTOACTIONRED};
-    margin-bottom: 72px;
-    position: relative;
-    text-align: center;
-  }
-`
-const BottomCallToActionRow = styled(Row)`
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-top: 16px;
-    a {
-      display: block;
-      margin: 8px 0;
-    }
-  }
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    text-align: center;
-    position: absolute;
-    bottom: -26px;
-    left: 0;
-    width: 100%;
-  }
-`
 class Curriculum extends React.Component {
   state = {
     active: TAB_REACT_BOOTCAMP,
@@ -114,6 +78,10 @@ class Curriculum extends React.Component {
         <Header
           titleLines={['Full ReactJS Academy curriculum']}
           subtitle="We're proud to say that our curriculum is the most<br />complete and up-to-date on the market - there really is<br />nowhere better to learn React."
+          links={[
+            { text: 'Differences in our courses ', to: 'differences' },
+            { text: 'Full curriculums', to: 'full-curriculums' },
+          ]}
           bgImg="full-time"
         />
         <TopSection>
@@ -131,22 +99,16 @@ class Curriculum extends React.Component {
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <H2Ref>
-                    Bootcamps/part-time course - what's the difference?{' '}
-                    <Link to="#difference" name="difference">
+                    Bootcamps/part-time courses - what's the difference?{' '}
+                    <Link to="#differences" name="differences">
                       #
                     </Link>
                   </H2Ref>
                 </Col>
               </Row>
               <Row>
-                <Col md={3} mdOffset={1}>
-                  <Image
-                    style={{ marginBottom: '36px' }}
-                    src={CURRICULUM_FULL_TRAINING_IMG}
-                    width="100%"
-                  />
-                </Col>
                 <Col md={6} mdOffset={1}>
+
                   <H3>React bootcamp</H3>
                   <P>
                     Our React bootcamp has the most complete curriculum on the
@@ -199,6 +161,13 @@ class Curriculum extends React.Component {
                       See React part-time course curriculum
                     </LinkScroll>
                   </P>
+                </Col>
+                <Col md={3} mdOffset={1}>
+                  <Image
+                    style={{ marginBottom: '36px' }}
+                    src={CURRICULUM_FULL_TRAINING_IMG}
+                    width="100%"
+                  />
                   <H3>With all courses you will:</H3>
                   <Ul>
                     <Li>Build production ready React applications</Li>
@@ -312,6 +281,13 @@ class Curriculum extends React.Component {
                             showToggle={false}
                             showTitle={false}
                             list={true}
+                            marketingCard={(
+                              <MarketingCard
+                                text="Next React bootcamp from August 20th to 25th, 2018 - London"
+                                to="/react-redux-graphql-bootcamp-london"
+                                buttonText="Next bootcamp >>"
+                              />
+                            )}
                           />
                         </Col>
                       </Row>
@@ -340,7 +316,6 @@ class Curriculum extends React.Component {
                           applications
                         </Li>
                       </Ul>
-
                       <Row>
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
@@ -459,43 +434,24 @@ class Curriculum extends React.Component {
                             showToggle={false}
                             showTitle={false}
                             list={true}
+                            marketingCard={(
+                              <MarketingCard
+                                text="Next part-time course from 2 Oct to 8 Nov, 2018 - London"
+                                to="/react-redux-training-london"
+                                buttonText="Next part-time >>"
+                              />
+                            )}
                           />
                         </Col>
                       </Row>
                     </ContentItem>
                   </TabContent>
                 </Tabs>
-                <CardTraining>
-                  <Span>
-                    Whether you need rapid, flexible or React Native training,
-                    we’ve got it covered….
-                  </Span>
-                  <BottomCallToActionRow>
-                    <Col md={4}>
-                      <LinkButton
-                        cta
-                        to="/react-redux-graphql-bootcamp"
-                        children="React bootcamp >>"
-                      />
-                    </Col>
-                    <Col md={4}>
-                      <LinkButton
-                        to="/react-native-bootcamp"
-                        children="React Native training >>"
-                      />
-                    </Col>
-                    <Col md={4}>
-                      <LinkButton
-                        to="/react-redux-graphql-part-time-course"
-                        children="Part-time course >>"
-                      />
-                    </Col>
-                  </BottomCallToActionRow>
-                </CardTraining>
               </Col>
             </Row>
           </Grid>
         </Section>
+        <UpcomingTrainingSection />
       </React.Fragment>
     )
   }
