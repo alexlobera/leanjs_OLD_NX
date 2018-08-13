@@ -11,7 +11,7 @@ import { HideSingleComponentUsingCss } from '../components/utils'
 import { FullCurriculum } from '../components/curriculum'
 import { SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
-import { Card, Image } from '../components/elements'
+import { Card, Image, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { UpcomingTrainingSection } from '../components/training'
@@ -65,19 +65,19 @@ const IndexPage = () => (
             <LinkButton
               cta
               to="/react-redux-graphql-bootcamp"
-              children="1-week bootcamp >>"
+              children="1-week React bootcamp >>"
+            />
+          </Col>
+          <Col xs={12} sm={4}>
+            <LinkButton
+              to="/advanced-react-redux-graphql-bootcamp"
+              children="Advanced React bootcamp >>"
             />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
               to="/react-native-bootcamp"
               children="React Native training >>"
-            />
-          </Col>
-          <Col xs={12} sm={4}>
-            <LinkButton
-              to="/react-redux-graphql-part-time-course"
-              children="6-week part-time course >>"
             />
           </Col>
         </CallToActionRow>
@@ -219,7 +219,9 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={COMPANY_PITCH} width="100%" />
+            <Video youtubeID="o6YwbHGfPOo" description={
+              <P><em>The <strong>John Lewis</strong> product team on their experience of a ReactJS Academy training</em></P>
+            } />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>

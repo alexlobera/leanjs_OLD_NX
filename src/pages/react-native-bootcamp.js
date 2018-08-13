@@ -61,7 +61,7 @@ const ReactNativeBoocamp = () => (
             <Image src={BOOTCAMP_RIGHT} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
-            <H2>Is this training right for me?</H2>
+            <H2>Is this React Native training right for me?</H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={NotBegginersIcon} />

@@ -3,7 +3,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumBootcamp } from '../components/curriculum'
+import { CurriculumAdvancedReact } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -21,13 +21,12 @@ import {
 import {
   BulletIcon,
   NotBegginerIcon,
-  CodeIcon,
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import { CheckoutSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
@@ -35,16 +34,16 @@ const BootcampLondon = () => (
     <Breadcrumb
       path={[
         { to: '/', label: 'Home' },
-        { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
-        { to: '/react-redux-graphql-bootcamp-london', label: 'London' },
+        { to: '/advanced-react-redux-graphql-bootcamp', label: 'Advanced React' },
+        { to: '/advanced-react-redux-graphql-bootcamp-london', label: 'London' },
       ]}
     />
     <Header
       titleLines={[
-        'React Redux GraphQL Bootcamp',
-        '20-25 Aug, 2018 - Greenwich, London',
+        'Advanced React Redux GraphQL',
+        'Bootcamp, 23-25 Aug, 2018 - London',
       ]}
-      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      subtitle="Take your React career to the next level by mastering<br />React, Redux, and GraphQL - in just 3 days!"
       links={header.landingTraining.links}
       bgImg="training-event"
     />
@@ -54,17 +53,16 @@ const BootcampLondon = () => (
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <CheckoutSection
-                trainingInstanceId="5b3605d7b8340f47a4b8e420"
-                price={1800}
-                title="Bootcamp London"
+                trainingInstanceId="5b71f2cc04ba003b823513d1"
+                price={1250}
+                title="Advanced React London"
                 ticketName="Regular ticket"
               />
-              <InstallmentsCard price={2160} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
-                date="20-25 August, 2018"
+                date="23-25 August, 2018"
                 timing="9am - 6:30pm, everyday"
                 location={
                   <React.Fragment>
@@ -85,7 +83,7 @@ const BootcampLondon = () => (
           </Row>
         </Card>
         <Card white border="shadow">
-          <CurriculumBootcamp />
+          <CurriculumAdvancedReact />
         </Card>
       </Grid>
     </TopSection>
@@ -99,24 +97,19 @@ const BootcampLondon = () => (
           </HideSingleComponentUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
-              Is this React bootcamp right for me? Are you...{' '}
+              Is this advanced React bootcamp right for me? Are you...{' '}
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>
-                <BulletIcon icon={NotBegginerIcon} />A developer with 1+ year of
-                development under your belt using JavaScript?
-              </Li>
-              <Li>
-                <BulletIcon icon={CodeIcon} />
-                Familiar with front-end technologies like JavaScript, CSS, and
-                HTML?
+                <BulletIcon icon={NotBegginerIcon} />A <strong>React developer with 1+ year of
+                development</strong> under your belt using React?
               </Li>
               <Li>
                 <BulletIcon icon={ReactIcon} />
-                Taking a step forward to become a React JS Specialist able to
+                Taking a step forward to become a <strong>Senior React developer</strong> able to
                 make critical decisions about the architecture of a React
                 application.
               </Li>
@@ -126,16 +119,13 @@ const BootcampLondon = () => (
                 1-on-1 mentoring?
               </Li>
             </Ul>
-            <P>If you've said 'yes' to these, our bootcamp could be for you!</P>
+            <P>If you've said 'yes' to these, our <strong>advanced React bootcamp</strong> could be for you!</P>
             <H3>Not for beginner devs!</H3>
             <P>
-              This is not a learn-to-code bootcamp. If you want to learn to
-              code, we recommend you to contact our London-based partner{' '}
-              <Link to="https://makers.tech/" >
-                Makers
-              </Link>
-              . PLUS you'll get a &pound;250 discount using our reference
-              "ReactJS Academy".
+              This is a bootcamp for React developers that are experienced with React. If you don't have 1+ year of experience using React we recommend you to attend our {' '}
+              <Link to="/react-redux-graphql-bootcamp">
+                React Bootcamp
+              </Link>.
             </P>
           </Col>
         </Row>
