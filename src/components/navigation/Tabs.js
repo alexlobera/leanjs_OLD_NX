@@ -13,14 +13,6 @@ const Ul = styled.ul`
   > li {
     list-style-type: none;
     display: inline-block;
-    margin: 0 8px;
-    :first-child {
-      margin-left: 0;
-      a,
-      span {
-        padding-left: 0;
-      }
-    }
     span,
     a {
       display: block;
@@ -31,14 +23,22 @@ const Ul = styled.ul`
 
   @media (min-width: ${SCREEN_SM_MIN}) {
     li {
+      margin: 0 8px;
       :last-child {
         margin-right: 0;
+      }
+
+      :first-child {
+        margin-left: 0;
+        a,
+        span {
+          padding-left: 0;
+        }
       }
     }
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
     li {
-      padding: 5px;
       display: block;
     }
   }
@@ -51,9 +51,9 @@ export const TabList = ({ active, setActive, onChange, children }) => (
         isActive: child.props.name === active,
         onClick: child.props.name
           ? () => {
-              onChange && onChange(child.props.name)
-              setActive(child.props.name)
-            }
+            onChange && onChange(child.props.name)
+            setActive(child.props.name)
+          }
           : undefined,
       })
     )}

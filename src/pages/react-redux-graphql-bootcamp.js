@@ -61,7 +61,7 @@ const Boocamps = () => (
             <Image src={BOOTCAMP_RIGHT} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
-            <H2>Is this bootcamp right for me?</H2>
+            <H2>Is this React bootcamp right for me?</H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={RunFastIcon} />

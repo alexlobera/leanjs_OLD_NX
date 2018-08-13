@@ -10,6 +10,11 @@
     "onlyOn": null
   },
   {
+    "to": "/advanced-react-redux-graphql-bootcamp",
+    "text": "Advanced React",
+    "onlyOn": null
+  },
+  {
     "to": "/react-native-bootcamp",
     "text": "React Native",
     "onlyOn": null

@@ -91,7 +91,7 @@ const ReactNativeBoocampLondon = () => (
           </HideSingleComponentUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
-              Is this training right for me? Are you...{' '}
+              Is this React Native training right for me? Are you...{' '}
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>

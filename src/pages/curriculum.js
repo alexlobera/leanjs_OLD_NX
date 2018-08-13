@@ -4,7 +4,7 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
-import { H2Ref, H2, P, H3, Span } from '../components/text'
+import { H2Ref, H2, P, H3 } from '../components/text'
 import {
   Link,
   LinkScroll as DefaultLinkScroll,
@@ -19,6 +19,7 @@ import {
   CurriculumReactNative,
   CurriculumBootcamp,
   CurriculumPartTime,
+  CurriculumAdvancedReact,
   MarketingCard,
 } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -44,6 +45,7 @@ const LinkScroll = props => (
 const TAB_REACT_BOOTCAMP = 'react-bootcamp'
 const TAB_REACT_NATIVE = 'react-native'
 const TAB_PART_TIME = 'part-time'
+const TAB_ADVANCED_REACT = 'advanced-react'
 
 class Curriculum extends React.Component {
   state = {
@@ -183,13 +185,13 @@ class Curriculum extends React.Component {
           <Grid>
             <Row>
               <Col lg={10} lgOffset={1}>
-                <Element name="curriculum" />
+                <P><Element name="curriculum" />Choose a curriculum:</P>
                 <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
-                    <TabLabel> Choose a curriculum:</TabLabel>
                     <TabItem name={TAB_REACT_BOOTCAMP}>
                       React 1-week bootcamp
                     </TabItem>
+                    <TabItem name={TAB_ADVANCED_REACT}>Advanced React bootcamp</TabItem>
                     <TabItem name={TAB_REACT_NATIVE}>
                       React Native bootcamp
                     </TabItem>
@@ -280,7 +282,7 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text="Next React bootcamp from August 20th to 25th, 2018 - London"
+                                text="Next React bootcamp starts on August 20th, 2018 in London"
                                 to="/react-redux-graphql-bootcamp-london"
                                 buttonText="Next bootcamp >>"
                               />
@@ -290,6 +292,48 @@ class Curriculum extends React.Component {
                       </Row>
                     </ContentItem>
 
+                    <ContentItem name={TAB_ADVANCED_REACT}>
+                      <Element name="curriculum" />
+                      <H2>Advanced React bootcamp curriculum</H2>
+                      <P>
+                        <strong>
+                          On completion of the advanced React bootcamp each
+                          student will:
+                        </strong>
+                      </P>
+                      <Ul>
+                        <Li>
+                          Be able to develop and test complex and reliable React
+                          applications: <code>enzyme, jest</code>
+                        </Li>
+                        <Li>
+                          Comprehend modern front-end JavaScript:{' '}
+                          <code>Functional Programming, Webpack</code>
+                        </Li>
+                        <Li>
+                          Understand the best practices and patterns for
+                          building real-world production-ready React
+                          applications
+                        </Li>
+                      </Ul>
+                      <Row>
+                        <Col lg={1} lgOffset={1} />
+                        <Col lg={9}>
+                          <CurriculumAdvancedReact
+                            showToggle={false}
+                            showTitle={false}
+                            list={true}
+                            marketingCard={
+                              <MarketingCard
+                                text="Next Advanced React bootcamp starts on August 23th, 2018 in London"
+                                to="/advanced-react-redux-graphql-bootcamp-london"
+                                buttonText="Next Advanced React bootcamp >>"
+                              />
+                            }
+                          />
+                        </Col>
+                      </Row>
+                    </ContentItem>
                     <ContentItem name={TAB_REACT_NATIVE}>
                       <Element name="curriculum" />
                       <H2>React Native bootcamp curriculum</H2>
@@ -433,7 +477,7 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text="Next part-time course from 2 Oct to 8 Nov, 2018 - London"
+                                text="Next part-time course starts on Oct 2nd, 2018 in London"
                                 to="/react-redux-training-london"
                                 buttonText="Next part-time >>"
                               />
@@ -447,9 +491,9 @@ class Curriculum extends React.Component {
               </Col>
             </Row>
           </Grid>
-        </Section>
+        </Section >
         <UpcomingTrainingSection />
-      </React.Fragment>
+      </React.Fragment >
     )
   }
 }
