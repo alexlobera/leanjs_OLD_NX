@@ -22,9 +22,7 @@ import {
   MarketingCard,
 } from '../components/curriculum'
 import Header from '../components/layout/Header'
-import {
-  UpcomingTrainingSection,
-} from '../components/training'
+import { UpcomingTrainingSection } from '../components/training'
 import { Card } from '../components/elements'
 import CallToActionRow from '../components/layout/CallToActionRow'
 import { Image } from '../components/elements'
@@ -80,7 +78,7 @@ class Curriculum extends React.Component {
           subtitle="We're proud to say that our curriculum is the most<br />complete and up-to-date on the market - there really is<br />nowhere better to learn React."
           links={[
             { text: 'Differences in our courses ', to: 'differences' },
-            { text: 'Full curriculums', to: 'full-curriculums' },
+            { text: 'Full curriculums', to: 'curriculum' },
           ]}
           bgImg="full-time"
         />
@@ -108,7 +106,6 @@ class Curriculum extends React.Component {
               </Row>
               <Row>
                 <Col md={6} mdOffset={1}>
-
                   <H3>React bootcamp</H3>
                   <P>
                     Our React bootcamp has the most complete curriculum on the
@@ -186,9 +183,10 @@ class Curriculum extends React.Component {
           <Grid>
             <Row>
               <Col lg={10} lgOffset={1}>
+                <Element name="curriculum" />
                 <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
-                    <TabLabel>Choose a curriculum:</TabLabel>
+                    <TabLabel> Choose a curriculum:</TabLabel>
                     <TabItem name={TAB_REACT_BOOTCAMP}>
                       React 1-week bootcamp
                     </TabItem>
@@ -199,7 +197,6 @@ class Curriculum extends React.Component {
                   </TabList>
                   <TabContent>
                     <ContentItem name={TAB_REACT_BOOTCAMP}>
-                      <Element name="curriculum" />
                       <H2>React 1-week bootcamp curriculum</H2>
                       <P>
                         <strong>
@@ -281,13 +278,13 @@ class Curriculum extends React.Component {
                             showToggle={false}
                             showTitle={false}
                             list={true}
-                            marketingCard={(
+                            marketingCard={
                               <MarketingCard
                                 text="Next React bootcamp from August 20th to 25th, 2018 - London"
                                 to="/react-redux-graphql-bootcamp-london"
                                 buttonText="Next bootcamp >>"
                               />
-                            )}
+                            }
                           />
                         </Col>
                       </Row>
@@ -434,13 +431,13 @@ class Curriculum extends React.Component {
                             showToggle={false}
                             showTitle={false}
                             list={true}
-                            marketingCard={(
+                            marketingCard={
                               <MarketingCard
                                 text="Next part-time course from 2 Oct to 8 Nov, 2018 - London"
                                 to="/react-redux-training-london"
                                 buttonText="Next part-time >>"
                               />
-                            )}
+                            }
                           />
                         </Col>
                       </Row>

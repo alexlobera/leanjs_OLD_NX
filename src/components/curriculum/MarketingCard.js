@@ -20,19 +20,16 @@ const Card = styled.div`
 `
 
 const MarketingCard = ({ text, to, buttonText }) => (
-    <Card>
-        <Row>
-            <Col md={6}>
-                <Span>{text}</Span>
-            </Col>
-            <Col md={6} center>
-                <LinkButton
-                    to={to}
-                    children={buttonText}
-                />
-            </Col>
-        </Row>
-    </Card>
+  <Card>
+    <Row>
+      <Col md={6}>
+        <Span>{text}</Span>
+      </Col>
+      <Col md={6} center>
+        <LinkButton to={to} children={buttonText} />
+      </Col>
+    </Row>
+  </Card>
 )
 
 export default MarketingCard
