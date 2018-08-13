@@ -9,7 +9,7 @@ import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
+import { UpcomingTrainingSection, AttendeeQuote, TrainingDetails, HORACIO_HERRERA, WILL_VOELCKER, ALEX_LOBERA, RICHARD_MOSS } from '../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
@@ -37,15 +37,6 @@ const BootcampLondon = () => (
         '20-25 Aug, 2018 - Greenwich, London',
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
-      details={[
-        <React.Fragment>
-          Location: 21 Randall Pl, SE10 9LA, London.{' '}
-          <Link to="https://www.google.co.uk/maps/place/James+Wolfe+Primary+School/@51.4795106,-0.0128294,17z/data=!4m5!3m4!1s0x4876028f69ad1c31:0xf60af68c0cfb8748!8m2!3d51.4795663!4d-0.0129411">
-            See on map
-          </Link>
-        </React.Fragment>,
-        'Timings: 9am-6:30pm, everyday',
-      ]}
       links={header.landingTraining.links}
       bgImg="training-event"
     />
@@ -53,9 +44,6 @@ const BootcampLondon = () => (
       <Grid>
         <Card bg="dark">
           <Row>
-            <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
-            </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <CheckoutSection
                 trainingInstanceId="5b3605d7b8340f47a4b8e420"
@@ -64,6 +52,24 @@ const BootcampLondon = () => (
                 ticketName="Regular ticket"
               />
               <InstallmentsCard price={2160} />
+            </Col>
+            <Col xs={12} md={6} lg={4} lgOffset={1}>
+              <Video youtubeID="yvROXLQ1jHg" />
+              <TrainingDetails
+                date="20-25 August, 2018"
+                timing="9am - 6:30pm, everyday"
+                location={(
+                  <React.Fragment>
+                    Location: 21 Randall Pl, SE10 9LA, London.{' '}
+                    <Link to="https://www.google.co.uk/maps/place/James+Wolfe+Primary+School/@51.4795106,-0.0128294,17z/data=!4m5!3m4!1s0x4876028f69ad1c31:0xf60af68c0cfb8748!8m2!3d51.4795663!4d-0.0129411">
+                      See on map
+                    </Link>
+                  </React.Fragment>
+                )}
+                coaches={[
+                  HORACIO_HERRERA, WILL_VOELCKER, ALEX_LOBERA, RICHARD_MOSS
+                ]}
+              />
             </Col>
           </Row>
         </Card>

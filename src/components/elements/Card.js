@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../config/styles'
@@ -16,10 +17,20 @@ const fontColor = color => `
   p {
     color: ${color};
   }
+  span {
+    color: ${color};
+  }
   ${styleChildLinkColor(color)}
 `
 
 const Card = styled.div` 
+  ${props =>
+    props.top
+      ? `
+      margin-top: ${props.top}px;
+    `
+      : null
+  }
   position: relative;
   ${props =>
     props.small
@@ -63,15 +74,20 @@ const Card = styled.div`
     border: 0;
     box-shadow: none;
     ${props =>
-      !props.small
-        ? `    
+    !props.small
+      ? `    
         padding: 0;
       `
-        : `
+      : `
       padding-left: 5px;
       padding-right: 5px;
       `}
   }
 `
+
+Card.displayName = 'Card'
+Card.propTypes = {
+  top: PropTypes.number,
+}
 
 export default Card

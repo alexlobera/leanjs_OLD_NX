@@ -9,6 +9,8 @@ import {
   AttendeeQuote,
   UpcomingTrainingSection,
   TrustedByLogoList,
+  TrainingDetails,
+  ADAM_LANCASTER, WILL_VOELCKER, ALEX_LOBERA
 } from '../components/training'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -37,15 +39,6 @@ const BootcampLondon = () => (
     <Header
       titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
-      details={[
-        <React.Fragment>
-          Location: 50 Commercial St, E1 6LT, London .{' '}
-          <Link to="https://www.google.com/maps/place/Makers/@51.5173403,-0.0754695,17z/data=!3m1!4b1!4m5!3m4!1s0x48761caf26599a83:0x9b451d586c649129!8m2!3d51.5173403!4d-0.0732808">
-            See on map
-          </Link>
-        </React.Fragment>,
-        'Timings: 6pm-9pm, Tuesdays & Thursdays',
-      ]}
       links={header.landingTraining.links}
       bgImg="part-time"
     />
@@ -53,9 +46,6 @@ const BootcampLondon = () => (
       <Grid>
         <Card bg="dark">
           <Row>
-            <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
-            </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <CheckoutSection
                 trainingInstanceId="5b1c2197b8340f47a4b8e3e7"
@@ -66,6 +56,24 @@ const BootcampLondon = () => (
                 ticketName="Early bird ticket"
               />
               <InstallmentsCard price={1500} />
+            </Col>
+            <Col xs={12} md={6} lg={4} lgOffset={1}>
+              <Video youtubeID="yvROXLQ1jHg" />
+              <TrainingDetails
+                date="2 Oct - 8 Nov, 2018"
+                timing="6pm - 9pm"
+                location={(
+                  <React.Fragment>
+                    Location: 50 Commercial St, E1 6LT, London.{' '}
+                    <Link to="https://www.google.com/maps/place/Makers/@51.5173403,-0.0754695,17z/data=!3m1!4b1!4m5!3m4!1s0x48761caf26599a83:0x9b451d586c649129!8m2!3d51.5173403!4d-0.0732808">
+                      See on map
+                    </Link>
+                  </React.Fragment>
+                )}
+                coaches={[
+                  ADAM_LANCASTER, WILL_VOELCKER, ALEX_LOBERA
+                ]}
+              />
             </Col>
           </Row>
         </Card>

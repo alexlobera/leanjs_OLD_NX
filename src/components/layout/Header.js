@@ -132,18 +132,6 @@ const SubTitleBackground = styled.div`
   }
 `
 
-const DetailList = styled(Ul)`
-  display: block !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  li {
-    margin: 0;
-    &:last-child {
-      margin-bottom: 8px;
-    }
-  }
-`
-
 const Nav = styled.div`
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
@@ -151,8 +139,8 @@ const Nav = styled.div`
   background-color: ${blue2(0.9)};
   color: ${WHITE};
   ${styleChildLinkColor(WHITE)}
-  padding-top: 20px
-  padding-bottom: 12px;
+  padding-top: 8px
+  padding-bottom: 8px;
   margin-top:36px;
 
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -174,56 +162,48 @@ const Nav = styled.div`
 const Header = ({
   titleLines = [],
   subtitle,
-  details = [],
   links = [],
   bgImg,
 }) => (
-  <HeaderSection top bgImg={bgImg}>
-    <Grid>
-      <Row>
-        <Col>
-          <H1>
-            {titleLines.map((line, i) => (
-              <TitleBackground key={i} children={line} />
-            ))}
-          </H1>
-          {subtitle ? (
-            <SubTitleBackground>
-              <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
-            </SubTitleBackground>
-          ) : null}
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          {details.length || links.length ? (
-            <Nav>
-              {details.length ? (
-                <DetailList unstyled>
-                  {details.map(detail => (
-                    <Li>{detail}</Li>
-                  ))}
-                </DetailList>
-              ) : null}
-              <Ul inline>
-                <Li>
-                  <Span>On this page:</Span>
-                </Li>
-                {links.map((link, i) => (
-                  <Li key={i}>
-                    <LinkScroll smooth={true} duration={500} to={link.to}>
-                      {link.text}
-                    </LinkScroll>
+    <HeaderSection top bgImg={bgImg}>
+      <Grid>
+        <Row>
+          <Col>
+            <H1>
+              {titleLines.map((line, i) => (
+                <TitleBackground key={i} children={line} />
+              ))}
+            </H1>
+            {subtitle ? (
+              <SubTitleBackground>
+                <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
+              </SubTitleBackground>
+            ) : null}
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {links.length ? (
+              <Nav>
+                <Ul inline>
+                  <Li>
+                    <Span>On this page:</Span>
                   </Li>
-                ))}
-              </Ul>
-            </Nav>
-          ) : null}
-        </Col>
-      </Row>
-    </Grid>
-  </HeaderSection>
-)
+                  {links.map((link, i) => (
+                    <Li key={i}>
+                      <LinkScroll smooth={true} duration={500} to={link.to}>
+                        {link.text}
+                      </LinkScroll>
+                    </Li>
+                  ))}
+                </Ul>
+              </Nav>
+            ) : null}
+          </Col>
+        </Row>
+      </Grid>
+    </HeaderSection>
+  )
 
 Header.propTypes = {
   titleLines: PropTypes.array.isRequired,

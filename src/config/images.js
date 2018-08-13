@@ -30,9 +30,6 @@ export const BOOTCAMP_COLLAB =
 export const PART_TIME =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/part-time.png?alt=media'
 
-export const ABOUT_CONTINUOUS =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUs_continuousImprove.png?alt=media'
-
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.png?alt=media'
 export const ABOUT_VALUES =
