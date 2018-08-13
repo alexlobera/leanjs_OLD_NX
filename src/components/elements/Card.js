@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../config/styles'
@@ -23,6 +24,13 @@ const fontColor = color => `
 `
 
 const Card = styled.div` 
+  ${props =>
+    props.top
+      ? `
+      margin-top: ${props.top}px;
+    `
+      : null
+  }
   position: relative;
   ${props =>
     props.small
@@ -76,5 +84,10 @@ const Card = styled.div`
       `}
   }
 `
+
+Card.displayName = 'Card'
+Card.propTypes = {
+  top: PropTypes.number,
+}
 
 export default Card

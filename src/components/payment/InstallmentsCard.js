@@ -10,7 +10,7 @@ const InstallmentsContainer = styled.div`
 `
 
 const InstallmentsCard = ({ price }) => (
-  <Card small bg="dark" style={{ marginTop: '20px' }}>
+  <Card small bg="dark" top={20}>
     <H3>
       <strong>Pay by Installments</strong>
     </H3>
