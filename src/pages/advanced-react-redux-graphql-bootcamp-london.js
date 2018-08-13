@@ -53,7 +53,7 @@ const BootcampLondon = () => (
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <CheckoutSection
-                trainingInstanceId="5b3605d7b8340f47a4b8e420"
+                trainingInstanceId="5b71f2cc04ba003b823513d1"
                 price={1250}
                 title="Advanced React London"
                 ticketName="Regular ticket"
