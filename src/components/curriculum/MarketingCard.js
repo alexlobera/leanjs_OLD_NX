@@ -26,7 +26,7 @@ const MarketingCard = ({ text, to, buttonText }) => (
         <Span>{text}</Span>
       </Col>
       <Col md={6} center>
-        <LinkButton to={to} children={buttonText} />
+        <LinkButton to={to} cta children={buttonText} />
       </Col>
     </Row>
   </Card>
