@@ -51,9 +51,9 @@ export const TabList = ({ active, setActive, onChange, children }) => (
         isActive: child.props.name === active,
         onClick: child.props.name
           ? () => {
-            onChange && onChange(child.props.name)
-            setActive(child.props.name)
-          }
+              onChange && onChange(child.props.name)
+              setActive(child.props.name)
+            }
           : undefined,
       })
     )}

@@ -12,42 +12,42 @@ const CheckoutSection = ({
   priceGoesUpOn,
   ticketName,
 }) => (
-    <React.Fragment>
-      <H2Ref>
-        Prices{' '}
-        <Link to="#pricing" name="pricing">
-          #
+  <React.Fragment>
+    <H2Ref>
+      Prices{' '}
+      <Link to="#pricing" name="pricing">
+        #
       </Link>
-      </H2Ref>
-      <P>
-        Please be aware that the ticket only covers the cost of the training, it does
-        not include travel expenses.
+    </H2Ref>
+    <P>
+      Please be aware that the ticket only covers the cost of the training, it
+      does not include travel expenses.
     </P>
-      <Card small style={{ position: 'relative' }}>
-        {discountPercentage ? <Ribbon>Save {discountPercentage}%</Ribbon> : ''}
-        <H3>
-          <strong>{ticketName}</strong>
-        </H3>
-        {priceGoesUpOn ? <P>{priceGoesUpOn}</P> : ''}
-        <BuyQuantityButton
-          course={{
-            price,
-            trainingInstanceId,
-            title,
-          }}
-        />
-        <P sm>
-          By purchasing a training, you agree to our{' '}
-          <Link target="_blank" to="terms-of-service">
-            Terms of Service
+    <Card small style={{ position: 'relative' }}>
+      {discountPercentage ? <Ribbon>Save {discountPercentage}%</Ribbon> : ''}
+      <H3>
+        <strong>{ticketName}</strong>
+      </H3>
+      {priceGoesUpOn ? <P>{priceGoesUpOn}</P> : ''}
+      <BuyQuantityButton
+        course={{
+          price,
+          trainingInstanceId,
+          title,
+        }}
+      />
+      <P sm>
+        By purchasing a training, you agree to our{' '}
+        <Link target="_blank" to="terms-of-service">
+          Terms of Service
         </Link>{' '}
-          &{' '}
-          <Link target="_blank" to="code-of-conduct">
-            Code of conduct
+        &{' '}
+        <Link target="_blank" to="code-of-conduct">
+          Code of conduct
         </Link>
-        </P>
-      </Card>
-    </React.Fragment>
-  )
+      </P>
+    </Card>
+  </React.Fragment>
+)
 
 export default CheckoutSection
