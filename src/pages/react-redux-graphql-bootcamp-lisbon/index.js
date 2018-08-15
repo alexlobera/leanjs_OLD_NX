@@ -1,26 +1,33 @@
 import React from 'react'
-import Section, { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
-import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumBootcamp } from '../components/curriculum'
-import { Card, Video } from '../components/elements'
-import { HideSingleComponentUsingCss } from '../components/utils'
-import Header from '../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
+import Section, { TopSection } from '../../components/layout/Section'
+import Grid, { Col, Row } from '../../components/layout/Grid'
+import { H2, H2Ref, H3, P } from '../../components/text'
+import Ul, { Li } from '../../components/layout/Ul'
+import { CurriculumBootcamp } from '../../components/curriculum'
+import { Card, Video } from '../../components/elements'
+import { HideSingleComponentUsingCss } from '../../components/utils'
+import Header from '../../components/layout/Header'
+import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
+import { TrustedByLogoList } from '../../components/training/TrustedBySection'
+import {
+  UpcomingTrainingSection,
+  AttendeeQuote,
+  TrainingDetails,
+  HORACIO_HERRERA,
+  WILL_VOELCKER,
+  ALEX_LOBERA,
+} from '../../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
   CodeIcon,
   ReactIcon,
   CollabsIcon,
-} from '../components/icons'
-import { Image } from '../components/elements'
-import header from '../components/layout/Header.json'
-import { InstallmentsCard, CheckoutSection } from '../components/payment'
-import { Link, Breadcrumb } from '../components/navigation'
+} from '../../components/icons'
+import { Image } from '../../components/elements'
+import header from '../../components/layout/Header.json'
+import { InstallmentsCard, CheckoutSection } from '../../components/payment'
+import { Link, Breadcrumb } from '../../components/navigation'
 
 const BootcampLisbon = () => (
   <React.Fragment>
@@ -51,19 +58,31 @@ const BootcampLisbon = () => (
       <Grid>
         <Card bg="dark">
           <Row>
-            <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
-            </Col>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <CheckoutSection
                 trainingInstanceId="5b699e97aff9b939d15e50a1"
                 price={1495}
                 title="Bootcamp Lisbon"
                 discountPercentage={24}
-                priceGoesUpOn="Price goes up to &pound;1895 on August 31st, 2018."
+                priceGoesUpOn="Price goes up to &pound;1895 on Sept 7th, 2018."
                 ticketName="Early bird ticket"
               />
               <InstallmentsCard price={2160} />
+            </Col>
+            <Col xs={12} md={6} lg={4} lgOffset={1}>
+              <Video youtubeID="yvROXLQ1jHg" />
+              <TrainingDetails
+                date="7-13 Oct, 2018"
+                timing="9am - 6:30pm, everyday"
+                foodIncluded
+                location={
+                  <React.Fragment>
+                    Location: Torres Vedras, Portugal{' '}
+                    <Link to="https://www.google.co.uk/maps">See on map</Link>
+                  </React.Fragment>
+                }
+                coaches={[HORACIO_HERRERA, WILL_VOELCKER, ALEX_LOBERA]}
+              />
             </Col>
           </Row>
         </Card>

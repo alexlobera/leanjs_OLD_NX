@@ -148,7 +148,8 @@ class Curriculum extends React.Component {
                   </P>
                   <H3>Advanced React bootcamp</H3>
                   <P>
-                    Our Advanced React bootcamp is the quickest way to go from React developer to senior React developer.
+                    Our Advanced React bootcamp is the quickest way to go from
+                    React developer to senior React developer.
                   </P>
                   <P>
                     <LinkScroll
