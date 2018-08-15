@@ -19,6 +19,7 @@ import {
   HORACIO,
   WILL,
   ADAM,
+  EVA,
   ABOUT_CORPORATE,
   ABOUT_VALUES,
 } from '../config/images'
@@ -40,7 +41,7 @@ const CoachTitle = styled(H3)`
   }
 `
 
-const SocialLink = ({ to, children }) => (
+const SocialLink = ({ to, children, onClick }) => (
   <Link
     to={to}
     onClick={() => {
@@ -297,9 +298,64 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
+
     <Section>
       <Grid>
         <Row>
+          <Col xs={12} md={4} mdOffset={1}>
+            <H2Ref>
+              Eva Hoffmann
+              <Link name="eva-hoffmann" to="#eva-hoffmann">
+                #
+              </Link>
+            </H2Ref>
+            <CoachTitle>
+              Interactive Developer at <Link to="https://www.sapientrazorfish.com/">SapientRazorfish</Link>
+            </CoachTitle>
+            <Ul inline>
+              <Li>
+                <SocialLink to="github.com/evandyou ">GitHub</SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://www.linkedin.com/in/evamhoffmann/">
+                  LinkedIn
+                </SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://twitter.com/evandyou">
+                  Twitter
+                </SocialLink>
+              </Li>
+            </Ul>
+            <Ul>
+              <Li>
+                Currently, a front-end engineer working with React/Redux
+              </Li>
+              <Li>
+                Holds a degree in computer science and social sciences, interested in the social impact of technologies
+              </Li>
+              <Li>
+                Always curious to learn new things and share it with others
+              </Li>
+            </Ul>
+            <Blockquote bg="primary">
+              Everyone can learn how to program, and I enjoy supporting others to learn and expand their skill set.
+  Programming is such an important skill set and I am particularly passionate about diversity in tech.
+            </Blockquote>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <Image src={EVA} width="100%" />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+
+    <Section>
+      <Grid>
+        <Row>
+          <Col xs={12} md={5}>
+            <Image src={WILL} width="100%" />
+          </Col>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Will Voelcker
@@ -339,9 +395,6 @@ const AboutUs = () => (
               their career
             </Blockquote>
           </Col>
-          <Col xs={12} md={5} mdOffset={1}>
-            <Image src={WILL} width="100%" />
-          </Col>
         </Row>
       </Grid>
     </Section>
@@ -349,9 +402,6 @@ const AboutUs = () => (
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={5}>
-            <Image src={ADAM} width="100%" />
-          </Col>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Adam Lancaster
@@ -395,6 +445,9 @@ const AboutUs = () => (
               undervalued skills in our industry. I always enjoy the chance to
               practice it.
             </Blockquote>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <Image src={ADAM} width="100%" />
           </Col>
         </Row>
       </Grid>
@@ -595,33 +648,6 @@ const AboutUs = () => (
       </Grid>
     </Section>
     <UpcomingTrainingSection />
-    {/*
-        <Section>
-            <Grid>
-                <Row>
-                    <Col xs={12} md={7}>
-                        <H2>Eva Hoffmann</H2>
-                        <H3>
-                           ??? at <Link to="https://sapient.com">Sapient</Link>
-                        </H3>
-                        <Blockquote>
-                        "quote about 1) experience as dev 2) why/ motivation teaching"
-                        </Blockquote>
-                        <Ul>
-                            <Li>
-                                <Link to="https://github.com/">GitHub ??? </Link>
-                            </Li>
-                            <Li>
-                                <Link to="https://www.linkedin.com/in/evamhoffmann/">LinkedIn</Link>
-                            </Li>
-                        </Ul>
-                    </Col>
-                    <Col xs={12} md={5}>
-                        <ImagePlaceholder />
-                    </Col>
-                </Row>
-            </Grid>
-        </Section> */}
   </React.Fragment>
 )
 

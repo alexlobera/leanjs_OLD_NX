@@ -13,6 +13,7 @@ import {
   ADAM_LANCASTER,
   WILL_VOELCKER,
   ALEX_LOBERA,
+  EVA_HOFFMANN,
 } from '../components/training'
 import { HideSingleComponentUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -72,7 +73,7 @@ const BootcampLondon = () => (
                     </Link>
                   </React.Fragment>
                 }
-                coaches={[ADAM_LANCASTER, WILL_VOELCKER, ALEX_LOBERA]}
+                coaches={[EVA_HOFFMANN, ADAM_LANCASTER, WILL_VOELCKER, ALEX_LOBERA]}
               />
             </Col>
           </Row>
