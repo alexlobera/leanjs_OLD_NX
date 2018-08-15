@@ -219,9 +219,17 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Video youtubeID="o6YwbHGfPOo" description={
-              <P><em>The <strong>John Lewis</strong> product team on their experience of a ReactJS Academy training</em></P>
-            } />
+            <Video
+              youtubeID="o6YwbHGfPOo"
+              description={
+                <P>
+                  <em>
+                    The <strong>John Lewis</strong> product team on their
+                    experience of a ReactJS Academy training
+                  </em>
+                </P>
+              }
+            />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>

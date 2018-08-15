@@ -49,17 +49,17 @@ const CurriculumAdvancedReact = ({
     </React.Fragment>
   )
   const secondHalf = (
-      <Section
-        {...commonProps}
-        title="Advanced React Day 3"
-        name="day3"
-        subTitle="Hackathon"
-      >
-        <Hackathon
-          title="Last day real-world React challenge. We'll implement an app
+    <Section
+      {...commonProps}
+      title="Advanced React Day 3"
+      name="day3"
+      subTitle="Hackathon"
+    >
+      <Hackathon
+        title="Last day real-world React challenge. We'll implement an app
           in teams from scratch"
-        />
-      </Section>
+      />
+    </Section>
   )
 
   return (

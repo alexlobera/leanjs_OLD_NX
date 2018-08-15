@@ -34,8 +34,14 @@ const BootcampLondon = () => (
     <Breadcrumb
       path={[
         { to: '/', label: 'Home' },
-        { to: '/advanced-react-redux-graphql-bootcamp', label: 'Advanced React' },
-        { to: '/advanced-react-redux-graphql-bootcamp-london', label: 'London' },
+        {
+          to: '/advanced-react-redux-graphql-bootcamp',
+          label: 'Advanced React',
+        },
+        {
+          to: '/advanced-react-redux-graphql-bootcamp-london',
+          label: 'London',
+        },
       ]}
     />
     <Header
@@ -104,14 +110,15 @@ const BootcampLondon = () => (
             </H2Ref>
             <Ul unstyled>
               <Li>
-                <BulletIcon icon={NotBegginerIcon} />A <strong>React developer with 1+ year of
-                development</strong> under your belt using React?
+                <BulletIcon icon={NotBegginerIcon} />A{' '}
+                <strong>React developer with 1+ year of development</strong>{' '}
+                under your belt using React?
               </Li>
               <Li>
                 <BulletIcon icon={ReactIcon} />
-                Taking a step forward to become a <strong>Senior React developer</strong> able to
-                make critical decisions about the architecture of a React
-                application.
+                Taking a step forward to become a{' '}
+                <strong>Senior React developer</strong> able to make critical
+                decisions about the architecture of a React application.
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
@@ -119,13 +126,16 @@ const BootcampLondon = () => (
                 1-on-1 mentoring?
               </Li>
             </Ul>
-            <P>If you've said 'yes' to these, our <strong>advanced React bootcamp</strong> could be for you!</P>
+            <P>
+              If you've said 'yes' to these, our{' '}
+              <strong>advanced React bootcamp</strong> could be for you!
+            </P>
             <H3>Not for beginner devs!</H3>
             <P>
-              This is a bootcamp for React developers that are experienced with React. If you don't have 1+ year of experience using React we recommend you to attend our {' '}
-              <Link to="/react-redux-graphql-bootcamp">
-                React Bootcamp
-              </Link>.
+              This is a bootcamp for React developers that are experienced with
+              React. If you don't have 1+ year of experience using React we
+              recommend you to attend our{' '}
+              <Link to="/react-redux-graphql-bootcamp">React Bootcamp</Link>.
             </P>
           </Col>
         </Row>

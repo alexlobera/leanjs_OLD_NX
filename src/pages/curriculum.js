@@ -140,10 +140,23 @@ class Curriculum extends React.Component {
                   </Ul>
                   <P>
                     <LinkScroll
-                      onClick={() => this.setActive(TAB_REACT_NATIVE)}
+                      onClick={() => this.setActive(TAB_ADVANCED_REACT)}
                       to="curriculum"
                     >
                       See React Native curriculum
+                    </LinkScroll>
+                  </P>
+                  <H3>Advanced React bootcamp</H3>
+                  <P>
+                    Our Advanced React bootcamp is the quickest way to go from
+                    React developer to senior React developer.
+                  </P>
+                  <P>
+                    <LinkScroll
+                      onClick={() => this.setActive(TAB_ADVANCED_REACT)}
+                      to="curriculum"
+                    >
+                      See Advanced React curriculum
                     </LinkScroll>
                   </P>
                   <H3>React part-time course</H3>
@@ -185,13 +198,18 @@ class Curriculum extends React.Component {
           <Grid>
             <Row>
               <Col lg={10} lgOffset={1}>
-                <P><Element name="curriculum" />Choose a curriculum:</P>
+                <P>
+                  <Element name="curriculum" />
+                  Choose a curriculum:
+                </P>
                 <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
                     <TabItem name={TAB_REACT_BOOTCAMP}>
                       React 1-week bootcamp
                     </TabItem>
-                    <TabItem name={TAB_ADVANCED_REACT}>Advanced React bootcamp</TabItem>
+                    <TabItem name={TAB_ADVANCED_REACT}>
+                      Advanced React bootcamp
+                    </TabItem>
                     <TabItem name={TAB_REACT_NATIVE}>
                       React Native bootcamp
                     </TabItem>
@@ -491,9 +509,9 @@ class Curriculum extends React.Component {
               </Col>
             </Row>
           </Grid>
-        </Section >
+        </Section>
         <UpcomingTrainingSection />
-      </React.Fragment >
+      </React.Fragment>
     )
   }
 }
