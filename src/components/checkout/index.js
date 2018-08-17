@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { Button } from '../buttons'
 import { Span } from '../text'
@@ -106,42 +106,46 @@ class Checkout extends React.Component {
     }
 
     render() {
-        const { course } = this.props
+        const { price, discountPrice, currency } = this.props
         const { quantity, isOpen } = this.state
-        const totalPrice = course.price * quantity * 1.2
-        const totalDiscountPrice = course.discountPrice * quantity * 1.2
+        const totalPrice = price * quantity * 1.2
+        const totalDiscountPrice = discountPrice * quantity * 1.2
         // The class `gtm-purchase-box` is needed for Tracking purposes,
         // please DON'T DELETE IT!!
         return (
-            <PurchaseWrapper className="gtm-purchase-box">
-                {totalDiscountPrice ? (
-                    <PriceAndDiscount>
-                        <Span lineThrough>{totalPrice}</Span>
-                        <Price>&nbsp;{getCurrencySymbol(course.currency, totalDiscountPrice)}</Price>
-                    </PriceAndDiscount>
-                ) : (
-                        <Price>{getCurrencySymbol(course.currency, totalPrice)}</Price>
-                    )}
+            <Fragment>
+                {!isOpen ? (
+                    <PurchaseWrapper className="gtm-purchase-box">
+                        <Fragment>
+                            {totalDiscountPrice ? (
+                                <PriceAndDiscount>
+                                    <Span lineThrough>{totalPrice}</Span>
+                                    <Price>&nbsp;{getCurrencySymbol(currency, totalDiscountPrice)}</Price>
+                                </PriceAndDiscount>
+                            ) : (
+                                    <Price>{getCurrencySymbol(currency, totalPrice)}</Price>
+                                )}
+                            <Button
+                                right
+                                children="Buy now"
+                                cta
+                                onClick={this.toggleIsOpen}
+                            />
+                        </Fragment>
 
-                {isOpen ? <CheckoutForm /> : (
-                    <Button
-                        right
-                        children="Buy now"
-                        cta
-                        onClick={this.toggleIsOpen}
-                    />
-                )}
-                {/* <ButtonWrapper> */}
-                {/* <CheckoutButton course={course} quantity={quantity}>
+                        {/* <ButtonWrapper> */}
+                        {/* <CheckoutButton course={course} quantity={quantity}>
                         Buy now
           </CheckoutButton> */}
-                {/* <QuantityActions>
+                        {/* <QuantityActions>
                         <QuantityButton onClick={this.remCourse} children="-" />
                         <Quantity>{this.state.quantity}</Quantity>
                         <QuantityButton onClick={this.addCourse} children="+" />
                     </QuantityActions> */}
-                {/* </ButtonWrapper>*/}
-            </PurchaseWrapper>
+                        {/* </ButtonWrapper>*/}
+                    </PurchaseWrapper>
+                ) : <CheckoutForm />}
+            </Fragment>
         )
     }
 }

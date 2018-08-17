@@ -1,7 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const CheckoutContainer = styled.div`
+    display:block;
+`
 
 const CheckoutForm = () => (
-    <p>checkout</p>
+    <CheckoutContainer>
+        a
+    </CheckoutContainer>
 )
 
 export default CheckoutForm
