@@ -40,7 +40,7 @@ const BootcampLondon = () => (
       ]}
     />
     <Header
-      titleLines={['React part-time course', '2 Oct - 8 Nov, 2018 - London']}
+      titleLines={['React part-time course', '16 Oct - 22 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
       links={header.landingTraining.links}
       bgImg="part-time"
@@ -73,7 +73,12 @@ const BootcampLondon = () => (
                     </Link>
                   </React.Fragment>
                 }
-                coaches={[EVA_HOFFMANN, ADAM_LANCASTER, WILL_VOELCKER, ALEX_LOBERA]}
+                coaches={[
+                  EVA_HOFFMANN,
+                  ADAM_LANCASTER,
+                  WILL_VOELCKER,
+                  ALEX_LOBERA,
+                ]}
               />
             </Col>
           </Row>

@@ -310,7 +310,10 @@ const AboutUs = () => (
               </Link>
             </H2Ref>
             <CoachTitle>
-              Interactive Developer at <Link to="https://www.sapientrazorfish.com/">SapientRazorfish</Link>
+              Interactive Developer at{' '}
+              <Link to="https://www.sapientrazorfish.com/">
+                SapientRazorfish
+              </Link>
             </CoachTitle>
             <Ul inline>
               <Li>
@@ -328,19 +331,20 @@ const AboutUs = () => (
               </Li>
             </Ul>
             <Ul>
+              <Li>Currently, a front-end engineer working with React/Redux</Li>
               <Li>
-                Currently, a front-end engineer working with React/Redux
-              </Li>
-              <Li>
-                Holds a degree in computer science and social sciences, interested in the social impact of technologies
+                Holds a degree in computer science and social sciences,
+                interested in the social impact of technologies
               </Li>
               <Li>
                 Always curious to learn new things and share it with others
               </Li>
             </Ul>
             <Blockquote bg="primary">
-              Everyone can learn how to program, and I enjoy supporting others to learn and expand their skill set.
-  Programming is such an important skill set and I am particularly passionate about diversity in tech.
+              Everyone can learn how to program, and I enjoy supporting others
+              to learn and expand their skill set. Programming is such an
+              important skill set and I am particularly passionate about
+              diversity in tech.
             </Blockquote>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
