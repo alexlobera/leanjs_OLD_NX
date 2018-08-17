@@ -63,7 +63,7 @@ const BootcampLondon = () => (
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
-                date="2 Oct - 8 Nov, 2018"
+                date="16 Oct - 22 Nov, 2018"
                 timing="6pm - 9pm"
                 location={
                   <React.Fragment>
