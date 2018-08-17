@@ -18,7 +18,7 @@ export const DEFAULT_BUTTON_STYLE = css`
   box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
   color: ${WHITE};
   display: ${props => (props.block ? 'block' : 'inline-block')};
-
+  ${props => props.right ? `margin-left:auto;` : null}
   :disabled {
     border-color: rgba(255, 255, 255, 0.2);
     opacity: 0.3;

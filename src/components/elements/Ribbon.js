@@ -9,6 +9,6 @@ export default styled.div`
   padding: 2px 15px;
   display: inline-block;
   position: absolute;
-  top: 30px;
+  top: 25px;
   right: -5px;
 `

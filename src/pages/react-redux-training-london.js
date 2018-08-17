@@ -55,7 +55,7 @@ const BootcampLondon = () => (
                 price={995}
                 title="React Part-Time London"
                 discountPercentage={24}
-                priceGoesUpOn="Price goes up to &pound;1295 on August 31st, 2018."
+                priceGoesUpOn="Ticket price goes up to &pound;1295 on August 31st, 2018"
                 ticketName="Early bird ticket"
               />
               <InstallmentsCard price={1500} />
@@ -73,7 +73,12 @@ const BootcampLondon = () => (
                     </Link>
                   </React.Fragment>
                 }
-                coaches={[EVA_HOFFMANN, ADAM_LANCASTER, WILL_VOELCKER, ALEX_LOBERA]}
+                coaches={[
+                  EVA_HOFFMANN,
+                  ADAM_LANCASTER,
+                  WILL_VOELCKER,
+                  ALEX_LOBERA,
+                ]}
               />
             </Col>
           </Row>
