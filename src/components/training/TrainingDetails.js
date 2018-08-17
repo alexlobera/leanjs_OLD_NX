@@ -30,7 +30,7 @@ const TrainingDetails = ({
         <Li>Date: {date}</Li>
         <Li>Timing: {timing}</Li>
         <Li>Location: {location}</Li>
-        <Li>{foodIncluded ? 'Food included' : 'Food not included'}</Li>
+        <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}</Li>
         <Li>Accomodation not included</Li>
       </Ul>
       <H3>Teaching staff</H3>
