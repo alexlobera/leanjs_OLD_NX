@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import BuyButton from './BuyButton'
+import { Button } from '../buttons'
 import { Span } from '../text'
 import { GREY2, FONT_FAMILY } from '../../config/styles'
 import getCurrencySymbol from '../utils/currency'
+import trackUserBehaviour, {
+    BUY_BUTTON_CLICK,
+} from '../utils/trackUserBehaviour'
+import CheckoutForm from './CheckoutForm'
 
 const PurchaseWrapper = styled.div`
   display: flex;
@@ -25,12 +29,12 @@ const PurchaseWrapper = styled.div`
 //   background-color: transparent;
 // `
 
-const Quantity = styled.span`
-  align-self: center;
-  height: 1.5rem;
-  font-size: 25px;
-  text-align: center;
-`
+// const Quantity = styled.span`
+//   align-self: center;
+//   height: 1.5rem;
+//   font-size: 25px;
+//   text-align: center;
+// `
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -43,12 +47,12 @@ const Price = styled.span`
   display: block;
 `
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  float: left;
-`
+// const ButtonWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   margin-left: auto;
+//   float: left;
+// `
 
 const PriceAndDiscount = styled.div`
     display: flex;
@@ -56,10 +60,11 @@ const PriceAndDiscount = styled.div`
     margin-bottom:5px;
 `
 
-class PurchaseQuantityContainer extends React.Component {
+class Checkout extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            isOpen: false,
             quantity: 1,
             maxSeats: 30,
         }
@@ -69,6 +74,13 @@ class PurchaseQuantityContainer extends React.Component {
         this.setState({
             quantity: this.state.quantity + 1 > 30 ? 30 : this.state.quantity + 1,
         })
+    }
+
+    toggleIsOpen = () => {
+        trackUserBehaviour({
+            event: BUY_BUTTON_CLICK,
+        })
+        this.setState({ isOpen: !this.state.isOpen })
     }
 
     remCourse = () => {
@@ -95,7 +107,7 @@ class PurchaseQuantityContainer extends React.Component {
 
     render() {
         const { course } = this.props
-        const { quantity } = this.state
+        const { quantity, isOpen } = this.state
         const totalPrice = course.price * quantity * 1.2
         const totalDiscountPrice = course.discountPrice * quantity * 1.2
         // The class `gtm-purchase-box` is needed for Tracking purposes,
@@ -110,17 +122,25 @@ class PurchaseQuantityContainer extends React.Component {
                 ) : (
                         <Price>{getCurrencySymbol(course.currency, totalPrice)}</Price>
                     )}
-                <BuyButton right />
-                <ButtonWrapper>
-                    {/* <CheckoutButton course={course} quantity={quantity}>
+
+                {isOpen ? <CheckoutForm /> : (
+                    <Button
+                        right
+                        children="Buy now"
+                        cta
+                        onClick={this.toggleIsOpen}
+                    />
+                )}
+                {/* <ButtonWrapper> */}
+                {/* <CheckoutButton course={course} quantity={quantity}>
                         Buy now
           </CheckoutButton> */}
-                    {/* <QuantityActions>
+                {/* <QuantityActions>
                         <QuantityButton onClick={this.remCourse} children="-" />
                         <Quantity>{this.state.quantity}</Quantity>
                         <QuantityButton onClick={this.addCourse} children="+" />
                     </QuantityActions> */}
-                </ButtonWrapper>
+                {/* </ButtonWrapper>*/}
             </PurchaseWrapper>
         )
     }
@@ -130,8 +150,8 @@ class PurchaseQuantityContainer extends React.Component {
 //   trackOnMixpanel: PropTypes.func.isRequired
 // }
 
-PurchaseQuantityContainer.defaultProps = {
+Checkout.defaultProps = {
     quantity: 1,
 }
 
-export default PurchaseQuantityContainer
+export default Checkout
