@@ -1,5 +1,5 @@
 import Price from './Price'
 import InstallmentsCard from './InstallmentsCard'
-import CheckoutSection from './CheckoutSection'
+import PaymentSection from './PaymentSection'
 
-export { Price, InstallmentsCard, CheckoutSection }
+export { Price, InstallmentsCard, PaymentSection }

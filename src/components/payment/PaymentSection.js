@@ -3,12 +3,14 @@ import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
 import Checkout from '../checkout/'
+import formatCurrencyPrice from '../utils/currency'
 
-const CheckoutSection = ({
+const PaymentSection = ({
   trainingInstanceId,
   price,
+  discountPrice,
+  currency = 'gbp',
   title,
-  discountPercentage,
   priceGoesUpOn,
   ticketName,
 }) => (
@@ -27,15 +29,13 @@ const CheckoutSection = ({
         <H3>
           <strong>{ticketName}</strong>
         </H3>
-        {discountPercentage ? <Ribbon>Save {discountPercentage}%</Ribbon> : ''}
+        {/* {discountPrice ? <Ribbon>Save {100 - Math.round(discountPrice * 100 / price)} %</Ribbon> : ''} */}
+        {discountPrice ? <Ribbon>Save {formatCurrencyPrice(currency, (price - discountPrice) * 1.2)}</Ribbon> : ''}
         {priceGoesUpOn ? <P>{priceGoesUpOn}</P> : ''}
         <Checkout
-          course={{
-            price: 2000,
-            discountPrice: 1500,
-            trainingInstanceId,
-            title,
-          }}
+          price={price}
+          discountPrice={discountPrice}
+          trainingInstanceId={trainingInstanceId}
         />
         {/* <P sm>
           By purchasing a training, you agree to our{' '}
@@ -51,4 +51,4 @@ const CheckoutSection = ({
     </React.Fragment>
   )
 
-export default CheckoutSection
+export default PaymentSection

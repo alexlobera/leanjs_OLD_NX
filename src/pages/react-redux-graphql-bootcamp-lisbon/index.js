@@ -61,7 +61,7 @@ const BootcampLisbon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <CheckoutSection
                 trainingInstanceId="5b699e97aff9b939d15e50a1"
-                price={1495}
+                price={1450}
                 title="Bootcamp Lisbon"
                 discountPercentage={24}
                 priceGoesUpOn="Price goes up to &pound;1895 on Sept 7th, 2018."

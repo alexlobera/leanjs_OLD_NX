@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Button } from '../buttons'
 import { Span } from '../text'
 import { GREY2, FONT_FAMILY } from '../../config/styles'
-import getCurrencySymbol from '../utils/currency'
+import formatCurrencyPrice from '../utils/currency'
 import trackUserBehaviour, {
     BUY_BUTTON_CLICK,
 } from '../utils/trackUserBehaviour'
@@ -14,27 +14,6 @@ const PurchaseWrapper = styled.div`
   flex-direction: row;
   margin: 12px 0;
 `
-
-// const QuantityActions = styled.div`
-//   justify-content: space-between;
-//   text-align: center;
-//   margin: 8px 0;
-// `
-// const QuantityButton = styled.button`
-//   border: 0;
-//   font-size: 40px;
-//   margin: 0;
-//   border: none;
-//   padding: 0 25px;
-//   background-color: transparent;
-// `
-
-// const Quantity = styled.span`
-//   align-self: center;
-//   height: 1.5rem;
-//   font-size: 25px;
-//   text-align: center;
-// `
 
 const Price = styled.span`
   ${FONT_FAMILY} font-size: 36px;
@@ -106,24 +85,24 @@ class Checkout extends React.Component {
     }
 
     render() {
-        const { price, discountPrice, currency } = this.props
+        const { price, discountPrice, currency = 'gbp' } = this.props
         const { quantity, isOpen } = this.state
         const totalPrice = price * quantity * 1.2
-        const totalDiscountPrice = discountPrice * quantity * 1.2
+        const totalDiscountPrice = discountPrice && discountPrice * quantity * 1.2
         // The class `gtm-purchase-box` is needed for Tracking purposes,
         // please DON'T DELETE IT!!
         return (
             <Fragment>
-                {!isOpen ? (
+                {isOpen ? (
                     <PurchaseWrapper className="gtm-purchase-box">
                         <Fragment>
                             {totalDiscountPrice ? (
                                 <PriceAndDiscount>
-                                    <Span lineThrough>{totalPrice}</Span>
-                                    <Price>&nbsp;{getCurrencySymbol(currency, totalDiscountPrice)}</Price>
+                                    <Span lineThrough>{formatCurrencyPrice(currency, totalPrice)}</Span>
+                                    <Price>&nbsp;{formatCurrencyPrice(currency, totalDiscountPrice)}</Price>
                                 </PriceAndDiscount>
                             ) : (
-                                    <Price>{getCurrencySymbol(currency, totalPrice)}</Price>
+                                    <Price>{formatCurrencyPrice(currency, totalPrice)}</Price>
                                 )}
                             <Button
                                 right
@@ -149,10 +128,6 @@ class Checkout extends React.Component {
         )
     }
 }
-
-// PurchaseQuantityContainer.contextTypes = {
-//   trackOnMixpanel: PropTypes.func.isRequired
-// }
 
 Checkout.defaultProps = {
     quantity: 1,
