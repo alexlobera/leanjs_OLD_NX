@@ -46,7 +46,7 @@ const PartTime = () => (
             <LinkButton
               cta
               to="/react-redux-training-london"
-              children="Next course: 2nd October, London >>"
+              children="Next course: 16nd October, London >>"
             />
           </Col>
         </CallToActionRow>
