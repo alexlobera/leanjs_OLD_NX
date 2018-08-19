@@ -9,6 +9,7 @@ import { Card, Video } from '../../components/elements'
 import { HideSingleComponentUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
+import { DEFAULT_VAT_RATE } from '../../config'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
@@ -80,7 +81,7 @@ const BootcampLisbon = () => (
                   currency: null,
                 }}
               />
-              <InstallmentsCard price={1800 * 1.2} />
+              <InstallmentsCard price={1800 * DEFAULT_VAT_RATE} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />

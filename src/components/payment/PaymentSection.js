@@ -4,12 +4,13 @@ import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
 import Checkout from '../checkout/'
 import formatPrice from '../utils/currency'
+import { DEFAULT_VAT_RATE } from '../../config'
 
 class PaymentSection extends React.Component {
   state = {
     quantity: 1,
     maxSeats: 30,
-    vatRate: 1.2,
+    vatRate: DEFAULT_VAT_RATE,
   }
 
   removeCourse = () => {
@@ -59,7 +60,7 @@ class PaymentSection extends React.Component {
             <strong>{ticketName}</strong>
           </H3>
           {discountPrice ? <Ribbon>Save {formatPrice(currency, pricePerQuantity - discountPricePerQuantity, vatRate)}</Ribbon> : ''}
-          {priceGoesUpOn && nextDiscountPrice ? <P>Ticket price goes up to {formatPrice(currency, nextDiscountPrice, 1.2)} on {priceGoesUpOn}</P> : ''}
+          {priceGoesUpOn && nextDiscountPrice ? <P>Ticket price goes up to {formatPrice(currency, nextDiscountPrice, DEFAULT_VAT_RATE)} on {priceGoesUpOn}</P> : ''}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}

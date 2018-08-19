@@ -4,6 +4,7 @@ import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
+import { DEFAULT_VAT_RATE } from '../../config'
 import createLogger from '../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../config/apps'
 import CheckoutForm from './CheckoutForm'
@@ -223,6 +224,7 @@ class CheckoutContainer extends React.Component {
             discountPricePerQuantity,
             currency,
             vatRate,
+            updateVatRate,
         } = this.props
         const {
             isViesValidationInProgress,
@@ -239,6 +241,7 @@ class CheckoutContainer extends React.Component {
             isViesValid,
             isViesValidationInProgress,
             validateVies: this.validateVies,
+            resetVatRate: () => updateVatRate(DEFAULT_VAT_RATE)
         }
 
         return (

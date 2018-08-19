@@ -148,7 +148,7 @@ class CheckoutForm extends React.Component {
                 </Row>
                 <Form
                     onSubmit={pay}
-                    render={({ handleSubmit, submitting, submitFailed, submitSucceeded, values }) => {
+                    render={({ handleSubmit, submitting, submitFailed, valid, values }) => {
                         return (
                             <form noValidate onSubmit={handleSubmit}>
                                 <CheckoutH4>Personal details</CheckoutH4>
@@ -175,11 +175,12 @@ class CheckoutForm extends React.Component {
                                             name="companyVat"
                                             placeholder="eg. GB256547555"
                                             validate={mustBeEuVat}
+                                            onChange={companyVat.resetVatRate}
                                         />
                                         <LinkButton
                                             block
                                             disabled={companyVat.isViesValid || companyVat.isViesValidationInProgress}
-                                            onClick={() => companyVat.validateOnVies(values.companyVat)}
+                                            onClick={() => companyVat.validateVies(values.companyVat)}
                                         >
                                             {companyVat.isViesValidationInProgress ? '...' : companyVat.isViesValid ? 'Validated' : 'Validate EU VAT and update taxes'}
                                         </LinkButton>
@@ -308,7 +309,7 @@ class CheckoutForm extends React.Component {
                                             Code of conduct
                         </Link>
                                     </P>
-                                    {submitFailed && !submitSucceeded ? (
+                                    {submitFailed && !valid ? (
                                         <Alert danger>
                                             Please fix the errors above
                                 </Alert>
