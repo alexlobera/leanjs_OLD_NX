@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import gql from 'graphql-tag'
 import { Form } from 'react-final-form'
 
 import { Span, P, H4 } from '../text'
@@ -116,9 +115,6 @@ class CheckoutForm extends React.Component {
             voucher,
             onVoucherChange,
             isVoucherValid,
-            // isCompanyVatValid,
-            //isVatValidationInProgress
-            //validateCompanyVat,
             companyVat,
         } = this.props
         const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
@@ -182,7 +178,7 @@ class CheckoutForm extends React.Component {
                                         />
                                         <LinkButton
                                             block
-                                            disabled={companyVat.isViesValid}
+                                            disabled={companyVat.isViesValid || companyVat.isViesValidationInProgress}
                                             onClick={() => companyVat.validateOnVies(values.companyVat)}
                                         >
                                             {companyVat.isViesValidationInProgress ? '...' : companyVat.isViesValid ? 'Validated' : 'Validate EU VAT and update taxes'}
@@ -252,7 +248,7 @@ class CheckoutForm extends React.Component {
                                         />
                                         <LinkButton
                                             block
-                                            disabled={isVoucherValid}
+                                            disabled={isVoucherValid || isVoucherInProgress}
                                             onClick={() => validateVoucher(voucher)}
                                         >
                                             {isVoucherInProgress ? '...' : isVoucherValid ? 'Valid Voucher' : 'Validate'}

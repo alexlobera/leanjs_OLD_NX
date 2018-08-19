@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
+import { withRouter } from 'react-router-dom'
 
 import { STRIPE_PUBLIC_KEY } from '../../config/apps'
 import CheckoutForm from './CheckoutForm'
@@ -58,35 +59,44 @@ class CheckoutContainer extends React.Component {
         })
     }
 
+    addCourse = e => {
+        this.resetVoucher()
+        return this.props.addCourse(e)
+    }
+
+    removeCourse = e => {
+        this.resetVoucher()
+        return this.props.removeCourse(e)
+    }
+
     validateVies = fullVatNumber => {
         const vatNumber = fullVatNumber.substring(2, fullVatNumber.length)
         const countryCode = fullVatNumber.substring(0, 2)
 
-        if (vatNumber && countryCode) {
-            return this.props.client
-                .query({
-                    query: gql`
-                        query isVatNumberValid($countryCode: String!, $vatNumber: String!) {
-                            isVatNumberValid(countryCode: $countryCode, vatNumber: $vatNumber)
-                        }
-                    `,
-                    variables: { countryCode, vatNumber },
-                }).then(({ data = {} }) => {
-                    const { isVatNumberValid } = data
-                    if (isVatNumberValid && countryCode.toLowerCase() !== "gb") {
-                        this.props.updateVatRate(0)
-                    }
-
-                    //this.vatRate(vatCountry, isVatNumberValid)
-                    // this.setState({ companyVATIsValid: isVatNumberValid })
-
-                    return isVatNumberValid ? undefined : "VAT number is not correct"
-                })
+        if (!vatNumber || !countryCode || this.state.isViesValidationInProgress) {
+            return
         }
 
-        // this.vatRate(vatCountry, false)
-        // this.setState({ companyVATIsValid: false })
-        return Promise.resolve(false)
+        this.setState({ isViesValidationInProgress: true })
+        this.props.client
+            .query({
+                query: gql`
+                    query isVatNumberValid($countryCode: String!, $vatNumber: String!) {
+                        isVatNumberValid(countryCode: $countryCode, vatNumber: $vatNumber)
+                    }
+                `,
+                variables: { countryCode, vatNumber },
+            })
+            .then(({ data = {} }) => {
+                const { isVatNumberValid } = data
+                this.setState({ isViesValid: isVatNumberValid, isViesValidationInProgress: false })
+                if (isVatNumberValid && countryCode.toLowerCase() !== "gb") {
+                    this.props.updateVatRate(0)
+                }
+            })
+            .catch(() => {
+                this.setState({ isViesValidationInProgress: false })
+            })
     }
 
     validateVoucher = voucher => {
@@ -131,11 +141,17 @@ class CheckoutContainer extends React.Component {
             })
     };
 
-    setPaymentInProgress = (isPaymentInProgress) => {
-        this.setState({ isPaymentInProgress })
-    };
+    processPaymentError = error => {
+        this.setState({ paymentErrorMessage: true, isPaymentInProgress: false })
+        // TODO SEND TO SENTRY LOG
+    }
 
     pay = values => {
+        if (this.state.isPaymentInProgress) {
+            return
+        }
+        this.setState({ paymentErrorMessage: false, isPaymentInProgress: true })
+
         const {
             CCnumber,
             CCexpiry,
@@ -145,85 +161,59 @@ class CheckoutContainer extends React.Component {
             companyName,
             companyVat,
         } = values
-
+        const { quantity, trackUserBehaviour, vatRate, pay } = this.props
+        const { trainingInstanceId } = this.props.course
         const number = formatCreditCardNumber(CCnumber)
         const cvc = formatCVC(CCcvc)
         const formatedCCexpiry = formatExpirationDate(CCexpiry)
         const exp_month = getMonthFromCardDate(formatedCCexpiry)
         const exp_year = getYearFromCardDate(formatedCCexpiry)
 
-        console.log(values)
-        console.log(number, cvc, formatedCCexpiry, exp_month, exp_year)
-        return
+        // console.log(values)
+        // console.log(number, cvc, formatedCCexpiry, exp_month, exp_year)
 
-        const { quantity, trackUserBehaviour, vatRate } = this.props
-        const { trainingInstanceId } = this.props.course
         trackUserBehaviour({
             event: CHECKOUT_PAYMENT_REQUEST,
             payload: { email, trainingInstanceId },
         })
 
-        this.setPaymentInProgress(true)
-        this.setState({ paymentErrorMessage: false })
-
         Stripe.setPublishableKey(STRIPE_PUBLIC_KEY)
         Stripe.card.createToken(
             { number, cvc, exp_month, exp_year },
-            (status, response) => {
-                this.props
-                    .pay({
-                        variables: {
-                            voucherCode: this.state.voucher,
-                            quantity,
-                            trainingInstanceId,
+            (status, response) =>
+                pay({
+                    variables: {
+                        voucherCode: this.state.voucher,
+                        quantity,
+                        trainingInstanceId,
+                        email,
+                        name,
+                        token: response.id,
+                        vatRate,
+                        companyName,
+                        companyVat,
+                    }
+                }).then(({ errors, makePayment }) => {
+                    trackUserBehaviour({
+                        event: CHECKOUT_PAYMENT_SUCCESS,
+                        payload: {
                             email,
-                            name,
-                            token: response.id,
-                            vatRate,
-                            companyName,
-                            companyVat,
+                            makePayment,
+                            trainingInstanceId
                         }
                     })
-                    .then(({ errors, makePayment }) => {
-                        trackUserBehaviour({
-                            event: CHECKOUT_PAYMENT_SUCCESS,
-                            payload: {
-                                email,
-                                makePayment,
-                                trainingInstanceId
-                            }
-                        })
 
-                        this.setPaymentInProgress(false)
-                        if (!errors) {
-                            this.setState({ paymentErrorMessage: false })
-                            // TODO REDIRECT TO THANKS PAGE
-                        } else {
-                            this.setState({ paymentErrorMessage: true })
-                            this.setPaymentInProgress(false)
-                            // TODO SEND TO SENTRY LOG
-                            // trackUserBehaviour(CHECKOUT_PAYMENT_ERROR_API, { email, errors })
-                        }
-                    })
-                    .catch((errors) => {
-                        this.setPaymentInProgress(false)
-                        this.setState({ paymentErrorMessage: true })
-                        // TODO SEND TO SENTRY LOG
-                        // trackUserBehaviour(CHECKOUT_PAYMENT_ERROR_STRIPE, { email, errors })
-                    })
-            }
+                    if (!errors) {
+                        this.props.history.push('/payment-confirmation')
+                    } else {
+                        this.processPaymentError(errors)
+                    }
+                }).catch(error => {
+                    this.processPaymentError(error)
+                })
+
         )
     };
-
-    addCourse = e => {
-        this.resetVoucher()
-        return this.props.addCourse(e)
-    }
-
-    removeCourse = e => {
-        this.resetVoucher()
-        return this.props.removeCourse(e)
-    }
 
     render() {
         const {
@@ -309,4 +299,4 @@ const withPay = graphql(PAY, {
     name: 'pay'
 })
 
-export default withPay(withApollo(CheckoutContainer))
+export default withRouter(withPay(withApollo(CheckoutContainer)))
