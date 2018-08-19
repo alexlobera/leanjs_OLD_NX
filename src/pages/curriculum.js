@@ -198,8 +198,8 @@ class Curriculum extends React.Component {
           <Grid>
             <Row>
               <Col lg={10} lgOffset={1}>
+                <Element name="curriculum" />
                 <P>
-                  <Element name="curriculum" />
                   Choose a curriculum:
                 </P>
                 <Tabs onChange={this.setActive} active={this.state.active}>
