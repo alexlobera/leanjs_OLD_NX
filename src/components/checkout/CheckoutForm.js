@@ -330,7 +330,7 @@ class CheckoutForm extends React.Component {
 
                                     {paymentErrorMessage ? (
                                         <Alert danger>
-                                            There was an error processing your credit card. Please check your credit card with your bank. If the problem persists contact <Link to="mailto:hello@reactj.academy">hello@reactj.academy</Link>
+                                            There was an error processing your credit card. Please check your credit card with your bank. If the problem persists contact <Link to="mailto:hello@reactjs.academy">hello@reactjs.academy</Link>
                                         </Alert>
                                     ) : null}
                                     <Button type="submit" cta block disabled={submitting || isPaymentInProgress}>Buy now >></Button>
