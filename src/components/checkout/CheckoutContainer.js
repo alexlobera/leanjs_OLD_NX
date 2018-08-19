@@ -61,6 +61,13 @@ class CheckoutContainer extends React.Component {
         })
     }
 
+    resetVatRate = () => {
+        if (this.state.isViesValid || this.props.vatRate !== DEFAULT_VAT_RATE) {
+            this.props.updateVatRate(DEFAULT_VAT_RATE)
+            this.setState({ isViesValid: false })
+        }
+    }
+
     addCourse = e => {
         this.resetVoucher()
         return this.props.addCourse(e)
@@ -224,7 +231,6 @@ class CheckoutContainer extends React.Component {
             discountPricePerQuantity,
             currency,
             vatRate,
-            updateVatRate,
         } = this.props
         const {
             isViesValidationInProgress,
@@ -241,7 +247,7 @@ class CheckoutContainer extends React.Component {
             isViesValid,
             isViesValidationInProgress,
             validateVies: this.validateVies,
-            resetVatRate: () => updateVatRate(DEFAULT_VAT_RATE)
+            resetVatRate: this.resetVatRate,
         }
 
         return (

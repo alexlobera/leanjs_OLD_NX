@@ -37,15 +37,19 @@ export const FormGroup = styled.div`
 const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta
   const name = props.name || input.name
+  const onChange = e => {
+    input.onChange && input.onChange(e)
+    props.onChange && props.onChange(e)
+  }
 
   return (
     <FormGroup>
       {label && input.name ? (
         <Fragment>
           <Label for={name}>{label}</Label>
-          <InputForm {...props} {...input} type={type} name={name} />
+          <InputForm {...props} {...input} onChange={onChange} type={type} name={name} />
         </Fragment>
-      ) : <InputForm {...props} {...input} type={type} />
+      ) : <InputForm {...props} {...input} onChange={onChange} type={type} />
       }
       {(invalid && !pristine || submitFailed && !submitSucceeded) ? (
         <ErrorMessage>{error}</ErrorMessage>
