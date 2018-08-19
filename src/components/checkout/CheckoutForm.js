@@ -265,7 +265,7 @@ class CheckoutForm extends React.Component {
                                             disabled={isVoucherValid || isVoucherValidationInProgress}
                                             onClick={() => validateVoucher(voucher)}
                                         >
-                                            {isVoucherValidationInProgress ? '...' : isVoucherValid ? 'Valid Voucher' : 'Validate'}
+                                            {isVoucherValidationInProgress ? '...' : isVoucherValid ? 'Valid Voucher' : 'Validate voucher'}
                                         </LinkButton>
                                     </Fragment>
                                 ) : (
