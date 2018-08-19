@@ -70,15 +70,17 @@ const BootcampLisbon = () => (
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <PaymentSection
-                trainingInstanceId="5b74235404ba003b823513d7"
-                price={1800}
-                discountPrice={1450}
-                title="Bootcamp Lisbon"
-                discountPercentage={24}
-                priceGoesUpOn="Price goes up to &pound;1895 on Sept 24th, 2018."
-                ticketName="Early bird ticket"
+                data={{
+                  trainingInstanceId: "5b74235404ba003b823513d7",
+                  price: 1800,
+                  discountPrice: 1450,
+                  nextDiscountPrice: 1579.17,
+                  priceGoesUpOn: "Sept 24th, 2018.",
+                  ticketName: "Early bird ticket",
+                  currency: null,
+                }}
               />
-              <InstallmentsCard price={1800*1.2} />
+              <InstallmentsCard price={1800 * 1.2} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />

@@ -53,7 +53,7 @@ const ReactNativeBoocampLondon = () => (
                 price={332.5}
                 title="5b68c95eaff9b939d15e509c"
                 discountPercentage={21}
-                priceGoesUpOn="Price goes up to &pound;450 on August 31st, 2018."
+                priceGoesUpOn="August 31st, 2018."
                 ticketName="Early bird ticket"
               />
             </Col>

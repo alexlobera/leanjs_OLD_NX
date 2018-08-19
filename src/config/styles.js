@@ -14,6 +14,9 @@ export const GREY2 = '#4a4a4a'
 
 export const WHITE = '#fff'
 
+export const RED = 'red'
+export const LIGHT_RED = '#f388a2'
+
 export const CALLTOACTIONRED = '#be6045'
 
 export const BOX_SHADOW =

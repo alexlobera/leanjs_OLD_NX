@@ -16,17 +16,17 @@ export const DEFAULT_BUTTON_STYLE = css`
   background-color: ${props => (props.cta ? CALLTOACTIONRED : blue1())};
   font-weight: ${props => (props.cta ? 'bold' : '')};
   box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
-  color: ${WHITE};
-  display: ${props => (props.block ? 'block' : 'inline-block')};
+  color: ${WHITE}; 
+  ${props => (props.block ? 'width: 100%;' : 'display: inline-block;')}
   ${props => props.right ? `margin-left:auto;` : null}
-  :disabled {
+  ${props => props.disabled ? `
     border-color: rgba(255, 255, 255, 0.2);
     opacity: 0.3;
 
     :hover {
       cursor: not-allowed;
     }
-  }
+  `: ''}
 `
 
 export default styled.button`

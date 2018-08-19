@@ -9,7 +9,7 @@ import {
   P as DefaultP,
   H4 as DefaultH4,
 } from '../text'
-import DefaultInput from './Input'
+import DefaultInput, { ErrorMessage } from './Input'
 import { Col, Row } from '../layout/Grid'
 import { WHITE, FONT_FAMILY } from '../../config/styles'
 import { TickBadgeIcon } from '../icons'
@@ -44,16 +44,6 @@ const ColField = styled(Col)`
 const ThanksTitle = styled(H3)`
   margin: 1em 0;
 ` //TODO: animate this later
-
-const ErrorMssg = styled.p`
-  font-size: 14px;
-  padding: 0 8px;
-  color: #002938;
-  background-color: #f388a2;
-  ${FONT_FAMILY};
-  font-weight: bold;
-  margin-bottom: 0;
-`
 
 const Form = styled.form`
   display: block;
@@ -131,7 +121,7 @@ class ContactForm extends Component {
               />
               {email.length > 0 ? (
                 emailValid ? null : (
-                  <ErrorMssg>must enter a valid email</ErrorMssg>
+                  <ErrorMessage>must enter a valid email</ErrorMessage>
                 )
               ) : null}
 

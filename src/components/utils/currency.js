@@ -1,15 +1,16 @@
-const formatCurrencyPrice = (currencyCode, price) => {
-  const priceRounded = Math.round(price * 100) / 100
+const formatPrice = (currencyCode, price, vatRate) => {
+  const netPrice = vatRate ? price * vatRate : price
+
   switch (currencyCode) {
     case 'usd':
-      return `$${priceRounded}`
+      return `$${netPrice}`
     case 'eur':
-      return `${priceRounded}€`
+      return `${netPrice}€`
     case 'aud':
-      return `A$${priceRounded}`
+      return `A$${netPrice}`
     default:
-      return `£${priceRounded}`
+      return `£${netPrice}`
   }
 }
 
-export default formatCurrencyPrice
+export default formatPrice

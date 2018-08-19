@@ -63,8 +63,8 @@ const BootcampLisbon = () => (
                 trainingInstanceId="5b699e97aff9b939d15e50a1"
                 price={1450}
                 title="Bootcamp Lisbon"
-                discountPercentage={24}
-                priceGoesUpOn="Price goes up to &pound;1895 on Sept 7th, 2018."
+                priceGoesUpOn="Sept 7th, 2018."
+                nextDiscountPrice={1595}
                 ticketName="Early bird ticket"
               />
               <InstallmentsCard price={2160} />

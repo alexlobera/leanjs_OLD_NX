@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Row, Col as FlexboxCol } from 'react-styled-flexboxgrid'
 
-const Col = ({ xs, sm, md, lg, center, style = {}, ...rest }) => {
+const Col = ({ xs, sm, md, lg, center, end, style = {}, ...rest }) => {
   const sizes = {
     xs: xs || 12,
     sm: sm || xs || 12,
@@ -12,6 +12,11 @@ const Col = ({ xs, sm, md, lg, center, style = {}, ...rest }) => {
   if (center) {
     style.display = 'flex'
     style.justifyContent = 'center'
+  }
+
+  if (end) {
+    style.display = 'flex'
+    style.alignItems = 'flex-end'
   }
 
   return <FlexboxCol {...rest} {...sizes} style={style} />
