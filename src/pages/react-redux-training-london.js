@@ -27,7 +27,7 @@ import {
 import { PART_TIME, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
@@ -50,13 +50,16 @@ const BootcampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <CheckoutSection
-                trainingInstanceId="5b1c2197b8340f47a4b8e3e7"
-                price={995}
-                title="React Part-Time London"
-                discountPercentage={24}
-                priceGoesUpOn="Ticket price goes up to &pound;1295 on August 31st, 2018"
-                ticketName="Early bird ticket"
+              <PaymentSection
+                data={{
+                  trainingInstanceId: "5b1c2197b8340f47a4b8e3e7",
+                  price: 1250,
+                  discountPrice: 995,
+                  nextDiscountPrice: 1125,
+                  priceGoesUpOn: "Sept 7th, 2018.",
+                  ticketName: "Early bird ticket",
+                  currency: null,
+                }}
               />
               <InstallmentsCard price={1500} />
             </Col>

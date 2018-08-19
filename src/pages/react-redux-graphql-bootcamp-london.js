@@ -27,7 +27,7 @@ import {
 } from '../components/icons'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, CheckoutSection } from '../components/payment'
+import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
@@ -53,13 +53,15 @@ const BootcampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <CheckoutSection
-                trainingInstanceId="5b3605d7b8340f47a4b8e420"
-                price={1800}
-                title="Bootcamp London"
-                ticketName="Regular ticket"
-              />
-              <InstallmentsCard price={2160} />
+              {/* <PaymentSection
+                data={{
+                  trainingInstanceId: "5b3605d7b8340f47a4b8e420",
+                  price: 1800,
+                  ticketName: "Regular ticket",
+                  currency: null,
+                }}
+              /> */}
+              {/* <InstallmentsCard price={2160} /> */}
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
