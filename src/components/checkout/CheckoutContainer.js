@@ -203,16 +203,15 @@ class CheckoutContainer extends React.Component {
                         companyVat,
                     }
                 }).then(({ errors, makePayment }) => {
-                    trackUserBehaviour({
-                        event: CHECKOUT_PAYMENT_SUCCESS,
-                        payload: {
-                            email,
-                            makePayment,
-                            trainingInstanceId
-                        }
-                    })
-
                     if (!errors) {
+                        trackUserBehaviour({
+                            event: CHECKOUT_PAYMENT_SUCCESS,
+                            payload: {
+                                email,
+                                makePayment,
+                                trainingInstanceId
+                            }
+                        })
                         this.props.history.push('/payment-confirmation')
                     } else {
                         this.processPaymentError(errors)
