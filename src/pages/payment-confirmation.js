@@ -7,7 +7,7 @@ import Header from '../components/layout/Header'
 import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
 
-const PrivacyPolicy = () => (
+const PaymentConfirmation = () => (
     <React.Fragment>
         <Header
             titleLines={['Thanks!']}
@@ -38,4 +38,4 @@ const PrivacyPolicy = () => (
     </React.Fragment>
 )
 
-export default PrivacyPolicy
+export default PaymentConfirmation
