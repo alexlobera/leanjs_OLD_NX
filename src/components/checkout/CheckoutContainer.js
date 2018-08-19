@@ -4,6 +4,7 @@ import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
+import createLogger from '../../config/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../config/apps'
 import CheckoutForm from './CheckoutForm'
 import { getMonthFromCardDate, getYearFromCardDate, formatCreditCardNumber, formatExpirationDate, formatCVC } from '../utils/card'
@@ -143,7 +144,7 @@ class CheckoutContainer extends React.Component {
 
     processPaymentError = error => {
         this.setState({ paymentErrorMessage: true, isPaymentInProgress: false })
-        // TODO SEND TO SENTRY LOG
+        createLogger().error(error)
     }
 
     pay = values => {
