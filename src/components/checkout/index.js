@@ -52,7 +52,7 @@ class Checkout extends React.Component {
         // please DON'T DELETE IT!!
         return (
             <Fragment>
-                {isOpen ? (
+                {!isOpen ? (
                     <PurchaseWrapper className="gtm-purchase-box">
                         <Fragment>
                             {discountPricePerQuantity ? (
