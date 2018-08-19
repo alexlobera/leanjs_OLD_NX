@@ -38,7 +38,7 @@ class CheckoutContainer extends React.Component {
         vouchedPricePerQuantity: null,
         isVoucherValid: null,
         discountVoucher: 0,
-        isVoucherInProgress: false,
+        isVoucherValidationInProgress: false,
         voucher: '',
         isViesValidationInProgress: false,
         isViesValid: null,
@@ -48,8 +48,8 @@ class CheckoutContainer extends React.Component {
         this.resetVoucher(e.target.value)
     }
 
-    setVoucherInProgress = (isVoucherInProgress) => {
-        this.setState({ isVoucherInProgress })
+    setVoucherInProgress = (isVoucherValidationInProgress) => {
+        this.setState({ isVoucherValidationInProgress })
     };
 
     resetVoucher = (voucher = '') => {
@@ -114,10 +114,10 @@ class CheckoutContainer extends React.Component {
 
     validateVoucher = voucher => {
         const { quantity, discountPricePerQuantity, pricePerQuantity, client, trainingInstanceId, trackUserBehaviour } = this.props
-        const { isVoucherInProgress } = this.state
+        const { isVoucherValidationInProgress } = this.state
         const price = discountPricePerQuantity || pricePerQuantity
 
-        if (!voucher || isVoucherInProgress) {
+        if (!voucher || isVoucherValidationInProgress) {
             return
         }
 
@@ -239,7 +239,7 @@ class CheckoutContainer extends React.Component {
             isPaymentInProgress,
             discountVoucher,
             isVoucherValid,
-            isVoucherInProgress,
+            isVoucherValidationInProgress,
             voucher,
             vouchedPricePerQuantity
         } = this.state
@@ -265,7 +265,7 @@ class CheckoutContainer extends React.Component {
                 pay={this.pay}
                 validateVoucher={this.validateVoucher}
                 isVoucherValid={isVoucherValid}
-                isVoucherInProgress={isVoucherInProgress}
+                isVoucherValidationInProgress={isVoucherValidationInProgress}
                 voucher={voucher}
                 onVoucherChange={this.onVoucherChange}
                 vouchedPricePerQuantity={vouchedPricePerQuantity}

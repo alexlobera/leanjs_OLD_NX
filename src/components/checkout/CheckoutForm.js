@@ -110,7 +110,7 @@ class CheckoutForm extends React.Component {
             currency,
             vatRate,
             pay,
-            isVoucherInProgress,
+            isVoucherValidationInProgress,
             validateVoucher,
             vouchedPricePerQuantity,
             voucher,
@@ -262,10 +262,10 @@ class CheckoutForm extends React.Component {
                                         />
                                         <LinkButton
                                             block
-                                            disabled={isVoucherValid || isVoucherInProgress}
+                                            disabled={isVoucherValid || isVoucherValidationInProgress}
                                             onClick={() => validateVoucher(voucher)}
                                         >
-                                            {isVoucherInProgress ? '...' : isVoucherValid ? 'Valid Voucher' : 'Validate'}
+                                            {isVoucherValidationInProgress ? '...' : isVoucherValid ? 'Valid Voucher' : 'Validate'}
                                         </LinkButton>
                                     </Fragment>
                                 ) : (
