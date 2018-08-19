@@ -117,6 +117,8 @@ class CheckoutForm extends React.Component {
             onVoucherChange,
             isVoucherValid,
             companyVat,
+            isPaymentInProgress,
+            paymentErrorMessage,
         } = this.props
         const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
         const currentTicketPrice = discountPricePerQuantity || pricePerQuantity
@@ -323,9 +325,15 @@ class CheckoutForm extends React.Component {
                                     {submitFailed && !valid ? (
                                         <Alert danger>
                                             Please fix the errors above
-                                </Alert>
+                                        </Alert>
                                     ) : null}
-                                    <Button type="submit" cta block disabled={submitting}>Buy now >></Button>
+
+                                    {paymentErrorMessage ? (
+                                        <Alert danger>
+                                            There was an error processing your credit card. Please check your credit card with your bank. If the problem persists contact <Link to="mailto:hello@reactj.academy">hello@reactj.academy</Link>
+                                        </Alert>
+                                    ) : null}
+                                    <Button type="submit" cta block disabled={submitting || isPaymentInProgress}>Buy now >></Button>
                                 </RowBuy>
                             </form>
                         )
