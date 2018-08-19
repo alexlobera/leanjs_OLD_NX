@@ -181,9 +181,6 @@ class CheckoutContainer extends React.Component {
         const exp_month = getMonthFromCardDate(formatedCCexpiry)
         const exp_year = getYearFromCardDate(formatedCCexpiry)
 
-        // console.log(values)
-        // console.log(number, cvc, formatedCCexpiry, exp_month, exp_year)
-
         trackUserBehaviour({
             event: CHECKOUT_PAYMENT_REQUEST,
             payload: { email, trainingInstanceId },
