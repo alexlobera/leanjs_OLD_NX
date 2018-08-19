@@ -10,10 +10,7 @@ import { ApolloClient } from 'apollo-client'
 import fetch from 'node-fetch'
 import raven from 'raven-js'
 
-// TODO REMOVE THE OLD_CHECKOUT CSS WHEN WE REIMPLEMENT IT
-import '../components/old_checkout'
 import './reset.css'
-
 import { UPMENTORING_API_URL, SENTRY_DSN } from '../config/apps'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'

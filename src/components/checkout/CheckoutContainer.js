@@ -4,7 +4,7 @@ import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
-import createLogger from '../../config/createLogger'
+import createLogger from '../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../config/apps'
 import CheckoutForm from './CheckoutForm'
 import { getMonthFromCardDate, getYearFromCardDate, formatCreditCardNumber, formatExpirationDate, formatCVC } from '../utils/card'
