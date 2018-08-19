@@ -79,6 +79,10 @@ class CheckoutContainer extends React.Component {
     }
 
     validateVies = fullVatNumber => {
+        if (!fullVatNumber || !fullVatNumber.length > 3) {
+            return
+        }
+
         const vatNumber = fullVatNumber.substring(2, fullVatNumber.length)
         const countryCode = fullVatNumber.substring(0, 2)
 

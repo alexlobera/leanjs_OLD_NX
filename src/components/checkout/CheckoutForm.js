@@ -185,7 +185,7 @@ class CheckoutForm extends React.Component {
                                             label="EU VAT number:"
                                             name="companyVat"
                                             placeholder="eg. GB256547555"
-                                            validate={mustBeEuVat}
+                                            validate={composeValidators(required, mustBeEuVat)}
                                             onChange={companyVat.resetVatRate}
                                         />
                                         <LinkButton
