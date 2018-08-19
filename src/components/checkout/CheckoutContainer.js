@@ -170,8 +170,7 @@ class CheckoutContainer extends React.Component {
             companyName,
             companyVat,
         } = values
-        const { quantity, trackUserBehaviour, vatRate, pay } = this.props
-        const { trainingInstanceId } = this.props.course
+        const { quantity, trackUserBehaviour, vatRate, pay, trainingInstanceId } = this.props
         const number = formatCreditCardNumber(CCnumber)
         const cvc = formatCVC(CCcvc)
         const formatedCCexpiry = formatExpirationDate(CCexpiry)

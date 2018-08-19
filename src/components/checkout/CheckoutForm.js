@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { Form } from 'react-final-form'
+import Helmet from 'react-helmet'
 
 import { Span, P, H4 } from '../text'
 import { Button, LinkButton } from '../buttons'
@@ -119,12 +120,22 @@ class CheckoutForm extends React.Component {
         } = this.props
         const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
         const currentTicketPrice = discountPricePerQuantity || pricePerQuantity
-        const ticketVat = !vatRate || vouchedPricePerQuantity ?
+
+        const ticketVat = !vatRate ? 0 : vouchedPricePerQuantity ?
             vouchedPricePerQuantity - vouchedPricePerQuantity * vatRate
             : currentTicketPrice - currentTicketPrice * vatRate
 
         return (
             <Fragment>
+                <Helmet
+                    script={[
+                        {
+                            type: 'text/javascript',
+                            src: 'https://js.stripe.com/v2/',
+                            async: true,
+                        },
+                    ]}
+                />
                 <Row>
                     <Col xs={6}>
                         <Span>Number of tickets:</Span>
