@@ -10,5 +10,5 @@ export default styled.div`
   display: inline-block;
   position: absolute;
   top: ${props => props.top ? props.top : 24}px;
-  right: ${props => props.right ? props.right : -5}px;
+  right: ${props => props.right ? props.right : -4}px;
 `
