@@ -14,15 +14,15 @@ class PaymentSection extends React.Component {
   }
 
   removeCourse = () => {
-    this.setState({
-      quantity: this.state.quantity - 1 <= 0 ? 1 : this.state.quantity - 1,
-    })
+    this.setState(prevState => ({
+      quantity: prevState.quantity - 1 <= 0 ? 1 : prevState.quantity - 1,
+    }))
   }
 
   addCourse = () => {
-    this.setState({
-      quantity: this.state.quantity + 1 > 30 ? 30 : this.state.quantity + 1,
-    })
+    this.setState(prevState => ({
+      quantity: prevState.quantity + 1 > 30 ? 30 : prevState.quantity + 1
+    }))
   }
 
   updateVatRate = vatRate => {
