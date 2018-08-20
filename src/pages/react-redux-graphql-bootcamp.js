@@ -44,14 +44,8 @@ const Boocamps = () => (
           <Col xs={12} sm={5} smOffset={1}>
             <LinkButton
               cta
-              to="/react-redux-graphql-bootcamp-london"
-              children="Next bootcamp: 20 August, London >>"
-            />
-          </Col>
-          <Col xs={12} sm={3}>
-            <LinkButton
               to="/react-redux-graphql-bootcamp-lisbon"
-              children="7 Oct, Lisbon >>"
+              children="Next bootcamp: 7 Oct, Lisbon >>"
             />
           </Col>
           <Col xs={12} sm={3}>
