@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { WHITE, BROWN, GREY2, FONT_FAMILY, blue1, LIGHT_RED } from '../../config/styles'
 
@@ -45,10 +45,10 @@ const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
   return (
     <FormGroup>
       {label && input.name ? (
-        <Fragment>
+        <React.Fragment>
           <Label for={name}>{label}</Label>
           <InputForm {...props} {...input} onChange={onChange} type={type} name={name} />
-        </Fragment>
+        </React.Fragment>
       ) : <InputForm {...props} {...input} onChange={onChange} type={type} />
       }
       {(invalid && !pristine || submitFailed && !submitSucceeded) ? (
