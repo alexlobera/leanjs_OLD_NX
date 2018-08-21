@@ -26,7 +26,7 @@ import {
 } from '../components/icons'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { CheckoutSection } from '../components/payment'
+import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 
 const BootcampLondon = () => (
@@ -58,11 +58,13 @@ const BootcampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <CheckoutSection
-                trainingInstanceId="5b71f2cc04ba003b823513d1"
-                price={1250}
-                title="Advanced React London"
-                ticketName="Regular ticket"
+              <PaymentSection
+                data={{
+                  trainingInstanceId: "5b71f2cc04ba003b823513d1",
+                  price: 1250,
+                  ticketName: "Regular ticket",
+                  currency: null,
+                }}
               />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>

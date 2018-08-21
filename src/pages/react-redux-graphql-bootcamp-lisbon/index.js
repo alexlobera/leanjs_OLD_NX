@@ -26,7 +26,7 @@ import {
 } from '../../components/icons'
 import { Image } from '../../components/elements'
 import header from '../../components/layout/Header.json'
-import { InstallmentsCard, CheckoutSection } from '../../components/payment'
+import { InstallmentsCard, PaymentSection } from '../../components/payment'
 import { Link, Breadcrumb } from '../../components/navigation'
 
 const BootcampLisbon = () => (
@@ -59,13 +59,16 @@ const BootcampLisbon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <CheckoutSection
-                trainingInstanceId="5b699e97aff9b939d15e50a1"
-                price={1495}
-                title="Bootcamp Lisbon"
-                discountPercentage={24}
-                priceGoesUpOn="Price goes up to &pound;1895 on Sept 7th, 2018."
-                ticketName="Early bird ticket"
+              <PaymentSection
+                data={{
+                  trainingInstanceId: "5b699e97aff9b939d15e50a1",
+                  price: 1800,
+                  discountPrice: 1450,
+                  nextDiscountPrice: 1579.17,
+                  priceGoesUpOn: "Sept 7th, 2018.",
+                  ticketName: "Early bird ticket",
+                  currency: null,
+                }}
               />
               <InstallmentsCard price={2160} />
             </Col>

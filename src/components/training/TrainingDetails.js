@@ -24,26 +24,26 @@ const TrainingDetails = ({
   foodIncluded = false,
   coaches = [],
 }) => (
-  <React.Fragment>
-    <H3>Details</H3>
-    <Ul>
-      <Li>Date: {date}</Li>
-      <Li>Timing: {timing}</Li>
-      <Li>Location: {location}</Li>
-      <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}</Li>
-      <Li>Accomodation not included</Li>
-    </Ul>
-    <H3>Teaching staff</H3>
-    <Ul>
-      {coaches.map(coachKey => (
-        <CoachItem
-          key={coachKey}
-          path={coachKey}
-          name={coachesData[coachKey]}
-        />
-      ))}
-    </Ul>
-  </React.Fragment>
-)
+    <React.Fragment>
+      <H3>Details</H3>
+      <Ul>
+        <Li>Date: {date}</Li>
+        <Li>Timing: {timing}</Li>
+        <Li>Location: {location}</Li>
+        <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}</Li>
+        <Li>Accomodation not included</Li>
+      </Ul>
+      <H3>Teaching staff</H3>
+      <Ul>
+        {coaches.map(coachKey => (
+          <CoachItem
+            key={coachKey}
+            path={coachKey}
+            name={coachesData[coachKey]}
+          />
+        ))}
+      </Ul>
+    </React.Fragment>
+  )
 
 export default TrainingDetails

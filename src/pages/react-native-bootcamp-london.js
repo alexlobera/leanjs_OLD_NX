@@ -26,7 +26,7 @@ import {
 } from '../components/icons'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { CheckoutSection } from '../components/payment'
+import { PaymentSection } from '../components/payment'
 
 const ReactNativeBoocampLondon = () => (
   <React.Fragment>
@@ -48,13 +48,16 @@ const ReactNativeBoocampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <CheckoutSection
-                trainingInstanceId="5b68c95eaff9b939d15e509c"
-                price={332.5}
-                title="5b68c95eaff9b939d15e509c"
-                discountPercentage={21}
-                priceGoesUpOn="Price goes up to &pound;450 on August 31st, 2018."
-                ticketName="Early bird ticket"
+              <PaymentSection
+                data={{
+                  trainingInstanceId: "5b68c95eaff9b939d15e509c",
+                  price: 415.83,
+                  discountPrice: 332.5,
+                  nextDiscountPrice: 375,
+                  priceGoesUpOn: "August 31st, 2018.",
+                  ticketName: "Early bird ticket",
+                  currency: null,
+                }}
               />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>

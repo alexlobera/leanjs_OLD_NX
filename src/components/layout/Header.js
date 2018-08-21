@@ -76,7 +76,7 @@ const backgroundImg = css`
 const HeaderSection = styled(Section)`
   ${({ bgImg }) =>
     bgImg === 'home' &&
-    `background-color: ${reactBlue(0.4)};`} min-height: 700px;
+    `background-color: ${reactBlue(0.4)};`} 
   position: relative;
   &:before {
     content: '';

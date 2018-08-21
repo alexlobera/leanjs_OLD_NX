@@ -49,18 +49,16 @@ LinkButton.displayName = 'LinkButton'
 export default props => (
   <LinkButton
     {...props}
-    onClick={
-      props.cta
-        ? e => {
-            trackUserBehaviour({
-              event: CLICK_ON_CTA,
-              payload: {
-                to: props.to || 'Not Provided',
-              },
-            })
-            props.onClick && props.onClick(e)
-          }
-        : null
-    }
+    onClick={e => {
+      if (props.cta) {
+        trackUserBehaviour({
+          event: CLICK_ON_CTA,
+          payload: {
+            to: props.to || 'Not Provided',
+          },
+        })
+      }
+      props.onClick && props.onClick(e)
+    }}
   />
 )
