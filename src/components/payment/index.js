@@ -1,5 +1,3 @@
-import Price from './Price'
-import InstallmentsCard from './InstallmentsCard'
-import PaymentSection from './PaymentSection'
-
-export { Price, InstallmentsCard, PaymentSection }
+export { default as Price } from './Price';
+export { default as InstallmentsCard } from './InstallmentsCard';
+export { default as PaymentSection } from './PaymentSection';
