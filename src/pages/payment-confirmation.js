@@ -12,6 +12,7 @@ const PaymentConfirmation = () => (
         <Header
             titleLines={['Thanks!']}
             subtitle="We can’t wait to help you on your React journey."
+            bgImg="training-event"
         />
         <TopSection marginTop="-250">
             <Grid>
