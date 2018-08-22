@@ -61,6 +61,11 @@ const Layout = ({ children, data }) => (
               type: 'text/javascript',
               src: 'https://unpkg.com/jquery/dist/jquery.min.js',
             },
+            {
+              type: 'text/javascript',
+              src: 'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+              async: true,
+            },
           ]}
         />
         <Menu />
