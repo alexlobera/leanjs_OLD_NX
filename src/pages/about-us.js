@@ -9,12 +9,10 @@ import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionRow from '../components/layout/CallToActionRow'
-import { Card, Video } from '../components/elements'
+import { Card, Video, Image } from '../components/elements'
 import { Blockquote } from '../components/text'
-import { Image } from '../components/elements'
 import { LeanJS } from '../components/logos'
 import {
-  ALEX,
   RICHARD,
   HORACIO,
   WILL,
@@ -133,7 +131,13 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5}>
-            <Image src={ALEX} width="100%" />
+            <Video youtubeID="QiR8iNq3tCQ"
+              description={
+                <P>
+                  Alex talking about advanced testing at Facebook London HQ
+                </P>
+              }
+            />
           </Col>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
