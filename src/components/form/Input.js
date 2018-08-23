@@ -1,6 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { WHITE, BROWN, GREY2, FONT_FAMILY, blue1, LIGHT_RED } from '../../config/styles'
+import {
+  WHITE,
+  BROWN,
+  GREY2,
+  FONT_FAMILY,
+  blue1,
+  LIGHT_RED,
+} from '../../config/styles'
 
 const Label = styled.label`
   ${FONT_FAMILY};
@@ -47,11 +54,18 @@ const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
       {label && input.name ? (
         <React.Fragment>
           <Label for={name}>{label}</Label>
-          <InputForm {...props} {...input} onChange={onChange} type={type} name={name} />
+          <InputForm
+            {...props}
+            {...input}
+            onChange={onChange}
+            type={type}
+            name={name}
+          />
         </React.Fragment>
-      ) : <InputForm {...props} {...input} onChange={onChange} type={type} />
-      }
-      {(invalid && !pristine || submitFailed && !submitSucceeded) ? (
+      ) : (
+        <InputForm {...props} {...input} onChange={onChange} type={type} />
+      )}
+      {(invalid && !pristine) || (submitFailed && !submitSucceeded) ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : null}
     </FormGroup>

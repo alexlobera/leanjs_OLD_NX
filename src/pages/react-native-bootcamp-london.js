@@ -50,12 +50,12 @@ const ReactNativeBoocampLondon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <PaymentSection
                 data={{
-                  trainingInstanceId: "5b68c95eaff9b939d15e509c",
+                  trainingInstanceId: '5b68c95eaff9b939d15e509c',
                   price: 415.83,
                   discountPrice: 332.5,
                   nextDiscountPrice: 375,
-                  priceGoesUpOn: "August 31st, 2018.",
-                  ticketName: "Early bird ticket",
+                  priceGoesUpOn: 'August 31st, 2018.',
+                  ticketName: 'Early bird ticket',
                   currency: null,
                 }}
               />

@@ -18,15 +18,18 @@ export const DEFAULT_BUTTON_STYLE = css`
   box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
   color: ${WHITE}; 
   ${props => (props.block ? 'width: 100%;' : 'display: inline-block;')}
-  ${props => props.right ? `margin-left:auto;` : null}
-  ${props => props.disabled ? `
+  ${props => (props.right ? `margin-left:auto;` : null)}
+  ${props =>
+    props.disabled
+      ? `
     border-color: rgba(255, 255, 255, 0.2);
     opacity: 0.3;
 
     :hover {
       cursor: not-allowed;
     }
-  `: ''}
+  `
+      : ''}
 `
 
 export default styled.button`

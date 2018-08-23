@@ -60,9 +60,9 @@ const BootcampLondon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <PaymentSection
                 data={{
-                  trainingInstanceId: "5b71f2cc04ba003b823513d1",
+                  trainingInstanceId: '5b71f2cc04ba003b823513d1',
                   price: 1250,
-                  ticketName: "Regular ticket",
+                  ticketName: 'Regular ticket',
                   currency: null,
                 }}
               />

@@ -11,7 +11,8 @@ export const Price = styled.span`
   letter-spacing: normal;
   color: ${GREY2};
   display: inline-block;
-  ${props => props.marginRight ? `margin-right: ${props.marginRight}px;` : null}
+  ${props =>
+    props.marginRight ? `margin-right: ${props.marginRight}px;` : null};
 `
 
 export default Price

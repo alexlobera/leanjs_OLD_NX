@@ -52,12 +52,12 @@ const BootcampLondon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <PaymentSection
                 data={{
-                  trainingInstanceId: "5b1c2197b8340f47a4b8e3e7",
+                  trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
                   price: 1250,
                   discountPrice: 995,
                   nextDiscountPrice: 1125,
-                  priceGoesUpOn: "Sept 7th, 2018.",
-                  ticketName: "Early bird ticket",
+                  priceGoesUpOn: 'Sept 7th, 2018.',
+                  ticketName: 'Early bird ticket',
                   currency: null,
                 }}
               />

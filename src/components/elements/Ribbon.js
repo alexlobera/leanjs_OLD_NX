@@ -9,6 +9,6 @@ export default styled.div`
   padding: 2px 15px;
   display: inline-block;
   position: absolute;
-  top: ${props => props.top ? props.top : 24}px;
-  right: ${props => props.right ? props.right : -4}px;
+  top: ${props => (props.top ? props.top : 24)}px;
+  right: ${props => (props.right ? props.right : -4)}px;
 `
