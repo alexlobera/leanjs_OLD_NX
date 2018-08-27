@@ -39,7 +39,11 @@ const CurriculumPartTime = ({
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
   const firstHalf = (
     <React.Fragment>
-      <Section {...commonProps} title="Session 1 - ES6" name="session1">
+      <Section
+        {...commonProps}
+        title="Session 1 - Modern JavaScript"
+        name="session1"
+      >
         <ES6Session />
       </Section>
       <Section

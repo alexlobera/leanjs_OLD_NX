@@ -5,9 +5,7 @@ import Session from './Session'
 const ES6Session = ({ title }) => (
   <Session title={title}>
     <Ul>
-      <Li>
-        Understanding language updates - difference between ES6, ES7, and ESNEXT
-      </Li>
+      <Li>Modern JavaScript for React - ES6 and beyond</Li>
       <Li>Arrow Functions, Class syntax, Template strings</Li>
       <Li>Destructuring</Li>
       <Li>Default parameters, Rest operator, Spread operator</Li>

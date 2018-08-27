@@ -34,9 +34,9 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 1"
         name="day1"
-        subTitle="ES6 & ESNEXT, Thinking in React, Routing & Data Fetching"
+        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
       >
-        <ES6Session title="ES6 and ESNEXT" />
+        <ES6Session title="Modern JavaScript" />
         <IntroReactSession title="Thinking in React" />
         <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
       </Section>
