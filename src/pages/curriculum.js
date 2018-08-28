@@ -227,8 +227,8 @@ class Curriculum extends React.Component {
                           Understand the core principles and libraries of the
                           React ecosystem{' '}
                           <code>
-                            react, react-router, redux, react-redux, graphql,
-                            apollo-client, styled-components
+                            react, react-router, styled-components, storybook, redux, react-redux, redux-saga, reselect, graphql,
+                            apollo-client
                           </code>
                         </Li>
                         <Li>
@@ -271,14 +271,14 @@ class Curriculum extends React.Component {
                             </Li>
                             <Li>
                               <LinkScroll to="day4">
-                                Day 4: Functional Programming, Advanced Patterns
-                                I, GraphQL, and Advanced Redux
+                                Day 4: FP & advanced React patterns
+                                I, GraphQL, Server-side rendering
                               </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day5">
-                                Day 5: Testing in React, Advanced React Patterns
-                                II, Server-side Rendering
+                                Day 5: Testing in React, Advanced React patterns
+                                II, FP & advanced Redux
                               </LinkScroll>
                             </Li>
                             <Li>

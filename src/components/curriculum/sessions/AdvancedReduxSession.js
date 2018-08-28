@@ -15,10 +15,10 @@ const AdvancedReduxSession = ({ title }) => (
       <Li>
         Advanced Redux:
         <Ul>
-          <Li>Introducing the Redux middleware</Li>
-          <Li>Exercise, build your own Redux middleware</Li>
-          <Li>Thunks. Actions that dispatch actions</Li>
-          <Li>Exercise, implement loading indicators using thunks</Li>
+          <Li>Using the Redux middleware, and building your own Redux middlewares</Li>
+          <Li>Thunks, actions that dispatch actions. Implementing loading indicators using thunks</Li>
+          <Li>Using selectors to write more robust and performant code. Learn how <code>reselect</code> works</Li>
+          <Li>Sagas Vs thunks. Exercise, reimplement the previous thunk loading indicator with sagas.</Li>
         </Ul>
       </Li>
       <Li>Time travel in Redux using Redux DevTools</Li>

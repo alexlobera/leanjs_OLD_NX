@@ -71,11 +71,11 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 4"
         name="day4"
-        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
+        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and SSR"
       >
-        <HoCsAndRenderPropsSession title="FP & Advanced React Patterns I" />
+        <HoCsAndRenderPropsSession title="Functional Programming & Advanced React patterns I" />
         <GraphQLSession title="GraphQL and Apollo client" />
-        <AdvancedReduxSession title="Advanced Redux" />
+        <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
       </Section>
       <Section
         {...commonProps}
@@ -88,7 +88,7 @@ const CurriculumBootcamp = ({
           title="Advanced React patterns to create even more reusable
           UIs"
         />
-        <ServerSideRenderingSession title="Server Side Rendering (SSR) with React" />
+        <AdvancedReduxSession title="Functional programming & advanced Redux" />
       </Section>
       <Section
         {...commonProps}

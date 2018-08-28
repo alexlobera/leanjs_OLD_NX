@@ -11,6 +11,7 @@ const StylingInReactSession = ({ title }) => (
         Component libraries comparison: SemanticUI, MaterialUI, Rebass, and
         React-Bootstrap
       </Li>
+      <Li>Storybook</Li>
     </Ul>
   </Session>
 )

@@ -8,7 +8,7 @@ const HoCsAndRenderPropsSession = ({ title }) => (
       <Li>
         Functional programming (FP)
         <Ul>
-          <Li>Composition</Li>
+          <Li>Composing React components</Li>
         </Ul>
       </Li>
       <Li>
