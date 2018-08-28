@@ -134,8 +134,8 @@ const CurriculumPartTime = ({
           </Col>
         </Row>
       ) : (
-          ''
-        )}
+        ''
+      )}
 
       {list ? (
         <List>
@@ -143,15 +143,15 @@ const CurriculumPartTime = ({
           {secondHalf}
         </List>
       ) : (
-          <Row>
-            <Col md={6} lg={5} lgOffset={1}>
-              {firstHalf}
-            </Col>
-            <Col md={6} lg={5}>
-              {secondHalf}
-            </Col>
-          </Row>
-        )}
+        <Row>
+          <Col md={6} lg={5} lgOffset={1}>
+            {firstHalf}
+          </Col>
+          <Col md={6} lg={5}>
+            {secondHalf}
+          </Col>
+        </Row>
+      )}
 
       {showCallToActionBottom ? (
         <Row>
@@ -172,8 +172,8 @@ const CurriculumPartTime = ({
           </Col>
         </Row>
       ) : (
-          ''
-        )}
+        ''
+      )}
     </React.Fragment>
   )
 }
