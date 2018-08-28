@@ -13,13 +13,15 @@ import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
-import GraphQLSession from './sessions/GraphQLSession'
-import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
 
 const PartTimeFinalProject = () => (
   <Ul>
+    <Li>
+      Consolidate your new React skills by building a React Redux application
+      from scratch
+    </Li>
     <Li>Discussion about architecture, features and tools</Li>
     <Li>
       Practice extreme programming and get support from the coaches and mentors
@@ -74,6 +76,12 @@ const CurriculumPartTime = ({
       >
         <ReactFundamentalsRecapSession />
       </Section>
+      {marketingCard}
+    </React.Fragment>
+  )
+
+  const secondHalf = (
+    <React.Fragment>
       <Section
         {...commonProps}
         title="Session 6 - Styling in React"
@@ -81,12 +89,6 @@ const CurriculumPartTime = ({
       >
         <StylingInReactSession />
       </Section>
-      {marketingCard}
-    </React.Fragment>
-  )
-
-  const secondHalf = (
-    <React.Fragment>
       <Section
         {...commonProps}
         title="Session 7 - Introduction to Redux"
@@ -103,29 +105,15 @@ const CurriculumPartTime = ({
       </Section>
       <Section
         {...commonProps}
-        title="Session 9 - Testing in React"
+        title="Session 9 - Advanced Patterns I"
         name="session9"
-      >
-        <TestingInReactSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 10 - Advanced Patterns I"
-        name="session10"
       >
         <HoCsAndRenderPropsSession />
       </Section>
       <Section
         {...commonProps}
-        title="Session 11 - GraphQL & Apollo Client"
-        name="session11"
-      >
-        <GraphQLSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 12 - Last session React mini hackathon"
-        name="session12"
+        title="Session 10 - Last session React mini hackathon"
+        name="session10"
       >
         <PartTimeFinalProject />
       </Section>

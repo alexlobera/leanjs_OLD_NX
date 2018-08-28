@@ -162,8 +162,9 @@ class Curriculum extends React.Component {
                   <H3>React part-time course</H3>
                   <P>
                     The part-time course has a condensed version of the React
-                    bootcamp curriculum, ideal for those who value flexible
-                    learning and can’t miss a day at work.
+                    bootcamp curriculum by excluding the advanced sections.
+                    Ideal for those who value flexible learning and can’t miss a
+                    day at work.
                   </P>
                   <P>
                     <LinkScroll
@@ -309,7 +310,6 @@ class Curriculum extends React.Component {
                     </ContentItem>
 
                     <ContentItem name={TAB_ADVANCED_REACT}>
-                      <Element name="curriculum" />
                       <H2>Advanced React bootcamp curriculum</H2>
                       <P>
                         <strong>
@@ -351,7 +351,6 @@ class Curriculum extends React.Component {
                       </Row>
                     </ContentItem>
                     <ContentItem name={TAB_REACT_NATIVE}>
-                      <Element name="curriculum" />
                       <H2>React Native bootcamp curriculum</H2>
                       <P>
                         <strong>
@@ -386,7 +385,6 @@ class Curriculum extends React.Component {
                     </ContentItem>
 
                     <ContentItem name={TAB_PART_TIME}>
-                      <Element name="curriculum" />
                       <H2>React part-time course curriculum</H2>
                       <P>
                         <strong>
@@ -462,22 +460,12 @@ class Curriculum extends React.Component {
                             </Li>
                             <Li>
                               <LinkScroll to="session9">
-                                Session 9: Testing in React
+                                Session 9: Advanced React Patterns
                               </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="session10">
-                                Session 10: Advanced React Patterns
-                              </LinkScroll>
-                            </Li>
-                            <Li>
-                              <LinkScroll to="session11">
-                                Session 11: GraphQL & Apollo Client
-                              </LinkScroll>
-                            </Li>
-                            <Li>
-                              <LinkScroll to="session12">
-                                Session 12: React mini hackathon
+                                Session 10: React mini hackathon
                               </LinkScroll>
                             </Li>
                           </Ul>
@@ -493,7 +481,7 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text="Next part-time course starts on Oct 2nd, 2018 in London"
+                                text="Next part-time course starts on Oct 16nd, 2018 in London"
                                 to="/react-redux-training-london"
                                 buttonText="Next part-time >>"
                               />

@@ -40,7 +40,7 @@ const BootcampLondon = () => (
       ]}
     />
     <Header
-      titleLines={['React part-time course', '16 Oct - 22 Nov, 2018 - London']}
+      titleLines={['React part-time course', '16 Oct - 15 Nov, 2018 - London']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
       links={header.landingTraining.links}
       bgImg="part-time"
@@ -53,10 +53,10 @@ const BootcampLondon = () => (
               <PaymentSection
                 data={{
                   trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
-                  price: 1250,
-                  discountPrice: 995,
-                  nextDiscountPrice: 1125,
-                  priceGoesUpOn: 'Sept 7th, 2018.',
+                  price: 1166.67,
+                  discountPrice: 829.17,
+                  nextDiscountPrice: 1000,
+                  priceGoesUpOn: 'Sept 20th, 2018.',
                   ticketName: 'Early bird ticket',
                   currency: null,
                 }}
@@ -66,7 +66,7 @@ const BootcampLondon = () => (
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
-                date="16 Oct - 22 Nov, 2018"
+                date="16 Oct - 15 Nov, 2018"
                 timing="6pm - 9pm"
                 location={
                   <React.Fragment>

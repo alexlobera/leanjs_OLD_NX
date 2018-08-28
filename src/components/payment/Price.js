@@ -7,7 +7,7 @@ export const Price = styled.span`
   font-weight: 800;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: normal;
   color: ${GREY2};
   display: inline-block;

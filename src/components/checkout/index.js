@@ -61,11 +61,8 @@ class Checkout extends React.Component {
                     {formatPrice(currency, pricePerQuantity, vatRate)}
                   </Span>
                   <Price>
-                    &nbsp;{formatPrice(
-                      currency,
-                      discountPricePerQuantity,
-                      vatRate
-                    )}
+                    &nbsp;
+                    {formatPrice(currency, discountPricePerQuantity, vatRate)}
                   </Price>
                 </PriceAndDiscount>
               ) : (
