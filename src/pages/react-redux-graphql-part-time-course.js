@@ -35,7 +35,7 @@ const PartTime = () => (
       ]}
     />
     <Header
-      titleLines={['6-week part-time React', 'Redux GraphQL course']}
+      titleLines={['5-week part-time React', 'Redux GraphQL course']}
       subtitle="Expert coaches work alongside you, 2 evenings a week, <br /> to master the React ecosystem without having to cut <br /> into valuable work-days"
       bgImg="part-time"
     />
