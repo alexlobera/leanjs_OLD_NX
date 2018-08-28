@@ -300,8 +300,8 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text="Next React bootcamp starts on August 20th, 2018 in London"
-                                to="/react-redux-graphql-bootcamp-london"
+                                text="Next React bootcamp starts on October 7th, 2018 in Lisbon"
+                                to="/react-redux-graphql-bootcamp-lisbon"
                                 buttonText="Next bootcamp >>"
                               />
                             }
