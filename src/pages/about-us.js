@@ -131,11 +131,10 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5}>
-            <Video youtubeID="QiR8iNq3tCQ"
+            <Video
+              youtubeID="QiR8iNq3tCQ"
               description={
-                <P>
-                  Alex talking about advanced testing at Facebook London HQ
-                </P>
+                <P>Alex talking about advanced testing at Facebook London HQ</P>
               }
             />
           </Col>

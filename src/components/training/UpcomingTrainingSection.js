@@ -31,8 +31,8 @@ const UpcomingTrainingSection = () => (
               imageSrc={LONDON}
             />
             <TrainingItem
-              location="Makers Academy, London"
-              startDate="Oct 2nd to Nov 8th, 2018."
+              location="TBD, London"
+              startDate="Oct 16th to Nov 22nd, 2018."
               name="London part-time"
               path="/react-redux-training-london"
               imageSrc={LONDON}

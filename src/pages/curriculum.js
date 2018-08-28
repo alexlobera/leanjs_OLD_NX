@@ -199,9 +199,7 @@ class Curriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <Element name="curriculum" />
-                <P>
-                  Choose a curriculum:
-                </P>
+                <P>Choose a curriculum:</P>
                 <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
                     <TabItem name={TAB_REACT_BOOTCAMP}>

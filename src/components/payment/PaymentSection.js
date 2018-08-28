@@ -21,7 +21,7 @@ class PaymentSection extends React.Component {
 
   addCourse = () => {
     this.setState(prevState => ({
-      quantity: prevState.quantity + 1 > 30 ? 30 : prevState.quantity + 1
+      quantity: prevState.quantity + 1 > 30 ? 30 : prevState.quantity + 1,
     }))
   }
 
@@ -38,7 +38,8 @@ class PaymentSection extends React.Component {
       currency = 'gbp',
       priceGoesUpOn,
       ticketName,
-    } = this.props.data || {}
+    } =
+      this.props.data || {}
     const { quantity, vatRate } = this.state
     const pricePerQuantity = price * quantity
     const discountPricePerQuantity = discountPrice && discountPrice * quantity
@@ -49,18 +50,37 @@ class PaymentSection extends React.Component {
           Prices{' '}
           <Link to="#pricing" name="pricing">
             #
-      </Link>
+          </Link>
         </H2Ref>
         <P>
-          Please be aware that the ticket only covers the cost of the training, it
-          does not include travel expenses.
-      </P>
+          Please be aware that the ticket only covers the cost of the training,
+          it does not include travel expenses.
+        </P>
         <Card small style={{ position: 'relative' }}>
           <H3>
             <strong>{ticketName}</strong>
           </H3>
-          {discountPrice ? <Ribbon>Save {formatPrice(currency, pricePerQuantity - discountPricePerQuantity, vatRate)}</Ribbon> : ''}
-          {priceGoesUpOn && nextDiscountPrice ? <P>Ticket price goes up to {formatPrice(currency, nextDiscountPrice, DEFAULT_VAT_RATE)} on {priceGoesUpOn}</P> : ''}
+          {discountPrice ? (
+            <Ribbon>
+              Save{' '}
+              {formatPrice(
+                currency,
+                pricePerQuantity - discountPricePerQuantity,
+                vatRate
+              )}
+            </Ribbon>
+          ) : (
+            ''
+          )}
+          {priceGoesUpOn && nextDiscountPrice ? (
+            <P>
+              Ticket price goes up to{' '}
+              {formatPrice(currency, nextDiscountPrice, DEFAULT_VAT_RATE)} on{' '}
+              {priceGoesUpOn}
+            </P>
+          ) : (
+            ''
+          )}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
