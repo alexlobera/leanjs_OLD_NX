@@ -19,7 +19,7 @@ const emptyTraining = (type, city) => ({
 })
 
 export const selectTrainings = (type, city) => trainings
-    .filter(training => training.type === type && (!city || training.city === city))
+    .filter(training => (!type || training.type === type) && (!city || training.city === city))
     .sort((a, b) => a.dateStartsOn > b.dateStartsOn)
 
 export const selectSecondTraining = (type, city) => {
@@ -41,6 +41,7 @@ const trainings = [
         dates: '16 Oct - 15 Nov, 2018',
         dateStartsOn: new Date('16 October, 2018'),
         city: LONDON,
+        country: 'UK',
         type: PART_TIME,
         cityShortName: 'London',
         country: 'UK',
@@ -58,6 +59,7 @@ const trainings = [
         dates: '7-13 Oct, 2018',
         dateStartsOn: new Date('7 October, 2018'),
         city: LISBON,
+        country: 'Portugal',
         type: REACT_BOOTCAMP,
         cityShortName: 'Lisbon',
         country: 'Portugal',
@@ -75,6 +77,7 @@ const trainings = [
         dates: '11-17 Nov, 2018',
         dateStartsOn: new Date('11 Nov, 2018'),
         city: LISBON,
+        country: 'Portugal',
         type: REACT_BOOTCAMP,
         cityShortName: 'Lisbon',
         country: 'Portugal',
@@ -92,6 +95,7 @@ const trainings = [
         dates: '11-13 Oct, 2018',
         dateStartsOn: new Date('11 Oct, 2018'),
         city: LISBON,
+        country: 'Portugal',
         type: ADVANCED_REACT,
         cityShortName: 'Lisbon',
         country: 'Portugal',
@@ -106,6 +110,7 @@ const trainings = [
         dates: '17 September, 2018',
         dateStartsOn: new Date('17 Sep, 2018'),
         city: LONDON,
+        country: 'UK',
         type: REACT_NATIVE,
         cityShortName: 'London',
         country: 'UK',
