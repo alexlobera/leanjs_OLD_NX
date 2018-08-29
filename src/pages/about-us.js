@@ -81,7 +81,7 @@ const AboutUs = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionNextTrainings left showTrainingTypeAll trainings={trainings} />
+        <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
           <Row>
             <Col md={10} mdOffset={1}>
