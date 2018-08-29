@@ -73,7 +73,7 @@ const ReactNativeBoocampLondon = () => (
                 timing="9am - 6:30pm"
                 location={
                   <React.Fragment>
-                    8 Spital Square E1 6DU, London.{' '}
+                    {training.location}.{' '}
                     <Link to="https://www.google.com/maps/place/Eden+House,+8+Spital+Square,+London+E1+6DQ/@51.5207898,-0.0778216,17z/data=!3m1!4b1!4m5!3m4!1s0x48761cb166ce716f:0x7309676fc6ea9b2b!8m2!3d51.5207898!4d-0.0778216">
                       See on map
                     </Link>

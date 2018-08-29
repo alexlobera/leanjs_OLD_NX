@@ -45,15 +45,6 @@ const PartTime = () => (
     <TopSection>
       <Grid>
         <CallToActionNextTrainings left trainings={trainings} />
-        {/* <CallToActionRow left>
-          <Col lg={11} lgOffset={1}>
-            <LinkButton
-              cta
-              to="/react-redux-training-london"
-              children="Next course: 16th October, London >>"
-            />
-          </Col>
-        </CallToActionRow> */}
         <Card border="shadow">
           <CurriculumPartTime showCallToActionBottom={true} />
         </Card>

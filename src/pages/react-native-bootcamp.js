@@ -44,15 +44,6 @@ const ReactNativeBoocamp = () => (
     <TopSection>
       <Grid>
         <CallToActionNextTrainings left trainings={trainings} />
-        {/* <CallToActionRow left>
-          <Col xs={12} sm={5} smOffset={1}>
-            <LinkButton
-              cta
-              to="/react-native-bootcamp-london"
-              children="Next React Native: 17th Sept, London >>"
-            />
-          </Col>
-        </CallToActionRow> */}
         <Card border="shadow">
           <CurriculumReactNative />
         </Card>

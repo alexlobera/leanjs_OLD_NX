@@ -90,15 +90,6 @@ class Curriculum extends React.Component {
         <TopSection>
           <Grid>
             <CallToActionNextTrainings left trainings={[training]} />
-            {/* <CallToActionRow left>
-              <Col xs={12} sm={5} smOffset={1}>
-                <LinkButton
-                  cta
-                  to="/react-redux-graphql-bootcamp-london"
-                  children="Next React Bootcamp: 7-13 Oct, Lisbon >>"
-                />
-              </Col>
-            </CallToActionRow> */}
             <Card border="shadow">
               <Row>
                 <Col lg={10} lgOffset={1}>
