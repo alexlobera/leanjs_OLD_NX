@@ -25,7 +25,7 @@ import {
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 import { Card } from '../components/elements'
-import CallToActionRow from '../components/layout/CallToActionRow'
+import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
 import {
   NotBegginersIcon,
@@ -37,6 +37,9 @@ import {
 } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
+import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
+
+const training = selectFirstTraining(REACT_BOOTCAMP)
 
 const LinkScroll = props => (
   <DefaultLinkScroll {...props} smooth={true} duration={500} />
@@ -86,15 +89,16 @@ class Curriculum extends React.Component {
         />
         <TopSection>
           <Grid>
-            <CallToActionRow left>
+            <CallToActionNextTrainings left trainings={[training]} />
+            {/* <CallToActionRow left>
               <Col xs={12} sm={5} smOffset={1}>
                 <LinkButton
                   cta
                   to="/react-redux-graphql-bootcamp-london"
-                  children="Next React Bootcamp: 20-25 Aug, London >>"
+                  children="Next React Bootcamp: 7-13 Oct, Lisbon >>"
                 />
               </Col>
-            </CallToActionRow>
+            </CallToActionRow> */}
             <Card border="shadow">
               <Row>
                 <Col lg={10} lgOffset={1}>
@@ -162,7 +166,7 @@ class Curriculum extends React.Component {
                   <H3>React part-time course</H3>
                   <P>
                     The part-time course has a condensed version of the React
-                    bootcamp curriculum by excluding the advanced sections.
+                    bootcamp curriculum by excluding the advanced sections and GraphQL.
                     Ideal for those who value flexible learning and can’t miss a
                     day at work.
                   </P>
@@ -244,6 +248,9 @@ class Curriculum extends React.Component {
                           Understand the best practices and patterns for
                           building real-world production-ready React
                           applications
+                        </Li>
+                        <Li>
+                          Understand how to use GraphQL on the client-side to improve your React apps development and performance
                         </Li>
                       </Ul>
                       <Row>
@@ -332,6 +339,9 @@ class Curriculum extends React.Component {
                           building real-world production-ready React
                           applications
                         </Li>
+                        <Li>
+                          Understand how to use GraphQL on the client-side to improve your React apps development and performance
+                        </Li>
                       </Ul>
                       <Row>
                         <Col lg={1} lgOffset={1} />
@@ -397,16 +407,14 @@ class Curriculum extends React.Component {
                           Understand the core principles and libraries of the
                           React ecosystem{' '}
                           <code>
-                            react, react-router, redux, react-redux, graphql,
-                            apollo-client, styled-components
+                            react, react-router, redux, react-redux, storybook, styled-components, jest
                           </code>
                         </Li>
                         <Li>
-                          Be able to develop and test complex and reliable React
-                          applications: <code>enzyme, jest</code>
+                          Understand the fundamentals of unit testing and how to apply it to JavaScript
                         </Li>
                         <Li>
-                          Understand some of the best practices and patterns for
+                          Learn some of the best practices for
                           building real-world production-ready React
                           applications
                         </Li>

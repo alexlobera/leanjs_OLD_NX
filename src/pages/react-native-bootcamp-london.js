@@ -27,6 +27,9 @@ import {
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
+import { selectFirstTraining, REACT_NATIVE, LONDON } from '../config/data'
+
+const training = selectFirstTraining(REACT_NATIVE, LONDON)
 
 const ReactNativeBoocampLondon = () => (
   <React.Fragment>
@@ -38,7 +41,10 @@ const ReactNativeBoocampLondon = () => (
       ]}
     />
     <Header
-      titleLines={['React Native Training', '17 September, 2018 - London']}
+      titleLines={[
+        'React Native Training',
+        `${training.dates} - London`,
+      ]}
       subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
       links={header.landingTraining.links}
       bgImg="training-event"
@@ -50,24 +56,24 @@ const ReactNativeBoocampLondon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <PaymentSection
                 data={{
-                  trainingInstanceId: '5b68c95eaff9b939d15e509c',
-                  price: 415.83,
-                  discountPrice: 332.5,
-                  nextDiscountPrice: 375,
-                  priceGoesUpOn: 'August 31st, 2018.',
-                  ticketName: 'Early bird ticket',
-                  currency: null,
+                  trainingInstanceId: training.trainingInstanceId,
+                  price: training.price,
+                  discountPrice: training.discountPrice,
+                  nextDiscountPrice: training.nextDiscountPrice,
+                  priceGoesUpOn: training.priceGoesUpOn,
+                  ticketName: training.ticketName,
+                  currency: training.currency,
                 }}
               />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
-                date="17 September, 2018"
+                date={training.dates}
                 timing="9am - 6:30pm"
                 location={
                   <React.Fragment>
-                    Location: 8 Spital Square E1 6DU, London.{' '}
+                    8 Spital Square E1 6DU, London.{' '}
                     <Link to="https://www.google.com/maps/place/Eden+House,+8+Spital+Square,+London+E1+6DQ/@51.5207898,-0.0778216,17z/data=!3m1!4b1!4m5!3m4!1s0x48761cb166ce716f:0x7309676fc6ea9b2b!8m2!3d51.5207898!4d-0.0778216">
                       See on map
                     </Link>

@@ -12,7 +12,7 @@ import {
   UpcomingTrainingSection,
 } from '../components/training'
 import { Card } from '../components/elements'
-import CallToActionRow from '../components/layout/CallToActionRow'
+import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
 import { BOOTCAMP_RIGHT, OLU } from '../config/images'
 import {
@@ -24,6 +24,9 @@ import {
   PeopleNetWorkIcon,
 } from '../components/icons'
 import { Breadcrumb } from '../components/navigation'
+import { selectTrainings, ADVANCED_REACT } from '../config/data'
+
+const trainings = selectTrainings(ADVANCED_REACT)
 
 const Boocamps = () => (
   <React.Fragment>
@@ -43,15 +46,7 @@ const Boocamps = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionRow left>
-          <Col xs={12} smOffset={1}>
-            <LinkButton
-              cta
-              to="/advanced-react-redux-graphql-bootcamp-london"
-              children="Next advanced bootcamp: 23th August, London >>"
-            />
-          </Col>
-        </CallToActionRow>
+        <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
           <CurriculumAdvancedReact />
         </Card>
@@ -94,8 +89,8 @@ const Boocamps = () => (
               </Li>
             </Ul>
             <P>
-              <LinkButton cta to="/react-redux-graphql-bootcamp-london">
-                Next one: August 23th, London >>
+              <LinkButton cta to="/react-redux-graphql-bootcamp-lisbon">
+                Next one: October 11th, Lisbon >>
               </LinkButton>
             </P>
           </Col>

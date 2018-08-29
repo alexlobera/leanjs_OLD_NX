@@ -13,7 +13,7 @@ import { SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import { Card, Image, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
-import CallToActionRow from '../components/layout/CallToActionRow'
+import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { UpcomingTrainingSection } from '../components/training'
 import {
   BussinessIcon,
@@ -32,11 +32,9 @@ import {
   ReactIcon,
   BulletIcon,
 } from '../components/icons'
-
 import {
   COURSE_COLLAB,
   WHY_REACTJS_ACADEMY,
-  COMPANY_PITCH,
   DAN,
   NASSAR,
 } from '../config/images.js'
@@ -70,14 +68,14 @@ const IndexPage = () => (
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              to="/advanced-react-redux-graphql-bootcamp"
-              children="Advanced React bootcamp >>"
+              to="/react-native-bootcamp"
+              children="React Native training >>"
             />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              to="/react-native-bootcamp"
-              children="React Native training >>"
+              to="/react-redux-graphql-part-time-course"
+              children="React part-time course >>"
             />
           </Col>
         </CallToActionRow>

@@ -44,7 +44,7 @@ class PaymentSection extends React.Component {
     const pricePerQuantity = price * quantity
     const discountPricePerQuantity = discountPrice && discountPrice * quantity
 
-    return (
+    return price ? (
       <React.Fragment>
         <H2Ref>
           Prices{' '}
@@ -58,7 +58,7 @@ class PaymentSection extends React.Component {
         </P>
         <Card small style={{ position: 'relative' }}>
           <H3>
-            <strong>{ticketName}</strong>
+            <strong>{ticketName || 'Regular ticket'}</strong>
           </H3>
           {discountPrice ? (
             <Ribbon>
@@ -70,8 +70,8 @@ class PaymentSection extends React.Component {
               )}
             </Ribbon>
           ) : (
-            ''
-          )}
+              ''
+            )}
           {priceGoesUpOn && nextDiscountPrice ? (
             <P>
               Ticket price goes up to{' '}
@@ -79,8 +79,8 @@ class PaymentSection extends React.Component {
               {priceGoesUpOn}
             </P>
           ) : (
-            ''
-          )}
+              ''
+            )}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
@@ -96,7 +96,7 @@ class PaymentSection extends React.Component {
           />
         </Card>
       </React.Fragment>
-    )
+    ) : null
   }
 }
 

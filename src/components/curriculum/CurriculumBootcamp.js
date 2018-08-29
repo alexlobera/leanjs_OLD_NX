@@ -71,7 +71,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 4"
         name="day4"
-        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and SSR"
+        subTitle="Functional Programming & advanced React patterns I, GraphQL, and Server-side Rendering"
       >
         <HoCsAndRenderPropsSession title="Functional Programming & Advanced React patterns I" />
         <GraphQLSession title="GraphQL and Apollo client" />
@@ -81,7 +81,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 5"
         name="day5"
-        subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
+        subTitle="Testing in React, Advanced React Patterns II, Functional Programming & advanced Redux"
       >
         <TestingInReactSession title="Testing in React" />
         <CompoundCompAndContextSession

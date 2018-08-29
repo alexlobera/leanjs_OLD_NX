@@ -6,7 +6,6 @@ import Ul, { Li } from '../components/layout/Ul'
 import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import CallToActionRow from '../components/layout/CallToActionRow'
 import { UpcomingTrainingSection } from '../components/training'
 
 const FullstackBootcamp = () => (

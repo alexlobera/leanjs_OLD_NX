@@ -13,7 +13,7 @@ import {
 import { Card } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
-import CallToActionRow from '../components/layout/CallToActionRow'
+import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import {
   CollabsIcon,
   NotBegginerIcon,
@@ -24,7 +24,10 @@ import {
   DiscussIcon,
 } from '../components/icons'
 import { Image } from '../components/elements'
-import { PART_TIME, STEFANO } from '../config/images'
+import { PART_TIME as PART_TIME_IMG, STEFANO } from '../config/images'
+import { selectTrainings, PART_TIME } from '../config/data'
+
+const trainings = selectTrainings(PART_TIME)
 
 const PartTime = () => (
   <React.Fragment>
@@ -35,13 +38,14 @@ const PartTime = () => (
       ]}
     />
     <Header
-      titleLines={['5-week part-time React', 'Redux GraphQL course']}
+      titleLines={['5-week part-time', 'React Redux course']}
       subtitle="Expert coaches work alongside you, 2 evenings a week, <br /> to master the React ecosystem without having to cut <br /> into valuable work-days"
       bgImg="part-time"
     />
     <TopSection>
       <Grid>
-        <CallToActionRow left>
+        <CallToActionNextTrainings left trainings={trainings} />
+        {/* <CallToActionRow left>
           <Col lg={11} lgOffset={1}>
             <LinkButton
               cta
@@ -49,7 +53,7 @@ const PartTime = () => (
               children="Next course: 16th October, London >>"
             />
           </Col>
-        </CallToActionRow>
+        </CallToActionRow> */}
         <Card border="shadow">
           <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
@@ -59,7 +63,7 @@ const PartTime = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={PART_TIME} width="100%" />
+            <Image src={PART_TIME_IMG} width="100%" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React part-time course right for me?</H2>
