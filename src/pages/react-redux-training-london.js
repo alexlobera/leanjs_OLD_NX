@@ -76,7 +76,7 @@ const BootcampLondon = () => (
                 timing="6pm - 9pm"
                 location={
                   <React.Fragment>
-                    {training.location}.{' '}
+                    {training.location}
                     {/* <Link to="https://www.google.com/maps/place/Makers/@51.5173403,-0.0754695,17z/data=!3m1!4b1!4m5!3m4!1s0x48761caf26599a83:0x9b451d586c649129!8m2!3d51.5173403!4d-0.0732808">
                       See on map
                     </Link> */}
