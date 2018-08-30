@@ -25,9 +25,10 @@ import {
 } from '../components/icons'
 import { Image } from '../components/elements'
 import { PART_TIME as PART_TIME_IMG, STEFANO } from '../config/images'
-import { selectTrainings, PART_TIME } from '../config/data'
+import { selectTrainings, selectFirstTraining, PART_TIME } from '../config/data'
 
 const trainings = selectTrainings(PART_TIME)
+const nextTraining = selectFirstTraining(PART_TIME)
 
 const PartTime = () => (
   <React.Fragment>
@@ -88,8 +89,8 @@ const PartTime = () => (
               </Li>
             </Ul>
             <P>
-              <Link to="/react-redux-training-london">
-                Next part-time course: London - 2nd October 2018
+              <Link to={nextTraining.pathUrl}>
+                Next part-time course: {nextTraining.city} - {nextTraining.dates}
               </Link>
             </P>
           </Col>
