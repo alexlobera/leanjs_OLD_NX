@@ -84,7 +84,7 @@ const BootcampLisbon = () => (
               <Video youtubeID="bMD_b7w7r-g" />
               <TrainingDetails
                 date={training.dates}
-                timing="9am - 6:30pm, everyday"
+                timing="Sunday, 4pm - 7pm. Monday-Saturday, 9am - 6:30pm"
                 foodIncluded
                 location={
                   <React.Fragment>
