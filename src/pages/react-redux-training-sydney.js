@@ -20,7 +20,7 @@ const BootcampSydney = () => (
     />
     <Header
       titleLines={['React Redux GraphQL Bootcamp', 'Training in Sydney']}
-      subtitle="Take your dev career to the next level in Sydney - Australia - by mastering<br />React, Redux, and GraphQL - in just 7 days!"
+      subtitle="Take your dev career to the next level in Sydney - Australia - by mastering<br />React, Redux, and GraphQL - in just 1 week!"
       bgImg="training-event"
     />
     <TopSection>
