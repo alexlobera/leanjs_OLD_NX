@@ -5,6 +5,7 @@ import Session from './Session'
 const ServerSideRenderingSession = ({ title }) => (
   <Session title={title}>
     <Ul>
+      <Li>Webpack</Li>
       <Li>Nodejs + React + React Router</Li>
       <Li>Universal Redux</Li>
       <Li>GraphQL SSR</Li>
