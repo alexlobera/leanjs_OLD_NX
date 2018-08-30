@@ -113,7 +113,7 @@ class Curriculum extends React.Component {
                     <Li>Advanced React patterns</Li>
                     <Li>Advanced Redux</Li>
                     <Li>Functional programming</Li>
-                    <Li>Hackathon to consolidate knowleadge</Li>
+                    <Li>GraphQL</Li>
                   </Ul>
                   <P>
                     <LinkScroll
@@ -224,7 +224,7 @@ class Curriculum extends React.Component {
                           <code>
                             react, react-router, styled-components, storybook,
                             redux, react-redux, redux-saga, reselect, graphql,
-                            apollo-client
+                            react-apollo
                           </code>
                         </Li>
                         <Li>
