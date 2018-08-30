@@ -13,7 +13,7 @@ import { SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
 import { Card, Image, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
-import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { UpcomingTrainingSection } from '../components/training'
 import {
   BussinessIcon,

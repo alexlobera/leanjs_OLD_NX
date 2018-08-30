@@ -60,17 +60,14 @@ const BootcampLondon = () => (
       <Grid>
         <Card bg="dark">
           <Row>
-            <Col xs={12} md={6} lg={5} lgOffset={1}>
-            </Col>
+            <Col xs={12} md={6} lg={5} lgOffset={1} />
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
                 date={training.dates}
                 timing="9am - 6:30pm, everyday"
                 location={
-                  <React.Fragment>
-                    {training.city}, UK.{' '}
-                  </React.Fragment>
+                  <React.Fragment>{training.city}, UK. </React.Fragment>
                 }
                 coaches={[]}
               />

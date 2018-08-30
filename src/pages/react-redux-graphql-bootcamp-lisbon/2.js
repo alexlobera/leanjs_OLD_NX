@@ -50,7 +50,10 @@ const BootcampLisbon = () => (
       path={[
         { to: '/', label: 'Home' },
         { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
-        { to: '/react-redux-graphql-bootcamp-lisbon/2', label: `${training.cityShortName} ${startMonth}` },
+        {
+          to: '/react-redux-graphql-bootcamp-lisbon/2',
+          label: `${training.cityShortName} ${startMonth}`,
+        },
       ]}
     />
     <Header
@@ -78,7 +81,10 @@ const BootcampLisbon = () => (
                   currency: training.currency,
                 }}
               />
-              <InstallmentsCard price={training.price} currency={training.currency} />
+              <InstallmentsCard
+                price={training.price}
+                currency={training.currency}
+              />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="bMD_b7w7r-g" />

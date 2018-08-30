@@ -19,7 +19,7 @@ const TrainingItem = ({ name, city, country, startDate, path, imageSrc }) => (
     </TrainingItemCol>
     <TrainingItemCol xs={7} md={4}>
       <P>
-        Location: {city},{' '}{country}
+        Location: {city}, {country}
         <br />
         Starts: {startDate}
       </P>
