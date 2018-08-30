@@ -4,12 +4,13 @@ import { LinkButton } from '../buttons'
 import { H3, P } from '../text'
 import { Card } from '../elements'
 import Price from './Price'
+import formatPrice from '../utils/currency'
 
 const InstallmentsContainer = styled.div`
   margin: 12px 0;
 `
 
-const InstallmentsCard = ({ price }) => (
+const InstallmentsCard = ({ currency, price, vatRate = 1.2 }) => price ? (
   <Card small bg="dark" top={20}>
     <H3>
       <strong>Pay by Installments</strong>
@@ -21,8 +22,7 @@ const InstallmentsCard = ({ price }) => (
     </P>
     <InstallmentsContainer>
       <Price>
-        &pound;
-        {price}
+        {formatPrice(currency, price, vatRate)}
       </Price>
       <LinkButton
         secondary
@@ -33,6 +33,6 @@ const InstallmentsCard = ({ price }) => (
       </LinkButton>
     </InstallmentsContainer>
   </Card>
-)
+) : null
 
 export default InstallmentsCard

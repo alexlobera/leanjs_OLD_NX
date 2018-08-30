@@ -28,6 +28,9 @@ import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
+import { selectFirstTraining, ADVANCED_REACT, LONDON } from '../config/data'
+
+const training = selectFirstTraining(ADVANCED_REACT, LONDON)
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -47,7 +50,7 @@ const BootcampLondon = () => (
     <Header
       titleLines={[
         'Advanced React Redux GraphQL',
-        'Bootcamp, 23-25 Aug, 2018 - London',
+        `Bootcamp, ${training.dates} - ${training.cityShortName}`,
       ]}
       subtitle="Take your React career to the next level by mastering<br />React, Redux, and GraphQL - in just 3 days!"
       links={header.landingTraining.links}
@@ -58,34 +61,18 @@ const BootcampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <PaymentSection
-                data={{
-                  trainingInstanceId: '5b71f2cc04ba003b823513d1',
-                  price: 1250,
-                  ticketName: 'Regular ticket',
-                  currency: null,
-                }}
-              />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
-                date="23-25 August, 2018"
+                date={training.dates}
                 timing="9am - 6:30pm, everyday"
                 location={
                   <React.Fragment>
-                    Location: 21 Randall Pl, SE10 9LA, London.{' '}
-                    <Link to="https://www.google.co.uk/maps/place/James+Wolfe+Primary+School/@51.4795106,-0.0128294,17z/data=!4m5!3m4!1s0x4876028f69ad1c31:0xf60af68c0cfb8748!8m2!3d51.4795663!4d-0.0129411">
-                      See on map
-                    </Link>
+                    {training.city}, UK.{' '}
                   </React.Fragment>
                 }
-                coaches={[
-                  HORACIO_HERRERA,
-                  WILL_VOELCKER,
-                  ALEX_LOBERA,
-                  RICHARD_MOSS,
-                ]}
+                coaches={[]}
               />
             </Col>
           </Row>

@@ -26,7 +26,7 @@ const CurriculumAdvancedReact = ({
         {...commonProps}
         title="Advanced React Day 1"
         name="day1"
-        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
+        subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
       >
         <HoCsAndRenderPropsSession title="Functional Programming & Advanced React patterns I" />
         <GraphQLSession title="GraphQL and Apollo client" />
@@ -37,7 +37,7 @@ const CurriculumAdvancedReact = ({
         {...commonProps}
         title="Advanced React Day 2"
         name="day2"
-        subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
+        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
       >
         <TestingInReactSession title="Testing in React" />
         <CompoundCompAndContextSession

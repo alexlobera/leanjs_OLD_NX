@@ -28,6 +28,9 @@ import { Image } from '../../components/elements'
 import header from '../../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../../components/payment'
 import { Link, Breadcrumb } from '../../components/navigation'
+import { selectFirstTraining, REACT_BOOTCAMP, LISBON } from '../../config/data'
+
+const training = selectFirstTraining(REACT_BOOTCAMP, LISBON)
 
 const BootcampLisbon = () => (
   <React.Fragment>
@@ -41,16 +44,9 @@ const BootcampLisbon = () => (
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',
-        '7-13 Oct, 2018 - Lisbon distr., Portugal',
+        `${training.dates} - Lisbon distr, Portugal`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 7 days!"
-      details={[
-        <React.Fragment>
-          Location: Torres Vedras, Portugal.{' '}
-          <Link to="https://maps.google.com/">See on map</Link>
-        </React.Fragment>,
-        'Timings: 9am-6:30pm, everyday',
-      ]}
       links={header.landingTraining.links}
       bgImg="training-event"
     />
@@ -61,26 +57,26 @@ const BootcampLisbon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <PaymentSection
                 data={{
-                  trainingInstanceId: '5b699e97aff9b939d15e50a1',
-                  price: 1800,
-                  discountPrice: 1450,
-                  nextDiscountPrice: 1579.17,
-                  priceGoesUpOn: 'Sept 7th, 2018.',
-                  ticketName: 'Early bird ticket',
-                  currency: null,
+                  trainingInstanceId: training.trainingInstanceId,
+                  price: training.price,
+                  discountPrice: training.discountPrice,
+                  nextDiscountPrice: training.nextDiscountPrice,
+                  priceGoesUpOn: training.priceGoesUpOn,
+                  ticketName: training.ticketName,
+                  currency: training.currency,
                 }}
               />
-              <InstallmentsCard price={2160} />
+              <InstallmentsCard price={training.price} currency={training.currency} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="bMD_b7w7r-g" />
               <TrainingDetails
-                date="7-13 Oct, 2018"
+                date={training.dates}
                 timing="9am - 6:30pm, everyday"
                 foodIncluded
                 location={
                   <React.Fragment>
-                    Location: Torres Vedras, Portugal{' '}
+                    {training.location}.{' '}
                     <Link to="https://www.google.com/maps/place/Torres+Vedras,+Portugal/@39.0930924,-9.2980036,13z/data=!3m1!4b1!4m5!3m4!1s0xd1f2dc22d3a1b53:0xca2cc4fc7eaba688!8m2!3d39.0917759!4d-9.2600341">
                       See on map
                     </Link>

@@ -10,7 +10,7 @@ const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
 `
 
-const TrainingItem = ({ name, location, startDate, path, imageSrc }) => (
+const TrainingItem = ({ name, city, country, startDate, path, imageSrc }) => (
   <React.Fragment>
     <TrainingItemCol xs={5} md={2}>
       <Link to={path}>
@@ -18,8 +18,11 @@ const TrainingItem = ({ name, location, startDate, path, imageSrc }) => (
       </Link>
     </TrainingItemCol>
     <TrainingItemCol xs={7} md={4}>
-      Venue: {location}
-      <P>Starts: {startDate}</P>
+      <P>
+        Location: {city},{' '}{country}
+        <br />
+        Starts: {startDate}
+      </P>
       <LinkButton to={path} children={name} />
     </TrainingItemCol>
   </React.Fragment>

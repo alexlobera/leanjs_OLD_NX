@@ -24,11 +24,14 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { PART_TIME, CATALIN } from '../config/images'
+import { PART_TIME as PART_TIME_IMG, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
+import { selectFirstTraining, PART_TIME, LONDON } from '../config/data'
+
+const training = selectFirstTraining(PART_TIME, LONDON)
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -40,8 +43,11 @@ const BootcampLondon = () => (
       ]}
     />
     <Header
-      titleLines={['React part-time course', '16 Oct - 15 Nov, 2018 - London']}
-      subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - without missing a day at work!"
+      titleLines={[
+        'React Redux part-time course',
+        `${training.dates} - London`,
+      ]}
+      subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
       links={header.landingTraining.links}
       bgImg="part-time"
     />
@@ -52,13 +58,13 @@ const BootcampLondon = () => (
             <Col xs={12} md={6} lg={5} lgOffset={1}>
               <PaymentSection
                 data={{
-                  trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
-                  price: 1166.67,
-                  discountPrice: 829.17,
-                  nextDiscountPrice: 1000,
-                  priceGoesUpOn: 'Sept 20th, 2018.',
-                  ticketName: 'Early bird ticket',
-                  currency: null,
+                  trainingInstanceId: training.trainingInstanceId,
+                  price: training.price,
+                  discountPrice: training.discountPrice,
+                  nextDiscountPrice: training.nextDiscountPrice,
+                  priceGoesUpOn: training.priceGoesUpOn,
+                  ticketName: training.ticketName,
+                  currency: training.currency,
                 }}
               />
               <InstallmentsCard price={1500} />
@@ -66,14 +72,14 @@ const BootcampLondon = () => (
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
-                date="16 Oct - 15 Nov, 2018"
+                date={training.dates}
                 timing="6pm - 9pm"
                 location={
                   <React.Fragment>
-                    Location: 50 Commercial St, E1 6LT, London.{' '}
-                    <Link to="https://www.google.com/maps/place/Makers/@51.5173403,-0.0754695,17z/data=!3m1!4b1!4m5!3m4!1s0x48761caf26599a83:0x9b451d586c649129!8m2!3d51.5173403!4d-0.0732808">
+                    {training.location}
+                    {/* <Link to="https://www.google.com/maps/place/Makers/@51.5173403,-0.0754695,17z/data=!3m1!4b1!4m5!3m4!1s0x48761caf26599a83:0x9b451d586c649129!8m2!3d51.5173403!4d-0.0732808">
                       See on map
-                    </Link>
+                    </Link> */}
                   </React.Fragment>
                 }
                 coaches={[
@@ -97,7 +103,7 @@ const BootcampLondon = () => (
         <Row>
           <HideSingleComponentUsingCss xs sm>
             <Col md={6} lg={5}>
-              <Image src={PART_TIME} width="100%" />
+              <Image src={PART_TIME_IMG} width="100%" />
             </Col>
           </HideSingleComponentUsingCss>
           <Col md={6} lg={5} lgOffset={1}>

@@ -12,7 +12,7 @@ import {
   UpcomingTrainingSection,
 } from '../components/training'
 import { Card } from '../components/elements'
-import CallToActionRow from '../components/layout/CallToActionRow'
+import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
 import { BOOTCAMP_RIGHT, OLU } from '../config/images'
 import {
@@ -24,6 +24,9 @@ import {
   PeopleNetWorkIcon,
 } from '../components/icons'
 import { Breadcrumb } from '../components/navigation'
+import { selectTrainings, REACT_NATIVE } from '../config/data'
+
+const trainings = selectTrainings(REACT_NATIVE)
 
 const ReactNativeBoocamp = () => (
   <React.Fragment>
@@ -40,15 +43,7 @@ const ReactNativeBoocamp = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionRow left>
-          <Col xs={12} sm={5} smOffset={1}>
-            <LinkButton
-              cta
-              to="/react-native-bootcamp-london"
-              children="Next React Native: 17th Sept, London >>"
-            />
-          </Col>
-        </CallToActionRow>
+        <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
           <CurriculumReactNative />
         </Card>

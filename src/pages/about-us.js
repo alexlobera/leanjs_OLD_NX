@@ -8,7 +8,7 @@ import { H2, H2Ref, H3, P } from '../components/text'
 import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
-import CallToActionRow from '../components/layout/CallToActionRow'
+import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Card, Video, Image } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { LeanJS } from '../components/logos'
@@ -26,6 +26,11 @@ import { WHITE } from '../config/styles'
 import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
+import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
+
+const trainings = [
+  selectFirstTraining(REACT_BOOTCAMP),
+]
 
 const LeanJSLink = styled(Link)`
   position: absolute;
@@ -76,15 +81,7 @@ const AboutUs = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionRow left>
-          <Col xs={12} sm={5} smOffset={1}>
-            <LinkButton
-              cta
-              to="/react-redux-graphql-bootcamp-london"
-              children="Next bootcamp: 20th August, London >>"
-            />
-          </Col>
-        </CallToActionRow>
+        <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
           <Row>
             <Col md={10} mdOffset={1}>
@@ -92,11 +89,6 @@ const AboutUs = () => (
               <H3 style={{ paddingTop: 0 }}>
                 The ReactJS Academy coach values:{' '}
               </H3>
-              {/* <P>
-                ReactJS Academy is a <Link to="https://leanjs.com">LeanJS</Link>{' '}
-                brand. LeanJS is an innovation agency focused on Lean, UX,
-                JavaScript, and people.
-              </P> */}
               <Row>
                 <Col xs={6} sm={6} md={4}>
                   <Ul>
