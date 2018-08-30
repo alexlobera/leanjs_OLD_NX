@@ -1,6 +1,6 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
-import { LinkButton } from '../components/buttons'
+import moment from 'moment'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
@@ -37,9 +37,11 @@ import {
 } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
-import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
+import { selectFirstTraining, REACT_BOOTCAMP, ADVANCED_REACT, PART_TIME } from '../config/data'
 
-const training = selectFirstTraining(REACT_BOOTCAMP)
+const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
+const trainingPartTime = selectFirstTraining(PART_TIME)
+const trainingAdvanced = selectFirstTraining(ADVANCED_REACT)
 
 const LinkScroll = props => (
   <DefaultLinkScroll {...props} smooth={true} duration={500} />
@@ -89,7 +91,7 @@ class Curriculum extends React.Component {
         />
         <TopSection>
           <Grid>
-            <CallToActionNextTrainings left trainings={[training]} />
+            <CallToActionNextTrainings left trainings={[trainingBootcamp]} />
             <Card border="shadow">
               <Row>
                 <Col lg={10} lgOffset={1}>
@@ -298,9 +300,9 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text="Next React bootcamp starts on October 7th, 2018 in Lisbon"
-                                to="/react-redux-graphql-bootcamp-lisbon"
-                                buttonText="Next bootcamp >>"
+                                text={`Next React bootcamp starts on ${moment(trainingBootcamp.dateStartsOn).format('D MMM, YYYY')} in ${trainingBootcamp.city}`}
+                                to={trainingBootcamp.pathUrl}
+                                buttonText="Next React bootcamp >>"
                               />
                             }
                           />
@@ -343,9 +345,9 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text="Next Advanced React bootcamp starts on August 23th, 2018 in London"
-                                to="/advanced-react-redux-graphql-bootcamp-london"
-                                buttonText="Next Advanced React bootcamp >>"
+                                text={`Next advanced React bootcamp starts on ${moment(trainingAdvanced.dateStartsOn).format('D MMM, YYYY')} in ${trainingAdvanced.city}`}
+                                to={trainingAdvanced.pathUrl}
+                                buttonText="Next advanced React bootcamp >>"
                               />
                             }
                           />
@@ -481,9 +483,9 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text="Next part-time course starts on Oct 16nd, 2018 in London"
-                                to="/react-redux-training-london"
-                                buttonText="Next part-time >>"
+                                text={`Next React part-time course starts on ${moment(trainingPartTime.dateStartsOn).format('D MMM, YYYY')} in ${trainingPartTime.city}`}
+                                to={trainingPartTime.pathUrl}
+                                buttonText="Next React part-time >>"
                               />
                             }
                           />
