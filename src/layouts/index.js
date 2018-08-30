@@ -42,39 +42,50 @@ const graphqlClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-const Layout = ({ children, data }) => (
-  <ThemeProvider theme={gridTheme}>
-    <ApolloProvider client={graphqlClient}>
-      <React.Fragment>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: data.site.siteMetadata.description,
-            },
-            { name: 'keywords', content: data.site.siteMetadata.keywords },
-          ]}
-          link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
-          script={[
-            {
-              type: 'text/javascript',
-              src: 'https://unpkg.com/jquery/dist/jquery.min.js',
-            },
-            {
-              type: 'text/javascript',
-              src: 'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-              async: true,
-            },
-          ]}
-        />
-        <Menu />
-        {children()}
-        <Footer />
-      </React.Fragment>
-    </ApolloProvider>
-  </ThemeProvider>
-)
+const Layout = ({ children, data }) => {
+  // init GTM for Google Ads
+  window.dataLayer = window.dataLayer || []
+  function gtag() {
+    dataLayer.push(arguments)
+  }
+
+  gtag('js', new Date())
+  gtag('config', 'AW-877316317')
+
+  return (
+    <ThemeProvider theme={gridTheme}>
+      <ApolloProvider client={graphqlClient}>
+        <React.Fragment>
+          <Helmet
+            title={data.site.siteMetadata.title}
+            meta={[
+              {
+                name: 'description',
+                content: data.site.siteMetadata.description,
+              },
+              { name: 'keywords', content: data.site.siteMetadata.keywords },
+            ]}
+            link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
+            script={[
+              {
+                type: 'text/javascript',
+                src: 'https://unpkg.com/jquery/dist/jquery.min.js',
+              },
+              {
+                type: 'text/javascript',
+                src: 'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                async: true,
+              },
+            ]}
+          />
+          <Menu />
+          {children()}
+          <Footer />
+        </React.Fragment>
+      </ApolloProvider>
+    </ThemeProvider>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.func,
