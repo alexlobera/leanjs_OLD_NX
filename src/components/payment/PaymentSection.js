@@ -70,8 +70,8 @@ class PaymentSection extends React.Component {
               )}
             </Ribbon>
           ) : (
-              ''
-            )}
+            ''
+          )}
           {priceGoesUpOn && nextDiscountPrice ? (
             <P>
               Ticket price goes up to{' '}
@@ -79,8 +79,8 @@ class PaymentSection extends React.Component {
               {priceGoesUpOn}
             </P>
           ) : (
-              ''
-            )}
+            ''
+          )}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}

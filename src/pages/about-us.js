@@ -28,9 +28,7 @@ import trackUserBehaviour, {
 } from '../components/utils/trackUserBehaviour'
 import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
 
-const trainings = [
-  selectFirstTraining(REACT_BOOTCAMP),
-]
+const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
 
 const LeanJSLink = styled(Link)`
   position: absolute;

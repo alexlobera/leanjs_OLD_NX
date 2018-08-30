@@ -43,15 +43,6 @@ const graphqlClient = new ApolloClient({
 })
 
 const Layout = ({ children, data }) => {
-  // init GTM for Google Ads
-  window.dataLayer = window.dataLayer || []
-  function gtag() {
-    dataLayer.push(arguments)
-  }
-
-  gtag('js', new Date())
-  gtag('config', 'AW-877316317')
-
   return (
     <ThemeProvider theme={gridTheme}>
       <ApolloProvider client={graphqlClient}>

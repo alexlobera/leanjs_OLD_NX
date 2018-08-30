@@ -157,9 +157,9 @@ class Curriculum extends React.Component {
                   <H3>React part-time course</H3>
                   <P>
                     The part-time course has a condensed version of the React
-                    bootcamp curriculum by excluding the advanced sections and GraphQL.
-                    Ideal for those who value flexible learning and can’t miss a
-                    day at work.
+                    bootcamp curriculum by excluding the advanced sections and
+                    GraphQL. Ideal for those who value flexible learning and
+                    can’t miss a day at work.
                   </P>
                   <P>
                     <LinkScroll
@@ -241,7 +241,8 @@ class Curriculum extends React.Component {
                           applications
                         </Li>
                         <Li>
-                          Understand how to use GraphQL on the client-side to improve your React apps development and performance
+                          Understand how to use GraphQL on the client-side to
+                          improve your React apps development and performance
                         </Li>
                       </Ul>
                       <Row>
@@ -331,7 +332,8 @@ class Curriculum extends React.Component {
                           applications
                         </Li>
                         <Li>
-                          Understand how to use GraphQL on the client-side to improve your React apps development and performance
+                          Understand how to use GraphQL on the client-side to
+                          improve your React apps development and performance
                         </Li>
                       </Ul>
                       <Row>
@@ -398,16 +400,17 @@ class Curriculum extends React.Component {
                           Understand the core principles and libraries of the
                           React ecosystem{' '}
                           <code>
-                            react, react-router, redux, react-redux, storybook, styled-components, jest
+                            react, react-router, redux, react-redux, storybook,
+                            styled-components, jest
                           </code>
                         </Li>
                         <Li>
-                          Understand the fundamentals of unit testing and how to apply it to JavaScript
+                          Understand the fundamentals of unit testing and how to
+                          apply it to JavaScript
                         </Li>
                         <Li>
-                          Learn some of the best practices for
-                          building real-world production-ready React
-                          applications
+                          Learn some of the best practices for building
+                          real-world production-ready React applications
                         </Li>
                       </Ul>
                       <Row>
