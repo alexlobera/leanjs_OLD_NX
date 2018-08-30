@@ -12,7 +12,7 @@ const FullstackBootcamp = () => (
   <React.Fragment>
     <Header
       titleLines={['1-Week back-end JS Bootcamp', 'GraphQL API, Node, Mongo']}
-      subtitle="Take your dev career to the next level by becoming a<br />modern back-end JS developer - in just 7 days!"
+      subtitle="Take your dev career to the next level by becoming a<br />modern back-end JS developer - in just 1 week!"
       bgImg="training-event"
     />
     <TopSection>
