@@ -7,7 +7,7 @@
     "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",
     "apollo-link-http": "^1.5.4",
-    "babel-core": "6.x.x",
+    "babel-core": "^6.24.0-0",
     "babel-loader": "^6.4.1",
     "babel-polyfill": "^6.26.0",
     "common-tags": "^1.8.0",
@@ -55,22 +55,32 @@
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
     "prebuild": "npm run format",
     "build": "gatsby build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/jest",
+    "testw": "./node_modules/.bin/jest --watch",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "precommit": "npm run format",
     "preserve": "yarn build",
     "serve": "gatsby serve"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^3.4.8",
+    "babel-jest": "^23.4.2",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "eslint": "^4.12.0",
     "eslint-plugin-promise": "^3.6.0",
     "husky": "^0.14.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.5.0",
     "lint-staged": "^7.2.0",
     "node-fetch": "^2.2.0",
-    "prettier": "^1.12.0"
+    "prettier": "^1.12.0",
+    "react-test-renderer": "^16.4.2"
   },
   "repository": {
     "type": "git",
@@ -85,6 +95,31 @@
     "*.{js,json,css,md}": [
       "prettier --write",
       "git add"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/jest-config/preprocess.js"
+    },
+    "testRegex": "/.*(__tests__\\/.*)|(.*(test|spec))\\.jsx?$",
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
+      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "node_modules",
+      ".cache"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(gatsby)/)"
+    ],
+    "globals": {
+      "__PATH_PREFIX__": ""
+    },
+    "testURL": "http://localhost",
+    "setupFiles": [
+      "<rootDir>/jest-config/loadershim.js",
+      "<rootDir>/jest-config/setup.js"
     ]
   }
 }

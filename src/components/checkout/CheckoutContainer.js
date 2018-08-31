@@ -37,7 +37,7 @@ const VALIDATE_VOUCHER = gql`
   }
 `
 
-class CheckoutContainer extends React.Component {
+export class CheckoutContainer extends React.Component {
   state = {
     isPaymentInProgress: false,
     paymentErrorMessage: null,
@@ -196,6 +196,7 @@ class CheckoutContainer extends React.Component {
       vatRate,
       pay,
       trainingInstanceId,
+      paymentApi = Stripe,
     } = this.props
     const number = formatCreditCardNumber(CCnumber)
     const cvc = formatCVC(CCcvc)
@@ -208,10 +209,9 @@ class CheckoutContainer extends React.Component {
       payload: { email, trainingInstanceId },
     })
 
-    Stripe.setPublishableKey(STRIPE_PUBLIC_KEY)
-    Stripe.card.createToken(
-      { number, cvc, exp_month, exp_year },
-      (status, response) =>
+    paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
+    return paymentApi.card.createToken({ number, cvc, exp_month, exp_year })
+      .then(result =>
         pay({
           variables: {
             voucherCode: this.state.voucher,
@@ -219,7 +219,7 @@ class CheckoutContainer extends React.Component {
             trainingInstanceId,
             email,
             name,
-            token: response.id,
+            token: result.id,
             vatRate,
             companyName,
             companyVat,
@@ -232,6 +232,8 @@ class CheckoutContainer extends React.Component {
                 makePayment: data.makePayment,
                 trainingInstanceId,
               })
+
+              return data
             } else {
               this.processPaymentError(errors)
             }
@@ -239,7 +241,7 @@ class CheckoutContainer extends React.Component {
           .catch(error => {
             this.processPaymentError(error)
           })
-    )
+      )
   }
 
   render() {
@@ -294,7 +296,22 @@ class CheckoutContainer extends React.Component {
 }
 
 CheckoutContainer.defaultProps = {
-  trackUserBehaviour,
+  trackUserBehaviour
+}
+
+CheckoutContainer.propTypes = {
+  pay: PropTypes.func.isRequired,
+  vatRate: PropTypes.number.isRequired,
+  addCourse: PropTypes.func.isRequired,
+  removeCourse: PropTypes.func.isRequired,
+  client: PropTypes.object.isRequired,
+  updateVatRate: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  quantity: PropTypes.number.isRequired,
+  discountPricePerQuantity: PropTypes.number.isRequired,
+  pricePerQuantity: PropTypes.number.isRequired,
+  trainingInstanceId: PropTypes.string.isRequired,
+  trackUserBehaviour: PropTypes.func.isRequired,
 }
 
 const PAY = gql`
