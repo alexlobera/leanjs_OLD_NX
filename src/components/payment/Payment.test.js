@@ -6,8 +6,8 @@ import { MockedProvider } from 'react-apollo/test-utils'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
-import Checkout from './'
+import VALIDATE_VOUCHER from './checkout/ValidateVoucher.graphql'
+import PaymentSection from './PaymentSection'
 
 const createDefaultProps = () => {
     const payment = {
@@ -68,7 +68,15 @@ describe('<CheckoutContainer />', () => {
         }]
         const wrapper = mount(
             <Root graphQlMocks={graphQlMocks}>
-                <Checkout isOpen={true} />
+                <PaymentSection
+                    isOpen={true}
+                    data={{
+                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                        price: 995,
+                        ticketName: "Regular Ticket",
+                        currency: "gbp",
+                    }}
+                />
             </Root>
         )
 

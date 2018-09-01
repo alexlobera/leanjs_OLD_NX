@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
@@ -82,6 +83,7 @@ class PaymentSection extends React.Component {
               ''
             )}
           <Checkout
+            isOpen={!!this.props.isOpen}
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
             updateVatRate={this.updateVatRate}
@@ -98,6 +100,10 @@ class PaymentSection extends React.Component {
       </React.Fragment>
     ) : null
   }
+}
+
+PaymentSection.propTypes = {
+  isOpen: PropTypes.bool,
 }
 
 export default PaymentSection

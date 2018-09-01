@@ -310,7 +310,7 @@ CheckoutContainer.propTypes = {
   updateVatRate: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   quantity: PropTypes.number.isRequired,
-  discountPricePerQuantity: PropTypes.number.isRequired,
+  discountPricePerQuantity: PropTypes.number,
   pricePerQuantity: PropTypes.number.isRequired,
   trainingInstanceId: PropTypes.string.isRequired,
   trackUserBehaviour: PropTypes.func.isRequired,
