@@ -1,10 +1,8 @@
-// jest-preprocess.js
 const babelOptions = {
-    presets: ["@babel/react", "@babel/env"],
     plugins: [
-      "@babel/plugin-proposal-optional-chaining",
-      "@babel/plugin-proposal-class-properties",
+      "transform-class-properties"
     ],
+    presets: ["babel-preset-env", "babel-preset-latest", "babel-preset-react"],
   }
   
   module.exports = require("babel-jest").createTransformer(babelOptions)
