@@ -6,7 +6,7 @@ import { MockedProvider } from 'react-apollo/test-utils'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-import { CheckoutContainer } from './CheckoutContainer'
+import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import Checkout from './'
 
 const createDefaultProps = () => {
@@ -56,17 +56,18 @@ describe('<CheckoutContainer />', () => {
             companyVat: null,
         }
 
-        // creating the component
-        //const props = createDefaultProps()
         const graphQlMocks = [{
+            request: {
+                query: VALIDATE_VOUCHER
+            },
             result: {
                 data: {
-                    dog: { id: '1', name: 'Buck', breed: 'bulldog' },
+                    amount: 0,
                 },
             },
         }]
         const wrapper = mount(
-            <Root graphQlMocks={[]}>
+            <Root graphQlMocks={graphQlMocks}>
                 <Checkout isOpen={true} />
             </Root>
         )

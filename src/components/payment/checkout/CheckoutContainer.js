@@ -6,9 +6,9 @@ import { withRouter } from 'react-router-dom'
 
 import PAY from './pay.graphql'
 import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
-import { DEFAULT_VAT_RATE } from '../../config'
-import createLogger from '../utils/createLogger'
-import { STRIPE_PUBLIC_KEY } from '../../config/apps'
+import { DEFAULT_VAT_RATE } from '../../../config'
+import createLogger from '../../utils/createLogger'
+import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
 import CheckoutForm from './CheckoutForm'
 import {
   getMonthFromCardDate,
@@ -16,12 +16,12 @@ import {
   formatCreditCardNumber,
   formatExpirationDate,
   formatCVC,
-} from '../utils/card'
+} from '../../utils/card'
 
 import trackUserBehaviour, {
   CHECKOUT_PAYMENT_REQUEST,
   VOUCHER_VALIDATE,
-} from '../utils/trackUserBehaviour'
+} from '../../utils/trackUserBehaviour'
 
 // const VALIDATE_VOUCHER = gql`
 //   query validateVoucher(

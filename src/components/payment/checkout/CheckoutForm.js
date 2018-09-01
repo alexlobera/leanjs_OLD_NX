@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { Form } from 'react-final-form'
 import Helmet from 'react-helmet'
 
-import { Span, P, H4 } from '../text'
-import { Button, LinkButton } from '../buttons'
-import { FormGroup, FieldInput, Input } from '../form'
+import { Span, P, H4 } from '../../text'
+import { Button, LinkButton } from '../../buttons'
+import { FormGroup, FieldInput, Input } from '../../form'
 import {
   composeValidators,
   mustBeEuVat,
@@ -14,19 +14,19 @@ import {
   mustBeEmail,
   mustBeCardNumber,
   mustBeCardDate,
-} from '../form/validations'
-import { Row, Col } from '../layout/Grid'
-import formatPrice from '../utils/currency'
-import { Price } from '../payment'
-import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../utils'
-import { WHITE, BROWN, GREY, FONT_FAMILY } from '../../config/styles'
-import { Link } from '../navigation'
-import { Ribbon, Alert } from '../elements'
+} from '../../form/validations'
+import { Row, Col } from '../../layout/Grid'
+import formatPrice from '../../utils/currency'
+import { Price } from '../'
+import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../../utils'
+import { WHITE, BROWN, GREY, FONT_FAMILY } from '../../../config/styles'
+import { Link } from '../../navigation'
+import { Ribbon, Alert } from '../../elements'
 import {
   formatCreditCardNumber,
   formatExpirationDate,
   formatCVC,
-} from '../utils/card'
+} from '../../utils/card'
 
 const QuantityActions = styled.div`
   display: flex;
@@ -238,12 +238,12 @@ class CheckoutForm extends React.Component {
                     </LinkButton>
                   </Fragment>
                 ) : (
-                  <FormGroup>
-                    <Link onClick={this.toggleDisplayCompanyDetails}>
-                      + Add company details
+                    <FormGroup>
+                      <Link onClick={this.toggleDisplayCompanyDetails}>
+                        + Add company details
                     </Link>
-                  </FormGroup>
-                )}
+                    </FormGroup>
+                  )}
                 <CheckoutH4>Payment details</CheckoutH4>
                 <FieldInput
                   label="Name on card:"
@@ -319,12 +319,12 @@ class CheckoutForm extends React.Component {
                     </LinkButton>
                   </Fragment>
                 ) : (
-                  <FormGroup>
-                    <Link onClick={this.toggleDisplayVoucherSection}>
-                      + Add discount voucher
+                    <FormGroup>
+                      <Link onClick={this.toggleDisplayVoucherSection}>
+                        + Add discount voucher
                     </Link>
-                  </FormGroup>
-                )}
+                    </FormGroup>
+                  )}
                 <RibbonBottomContainer>
                   <CheckoutH4>Pricing</CheckoutH4>
                   {discountPricePerQuantity ? (
@@ -337,8 +337,8 @@ class CheckoutForm extends React.Component {
                       )}
                     </Ribbon>
                   ) : (
-                    ''
-                  )}
+                      ''
+                    )}
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>

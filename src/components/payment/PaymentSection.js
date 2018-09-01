@@ -2,7 +2,7 @@ import React from 'react'
 import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
-import Checkout from '../checkout/'
+import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
 import { DEFAULT_VAT_RATE } from '../../config'
 
