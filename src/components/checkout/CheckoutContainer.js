@@ -4,6 +4,8 @@ import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
+import PAY from './pay.graphql'
+import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import { DEFAULT_VAT_RATE } from '../../config'
 import createLogger from '../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../config/apps'
@@ -21,21 +23,21 @@ import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../utils/trackUserBehaviour'
 
-const VALIDATE_VOUCHER = gql`
-  query validateVoucher(
-    $trainingInstanceId: ID!
-    $quantity: Int!
-    $voucherCode: String!
-  ) {
-    voucherGetNetPriceWithDiscount(
-      trainingInstanceId: $trainingInstanceId
-      quantity: $quantity
-      voucherCode: $voucherCode
-    ) {
-      amount
-    }
-  }
-`
+// const VALIDATE_VOUCHER = gql`
+//   query validateVoucher(
+//     $trainingInstanceId: ID!
+//     $quantity: Int!
+//     $voucherCode: String!
+//   ) {
+//     voucherGetNetPriceWithDiscount(
+//       trainingInstanceId: $trainingInstanceId
+//       quantity: $quantity
+//       voucherCode: $voucherCode
+//     ) {
+//       amount
+//     }
+//   }
+// `
 
 export class CheckoutContainer extends React.Component {
   state = {
@@ -314,36 +316,36 @@ CheckoutContainer.propTypes = {
   trackUserBehaviour: PropTypes.func.isRequired,
 }
 
-const PAY = gql`
-  mutation pay(
-    $trainingInstanceId: ID!
-    $quantity: Int!
-    $voucherCode: String
-    $email: String!
-    $token: String!
-    $companyName: String
-    $vatCountry: String
-    $vatNumber: String
-  ) {
-    makePayment(
-      payment: {
-        trainingInstanceId: $trainingInstanceId
-        quantity: $quantity
-        voucherCode: $voucherCode
-        email: $email
-        token: $token
-        companyName: $companyName
-        vatCountry: $vatCountry
-        vatNumber: $vatNumber
-      }
-    ) {
-      id
-      currency
-      amount
-      metadata
-    }
-  }
-`
+// const PAY = gql`
+//   mutation pay(
+//     $trainingInstanceId: ID!
+//     $quantity: Int!
+//     $voucherCode: String
+//     $email: String!
+//     $token: String!
+//     $companyName: String
+//     $vatCountry: String
+//     $vatNumber: String
+//   ) {
+//     makePayment(
+//       payment: {
+//         trainingInstanceId: $trainingInstanceId
+//         quantity: $quantity
+//         voucherCode: $voucherCode
+//         email: $email
+//         token: $token
+//         companyName: $companyName
+//         vatCountry: $vatCountry
+//         vatNumber: $vatNumber
+//       }
+//     ) {
+//       id
+//       currency
+//       amount
+//       metadata
+//     }
+//   }
+// `
 
 const withPay = graphql(PAY, {
   name: 'pay',

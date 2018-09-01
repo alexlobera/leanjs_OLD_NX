@@ -22,8 +22,12 @@ const PriceAndDiscount = styled.div`
 `
 
 class Checkout extends React.Component {
-  state = {
-    isOpen: false,
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      isOpen: props.isOpen || false,
+    }
   }
 
   toggleIsOpen = () => {

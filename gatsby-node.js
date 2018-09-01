@@ -25,6 +25,11 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
       })
 
       break
+    default:
+      config.loader('graphql-tag/loader', {
+        test: /\.(graphql|gql)$/,
+      });
+      break;
   }
   return config
 }
