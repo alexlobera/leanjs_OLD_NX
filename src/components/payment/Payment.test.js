@@ -67,7 +67,7 @@ describe('<PaymentSection />', () => {
 
     })
 
-    it('should update price if the voucher is correct', async () => {
+    it('should update total price if the voucher is correct', async () => {
         // mocks
         const graphQlMocks = [{
             request: {
