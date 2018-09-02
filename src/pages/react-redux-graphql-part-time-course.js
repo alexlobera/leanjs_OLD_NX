@@ -90,7 +90,8 @@ const PartTime = () => (
             </Ul>
             <P>
               <Link to={nextTraining.pathUrl}>
-                Next part-time course: {nextTraining.city} - {nextTraining.dates}
+                Next part-time course: {nextTraining.city} -{' '}
+                {nextTraining.dates}
               </Link>
             </P>
           </Col>

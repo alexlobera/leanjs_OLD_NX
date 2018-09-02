@@ -41,10 +41,7 @@ const ReactNativeBoocampLondon = () => (
       ]}
     />
     <Header
-      titleLines={[
-        'React Native Training',
-        `${training.dates} - London`,
-      ]}
+      titleLines={['React Native Training', `${training.dates} - London`]}
       subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
       links={header.landingTraining.links}
       bgImg="training-event"

@@ -23,31 +23,27 @@ export const CallToActionRow = styled(Row)`
 
 const CallToActionNextTrainings = ({ left, trainings = [] }) => (
   <CallToActionRow left>
-    {
-      trainings.slice(0, 3).map((training, index) => {
-        const startDate = moment(training.dateStartsOn).format('D MMM')
-        return index === 0 ? (
-          <Col key={index} xs={12} mdOffset={1} md={5}>
-            <LinkButton
-              cta
-              to={training.pathUrl}
-              children={
-                `Next ${training.type}: ${startDate}, ${training.cityShortName}  >>`
-              }
-            />
-          </Col>
-        ) : (
-            <Col key={index} xs={12} md={3} center={index === 1}>
-              <LinkButton
-                to={training.pathUrl}
-                children={
-                  `${startDate}, ${training.cityShortName}`
-                }
-              />
-            </Col>
-          )
-      })
-    }
+    {trainings.slice(0, 3).map((training, index) => {
+      const startDate = moment(training.dateStartsOn).format('D MMM')
+      return index === 0 ? (
+        <Col key={index} xs={12} mdOffset={1} md={5}>
+          <LinkButton
+            cta
+            to={training.pathUrl}
+            children={`Next ${training.type}: ${startDate}, ${
+              training.cityShortName
+            }  >>`}
+          />
+        </Col>
+      ) : (
+        <Col key={index} xs={12} md={3} center={index === 1}>
+          <LinkButton
+            to={training.pathUrl}
+            children={`${startDate}, ${training.cityShortName}`}
+          />
+        </Col>
+      )
+    })}
   </CallToActionRow>
 )
 

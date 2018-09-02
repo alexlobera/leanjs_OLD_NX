@@ -12,30 +12,25 @@ import trackUserBehaviour, {
 
 class PaymentConfirmation extends React.Component {
   componentDidMount() {
-    const { makePayment, trainingInstanceId } = this.props.location.state || {}
     const { trackUserBehaviour } = this.props
-    const { id, metadata } = makePayment || {}
+    const { makePayment = {}, trainingInstanceId = '' } =
+      this.props.location.state || {}
+    const { amount = 100, id } = makePayment
+
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+
+    //conversion
+    gtag('event', 'conversion', {
+      send_to: 'AW-877316317/KPHjCIHC7ocBEN2Rq6ID',
+      currency: 'GBP',
+      value: amount * 0.01,
+      transaction_id: id ? `${trainingInstanceId}_${id}` : '',
+    })
+
     if (id) {
-      window.dataLayer = window.dataLayer || []
-
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-
-      gtag('js', new Date())
-      gtag('config', 'AW-877316317')
-
-      let value = makePayment.amount * 0.01
-      let currency = makePayment.currency.toUpperCase()
-
-      //conversion
-      gtag('event', 'conversion', {
-        send_to: 'AW-877316317/KPHjCIHC7ocBEN2Rq6ID',
-        value,
-        currency,
-        transaction_id: `${trainingInstanceId}_${id}`,
-      })
-
       trackUserBehaviour({
         event: CHECKOUT_PAYMENT_SUCCESS,
         payload: {

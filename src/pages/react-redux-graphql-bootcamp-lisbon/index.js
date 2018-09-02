@@ -66,7 +66,10 @@ const BootcampLisbon = () => (
                   currency: training.currency,
                 }}
               />
-              <InstallmentsCard price={training.price} currency={training.currency} />
+              <InstallmentsCard
+                price={training.price}
+                currency={training.currency}
+              />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="bMD_b7w7r-g" />
