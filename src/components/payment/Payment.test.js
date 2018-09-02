@@ -39,7 +39,7 @@ const createDefaultProps = () => {
     }
 }
 
-describe('<CheckoutContainer />', () => {
+describe('<PaymentSection />', () => {
     it('should make a payment', async () => {
         // input values
         const values = {
