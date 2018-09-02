@@ -108,8 +108,6 @@ export class CheckoutContainer extends React.Component {
   }
 
   validateVoucher = voucher => {
-
-    //console.log('1121212121212')
     const {
       quantity,
       discountPricePerQuantity,
