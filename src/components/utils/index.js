@@ -9,84 +9,79 @@ export const SCREEN_MD_MAX = '1199px'
 export const SCREEN_LG_MIN = '1200px'
 
 const Components = ({ children, ...props }) =>
-  React.Children.map(children, child =>
-    React.cloneElement(child, {
-      className: props.className,
-    })
-  )
-
-// const Comp = ({ children, ...props }) =>
-//   React.cloneElement(children, {
-//     className: props.className,
-//   })
+    React.Children.map(children, child =>
+        React.cloneElement(child, {
+            className: props.className,
+        })
+    )
 
 export const HideComponentsUsingCss = styled(Components)`
     ${props =>
-      props.xs
-        ? `
+        props.xs
+            ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
             display:none !important;
         }
     `
-        : ''}
+            : ''}
     ${props =>
-      props.sm
-        ? `
+        props.sm
+            ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
             display:none !important;
         }
     `
-        : ''}
+            : ''}
     ${props =>
-      props.md
-        ? `
+        props.md
+            ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
             display:none !important;
         }
     `
-        : ''}
+            : ''}
     ${props =>
-      props.lg
-        ? `
+        props.lg
+            ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
         display: none !important;
        }
     `
-        : ''}
+            : ''}
 `
 
 export const DisplayComponentsUsingCss = styled(Components)`
     display:none !important;
     ${props =>
-      props.xs
-        ? `
+        props.xs
+            ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
             display:block !important;
         }
     `
-        : ''}
+            : ''}
     ${props =>
-      props.sm
-        ? `
+        props.sm
+            ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
             display:block !important;
         }
     `
-        : ''}
+            : ''}
     ${props =>
-      props.md
-        ? `
+        props.md
+            ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
             display:block !important;
         }
     `
-        : ''}
+            : ''}
     ${props =>
-      props.lg
-        ? `
+        props.lg
+            ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
         display: block !important;
        }
     `
-        : ''}
+            : ''}
 `
