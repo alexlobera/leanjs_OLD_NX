@@ -23,22 +23,6 @@ import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../../utils/trackUserBehaviour'
 
-// const VALIDATE_VOUCHER = gql`
-//   query validateVoucher(
-//     $trainingInstanceId: ID!
-//     $quantity: Int!
-//     $voucherCode: String!
-//   ) {
-//     voucherGetNetPriceWithDiscount(
-//       trainingInstanceId: $trainingInstanceId
-//       quantity: $quantity
-//       voucherCode: $voucherCode
-//     ) {
-//       amount
-//     }
-//   }
-// `
-
 export class CheckoutContainer extends React.Component {
   state = {
     isPaymentInProgress: false,
@@ -317,37 +301,6 @@ CheckoutContainer.propTypes = {
   trainingInstanceId: PropTypes.string.isRequired,
   trackUserBehaviour: PropTypes.func.isRequired,
 }
-
-// const PAY = gql`
-//   mutation pay(
-//     $trainingInstanceId: ID!
-//     $quantity: Int!
-//     $voucherCode: String
-//     $email: String!
-//     $token: String!
-//     $companyName: String
-//     $vatCountry: String
-//     $vatNumber: String
-//   ) {
-//     makePayment(
-//       payment: {
-//         trainingInstanceId: $trainingInstanceId
-//         quantity: $quantity
-//         voucherCode: $voucherCode
-//         email: $email
-//         token: $token
-//         companyName: $companyName
-//         vatCountry: $vatCountry
-//         vatNumber: $vatNumber
-//       }
-//     ) {
-//       id
-//       currency
-//       amount
-//       metadata
-//     }
-//   }
-// `
 
 const withPay = graphql(PAY, {
   name: 'pay',
