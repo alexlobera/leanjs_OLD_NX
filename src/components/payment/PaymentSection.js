@@ -71,8 +71,8 @@ class PaymentSection extends React.Component {
               )}
             </Ribbon>
           ) : (
-            ''
-          )}
+              ''
+            )}
           {priceGoesUpOn && nextDiscountPrice ? (
             <P>
               Ticket price goes up to{' '}
@@ -80,10 +80,9 @@ class PaymentSection extends React.Component {
               {priceGoesUpOn}
             </P>
           ) : (
-            ''
-          )}
+              ''
+            )}
           <Checkout
-            isOpen={!!this.props.isOpen}
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
             updateVatRate={this.updateVatRate}
@@ -103,7 +102,15 @@ class PaymentSection extends React.Component {
 }
 
 PaymentSection.propTypes = {
-  isOpen: PropTypes.bool,
+  data: PropTypes.shape({
+    trainingInstanceId: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    discountPrice: PropTypes.number,
+    nextDiscountPrice: PropTypes.number,
+    priceGoesUpOn: PropTypes.string,
+    ticketName: PropTypes.string,
+    currency: PropTypes.string,
+  })
 }
 
 export default PaymentSection
