@@ -8,22 +8,19 @@ export const SCREEN_MD_MIN = '992px'
 export const SCREEN_MD_MAX = '1199px'
 export const SCREEN_LG_MIN = '1200px'
 
-const UseThisInGatsby2WithReact163ToHidDisplayMultipleComponents = ({
-  children,
-  ...props
-}) =>
+const Components = ({ children, ...props }) =>
   React.Children.map(children, child =>
     React.cloneElement(child, {
       className: props.className,
     })
   )
 
-const Comp = ({ children, ...props }) =>
-  React.cloneElement(children, {
-    className: props.className,
-  })
+// const Comp = ({ children, ...props }) =>
+//   React.cloneElement(children, {
+//     className: props.className,
+//   })
 
-export const HideSingleComponentUsingCss = styled(Comp)`
+export const HideComponentsUsingCss = styled(Components)`
     ${props =>
       props.xs
         ? `
@@ -58,7 +55,7 @@ export const HideSingleComponentUsingCss = styled(Comp)`
         : ''}
 `
 
-export const DisplaySingleComponentUsingCss = styled(Comp)`
+export const DisplayComponentsUsingCss = styled(Components)`
     display:none !important;
     ${props =>
       props.xs

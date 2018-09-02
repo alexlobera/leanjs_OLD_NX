@@ -37,7 +37,12 @@ import {
 } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
-import { selectFirstTraining, REACT_BOOTCAMP, ADVANCED_REACT, PART_TIME } from '../config/data'
+import {
+  selectFirstTraining,
+  REACT_BOOTCAMP,
+  ADVANCED_REACT,
+  PART_TIME,
+} from '../config/data'
 
 const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const trainingPartTime = selectFirstTraining(PART_TIME)
@@ -301,7 +306,11 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text={`Next React bootcamp starts on ${moment(trainingBootcamp.dateStartsOn).format('D MMM, YYYY')} in ${trainingBootcamp.city}`}
+                                text={`Next React bootcamp starts on ${moment(
+                                  trainingBootcamp.dateStartsOn
+                                ).format('D MMM, YYYY')} in ${
+                                  trainingBootcamp.city
+                                }`}
                                 to={trainingBootcamp.pathUrl}
                                 buttonText="Next React bootcamp >>"
                               />
@@ -347,7 +356,11 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text={`Next advanced React bootcamp starts on ${moment(trainingAdvanced.dateStartsOn).format('D MMM, YYYY')} in ${trainingAdvanced.city}`}
+                                text={`Next advanced React bootcamp starts on ${moment(
+                                  trainingAdvanced.dateStartsOn
+                                ).format('D MMM, YYYY')} in ${
+                                  trainingAdvanced.city
+                                }`}
                                 to={trainingAdvanced.pathUrl}
                                 buttonText="Next advanced React bootcamp >>"
                               />
@@ -486,7 +499,11 @@ class Curriculum extends React.Component {
                             list={true}
                             marketingCard={
                               <MarketingCard
-                                text={`Next React part-time course starts on ${moment(trainingPartTime.dateStartsOn).format('D MMM, YYYY')} in ${trainingPartTime.city}`}
+                                text={`Next React part-time course starts on ${moment(
+                                  trainingPartTime.dateStartsOn
+                                ).format('D MMM, YYYY')} in ${
+                                  trainingPartTime.city
+                                }`}
                                 to={trainingPartTime.pathUrl}
                                 buttonText="Next React part-time >>"
                               />

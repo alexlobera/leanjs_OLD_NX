@@ -7,7 +7,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
-import { HideSingleComponentUsingCss } from '../components/utils'
+import { HideComponentsUsingCss } from '../components/utils'
 import { FullCurriculum } from '../components/curriculum'
 import { SCREEN_XS_MAX } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -204,11 +204,11 @@ const IndexPage = () => (
               </Col>
             </SectionButtonRow>
           </Col>
-          <HideSingleComponentUsingCss xs sm>
+          <HideComponentsUsingCss xs sm>
             <Col md={5} mdOffset={1}>
               <Image src={WHY_REACTJS_ACADEMY} width="100%" />
             </Col>
-          </HideSingleComponentUsingCss>
+          </HideComponentsUsingCss>
         </Row>
       </Grid>
     </Section>

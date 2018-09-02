@@ -21,7 +21,7 @@ import {
   ABOUT_CORPORATE,
   ABOUT_VALUES,
 } from '../config/images'
-import { HideSingleComponentUsingCss } from '../components/utils'
+import { HideComponentsUsingCss } from '../components/utils'
 import { WHITE } from '../config/styles'
 import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
@@ -106,11 +106,11 @@ const AboutUs = () => (
                     <Li>Cutting-edge</Li>
                   </Ul>
                 </Col>
-                <HideSingleComponentUsingCss xs>
+                <HideComponentsUsingCss xs>
                   <Col xs={12} sm={12} md={4}>
                     <Image src={ABOUT_VALUES} />
                   </Col>
-                </HideSingleComponentUsingCss>
+                </HideComponentsUsingCss>
               </Row>
             </Col>
           </Row>
