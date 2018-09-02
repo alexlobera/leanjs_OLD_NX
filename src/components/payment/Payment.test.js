@@ -103,6 +103,10 @@ describe('<PaymentSection />', () => {
 
         // steps
         wrapper.find(BuyButton).simulate('click')
+
+        // initial expectation
+        expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
+
         wrapper.find(ShowVoucherButton).simulate('click')
         wrapper.find('input[name="voucher"]').simulate('change', { target: { value: '123abc' } })
         wrapper.find(ValidateVoucherButton).simulate('click')
