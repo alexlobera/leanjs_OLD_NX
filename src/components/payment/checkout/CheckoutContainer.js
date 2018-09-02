@@ -124,6 +124,8 @@ export class CheckoutContainer extends React.Component {
   }
 
   validateVoucher = voucher => {
+
+    //console.log('1121212121212')
     const {
       quantity,
       discountPricePerQuantity,
@@ -144,7 +146,7 @@ export class CheckoutContainer extends React.Component {
       event: VOUCHER_VALIDATE,
       payload: { voucher },
     })
-    client
+    return client
       .query({
         query: VALIDATE_VOUCHER,
         variables: {

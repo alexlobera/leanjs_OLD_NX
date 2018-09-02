@@ -28,6 +28,10 @@ import {
   formatCVC,
 } from '../../utils/card'
 
+export const ShowVoucherButton = props => <Link {...props} />
+export const ValidateVoucherButton = props => <LinkButton {...props} block />
+export const TotalPayablePrice = props => <Price {...props} />
+
 const QuantityActions = styled.div`
   display: flex;
   justify-content: space-between;
@@ -306,8 +310,7 @@ class CheckoutForm extends React.Component {
                             : null,
                       }}
                     />
-                    <LinkButton
-                      block
+                    <ValidateVoucherButton
                       disabled={isVoucherValid || isVoucherValidationInProgress}
                       onClick={() => validateVoucher(voucher)}
                     >
@@ -316,13 +319,13 @@ class CheckoutForm extends React.Component {
                         : isVoucherValid
                           ? 'Valid Voucher'
                           : 'Validate voucher'}
-                    </LinkButton>
+                    </ValidateVoucherButton>
                   </Fragment>
                 ) : (
                     <FormGroup>
-                      <Link onClick={this.toggleDisplayVoucherSection}>
+                      <ShowVoucherButton onClick={this.toggleDisplayVoucherSection}>
                         + Add discount voucher
-                    </Link>
+                    </ShowVoucherButton>
                     </FormGroup>
                   )}
                 <RibbonBottomContainer>
@@ -373,13 +376,13 @@ class CheckoutForm extends React.Component {
                     <Span>Total payable:</Span>
                   </Col>
                   <Col xs={7}>
-                    <Price>
+                    <TotalPayablePrice>
                       {formatPrice(
                         currency,
                         vouchedPricePerQuantity || currentTicketPrice,
                         vatRate
                       )}
-                    </Price>
+                    </TotalPayablePrice>
                   </Col>
                 </Row>
                 <RowBuy>

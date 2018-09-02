@@ -22,6 +22,8 @@ const PriceAndDiscount = styled.div`
   margin-bottom: 5px;
 `
 
+export const BuyButton = props => <Button {...props} right children="Buy now" cta />
+
 class Checkout extends React.Component {
   constructor(props) {
     super(props)
@@ -75,12 +77,7 @@ class Checkout extends React.Component {
                     {formatPrice(currency, pricePerQuantity, vatRate)}
                   </Price>
                 )}
-              <Button
-                right
-                children="Buy now"
-                cta
-                onClick={this.toggleIsOpen}
-              />
+              <BuyButton onClick={this.toggleIsOpen} />
             </Fragment>
           </PurchaseWrapper>
         ) : (

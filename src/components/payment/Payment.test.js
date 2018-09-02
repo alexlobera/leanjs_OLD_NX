@@ -1,13 +1,17 @@
 import React from 'react'
-import Enzyme, { mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import { MemoryRouter as Router } from 'react-router-dom'
-import { MockedProvider } from 'react-apollo/test-utils'
+import { mount } from 'enzyme'
+import waitForExpect from 'wait-for-expect'
 
-Enzyme.configure({ adapter: new Adapter() })
-
+import Root from '../../../test/utils/Root'
 import VALIDATE_VOUCHER from './checkout/ValidateVoucher.graphql'
 import PaymentSection from './PaymentSection'
+import { BuyButton } from './checkout'
+import {
+    ShowVoucherButton,
+    ValidateVoucherButton,
+    TotalPayablePrice
+} from './checkout/CheckoutForm'
+import { CheckoutContainer } from './checkout/CheckoutContainer'
 
 const createDefaultProps = () => {
     const payment = {
@@ -35,14 +39,6 @@ const createDefaultProps = () => {
     }
 }
 
-const Root = ({ children, graphQlMocks }) => (
-    <Router>
-        <MockedProvider addTypename={false} mocks={graphQlMocks}>
-            {children}
-        </MockedProvider>
-    </Router>
-)
-
 describe('<CheckoutContainer />', () => {
     it('should make a payment', async () => {
         // input values
@@ -56,20 +52,45 @@ describe('<CheckoutContainer />', () => {
             companyVat: null,
         }
 
+        // creating the component
+        const props = createDefaultProps()
+        const CheckoutContainerInstance = new CheckoutContainer(props)
+
+        // executing the code to be tested
+        const result = await CheckoutContainerInstance.pay(values)
+
+        // assertion
+        expect(result.payment.id).not.toBeFalsy()
+    })
+
+    it('should make redirect to /payment-confirmation if the payment was successful', () => {
+
+    })
+
+    it('should update price if the voucher is correct', async () => {
+        // mocks
         const graphQlMocks = [{
             request: {
-                query: VALIDATE_VOUCHER
+                query: VALIDATE_VOUCHER,
+                variables: {
+                    voucherCode: "123abc",
+                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                    quantity: 1,
+                },
             },
             result: {
                 data: {
-                    amount: 0,
+                    voucherGetNetPriceWithDiscount: {
+                        amount: 1,
+                    }
                 },
             },
         }]
+
+        // rendering
         const wrapper = mount(
             <Root graphQlMocks={graphQlMocks}>
                 <PaymentSection
-                    isOpen={true}
                     data={{
                         trainingInstanceId: "5aa2acda7dcc782348ea1234",
                         price: 995,
@@ -80,14 +101,15 @@ describe('<CheckoutContainer />', () => {
             </Root>
         )
 
-        // // executing the code to be tested
-        // const result = await wrapper.instance().pay(values)
+        // steps
+        wrapper.find(BuyButton).simulate('click')
+        wrapper.find(ShowVoucherButton).simulate('click')
+        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: '123abc' } })
+        wrapper.find(ValidateVoucherButton).simulate('click')
 
-        // // assertion
-        // expect(result.payment.id).not.toBeFalsy()
-    })
-
-    it('should make redirect to /payment-confirmation if the payment was successful', () => {
-
+        // expectation
+        await waitForExpect(() => {
+            expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1.2")
+        });
     })
 })

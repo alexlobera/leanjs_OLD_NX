@@ -55,7 +55,7 @@
     "prebuild": "npm run format",
     "build": "gatsby build",
     "test": "./node_modules/.bin/jest",
-    "testw": "./node_modules/.bin/jest --watch",
+    "testw": "./node_modules/.bin/jest --watch --env=jsdom  --verbose false",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "precommit": "npm run format",
     "preserve": "yarn build",
@@ -86,7 +86,10 @@
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.4.2",
-    "regenerator-runtime": "^0.12.1"
+    "react-testing-library": "^5.0.0",
+    "regenerator-runtime": "^0.12.1",
+    "waait": "^1.0.2",
+    "wait-for-expect": "^1.0.0"
   },
   "repository": {
     "type": "git",
@@ -106,7 +109,7 @@
   "jest": {
     "transform": {
       "\\.(gql|graphql)$": "jest-transform-graphql",
-      "^.+\\.jsx?$": "<rootDir>/jest-config/preprocess.js"
+      "^.+\\.jsx?$": "<rootDir>/test/jest-config/preprocess.js"
     },
     "testRegex": "/.*(__tests__\\/.*)|(.*(test|spec))\\.jsx?$",
     "moduleNameMapper": {
@@ -125,8 +128,8 @@
     },
     "testURL": "http://localhost",
     "setupFiles": [
-      "<rootDir>/jest-config/loadershim.js",
-      "<rootDir>/jest-config/setup.js"
+      "<rootDir>/test/jest-config/loadershim.js",
+      "<rootDir>/test/jest-config/setup.js"
     ]
   }
 }
