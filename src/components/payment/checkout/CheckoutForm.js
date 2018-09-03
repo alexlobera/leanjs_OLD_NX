@@ -141,7 +141,6 @@ class CheckoutForm extends React.Component {
     } = this.props
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
     const currentTicketPrice = discountPricePerQuantity || pricePerQuantity
-
     const ticketVat = !vatRate
       ? 0
       : vouchedPricePerQuantity

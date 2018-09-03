@@ -86,7 +86,7 @@ describe('<PaymentSection /> - Voucher functionality', () => {
             request: {
                 query: VALIDATE_VOUCHER,
                 variables: {
-                    voucherCode: "123abc",
+                    voucherCode: "asd",
                     trainingInstanceId: "5aa2acda7dcc782348ea1234",
                     quantity: 1,
                 },
@@ -96,7 +96,7 @@ describe('<PaymentSection /> - Voucher functionality', () => {
                     voucherGetNetPriceWithDiscount: null
                 },
             },
-        }]        
+        }]
 
         // rendering
         const wrapper = mount(
@@ -119,18 +119,16 @@ describe('<PaymentSection /> - Voucher functionality', () => {
         expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
 
         wrapper.find(ShowVoucherButton).simulate('click')
-        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: '123abc' } })
+        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: 'asd' } })
         wrapper.find(ValidateVoucherButton).simulate('click')
 
         // expectation
         await waitForExpect(() => {
+            wrapper.update()
             expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
+            expect(wrapper.find(VoucherInput).props().meta.error).toBeTruthy()
         });
-        /*
-        await waitForExpect(() => {
-            expect(wrapper.find(VoucherInput).props().meta.error).toEqual("plplplplppl")
-        });
-        */
+
 
     })
 
