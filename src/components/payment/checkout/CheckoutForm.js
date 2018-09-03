@@ -31,6 +31,7 @@ import {
 export const ShowVoucherButton = props => <Link {...props} />
 export const ValidateVoucherButton = props => <LinkButton {...props} block />
 export const TotalPayablePrice = props => <Price {...props} />
+export const VoucherInput = props => <Input {...props} />
 
 const QuantityActions = styled.div`
   display: flex;
@@ -100,6 +101,7 @@ const RibbonBottomContainer = styled.div`
     }
   }
 `
+
 class CheckoutForm extends React.Component {
   state = {
     isVoucherDisplayed: false,
@@ -295,7 +297,7 @@ class CheckoutForm extends React.Component {
                         - Hide discount voucher
                       </Link>
                     </FormGroup>
-                    <Input
+                    <VoucherInput
                       label="Discount voucher:"
                       name="voucher"
                       placeholder="Type your code here"
