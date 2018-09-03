@@ -5,7 +5,7 @@ import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
-import { HideSingleComponentUsingCss } from '../components/utils'
+import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
@@ -94,11 +94,11 @@ const BootcampLondon = () => (
     <Section>
       <Grid>
         <Row>
-          <HideSingleComponentUsingCss xs sm>
+          <HideComponentsUsingCss xs sm>
             <Col md={6} lg={5}>
               <Image src={BOOTCAMP_COLLAB} width="100%" />
             </Col>
-          </HideSingleComponentUsingCss>
+          </HideComponentsUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this React bootcamp right for me? Are you...{' '}

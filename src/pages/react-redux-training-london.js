@@ -15,7 +15,7 @@ import {
   ALEX_LOBERA,
   EVA_HOFFMANN,
 } from '../components/training'
-import { HideSingleComponentUsingCss } from '../components/utils'
+import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import {
   BulletIcon,
@@ -101,11 +101,11 @@ const BootcampLondon = () => (
     <Section>
       <Grid>
         <Row>
-          <HideSingleComponentUsingCss xs sm>
+          <HideComponentsUsingCss xs sm>
             <Col md={6} lg={5}>
               <Image src={PART_TIME_IMG} width="100%" />
             </Col>
-          </HideSingleComponentUsingCss>
+          </HideComponentsUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
               Is this React part-time course right for me? Are you...{' '}

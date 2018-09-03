@@ -3,7 +3,7 @@ import Link, { styleChildLinkColor } from '../../navigation/Link'
 import React from 'react'
 import DefaultUl, { Li } from '../../layout/Ul'
 import MenuData from './Menu.json'
-import { HideSingleComponentUsingCss } from '../../utils'
+import { HideComponentsUsingCss } from '../../utils'
 import { WHITE } from '../../../config/styles'
 
 const Ul = styled(DefaultUl)`
@@ -29,7 +29,7 @@ const DesktopMenuItem = styled(Item)`
 DesktopMenuItem.displayName = 'DesktopMenuItem'
 
 const DesktopMenu = () => (
-  <HideSingleComponentUsingCss xs sm>
+  <HideComponentsUsingCss xs sm>
     <Ul inline>
       {MenuData.map((item, i) => (
         <DesktopMenuItem key={i} to={item.to}>
@@ -37,7 +37,7 @@ const DesktopMenu = () => (
         </DesktopMenuItem>
       ))}
     </Ul>
-  </HideSingleComponentUsingCss>
+  </HideComponentsUsingCss>
 )
 
 export default DesktopMenu
