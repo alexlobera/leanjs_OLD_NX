@@ -1,0 +1,28 @@
+  mutation pay(
+    $trainingInstanceId: ID!
+    $quantity: Int!
+    $voucherCode: String
+    $email: String!
+    $token: String!
+    $companyName: String
+    $vatCountry: String
+    $vatNumber: String
+  ) {
+    makePayment(
+      payment: {
+        trainingInstanceId: $trainingInstanceId
+        quantity: $quantity
+        voucherCode: $voucherCode
+        email: $email
+        token: $token
+        companyName: $companyName
+        vatCountry: $vatCountry
+        vatNumber: $vatNumber
+      }
+    ) {
+      id
+      currency
+      amount
+      metadata
+    }
+  }

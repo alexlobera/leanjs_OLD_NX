@@ -111,7 +111,7 @@ class ContactForm extends Component {
               onSubmit={this.handleFormSubmit}
               style={this.state.formSubmited ? { display: 'none' } : {}}
             >
-              <Label for="email">Your email address:</Label>
+              <Label htmlFor="email">Your email address:</Label>
               <Input
                 type="email"
                 value={email}

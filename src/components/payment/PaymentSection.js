@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
-import Checkout from '../checkout/'
+import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
 import { DEFAULT_VAT_RATE } from '../../config'
 
@@ -70,8 +71,8 @@ class PaymentSection extends React.Component {
               )}
             </Ribbon>
           ) : (
-            ''
-          )}
+              ''
+            )}
           {priceGoesUpOn && nextDiscountPrice ? (
             <P>
               Ticket price goes up to{' '}
@@ -79,8 +80,8 @@ class PaymentSection extends React.Component {
               {priceGoesUpOn}
             </P>
           ) : (
-            ''
-          )}
+              ''
+            )}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
@@ -98,6 +99,18 @@ class PaymentSection extends React.Component {
       </React.Fragment>
     ) : null
   }
+}
+
+PaymentSection.propTypes = {
+  data: PropTypes.shape({
+    trainingInstanceId: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    discountPrice: PropTypes.number,
+    nextDiscountPrice: PropTypes.number,
+    priceGoesUpOn: PropTypes.string,
+    ticketName: PropTypes.string,
+    currency: PropTypes.string,
+  })
 }
 
 export default PaymentSection

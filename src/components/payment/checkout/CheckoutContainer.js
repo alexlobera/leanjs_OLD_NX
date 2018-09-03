@@ -4,9 +4,11 @@ import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
-import { DEFAULT_VAT_RATE } from '../../config'
-import createLogger from '../utils/createLogger'
-import { STRIPE_PUBLIC_KEY } from '../../config/apps'
+import PAY from './pay.graphql'
+import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
+import { DEFAULT_VAT_RATE } from '../../../config'
+import createLogger from '../../utils/createLogger'
+import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
 import CheckoutForm from './CheckoutForm'
 import {
   getMonthFromCardDate,
@@ -14,30 +16,14 @@ import {
   formatCreditCardNumber,
   formatExpirationDate,
   formatCVC,
-} from '../utils/card'
+} from '../../utils/card'
 
 import trackUserBehaviour, {
   CHECKOUT_PAYMENT_REQUEST,
   VOUCHER_VALIDATE,
-} from '../utils/trackUserBehaviour'
+} from '../../utils/trackUserBehaviour'
 
-const VALIDATE_VOUCHER = gql`
-  query validateVoucher(
-    $trainingInstanceId: ID!
-    $quantity: Int!
-    $voucherCode: String!
-  ) {
-    voucherGetNetPriceWithDiscount(
-      trainingInstanceId: $trainingInstanceId
-      quantity: $quantity
-      voucherCode: $voucherCode
-    ) {
-      amount
-    }
-  }
-`
-
-class CheckoutContainer extends React.Component {
+export class CheckoutContainer extends React.Component {
   state = {
     isPaymentInProgress: false,
     paymentErrorMessage: null,
@@ -142,7 +128,7 @@ class CheckoutContainer extends React.Component {
       event: VOUCHER_VALIDATE,
       payload: { voucher },
     })
-    client
+    return client
       .query({
         query: VALIDATE_VOUCHER,
         variables: {
@@ -196,6 +182,7 @@ class CheckoutContainer extends React.Component {
       vatRate,
       pay,
       trainingInstanceId,
+      paymentApi = Stripe,
     } = this.props
     const number = formatCreditCardNumber(CCnumber)
     const cvc = formatCVC(CCcvc)
@@ -208,10 +195,9 @@ class CheckoutContainer extends React.Component {
       payload: { email, trainingInstanceId },
     })
 
-    Stripe.setPublishableKey(STRIPE_PUBLIC_KEY)
-    Stripe.card.createToken(
-      { number, cvc, exp_month, exp_year },
-      (status, response) =>
+    paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
+    return paymentApi.card.createToken({ number, cvc, exp_month, exp_year })
+      .then(result =>
         pay({
           variables: {
             voucherCode: this.state.voucher,
@@ -219,7 +205,7 @@ class CheckoutContainer extends React.Component {
             trainingInstanceId,
             email,
             name,
-            token: response.id,
+            token: result.id,
             vatRate,
             companyName,
             companyVat,
@@ -232,6 +218,8 @@ class CheckoutContainer extends React.Component {
                 makePayment: data.makePayment,
                 trainingInstanceId,
               })
+
+              return data
             } else {
               this.processPaymentError(errors)
             }
@@ -239,7 +227,7 @@ class CheckoutContainer extends React.Component {
           .catch(error => {
             this.processPaymentError(error)
           })
-    )
+      )
   }
 
   render() {
@@ -294,39 +282,23 @@ class CheckoutContainer extends React.Component {
 }
 
 CheckoutContainer.defaultProps = {
-  trackUserBehaviour,
+  trackUserBehaviour
 }
 
-const PAY = gql`
-  mutation pay(
-    $trainingInstanceId: ID!
-    $quantity: Int!
-    $voucherCode: String
-    $email: String!
-    $token: String!
-    $companyName: String
-    $vatCountry: String
-    $vatNumber: String
-  ) {
-    makePayment(
-      payment: {
-        trainingInstanceId: $trainingInstanceId
-        quantity: $quantity
-        voucherCode: $voucherCode
-        email: $email
-        token: $token
-        companyName: $companyName
-        vatCountry: $vatCountry
-        vatNumber: $vatNumber
-      }
-    ) {
-      id
-      currency
-      amount
-      metadata
-    }
-  }
-`
+CheckoutContainer.propTypes = {
+  pay: PropTypes.func.isRequired,
+  vatRate: PropTypes.number.isRequired,
+  addCourse: PropTypes.func.isRequired,
+  removeCourse: PropTypes.func.isRequired,
+  client: PropTypes.object.isRequired,
+  updateVatRate: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  quantity: PropTypes.number.isRequired,
+  discountPricePerQuantity: PropTypes.number,
+  pricePerQuantity: PropTypes.number.isRequired,
+  trainingInstanceId: PropTypes.string.isRequired,
+  trackUserBehaviour: PropTypes.func.isRequired,
+}
 
 const withPay = graphql(PAY, {
   name: 'pay',

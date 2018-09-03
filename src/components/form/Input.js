@@ -53,7 +53,7 @@ const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
     <FormGroup>
       {label && input.name ? (
         <React.Fragment>
-          <Label for={name}>{label}</Label>
+          <Label htmlFor={name}>{label}</Label>
           <InputForm
             {...props}
             {...input}
@@ -63,8 +63,8 @@ const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
           />
         </React.Fragment>
       ) : (
-        <InputForm {...props} {...input} onChange={onChange} type={type} />
-      )}
+          <InputForm {...props} {...input} onChange={onChange} type={type} />
+        )}
       {(invalid && !pristine) || (submitFailed && !submitSucceeded) ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : null}

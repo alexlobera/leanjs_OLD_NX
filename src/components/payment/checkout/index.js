@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Button } from '../buttons'
-import { Span } from '../text'
-import { Price } from '../payment'
-import formatPrice from '../utils/currency'
+import { Button } from '../../buttons'
+import { Span } from '../../text'
+import { Price } from '../'
+import formatPrice from '../../utils/currency'
 import trackUserBehaviour, {
   BUY_BUTTON_CLICK,
-} from '../utils/trackUserBehaviour'
+} from '../../utils/trackUserBehaviour'
 import CheckoutContainer from './CheckoutContainer'
 
 const PurchaseWrapper = styled.div`
@@ -21,9 +22,15 @@ const PriceAndDiscount = styled.div`
   margin-bottom: 5px;
 `
 
+export const BuyButton = props => <Button {...props} right children="Buy now" cta />
+
 class Checkout extends React.Component {
-  state = {
-    isOpen: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isOpen: props.isOpen || false,
+    }
   }
 
   toggleIsOpen = () => {
@@ -66,33 +73,28 @@ class Checkout extends React.Component {
                   </Price>
                 </PriceAndDiscount>
               ) : (
-                <Price>
-                  {formatPrice(currency, pricePerQuantity, vatRate)}
-                </Price>
-              )}
-              <Button
-                right
-                children="Buy now"
-                cta
-                onClick={this.toggleIsOpen}
-              />
+                  <Price>
+                    {formatPrice(currency, pricePerQuantity, vatRate)}
+                  </Price>
+                )}
+              <BuyButton onClick={this.toggleIsOpen} />
             </Fragment>
           </PurchaseWrapper>
         ) : (
-          <CheckoutContainer
-            trainingInstanceId={trainingInstanceId}
-            vatRate={vatRate}
-            updateVatRate={updateVatRate}
-            currency={currency}
-            price={price}
-            discountPrice={discountPrice}
-            quantity={quantity}
-            pricePerQuantity={pricePerQuantity}
-            discountPricePerQuantity={discountPricePerQuantity}
-            removeCourse={removeCourse}
-            addCourse={addCourse}
-          />
-        )}
+            <CheckoutContainer
+              trainingInstanceId={trainingInstanceId}
+              vatRate={vatRate}
+              updateVatRate={updateVatRate}
+              currency={currency}
+              price={price}
+              discountPrice={discountPrice}
+              quantity={quantity}
+              pricePerQuantity={pricePerQuantity}
+              discountPricePerQuantity={discountPricePerQuantity}
+              removeCourse={removeCourse}
+              addCourse={addCourse}
+            />
+          )}
       </Fragment>
     )
   }
@@ -103,4 +105,17 @@ Checkout.defaultProps = {
   trackUserBehaviour,
 }
 
+Checkout.propTypes = {
+  trainingInstanceId: PropTypes.string.isRequired,
+  vatRate: PropTypes.number.isRequired,
+  updateVatRate: PropTypes.func.isRequired,
+  currency: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  discountPrice: PropTypes.number,
+  quantity: PropTypes.number.isRequired,
+  pricePerQuantity: PropTypes.number,
+  discountPricePerQuantity: PropTypes.number,
+  removeCourse: PropTypes.func.isRequired,
+  addCourse: PropTypes.func.isRequired,
+}
 export default Checkout
