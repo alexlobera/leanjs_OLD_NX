@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import waitForExpect from 'wait-for-expect'
 import { Route } from 'react-router-dom'
 
-import Root, { WithRouter } from '../../../test/utils/Root'
+import Root from '../../../test/utils/Root'
 import VALIDATE_VOUCHER from './checkout/ValidateVoucher.graphql'
 import PAY from './checkout/Pay.graphql'
 import PaymentSection from './PaymentSection'
@@ -22,8 +22,6 @@ import {
     SubmitPaymentFormButton
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
-import { MockedProvider } from 'react-apollo/test-utils'
-
 
 const getPaymentApiStub = () => ({
     setPublishableKey: () => { },
