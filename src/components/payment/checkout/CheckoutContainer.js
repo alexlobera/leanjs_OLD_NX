@@ -4,7 +4,7 @@ import { graphql, withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
-import PAY from './pay.graphql'
+import PAY from './Pay.graphql'
 import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import { DEFAULT_VAT_RATE } from '../../../config'
 import createLogger from '../../utils/createLogger'

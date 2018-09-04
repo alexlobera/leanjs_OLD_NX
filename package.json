@@ -59,7 +59,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "precommit": "npm run format",
     "preserve": "yarn build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "coverage": "./node_modules/.bin/jest --coverage"
   },
   "devDependencies": {
     "@storybook/react": "^3.4.8",
@@ -103,6 +104,7 @@
     ]
   },
   "jest": {
+    "collectCoverageFrom" : ["src/**/*.js"],
     "transform": {
       "\\.(gql|graphql)$": "jest-transform-graphql",
       "^.+\\.jsx?$": "<rootDir>/test/jest-config/preprocess.js"
