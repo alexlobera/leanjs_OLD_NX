@@ -20,10 +20,10 @@ const CurriculumReactNative = ({
       {...commonProps}
       title="React Native Day 1"
       name="day1"
-      subTitle="Foundation, Navigations, and Animations"
+      subTitle="Foundation, Navigation, and Animations"
     >
       <ReactNativeFoundationSession title="Foundation" />
-      <ReactNativeNavigationSession title="Navigations" />
+      <ReactNativeNavigationSession title="Navigation" />
       <ReactNativeAnimationsSession title="Animations" />
     </Section>
   )
