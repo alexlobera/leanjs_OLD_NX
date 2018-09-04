@@ -91,7 +91,10 @@ describe('<PaymentSection /> - Making payments', () => {
         wrapper.find(CCCVCInput).find('input').simulate('change', { target: { value: '123' } })
 
 
-        wrapper.find(SubmitPaymentFormButton).simulate('submit')
+        // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
+        // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
+        // on the button works as well, but that seems hackish so this method was used instead.
+        wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
 
 
         // expectation
