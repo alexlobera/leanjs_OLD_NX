@@ -1,6 +1,6 @@
 import React from 'react'
-import Ul, { Li } from '../../layout/Ul'
-import Session from './Session'
+import Ul, { Li } from '../../../layout/Ul'
+import Session from '../Session'
 
 const ReactNativeGesturesSession = ({ title }) => (
   <Session title={title}>
