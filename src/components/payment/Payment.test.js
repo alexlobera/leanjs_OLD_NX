@@ -64,10 +64,14 @@ describe('<PaymentSection /> - Making payments', () => {
                 query: PAY,
                 variables: {
                     voucherCode: "",
+                    quantity:1,
                     trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    quantity: 1,
                     email: "test@example.com",
-                    token: "123",
+                    name: "Joe Bloggs",
+                    token: 2,
+                    vatRate: 1.2,
+                    companyName: undefined,
+                    companyVat: undefined
                 },
             },
             result: {
@@ -111,14 +115,13 @@ describe('<PaymentSection /> - Making payments', () => {
         wrapper.find(CCCVCInput).find('input').simulate('change', { target: { value: '123' } })
 
 
-        wrapper.find(SubmitPaymentFormButton).simulate('click')
+        wrapper.find(SubmitPaymentFormButton).simulate('submit')
 
 
         // expectation
         await waitForExpect(() => {
             wrapper.update()
-            //console.log(wrapper.find(PaymentSection).props().history)
-            //expect(wrapper.find(PaymentSection).props().history.length).toBe(2)
+            expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
         });
 
 

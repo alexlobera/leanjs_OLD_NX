@@ -194,7 +194,7 @@ class CheckoutForm extends React.Component {
           </Col>
         </Row>
         <Form
-          onSubmit={() => console.log("zvzvzvzvzvzvzvzvzvzv")/*pay*/}
+          onSubmit={pay}
           render={({
             handleSubmit,
             submitting,
@@ -203,7 +203,7 @@ class CheckoutForm extends React.Component {
             values,
           }) => {
             return (
-              <form noValidate onSubmit={() => console.log("sdfsdfsdfkskskskksksksk")/*handleSubmit*/}>
+              <form noValidate onSubmit={handleSubmit}>
                 <CheckoutH4>Personal details</CheckoutH4>
                 <NameInput
                   validate={required}

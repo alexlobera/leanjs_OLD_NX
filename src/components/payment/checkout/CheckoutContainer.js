@@ -163,9 +163,6 @@ export class CheckoutContainer extends React.Component {
 
   pay = values => {
 
-
-    console.log("PAYING")
-
     if (this.state.isPaymentInProgress) {
       return
     }
@@ -201,7 +198,7 @@ export class CheckoutContainer extends React.Component {
 
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
     return paymentApi.card.createToken({ number, cvc, exp_month, exp_year })
-      .then(result =>
+      .then(result => 
         pay({
           variables: {
             voucherCode: this.state.voucher,
@@ -214,28 +211,23 @@ export class CheckoutContainer extends React.Component {
             companyName,
             companyVat,
           },
-        })
-          .then(({ data }) => {
-
-
-            console.log("Response from graphql", data)
-
-            if (!data.errors) {
-              this.props.history.push('/payment-confirmation', {
-                email,
-                makePayment: data.makePayment,
-                trainingInstanceId,
-              })
-
-              return data
-            } else {
-              this.processPaymentError(errors)
-            }
+        }))
+      .then(({ data }) => {
+        if (!data.errors) {
+          this.props.history.push('/payment-confirmation', {
+            email,
+            makePayment: data.makePayment,
+            trainingInstanceId,
           })
-          .catch(error => {
-            this.processPaymentError(error)
-          })
-      )
+
+          return data
+        } else {
+          this.processPaymentError(errors)
+        }
+      })
+      .catch(error => {
+        this.processPaymentError(error)
+      })
   }
 
   render() {
