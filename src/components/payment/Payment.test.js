@@ -83,13 +83,13 @@ describe('<PaymentSection /> - Making payments', () => {
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
-        wrapper.find(NameInput).find('input').simulate('change', { target: { value: 'Joe Bloggs' } })
-        wrapper.find(EmailInput).find('input').simulate('change', { target: { value: 'test@example.com' } })
-        wrapper.find(CCNameInput).find('input').simulate('change', { target: { value: 'Mr J Bloggs' } })
-        wrapper.find(CCNumberInput).find('input').simulate('change', { target: { value: '4242424242424242' } })
-        wrapper.find(CCExpiryInput).find('input').simulate('change', { target: { value: '12/99' } })
-        wrapper.find(CCCVCInput).find('input').simulate('change', { target: { value: '123' } })
-
+        const change = (Field, newValue) => wrapper.find(Field).find('input').simulate('change', { target: { value: newValue } })
+        change(NameInput, 'Joe Bloggs')
+        change(EmailInput, 'test@example.com')
+        change(CCNameInput, 'Mr J Bloggs')
+        change(CCNumberInput, '4242424242424242')
+        change(CCExpiryInput, '12/99')
+        change(CCCVCInput, '123')
 
         // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
         // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
