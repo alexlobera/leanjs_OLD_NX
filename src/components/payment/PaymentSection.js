@@ -39,8 +39,7 @@ class PaymentSection extends React.Component {
       currency = 'gbp',
       priceGoesUpOn,
       ticketName,
-    } =
-      this.props.data || {}
+    } = this.props.data || {}
     const { quantity, vatRate } = this.state
     const pricePerQuantity = price * quantity
     const discountPricePerQuantity = discountPrice && discountPrice * quantity
@@ -71,8 +70,8 @@ class PaymentSection extends React.Component {
               )}
             </Ribbon>
           ) : (
-              ''
-            )}
+            ''
+          )}
           {priceGoesUpOn && nextDiscountPrice ? (
             <P>
               Ticket price goes up to{' '}
@@ -80,8 +79,8 @@ class PaymentSection extends React.Component {
               {priceGoesUpOn}
             </P>
           ) : (
-              ''
-            )}
+            ''
+          )}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
@@ -110,7 +109,7 @@ PaymentSection.propTypes = {
     priceGoesUpOn: PropTypes.string,
     ticketName: PropTypes.string,
     currency: PropTypes.string,
-  })
+  }),
 }
 
 export default PaymentSection

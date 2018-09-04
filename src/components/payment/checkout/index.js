@@ -22,7 +22,9 @@ const PriceAndDiscount = styled.div`
   margin-bottom: 5px;
 `
 
-export const BuyButton = props => <Button {...props} right children="Buy now" cta />
+export const BuyButton = props => (
+  <Button {...props} right children="Buy now" cta />
+)
 
 class Checkout extends React.Component {
   constructor(props) {
@@ -73,28 +75,28 @@ class Checkout extends React.Component {
                   </Price>
                 </PriceAndDiscount>
               ) : (
-                  <Price>
-                    {formatPrice(currency, pricePerQuantity, vatRate)}
-                  </Price>
-                )}
+                <Price>
+                  {formatPrice(currency, pricePerQuantity, vatRate)}
+                </Price>
+              )}
               <BuyButton onClick={this.toggleIsOpen} />
             </Fragment>
           </PurchaseWrapper>
         ) : (
-            <CheckoutContainer
-              trainingInstanceId={trainingInstanceId}
-              vatRate={vatRate}
-              updateVatRate={updateVatRate}
-              currency={currency}
-              price={price}
-              discountPrice={discountPrice}
-              quantity={quantity}
-              pricePerQuantity={pricePerQuantity}
-              discountPricePerQuantity={discountPricePerQuantity}
-              removeCourse={removeCourse}
-              addCourse={addCourse}
-            />
-          )}
+          <CheckoutContainer
+            trainingInstanceId={trainingInstanceId}
+            vatRate={vatRate}
+            updateVatRate={updateVatRate}
+            currency={currency}
+            price={price}
+            discountPrice={discountPrice}
+            quantity={quantity}
+            pricePerQuantity={pricePerQuantity}
+            discountPricePerQuantity={discountPricePerQuantity}
+            removeCourse={removeCourse}
+            addCourse={addCourse}
+          />
+        )}
       </Fragment>
     )
   }

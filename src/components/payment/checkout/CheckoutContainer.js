@@ -196,7 +196,8 @@ export class CheckoutContainer extends React.Component {
     })
 
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
-    return paymentApi.card.createToken({ number, cvc, exp_month, exp_year })
+    return paymentApi.card
+      .createToken({ number, cvc, exp_month, exp_year })
       .then(result =>
         pay({
           variables: {
@@ -282,7 +283,7 @@ export class CheckoutContainer extends React.Component {
 }
 
 CheckoutContainer.defaultProps = {
-  trackUserBehaviour
+  trackUserBehaviour,
 }
 
 CheckoutContainer.propTypes = {
