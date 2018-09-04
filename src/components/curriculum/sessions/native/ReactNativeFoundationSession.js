@@ -1,6 +1,6 @@
 import React from 'react'
-import Ul, { Li } from '../../layout/Ul'
-import Session from './Session'
+import Ul, { Li } from '../../../layout/Ul'
+import Session from '../Session'
 
 const ReactNativeFoundationSession = ({ title }) => (
   <Session title={title}>
@@ -9,7 +9,7 @@ const ReactNativeFoundationSession = ({ title }) => (
       <Li>Project setup</Li>
       <Li>Layout</Li>
       <Li>Styling</Li>
-      <Li>Navigations with react-navigation</Li>
+      <Li>Forms</Li>
     </Ul>
   </Session>
 )
