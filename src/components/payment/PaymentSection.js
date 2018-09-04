@@ -39,6 +39,7 @@ class PaymentSection extends React.Component {
       currency = 'gbp',
       priceGoesUpOn,
       ticketName,
+      paymentApi = Stripe
     } =
       this.props.data || {}
     const { quantity, vatRate } = this.state
@@ -94,6 +95,7 @@ class PaymentSection extends React.Component {
             addCourse={this.addCourse}
             pricePerQuantity={pricePerQuantity}
             discountPricePerQuantity={discountPricePerQuantity}
+            paymentApi={paymentApi}
           />
         </Card>
       </React.Fragment>
@@ -110,6 +112,7 @@ PaymentSection.propTypes = {
     priceGoesUpOn: PropTypes.string,
     ticketName: PropTypes.string,
     currency: PropTypes.string,
+    paymentApi: PropTypes.object
   })
 }
 

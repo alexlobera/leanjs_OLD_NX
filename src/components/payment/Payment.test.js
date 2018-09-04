@@ -1,22 +1,37 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import waitForExpect from 'wait-for-expect'
+import { Route } from 'react-router-dom'
 
-import Root from '../../../test/utils/Root'
+import Root, { WithRouter } from '../../../test/utils/Root'
 import VALIDATE_VOUCHER from './checkout/ValidateVoucher.graphql'
+import PAY from './checkout/Pay.graphql'
 import PaymentSection from './PaymentSection'
 import { BuyButton } from './checkout'
 import {
     ShowVoucherButton,
     ValidateVoucherButton,
     TotalPayablePrice,
-    VoucherInput
+    VoucherInput,
+    NameInput,
+    EmailInput,
+    CCNameInput,
+    CCNumberInput,
+    CCExpiryInput,
+    CCCVCInput,
+    SubmitPaymentFormButton
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
+import { MockedProvider } from 'react-apollo/test-utils'
 
 
-// TODO:WV:20180903:Refactor to integration test
-/*
+const getPaymentApiStub = () => ({
+    setPublishableKey: () => { },
+    card: {
+        createToken: data => Promise.resolve({ id: 2 })
+    }    
+})
+
 const createDefaultProps = () => {
     const payment = {
         id: '123'
@@ -26,12 +41,7 @@ const createDefaultProps = () => {
     const history = {
         push: () => { }
     }
-    const paymentApi = {
-        setPublishableKey: () => { },
-        card: {
-            createToken: data => Promise.resolve({ id: 2 })
-        }
-    }
+    const paymentApi = getPaymentApiStub()
     const pay = () => Promise.resolve({ data: { payment } })
 
     return {
@@ -42,35 +52,76 @@ const createDefaultProps = () => {
         pay,
     }
 }
-*/
+
 
 describe('<PaymentSection /> - Making payments', () => {
 
-    it('should make a payment', async () => {
+    fit('should make a payment', async () => {
 
-        // TODO:WV:20180903:Refactor to integration test
-        /*
-        // input values
-        const values = {
-            CCnumber: '',
-            CCexpiry: '',
-            CCcvc: '',
-            email: '',
-            name: '',
-            companyName: null,
-            companyVat: null,
-        }
+        // mocks
+        const graphQlMocks = [{
+            request: {
+                query: PAY,
+                variables: {
+                    voucherCode: "",
+                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                    quantity: 1,
+                    email: "test@example.com",
+                    token: "123",
+                },
+            },
+            result: {
+                data: {
+                    id: "123",
+                    currency: "gbp",
+                    amount: 1194,
+                    metadata: {}
+                },
+            },
+        }]
 
-        // creating the component
-        const props = createDefaultProps()
-        const CheckoutContainerInstance = new CheckoutContainer(props)
+        // rendering
+        const wrapper = mount(
+            <Root graphQlMocks={graphQlMocks}>
+                <Route render={(props => (
+                    <PaymentSection
+                        {...props}
+                        data={{
+                            trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                            price: 995,
+                            ticketName: "Regular Ticket",
+                            currency: "gbp",
+                            paymentApi: getPaymentApiStub()
+                        }}
+                    />
+                ))}>
 
-        // executing the code to be tested
-        const result = await CheckoutContainerInstance.pay(values)
+                </Route>
+            </Root>
+        )
 
-        // assertion
-        expect(result.payment.id).not.toBeFalsy()
-        */
+        wrapper.find(BuyButton).simulate('click')
+        wrapper.update()
+
+        wrapper.find(NameInput).find('input').simulate('change', { target: { value: 'Joe Bloggs' } })
+        wrapper.find(EmailInput).find('input').simulate('change', { target: { value: 'test@example.com' } })
+        wrapper.find(CCNameInput).find('input').simulate('change', { target: { value: 'Mr J Bloggs' } })
+        wrapper.find(CCNumberInput).find('input').simulate('change', { target: { value: '4242424242424242' } })
+        wrapper.find(CCExpiryInput).find('input').simulate('change', { target: { value: '12/99' } })
+        wrapper.find(CCCVCInput).find('input').simulate('change', { target: { value: '123' } })
+
+
+        wrapper.find(SubmitPaymentFormButton).simulate('click')
+
+
+        // expectation
+        await waitForExpect(() => {
+            wrapper.update()
+            //console.log(wrapper.find(PaymentSection).props().history)
+            //expect(wrapper.find(PaymentSection).props().history.length).toBe(2)
+        });
+
+
     })
 
     it('should make redirect to /payment-confirmation if the payment was successful', () => {
