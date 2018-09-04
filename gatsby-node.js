@@ -15,6 +15,9 @@ exports.modifyBabelrc = ({ babelrc }) => ({
 
 exports.modifyWebpackConfig = ({ config, stage }) => {
   const timestamp = Date.now()
+  config.loader('graphql-tag/loader', {
+    test: /\.(graphql|gql)$/,
+  });
   switch (stage) {
     case 'build-javascript':
       config.merge({
@@ -23,13 +26,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
           chunkFilename: `[name]-${timestamp}-[chunkhash].js`
         }
       })
-
       break
-    default:
-      config.loader('graphql-tag/loader', {
-        test: /\.(graphql|gql)$/,
-      });
-      break;
   }
   return config
 }
