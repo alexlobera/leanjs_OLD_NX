@@ -32,7 +32,7 @@ const getPaymentApiStub = () => ({
 
 describe('<PaymentSection /> - Making payments', () => {
 
-    fit('should make a payment', async () => {
+    it('should make a payment', async () => {
 
         // mocks
         const graphQlMocks = [{
