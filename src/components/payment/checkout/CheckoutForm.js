@@ -243,12 +243,12 @@ class CheckoutForm extends React.Component {
                     </LinkButton>
                   </Fragment>
                 ) : (
-                    <FormGroup>
-                      <Link onClick={this.toggleDisplayCompanyDetails}>
-                        + Add company details
+                  <FormGroup>
+                    <Link onClick={this.toggleDisplayCompanyDetails}>
+                      + Add company details
                     </Link>
-                    </FormGroup>
-                  )}
+                  </FormGroup>
+                )}
                 <CheckoutH4>Payment details</CheckoutH4>
                 <FieldInput
                   label="Name on card:"
@@ -323,14 +323,14 @@ class CheckoutForm extends React.Component {
                     </ValidateVoucherButton>
                   </Fragment>
                 ) : (
-                    <FormGroup>
-                      <ShowVoucherButton
-                        onClick={this.toggleDisplayVoucherSection}
-                      >
-                        + Add discount voucher
+                  <FormGroup>
+                    <ShowVoucherButton
+                      onClick={this.toggleDisplayVoucherSection}
+                    >
+                      + Add discount voucher
                     </ShowVoucherButton>
-                    </FormGroup>
-                  )}
+                  </FormGroup>
+                )}
                 <RibbonBottomContainer>
                   <CheckoutH4>Pricing</CheckoutH4>
                   {discountPricePerQuantity ? (
@@ -343,8 +343,8 @@ class CheckoutForm extends React.Component {
                       )}
                     </Ribbon>
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>
