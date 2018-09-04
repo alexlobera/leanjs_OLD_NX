@@ -3,9 +3,9 @@ import { H1Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
-import ReactNativeFoundationSession from './sessions/ReactNativeFoundationSession'
-import ReactNativeGesturesSession from './sessions/ReactNativeGesturesSession'
-import ReactNativeAnimationsSession from './sessions/ReactNativeAnimationsSession'
+import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
+import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
+import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
 
 const CurriculumReactNative = ({
   showTitle = true,
@@ -20,11 +20,11 @@ const CurriculumReactNative = ({
       {...commonProps}
       title="React Native Day 1"
       name="day1"
-      subTitle="Foundation, Animations, and Gestures"
+      subTitle="Foundation, Navigations, and Animations"
     >
       <ReactNativeFoundationSession title="Foundation" />
+      <ReactNativeNavigationSession title="Navigations" />
       <ReactNativeAnimationsSession title="Animations" />
-      <ReactNativeGesturesSession title="Gestures" />
     </Section>
   )
 
@@ -42,17 +42,17 @@ const CurriculumReactNative = ({
           </Col>
         </Row>
       ) : (
-        ''
-      )}
+          ''
+        )}
       {list ? (
         <List>{firstHalf}</List>
       ) : (
-        <Row>
-          <Col md={6} lg={5} lgOffset={1}>
-            {firstHalf}
-          </Col>
-        </Row>
-      )}
+          <Row>
+            <Col md={6} lg={5} lgOffset={1}>
+              {firstHalf}
+            </Col>
+          </Row>
+        )}
     </React.Fragment>
   )
 }
