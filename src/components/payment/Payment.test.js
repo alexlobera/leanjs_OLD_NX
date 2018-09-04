@@ -30,28 +30,6 @@ const getPaymentApiStub = () => ({
     }    
 })
 
-const createDefaultProps = () => {
-    const payment = {
-        id: '123'
-    }
-    const trainingInstanceId = 'zxcvb'
-    const trackUserBehaviour = () => { }
-    const history = {
-        push: () => { }
-    }
-    const paymentApi = getPaymentApiStub()
-    const pay = () => Promise.resolve({ data: { payment } })
-
-    return {
-        trainingInstanceId,
-        trackUserBehaviour,
-        paymentApi,
-        history,
-        pay,
-    }
-}
-
-
 describe('<PaymentSection /> - Making payments', () => {
 
     fit('should make a payment', async () => {
