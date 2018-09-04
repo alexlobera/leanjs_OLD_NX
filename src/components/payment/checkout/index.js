@@ -53,7 +53,7 @@ class Checkout extends React.Component {
       discountPricePerQuantity,
       vatRate,
       updateVatRate,
-      paymentApi = Stripe
+      paymentApi
     } = this.props
     const { isOpen } = this.state
     // The class `gtm-purchase-box` is needed for Tracking purposes,

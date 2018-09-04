@@ -39,7 +39,7 @@ class PaymentSection extends React.Component {
       currency = 'gbp',
       priceGoesUpOn,
       ticketName,
-      paymentApi = Stripe
+      paymentApi
     } =
       this.props.data || {}
     const { quantity, vatRate } = this.state
