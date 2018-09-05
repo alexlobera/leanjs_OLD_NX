@@ -61,19 +61,19 @@ const AttendeeQuote = ({
   profilePicUrl,
   ...props
 }) => (
-    <Card {...props}>
-      <Text>
-        <StyledBlockquote>
-          {quote || 'This is a quote from a trainee.'}
-        </StyledBlockquote>
-        <Profile>
-          <strong>
-            {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'Freelance'}{' '}
-          </strong>
-        </Profile>
-      </Text>
-      <Picture src={profilePicUrl} />
-    </Card>
-  )
+  <Card {...props}>
+    <Text>
+      <StyledBlockquote>
+        {quote || 'This is a quote from a trainee.'}
+      </StyledBlockquote>
+      <Profile>
+        <strong>
+          {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'Freelance'}{' '}
+        </strong>
+      </Profile>
+    </Text>
+    <Picture src={profilePicUrl} />
+  </Card>
+)
 
 export default AttendeeQuote

@@ -11,7 +11,7 @@ import { SCREEN_SM_MAX } from '../utils'
 import { P } from '../text'
 import { BulletIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons'
 
-const StyledFooter = styled.footer`
+const StyledFooter = styled.div`
   footer {
     background-color: ${blue1()};
     padding: 50px 0 40px 0;
