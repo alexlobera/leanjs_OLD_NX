@@ -7,11 +7,11 @@ import { RJSALogo } from '../logos'
 import Ul, { Li } from './Ul'
 import Link, { styleChildLinkColor } from '../navigation/Link'
 import { blue1, WHITE } from '../../config/styles'
-import { SCREEN_XS_MAX } from '../utils'
+import { SCREEN_SM_MAX } from '../utils'
 import { P } from '../text'
 import { BulletIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons'
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.footer`
   footer {
     background-color: ${blue1()};
     padding: 50px 0 40px 0;
@@ -22,7 +22,7 @@ const StyledFooter = styled.div`
     ${styleChildLinkColor(WHITE)};
   }
 
-  @media (max-width: ${SCREEN_XS_MAX}) {
+  @media (max-width: ${SCREEN_SM_MAX}) {
     background-color: ${blue1()};
   }
 `
