@@ -8,9 +8,9 @@
     ],
     "source": "functions"
   },
-  "trailingSlash": true,
   "hosting": {
     "public": "public",
+    "trailingSlash": true,
     "ignore": [
       "firebase.json",
       "**/.*",
