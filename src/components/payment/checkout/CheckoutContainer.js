@@ -196,9 +196,9 @@ export class CheckoutContainer extends React.Component {
     })
 
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
-    return paymentApi.card
-      .createToken({ number, cvc, exp_month, exp_year })
-      .then(result =>
+    paymentApi.card.createToken(
+      { number, cvc, exp_month, exp_year },
+      (status, response) =>
         pay({
           variables: {
             voucherCode: this.state.voucher,
@@ -206,7 +206,7 @@ export class CheckoutContainer extends React.Component {
             trainingInstanceId,
             email,
             name,
-            token: result.id,
+            token: response.id,
             vatRate,
             companyName,
             companyVat,
@@ -219,8 +219,6 @@ export class CheckoutContainer extends React.Component {
                 makePayment: data.makePayment,
                 trainingInstanceId,
               })
-
-              return data
             } else {
               this.processPaymentError(errors)
             }
@@ -228,7 +226,7 @@ export class CheckoutContainer extends React.Component {
           .catch(error => {
             this.processPaymentError(error)
           })
-      )
+    )
   }
 
   render() {

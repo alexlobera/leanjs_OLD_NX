@@ -153,7 +153,7 @@ class CheckoutForm extends React.Component {
           script={[
             {
               type: 'text/javascript',
-              src: 'https://js.stripe.com/v3/',
+              src: 'https://js.stripe.com/v2/',
               async: true,
             },
           ]}
