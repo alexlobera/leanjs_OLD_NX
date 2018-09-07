@@ -67,7 +67,7 @@ const generateDummyGraphQLRequest = type => {
                 query: VALIDATE_VIES,
                 variables: {
                     countryCode: "GB",
-                    vatNumber: "GB999 9999 73",
+                    vatNumber: "999 9999 73",
                 }
             }
     }
