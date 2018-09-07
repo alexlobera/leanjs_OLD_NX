@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../config/styles'
-import { SCREEN_XS_MAX } from '../utils'
+import { SCREEN_XS_MAX, SCREEN_MD_MAX, SCREEN_SM_MIN } from '../utils'
 import { styleChildLinkColor } from '../navigation/Link'
 
 const fontColor = color => `
@@ -37,7 +37,8 @@ const Card = styled.div`
       padding: 30px;
     `
       : `
-    padding: 60px 0 40px 0;
+    padding-top: 60px;
+    padding-bottom:40px;
   `}
   ${props => {
     switch (props.bg) {
@@ -72,16 +73,15 @@ const Card = styled.div`
   @media (max-width: ${SCREEN_XS_MAX}) {
     border: 0;
     box-shadow: none;
-    ${props =>
-      !props.small
-        ? `    
-        padding: 0;
-      `
-        : `
-      padding-left: 5px;
-      padding-right: 5px;
-      `}
+    padding-left: 5px;
+    padding-right: 5px;
   }
+
+  @media (min-width: ${SCREEN_SM_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
 `
 
 Card.displayName = 'Card'

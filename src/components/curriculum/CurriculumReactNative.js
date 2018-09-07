@@ -42,17 +42,17 @@ const CurriculumReactNative = ({
           </Col>
         </Row>
       ) : (
-          ''
-        )}
+        ''
+      )}
       {list ? (
         <List>{firstHalf}</List>
       ) : (
-          <Row>
-            <Col md={6} lg={5} lgOffset={1}>
-              {firstHalf}
-            </Col>
-          </Row>
-        )}
+        <Row>
+          <Col md={6} lg={5} lgOffset={1}>
+            {firstHalf}
+          </Col>
+        </Row>
+      )}
     </React.Fragment>
   )
 }

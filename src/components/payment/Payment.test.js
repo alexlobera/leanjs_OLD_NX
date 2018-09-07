@@ -26,7 +26,7 @@ import { CheckoutContainer } from './checkout/CheckoutContainer'
 const getPaymentApiStub = () => ({
     setPublishableKey: () => { },
     card: {
-        createToken: data => Promise.resolve({ id: 2 })
+        createToken: (data, callback) => callback("test-status", { id: 2})
     }    
 })
 

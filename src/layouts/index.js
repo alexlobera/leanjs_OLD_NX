@@ -24,8 +24,8 @@ const gridTheme = {
     gutterWidth: 1,
     outerMargin: 0.5,
     container: {
-      sm: 46, // rem
-      md: 64, // rem
+      sm: null, // rem
+      md: null, // rem
       lg: 64, // rem
     },
   },

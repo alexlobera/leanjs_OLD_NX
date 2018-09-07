@@ -40,7 +40,7 @@ const Menu = ({ width }) => {
       <Grid>
         <MenuContainer>
           <RJSALogo />
-          {canIGuessTheScreenSizeUsingJS && width < MEDIUM ? (
+          {canIGuessTheScreenSizeUsingJS && width <= MEDIUM ? (
             <PhoneMenu />
           ) : (
             <DesktopMenu />

@@ -63,8 +63,8 @@ const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
           />
         </React.Fragment>
       ) : (
-          <InputForm {...props} {...input} onChange={onChange} type={type} />
-        )}
+        <InputForm {...props} {...input} onChange={onChange} type={type} />
+      )}
       {(invalid && !pristine) || (submitFailed && !submitSucceeded) ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : null}

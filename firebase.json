@@ -10,6 +10,7 @@
   },
   "hosting": {
     "public": "public",
+    "trailingSlash": true,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -18,12 +19,12 @@
     "redirects": [
       {
         "source": "/react-redux-training-usa",
-        "destination": "/react-redux-graphql-bootcamp-nyc",
+        "destination": "/react-redux-graphql-bootcamp-nyc/",
         "type": 301
       },
       {
         "source": "/become-a-coach",
-        "destination": "/about-us",
+        "destination": "/about-us/",
         "type": 301
       },
       {
@@ -33,7 +34,7 @@
       },
       {
         "source": "/why-training",
-        "destination": "/about-us",
+        "destination": "/about-us/",
         "type": 301
       }
     ]

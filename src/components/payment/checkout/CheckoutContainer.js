@@ -162,7 +162,6 @@ export class CheckoutContainer extends React.Component {
   }
 
   pay = values => {
-
     if (this.state.isPaymentInProgress) {
       return
     }
@@ -197,8 +196,9 @@ export class CheckoutContainer extends React.Component {
     })
 
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
-    return paymentApi.card.createToken({ number, cvc, exp_month, exp_year })
-      .then(result => 
+    paymentApi.card.createToken(
+      { number, cvc, exp_month, exp_year },
+      (status, response) =>
         pay({
           variables: {
             voucherCode: this.state.voucher,
@@ -206,33 +206,30 @@ export class CheckoutContainer extends React.Component {
             trainingInstanceId,
             email,
             name,
-            token: result.id,
+            token: response.id,
             vatRate,
             companyName,
             companyVat,
           },
-        }))
-      .then(({ data }) => {
-        if (!data.errors) {
-          this.props.history.push('/payment-confirmation', {
-            email,
-            makePayment: data.makePayment,
-            trainingInstanceId,
+        })
+          .then(({ data }) => {
+            if (!data.errors) {
+              this.props.history.push('/payment-confirmation', {
+                email,
+                makePayment: data.makePayment,
+                trainingInstanceId,
+              })
+            } else {
+              this.processPaymentError(errors)
+            }
           })
-
-          return data
-        } else {
-          this.processPaymentError(errors)
-        }
-      })
-      .catch(error => {
-        this.processPaymentError(error)
-      })
+          .catch(error => {
+            this.processPaymentError(error)
+          })
+    )
   }
 
   render() {
-
-
     const {
       quantity,
       pricePerQuantity,
@@ -284,7 +281,7 @@ export class CheckoutContainer extends React.Component {
 }
 
 CheckoutContainer.defaultProps = {
-  trackUserBehaviour
+  trackUserBehaviour,
 }
 
 CheckoutContainer.propTypes = {
