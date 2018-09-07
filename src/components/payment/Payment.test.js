@@ -76,6 +76,14 @@ const generateDummyGraphQLResult = type => {
                     voucherGetNetPriceWithDiscount: null
                 }
             }
+        case "validVoucher":
+            return {
+                data: {
+                    voucherGetNetPriceWithDiscount: {
+                        amount: 1,
+                    }
+                },
+            }
         case "testError":
             return {
                 data: {
@@ -179,38 +187,7 @@ describe('<PaymentSection /> - Voucher functionality', () => {
     })
 
     it('should update total price if the voucher is correct', async () => {
-        // mocks
-        const graphQlMocks = [{
-            request: {
-                query: VALIDATE_VOUCHER,
-                variables: {
-                    voucherCode: "123abc",
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    quantity: 1,
-                },
-            },
-            result: {
-                data: {
-                    voucherGetNetPriceWithDiscount: {
-                        amount: 1,
-                    }
-                },
-            },
-        }]
-
-        // rendering
-        const wrapper = mount(
-            <Root graphQlMocks={graphQlMocks}>
-                <PaymentSection
-                    data={{
-                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                        price: 995,
-                        ticketName: "Regular Ticket",
-                        currency: "gbp",
-                    }}
-                />
-            </Root>
-        )
+        const wrapper = getWrapper("validateVoucher")("validVoucher")()
 
         // steps
         wrapper.find(BuyButton).simulate('click')
@@ -219,7 +196,7 @@ describe('<PaymentSection /> - Voucher functionality', () => {
         expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
 
         wrapper.find(ShowVoucherButton).simulate('click')
-        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: '123abc' } })
+        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: 'asd' } })
         wrapper.find(ValidateVoucherButton).simulate('click')
 
         // expectation
