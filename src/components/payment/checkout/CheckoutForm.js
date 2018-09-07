@@ -274,8 +274,8 @@ class CheckoutForm extends React.Component {
                   autoCorrect="no"
                   autoCapitalize="no"
                   spellCheck="no"
-                  validate={composeValidators(required, mustBeCardNumber)}
                   format={formatCreditCardNumber}
+                  validate={composeValidators(required, mustBeCardNumber)}
                 />
                 <Row>
                   <Col xs={6}>

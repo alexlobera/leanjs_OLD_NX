@@ -15,7 +15,7 @@ function clearNumber(value = '') {
 
 export function formatCreditCardNumber(value) {
   if (!value) {
-    return value
+    return ''
   }
 
   const issuer = Payment.fns.cardType(value)
