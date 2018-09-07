@@ -231,7 +231,7 @@ describe('<PaymentSection /> - Company details', () => {
         setUpVATButtonTextTest()
     })
 
-    xit("should show an appropriate message in the validate-VAT-number button if the provided VAT number was found to be valid", async () => {
+    it("should show an appropriate message in the validate-VAT-number button if the provided VAT number was found to be valid", async () => {
         const { wrapper, getButtonText, originalText } = setUpVATButtonTextTest()
 
         await waitForExpect(() => {
@@ -240,7 +240,7 @@ describe('<PaymentSection /> - Company details', () => {
         })
     })
 
-    xit("should show the default message in the validate-VAT-number button if the provided VAT number was found to be invalid", async () => {
+    it("should show the default message in the validate-VAT-number button if the provided VAT number was found to be invalid", async () => {
         const { wrapper, getButtonText, originalText } = setUpVATButtonTextTest(false)
 
         await waitForExpect(() => {
