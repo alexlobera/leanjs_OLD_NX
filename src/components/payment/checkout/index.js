@@ -126,13 +126,13 @@ Checkout.propTypes = {
   discountPrice: PropTypes.number,
   quantity: PropTypes.number.isRequired,
   priceXQuantity: PropTypes.number,
-  currentPriceXQuantity: PropTypes.number,
+  currentPriceXQuantity: PropTypes.number.isRequired,
   removeCourse: PropTypes.func.isRequired,
   addCourse: PropTypes.func.isRequired,
   resetVoucher: PropTypes.func.isRequired,
   validateVoucher: PropTypes.func.isRequired,
   voucher: PropTypes.string.isRequired,
-  isVoucherValid: PropTypes.bool.isRequired,
+  isVoucherValid: PropTypes.bool,
   isVoucherValidationInProgress: PropTypes.bool.isRequired,
 }
 export default Checkout

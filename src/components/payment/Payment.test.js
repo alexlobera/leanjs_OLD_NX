@@ -163,7 +163,6 @@ describe('<PaymentSection /> - Voucher functionality', () => {
         />
       </Root>
     )
-
     // steps
     wrapper.find(BuyButton).simulate('click')
 

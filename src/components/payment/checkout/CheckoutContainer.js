@@ -217,14 +217,14 @@ CheckoutContainer.propTypes = {
   updateVatRate: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   quantity: PropTypes.number.isRequired,
-  currentPriceXQuantity: PropTypes.number,
+  currentPriceXQuantity: PropTypes.number.isRequired,
   priceXQuantity: PropTypes.number.isRequired,
   trainingInstanceId: PropTypes.string.isRequired,
   trackUserBehaviour: PropTypes.func.isRequired,
   resetVoucher: PropTypes.func.isRequired,
   validateVoucher: PropTypes.func.isRequired,
   voucher: PropTypes.string.isRequired,
-  isVoucherValid: PropTypes.bool.isRequired,
+  isVoucherValid: PropTypes.bool,
   isVoucherValidationInProgress: PropTypes.bool.isRequired,
 }
 
