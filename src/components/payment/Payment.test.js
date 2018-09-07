@@ -97,7 +97,7 @@ const generateDummyGraphQLResult = type => {
 
 }
 
-const getWrapperCreator = requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => () => {
+const getWrapperCreator = (requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => () => {
     const mocks = ((Array.isArray(graphQlMocks)) ? graphQlMocks:[graphQlMocks] ).map(mock => ({
         request: mock.request?mock.request:generateDummyGraphQLRequest(requestType),
         result: mock.result?mock.result:generateDummyGraphQLResult(resultType)
@@ -123,7 +123,7 @@ const getWrapperCreator = requestType => resultType => (graphQlMocks = [{request
     )
 
     return wrapper
-}
+})
 
 const getWrapper = (requestType, resultType, graphQlMocks = undefined) => getWrapperCreator(requestType)(resultType)(graphQlMocks)()
 
@@ -172,7 +172,11 @@ describe('<PaymentSection /> - Making payments', () => {
             expect(getNumWarnings()).toBe(1)
         })
     })
+})
 
+describe('<PaymentSection /> - Company details', () => {
+    // TODO:WV:20180907:Test basic JS EU Vat number validation
+    // TODO:WV:20180907:Test what happens after the user clicks "Validate EU VAT and update taxes"
 })
 
 describe('<PaymentSection /> - Voucher functionality', () => {
