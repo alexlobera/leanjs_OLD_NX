@@ -30,7 +30,7 @@ const getPaymentApiStub = () => ({
     }    
 })
 
-const defaultGraphQLRequest = type => {
+const generateDummyGraphQLRequest = type => {
     switch (type) {
         case "pay":
             return {
@@ -59,7 +59,7 @@ const defaultGraphQLRequest = type => {
     }
 }
 
-const defaultGraphQLResult = type => {
+const generateDummyGraphQLResult = type => {
     switch (type) {
         case "pay":
             return {
@@ -88,10 +88,10 @@ const defaultGraphQLResult = type => {
 
 }
 
-const getWrapper = requestType => resultType => (graphQlMocks = [{request:defaultGraphQLRequest(requestType), result:defaultGraphQLResult(resultType)}]) => {
+const getWrapper = requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => {
     const mocks = ((Array.isArray(graphQlMocks)) ? graphQlMocks:[graphQlMocks] ).map(mock => ({
-        request: mock.request?mock.request:defaultGraphQLRequest(requestType),
-        result: mock.result?mock.result:defaultGraphQLResult(resultType)
+        request: mock.request?mock.request:generateDummyGraphQLRequest(requestType),
+        result: mock.result?mock.result:generateDummyGraphQLResult(resultType)
     }))
 
     const wrapper = mount(
