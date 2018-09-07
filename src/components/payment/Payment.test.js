@@ -10,6 +10,7 @@ import PaymentSection from './PaymentSection'
 import { BuyButton } from './checkout'
 import {
     AddCompanyDetailsButton,
+    EUVATNumberField,
     ShowVoucherButton,
     ValidateVoucherButton,
     TotalPayablePrice,
@@ -159,7 +160,7 @@ describe('<PaymentSection /> - Making payments', () => {
         });
     }
 
-    fit('should make a payment', async () => {
+    it('should make a payment', async () => {
         const wrapper = getWrapper("pay", "pay")
         preparePayment(wrapper)
         await makePayment(wrapper, wrapper => {
@@ -180,13 +181,26 @@ describe('<PaymentSection /> - Making payments', () => {
 
 describe('<PaymentSection /> - Company details', () => {
 
-    it("should validate the EU vat number against a correct pattern", () => {
+    const INVALID_EU_VAT_NUMBER = "XYZ123"
+    const VALID_EU_VAT_NUMBER = "GB999 9999 73"
+
+    const getVATNumberTester = (VATNumber, expectError) => () => {
         const wrapper = getWrapper("pay", "pay")
 
         wrapper.find(BuyButton).simulate('click')
-        wrapper.find(AddCompanyDetailsButton).simulate('click') 
-        //change()
-    })
+        wrapper.find(AddCompanyDetailsButton).simulate('click')
+
+        wrapper.update()
+        const change = getFieldChanger(wrapper)
+        const getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length
+        expect(getNumErrorNodes()).toBe(0)
+        change(EUVATNumberField, VATNumber)
+        wrapper.update()
+        expect(getNumErrorNodes()).toBe(expectError?1:0)
+    }
+
+    it("should flag-up invalid-format EU vat numbers", getVATNumberTester(INVALID_EU_VAT_NUMBER, true))
+    it("should not flag-up valid-format EU vat numbers", getVATNumberTester(VALID_EU_VAT_NUMBER, false))
 
     // TODO:WV:20180907:Test what happens after the user clicks "Validate EU VAT and update taxes"
 })

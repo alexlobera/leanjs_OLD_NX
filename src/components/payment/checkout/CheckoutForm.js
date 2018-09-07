@@ -241,7 +241,7 @@ class CheckoutForm extends React.Component {
                       placeholder="eg. Acme Inc"
                       validate={required}
                     />
-                    <FieldInput
+                    <EUVATNumberField
                       label="EU VAT number:"
                       name="companyVat"
                       placeholder="eg. GB256547555"
