@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom'
 
 import Root from '../../../test/utils/Root'
 import VALIDATE_VOUCHER from './checkout/ValidateVoucher.graphql'
+import VALIDATE_VIES from './checkout/ValidateVies.graphql'
 import PAY from './checkout/Pay.graphql'
 import PaymentSection from './PaymentSection'
 import { BuyButton } from './checkout'
@@ -60,45 +61,48 @@ const generateDummyGraphQLRequest = type => {
                     quantity: 1,
                 },
             }
+        case "validateVies":
+            return {
+                query: VALIDATE_VIES,
+                variables: {
+                    countryCode: "GB",
+                    vatNumber: "GB999 9999 73",
+                }
+            }
     }
 }
 
-const generateDummyGraphQLResult = type => {
-    switch (type) {
-        case "pay":
-            return {
-                data: {
-                    id: "123",
-                    currency: "gbp",
-                    amount: 1194,
-                    metadata: {}
-                }
-            }
-        case "invalidVoucher":
-            return {
-                data: {
-                    voucherGetNetPriceWithDiscount: null
-                }
-            }
-        case "validVoucher":
-            return {
-                data: {
-                    voucherGetNetPriceWithDiscount: {
-                        amount: 1,
-                    }
-                },
-            }
-        case "testError":
-            return {
-                data: {
-                    errors: [
-                        {message: "Test error"}
-                    ]
-                }                
-            }
+const dummyGraphQLResultData = {
+    "pay": {
+        id: "123",
+        currency: "gbp",
+        amount: 1194,
+        metadata: {}
+    },
+    "invalidVoucher": {
+        voucherGetNetPriceWithDiscount: null
+    },
+    "validVoucher": {
+        voucherGetNetPriceWithDiscount: {
+            amount: 1,
+        }
+    },
+    "invalidVies": {
+        isVatNumberValid: false
+    },
+    "validVies": {
+        isVatNumberValid: true
+    },
+    "testError": {
+        errors: [
+            {message: "Test error"}
+        ]
     }
-
 }
+
+const generateDummyGraphQLResult = type => ({
+    data: dummyGraphQLResultData[type]
+})
 
 const getWrapperCreator = (requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => () => {
     const mocks = ((Array.isArray(graphQlMocks)) ? graphQlMocks:[graphQlMocks] ).map(mock => ({
