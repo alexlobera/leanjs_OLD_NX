@@ -215,7 +215,7 @@ describe('<PaymentSection /> - Company details', () => {
 
     const setUpVATButtonTextTest = (graphQLResponseValid=true) => {
         const { wrapper, change } = prepareToTestVATNumbers(graphQLResponseValid)
-        change(EUVATNumberField, VALID_EU_VAT_NUMBER)
+        change(EUVATNumberField, "GB999 9999 73")
 
         const getButtonText = () => wrapper.find(ValidateViesButton).text()
         const originalText = getButtonText()
