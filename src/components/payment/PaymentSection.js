@@ -27,7 +27,8 @@ class PaymentSection extends React.Component {
   componentDidMount() {
     const voucher = getVoucherByPathname()
     if (voucher) {
-
+      this.setState({ voucher })
+      this.validateVoucher(voucher)
     }
   }
 
@@ -68,19 +69,6 @@ class PaymentSection extends React.Component {
           isVoucherValid: !!amount,
           voucherPriceXQuantity: amount,
         })
-        // if (amount) {
-        //   this.setState({
-        //     isVoucherValid: true,
-        //     voucherPriceXQuantity: amount,
-        //   })
-        //   //this.updateVoucherPriceXQuantity(amount)
-        // } else {
-        //   this.setState({
-        //     isVoucherValid: false,
-        //     voucherPriceXQuantity: null,
-        //   })
-        //   //this.updateVoucherPriceXQuantity(null)
-        // }
       })
       .catch(error => {
         this.setVoucherInProgress(false)
@@ -97,7 +85,6 @@ class PaymentSection extends React.Component {
       voucher,
       voucherPriceXQuantity: null,
     })
-    //this.updateVoucherPriceXQuantity(null)
   }
 
   removeCourse = () => {
@@ -117,10 +104,6 @@ class PaymentSection extends React.Component {
   updateVatRate = vatRate => {
     this.setState({ vatRate })
   }
-
-  // updateVoucherPriceXQuantity = voucherPriceXQuantity => {
-  //   this.setState({ voucherPriceXQuantity })
-  // }
 
   render() {
     const {

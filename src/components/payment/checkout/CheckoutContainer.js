@@ -25,24 +25,9 @@ export class CheckoutContainer extends React.Component {
   state = {
     isPaymentInProgress: false,
     paymentErrorMessage: null,
-    //isVoucherValid: null,
-    //isVoucherValidationInProgress: false,
-    //voucher: '',
     isViesValidationInProgress: false,
     isViesValid: null,
   }
-
-  // setVoucherInProgress = isVoucherValidationInProgress => {
-  //   this.setState({ isVoucherValidationInProgress })
-  // }
-
-  // resetVoucher = (voucher = '') => {
-  //   this.setState({
-  //     isVoucherValid: null,
-  //     voucher,
-  //   })
-  //   this.props.updateVoucherPriceXQuantity(null)
-  // }
 
   resetVatRate = () => {
     if (this.state.isViesValid || this.props.vatRate !== DEFAULT_VAT_RATE) {

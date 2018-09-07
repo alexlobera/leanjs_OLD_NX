@@ -103,9 +103,13 @@ const RibbonBottomContainer = styled.div`
 `
 
 class CheckoutForm extends React.Component {
-  state = {
-    isVoucherDisplayed: false,
-    isCompanyDetailsDisplayed: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isVoucherDisplayed: !!props.voucher,
+      isCompanyDetailsDisplayed: false,
+    }
   }
 
   toggleDisplayVoucherSection = () => {
