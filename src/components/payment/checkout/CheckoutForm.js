@@ -28,16 +28,16 @@ import {
   formatCVC,
 } from '../../utils/card'
 import {
-  aliasComponent
+  getComponentAliaser
 } from '../../utils/aliasComponent'
 
 // These aliases enable the relevant elements to be selected by Enzyme for testing
 // Have caution when updating these names as you will then need to update the tests as well.
-const aliasLink = () => aliasComponent(Link)
-const aliasInput = () => aliasComponent(FieldInput)
-const aliasLinkButton = () => aliasComponent(LinkButton)
-const aliasPrice = () => aliasComponent(Price)
-const aliasButton = () => aliasComponent(Button)
+const aliasLink = getComponentAliaser(Link)
+const aliasInput = getComponentAliaser(FieldInput)
+const aliasLinkButton = getComponentAliaser(LinkButton)
+const aliasPrice = getComponentAliaser(Price)
+const aliasButton = getComponentAliaser(Button)
 export const AddCompanyDetailsButton = aliasLink()
 export const EUVATNumberField = aliasInput()
 export const ValidateViesButton = aliasLinkButton()
