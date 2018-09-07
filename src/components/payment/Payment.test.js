@@ -22,6 +22,7 @@ import {
     SubmitPaymentFormButton
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
+import { Alert } from '../elements'
 
 const getPaymentApiStub = () => ({
     setPublishableKey: () => { },
@@ -30,13 +31,10 @@ const getPaymentApiStub = () => ({
     }    
 })
 
-describe('<PaymentSection /> - Making payments', () => {
-
-    it('should make a payment', async () => {
-
-        // mocks
-        const graphQlMocks = [{
-            request: {
+const generateDummyGraphQLRequest = type => {
+    switch (type) {
+        case "pay":
+            return {
                 query: PAY,
                 variables: {
                     voucherCode: "",
@@ -49,37 +47,89 @@ describe('<PaymentSection /> - Making payments', () => {
                     companyName: undefined,
                     companyVat: undefined
                 },
-            },
-            result: {
+            }
+        case "validateVoucher":
+            return {
+                query: VALIDATE_VOUCHER,
+                variables: {
+                    voucherCode: "asd",
+                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                    quantity: 1,
+                },
+            }
+    }
+}
+
+const generateDummyGraphQLResult = type => {
+    switch (type) {
+        case "pay":
+            return {
                 data: {
                     id: "123",
                     currency: "gbp",
                     amount: 1194,
                     metadata: {}
+                }
+            }
+        case "invalidVoucher":
+            return {
+                data: {
+                    voucherGetNetPriceWithDiscount: null
+                }
+            }
+        case "validVoucher":
+            return {
+                data: {
+                    voucherGetNetPriceWithDiscount: {
+                        amount: 1,
+                    }
                 },
-            },
-        }]
+            }
+        case "testError":
+            return {
+                data: {
+                    errors: [
+                        {message: "Test error"}
+                    ]
+                }                
+            }
+    }
 
-        // rendering
-        const wrapper = mount(
-            <Root graphQlMocks={graphQlMocks}>
-                <Route render={(props => (
-                    <PaymentSection
-                        {...props}
-                        data={{
-                            trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                            price: 995,
-                            ticketName: "Regular Ticket",
-                            currency: "gbp",
-                            paymentApi: getPaymentApiStub()
-                        }}
-                    />
-                ))}>
+}
 
-                </Route>
-            </Root>
-        )
+const getWrapperCreator = requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => () => {
+    const mocks = ((Array.isArray(graphQlMocks)) ? graphQlMocks:[graphQlMocks] ).map(mock => ({
+        request: mock.request?mock.request:generateDummyGraphQLRequest(requestType),
+        result: mock.result?mock.result:generateDummyGraphQLResult(resultType)
+    }))
 
+    const wrapper = mount(
+        <Root graphQlMocks={mocks}>
+            <Route render={(props => (
+                <PaymentSection
+                    {...props}
+                    data={{
+                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                        price: 995,
+                        ticketName: "Regular Ticket",
+                        currency: "gbp",
+                        paymentApi: getPaymentApiStub()
+                    }}
+                />
+            ))}>
+
+            </Route>
+        </Root>
+    )
+
+    return wrapper
+}
+
+const getWrapper = (requestType, resultType, graphQlMocks = undefined) => getWrapperCreator(requestType)(resultType)(graphQlMocks)()
+
+describe('<PaymentSection /> - Making payments', () => {
+
+    const preparePayment = wrapper => {
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
@@ -89,61 +139,46 @@ describe('<PaymentSection /> - Making payments', () => {
         change(CCNameInput, 'Mr J Bloggs')
         change(CCNumberInput, '4242424242424242')
         change(CCExpiryInput, '12/99')
-        change(CCCVCInput, '123')
+        change(CCCVCInput, '123')        
+    }
+
+    const makePayment = async (wrapper, checkExpectations) => {
 
         // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
         // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
         // on the button works as well, but that seems hackish so this method was used instead.
         wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
 
-
-        // expectation
-        await waitForExpect(() => {
+        return waitForExpect(() => {
             wrapper.update()
-            expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
+            checkExpectations(wrapper)
         });
+    }
 
-
+    it('should make a payment', async () => {
+        const wrapper = getWrapper("pay", "pay")
+        preparePayment(wrapper)
+        await makePayment(wrapper, wrapper => {
+            expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
+        })
     })
 
-    it('should make redirect to /payment-confirmation if the payment was successful', () => {
-
+    it('should reflect payment errors in the UI', async () => {
+        const wrapper = getWrapper("pay", "testError")
+        preparePayment(wrapper)
+        const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
+        expect(getNumWarnings()).toBe(0)
+        await makePayment(wrapper, wrapper => {
+            expect(getNumWarnings()).toBe(1)
+        })
     })
+
 })
 
 describe('<PaymentSection /> - Voucher functionality', () => {
 
     it('should display an error message, and not update the price, if the voucher is invalid', async () => {
-        // mocks
-        const graphQlMocks = [{
-            request: {
-                query: VALIDATE_VOUCHER,
-                variables: {
-                    voucherCode: "asd",
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    quantity: 1,
-                },
-            },
-            result: {
-                data: {
-                    voucherGetNetPriceWithDiscount: null
-                },
-            },
-        }]
-
-        // rendering
-        const wrapper = mount(
-            <Root graphQlMocks={graphQlMocks}>
-                <PaymentSection
-                    data={{
-                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                        price: 995,
-                        ticketName: "Regular Ticket",
-                        currency: "gbp",
-                    }}
-                />
-            </Root>
-        )
+        const wrapper = getWrapper("validateVoucher", "invalidVoucher")
 
         // steps
         wrapper.find(BuyButton).simulate('click')
@@ -166,38 +201,7 @@ describe('<PaymentSection /> - Voucher functionality', () => {
     })
 
     it('should update total price if the voucher is correct', async () => {
-        // mocks
-        const graphQlMocks = [{
-            request: {
-                query: VALIDATE_VOUCHER,
-                variables: {
-                    voucherCode: "123abc",
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    quantity: 1,
-                },
-            },
-            result: {
-                data: {
-                    voucherGetNetPriceWithDiscount: {
-                        amount: 1,
-                    }
-                },
-            },
-        }]
-
-        // rendering
-        const wrapper = mount(
-            <Root graphQlMocks={graphQlMocks}>
-                <PaymentSection
-                    data={{
-                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                        price: 995,
-                        ticketName: "Regular Ticket",
-                        currency: "gbp",
-                    }}
-                />
-            </Root>
-        )
+        const wrapper = getWrapper("validateVoucher", "validVoucher")
 
         // steps
         wrapper.find(BuyButton).simulate('click')
@@ -206,7 +210,7 @@ describe('<PaymentSection /> - Voucher functionality', () => {
         expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
 
         wrapper.find(ShowVoucherButton).simulate('click')
-        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: '123abc' } })
+        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: 'asd' } })
         wrapper.find(ValidateVoucherButton).simulate('click')
 
         // expectation
