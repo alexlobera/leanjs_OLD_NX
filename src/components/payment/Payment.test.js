@@ -30,13 +30,10 @@ const getPaymentApiStub = () => ({
     }    
 })
 
-describe('<PaymentSection /> - Making payments', () => {
-
-    it('should make a payment', async () => {
-
-        // mocks
-        const graphQlMocks = [{
-            request: {
+const defaultGraphQLRequest = type => {
+    switch (type) {
+        case "pay":
+            return {
                 query: PAY,
                 variables: {
                     voucherCode: "",
@@ -49,36 +46,80 @@ describe('<PaymentSection /> - Making payments', () => {
                     companyName: undefined,
                     companyVat: undefined
                 },
-            },
-            result: {
+            }
+        case "validateVoucher":
+            return {
+                query: VALIDATE_VOUCHER,
+                variables: {
+                    voucherCode: "asd",
+                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                    quantity: 1,
+                },
+            }
+    }
+}
+
+const defaultGraphQLResult = type => {
+    switch (type) {
+        case "pay":
+            return {
                 data: {
                     id: "123",
                     currency: "gbp",
                     amount: 1194,
                     metadata: {}
-                },
-            },
-        }]
+                }
+            }
+        case "invalidVoucher":
+            return {
+                data: {
+                    voucherGetNetPriceWithDiscount: null
+                }
+            }
+        case "testError":
+            return {
+                data: {
+                    errors: [
+                        {message: "Test error"}
+                    ]
+                }                
+            }
+    }
 
-        // rendering
-        const wrapper = mount(
-            <Root graphQlMocks={graphQlMocks}>
-                <Route render={(props => (
-                    <PaymentSection
-                        {...props}
-                        data={{
-                            trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                            price: 995,
-                            ticketName: "Regular Ticket",
-                            currency: "gbp",
-                            paymentApi: getPaymentApiStub()
-                        }}
-                    />
-                ))}>
+}
 
-                </Route>
-            </Root>
-        )
+const getWrapper = requestType => resultType => (graphQlMocks = [{request:defaultGraphQLRequest(requestType), result:defaultGraphQLResult(resultType)}]) => {
+    const mocks = ((Array.isArray(graphQlMocks)) ? graphQlMocks:[graphQlMocks] ).map(mock => ({
+        request: mock.request?mock.request:defaultGraphQLRequest(requestType),
+        result: mock.result?mock.result:defaultGraphQLResult(resultType)
+    }))
+
+    const wrapper = mount(
+        <Root graphQlMocks={mocks}>
+            <Route render={(props => (
+                <PaymentSection
+                    {...props}
+                    data={{
+                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                        price: 995,
+                        ticketName: "Regular Ticket",
+                        currency: "gbp",
+                        paymentApi: getPaymentApiStub()
+                    }}
+                />
+            ))}>
+
+            </Route>
+        </Root>
+    )
+
+    return wrapper
+}
+
+describe('<PaymentSection /> - Making payments', () => {
+
+    it('should make a payment', async () => {
+        const wrapper = getWrapper("pay")("pay")()
 
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
@@ -106,41 +147,16 @@ describe('<PaymentSection /> - Making payments', () => {
 
     })
 
+    it('should reflect payment errors in the UI', async () => {
+        const wrapper = getWrapper("pay")("testError")()
+    })
+
 })
 
 describe('<PaymentSection /> - Voucher functionality', () => {
 
     it('should display an error message, and not update the price, if the voucher is invalid', async () => {
-        // mocks
-        const graphQlMocks = [{
-            request: {
-                query: VALIDATE_VOUCHER,
-                variables: {
-                    voucherCode: "asd",
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    quantity: 1,
-                },
-            },
-            result: {
-                data: {
-                    voucherGetNetPriceWithDiscount: null
-                },
-            },
-        }]
-
-        // rendering
-        const wrapper = mount(
-            <Root graphQlMocks={graphQlMocks}>
-                <PaymentSection
-                    data={{
-                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                        price: 995,
-                        ticketName: "Regular Ticket",
-                        currency: "gbp",
-                    }}
-                />
-            </Root>
-        )
+        const wrapper = getWrapper("validateVoucher")("invalidVoucher")()
 
         // steps
         wrapper.find(BuyButton).simulate('click')
