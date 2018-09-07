@@ -51,10 +51,15 @@ class Checkout extends React.Component {
       quantity,
       removeCourse,
       addCourse,
-      pricePerQuantity,
-      discountPricePerQuantity,
+      priceXQuantity,
+      currentPriceXQuantity,
       vatRate,
       updateVatRate,
+      resetVoucher,
+      validateVoucher,
+      voucher,
+      isVoucherValid,
+      isVoucherValidationInProgress,
     } = this.props
     const { isOpen } = this.state
     // The class `gtm-purchase-box` is needed for Tracking purposes,
@@ -64,39 +69,44 @@ class Checkout extends React.Component {
         {!isOpen ? (
           <PurchaseWrapper className="gtm-purchase-box">
             <Fragment>
-              {discountPricePerQuantity ? (
+              {currentPriceXQuantity ? (
                 <PriceAndDiscount>
                   <Span lineThrough>
-                    {formatPrice(currency, pricePerQuantity, vatRate)}
+                    {formatPrice(currency, priceXQuantity, vatRate)}
                   </Span>
                   <Price>
                     &nbsp;
-                    {formatPrice(currency, discountPricePerQuantity, vatRate)}
+                    {formatPrice(currency, currentPriceXQuantity, vatRate)}
                   </Price>
                 </PriceAndDiscount>
               ) : (
-                <Price>
-                  {formatPrice(currency, pricePerQuantity, vatRate)}
-                </Price>
-              )}
+                  <Price>
+                    {formatPrice(currency, priceXQuantity, vatRate)}
+                  </Price>
+                )}
               <BuyButton onClick={this.toggleIsOpen} />
             </Fragment>
           </PurchaseWrapper>
         ) : (
-          <CheckoutContainer
-            trainingInstanceId={trainingInstanceId}
-            vatRate={vatRate}
-            updateVatRate={updateVatRate}
-            currency={currency}
-            price={price}
-            discountPrice={discountPrice}
-            quantity={quantity}
-            pricePerQuantity={pricePerQuantity}
-            discountPricePerQuantity={discountPricePerQuantity}
-            removeCourse={removeCourse}
-            addCourse={addCourse}
-          />
-        )}
+            <CheckoutContainer
+              trainingInstanceId={trainingInstanceId}
+              vatRate={vatRate}
+              updateVatRate={updateVatRate}
+              currency={currency}
+              price={price}
+              discountPrice={discountPrice}
+              quantity={quantity}
+              priceXQuantity={priceXQuantity}
+              currentPriceXQuantity={currentPriceXQuantity}
+              removeCourse={removeCourse}
+              addCourse={addCourse}
+              resetVoucher={resetVoucher}
+              validateVoucher={validateVoucher}
+              voucher={voucher}
+              isVoucherValid={isVoucherValid}
+              isVoucherValidationInProgress={isVoucherValidationInProgress}
+            />
+          )}
       </Fragment>
     )
   }
@@ -115,9 +125,14 @@ Checkout.propTypes = {
   price: PropTypes.number.isRequired,
   discountPrice: PropTypes.number,
   quantity: PropTypes.number.isRequired,
-  pricePerQuantity: PropTypes.number,
-  discountPricePerQuantity: PropTypes.number,
+  priceXQuantity: PropTypes.number,
+  currentPriceXQuantity: PropTypes.number,
   removeCourse: PropTypes.func.isRequired,
   addCourse: PropTypes.func.isRequired,
+  resetVoucher: PropTypes.func.isRequired,
+  validateVoucher: PropTypes.func.isRequired,
+  voucher: PropTypes.string.isRequired,
+  isVoucherValid: PropTypes.bool.isRequired,
+  isVoucherValidationInProgress: PropTypes.bool.isRequired,
 }
 export default Checkout

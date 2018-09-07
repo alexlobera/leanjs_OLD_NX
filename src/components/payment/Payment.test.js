@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import waitForExpect from 'wait-for-expect'
 
 import Root from '../../../test/utils/Root'
-import VALIDATE_VOUCHER from './checkout/ValidateVoucher.graphql'
+import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import PaymentSection from './PaymentSection'
 import { BuyButton } from './checkout'
 import {
@@ -70,7 +70,7 @@ describe('<PaymentSection /> - Making payments', () => {
         */
   })
 
-  it('should make redirect to /payment-confirmation if the payment was successful', () => {})
+  it('should make redirect to /payment-confirmation if the payment was successful', () => { })
 })
 
 describe('<PaymentSection /> - Voucher functionality', () => {

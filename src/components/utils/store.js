@@ -1,7 +1,7 @@
 import store from 'store'
 import { getURLParameter } from './url'
 
-export const getVoucher = () => {
+export const getVoucherByPathname = () => {
     if (typeof window === 'undefined') {
         return null
     }
