@@ -96,7 +96,7 @@ const generateDummyGraphQLResult = type => {
 
 }
 
-const getWrapper = requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => {
+const getWrapperCreator = requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => () => {
     const mocks = ((Array.isArray(graphQlMocks)) ? graphQlMocks:[graphQlMocks] ).map(mock => ({
         request: mock.request?mock.request:generateDummyGraphQLRequest(requestType),
         result: mock.result?mock.result:generateDummyGraphQLResult(resultType)
@@ -124,10 +124,12 @@ const getWrapper = requestType => resultType => (graphQlMocks = [{request:genera
     return wrapper
 }
 
+const getWrapper = (requestType, resultType, graphQlMocks = undefined) => getWrapperCreator(requestType)(resultType)(graphQlMocks)()
+
 describe('<PaymentSection /> - Making payments', () => {
 
     it('should make a payment', async () => {
-        const wrapper = getWrapper("pay")("pay")()
+        const wrapper = getWrapper("pay", "pay")
 
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
@@ -156,7 +158,25 @@ describe('<PaymentSection /> - Making payments', () => {
     })
 
     it('should reflect payment errors in the UI', async () => {
-        const wrapper = getWrapper("pay")("testError")()
+        const wrapper = getWrapper("pay", "testError")
+
+
+        wrapper.find(BuyButton).simulate('click')
+        wrapper.update()
+
+        const change = (Field, newValue) => wrapper.find(Field).find('input').simulate('change', { target: { value: newValue } })
+        change(NameInput, 'Joe Bloggs')
+        change(EmailInput, 'test@example.com')
+        change(CCNameInput, 'Mr J Bloggs')
+        change(CCNumberInput, '4242424242424242')
+        change(CCExpiryInput, '12/99')
+        change(CCCVCInput, '123')
+
+        // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
+        // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
+        // on the button works as well, but that seems hackish so this method was used instead.
+        wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
+
     })
 
 })
@@ -164,7 +184,7 @@ describe('<PaymentSection /> - Making payments', () => {
 describe('<PaymentSection /> - Voucher functionality', () => {
 
     it('should display an error message, and not update the price, if the voucher is invalid', async () => {
-        const wrapper = getWrapper("validateVoucher")("invalidVoucher")()
+        const wrapper = getWrapper("validateVoucher", "invalidVoucher")
 
         // steps
         wrapper.find(BuyButton).simulate('click')
@@ -187,7 +207,7 @@ describe('<PaymentSection /> - Voucher functionality', () => {
     })
 
     it('should update total price if the voucher is correct', async () => {
-        const wrapper = getWrapper("validateVoucher")("validVoucher")()
+        const wrapper = getWrapper("validateVoucher", "validVoucher")
 
         // steps
         wrapper.find(BuyButton).simulate('click')
