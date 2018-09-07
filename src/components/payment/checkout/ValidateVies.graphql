@@ -1,11 +1,9 @@
 query isVatNumberValid(
-    $countryCode: String!,
+    $countryCode: String!
     $vatNumber: String!
 ) {
   isVatNumberValid(
-    countryCode: $countryCode,
+    countryCode: $countryCode
     vatNumber: $vatNumber
-  ) {
-    isVatNumberValid
-  }
+  )
 }
