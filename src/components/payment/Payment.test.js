@@ -107,10 +107,6 @@ describe('<PaymentSection /> - Making payments', () => {
 
 
     })
-
-    it('should make redirect to /payment-confirmation if the payment was successful', () => {
-
-    })
 })
 
 describe('<PaymentSection /> - Voucher functionality', () => {
