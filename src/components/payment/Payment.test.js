@@ -213,15 +213,43 @@ describe('<PaymentSection /> - Company details', () => {
     it("should flag-up invalid-format EU vat numbers", getVATNumberTester(INVALID_EU_VAT_NUMBER, true))
     it("should not flag-up valid-format EU vat numbers", getVATNumberTester(VALID_EU_VAT_NUMBER, false))
 
-    it("should show an ellipsis while graphql is validating the vat number", () => {
-        const { wrapper, change } = prepareToTestVATNumbers()
+    const setUpVATButtonTextTest = (graphQLResponseValid=true) => {
+        const { wrapper, change } = prepareToTestVATNumbers(graphQLResponseValid)
         change(EUVATNumberField, VALID_EU_VAT_NUMBER)
+
+        const getButtonText = () => wrapper.find(ValidateViesButton).text()
+        const originalText = getButtonText()
+
         wrapper.find(ValidateViesButton).simulate('click')
         wrapper.update()
-        expect(wrapper.find(ValidateViesButton).text()).toBe("...")
+        expect(getButtonText()).toBe("...")
+
+        return { wrapper, change, getButtonText, originalText }
+    }
+
+    it("should show an ellipsis while graphql is validating the vat number", () => {
+        setUpVATButtonTextTest()
     })
 
-    // TODO:WV:20180907:Test what happens after the user clicks "Validate EU VAT and update taxes"
+    xit("should show an appropriate message in the validate-VAT-number button if the provided VAT number was found to be valid", async () => {
+        const { wrapper, getButtonText, originalText } = setUpVATButtonTextTest()
+
+        await waitForExpect(() => {
+            wrapper.update()
+            expect(getButtonText()).toBe("Validated")
+        })
+    })
+
+    xit("should show the default message in the validate-VAT-number button if the provided VAT number was found to be invalid", async () => {
+        const { wrapper, getButtonText, originalText } = setUpVATButtonTextTest(false)
+
+        await waitForExpect(() => {
+            wrapper.update()
+            expect(getButtonText()).toBe(originalText)
+        })
+    })
+
+    // TODO:WV:20180907:Test updating taxes
 })
 
 describe('<PaymentSection /> - Voucher functionality', () => {
