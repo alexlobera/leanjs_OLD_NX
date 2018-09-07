@@ -51,10 +51,12 @@ describe('<PaymentSection /> - Making payments', () => {
       },
       result: {
         data: {
-          id: "123",
-          currency: "gbp",
-          amount: 1194,
-          metadata: {}
+          makePayment: {
+            id: "123",
+            currency: "gbp",
+            amount: 1194,
+            metadata: {}
+          }
         },
       },
     }]
