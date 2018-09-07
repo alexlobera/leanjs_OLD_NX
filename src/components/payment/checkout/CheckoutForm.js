@@ -27,20 +27,31 @@ import {
   formatExpirationDate,
   formatCVC,
 } from '../../utils/card'
+import {
+  aliasComponent
+} from '../../utils/aliasComponent'
 
 // These aliases enable the relevant elements to be selected by Enzyme for testing
 // Have caution when updating these names as you will then need to update the tests as well.
-export const ShowVoucherButton = props => <Link {...props} />
-export const ValidateVoucherButton = props => <LinkButton {...props} />
-export const TotalPayablePrice = props => <Price {...props} />
-export const VoucherInput = props => <Input {...props} />
-export const NameInput = props => <FieldInput {...props} />
-export const EmailInput = props => <FieldInput {...props} />
-export const CCNameInput = props => <FieldInput {...props} />
-export const CCNumberInput = props => <FieldInput {...props} />
-export const CCExpiryInput = props => <FieldInput {...props} />
-export const CCCVCInput = props => <FieldInput {...props} />
-export const SubmitPaymentFormButton = props => <Button {...props} />
+const aliasLink = () => aliasComponent(Link)
+const aliasInput = () => aliasComponent(FieldInput)
+const aliasLinkButton = () => aliasComponent(LinkButton)
+const aliasPrice = () => aliasComponent(Price)
+const aliasButton = () => aliasComponent(Button)
+export const AddCompanyDetailsButton = aliasLink()
+export const EUVATNumberField = aliasInput()
+export const ShowVoucherButton = aliasLink()
+export const ValidateVoucherButton = aliasLinkButton()
+export const TotalPayablePrice = aliasPrice()
+export const VoucherInput = aliasInput()
+export const NameInput = aliasInput()
+export const EmailInput = aliasInput()
+export const CCNameInput = aliasInput()
+export const CCNumberInput = aliasInput()
+export const CCExpiryInput = aliasInput()
+export const CCCVCInput = aliasInput()
+export const SubmitPaymentFormButton = aliasButton()
+
 
 const QuantityActions = styled.div`
   display: flex;
@@ -254,9 +265,9 @@ class CheckoutForm extends React.Component {
                   </Fragment>
                 ) : (
                   <FormGroup>
-                    <Link onClick={this.toggleDisplayCompanyDetails}>
+                    <AddCompanyDetailsButton onClick={this.toggleDisplayCompanyDetails}>
                       + Add company details
-                    </Link>
+                    </AddCompanyDetailsButton>
                   </FormGroup>
                 )}
                 <CheckoutH4>Payment details</CheckoutH4>

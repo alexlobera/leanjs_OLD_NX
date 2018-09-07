@@ -9,6 +9,7 @@ import PAY from './checkout/Pay.graphql'
 import PaymentSection from './PaymentSection'
 import { BuyButton } from './checkout'
 import {
+    AddCompanyDetailsButton,
     ShowVoucherButton,
     ValidateVoucherButton,
     TotalPayablePrice,
@@ -23,6 +24,7 @@ import {
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
 import { Alert } from '../elements'
+
 
 const getPaymentApiStub = () => ({
     setPublishableKey: () => { },
@@ -127,13 +129,15 @@ const getWrapperCreator = (requestType => resultType => (graphQlMocks = [{reques
 
 const getWrapper = (requestType, resultType, graphQlMocks = undefined) => getWrapperCreator(requestType)(resultType)(graphQlMocks)()
 
+const getFieldChanger = wrapper => (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
+
 describe('<PaymentSection /> - Making payments', () => {
 
     const preparePayment = wrapper => {
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
-        const change = (Field, newValue) => wrapper.find(Field).find('input').simulate('change', { target: { value: newValue } })
+        const change = getFieldChanger(wrapper)
         change(NameInput, 'Joe Bloggs')
         change(EmailInput, 'test@example.com')
         change(CCNameInput, 'Mr J Bloggs')
@@ -155,7 +159,7 @@ describe('<PaymentSection /> - Making payments', () => {
         });
     }
 
-    it('should make a payment', async () => {
+    fit('should make a payment', async () => {
         const wrapper = getWrapper("pay", "pay")
         preparePayment(wrapper)
         await makePayment(wrapper, wrapper => {
@@ -175,7 +179,15 @@ describe('<PaymentSection /> - Making payments', () => {
 })
 
 describe('<PaymentSection /> - Company details', () => {
-    // TODO:WV:20180907:Test basic JS EU Vat number validation
+
+    it("should validate the EU vat number against a correct pattern", () => {
+        const wrapper = getWrapper("pay", "pay")
+
+        wrapper.find(BuyButton).simulate('click')
+        wrapper.find(AddCompanyDetailsButton).simulate('click') 
+        //change()
+    })
+
     // TODO:WV:20180907:Test what happens after the user clicks "Validate EU VAT and update taxes"
 })
 
