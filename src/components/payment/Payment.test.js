@@ -26,7 +26,7 @@ import { CheckoutContainer } from './checkout/CheckoutContainer'
 const getPaymentApiStub = () => ({
     setPublishableKey: () => { },
     card: {
-        createToken: (data, callback) => callback("test-status", { id: 2})
+        createToken: jest.fn((data, callback) => callback("test-status", { id: 2}))
     }    
 })
 
@@ -61,6 +61,7 @@ describe('<PaymentSection /> - Making payments', () => {
         }]
 
         // rendering
+        const paymentApi = getPaymentApiStub()
         const wrapper = mount(
             <Root graphQlMocks={graphQlMocks}>
                 <Route render={(props => (
@@ -71,7 +72,7 @@ describe('<PaymentSection /> - Making payments', () => {
                             price: 995,
                             ticketName: "Regular Ticket",
                             currency: "gbp",
-                            paymentApi: getPaymentApiStub()
+                            paymentApi
                         }}
                     />
                 ))}>
@@ -100,13 +101,10 @@ describe('<PaymentSection /> - Making payments', () => {
         // expectation
         await waitForExpect(() => {
             wrapper.update()
+            expect(paymentApi.card.createToken).toHaveBeenCalled()
             expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
         });
 
-
-    })
-
-    it('should make redirect to /payment-confirmation if the payment was successful', () => {
 
     })
 })
