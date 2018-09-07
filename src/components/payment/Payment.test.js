@@ -12,6 +12,7 @@ import { BuyButton } from './checkout'
 import {
     AddCompanyDetailsButton,
     EUVATNumberField,
+    ValidateViesButton,
     ShowVoucherButton,
     ValidateVoucherButton,
     TotalPayablePrice,
@@ -188,14 +189,20 @@ describe('<PaymentSection /> - Company details', () => {
     const INVALID_EU_VAT_NUMBER = "XYZ123"
     const VALID_EU_VAT_NUMBER = "GB999 9999 73"
 
-    const getVATNumberTester = (VATNumber, expectError) => () => {
-        const wrapper = getWrapper("pay", "pay")
+    const prepareToTestVATNumbers = (graphQLResponseValid=true) => {
+        const wrapper = getWrapper("validateVies", graphQLResponseValid?"validVies":"invalidVies")
 
         wrapper.find(BuyButton).simulate('click')
         wrapper.find(AddCompanyDetailsButton).simulate('click')
 
         wrapper.update()
         const change = getFieldChanger(wrapper)
+
+        return { wrapper, change }
+    }
+
+    const getVATNumberTester = (VATNumber, expectError) => () => {
+        const { wrapper, change } = prepareToTestVATNumbers()
         const getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length
         expect(getNumErrorNodes()).toBe(0)
         change(EUVATNumberField, VATNumber)
@@ -205,6 +212,14 @@ describe('<PaymentSection /> - Company details', () => {
 
     it("should flag-up invalid-format EU vat numbers", getVATNumberTester(INVALID_EU_VAT_NUMBER, true))
     it("should not flag-up valid-format EU vat numbers", getVATNumberTester(VALID_EU_VAT_NUMBER, false))
+
+    it("should show an ellipsis while graphql is validating the vat number", () => {
+        const { wrapper, change } = prepareToTestVATNumbers()
+        change(EUVATNumberField, VALID_EU_VAT_NUMBER)
+        wrapper.find(ValidateViesButton).simulate('click')
+        wrapper.update()
+        expect(wrapper.find(ValidateViesButton).text()).toBe("...")
+    })
 
     // TODO:WV:20180907:Test what happens after the user clicks "Validate EU VAT and update taxes"
 })

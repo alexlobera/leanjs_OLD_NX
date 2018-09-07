@@ -40,6 +40,7 @@ const aliasPrice = () => aliasComponent(Price)
 const aliasButton = () => aliasComponent(Button)
 export const AddCompanyDetailsButton = aliasLink()
 export const EUVATNumberField = aliasInput()
+export const ValidateViesButton = aliasLinkButton()
 export const ShowVoucherButton = aliasLink()
 export const ValidateVoucherButton = aliasLinkButton()
 export const TotalPayablePrice = aliasPrice()
@@ -248,7 +249,7 @@ class CheckoutForm extends React.Component {
                       validate={composeValidators(required, mustBeEuVat)}
                       onChange={companyVat.resetVatRate}
                     />
-                    <LinkButton
+                    <ValidateViesButton
                       block
                       disabled={
                         companyVat.isViesValid ||
@@ -261,7 +262,7 @@ class CheckoutForm extends React.Component {
                         : companyVat.isViesValid
                           ? 'Validated'
                           : 'Validate EU VAT and update taxes'}
-                    </LinkButton>
+                    </ValidateViesButton>
                   </Fragment>
                 ) : (
                   <FormGroup>
