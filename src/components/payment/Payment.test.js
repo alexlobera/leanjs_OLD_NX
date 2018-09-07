@@ -22,6 +22,7 @@ import {
     SubmitPaymentFormButton
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
+import { Alert } from '../elements'
 
 const getPaymentApiStub = () => ({
     setPublishableKey: () => { },
@@ -128,9 +129,7 @@ const getWrapper = (requestType, resultType, graphQlMocks = undefined) => getWra
 
 describe('<PaymentSection /> - Making payments', () => {
 
-    it('should make a payment', async () => {
-        const wrapper = getWrapper("pay", "pay")
-
+    const preparePayment = wrapper => {
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
@@ -140,43 +139,38 @@ describe('<PaymentSection /> - Making payments', () => {
         change(CCNameInput, 'Mr J Bloggs')
         change(CCNumberInput, '4242424242424242')
         change(CCExpiryInput, '12/99')
-        change(CCCVCInput, '123')
+        change(CCCVCInput, '123')        
+    }
+
+    const makePayment = async (wrapper, checkExpectations) => {
 
         // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
         // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
         // on the button works as well, but that seems hackish so this method was used instead.
         wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
 
-
-        // expectation
-        await waitForExpect(() => {
+        return waitForExpect(() => {
             wrapper.update()
-            expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
+            checkExpectations(wrapper)
         });
+    }
 
-
+    it('should make a payment', async () => {
+        const wrapper = getWrapper("pay", "pay")
+        preparePayment(wrapper)
+        await makePayment(wrapper, wrapper => {
+            expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
+        })
     })
 
     it('should reflect payment errors in the UI', async () => {
         const wrapper = getWrapper("pay", "testError")
-
-
-        wrapper.find(BuyButton).simulate('click')
-        wrapper.update()
-
-        const change = (Field, newValue) => wrapper.find(Field).find('input').simulate('change', { target: { value: newValue } })
-        change(NameInput, 'Joe Bloggs')
-        change(EmailInput, 'test@example.com')
-        change(CCNameInput, 'Mr J Bloggs')
-        change(CCNumberInput, '4242424242424242')
-        change(CCExpiryInput, '12/99')
-        change(CCCVCInput, '123')
-
-        // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
-        // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
-        // on the button works as well, but that seems hackish so this method was used instead.
-        wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
-
+        preparePayment(wrapper)
+        const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
+        expect(getNumWarnings()).toBe(0)
+        await makePayment(wrapper, wrapper => {
+            expect(getNumWarnings()).toBe(1)
+        })
     })
 
 })
