@@ -71,8 +71,8 @@ describe('<PaymentSection /> - Making payments', () => {
               price: 995,
               ticketName: "Regular Ticket",
               currency: "gbp",
-              paymentApi
             }}
+            paymentApi={paymentApi}
           />
         ))}>
 
