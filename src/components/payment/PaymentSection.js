@@ -39,7 +39,10 @@ class PaymentSection extends React.Component {
       currency = 'gbp',
       priceGoesUpOn,
       ticketName,
-    } = this.props.data || {}
+      paymentApi
+    } =
+      this.props.data || {}
+
     const { quantity, vatRate } = this.state
     const pricePerQuantity = price * quantity
     const discountPricePerQuantity = discountPrice && discountPrice * quantity
@@ -93,6 +96,7 @@ class PaymentSection extends React.Component {
             addCourse={this.addCourse}
             pricePerQuantity={pricePerQuantity}
             discountPricePerQuantity={discountPricePerQuantity}
+            paymentApi={paymentApi}
           />
         </Card>
       </React.Fragment>
@@ -109,7 +113,8 @@ PaymentSection.propTypes = {
     priceGoesUpOn: PropTypes.string,
     ticketName: PropTypes.string,
     currency: PropTypes.string,
-  }),
+    paymentApi: PropTypes.object
+  })
 }
 
 export default PaymentSection

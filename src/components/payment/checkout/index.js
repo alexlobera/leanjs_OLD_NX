@@ -55,6 +55,7 @@ class Checkout extends React.Component {
       discountPricePerQuantity,
       vatRate,
       updateVatRate,
+      paymentApi
     } = this.props
     const { isOpen } = this.state
     // The class `gtm-purchase-box` is needed for Tracking purposes,
@@ -95,8 +96,9 @@ class Checkout extends React.Component {
             discountPricePerQuantity={discountPricePerQuantity}
             removeCourse={removeCourse}
             addCourse={addCourse}
+            paymentApi={paymentApi}
           />
-        )}
+          )}
       </Fragment>
     )
   }
