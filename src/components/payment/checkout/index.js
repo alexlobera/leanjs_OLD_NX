@@ -60,6 +60,7 @@ class Checkout extends React.Component {
       voucher,
       isVoucherValid,
       isVoucherValidationInProgress,
+      paymentApi,
     } = this.props
     const { isOpen } = this.state
     // The class `gtm-purchase-box` is needed for Tracking purposes,
@@ -105,6 +106,7 @@ class Checkout extends React.Component {
               voucher={voucher}
               isVoucherValid={isVoucherValid}
               isVoucherValidationInProgress={isVoucherValidationInProgress}
+              paymentApi={paymentApi}
             />
           )}
       </Fragment>
@@ -134,5 +136,6 @@ Checkout.propTypes = {
   voucher: PropTypes.string.isRequired,
   isVoucherValid: PropTypes.bool,
   isVoucherValidationInProgress: PropTypes.bool.isRequired,
+  paymentApi: PropTypes.object,
 }
 export default Checkout

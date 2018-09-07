@@ -28,10 +28,19 @@ import {
   formatCVC,
 } from '../../utils/card'
 
+// These aliases enable the relevant elements to be selected by Enzyme for testing
+// Have caution when updating these names as you will then need to update the tests as well.
 export const ShowVoucherButton = props => <Link {...props} />
-export const ValidateVoucherButton = props => <LinkButton {...props} block />
+export const ValidateVoucherButton = props => <LinkButton {...props} />
 export const TotalPayablePrice = props => <Price {...props} />
 export const VoucherInput = props => <Input {...props} />
+export const NameInput = props => <FieldInput {...props} />
+export const EmailInput = props => <FieldInput {...props} />
+export const CCNameInput = props => <FieldInput {...props} />
+export const CCNumberInput = props => <FieldInput {...props} />
+export const CCExpiryInput = props => <FieldInput {...props} />
+export const CCCVCInput = props => <FieldInput {...props} />
+export const SubmitPaymentFormButton = props => <Button {...props} />
 
 const QuantityActions = styled.div`
   display: flex;
@@ -147,6 +156,7 @@ class CheckoutForm extends React.Component {
       ? 0
       : currentPriceXQuantity - currentPriceXQuantity * vatRate
 
+
     return (
       <Fragment>
         <Helmet
@@ -195,13 +205,13 @@ class CheckoutForm extends React.Component {
             return (
               <form noValidate onSubmit={handleSubmit}>
                 <CheckoutH4>Personal details</CheckoutH4>
-                <FieldInput
+                <NameInput
                   validate={required}
                   label="Your name:"
                   name="name"
                   placeholder="eg. Steve Jobs"
                 />
-                <FieldInput
+                <EmailInput
                   validate={composeValidators(required, mustBeEmail)}
                   label="Your email address:"
                   name="email"
@@ -250,13 +260,13 @@ class CheckoutForm extends React.Component {
                     </FormGroup>
                   )}
                 <CheckoutH4>Payment details</CheckoutH4>
-                <FieldInput
+                <CCNameInput
                   label="Name on card:"
                   name="CCname"
                   placeholder="eg. Steve Jobs"
                   validate={required}
                 />
-                <FieldInput
+                <CCNumberInput
                   label="Card number:"
                   name="CCnumber"
                   placeholder="XXXX XXXX XXXX XXXX"
@@ -269,7 +279,7 @@ class CheckoutForm extends React.Component {
                 />
                 <Row>
                   <Col xs={6}>
-                    <FieldInput
+                    <CCExpiryInput
                       label="Expiry date:"
                       name="CCexpiry"
                       placeholder="MM / YY"
@@ -279,7 +289,7 @@ class CheckoutForm extends React.Component {
                     />
                   </Col>
                   <Col xs={6}>
-                    <FieldInput
+                    <CCCVCInput
                       label="CVC:"
                       name="CCcvc"
                       placeholder="XXX"
@@ -312,6 +322,7 @@ class CheckoutForm extends React.Component {
                       }}
                     />
                     <ValidateVoucherButton
+                      block
                       disabled={isVoucherValid || isVoucherValidationInProgress}
                       onClick={() => validateVoucher(voucher)}
                     >
@@ -423,14 +434,14 @@ class CheckoutForm extends React.Component {
                       </Link>
                     </Alert>
                   ) : null}
-                  <Button
+                  <SubmitPaymentFormButton
                     type="submit"
                     cta
                     block
                     disabled={submitting || isPaymentInProgress}
                   >
                     Buy now >>
-                  </Button>
+                  </SubmitPaymentFormButton>
                 </RowBuy>
               </form>
             )

@@ -4,9 +4,9 @@ import { MockedProvider } from 'react-apollo/test-utils'
 
 const Root = ({ children, graphQlMocks }) => (
     <Router>
-        <MockedProvider addTypename={false} mocks={graphQlMocks}>
-            {children}
-        </MockedProvider>
+	    <MockedProvider addTypename={false} mocks={graphQlMocks}>
+	        {children}
+	    </MockedProvider>
     </Router>
 )
 

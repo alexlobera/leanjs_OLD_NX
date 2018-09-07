@@ -226,6 +226,7 @@ CheckoutContainer.propTypes = {
   voucher: PropTypes.string.isRequired,
   isVoucherValid: PropTypes.bool,
   isVoucherValidationInProgress: PropTypes.bool.isRequired,
+  paymentApi: PropTypes.object,
 }
 
 const withPay = graphql(PAY, {

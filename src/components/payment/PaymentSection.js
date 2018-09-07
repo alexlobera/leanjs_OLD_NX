@@ -107,6 +107,10 @@ class PaymentSection extends React.Component {
 
   render() {
     const {
+      paymentApi,
+      data = {}
+    } = this.props
+    const {
       trainingInstanceId,
       price,
       discountPrice,
@@ -114,7 +118,7 @@ class PaymentSection extends React.Component {
       currency = 'gbp',
       priceGoesUpOn,
       ticketName,
-    } = this.props.data || {}
+    } = data
     const {
       quantity,
       vatRate,
@@ -184,6 +188,7 @@ class PaymentSection extends React.Component {
             voucher={voucher}
             isVoucherValid={isVoucherValid}
             isVoucherValidationInProgress={isVoucherValidationInProgress}
+            paymentApi={paymentApi}
           />
         </Card>
       </React.Fragment>
@@ -204,7 +209,9 @@ PaymentSection.propTypes = {
     priceGoesUpOn: PropTypes.string,
     ticketName: PropTypes.string,
     currency: PropTypes.string,
+    paymentApi: PropTypes.object
   }),
+  paymentApi: PropTypes.object,
 }
 
 export default withApollo(PaymentSection)
