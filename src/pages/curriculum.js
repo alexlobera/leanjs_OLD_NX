@@ -311,7 +311,7 @@ class Curriculum extends React.Component {
                                   trainingBootcamp.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingBootcamp.city
-                                  }`}
+                                }`}
                                 to={trainingBootcamp.pathUrl}
                                 buttonText="Next React bootcamp >>"
                               />
@@ -361,7 +361,7 @@ class Curriculum extends React.Component {
                                   trainingAdvanced.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingAdvanced.city
-                                  }`}
+                                }`}
                                 to={trainingAdvanced.pathUrl}
                                 buttonText="Next advanced React bootcamp >>"
                               />
@@ -504,7 +504,7 @@ class Curriculum extends React.Component {
                                   trainingPartTime.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingPartTime.city
-                                  }`}
+                                }`}
                                 to={trainingPartTime.pathUrl}
                                 buttonText="Next React part-time >>"
                               />

@@ -43,10 +43,11 @@ const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
 `
 
-export const LinkScroll = styled(props => <DefaultLinkScroll offset={DEFAULT_SCROLL_OFFSET} {...props} />)`
+export const LinkScroll = styled(props => (
+  <DefaultLinkScroll offset={DEFAULT_SCROLL_OFFSET} {...props} />
+))`
   ${ANCHOR_STYLE};
 `
-
 
 const Link = ({ to = '', children = '', ...rest }) => {
   if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
