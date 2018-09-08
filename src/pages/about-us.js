@@ -5,7 +5,7 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
-import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
+import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
@@ -27,8 +27,13 @@ import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
 import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
+import { SCREEN_SM_MAX } from '../components/utils'
 
 const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
+
+const RowCoach = styled(Row)`
+  margin-bottom:36px;
+`
 
 const LeanJSLink = styled(Link)`
   position: absolute;
@@ -39,6 +44,13 @@ const LeanJSLink = styled(Link)`
 const CoachTitle = styled(H3)`
   & {
     padding-top: 0;
+  }
+`
+
+const BecomeACoachWrapper = styled.div`
+  @media (max-width: ${SCREEN_SM_MAX}) {
+    text-align: center;
+    padding-bottom: 18px;
   }
 `
 
@@ -119,8 +131,8 @@ const AboutUs = () => (
     </TopSection>
     <Section>
       <Grid>
-        <Row>
-          <Col xs={12} md={5}>
+        <RowCoach>
+          <Col xs={12} md={5} smOrder={2}>
             <Video
               youtubeID="QiR8iNq3tCQ"
               description={
@@ -128,7 +140,7 @@ const AboutUs = () => (
               }
             />
           </Col>
-          <Col xs={12} md={4} mdOffset={1}>
+          <Col xs={12} md={4} mdOffset={1} smOrder={1}>
             <H2Ref>
               Alex Lobera{' '}
               <Link name="alex-lobera" to="#alex-lobera">
@@ -184,18 +196,18 @@ const AboutUs = () => (
                 and other popular meetups in the EU
               </Li>
             </Ul>
-            <Blockquote bg="primary">
+            <Blockquote bg="primary" triangle="left">
               Teaching other developers is very rewarding. I love sharing what
               I've learned in my career to help others grow and give back. I
               think this is what really makes our industry move forward.
             </Blockquote>
           </Col>
-        </Row>
+        </RowCoach>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <Row>
+        <RowCoach>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Richard Moss
@@ -238,7 +250,7 @@ const AboutUs = () => (
                 and ReactJS Academy bootcamps
               </Li>
             </Ul>
-            <Blockquote bg="primary">
+            <Blockquote bg="primary" triangle="right">
               Collaboratively working with developers to help them understand
               concepts such as the functional programming paradigm helps them
               take their skills to the next level - and I learn a lot too!
@@ -247,16 +259,16 @@ const AboutUs = () => (
           <Col xs={12} md={5} mdOffset={1}>
             <Image src={RICHARD} width="100%" />
           </Col>
-        </Row>
+        </RowCoach>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <Row>
-          <Col xs={12} md={5}>
+        <RowCoach>
+          <Col xs={12} md={5} smOrder={2}>
             <Image src={HORACIO} width="100%" />
           </Col>
-          <Col xs={12} md={4} mdOffset={1}>
+          <Col xs={12} md={4} mdOffset={1} smOrder={1}>
             <H2Ref>
               Horacio Herrera
               <Link name="horacio-herrera" to="#horacio-herrera">
@@ -300,17 +312,17 @@ const AboutUs = () => (
                 </Link>
               </Li>
             </Ul>
-            <Blockquote bg="primary">
+            <Blockquote bg="primary" triangle="left">
               I love teaching and seeing other developers grow...
             </Blockquote>
           </Col>
-        </Row>
+        </RowCoach>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
-        <Row>
+        <RowCoach>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Eva Hoffmann
@@ -353,7 +365,7 @@ const AboutUs = () => (
                 Always curious to learn new things and share it with others
               </Li>
             </Ul>
-            <Blockquote bg="primary">
+            <Blockquote bg="primary" triangle="right">
               Everyone can learn how to program, and I enjoy supporting others
               to learn and expand their skill set. Programming is such an
               important skill set and I am particularly passionate about
@@ -363,17 +375,17 @@ const AboutUs = () => (
           <Col xs={12} md={5} mdOffset={1}>
             <Image src={EVA} width="100%" />
           </Col>
-        </Row>
+        </RowCoach>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
-        <Row>
-          <Col xs={12} md={5}>
+        <RowCoach>
+          <Col xs={12} md={5} smOrder={2}>
             <Image src={WILL} width="100%" />
           </Col>
-          <Col xs={12} md={4} mdOffset={1}>
+          <Col xs={12} md={4} mdOffset={1} smOrder={1}>
             <H2Ref>
               Will Voelcker
               <Link name="will-voelcker" to="#will-voelcker">
@@ -409,19 +421,19 @@ const AboutUs = () => (
                 Experience working for start-ups and international corporations
               </Li>
             </Ul>
-            <Blockquote bg="primary">
+            <Blockquote bg="primary" triangle="left">
               I love working with developers to help them improve their skills,
               stretch their brains, further their understanding, and advance
               their career
             </Blockquote>
           </Col>
-        </Row>
+        </RowCoach>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
-        <Row>
+        <RowCoach>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Adam Lancaster
@@ -449,7 +461,7 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Full stack software engineer currently playing with Elixir and
+                <strong>Full stack software engineer</strong> currently playing with Elixir and
                 React
               </Li>
               <Li>
@@ -460,7 +472,7 @@ const AboutUs = () => (
                 Always looking for new ~ways to procrastinate~ things to learn
               </Li>
             </Ul>
-            <Blockquote bg="primary">
+            <Blockquote bg="primary" triangle="right">
               Teaching is always rewarding, but it is one of the most
               undervalued skills in our industry. I always enjoy the chance to
               practice it.
@@ -469,17 +481,17 @@ const AboutUs = () => (
           <Col xs={12} md={5} mdOffset={1}>
             <Image src={ADAM} width="100%" />
           </Col>
-        </Row>
+        </RowCoach>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={5}>
+          <Col xs={12} md={5} smOrder={2}>
             <Video youtubeID="Rx2v_6I7PMM" />
           </Col>
-          <Col xs={12} md={6} mdOffset={1}>
+          <Col xs={12} md={6} mdOffset={1} smOrder={1}>
             <H2Ref>
               How we continuously improve{' '}
               <Link
@@ -510,21 +522,21 @@ const AboutUs = () => (
                 tecnologies without being prescriptive.
               </Li>
             </Ul>
-            <p>
+            <BecomeACoachWrapper>
               <LinkButton
                 target="_self"
                 to="mailto:hello@reactjs.academy?subject=become a coach"
               >
                 Become a coach
               </LinkButton>
-            </p>
+            </BecomeACoachWrapper>
           </Col>
         </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <Row>
+        <RowCoach>
           <Col md={10} mdOffset={1}>
             <H2Ref>
               The ReactJS Academy coach manifesto
@@ -617,7 +629,7 @@ const AboutUs = () => (
               coaches will be proactive people that want to help others.
             </P>
           </Col>
-        </Row>
+        </RowCoach>
       </Grid>
     </Section>
 
@@ -654,14 +666,14 @@ const AboutUs = () => (
                 <Li>Delivered in your office - worldwide.</Li>
                 <Li>Tailored to your business needs - you choose the dates.</Li>
               </Ul>
-              <p>
+              <P>
                 <LinkButton
                   secondary
                   to="https://leanjs.com/training/private-react-redux-graphql-training"
                 >
                   Visit LeanJS
                 </LinkButton>
-              </p>
+              </P>
             </Col>
           </Row>
         </Card>

@@ -1,7 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Grid, Row, Col as FlexboxCol } from 'react-styled-flexboxgrid'
+import { SCREEN_SM_MAX } from '../utils'
 
-const Col = ({ xs, sm, md, lg, center, end, style = {}, ...rest }) => {
+const Col = ({ xs, sm, md, lg, center, end, style = {}, order, ...rest }) => {
   const sizes = {
     xs: xs || 12,
     sm: sm || xs || 12,
@@ -9,19 +11,29 @@ const Col = ({ xs, sm, md, lg, center, end, style = {}, ...rest }) => {
     lg: lg || md || sm || xs || 12,
   }
 
-  if (center) {
-    style.display = 'flex'
-    style.justifyContent = 'center'
-  }
-
-  if (end) {
-    style.display = 'flex'
-    style.alignItems = 'flex-end'
-  }
-
   return <FlexboxCol {...rest} {...sizes} style={style} />
 }
 
-export { Row, Col, Grid }
+const StyledCol = styled(Col)`
+  ${({ center }) => center ? `
+    display: flex;
+    justify-content: center;
+
+  ` : null
+  }
+  ${({ end }) => end ? `
+    display: flex;
+    align-items: flex-end;
+  ` : null
+  }
+  ${({ smOrder }) => smOrder ? `
+    @media (max-width: ${SCREEN_SM_MAX}) {
+      order: ${smOrder};
+    }
+  ` : null
+  }
+`
+
+export { Row, StyledCol as Col, Grid }
 
 export default Grid

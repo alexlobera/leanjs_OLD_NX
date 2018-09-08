@@ -7,7 +7,7 @@ export default styled.p`
   ${TEXT_SIZE({ lg: true })}
   text-align: ${props => props.align || 'left'};
   margin: 0;
-  padding-bottom: 20px;
+  padding-bottom: 18px;
   line-height: 1.2;
 
   > a {
