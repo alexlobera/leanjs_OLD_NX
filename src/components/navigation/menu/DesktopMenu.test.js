@@ -12,7 +12,7 @@ describe('<DesktopMenu />', () => {
         expect(toJson(wrapper)).toMatchSnapshot()
     })
 
-    it('should render curriculum as the first item of the menu', () => {
+    it('should render curriculum as the first item on the menu', () => {
         const wrapper = shallow(<DesktopMenu />)
 
         expect(wrapper.find(DesktopMenuItem).first().props().children.toLowerCase()).toMatch(/curriculum/)

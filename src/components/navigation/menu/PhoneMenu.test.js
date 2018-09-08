@@ -28,7 +28,7 @@ describe('<PhoneMenu />', () => {
         expect(toJson(wrapper)).toMatchSnapshot()
     })
 
-    it('should render curriculum as the first item of the menu', () => {
+    it('should render curriculum as the first item on the menu', () => {
         const wrapper = shallow(<PhoneMenu />)
 
         expect(wrapper.find(PhoneMenuItem).first().props().children.toLowerCase()).toMatch(/curriculum/)
