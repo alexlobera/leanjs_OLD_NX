@@ -5,6 +5,8 @@ import { Link as DefaultLinkScroll } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
 import { GREY2 } from '../../config/styles'
 
+export const DEFAULT_SCROLL_OFFSET = -125
+
 export const ANCHOR_STYLE = `
     cursor: pointer;
     color: blue;
@@ -41,9 +43,10 @@ const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
 `
 
-export const LinkScroll = styled(DefaultLinkScroll)`
+export const LinkScroll = styled(props => <DefaultLinkScroll offset={DEFAULT_SCROLL_OFFSET} {...props} />)`
   ${ANCHOR_STYLE};
 `
+
 
 const Link = ({ to = '', children = '', ...rest }) => {
   if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
