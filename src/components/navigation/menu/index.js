@@ -1,6 +1,7 @@
 import React from 'react'
 import withWidth, { MEDIUM } from 'react-width'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { RJSALogo } from '../../logos'
 import DesktopMenu from './DesktopMenu'
@@ -32,7 +33,7 @@ const Navbar = styled.nav`
   z-index: 9992;
 `
 
-const Menu = ({ width }) => {
+export const Menu = ({ width }) => {
   const canIGuessTheScreenSizeUsingJS = typeof window !== 'undefined'
 
   return (
@@ -43,12 +44,16 @@ const Menu = ({ width }) => {
           {canIGuessTheScreenSizeUsingJS && width <= MEDIUM ? (
             <PhoneMenu />
           ) : (
-            <DesktopMenu />
-          )}
+              <DesktopMenu />
+            )}
         </MenuContainer>
       </Grid>
     </Navbar>
   )
+}
+
+Menu.propTypes = {
+  width: PropTypes.number.isRequired
 }
 
 export default withWidth()(Menu)
