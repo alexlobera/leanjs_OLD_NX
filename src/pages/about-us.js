@@ -31,10 +31,6 @@ import { SCREEN_SM_MAX } from '../components/utils'
 
 const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
 
-const RowCoach = styled(Row)`
-  margin-bottom:36px;
-`
-
 const LeanJSLink = styled(Link)`
   position: absolute;
   top: 20px;
@@ -131,7 +127,7 @@ const AboutUs = () => (
     </TopSection>
     <Section>
       <Grid>
-        <RowCoach>
+        <Row>
           <Col xs={12} md={5} smOrder={2}>
             <Video
               youtubeID="QiR8iNq3tCQ"
@@ -202,12 +198,12 @@ const AboutUs = () => (
               think this is what really makes our industry move forward.
             </Blockquote>
           </Col>
-        </RowCoach>
+        </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <RowCoach>
+        <Row>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Richard Moss
@@ -259,12 +255,12 @@ const AboutUs = () => (
           <Col xs={12} md={5} mdOffset={1}>
             <Image src={RICHARD} width="100%" />
           </Col>
-        </RowCoach>
+        </Row>
       </Grid>
     </Section>
     <Section>
       <Grid>
-        <RowCoach>
+        <Row>
           <Col xs={12} md={5} smOrder={2}>
             <Image src={HORACIO} width="100%" />
           </Col>
@@ -316,13 +312,13 @@ const AboutUs = () => (
               I love teaching and seeing other developers grow...
             </Blockquote>
           </Col>
-        </RowCoach>
+        </Row>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
-        <RowCoach>
+        <Row>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Eva Hoffmann
@@ -375,13 +371,13 @@ const AboutUs = () => (
           <Col xs={12} md={5} mdOffset={1}>
             <Image src={EVA} width="100%" />
           </Col>
-        </RowCoach>
+        </Row>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
-        <RowCoach>
+        <Row>
           <Col xs={12} md={5} smOrder={2}>
             <Image src={WILL} width="100%" />
           </Col>
@@ -427,13 +423,13 @@ const AboutUs = () => (
               their career
             </Blockquote>
           </Col>
-        </RowCoach>
+        </Row>
       </Grid>
     </Section>
 
     <Section>
       <Grid>
-        <RowCoach>
+        <Row>
           <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Adam Lancaster
@@ -461,8 +457,8 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                <strong>Full stack software engineer</strong> currently playing with Elixir and
-                React
+                <strong>Full stack software engineer</strong> currently playing
+                with Elixir and React
               </Li>
               <Li>
                 Started working in startups and no one has told him to leave
@@ -481,7 +477,7 @@ const AboutUs = () => (
           <Col xs={12} md={5} mdOffset={1}>
             <Image src={ADAM} width="100%" />
           </Col>
-        </RowCoach>
+        </Row>
       </Grid>
     </Section>
 
@@ -536,7 +532,7 @@ const AboutUs = () => (
     </Section>
     <Section>
       <Grid>
-        <RowCoach>
+        <Row>
           <Col md={10} mdOffset={1}>
             <H2Ref>
               The ReactJS Academy coach manifesto
@@ -629,7 +625,7 @@ const AboutUs = () => (
               coaches will be proactive people that want to help others.
             </P>
           </Col>
-        </RowCoach>
+        </Row>
       </Grid>
     </Section>
 

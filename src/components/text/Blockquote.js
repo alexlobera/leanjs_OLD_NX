@@ -31,15 +31,12 @@ const VERTICAL_TRIANGLE = `
 `
 
 const Blockquote = ({ children, ...rest }) => (
-  <blockquote {...rest}>
-    "{children}"
-  </blockquote>
+  <blockquote {...rest}>"{children}"</blockquote>
 )
 
 const StyledBlockquote = styled(Blockquote)`
-  ${FONT_FAMILY} 
-  margin: 0;
-  position:relative;
+  ${FONT_FAMILY} margin: 0;
+  position: relative;
   padding: 0;
   ${props => {
     if (props.triangle === 'left') {
@@ -77,8 +74,7 @@ const StyledBlockquote = styled(Blockquote)`
       }
       `
     }
-  }}
-  ${props => {
+  }} ${props => {
     if (props.bg === 'primary') {
       return `
         padding: 24px;

@@ -15,23 +15,29 @@ const Col = ({ xs, sm, md, lg, center, end, style = {}, order, ...rest }) => {
 }
 
 const StyledCol = styled(Col)`
-  ${({ center }) => center ? `
+  ${({ center }) =>
+    center
+      ? `
     display: flex;
     justify-content: center;
 
-  ` : null
-  }
-  ${({ end }) => end ? `
+  `
+      : null}
+  ${({ end }) =>
+    end
+      ? `
     display: flex;
     align-items: flex-end;
-  ` : null
-  }
-  ${({ smOrder }) => smOrder ? `
+  `
+      : null}
+  ${({ smOrder }) =>
+    smOrder
+      ? `
     @media (max-width: ${SCREEN_SM_MAX}) {
       order: ${smOrder};
     }
-  ` : null
-  }
+  `
+      : null}
 `
 
 export { Row, StyledCol as Col, Grid }
