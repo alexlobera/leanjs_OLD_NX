@@ -144,14 +144,18 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://uk.linkedin.com/in/alexlobera">
-                  LinkedIn
-                </SocialLink>
+                <SocialLink to="https://medium.com/@alex_lobera">Medium</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/alex_Lobera">
                   Twitter
+                </SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://uk.linkedin.com/in/alexlobera">
+                  LinkedIn
                 </SocialLink>
               </Li>
             </Ul>
@@ -204,6 +208,10 @@ const AboutUs = () => (
             <Ul inline>
               <Li>
                 <SocialLink to="https://github.com/ric9176">GitHub</SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://medium.com/@richard_13764">Medium</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
@@ -261,14 +269,18 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://www.linkedin.com/in/horacioherrera/">
-                  LinkedIn
-                </SocialLink>
+                <SocialLink to="https://medium.com/@hhg2288">Medium</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/hhg2288">
                   Twitter
+                </SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://www.linkedin.com/in/horacioherrera/">
+                  LinkedIn
                 </SocialLink>
               </Li>
             </Ul>
