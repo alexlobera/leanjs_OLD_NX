@@ -1,29 +1,104 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withApollo } from 'react-apollo'
+
 import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
 import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
 import { DEFAULT_VAT_RATE } from '../../config'
+import { getVoucherByPathname } from '../utils/store'
+import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
+import trackUserBehaviour, {
+  VOUCHER_VALIDATE,
+} from '../utils/trackUserBehaviour'
 
 class PaymentSection extends React.Component {
   state = {
     quantity: 1,
-    maxSeats: 30,
+    isVoucherValid: null,
+    isVoucherValidationInProgress: false,
+    voucher: '',
+    voucherPriceXQuantity: null,
     vatRate: DEFAULT_VAT_RATE,
+  }
+
+  componentDidMount() {
+    const voucher = getVoucherByPathname()
+    if (voucher) {
+      this.setState({ voucher })
+      this.validateVoucher(voucher)
+    }
+  }
+
+  validateVoucher = voucher => {
+    const {
+      client,
+      data = {},
+      trackUserBehaviour,
+    } = this.props
+    const {
+      isVoucherValidationInProgress,
+      quantity,
+    } = this.state
+    const { trainingInstanceId } = data
+
+    if (!voucher || isVoucherValidationInProgress) {
+      return
+    }
+
+    this.setVoucherInProgress(true)
+    trackUserBehaviour({
+      event: VOUCHER_VALIDATE,
+      payload: { voucher },
+    })
+    return client
+      .query({
+        query: VALIDATE_VOUCHER,
+        variables: {
+          voucherCode: voucher,
+          trainingInstanceId,
+          quantity,
+        },
+      })
+      .then(({ data = {} }) => {
+        const { amount = null } = data.voucherGetNetPriceWithDiscount || {}
+        this.setVoucherInProgress(false)
+        this.setState({
+          isVoucherValid: !!amount,
+          voucherPriceXQuantity: amount,
+        })
+      })
+      .catch(error => {
+        this.setVoucherInProgress(false)
+      })
+  }
+
+  setVoucherInProgress = isVoucherValidationInProgress => {
+    this.setState({ isVoucherValidationInProgress })
+  }
+
+  resetVoucher = (voucher = '') => {
+    this.setState({
+      isVoucherValid: null,
+      voucher,
+      voucherPriceXQuantity: null,
+    })
   }
 
   removeCourse = () => {
     this.setState(prevState => ({
       quantity: prevState.quantity - 1 <= 0 ? 1 : prevState.quantity - 1,
     }))
+    this.resetVoucher()
   }
 
   addCourse = () => {
     this.setState(prevState => ({
       quantity: prevState.quantity + 1 > 30 ? 30 : prevState.quantity + 1,
     }))
+    this.resetVoucher()
   }
 
   updateVatRate = vatRate => {
@@ -32,6 +107,10 @@ class PaymentSection extends React.Component {
 
   render() {
     const {
+      paymentApi,
+      data = {}
+    } = this.props
+    const {
       trainingInstanceId,
       price,
       discountPrice,
@@ -39,13 +118,21 @@ class PaymentSection extends React.Component {
       currency = 'gbp',
       priceGoesUpOn,
       ticketName,
-      paymentApi
-    } =
-      this.props.data || {}
-
-    const { quantity, vatRate } = this.state
-    const pricePerQuantity = price * quantity
-    const discountPricePerQuantity = discountPrice && discountPrice * quantity
+    } = data
+    const {
+      quantity,
+      vatRate,
+      voucherPriceXQuantity,
+      voucher,
+      isVoucherValid,
+      isVoucherValidationInProgress,
+    } = this.state
+    const priceXQuantity = price * quantity
+    const currentPriceXQuantity = voucherPriceXQuantity !== null ?
+      voucherPriceXQuantity :
+      discountPrice ?
+        discountPrice * quantity :
+        priceXQuantity
 
     return price ? (
       <React.Fragment>
@@ -68,13 +155,13 @@ class PaymentSection extends React.Component {
               Save{' '}
               {formatPrice(
                 currency,
-                pricePerQuantity - discountPricePerQuantity,
+                priceXQuantity - currentPriceXQuantity,
                 vatRate
               )}
             </Ribbon>
           ) : (
-            ''
-          )}
+              ''
+            )}
           {priceGoesUpOn && nextDiscountPrice ? (
             <P>
               Ticket price goes up to{' '}
@@ -82,8 +169,8 @@ class PaymentSection extends React.Component {
               {priceGoesUpOn}
             </P>
           ) : (
-            ''
-          )}
+              ''
+            )}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
@@ -94,14 +181,23 @@ class PaymentSection extends React.Component {
             quantity={this.state.quantity}
             removeCourse={this.removeCourse}
             addCourse={this.addCourse}
-            pricePerQuantity={pricePerQuantity}
-            discountPricePerQuantity={discountPricePerQuantity}
+            priceXQuantity={priceXQuantity}
+            currentPriceXQuantity={currentPriceXQuantity}
+            validateVoucher={this.validateVoucher}
+            resetVoucher={this.resetVoucher}
+            voucher={voucher}
+            isVoucherValid={isVoucherValid}
+            isVoucherValidationInProgress={isVoucherValidationInProgress}
             paymentApi={paymentApi}
           />
         </Card>
       </React.Fragment>
     ) : null
   }
+}
+
+PaymentSection.defaultProps = {
+  trackUserBehaviour
 }
 
 PaymentSection.propTypes = {
@@ -114,7 +210,8 @@ PaymentSection.propTypes = {
     ticketName: PropTypes.string,
     currency: PropTypes.string,
     paymentApi: PropTypes.object
-  })
+  }),
+  paymentApi: PropTypes.object,
 }
 
-export default PaymentSection
+export default withApollo(PaymentSection)
