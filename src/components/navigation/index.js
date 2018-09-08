@@ -9,6 +9,8 @@ import Tabs, {
   ContentItem,
 } from './Tabs'
 
+export const DEFAULT_LINK_SCROLL_OFFSET = -125
+
 export {
   Link,
   LinkScroll,

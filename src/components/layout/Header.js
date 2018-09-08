@@ -186,7 +186,6 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
                 {links.map((link, i) => (
                   <Li key={i}>
                     <LinkScroll
-                      offset={-125}
                       smooth={true}
                       duration={500}
                       to={link.to}

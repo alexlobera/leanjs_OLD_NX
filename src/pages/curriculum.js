@@ -8,10 +8,10 @@ import { H2Ref, H2, P, H3 } from '../components/text'
 import {
   Link,
   LinkScroll as DefaultLinkScroll,
+  DEFAULT_LINK_SCROLL_OFFSET,
   Tabs,
   TabList,
   TabItem,
-  TabLabel,
   TabContent,
   ContentItem,
 } from '../components/navigation'
@@ -72,6 +72,7 @@ class Curriculum extends React.Component {
           scroller.scrollTo(defaultSection || 'curriculum', {
             smooth: true,
             duration: 500,
+            offset: DEFAULT_LINK_SCROLL_OFFSET,
           }),
         200
       )
@@ -310,7 +311,7 @@ class Curriculum extends React.Component {
                                   trainingBootcamp.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingBootcamp.city
-                                }`}
+                                  }`}
                                 to={trainingBootcamp.pathUrl}
                                 buttonText="Next React bootcamp >>"
                               />
@@ -360,7 +361,7 @@ class Curriculum extends React.Component {
                                   trainingAdvanced.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingAdvanced.city
-                                }`}
+                                  }`}
                                 to={trainingAdvanced.pathUrl}
                                 buttonText="Next advanced React bootcamp >>"
                               />
@@ -503,7 +504,7 @@ class Curriculum extends React.Component {
                                   trainingPartTime.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingPartTime.city
-                                }`}
+                                  }`}
                                 to={trainingPartTime.pathUrl}
                                 buttonText="Next React part-time >>"
                               />
