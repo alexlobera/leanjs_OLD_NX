@@ -6,9 +6,11 @@ import MenuData from './Menu.json'
 import { RJSALogo } from '../../logos'
 import './PhoneMenu.css'
 
+export { Menu }
+
 const Item = ({ children, ...props }) => <Link {...props}>{children}</Link>
 
-const PhoneMenuItem = styled(Item)`
+export const PhoneMenuItem = styled(Item)`
   display: block;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -18,8 +20,12 @@ const PhoneMenuItem = styled(Item)`
 PhoneMenuItem.displayName = 'PhoneMenuItem'
 
 class PhoneMenu extends React.Component {
-  state = {
-    isOpen: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isOpen: props.isOpen || false,
+    }
   }
 
   closeMenu = () => {
