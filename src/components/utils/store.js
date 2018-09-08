@@ -11,11 +11,12 @@ export const getVoucherByPathname = () => {
 
   const voucher = getURLParameter('voucher')
   const { pathname } = window.location
+  const pathNameNoTrailingSlash = pathname.replace(/\/$/, '')
   if (voucher) {
     const expiresInSevenDays = new Date().getTime() + 604800000
-    store.set(pathname, voucher, expiresInSevenDays)
+    store.set(pathNameNoTrailingSlash, voucher, expiresInSevenDays)
     return voucher
   } else {
-    return store.get(pathname)
+    return store.get(pathNameNoTrailingSlash)
   }
 }
