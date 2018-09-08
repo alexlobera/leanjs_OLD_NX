@@ -144,7 +144,9 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://medium.com/@alex_lobera">Medium</SocialLink>
+                <SocialLink to="https://medium.com/@alex_lobera">
+                  Medium
+                </SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
@@ -211,7 +213,9 @@ const AboutUs = () => (
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://medium.com/@richard_13764">Medium</SocialLink>
+                <SocialLink to="https://medium.com/@richard_13764">
+                  Medium
+                </SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
