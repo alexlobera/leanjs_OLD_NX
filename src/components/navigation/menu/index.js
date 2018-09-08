@@ -26,7 +26,7 @@ const MenuContainer = styled.div`
 
 const Navbar = styled.nav`
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 9992;
@@ -43,8 +43,8 @@ const Menu = ({ width }) => {
           {canIGuessTheScreenSizeUsingJS && width <= MEDIUM ? (
             <PhoneMenu />
           ) : (
-            <DesktopMenu />
-          )}
+              <DesktopMenu />
+            )}
         </MenuContainer>
       </Grid>
     </Navbar>
