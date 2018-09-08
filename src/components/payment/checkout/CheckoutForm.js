@@ -156,7 +156,6 @@ class CheckoutForm extends React.Component {
       ? 0
       : currentPriceXQuantity - currentPriceXQuantity * vatRate
 
-
     return (
       <Fragment>
         <Helmet
@@ -253,12 +252,12 @@ class CheckoutForm extends React.Component {
                     </LinkButton>
                   </Fragment>
                 ) : (
-                    <FormGroup>
-                      <Link onClick={this.toggleDisplayCompanyDetails}>
-                        + Add company details
+                  <FormGroup>
+                    <Link onClick={this.toggleDisplayCompanyDetails}>
+                      + Add company details
                     </Link>
-                    </FormGroup>
-                  )}
+                  </FormGroup>
+                )}
                 <CheckoutH4>Payment details</CheckoutH4>
                 <CCNameInput
                   label="Name on card:"
@@ -334,14 +333,14 @@ class CheckoutForm extends React.Component {
                     </ValidateVoucherButton>
                   </Fragment>
                 ) : (
-                    <FormGroup>
-                      <ShowVoucherButton
-                        onClick={this.toggleDisplayVoucherSection}
-                      >
-                        + Add discount voucher
+                  <FormGroup>
+                    <ShowVoucherButton
+                      onClick={this.toggleDisplayVoucherSection}
+                    >
+                      + Add discount voucher
                     </ShowVoucherButton>
-                    </FormGroup>
-                  )}
+                  </FormGroup>
+                )}
                 <RibbonBottomContainer>
                   <CheckoutH4>Pricing</CheckoutH4>
                   {currentPriceXQuantity ? (
@@ -354,8 +353,8 @@ class CheckoutForm extends React.Component {
                       )}
                     </Ribbon>
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>
@@ -380,7 +379,9 @@ class CheckoutForm extends React.Component {
                         <Span>Discount price:</Span>
                       </Col>
                       <Col xs={7}>
-                        <Span>{formatPrice(currency, currentPriceXQuantity, 0)}</Span>
+                        <Span>
+                          {formatPrice(currency, currentPriceXQuantity, 0)}
+                        </Span>
                       </Col>
                     </Row>
                   </React.Fragment>
@@ -401,11 +402,7 @@ class CheckoutForm extends React.Component {
                   </Col>
                   <Col xs={7}>
                     <TotalPayablePrice>
-                      {formatPrice(
-                        currency,
-                        currentPriceXQuantity,
-                        vatRate
-                      )}
+                      {formatPrice(currency, currentPriceXQuantity, vatRate)}
                     </TotalPayablePrice>
                   </Col>
                 </Row>

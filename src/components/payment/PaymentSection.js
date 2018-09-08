@@ -33,15 +33,8 @@ class PaymentSection extends React.Component {
   }
 
   validateVoucher = voucher => {
-    const {
-      client,
-      data = {},
-      trackUserBehaviour,
-    } = this.props
-    const {
-      isVoucherValidationInProgress,
-      quantity,
-    } = this.state
+    const { client, data = {}, trackUserBehaviour } = this.props
+    const { isVoucherValidationInProgress, quantity } = this.state
     const { trainingInstanceId } = data
 
     if (!voucher || isVoucherValidationInProgress) {
@@ -106,10 +99,7 @@ class PaymentSection extends React.Component {
   }
 
   render() {
-    const {
-      paymentApi,
-      data = {}
-    } = this.props
+    const { paymentApi, data = {} } = this.props
     const {
       trainingInstanceId,
       price,
@@ -128,11 +118,12 @@ class PaymentSection extends React.Component {
       isVoucherValidationInProgress,
     } = this.state
     const priceXQuantity = price * quantity
-    const currentPriceXQuantity = voucherPriceXQuantity !== null ?
-      voucherPriceXQuantity :
-      discountPrice ?
-        discountPrice * quantity :
-        priceXQuantity
+    const currentPriceXQuantity =
+      voucherPriceXQuantity !== null
+        ? voucherPriceXQuantity
+        : discountPrice
+          ? discountPrice * quantity
+          : priceXQuantity
 
     return price ? (
       <React.Fragment>
@@ -160,8 +151,8 @@ class PaymentSection extends React.Component {
               )}
             </Ribbon>
           ) : (
-              ''
-            )}
+            ''
+          )}
           {priceGoesUpOn && nextDiscountPrice ? (
             <P>
               Ticket price goes up to{' '}
@@ -169,8 +160,8 @@ class PaymentSection extends React.Component {
               {priceGoesUpOn}
             </P>
           ) : (
-              ''
-            )}
+            ''
+          )}
           <Checkout
             trainingInstanceId={trainingInstanceId}
             vatRate={vatRate}
@@ -197,7 +188,7 @@ class PaymentSection extends React.Component {
 }
 
 PaymentSection.defaultProps = {
-  trackUserBehaviour
+  trackUserBehaviour,
 }
 
 PaymentSection.propTypes = {
@@ -209,7 +200,7 @@ PaymentSection.propTypes = {
     priceGoesUpOn: PropTypes.string,
     ticketName: PropTypes.string,
     currency: PropTypes.string,
-    paymentApi: PropTypes.object
+    paymentApi: PropTypes.object,
   }),
   paymentApi: PropTypes.object,
 }
