@@ -340,9 +340,13 @@ const AboutUs = () => (
               </Li>
             </Ul>
             <Ul>
-              <Li>Currently, a <strong>front-end engineer</strong> working with <strong>React/Redux</strong></Li>
               <Li>
-                Holds a degree in <strong>computer science and social sciences</strong>,
+                Currently, a <strong>front-end engineer</strong> working with{' '}
+                <strong>React/Redux</strong>
+              </Li>
+              <Li>
+                Holds a degree in{' '}
+                <strong>computer science and social sciences</strong>,
                 interested in the social impact of technologies
               </Li>
               <Li>
@@ -394,9 +398,12 @@ const AboutUs = () => (
               </Li>
             </Ul>
             <Ul>
-              <Li>Professional web <strong>developer since 2005</strong></Li>
               <Li>
-                <strong>Qualified teacher</strong>, experienced teaching in a variety of settings
+                Professional web <strong>developer since 2005</strong>
+              </Li>
+              <Li>
+                <strong>Qualified teacher</strong>, experienced teaching in a
+                variety of settings
               </Li>
               <Li>
                 Experience working for start-ups and international corporations
