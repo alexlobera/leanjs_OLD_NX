@@ -1,14 +1,20 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
 
 import DesktopMenu, { DesktopMenuItem } from './DesktopMenu'
 
 describe('<DesktopMenu />', () => {
     it('should render the list of menu items', () => {
-        const data = [{ to: 'lorem', text: 'ipsum' }]
+        const wrapper = shallow(<DesktopMenu />)
 
-        const wrapper = shallow(<DesktopMenu data={data} />)
+        expect(wrapper.find(DesktopMenuItem).length).toBe(7)
+        expect(toJson(wrapper)).toMatchSnapshot()
+    })
 
-        expect(wrapper.find(DesktopMenuItem).length).toBe(1)
+    it('should render curriculum as the first item of the menu', () => {
+        const wrapper = shallow(<DesktopMenu />)
+
+        expect(wrapper.find(DesktopMenuItem).first().props().children.toLowerCase()).toMatch(/curriculum/)
     })
 })

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DesktopMenu /> should render the list of menu items 1`] = `
+<Styled(Components)
+  sm={true}
+  xs={true}
+>
+  <Styled(styled.ul)
+    inline={true}
+  >
+    <DesktopMenuItem
+      key="0"
+      to="/curriculum"
+    >
+      Curriculum
+    </DesktopMenuItem>
+    <DesktopMenuItem
+      key="1"
+      to="/react-redux-graphql-bootcamp"
+    >
+      React bootcamp
+    </DesktopMenuItem>
+    <DesktopMenuItem
+      key="2"
+      to="/advanced-react-redux-graphql-bootcamp"
+    >
+      Advanced React
+    </DesktopMenuItem>
+    <DesktopMenuItem
+      key="3"
+      to="/react-native-bootcamp"
+    >
+      React Native
+    </DesktopMenuItem>
+    <DesktopMenuItem
+      key="4"
+      to="/react-redux-graphql-part-time-course"
+    >
+      Part-time
+    </DesktopMenuItem>
+    <DesktopMenuItem
+      key="5"
+      to="/about-us"
+    >
+      About us
+    </DesktopMenuItem>
+    <DesktopMenuItem
+      key="6"
+      to="mailto:hello@reactjs.academy"
+    >
+      Contact
+    </DesktopMenuItem>
+  </Styled(styled.ul)>
+</Styled(Components)>
+`;

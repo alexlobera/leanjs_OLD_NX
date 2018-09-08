@@ -29,10 +29,10 @@ export const DesktopMenuItem = styled(Item)`
 
 DesktopMenuItem.displayName = 'DesktopMenuItem'
 
-const DesktopMenu = ({ data }) => (
+const DesktopMenu = () => (
   <HideComponentsUsingCss xs sm>
     <Ul inline>
-      {data.map((item, i) => (
+      {MenuData.map((item, i) => (
         <DesktopMenuItem key={i} to={item.to}>
           {item.text}
         </DesktopMenuItem>
@@ -40,13 +40,5 @@ const DesktopMenu = ({ data }) => (
     </Ul>
   </HideComponentsUsingCss>
 )
-
-DesktopMenu.propTypes = {
-  data: PropTypes.array
-}
-
-DesktopMenu.defaultProps = {
-  data: MenuData
-}
 
 export default DesktopMenu
