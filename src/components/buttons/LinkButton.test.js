@@ -14,7 +14,7 @@ describe('<LinkButton />', () => {
         expect(trackUserBehaviour).toHaveBeenCalled()
     })
 
-    it(`should execute the function passed to the onClick prop even when the prop is overriden in the children`, () => {
+    it(`should execute the function passed to the onClick prop even when the prop is overridden in the children`, () => {
         const onClickProp = jest.fn()
 
         const wrapper = shallow(<LinkButton onClick={onClickProp} trackUserBehaviour={() => { }} />)
