@@ -112,9 +112,13 @@ const RibbonBottomContainer = styled.div`
 `
 
 class CheckoutForm extends React.Component {
-  state = {
-    isVoucherDisplayed: false,
-    isCompanyDetailsDisplayed: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isVoucherDisplayed: !!props.voucher,
+      isCompanyDetailsDisplayed: false,
+    }
   }
 
   toggleDisplayVoucherSection = () => {
@@ -132,30 +136,25 @@ class CheckoutForm extends React.Component {
       quantity,
       removeCourse,
       addCourse,
-      pricePerQuantity,
-      discountPricePerQuantity,
-      discountVoucher,
+      priceXQuantity,
+      currentPriceXQuantity,
       currency,
       vatRate,
       pay,
       isVoucherValidationInProgress,
       validateVoucher,
-      vouchedPricePerQuantity,
       voucher,
-      onVoucherChange,
+      resetVoucher,
       isVoucherValid,
       companyVat,
       isPaymentInProgress,
       paymentErrorMessage,
     } = this.props
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
-    const currentTicketPrice = discountPricePerQuantity || pricePerQuantity
+    const discount = priceXQuantity - currentPriceXQuantity
     const ticketVat = !vatRate
       ? 0
-      : vouchedPricePerQuantity
-        ? vouchedPricePerQuantity - vouchedPricePerQuantity * vatRate
-        : currentTicketPrice - currentTicketPrice * vatRate
-
+      : currentPriceXQuantity - currentPriceXQuantity * vatRate
 
     return (
       <Fragment>
@@ -170,6 +169,19 @@ class CheckoutForm extends React.Component {
         />
         <Row>
           <Col xs={6}>
+            <TotalPrice>Total price:</TotalPrice>
+            <P>
+              <Price marginRight={8}>
+                {formatPrice(currency, currentPriceXQuantity, vatRate)}
+              </Price>
+              {currentPriceXQuantity < priceXQuantity ? (
+                <Span lineThrough>
+                  {formatPrice(currency, priceXQuantity, vatRate)}
+                </Span>
+              ) : null}
+            </P>
+          </Col>
+          <Col xs={6}>
             <Span>Number of tickets:</Span>
             <RowNumTickets>
               <QuantityActions>
@@ -178,19 +190,6 @@ class CheckoutForm extends React.Component {
                 <QuantityButton onClick={addCourse} children="+" />
               </QuantityActions>
             </RowNumTickets>
-          </Col>
-          <Col xs={6}>
-            <TotalPrice>Total price:</TotalPrice>
-            <P>
-              <Price marginRight={8}>
-                {formatPrice(currency, currentTicketPrice, vatRate)}
-              </Price>
-              {discountPricePerQuantity ? (
-                <Span lineThrough>
-                  {formatPrice(currency, pricePerQuantity, vatRate)}
-                </Span>
-              ) : null}
-            </P>
           </Col>
         </Row>
         <Form
@@ -274,8 +273,8 @@ class CheckoutForm extends React.Component {
                   autoCorrect="no"
                   autoCapitalize="no"
                   spellCheck="no"
-                  validate={composeValidators(required, mustBeCardNumber)}
                   format={formatCreditCardNumber}
+                  validate={composeValidators(required, mustBeCardNumber)}
                 />
                 <Row>
                   <Col xs={6}>
@@ -310,7 +309,7 @@ class CheckoutForm extends React.Component {
                       label="Discount voucher:"
                       name="voucher"
                       placeholder="Type your code here"
-                      onChange={onVoucherChange}
+                      onChange={e => resetVoucher(e.target.value)}
                       value={voucher}
                       meta={{
                         pristine: !(isVoucherValid === false),
@@ -344,12 +343,12 @@ class CheckoutForm extends React.Component {
                 )}
                 <RibbonBottomContainer>
                   <CheckoutH4>Pricing</CheckoutH4>
-                  {discountPricePerQuantity ? (
+                  {currentPriceXQuantity ? (
                     <Ribbon top={'-5'}>
                       Save{' '}
                       {formatPrice(
                         currency,
-                        pricePerQuantity - discountPricePerQuantity,
+                        priceXQuantity - currentPriceXQuantity,
                         vatRate
                       )}
                     </Ribbon>
@@ -359,21 +358,33 @@ class CheckoutForm extends React.Component {
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>
-                    <Span>Training cost:</Span>
+                    <Span>Price:</Span>
                   </Col>
                   <Col xs={7}>
-                    <Span>{formatPrice(currency, currentTicketPrice, 0)}</Span>
+                    <Span>{formatPrice(currency, priceXQuantity, 0)}</Span>
                   </Col>
                 </Row>
-                {discountVoucher ? (
-                  <Row>
-                    <Col xs={5}>
-                      <P>Discount:</P>
-                    </Col>
-                    <Col xs={7}>
-                      <Span>-{formatPrice(currency, discountVoucher, 0)}</Span>
-                    </Col>
-                  </Row>
+                {discount ? (
+                  <React.Fragment>
+                    <Row>
+                      <Col xs={5}>
+                        <Span>Discount:</Span>
+                      </Col>
+                      <Col xs={7}>
+                        <Span>-{formatPrice(currency, discount, 0)}</Span>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xs={5}>
+                        <Span>Discount price:</Span>
+                      </Col>
+                      <Col xs={7}>
+                        <Span>
+                          {formatPrice(currency, currentPriceXQuantity, 0)}
+                        </Span>
+                      </Col>
+                    </Row>
+                  </React.Fragment>
                 ) : null}
                 <Row>
                   <Col xs={5}>
@@ -391,11 +402,7 @@ class CheckoutForm extends React.Component {
                   </Col>
                   <Col xs={7}>
                     <TotalPayablePrice>
-                      {formatPrice(
-                        currency,
-                        vouchedPricePerQuantity || currentTicketPrice,
-                        vatRate
-                      )}
+                      {formatPrice(currency, currentPriceXQuantity, vatRate)}
                     </TotalPayablePrice>
                   </Col>
                 </Row>

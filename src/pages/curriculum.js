@@ -8,10 +8,10 @@ import { H2Ref, H2, P, H3 } from '../components/text'
 import {
   Link,
   LinkScroll as DefaultLinkScroll,
+  DEFAULT_SCROLL_OFFSET,
   Tabs,
   TabList,
   TabItem,
-  TabLabel,
   TabContent,
   ContentItem,
 } from '../components/navigation'
@@ -72,6 +72,7 @@ class Curriculum extends React.Component {
           scroller.scrollTo(defaultSection || 'curriculum', {
             smooth: true,
             duration: 500,
+            offset: DEFAULT_SCROLL_OFFSET,
           }),
         200
       )

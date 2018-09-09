@@ -25,7 +25,11 @@ import {
   PeopleNetWorkIcon,
 } from '../components/icons'
 import { Breadcrumb } from '../components/navigation'
-import { selectTrainings, selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
+import {
+  selectTrainings,
+  selectFirstTraining,
+  REACT_BOOTCAMP,
+} from '../config/data'
 
 const trainings = selectTrainings(REACT_BOOTCAMP)
 const nextTraining = selectFirstTraining(REACT_BOOTCAMP)
@@ -86,7 +90,9 @@ const Boocamps = () => (
             </Ul>
             <P>
               <LinkButton cta to={nextTraining.pathUrl}>
-                Next bootcamp: {moment(nextTraining.dateStartsOn).format('D MMM')}, {nextTraining.city}
+                Next bootcamp:{' '}
+                {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
+                {nextTraining.city}
               </LinkButton>
             </P>
           </Col>

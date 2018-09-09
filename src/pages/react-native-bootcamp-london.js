@@ -15,7 +15,6 @@ import {
   AttendeeQuote,
   TrainingDetails,
   HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
 } from '../components/training'
 import {
@@ -77,7 +76,7 @@ const ReactNativeBoocampLondon = () => (
                   </React.Fragment>
                 }
                 foodIncluded
-                coaches={[HORACIO_HERRERA, WILL_VOELCKER, ALEX_LOBERA]}
+                coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
               />
             </Col>
           </Row>
