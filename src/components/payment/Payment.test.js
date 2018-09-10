@@ -135,15 +135,13 @@ const getWrapperCreator = (requestType => resultType => (graphQlMocks = [{reques
 
 const getWrapper = (requestType, resultType, graphQlMocks = undefined) => getWrapperCreator(requestType)(resultType)(graphQlMocks)()
 
-const getFieldChanger = wrapper => (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
-
 describe('<PaymentSection /> - Making payments', () => {
 
     const preparePayment = wrapper => {
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
-        const change = getFieldChanger(wrapper)
+        const change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
         change(NameInput, 'Joe Bloggs')
         change(EmailInput, 'test@example.com')
         change(CCNameInput, 'Mr J Bloggs')
@@ -196,22 +194,31 @@ describe('<PaymentSection /> - Company details', () => {
         wrapper.find(AddCompanyDetailsButton).simulate('click')
 
         wrapper.update()
-        const change = getFieldChanger(wrapper)
+        const change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
 
-        return { wrapper, change }
-    }
-
-    const getVATNumberTester = (VATNumber, expectError) => () => {
-        const { wrapper, change } = prepareToTestVATNumbers()
         const getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length
-        expect(getNumErrorNodes()).toBe(0)
-        change(EUVATNumberField, VATNumber)
-        wrapper.update()
-        expect(getNumErrorNodes()).toBe(expectError?1:0)
+
+        return { wrapper, change, getNumErrorNodes }
     }
 
-    it("should flag-up invalid-format EU vat numbers", getVATNumberTester(INVALID_EU_VAT_NUMBER, true))
-    it("should not flag-up valid-format EU vat numbers", getVATNumberTester(VALID_EU_VAT_NUMBER, false))
+    it("should flag-up invalid-format EU vat numbers", () => {
+        const { wrapper, change, getNumErrorNodes } = prepareToTestVATNumbers()
+        
+        expect(getNumErrorNodes()).toBe(0)
+        change(EUVATNumberField, INVALID_EU_VAT_NUMBER)
+        wrapper.update()
+        expect(getNumErrorNodes()).toBe(1)
+    })
+
+    it("should not flag-up valid-format EU vat numbers", () => {
+        const { wrapper, change, getNumErrorNodes } = prepareToTestVATNumbers()
+
+        expect(getNumErrorNodes()).toBe(0)
+        change(EUVATNumberField, VALID_EU_VAT_NUMBER)
+        wrapper.update()
+        expect(getNumErrorNodes()).toBe(0)
+    })
+
 
     const setUpVATButtonTextTest = (graphQLResponseValid=true) => {
         const { wrapper, change } = prepareToTestVATNumbers(graphQLResponseValid)
