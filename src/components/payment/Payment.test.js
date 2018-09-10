@@ -42,7 +42,7 @@ describe("<PaymentSection />", () => {
             setPublishableKey: () => { },
             card: {
                 createToken: (data, callback) => callback("test-status", { id: 2})
-            }    
+            }
         }
 
         wrapper = mount(
@@ -169,7 +169,7 @@ describe("<PaymentSection />", () => {
                 variables: {
                     countryCode: "GB",
                     vatNumber: "999 9999 73",
-                }        
+                }
             };
             graphqlResponse = {
                 data: {
@@ -185,14 +185,14 @@ describe("<PaymentSection />", () => {
             wrapper.update()
             change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
 
-            getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length        
+            getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length
         })
 
         describe('Client-side validation', () => {
             const INVALID_EU_VAT_NUMBER = "XYZ123"
             const VALID_EU_VAT_NUMBER = "GB999 9999 73"
 
-            it("should flag-up invalid-format EU vat numbers", () => {        
+            it("should flag-up invalid-format EU vat numbers", () => {
                 expect(getNumErrorNodes()).toBe(0)
                 change(EUVATNumberField, INVALID_EU_VAT_NUMBER)
                 wrapper.update()
@@ -232,14 +232,14 @@ describe("<PaymentSection />", () => {
                         wrapper.update()
                         expect(getButtonText()).toBe("Validated")
                     })
-                })            
+                })
             })
 
             describe('Failure response', () => {
                 beforeAll(() => {
                     graphqlResponse = {data: {
                         isVatNumberValid: false
-                    }}    
+                    }}
                 })
 
                 it("should show the default message in the validate-VAT-number button", async () => {
