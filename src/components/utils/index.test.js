@@ -53,3 +53,48 @@ describe('HideComponentsUsingCss', () => {
 
 })
 
+
+describe('DisplayComponentsUsingCss', () => {
+
+  it('should show components on screen size XS', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss xs><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen sizes XS and SM', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss xs sm><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen sizes XS and MD', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss xs md><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen sizes XS and LG', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss xs lg><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen size SM', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss sm><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen sizes SM and MD', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss sm md><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen sizes SM and LG', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss sm lg><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen size MD', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss md><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen sizes MG and LG', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss md lg><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+  it('should show components on screen size LG', () => {
+    expect(renderer.create(<DisplayComponentsUsingCss lg><div /></DisplayComponentsUsingCss>).toJSON()).toMatchSnapshot()
+  })
+
+})
+

@@ -1,5 +1,201 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DisplayComponentsUsingCss should show components on screen size LG 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen size MD 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen size SM 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen size XS 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (max-width:767px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen sizes MG and LG 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen sizes SM and LG 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen sizes SM and MD 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen sizes XS and LG 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (max-width:767px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+@media (min-width:1200px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen sizes XS and MD 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (max-width:767px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`DisplayComponentsUsingCss should show components on screen sizes XS and SM 1`] = `
+.c0 {
+  display: none !important;
+}
+
+@media (max-width:767px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  .c0 {
+    display: block !important;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
 exports[`HideComponentsUsingCss should hide components on screen size LG 1`] = `
 @media (min-width:1200px) {
   .c0 {
