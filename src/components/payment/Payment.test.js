@@ -129,7 +129,7 @@ const getWrapper = (requestType, resultType ) => {
 
 
 describe('<PaymentSection /> - Making payments', () => {
-    let wrapper, graphqlResponse = "pay"
+    let wrapper, graphqlResponse = "pay", checkExpectations
 
     beforeEach(() => {
         wrapper = getWrapper("pay", graphqlResponse)
@@ -146,8 +146,7 @@ describe('<PaymentSection /> - Making payments', () => {
         change(CCCVCInput, '123')
     })
 
-
-    const makePayment = async (wrapper, checkExpectations) => {
+    afterEach(() => {
 
         // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
         // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
@@ -156,14 +155,15 @@ describe('<PaymentSection /> - Making payments', () => {
 
         return waitForExpect(() => {
             wrapper.update()
-            checkExpectations(wrapper)
+            checkExpectations()
         });
-    }
+    })
+
 
     it('should make a payment', async () => {
-        await makePayment(wrapper, wrapper => {
+        checkExpectations = () => {
             expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
-        })
+        }
     })
 
     describe('Payment errors', () => {
@@ -174,12 +174,11 @@ describe('<PaymentSection /> - Making payments', () => {
         it('should reflect payment errors in the UI', async () => {
             const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
             expect(getNumWarnings()).toBe(0)
-            await makePayment(wrapper, wrapper => {
+            checkExpectations = () => {
                 expect(getNumWarnings()).toBe(1)
-            })
-        })        
+            }
+        })
     })
-
 
 })
 
@@ -246,7 +245,6 @@ describe('<PaymentSection /> - Company details', () => {
         })
 
         describe('Failure response', () => {
-            
             beforeAll(() => {
                 ajaxViesValidationResponseIsValid = false    
             })
@@ -259,10 +257,7 @@ describe('<PaymentSection /> - Company details', () => {
                 })
             })
         })
-
-
     })
-
 })
 
 
