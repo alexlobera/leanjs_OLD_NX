@@ -4,6 +4,8 @@ import {
   getMonthFromCardDate,
   getYearFromCardDate,
   formatCreditCardNumber,
+  formatCVC,
+  formatExpirationDate
 } from './card.js'
 
 describe('getMonthFromCardDate', () => {
@@ -37,59 +39,24 @@ describe('formatCreditCardNumber', () => {
   })
 })
 
-/*
-export function formatCreditCardNumber(value) {
-  if (!value) {
-    return ''
-  }
+describe('formatCVC', () => {
+  it('should strip any characters after the fourth character', () => {
+    expect(formatCVC('1234567')).toBe('1234')
+  })
+  it('should strip any characters after the third, if the rest of the card details are provided in the second parameter, and the card is not an amex card', () => {
+    expect(formatCVC('1234567', {number: '4123456789012345678'})).toBe('123')
+  })
+  it('should strip any characters after the fourth, if the rest of the card details are provided in the second parameter, and the card is an amex card', () => {
+    expect(formatCVC('1234567', {number: '341234567890123'})).toBe('1234')
+  })
+})
 
-  const issuer = Payment.fns.cardType(value)
-  const clearValue = clearNumber(value)
-  let nextValue
+describe('formatExpirationDate', () => {
+  it('should return any expiration dates of 3 characters or less exactly as they are, except with non-numeric characters removed', () => {
+    expect(formatExpirationDate('a12')).toBe('12')
+  })
+  it('should return the first four characters of any expiration dates longer than 3 character, with a slash(/)-character after the first two, and spaces around the slash', () => {
+    expect(formatExpirationDate('12204')).toBe('12 / 20')
+  })
+})
 
-  switch (issuer) {
-    case 'amex':
-      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
-        4,
-        10
-      )} ${clearValue.slice(10, 15)}`
-      break
-    case 'dinersclub':
-      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
-        4,
-        10
-      )} ${clearValue.slice(10, 14)}`
-      break
-    default:
-      nextValue = `${clearValue.slice(0, 4)} ${clearValue.slice(
-        4,
-        8
-      )} ${clearValue.slice(8, 12)} ${clearValue.slice(12, 19)}`
-      break
-  }
-
-  return nextValue.trim()
-}
-
-export function formatCVC(value, allValues = {}) {
-  const clearValue = clearNumber(value)
-  let maxLength = 4
-
-  if (allValues.number) {
-    const issuer = Payment.fns.cardType(allValues.number)
-    maxLength = issuer === 'amex' ? 4 : 3
-  }
-
-  return clearValue.slice(0, maxLength)
-}
-
-export function formatExpirationDate(value) {
-  const clearValue = clearNumber(value)
-
-  if (clearValue.length >= 3) {
-    return `${clearValue.slice(0, 2)} / ${clearValue.slice(2, 4)}`
-  }
-
-  return clearValue
-}
-*/
