@@ -85,10 +85,13 @@ describe("<PaymentSection />", () => {
             };
             graphqlResponse = {
                 data: {
-                    id: "123",
-                    currency: "gbp",
-                    amount: 1194,
-                    metadata: {}                    
+                    makePayment: {
+                        id: "123",
+                        currency: "gbp",
+                        amount: 1194,
+                        metadata: {}
+                    }
+
                 }
             }
         })
@@ -122,13 +125,15 @@ describe("<PaymentSection />", () => {
         describe('No payment errors', () => {
             beforeAll(() => {
                 graphqlResponse = {data:  {
-                    id: "123",
-                    currency: "gbp",
-                    amount: 1194,
-                    metadata: {}
-                }}
-            })        
+                    makePayment: {
+                        id: "123",
+                        currency: "gbp",
+                        amount: 1194,
+                        metadata: {}
+                    }
 
+                }}
+            })
             it('should make a payment', async () => {
                 expectation = {
                     actual: () => wrapper.find(PaymentSection).props().history.location.pathname,
@@ -140,11 +145,9 @@ describe("<PaymentSection />", () => {
         describe('Payment errors', () => {
             beforeAll(() => {
                 graphqlResponse = {
-                    data: {
-                        errors: [
-                            {message: "Test error"}
-                        ]
-                    } 
+                    errors: [
+                        {message: "Test error"}
+                    ]
                 }
             })
 
