@@ -130,7 +130,7 @@ const getWrapper = (requestType, resultType ) => {
 describe("<PaymentSection />", () => {
 
     describe('Making payments', () => {
-        let wrapper, graphqlResponse = "pay", checkExpectations
+        let wrapper, graphqlResponse = "pay", expectation = { actual: null, expected: null  }
 
         beforeEach(() => {
             wrapper = getWrapper("pay", graphqlResponse)
@@ -156,18 +156,21 @@ describe("<PaymentSection />", () => {
 
             return waitForExpect(() => {
                 wrapper.update()
-                checkExpectations()
+                expect(expectation.actual()).toBe(expectation.expected)
             });
         })
 
-
-        it('should make a payment', async () => {
+        describe('No payment errors', () => {
             beforeAll(() => {
                 graphqlResponse = "pay"
+            })            
+
+            it('should make a payment', async () => {
+                expectation = {
+                    actual: () => wrapper.find(PaymentSection).props().history.location.pathname,
+                    expected: "/payment-confirmation"
+                }
             })
-            checkExpectations = () => {
-                expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
-            }
         })
 
         describe('Payment errors', () => {
@@ -178,8 +181,9 @@ describe("<PaymentSection />", () => {
             it('should reflect payment errors in the UI', async () => {
                 const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
                 expect(getNumWarnings()).toBe(0)
-                checkExpectations = () => {
-                    expect(getNumWarnings()).toBe(1)
+                expectation = {
+                    actual: () => getNumWarnings(),
+                    expected: 1
                 }
             })
         })
@@ -312,5 +316,5 @@ describe("<PaymentSection />", () => {
 
 
 
-// TODO:WV:20180907:Test updating taxes with EU VAT numbers
+// TODO:WV:20180907:Test updating taxes with EU VAT numbersy
 
