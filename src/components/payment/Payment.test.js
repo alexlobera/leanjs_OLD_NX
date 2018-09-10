@@ -164,7 +164,7 @@ describe("<PaymentSection />", () => {
     })
 
     describe('Company details', () => {
-        let change, getNumErrorNodes
+        let change
 
         beforeAll(() => {
             graphqlRequest = {
@@ -187,13 +187,17 @@ describe("<PaymentSection />", () => {
 
             wrapper.update()
             change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
-
-            getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length
         })
 
         describe('Client-side validation', () => {
+            let getNumErrorNodes
+
             const INVALID_EU_VAT_NUMBER = "XYZ123"
             const VALID_EU_VAT_NUMBER = "GB999 9999 73"
+
+            beforeAll(() => {
+                getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length    
+            })
 
             it("should flag-up invalid-format EU vat numbers", () => {
                 expect(getNumErrorNodes()).toBe(0)
