@@ -29,75 +29,13 @@ import { CheckoutContainer } from './checkout/CheckoutContainer'
 import { Alert } from '../elements'
 
 
-
-const dummyGraphQLRequestData = {
-    pay: {
-        query: PAY,
-        variables: {
-            voucherCode: "",
-            quantity:1,
-            trainingInstanceId: "5aa2acda7dcc782348ea1234",
-            email: "test@example.com",
-            name: "Joe Bloggs",
-            token: 2,
-            vatRate: 1.2,
-            companyName: undefined,
-            companyVat: undefined
-        }
-    },
-    validateVoucher: {
-        query: VALIDATE_VOUCHER,
-        variables: {
-            voucherCode: "asd",
-            trainingInstanceId: "5aa2acda7dcc782348ea1234",
-            quantity: 1,
-        }
-    },
-    validateVies: {
-        query: VALIDATE_VIES,
-        variables: {
-            countryCode: "GB",
-            vatNumber: "999 9999 73",
-        }        
-    }
-}
-
-const dummyGraphQLResultData = {
-    "pay": {
-        id: "123",
-        currency: "gbp",
-        amount: 1194,
-        metadata: {}
-    },
-    "invalidVoucher": {
-        voucherGetNetPriceWithDiscount: null
-    },
-    "validVoucher": {
-        voucherGetNetPriceWithDiscount: {
-            amount: 1,
-        }
-    },
-    "invalidVies": {
-        isVatNumberValid: false
-    },
-    "validVies": {
-        isVatNumberValid: true
-    },
-    "testError": {
-        errors: [
-            {message: "Test error"}
-        ]
-    }
-}
-
-
 describe("<PaymentSection />", () => {
     let wrapper, graphqlRequest, graphqlResponse
 
     beforeEach(() => {
         const graphQlMocks = [{
-            request: dummyGraphQLRequestData[graphqlRequest],
-            result: { data: dummyGraphQLResultData[graphqlResponse] }
+            request:graphqlRequest,
+            result:graphqlResponse
         }]
 
         const paymentApi = {
@@ -131,8 +69,28 @@ describe("<PaymentSection />", () => {
         let expectation = { actual: null, expected: null  }
 
         beforeAll(() => {
-            graphqlRequest = "pay";
-            graphqlResponse = "pay"
+            graphqlRequest = {
+                query: PAY,
+                variables: {
+                    voucherCode: "",
+                    quantity:1,
+                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                    email: "test@example.com",
+                    name: "Joe Bloggs",
+                    token: 2,
+                    vatRate: 1.2,
+                    companyName: undefined,
+                    companyVat: undefined
+                }
+            };
+            graphqlResponse = {
+                data: {
+                    id: "123",
+                    currency: "gbp",
+                    amount: 1194,
+                    metadata: {}                    
+                }
+            }
         })
 
         beforeEach(() => {
@@ -163,8 +121,13 @@ describe("<PaymentSection />", () => {
 
         describe('No payment errors', () => {
             beforeAll(() => {
-                graphqlResponse = "pay"
-            })            
+                graphqlResponse = {data:  {
+                    id: "123",
+                    currency: "gbp",
+                    amount: 1194,
+                    metadata: {}
+                }}
+            })        
 
             it('should make a payment', async () => {
                 expectation = {
@@ -176,7 +139,13 @@ describe("<PaymentSection />", () => {
 
         describe('Payment errors', () => {
             beforeAll(() => {
-                graphqlResponse = "testError"
+                graphqlResponse = {
+                    data: {
+                        errors: [
+                            {message: "Test error"}
+                        ]
+                    } 
+                }
             })
 
             it('should reflect payment errors in the UI', async () => {
@@ -195,8 +164,18 @@ describe("<PaymentSection />", () => {
         let change, getNumErrorNodes
 
         beforeAll(() => {
-            graphqlRequest = "validateVies";
-            graphqlResponse = "validVies";
+            graphqlRequest = {
+                query: VALIDATE_VIES,
+                variables: {
+                    countryCode: "GB",
+                    vatNumber: "999 9999 73",
+                }        
+            };
+            graphqlResponse = {
+                data: {
+                    isVatNumberValid: true
+                }
+            };
         })
 
         beforeEach(() => {
@@ -258,7 +237,9 @@ describe("<PaymentSection />", () => {
 
             describe('Failure response', () => {
                 beforeAll(() => {
-                    graphqlResponse = "invalidVies"    
+                    graphqlResponse = {data: {
+                        isVatNumberValid: false
+                    }}    
                 })
 
                 it("should show the default message in the validate-VAT-number button", async () => {
@@ -275,8 +256,19 @@ describe("<PaymentSection />", () => {
     describe('Voucher functionality', () => {
 
         beforeAll(() => {
-            graphqlRequest = "validateVoucher";
-            graphqlResponse = "validVoucher";
+            graphqlRequest = {
+                query: VALIDATE_VOUCHER,
+                variables: {
+                    voucherCode: "asd",
+                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                    quantity: 1,
+                }
+            };
+            graphqlResponse = {data: {
+                voucherGetNetPriceWithDiscount: {
+                    amount: 1,
+                }
+            }};
         })
 
         beforeEach(() => {
@@ -294,7 +286,9 @@ describe("<PaymentSection />", () => {
 
         describe('Invalid voucher', () => {
             beforeAll(() => {
-                graphqlResponse = "invalidVoucher"
+                graphqlResponse = {data: {
+                    voucherGetNetPriceWithDiscount: null
+                }}
             })
             it('should display an error message, and not update the price', async () => {
                 await waitForExpect(() => {
@@ -307,7 +301,11 @@ describe("<PaymentSection />", () => {
 
         describe('Valid voucher', () => {
             beforeAll(() => {
-                graphqlResponse = "validVoucher"
+                graphqlResponse = {data: {
+                    voucherGetNetPriceWithDiscount: {
+                        amount: 1,
+                    }
+               }}
             })
             it('should update the total price', async () => {
                 await waitForExpect(() => {
