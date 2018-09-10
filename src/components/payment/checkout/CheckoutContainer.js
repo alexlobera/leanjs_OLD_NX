@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom'
 
 import PAY from './Pay.graphql'
 import VALIDATE_VIES from './ValidateVies.graphql'
-import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import { DEFAULT_VAT_RATE } from '../../../config'
 import createLogger from '../../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
@@ -21,37 +20,14 @@ import {
 
 import trackUserBehaviour, {
   CHECKOUT_PAYMENT_REQUEST,
-  VOUCHER_VALIDATE,
 } from '../../utils/trackUserBehaviour'
 
 export class CheckoutContainer extends React.Component {
   state = {
     isPaymentInProgress: false,
     paymentErrorMessage: null,
-    vouchedPricePerQuantity: null,
-    isVoucherValid: null,
-    discountVoucher: 0,
-    isVoucherValidationInProgress: false,
-    voucher: '',
     isViesValidationInProgress: false,
     isViesValid: null,
-  }
-
-  onVoucherChange = e => {
-    this.resetVoucher(e.target.value)
-  }
-
-  setVoucherInProgress = isVoucherValidationInProgress => {
-    this.setState({ isVoucherValidationInProgress })
-  }
-
-  resetVoucher = (voucher = '') => {
-    this.setState({
-      discountVoucher: 0,
-      vouchedPricePerQuantity: null,
-      isVoucherValid: null,
-      voucher,
-    })
   }
 
   resetVatRate = () => {
@@ -62,12 +38,10 @@ export class CheckoutContainer extends React.Component {
   }
 
   addCourse = e => {
-    this.resetVoucher()
     return this.props.addCourse(e)
   }
 
   removeCourse = e => {
-    this.resetVoucher()
     return this.props.removeCourse(e)
   }
 
@@ -104,55 +78,6 @@ export class CheckoutContainer extends React.Component {
       })
   }
 
-  validateVoucher = voucher => {
-    const {
-      quantity,
-      discountPricePerQuantity,
-      pricePerQuantity,
-      client,
-      trainingInstanceId,
-      trackUserBehaviour,
-    } = this.props
-    const { isVoucherValidationInProgress } = this.state
-    const price = discountPricePerQuantity || pricePerQuantity
-
-    if (!voucher || isVoucherValidationInProgress) {
-      return
-    }
-
-    this.setVoucherInProgress(true)
-    trackUserBehaviour({
-      event: VOUCHER_VALIDATE,
-      payload: { voucher },
-    })
-    return client
-      .query({
-        query: VALIDATE_VOUCHER,
-        variables: {
-          voucherCode: voucher,
-          trainingInstanceId,
-          quantity,
-        },
-      })
-      .then(({ data = {} }) => {
-        const { amount } = data.voucherGetNetPriceWithDiscount || {}
-        this.setVoucherInProgress(false)
-        if (amount && amount < price) {
-          const discountVoucher = price - amount
-          this.setState({
-            vouchedPricePerQuantity: amount,
-            isVoucherValid: true,
-            discountVoucher,
-          })
-        } else {
-          this.setState({ isVoucherValid: false })
-        }
-      })
-      .catch(error => {
-        this.setVoucherInProgress(false)
-      })
-  }
-
   processPaymentError = error => {
     this.setState({ paymentErrorMessage: true, isPaymentInProgress: false })
     createLogger().error(error)
@@ -180,6 +105,7 @@ export class CheckoutContainer extends React.Component {
       pay,
       trainingInstanceId,
       paymentApi = Stripe,
+      voucher,
     } = this.props
     const number = formatCreditCardNumber(CCnumber)
     const cvc = formatCVC(CCcvc)
@@ -198,7 +124,7 @@ export class CheckoutContainer extends React.Component {
       (status, response) =>
         pay({
           variables: {
-            voucherCode: this.state.voucher,
+            voucherCode: voucher,
             quantity,
             trainingInstanceId,
             email,
@@ -229,21 +155,21 @@ export class CheckoutContainer extends React.Component {
   render() {
     const {
       quantity,
-      pricePerQuantity,
-      discountPricePerQuantity,
+      priceXQuantity,
+      currentPriceXQuantity,
       currency,
       vatRate,
+      resetVoucher,
+      validateVoucher,
+      voucher,
+      isVoucherValid,
+      isVoucherValidationInProgress,
     } = this.props
     const {
       isViesValidationInProgress,
       isViesValid,
       paymentErrorMessage,
       isPaymentInProgress,
-      discountVoucher,
-      isVoucherValid,
-      isVoucherValidationInProgress,
-      voucher,
-      vouchedPricePerQuantity,
     } = this.state
     const companyVat = {
       isViesValid,
@@ -258,19 +184,17 @@ export class CheckoutContainer extends React.Component {
         removeCourse={this.removeCourse}
         addCourse={this.addCourse}
         currency={currency}
-        pricePerQuantity={pricePerQuantity}
-        discountPricePerQuantity={discountPricePerQuantity}
+        priceXQuantity={priceXQuantity}
+        currentPriceXQuantity={currentPriceXQuantity}
         vatRate={vatRate}
-        discountVoucher={discountVoucher}
         isPaymentInProgress={isPaymentInProgress}
         paymentErrorMessage={paymentErrorMessage}
         pay={this.pay}
-        validateVoucher={this.validateVoucher}
+        validateVoucher={validateVoucher}
         isVoucherValid={isVoucherValid}
         isVoucherValidationInProgress={isVoucherValidationInProgress}
         voucher={voucher}
-        onVoucherChange={this.onVoucherChange}
-        vouchedPricePerQuantity={vouchedPricePerQuantity}
+        resetVoucher={resetVoucher}
         companyVat={companyVat}
       />
     )
@@ -290,10 +214,16 @@ CheckoutContainer.propTypes = {
   updateVatRate: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   quantity: PropTypes.number.isRequired,
-  discountPricePerQuantity: PropTypes.number,
-  pricePerQuantity: PropTypes.number.isRequired,
+  currentPriceXQuantity: PropTypes.number.isRequired,
+  priceXQuantity: PropTypes.number.isRequired,
   trainingInstanceId: PropTypes.string.isRequired,
   trackUserBehaviour: PropTypes.func.isRequired,
+  resetVoucher: PropTypes.func.isRequired,
+  validateVoucher: PropTypes.func.isRequired,
+  voucher: PropTypes.string.isRequired,
+  isVoucherValid: PropTypes.bool,
+  isVoucherValidationInProgress: PropTypes.bool.isRequired,
+  paymentApi: PropTypes.object,
 }
 
 const withPay = graphql(PAY, {

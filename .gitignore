@@ -10,3 +10,6 @@ package.lock
 # Build directory
 /public
 .DS_Store
+
+# Reports
+coverage

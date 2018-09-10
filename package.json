@@ -41,6 +41,7 @@
     "react-storybook-decorator-background": "^1.0.5",
     "react-styled-flexboxgrid": "^2.4.0",
     "react-width": "^0.1.8",
+    "store": "^2.0.12",
     "styled-components": "^3.3.3"
   },
   "keywords": [
@@ -104,7 +105,10 @@
     ]
   },
   "jest": {
-    "collectCoverageFrom" : ["src/**/*.js"],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.stories.js"
+    ],
     "transform": {
       "\\.(gql|graphql)$": "jest-transform-graphql",
       "^.+\\.jsx?$": "<rootDir>/test/jest-config/preprocess.js"

@@ -4,7 +4,7 @@ import waitForExpect from 'wait-for-expect'
 import { Route } from 'react-router-dom'
 
 import Root from '../../../test/utils/Root'
-import VALIDATE_VOUCHER from './checkout/ValidateVoucher.graphql'
+import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import VALIDATE_VIES from './checkout/ValidateVies.graphql'
 import PAY from './checkout/Pay.graphql'
 import PaymentSection from './PaymentSection'
@@ -313,13 +313,8 @@ describe("<PaymentSection />", () => {
                 });
             })
         })
-
-
     })
 
 })
 
-
-
 // TODO:WV:20180907:Test updating taxes with EU VAT numbersy
-

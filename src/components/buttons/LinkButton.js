@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from '../navigation/Link'
 import { blue1, CALLTOACTIONRED, FONT_FAMILY, WHITE } from '../../config/styles'
@@ -21,7 +22,7 @@ const fontColor = color => `
   }
 `
 
-const LinkButton = styled(Link)`
+const StyledLinkButton = styled(Link)`
   ${DEFAULT_BUTTON_STYLE}
   ${FONT_FAMILY}
   background-color: ${props => {
@@ -44,14 +45,12 @@ const LinkButton = styled(Link)`
   text-decoration: none;
 `
 
-LinkButton.displayName = 'LinkButton'
-
-export default props => (
-  <LinkButton
+const LinkButton = props => (
+  <StyledLinkButton
     {...props}
     onClick={e => {
       if (props.cta) {
-        trackUserBehaviour({
+        props.trackUserBehaviour({
           event: CLICK_ON_CTA,
           payload: {
             to: props.to || 'Not Provided',
@@ -62,3 +61,13 @@ export default props => (
     }}
   />
 )
+
+LinkButton.propTypes = {
+  trackUserBehaviour: PropTypes.func,
+}
+
+LinkButton.defaultProps = {
+  trackUserBehaviour
+}
+
+export default LinkButton
