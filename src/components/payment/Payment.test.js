@@ -29,47 +29,36 @@ import { CheckoutContainer } from './checkout/CheckoutContainer'
 import { Alert } from '../elements'
 
 
-const getPaymentApiStub = () => ({
-    setPublishableKey: () => { },
-    card: {
-        createToken: (data, callback) => callback("test-status", { id: 2})
-    }    
-})
 
-const generateDummyGraphQLRequest = type => {
-    switch (type) {
-        case "pay":
-            return {
-                query: PAY,
-                variables: {
-                    voucherCode: "",
-                    quantity:1,
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    email: "test@example.com",
-                    name: "Joe Bloggs",
-                    token: 2,
-                    vatRate: 1.2,
-                    companyName: undefined,
-                    companyVat: undefined
-                },
-            }
-        case "validateVoucher":
-            return {
-                query: VALIDATE_VOUCHER,
-                variables: {
-                    voucherCode: "asd",
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    quantity: 1,
-                },
-            }
-        case "validateVies":
-            return {
-                query: VALIDATE_VIES,
-                variables: {
-                    countryCode: "GB",
-                    vatNumber: "999 9999 73",
-                }
-            }
+const dummyGraphQLRequestData = {
+    pay: {
+        query: PAY,
+        variables: {
+            voucherCode: "",
+            quantity:1,
+            trainingInstanceId: "5aa2acda7dcc782348ea1234",
+            email: "test@example.com",
+            name: "Joe Bloggs",
+            token: 2,
+            vatRate: 1.2,
+            companyName: undefined,
+            companyVat: undefined
+        }
+    },
+    validateVoucher: {
+        query: VALIDATE_VOUCHER,
+        variables: {
+            voucherCode: "asd",
+            trainingInstanceId: "5aa2acda7dcc782348ea1234",
+            quantity: 1,
+        }
+    },
+    validateVies: {
+        query: VALIDATE_VIES,
+        variables: {
+            countryCode: "GB",
+            vatNumber: "999 9999 73",
+        }        
     }
 }
 
@@ -101,18 +90,23 @@ const dummyGraphQLResultData = {
     }
 }
 
-const generateDummyGraphQLResult = type => ({
-    data: dummyGraphQLResultData[type]
-})
 
-const getWrapperCreator = (requestType => resultType => (graphQlMocks = [{request:generateDummyGraphQLRequest(requestType), result:generateDummyGraphQLResult(resultType)}]) => () => {
-    const mocks = ((Array.isArray(graphQlMocks)) ? graphQlMocks:[graphQlMocks] ).map(mock => ({
-        request: mock.request?mock.request:generateDummyGraphQLRequest(requestType),
-        result: mock.result?mock.result:generateDummyGraphQLResult(resultType)
-    }))
+const getWrapper = (requestType, resultType ) => {
+
+    const graphQlMocks = [{
+        request: dummyGraphQLRequestData[requestType],
+        result: { data: dummyGraphQLResultData[resultType] }
+    }]
+
+    const paymentApi = {
+        setPublishableKey: () => { },
+        card: {
+            createToken: (data, callback) => callback("test-status", { id: 2})
+        }    
+    }
 
     const wrapper = mount(
-        <Root graphQlMocks={mocks}>
+        <Root graphQlMocks={graphQlMocks}>
             <Route render={(props => (
                 <PaymentSection
                     {...props}
@@ -121,7 +115,7 @@ const getWrapperCreator = (requestType => resultType => (graphQlMocks = [{reques
                         price: 995,
                         ticketName: "Regular Ticket",
                         currency: "gbp",
-                        paymentApi: getPaymentApiStub()
+                        paymentApi: paymentApi  
                     }}
                 />
             ))}>
@@ -131,9 +125,8 @@ const getWrapperCreator = (requestType => resultType => (graphQlMocks = [{reques
     )
 
     return wrapper
-})
+}
 
-const getWrapper = (requestType, resultType, graphQlMocks = undefined) => getWrapperCreator(requestType)(resultType)(graphQlMocks)()
 
 describe('<PaymentSection /> - Making payments', () => {
 
