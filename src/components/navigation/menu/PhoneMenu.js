@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { slide as Menu } from 'react-burger-menu'
 import styled from 'styled-components'
 import Link from '../Link'
@@ -47,6 +48,10 @@ class PhoneMenu extends React.Component {
       </Menu>
     )
   }
+}
+
+PhoneMenu.propTypes = {
+  isOpen: PropTypes.bool
 }
 
 export default PhoneMenu

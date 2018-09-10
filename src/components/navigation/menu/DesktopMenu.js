@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link, { styleChildLinkColor } from '../../navigation/Link'
 import React from 'react'
@@ -22,7 +23,7 @@ const Item = ({ children, ...props }) => (
   </Li>
 )
 
-const DesktopMenuItem = styled(Item)`
+export const DesktopMenuItem = styled(Item)`
   margin: 0;
 `
 
