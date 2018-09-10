@@ -209,7 +209,7 @@ describe("<PaymentSection />", () => {
             })
         })
 
-        describe('AJAX validation', () => {
+        describe('Server-side validation', () => {
             let getButtonText, originalText
 
             beforeEach(() => {
