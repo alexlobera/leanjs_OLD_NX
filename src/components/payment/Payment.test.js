@@ -129,8 +129,11 @@ const getWrapper = (requestType, resultType ) => {
 
 
 describe('<PaymentSection /> - Making payments', () => {
+    let wrapper, graphqlResponse = "pay"
 
-    const preparePayment = wrapper => {
+    beforeEach(() => {
+        wrapper = getWrapper("pay", graphqlResponse)
+
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
@@ -140,8 +143,9 @@ describe('<PaymentSection /> - Making payments', () => {
         change(CCNameInput, 'Mr J Bloggs')
         change(CCNumberInput, '4242424242424242')
         change(CCExpiryInput, '12/99')
-        change(CCCVCInput, '123')        
-    }
+        change(CCCVCInput, '123')
+    })
+
 
     const makePayment = async (wrapper, checkExpectations) => {
 
@@ -157,22 +161,26 @@ describe('<PaymentSection /> - Making payments', () => {
     }
 
     it('should make a payment', async () => {
-        const wrapper = getWrapper("pay", "pay")
-        preparePayment(wrapper)
         await makePayment(wrapper, wrapper => {
             expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
         })
     })
 
-    it('should reflect payment errors in the UI', async () => {
-        const wrapper = getWrapper("pay", "testError")
-        preparePayment(wrapper)
-        const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
-        expect(getNumWarnings()).toBe(0)
-        await makePayment(wrapper, wrapper => {
-            expect(getNumWarnings()).toBe(1)
+    describe('Payment errors', () => {
+        beforeAll(() => {
+            graphqlResponse = "testError"
         })
+
+        it('should reflect payment errors in the UI', async () => {
+            const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
+            expect(getNumWarnings()).toBe(0)
+            await makePayment(wrapper, wrapper => {
+                expect(getNumWarnings()).toBe(1)
+            })
+        })        
     })
+
+
 })
 
 describe('<PaymentSection /> - Company details', () => {
