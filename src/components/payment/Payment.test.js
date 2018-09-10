@@ -91,50 +91,51 @@ const dummyGraphQLResultData = {
 }
 
 
-const getWrapper = (requestType, resultType ) => {
-
-    const graphQlMocks = [{
-        request: dummyGraphQLRequestData[requestType],
-        result: { data: dummyGraphQLResultData[resultType] }
-    }]
-
-    const paymentApi = {
-        setPublishableKey: () => { },
-        card: {
-            createToken: (data, callback) => callback("test-status", { id: 2})
-        }    
-    }
-
-    const wrapper = mount(
-        <Root graphQlMocks={graphQlMocks}>
-            <Route render={(props => (
-                <PaymentSection
-                    {...props}
-                    data={{
-                        trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                        price: 995,
-                        ticketName: "Regular Ticket",
-                        currency: "gbp",
-                        paymentApi: paymentApi  
-                    }}
-                />
-            ))}>
-
-            </Route>
-        </Root>
-    )
-
-    return wrapper
-}
-
 describe("<PaymentSection />", () => {
+    let wrapper, graphqlRequest, graphqlResponse
+
+    beforeEach(() => {
+        const graphQlMocks = [{
+            request: dummyGraphQLRequestData[graphqlRequest],
+            result: { data: dummyGraphQLResultData[graphqlResponse] }
+        }]
+
+        const paymentApi = {
+            setPublishableKey: () => { },
+            card: {
+                createToken: (data, callback) => callback("test-status", { id: 2})
+            }    
+        }
+
+        wrapper = mount(
+            <Root graphQlMocks={graphQlMocks}>
+                <Route render={(props => (
+                    <PaymentSection
+                        {...props}
+                        data={{
+                            trainingInstanceId: "5aa2acda7dcc782348ea1234",
+                            price: 995,
+                            ticketName: "Regular Ticket",
+                            currency: "gbp",
+                            paymentApi: paymentApi  
+                        }}
+                    />
+                ))}>
+
+                </Route>
+            </Root>
+        )
+    })
 
     describe('Making payments', () => {
-        let wrapper, graphqlResponse = "pay", expectation = { actual: null, expected: null  }
+        let expectation = { actual: null, expected: null  }
+
+        beforeAll(() => {
+            graphqlRequest = "pay";
+            graphqlResponse = "pay"
+        })
 
         beforeEach(() => {
-            wrapper = getWrapper("pay", graphqlResponse)
-
             wrapper.find(BuyButton).simulate('click')
             wrapper.update()
 
@@ -191,11 +192,14 @@ describe("<PaymentSection />", () => {
     })
 
     describe('Company details', () => {
-        let wrapper, change, getNumErrorNodes, ajaxViesValidationResponseIsValid = true
+        let change, getNumErrorNodes
+
+        beforeAll(() => {
+            graphqlRequest = "validateVies";
+            graphqlResponse = "validVies";
+        })
 
         beforeEach(() => {
-            wrapper = getWrapper("validateVies", ajaxViesValidationResponseIsValid?"validVies":"invalidVies")
-
             wrapper.find(BuyButton).simulate('click')
             wrapper.find(AddCompanyDetailsButton).simulate('click')
 
@@ -254,7 +258,7 @@ describe("<PaymentSection />", () => {
 
             describe('Failure response', () => {
                 beforeAll(() => {
-                    ajaxViesValidationResponseIsValid = false    
+                    graphqlResponse = "invalidVies"    
                 })
 
                 it("should show the default message in the validate-VAT-number button", async () => {
@@ -269,10 +273,13 @@ describe("<PaymentSection />", () => {
     })
 
     describe('Voucher functionality', () => {
-        let wrapper, graphqlResponse = "validVoucher"
+
+        beforeAll(() => {
+            graphqlRequest = "validateVoucher";
+            graphqlResponse = "validVoucher";
+        })
 
         beforeEach(() => {
-            wrapper = getWrapper("validateVoucher", graphqlResponse)
 
             // steps
             wrapper.find(BuyButton).simulate('click')
