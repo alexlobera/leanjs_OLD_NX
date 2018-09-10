@@ -66,7 +66,6 @@ describe("<PaymentSection />", () => {
     })
 
     describe('Making payments', () => {
-        let expectation = { actual: null, expected: null  }
 
         beforeAll(() => {
             graphqlRequest = {
@@ -109,19 +108,6 @@ describe("<PaymentSection />", () => {
             change(CCCVCInput, '123')
         })
 
-        afterEach(() => {
-
-            // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
-            // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
-            // on the button works as well, but that seems hackish so this method was used instead.
-            wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
-
-            return waitForExpect(() => {
-                wrapper.update()
-                expect(expectation.actual()).toBe(expectation.expected)
-            });
-        })
-
         describe('No payment errors', () => {
             beforeAll(() => {
                 graphqlResponse = {data:  {
@@ -135,10 +121,16 @@ describe("<PaymentSection />", () => {
                 }}
             })
             it('should make a payment', async () => {
-                expectation = {
-                    actual: () => wrapper.find(PaymentSection).props().history.location.pathname,
-                    expected: "/payment-confirmation"
-                }
+
+                // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
+                // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
+                // on the button works as well, but that seems hackish so this method was used instead.
+                wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
+
+                await waitForExpect(() => {
+                    wrapper.update()
+                    expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
+                })
             })
         })
 
@@ -154,10 +146,13 @@ describe("<PaymentSection />", () => {
             it('should reflect payment errors in the UI', async () => {
                 const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
                 expect(getNumWarnings()).toBe(0)
-                expectation = {
-                    actual: () => getNumWarnings(),
-                    expected: 1
-                }
+
+                wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
+
+                await waitForExpect(() => {
+                    wrapper.update()
+                    expect(getNumWarnings()).toBe(1)
+                })
             })
         })
 
