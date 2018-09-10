@@ -161,6 +161,9 @@ describe('<PaymentSection /> - Making payments', () => {
 
 
     it('should make a payment', async () => {
+        beforeAll(() => {
+            graphqlResponse = "pay"
+        })
         checkExpectations = () => {
             expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
         }
@@ -264,32 +267,10 @@ describe('<PaymentSection /> - Company details', () => {
 // TODO:WV:20180907:Test updating taxes
 
 describe('<PaymentSection /> - Voucher functionality', () => {
+    let wrapper, graphqlResponse = "validVoucher"
 
-    it('should display an error message, and not update the price, if the voucher is invalid', async () => {
-        const wrapper = getWrapper("validateVoucher", "invalidVoucher")
-
-        // steps
-        wrapper.find(BuyButton).simulate('click')
-
-        // initial expectation
-        expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
-
-        wrapper.find(ShowVoucherButton).simulate('click')
-        wrapper.find('input[name="voucher"]').simulate('change', { target: { value: 'asd' } })
-        wrapper.find(ValidateVoucherButton).simulate('click')
-
-        // expectation
-        await waitForExpect(() => {
-            wrapper.update()
-            expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
-            expect(wrapper.find(VoucherInput).props().meta.error).toBeTruthy()
-        });
-
-
-    })
-
-    it('should update total price if the voucher is correct', async () => {
-        const wrapper = getWrapper("validateVoucher", "validVoucher")
+    beforeEach(() => {
+        wrapper = getWrapper("validateVoucher", graphqlResponse)
 
         // steps
         wrapper.find(BuyButton).simulate('click')
@@ -300,10 +281,31 @@ describe('<PaymentSection /> - Voucher functionality', () => {
         wrapper.find(ShowVoucherButton).simulate('click')
         wrapper.find('input[name="voucher"]').simulate('change', { target: { value: 'asd' } })
         wrapper.find(ValidateVoucherButton).simulate('click')
-
-        // expectation
-        await waitForExpect(() => {
-            expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1.2")
-        });
     })
+
+    describe('Invalid voucher', () => {
+        beforeAll(() => {
+            graphqlResponse = "invalidVoucher"
+        })
+        it('should display an error message, and not update the price', async () => {
+            await waitForExpect(() => {
+                wrapper.update()
+                expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
+                expect(wrapper.find(VoucherInput).props().meta.error).toBeTruthy()
+            });
+        })
+    })
+
+    describe('Valid voucher', () => {
+        beforeAll(() => {
+            graphqlResponse = "validVoucher"
+        })
+        it('should update the total price', async () => {
+            await waitForExpect(() => {
+                expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1.2")
+            });
+        })
+    })
+
+
 })
