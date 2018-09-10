@@ -176,81 +176,89 @@ describe('<PaymentSection /> - Making payments', () => {
 })
 
 describe('<PaymentSection /> - Company details', () => {
+    let wrapper, change, getNumErrorNodes, ajaxViesValidationResponseIsValid = true
 
-    const INVALID_EU_VAT_NUMBER = "XYZ123"
-    const VALID_EU_VAT_NUMBER = "GB999 9999 73"
-
-    const prepareToTestVATNumbers = (graphQLResponseValid=true) => {
-        const wrapper = getWrapper("validateVies", graphQLResponseValid?"validVies":"invalidVies")
+    beforeEach(() => {
+        wrapper = getWrapper("validateVies", ajaxViesValidationResponseIsValid?"validVies":"invalidVies")
 
         wrapper.find(BuyButton).simulate('click')
         wrapper.find(AddCompanyDetailsButton).simulate('click')
 
         wrapper.update()
-        const change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
+        change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
 
-        const getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length
-
-        return { wrapper, change, getNumErrorNodes }
-    }
-
-    it("should flag-up invalid-format EU vat numbers", () => {
-        const { wrapper, change, getNumErrorNodes } = prepareToTestVATNumbers()
-        
-        expect(getNumErrorNodes()).toBe(0)
-        change(EUVATNumberField, INVALID_EU_VAT_NUMBER)
-        wrapper.update()
-        expect(getNumErrorNodes()).toBe(1)
+        getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length        
     })
 
-    it("should not flag-up valid-format EU vat numbers", () => {
-        const { wrapper, change, getNumErrorNodes } = prepareToTestVATNumbers()
+    describe('Client-side validation', () => {
+        const INVALID_EU_VAT_NUMBER = "XYZ123"
+        const VALID_EU_VAT_NUMBER = "GB999 9999 73"
 
-        expect(getNumErrorNodes()).toBe(0)
-        change(EUVATNumberField, VALID_EU_VAT_NUMBER)
-        wrapper.update()
-        expect(getNumErrorNodes()).toBe(0)
-    })
-
-
-    const setUpVATButtonTextTest = (graphQLResponseValid=true) => {
-        const { wrapper, change } = prepareToTestVATNumbers(graphQLResponseValid)
-        change(EUVATNumberField, "GB999 9999 73")
-
-        const getButtonText = () => wrapper.find(ValidateViesButton).text()
-        const originalText = getButtonText()
-
-        wrapper.find(ValidateViesButton).simulate('click')
-        wrapper.update()
-        expect(getButtonText()).toBe("...")
-
-        return { wrapper, change, getButtonText, originalText }
-    }
-
-    it("should show an ellipsis while graphql is validating the vat number", () => {
-        setUpVATButtonTextTest()
-    })
-
-    it("should show an appropriate message in the validate-VAT-number button if the provided VAT number was found to be valid", async () => {
-        const { wrapper, getButtonText, originalText } = setUpVATButtonTextTest()
-
-        await waitForExpect(() => {
+        it("should flag-up invalid-format EU vat numbers", () => {        
+            expect(getNumErrorNodes()).toBe(0)
+            change(EUVATNumberField, INVALID_EU_VAT_NUMBER)
             wrapper.update()
-            expect(getButtonText()).toBe("Validated")
+            expect(getNumErrorNodes()).toBe(1)
+        })
+
+        it("should not flag-up valid-format EU vat numbers", () => {
+            expect(getNumErrorNodes()).toBe(0)
+            change(EUVATNumberField, VALID_EU_VAT_NUMBER)
+            wrapper.update()
+            expect(getNumErrorNodes()).toBe(0)
         })
     })
 
-    it("should show the default message in the validate-VAT-number button if the provided VAT number was found to be invalid", async () => {
-        const { wrapper, getButtonText, originalText } = setUpVATButtonTextTest(false)
+    describe('AJAX validation', () => {
+        let getButtonText, originalText
 
-        await waitForExpect(() => {
+        beforeEach(() => {
+            change(EUVATNumberField, "GB999 9999 73")
+
+            getButtonText = () => wrapper.find(ValidateViesButton).text()
+            originalText = getButtonText()
+
+            wrapper.find(ValidateViesButton).simulate('click')
             wrapper.update()
-            expect(getButtonText()).toBe(originalText)
         })
+
+
+        it("should show an ellipsis while graphql is validating the vat number", () => {
+            expect(getButtonText()).toBe("...")
+        })
+
+        describe('Success response', () => {
+            it("should show an appropriate message in the validate-VAT-number button", async () => {
+                expect(getButtonText()).toBe("...")
+                await waitForExpect(() => {
+                    wrapper.update()
+                    expect(getButtonText()).toBe("Validated")
+                })
+            })            
+        })
+
+        describe('Failure response', () => {
+            
+            beforeAll(() => {
+                ajaxViesValidationResponseIsValid = false    
+            })
+
+            it("should show the default message in the validate-VAT-number button", async () => {
+                expect(getButtonText()).toBe("...")
+                await waitForExpect(() => {
+                    wrapper.update()
+                    expect(getButtonText()).toBe(originalText)
+                })
+            })
+        })
+
+
     })
 
-    // TODO:WV:20180907:Test updating taxes
 })
+
+
+// TODO:WV:20180907:Test updating taxes
 
 describe('<PaymentSection /> - Voucher functionality', () => {
 
