@@ -2,7 +2,7 @@ const formatPrice = (currencyCode, price, vatRate) => {
   const netPrice = vatRate ? price * vatRate : price
   const roundPrice = Math.round(netPrice * 100) / 100
 
-  switch (currencyCode) {
+  switch (currencyCode.toLowerCase()) {
     case 'usd':
       return `$${roundPrice}`
     case 'eur':
