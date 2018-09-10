@@ -37,4 +37,7 @@ describe('formatPrice', () => {
     expect(formatPrice('GBP', 100)).toBe("£100")
     expect(formatPrice('gbp', 100)).toBe("£100")
   })
+  it('should assume a currencycode of empty-string and add a pound sign, if no currency code was provided', () => {
+    expect(formatPrice(undefined, 100)).toBe("£100")
+  })
 })
