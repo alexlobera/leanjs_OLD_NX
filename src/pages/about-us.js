@@ -189,7 +189,7 @@ const AboutUs = () => (
                 <Link to="https://www.meetup.com/JavaScript-london/">
                   JavaScript London Meetup
                 </Link>{' '}
-                and other popular meetups in the EU
+                and other popular meetups in the EU.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="left">
@@ -234,16 +234,15 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Loves working with and helping others learn React, Redux and
-                GraphQL.
+                Focused on delivering cutting-edge <strong>React, Redux, </strong> and  <strong>GraphQL</strong> projects <strong> for top companies</strong> like Boston University.
               </Li>
-              <Li>Serial entrepreneur and digital nomad</Li>
+              <Li>Serial entrepreneur passionate about teaching. Founded an online school in 2012, and hasn’t stopped.</Li>
               <Li>
                 Organizer of the{' '}
                 <Link to="https://www.meetup.com/JavaScript-Lisbon/">
                   JavaScript Lisbon Meetup{' '}
                 </Link>
-                and ReactJS Academy bootcamps
+                and ReactJS Academy bootcamps.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
@@ -298,14 +297,14 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Holds a Digital Design degree and is a self-taught Developer
+                Holds a <strong>Digital Design degree</strong>, <strong>self-taught developer</strong>, and <strong>open source contributor</strong>.
               </Li>
-              <Li>Working with cross-functional product teams since 2010</Li>
+              <Li>Working with cross-functional product teams since 2010.</Li>
               <Li>
                 Organizer of the{' '}
                 <Link to="https://www.meetup.com/JavaScript-Barcelona/">
                   JavaScript Barcelona Meetup
-                </Link>
+                </Link>.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="left">
@@ -350,15 +349,15 @@ const AboutUs = () => (
             <Ul>
               <Li>
                 Currently, a <strong>front-end engineer</strong> working with{' '}
-                <strong>React/Redux</strong>
+                <strong>React/Redux</strong>.
               </Li>
               <Li>
                 Holds a degree in{' '}
                 <strong>computer science and social sciences</strong>,
-                interested in the social impact of technologies
+                interested in the social impact of technologies.
               </Li>
               <Li>
-                Always curious to learn new things and share it with others
+                Always curious to learn new things and share it with others.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
@@ -411,16 +410,16 @@ const AboutUs = () => (
               </Li>
               <Li>
                 <strong>Qualified teacher</strong>, experienced teaching in a
-                variety of settings
+                variety of settings.
               </Li>
               <Li>
-                Experience working for start-ups and international corporations
+                Experience working for start-ups and international corporations.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="left">
               I love working with developers to help them improve their skills,
               stretch their brains, further their understanding, and advance
-              their career
+              their career.
             </Blockquote>
           </Col>
         </Row>
@@ -458,14 +457,14 @@ const AboutUs = () => (
             <Ul>
               <Li>
                 <strong>Full stack software engineer</strong> currently playing
-                with Elixir and React
+                with Elixir and React.
               </Li>
               <Li>
                 Started working in startups and no one has told him to leave
-                yet, which he takes as encouragement
+                yet, which he takes as encouragement.
               </Li>
               <Li>
-                Always looking for new ~ways to procrastinate~ things to learn
+                Always looking for new ~ways to procrastinate~ things to learn.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
