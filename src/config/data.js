@@ -45,7 +45,7 @@ const trainings = [
     type: PART_TIME,
     cityShortName: 'London',
     country: 'UK',
-    location: 'TBC',
+    location: 'Makers Academy',
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
     price: 1166.67,
