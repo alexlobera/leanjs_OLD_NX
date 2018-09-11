@@ -27,20 +27,32 @@ import {
   formatExpirationDate,
   formatCVC,
 } from '../../utils/card'
+import {
+  getComponentAliaser
+} from '../../utils/aliasComponent'
 
 // These aliases enable the relevant elements to be selected by Enzyme for testing
 // Have caution when updating these names as you will then need to update the tests as well.
-export const ShowVoucherButton = props => <Link {...props} />
-export const ValidateVoucherButton = props => <LinkButton {...props} />
-export const TotalPayablePrice = props => <Price {...props} />
-export const VoucherInput = props => <Input {...props} />
-export const NameInput = props => <FieldInput {...props} />
-export const EmailInput = props => <FieldInput {...props} />
-export const CCNameInput = props => <FieldInput {...props} />
-export const CCNumberInput = props => <FieldInput {...props} />
-export const CCExpiryInput = props => <FieldInput {...props} />
-export const CCCVCInput = props => <FieldInput {...props} />
-export const SubmitPaymentFormButton = props => <Button {...props} />
+const aliasLink = getComponentAliaser(Link)
+const aliasInput = getComponentAliaser(FieldInput)
+const aliasLinkButton = getComponentAliaser(LinkButton)
+const aliasPrice = getComponentAliaser(Price)
+const aliasButton = getComponentAliaser(Button)
+export const AddCompanyDetailsButton = aliasLink()
+export const EUVATNumberField = aliasInput()
+export const ValidateViesButton = aliasLinkButton()
+export const ShowVoucherButton = aliasLink()
+export const ValidateVoucherButton = aliasLinkButton()
+export const TotalPayablePrice = aliasPrice()
+export const VoucherInput = aliasInput()
+export const NameInput = aliasInput()
+export const EmailInput = aliasInput()
+export const CCNameInput = aliasInput()
+export const CCNumberInput = aliasInput()
+export const CCExpiryInput = aliasInput()
+export const CCCVCInput = aliasInput()
+export const SubmitPaymentFormButton = aliasButton()
+
 
 const QuantityActions = styled.div`
   display: flex;
@@ -229,14 +241,14 @@ class CheckoutForm extends React.Component {
                       placeholder="eg. Acme Inc"
                       validate={required}
                     />
-                    <FieldInput
+                    <EUVATNumberField
                       label="EU VAT number:"
                       name="companyVat"
                       placeholder="eg. GB256547555"
                       validate={composeValidators(required, mustBeEuVat)}
                       onChange={companyVat.resetVatRate}
                     />
-                    <LinkButton
+                    <ValidateViesButton
                       block
                       disabled={
                         companyVat.isViesValid ||
@@ -249,13 +261,13 @@ class CheckoutForm extends React.Component {
                         : companyVat.isViesValid
                           ? 'Validated'
                           : 'Validate EU VAT and update taxes'}
-                    </LinkButton>
+                    </ValidateViesButton>
                   </Fragment>
                 ) : (
                   <FormGroup>
-                    <Link onClick={this.toggleDisplayCompanyDetails}>
+                    <AddCompanyDetailsButton onClick={this.toggleDisplayCompanyDetails}>
                       + Add company details
-                    </Link>
+                    </AddCompanyDetailsButton>
                   </FormGroup>
                 )}
                 <CheckoutH4>Payment details</CheckoutH4>

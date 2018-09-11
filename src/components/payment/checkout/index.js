@@ -5,6 +5,7 @@ import { Button } from '../../buttons'
 import { Span } from '../../text'
 import { Price } from '../'
 import formatPrice from '../../utils/currency'
+import { aliasComponent } from '../../utils/aliasComponent'
 import trackUserBehaviour, {
   BUY_BUTTON_CLICK,
 } from '../../utils/trackUserBehaviour'
@@ -22,9 +23,7 @@ const PriceAndDiscount = styled.div`
   margin-bottom: 5px;
 `
 
-export const BuyButton = props => (
-  <Button {...props} right children="Buy now" cta />
-)
+export const BuyButton = aliasComponent(Button)
 
 class Checkout extends React.Component {
   constructor(props) {
@@ -83,7 +82,7 @@ class Checkout extends React.Component {
               ) : (
                 <Price>{formatPrice(currency, priceXQuantity, vatRate)}</Price>
               )}
-              <BuyButton onClick={this.toggleIsOpen} />
+              <BuyButton onClick={this.toggleIsOpen} right children="Buy now" cta />
             </Fragment>
           </PurchaseWrapper>
         ) : (

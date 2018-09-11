@@ -5,6 +5,7 @@ import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
 import PAY from './Pay.graphql'
+import VALIDATE_VIES from './ValidateVies.graphql'
 import { DEFAULT_VAT_RATE } from '../../../config'
 import createLogger from '../../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
@@ -59,11 +60,7 @@ export class CheckoutContainer extends React.Component {
     this.setState({ isViesValidationInProgress: true })
     this.props.client
       .query({
-        query: gql`
-          query isVatNumberValid($countryCode: String!, $vatNumber: String!) {
-            isVatNumberValid(countryCode: $countryCode, vatNumber: $vatNumber)
-          }
-        `,
+        query: VALIDATE_VIES,
         variables: { countryCode, vatNumber },
       })
       .then(({ data = {} }) => {
