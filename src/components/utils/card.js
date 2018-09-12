@@ -5,9 +5,11 @@ export const getMonthFromCardDate = cardDate =>
 
 export const getYearFromCardDate = cardDate =>
   cardDate &&
-  parseInt(clearNumber(
-    cardDate.substring(cardDate.lastIndexOf('/') + 1, cardDate.length)
-  ).substring(0, 2))
+  parseInt(
+    clearNumber(
+      cardDate.substring(cardDate.lastIndexOf('/') + 1, cardDate.length)
+    ).substring(0, 2)
+  )
 
 function clearNumber(value = '') {
   return value.replace(/\D+/g, '')

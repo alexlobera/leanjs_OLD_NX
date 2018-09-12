@@ -82,7 +82,12 @@ class Checkout extends React.Component {
               ) : (
                 <Price>{formatPrice(currency, priceXQuantity, vatRate)}</Price>
               )}
-              <BuyButton onClick={this.toggleIsOpen} right children="Buy now" cta />
+              <BuyButton
+                onClick={this.toggleIsOpen}
+                right
+                children="Buy now"
+                cta
+              />
             </Fragment>
           </PurchaseWrapper>
         ) : (

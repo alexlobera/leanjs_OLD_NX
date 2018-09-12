@@ -10,313 +10,340 @@ import PAY from './checkout/Pay.graphql'
 import PaymentSection from './PaymentSection'
 import { BuyButton } from './checkout'
 import {
-    AddCompanyDetailsButton,
-    EUVATNumberField,
-    ValidateViesButton,
-    ShowVoucherButton,
-    ValidateVoucherButton,
-    TotalPayablePrice,
-    VoucherInput,
-    NameInput,
-    EmailInput,
-    CCNameInput,
-    CCNumberInput,
-    CCExpiryInput,
-    CCCVCInput,
-    SubmitPaymentFormButton
+  AddCompanyDetailsButton,
+  EUVATNumberField,
+  ValidateViesButton,
+  ShowVoucherButton,
+  ValidateVoucherButton,
+  TotalPayablePrice,
+  VoucherInput,
+  NameInput,
+  EmailInput,
+  CCNameInput,
+  CCNumberInput,
+  CCExpiryInput,
+  CCCVCInput,
+  SubmitPaymentFormButton,
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
 import { Alert } from '../elements'
 
+describe('<PaymentSection />', () => {
+  let wrapper, graphqlRequest, graphqlResponse
 
-describe("<PaymentSection />", () => {
-    let wrapper, graphqlRequest, graphqlResponse
+  beforeEach(() => {
+    const graphQlMocks = [
+      {
+        request: graphqlRequest,
+        result: graphqlResponse,
+      },
+    ]
+
+    const paymentApi = {
+      setPublishableKey: () => {},
+      card: {
+        createToken: (data, callback) => callback('test-status', { id: 2 }),
+      },
+    }
+
+    wrapper = mount(
+      <Root graphQlMocks={graphQlMocks}>
+        <Route
+          render={props => (
+            <PaymentSection
+              {...props}
+              data={{
+                trainingInstanceId: '5aa2acda7dcc782348ea1234',
+                price: 995,
+                ticketName: 'Regular Ticket',
+                currency: 'gbp',
+              }}
+              paymentApi={paymentApi}
+            />
+          )}
+        />
+      </Root>
+    )
+  })
+
+  describe('Making payments', () => {
+    beforeAll(() => {
+      graphqlRequest = {
+        query: PAY,
+        variables: {
+          voucherCode: '',
+          quantity: 1,
+          trainingInstanceId: '5aa2acda7dcc782348ea1234',
+          email: 'test@example.com',
+          name: 'Joe Bloggs',
+          token: 2,
+          vatRate: 1.2,
+          companyName: undefined,
+          companyVat: undefined,
+        },
+      }
+      graphqlResponse = {
+        data: {
+          makePayment: {
+            id: '123',
+            currency: 'gbp',
+            amount: 1194,
+            metadata: {},
+          },
+        },
+      }
+    })
 
     beforeEach(() => {
-        const graphQlMocks = [{
-            request:graphqlRequest,
-            result:graphqlResponse
-        }]
+      wrapper.find(BuyButton).simulate('click')
+      wrapper.update()
 
-        const paymentApi = {
-            setPublishableKey: () => { },
-            card: {
-                createToken: (data, callback) => callback("test-status", { id: 2})
-            }
+      const change = (Component, newValue) =>
+        wrapper
+          .find(Component)
+          .find('input')
+          .simulate('change', { target: { value: newValue } })
+      change(NameInput, 'Joe Bloggs')
+      change(EmailInput, 'test@example.com')
+      change(CCNameInput, 'Mr J Bloggs')
+      change(CCNumberInput, '4242424242424242')
+      change(CCExpiryInput, '12/99')
+      change(CCCVCInput, '123')
+    })
+
+    describe('No payment errors', () => {
+      beforeAll(() => {
+        graphqlResponse = {
+          data: {
+            makePayment: {
+              id: '123',
+              currency: 'gbp',
+              amount: 1194,
+              metadata: {},
+            },
+          },
         }
+      })
+      it('should make a payment', async () => {
+        // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
+        // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
+        // on the button works as well, but that seems hackish so this method was used instead.
+        wrapper
+          .find(SubmitPaymentFormButton)
+          .closest('form')
+          .simulate('submit')
 
-        wrapper = mount(
-            <Root graphQlMocks={graphQlMocks}>
-                <Route render={(props => (
-                    <PaymentSection
-                        {...props}
-                        data={{
-                            trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                            price: 995,
-                            ticketName: "Regular Ticket",
-                            currency: "gbp"
-                        }}
-                        paymentApi={paymentApi}
-                    />
-                ))}>
-
-                </Route>
-            </Root>
-        )
+        await waitForExpect(() => {
+          wrapper.update()
+          expect(
+            wrapper.find(PaymentSection).props().history.location.pathname
+          ).toBe('/payment-confirmation')
+        })
+      })
     })
 
-    describe('Making payments', () => {
+    describe('Payment errors', () => {
+      beforeAll(() => {
+        graphqlResponse = {
+          errors: [{ message: 'Test error' }],
+        }
+      })
 
-        beforeAll(() => {
-            graphqlRequest = {
-                query: PAY,
-                variables: {
-                    voucherCode: "",
-                    quantity:1,
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    email: "test@example.com",
-                    name: "Joe Bloggs",
-                    token: 2,
-                    vatRate: 1.2,
-                    companyName: undefined,
-                    companyVat: undefined
-                }
-            };
-            graphqlResponse = {
-                data: {
-                    makePayment: {
-                        id: "123",
-                        currency: "gbp",
-                        amount: 1194,
-                        metadata: {}
-                    }
+      it('should reflect payment errors in the UI', async () => {
+        const getNumWarnings = () =>
+          wrapper.find(Alert).filterWhere(element => element.props().danger)
+            .length
+        expect(getNumWarnings()).toBe(0)
 
-                }
-            }
+        wrapper
+          .find(SubmitPaymentFormButton)
+          .closest('form')
+          .simulate('submit')
+
+        await waitForExpect(() => {
+          wrapper.update()
+          expect(getNumWarnings()).toBe(1)
         })
+      })
+    })
+  })
 
-        beforeEach(() => {
-            wrapper.find(BuyButton).simulate('click')
+  describe('Company details', () => {
+    let change
+
+    beforeAll(() => {
+      graphqlRequest = {
+        query: VALIDATE_VIES,
+        variables: {
+          countryCode: 'GB',
+          vatNumber: '999 9999 73',
+        },
+      }
+      graphqlResponse = {
+        data: {
+          isVatNumberValid: true,
+        },
+      }
+    })
+
+    beforeEach(() => {
+      wrapper.find(BuyButton).simulate('click')
+      wrapper.find(AddCompanyDetailsButton).simulate('click')
+
+      wrapper.update()
+      change = (Component, newValue) =>
+        wrapper
+          .find(Component)
+          .find('input')
+          .simulate('change', { target: { value: newValue } })
+    })
+
+    describe('Client-side validation', () => {
+      let getNumErrorNodes
+
+      const INVALID_EU_VAT_NUMBER = 'XYZ123'
+      const VALID_EU_VAT_NUMBER = 'GB999 9999 73'
+
+      beforeAll(() => {
+        getNumErrorNodes = () =>
+          wrapper
+            .find(EUVATNumberField)
+            .findWhere(
+              node =>
+                node.children().length === 0 &&
+                node.text() === 'EU VAT number is not correct'
+            ).length
+      })
+
+      it('should flag-up invalid-format EU vat numbers', () => {
+        expect(getNumErrorNodes()).toBe(0)
+        change(EUVATNumberField, INVALID_EU_VAT_NUMBER)
+        wrapper.update()
+        expect(getNumErrorNodes()).toBe(1)
+      })
+
+      it('should not flag-up valid-format EU vat numbers', () => {
+        expect(getNumErrorNodes()).toBe(0)
+        change(EUVATNumberField, VALID_EU_VAT_NUMBER)
+        wrapper.update()
+        expect(getNumErrorNodes()).toBe(0)
+      })
+    })
+
+    describe('Server-side validation', () => {
+      let getButtonText, originalText
+
+      beforeEach(() => {
+        change(EUVATNumberField, 'GB999 9999 73')
+
+        getButtonText = () => wrapper.find(ValidateViesButton).text()
+        originalText = getButtonText()
+
+        wrapper.find(ValidateViesButton).simulate('click')
+        wrapper.update()
+      })
+
+      it('should show an ellipsis while graphql is validating the vat number', () => {
+        expect(getButtonText()).toBe('...')
+      })
+
+      describe('Success response', () => {
+        it('should show an appropriate message in the validate-VAT-number button', async () => {
+          expect(getButtonText()).toBe('...')
+          await waitForExpect(() => {
             wrapper.update()
-
-            const change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
-            change(NameInput, 'Joe Bloggs')
-            change(EmailInput, 'test@example.com')
-            change(CCNameInput, 'Mr J Bloggs')
-            change(CCNumberInput, '4242424242424242')
-            change(CCExpiryInput, '12/99')
-            change(CCCVCInput, '123')
+            expect(getButtonText()).toBe('Validated')
+          })
         })
+      })
 
-        describe('No payment errors', () => {
-            beforeAll(() => {
-                graphqlResponse = {data:  {
-                    makePayment: {
-                        id: "123",
-                        currency: "gbp",
-                        amount: 1194,
-                        metadata: {}
-                    }
-
-                }}
-            })
-            it('should make a payment', async () => {
-
-                // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
-                // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
-                // on the button works as well, but that seems hackish so this method was used instead.
-                wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
-
-                await waitForExpect(() => {
-                    wrapper.update()
-                    expect(wrapper.find(PaymentSection).props().history.location.pathname).toBe("/payment-confirmation")
-                })
-            })
-        })
-
-        describe('Payment errors', () => {
-            beforeAll(() => {
-                graphqlResponse = {
-                    errors: [
-                        {message: "Test error"}
-                    ]
-                }
-            })
-
-            it('should reflect payment errors in the UI', async () => {
-                const getNumWarnings = () => wrapper.find(Alert).filterWhere(element => element.props().danger).length
-                expect(getNumWarnings()).toBe(0)
-
-                wrapper.find(SubmitPaymentFormButton).closest('form').simulate('submit')
-
-                await waitForExpect(() => {
-                    wrapper.update()
-                    expect(getNumWarnings()).toBe(1)
-                })
-            })
-        })
-
-    })
-
-    describe('Company details', () => {
-        let change
-
+      describe('Failure response', () => {
         beforeAll(() => {
-            graphqlRequest = {
-                query: VALIDATE_VIES,
-                variables: {
-                    countryCode: "GB",
-                    vatNumber: "999 9999 73",
-                }
-            };
-            graphqlResponse = {
-                data: {
-                    isVatNumberValid: true
-                }
-            };
+          graphqlResponse = {
+            data: {
+              isVatNumberValid: false,
+            },
+          }
         })
 
-        beforeEach(() => {
-            wrapper.find(BuyButton).simulate('click')
-            wrapper.find(AddCompanyDetailsButton).simulate('click')
-
+        it('should show the default message in the validate-VAT-number button', async () => {
+          expect(getButtonText()).toBe('...')
+          await waitForExpect(() => {
             wrapper.update()
-            change = (Component, newValue) => wrapper.find(Component).find('input').simulate('change', { target: { value: newValue } })
+            expect(getButtonText()).toBe(originalText)
+          })
         })
+      })
+    })
+  })
 
-        describe('Client-side validation', () => {
-            let getNumErrorNodes
-
-            const INVALID_EU_VAT_NUMBER = "XYZ123"
-            const VALID_EU_VAT_NUMBER = "GB999 9999 73"
-
-            beforeAll(() => {
-                getNumErrorNodes = () => wrapper.find(EUVATNumberField).findWhere(node => (node.children().length === 0 && node.text() === "EU VAT number is not correct")).length    
-            })
-
-            it("should flag-up invalid-format EU vat numbers", () => {
-                expect(getNumErrorNodes()).toBe(0)
-                change(EUVATNumberField, INVALID_EU_VAT_NUMBER)
-                wrapper.update()
-                expect(getNumErrorNodes()).toBe(1)
-            })
-
-            it("should not flag-up valid-format EU vat numbers", () => {
-                expect(getNumErrorNodes()).toBe(0)
-                change(EUVATNumberField, VALID_EU_VAT_NUMBER)
-                wrapper.update()
-                expect(getNumErrorNodes()).toBe(0)
-            })
-        })
-
-        describe('Server-side validation', () => {
-            let getButtonText, originalText
-
-            beforeEach(() => {
-                change(EUVATNumberField, "GB999 9999 73")
-
-                getButtonText = () => wrapper.find(ValidateViesButton).text()
-                originalText = getButtonText()
-
-                wrapper.find(ValidateViesButton).simulate('click')
-                wrapper.update()
-            })
-
-
-            it("should show an ellipsis while graphql is validating the vat number", () => {
-                expect(getButtonText()).toBe("...")
-            })
-
-            describe('Success response', () => {
-                it("should show an appropriate message in the validate-VAT-number button", async () => {
-                    expect(getButtonText()).toBe("...")
-                    await waitForExpect(() => {
-                        wrapper.update()
-                        expect(getButtonText()).toBe("Validated")
-                    })
-                })
-            })
-
-            describe('Failure response', () => {
-                beforeAll(() => {
-                    graphqlResponse = {data: {
-                        isVatNumberValid: false
-                    }}
-                })
-
-                it("should show the default message in the validate-VAT-number button", async () => {
-                    expect(getButtonText()).toBe("...")
-                    await waitForExpect(() => {
-                        wrapper.update()
-                        expect(getButtonText()).toBe(originalText)
-                    })
-                })
-            })
-        })
+  describe('Voucher functionality', () => {
+    beforeAll(() => {
+      graphqlRequest = {
+        query: VALIDATE_VOUCHER,
+        variables: {
+          voucherCode: 'asd',
+          trainingInstanceId: '5aa2acda7dcc782348ea1234',
+          quantity: 1,
+        },
+      }
+      graphqlResponse = {
+        data: {
+          voucherGetNetPriceWithDiscount: {
+            amount: 1,
+          },
+        },
+      }
     })
 
-    describe('Voucher functionality', () => {
+    beforeEach(() => {
+      // steps
+      wrapper.find(BuyButton).simulate('click')
 
-        beforeAll(() => {
-            graphqlRequest = {
-                query: VALIDATE_VOUCHER,
-                variables: {
-                    voucherCode: "asd",
-                    trainingInstanceId: "5aa2acda7dcc782348ea1234",
-                    quantity: 1,
-                }
-            };
-            graphqlResponse = {data: {
-                voucherGetNetPriceWithDiscount: {
-                    amount: 1,
-                }
-            }};
-        })
+      // initial expectation
+      expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1194')
 
-        beforeEach(() => {
-
-            // steps
-            wrapper.find(BuyButton).simulate('click')
-
-            // initial expectation
-            expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
-
-            wrapper.find(ShowVoucherButton).simulate('click')
-            wrapper.find('input[name="voucher"]').simulate('change', { target: { value: 'asd' } })
-            wrapper.find(ValidateVoucherButton).simulate('click')
-        })
-
-        describe('Invalid voucher', () => {
-            beforeAll(() => {
-                graphqlResponse = {data: {
-                    voucherGetNetPriceWithDiscount: null
-                }}
-            })
-            it('should display an error message, and not update the price', async () => {
-                await waitForExpect(() => {
-                    wrapper.update()
-                    expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1194")
-                    expect(wrapper.find(VoucherInput).props().meta.error).toBeTruthy()
-                });
-            })
-        })
-
-        describe('Valid voucher', () => {
-            beforeAll(() => {
-                graphqlResponse = {data: {
-                    voucherGetNetPriceWithDiscount: {
-                        amount: 1,
-                    }
-               }}
-            })
-            it('should update the total price', async () => {
-                await waitForExpect(() => {
-                    expect(wrapper.find(TotalPayablePrice).text()).toEqual("£1.2")
-                });
-            })
-        })
+      wrapper.find(ShowVoucherButton).simulate('click')
+      wrapper
+        .find('input[name="voucher"]')
+        .simulate('change', { target: { value: 'asd' } })
+      wrapper.find(ValidateVoucherButton).simulate('click')
     })
 
+    describe('Invalid voucher', () => {
+      beforeAll(() => {
+        graphqlResponse = {
+          data: {
+            voucherGetNetPriceWithDiscount: null,
+          },
+        }
+      })
+      it('should display an error message, and not update the price', async () => {
+        await waitForExpect(() => {
+          wrapper.update()
+          expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1194')
+          expect(wrapper.find(VoucherInput).props().meta.error).toBeTruthy()
+        })
+      })
+    })
+
+    describe('Valid voucher', () => {
+      beforeAll(() => {
+        graphqlResponse = {
+          data: {
+            voucherGetNetPriceWithDiscount: {
+              amount: 1,
+            },
+          },
+        }
+      })
+      it('should update the total price', async () => {
+        await waitForExpect(() => {
+          expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1.2')
+        })
+      })
+    })
+  })
 })
 
 // TODO:WV:20180907:Test updating taxes with EU VAT numbersy

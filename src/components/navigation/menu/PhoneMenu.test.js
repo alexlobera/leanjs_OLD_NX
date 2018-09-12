@@ -33,6 +33,12 @@ describe('<PhoneMenu />', () => {
   it('should render curriculum as the first item on the menu', () => {
     const wrapper = shallow(<PhoneMenu />)
 
-    expect(wrapper.find(PhoneMenuItem).first().props().children.toLowerCase()).toMatch(/curriculum/)
+    expect(
+      wrapper
+        .find(PhoneMenuItem)
+        .first()
+        .props()
+        .children.toLowerCase()
+    ).toMatch(/curriculum/)
   })
 })
