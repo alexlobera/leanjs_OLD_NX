@@ -38,6 +38,24 @@ export const selectFirstTraining = (type, city) => {
 
 const trainings = [
   {
+    dates: '3-8 Dec, 2018',
+    dateStartsOn: new Date('3 December, 2018'),
+    city: LONDON,
+    country: 'Portugal',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'Lisbon',
+    country: 'UK',
+    location: '8 Spital Square E1 6DU, London',
+    pathUrl: '/react-redux-graphql-bootcamp-london',
+    trainingInstanceId: '5b98707c2bbd86e1b6c3c322',
+    price: 1800,
+    discountPrice: 1579.17,
+    nextDiscountPrice: 1665.83,
+    priceGoesUpOn: 'Dec 10th, 2018.',
+    ticketName: 'Early bird ticket',
+    currency: 'gbp',
+  },
+  {
     dates: '16 Oct - 15 Nov, 2018',
     dateStartsOn: new Date('16 October, 2018'),
     city: LONDON,
