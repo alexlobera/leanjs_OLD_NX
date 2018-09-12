@@ -51,7 +51,7 @@ const trainings = [
     price: 1800,
     discountPrice: 1450,
     nextDiscountPrice: 1579.17,
-    priceGoesUpOn: 'Dec 10th, 2018.',
+    priceGoesUpOn: 'Nov 2nd, 2018.',
     ticketName: 'Early bird ticket',
     currency: 'gbp',
   },
