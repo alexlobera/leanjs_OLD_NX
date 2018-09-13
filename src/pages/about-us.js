@@ -234,9 +234,15 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Focused on delivering cutting-edge <strong>React, Redux, </strong> and  <strong>GraphQL</strong> projects <strong> for top companies</strong> like Boston University.
+                Focused on delivering cutting-edge{' '}
+                <strong>React, Redux, </strong> and <strong>GraphQL</strong>{' '}
+                projects <strong> for top companies</strong> like Boston
+                University.
               </Li>
-              <Li>Serial entrepreneur passionate about teaching. Founded an online school in 2012, and hasn’t stopped.</Li>
+              <Li>
+                Serial entrepreneur passionate about teaching. Founded an online
+                school in 2012, and hasn’t stopped.
+              </Li>
               <Li>
                 Organizer of the{' '}
                 <Link to="https://www.meetup.com/JavaScript-Lisbon/">
@@ -297,7 +303,9 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Holds a <strong>Digital Design degree</strong>, <strong>self-taught developer</strong>, and <strong>open source contributor</strong>.
+                Holds a <strong>Digital Design degree</strong>,{' '}
+                <strong>self-taught developer</strong>, and{' '}
+                <strong>open source contributor</strong>.
               </Li>
               <Li>Working with cross-functional product teams since 2010.</Li>
               <Li>

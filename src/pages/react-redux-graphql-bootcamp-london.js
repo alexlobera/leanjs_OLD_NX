@@ -29,6 +29,9 @@ import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
+import { selectFirstTraining, REACT_BOOTCAMP, LONDON } from '../config/data'
+
+const training = selectFirstTraining(REACT_BOOTCAMP, LONDON)
 
 const BootcampLondon = () => (
   <React.Fragment>
@@ -42,7 +45,7 @@ const BootcampLondon = () => (
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',
-        '20-25 Aug, 2018 - Greenwich, London',
+        `${training.dates} - Eden House, London`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
       links={header.landingTraining.links}
@@ -53,15 +56,18 @@ const BootcampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              {/* <PaymentSection
+              <PaymentSection
                 data={{
-                  trainingInstanceId: "5b3605d7b8340f47a4b8e420",
-                  price: 1800,
-                  ticketName: "Regular ticket",
-                  currency: null,
+                  trainingInstanceId: training.trainingInstanceId,
+                  price: training.price,
+                  discountPrice: training.discountPrice,
+                  nextDiscountPrice: training.nextDiscountPrice,
+                  priceGoesUpOn: training.priceGoesUpOn,
+                  ticketName: training.ticketName,
+                  currency: training.currency,
                 }}
-              /> */}
-              {/* <InstallmentsCard price={2160} /> */}
+              />
+              <InstallmentsCard price={2160} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />

@@ -27,9 +27,7 @@ import {
   formatExpirationDate,
   formatCVC,
 } from '../../utils/card'
-import {
-  getComponentAliaser
-} from '../../utils/aliasComponent'
+import { getComponentAliaser } from '../../utils/aliasComponent'
 
 // These aliases enable the relevant elements to be selected by Enzyme for testing
 // Have caution when updating these names as you will then need to update the tests as well.
@@ -52,7 +50,6 @@ export const CCNumberInput = aliasInput()
 export const CCExpiryInput = aliasInput()
 export const CCCVCInput = aliasInput()
 export const SubmitPaymentFormButton = aliasButton()
-
 
 const QuantityActions = styled.div`
   display: flex;
@@ -265,7 +262,9 @@ class CheckoutForm extends React.Component {
                   </Fragment>
                 ) : (
                   <FormGroup>
-                    <AddCompanyDetailsButton onClick={this.toggleDisplayCompanyDetails}>
+                    <AddCompanyDetailsButton
+                      onClick={this.toggleDisplayCompanyDetails}
+                    >
                       + Add company details
                     </AddCompanyDetailsButton>
                   </FormGroup>
