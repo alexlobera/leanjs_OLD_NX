@@ -51,7 +51,7 @@ class PhoneMenu extends React.Component {
 }
 
 PhoneMenu.propTypes = {
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
 }
 
 export default PhoneMenu

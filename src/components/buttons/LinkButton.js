@@ -67,7 +67,7 @@ LinkButton.propTypes = {
 }
 
 LinkButton.defaultProps = {
-  trackUserBehaviour
+  trackUserBehaviour,
 }
 
 export default LinkButton
