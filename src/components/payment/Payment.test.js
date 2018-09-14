@@ -112,18 +112,6 @@ describe('<PaymentSection />', () => {
     })
 
     describe('No payment errors', () => {
-      beforeAll(() => {
-        graphqlResponse = {
-          data: {
-            makePayment: {
-              id: '123',
-              currency: 'gbp',
-              amount: 1194,
-              metadata: {},
-            },
-          },
-        }
-      })
       it('should make a payment', async () => {
         // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
         // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
@@ -146,6 +134,18 @@ describe('<PaymentSection />', () => {
       beforeAll(() => {
         graphqlResponse = {
           errors: [{ message: 'Test error' }],
+        }
+      })
+      afterAll(() => {
+        graphqlResponse = {
+          data: {
+            makePayment: {
+              id: '123',
+              currency: 'gbp',
+              amount: 1194,
+              metadata: {},
+            },
+          },
         }
       })
 
@@ -184,18 +184,18 @@ describe('<PaymentSection />', () => {
           isVatNumberValid: true,
         },
       }
-    })
 
-    beforeEach(() => {
-      wrapper.find(BuyButton).simulate('click')
-      wrapper.find(AddCompanyDetailsButton).simulate('click')
-
-      wrapper.update()
       change = (Component, newValue) =>
         wrapper
           .find(Component)
           .find('input')
           .simulate('change', { target: { value: newValue } })
+    })
+
+    beforeEach(() => {
+      wrapper.find(BuyButton).simulate('click')
+      wrapper.find(AddCompanyDetailsButton).simulate('click')
+      wrapper.update()
     })
 
     describe('Client-side validation', () => {
@@ -272,6 +272,13 @@ describe('<PaymentSection />', () => {
               },
             }
           })
+          afterAll(() => {
+            graphqlResponse = {
+              data: {
+                isVatNumberValid: true,
+              },
+            }
+          })
 
           it('should show the default message in the validate-VAT-number button', async () => {
             expect(getButtonText()).toBe('...')
@@ -290,6 +297,13 @@ describe('<PaymentSection />', () => {
             graphqlResponse = {
               data: {
                 isVatNumberValid: false,
+              },
+            }
+          })
+          afterAll(() => {
+            graphqlResponse = {
+              data: {
+                isVatNumberValid: true,
               },
             }
           })
@@ -339,6 +353,16 @@ describe('<PaymentSection />', () => {
               }
               VatNumber = 'FR999 9999 73'
             })
+            afterAll(() => {
+              graphqlRequest = {
+                query: VALIDATE_VIES,
+                variables: {
+                  countryCode: 'GB',
+                  vatNumber: '999 9999 73',
+                },
+              }
+              VatNumber = 'GB999 9999 73'
+            })
 
             it('should use 0 as the VAT rate', async () => {
               expect(getButtonText()).toBe('...')
@@ -350,11 +374,8 @@ describe('<PaymentSection />', () => {
             })
           })
         })
-
       })
-
     })
-
   })
 
   describe('Voucher functionality', () => {
@@ -398,6 +419,15 @@ describe('<PaymentSection />', () => {
           },
         }
       })
+      afterAll(() => {
+        graphqlResponse = {
+          data: {
+            voucherGetNetPriceWithDiscount: {
+              amount: 1
+            },
+          },
+        }
+      })
       it('should display an error message, and not update the price', async () => {
         await waitForExpect(() => {
           wrapper.update()
@@ -408,15 +438,6 @@ describe('<PaymentSection />', () => {
     })
 
     describe('Valid voucher', () => {
-      beforeAll(() => {
-        graphqlResponse = {
-          data: {
-            voucherGetNetPriceWithDiscount: {
-              amount: 1,
-            },
-          },
-        }
-      })
       it('should update the total price', async () => {
         await waitForExpect(() => {
           expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1.2')
