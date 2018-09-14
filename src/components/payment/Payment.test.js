@@ -283,9 +283,7 @@ describe('<PaymentSection />', () => {
       },
     }
 
-    beforeEach(() => {
-      wrapper = mountPaymentSection(graphqlRequest, graphqlResponse)
-
+    const mountVoucherSection = () => {
       // steps
       wrapper.find(BuyButton).simulate('click')
 
@@ -297,39 +295,39 @@ describe('<PaymentSection />', () => {
         .find('input[name="voucher"]')
         .simulate('change', { target: { value: 'asd' } })
       wrapper.find(ValidateVoucherButton).simulate('click')
+    }
+
+    it('should display an error message if the voucher is not valid, and not update the price', async () => {
+      const graphqlInvalidVoucherResponse = {
+        data: {
+          voucherGetNetPriceWithDiscount: null,
+        },
+      }
+      wrapper = mountPaymentSection(
+        graphqlRequest,
+        graphqlInvalidVoucherResponse
+      )
+      mountVoucherSection()
+
+      await waitForExpect(() => {
+        wrapper.update()
+        expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1194')
+        expect(wrapper.find(VoucherInput).props().meta.error).toBeTruthy()
+      })
     })
 
-    describe('Invalid voucher', () => {
-      beforeAll(() => {
-        graphqlResponse = {
-          data: {
-            voucherGetNetPriceWithDiscount: null,
+    it('should update the total price if the voucher is valid', async () => {
+      const graphqlValidVoucherResponse = {
+        data: {
+          voucherGetNetPriceWithDiscount: {
+            amount: 1,
           },
-        }
-      })
-      it('should display an error message, and not update the price', async () => {
-        await waitForExpect(() => {
-          wrapper.update()
-          expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1194')
-          expect(wrapper.find(VoucherInput).props().meta.error).toBeTruthy()
-        })
-      })
-    })
-
-    describe('Valid voucher', () => {
-      beforeAll(() => {
-        graphqlResponse = {
-          data: {
-            voucherGetNetPriceWithDiscount: {
-              amount: 1,
-            },
-          },
-        }
-      })
-      it('should update the total price', async () => {
-        await waitForExpect(() => {
-          expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1.2')
-        })
+        },
+      }
+      wrapper = mountPaymentSection(graphqlRequest, graphqlValidVoucherResponse)
+      mountVoucherSection()
+      await waitForExpect(() => {
+        expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1.2')
       })
     })
   })
