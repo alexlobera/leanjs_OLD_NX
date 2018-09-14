@@ -230,11 +230,17 @@ describe('<PaymentSection />', () => {
       })
     })
 
-    describe('Server-side validation', () => {
-      let getButtonText, originalText
+    describe('VAT rate before the form submits', () => {
+      it('should use 1.2 as the VAT rate before the form is submitted', () => {
+        expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
+      })
+    })
+
+    describe('Actions after the form submits', () => {
+      let getButtonText, originalText, VatNumber = 'GB999 9999 73'
 
       beforeEach(() => {
-        change(EUVATNumberField, 'GB999 9999 73')
+        change(EUVATNumberField, VatNumber)
 
         getButtonText = () => wrapper.find(ValidateViesButton).text()
         originalText = getButtonText()
@@ -243,38 +249,112 @@ describe('<PaymentSection />', () => {
         wrapper.update()
       })
 
-      it('should show an ellipsis while graphql is validating the vat number', () => {
-        expect(getButtonText()).toBe('...')
-      })
-
-      describe('Success response', () => {
-        it('should show an appropriate message in the validate-VAT-number button', async () => {
+      describe('Server-side validation', () => {
+        it('should show an ellipsis while graphql is validating the vat number', () => {
           expect(getButtonText()).toBe('...')
-          await waitForExpect(() => {
-            wrapper.update()
-            expect(getButtonText()).toBe('Validated')
+        })
+
+        describe('Success response', () => {
+          it('should show an appropriate message in the validate-VAT-number button', async () => {
+            expect(getButtonText()).toBe('...')
+            await waitForExpect(() => {
+              wrapper.update()
+              expect(getButtonText()).toBe('Validated')
+            })
+          })
+        })
+
+        describe('Failure response', () => {
+          beforeAll(() => {
+            graphqlResponse = {
+              data: {
+                isVatNumberValid: false,
+              },
+            }
+          })
+
+          it('should show the default message in the validate-VAT-number button', async () => {
+            expect(getButtonText()).toBe('...')
+            await waitForExpect(() => {
+              wrapper.update()
+              expect(getButtonText()).toBe(originalText)
+            })
           })
         })
       })
 
-      describe('Failure response', () => {
-        beforeAll(() => {
-          graphqlResponse = {
-            data: {
-              isVatNumberValid: false,
-            },
-          }
-        })
+      describe('Updating taxes', () => {
 
-        it('should show the default message in the validate-VAT-number button', async () => {
-          expect(getButtonText()).toBe('...')
-          await waitForExpect(() => {
-            wrapper.update()
-            expect(getButtonText()).toBe(originalText)
+        describe('Invalid EU VAT-number', () => {
+          beforeAll(() => {
+            graphqlResponse = {
+              data: {
+                isVatNumberValid: false,
+              },
+            }
+          })
+
+          it('should use 1.2 as the VAT rate', async () => {
+            expect(getButtonText()).toBe('...')
+            await waitForExpect(() => {
+              wrapper.update()
+              expect(getButtonText()).toBe(originalText)
+            })
+            expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
           })
         })
+
+        describe('Valid VAT-number', () => {
+          beforeAll(() => {
+            graphqlResponse = {
+              data: {
+                isVatNumberValid: true,
+              },
+            }
+          })
+
+          describe('GB country code', () => {
+            beforeAll(() => {
+              VatNumber = 'GB999 9999 73'
+            })
+
+            it('should use 1.2 as the VAT rate', async () => {
+              expect(getButtonText()).toBe('...')
+              await waitForExpect(() => {
+                wrapper.update()
+                expect(getButtonText()).toBe("Validated")
+              })
+              expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
+            })
+          })
+
+          describe('Non-GB country code', () => {
+            beforeAll(() => {
+              graphqlRequest = {
+                query: VALIDATE_VIES,
+                variables: {
+                  countryCode: 'FR',
+                  vatNumber: '999 9999 73',
+                },
+              }
+              VatNumber = 'FR999 9999 73'
+            })
+
+            it('should use 0 as the VAT rate', async () => {
+              expect(getButtonText()).toBe('...')
+              await waitForExpect(() => {
+                wrapper.update()
+                expect(getButtonText()).toBe("Validated")
+              })
+              expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(0)
+            })
+          })
+        })
+
       })
+
     })
+
   })
 
   describe('Voucher functionality', () => {
@@ -346,4 +426,4 @@ describe('<PaymentSection />', () => {
   })
 })
 
-// TODO:WV:20180907:Test updating taxes with EU VAT numbersy
+
