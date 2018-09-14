@@ -70,8 +70,12 @@ const Link = ({ to = '', children = '', ...rest }) => {
     // GatsbyLink does not support strange props
     delete rest.cta
     delete rest.secondary
+
+    // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
+    const dest = to.slice(-1) === '/' ? to : to + '/'
+
     return (
-      <RouterLink {...rest} to={to}>
+      <RouterLink {...rest} to={dest}>
         {children}
       </RouterLink>
     )
