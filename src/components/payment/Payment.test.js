@@ -313,8 +313,8 @@ describe('<PaymentSection />', () => {
             await waitForExpect(() => {
               wrapper.update()
               expect(getButtonText()).toBe(originalText)
+              expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
             })
-            expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
           })
         })
 
@@ -337,8 +337,8 @@ describe('<PaymentSection />', () => {
               await waitForExpect(() => {
                 wrapper.update()
                 expect(getButtonText()).toBe("Validated")
+                expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
               })
-              expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
             })
           })
 
@@ -369,8 +369,8 @@ describe('<PaymentSection />', () => {
               await waitForExpect(() => {
                 wrapper.update()
                 expect(getButtonText()).toBe("Validated")
+                expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(0)
               })
-              expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(0)
             })
           })
         })
