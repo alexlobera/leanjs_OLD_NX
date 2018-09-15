@@ -275,13 +275,6 @@ describe('<PaymentSection />', () => {
         quantity: 1,
       },
     }
-    let graphqlResponse = {
-      data: {
-        voucherGetNetPriceWithDiscount: {
-          amount: 1,
-        },
-      },
-    }
 
     const mountVoucherSection = () => {
       // steps
