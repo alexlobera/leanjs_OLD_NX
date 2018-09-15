@@ -276,7 +276,8 @@ describe('<PaymentSection />', () => {
       },
     }
 
-    const mountVoucherSection = () => {
+    const mountVoucherSection = () => (graphqlRequest, graphqlResponse) => {
+      wrapper = mountPaymentSection(graphqlRequest, graphqlResponse)
       // steps
       wrapper.find(BuyButton).simulate('click')
 
@@ -288,6 +289,7 @@ describe('<PaymentSection />', () => {
         .find('input[name="voucher"]')
         .simulate('change', { target: { value: 'asd' } })
       wrapper.find(ValidateVoucherButton).simulate('click')
+      return wrapper
     }
 
     it('should display an error message if the voucher is not valid, and not update the price', async () => {
@@ -296,11 +298,11 @@ describe('<PaymentSection />', () => {
           voucherGetNetPriceWithDiscount: null,
         },
       }
-      wrapper = mountPaymentSection(
+
+      wrapper = mountVoucherSection()(
         graphqlRequest,
         graphqlInvalidVoucherResponse
       )
-      mountVoucherSection()
 
       await waitForExpect(() => {
         wrapper.update()
@@ -317,7 +319,10 @@ describe('<PaymentSection />', () => {
           },
         },
       }
-      wrapper = mountPaymentSection(graphqlRequest, graphqlValidVoucherResponse)
+      wrapper = mountVoucherSection()(
+        graphqlRequest,
+        graphqlValidVoucherResponse
+      )
       mountVoucherSection()
       await waitForExpect(() => {
         expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1.2')
