@@ -219,29 +219,29 @@ describe('<PaymentSection />', () => {
     })
 
     describe('Server-side validation', () => {
-      let getButtonText, originalText
+      let getValidateButtonText, originalValidateVoucherText
 
       beforeEach(() => {
         const { wrapper, change } = mountCompanyDetailsSection()
         change(EUVATNumberField, 'GB999 9999 73')
 
-        getButtonText = () => wrapper.find(ValidateViesButton).text()
-        originalText = getButtonText()
+        getValidateButtonText = () => wrapper.find(ValidateViesButton).text()
+        originalValidateVoucherText = getValidateButtonText()
 
         wrapper.find(ValidateViesButton).simulate('click')
         wrapper.update()
       })
 
       it('should show an ellipsis while graphql is validating the vat number', () => {
-        expect(getButtonText()).toBe('...')
+        expect(getValidateButtonText()).toBe('...')
       })
 
       describe('Success response', () => {
         it('should show an appropriate message in the validate-VAT-number button', async () => {
-          expect(getButtonText()).toBe('...')
+          expect(getValidateButtonText()).toBe('...')
           await waitForExpect(() => {
             wrapper.update()
-            expect(getButtonText()).toBe('Validated')
+            expect(getValidateButtonText()).toBe('Validated')
           })
         })
       })
@@ -256,10 +256,10 @@ describe('<PaymentSection />', () => {
         })
 
         it('should show the default message in the validate-VAT-number button', async () => {
-          expect(getButtonText()).toBe('...')
+          expect(getValidateButtonText()).toBe('...')
           await waitForExpect(() => {
             wrapper.update()
-            expect(getButtonText()).toBe(originalText)
+            expect(getValidateButtonText()).toBe(originalValidateVoucherText)
           })
         })
       })
