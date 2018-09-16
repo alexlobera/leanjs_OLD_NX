@@ -50,7 +50,7 @@ const Landing = ({ data }) => {
                 </H2>
                 <P>
                   Join us for our first addition of the React, Redux, GraphQL
-                  bootcamp in Sydney, Australia. Over 6 days we'll cover
+                  bootcamp in {city}, {country}. Over 6 days we'll cover
                   everything you need to know to become an expert in the react
                   ecosystem with our accelerated learning format.
                 </P>
