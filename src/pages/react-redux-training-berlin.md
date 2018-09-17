@@ -5,9 +5,10 @@ country: Belgium
 url: /react-redux-training-brussels/
 paragraphs:
   - Join us for our first addition of the React, Redux, GraphQL
-    bootcamp in Brussels, Belgium. Over 6 days we'll cover
-    everything you need to know to become an expert in the react
-    ecosystem with our accelerated learning format.
+    bootcamp in Berlin, Germany. Our bootcamp format is made up of 6
+    intensive training days where you'll learn through practical
+    hand-on projects how to build production ready React
+    applications.
   - Check out the 3 minute video on the left to get a feel for our
     bootcamps and here what some of our previous students think
     about the experience :-)

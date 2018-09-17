@@ -17,7 +17,7 @@ const Landing = ({ data }) => {
       <Breadcrumb
         path={[
           { to: '/', label: 'Home' },
-          { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
+          { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
           { to: `${url}`, label: `${country}` },
         ]}
       />

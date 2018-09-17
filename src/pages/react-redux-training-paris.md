@@ -12,5 +12,3 @@ paragraphs:
     bootcamps and here what some of our previous students think
     about the experience :-)
 ---
-
-Something about the location or description etc
