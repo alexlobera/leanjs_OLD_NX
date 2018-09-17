@@ -10,7 +10,7 @@ import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 
 const Landing = ({ data }) => {
-  const { country, city, url, para1, para2 } = data.markdownRemark.frontmatter
+  const { country, city, url, paragraphs } = data.markdownRemark.frontmatter
   console.log('data', data)
   return (
     <React.Fragment>
@@ -49,8 +49,7 @@ const Landing = ({ data }) => {
                 <H2>
                   React Redux GraphQL in {city}, {country}.
                 </H2>
-                <P>{para1}</P>
-                <P>{para2}</P>
+                {paragraphs.map(paragraph => <P>{paragraph}</P>)}
               </Col>
             </Row>
           </Card>
@@ -76,8 +75,7 @@ export const query = graphql`
         country
         city
         url
-        para1
-        para2
+        paragraphs
       }
     }
   }
