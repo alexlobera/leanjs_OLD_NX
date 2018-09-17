@@ -10,7 +10,8 @@ import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 
 const Landing = ({ data }) => {
-  const { country, city, url } = data.markdownRemark.frontmatter
+  const { country, city, url, para1, para2 } = data.markdownRemark.frontmatter
+  console.log('data', data)
   return (
     <React.Fragment>
       <Breadcrumb
@@ -48,17 +49,8 @@ const Landing = ({ data }) => {
                 <H2>
                   React Redux GraphQL in {city}, {country}.
                 </H2>
-                <P>
-                  Join us for our first addition of the React, Redux, GraphQL
-                  bootcamp in {city}, {country}. Over 6 days we'll cover
-                  everything you need to know to become an expert in the react
-                  ecosystem with our accelerated learning format.
-                </P>
-                <P>
-                  Check out the 3 minute video on the left to get a feel for our
-                  bootcamps and here what some of our preivous students think
-                  about the experience :-)
-                </P>
+                <P>{para1}</P>
+                <P>{para2}</P>
               </Col>
             </Row>
           </Card>
@@ -84,6 +76,8 @@ export const query = graphql`
         country
         city
         url
+        para1
+        para2
       }
     }
   }
