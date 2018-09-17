@@ -276,7 +276,7 @@ describe('<PaymentSection />', () => {
       },
     }
 
-    const mountVoucherSection = () => (graphqlRequest, graphqlResponse) => {
+    const mountVoucherSection = (graphqlRequest, graphqlResponse) => {
       wrapper = mountPaymentSection(graphqlRequest, graphqlResponse)
       // steps
       wrapper.find(BuyButton).simulate('click')
@@ -299,7 +299,7 @@ describe('<PaymentSection />', () => {
         },
       }
 
-      wrapper = mountVoucherSection()(
+      wrapper = mountVoucherSection(
         graphqlRequest,
         graphqlInvalidVoucherResponse
       )
@@ -319,11 +319,7 @@ describe('<PaymentSection />', () => {
           },
         },
       }
-      wrapper = mountVoucherSection()(
-        graphqlRequest,
-        graphqlValidVoucherResponse
-      )
-      mountVoucherSection()
+      wrapper = mountVoucherSection(graphqlRequest, graphqlValidVoucherResponse)
       await waitForExpect(() => {
         expect(wrapper.find(TotalPayablePrice).text()).toEqual('£1.2')
       })
