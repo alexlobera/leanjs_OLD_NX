@@ -1,7 +1,7 @@
 ---
 
-city: Paris
-country: France
+city: Amsterdam
+country: Holland
 url: /react-redux-training-paris/
 paragraphs:
   - Join us for our first addition of the React, Redux GraphQL

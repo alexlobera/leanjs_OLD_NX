@@ -1,7 +1,7 @@
 ---
 
-city: Brussels
-country: Belgium
+city: Berlin
+country: Germany
 url: /react-redux-training-brussels/
 paragraphs:
   - Join us for our first addition of the React, Redux, GraphQL
