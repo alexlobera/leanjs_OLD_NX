@@ -1,8 +1,8 @@
 ---
-
 city: Berlin
 country: Germany
 url: /react-redux-training-brussels/
+youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the React, Redux, GraphQL
     bootcamp in Berlin, Germany. Our bootcamp format is made up of 6

@@ -3,6 +3,7 @@
 city: Barcelona
 country: Spain
 url: /react-redux-training-barcelona/
+youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the React, Redux, GraphQL
     bootcamp in Barcelona, Spain. Over 6 intense days we'll cover

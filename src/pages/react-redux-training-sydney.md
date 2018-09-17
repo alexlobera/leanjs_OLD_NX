@@ -1,8 +1,8 @@
 ---
-
 city: Sydney
 country: Australia
 url: /react-redux-training-sydney/
+youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the React, Redux, GraphQL
     bootcamp in Sydney, Australia. Over 6 days we'll cover

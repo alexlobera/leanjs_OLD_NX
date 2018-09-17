@@ -1,8 +1,8 @@
 ---
-
 city: Brussels
 country: Belgium
 url: /react-redux-training-brussels/
+youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the React, Redux, GraphQL
     bootcamp in Brussels, Belgium. Over 6 days we'll cover

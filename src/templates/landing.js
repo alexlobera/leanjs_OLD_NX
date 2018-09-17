@@ -10,7 +10,13 @@ import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 
 const Landing = ({ data }) => {
-  const { country, city, url, paragraphs } = data.markdownRemark.frontmatter
+  const {
+    country,
+    city,
+    url,
+    paragraphs,
+    youtubeID,
+  } = data.markdownRemark.frontmatter
   console.log('data', data)
   return (
     <React.Fragment>
@@ -43,7 +49,7 @@ const Landing = ({ data }) => {
           <Card bg="dark">
             <Row>
               <Col xs={12} md={6} lg={4} lgOffset={1}>
-                <Video youtubeID="yvROXLQ1jHg" />
+                <Video youtubeID={youtubeID} />
               </Col>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <H2>
@@ -76,6 +82,7 @@ export const query = graphql`
         city
         url
         paragraphs
+        youtubeID
       }
     }
   }

@@ -1,8 +1,8 @@
 ---
-
 city: Paris
 country: France
 url: /react-redux-training-paris/
+youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the React, Redux, GraphQL
     bootcamp in Paris, France. Over 6 days we'll cover
