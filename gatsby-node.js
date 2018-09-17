@@ -12,7 +12,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     const slug = createFilePath({
       node,
       getNode,
-      basePath: `pages/locations-landing-content`,
+      basePath: `pages/bootcamp-landing-content`,
     })
     createNodeField({
       node,
