@@ -61,7 +61,9 @@
     "precommit": "npm run format",
     "preserve": "yarn build",
     "serve": "gatsby serve",
-    "coverage": "./node_modules/.bin/jest --coverage"
+    "coverage": "./node_modules/.bin/jest --coverage",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "devDependencies": {
     "@storybook/react": "^3.4.8",
