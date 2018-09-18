@@ -127,7 +127,8 @@
     },
     "testPathIgnorePatterns": [
       "node_modules",
-      ".cache"
+      ".cache",
+      "cypress"
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!(gatsby)/)"
