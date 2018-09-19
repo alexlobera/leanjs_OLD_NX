@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render component 1`] = `
+<styled.div>
+  <Grid>
+    <footer>
+      <Row>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+        >
+          <ContactForm />
+        </Styled(Col)>
+        <Styled(Col)
+          md={4}
+          mdOffset={1}
+        >
+          <Row>
+            <Styled(Col)
+              md={6}
+            >
+              <Styled(styled.ul)>
+                <styled.li>
+                  <Link
+                    to="/curriculum"
+                  >
+                    Curriculum
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/react-redux-graphql-bootcamp"
+                  >
+                    React bootcamp
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/react-native-bootcamp"
+                  >
+                    React Native
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/react-redux-graphql-part-time-course"
+                  >
+                    Part-time course
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/about-us"
+                  >
+                    About us
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/about-us#corporate-team-training"
+                  >
+                    Corporate Training
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/react-redux-graphql-training"
+                  >
+                    Training list
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/code-of-conduct"
+                  >
+                    Code of conduct
+                  </Link>
+                </styled.li>
+              </Styled(styled.ul)>
+            </Styled(Col)>
+            <Styled(Col)
+              md={6}
+            >
+              <Styled(styled.ul)>
+                <styled.li>
+                  <Link
+                    to="/privacy-policy"
+                  >
+                    Privacy Policy
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/terms-of-service"
+                  >
+                    Terms of service
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    style={
+                      Object {
+                        "fontSize": "16px",
+                      }
+                    }
+                    to="mailto:hello@reactjs.academy"
+                  >
+                    hello@reactjs.academy
+                  </Link>
+                </styled.li>
+              </Styled(styled.ul)>
+              <styled.p>
+                Follow us...
+              </styled.p>
+              <Styled(styled.ul)
+                inline={true}
+                unstyled={true}
+              >
+                <styled.li>
+                  <Styled(Link)
+                    to="https://twitter.com/reactjsacademy"
+                  >
+                    <BulletIcon
+                      icon={[Function]}
+                      social={true}
+                    />
+                  </Styled(Link)>
+                </styled.li>
+                <styled.li>
+                  <Styled(Link)
+                    to="https://www.instagram.com/reactjsacademy/"
+                  >
+                    <BulletIcon
+                      icon={[Function]}
+                      social={true}
+                    />
+                  </Styled(Link)>
+                </styled.li>
+                <styled.li>
+                  <Styled(Link)
+                    to="https://www.facebook.com/reactjsacademy/"
+                  >
+                    <BulletIcon
+                      icon={[Function]}
+                      social={true}
+                    />
+                  </Styled(Link)>
+                </styled.li>
+              </Styled(styled.ul)>
+            </Styled(Col)>
+          </Row>
+          <Row>
+            <Styled(Col)
+              md={6}
+            >
+              <styled.p
+                sm={true}
+              >
+                Copyright © 2018, ReactJS Academy is a
+                 
+                <Link
+                  to="https://leanjs.com"
+                >
+                  LeanJS
+                </Link>
+                 product
+              </styled.p>
+            </Styled(Col)>
+            <Styled(Col)
+              md={6}
+            >
+              <RJSALogo />
+            </Styled(Col)>
+          </Row>
+        </Styled(Col)>
+      </Row>
+    </footer>
+  </Grid>
+</styled.div>
+`;

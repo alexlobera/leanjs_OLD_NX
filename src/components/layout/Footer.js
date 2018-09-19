@@ -86,9 +86,6 @@ const Footer = () => (
                   <Li>
                     <Link to="/code-of-conduct">Code of conduct</Link>
                   </Li>
-                  {/* <Li>
-                                    <Link>Sponsors & Partners</Link>
-                                </Li> */}
                 </LinkList>
               </Col>
               <Col md={6}>
