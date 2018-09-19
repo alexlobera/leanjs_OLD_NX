@@ -5,9 +5,7 @@ url: /react-redux-training-sydney/
 youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the <b>React, Redux, GraphQL</b>
-    bootcamp in <b>Sydney, Australia.</b> Over 6 days we'll cover
-    everything you need to know to become an expert in the react
-    ecosystem with our accelerated learning format.
+    bootcamp in <b>Sydney, Australia.</b> During 6 intense days we'll take you from entry level through to React expert, competent with all tools in the React ecosystem. 
   - Check out the 3 minute video on the left to get a feel for our
     bootcamps and here what some of our previous students think
     about the experience :-)
