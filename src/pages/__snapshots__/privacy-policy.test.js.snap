@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PrivacyPolicy /> should render component 1`] = `
+<Fragment>
+  <Header
+    titleLines={
+      Array [
+        "Privacy Policy",
+      ]
+    }
+  />
+  <TopSection>
+    <Grid>
+      <Card
+        border="shadow"
+      >
+        <Row>
+          <Styled(Col)
+            md={10}
+            mdOffset={1}
+          >
+            <styled.p>
+              Here at ReactJS.academy, we take your privacy seriously and are always aiming to ensure your personal information is kept safe. We aim to instill trust in everything that we do and give you the best quality experience with us.
+            </styled.p>
+            <styled.p>
+              ReactJS.academy is part of the LeanJS family. LeanJS is a digital design, development and training company who produces digital products, trainings and associated services based in London, UK. For more information, please check out
+               
+              <Link
+                target="_blank"
+                to="https://leanjs.com/"
+              >
+                https://leanjs.com/
+              </Link>
+               
+              and if you have any question, please don’t hesitate in contacting us on
+               
+              <Link
+                to="mailto:hello@reactjs.academy"
+              >
+                hello@reactjs.academy
+              </Link>
+              .
+            </styled.p>
+          </Styled(Col)>
+        </Row>
+      </Card>
+    </Grid>
+  </TopSection>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={10}
+          mdOffset={1}
+        >
+          <styled.h2>
+            What’s on this page:
+          </styled.h2>
+          <styled.ul>
+            <styled.li>
+              <Link
+                to="#1"
+              >
+                What information of mine is being collected?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#2"
+              >
+                Who is collecting my information?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#3"
+              >
+                How are my details collected?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#4"
+              >
+                Why is it being collected?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#5"
+              >
+                How is my information used?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#6"
+              >
+                Who will my information be shared with?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#7"
+              >
+                How long are my details kept for?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#8"
+              >
+                What will be the effect of this to me?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#9"
+              >
+                How do I remove my details from your servers?
+              </Link>
+            </styled.li>
+            <styled.li>
+              <Link
+                to="#10"
+              >
+                What are cookies and what do they do with my details?
+              </Link>
+            </styled.li>
+          </styled.ul>
+          <styled.h2>
+            <Link
+              name="1"
+            />
+            What information of mine is being collected?
+          </styled.h2>
+          <styled.p>
+            As a base level of information, we might collect your email address.
+          </styled.p>
+          <styled.h2>
+            <Link
+              name="2"
+            />
+            Who is collecting my information?
+          </styled.h2>
+          <styled.p>
+            ReactJS.academy is collecting your email through a sign-up form.
+          </styled.p>
+          <styled.h2>
+            <Link
+              name="3"
+            />
+            How are my details collected?
+          </styled.h2>
+          As mentioned above, your email address will be collected through a sign-up form.
+          <styled.h2>
+            <Link
+              name="4"
+            />
+            Why is it collected?
+          </styled.h2>
+          In the first instance, your email address is used to send you newsletters about ReactJS.academy news.
+          <styled.h2>
+            <Link
+              name="5"
+            />
+            How is my information used?
+          </styled.h2>
+          <styled.p>
+            Using your email as the primary way of setting up the account means that, whatever happens - issues with your account, important notifications about our service etc - we have a means of contacting you.
+          </styled.p>
+          <styled.p>
+            Another key reason for collecting your email is to confirm your attendance at one of the trainings you have shown interest in attending. These communications will not be unsolicited and only initiated if you have indicated you’d like to receive them. These communications could be, but not excluded to, the following: Confirmation of event/training ticket purchase Reminder of upcoming events/training
+          </styled.p>
+          <styled.p>
+            Lastly, if you have opted-in to the email newsletter, you will receive emails of a marketing nature that will feature events/trainings/services that you may not have indicated to us that you are interested in but we feel will enrich your experience with us. You are able to unsubscribe to these marketing emails by contactin us at
+             
+            <Link
+              to="mailto:hello@reactjs.academy"
+            >
+              hello@reactjs.academy
+            </Link>
+            .
+          </styled.p>
+          <styled.h2>
+            <Link
+              name="6"
+            />
+            Who will my information be shared with?
+          </styled.h2>
+          <styled.p>
+            Your information security is very important to us so we will never share your personal details with third parties without your consent.
+          </styled.p>
+          <styled.p>
+            The key parties we share information with will be:
+          </styled.p>
+          <styled.h3>
+            Third party training providers
+          </styled.h3>
+          <styled.p>
+            When you sign up to a training/event/service, we will send them your information to ensure that you are able to attend and get the best customer service possible. This is the information that you will provide to us when you sign up to the training/event/service. ReactJS.academy promises not to share your information with third parties without expressed consent from you.
+          </styled.p>
+          <styled.h3>
+            Our hosting providers
+          </styled.h3>
+          <styled.p>
+            All our information is stored on servers owned by
+             
+            <Link
+              target="_blank"
+              to="https://aws.amazon.com/"
+            >
+              Amazon Web Services, Inc
+            </Link>
+             
+            and what you share with us will inevitably be stored on their property. Please find Amazon Web Services' Privacy Policy
+             
+            <Link
+              target="_blank"
+              to="https://aws.amazon.com/privacy/"
+            >
+              here
+            </Link>
+            .
+          </styled.p>
+          <styled.h2>
+            <Link
+              name="7"
+            />
+            How long will my details be kept for?
+          </styled.h2>
+          <styled.p>
+            ReactJS.academy promises that we will not keep your details on file for more than 10 years and we will be in contact then to ask whether you would like us to keep your information on file.
+          </styled.p>
+          <styled.h2>
+            <Link
+              name="8"
+            />
+            What will be the effect of this to me?
+          </styled.h2>
+          <styled.p>
+            There shouldn’t be any difference in the way that you have experienced ReactJS.academy previously. However, due to the way that the GDPR regulations have been introduced in May 2018, you will have to make sure you opt-in to email newsletters again from ReactJS.academy or any other LeanJS-related parties.
+          </styled.p>
+          <styled.h2>
+            <Link
+              name="9"
+            />
+            How do I remove my details from your servers?
+          </styled.h2>
+          <styled.p>
+            Easily! Just email us at
+             
+            <Link
+              to="mailto:hello@reactjs.academy"
+            >
+              hello@reactjs.academy
+            </Link>
+             
+            and let us know and we’ll remove all your details (forever).
+          </styled.p>
+          <styled.h2>
+            <Link
+              name="10"
+            />
+            What are cookies and what do they do with my information?
+          </styled.h2>
+          <styled.p>
+            In addition to personal information that you give us, there is anonymous data that is collected through ‘Cookies’. Cookies is a small text file that our site may place on your computer that helps us understand how people use ReactJS.academy - this in turn helps us improve our service. For more information about cookies, click
+             
+            <Link
+              target="_blank"
+              to="https://www.theguardian.com/technology/2012/apr/23/cookies-and-web-tracking-intro"
+            >
+              here
+            </Link>
+            .
+          </styled.p>
+          <styled.p>
+            The information that is collected from cookies can include (but not excluded to):
+          </styled.p>
+          <styled.ul>
+            <styled.li>
+              Browser type
+            </styled.li>
+            <styled.li>
+              Rough location (they can never determine exact locations)
+            </styled.li>
+            <styled.li>
+              Which sites you’ve come from
+            </styled.li>
+            <styled.li>
+              How you’ve travelled through the site
+            </styled.li>
+          </styled.ul>
+          <styled.p>
+            You may refuse the use of these cookies by selecting the appropriate settings on your browser, but please be aware that doing so may affect the functionality of ReactJS.academy.
+          </styled.p>
+          <styled.p>
+            We use two systems that employ cookies on ReactJS.academy. These are:
+          </styled.p>
+          <styled.h3>
+            Google Analytics
+          </styled.h3>
+          <styled.p>
+            ReactJS.academy utilises the Google Analytics platform - which transmits website data to their servers in the United States of America. Google Analytics does not identify individual users to your IP addresses or any other data that Google holds. For more information, please check out
+             
+            <Link
+              target="_blank"
+              to="https://www.google.com/analytics/terms/us.html"
+            >
+              Google Analytics’ terms of use
+            </Link>
+            .
+          </styled.p>
+          <styled.h3>
+            Stripe
+          </styled.h3>
+          <styled.p>
+            Our payment system is Stripe which also employs cookies to help improve our services. For more information about Stripe and its use of cookies, please click
+             
+            <Link
+              target="_blank"
+              to="https://stripe.com/cookies-policy/legal"
+            >
+              here
+            </Link>
+            .
+          </styled.p>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+</Fragment>
+`;
