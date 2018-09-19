@@ -11,7 +11,7 @@ paragraphs:
   - We have been working with local partners to organize a great
     venue which is easy to reach for East-coast based devs. In a
     hurry to do the bootcamp? We don't have a date yet for NYC but
-    check out our upcoming London or Lisbon bootcamps coming up over the next few months.
+    check out our upcoming London or Lisbon React bootcamps coming up over the next few months.
   - Check out the 3 minute video on the left to get a feel for our
     bootcamps and here what some of our previous students think
     about the experience :-)

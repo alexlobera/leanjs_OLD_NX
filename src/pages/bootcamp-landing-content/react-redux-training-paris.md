@@ -8,8 +8,8 @@ paragraphs:
     bootcamp in <b>Paris, France.</b> Over 6 days we'll cover
     everything you need to know to become an expert in the react
     ecosystem with our accelerated learning format.
-  - Paris is home to React Europe every May, and ReactJS Academy     coaches and team members will be there! Let us know if you want to have a chat to us during the React Europe conference, we'd love to answer your questions! 
+  - Paris is home to React Europe every May, and ReactJS Academy     coaches and team members will be there! Let us know if you want to have a chat to us during the React Europe conference, we'd love to answer your questions!
   - Check out the 3 minute video on the left to get a feel for our
-    bootcamps and here what some of our previous students think
+    bootcamps and hear what some of our previous students think
     about the experience :-)
 ---
