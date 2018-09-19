@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReactNativeModulesAndOfflineSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      ...
+    </styled.li>
+  </styled.ul>
+</Session>
+`;
