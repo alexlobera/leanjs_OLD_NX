@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GraphQLSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      GraphQL
+      <styled.ul>
+        <styled.li>
+          Understand the fundamental differences between a REST API and a GraphQL API
+        </styled.li>
+        <styled.li>
+          GraphQL Queries & Mutations
+        </styled.li>
+        <styled.li>
+          Relay Connections
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+    <styled.li>
+      Apollo client
+      <styled.ul>
+        <styled.li>
+          Connecting an Apollo client to a GraphQL server
+        </styled.li>
+        <styled.li>
+          Implement infinite scrolling in a React app using Apollo on the client-side and a Relay connection on the server-side
+        </styled.li>
+        <styled.li>
+          Update the state of your React app using mutations and Apollo client
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+  </styled.ul>
+</Session>
+`;

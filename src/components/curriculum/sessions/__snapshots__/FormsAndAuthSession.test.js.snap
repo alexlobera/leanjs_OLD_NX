@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormsAndAuthSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      Forms management in React
+      <styled.ul>
+        <styled.li>
+          Controlled Components
+        </styled.li>
+        <styled.li>
+          Uncontrolled Components
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+    <styled.li>
+      Authentication
+      <styled.ul>
+        <styled.li>
+          JWT
+        </styled.li>
+        <styled.li>
+          Authorization, public and private pages
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+  </styled.ul>
+</Session>
+`;

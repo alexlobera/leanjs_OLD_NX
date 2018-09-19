@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TestingInReactSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      Unit Testing, Integration Testing, and Shapshot Testing
+    </styled.li>
+    <styled.li>
+      Tooling: Enzyme & Jest
+    </styled.li>
+    <styled.li>
+      Testing Components, Higher-Order Components, Connected Containers
+    </styled.li>
+    <styled.li>
+      Unit tests Vs integration tests
+    </styled.li>
+    <styled.li>
+      Code Coverage
+    </styled.li>
+  </styled.ul>
+</Session>
+`;

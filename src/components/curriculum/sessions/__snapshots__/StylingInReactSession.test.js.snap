@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StylingInReactSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      CSS Vs. JS
+    </styled.li>
+    <styled.li>
+      Styled-components
+    </styled.li>
+    <styled.li>
+      Component libraries comparison: SemanticUI, MaterialUI, Rebass, and React-Bootstrap
+    </styled.li>
+    <styled.li>
+      Storybook
+    </styled.li>
+  </styled.ul>
+</Session>
+`;
