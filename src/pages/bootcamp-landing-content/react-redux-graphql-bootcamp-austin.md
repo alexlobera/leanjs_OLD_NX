@@ -4,8 +4,8 @@ country: USA
 url: /react-redux-graphql-bootamp-austin/
 youtubeID: Th32gt1XeEI
 paragraphs:
-  - Join us for our first addition of the React, Redux GraphQL
-    bootcamp Austin, Texas. Over 6 days we'll cover everything you
+  - Join us for our first addition of the <b>React, Redux GraphQL</b>
+    bootcamp <b>Austin, Texas.</b> Over 6 days we'll cover everything you
     need to know to become an expert in the react ecosystem with our
     accelerated learning format.
   - We've worked with JS Guru and Austin native Kyle Simpson in one

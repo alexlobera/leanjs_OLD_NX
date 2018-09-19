@@ -4,8 +4,8 @@ country: Holland
 url: /react-redux-training-paris/
 youtubeID: yvROXLQ1jHg
 paragraphs:
-  - Join us for our first addition of the React, Redux GraphQL
-    bootcamp in Amsterdam, Holland. Over the 6 days you'll learn all
+  - Join us for our first addition of the <b>React, Redux GraphQL</b>
+    bootcamp in <b>Amsterdam, Holland</b>. Over the 6 days you'll learn all
     the essentials to build production applications with confidence
     within the react ecosystem. The date is currently, TBD but watch
     this space :-)

@@ -4,8 +4,8 @@ country: USA
 url: /react-redux-graphql-bootcamp-nyc/
 youtubeID: yvROXLQ1jHg
 paragraphs:
-  - Join us for our first addition of the React, Redux GraphQL
-    bootcamp NYC. Over 6 days we'll cover everything you need to
+  - Join us for our first addition of the <b>React, Redux GraphQL</b>
+    bootcamp <b>New York</b>. Over 6 days we'll cover everything you need to
     know to become an expert in the react ecosystem with our
     accelerated learning format.
   - We have been working with local partners to organize a great

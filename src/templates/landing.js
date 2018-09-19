@@ -17,7 +17,6 @@ const Landing = ({ data }) => {
     paragraphs,
     youtubeID,
   } = data.markdownRemark.frontmatter
-  console.log('data', data)
   return (
     <React.Fragment>
       <Breadcrumb
@@ -55,7 +54,11 @@ const Landing = ({ data }) => {
                 <H2>
                   React Redux GraphQL in {city}, {country}.
                 </H2>
-                {paragraphs.map(paragraph => <P>{paragraph}</P>)}
+                {paragraphs.map(paragraph => (
+                  <P>
+                    <div dangerouslySetInnerHTML={{ __html: paragraph }} />
+                  </P>
+                ))}
               </Col>
             </Row>
           </Card>
