@@ -114,7 +114,8 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js",
-      "!src/**/*.stories.js"
+      "!src/**/*.stories.js",
+      "!src/**/icons/*.js"
     ],
     "transform": {
       "\\.(gql|graphql)$": "jest-transform-graphql",
