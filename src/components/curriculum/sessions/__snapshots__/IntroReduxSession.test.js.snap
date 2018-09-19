@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IntroReduxSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      Introduction to functional programming
+      <styled.ul>
+        <styled.li>
+          Data and behaviour
+        </styled.li>
+        <styled.li>
+          Data in, data out
+        </styled.li>
+        <styled.li>
+          Mutations
+        </styled.li>
+        <styled.li>
+          Pure functions
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+    <styled.li>
+      Redux Principles
+      <styled.ul>
+        <styled.li>
+          Store, Reducers, Actions
+        </styled.li>
+        <styled.li>
+          Unique source of truth
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+    <styled.li>
+      React-Redux: Provider and Connect
+    </styled.li>
+    <styled.li>
+      Build your own version of
+      <code>
+        redux
+      </code>
+       and
+      <code>
+        react-redux
+      </code>
+       using TDD
+    </styled.li>
+    <styled.li>
+      Fetching data from the server to Redux
+    </styled.li>
+    <styled.li>
+      Configure Redux from scratch in a React app
+    </styled.li>
+  </styled.ul>
+</Session>
+`;

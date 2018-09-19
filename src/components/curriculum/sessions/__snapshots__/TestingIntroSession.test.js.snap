@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TestingIntroSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      Build your own test framework in JavaScript
+    </styled.li>
+    <styled.li>
+      Testing Redux using Jest
+    </styled.li>
+    <styled.li>
+      Mocking and testing API calls
+    </styled.li>
+    <styled.li>
+      White-box testing Vs. Black-box testing
+    </styled.li>
+  </styled.ul>
+</Session>
+`;

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdvancedReduxSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      Functional programming (FP)
+      <styled.ul>
+        <styled.li>
+          Composing functions
+        </styled.li>
+        <styled.li>
+          Currying, thunks and higher-order functions
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+    <styled.li>
+      Advanced Redux:
+      <styled.ul>
+        <styled.li>
+          Using the Redux middleware, and building your own Redux middlewares
+        </styled.li>
+        <styled.li>
+          Thunks, actions that dispatch actions. Implementing loading indicators using thunks
+        </styled.li>
+        <styled.li>
+          Using selectors to write more robust and performant code. Learn how
+           
+          <code>
+            reselect
+          </code>
+           works
+        </styled.li>
+        <styled.li>
+          Sagas Vs thunks. Exercise, reimplement the previous thunk loading indicator with 
+          <code>
+            redux-saga
+          </code>
+          .
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+    <styled.li>
+      Time travel in Redux using Redux DevTools
+    </styled.li>
+  </styled.ul>
+</Session>
+`;

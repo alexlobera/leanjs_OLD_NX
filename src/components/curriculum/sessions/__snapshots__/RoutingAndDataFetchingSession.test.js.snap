@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RoutingAndDataFetchingSession /> should render component 1`] = `
+<Session>
+  <styled.ul>
+    <styled.li>
+      React Router v4
+      <styled.ul>
+        <styled.li>
+          Declarative routing
+        </styled.li>
+        <styled.li>
+          Implementing a master-detail web application
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+    <styled.li>
+      Component lifecycle
+    </styled.li>
+    <styled.li>
+      Data management
+      <styled.ul>
+        <styled.li>
+          Presentational Components Vs. Container Components
+        </styled.li>
+        <styled.li>
+          Data fetching
+        </styled.li>
+      </styled.ul>
+    </styled.li>
+  </styled.ul>
+</Session>
+`;
