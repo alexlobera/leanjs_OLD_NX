@@ -9,6 +9,7 @@ paragraphs:
     intensive training days where you'll learn through practical
     hands-on projects how to build production ready React
     applications and how tools like Redux and GraphQL fit into the picture.
+  - We also run the popular JavaScript Berlin Meetup group where we run hands-on workshops for the local dev community, we'd love to see you at the next one!
   - Check out the 3 minute video on the left to get a feel for our
     bootcamps and here what some of our previous students think
     about the experience :-)
