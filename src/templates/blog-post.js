@@ -23,8 +23,7 @@ const BlogPost = ({ data }) => {
       />
 
       <Section>
-        <H2>{post.frontmatter.title}</H2>
-        ))}
+        <H2>{title}</H2>
       </Section>
 
       <UpcomingTrainingSection />
