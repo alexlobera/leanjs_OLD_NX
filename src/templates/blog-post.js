@@ -7,27 +7,23 @@ import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
-import { Breadcrumb, Link } from '../components/navigation'
+import { Breadcrumb } from '../components/navigation'
 
-const Blog = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges
+const BlogPost = ({ data }) => {
+  const { title } = data.markdownRemark.frontmatter
   return (
     <React.Fragment>
       <Breadcrumb
-        path={[{ to: '/', label: 'Home' }, { to: `/blog`, label: `Blog` }]}
+        path={[{ to: '/', label: 'Home' }, { to: `/blog`, label: `BlogPost` }]}
       />
       <Header
-        titleLines={['Blog']}
+        titleLines={[`${title}`]}
         subtitle="Insights into the world of ReactJS Academy"
         bgImg="about-us"
       />
 
       <Section>
-        {posts.map(post => (
-          <React.Fragment>
-            <H2>{post.node.frontmatter.title}</H2>
-            <P>{post.node.excerpt}</P>
-          </React.Fragment>
+        <H2>{post.frontmatter.title}</H2>
         ))}
       </Section>
 
@@ -37,18 +33,14 @@ const Blog = ({ data }) => {
 }
 
 export const query = graphql`
-  query blogQuery {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "blog" } } }) {
-      edges {
-        node {
-          frontmatter {
-            title
-          }
-          excerpt
-        }
+  query BlogPostQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
       }
+      html
     }
   }
 `
 
-export default Blog
+export default BlogPost
