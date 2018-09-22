@@ -14,7 +14,7 @@ const Blog = ({ data }) => {
   return (
     <React.Fragment>
       <Breadcrumb
-        path={[{ to: '/', label: 'Home' }, { to: `/blog`, label: `Blog` }]}
+        path={[{ to: '/', label: 'Home' }, { to: `/blog/`, label: `Blog` }]}
       />
       <Header
         titleLines={['Blog']}
@@ -25,7 +25,9 @@ const Blog = ({ data }) => {
       <Section>
         {posts.map(post => (
           <React.Fragment>
-            <H2>{post.node.frontmatter.title}</H2>
+            <Link to={`${post.node.fields.slug}`}>
+              <H2>{post.node.frontmatter.title}</H2>
+            </Link>
             <P>{post.node.excerpt}</P>
           </React.Fragment>
         ))}
@@ -41,6 +43,9 @@ export const query = graphql`
     allMarkdownRemark(filter: { frontmatter: { type: { eq: "blog" } } }) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             title
           }
