@@ -33,5 +33,10 @@
     "to": "mailto:hello@reactjs.academy",
     "text": "Contact",
     "onlyOn": null
+  },
+  {
+    "to": "/blog",
+    "text": "Blog",
+    "onlyOn": null
   }
 ]
