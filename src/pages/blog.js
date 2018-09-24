@@ -5,7 +5,6 @@ import { H2, P } from '../components/text'
 import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb, Link } from '../components/navigation'
 
@@ -23,14 +22,22 @@ const Blog = ({ data }) => {
       />
 
       <Section>
-        {posts.map(post => (
-          <React.Fragment>
-            <Link to={`${post.node.fields.slug}`}>
-              <H2>{post.node.frontmatter.title}</H2>
-            </Link>
-            <P>{post.node.excerpt}</P>
-          </React.Fragment>
-        ))}
+        <Grid>
+          {posts.map(post => (
+            <React.Fragment>
+              <Card style={{ margin: '1em' }} border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <Link to={`${post.node.fields.slug}`}>
+                      <H2>{post.node.frontmatter.title}</H2>
+                    </Link>
+                    <P>{post.node.excerpt}</P>
+                  </Col>
+                </Row>
+              </Card>
+            </React.Fragment>
+          ))}
+        </Grid>
       </Section>
 
       <UpcomingTrainingSection />

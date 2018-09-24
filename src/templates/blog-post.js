@@ -11,10 +11,16 @@ import { Breadcrumb } from '../components/navigation'
 
 const BlogPost = ({ data }) => {
   const { title } = data.markdownRemark.frontmatter
+  const { html } = data.markdownRemark
+  const { slug } = data.markdownRemark.fields
   return (
     <React.Fragment>
       <Breadcrumb
-        path={[{ to: '/', label: 'Home' }, { to: `/blog`, label: `BlogPost` }]}
+        path={[
+          { to: '/', label: 'Home' },
+          { to: `/blog`, label: `Blog` },
+          { to: `/${slug}`, label: `${title}` },
+        ]}
       />
       <Header
         titleLines={[`${title}`]}
@@ -24,6 +30,7 @@ const BlogPost = ({ data }) => {
 
       <Section>
         <H2>{title}</H2>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </Section>
 
       <UpcomingTrainingSection />
@@ -36,6 +43,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
+      }
+      fields {
+        slug
       }
       html
     }
