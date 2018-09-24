@@ -29,8 +29,16 @@ const BlogPost = ({ data }) => {
       />
 
       <Section>
-        <H2>{title}</H2>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <Grid>
+          <Card border="shadow">
+            <Row>
+              <Col md={10} mdOffset={1}>
+                <H2>{title}</H2>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </Col>
+            </Row>
+          </Card>
+        </Grid>
       </Section>
 
       <UpcomingTrainingSection />
