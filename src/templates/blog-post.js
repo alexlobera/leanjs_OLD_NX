@@ -24,7 +24,7 @@ const BlogPost = ({ data }) => {
       />
       <Header titleLines={[`${title}`]} subtitle={subtitle} bgImg="about-us" />
 
-      <Section>
+      <TopSection>
         <Grid>
           <Card border="shadow">
             <Row>
@@ -35,7 +35,7 @@ const BlogPost = ({ data }) => {
             </Row>
           </Card>
         </Grid>
-      </Section>
+      </TopSection>
 
       <UpcomingTrainingSection />
     </React.Fragment>
