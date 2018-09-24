@@ -60,7 +60,16 @@ const BootcampLondon = () => (
       <Grid>
         <Card bg="dark">
           <Row>
-            <Col xs={12} md={6} lg={5} lgOffset={1} />
+            <Col xs={12} md={6} lg={5} lgOffset={1}>
+              <PaymentSection
+                data={{
+                  trainingInstanceId: training.trainingInstanceId,
+                  price: training.price,
+                  ticketName: training.ticketName,
+                  currency: training.currency,
+                }}
+              />
+            </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
