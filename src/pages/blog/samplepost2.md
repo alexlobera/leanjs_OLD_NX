@@ -1,6 +1,6 @@
 ---
 title: Sample Post 2
-type: blog
+subtitle: Awesome subtitle full of long-tail keywords
 ---
 
 This is a sample blog post 2.

@@ -30,9 +30,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         allMarkdownRemark {
           edges {
             node {
-              frontmatter {
-                type
-              }
               fields {
                 slug
               }
@@ -42,7 +39,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
     `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if (node.frontmatter.type) {
+        if (node.fields.slug.includes('/blog')) {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/blog-post.js`),

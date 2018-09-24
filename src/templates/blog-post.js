@@ -10,7 +10,7 @@ import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 
 const BlogPost = ({ data }) => {
-  const { title } = data.markdownRemark.frontmatter
+  const { title, subtitle } = data.markdownRemark.frontmatter
   const { html } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   return (
@@ -22,11 +22,7 @@ const BlogPost = ({ data }) => {
           { to: `/${slug}`, label: `${title}` },
         ]}
       />
-      <Header
-        titleLines={[`${title}`]}
-        subtitle="Insights into the world of ReactJS Academy"
-        bgImg="about-us"
-      />
+      <Header titleLines={[`${title}`]} subtitle={subtitle} bgImg="about-us" />
 
       <Section>
         <Grid>
@@ -51,6 +47,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        subtitle
       }
       fields {
         slug

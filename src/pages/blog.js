@@ -47,7 +47,7 @@ const Blog = ({ data }) => {
 
 export const query = graphql`
   query blogQuery {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "blog" } } }) {
+    allMarkdownRemark(filter: { fields: { slug: { regex: "/blog/" } } }) {
       edges {
         node {
           fields {
