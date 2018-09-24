@@ -67,10 +67,9 @@ const trainings = [
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
     price: 1166.67,
-    discountPrice: 829.17,
+    discountPrice: 1000,
     nextDiscountPrice: 1000,
-    priceGoesUpOn: 'Sept 20th, 2018.',
-    ticketName: 'Early bird ticket',
+    ticketName: 'Standard ticket',
     currency: 'gbp',
   },
   {
