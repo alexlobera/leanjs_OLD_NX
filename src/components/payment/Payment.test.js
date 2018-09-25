@@ -327,132 +327,150 @@ describe('<PaymentSection />', () => {
   })
 
   describe('VAT rate when using EU-VAT-number', () => {
+    const graphqlRequestGB = {
+      query: VALIDATE_VIES,
+      variables: {
+        countryCode: 'GB',
+        vatNumber: '999 9999 73',
+      },
+    }
 
-	const graphqlRequestGB = {
-		query: VALIDATE_VIES,
-		variables: {
-			countryCode: 'GB',
-			vatNumber: '999 9999 73',
-		}
-	}
+    const graphqlRequestFR = {
+      query: VALIDATE_VIES,
+      variables: {
+        countryCode: 'FR',
+        vatNumber: '999 9999 73',
+      },
+    }
 
-	const graphqlRequestFR = {
-		query: VALIDATE_VIES,
-		variables: {
-			countryCode: 'FR',
-			vatNumber: '999 9999 73',
-		}
-	}
+    const graphqlResponseValid = {
+      data: {
+        isVatNumberValid: true,
+      },
+    }
 
-	const graphqlResponseValid = {
-		data: {
-			isVatNumberValid: true,
-		}
-	}
+    const graphqlResponseInValid = {
+      data: {
+        isVatNumberValid: false,
+      },
+    }
 
-	const graphqlResponseInValid = {
-		data: {
-			isVatNumberValid: false,
-		}
-	}
+    const VAT_NUMBER_GB = 'GB999 9999 73'
+    const VAT_NUMBER_FR = 'FR999 9999 73'
 
-	const VAT_NUMBER_GB = 'GB999 9999 73'
-	const VAT_NUMBER_FR = 'FR999 9999 73'
+    const showCompanyDetailsSection = wrapper => {
+      wrapper.find(BuyButton).simulate('click')
+      wrapper.find(AddCompanyDetailsButton).simulate('click')
+      wrapper.update()
+    }
 
-	const showCompanyDetailsSection = wrapper => {
-		wrapper.find(BuyButton).simulate('click')
-		wrapper.find(AddCompanyDetailsButton).simulate('click')
-		wrapper.update()		
-	}
+    const submitCompanyDetailsSection = wrapper => {
+      wrapper.find(ValidateViesButton).simulate('click')
+      wrapper.update()
+    }
 
-	const submitCompanyDetailsSection = wrapper => {
-		wrapper.find(ValidateViesButton).simulate('click')
-		wrapper.update()
-	}
+    const getButtonText = wrapper => wrapper.find(ValidateViesButton).text()
 
-	const getButtonText = wrapper => wrapper.find(ValidateViesButton).text()
+    const change = (wrapper, Component, newValue) =>
+      wrapper
+        .find(Component)
+        .find('input')
+        .simulate('change', { target: { value: newValue } })
 
-  const change = (wrapper, Component, newValue) =>
-    wrapper
-      .find(Component)
-      .find('input')
-      .simulate('change', { target: { value: newValue } })
-
-  	it('should use 1.2 as the VAT rate before the form is submitted', () => {
-		const wrapper = mountPaymentSection(graphqlRequestGB, graphqlResponseValid)
-		showCompanyDetailsSection(wrapper)
-		expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
-  	})
-  	it('should show an ellipsis while graphql is validating the VAT number', async () => {
-		const wrapper = mountPaymentSection(graphqlRequestGB, graphqlResponseValid)
-		showCompanyDetailsSection(wrapper)
-		change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
-		submitCompanyDetailsSection(wrapper)
-		expect(getButtonText(wrapper)).toBe('...')
-  	})
-  	it('should show the word "validated" in the validate-VAT-number button if the VAT number could be validated successfully', async () => {
-		const wrapper = mountPaymentSection(graphqlRequestGB, graphqlResponseValid)
-		showCompanyDetailsSection(wrapper)
-		change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
-		submitCompanyDetailsSection(wrapper)
-		expect(getButtonText(wrapper)).toBe('...')
-		await waitForExpect(() => {
-          wrapper.update()
-          expect(getButtonText(wrapper)).toBe('Validated')
-        })
-  	})
-   	it('should show the default text in the validate-VAT-number button if the VAT number could not be validated successfully', async () => {
-		const wrapper = mountPaymentSection(graphqlRequestGB, graphqlResponseInValid)
-		showCompanyDetailsSection(wrapper)
-		change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
-		const originalText = getButtonText(wrapper)
-		submitCompanyDetailsSection(wrapper)
-		expect(getButtonText(wrapper)).toBe('...')
-		await waitForExpect(() => {
-          wrapper.update()
-          expect(getButtonText(wrapper)).toBe(originalText)
-        })
-  	})
-  	it('should use 1.2 as the VAT rate if the user enters an invalid VAT number', async () => {
-		const wrapper = mountPaymentSection(graphqlRequestGB, graphqlResponseInValid)
-		showCompanyDetailsSection(wrapper)
-		change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
-		const originalText = getButtonText(wrapper)
-		submitCompanyDetailsSection(wrapper)
-		expect(getButtonText(wrapper)).toBe('...')
-		await waitForExpect(() => {
-          wrapper.update()
-          expect(getButtonText(wrapper)).toBe(originalText)
-          expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
-        })
-  	})
-  	it('should use 1.2 as the VAT rate if the user enters a valid VAT number with a GB country code', async () => {
-		const wrapper = mountPaymentSection(graphqlRequestGB, graphqlResponseValid)
-		showCompanyDetailsSection(wrapper)
-		change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
-		const originalText = getButtonText(wrapper)
-		submitCompanyDetailsSection(wrapper)
-		expect(getButtonText(wrapper)).toBe('...')
-		await waitForExpect(() => {
-          wrapper.update()
-          expect(getButtonText(wrapper)).toBe('Validated')
-          expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
-        })	
-  	})
-   	it('should use 0 as the VAT rate if the user enters a valid VAT number with a non-GB country code', async () => {
- 		const wrapper = mountPaymentSection(graphqlRequestFR, graphqlResponseValid)
-		showCompanyDetailsSection(wrapper)
-		change(wrapper, EUVATNumberField, VAT_NUMBER_FR)
-		const originalText = getButtonText(wrapper)
-		submitCompanyDetailsSection(wrapper)
-		expect(getButtonText(wrapper)).toBe('...')
-		await waitForExpect(() => {
-          wrapper.update()
-          expect(getButtonText(wrapper)).toBe('Validated')
-          expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(0)
-        })		
-  	})
+    it('should use 1.2 as the VAT rate before the form is submitted', () => {
+      const wrapper = mountPaymentSection(
+        graphqlRequestGB,
+        graphqlResponseValid
+      )
+      showCompanyDetailsSection(wrapper)
+      expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
+    })
+    it('should show an ellipsis while graphql is validating the VAT number', async () => {
+      const wrapper = mountPaymentSection(
+        graphqlRequestGB,
+        graphqlResponseValid
+      )
+      showCompanyDetailsSection(wrapper)
+      change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
+      submitCompanyDetailsSection(wrapper)
+      expect(getButtonText(wrapper)).toBe('...')
+    })
+    it('should show the word "validated" in the validate-VAT-number button if the VAT number could be validated successfully', async () => {
+      const wrapper = mountPaymentSection(
+        graphqlRequestGB,
+        graphqlResponseValid
+      )
+      showCompanyDetailsSection(wrapper)
+      change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
+      submitCompanyDetailsSection(wrapper)
+      expect(getButtonText(wrapper)).toBe('...')
+      await waitForExpect(() => {
+        wrapper.update()
+        expect(getButtonText(wrapper)).toBe('Validated')
+      })
+    })
+    it('should show the default text in the validate-VAT-number button if the VAT number could not be validated successfully', async () => {
+      const wrapper = mountPaymentSection(
+        graphqlRequestGB,
+        graphqlResponseInValid
+      )
+      showCompanyDetailsSection(wrapper)
+      change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
+      const originalText = getButtonText(wrapper)
+      submitCompanyDetailsSection(wrapper)
+      expect(getButtonText(wrapper)).toBe('...')
+      await waitForExpect(() => {
+        wrapper.update()
+        expect(getButtonText(wrapper)).toBe(originalText)
+      })
+    })
+    it('should use 1.2 as the VAT rate if the user enters an invalid VAT number', async () => {
+      const wrapper = mountPaymentSection(
+        graphqlRequestGB,
+        graphqlResponseInValid
+      )
+      showCompanyDetailsSection(wrapper)
+      change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
+      const originalText = getButtonText(wrapper)
+      submitCompanyDetailsSection(wrapper)
+      expect(getButtonText(wrapper)).toBe('...')
+      await waitForExpect(() => {
+        wrapper.update()
+        expect(getButtonText(wrapper)).toBe(originalText)
+        expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
+      })
+    })
+    it('should use 1.2 as the VAT rate if the user enters a valid VAT number with a GB country code', async () => {
+      const wrapper = mountPaymentSection(
+        graphqlRequestGB,
+        graphqlResponseValid
+      )
+      showCompanyDetailsSection(wrapper)
+      change(wrapper, EUVATNumberField, VAT_NUMBER_GB)
+      const originalText = getButtonText(wrapper)
+      submitCompanyDetailsSection(wrapper)
+      expect(getButtonText(wrapper)).toBe('...')
+      await waitForExpect(() => {
+        wrapper.update()
+        expect(getButtonText(wrapper)).toBe('Validated')
+        expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(1.2)
+      })
+    })
+    it('should use 0 as the VAT rate if the user enters a valid VAT number with a non-GB country code', async () => {
+      const wrapper = mountPaymentSection(
+        graphqlRequestFR,
+        graphqlResponseValid
+      )
+      showCompanyDetailsSection(wrapper)
+      change(wrapper, EUVATNumberField, VAT_NUMBER_FR)
+      const originalText = getButtonText(wrapper)
+      submitCompanyDetailsSection(wrapper)
+      expect(getButtonText(wrapper)).toBe('...')
+      await waitForExpect(() => {
+        wrapper.update()
+        expect(getButtonText(wrapper)).toBe('Validated')
+        expect(wrapper.find(CheckoutContainer).props().vatRate).toBe(0)
+      })
+    })
   })
-
 })
-
