@@ -22,7 +22,9 @@ export const selectTrainings = (type, city) =>
   trainings
     .filter(
       training =>
-        (!type || training.type === type) && (!city || training.city === city)
+        (!type || training.type === type) &&
+        (!city || training.city === city) &&
+        training.dateStartsOn > Date.now()
     )
     .sort((a, b) => a.dateStartsOn > b.dateStartsOn)
 
@@ -36,7 +38,7 @@ export const selectFirstTraining = (type, city) => {
   return trainings.length ? trainings[0] : emptyTraining(type, city)
 }
 
-const trainings = [
+export const trainings = [
   {
     dates: '06-08 Dec, 2018',
     dateStartsOn: new Date('06 Dec, 2018'),
