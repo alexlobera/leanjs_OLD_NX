@@ -49,7 +49,7 @@ exports[`<AboutUs /> should render component 1`] = `
               "nextDiscountPrice": 1579.17,
               "pathUrl": "/react-redux-graphql-bootcamp-lisbon/",
               "price": 1800,
-              "priceGoesUpOn": "Sept 24th, 2018.",
+              "priceGoesUpOn": "Sept 30th, 2018.",
               "ticketName": "Early bird ticket",
               "trainingInstanceId": "5b74235404ba003b823513d7",
               "type": "React bootcamp",
