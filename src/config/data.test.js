@@ -52,6 +52,6 @@ describe('selectTrainings', () => {
   })
   it('should not return a training if the dateStartsOn is in the past', () => {
     expect(selectTrainings()).toContainEqual(londonBootcamp[0])
-    expect(selectTrainings()).toContainEqual(pastTraining[0])
+    expect(selectTrainings()).not.toContainEqual(pastTraining[0])
   })
 })
