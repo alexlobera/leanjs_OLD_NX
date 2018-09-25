@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurriculumBootcamp /> should render component 1`] = `
+<Fragment>
+  <Row>
+    <Styled(Col)
+      lg={10}
+      lgOffset={1}
+    >
+      <Styled(styled.h2)>
+        React Bootcamp Curriculum
+         
+        <Link
+          name="curriculum"
+          to="#curriculum"
+        >
+          #
+        </Link>
+      </Styled(styled.h2)>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <CurriculumSection
+        name="day1"
+        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+        title="React Bootcamp Day 1"
+        toggleNavigateTo={[Function]}
+      >
+        <ES6Session
+          title="Modern JavaScript"
+        />
+        <IntroReactSession
+          title="Thinking in React"
+        />
+        <RoutingAndDataFetchingSession
+          title="Routing and Data Fetching"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day2"
+        subTitle="Forms, Authentication, Styling in React"
+        title="React Bootcamp Day 2"
+        toggleNavigateTo={[Function]}
+      >
+        <FormsAndAuthSession
+          title="Forms and Authentication"
+        />
+        <ReactFundamentalsRecapSession
+          title="React Fundamentals recap, build a React app from scratch on your own to consolidate:"
+        />
+        <StylingInReactSession
+          title="Styling in React"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day3"
+        subTitle="Redux, and Testing Principles"
+        title="React Bootcamp Day 3"
+        toggleNavigateTo={[Function]}
+      >
+        <IntroReduxSession
+          title="Introduction to Redux"
+        />
+        <TestingIntroSession
+          title="Testing Principales"
+        />
+      </CurriculumSection>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      md={6}
+    >
+      <CurriculumSection
+        name="day4"
+        subTitle="Functional Programming & advanced React patterns I, GraphQL, and Server-side Rendering"
+        title="React Bootcamp Day 4"
+        toggleNavigateTo={[Function]}
+      >
+        <HoCsAndRenderPropsSession
+          title="Functional Programming & Advanced React patterns I"
+        />
+        <GraphQLSession
+          title="GraphQL and Apollo client"
+        />
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day5"
+        subTitle="Testing in React, Advanced React Patterns II, Functional Programming & advanced Redux"
+        title="React Bootcamp Day 5"
+        toggleNavigateTo={[Function]}
+      >
+        <TestingInReactSession
+          title="Testing in React"
+        />
+        <CompoundCompAndContextSession
+          title="Advanced React patterns to create even more reusable UIs"
+        />
+        <AdvancedReduxSession
+          title="Functional programming & advanced Redux"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day6"
+        subTitle="Hackathon"
+        title="React Bootcamp Day 6"
+        toggleNavigateTo={[Function]}
+      >
+        <Hackathon
+          title="Last day real-world React challenge. We'll implement an app in teams from scratch"
+        />
+      </CurriculumSection>
+    </Styled(Col)>
+  </Row>
+</Fragment>
+`;

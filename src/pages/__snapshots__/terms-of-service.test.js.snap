@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TermsOfService /> should render component 1`] = `
+<Fragment>
+  <Header
+    bgImg="about-us"
+    titleLines={
+      Array [
+        "Terms of service",
+      ]
+    }
+  />
+  <TopSection>
+    <Grid>
+      <Card
+        border="shadow"
+      >
+        <Row>
+          <Styled(Col)
+            md={10}
+            mdOffset={1}
+          >
+            <styled.h2>
+              By registering for our workshops, courses or bootcamps, you agree to the following terms and conditions.
+            </styled.h2>
+          </Styled(Col)>
+        </Row>
+      </Card>
+    </Grid>
+  </TopSection>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={10}
+          mdOffset={1}
+        >
+          <Section>
+            <styled.h2>
+              Transferring your place
+            </styled.h2>
+            <styled.p>
+              We’ll happily transfer your place to a lucky colleague if you need to. Please let us know as soon as possible – email
+               
+              <Link
+                to="mailto:hello@reactjs.academy"
+              >
+                hello@reactjs.academy
+              </Link>
+              .
+            </styled.p>
+            <styled.p>
+              If for any reason you can’t attend at all, you’ll need to let us know no later than 15 days before the date of the event or workshop. Refunds will not be made after this date.
+            </styled.p>
+          </Section>
+          <Section>
+            <styled.h2>
+              Payment terms & re-sale
+            </styled.h2>
+            <styled.p>
+              All tickets must be paid for within 14 days of an order being placed or by the date of the event, whichever is sooner.
+            </styled.p>
+            <styled.p>
+              Re-sale of tickets is not permitted.
+            </styled.p>
+          </Section>
+          <Section>
+            <styled.h2>
+              Cancelation and refunds
+            </styled.h2>
+            <styled.p>
+              You need to let us know no later than 15 days before the date of the event or workshop that you want to cancel your ticket in order to get a full refund.
+            </styled.p>
+            <styled.p>
+              We can cancel any event or workshop 15 days before the date of the event or workshop. We will notify you by email to the address that you have provided us during the registration process.
+            </styled.p>
+          </Section>
+          <Section>
+            <styled.h2>
+              Photos & footage
+            </styled.h2>
+            <styled.p>
+              We occasionally photograph our training workshops, and by registering you give us permission to use any images or footage taken of you on the day. We also reserve the right to reproduce quotes and feedback which will be fully credited.
+            </styled.p>
+          </Section>
+          <Section>
+            <styled.h2>
+              Accessibility
+            </styled.h2>
+            <styled.p>
+              We aim to choose venues that are fully accessible. If you have any accessibility requirements you think we should be aware of, please let us know at the point of registering so that we can ensure we meet your needs and have someone on hand to assist you if required.
+            </styled.p>
+          </Section>
+          <Section>
+            <styled.h2>
+              Company information
+            </styled.h2>
+            <styled.p>
+              Registered in England and Wales No. 09797580
+              <br />
+              Registered VAT number: 256 5475 77
+            </styled.p>
+          </Section>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+</Fragment>
+`;
