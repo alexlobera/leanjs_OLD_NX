@@ -16,7 +16,7 @@ Make sure that you have the Gatsby CLI program installed:
 npm install --global gatsby-cli
 ```
 
-###We have several scripts in place:
+### We have several scripts in place:
 
 - To run the site, user `npm run develop`
 - To run the tests use `npm run test` or `npm run testw` for watch mode
