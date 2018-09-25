@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Community /> should render component 1`] = `
+<Fragment>
+  <Header
+    bgImg="training-event"
+    subtitle="The ReactJS Academy supports the JavaScript community<br /> by providing free workshops and talks. Many of them are about<br />the React ecosystem, although we are interested in any JavaScript topic."
+    titleLines={
+      Array [
+        "Community",
+      ]
+    }
+  />
+  <TopSection>
+    <Grid>
+      <Card
+        border="shadow"
+      >
+        <Row>
+          <Styled(Col)
+            lg={10}
+            lgOffset={1}
+            xs={12}
+          >
+            <styled.h2>
+              Trusted by industry leaders
+            </styled.h2>
+            <TrustedByLogoList />
+          </Styled(Col)>
+        </Row>
+      </Card>
+    </Grid>
+  </TopSection>
+  <Section
+    xsBgDark={true}
+  >
+    <Grid>
+      <Card
+        bg="dark"
+      >
+        <Row>
+          <Styled(Col)
+            lg={4}
+            lgOffset={1}
+            md={6}
+            xs={12}
+          >
+            <Video
+              youtubeID="yvROXLQ1jHg"
+            />
+          </Styled(Col)>
+          <Styled(Col)
+            lg={5}
+            lgOffset={1}
+            md={6}
+            xs={12}
+          >
+            <styled.h2>
+              The value of giving to our community
+            </styled.h2>
+            <styled.h3>
+              Feedback
+            </styled.h3>
+            <styled.p>
+              The JavaScript community is very active, and the React ecosystem evolves very fast. We need to keep our curriculum up to date, adding new topics and exercises. We test our curriculum in our community. They tell us what works and what doesn't work, it helps us to continuously improve it.
+            </styled.p>
+            <styled.h3
+              style={
+                Object {
+                  "paddingTop": "20px",
+                }
+              }
+            >
+              Practise makes perfect
+            </styled.h3>
+            <styled.p>
+              The more we explain something, the better we become at teaching it. If cutting-edge JavaScript moves that fast then we can't stop practising. By teaching the community, we are exposed to a lot of developers, with different backgrounds, experiences and challenges. We learn from teaching them.
+            </styled.p>
+            <styled.h3
+              style={
+                Object {
+                  "paddingTop": "20px",
+                }
+              }
+            >
+              Word of mouth
+            </styled.h3>
+            <styled.p>
+              The community is open, and it spreads the word of what they think it's good. We help the community, we do a great job, and they talk about us.
+            </styled.p>
+            <styled.h3
+              style={
+                Object {
+                  "paddingTop": "20px",
+                }
+              }
+            >
+              Networking
+            </styled.h3>
+            <styled.p>
+              Organising events for the community connects us deeply with the community. It opens extraordinary opportunities for business, recruitment, learning and working on cool projects.
+            </styled.p>
+          </Styled(Col)>
+        </Row>
+      </Card>
+    </Grid>
+  </Section>
+  <UpcomingTrainingSection />
+</Fragment>
+`;

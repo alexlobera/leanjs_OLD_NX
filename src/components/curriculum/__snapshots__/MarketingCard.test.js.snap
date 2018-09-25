@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MarketingCard /> should render component 1`] = `
+<styled.div>
+  <Row>
+    <Styled(Col)
+      md={6}
+    >
+      <styled.span />
+    </Styled(Col)>
+    <Styled(Col)
+      center={true}
+      md={6}
+    >
+      <LinkButton
+        cta={true}
+        trackUserBehaviour={[Function]}
+      />
+    </Styled(Col)>
+  </Row>
+</styled.div>
+`;
