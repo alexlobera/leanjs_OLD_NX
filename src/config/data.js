@@ -22,7 +22,9 @@ export const selectTrainings = (type, city) =>
   trainings
     .filter(
       training =>
-        (!type || training.type === type) && (!city || training.city === city)
+        (!type || training.type === type) &&
+        (!city || training.city === city) &&
+        training.dateStartsOn > Date.now()
     )
     .sort((a, b) => a.dateStartsOn > b.dateStartsOn)
 
