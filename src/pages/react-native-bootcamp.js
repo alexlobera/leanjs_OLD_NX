@@ -69,7 +69,7 @@ const ReactNativeBoocamp = () => (
               </Li>
               <Li>
                 <BulletIcon icon={TickBadgeIcon} />
-                Small classes with mentoring from expert developers & coaches
+                Small classes with expert developer coaches - roughly one for every four students
               </Li>
               <Li>
                 <BulletIcon icon={TargetIcon} />
