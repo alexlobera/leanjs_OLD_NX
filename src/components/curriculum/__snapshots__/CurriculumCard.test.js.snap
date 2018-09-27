@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurriculumCard /> should render component 1`] = `
+<div
+  className="sc-bdVaJa kVmitc"
+/>
+`;

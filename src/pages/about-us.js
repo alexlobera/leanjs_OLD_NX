@@ -312,7 +312,8 @@ const AboutUs = () => (
                 Organizer of the{' '}
                 <Link to="https://www.meetup.com/JavaScript-Barcelona/">
                   JavaScript Barcelona Meetup
-                </Link>.
+                </Link>
+                .
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="left">

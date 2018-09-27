@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurriculumReactNative /> should render component 1`] = `
+<Fragment>
+  <Row>
+    <Styled(Col)
+      lg={10}
+      lgOffset={1}
+    >
+      <Styled(styled.h1)>
+        React Native Curriculum
+        <Link
+          name="curriculum"
+          to="#curriculum"
+        >
+          #
+        </Link>
+      </Styled(styled.h1)>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <CurriculumSection
+        name="day1"
+        subTitle="Foundation, Navigation, and Animations"
+        title="React Native Day 1"
+        toggleNavigateTo={[Function]}
+      >
+        <ReactNativeFoundationSession
+          title="Foundation"
+        />
+        <ReactNativeNavigationSession
+          title="Navigation"
+        />
+        <ReactNativeAnimationsSession
+          title="Animations"
+        />
+      </CurriculumSection>
+    </Styled(Col)>
+  </Row>
+</Fragment>
+`;

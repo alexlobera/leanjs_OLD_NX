@@ -2,11 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 
-import CompoundCompAndContextSession from './CompoundCompAndContextSession'
+import CurriculumCard from './CurriculumCard'
 
-describe('<CompoundCompAndContextSession />', () => {
+describe('<CurriculumCard />', () => {
   it('should render component', () => {
-    const wrapper = shallow(<CompoundCompAndContextSession />)
+    const wrapper = shallow(<CurriculumCard />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

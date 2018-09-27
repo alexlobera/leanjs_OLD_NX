@@ -2,11 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 
-import IntroReduxSession from './IntroReduxSession'
+import CurriculumReactNative from './CurriculumReactNative'
 
-describe('<IntroReduxSession />', () => {
+describe('<CurriculumReactNative />', () => {
   it('should render component', () => {
-    const wrapper = shallow(<IntroReduxSession />)
+    const wrapper = shallow(<CurriculumReactNative />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
