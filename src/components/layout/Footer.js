@@ -97,6 +97,9 @@ const Footer = () => (
                     <Link to="/terms-of-service">Terms of service</Link>
                   </Li>
                   <Li>
+                    <Link to="/blog">Blog</Link>
+                  </Li>
+                  <Li>
                     <Link
                       style={{ fontSize: '16px' }}
                       to="mailto:hello@reactjs.academy"
