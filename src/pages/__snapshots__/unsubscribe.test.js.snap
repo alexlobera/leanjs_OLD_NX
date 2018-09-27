@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Unsubscribe /> should render component 1`] = `
+<Fragment>
+  <Header
+    bgImg="about-us"
+    subtitle="You are now unsubscribed from recieving further emails, for any further support please contact us here: unsubscribe@reactjs.academy"
+    titleLines={
+      Array [
+        "Unsubscribe from email communications",
+      ]
+    }
+  />
+  <TopSection>
+    <Grid>
+      <Card
+        border="shadow"
+      >
+        <Row>
+          <Styled(Col)
+            md={10}
+            mdOffset={1}
+          >
+            <styled.h2>
+              We are sorry to see you go! If you'd like to re-subscribe to our maining list at any time you can do so by re-entering your email address or contact us directly: hello@reactjs.academy
+            </styled.h2>
+          </Styled(Col)>
+        </Row>
+      </Card>
+    </Grid>
+  </TopSection>
+</Fragment>
+`;
