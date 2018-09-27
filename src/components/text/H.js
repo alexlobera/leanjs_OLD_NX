@@ -28,9 +28,9 @@ export const H2 = styled.h2`
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  margin-bottom: 40px;
+  margin-bottom: 1.5rem;
   font-size: 36px;
-  padding-top: 25px;
+  padding-top: 2rem;
   :first-child {
     padding-top: 0;
   }
@@ -44,9 +44,9 @@ export const H2Ref = styled(H2)`
 `
 
 export const H3 = styled.h3`
-  ${FONT_FAMILY} line-height: 1.2;
+  ${FONT_FAMILY} line-height: 1.5;
   font-weight: 500;
-  padding-top: 20px;
+  padding-top: 1.5rem;
   :first-child {
     padding-top: 0;
   }
@@ -62,8 +62,8 @@ export const H3Ref = styled(H3)`
 
 export const H4 = styled.h4`
   ${FONT_FAMILY} font-size: 1.1em;
-  line-height: 1.2;
-  font-weight: 500;
+  line-height: 1.3;
+  font-weight: 600;
 `
 
 export const H4Ref = styled(H4)`

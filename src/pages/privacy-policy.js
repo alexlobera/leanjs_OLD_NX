@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H3, P } from '../components/text'
+import { H2, H3, P, H4 } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import Link from '../components/navigation/Link'
@@ -71,7 +71,7 @@ const PrivacyPolicy = () => (
                 <Link to="#7">How long are my details kept for?</Link>
               </Li>
               <Li>
-                <Link to="#8">What will be the effect of this to me?</Link>
+                <Link to="#8">What will be the effect of May 2018's GDPR regulations to me?</Link>
               </Li>
               <Li>
                 <Link to="#9">
@@ -90,27 +90,29 @@ const PrivacyPolicy = () => (
             </H2>
             <P>
               As a base level of information, we might collect your email
-              address.
+              address but only when you give it to us.
             </P>
             <H2>
               <Link name="2" />
               Who is collecting my information?
             </H2>
             <P>
-              ReactJS.academy is collecting your email through a sign-up form.
+              ReactJS Academy will be collecting information. As mentioned previously, ReactJS Academy is part of the LeanJS family. Find out more about LeanJS at{' '}
+                <Link to="https://leanjs.com/" target="_blank">
+                  LeanJS.com/
+                </Link>{' '}
             </P>
             <H2>
               <Link name="3" />
               How are my details collected?
             </H2>
-            As mentioned above, your email address will be collected through a
-            sign-up form.
+            <P>Aside from when you sign up to a training, ReactJS.academy is collecting your email through a newsletter sign-up form. </P>
             <H2>
               <Link name="4" />
               Why is it collected?
             </H2>
-            In the first instance, your email address is used to send you
-            newsletters about ReactJS.academy news.
+            <P>Apart from sending you details about any purchases with us, your email address is used to send you
+            newsletters about ReactJS Academy news and offers.</P>
             <H2>
               <Link name="5" />
               How is my information used?
@@ -119,7 +121,7 @@ const PrivacyPolicy = () => (
               Using your email as the primary way of setting up the account
               means that, whatever happens - issues with your account, important
               notifications about our service etc - we have a means of
-              contacting you.
+              contacting you. 
             </P>
             <P>
               Another key reason for collecting your email is to confirm your
@@ -154,12 +156,13 @@ const PrivacyPolicy = () => (
             <P>The key parties we share information with will be:</P>
             <H3>Third party training providers</H3>
             <P>
-              When you sign up to a training/event/service, we will send them
+              When you sign up to a training/event/service, we will send third party providers
               your information to ensure that you are able to attend and get the
               best customer service possible. This is the information that you
-              will provide to us when you sign up to the training/event/service.
-              ReactJS.academy promises not to share your information with third
-              parties without expressed consent from you.
+              will provide to us when you sign up to the training/event/service. </P>
+              <P>For example, we hold many training events at third party venues and to ensure you are allowed to enter the building, your details will be sent to them to create a vistors list.</P>
+              <P>ReactJS.academy promises not to share your information with third
+              parties that aren't connected to a training/event/service that you've signed up for without expressed consent from you. 
             </P>
             <H3>Our hosting providers</H3>
             <P>
@@ -185,7 +188,7 @@ const PrivacyPolicy = () => (
             </P>
             <H2>
               <Link name="8" />
-              What will be the effect of this to me?
+              What will be the effect of GDPR regulations to me?
             </H2>
             <P>
               There shouldn’t be any difference in the way that you have
