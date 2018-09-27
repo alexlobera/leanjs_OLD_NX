@@ -30,7 +30,7 @@
     "onlyOn": null
   },
   {
-    "to": "mailto:hello@reactjs.academy",
+    "to": "#ContactUs",
     "text": "Contact",
     "onlyOn": null
   }
