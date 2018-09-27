@@ -69,7 +69,7 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
   <PhoneMenuItem
     key="6"
     onClick={[Function]}
-    to="mailto:hello@reactjs.academy"
+    to="#ContactUs"
   >
     Contact
   </PhoneMenuItem>

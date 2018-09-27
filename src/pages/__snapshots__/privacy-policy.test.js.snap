@@ -110,7 +110,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               <Link
                 to="#8"
               >
-                What will be the effect of this to me?
+                What will be the effect of May 2018's GDPR regulations to me?
               </Link>
             </styled.li>
             <styled.li>
@@ -135,7 +135,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             What information of mine is being collected?
           </styled.h2>
           <styled.p>
-            As a base level of information, we might collect your email address.
+            As a base level of information, we might collect your email address but only when you give it to us.
           </styled.p>
           <styled.h2>
             <Link
@@ -144,7 +144,15 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Who is collecting my information?
           </styled.h2>
           <styled.p>
-            ReactJS.academy is collecting your email through a sign-up form.
+            ReactJS Academy will be collecting information. As mentioned previously, ReactJS Academy is part of the LeanJS family. Find out more about LeanJS at
+             
+            <Link
+              target="_blank"
+              to="https://leanjs.com/"
+            >
+              LeanJS.com/
+            </Link>
+             
           </styled.p>
           <styled.h2>
             <Link
@@ -152,14 +160,19 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             How are my details collected?
           </styled.h2>
-          As mentioned above, your email address will be collected through a sign-up form.
+          <styled.p>
+            Aside from when you sign up to a training, ReactJS.academy is collecting your email through a newsletter sign-up form.
+             
+          </styled.p>
           <styled.h2>
             <Link
               name="4"
             />
             Why is it collected?
           </styled.h2>
-          In the first instance, your email address is used to send you newsletters about ReactJS.academy news.
+          <styled.p>
+            Apart from sending you details about any purchases with us, your email address is used to send you newsletters about ReactJS Academy news and offers.
+          </styled.p>
           <styled.h2>
             <Link
               name="5"
@@ -198,7 +211,14 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Third party training providers
           </styled.h3>
           <styled.p>
-            When you sign up to a training/event/service, we will send them your information to ensure that you are able to attend and get the best customer service possible. This is the information that you will provide to us when you sign up to the training/event/service. ReactJS.academy promises not to share your information with third parties without expressed consent from you.
+            When you sign up to a training/event/service, we will send third party providers your information to ensure that you are able to attend and get the best customer service possible. This is the information that you will provide to us when you sign up to the training/event/service.
+             
+          </styled.p>
+          <styled.p>
+            For example, we hold many training events at third party venues and to ensure you are allowed to enter the building, your details will be sent to them to create a vistors list.
+          </styled.p>
+          <styled.p>
+            ReactJS.academy promises not to share your information with third parties that aren't connected to a training/event/service that you've signed up for without expressed consent from you.
           </styled.p>
           <styled.h3>
             Our hosting providers
@@ -236,7 +256,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             <Link
               name="8"
             />
-            What will be the effect of this to me?
+            What will be the effect of GDPR regulations to me?
           </styled.h2>
           <styled.p>
             There shouldn’t be any difference in the way that you have experienced ReactJS.academy previously. However, due to the way that the GDPR regulations have been introduced in May 2018, you will have to make sure you opt-in to email newsletters again from ReactJS.academy or any other LeanJS-related parties.

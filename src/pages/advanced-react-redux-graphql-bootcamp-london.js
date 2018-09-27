@@ -79,7 +79,8 @@ const BootcampLondon = () => (
                   <React.Fragment>
                     {training.location}
                     <Link to="https://goo.gl/maps/Qsit5Y81Uy62">
-                      {' '}See on map
+                      {' '}
+                      See on map
                     </Link>
                   </React.Fragment>
                 }

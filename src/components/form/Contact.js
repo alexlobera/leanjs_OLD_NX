@@ -99,8 +99,21 @@ class ContactForm extends Component {
     return (
       <React.Fragment>
         <H3 id="ContactUs">Contact us</H3>
-        <P>The best way to contact us is by emailing us at <Link to="mailto:hello@reactjsacademy.com">hello@reactjs.academy</Link>. </P>
-        <P>Otherwise, you can contact us socially on <Link to="https://twitter.com/reactjsacademy">Twitter</Link>, <Link to="https://www.instagram.com/reactjsacademy/">Instagram</Link> and <Link to="https://www.facebook.com/reactjsacademy/">Facebook</Link> or visit our <Link to="/about-us">About Us page</Link> and directly contact one of our coaches. </P>
+        <P>
+          The best way to contact us is by emailing us at{' '}
+          <Link to="mailto:hello@reactjsacademy.com">
+            hello@reactjs.academy
+          </Link>.{' '}
+        </P>
+        <P>
+          Otherwise, you can contact us socially on{' '}
+          <Link to="https://twitter.com/reactjsacademy">Twitter</Link>,{' '}
+          <Link to="https://www.instagram.com/reactjsacademy/">Instagram</Link>{' '}
+          and{' '}
+          <Link to="https://www.facebook.com/reactjsacademy/">Facebook</Link> or
+          visit our <Link to="/about-us">About Us page</Link> and directly
+          contact one of our coaches.{' '}
+        </P>
         <H3>Newsletter & pre-training resources</H3>
         <P>
           Enter your email below and we'll email you with our latest training
@@ -114,7 +127,9 @@ class ContactForm extends Component {
               onSubmit={this.handleFormSubmit}
               style={this.state.formSubmited ? { display: 'none' } : {}}
             >
-              <Label htmlFor="email"><P>Your email address:</P></Label>
+              <Label htmlFor="email">
+                <P>Your email address:</P>
+              </Label>
               <Input
                 type="email"
                 value={email}
