@@ -76,7 +76,13 @@ const BootcampLondon = () => (
                 date={training.dates}
                 timing="9am - 6:30pm, everyday"
                 location={
-                  <React.Fragment>{training.city}, UK. </React.Fragment>
+                  <React.Fragment>
+                    {training.location}
+                    <Link to="https://goo.gl/maps/Qsit5Y81Uy62">
+                      {' '}
+                      See on map
+                    </Link>
+                  </React.Fragment>
                 }
                 coaches={[]}
               />

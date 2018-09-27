@@ -9,6 +9,7 @@ const Ul = styled.ul`
     margin-left: 0;
     > li {
       list-style-type: none;
+      margin-bottom: 1.5em;
     }
   `
       : ''} ${props =>
