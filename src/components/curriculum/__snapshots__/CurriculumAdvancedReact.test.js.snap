@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurriculumAdvancedReact /> should render component 1`] = `
+<Fragment>
+  <Row>
+    <Styled(Col)
+      lg={10}
+      lgOffset={1}
+    >
+      <Styled(styled.h2)>
+        Advanced React Curriculum
+         
+        <Link
+          name="curriculum"
+          to="#curriculum"
+        >
+          #
+        </Link>
+      </Styled(styled.h2)>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <CurriculumSection
+        name="day1"
+        subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
+        title="Advanced React Day 1"
+        toggleNavigateTo={[Function]}
+      >
+        <HoCsAndRenderPropsSession
+          title="Functional Programming & Advanced React patterns I"
+        />
+        <GraphQLSession
+          title="GraphQL and Apollo client"
+        />
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day2"
+        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
+        title="Advanced React Day 2"
+        toggleNavigateTo={[Function]}
+      >
+        <TestingInReactSession
+          title="Testing in React"
+        />
+        <CompoundCompAndContextSession
+          title="Advanced React patterns to create even more reusable UIs"
+        />
+        <AdvancedReduxSession
+          title="Functional programming & advanced Redux"
+        />
+      </CurriculumSection>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      md={6}
+    >
+      <CurriculumSection
+        name="day3"
+        subTitle="Hackathon"
+        title="Advanced React Day 3"
+        toggleNavigateTo={[Function]}
+      >
+        <Hackathon
+          title="Last day real-world React challenge. We'll implement an app in teams from scratch"
+        />
+      </CurriculumSection>
+    </Styled(Col)>
+  </Row>
+</Fragment>
+`;

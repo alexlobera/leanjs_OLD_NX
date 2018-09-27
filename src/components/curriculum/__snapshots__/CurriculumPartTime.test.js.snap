@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurriculumPartTime /> should render component 1`] = `
+<Fragment>
+  <Row>
+    <Styled(Col)
+      lg={10}
+      lgOffset={1}
+    >
+      <Styled(styled.h1)>
+        Part-time course curriculum
+         
+        <Link
+          name="curriculum"
+          to="#curriculum"
+        >
+          #
+        </Link>
+      </Styled(styled.h1)>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <CurriculumSection
+        name="session1"
+        title="Session 1 - Modern JavaScript"
+        toggleNavigateTo={[Function]}
+      >
+        <ES6Session />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session2"
+        title="Session 2 - Thinking in React"
+        toggleNavigateTo={[Function]}
+      >
+        <IntroReactSession />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session3"
+        title="Session 3 - Routing & Data Fetching"
+        toggleNavigateTo={[Function]}
+      >
+        <RoutingAndDataFetchingSession />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session4"
+        title="Session 4 - Forms & Auth"
+        toggleNavigateTo={[Function]}
+      >
+        <FormsAndAuthSession />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session5"
+        title="Session 5 - Recap React Fundamentals"
+        toggleNavigateTo={[Function]}
+      >
+        <ReactFundamentalsRecapSession />
+      </CurriculumSection>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      md={6}
+    >
+      <CurriculumSection
+        name="session6"
+        title="Session 6 - Styling in React"
+        toggleNavigateTo={[Function]}
+      >
+        <StylingInReactSession />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session7"
+        title="Session 7 - Introduction to Redux"
+        toggleNavigateTo={[Function]}
+      >
+        <IntroReduxSession />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session8"
+        title="Session 8 - Introduction to Testing in JS"
+        toggleNavigateTo={[Function]}
+      >
+        <TestingIntroSession />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session9"
+        title="Session 9 - Advanced Patterns I"
+        toggleNavigateTo={[Function]}
+      >
+        <HoCsAndRenderPropsSession />
+      </CurriculumSection>
+      <CurriculumSection
+        name="session10"
+        title="Session 10 - React & Redux mini hackathon"
+        toggleNavigateTo={[Function]}
+      >
+        <PartTimeFinalProject />
+      </CurriculumSection>
+    </Styled(Col)>
+  </Row>
+</Fragment>
+`;

@@ -22,7 +22,9 @@ export const selectTrainings = (type, city) =>
   trainings
     .filter(
       training =>
-        (!type || training.type === type) && (!city || training.city === city)
+        (!type || training.type === type) &&
+        (!city || training.city === city) &&
+        training.dateStartsOn > Date.now()
     )
     .sort((a, b) => a.dateStartsOn > b.dateStartsOn)
 
@@ -36,7 +38,21 @@ export const selectFirstTraining = (type, city) => {
   return trainings.length ? trainings[0] : emptyTraining(type, city)
 }
 
-const trainings = [
+export const trainings = [
+  {
+    dates: '06-08 Dec, 2018',
+    dateStartsOn: new Date('06 Dec, 2018'),
+    city: LONDON,
+    country: 'UK',
+    type: ADVANCED_REACT,
+    cityShortName: 'London',
+    location: 'Publicis.Sapient, Eden House, London',
+    pathUrl: '/advanced-react-redux-graphql-bootcamp-london',
+    trainingInstanceId: '5ba96ce0ad1320594b25457b',
+    price: 1250,
+    ticketName: 'Regular ticket',
+    currency: 'gbp',
+  },
   {
     dates: '3-8 Dec, 2018',
     dateStartsOn: new Date('3 December, 2018'),
@@ -67,10 +83,7 @@ const trainings = [
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
     price: 1166.67,
-    discountPrice: 829.17,
-    nextDiscountPrice: 1000,
-    priceGoesUpOn: 'Sept 20th, 2018.',
-    ticketName: 'Early bird ticket',
+    ticketName: 'Standard ticket',
     currency: 'gbp',
   },
   {
@@ -87,25 +100,25 @@ const trainings = [
     price: 1800,
     discountPrice: 1450,
     nextDiscountPrice: 1579.17,
-    priceGoesUpOn: 'Sept 24th, 2018.',
+    priceGoesUpOn: 'Sept 30th, 2018.',
     ticketName: 'Early bird ticket',
     currency: 'gbp',
   },
-  {
-    dates: '11-13 Oct, 2018',
-    dateStartsOn: new Date('11 Oct, 2018'),
-    city: LISBON,
-    country: 'Portugal',
-    type: ADVANCED_REACT,
-    cityShortName: 'Lisbon',
-    country: 'Portugal',
-    location: 'Torres Vedras, Portugal',
-    pathUrl: '/advanced-react-redux-graphql-bootcamp-lisbon',
-    trainingInstanceId: '5b86df299b6211f511254d97',
-    price: 1250,
-    ticketName: 'Regular ticket',
-    currency: 'gbp',
-  },
+  // {
+  //   dates: '11-13 Oct, 2018',
+  //   dateStartsOn: new Date('11 Oct, 2018'),
+  //   city: LISBON,
+  //   country: 'Portugal',
+  //   type: ADVANCED_REACT,
+  //   cityShortName: 'Lisbon',
+  //   country: 'Portugal',
+  //   location: 'Torres Vedras, Portugal',
+  //   pathUrl: '/advanced-react-redux-graphql-bootcamp-lisbon',
+  //   trainingInstanceId: '5b86df299b6211f511254d97',
+  //   price: 1250,
+  //   ticketName: 'Regular ticket',
+  //   currency: 'gbp',
+  // },
   {
     dates: '17 September, 2018',
     dateStartsOn: new Date('17 Sep, 2018'),

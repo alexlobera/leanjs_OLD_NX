@@ -1,0 +1,1003 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AboutUs /> should render component 1`] = `
+<Fragment>
+  <Header
+    bgImg="about-us"
+    links={
+      Array [
+        Object {
+          "text": "Coach profiles ",
+          "to": "alex-lobera",
+        },
+        Object {
+          "text": "Continuous coach development ",
+          "to": "continuous-coach-development",
+        },
+        Object {
+          "text": "Manifesto",
+          "to": "manifesto",
+        },
+        Object {
+          "text": "Corporate team training",
+          "to": "corporate-team-training",
+        },
+      ]
+    }
+    subtitle="Our coaches are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> journey"
+    titleLines={
+      Array [
+        "About us",
+      ]
+    }
+  />
+  <TopSection>
+    <Grid>
+      <CallToActionNextTrainings
+        left={true}
+        trainings={
+          Array [
+            Object {
+              "city": "Lisbon dist.",
+              "cityShortName": "Lisbon",
+              "country": "Portugal",
+              "currency": "gbp",
+              "dateStartsOn": 2018-11-11T08:00:00.000Z,
+              "dates": "11-17 Nov, 2018",
+              "discountPrice": 1450,
+              "location": "Torres Vedras, Portugal",
+              "nextDiscountPrice": 1579.17,
+              "pathUrl": "/react-redux-graphql-bootcamp-lisbon/",
+              "price": 1800,
+              "priceGoesUpOn": "Sept 30th, 2018.",
+              "ticketName": "Early bird ticket",
+              "trainingInstanceId": "5b74235404ba003b823513d7",
+              "type": "React bootcamp",
+            },
+          ]
+        }
+      />
+      <Card
+        border="shadow"
+      >
+        <Row>
+          <Styled(Col)
+            md={10}
+            mdOffset={1}
+          >
+            <styled.h2>
+              Our coaches - professional developers who love to teach
+            </styled.h2>
+            <styled.h3
+              style={
+                Object {
+                  "paddingTop": 0,
+                }
+              }
+            >
+              The ReactJS Academy coach values:
+               
+            </styled.h3>
+            <Row>
+              <Styled(Col)
+                md={4}
+                sm={6}
+                xs={6}
+              >
+                <styled.ul>
+                  <styled.li>
+                    Passion
+                  </styled.li>
+                  <styled.li>
+                    Empathy
+                  </styled.li>
+                  <styled.li>
+                    Community
+                  </styled.li>
+                  <styled.li>
+                    Excellence
+                  </styled.li>
+                  <styled.li>
+                    Continuous learning
+                  </styled.li>
+                </styled.ul>
+              </Styled(Col)>
+              <Styled(Col)
+                md={4}
+                sm={6}
+                xs={6}
+              >
+                <styled.ul>
+                  <styled.li>
+                    Forward thinking
+                  </styled.li>
+                  <styled.li>
+                    Determination
+                  </styled.li>
+                  <styled.li>
+                    Feedback
+                  </styled.li>
+                  <styled.li>
+                    Best-practices
+                  </styled.li>
+                  <styled.li>
+                    Cutting-edge
+                  </styled.li>
+                </styled.ul>
+              </Styled(Col)>
+              <Styled(Components)
+                xs={true}
+              >
+                <Styled(Col)
+                  md={4}
+                  sm={12}
+                  xs={12}
+                >
+                  <styled.img
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutus_values.jpg?alt=media"
+                  />
+                </Styled(Col)>
+              </Styled(Components)>
+            </Row>
+          </Styled(Col)>
+        </Row>
+      </Card>
+    </Grid>
+  </TopSection>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={5}
+          smOrder={2}
+          xs={12}
+        >
+          <Video
+            description={
+              <styled.p>
+                Alex talking about advanced testing at Facebook London HQ
+              </styled.p>
+            }
+            youtubeID="QiR8iNq3tCQ"
+          />
+        </Styled(Col)>
+        <Styled(Col)
+          md={4}
+          mdOffset={1}
+          smOrder={1}
+          xs={12}
+        >
+          <Styled(styled.h2)>
+            Alex Lobera
+             
+            <Link
+              name="alex-lobera"
+              to="#alex-lobera"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+          <Styled(styled.h3)>
+            Tech Lead at 
+            <Link
+              to="https://leanjs.com"
+            >
+              LeanJS
+            </Link>
+          </Styled(styled.h3)>
+          <styled.ul
+            inline={true}
+          >
+            <styled.li>
+              <SocialLink
+                to="https://github.com/alexlbr"
+              >
+                GitHub
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://medium.com/@alex_lobera"
+              >
+                Medium
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://twitter.com/alex_Lobera"
+              >
+                Twitter
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://uk.linkedin.com/in/alexlobera"
+              >
+                LinkedIn
+              </SocialLink>
+            </styled.li>
+          </styled.ul>
+          <styled.ul>
+            <styled.li>
+              Full-stack JavaScript Developer passionate about
+               
+              <strong>
+                teaching React since
+                 
+                <Link
+                  to="https://www.meetup.com/JavaScript-London/events/230287691/"
+                >
+                  May, 2016
+                </Link>
+              </strong>
+              .
+            </styled.li>
+            <styled.li>
+              Alex holds a 
+              <strong>
+                computer science degree
+              </strong>
+               and he is also a 
+              <strong>
+                certified teacher
+              </strong>
+               in Spanish language.
+            </styled.li>
+            <styled.li>
+              Organizer of the
+               
+              <Link
+                to="https://www.meetup.com/JavaScript-london/"
+              >
+                JavaScript London Meetup
+              </Link>
+               
+              and other popular meetups in the EU.
+            </styled.li>
+          </styled.ul>
+          <Styled(Blockquote)
+            bg="primary"
+            triangle="left"
+          >
+            Teaching other developers is very rewarding. I love sharing what I've learned in my career to help others grow and give back. I think this is what really makes our industry move forward.
+          </Styled(Blockquote)>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={4}
+          mdOffset={1}
+          xs={12}
+        >
+          <Styled(styled.h2)>
+            Richard Moss
+            <Link
+              name="richard-moss"
+              to="#richard-moss"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+          <Styled(styled.h3)>
+            Senior React Engineer at
+             
+            <Link
+              to="https://leanjs.com"
+            >
+              LeanJS
+            </Link>
+          </Styled(styled.h3)>
+          <styled.ul
+            inline={true}
+          >
+            <styled.li>
+              <SocialLink
+                to="https://github.com/ric9176"
+              >
+                GitHub
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://medium.com/@richard_13764"
+              >
+                Medium
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://www.linkedin.com/in/richard-moss-55881b82/"
+              >
+                LinkedIn
+              </SocialLink>
+            </styled.li>
+          </styled.ul>
+          <styled.ul>
+            <styled.li>
+              Focused on delivering cutting-edge
+               
+              <strong>
+                React, Redux, 
+              </strong>
+               and 
+              <strong>
+                GraphQL
+              </strong>
+               
+              projects 
+              <strong>
+                 for top companies
+              </strong>
+               like Boston University.
+            </styled.li>
+            <styled.li>
+              Serial entrepreneur passionate about teaching. Founded an online school in 2012, and hasn’t stopped.
+            </styled.li>
+            <styled.li>
+              Organizer of the
+               
+              <Link
+                to="https://www.meetup.com/JavaScript-Lisbon/"
+              >
+                JavaScript Lisbon Meetup
+                 
+              </Link>
+              and ReactJS Academy bootcamps.
+            </styled.li>
+          </styled.ul>
+          <Styled(Blockquote)
+            bg="primary"
+            triangle="right"
+          >
+            Collaboratively working with developers to help them understand concepts such as the functional programming paradigm helps them take their skills to the next level - and I learn a lot too!
+          </Styled(Blockquote)>
+        </Styled(Col)>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+          xs={12}
+        >
+          <styled.img
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.png?alt=media"
+            width="100%"
+          />
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={5}
+          smOrder={2}
+          xs={12}
+        >
+          <styled.img
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio-pic.png?alt=media"
+            width="100%"
+          />
+        </Styled(Col)>
+        <Styled(Col)
+          md={4}
+          mdOffset={1}
+          smOrder={1}
+          xs={12}
+        >
+          <Styled(styled.h2)>
+            Horacio Herrera
+            <Link
+              name="horacio-herrera"
+              to="#horacio-herrera"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+          <Styled(styled.h3)>
+            Designer and Developer at
+             
+            <Link
+              to="https://leanjs.com"
+            >
+              LeanJS
+            </Link>
+          </Styled(styled.h3)>
+          <styled.ul
+            inline={true}
+          >
+            <styled.li>
+              <SocialLink
+                to="https://github.com/horacioh"
+              >
+                GitHub
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://medium.com/@hhg2288"
+              >
+                Medium
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://twitter.com/hhg2288"
+              >
+                Twitter
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://www.linkedin.com/in/horacioherrera/"
+              >
+                LinkedIn
+              </SocialLink>
+            </styled.li>
+          </styled.ul>
+          <styled.ul>
+            <styled.li>
+              Holds a 
+              <strong>
+                Digital Design degree
+              </strong>
+              ,
+               
+              <strong>
+                self-taught developer
+              </strong>
+              , and
+               
+              <strong>
+                open source contributor
+              </strong>
+              .
+            </styled.li>
+            <styled.li>
+              Working with cross-functional product teams since 2010.
+            </styled.li>
+            <styled.li>
+              Organizer of the
+               
+              <Link
+                to="https://www.meetup.com/JavaScript-Barcelona/"
+              >
+                JavaScript Barcelona Meetup
+              </Link>
+              .
+            </styled.li>
+          </styled.ul>
+          <Styled(Blockquote)
+            bg="primary"
+            triangle="left"
+          >
+            I love teaching and seeing other developers grow...
+          </Styled(Blockquote)>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={4}
+          mdOffset={1}
+          xs={12}
+        >
+          <Styled(styled.h2)>
+            Eva Hoffmann
+            <Link
+              name="eva-hoffmann"
+              to="#eva-hoffmann"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+          <Styled(styled.h3)>
+            Interactive Developer at
+             
+            <Link
+              to="https://www.sapientrazorfish.com/"
+            >
+              SapientRazorfish
+            </Link>
+          </Styled(styled.h3)>
+          <styled.ul
+            inline={true}
+          >
+            <styled.li>
+              <SocialLink
+                to="github.com/evandyou "
+              >
+                GitHub
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://www.linkedin.com/in/evamhoffmann/"
+              >
+                LinkedIn
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://twitter.com/evandyou"
+              >
+                Twitter
+              </SocialLink>
+            </styled.li>
+          </styled.ul>
+          <styled.ul>
+            <styled.li>
+              Currently, a 
+              <strong>
+                front-end engineer
+              </strong>
+               working with
+               
+              <strong>
+                React/Redux
+              </strong>
+              .
+            </styled.li>
+            <styled.li>
+              Holds a degree in
+               
+              <strong>
+                computer science and social sciences
+              </strong>
+              , interested in the social impact of technologies.
+            </styled.li>
+            <styled.li>
+              Always curious to learn new things and share it with others.
+            </styled.li>
+          </styled.ul>
+          <Styled(Blockquote)
+            bg="primary"
+            triangle="right"
+          >
+            Everyone can learn how to program, and I enjoy supporting others to learn and expand their skill set. Programming is such an important skill set and I am particularly passionate about diversity in tech.
+          </Styled(Blockquote)>
+        </Styled(Col)>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+          xs={12}
+        >
+          <styled.img
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Feva.jpg?alt=media"
+            width="100%"
+          />
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={5}
+          smOrder={2}
+          xs={12}
+        >
+          <styled.img
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fwill.png?alt=media"
+            width="100%"
+          />
+        </Styled(Col)>
+        <Styled(Col)
+          md={4}
+          mdOffset={1}
+          smOrder={1}
+          xs={12}
+        >
+          <Styled(styled.h2)>
+            Will Voelcker
+            <Link
+              name="will-voelcker"
+              to="#will-voelcker"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+          <Styled(styled.h3)>
+            Senior Full-stack JavaScript Engineer at
+             
+            <Link
+              to="https://leanjs.com"
+            >
+              LeanJS
+            </Link>
+          </Styled(styled.h3)>
+          <styled.ul
+            inline={true}
+          >
+            <styled.li>
+              <SocialLink
+                to="https://github.com/wvoelcker"
+              >
+                GitHub
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              |
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://www.linkedin.com/in/willv/"
+              >
+                LinkedIn
+              </SocialLink>
+            </styled.li>
+          </styled.ul>
+          <styled.ul>
+            <styled.li>
+              Professional web 
+              <strong>
+                developer since 2005
+              </strong>
+            </styled.li>
+            <styled.li>
+              <strong>
+                Qualified teacher
+              </strong>
+              , experienced teaching in a variety of settings.
+            </styled.li>
+            <styled.li>
+              Experience working for start-ups and international corporations.
+            </styled.li>
+          </styled.ul>
+          <Styled(Blockquote)
+            bg="primary"
+            triangle="left"
+          >
+            I love working with developers to help them improve their skills, stretch their brains, further their understanding, and advance their career.
+          </Styled(Blockquote)>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={4}
+          mdOffset={1}
+          xs={12}
+        >
+          <Styled(styled.h2)>
+            Adam Lancaster
+            <Link
+              name="adam-lancaster"
+              to="#adam-lancaster"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+          <Styled(styled.h3)>
+            Software Engineer at 
+            <Link
+              to="https://nested.com"
+            >
+              Nested
+            </Link>
+          </Styled(styled.h3)>
+          <styled.ul
+            inline={true}
+          >
+            <styled.li>
+              <SocialLink
+                to="https://github.com/Adzz"
+              >
+                GitHub
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://www.linkedin.com/in/adam-lancaster-9845a23a/"
+              >
+                LinkedIn
+              </SocialLink>
+            </styled.li>
+            <styled.li>
+              <SocialLink
+                to="https://twitter.com/ItizAdz/"
+              >
+                Twitter
+              </SocialLink>
+            </styled.li>
+          </styled.ul>
+          <styled.ul>
+            <styled.li>
+              <strong>
+                Full stack software engineer
+              </strong>
+               currently playing with Elixir and React.
+            </styled.li>
+            <styled.li>
+              Started working in startups and no one has told him to leave yet, which he takes as encouragement.
+            </styled.li>
+            <styled.li>
+              Always looking for new ~ways to procrastinate~ things to learn.
+            </styled.li>
+          </styled.ul>
+          <Styled(Blockquote)
+            bg="primary"
+            triangle="right"
+          >
+            Teaching is always rewarding, but it is one of the most undervalued skills in our industry. I always enjoy the chance to practice it.
+          </Styled(Blockquote)>
+        </Styled(Col)>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+          xs={12}
+        >
+          <styled.img
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fadam-lancaster.jpeg?alt=media"
+            width="100%"
+          />
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={5}
+          smOrder={2}
+          xs={12}
+        >
+          <Video
+            youtubeID="Rx2v_6I7PMM"
+          />
+        </Styled(Col)>
+        <Styled(Col)
+          md={6}
+          mdOffset={1}
+          smOrder={1}
+          xs={12}
+        >
+          <Styled(styled.h2)>
+            How we continuously improve
+             
+            <Link
+              name="continuous-coach-development"
+              to="#continuous-coach-development"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+          <styled.p>
+            ReactJS Academy is made up of a
+             
+            <strong>
+              group of developers & coaches
+            </strong>
+             that continuously strive improve their teaching skills and training material
+          </styled.p>
+          <styled.ul>
+            <styled.li>
+              We improve the material and training resources collaboratively to build the most complete, progressive, and and up-to-date curriculum possible.
+            </styled.li>
+            <styled.li>
+              We train together to improve our teaching skills in order to maximize the learning of the trainees.
+            </styled.li>
+            <styled.li>
+              We share our expertice working at various top companies to create excellence in training, taking an open approach to new tecnologies without being prescriptive.
+            </styled.li>
+          </styled.ul>
+          <styled.div>
+            <LinkButton
+              target="_self"
+              to="mailto:hello@reactjs.academy?subject=become a coach"
+              trackUserBehaviour={[Function]}
+            >
+              Become a coach
+            </LinkButton>
+          </styled.div>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={10}
+          mdOffset={1}
+        >
+          <Styled(styled.h2)>
+            The ReactJS Academy coach manifesto
+            <Link
+              name="manifesto"
+              to="#manifesto"
+            >
+              #
+            </Link>
+          </Styled(styled.h2)>
+        </Styled(Col)>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+          xs={12}
+        >
+          <styled.h3>
+            Coaches are curious
+          </styled.h3>
+          <styled.p>
+            We know technology changes constantly, we embrace change and we always keep learning. Learning is a never-ending process.
+          </styled.p>
+          <styled.h3>
+            Coaches provide alternatives to help students make informed decisions
+          </styled.h3>
+          <styled.p>
+            Coaches explain why we use a given stack and which problem(s) it solves, and we should also explain alternative choices. This way, trainees can make their own informed decisions about what stack to use.
+          </styled.p>
+          <styled.h3>
+            Coaches guide students
+          </styled.h3>
+          <styled.p>
+            Everyone learns differently. We shouldn’t tell students what they can do or what they can’t do. We make recommendations, and we explain the rationale behind our recommendations, then trainees choose. We should try to balance the amount of freedom.
+          </styled.p>
+          <styled.h3>
+            Coaches are professional developers
+          </styled.h3>
+          <styled.p>
+            Bring your experience to the classroom. We try to explain things in the classroom using real-world examples we’ve worked on. Expressions like “in my experience” are very helpful.
+          </styled.p>
+          <styled.h3>
+            Coaches are honest and humble
+          </styled.h3>
+          <styled.p>
+            Coaches don’t have to know everything. It’s better to say “I don’t have any experience on that”, than trying to pretend you know. We also learn from students, and students appreciate when coaches say things like “thanks for sharing, I didn’t know”.
+          </styled.p>
+          <styled.h3>
+            Teaching is not simple
+          </styled.h3>
+          <styled.p>
+            Building real-world software is not a simple problem. Normally what a developer should do or not do depends on the case. Sometimes students want a simple answer: “what should I do, A or B?”. The answer in many cases is “it depends”. Our job is to make sure we understand trainees’ problems, and they understand the pros & cons of each approach we might recommend depending on the case.
+          </styled.p>
+        </Styled(Col)>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+          xs={12}
+        >
+          <styled.h3>
+            Coaches are proactive and self-managed
+          </styled.h3>
+          <styled.p>
+            Coaches don’t join to be told what to do. Coaches communicate, have initiative, and collaborate for the common good of the group.
+          </styled.p>
+          <styled.h3>
+            Coaches are generous
+          </styled.h3>
+          <styled.p>
+            We share and help others. Helping is not a transactional event. Being able to help has nothing to do with status, experience or knowledge. Being able to help has to do with being willing to help. We can learn from anyone, everyone has something to teach.
+          </styled.p>
+          <styled.h3>
+            We respect each other
+          </styled.h3>
+          <styled.p>
+            Treat people as you would like them to treat you. If you mentor another coach, you expect the other coach to appreciate and get the most of your time and effort and to replicate at least the same amount of effort. We don’t mentor another coach over and over again if we don’t see enough effort and dedication on the other end. If someone mentors you, you should also mentor.
+          </styled.p>
+          <styled.h3>
+            Coaches pursue excellence
+          </styled.h3>
+          <styled.p>
+            We believe being excellent has nothing to do with not making mistakes. Being excellent means working hard to do things right, and to learn from our mistakes so we do our best to not make them again.
+          </styled.p>
+          <styled.h3>
+            Our community is open
+          </styled.h3>
+          <styled.p>
+            We are not an exclusive VIP group, meaning we are inclusive. We welcome new coaches and people to our community. The only barrier to entry is motivation and attitude, those who work with us as coaches will be proactive people that want to help others.
+          </styled.p>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <Section
+    xsBgDarkGrey={true}
+  >
+    <Grid>
+      <Card
+        bg="darkGrey"
+        border="shadow"
+      >
+        <Row>
+          <Styled(Col)
+            md={5}
+            mdOffset={1}
+            xs={12}
+          >
+            <styled.img
+              src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.png?alt=media"
+              width="100%"
+            />
+          </Styled(Col)>
+          <Styled(Col)
+            md={5}
+            xs={12}
+          >
+            <Styled(styled.h2)>
+              Corporate team training
+              <Link
+                name="corporate-team-training"
+                to="#corporate-team-training"
+              >
+                #
+              </Link>
+            </Styled(styled.h2)>
+            <Styled(Link)
+              to="https://leanjs.com/"
+            >
+              <LeanJS
+                color="#fff"
+                height={60}
+              />
+            </Styled(Link)>
+            <styled.p>
+              Looking for a way to train your whole team? No problem!
+            </styled.p>
+            <styled.p>
+              Our parent company LeanJS delivers high quality, bespoke team training on a host of different subjects - not just React…
+            </styled.p>
+            <styled.ul>
+              <styled.li>
+                React, React Native, Javascript, GraphQL, Redux, Lean/Agile methodologies and UX design training available
+              </styled.li>
+              <styled.li>
+                Delivered in your office - worldwide.
+              </styled.li>
+              <styled.li>
+                Tailored to your business needs - you choose the dates.
+              </styled.li>
+            </styled.ul>
+            <styled.p>
+              <LinkButton
+                secondary={true}
+                to="https://leanjs.com/training/private-react-redux-graphql-training"
+                trackUserBehaviour={[Function]}
+              >
+                Visit LeanJS
+              </LinkButton>
+            </styled.p>
+          </Styled(Col)>
+        </Row>
+      </Card>
+    </Grid>
+  </Section>
+  <UpcomingTrainingSection />
+</Fragment>
+`;

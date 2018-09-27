@@ -1,5 +1,4 @@
 ---
-
 city: Barcelona
 country: Spain
 url: /react-redux-training-barcelona/
