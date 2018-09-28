@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/node:10.11-browsers
+    - image: circleci/node:8.12-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -20,7 +20,7 @@ jobs:
       - run: yarn test
   deploy-prod:
     docker:
-    - image: circleci/node:10.11-browsers
+    - image: circleci/node:8.12-browsers    
     working_directory: ~/repo
     steps:
       - checkout
