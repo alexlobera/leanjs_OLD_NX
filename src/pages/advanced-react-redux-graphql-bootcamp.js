@@ -58,8 +58,13 @@ const Boocamps = () => (
         <Row>
           <Col md={5}>
             <Video youtubeID="1TLeIEkyUE4" />
-            <P>Listen to Ben Parish, a senior developer who attended our last bootcamp, on his experience at the bootcamp.</P>
-            <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">Watch further testimonials</Link>
+            <P>
+              Listen to Ben Parish, a senior developer who attended our last
+              bootcamp, on his experience at the bootcamp.
+            </P>
+            <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">
+              Watch further testimonials
+            </Link>
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this advanced React bootcamp right for me?</H2>

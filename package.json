@@ -51,7 +51,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "predeploy": "npm run build",
-    "deploy": "firebase deploy --only hosting",
+    "deploy": "./node_modules/.bin/firebase deploy --only hosting",
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
     "prebuild": "npm run format",
     "build": "gatsby build",
