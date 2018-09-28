@@ -25,6 +25,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Firebase locally
+          command: npm install --save-dev firebase-tools
+      - run:
           name: Deploy Master to Firebase
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
 
