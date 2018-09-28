@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { LinkButton } from '../components/buttons'
+import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P, Span } from '../components/text'
@@ -12,7 +13,7 @@ import {
   AttendeeQuote,
   UpcomingTrainingSection,
 } from '../components/training'
-import { Card } from '../components/elements'
+import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
 import { BOOTCAMP_RIGHT, OLU } from '../config/images'
@@ -59,7 +60,9 @@ const Boocamps = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={BOOTCAMP_RIGHT} width="100%" />
+            <Video youtubeID="6hmKu1-vW-8" />
+            <P>Listen to Polina Stoyanova, a software engineer from tray.io who attended our last bootcamp, on her experience at the bootcamp.</P>
+            <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">Watch further testimonials</Link>
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React bootcamp right for me?</H2>

@@ -42,7 +42,7 @@ exports[`<AboutUs /> should render component 1`] = `
               "cityShortName": "Lisbon",
               "country": "Portugal",
               "currency": "gbp",
-              "dateStartsOn": 2018-11-11T08:00:00.000Z,
+              "dateStartsOn": 2018-11-11T00:00:00.000Z,
               "dates": "11-17 Nov, 2018",
               "discountPrice": 1450,
               "location": "Torres Vedras, Portugal",
