@@ -98,6 +98,13 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Link
+                    to="/blog"
+                  >
+                    Blog
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
                     style={
                       Object {
                         "fontSize": "16px",
