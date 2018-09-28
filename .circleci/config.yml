@@ -23,10 +23,10 @@ jobs:
     - image: circleci/8.12-stretch-browsers
     working_directory: ~/my-project
     steps:
-        - checkout
-        - run:
-          name: Deploy Master to Firebase
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
+      - checkout
+      - run:
+        name: Deploy Master to Firebase
+        command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
 
 workflows:
   version: 2
