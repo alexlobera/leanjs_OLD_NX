@@ -25,11 +25,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install firebase cli
-          command: npm i -g firebase-tools
-      - run:
           name: Deploy Master to Firebase
-          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
+          command: ./node_modules/firebase/index.node.js deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
 
 workflows:
   version: 2
