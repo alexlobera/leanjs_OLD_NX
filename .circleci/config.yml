@@ -23,7 +23,6 @@ jobs:
           root: ./
           paths:
             - public
-      - run: ls -l public
   deploy-prod:
     docker:
     - image: circleci/node:8.12
@@ -31,7 +30,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ./public
+          at: .
       - run: ls -l public
       - run:
           name: Install Firebase locally
