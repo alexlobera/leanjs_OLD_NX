@@ -26,6 +26,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Is there public folder?
+          command: ls -l
+      - run:
           name: Install Firebase locally
           command: npm install --save-dev firebase-tools
       - run:
