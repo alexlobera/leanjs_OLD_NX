@@ -61,7 +61,9 @@
     "precommit": "npm run format",
     "preserve": "yarn build",
     "serve": "gatsby serve",
-    "coverage": "./node_modules/.bin/jest --coverage"
+    "coverage": "./node_modules/.bin/jest --coverage",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "devDependencies": {
     "@storybook/react": "^3.4.8",
@@ -73,6 +75,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "cypress": "^3.1.0",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.3.1",
     "enzyme-to-json": "^3.3.4",
@@ -93,6 +96,7 @@
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.5.0",
+    "start-server-and-test": "^1.7.1",
     "wait-for-expect": "^1.0.0"
   },
   "repository": {
@@ -127,7 +131,8 @@
     },
     "testPathIgnorePatterns": [
       "node_modules",
-      ".cache"
+      ".cache",
+      "cypress"
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!(gatsby)/)"
