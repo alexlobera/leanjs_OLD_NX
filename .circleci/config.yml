@@ -1,8 +1,8 @@
 version: 2
 jobs:
-  build-deploy-job:
+  build:
     docker:
-    - image: circleci/node:8.12-browsers
+    - image: circleci/node:8.12
     working_directory: ~/repo
     steps:
       - checkout
@@ -18,7 +18,15 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
-      - run: yarn build
+      - persist_to_workspace:
+          root: ./
+  deploy-prod:
+    docker:
+    - image: circleci/node:8.12
+    working_directory: ~/repo
+    steps:
+      - attach_workspace:
+          at: ./
       - run:
           name: Install Firebase locally
           command: npm install --save-dev firebase-tools
@@ -31,7 +39,10 @@ workflows:
 
   build-deploy:
     jobs:
-      - build-deploy-job:
+      - build
+      - deploy-prod:
+          requires:
+            - build
           filters:
             branches:
               only: master
