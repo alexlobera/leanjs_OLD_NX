@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build-deploy-job:
+  build:
     docker:
     - image: circleci/node:8.12-browsers
     working_directory: ~/repo
@@ -31,7 +31,7 @@ workflows:
 
   build-deploy:
     jobs:
-      - build-deploy-job
+      - build-deploy-job:
           filters:
             branches:
               only: master
