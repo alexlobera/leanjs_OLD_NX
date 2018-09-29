@@ -20,13 +20,15 @@ jobs:
       - run: yarn test
       - persist_to_workspace:
           root: ./
+            paths:
+              - public
   deploy-prod:
     docker:
     - image: circleci/node:8.12
     working_directory: ~/repo
     steps:
       - attach_workspace:
-          at: ./
+          at: ./public
       - run:
           name: Install Firebase locally
           command: npm install --save-dev firebase-tools
