@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/leanjscom/reactjsacademy.svg?style=svg)](https://circleci.com/gh/leanjscom/reactjsacademy)
+
 # ReactJS Academy website
 
 ReactJS Academy has been built with Gatsby. Gatsby is a static site generator for React and is a great solution if you are building a content heavy site, you can read more about Gatsby in the [official docs](https://www.gatsbyjs.org/docs/) and you can read more about [our experiences using Gatsby.](https://medium.com/leanjs/the-great-and-not-so-great-gatsbyjs-788b5fb34e77) :sunglasses:
