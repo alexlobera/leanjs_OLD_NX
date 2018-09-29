@@ -103,7 +103,8 @@ class ContactForm extends Component {
           The best way to contact us is by emailing us at{' '}
           <Link to="mailto:hello@reactjsacademy.com">
             hello@reactjs.academy
-          </Link>.{' '}
+          </Link>
+          .{' '}
         </P>
         <P>
           Otherwise, you can contact us socially on{' '}

@@ -4,7 +4,6 @@ ReactJS Academy has been built with Gatsby. Gatsby is a static site generator fo
 
 ## Install
 
-
 Cone this repo to your local machine and run
 
 ```sh

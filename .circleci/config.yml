@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/node:8.12-stretch-browsers
+    - image: circleci/node:8.12
     working_directory: ~/repo
     steps:
       - checkout
@@ -18,15 +18,26 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
+      - run: yarn build
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - public
   deploy-prod:
     docker:
-    - image: circleci/node:8.12-stretch-browsers    
+    - image: circleci/node:8.12
     working_directory: ~/repo
     steps:
       - checkout
+      - attach_workspace:
+          at: .
+      - run: ls -l public
+      - run:
+          name: Install Firebase locally
+          command: npm install --save-dev firebase-tools
       - run:
           name: Deploy Master to Firebase
-          command: ./node_modules/firebase/index.node.js deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
 
 workflows:
   version: 2
