@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/leanjscom/reactjsacademy.svg?style=svg)](https://circleci.com/gh/leanjscom/reactjsacademy)
+[![CircleCI](https://circleci.com/gh/leanjscom/reactjsacademy.svg?style=svg&circle-token=490008566d9419dde2e9f77dc9a410d31126f49c)](https://circleci.com/gh/leanjscom/reactjsacademy)
 
 # ReactJS Academy website
 
