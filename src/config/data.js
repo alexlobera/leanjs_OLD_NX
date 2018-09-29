@@ -88,7 +88,7 @@ export const trainings = [
   },
   {
     dates: '11-17 Nov, 2018',
-    dateStartsOn: new Date('11 Nov, 2018'),
+    dateStartsOn: new Date('2018-11-11T18:00:00'),
     city: LISBON,
     country: 'Portugal',
     type: REACT_BOOTCAMP,
