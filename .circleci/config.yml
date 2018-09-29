@@ -20,8 +20,8 @@ jobs:
       - run: yarn test
       - persist_to_workspace:
           root: ./
-            paths:
-              - public
+          paths:
+            - public
   deploy-prod:
     docker:
     - image: circleci/node:8.12
