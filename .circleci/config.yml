@@ -75,10 +75,15 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - e2e-tests
-      - deploy-prod:
+      - e2e-tests:
           requires:
             - build
+          filters:
+            branches:
+              only: master
+      - deploy-prod:
+          requires:
+            - e2e-tests
           filters:
             branches:
               only: master
