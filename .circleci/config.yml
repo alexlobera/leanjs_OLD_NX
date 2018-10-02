@@ -61,7 +61,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Running E2E tests
-          command: npm run test:e2e
+          command: npm run ci:e2e
       - store_test_results:
           path: e2e-results
       - store_artifacts:
