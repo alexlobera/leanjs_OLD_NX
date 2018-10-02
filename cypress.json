@@ -1,4 +1,4 @@
 {
-  "projectId": "l€@nJ$",
-  "baseUrl": "http://localhost:9000/"
+  "baseUrl": "http://localhost:9000/",
+  "chromeWebSecurity": false
 }
