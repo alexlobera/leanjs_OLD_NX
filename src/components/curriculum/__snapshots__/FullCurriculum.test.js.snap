@@ -24,19 +24,5 @@ exports[`<FullCurriculum /> should render component 1`] = `
   <CurriculumBootcamp
     showTitle={false}
   />
-  <Styled(Row)>
-    <Styled(Col)
-      lg={10}
-      lgOffset={1}
-    >
-      <LinkButton
-        secondary={true}
-        to="/curriculum"
-        trackUserBehaviour={[Function]}
-      >
-        Full curriculum&gt;&gt;
-      </LinkButton>
-    </Styled(Col)>
-  </Styled(Row)>
 </Fragment>
 `;
