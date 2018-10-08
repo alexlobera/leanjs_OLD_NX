@@ -31,6 +31,7 @@ There are a few other scripts in the package.json that are used for formatting v
 
 We use [Jest](https://jestjs.io/) for testing. As the site is content heavy, we use snapshot tests for parts with little or no logic and write full unit and integration tests for mission critical parts such as `src/components/payment/payment.test.js`
 
+
 ## Our Deploy and Hosting
 
 We use [Google's firebase platform](https://firebase.google.com/) for hosting the site. There is a generous free layer and so the site does not cost anything to host. This also allows for the rapid addition of features that you need a backend for (such as contact forms etc), for which we use [cloud functions](https://firebase.google.com/products/functions/). We also use the [cloud storage](https://firebase.google.com/products/storage/), which is a CDN, to keep the weight of images off the server and maintain a rapid build time.
