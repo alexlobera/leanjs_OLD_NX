@@ -64,7 +64,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
     >
       <CurriculumSection
         name="day3"
-        subTitle="React Final Project"
+        subTitle="Final Project"
         title="Advanced React Day 3"
         toggleNavigateTo={[Function]}
       >

@@ -111,7 +111,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 7"
         name="day7"
-        subTitle="React Final Project"
+        subTitle="Final Project"
       >
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app
