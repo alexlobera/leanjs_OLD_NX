@@ -1,10 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import Link from '../navigation/Link'
 import { H2Ref } from '../text'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
-import IntroReactSession from './sessions/IntroReactSession'
+import ReactJS101Session from './sessions/ReactJS101Session'
+import ThinkingInReactSession from './sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
@@ -18,6 +20,12 @@ import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
+import { LinkButton } from '../buttons'
+
+const SectionCTA = styled.div`
+  padding-top: 50px;
+  padding-bottom: 25px;
+`
 
 const CurriculumBootcamp = ({
   showTitle = true,
@@ -25,6 +33,7 @@ const CurriculumBootcamp = ({
   showToggle,
   toggleNavigateTo = '/curriculum?tab=react-bootcamp',
   marketingCard = null,
+  showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
@@ -32,18 +41,26 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 1"
+        title="React Bootcamp Day 1 (half day)"
         name="day1"
-        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+        subTitle="React 101 and JS fundamentals"
       >
-        <ES6Session title="Modern JavaScript" />
-        <IntroReactSession title="Thinking in React" />
-        <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
+        <ReactJS101Session/>
       </Section>
       <Section
         {...commonProps}
         title="React Bootcamp Day 2"
         name="day2"
+        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+      >
+        <ES6Session title="Modern JavaScript" />
+        <ThinkingInReactSession title="Thinking in React" />
+        <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
+      </Section>
+      <Section
+        {...commonProps}
+        title="React Bootcamp Day 3"
+        name="day3"
         subTitle="Forms, Authentication, Styling in React"
       >
         <FormsAndAuthSession title="Forms and Authentication" />
@@ -55,8 +72,8 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 3"
-        name="day3"
+        title="React Bootcamp Day 4"
+        name="day4"
         subTitle="Redux, and Testing Principles"
       >
         <IntroReduxSession title="Introduction to Redux" />
@@ -69,8 +86,8 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 4"
-        name="day4"
+        title="React Bootcamp Day 5"
+        name="day5"
         subTitle="Functional Programming & advanced React patterns I, GraphQL, and Server-side Rendering"
       >
         <HoCsAndRenderPropsSession title="Functional Programming & Advanced React patterns I" />
@@ -79,8 +96,8 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 5"
-        name="day5"
+        title="React Bootcamp Day 6"
+        name="day6"
         subTitle="Testing in React, Advanced React Patterns II, Functional Programming & advanced Redux"
       >
         <TestingInReactSession title="Testing in React" />
@@ -92,15 +109,22 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 6"
-        name="day6"
-        subTitle="Hackathon"
+        title="React Bootcamp Day 7"
+        name="day7"
+        subTitle="Final Project"
       >
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app
           in teams from scratch"
         />
       </Section>
+      {showLinkToCurriculum?(
+        <SectionCTA>
+          <LinkButton secondary to="/curriculum">
+            Full curriculum>>
+          </LinkButton>
+        </SectionCTA>
+      ):null}
     </React.Fragment>
   )
 

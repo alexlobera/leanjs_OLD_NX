@@ -37,7 +37,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         title="Session 2 - Thinking in React"
         toggleNavigateTo={[Function]}
       >
-        <IntroReactSession />
+        <ThinkingInReactSession />
       </CurriculumSection>
       <CurriculumSection
         name="session3"
@@ -95,7 +95,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="session10"
-        title="Session 10 - React & Redux mini hackathon"
+        title="Session 10 - React & Redux final project"
         toggleNavigateTo={[Function]}
       >
         <PartTimeFinalProject />
