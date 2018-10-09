@@ -21,7 +21,7 @@ class PaymentConfirmation extends React.Component {
     function gtag() {
       dataLayer.push(arguments)
     }
-
+    console.log('this.props.location.state', this.props.location.state)
     //conversion
     gtag('event', 'conversion', {
       send_to: 'AW-877316317/KPHjCIHC7ocBEN2Rq6ID',

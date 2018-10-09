@@ -136,6 +136,7 @@ export class CheckoutContainer extends React.Component {
           },
         })
           .then(({ data }) => {
+            console.log('data', data)
             if (!data.errors) {
               this.props.history.push('/payment-confirmation', {
                 email,
