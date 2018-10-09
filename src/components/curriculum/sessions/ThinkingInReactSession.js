@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const IntroReactSession = ({ title }) => (
+const ThinkingInReactSession = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>The Imperative to Declarative Shift</Li>
@@ -11,10 +11,11 @@ const IntroReactSession = ({ title }) => (
         What is React made up of
         <Ul>
           <Li>Props & State</Li>
+          <Li>Classes Vs. Functions</Li>
           <Li>One way data binding</Li>
-          <Li>Components with and without state. Classes Vs. Functions</Li>
         </Ul>
       </Li>
+      <Li>Composition</Li>
       <Li>
         Virtual DOM and JSX
         <Ul>
@@ -27,4 +28,4 @@ const IntroReactSession = ({ title }) => (
   </Session>
 )
 
-export default IntroReactSession
+export default ThinkingInReactSession

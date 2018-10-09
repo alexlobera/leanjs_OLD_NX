@@ -11,7 +11,7 @@ const ES6Session = ({ title }) => (
       <Li>Default parameters, Rest operator, Spread operator</Li>
       <Li>Let and Const vs Var</Li>
       <Li>Rest + Spread properties</Li>
-      <Li>ES6 iterators and functional programming in JS</Li>
+      <Li>Iterators and functional programming in JS</Li>
       <Li>Modules</Li>
       <Li>Promises</Li>
       <Li>ES6 exercise using TDD</Li>

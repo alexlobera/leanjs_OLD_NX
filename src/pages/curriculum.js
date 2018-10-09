@@ -263,35 +263,40 @@ class Curriculum extends React.Component {
                           <Ul unstyled>
                             <Li>
                               <LinkScroll to="day1">
-                                Day 1: ES6 & ESNEXT, Thinking in React, Routing
-                                & Data Fetching
+                                Day 1 (half day): React 101 and JS fundamentals
                               </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day2">
-                                Day 2: Forms, Authentication, Styling in React
+                                Day 2: ES6 & ESNEXT, Thinking in React, Routing
+                                & Data Fetching
                               </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day3">
-                                Day 3: Redux, and Testing Principles
+                                Day 3: Forms, Authentication, Styling in React
                               </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day4">
-                                Day 4: FP & advanced React patterns I, GraphQL,
-                                Server-side rendering
+                                Day 4: Redux, and Testing Principles
                               </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day5">
-                                Day 5: Testing in React, Advanced React patterns
-                                II, FP & advanced Redux
+                                Day 5: FP & advanced React patterns I, GraphQL,
+                                Server-side rendering
                               </LinkScroll>
                             </Li>
                             <Li>
                               <LinkScroll to="day6">
-                                Day 6: Hackathon
+                                Day 6: Testing in React, Advanced React patterns
+                                II, FP & advanced Redux
+                              </LinkScroll>
+                            </Li>
+                            <Li>
+                              <LinkScroll to="day7">
+                                Day 7: Hackathon
                               </LinkScroll>
                             </Li>
                           </Ul>
@@ -304,6 +309,7 @@ class Curriculum extends React.Component {
                           <CurriculumBootcamp
                             showToggle={false}
                             showTitle={false}
+                            showLinkToCurriculum={false}
                             list={true}
                             marketingCard={
                               <MarketingCard
@@ -311,7 +317,7 @@ class Curriculum extends React.Component {
                                   trainingBootcamp.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingBootcamp.city
-                                }`}
+                                  }`}
                                 to={trainingBootcamp.pathUrl}
                                 buttonText="Next React bootcamp >>"
                               />
@@ -361,7 +367,7 @@ class Curriculum extends React.Component {
                                   trainingAdvanced.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingAdvanced.city
-                                }`}
+                                  }`}
                                 to={trainingAdvanced.pathUrl}
                                 buttonText="Next advanced React bootcamp >>"
                               />
@@ -504,7 +510,7 @@ class Curriculum extends React.Component {
                                   trainingPartTime.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingPartTime.city
-                                }`}
+                                  }`}
                                 to={trainingPartTime.pathUrl}
                                 buttonText="Next React part-time >>"
                               />
