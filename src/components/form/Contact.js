@@ -82,6 +82,11 @@ class ContactForm extends Component {
           'string--From--Path': window.location.pathname,
         },
       })
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('event', 'conversion', { 'send_to': 'AW-877316317/d5TtCOmF_IoBEN2Rq6ID' });
   }
 
   handleEmailChange = e => {
