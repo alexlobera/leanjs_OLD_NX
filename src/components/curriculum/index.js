@@ -4,6 +4,7 @@ import FullCurriculum from './FullCurriculum'
 import CurriculumReactNative from './CurriculumReactNative'
 import MarketingCard from './MarketingCard'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
+import Curriculum1DayAdvancedReactRedux from './Curriculum1DayAdvancedReactRedux'
 
 export {
   CurriculumBootcamp,
@@ -12,4 +13,5 @@ export {
   FullCurriculum,
   MarketingCard,
   CurriculumAdvancedReact,
+  Curriculum1DayAdvancedReactRedux,
 }

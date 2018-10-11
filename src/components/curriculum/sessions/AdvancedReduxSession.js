@@ -28,7 +28,7 @@ const AdvancedReduxSession = ({ title }) => (
           </Li>
           <Li>
             Sagas Vs thunks. Exercise, reimplement the previous thunk loading
-            indicator with <code>redux-saga</code>.
+            indicator with <code>redux-saga</code>
           </Li>
         </Ul>
       </Li>
