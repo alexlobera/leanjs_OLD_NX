@@ -68,6 +68,7 @@ export const trainings = [
     discountPrice: 1450,
     nextDiscountPrice: 1579.17,
     priceGoesUpOn: 'Nov 2nd, 2018.',
+    countdownDate: new Date('november 3, 2018'),
     ticketName: 'Early bird ticket',
     currency: 'gbp',
   },
