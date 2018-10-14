@@ -6,6 +6,7 @@ import { ANCHOR_STYLE } from '../components/navigation/'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
+import { FONT_FAMILY } from '../config/styles'
 
 const Content = styled.div`
   p {
@@ -25,6 +26,11 @@ const Content = styled.div`
   }
   a {
     ${ANCHOR_STYLE}
+  }
+  ul {
+    li {
+      ${FONT_FAMILY};
+    }
   }
 `
 
