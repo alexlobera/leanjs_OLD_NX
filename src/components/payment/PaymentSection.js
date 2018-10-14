@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
+import moment from 'moment'
 
 import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
@@ -108,7 +109,6 @@ class PaymentSection extends React.Component {
       nextDiscountPrice,
       currency = 'gbp',
       priceGoesUpOn,
-      countdownDate = '',
       ticketName,
     } = data
     const {
@@ -126,8 +126,6 @@ class PaymentSection extends React.Component {
         : discountPrice
           ? discountPrice * quantity
           : priceXQuantity
-
-    const showCountDownTimer = countdownDate > Date.now()
 
     return price ? (
       <React.Fragment>
@@ -157,18 +155,16 @@ class PaymentSection extends React.Component {
           ) : (
             ''
           )}
-          {priceGoesUpOn && nextDiscountPrice ? (
+          {priceGoesUpOn > Date.now() && nextDiscountPrice ? (
             <React.Fragment>
               <P>
                 Ticket price goes up to{' '}
                 {formatPrice(currency, nextDiscountPrice, DEFAULT_VAT_RATE)} on{' '}
-                {priceGoesUpOn}
+                {moment(priceGoesUpOn).format('MMM Do Y')}
               </P>
-              {showCountDownTimer && (
-                <P>
-                  <Countdown date={countdownDate} />
-                </P>
-              )}
+              <P>
+                <Countdown date={priceGoesUpOn} />
+              </P>
             </React.Fragment>
           ) : (
             ''
@@ -208,8 +204,7 @@ PaymentSection.propTypes = {
     price: PropTypes.number.isRequired,
     discountPrice: PropTypes.number,
     nextDiscountPrice: PropTypes.number,
-    priceGoesUpOn: PropTypes.string,
-    countdownDate: PropTypes.object,
+    priceGoesUpOn: PropTypes.object,
     ticketName: PropTypes.string,
     currency: PropTypes.string,
     paymentApi: PropTypes.object,
