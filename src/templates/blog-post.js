@@ -46,6 +46,8 @@ const SyledAuthor = styled.div`
   color: ${WHITE};
   img {
     margin-right: 18px;
+    width: 90px;
+    height: 90px;
   }
   a {
     margin-top: 20px;
@@ -55,7 +57,7 @@ const SyledAuthor = styled.div`
 
 const Author = ({ name = 'Richard Moss', path = RICHARD_MOSS_PATH, imgSrc = RICHARD }) => (
   <SyledAuthor>
-    <Image src={imgSrc} circle width={100} />
+    <Image src={imgSrc} circle />
     <P>
       <Link to={`/about-us#${path}`}>By {name}</Link>
       <Span>
