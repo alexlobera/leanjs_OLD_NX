@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H3, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, P_STYLE } from '../components/text'
+import { H2, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, P_STYLE } from '../components/text'
 import { ANCHOR_STYLE } from '../components/navigation/'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
@@ -58,7 +58,7 @@ const BlogPost = ({ data }) => {
       <Grid>
         <Row>
           <Col md={6} mdOffset={1}>
-            {subtitle ? <H3>{subtitle}</H3> : null}
+            {subtitle ? <H2>{subtitle}</H2> : null}
             <Content dangerouslySetInnerHTML={{ __html: html }} />
           </Col>
           <Col md={3} mdOffset={1}>
