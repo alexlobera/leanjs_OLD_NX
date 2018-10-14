@@ -1,11 +1,7 @@
 import React from 'react'
-import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P } from '../components/text'
-import { CurriculumBootcamp } from '../components/curriculum'
-import { Card, Video } from '../components/elements'
+import { H3 } from '../components/text'
 import Header from '../components/layout/Header'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 
@@ -22,23 +18,29 @@ const BlogPost = ({ data }) => {
           { to: `/${slug}`, label: `${title}` },
         ]}
       />
-      <Header titleLines={[`${title}`]} subtitle={subtitle} bgImg="about-us" />
+      <Header
+        titleLines={[`${title}`]}
+        fullHeight={false}
+        paddingBottom={80}
+      >
+        BlogPostedBy
+      </Header>
 
-      <TopSection>
-        <Grid>
-          <Card border="shadow">
-            <Row>
-              <Col md={10} mdOffset={1}>
-                <H2>{title}</H2>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
-              </Col>
-            </Row>
-          </Card>
-        </Grid>
-      </TopSection>
+      <Grid>
+        <Row>
+          <Col md={6} mdOffset={1}>
+            {subtitle ? <H3>{subtitle}</H3> : null}
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          </Col>
+          <Col md={3} mdOffset={1}>
+            right column
+            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+          </Col>
+        </Row>
+      </Grid>
 
       <UpcomingTrainingSection />
-    </React.Fragment>
+    </React.Fragment >
   )
 }
 
