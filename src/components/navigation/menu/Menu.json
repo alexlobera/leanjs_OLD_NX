@@ -6,23 +6,30 @@
   },
   {
     "to": "/react-redux-graphql-bootcamp",
-    "text": "React bootcamp",
-    "onlyOn": null
-  },
-  {
-    "to": "/advanced-react-redux-graphql-bootcamp",
-    "text": "Advanced React",
-    "onlyOn": null
-  },
-  {
-    "to": "/react-native-bootcamp",
-    "text": "React Native",
-    "onlyOn": null
-  },
-  {
-    "to": "/react-redux-graphql-part-time-course",
-    "text": "Part-time",
-    "onlyOn": null
+    "text": "Training",
+    "onlyOn": null,
+    "children": [
+      {
+        "to": "/react-redux-graphql-bootcamp",
+        "text": "Bootcamp"
+      },
+      {
+        "to": "/about-us#corporate-team-training",
+        "text": "Corporate training"
+      },
+      {
+        "to": "/advanced-react-redux-graphql-bootcamp",
+        "text": "Advanced React"
+      },
+      {
+        "to": "/react-native-bootcamp",
+        "text": "React Native"
+      },
+      {
+        "to": "/react-redux-graphql-part-time-course",
+        "text": "Part-time"
+      }
+    ]
   },
   {
     "to": "/about-us",
