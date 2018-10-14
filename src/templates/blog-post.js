@@ -57,7 +57,7 @@ const Author = ({ name = 'Richard Moss', path = RICHARD_MOSS_PATH, imgSrc = RICH
   <SyledAuthor>
     <Image src={imgSrc} circle width={100} />
     <P>
-      <Link to={`/about-us#${path}`}>{name}</Link>
+      <Link to={`/about-us#${path}`}>By {name}</Link>
       <Span>
         Oct 4
     </Span>
