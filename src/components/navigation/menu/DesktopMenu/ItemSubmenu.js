@@ -12,7 +12,7 @@ export const Ul = styled(DefaultUl)`
   margin: 39px 0 0 -18px;
   padding: 18px 18px 36px 18px;
   li {
-    padding - left: 0;
+    padding-left: 0;
   }
 `
 export const SubmenuButton = styled.i`
