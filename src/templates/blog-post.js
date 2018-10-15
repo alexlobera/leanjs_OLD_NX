@@ -1,6 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  EmailShareButton,
+  EmailIcon,
+} from 'react-share';
 import Grid, { Col, Row } from '../components/layout/Grid'
+import Ul, { Li } from '../components/layout/Ul'
 import { P, Span, H2, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, P_STYLE } from '../components/text'
 import { ANCHOR_STYLE } from '../components/navigation/'
 import Header from '../components/layout/Header'
@@ -10,6 +21,7 @@ import { FONT_FAMILY, WHITE } from '../config/styles'
 import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
+import { SCREEN_MD_MAX } from '../components/utils'
 import {
   RICHARD,
   HORACIO,
@@ -69,6 +81,68 @@ const Author = ({ name = 'Richard Moss', path = RICHARD_MOSS_PATH, imgSrc = RICH
   </SyledAuthor>
 )
 
+const SocialUl = styled.ul`
+  margin: 15px 0 0 18px;
+  > li {
+      list-style-type: none;
+  }
+
+  @media (max-width: ${SCREEN_MD_MAX}) {
+    margin-left: 0;
+    > li {
+      display:inline-block;
+      padding-right: 9px;
+    }
+  }
+
+`
+
+const ShareButtons = () => (
+  <SocialUl unstyled>
+    <Li>
+      <TwitterShareButton
+        url={document.location.href}
+        quote={'title'}
+        via="reactjsacademy"
+      >
+        <TwitterIcon
+          size={36}
+          round />
+      </TwitterShareButton>
+    </Li>
+    <Li>
+      <FacebookShareButton
+        url={document.location.href}
+        quote={'title'}
+      >
+        <FacebookIcon
+          size={36}
+          round />
+      </FacebookShareButton>
+    </Li>
+    <Li>
+      <LinkedinShareButton
+        url={document.location.href}
+        quote={'title'}
+      >
+        <LinkedinIcon
+          size={36}
+          round />
+      </LinkedinShareButton>
+    </Li>
+    <Li>
+      <EmailShareButton
+        url={document.location.href}
+        quote={'title'}
+      >
+        <EmailIcon
+          size={36}
+          round />
+      </EmailShareButton>
+    </Li>
+  </SocialUl>
+)
+
 const BlogPost = ({ data }) => {
   const { title, subtitle } = data.markdownRemark.frontmatter
   const { html } = data.markdownRemark
@@ -91,7 +165,10 @@ const BlogPost = ({ data }) => {
       </Header>
       <Grid>
         <Row>
-          <Col md={6} mdOffset={1}>
+          <Col md={1}>
+            <ShareButtons />
+          </Col>
+          <Col md={6} >
             {subtitle ? <H2>{subtitle}</H2> : null}
             <Content dangerouslySetInnerHTML={{ __html: html }} />
           </Col>
