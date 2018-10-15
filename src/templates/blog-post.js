@@ -8,6 +8,8 @@ import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb, Link } from '../components/navigation'
 import { FONT_FAMILY, WHITE } from '../config/styles'
 import { Image } from '../components/elements'
+import ContactForm from '../components/form/Contact'
+import { Card } from '../components/elements'
 import {
   RICHARD,
   HORACIO,
@@ -93,9 +95,10 @@ const BlogPost = ({ data }) => {
             {subtitle ? <H2>{subtitle}</H2> : null}
             <Content dangerouslySetInnerHTML={{ __html: html }} />
           </Col>
-          <Col md={3} mdOffset={1}>
-            right column
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+          <Col md={4} mdOffset={1}>
+            <Card small bg="dark" top={20}>
+              <ContactForm />
+            </Card>
           </Col>
         </Row>
       </Grid>
