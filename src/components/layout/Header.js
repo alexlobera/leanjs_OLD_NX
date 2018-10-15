@@ -89,7 +89,7 @@ const HeaderSection = styled(Section)`
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
-    height: ${({ fullHeight }) => fullHeight ? '100vh' : ''};
+    height: ${({ fullHeight }) => fullHeight !== false ? '100vh' : ''};
     min-height: ${({ fullHeight }) => fullHeight === false ? 'auto' : '800px'};
     padding-bottom: ${({ paddingBottom = '200' }) => paddingBottom}px !important;
     padding-top: 200px !important;

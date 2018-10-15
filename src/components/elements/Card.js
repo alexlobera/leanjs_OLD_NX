@@ -24,13 +24,19 @@ const fontColor = color => `
 `
 
 const Card = styled.div` 
+  position: relative;
   ${props =>
     props.top
       ? `
       margin-top: ${props.top}px;
     `
       : null}
-  position: relative;
+  ${props =>
+    props.bottom
+      ? `
+      margin-bottom: ${props.bottom}px;
+    `
+      : null}
   ${props =>
     props.small
       ? `
@@ -38,7 +44,7 @@ const Card = styled.div`
     `
       : `
     padding-top: 60px;
-    padding-bottom:40px;
+    padding-bottom:60px;
   `}
   ${props => {
     switch (props.bg) {
