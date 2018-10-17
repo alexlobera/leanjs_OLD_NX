@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '../navigation/Link'
+import { LinkButton } from '../buttons'
 import { H2Ref } from '../text'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -10,6 +11,7 @@ import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
+import SectionCTA from './SectionCTA'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
@@ -17,6 +19,7 @@ const CurriculumAdvancedReact = ({
   showToggle,
   toggleNavigateTo = '/curriculum?tab=advanced-react',
   marketingCard = null,
+  showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
@@ -49,17 +52,26 @@ const CurriculumAdvancedReact = ({
     </React.Fragment>
   )
   const secondHalf = (
-    <Section
-      {...commonProps}
-      title="Advanced React Day 3"
-      name="day3"
-      subTitle="Final Project"
-    >
-      <Hackathon
-        title="Last day real-world React challenge. We'll implement an app
-          in teams from scratch"
-      />
-    </Section>
+    <React.Fragment>
+      <Section
+        {...commonProps}
+        title="Advanced React Day 3"
+        name="day3"
+        subTitle="Final Project"
+      >
+        <Hackathon
+          title="Last day real-world React challenge. We'll implement an app
+            in teams from scratch"
+        />
+      </Section>
+      {showLinkToCurriculum?(
+        <SectionCTA>
+          <LinkButton secondary to="/curriculum?tab=advanced-react">
+            Full curriculum>>
+          </LinkButton>
+        </SectionCTA>
+      ):null}
+    </React.Fragment>
   )
 
   return (

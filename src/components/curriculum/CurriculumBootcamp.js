@@ -21,11 +21,7 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
-
-const SectionCTA = styled.div`
-  padding-top: 50px;
-  padding-bottom: 25px;
-`
+import SectionCTA from './SectionCTA'
 
 const CurriculumBootcamp = ({
   showTitle = true,
