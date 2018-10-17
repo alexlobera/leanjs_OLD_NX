@@ -54,8 +54,8 @@ export const trainings = [
     currency: 'gbp',
   },
   {
-    dates: '3-8 Dec, 2018',
-    dateStartsOn: new Date('3 December, 2018'),
+    dates: '2-8 Dec, 2018',
+    dateStartsOn: new Date('2 December, 2018'),
     city: LONDON,
     country: 'UK',
     type: REACT_BOOTCAMP,
