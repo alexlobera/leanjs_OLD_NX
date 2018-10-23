@@ -14,7 +14,7 @@ import {
   TEXT_SIZE,
 } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
-import { LinkScroll, styleChildLinkColor } from '../navigation/Link'
+import Link, { styleChildLinkColor } from '../navigation/Link'
 import {
   HOME_IMG,
   PART_TIME_IMG,
@@ -120,6 +120,7 @@ const TitleBackground = styled.span`
   }
   ${TITLE_BACKGROUND};
 `
+TitleBackground.displayName = 'TitleBackground'
 
 const SubTitleBackground = styled.div`
   ${TITLE_BACKGROUND} padding: 16px;
@@ -183,11 +184,9 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
                 <Li>
                   <Span>On this page:</Span>
                 </Li>
-                {links.map((link, i) => (
+                {links.map(({ to, text }, i) => (
                   <Li key={i}>
-                    <LinkScroll smooth={true} duration={500} to={link.to}>
-                      {link.text}
-                    </LinkScroll>
+                    <Link to={to[0] !== "#" ? `#${to}` : to}>{text}</Link>
                   </Li>
                 ))}
               </Ul>

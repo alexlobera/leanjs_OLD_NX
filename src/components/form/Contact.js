@@ -86,7 +86,9 @@ class ContactForm extends Component {
     function gtag() {
       dataLayer.push(arguments)
     }
-    gtag('event', 'conversion', { 'send_to': 'AW-877316317/d5TtCOmF_IoBEN2Rq6ID' });
+    gtag('event', 'conversion', {
+      send_to: 'AW-877316317/d5TtCOmF_IoBEN2Rq6ID',
+    })
   }
 
   handleEmailChange = e => {
@@ -101,9 +103,14 @@ class ContactForm extends Component {
   render() {
     const { email, emailValid } = this.state
     const isValid = emailValid && email.length > 0
+    const { addContactUsLink } = this.props
+
     return (
       <React.Fragment>
-        <H3 id="ContactUs">Contact us</H3>
+        <H3>
+          {addContactUsLink ? <a name="contact-us" /> : null}
+          Contact us
+        </H3>
         <P>
           The best way to contact us is by emailing us at{' '}
           <Link to="mailto:hello@reactjsacademy.com">

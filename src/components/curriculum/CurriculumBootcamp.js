@@ -41,7 +41,7 @@ const CurriculumBootcamp = ({
         name="day1"
         subTitle="React 101 and JS fundamentals"
       >
-        <ReactJS101Session/>
+        <ReactJS101Session />
       </Section>
       <Section
         {...commonProps}
@@ -114,13 +114,13 @@ const CurriculumBootcamp = ({
           in teams from scratch"
         />
       </Section>
-      {showLinkToCurriculum?(
+      {showLinkToCurriculum ? (
         <SectionCTA>
           <LinkButton secondary to="/curriculum">
             Full curriculum>>
           </LinkButton>
         </SectionCTA>
-      ):null}
+      ) : null}
     </React.Fragment>
   )
 
