@@ -78,10 +78,12 @@ exports[`<Community /> should render component 1`] = `
                   name="meetups"
                 />
               </styled.h2>
-              <styled.h3>
-                Events
-              </styled.h3>
               <styled.ul>
+                <styled.li>
+                  <styled.h3>
+                    Events
+                  </styled.h3>
+                </styled.li>
                 <styled.li>
                   <styled.img />
                   <styled.p>
@@ -153,29 +155,61 @@ exports[`<Community /> should render component 1`] = `
                 Groups
               </styled.h3>
               <Row>
-                <Styled(Col)>
-                  JavaScript London
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-London"
+                  >
+                    JavaScript London
+                  </Styled(Link)>
                 </Styled(Col)>
-                <Styled(Col)>
-                  JavaScript Lisbon
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Lisbon"
+                  >
+                    JavaScript Lisbon
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Barcelona"
+                  >
+                    JavaScript Barcelona
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Amsterdam"
+                  >
+                    JavaScript Amsterdam
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Paris"
+                  >
+                    JavaScript Paris
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Berlin"
+                  >
+                    JavaScript Berlin
+                  </Styled(Link)>
                 </Styled(Col)>
               </Row>
-              <styled.ul
-                unstyled={true}
-              >
-                <styled.li>
-                  JavaScript London
-                </styled.li>
-                <styled.li>
-                  JavaScript Barcelona
-                </styled.li>
-                <styled.li>
-                  JavaScript Lisbon
-                </styled.li>
-                <styled.li>
-                  See more
-                </styled.li>
-              </styled.ul>
             </Styled(Col)>
           </Card>
           <Styled(Card)
@@ -217,7 +251,22 @@ exports[`<Community /> should render component 1`] = `
               name="mentor-community"
             />
           </styled.h2>
-          asdfasdaasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf
+          <styled.p>
+            ReactJS Academy is devoted to help developers grow in their professional career. Our dedication stands beyond making them awesome React developers. We want them to make an impact in the organizations and people they choose to work with.
+          </styled.p>
+          <styled.p>
+            Our experience tells us that the best way to master a skill is by teaching it. We believe sharing knowleadge also contributes to create collaborative workplaces and communities.
+          </styled.p>
+          <styled.p>
+            The ReactJS Academy mentorship program enables those experienced developers in our commuity to take a step farther and become a mentor in our community events and workshops. This way they can build the experience required to become not only a great developer but also a great coach and team player.
+          </styled.p>
+          <styled.p>
+            <Link
+              name="#contact-us"
+            >
+              Contact us
+            </Link>
+          </styled.p>
         </Styled(Col)>
       </Row>
     </Grid>

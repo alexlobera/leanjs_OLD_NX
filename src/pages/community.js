@@ -5,6 +5,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
 import { H2, H3, P } from '../components/text'
+import { Link } from '../components/navigation'
 import { Card, Image } from '../components/elements'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
@@ -32,6 +33,9 @@ const SecondaryCard = styled(Card)`
 const EventList = styled.ul`
   list-style: none;
   margin-left: 0;
+  h3 {
+    paddingTop: 0;
+  }
   li {
     margin-top: 18px;
     display:flex;
@@ -43,6 +47,10 @@ const EventList = styled.ul`
     width: 117px;
     margin-right: 9px;
   }
+`
+
+const MeetupLink = styled(Link)`
+  font-size: 16px;
 `
 
 const Community = () => (
@@ -79,10 +87,12 @@ const Community = () => (
                 <H2>Meetups? Absolutely! <a name="meetups" /></H2>
                 {events ? (
                   <React.Fragment>
-                    <H3>
-                      Events
-                    </H3>
                     <EventList>
+                      <Li>
+                        <H3>
+                          Events
+                        </H3>
+                      </Li>
                       {events.map(({ cityShortName, country, startDate }) => (
                         <Li>
                           <Image />
@@ -104,28 +114,25 @@ const Community = () => (
                   Groups
                 </H3>
                 <Row>
-                  <Col>
-                    JavaScript London
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-London">JavaScript London</MeetupLink>
                   </Col>
-                  <Col>
-                    JavaScript Lisbon
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Lisbon">JavaScript Lisbon</MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Barcelona">JavaScript Barcelona</MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">JavaScript Amsterdam</MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Paris">JavaScript Paris</MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Berlin">JavaScript Berlin</MeetupLink>
                   </Col>
                 </Row>
-                <Ul unstyled>
-                  <Li>
-                    JavaScript London
-                  </Li>
-                  <Li>
-                    JavaScript Barcelona
-                  </Li>
-                  <Li>
-                    JavaScript Lisbon
-                  </Li>
-
-                  <Li>
-                    See more
-                  </Li>
-                </Ul>
               </Col>
             </Card>
             <SecondaryCard border="shadow">
@@ -145,7 +152,10 @@ const Community = () => (
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
             <H2>Our mentor community <a name="mentor-community" /></H2>
-            asdfasdaasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf
+            <P>ReactJS Academy is devoted to help developers grow in their professional career. Our dedication stands beyond making them awesome React developers. We want them to make an impact in the organizations and people they choose to work with.</P>
+            <P>Our experience tells us that the best way to master a skill is by teaching it. We believe sharing knowleadge also contributes to create collaborative workplaces and communities.</P>
+            <P>The ReactJS Academy mentorship program enables those experienced developers in our commuity to take a step farther and become a mentor in our community events and workshops. This way they can build the experience required to become not only a great developer but also a great coach and team player.</P>
+            <P><Link name="#contact-us">Contact us</Link></P>
           </Col>
         </Row>
       </Grid>
