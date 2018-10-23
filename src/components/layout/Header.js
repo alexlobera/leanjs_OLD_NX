@@ -108,7 +108,7 @@ const H2Header = styled(BaseH2)`
 
 const TITLE_BACKGROUND = `
   background-color: ${blue1(0.75)};
-  display: inline-block;
+  display: table;
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
 const TitleBackground = styled.span`

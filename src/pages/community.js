@@ -1,76 +1,158 @@
 import React from 'react'
+import moment from 'moment'
+import styled from 'styled-components'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
+import Ul, { Li } from '../components/layout/Ul'
 import { H2, H3, P } from '../components/text'
-import { Card, Video } from '../components/elements'
+import { Card, Image } from '../components/elements'
 import Header from '../components/layout/Header'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
+
+import { LinkButton } from '../components/buttons'
+import {
+  selectFirstTraining,
+  REACT_BOOTCAMP,
+} from '../config/data'
+import { selectTrainings, LONDON } from '../config/data'
+
+const nextBootcamp = selectFirstTraining(REACT_BOOTCAMP)
+const nextBootcampStartDate = nextBootcamp && moment(nextBootcamp.dateStartsOn).format('D MMM')
+
+const events = selectTrainings()
+
+const CallToAction = styled(LinkButton)`
+  position: absolute;
+  top: -25px;
+`
+const SecondaryCard = styled(Card)`
+  margin-top: 36px;
+`
+
+const EventList = styled.ul`
+  list-style: none;
+  margin-left: 0;
+  li {
+    margin-top: 18px;
+    display:flex;
+  }
+  > li:first-child {
+    margin-top: 0;
+  }
+  img {
+    width: 117px;
+    margin-right: 9px;
+  }
+`
 
 const Community = () => (
   <React.Fragment>
     <Header
-      titleLines={['Community']}
-      subtitle="The ReactJS Academy supports the JavaScript community<br /> by providing free workshops and talks. Many of them are about<br />the React ecosystem, although we are interested in any JavaScript topic."
+      titleLines={['The ReactJS', 'Academy community']}
+      subtitle="We are not a group of people - but a movement!"
+      links={[
+        { text: 'Twitter ', to: '#twitter' },
+        { text: 'Meetups', to: '#meetups' },
+        { text: 'Instagram', to: '#instagram' },
+        { text: 'Mentor community', to: '#mentor-community' },
+      ]}
       bgImg="training-event"
     />
     <TopSection>
       <Grid>
-        <Card border="shadow">
-          <Row>
-            <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
-            </Col>
-          </Row>
-        </Card>
+        <Row>
+          <Col xs={12} md={6}>
+            <Card border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>Twitter? Sure.<a name="twitter" /></H2>
+                <CallToAction
+                  cta
+                  to={nextBootcamp && nextBootcamp.pathUrl}
+                  children={`Next Bootcamp: ${nextBootcampStartDate}, ${nextBootcamp.cityShortName} >>`}
+                />
+              </Col>
+            </Card>
+          </Col>
+          <Col xs={12} md={6}>
+            <Card border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>Meetups? Absolutely! <a name="meetups" /></H2>
+                {events ? (
+                  <React.Fragment>
+                    <H3>
+                      Events
+                    </H3>
+                    <EventList>
+                      {events.map(({ cityShortName, country, startDate }) => (
+                        <Li>
+                          <Image />
+                          <P>
+                            <strong>Event name</strong>
+                            <br />
+                            Location: {cityShortName}, {country}
+                            <br />
+                            Starts: {startDate}
+                            <br />
+                            <LinkButton to={"http://google.com"} children={"RSVP"} />
+                          </P>
+                        </Li>
+                      ))}
+                    </EventList>
+                  </React.Fragment>
+                ) : null}
+                <H3>
+                  Groups
+                </H3>
+                <Row>
+                  <Col>
+                    JavaScript London
+                  </Col>
+                  <Col>
+                    JavaScript Lisbon
+                  </Col>
+                </Row>
+                <Ul unstyled>
+                  <Li>
+                    JavaScript London
+                  </Li>
+                  <Li>
+                    JavaScript Barcelona
+                  </Li>
+                  <Li>
+                    JavaScript Lisbon
+                  </Li>
+
+                  <Li>
+                    See more
+                  </Li>
+                </Ul>
+              </Col>
+            </Card>
+            <SecondaryCard border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>Instagram - boom! <a name="instagram" /></H2>
+              </Col>
+            </SecondaryCard>
+          </Col>
+        </Row>
       </Grid>
     </TopSection>
-    <Section xsBgDark>
+    <Section>
       <Grid>
-        <Card bg="dark">
-          <Row>
-            <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
-            </Col>
-            <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2>The value of giving to our community</H2>
-              <H3>Feedback</H3>
-              <P>
-                The JavaScript community is very active, and the React ecosystem
-                evolves very fast. We need to keep our curriculum up to date,
-                adding new topics and exercises. We test our curriculum in our
-                community. They tell us what works and what doesn't work, it
-                helps us to continuously improve it.
-              </P>
-              <H3 style={{ paddingTop: '20px' }}>Practise makes perfect</H3>
-              <P>
-                The more we explain something, the better we become at teaching
-                it. If cutting-edge JavaScript moves that fast then we can't
-                stop practising. By teaching the community, we are exposed to a
-                lot of developers, with different backgrounds, experiences and
-                challenges. We learn from teaching them.
-              </P>
-              <H3 style={{ paddingTop: '20px' }}>Word of mouth</H3>
-              <P>
-                The community is open, and it spreads the word of what they
-                think it's good. We help the community, we do a great job, and
-                they talk about us.
-              </P>
-              <H3 style={{ paddingTop: '20px' }}>Networking</H3>
-              <P>
-                Organising events for the community connects us deeply with the
-                community. It opens extraordinary opportunities for business,
-                recruitment, learning and working on cool projects.
-              </P>
-            </Col>
-          </Row>
-        </Card>
+        <Row>
+          <Col xs={12} md={6}>
+            <Image />
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <H2>Our mentor community <a name="mentor-community" /></H2>
+            asdfasdaasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf aasdf
+          </Col>
+        </Row>
       </Grid>
     </Section>
 
     <UpcomingTrainingSection />
-  </React.Fragment>
+  </React.Fragment >
 )
 
 export default Community
