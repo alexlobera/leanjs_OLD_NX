@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { H4, P } from '../text'
-import Link from '../navigation/Link'
 import { blue1 } from '../../config/styles'
 import { Element } from 'react-scroll'
-import { LinkScroll } from '../navigation'
+import { Link } from '../navigation'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
@@ -68,26 +67,26 @@ class CurriculumSection extends React.Component {
     const { toggleSubSection } = this
     const toogleLinkProps = toggleNavigateTo
       ? {
-          to:
-            typeof toggleNavigateTo === 'function'
-              ? toggleNavigateTo(name)
-              : toggleNavigateTo,
-        }
+        to:
+          typeof toggleNavigateTo === 'function'
+            ? toggleNavigateTo(name)
+            : toggleNavigateTo,
+      }
       : { onClick: toggleSubSection }
     const childrenWithToggle = isOpen ? (
       <CurriculumSubSection>
         {children}
-        <LinkScroll
+        <Link
           duration={500}
           to={name || title}
           onClick={toggleSubSection}
         >
           Hide detail
-        </LinkScroll>
+        </Link>
       </CurriculumSubSection>
     ) : (
-      <Link {...toogleLinkProps}>Click here for more detail</Link>
-    )
+        <Link {...toogleLinkProps}>Click here for more detail</Link>
+      )
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
     )

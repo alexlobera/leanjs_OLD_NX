@@ -19,8 +19,8 @@ const CodeOfConduct = () => (
       titleLines={['Our code of conduct']}
       subtitle="All students, coaches, sponsors and volunteers at our trainings are<br /> required to agree with the following code of conduct.            "
       links={[
-        { text: 'Key takeaways ', to: 'key-takeaways' },
-        { text: 'More detail', to: 'more-detail' },
+        { text: 'Key takeaways ', to: '#key-takeaways' },
+        { text: 'More detail', to: '#more-detail' },
       ]}
       bgImg="about-us"
     />

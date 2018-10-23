@@ -46,7 +46,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
     </DesktopMenuItem>
     <DesktopMenuItem
       key="6"
-      to="#ContactUs"
+      to="#contact-us"
     >
       Contact
     </DesktopMenuItem>

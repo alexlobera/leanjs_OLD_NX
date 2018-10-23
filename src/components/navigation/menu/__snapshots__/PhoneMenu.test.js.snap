@@ -69,7 +69,7 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
   <PhoneMenuItem
     key="6"
     onClick={[Function]}
-    to="#ContactUs"
+    to="#contact-us"
   >
     Contact
   </PhoneMenuItem>
