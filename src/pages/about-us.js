@@ -75,13 +75,13 @@ const AboutUs = () => (
       titleLines={['About us']}
       subtitle="Our coaches are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> journey"
       links={[
-        { text: 'Coach profiles ', to: 'alex-lobera' },
+        { text: 'Coach profiles ', to: '#alex-lobera' },
         {
           text: 'Continuous coach development ',
-          to: 'continuous-coach-development',
+          to: '#continuous-coach-development',
         },
-        { text: 'Manifesto', to: 'manifesto' },
-        { text: 'Corporate team training', to: 'corporate-team-training' },
+        { text: 'Manifesto', to: '#manifesto' },
+        { text: 'Corporate team training', to: '#corporate-team-training' },
       ]}
       bgImg="about-us"
     />

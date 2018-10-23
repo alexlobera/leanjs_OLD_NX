@@ -64,13 +64,13 @@ const CurriculumAdvancedReact = ({
             in teams from scratch"
         />
       </Section>
-      {showLinkToCurriculum?(
+      {showLinkToCurriculum ? (
         <SectionCTA>
           <LinkButton secondary to="/curriculum?tab=advanced-react">
             Full curriculum>>
           </LinkButton>
         </SectionCTA>
-      ):null}
+      ) : null}
     </React.Fragment>
   )
 
