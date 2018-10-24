@@ -10,6 +10,7 @@ export const CURRICULUM_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/curriculum_splash.jpg?alt=media'
 export const COMMUNITY_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community_splash.jpg?alt=media'
+export const MENTORSHIP_IMG = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpeg?alt=media'
 export const LONDON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/london.png?alt=media'
 export const LISBON =
@@ -73,3 +74,6 @@ export const CODE_OF_CONDUCT_KEYPOINTS =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_keypoints.jpg?alt=media'
 export const CODE_OF_CONDUCT_MORE_DETAIL =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_moredetail.jpg?alt=media'
+
+// Meetup
+export const LONDON_MEETUP = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media'

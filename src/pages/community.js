@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
+import { TwitterTimelineEmbed, TwitterFollowButton } from 'react-twitter-embed'
+
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
@@ -14,13 +16,14 @@ import { LinkButton } from '../components/buttons'
 import {
   selectFirstTraining,
   REACT_BOOTCAMP,
+  selectMeetups,
+  instagramPictures,
 } from '../config/data'
-import { selectTrainings, LONDON } from '../config/data'
+import { MENTORSHIP_IMG } from '../config/images'
 
 const nextBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const nextBootcampStartDate = nextBootcamp && moment(nextBootcamp.dateStartsOn).format('D MMM')
-
-const events = selectTrainings()
+const meetups = selectMeetups()
 
 const CallToAction = styled(LinkButton)`
   position: absolute;
@@ -38,14 +41,14 @@ const EventList = styled.ul`
   }
   li {
     margin-top: 18px;
-    display:flex;
   }
   > li:first-child {
     margin-top: 0;
   }
   img {
-    width: 117px;
-    margin-right: 9px;
+    width: 126px;
+    float:left;
+    margin-right: 18px;
   }
 `
 
@@ -78,6 +81,14 @@ const Community = () => (
                   to={nextBootcamp && nextBootcamp.pathUrl}
                   children={`Next Bootcamp: ${nextBootcampStartDate}, ${nextBootcamp.cityShortName} >>`}
                 />
+
+                <TwitterFollowButton screenName="reactjsacademy" options={{ size: "large" }} />
+                <TwitterTimelineEmbed
+                  sourceType="profile"
+                  screenName="reactjsacademy"
+                  options={{ height: 800 }}
+                />
+                <TwitterFollowButton screenName="reactjsacademy" options={{ size: "large" }} />
               </Col>
             </Card>
           </Col>
@@ -85,7 +96,7 @@ const Community = () => (
             <Card border="shadow">
               <Col md={8} mdOffset={2}>
                 <H2>Meetups? Absolutely! <a name="meetups" /></H2>
-                {events ? (
+                {meetups.length ? (
                   <React.Fragment>
                     <EventList>
                       <Li>
@@ -93,25 +104,24 @@ const Community = () => (
                           Events
                         </H3>
                       </Li>
-                      {events.map(({ cityShortName, country, startDate }) => (
+                      {meetups.map(({ cityShortName, country, dateStartsOn, url, imgUrl }) => (
                         <Li>
-                          <Image />
-                          <P>
-                            <strong>Event name</strong>
-                            <br />
-                            Location: {cityShortName}, {country}
-                            <br />
-                            Starts: {startDate}
-                            <br />
-                            <LinkButton to={"http://google.com"} children={"RSVP"} />
-                          </P>
+                          <Image src={imgUrl} />
+                          <div>
+                            <P>
+                              <strong>Event name</strong>
+                              <br />
+                              {moment(dateStartsOn).format('D MMM')} - {cityShortName}, {country}
+                            </P>
+                            <LinkButton to={url} children={"Read more"} />
+                          </div>
                         </Li>
                       ))}
                     </EventList>
                   </React.Fragment>
                 ) : null}
                 <H3>
-                  Groups
+                  Our groups
                 </H3>
                 <Row>
                   <Col xs={6}>
@@ -138,6 +148,18 @@ const Community = () => (
             <SecondaryCard border="shadow">
               <Col md={8} mdOffset={2}>
                 <H2>Instagram - boom! <a name="instagram" /></H2>
+                <p>
+                  <Link to="https://www.instagram.com/reactjsacademy/">@reactjsacademy</Link>
+                </p>
+                <Row>
+                  {instagramPictures.map(({ imageUrl, pageUrl }) => (
+                    <Col xs={4}>
+                      <Link to={pageUrl}>
+                        <Image src={imageUrl} />
+                      </Link>
+                    </Col>
+                  ))}
+                </Row>
               </Col>
             </SecondaryCard>
           </Col>
@@ -148,14 +170,14 @@ const Community = () => (
       <Grid>
         <Row>
           <Col xs={12} md={6}>
-            <Image />
+            <Image src={MENTORSHIP_IMG} />
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
             <H2>Our mentor community <a name="mentor-community" /></H2>
-            <P>ReactJS Academy is devoted to help developers grow in their professional career. Our dedication stands beyond making them awesome React developers. We want them to make an impact in the organizations and people they choose to work with.</P>
-            <P>Our experience tells us that the best way to master a skill is by teaching it. We believe sharing knowleadge also contributes to create collaborative workplaces and communities.</P>
-            <P>The ReactJS Academy mentorship program enables those experienced developers in our commuity to take a step farther and become a mentor in our community events and workshops. This way they can build the experience required to become not only a great developer but also a great coach and team player.</P>
-            <P><Link name="#contact-us">Contact us</Link></P>
+            <P>ReactJS Academy is devoted to helping developers grow in their professional career. Our dedication stands beyond making them awesome React developers. We want them to make an impact in the organizations and people they choose to work with.</P>
+            <P>Our experience tells us that the best way to master a skill is by teaching it. We believe sharing knowledge also contributes to creating collaborative workplaces & communities.</P>
+            <P>The ReactJS Academy mentorship program enables those experienced developers in our community to take a step farther and become a mentor in our community events and workshops. This way they can build the experience required to become not only a great developer but also a great coach and team player.</P>
+            <P><Link to="#contact-us">Contact us</Link></P>
           </Col>
         </Row>
       </Grid>
