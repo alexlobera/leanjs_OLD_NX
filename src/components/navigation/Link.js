@@ -54,7 +54,7 @@ export const LinkScroll = styled(({ to, ...rest }) => (
 ))`
   ${ANCHOR_STYLE};
 `
-LinkScroll.displayName = "LinkScroll"
+LinkScroll.displayName = 'LinkScroll'
 
 const Link = ({ to = '', children = '', ...rest }) => {
   if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {

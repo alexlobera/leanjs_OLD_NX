@@ -58,31 +58,7 @@ exports[`<Community /> should render component 1`] = `
               >
                 Next Bootcamp: 11 Nov, Lisbon &gt;&gt;
               </Styled(LinkButton)>
-              <TwitterFollowButton
-                options={
-                  Object {
-                    "size": "large",
-                  }
-                }
-                screenName="reactjsacademy"
-              />
-              <TwitterTimelineEmbed
-                options={
-                  Object {
-                    "height": 800,
-                  }
-                }
-                screenName="reactjsacademy"
-                sourceType="profile"
-              />
-              <TwitterFollowButton
-                options={
-                  Object {
-                    "size": "large",
-                  }
-                }
-                screenName="reactjsacademy"
-              />
+              <TwitterWidgetsOnlyOnClientSide />
             </Styled(Col)>
           </Card>
         </Styled(Col)>
@@ -103,6 +79,38 @@ exports[`<Community /> should render component 1`] = `
                   name="meetups"
                 />
               </styled.h2>
+              <styled.ul>
+                <styled.li>
+                  <styled.h3>
+                    Events
+                  </styled.h3>
+                </styled.li>
+                <styled.li>
+                  <styled.img
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media"
+                  />
+                  <div>
+                    <styled.p>
+                      <strong>
+                        Event name
+                      </strong>
+                      <br />
+                      17 Nov
+                       -
+                       
+                      London
+                      , 
+                      UK
+                    </styled.p>
+                    <LinkButton
+                      to="https://www.meetup.com/JavaScript-london/"
+                      trackUserBehaviour={[Function]}
+                    >
+                      Read more
+                    </LinkButton>
+                  </div>
+                </styled.li>
+              </styled.ul>
               <styled.h3>
                 Our groups
               </styled.h3>

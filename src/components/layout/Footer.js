@@ -99,9 +99,7 @@ const Footer = () => (
                     <Link to="/about-us">About us</Link>
                   </Li>
                   <Li>
-                    <Link to="/community">
-                      Community
-                    </Link>
+                    <Link to="/community">Community</Link>
                   </Li>
                   <Li>
                     <Link to="/privacy-policy">Privacy Policy</Link>
