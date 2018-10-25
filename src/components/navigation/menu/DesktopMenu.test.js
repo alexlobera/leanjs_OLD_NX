@@ -8,7 +8,7 @@ describe('<DesktopMenu />', () => {
   it('should render the list of menu items', () => {
     const wrapper = shallow(<DesktopMenu />)
 
-    expect(wrapper.find(DesktopMenuItem).length).toBe(4)
+    expect(wrapper.find(DesktopMenuItem).length).toBe(5)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 

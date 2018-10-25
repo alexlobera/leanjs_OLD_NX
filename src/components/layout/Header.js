@@ -186,7 +186,7 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
                 </Li>
                 {links.map(({ to, text }, i) => (
                   <Li key={i}>
-                    <Link to={to[0] !== "#" ? `#${to}` : to}>{text}</Link>
+                    <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
                   </Li>
                 ))}
               </Ul>

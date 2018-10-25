@@ -67,26 +67,22 @@ class CurriculumSection extends React.Component {
     const { toggleSubSection } = this
     const toogleLinkProps = toggleNavigateTo
       ? {
-        to:
-          typeof toggleNavigateTo === 'function'
-            ? toggleNavigateTo(name)
-            : toggleNavigateTo,
-      }
+          to:
+            typeof toggleNavigateTo === 'function'
+              ? toggleNavigateTo(name)
+              : toggleNavigateTo,
+        }
       : { onClick: toggleSubSection }
     const childrenWithToggle = isOpen ? (
       <CurriculumSubSection>
         {children}
-        <Link
-          duration={500}
-          to={name || title}
-          onClick={toggleSubSection}
-        >
+        <Link duration={500} to={name || title} onClick={toggleSubSection}>
           Hide detail
         </Link>
       </CurriculumSubSection>
     ) : (
-        <Link {...toogleLinkProps}>Click here for more detail</Link>
-      )
+      <Link {...toogleLinkProps}>Click here for more detail</Link>
+    )
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
     )

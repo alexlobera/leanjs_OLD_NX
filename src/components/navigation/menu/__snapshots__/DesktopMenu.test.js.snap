@@ -43,6 +43,11 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/react-redux-graphql-bootcamp"
     />
     <DesktopMenuItem
+      key="/community"
+      text="Community"
+      to="/community"
+    />
+    <DesktopMenuItem
       key="/about-us"
       text="About us"
       to="/about-us"

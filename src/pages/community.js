@@ -1,71 +1,255 @@
 import React from 'react'
+import moment from 'moment'
+import styled from 'styled-components'
+
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
+import Ul, { Li } from '../components/layout/Ul'
 import { H2, H3, P } from '../components/text'
-import { Card, Video } from '../components/elements'
+import { Link } from '../components/navigation'
+import { Card, Image } from '../components/elements'
 import Header from '../components/layout/Header'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
+
+import { LinkButton } from '../components/buttons'
+import {
+  selectFirstTraining,
+  REACT_BOOTCAMP,
+  selectMeetups,
+  instagramPictures,
+} from '../config/data'
+import { MENTORSHIP_IMG } from '../config/images'
+
+const nextBootcamp = selectFirstTraining(REACT_BOOTCAMP)
+const nextBootcampStartDate =
+  nextBootcamp && moment(nextBootcamp.dateStartsOn).format('D MMM')
+const meetups = selectMeetups()
+
+const CallToAction = styled(LinkButton)`
+  position: absolute;
+  top: -25px;
+`
+const SecondaryCard = styled(Card)`
+  margin-top: 36px;
+`
+
+const EventList = styled.ul`
+  list-style: none;
+  margin-left: 0;
+  h3 {
+    paddingtop: 0;
+  }
+  li {
+    margin-top: 18px;
+  }
+  > li:first-child {
+    margin-top: 0;
+  }
+  img {
+    width: 126px;
+    float: left;
+    margin-right: 18px;
+  }
+`
+
+const MeetupLink = styled(Link)`
+  font-size: 16px;
+`
+
+const TwitterWidgetsOnlyOnClientSide = () => {
+  if (typeof window !== 'undefined') {
+    // package react-twitter-embed does not work on SSR, therefore it breaks the Gatsby build
+    const {
+      TwitterTimelineEmbed,
+      TwitterFollowButton,
+    } = require('react-twitter-embed')
+
+    return (
+      <React.Fragment>
+        <TwitterFollowButton
+          screenName="reactjsacademy"
+          options={{ size: 'large' }}
+        />
+        <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="reactjsacademy"
+          options={{ height: 800 }}
+        />
+        <TwitterFollowButton
+          screenName="reactjsacademy"
+          options={{ size: 'large' }}
+        />
+      </React.Fragment>
+    )
+  } else {
+    return null
+  }
+}
 
 const Community = () => (
   <React.Fragment>
     <Header
       titleLines={['The ReactJS', 'Academy community']}
       subtitle="We are not a group of people - but a movement!"
+      links={[
+        { text: 'Twitter ', to: '#twitter' },
+        { text: 'Meetups', to: '#meetups' },
+        { text: 'Instagram', to: '#instagram' },
+        { text: 'Mentor community', to: '#mentor-community' },
+      ]}
       bgImg="training-event"
     />
     <TopSection>
       <Grid>
-        <Card border="shadow">
-          <Row>
-            <Col xs={12} lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
-            </Col>
-          </Row>
-        </Card>
+        <Row>
+          <Col xs={12} md={6}>
+            <Card border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>
+                  Twitter? Sure.
+                  <a name="twitter" />
+                </H2>
+                <CallToAction
+                  cta
+                  to={nextBootcamp && nextBootcamp.pathUrl}
+                  children={`Next Bootcamp: ${nextBootcampStartDate}, ${
+                    nextBootcamp.cityShortName
+                    } >>`}
+                />
+                <TwitterWidgetsOnlyOnClientSide />
+              </Col>
+            </Card>
+          </Col>
+          <Col xs={12} md={6}>
+            <Card border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>
+                  Meetups? Absolutely! <a name="meetups" />
+                </H2>
+                {meetups.length ? (
+                  <React.Fragment>
+                    <EventList>
+                      <Li>
+                        <H3>Events</H3>
+                      </Li>
+                      {meetups.map(
+                        ({
+                          cityShortName,
+                          country,
+                          dateStartsOn,
+                          url,
+                          imgUrl,
+                        }) => (
+                            <Li key={url}>
+                              <Image src={imgUrl} />
+                              <div>
+                                <P>
+                                  <strong>Event name</strong>
+                                  <br />
+                                  {moment(dateStartsOn).format('D MMM')} -{' '}
+                                  {cityShortName}, {country}
+                                </P>
+                                <LinkButton to={url} children={'Read more'} />
+                              </div>
+                            </Li>
+                          )
+                      )}
+                    </EventList>
+                  </React.Fragment>
+                ) : null}
+                <H3>Our groups</H3>
+                <Row>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-London">
+                      JavaScript London
+                    </MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
+                      JavaScript Lisbon
+                    </MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
+                      JavaScript Barcelona
+                    </MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
+                      JavaScript Amsterdam
+                    </MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Paris">
+                      JavaScript Paris
+                    </MeetupLink>
+                  </Col>
+                  <Col xs={6}>
+                    <MeetupLink to="http://meetup.com/JavaScript-Berlin">
+                      JavaScript Berlin
+                    </MeetupLink>
+                  </Col>
+                </Row>
+              </Col>
+            </Card>
+            <SecondaryCard border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>
+                  Instagram - boom! <a name="instagram" />
+                </H2>
+                <p>
+                  <Link to="https://www.instagram.com/reactjsacademy/">
+                    @reactjsacademy
+                  </Link>
+                </p>
+                <Row>
+                  {instagramPictures.map(({ imageUrl, pageUrl }) => (
+                    <Col xs={4} key={pageUrl}>
+                      <Link to={pageUrl}>
+                        <Image src={imageUrl} />
+                      </Link>
+                    </Col>
+                  ))}
+                </Row>
+              </Col>
+            </SecondaryCard>
+          </Col>
+        </Row>
       </Grid>
     </TopSection>
-    <Section xsBgDark>
+    <Section>
       <Grid>
-        <Card bg="dark">
-          <Row>
-            <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
-            </Col>
-            <Col xs={12} md={6} lg={5} lgOffset={1}>
-              <H2>The value of giving to our community</H2>
-              <H3>Feedback</H3>
-              <P>
-                The JavaScript community is very active, and the React ecosystem
-                evolves very fast. We need to keep our curriculum up to date,
-                adding new topics and exercises. We test our curriculum in our
-                community. They tell us what works and what doesn't work, it
-                helps us to continuously improve it.
-              </P>
-              <H3 style={{ paddingTop: '20px' }}>Practise makes perfect</H3>
-              <P>
-                The more we explain something, the better we become at teaching
-                it. If cutting-edge JavaScript moves that fast then we can't
-                stop practising. By teaching the community, we are exposed to a
-                lot of developers, with different backgrounds, experiences and
-                challenges. We learn from teaching them.
-              </P>
-              <H3 style={{ paddingTop: '20px' }}>Word of mouth</H3>
-              <P>
-                The community is open, and it spreads the word of what they
-                think it's good. We help the community, we do a great job, and
-                they talk about us.
-              </P>
-              <H3 style={{ paddingTop: '20px' }}>Networking</H3>
-              <P>
-                Organising events for the community connects us deeply with the
-                community. It opens extraordinary opportunities for business,
-                recruitment, learning and working on cool projects.
-              </P>
-            </Col>
-          </Row>
-        </Card>
+        <Row>
+          <Col xs={12} md={6}>
+            <Image src={MENTORSHIP_IMG} />
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <H2>
+              Our mentor community <a name="mentor-community" />
+            </H2>
+            <P>
+              ReactJS Academy is devoted to helping developers grow in their
+              professional career. Our dedication stands beyond making them
+              awesome React developers. We want them to make an impact in the
+              organizations and people they choose to work with.
+            </P>
+            <P>
+              Our experience tells us that the best way to master a skill is by
+              teaching it. We believe sharing knowledge also contributes to
+              creating collaborative workplaces & communities.
+            </P>
+            <P>
+              The ReactJS Academy mentorship program enables those experienced
+              developers in our community to take a step farther and become a
+              mentor in our community events and workshops. This way they can
+              build the experience required to become not only a great developer
+              but also a great coach and team player.
+            </P>
+            <P>
+              <Link to="#contact-us">Contact us</Link>
+            </P>
+          </Col>
+        </Row>
       </Grid>
     </Section>
 
