@@ -7,7 +7,6 @@ import Ul, { Li } from '../components/layout/Ul'
 import { H2Ref, H2, P, H3 } from '../components/text'
 import {
   Link,
-  LinkScroll as DefaultLinkScroll,
   DEFAULT_SCROLL_OFFSET,
   Tabs,
   TabList,
@@ -48,10 +47,6 @@ const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const trainingPartTime = selectFirstTraining(PART_TIME)
 const trainingAdvanced = selectFirstTraining(ADVANCED_REACT)
 
-const LinkScroll = props => (
-  <DefaultLinkScroll {...props} smooth={true} duration={500} />
-)
-
 const TAB_REACT_BOOTCAMP = 'react-bootcamp'
 const TAB_REACT_NATIVE = 'react-native'
 const TAB_PART_TIME = 'part-time'
@@ -90,8 +85,8 @@ class Curriculum extends React.Component {
           titleLines={['Full ReactJS Academy curriculum']}
           subtitle="We're proud to say that our curriculum is the most<br />complete and up-to-date on the market - there really is<br />nowhere better to learn React."
           links={[
-            { text: 'Differences in our courses ', to: 'differences' },
-            { text: 'Full curriculums', to: 'curriculum' },
+            { text: 'Differences in our courses ', to: '#differences' },
+            { text: 'Full curriculums', to: '#curriculum' },
           ]}
           bgImg="full-time"
         />
@@ -124,12 +119,12 @@ class Curriculum extends React.Component {
                     <Li>GraphQL</Li>
                   </Ul>
                   <P>
-                    <LinkScroll
+                    <Link
                       onClick={() => this.setActive(TAB_REACT_BOOTCAMP)}
-                      to="curriculum"
+                      to="#curriculum"
                     >
                       See React bootcamp curriculum
-                    </LinkScroll>
+                    </Link>
                   </P>
                   <H3>React Native bootcamp</H3>
                   <P>
@@ -142,12 +137,12 @@ class Curriculum extends React.Component {
                     <Li>Gestures</Li>
                   </Ul>
                   <P>
-                    <LinkScroll
+                    <Link
                       onClick={() => this.setActive(TAB_ADVANCED_REACT)}
-                      to="curriculum"
+                      to="#curriculum"
                     >
                       See React Native curriculum
-                    </LinkScroll>
+                    </Link>
                   </P>
                   <H3>Advanced React bootcamp</H3>
                   <P>
@@ -155,12 +150,12 @@ class Curriculum extends React.Component {
                     React developer to senior React developer.
                   </P>
                   <P>
-                    <LinkScroll
+                    <Link
                       onClick={() => this.setActive(TAB_ADVANCED_REACT)}
-                      to="curriculum"
+                      to="#curriculum"
                     >
                       See Advanced React curriculum
-                    </LinkScroll>
+                    </Link>
                   </P>
                   <H3>React part-time course</H3>
                   <P>
@@ -170,12 +165,12 @@ class Curriculum extends React.Component {
                     can’t miss a day at work.
                   </P>
                   <P>
-                    <LinkScroll
+                    <Link
                       onClick={() => this.setActive(TAB_PART_TIME)}
-                      to="curriculum"
+                      to="#curriculum"
                     >
                       See React part-time course curriculum
-                    </LinkScroll>
+                    </Link>
                   </P>
                 </Col>
                 <Col md={3} mdOffset={1}>
@@ -262,42 +257,42 @@ class Curriculum extends React.Component {
                         <Col md={10}>
                           <Ul unstyled>
                             <Li>
-                              <LinkScroll to="day1">
+                              <Link to="#day1">
                                 Day 1 (half day): React 101 and JS fundamentals
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="day2">
+                              <Link to="#day2">
                                 Day 2: ES6 & ESNEXT, Thinking in React, Routing
                                 & Data Fetching
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="day3">
+                              <Link to="#day3">
                                 Day 3: Forms, Authentication, Styling in React
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="day4">
+                              <Link to="#day4">
                                 Day 4: Redux, and Testing Principles
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="day5">
+                              <Link to="#day5">
                                 Day 5: FP & advanced React patterns I, GraphQL,
                                 Server-side rendering
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="day6">
+                              <Link to="#day6">
                                 Day 6: Testing in React, Advanced React patterns
                                 II, FP & advanced Redux
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="day7">
+                              <Link to="#day7">
                                 Day 7: Hackathon
-                              </LinkScroll>
+                              </Link>
                             </Li>
                           </Ul>
                         </Col>
@@ -444,54 +439,54 @@ class Curriculum extends React.Component {
                         <Col md={10}>
                           <Ul unstyled>
                             <Li>
-                              <LinkScroll to="session1">
+                              <Link to="#session1">
                                 Session 1: ES6
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session2">
+                              <Link to="#session2">
                                 Session 2: Thinking in React
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session3">
+                              <Link to="#session3">
                                 Session 3: Routing & Data Fetching
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session4">
+                              <Link to="#session4">
                                 Session 4: Forms & Auth
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session5">
+                              <Link to="#session5">
                                 Session 5: Recap React Fundamentals
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session6">
+                              <Link to="#session6">
                                 Session 6: Styling in React
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session7">
+                              <Link to="#session7">
                                 Session 7: Introduction to Redux
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session8">
+                              <Link to="#session8">
                                 Session 8: Introduction to Testing in JS
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session9">
+                              <Link to="#session9">
                                 Session 9: Advanced React Patterns
-                              </LinkScroll>
+                              </Link>
                             </Li>
                             <Li>
-                              <LinkScroll to="session10">
+                              <Link to="#session10">
                                 Session 10: React mini hackathon
-                              </LinkScroll>
+                              </Link>
                             </Li>
                           </Ul>
                         </Col>

@@ -21,11 +21,7 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
-
-const SectionCTA = styled.div`
-  padding-top: 50px;
-  padding-bottom: 25px;
-`
+import SectionCTA from './SectionCTA'
 
 const CurriculumBootcamp = ({
   showTitle = true,
@@ -45,7 +41,7 @@ const CurriculumBootcamp = ({
         name="day1"
         subTitle="React 101 and JS fundamentals"
       >
-        <ReactJS101Session/>
+        <ReactJS101Session />
       </Section>
       <Section
         {...commonProps}
@@ -118,13 +114,13 @@ const CurriculumBootcamp = ({
           in teams from scratch"
         />
       </Section>
-      {showLinkToCurriculum?(
+      {showLinkToCurriculum ? (
         <SectionCTA>
           <LinkButton secondary to="/curriculum">
             Full curriculum>>
           </LinkButton>
         </SectionCTA>
-      ):null}
+      ) : null}
     </React.Fragment>
   )
 

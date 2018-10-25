@@ -48,7 +48,7 @@ const Footer = () => (
       <footer>
         <Row>
           <Col md={5} mdOffset={1}>
-            <ContactForm />
+            <ContactForm addContactUsLink={true} />
           </Col>
           <Col md={4} mdOffset={1}>
             <Row>

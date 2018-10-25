@@ -4,10 +4,11 @@ exports[`<Community /> should render component 1`] = `
 <Fragment>
   <Header
     bgImg="training-event"
-    subtitle="The ReactJS Academy supports the JavaScript community<br /> by providing free workshops and talks. Many of them are about<br />the React ecosystem, although we are interested in any JavaScript topic."
+    subtitle="We are not a group of people - but a movement!"
     titleLines={
       Array [
-        "Community",
+        "The ReactJS",
+        "Academy community",
       ]
     }
   />

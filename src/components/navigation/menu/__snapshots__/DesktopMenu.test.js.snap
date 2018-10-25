@@ -48,9 +48,9 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/about-us"
     />
     <DesktopMenuItem
-      key="#ContactUs"
+      key="#contact-us"
       text="Contact"
-      to="#ContactUs"
+      to="#contact-us"
     />
   </Styled(styled.ul)>
 </Styled(Components)>

@@ -74,9 +74,9 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     About us
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="#ContactUs"
+    key="#contact-us"
     onClick={[Function]}
-    to="#ContactUs"
+    to="#contact-us"
   >
     Contact
   </PhoneMenuItem>

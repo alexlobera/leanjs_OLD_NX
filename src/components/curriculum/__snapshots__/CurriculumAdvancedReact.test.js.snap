@@ -72,6 +72,15 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
           title="Last day real-world React challenge. We'll implement an app in teams from scratch"
         />
       </CurriculumSection>
+      <styled.div>
+        <LinkButton
+          secondary={true}
+          to="/curriculum?tab=advanced-react"
+          trackUserBehaviour={[Function]}
+        >
+          Full curriculum&gt;&gt;
+        </LinkButton>
+      </styled.div>
     </Styled(Col)>
   </Row>
 </Fragment>

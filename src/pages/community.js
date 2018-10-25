@@ -10,8 +10,8 @@ import { UpcomingTrainingSection } from '../components/training'
 const Community = () => (
   <React.Fragment>
     <Header
-      titleLines={['Community']}
-      subtitle="The ReactJS Academy supports the JavaScript community<br /> by providing free workshops and talks. Many of them are about<br />the React ecosystem, although we are interested in any JavaScript topic."
+      titleLines={['The ReactJS', 'Academy community']}
+      subtitle="We are not a group of people - but a movement!"
       bgImg="training-event"
     />
     <TopSection>
