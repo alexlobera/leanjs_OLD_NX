@@ -45,12 +45,12 @@ const StyledLinkButton = styled(Link)`
   text-decoration: none;
 `
 
-const LinkButton = props => (
+const LinkButton = ({ trackUserBehaviour: trackUserBehaviourProp, ...props }) => (
   <StyledLinkButton
     {...props}
     onClick={e => {
       if (props.cta) {
-        props.trackUserBehaviour({
+        trackUserBehaviourProp({
           event: CLICK_ON_CTA,
           payload: {
             to: props.to || 'Not Provided',

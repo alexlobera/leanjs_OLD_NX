@@ -44,8 +44,8 @@ export const Menu = ({ width }) => {
           {canIGuessTheScreenSizeUsingJS && width <= MEDIUM ? (
             <PhoneMenu />
           ) : (
-            <DesktopMenu />
-          )}
+              <DesktopMenu />
+            )}
         </MenuContainer>
       </Grid>
     </Navbar>
@@ -53,7 +53,7 @@ export const Menu = ({ width }) => {
 }
 
 Menu.propTypes = {
-  width: PropTypes.number.isRequired,
+  width: PropTypes.number,
 }
 
 export default withWidth()(Menu)
