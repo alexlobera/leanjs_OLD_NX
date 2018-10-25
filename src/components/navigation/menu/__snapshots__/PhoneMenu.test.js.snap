@@ -25,49 +25,56 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
 >
   <RJSALogo />
   <PhoneMenuItem
-    key="0"
+    key="/curriculum"
     onClick={[Function]}
     to="/curriculum"
   >
     Curriculum
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="1"
+    key="/react-redux-graphql-bootcamp"
     onClick={[Function]}
     to="/react-redux-graphql-bootcamp"
   >
-    React bootcamp
+    Bootcamp
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="2"
+    key="/about-us#corporate-team-training"
+    onClick={[Function]}
+    to="/about-us#corporate-team-training"
+  >
+    Corporate training
+  </PhoneMenuItem>
+  <PhoneMenuItem
+    key="/advanced-react-redux-graphql-bootcamp"
     onClick={[Function]}
     to="/advanced-react-redux-graphql-bootcamp"
   >
     Advanced React
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="3"
+    key="/react-native-bootcamp"
     onClick={[Function]}
     to="/react-native-bootcamp"
   >
     React Native
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="4"
+    key="/react-redux-graphql-part-time-course"
     onClick={[Function]}
     to="/react-redux-graphql-part-time-course"
   >
     Part-time
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="5"
+    key="/about-us"
     onClick={[Function]}
     to="/about-us"
   >
     About us
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="6"
+    key="#contact-us"
     onClick={[Function]}
     to="#contact-us"
   >

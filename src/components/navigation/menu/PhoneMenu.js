@@ -37,11 +37,19 @@ class PhoneMenu extends React.Component {
     const { isOpen } = this.state
     const { closeMenu } = this
 
+    const items = MenuData.reduce((accumulatedItems, currentItem) => {
+      if (currentItem.children) {
+        return [...accumulatedItems, ...currentItem.children]
+      } else {
+        return [...accumulatedItems, currentItem]
+      }
+    }, [])
+
     return (
       <Menu isOpen={isOpen}>
         <RJSALogo />
-        {MenuData.map((item, i) => (
-          <PhoneMenuItem onClick={closeMenu} key={i} to={item.to}>
+        {items.map(item => (
+          <PhoneMenuItem onClick={closeMenu} key={item.to} to={item.to}>
             {item.text}
           </PhoneMenuItem>
         ))}
