@@ -140,7 +140,7 @@ const Community = () => (
                           url,
                           imgUrl,
                         }) => (
-                            <Li>
+                            <Li key={url}>
                               <Image src={imgUrl} />
                               <div>
                                 <P>
@@ -204,7 +204,7 @@ const Community = () => (
                 </p>
                 <Row>
                   {instagramPictures.map(({ imageUrl, pageUrl }) => (
-                    <Col xs={4}>
+                    <Col xs={4} key={pageUrl}>
                       <Link to={pageUrl}>
                         <Image src={imageUrl} />
                       </Link>

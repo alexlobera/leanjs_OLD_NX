@@ -146,14 +146,14 @@ export const trainings = [
 ]
 
 const meetups = [
-  {
-    dateStartsOn: new Date('17 Nov, 2018'),
-    cityShortName: 'London',
-    country: 'UK',
-    url: 'https://www.meetup.com/JavaScript-london/',
-    title: 'event name',
-    imgUrl: LONDON_MEETUP,
-  },
+  // {
+  //   dateStartsOn: new Date('17 Nov, 2018'),
+  //   cityShortName: 'London',
+  //   country: 'UK',
+  //   url: 'https://www.meetup.com/JavaScript-london/',
+  //   title: 'event name',
+  //   imgUrl: LONDON_MEETUP,
+  // },
 ]
 
 export const instagramPictures = [

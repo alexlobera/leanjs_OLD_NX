@@ -79,38 +79,6 @@ exports[`<Community /> should render component 1`] = `
                   name="meetups"
                 />
               </styled.h2>
-              <styled.ul>
-                <styled.li>
-                  <styled.h3>
-                    Events
-                  </styled.h3>
-                </styled.li>
-                <styled.li>
-                  <styled.img
-                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media"
-                  />
-                  <div>
-                    <styled.p>
-                      <strong>
-                        Event name
-                      </strong>
-                      <br />
-                      17 Nov
-                       -
-                       
-                      London
-                      , 
-                      UK
-                    </styled.p>
-                    <LinkButton
-                      to="https://www.meetup.com/JavaScript-london/"
-                      trackUserBehaviour={[Function]}
-                    >
-                      Read more
-                    </LinkButton>
-                  </div>
-                </styled.li>
-              </styled.ul>
               <styled.h3>
                 Our groups
               </styled.h3>
@@ -194,6 +162,7 @@ exports[`<Community /> should render component 1`] = `
               </p>
               <Row>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BlKzTaDhgHi/"
                   xs={4}
                 >
                   <Link
@@ -205,6 +174,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bk75sNohLYj/"
                   xs={4}
                 >
                   <Link
@@ -216,6 +186,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bk5YOLChqtU/"
                   xs={4}
                 >
                   <Link
@@ -227,6 +198,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bez93FGjzF_/"
                   xs={4}
                 >
                   <Link
@@ -238,6 +210,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BegfOKJhqlI/"
                   xs={4}
                 >
                   <Link
@@ -249,6 +222,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BetL4W9jgH-/"
                   xs={4}
                 >
                   <Link
@@ -260,6 +234,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BehzsERhFD-/"
                   xs={4}
                 >
                   <Link
@@ -271,6 +246,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bm6aQgUBf5I/"
                   xs={4}
                 >
                   <Link
@@ -282,6 +258,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bn03JlsBzha/"
                   xs={4}
                 >
                   <Link
@@ -293,6 +270,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bm5oSYThgdh/"
                   xs={4}
                 >
                   <Link
@@ -304,6 +282,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bm1fSwqhbs6/"
                   xs={4}
                 >
                   <Link
@@ -315,6 +294,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BmzERnchwWI/"
                   xs={4}
                 >
                   <Link
@@ -326,6 +306,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/Bmv2RtLh-ni/"
                   xs={4}
                 >
                   <Link
@@ -337,6 +318,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BmgFNYuAId9/"
                   xs={4}
                 >
                   <Link
@@ -348,6 +330,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BmGyp4KhDPq/"
                   xs={4}
                 >
                   <Link
@@ -359,6 +342,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BejRn8khgOr/"
                   xs={4}
                 >
                   <Link
@@ -370,6 +354,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BkvoOb4B_CT/"
                   xs={4}
                 >
                   <Link
@@ -381,6 +366,7 @@ exports[`<Community /> should render component 1`] = `
                   </Link>
                 </Styled(Col)>
                 <Styled(Col)
+                  key="https://www.instagram.com/p/BRYf6cZhEci/"
                   xs={4}
                 >
                   <Link
