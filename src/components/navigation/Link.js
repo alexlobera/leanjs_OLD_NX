@@ -1,5 +1,6 @@
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
+import { Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
@@ -54,7 +55,7 @@ export const LinkScroll = styled(({ to, ...rest }) => (
 ))`
   ${ANCHOR_STYLE};
 `
-LinkScroll.displayName = "LinkScroll"
+LinkScroll.displayName = 'LinkScroll'
 
 const Link = ({ to = '', children = '', ...rest }) => {
   if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
@@ -66,9 +67,12 @@ const Link = ({ to = '', children = '', ...rest }) => {
     )
   } else if (to && to[0] === '#') {
     return (
-      <LinkScroll {...rest} to={to}>
-        {children}
-      </LinkScroll>
+      <Route render={({ history }) => (
+        <LinkScroll {...rest} onClick={() => history.push(to)} to={to}>
+          {children}
+        </LinkScroll>
+      )}>
+      </Route>
     )
   } else if (!to) {
     return <BasicLink {...rest}>{children}</BasicLink>

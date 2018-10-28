@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'

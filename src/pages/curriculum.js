@@ -290,9 +290,7 @@ class Curriculum extends React.Component {
                               </Link>
                             </Li>
                             <Li>
-                              <Link to="#day7">
-                                Day 7: Hackathon
-                              </Link>
+                              <Link to="#day7">Day 7: Hackathon</Link>
                             </Li>
                           </Ul>
                         </Col>
@@ -312,7 +310,7 @@ class Curriculum extends React.Component {
                                   trainingBootcamp.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingBootcamp.city
-                                  }`}
+                                }`}
                                 to={trainingBootcamp.pathUrl}
                                 buttonText="Next React bootcamp >>"
                               />
@@ -362,7 +360,7 @@ class Curriculum extends React.Component {
                                   trainingAdvanced.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingAdvanced.city
-                                  }`}
+                                }`}
                                 to={trainingAdvanced.pathUrl}
                                 buttonText="Next advanced React bootcamp >>"
                               />
@@ -439,9 +437,7 @@ class Curriculum extends React.Component {
                         <Col md={10}>
                           <Ul unstyled>
                             <Li>
-                              <Link to="#session1">
-                                Session 1: ES6
-                              </Link>
+                              <Link to="#session1">Session 1: ES6</Link>
                             </Li>
                             <Li>
                               <Link to="#session2">
@@ -505,7 +501,7 @@ class Curriculum extends React.Component {
                                   trainingPartTime.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingPartTime.city
-                                  }`}
+                                }`}
                                 to={trainingPartTime.pathUrl}
                                 buttonText="Next React part-time >>"
                               />

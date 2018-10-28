@@ -32,6 +32,11 @@
     ]
   },
   {
+    "to": "/community",
+    "text": "Community",
+    "onlyOn": null
+  },
+  {
     "to": "/about-us",
     "text": "About us",
     "onlyOn": null
