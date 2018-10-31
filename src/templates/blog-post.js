@@ -58,19 +58,19 @@ const SyledAuthor = styled.div`
     height: 90px;
   }
   a {
-    margin-top: 20px;
     display:block;
   } 
 `
 
-const Author = ({ author = 'unknown', path = '', imgSrc = '' }) => (
+const PostMeta = ({ author = 'unknown', path = '', imgSrc = '', timeToRead }) => (
   <SyledAuthor>
     <Image src={imgSrc} circle />
     <P>
       <Link to={`/about-us#${path}`}>By {author}</Link>
       <Span>
-        Oct 4
-    </Span>
+        Oct 4 <br />
+        Reading time: {timeToRead} mins
+      </Span>
     </P>
   </SyledAuthor>
 )
@@ -139,7 +139,7 @@ const SocialUl = styled.ul`
 
 const BlogPost = ({ data }) => {
   const { title, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
-  const { html } = data.markdownRemark
+  const { html, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   return (
     <React.Fragment>
@@ -155,7 +155,7 @@ const BlogPost = ({ data }) => {
         fullHeight={false}
         paddingBottom={80}
       >
-        <Author author={author} path={path} imgSrc={imgSrc}  />
+      <PostMeta author={author} path={path} imgSrc={imgSrc} timeToRead={timeToRead}  />
       </Header>
       <Grid>
         <Row>
@@ -193,6 +193,7 @@ export const query = graphql`
         slug
       }
       html
+      timeToRead
     }
   }
 `
