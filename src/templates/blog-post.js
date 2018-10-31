@@ -91,51 +91,51 @@ const SocialUl = styled.ul`
 
 `
 
-const ShareButtons = () => (
-  <SocialUl unstyled>
-    <Li>
-      <TwitterShareButton
-        url={document.location.href}
-        quote={'title'}
-        via="reactjsacademy"
-      >
-        <TwitterIcon
-          size={36}
-          round />
-      </TwitterShareButton>
-    </Li>
-    <Li>
-      <FacebookShareButton
-        url={document.location.href}
-        quote={'title'}
-      >
-        <FacebookIcon
-          size={36}
-          round />
-      </FacebookShareButton>
-    </Li>
-    <Li>
-      <LinkedinShareButton
-        url={document.location.href}
-        quote={'title'}
-      >
-        <LinkedinIcon
-          size={36}
-          round />
-      </LinkedinShareButton>
-    </Li>
-    <Li>
-      <EmailShareButton
-        url={document.location.href}
-        quote={'title'}
-      >
-        <EmailIcon
-          size={36}
-          round />
-      </EmailShareButton>
-    </Li>
-  </SocialUl>
-)
+// const ShareButtons = () => (
+//   <SocialUl unstyled>
+//     <Li>
+//       <TwitterShareButton
+//         url={document.location.href}
+//         quote={'title'}
+//         via="reactjsacademy"
+//       >
+//         <TwitterIcon
+//           size={36}
+//           round />
+//       </TwitterShareButton>
+//     </Li>
+//     <Li>
+//       <FacebookShareButton
+//         url={document.location.href}
+//         quote={'title'}
+//       >
+//         <FacebookIcon
+//           size={36}
+//           round />
+//       </FacebookShareButton>
+//     </Li>
+//     <Li>
+//       <LinkedinShareButton
+//         url={document.location.href}
+//         quote={'title'}
+//       >
+//         <LinkedinIcon
+//           size={36}
+//           round />
+//       </LinkedinShareButton>
+//     </Li>
+//     <Li>
+//       <EmailShareButton
+//         url={document.location.href}
+//         quote={'title'}
+//       >
+//         <EmailIcon
+//           size={36}
+//           round />
+//       </EmailShareButton>
+//     </Li>
+//   </SocialUl>
+// )
 
 const BlogPost = ({ data }) => {
   const { title, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
@@ -159,9 +159,9 @@ const BlogPost = ({ data }) => {
       </Header>
       <Grid>
         <Row>
-          <Col md={1}>
+          {/* <Col md={1}>
             <ShareButtons />
-          </Col>
+          </Col> */}
           <Col md={6} >
             {subtitle ? <H2>{subtitle}</H2> : null}
             <Content dangerouslySetInnerHTML={{ __html: html }} />
