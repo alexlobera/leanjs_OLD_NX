@@ -22,12 +22,6 @@ import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
 import { SCREEN_MD_MAX } from '../components/utils'
-import {
-  RICHARD,
-  HORACIO,
-  ALEX,
-} from '../config/images'
-import { RICHARD_MOSS as RICHARD_MOSS_PATH } from '../components/training/TrainingDetails'
 
 const Content = styled.div`
   p {
@@ -69,11 +63,11 @@ const SyledAuthor = styled.div`
   } 
 `
 
-const Author = ({ name = 'Richard Moss', path = RICHARD_MOSS_PATH, imgSrc = RICHARD }) => (
+const Author = ({ author = 'unknown', path = '', imgSrc = '' }) => (
   <SyledAuthor>
     <Image src={imgSrc} circle />
     <P>
-      <Link to={`/about-us#${path}`}>By {name}</Link>
+      <Link to={`/about-us#${path}`}>By {author}</Link>
       <Span>
         Oct 4
     </Span>
@@ -144,7 +138,7 @@ const ShareButtons = () => (
 )
 
 const BlogPost = ({ data }) => {
-  const { title, subtitle } = data.markdownRemark.frontmatter
+  const { title, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
   const { html } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   return (
@@ -161,7 +155,7 @@ const BlogPost = ({ data }) => {
         fullHeight={false}
         paddingBottom={80}
       >
-        <Author />
+        <Author author={author} path={path} imgSrc={imgSrc}  />
       </Header>
       <Grid>
         <Row>
@@ -174,7 +168,7 @@ const BlogPost = ({ data }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <Card small bg="dark" top={20}>
-              <ContactForm />
+              <ContactForm simplified/>
             </Card>
           </Col>
         </Row>
@@ -191,6 +185,9 @@ export const query = graphql`
         frontmatter {
       title
       subtitle
+      author
+      path
+      imgSrc
     }
       fields {
         slug
