@@ -14,7 +14,7 @@ import {
   TEXT_SIZE,
 } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
-import { LinkScroll, styleChildLinkColor } from '../navigation/Link'
+import Link, { styleChildLinkColor } from '../navigation/Link'
 import {
   HOME_IMG,
   PART_TIME_IMG,
@@ -110,7 +110,7 @@ const H2Header = styled(BaseH2)`
 
 const TITLE_BACKGROUND = `
   background-color: ${blue1(0.75)};
-  display: inline-block;
+  display: table;
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
 const TitleBackground = styled.span`
@@ -122,6 +122,7 @@ const TitleBackground = styled.span`
   }
   ${TITLE_BACKGROUND};
 `
+TitleBackground.displayName = 'TitleBackground'
 
 const SubTitleBackground = styled.div`
   ${TITLE_BACKGROUND} padding: 16px;
@@ -190,11 +191,9 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg, fullHeight, padd
                 <Li>
                   <Span>On this page:</Span>
                 </Li>
-                {links.map((link, i) => (
+                {links.map(({ to, text }, i) => (
                   <Li key={i}>
-                    <LinkScroll smooth={true} duration={500} to={link.to}>
-                      {link.text}
-                    </LinkScroll>
+                    <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
                   </Li>
                 ))}
               </Ul>

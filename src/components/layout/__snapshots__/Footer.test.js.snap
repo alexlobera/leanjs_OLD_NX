@@ -9,7 +9,9 @@ exports[`<Footer /> should render component 1`] = `
           md={5}
           mdOffset={1}
         >
-          <ContactForm />
+          <ContactForm
+            addContactUsLink={true}
+          />
         </Styled(Col)>
         <Styled(Col)
           md={4}
@@ -36,6 +38,13 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Link
+                    to="/about-us#corporate-team-training"
+                  >
+                    Corporate Training
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
                     to="/react-native-bootcamp"
                   >
                     React Native
@@ -50,16 +59,9 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Link
-                    to="/about-us"
+                    to="/blog"
                   >
-                    About us
-                  </Link>
-                </styled.li>
-                <styled.li>
-                  <Link
-                    to="/about-us#corporate-team-training"
-                  >
-                    Corporate Training
+                    Blog
                   </Link>
                 </styled.li>
                 <styled.li>
@@ -71,9 +73,14 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Link
-                    to="/code-of-conduct"
+                    style={
+                      Object {
+                        "fontSize": "16px",
+                      }
+                    }
+                    to="mailto:hello@reactjs.academy"
                   >
-                    Code of conduct
+                    hello@reactjs.academy
                   </Link>
                 </styled.li>
               </Styled(styled.ul)>
@@ -82,6 +89,20 @@ exports[`<Footer /> should render component 1`] = `
               md={6}
             >
               <Styled(styled.ul)>
+                <styled.li>
+                  <Link
+                    to="/about-us"
+                  >
+                    About us
+                  </Link>
+                </styled.li>
+                <styled.li>
+                  <Link
+                    to="/community"
+                  >
+                    Community
+                  </Link>
+                </styled.li>
                 <styled.li>
                   <Link
                     to="/privacy-policy"
@@ -98,21 +119,9 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Link
-                    to="/blog"
+                    to="/code-of-conduct"
                   >
-                    Blog
-                  </Link>
-                </styled.li>
-                <styled.li>
-                  <Link
-                    style={
-                      Object {
-                        "fontSize": "16px",
-                      }
-                    }
-                    to="mailto:hello@reactjs.academy"
-                  >
-                    hello@reactjs.academy
+                    Code of conduct
                   </Link>
                 </styled.li>
               </Styled(styled.ul)>

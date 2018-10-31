@@ -1,5 +1,6 @@
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
+import { Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
@@ -43,11 +44,18 @@ const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
 `
 
-export const LinkScroll = styled(props => (
-  <DefaultLinkScroll offset={DEFAULT_SCROLL_OFFSET} {...props} />
+export const LinkScroll = styled(({ to, ...rest }) => (
+  <DefaultLinkScroll
+    smooth={true}
+    duration={500}
+    offset={DEFAULT_SCROLL_OFFSET}
+    to={to && to.slice(1, to.length)}
+    {...rest}
+  />
 ))`
   ${ANCHOR_STYLE};
 `
+LinkScroll.displayName = 'LinkScroll'
 
 const Link = ({ to = '', children = '', ...rest }) => {
   if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
@@ -59,9 +67,12 @@ const Link = ({ to = '', children = '', ...rest }) => {
     )
   } else if (to && to[0] === '#') {
     return (
-      <BasicLink href={to} {...rest}>
-        {children}
-      </BasicLink>
+      <Route render={({ history }) => (
+        <LinkScroll {...rest} onClick={() => history.push(to)} to={to}>
+          {children}
+        </LinkScroll>
+      )}>
+      </Route>
     )
   } else if (!to) {
     return <BasicLink {...rest}>{children}</BasicLink>
@@ -72,7 +83,10 @@ const Link = ({ to = '', children = '', ...rest }) => {
     delete rest.secondary
 
     // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
-    const dest = to.slice(-1) === '/' || to.indexOf('?') > -1 || to.indexOf('#') > -1 ? to : to + '/'
+    const dest =
+      to.slice(-1) === '/' || to.indexOf('?') > -1 || to.indexOf('#') > -1
+        ? to
+        : to + '/'
 
     return (
       <RouterLink {...rest} to={dest}>

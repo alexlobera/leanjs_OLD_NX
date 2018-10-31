@@ -3,15 +3,15 @@
     "links": [
       {
         "text": "Pricing",
-        "to": "pricing"
+        "to": "#pricing"
       },
       {
         "text": "Curriculum",
-        "to": "curriculum"
+        "to": "#curriculum"
       },
       {
         "text": "Is it right for me?",
-        "to": "target-audience"
+        "to": "#target-audience"
       }
     ]
   }

@@ -9,47 +9,54 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
     inline={true}
   >
     <DesktopMenuItem
-      key="0"
+      key="/curriculum"
+      text="Curriculum"
       to="/curriculum"
-    >
-      Curriculum
-    </DesktopMenuItem>
+    />
     <DesktopMenuItem
-      key="1"
+      key="/react-redux-graphql-bootcamp"
+      submenuItems={
+        Array [
+          Object {
+            "text": "Bootcamp",
+            "to": "/react-redux-graphql-bootcamp",
+          },
+          Object {
+            "text": "Corporate training",
+            "to": "/about-us#corporate-team-training",
+          },
+          Object {
+            "text": "Advanced React",
+            "to": "/advanced-react-redux-graphql-bootcamp",
+          },
+          Object {
+            "text": "React Native",
+            "to": "/react-native-bootcamp",
+          },
+          Object {
+            "text": "Part-time",
+            "to": "/react-redux-graphql-part-time-course",
+          },
+        ]
+      }
+      text="Training"
       to="/react-redux-graphql-bootcamp"
-    >
-      React bootcamp
-    </DesktopMenuItem>
+    />
     <DesktopMenuItem
-      key="2"
-      to="/advanced-react-redux-graphql-bootcamp"
-    >
-      Advanced React
-    </DesktopMenuItem>
+      key="/community"
+      text="Community"
+      to="/community"
+    />
     <DesktopMenuItem
-      key="3"
-      to="/react-native-bootcamp"
-    >
-      React Native
-    </DesktopMenuItem>
-    <DesktopMenuItem
-      key="4"
-      to="/react-redux-graphql-part-time-course"
-    >
-      Part-time
-    </DesktopMenuItem>
-    <DesktopMenuItem
-      key="5"
+      key="/about-us"
+      text="About us"
       to="/about-us"
-    >
-      About us
-    </DesktopMenuItem>
+    />
     <DesktopMenuItem
-      key="6"
-      to="#ContactUs"
-    >
-      Contact
-    </DesktopMenuItem>
+      key="#contact-us"
+      text="Contact"
+      to="#contact-us"
+    />
   </Styled(styled.ul)>
 </Styled(Components)>
 `;

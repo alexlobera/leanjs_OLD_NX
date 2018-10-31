@@ -23,8 +23,6 @@ export const DEFAULT_BUTTON_STYLE = css`
     props.disabled
       ? `
     border-color: rgba(255, 255, 255, 0.2);
-    opacity: 0.3;
-
     :hover {
       cursor: not-allowed;
     }

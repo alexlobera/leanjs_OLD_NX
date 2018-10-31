@@ -82,8 +82,8 @@ class Checkout extends React.Component {
                   </Price>
                 </PriceAndDiscount>
               ) : (
-                  <Price>{formatPrice(currency, priceXQuantity, vatRate)}</Price>
-                )}
+                <Price>{formatPrice(currency, priceXQuantity, vatRate)}</Price>
+              )}
               <BuyButton
                 onClick={this.toggleIsOpen}
                 right
@@ -93,26 +93,26 @@ class Checkout extends React.Component {
             </Fragment>
           </PurchaseWrapper>
         ) : (
-            <CheckoutContainer
-              trainingInstanceId={trainingInstanceId}
-              vatRate={vatRate}
-              updateVatRate={updateVatRate}
-              currency={currency}
-              price={price}
-              discountPrice={discountPrice}
-              quantity={quantity}
-              priceXQuantity={priceXQuantity}
-              currentPriceXQuantity={currentPriceXQuantity}
-              removeCourse={removeCourse}
-              addCourse={addCourse}
-              resetVoucher={resetVoucher}
-              validateVoucher={validateVoucher}
-              voucher={voucher}
-              isVoucherValid={isVoucherValid}
-              isVoucherValidationInProgress={isVoucherValidationInProgress}
-              paymentApi={paymentApi}
-            />
-          )}
+          <CheckoutContainer
+            trainingInstanceId={trainingInstanceId}
+            vatRate={vatRate}
+            updateVatRate={updateVatRate}
+            currency={currency}
+            price={price}
+            discountPrice={discountPrice}
+            quantity={quantity}
+            priceXQuantity={priceXQuantity}
+            currentPriceXQuantity={currentPriceXQuantity}
+            removeCourse={removeCourse}
+            addCourse={addCourse}
+            resetVoucher={resetVoucher}
+            validateVoucher={validateVoucher}
+            voucher={voucher}
+            isVoucherValid={isVoucherValid}
+            isVoucherValidationInProgress={isVoucherValidationInProgress}
+            paymentApi={paymentApi}
+          />
+        )}
       </Fragment>
     )
   }

@@ -41,6 +41,7 @@
     "react-share": "^2.3.1",
     "react-storybook-decorator-background": "^1.0.5",
     "react-styled-flexboxgrid": "^2.4.0",
+    "react-twitter-embed": "^1.2.0",
     "react-width": "^0.1.8",
     "store": "^2.0.12",
     "styled-components": "^3.3.3"
