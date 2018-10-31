@@ -170,6 +170,9 @@ const BlogPost = ({ data }) => {
             <Card small bg="dark" top={20}>
               <ContactForm simplified/>
             </Card>
+            <Card border="shadow" small top={20} >
+              Other articles
+            </Card>
           </Col>
         </Row>
       </Grid>
