@@ -62,6 +62,11 @@ const SyledAuthor = styled.div`
   } 
 `
 
+const SocialShare = styled.div`
+ display: flex;
+ justify-content: space-evenly;
+`
+
 const PostMeta = ({ author = 'unknown', date = '', path = '', imgSrc = '', timeToRead }) => (
   <SyledAuthor>
     <Image src={imgSrc} circle />
@@ -75,67 +80,54 @@ const PostMeta = ({ author = 'unknown', date = '', path = '', imgSrc = '', timeT
   </SyledAuthor>
 )
 
-const SocialUl = styled.ul`
-  margin: 15px 0 0 18px;
-  > li {
-      list-style-type: none;
-  }
+const ShareButtons = ({ slug }) => 
+    (
+      <SocialShare>
+        
+          <TwitterShareButton
+            url={`https://reactjs.academy${slug}`}
+            quote={'title'}
+            via="reactjsacademy"
+          >
+            <TwitterIcon
+              size={36}
+              round />
+          </TwitterShareButton>
+        
+        
+          <FacebookShareButton
+            url={`https://reactjs.academy${slug}`}
+            quote={'title'}
+          >
+            <FacebookIcon
+              size={36}
+              round />
+          </FacebookShareButton>
+        
+        
+          <LinkedinShareButton
+            url={`https://reactjs.academy${slug}`}
+            quote={'title'}
+          >
+            <LinkedinIcon
+              size={36}
+              round />
+          </LinkedinShareButton>
+        
+        
+          <EmailShareButton
+            url={`https://reactjs.academy${slug}`}
+            quote={'title'}
+          >
+            <EmailIcon
+              size={36}
+              round />
+          </EmailShareButton>
+        
+      </SocialShare>
+    )
+  
 
-  @media (max-width: ${SCREEN_MD_MAX}) {
-    margin-left: 0;
-    > li {
-      display:inline-block;
-      padding-right: 9px;
-    }
-  }
-
-`
-
-// const ShareButtons = () => (
-//   <SocialUl unstyled>
-//     <Li>
-//       <TwitterShareButton
-//         url={document.location.href}
-//         quote={'title'}
-//         via="reactjsacademy"
-//       >
-//         <TwitterIcon
-//           size={36}
-//           round />
-//       </TwitterShareButton>
-//     </Li>
-//     <Li>
-//       <FacebookShareButton
-//         url={document.location.href}
-//         quote={'title'}
-//       >
-//         <FacebookIcon
-//           size={36}
-//           round />
-//       </FacebookShareButton>
-//     </Li>
-//     <Li>
-//       <LinkedinShareButton
-//         url={document.location.href}
-//         quote={'title'}
-//       >
-//         <LinkedinIcon
-//           size={36}
-//           round />
-//       </LinkedinShareButton>
-//     </Li>
-//     <Li>
-//       <EmailShareButton
-//         url={document.location.href}
-//         quote={'title'}
-//       >
-//         <EmailIcon
-//           size={36}
-//           round />
-//       </EmailShareButton>
-//     </Li>
-//   </SocialUl>
-// )
 
 const BlogPost = ({ data }) => {
   console.log('data', data)
@@ -163,9 +155,6 @@ const BlogPost = ({ data }) => {
       </Header>
       <Grid>
         <Row>
-          {/* <Col md={1}>
-            <ShareButtons />
-          </Col> */}
           <Col md={6} >
             {subtitle ? <H2>{subtitle}</H2> : null}
             <Content dangerouslySetInnerHTML={{ __html: html }} />
@@ -192,6 +181,11 @@ const BlogPost = ({ data }) => {
             :
             null
             }
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <ShareButtons slug={slug} />
           </Col>
         </Row>
       </Grid>
