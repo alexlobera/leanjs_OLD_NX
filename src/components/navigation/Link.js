@@ -58,10 +58,11 @@ export const LinkScroll = styled(({ to, ...rest }) => (
 LinkScroll.displayName = 'LinkScroll'
 
 const Link = ({ to = '', children = '', ...rest }) => {
-  if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
+  const toHref = to || rest.href
+  if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
     const { target = '_blank' } = rest
     return (
-      <BasicLink {...rest} target={target} href={to}>
+      <BasicLink {...rest} target={target} href={toHref}>
         {children}
       </BasicLink>
     )

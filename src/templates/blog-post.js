@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import rehypeReact from 'rehype-react'
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -21,6 +22,13 @@ import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
 import { blogAuthors } from '../config/data'
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    a: Link,
+  },
+}).Compiler
 
 const Content = styled.div`
   p {
@@ -131,7 +139,7 @@ const ShareButtons = ({ slug }) =>
 
 const BlogPost = ({ data }) => {
   const { title, date, subtitle, author } = data.markdownRemark.frontmatter
-  const { html, timeToRead } = data.markdownRemark
+  const { htmlAst, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
   const relatedPosts = allPosts.filter(post => (post.node.fields.slug != slug))
@@ -155,7 +163,8 @@ const BlogPost = ({ data }) => {
         <Row>
           <Col md={6} >
             {subtitle ? <H2>{subtitle}</H2> : null}
-            <Content dangerouslySetInnerHTML={{ __html: html }} />
+            {/* <Content dangerouslySetInnerHTML={{ __html: html }} /> */}
+            {renderAst(htmlAst)}
           </Col>
           <Col md={4} mdOffset={1}>
             <Card small bg="dark" top={20}>
@@ -205,7 +214,7 @@ export const query = graphql`
           fields {
             slug
           }
-          html
+          htmlAst
           timeToRead
         }
         allMarkdownRemark(filter: {fields: {slug: {regex: "/blog/"}}}, limit: 3) {
