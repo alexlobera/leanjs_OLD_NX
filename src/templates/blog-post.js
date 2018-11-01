@@ -65,6 +65,9 @@ const SyledAuthor = styled.div`
 const SocialShare = styled.div`
  display: flex;
  justify-content: space-evenly;
+ div {
+  cursor: pointer;
+ }
 `
 
 const PostMeta = ({ author = 'unknown', date = '', path = '', imgSrc = '', timeToRead }) => (
@@ -185,6 +188,7 @@ const BlogPost = ({ data }) => {
         </Row>
         <Row>
           <Col md={6}>
+            <P>Share this on: </P>
             <ShareButtons slug={slug} />
           </Col>
         </Row>
