@@ -11,7 +11,6 @@ import {
   EmailIcon,
 } from 'react-share';
 import Grid, { Col, Row } from '../components/layout/Grid'
-import Ul, { Li } from '../components/layout/Ul'
 import { P, Span, H2, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, P_STYLE, H4 } from '../components/text'
 import { ANCHOR_STYLE } from '../components/navigation/'
 import Header from '../components/layout/Header'
@@ -21,7 +20,6 @@ import { FONT_FAMILY, WHITE } from '../config/styles'
 import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
-import { SCREEN_MD_MAX } from '../components/utils'
 
 const Content = styled.div`
   p {
@@ -133,13 +131,11 @@ const ShareButtons = ({ slug }) =>
 
 
 const BlogPost = ({ data }) => {
-  console.log('data', data)
   const { title, date, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
   const { html, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
   const relatedPosts = allPosts.filter(post => (post.node.fields.slug != slug))
-  console.log('relatedPosts', relatedPosts)
   return (
     <React.Fragment>
       <Breadcrumb
@@ -171,7 +167,6 @@ const BlogPost = ({ data }) => {
               <H4>Related articles</H4>
               {relatedPosts.map(post => (
                 <React.Fragment>
-                  {/* <Image src={post.node.frontmatter.imgSrc} circle /> */}
                   <P>
                     <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
                     <P>
