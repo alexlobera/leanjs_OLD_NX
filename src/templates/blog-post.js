@@ -20,6 +20,7 @@ import { FONT_FAMILY, WHITE } from '../config/styles'
 import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
+import { blogAuthors } from '../config/data'
 
 const Content = styled.div`
   p {
@@ -68,11 +69,11 @@ const SocialShare = styled.div`
  }
 `
 
-const PostMeta = ({ author = 'unknown', date = '', path = '', imgSrc = '', timeToRead }) => (
+const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
   <SyledAuthor>
-    <Image src={imgSrc} circle />
+    <Image src={blogAuthors[author].imgSrc} circle />
     <P>
-      <Link to={`/about-us#${path}`}>By {author}</Link>
+      <Link to={`/about-us#${blogAuthors[author].path}`}>By {blogAuthors[author].fullname}</Link>
       <Span>
         {date} <br />
         Reading time: {timeToRead} mins
@@ -81,57 +82,55 @@ const PostMeta = ({ author = 'unknown', date = '', path = '', imgSrc = '', timeT
   </SyledAuthor>
 )
 
-const ShareButtons = ({ slug }) => 
-    (
-      <SocialShare>
-        
-          <TwitterShareButton
-            url={`https://reactjs.academy${slug}`}
-            quote={'title'}
-            via="reactjsacademy"
-          >
-            <TwitterIcon
-              size={36}
-              round />
-          </TwitterShareButton>
-        
-        
-          <FacebookShareButton
-            url={`https://reactjs.academy${slug}`}
-            quote={'title'}
-          >
-            <FacebookIcon
-              size={36}
-              round />
-          </FacebookShareButton>
-        
-        
-          <LinkedinShareButton
-            url={`https://reactjs.academy${slug}`}
-            quote={'title'}
-          >
-            <LinkedinIcon
-              size={36}
-              round />
-          </LinkedinShareButton>
-        
-        
-          <EmailShareButton
-            url={`https://reactjs.academy${slug}`}
-            quote={'title'}
-          >
-            <EmailIcon
-              size={36}
-              round />
-          </EmailShareButton>
-        
-      </SocialShare>
-    )
-  
+const ShareButtons = ({ slug }) =>
+  (
+    <SocialShare>
 
+      <TwitterShareButton
+        url={`https://reactjs.academy${slug}`}
+        quote={'title'}
+        via="reactjsacademy"
+      >
+        <TwitterIcon
+          size={36}
+          round />
+      </TwitterShareButton>
+
+
+      <FacebookShareButton
+        url={`https://reactjs.academy${slug}`}
+        quote={'title'}
+      >
+        <FacebookIcon
+          size={36}
+          round />
+      </FacebookShareButton>
+
+
+      <LinkedinShareButton
+        url={`https://reactjs.academy${slug}`}
+        quote={'title'}
+      >
+        <LinkedinIcon
+          size={36}
+          round />
+      </LinkedinShareButton>
+
+
+      <EmailShareButton
+        url={`https://reactjs.academy${slug}`}
+        quote={'title'}
+      >
+        <EmailIcon
+          size={36}
+          round />
+      </EmailShareButton>
+
+    </SocialShare>
+  )
 
 const BlogPost = ({ data }) => {
-  const { title, date, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
+  const { title, date, subtitle, author } = data.markdownRemark.frontmatter
   const { html, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
@@ -150,7 +149,7 @@ const BlogPost = ({ data }) => {
         fullHeight={false}
         paddingBottom={80}
       >
-      <PostMeta date={date} author={author} path={path} imgSrc={imgSrc} timeToRead={timeToRead}  />
+        <PostMeta date={date} author={author} timeToRead={timeToRead} />
       </Header>
       <Grid>
         <Row>
@@ -160,24 +159,24 @@ const BlogPost = ({ data }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <Card small bg="dark" top={20}>
-              <ContactForm simplified/>
+              <ContactForm simplified />
             </Card>
-            {relatedPosts.length ? 
+            {relatedPosts.length ?
               <Card border="shadow" small top={20} >
-              <H4>Related articles</H4>
-              {relatedPosts.map(post => (
-                <React.Fragment>
-                  <P>
-                    <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
+                <H4>Related articles</H4>
+                {relatedPosts.map(post => (
+                  <React.Fragment>
                     <P>
-                      {post.node.frontmatter.date}
+                      <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
+                      <P>
+                        {post.node.frontmatter.date}
+                      </P>
                     </P>
-                  </P>
-                </React.Fragment>
-              ))}
-            </Card>
-            :
-            null
+                  </React.Fragment>
+                ))}
+              </Card>
+              :
+              null
             }
           </Col>
         </Row>
@@ -202,8 +201,6 @@ export const query = graphql`
           date
           subtitle
           author
-          path
-          imgSrc
         }
           fields {
             slug
@@ -217,7 +214,6 @@ export const query = graphql`
               frontmatter {
                 title
                 date
-                imgSrc
               }
               fields {
                 slug
