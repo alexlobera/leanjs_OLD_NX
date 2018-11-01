@@ -142,7 +142,8 @@ const BlogPost = ({ data }) => {
   const { title, date, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
   const { html, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
-  const relatedPosts = data.allMarkdownRemark.edges
+  const allPosts = data.allMarkdownRemark.edges
+  const relatedPosts = allPosts.filter(post => (post.node.fields.slug != slug))
   console.log('relatedPosts', relatedPosts)
   return (
     <React.Fragment>
@@ -173,7 +174,8 @@ const BlogPost = ({ data }) => {
             <Card small bg="dark" top={20}>
               <ContactForm simplified/>
             </Card>
-            <Card border="shadow" small top={20} >
+            {relatedPosts.length ? 
+              <Card border="shadow" small top={20} >
               <H4>Related articles</H4>
               {relatedPosts.map(post => (
                 <React.Fragment>
@@ -187,6 +189,9 @@ const BlogPost = ({ data }) => {
                 </React.Fragment>
               ))}
             </Card>
+            :
+            null
+            }
           </Col>
         </Row>
       </Grid>
