@@ -62,13 +62,13 @@ const SyledAuthor = styled.div`
   } 
 `
 
-const PostMeta = ({ author = 'unknown', path = '', imgSrc = '', timeToRead }) => (
+const PostMeta = ({ author = 'unknown', date = '', path = '', imgSrc = '', timeToRead }) => (
   <SyledAuthor>
     <Image src={imgSrc} circle />
     <P>
       <Link to={`/about-us#${path}`}>By {author}</Link>
       <Span>
-        Oct 4 <br />
+        {date} <br />
         Reading time: {timeToRead} mins
       </Span>
     </P>
@@ -137,8 +137,9 @@ const SocialUl = styled.ul`
 //   </SocialUl>
 // )
 
-const BlogPost = ({ data }) => {
-  const { title, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
+const BlogPost = ({ data, pathContext }) => {
+  console.log('pathContext', pathContext)
+  const { title, date, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
   const { html, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   return (
@@ -155,7 +156,7 @@ const BlogPost = ({ data }) => {
         fullHeight={false}
         paddingBottom={80}
       >
-      <PostMeta author={author} path={path} imgSrc={imgSrc} timeToRead={timeToRead}  />
+      <PostMeta date={date} author={author} path={path} imgSrc={imgSrc} timeToRead={timeToRead}  />
       </Header>
       <Grid>
         <Row>
@@ -186,18 +187,19 @@ export const query = graphql`
   query BlogPostQuery($slug: String!) {
         markdownRemark(fields: {slug: {eq: $slug } }) {
         frontmatter {
-      title
-      subtitle
-      author
-      path
-      imgSrc
-    }
-      fields {
-        slug
-      }
-      html
-      timeToRead
-    }
+          title
+          date
+          subtitle
+          author
+          path
+          imgSrc
+        }
+          fields {
+            slug
+          }
+          html
+          timeToRead
+        }
   }
 `
 

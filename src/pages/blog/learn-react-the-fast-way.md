@@ -1,5 +1,6 @@
 ---
 title: Learn React the fast way
+date: Oct 4 
 subtitle: So you’re looking to learn React, Redux and GraphQL quickly in order to become a sought after front-end engineer?
 author: Richard Moss
 path: richard-moss
