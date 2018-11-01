@@ -12,7 +12,7 @@ import {
 } from 'react-share';
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
-import { P, Span, H2, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, P_STYLE } from '../components/text'
+import { P, Span, H2, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, P_STYLE, H4 } from '../components/text'
 import { ANCHOR_STYLE } from '../components/navigation/'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
@@ -137,11 +137,13 @@ const SocialUl = styled.ul`
 //   </SocialUl>
 // )
 
-const BlogPost = ({ data, pathContext }) => {
-  console.log('pathContext', pathContext)
+const BlogPost = ({ data }) => {
+  console.log('data', data)
   const { title, date, subtitle, author, path, imgSrc } = data.markdownRemark.frontmatter
   const { html, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
+  const relatedPosts = data.allMarkdownRemark.edges
+  console.log('relatedPosts', relatedPosts)
   return (
     <React.Fragment>
       <Breadcrumb
@@ -172,7 +174,18 @@ const BlogPost = ({ data, pathContext }) => {
               <ContactForm simplified/>
             </Card>
             <Card border="shadow" small top={20} >
-              Other articles
+              <H4>Related articles</H4>
+              {relatedPosts.map(post => (
+                <React.Fragment>
+                  {/* <Image src={post.node.frontmatter.imgSrc} circle /> */}
+                  <P>
+                    <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
+                    <P>
+                      {post.node.frontmatter.date}
+                    </P>
+                  </P>
+                </React.Fragment>
+              ))}
             </Card>
           </Col>
         </Row>
@@ -199,6 +212,20 @@ export const query = graphql`
           }
           html
           timeToRead
+        }
+        allMarkdownRemark(filter: {fields: {slug: {regex: "/blog/"}}}, limit: 3) {
+          edges {
+            node {
+              frontmatter {
+                title
+                date
+                imgSrc
+              }
+              fields {
+                slug
+              }
+            }
+          }
         }
   }
 `
