@@ -5,7 +5,7 @@ import Header from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
 import { Card } from '../../components/elements'
-import Section, { TopSection } from '../../components/layout/Section'
+import { TopSection } from '../../components/layout/Section'
 
 const Blog = ({ data }) => {
     const posts = data.allMarkdownRemark.edges
