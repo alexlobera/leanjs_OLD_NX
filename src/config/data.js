@@ -1,4 +1,4 @@
-import { LONDON_MEETUP } from './images'
+import { LONDON_MEETUP, RICHARD, ALEX } from './images'
 
 export const LONDON = 'London'
 export const LISBON = 'Lisbon dist.'
@@ -154,6 +154,19 @@ const meetups = [
   //   imgUrl: LONDON_MEETUP,
   // },
 ]
+
+export const blogAuthors = {
+  richard: {
+    imgSrc: RICHARD,
+    fullname: "Richard Moss",
+    path: "richard-moss",
+  },
+  alex: {
+    imgSrc: ALEX,
+    fullname: "Alex Lobera",
+    path: "alex-lobera",
+  }
+}
 
 export const instagramPictures = [
   {
