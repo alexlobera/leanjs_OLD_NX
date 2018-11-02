@@ -54,7 +54,7 @@ export const trainings = [
     type: REACT_BOOTCAMP,
     cityShortName: 'Lisbon',
     country: 'Portugal',
-    location: 'Torres Vedras, Portugal',
+    location: 'Torres Vedras LabCenter, Rua José Eduardo César n. 6, 2560-680, Torres Vedras, Portugal ',
     pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
     trainingInstanceId: '5b74235404ba003b823513d7',
     price: 1800,
