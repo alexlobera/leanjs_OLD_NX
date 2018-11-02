@@ -145,7 +145,6 @@ const BlogPost = ({ data }) => {
         <Row>
           <Col md={6} >
             {subtitle ? <H2>{subtitle}</H2> : null}
-            {/* <Content dangerouslySetInnerHTML={{ __html: html }} /> */}
             {renderAst(htmlAst)}
           </Col>
           <Col md={4} mdOffset={1}>
