@@ -12,12 +12,12 @@ import {
   EmailIcon,
 } from 'react-share';
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { P, Span, H2, H2_STYLE, H3_STYLE, H4_STYLE, H5_STYLE, P_STYLE, H4 } from '../components/text'
-import { ANCHOR_STYLE } from '../components/navigation/'
+import Ul, { Li } from '../components/layout/Ul'
+import { P, Span, H2, H3, H4, H5, } from '../components/text'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb, Link } from '../components/navigation'
-import { FONT_FAMILY, WHITE } from '../config/styles'
+import { WHITE } from '../config/styles'
 import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
@@ -27,34 +27,16 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     a: Link,
+    p: P,
+    h2: H2,
+    h3: H3,
+    h4: H4,
+    h5: H5,
+    ul: Ul,
+    li: Li,
+    span: Span,
   },
 }).Compiler
-
-const Content = styled.div`
-  p {
-    ${P_STYLE}
-  }
-  h2 {
-    ${H2_STYLE}
-  }
-  h3 {
-    ${H3_STYLE}
-  }
-  h4 {
-    ${H4_STYLE}
-  }
-  h5 {
-    ${H5_STYLE}
-  }
-  a {
-    ${ANCHOR_STYLE}
-  }
-  ul {
-    li {
-      ${FONT_FAMILY};
-    }
-  }
-`
 
 const SyledAuthor = styled.div`
   display: flex;
