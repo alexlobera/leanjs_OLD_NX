@@ -49,7 +49,7 @@ Next, use the [create-react-app](https://github.com/facebook/create-react-app) t
 
 ### Step 2: Lean how to think in React
 
-This is a crucial step as React is a paradigm shift from in the way you write your front-end code, you’ll need to understand the difference between the *declarative *and *imperative *style of coding and then understand the concept of state and the reasons of why a component based
+This is a crucial step as React is a paradigm shift in the way you write your front-end code, you’ll need to understand the difference between the *declarative* and *imperative* style of coding and then understand the concept of state and the reasons of why a component based
 architecture is a great solution.
 
 I would highly recommend starting with [this article](https://medium.com/leanjs/introduction-to-react-3000e9cbcd26).
@@ -58,7 +58,7 @@ With that covered, I recommend starting by refactoring some code in an already e
 
 ### Step 3: Learn how to use React Router
 
-You’ll probably want the ability for users to move between different pages in your application using browser navigation, and for this you’ll need to use [React Router](https://reacttraining.com/react-router/core/guides/philosophy). As React is not an opinionated library, this router doesn’t come installed out of the box, but it’s a crucial part of the tool-kit and is crucial to understand fully. Learning routing is a step that builds directly upon the first step and now follows the same declarative principle:
+You’ll probably want the ability for users to move between different pages in your application using browser navigation, and for this you’ll need to use [React Router](https://reacttraining.com/react-router/core/guides/philosophy). As React is not an opinionated library, this router doesn’t come installed out of the box, but it’s a crucial part of the tool-kit and is essential to understand fully. Learning routing is a step that builds directly upon the first step and follows the same declarative principle:
 
 [Learn about getting started with React Router with step by step instructions.](https://medium.com/leanjs/declarative-routing-with-react-router-v4-7419c198e93f)
 
