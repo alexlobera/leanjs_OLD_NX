@@ -238,7 +238,7 @@ export const instagramPictures = [
 
 
 export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
-  data
+  [...data]
     .filter(
       training =>
         (!type || training.type === type) &&
