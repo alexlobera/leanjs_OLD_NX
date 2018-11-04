@@ -20,31 +20,6 @@ const emptyTraining = (type, city) => ({
   currency: '',
 })
 
-export const selectTrainings = (type, city) =>
-  trainings
-    .filter(
-      training =>
-        (!type || training.type === type) &&
-        (!city || training.city === city) &&
-        training.dateStartsOn > Date.now()
-    )
-    .sort((a, b) => a.dateStartsOn > b.dateStartsOn) || []
-
-export const selectSecondTraining = (type, city) => {
-  const trainings = selectTrainings(type, city)
-  return trainings.length > 1 ? trainings[1] : emptyTraining(type, city)
-}
-
-export const selectFirstTraining = (type, city) => {
-  const trainings = selectTrainings(type, city)
-  return trainings.length ? trainings[0] : emptyTraining(type, city)
-}
-
-export const selectMeetups = () =>
-  meetups
-    .filter(meetup => meetup.dateStartsOn > Date.now())
-    .sort((a, b) => a.dateStartsOn > b.dateStartsOn)
-
 export const trainings = [
   {
     dates: '11-17 Nov, 2018',
@@ -89,9 +64,9 @@ export const trainings = [
     pathUrl: '/react-redux-graphql-bootcamp-london',
     trainingInstanceId: '5b98707c2bbd86e1b6c3c322',
     price: 1800,
-    discountPrice: 1450,
-    nextDiscountPrice: 1579.17,
-    priceGoesUpOn: 'Nov 2nd, 2018.',
+    discountPrice: 1579.17,
+    nextDiscountPrice: 1662.5,
+    priceGoesUpOn: 'Nov 12, 2018.',
     ticketName: 'Early bird ticket',
     currency: 'gbp',
   },
@@ -260,3 +235,31 @@ export const instagramPictures = [
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F17125812_1272222992812942_3290496564270727168_n.jpg?alt=media',
   },
 ]
+
+
+export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
+  data
+    .filter(
+      training =>
+        (!type || training.type === type) &&
+        (!city || training.city === city) &&
+        training.dateStartsOn > Date.now()
+    )
+    .sort((a, b) => a.dateStartsOn > b.dateStartsOn) || []
+
+export const selectTrainings = curriedSelectTrainings({ data: trainings })
+
+export const selectSecondTraining = (type, city) => {
+  const trainings = selectTrainings(type, city)
+  return trainings.length > 1 ? trainings[1] : emptyTraining(type, city)
+}
+
+export const selectFirstTraining = (type, city) => {
+  const trainings = selectTrainings(type, city)
+  return trainings.length ? trainings[0] : emptyTraining(type, city)
+}
+
+export const selectMeetups = () =>
+  meetups
+    .filter(meetup => meetup.dateStartsOn > Date.now())
+    .sort((a, b) => a.dateStartsOn > b.dateStartsOn)
