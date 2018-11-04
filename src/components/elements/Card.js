@@ -42,10 +42,11 @@ const Card = styled.div`
       ? `
       padding: 30px;
     `
-      : `
-    padding-top: 60px;
-    padding-bottom:60px;
-  `}
+      :
+      props.padding !== false ? `
+      padding-top: 60px;
+      padding-bottom:60px;
+  `: ``}
   ${props => {
     switch (props.bg) {
       case 'dark':

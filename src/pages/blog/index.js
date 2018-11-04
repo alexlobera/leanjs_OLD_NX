@@ -1,11 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, P } from '../../components/text'
 import Header from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
-import { Card } from '../../components/elements'
+import { Card, Image } from '../../components/elements'
 import { TopSection } from '../../components/layout/Section'
+
+const CardText = styled.div`
+    padding: 18px;
+`
 
 const Blog = ({ data }) => {
     const posts = data.allMarkdownRemark.edges
@@ -26,19 +31,24 @@ const Blog = ({ data }) => {
                 <Grid >
                     {posts.map(post => (
                         <React.Fragment>
-                            <Card border="shadow" bottom={36}>
-                                <Row>
-                                    <Col lg={10} lgOffset={1}>
+                            <Row>
+                                <Col lg={4}>
+                                    <Card border="shadow" padding={false} bottom={36}>
                                         <Link to={`${post.node.fields.slug}`}>
-                                            <H2>{post.node.frontmatter.title}</H2>
+                                            <Image src={post.node.frontmatter.imageUrl} />
                                         </Link>
-                                        <P>{post.node.excerpt}</P>
-                                        <P>
-                                            <Link to={`${post.node.fields.slug}`}>Read more >></Link>
-                                        </P>
-                                    </Col>
-                                </Row>
-                            </Card>
+                                        <CardText>
+                                            <Link to={`${post.node.fields.slug}`}>
+                                                <H2>{post.node.frontmatter.title}</H2>
+                                            </Link>
+                                            <P>{post.node.excerpt}</P>
+                                            <P>
+                                                <Link to={`${post.node.fields.slug}`}>Read more >></Link>
+                                            </P>
+                                        </CardText>
+                                    </Card>
+                                </Col>
+                            </Row>
                         </React.Fragment>
                     ))}
                 </Grid>
@@ -57,7 +67,7 @@ export const query = graphql`
             slug
           }
           frontmatter {
-            title
+            title, imageUrl
           }
           excerpt
         }
