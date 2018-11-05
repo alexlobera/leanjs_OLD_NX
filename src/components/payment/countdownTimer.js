@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { H4 } from '../text'
 
 class Countdown extends Component {
   constructor(props) {

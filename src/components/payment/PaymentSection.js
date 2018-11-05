@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
 import moment from 'moment'
 
-import { H2Ref, H3, P } from '../text'
+import { H2Ref, H3, H4, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
 import Checkout from './checkout/'
@@ -157,14 +157,18 @@ class PaymentSection extends React.Component {
           )}
           {priceGoesUpOn > Date.now() && nextDiscountPrice ? (
             <React.Fragment>
-              <P>
-                Ticket price goes up to{' '}
+                <P>
+                  HURRY! This price is only available for...
+                </P>
+                <P>
+                <Countdown date={priceGoesUpOn} />
+              </P>
+              {/*<P>
+                Price increases to{' '}
                 {formatPrice(currency, nextDiscountPrice, DEFAULT_VAT_RATE)} on{' '}
                 {moment(priceGoesUpOn).format('MMM Do Y')}
               </P>
-              <P>
-                <Countdown date={priceGoesUpOn} />
-              </P>
+              */}
             </React.Fragment>
           ) : (
             ''
