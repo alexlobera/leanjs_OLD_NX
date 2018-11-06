@@ -13,7 +13,7 @@ import {
 import { Card } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
-import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import {
   CollabsIcon,
   NotBegginerIcon,
@@ -45,7 +45,15 @@ const PartTime = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionNextTrainings left trainings={trainings} />
+      <CallToActionRow>
+            <Col xs={12} sm={10}>
+              <LinkButton
+                cta
+                to="#contact-us"
+                children="No courses currently planned. Signup to our newsletter to hear first about new courses"
+              />
+            </Col>
+          </CallToActionRow>
         <Card border="shadow">
           <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
