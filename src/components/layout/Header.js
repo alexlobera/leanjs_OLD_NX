@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Section from '../layout/Section'
-import Grid, { Col, Row } from '../layout/Grid'
-import Ul, { Li } from '../layout/Ul'
+import Section from './Section'
+import Grid, { Col, Row } from './Grid'
+import Ul, { Li } from './Ul'
 import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
 import {
   blue1,
@@ -89,15 +89,17 @@ const HeaderSection = styled(Section)`
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
-    height: 100vh;
-    min-height: 800px;
-    padding-bottom: 200px !important;
+    height: ${({ fullHeight }) => fullHeight !== false ? '100vh' : ''};
+    min-height: ${({ fullHeight }) => fullHeight === false ? 'auto' : '800px'};
+    padding-bottom: ${({ paddingBottom = '200' }) => paddingBottom}px !important;
     padding-top: 200px !important;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-top: 150px;
+    padding-top:150px;
   }
 `
+HeaderSection.displayName = 'HeaderSection'
+
 const H2Header = styled(BaseH2)`
   padding: 0 !important;
   margin: 0 !important;
@@ -160,8 +162,8 @@ const Nav = styled.div`
   }
 `
 
-const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
-  <HeaderSection top bgImg={bgImg}>
+const Header = ({ titleLines = [], subtitle, links = [], bgImg, fullHeight, paddingBottom, children }) => (
+  <HeaderSection top bgImg={bgImg} fullHeight={fullHeight} paddingBottom={paddingBottom}>
     <Grid>
       <Row>
         <Col>
@@ -173,6 +175,11 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg }) => (
           {subtitle ? (
             <SubTitleBackground>
               <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
+            </SubTitleBackground>
+          ) : null}
+          {children ? (
+            <SubTitleBackground>
+              {children}
             </SubTitleBackground>
           ) : null}
         </Col>
@@ -203,6 +210,7 @@ Header.propTypes = {
   titleLines: PropTypes.array.isRequired,
   subtitle: PropTypes.string,
   links: PropTypes.array,
+  height: PropTypes.number,
   bgImg: PropTypes.string,
 }
 
