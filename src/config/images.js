@@ -67,6 +67,8 @@ export const OLU =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FOluOmoniyi.png?alt=media'
 export const STEFANO =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FStefanoMezza.png?alt=media'
+export const DAVIAN =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/DavianRobinson.png?alt=media'
 
 // Code of conduct
 export const CODE_OF_CONDUCT_SPLASH =
