@@ -34,7 +34,7 @@ const Text = styled.div`
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
-  line-height: 1.5;
+  line-height: 2.3;
   letter-spacing: 0.9px;
   color: ${GREY2};
 `

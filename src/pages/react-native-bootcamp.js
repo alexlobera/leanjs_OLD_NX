@@ -12,7 +12,7 @@ import {
   UpcomingTrainingSection,
 } from '../components/training'
 import { Card } from '../components/elements'
-import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
 import { BOOTCAMP_RIGHT, OLU } from '../config/images'
 import {
@@ -43,7 +43,15 @@ const ReactNativeBoocamp = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionNextTrainings left trainings={trainings} />
+        <CallToActionRow>
+            <Col xs={12} sm={10}>
+              <LinkButton
+                cta
+                to="#contact-us"
+                children="No courses currently planned. Signup to our newsletter to hear first about new courses"
+              />
+            </Col>
+          </CallToActionRow>
         <Card border="shadow">
           <CurriculumReactNative />
         </Card>
@@ -83,11 +91,12 @@ const ReactNativeBoocamp = () => (
                 social fun!
               </Li>
             </Ul>
-            <P>
+            {/* <P>
               <LinkButton cta to="/react-native-bootcamp-london">
                 Next React Native: 17th Sept, London >>
               </LinkButton>
             </P>
+            */}
           </Col>
         </Row>
       </Grid>
@@ -97,7 +106,7 @@ const ReactNativeBoocamp = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="Small numbers of students means you’re guaranteed to get the attention you need.  We programmed in pairs, feeding off people sitting next to you who also have a lot of knowledge - something  you don’t get in a lot of training. It’s a really good environment to learn"
+              quote="mall numbers of students means you get the attention you need.  We programmed in pairs, feeding off other experienced students - something you don’t get in a lot of training. It’s a really good environment to learn"
               fullname="Olu Omoniyi"
               job="React & React Native Developer"
               company="S&P Global"

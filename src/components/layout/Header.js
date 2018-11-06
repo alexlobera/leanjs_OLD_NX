@@ -103,6 +103,7 @@ const H2Header = styled(BaseH2)`
   margin: 0 !important;
   font-size: 24px !important;
   color: ${WHITE};
+  font-weight: normal;
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
 `
 
