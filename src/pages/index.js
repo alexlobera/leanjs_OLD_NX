@@ -132,7 +132,7 @@ const IndexPage = () => (
         <Row>
           <Col mdOffset={1} md={10}>
             <AttendeeQuote
-              quote="ReactJS Academy has literally taken me from no React experience to feeling like I can go back to my company and be an experts. It’s forwarded my career significantly."
+              quote="ReactJS Academy has literally taken me from no React experience to feeling like I can go back to my company as an expert. It’s forwarded my career significantly."
               fullname="Dan Jones"
               job="React developer"
               company="AgilityWorks"
