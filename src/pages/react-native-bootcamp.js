@@ -14,7 +14,7 @@ import {
 import { Card } from '../components/elements'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
-import { BOOTCAMP_RIGHT, OLU } from '../config/images'
+import { BOOTCAMP_RIGHT, POLINA } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -106,11 +106,11 @@ const ReactNativeBoocamp = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="mall numbers of students means you get the attention you need.  We programmed in pairs, feeding off other experienced students - something you don’t get in a lot of training. It’s a really good environment to learn"
-              fullname="Olu Omoniyi"
-              job="React & React Native Developer"
-              company="S&P Global"
-              profilePicUrl={OLU}
+              quote="I like how friendly the training was. I loved spending time pair programming and then sharing what we'd learnt from each other - that was the best bit. I would definitely recommend [ReactJS Academy]."
+              fullname="Polina Stoyanova"
+              job="Front-end and UX developer"
+              company="tray.io"
+              profilePicUrl={POLINA}
             />
           </Col>
         </Row>
