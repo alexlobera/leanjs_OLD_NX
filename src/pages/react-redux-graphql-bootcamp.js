@@ -16,7 +16,7 @@ import {
 import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
-import { BOOTCAMP_RIGHT, OLU } from '../config/images'
+import { OLU } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,

@@ -19,18 +19,18 @@ export const LISBON =
 export const COURSE_COLLAB =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/courseCollab.jpg?alt=media'
 export const WHY_REACTJS_ACADEMY =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/whyReactJSAcademy.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media'
 export const COMPANY_PITCH =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/companyPitch.jpg?alt=media'
 
 export const BOOTCAMP_RIGHT =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamps.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamp_rightForMe.jpg?alt=media'
 
 export const BOOTCAMP_COLLAB =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamp-collab.jpg?alt=media'
 
 export const PART_TIME =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/part-time.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/partTime_rightForMe.jpg?alt=media'
 
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.jpg?alt=media'
@@ -47,7 +47,7 @@ export const ALEX =
 export const RICHARD =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.jpg?alt=media'
 export const HORACIO =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio-pic.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio.jpg?alt=media'
 export const WILL =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fwill.jpg?alt=media'
 export const ADAM =
@@ -58,15 +58,15 @@ export const EVA =
 // Tesimonials
 
 export const CATALIN =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FCatalinCislariu.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FCatalinCislariu.png?alt=media'
 export const DAN =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FDanJones.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FDanJones.png?alt=media'
 export const NASSAR =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FNassarKasirye.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FNassarKasirye.png?alt=media'
 export const OLU =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FOluOmoniyi.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FOluOmoniyi.png?alt=media'
 export const STEFANO =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FStefanoMezza.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FStefanoMezza.png?alt=media'
 
 // Code of conduct
 export const CODE_OF_CONDUCT_SPLASH =
