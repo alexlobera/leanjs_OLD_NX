@@ -25,7 +25,7 @@ const InstallmentsCard = ({ currency, price, vatRate = 1.2 }) =>
         <Price>{formatPrice(currency, price, vatRate)}</Price>
         <LinkButton
           secondary
-          to="mailto:hello@reactjs.academy"
+          to="#contact-us "
           style={{ float: 'right' }}
         >
           Contact us
