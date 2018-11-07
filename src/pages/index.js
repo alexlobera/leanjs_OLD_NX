@@ -68,7 +68,7 @@ const IndexPage = () => (
           </Col>
           <Col xs={12} sm={3}>
             <LinkButton
-              to="/advanced-react-redux-graphql-bootcamp "
+              to="/advanced-react-redux-graphql-bootcamp"
               children="React Advanced >>"
             />
           </Col>
@@ -184,20 +184,6 @@ const IndexPage = () => (
                 for accelerated learning.
               </Li>
             </Ul>
-            {/*<SectionButtonRow>
-              <Col sm={6}>
-                <LinkButton
-                  cta
-                  to="/react-redux-graphql-bootcamp"
-                  children="React bootcamps"
-                />
-              </Col>
-              <Col sm={6}>
-              <LinkButton secondary to="/curriculum">
-                  Our curriculum >>
-                </LinkButton>
-              </Col>
-            </SectionButtonRow>*/}
             <P>
             </P>
           <LinkButton secondary to="/curriculum">
@@ -263,7 +249,7 @@ const IndexPage = () => (
                 />
               </Col>
               <Col sm={6}>
-              <LinkButton to="/curriculum">
+              <LinkButton to="/corporate-team-training">
                   Corporate training
                 </LinkButton>
               </Col>
