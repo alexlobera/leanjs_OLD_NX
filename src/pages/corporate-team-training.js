@@ -3,13 +3,14 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P, H2Ref } from '../components/text'
-import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
+import { H2, P } from '../components/text'
+import { UpcomingTrainingSection, AttendeeQuote, TrustedByLogoList } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Card, Image } from '../components/elements'
 import { CurriculumCorpTraining } from '../components/curriculum'
+
 import {
     SMALL_CLASSROOM,
     CATALIN,
@@ -115,6 +116,18 @@ const CorporateTraining = () => (
                         />
                     </Col>
                 </Row>
+            </Grid>
+        </Section>
+        <Section>
+            <Grid>
+                <Card border="shadow">
+                    <Row>
+                        <Col lg={10} lgOffset={1}>
+                            <H2>Trusted by industry leaders</H2>
+                            <TrustedByLogoList />
+                        </Col>
+                    </Row>
+                </Card>
             </Grid>
         </Section>
         <UpcomingTrainingSection />
