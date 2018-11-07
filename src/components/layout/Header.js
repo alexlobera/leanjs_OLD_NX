@@ -22,6 +22,7 @@ import {
   TRAINING_EVENT_IMG,
   CURRICULUM_IMG,
   COMMUNITY_IMG,
+  CORP_TRAINING_HEADER_IMG
 } from '../../config/images'
 
 const H1 = styled(BaseH1)`
@@ -70,6 +71,8 @@ const backgroundImg = css`
         return `background-image: url(${CURRICULUM_IMG});`
       case 'community':
         return `background-image: url(${COMMUNITY_IMG});`
+      case 'corp-training':
+        return `background-image: url(${CORP_TRAINING_HEADER_IMG});`
     }
   }};
 `
