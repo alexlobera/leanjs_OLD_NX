@@ -7,6 +7,19 @@ export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React bootcamp'
 export const ADVANCED_REACT = 'Advanced React'
 
+/*
+Boocamp prices:
+1450 
+1579.17 -> Nov 23
+1662.5 -> Dec 14
+1800 -> Jan 15 
+
+Part-time prices
+829.17
+1000
+1166.67
+*/
+
 const emptyTraining = (type, city) => ({
   dates: 'TBC',
   dateStartsOn: null,
@@ -21,6 +34,23 @@ const emptyTraining = (type, city) => ({
 })
 
 export const trainings = [
+  {
+    dates: 'Jan 27 to Feb 2, 2019',
+    dateStartsOn: new Date('2019-01-27T16:00:00'),
+    city: LISBON,
+    country: 'Portugal',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'Lisbon',
+    country: 'Portugal',
+    location: 'TBC',
+    pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
+    trainingInstanceId: '',
+    price: 1800,
+    discountPrice: 1450,
+    priceGoesUpOn: 'Nov 23, 2018.',
+    ticketName: 'Discount ticket',
+    currency: 'gbp',
+  },
   {
     dates: '11-17 Nov, 2018',
     dateStartsOn: new Date('2018-11-11T18:00:00'),
@@ -71,8 +101,8 @@ export const trainings = [
     currency: 'gbp',
   },
   {
-    dates: '16 Oct - 15 Nov, 2018',
-    dateStartsOn: new Date('16 October, 2018'),
+    dates: '15 Jan - 15 Feb, 2019',
+    dateStartsOn: new Date('15 Jan, 2019'),
     city: LONDON,
     country: 'UK',
     type: PART_TIME,
@@ -80,8 +110,8 @@ export const trainings = [
     country: 'UK',
     location: 'Makers Academy',
     pathUrl: '/react-redux-training-london',
-    trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
-    price: 1166.67,
+    trainingInstanceId: '5be3366f1307cabce7761593',
+    price: 829.17,
     ticketName: 'Standard ticket',
     currency: 'gbp',
   },
