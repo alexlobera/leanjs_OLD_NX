@@ -275,7 +275,7 @@ export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
         (!city || training.city === city) &&
         training.dateStartsOn > Date.now()
     )
-    .sort((a, b) => a.dateStartsOn > b.dateStartsOn) || []
+    .sort((a, b) => a.dateStartsOn - b.dateStartsOn) || []
 
 export const selectTrainings = curriedSelectTrainings({ data: trainings })
 
