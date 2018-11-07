@@ -127,7 +127,7 @@ const IndexPage = () => (
                 />
               </Col>
               <Col sm={6}>
-              <LinkButton to="/curriculum">
+              <LinkButton to="/corporate-team-training">
                   Corporate training
                 </LinkButton>
               </Col>
