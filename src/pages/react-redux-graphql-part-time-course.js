@@ -46,13 +46,19 @@ const PartTime = () => (
     <TopSection>
       <Grid>
       <CallToActionRow>
-            <Col xs={12} sm={10}>
+            <Col sm={4}>
               <LinkButton
                 cta
-                to="#contact-us"
-                children="No courses currently planned. Signup to our newsletter to hear first about new courses"
+                to=""
+                children="Next course TBA"
               />
             </Col>
+            <Col sm={5}>
+                <LinkButton
+                  to="#contact-us"
+                  children="Signup to our newsletter for latest updates"
+                />
+              </Col>
           </CallToActionRow>
         <Card border="shadow">
           <CurriculumPartTime showCallToActionBottom={true} />
@@ -96,12 +102,12 @@ const PartTime = () => (
                 Expert coaches with extensive React experience
               </Li>
             </Ul>
-            <P>
-              <Link to={nextTraining.pathUrl}>
-                Next part-time course: {nextTraining.city} -{' '}
-                {nextTraining.dates}
-              </Link>
+            {/* <P>
+              <LinkButton cta to="/react-native-bootcamp-london">
+                Next React Native: 17th Sept, London >>
+              </LinkButton>
             </P>
+            */}
           </Col>
         </Row>
       </Grid>
@@ -112,7 +118,7 @@ const PartTime = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="I like the fact that you meet other developers that are in the same professional situation as you. I really felt comfortable."
+              quote="I like the fact that you meet other students that are workers in the same professional conditions as you - you share those experiences. I really felt comfortable during the training."
               fullname="Stefano Mezza"
               job="Core Developer"
               company="SISLAB UniTN"

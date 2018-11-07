@@ -131,10 +131,10 @@ class ContactForm extends Component {
             </P>
           </React.Fragment>
         }
-        <H3>Newsletter & pre-training resources</H3>
+        <H3>Signup to our newsletter</H3>
         <P>
-          Enter your email below and we'll email you with our latest training
-          and free learning resources. And no, we don't spam you with anything
+          Enter your email below and we'll email you with our <strong>latest training
+          and free learning resources</strong>. And no, we don't spam you with anything
           else, as per our <Link to="/privacy-policy">Privacy Policy</Link>.
         </P>
         <Row>

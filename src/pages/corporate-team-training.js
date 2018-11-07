@@ -8,7 +8,7 @@ import { UpcomingTrainingSection, AttendeeQuote, TrustedByLogoList } from '../co
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
-import { Card, Image } from '../components/elements'
+import { Card, Image, Video } from '../components/elements'
 import { CurriculumCorpTraining } from '../components/curriculum'
 
 import {
@@ -46,7 +46,7 @@ const CorporateTraining = () => (
                         <LinkButton
                             cta
                             to="#contact-us"
-                            children="Contact us to find out more"
+                            children="Contact us to find out more >>"
                         />
                     </Col>
                 </CallToActionRow>
@@ -59,9 +59,18 @@ const CorporateTraining = () => (
         <Section>
             <Grid>
                 <Row>
-                    <Col md={5}>
-                        <Image src={SMALL_CLASSROOM} width="100%" />
-                    </Col>
+                <Col md={5}>
+            <Video
+              youtubeID="o6YwbHGfPOo"
+              description={
+                <P>
+                  <em>
+                    Andru Dunn, Senior Developer at <strong>John Lewis</strong> speaks how ReactJS Academy training has improved his team.
+                  </em>
+                </P>
+              }
+            />
+          </Col>
                     <Col md={5} mdOffset={1}>
                         <H2>
                             <a name="right-for-my-team" />
@@ -70,7 +79,7 @@ const CorporateTraining = () => (
                         <Ul unstyled>
                             <Li>
                                 <BulletIcon icon={BussinessIcon} />
-                                <strong>Avoid delays</strong> & business losses with more reliable code
+                                <strong>Avoid delays & business losses</strong> with more reliable and consistent code
                             </Li>
                             <Li>
                                 <BulletIcon icon={HeartIcon} />
@@ -82,22 +91,17 @@ const CorporateTraining = () => (
                             </Li>
                             <Li>
                                 <BulletIcon icon={ReactIcon} />
-                                <strong>Minimise risk</strong> of onboarding React
+                                <strong>Minimise the risk</strong> of onboarding React
                             </Li>
                             <Li>
                                 <BulletIcon icon={WorldIcon} />
-                                Delivered <strong>worldwide</strong>
+                                <strong>Delivered wherever you need</strong> - worldwide!
                             </Li>
                         </Ul>
                         <P>
-                            <LinkButton to="#contact-us">
-                                Contact us
+                            <LinkButton cta to="#contact-us">
+                                Contact us to find out more >>
                             </LinkButton>
-                        </P>
-                        <P>
-                            <Link to="/react-redux-graphql-bootcamp#curriculum">
-                                Checkout the curriculum
-                            </Link>
                         </P>
                     </Col>
                 </Row>
