@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
@@ -13,7 +14,7 @@ import {
 import { Card } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
-import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
+import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import {
   CollabsIcon,
   NotBegginerIcon,
@@ -45,15 +46,7 @@ const PartTime = () => (
     />
     <TopSection>
       <Grid>
-      <CallToActionRow>
-            <Col xs={12} sm={10}>
-              <LinkButton
-                cta
-                to="#contact-us"
-                children="No courses currently planned. Signup to our newsletter to hear first about new courses"
-              />
-            </Col>
-          </CallToActionRow>
+        <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
           <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
@@ -96,12 +89,11 @@ const PartTime = () => (
                 Expert coaches with extensive React experience
               </Li>
             </Ul>
-            <P>
-              <Link to={nextTraining.pathUrl}>
-                Next part-time course: {nextTraining.city} -{' '}
-                {nextTraining.dates}
-              </Link>
-            </P>
+            <LinkButton cta to={nextTraining.pathUrl}>
+              Next bootcamp:{' '}
+              {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
+              {nextTraining.city}
+            </LinkButton>
           </Col>
         </Row>
       </Grid>
@@ -112,7 +104,7 @@ const PartTime = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="I like the fact that you meet other developers that are in the same professional situation as you. I really felt comfortable."
+              quote="I like the fact that you meet other students that are workers in the same professional conditions as you - you share those experiences. I really felt comfortable during the training."
               fullname="Stefano Mezza"
               job="Core Developer"
               company="SISLAB UniTN"
