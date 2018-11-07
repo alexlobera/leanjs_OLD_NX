@@ -39,11 +39,11 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     Bootcamp
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/about-us#corporate-team-training"
+    key="/corporate-team-training"
     onClick={[Function]}
-    to="/about-us#corporate-team-training"
+    to="/corporate-team-training"
   >
-    Corporate training
+    Corporate team training
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/advanced-react-redux-graphql-bootcamp"
