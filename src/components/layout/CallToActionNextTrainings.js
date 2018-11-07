@@ -32,17 +32,17 @@ const CallToActionNextTrainings = ({ left, trainings = [] }) => (
             to={training.pathUrl}
             children={`Next ${training.type}: ${startDate}, ${
               training.cityShortName
-            }  >>`}
+              }  >>`}
           />
         </Col>
       ) : (
-        <Col key={index} xs={12} md={3} center={index === 1}>
-          <LinkButton
-            to={training.pathUrl}
-            children={`${startDate}, ${training.cityShortName}`}
-          />
-        </Col>
-      )
+          <Col key={index} xs={12} md={3} center={index === 1}>
+            <LinkButton
+              to={training.pathUrl}
+              children={`${startDate}, ${training.cityShortName}`}
+            />
+          </Col>
+        )
     })}
   </CallToActionRow>
 )
