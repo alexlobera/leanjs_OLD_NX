@@ -66,16 +66,16 @@ const IndexPage = () => (
               children="1-week React bootcamp >>"
             />
           </Col>
-          <Col xs={12} sm={4}>
+          <Col xs={12} sm={3}>
             <LinkButton
-              to="/react-native-bootcamp"
-              children="React Native training >>"
+              to="/advanced-react-redux-graphql-bootcamp"
+              children="React Advanced >>"
             />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              to="/react-redux-graphql-part-time-course"
-              children="React part-time course >>"
+              to="/corporate-team-training/"
+              children="Corporate team training >>"
             />
           </Col>
         </CallToActionRow>
@@ -118,11 +118,20 @@ const IndexPage = () => (
                 <strong>Stay ahead</strong> in modern development.
               </Li>
             </Ul>
-            <P>
-              <Link to="/react-redux-graphql-bootcamp#curriculum">
-                Checkout the curriculum
-              </Link>
-            </P>
+          <SectionButtonRow>
+              <Col sm={6}>
+                <LinkButton
+                  cta
+                  to="/react-redux-graphql-bootcamp"
+                  children="React bootcamps"
+                />
+              </Col>
+              <Col sm={6}>
+              <LinkButton to="/corporate-team-training">
+                  Corporate training
+                </LinkButton>
+              </Col>
+          </SectionButtonRow>
           </Col>
         </Row>
       </Grid>
@@ -132,7 +141,7 @@ const IndexPage = () => (
         <Row>
           <Col mdOffset={1} md={10}>
             <AttendeeQuote
-              quote="The ReactJS Academy bootcamp has literally taken me from being someone who has no React experience to feeling like I can go back to my company and be one of the experts in house. It’s forwarded my career significantly."
+              quote="ReactJS Academy has literally taken me from no React experience to feeling like I can go back to my company as an expert. It’s forwarded my career significantly."
               fullname="Dan Jones"
               job="React developer"
               company="AgilityWorks"
@@ -147,9 +156,7 @@ const IndexPage = () => (
         <Row>
           <Col md={5} mdOffset={1}>
             <H2>
-              Is this training right for me?
-              <br />
-              Why ReactJS Academy
+              Is this training right for me? Why ReactJS Academy
             </H2>
             <Ul unstyled>
               <Li>
@@ -178,31 +185,10 @@ const IndexPage = () => (
               </Li>
             </Ul>
             <P>
-              <Link to="/react-redux-graphql-bootcamp#curriculum">
-                Checkout the curriculum
-              </Link>
             </P>
-            <SectionButtonRow>
-              <Col sm={4}>
-                <LinkButton
-                  cta
-                  to="/react-redux-graphql-bootcamp"
-                  children="React bootcamps"
-                />
-              </Col>
-              <Col sm={4}>
-                <LinkButton
-                  to="/react-native-bootcamp"
-                  children="React Native"
-                />
-              </Col>
-              <Col sm={4}>
-                <LinkButton
-                  to="/react-redux-graphql-part-time-course"
-                  children="Part-time courses"
-                />
-              </Col>
-            </SectionButtonRow>
+          <LinkButton secondary to="/curriculum">
+            Read our curriculum >>
+          </LinkButton>
           </Col>
           <HideComponentsUsingCss xs sm>
             <Col md={5} mdOffset={1}>
@@ -222,8 +208,7 @@ const IndexPage = () => (
               description={
                 <P>
                   <em>
-                    The <strong>John Lewis</strong> product team on their
-                    experience of a ReactJS Academy training
+                    Andru Dunn, Senior Developer at <strong>John Lewis</strong> speaks how ReactJS Academy training has improved his team.
                   </em>
                 </P>
               }
@@ -231,8 +216,7 @@ const IndexPage = () => (
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
-              What's in it for your company - Why ReactJS Academy is great for
-              your team
+              What's in it for your company - why ReactJS Academy is great for your team
             </H2>
             <Ul unstyled>
               <Li>
@@ -256,31 +240,20 @@ const IndexPage = () => (
                 Offer more services to internal and external clients
               </Li>
             </Ul>
-            <P>
-              <Link to="/react-redux-graphql-bootcamp#curriculum">
-                Checkout the curriculum
-              </Link>
-            </P>
             <SectionButtonRow>
-              <Col md={4}>
+              <Col sm={6}>
                 <LinkButton
-                  to="/about-us#private-on-site-corporate-team-training"
-                  children="Corporate training"
-                />
-              </Col>
-              <Col md={4}>
-                <LinkButton
-                  to="/react-redux-graphql-part-time-course"
-                  children="Part-time courses"
-                />
-              </Col>
-              <Col md={4}>
-                <LinkButton
+                  cta
                   to="/react-redux-graphql-bootcamp"
                   children="React bootcamps"
                 />
               </Col>
-            </SectionButtonRow>
+              <Col sm={6}>
+              <LinkButton to="/corporate-team-training">
+                  Corporate training
+                </LinkButton>
+              </Col>
+          </SectionButtonRow>
           </Col>
         </Row>
       </Grid>

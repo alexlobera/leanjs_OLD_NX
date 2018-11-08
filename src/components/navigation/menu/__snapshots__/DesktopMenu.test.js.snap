@@ -22,8 +22,8 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "to": "/react-redux-graphql-bootcamp",
           },
           Object {
-            "text": "Corporate training",
-            "to": "/about-us#corporate-team-training",
+            "text": "Corporate team training",
+            "to": "/corporate-team-training",
           },
           Object {
             "text": "Advanced React",

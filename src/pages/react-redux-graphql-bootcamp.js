@@ -16,7 +16,7 @@ import {
 import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
-import { OLU } from '../config/images'
+import { BOOTCAMP_RIGHT, DAVIAN } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -113,11 +113,11 @@ const Boocamps = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="Small numbers of students means you’re guaranteed to get the attention you need.  We programmed in pairs, feeding off people sitting next to you who also have a lot of knowledge - something  you don’t get in a lot of training. It’s a really good environment to learn"
-              fullname="Olu Omoniyi"
-              job="React & React Native Developer"
-              company="S&P Global"
-              profilePicUrl={OLU}
+              quote="After the bootcamp, I felt very very confident. You understand how to use React, how to build components from scratch and then into complex applications. Don’t be afraid - book as quickly as possible!"
+              fullname="Davian Robinson"
+              job="Senior Software Engineer"
+              company="ETZ Payments"
+              profilePicUrl={DAVIAN}
             />
           </Col>
         </Row>

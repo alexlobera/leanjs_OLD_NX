@@ -243,7 +243,7 @@ const Community = () => (
               developers in our community to take a step farther and become a
               mentor in our community events and workshops. This way they can
               build the experience required to become not only a great developer
-              but also a great coach and team player.
+              but also a great coach, speaker, and team player.
             </P>
             <P>
               <Link to="#contact-us">Contact us</Link>

@@ -32,6 +32,8 @@ export const BOOTCAMP_COLLAB =
 export const PART_TIME =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/partTime_rightForMe.jpg?alt=media'
 
+export const CODEVELOP = 'https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/paul_postits.jpg?alt=media'
+
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.jpg?alt=media'
 export const ABOUT_VALUES =
@@ -39,6 +41,9 @@ export const ABOUT_VALUES =
 
 export const CURRICULUM_FULL_TRAINING_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/curriculum_parttimetulltime.jpg?alt=media'
+
+
+export const SMALL_CLASSROOM = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/classroom-small.jpg?alt=media'
 
 // Team members
 
@@ -67,6 +72,10 @@ export const OLU =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FOluOmoniyi.png?alt=media'
 export const STEFANO =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FStefanoMezza.png?alt=media'
+export const DAVIAN =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/DavianRobinson.png?alt=media'
+export const POLINA =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/polinaStoyanova.png?alt=media'
 
 // Code of conduct
 export const CODE_OF_CONDUCT_SPLASH =
@@ -79,3 +88,6 @@ export const CODE_OF_CONDUCT_MORE_DETAIL =
 // Meetup
 export const LONDON_MEETUP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media'
+
+// Header backgrounds
+export const CORP_TRAINING_HEADER_IMG = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/header-backgrounds%2Fcorp-training-bg.jpg?alt=media'

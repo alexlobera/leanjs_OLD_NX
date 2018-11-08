@@ -14,8 +14,7 @@ import {
 } from '../components/training'
 import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Image } from '../components/elements'
-import { BOOTCAMP_RIGHT, OLU } from '../config/images'
+import { OLU } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -111,7 +110,7 @@ const Boocamps = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="Small numbers of students means you’re guaranteed to get the attention you need.  We programmed in pairs, feeding off people sitting next to you who also have a lot of knowledge - something  you don’t get in a lot of training. It’s a really good environment to learn"
+              quote="Small numbers of students means you get the attention you need.  We programmed in pairs, feeding off other experienced students - something you don’t get in a lot of training. It’s a really good environment to learn"
               fullname="Olu Omoniyi"
               job="React & React Native Developer"
               company="S&P Global"

@@ -12,9 +12,9 @@ import {
   UpcomingTrainingSection,
 } from '../components/training'
 import { Card } from '../components/elements'
-import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
-import { BOOTCAMP_RIGHT, OLU } from '../config/images'
+import { BOOTCAMP_RIGHT, POLINA } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -43,7 +43,22 @@ const ReactNativeBoocamp = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionNextTrainings left trainings={trainings} />
+        <CallToActionRow>
+            <Col sm={6}>
+                <LinkButton
+                  cta
+                  to="#contact-us"
+                  children="Signup to our newsletter for latest updates"
+                />
+            </Col>
+            <Col sm={3}>
+              <LinkButton
+                secondary
+                to=""
+                children="Next course TBA"
+              />
+            </Col>
+          </CallToActionRow>
         <Card border="shadow">
           <CurriculumReactNative />
         </Card>
@@ -83,11 +98,12 @@ const ReactNativeBoocamp = () => (
                 social fun!
               </Li>
             </Ul>
-            <P>
+            {/* <P>
               <LinkButton cta to="/react-native-bootcamp-london">
                 Next React Native: 17th Sept, London >>
               </LinkButton>
             </P>
+            */}
           </Col>
         </Row>
       </Grid>
@@ -97,11 +113,11 @@ const ReactNativeBoocamp = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="Small numbers of students means you’re guaranteed to get the attention you need.  We programmed in pairs, feeding off people sitting next to you who also have a lot of knowledge - something  you don’t get in a lot of training. It’s a really good environment to learn"
-              fullname="Olu Omoniyi"
-              job="React & React Native Developer"
-              company="S&P Global"
-              profilePicUrl={OLU}
+              quote="I like how friendly the training was. I loved spending time pair programming and then sharing what we'd learnt from each other - that was the best bit. I would definitely recommend [ReactJS Academy]."
+              fullname="Polina Stoyanova"
+              job="Front-end and UX developer"
+              company="tray.io"
+              profilePicUrl={POLINA}
             />
           </Col>
         </Row>

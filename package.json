@@ -38,10 +38,12 @@
     "react-final-form": "^3.6.5",
     "react-helmet": "^5.2.0",
     "react-scroll": "^1.7.10",
+    "react-share": "^2.3.1",
     "react-storybook-decorator-background": "^1.0.5",
     "react-styled-flexboxgrid": "^2.4.0",
     "react-twitter-embed": "^1.2.0",
     "react-width": "^0.1.8",
+    "rehype-react": "^3.0.3",
     "store": "^2.0.12",
     "styled-components": "^3.3.3"
   },

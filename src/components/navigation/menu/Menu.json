@@ -14,8 +14,8 @@
         "text": "Bootcamp"
       },
       {
-        "to": "/about-us#corporate-team-training",
-        "text": "Corporate training"
+        "to": "/corporate-team-training",
+        "text": "Corporate team training"
       },
       {
         "to": "/advanced-react-redux-graphql-bootcamp",

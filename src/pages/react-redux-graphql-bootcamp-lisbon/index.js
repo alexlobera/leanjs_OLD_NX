@@ -81,7 +81,7 @@ const BootcampLisbon = () => (
                 location={
                   <React.Fragment>
                     {training.location}.{' '}
-                    <Link to="https://www.google.com/maps/place/Torres+Vedras,+Portugal/@39.0930924,-9.2980036,13z/data=!3m1!4b1!4m5!3m4!1s0xd1f2dc22d3a1b53:0xca2cc4fc7eaba688!8m2!3d39.0917759!4d-9.2600341">
+                    <Link to="https://goo.gl/maps/EhNnnDiHqSR2">
                       See on map
                     </Link>
                   </React.Fragment>
@@ -150,7 +150,7 @@ const BootcampLisbon = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory - it’s very balanced."
+              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
               fullname="Catalin Cislariu"
               job="Senior Developer"
               company="KLEIDO LTD"
