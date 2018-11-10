@@ -275,4 +275,5 @@ const IndexPage = () => (
     <UpcomingTrainingSection />
   </React.Fragment>
 )
+
 export default IndexPage
