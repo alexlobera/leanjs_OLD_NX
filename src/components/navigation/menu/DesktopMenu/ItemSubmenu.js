@@ -16,81 +16,82 @@ export const Ul = styled(DefaultUl)`
   }
 `
 export const SubmenuButton = styled.i`
-  cursor:pointer;
-  width: 0; 
-  height: 0; 
+  cursor: pointer;
+  width: 0;
+  height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   display: inline-block;
   margin-left: 9px;
   padding-bottom: 2px;
-  ${props => props.open ?
-        `border-bottom: 8px solid ${WHITE};` :
-        `border-top: 8px solid ${WHITE};`
-    }
+  ${props =>
+    props.open
+      ? `border-bottom: 8px solid ${WHITE};`
+      : `border-top: 8px solid ${WHITE};`};
 `
 
 class ItemSubmenu extends React.Component {
-    state = {
-        isOpen: false
+  state = {
+    isOpen: false,
+  }
+
+  wrapperRef = React.createRef()
+
+  componentWillUnmount() {
+    this.removeMousedownListener()
+  }
+
+  addMousedownListener = () => {
+    document.addEventListener('mousedown', this.handleClickOutside)
+  }
+
+  removeMousedownListener = () => {
+    document.removeEventListener('mousedown', this.handleClickOutside)
+  }
+
+  handleClickOutside = event => {
+    if (
+      this.wrapperRef &&
+      !this.wrapperRef.current.contains(event.target) &&
+      this.state.isOpen
+    ) {
+      this.toggle()
+      this.removeMousedownListener()
     }
+  }
 
-    wrapperRef = React.createRef();
-
-    componentWillUnmount() {
-        this.removeMousedownListener()
+  toggle = () => {
+    if (!this.state.isOpen) {
+      this.addMousedownListener()
     }
+    this.setState({ isOpen: !this.state.isOpen })
+  }
 
-    addMousedownListener = () => {
-        document.addEventListener('mousedown', this.handleClickOutside)
-    }
+  onToggleSubmenuClicked = event => {
+    event.preventDefault()
+    this.toggle()
+  }
 
-    removeMousedownListener = () => {
-        document.removeEventListener('mousedown', this.handleClickOutside)
-    }
+  render() {
+    const { text, items, ...props } = this.props
+    const { isOpen } = this.state
 
-    handleClickOutside = event => {
-        if (this.wrapperRef &&
-            !this.wrapperRef.current.contains(event.target) &&
-            this.state.isOpen
-        ) {
-            this.toggle()
-            this.removeMousedownListener()
-        }
-    }
-
-    toggle = () => {
-        if (!this.state.isOpen) {
-            this.addMousedownListener()
-        }
-        this.setState({ isOpen: !this.state.isOpen })
-    }
-
-    onToggleSubmenuClicked = event => {
-        event.preventDefault()
-        this.toggle()
-    }
-
-    render() {
-        const { text, items, ...props } = this.props
-        const { isOpen } = this.state
-
-        return (
-            <div ref={this.wrapperRef}>
-                <Link {...props} onClick={this.onToggleSubmenuClicked}>
-                    {text}
-                    <SubmenuButton open={isOpen} />
-                </Link>
-                {isOpen ?
-                    <Ul>
-                        {items.map(child => (
-                            <DesktopMenuItem text={child.text} key={child.to} to={child.to} />
-                        ))}
-                    </Ul>
-                    : null}
-            </div>
-        )
-    }
+    return (
+      <div ref={this.wrapperRef}>
+        <Link {...props} onClick={this.onToggleSubmenuClicked}>
+          {text}
+          <SubmenuButton open={isOpen} />
+        </Link>
+        {isOpen ? (
+          <Ul>
+            {items.map(child => (
+              <DesktopMenuItem text={child.text} key={child.to} to={child.to} />
+            ))}
+          </Ul>
+        ) : null}
+      </div>
+    )
+  }
 }
 
 export default ItemSubmenu

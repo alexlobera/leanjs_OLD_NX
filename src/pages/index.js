@@ -119,9 +119,7 @@ const IndexPage = () => (
               </Li>
             </Ul>
             <P>
-              <Link to="/curriculum">
-                Checkout the curriculum
-              </Link>
+              <Link to="/curriculum">Checkout the curriculum</Link>
             </P>
           </Col>
         </Row>
@@ -178,9 +176,7 @@ const IndexPage = () => (
               </Li>
             </Ul>
             <P>
-              <Link to="/curriculum">
-                Checkout the curriculum
-              </Link>
+              <Link to="/curriculum">Checkout the curriculum</Link>
             </P>
             <SectionButtonRow>
               <Col sm={4}>
@@ -222,7 +218,8 @@ const IndexPage = () => (
               description={
                 <P>
                   <em>
-                    Andru Dunn, Senior Developer at <strong>John Lewis</strong> speaks how ReactJS Academy training has improved his team.
+                    Andru Dunn, Senior Developer at <strong>John Lewis</strong>{' '}
+                    speaks how ReactJS Academy training has improved his team.
                   </em>
                 </P>
               }
@@ -230,7 +227,8 @@ const IndexPage = () => (
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
-              What's in it for your company - why ReactJS Academy is great for your team
+              What's in it for your company - why ReactJS Academy is great for
+              your team
             </H2>
             <Ul unstyled>
               <Li>
@@ -255,9 +253,7 @@ const IndexPage = () => (
               </Li>
             </Ul>
             <P>
-              <Link to="/curriculum">
-                Checkout the curriculum
-              </Link>
+              <Link to="/curriculum">Checkout the curriculum</Link>
             </P>
             <SectionButtonRow>
               <Col md={4}>

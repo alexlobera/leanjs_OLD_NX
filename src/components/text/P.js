@@ -16,5 +16,5 @@ export const P_STYLE = `
 `
 
 export default styled.p`
-  ${P_STYLE}
+  ${P_STYLE};
 `

@@ -44,14 +44,14 @@ const ReactNativeBoocamp = () => (
     <TopSection>
       <Grid>
         <CallToActionRow>
-            <Col xs={12} sm={10}>
-              <LinkButton
-                cta
-                to="#contact-us"
-                children="No courses currently planned. Signup to our newsletter to hear first about new courses"
-              />
-            </Col>
-          </CallToActionRow>
+          <Col xs={12} sm={10}>
+            <LinkButton
+              cta
+              to="#contact-us"
+              children="No courses currently planned. Signup to our newsletter to hear first about new courses"
+            />
+          </Col>
+        </CallToActionRow>
         <Card border="shadow">
           <CurriculumReactNative />
         </Card>

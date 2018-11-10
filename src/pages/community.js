@@ -114,7 +114,7 @@ const Community = () => (
                   to={nextBootcamp && nextBootcamp.pathUrl}
                   children={`Next Bootcamp: ${nextBootcampStartDate}, ${
                     nextBootcamp.cityShortName
-                    } >>`}
+                  } >>`}
                 />
                 <TwitterWidgetsOnlyOnClientSide />
               </Col>
@@ -140,19 +140,19 @@ const Community = () => (
                           url,
                           imgUrl,
                         }) => (
-                            <Li key={url}>
-                              <Image src={imgUrl} />
-                              <div>
-                                <P>
-                                  <strong>Event name</strong>
-                                  <br />
-                                  {moment(dateStartsOn).format('D MMM')} -{' '}
-                                  {cityShortName}, {country}
-                                </P>
-                                <LinkButton to={url} children={'Read more'} />
-                              </div>
-                            </Li>
-                          )
+                          <Li key={url}>
+                            <Image src={imgUrl} />
+                            <div>
+                              <P>
+                                <strong>Event name</strong>
+                                <br />
+                                {moment(dateStartsOn).format('D MMM')} -{' '}
+                                {cityShortName}, {country}
+                              </P>
+                              <LinkButton to={url} children={'Read more'} />
+                            </div>
+                          </Li>
+                        )
                       )}
                     </EventList>
                   </React.Fragment>

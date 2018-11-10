@@ -22,7 +22,7 @@ import {
   TRAINING_EVENT_IMG,
   CURRICULUM_IMG,
   COMMUNITY_IMG,
-  CORP_TRAINING_HEADER_IMG
+  CORP_TRAINING_HEADER_IMG,
 } from '../../config/images'
 
 const H1 = styled(BaseH1)`
@@ -92,13 +92,15 @@ const HeaderSection = styled(Section)`
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
-    height: ${({ fullHeight }) => fullHeight !== false ? '100vh' : ''};
-    min-height: ${({ fullHeight }) => fullHeight === false ? 'auto' : '800px'};
-    padding-bottom: ${({ paddingBottom = '200' }) => paddingBottom}px !important;
+    height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : '')};
+    min-height: ${({ fullHeight }) =>
+      fullHeight === false ? 'auto' : '800px'};
+    padding-bottom: ${({ paddingBottom = '200' }) =>
+      paddingBottom}px !important;
     padding-top: 200px !important;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-top:150px;
+    padding-top: 150px;
   }
 `
 HeaderSection.displayName = 'HeaderSection'
@@ -165,8 +167,21 @@ const Nav = styled.div`
   }
 `
 
-const Header = ({ titleLines = [], subtitle, links = [], bgImg, fullHeight, paddingBottom, children }) => (
-  <HeaderSection top bgImg={bgImg} fullHeight={fullHeight} paddingBottom={paddingBottom}>
+const Header = ({
+  titleLines = [],
+  subtitle,
+  links = [],
+  bgImg,
+  fullHeight,
+  paddingBottom,
+  children,
+}) => (
+  <HeaderSection
+    top
+    bgImg={bgImg}
+    fullHeight={fullHeight}
+    paddingBottom={paddingBottom}
+  >
     <Grid>
       <Row>
         <Col>
@@ -181,9 +196,7 @@ const Header = ({ titleLines = [], subtitle, links = [], bgImg, fullHeight, padd
             </SubTitleBackground>
           ) : null}
           {children ? (
-            <SubTitleBackground>
-              {children}
-            </SubTitleBackground>
+            <SubTitleBackground>{children}</SubTitleBackground>
           ) : null}
         </Col>
       </Row>

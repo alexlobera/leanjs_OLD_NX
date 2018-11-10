@@ -68,12 +68,13 @@ const Link = ({ to = '', children = '', ...rest }) => {
     )
   } else if (to && to[0] === '#') {
     return (
-      <Route render={({ history }) => (
-        <LinkScroll {...rest} onClick={() => history.push(to)} to={to}>
-          {children}
-        </LinkScroll>
-      )}>
-      </Route>
+      <Route
+        render={({ history }) => (
+          <LinkScroll {...rest} onClick={() => history.push(to)} to={to}>
+            {children}
+          </LinkScroll>
+        )}
+      />
     )
   } else if (!to) {
     return <BasicLink {...rest}>{children}</BasicLink>

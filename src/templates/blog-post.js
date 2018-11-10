@@ -1,19 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  EmailShareButton,
-  EmailIcon,
-} from 'react-share';
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
-import { P, Span, H2, H3, H4, H5, } from '../components/text'
+import { P, Span, H2, H3, H4, H5, Hr } from '../components/text'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 import { Breadcrumb, Link } from '../components/navigation'
@@ -22,6 +12,8 @@ import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
 import { blogAuthors } from '../config/data'
+import { Code, Tweet, Blockquote } from '../components/blog/Markdown'
+import ShareButtons from '../components/blog/ShareButtons'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -34,7 +26,10 @@ const renderAst = new rehypeReact({
     h5: H5,
     ul: Ul,
     li: Li,
+    code: Code,
     span: Span,
+    tweet: Tweet,
+    blockquote: Blockquote,
   },
 }).Compiler
 
@@ -47,23 +42,17 @@ const SyledAuthor = styled.div`
     height: 90px;
   }
   a {
-    display:block;
-  } 
-`
-
-const SocialShare = styled.div`
- display: flex;
- justify-content: space-evenly;
- div {
-  cursor: pointer;
- }
+    display: block;
+  }
 `
 
 const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
   <SyledAuthor>
     <Image src={blogAuthors[author].imgSrc} circle />
     <P>
-      <Link to={`/about-us#${blogAuthors[author].path}`}>By {blogAuthors[author].fullname}</Link>
+      <Link to={`/about-us#${blogAuthors[author].path}`}>
+        By {blogAuthors[author].fullname}
+      </Link>
       <Span>
         {date} <br />
         Reading time: {timeToRead} mins
@@ -72,59 +61,12 @@ const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
   </SyledAuthor>
 )
 
-const ShareButtons = ({ slug }) =>
-  (
-    <SocialShare>
-
-      <TwitterShareButton
-        url={`https://reactjs.academy${slug}`}
-        quote={'title'}
-        via="reactjsacademy"
-      >
-        <TwitterIcon
-          size={36}
-          round />
-      </TwitterShareButton>
-
-
-      <FacebookShareButton
-        url={`https://reactjs.academy${slug}`}
-        quote={'title'}
-      >
-        <FacebookIcon
-          size={36}
-          round />
-      </FacebookShareButton>
-
-
-      <LinkedinShareButton
-        url={`https://reactjs.academy${slug}`}
-        quote={'title'}
-      >
-        <LinkedinIcon
-          size={36}
-          round />
-      </LinkedinShareButton>
-
-
-      <EmailShareButton
-        url={`https://reactjs.academy${slug}`}
-        quote={'title'}
-      >
-        <EmailIcon
-          size={36}
-          round />
-      </EmailShareButton>
-
-    </SocialShare>
-  )
-
 const BlogPost = ({ data }) => {
   const { title, date, subtitle, author } = data.markdownRemark.frontmatter
   const { htmlAst, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
-  const relatedPosts = allPosts.filter(post => (post.node.fields.slug != slug))
+  const relatedPosts = allPosts.filter(post => post.node.fields.slug != slug)
   return (
     <React.Fragment>
       <Breadcrumb
@@ -135,7 +77,7 @@ const BlogPost = ({ data }) => {
         ]}
       />
       <Header
-        titleLines={[`${title}`]}
+        titleLines={title.split('<br/>')}
         fullHeight={false}
         paddingBottom={80}
       >
@@ -143,7 +85,7 @@ const BlogPost = ({ data }) => {
       </Header>
       <Grid>
         <Row>
-          <Col md={6} >
+          <Col md={6}>
             {subtitle ? <H2>{subtitle}</H2> : null}
             {renderAst(htmlAst)}
           </Col>
@@ -151,66 +93,74 @@ const BlogPost = ({ data }) => {
             <Card small bg="dark" top={20}>
               <ContactForm simplified />
             </Card>
-            {relatedPosts.length ?
-              <Card border="shadow" small top={20} >
+            {relatedPosts.length ? (
+              <Card border="shadow" small top={20}>
                 <H4>Related articles</H4>
                 {relatedPosts.map(post => (
                   <React.Fragment>
                     <P>
-                      <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
-                      <P>
-                        {post.node.frontmatter.date}
-                      </P>
+                      <Link to={post.node.fields.slug}>
+                        {post.node.frontmatter.title}
+                      </Link>
+                      <P>{post.node.frontmatter.date}</P>
                     </P>
                   </React.Fragment>
                 ))}
               </Card>
-              :
-              null
-            }
+            ) : null}
           </Col>
         </Row>
         <Row>
           <Col md={6}>
             <P>Share this on: </P>
             <ShareButtons slug={slug} />
+            <Hr />
+            <P>
+              This website is built using Gatsbyjs. Curious about how this blog
+              is implemented? It's open source so you can{' '}
+              <Link to="https://github.com/leanjscom/reactjsacademy/blob/master/src/templates/blog-post.js">
+                check the source code
+              </Link>
+            </P>
           </Col>
         </Row>
       </Grid>
-
       <UpcomingTrainingSection />
-    </React.Fragment >
+    </React.Fragment>
   )
 }
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
-        markdownRemark(fields: {slug: {eq: $slug } }) {
-        frontmatter {
-          title
-          date
-          subtitle
-          author
-        }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date
+        subtitle
+        author
+      }
+      fields {
+        slug
+      }
+      htmlAst
+      timeToRead
+    }
+    allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/blog/" } } }
+      limit: 3
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+          }
           fields {
             slug
           }
-          htmlAst
-          timeToRead
         }
-        allMarkdownRemark(filter: {fields: {slug: {regex: "/blog/"}}}, limit: 3) {
-          edges {
-            node {
-              frontmatter {
-                title
-                date
-              }
-              fields {
-                slug
-              }
-            }
-          }
-        }
+      }
+    }
   }
 `
 

@@ -32,7 +32,8 @@ export const BOOTCAMP_COLLAB =
 export const PART_TIME =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/part-time.png?alt=media'
 
-export const CODEVELOP = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codevelop.jpg?alt=media'
+export const CODEVELOP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codevelop.jpg?alt=media'
 
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.png?alt=media'
@@ -42,8 +43,8 @@ export const ABOUT_VALUES =
 export const CURRICULUM_FULL_TRAINING_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/curriculum_parttimetulltime.jpg?alt=media'
 
-
-export const SMALL_CLASSROOM = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/classroom-small.jpg?alt=media'
+export const SMALL_CLASSROOM =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/classroom-small.jpg?alt=media'
 
 // Team members
 
@@ -90,4 +91,5 @@ export const LONDON_MEETUP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media'
 
 // Header backgrounds
-export const CORP_TRAINING_HEADER_IMG = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/header-backgrounds%2Fcorp-training-bg.jpg?alt=media'
+export const CORP_TRAINING_HEADER_IMG =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/header-backgrounds%2Fcorp-training-bg.jpg?alt=media'

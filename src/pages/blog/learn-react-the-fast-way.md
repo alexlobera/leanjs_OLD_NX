@@ -1,6 +1,6 @@
 ---
 title: Learn React the fast way
-date: Oct 4 
+date: Oct 4
 subtitle: So you’re looking to learn React, Redux and GraphQL quickly in order to become a sought after front-end engineer?
 author: richard
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcoding_learning_curve.png?alt=media
@@ -50,7 +50,7 @@ Next, use the [create-react-app](https://github.com/facebook/create-react-app) t
 
 ### Step 2: Lean how to think in React
 
-This is a crucial step as React is a paradigm shift in the way you write your front-end code, you’ll need to understand the difference between the *declarative* and *imperative* style of coding and then understand the concept of state and the reasons of why a component based
+This is a crucial step as React is a paradigm shift in the way you write your front-end code, you’ll need to understand the difference between the _declarative_ and _imperative_ style of coding and then understand the concept of state and the reasons of why a component based
 architecture is a great solution.
 
 I would highly recommend starting with [this article](https://medium.com/leanjs/introduction-to-react-3000e9cbcd26).

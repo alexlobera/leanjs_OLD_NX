@@ -107,9 +107,9 @@ class ContactForm extends Component {
 
     return (
       <React.Fragment>
-        {!simplified &&
+        {!simplified && (
           <React.Fragment>
-                <H3>
+            <H3>
               {addContactUsLink ? <a name="contact-us" /> : null}
               Contact us
             </H3>
@@ -123,14 +123,18 @@ class ContactForm extends Component {
             <P>
               Otherwise, you can contact us socially on{' '}
               <Link to="https://twitter.com/reactjsacademy">Twitter</Link>,{' '}
-              <Link to="https://www.instagram.com/reactjsacademy/">Instagram</Link>{' '}
+              <Link to="https://www.instagram.com/reactjsacademy/">
+                Instagram
+              </Link>{' '}
               and{' '}
-              <Link to="https://www.facebook.com/reactjsacademy/">Facebook</Link> or
-              visit our <Link to="/about-us">About Us page</Link> and directly
-              contact one of our coaches.{' '}
+              <Link to="https://www.facebook.com/reactjsacademy/">
+                Facebook
+              </Link>{' '}
+              or visit our <Link to="/about-us">About Us page</Link> and
+              directly contact one of our coaches.{' '}
             </P>
           </React.Fragment>
-        }
+        )}
         <H3>Newsletter & pre-training resources</H3>
         <P>
           Enter your email below and we'll email you with our latest training

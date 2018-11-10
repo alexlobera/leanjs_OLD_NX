@@ -104,16 +104,16 @@ const CurriculumBootcamp = ({
 
   return (
     <React.Fragment>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <H2Ref>
-                Example progressive curriculum (5 days)
-              <Link to="#curriculum" name="curriculum">
-                #
-              </Link>
-            </H2Ref>
-          </Col>
-        </Row>
+      <Row>
+        <Col lg={10} lgOffset={1}>
+          <H2Ref>
+            Example progressive curriculum (5 days)
+            <Link to="#curriculum" name="curriculum">
+              #
+            </Link>
+          </H2Ref>
+        </Col>
+      </Row>
       {list ? (
         <List>
           {firstHalf}

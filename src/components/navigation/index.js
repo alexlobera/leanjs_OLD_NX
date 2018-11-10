@@ -22,5 +22,4 @@ export {
   TabLabel,
   TabContent,
   ContentItem,
-
 }

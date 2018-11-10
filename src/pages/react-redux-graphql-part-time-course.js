@@ -90,9 +90,8 @@ const PartTime = () => (
               </Li>
             </Ul>
             <LinkButton cta to={nextTraining.pathUrl}>
-              Next bootcamp:{' '}
-              {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
-              {nextTraining.city}
+              Next bootcamp: {moment(nextTraining.dateStartsOn).format('D MMM')}
+              , {nextTraining.city}
             </LinkButton>
           </Col>
         </Row>
