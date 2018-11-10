@@ -26,9 +26,9 @@ class Item extends React.Component {
       <Li>
         {submenuItems ? (
           <ItemSubmenu items={submenuItems} text={text} to={props.to} />
-        ) :
+        ) : (
           <Link {...props}>{text}</Link>
-        }
+        )}
       </Li>
     )
   }
@@ -42,8 +42,13 @@ DesktopMenuItem.displayName = 'DesktopMenuItem'
 const DesktopMenu = () => (
   <HideComponentsUsingCss xs sm>
     <Ul inline>
-      {MenuData.map((item) => (
-        <DesktopMenuItem key={item.to} to={item.to} text={item.text} submenuItems={item.children} />
+      {MenuData.map(item => (
+        <DesktopMenuItem
+          key={item.to}
+          to={item.to}
+          text={item.text}
+          submenuItems={item.children}
+        />
       ))}
     </Ul>
   </HideComponentsUsingCss>

@@ -44,8 +44,8 @@ export const Menu = ({ width }) => {
           {canIGuessTheScreenSizeUsingJS && width <= MEDIUM ? (
             <PhoneMenu />
           ) : (
-              <DesktopMenu />
-            )}
+            <DesktopMenu />
+          )}
         </MenuContainer>
       </Grid>
     </Navbar>

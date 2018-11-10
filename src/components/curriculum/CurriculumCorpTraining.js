@@ -104,19 +104,21 @@ const CurriculumBootcamp = ({
 
   return (
     <React.Fragment>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <H2Ref>
-                Example corporate curriculum
-              <Link to="#curriculum" name="curriculum">
-                #
-              </Link>
-            </H2Ref>
-            <P>
-                This curriculum is the foundation from which we teach your team. We may adapt our training so you get the best training possible for your company's needs.
-                </P>
-          </Col>
-        </Row>
+      <Row>
+        <Col lg={10} lgOffset={1}>
+          <H2Ref>
+            Example corporate curriculum
+            <Link to="#curriculum" name="curriculum">
+              #
+            </Link>
+          </H2Ref>
+          <P>
+            This curriculum is the foundation from which we teach your team. We
+            may adapt our training so you get the best training possible for
+            your company's needs.
+          </P>
+        </Col>
+      </Row>
       {list ? (
         <List>
           {firstHalf}

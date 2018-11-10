@@ -48,17 +48,14 @@ const ThanksTitle = styled(H3)`
 const Form = styled.form`
   display: block;
   width: 100%;
-
   label {
     display: block;
     margin-bottom: 8px;
   }
-
   input[type='email'] {
     border-color: transparent;
     border-width: 0;
   }
-
   input[type='submit'] {
     margin-top: 8px;
   }
@@ -107,9 +104,9 @@ class ContactForm extends Component {
 
     return (
       <React.Fragment>
-        {!simplified &&
+        {!simplified && (
           <React.Fragment>
-                <H3>
+            <H3>
               {addContactUsLink ? <a name="contact-us" /> : null}
               Contact us
             </H3>
@@ -123,19 +120,24 @@ class ContactForm extends Component {
             <P>
               Otherwise, you can contact us socially on{' '}
               <Link to="https://twitter.com/reactjsacademy">Twitter</Link>,{' '}
-              <Link to="https://www.instagram.com/reactjsacademy/">Instagram</Link>{' '}
+              <Link to="https://www.instagram.com/reactjsacademy/">
+                Instagram
+              </Link>{' '}
               and{' '}
-              <Link to="https://www.facebook.com/reactjsacademy/">Facebook</Link> or
-              visit our <Link to="/about-us">About Us page</Link> and directly
-              contact one of our coaches.{' '}
+              <Link to="https://www.facebook.com/reactjsacademy/">
+                Facebook
+              </Link>{' '}
+              or visit our <Link to="/about-us">About Us page</Link> and
+              directly contact one of our coaches.{' '}
             </P>
           </React.Fragment>
-        }
+        )}
         <H3>Signup to our newsletter</H3>
         <P>
-          Enter your email below and we'll email you with our <strong>latest training
-          and free learning resources</strong>. And no, we don't spam you with anything
-          else, as per our <Link to="/privacy-policy">Privacy Policy</Link>.
+          Enter your email below and we'll email you with our{' '}
+          <strong>latest training and free learning resources</strong>. And no,
+          we don't spam you with anything else, as per our{' '}
+          <Link to="/privacy-policy">Privacy Policy</Link>.
         </P>
         <Row>
           <Col>

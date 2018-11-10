@@ -7,55 +7,58 @@ import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
 import { Card, Image } from '../../components/elements'
 import { TopSection } from '../../components/layout/Section'
+import { formatPostTitle } from '../../templates/blog-post'
 
 const CardText = styled.div`
-    padding: 18px;
+  padding: 18px;
 `
 
 const Blog = ({ data }) => {
-    const posts = data.allMarkdownRemark.edges
-    return (
-        <React.Fragment>
-            <Breadcrumb
-                path={[{ to: '/', label: 'Home' }, { to: `/blog/`, label: `Blog` }]}
-            />
-            <Header
-                titleLines={['Blog']}
-                subtitle="Insights into the world of ReactJS Academy"
-                bgImg="about-us"
-                fullHeight={false}
-                paddingBottom={170}
-            />
+  const posts = data.allMarkdownRemark.edges
+  return (
+    <React.Fragment>
+      <Breadcrumb
+        path={[{ to: '/', label: 'Home' }, { to: `/blog/`, label: `Blog` }]}
+      />
+      <Header
+        titleLines={['Blog']}
+        subtitle="Insights into the world of ReactJS Academy"
+        bgImg="about-us"
+        fullHeight={false}
+        paddingBottom={170}
+      />
 
-            <TopSection>
-                <Grid >
-                    {posts.map(post => (
-                        <React.Fragment>
-                            <Row>
-                                <Col lg={4}>
-                                    <Card border="shadow" padding={false} bottom={36}>
-                                        <Link to={`${post.node.fields.slug}`}>
-                                            <Image src={post.node.frontmatter.imageUrl} />
-                                        </Link>
-                                        <CardText>
-                                            <Link to={`${post.node.fields.slug}`}>
-                                                <H2>{post.node.frontmatter.title}</H2>
-                                            </Link>
-                                            <P>{post.node.excerpt}</P>
-                                            <P>
-                                                <Link to={`${post.node.fields.slug}`}>Read more >></Link>
-                                            </P>
-                                        </CardText>
-                                    </Card>
-                                </Col>
-                            </Row>
-                        </React.Fragment>
-                    ))}
-                </Grid>
-            </TopSection>
-            <UpcomingTrainingSection />
-        </React.Fragment >
-    )
+      <TopSection>
+        <Grid>
+          <React.Fragment>
+            <Row>
+              {posts.map(post => (
+                <Col lg={4}>
+                  <Card border="shadow" padding={false} bottom={36}>
+                    <Link to={`${post.node.fields.slug}`}>
+                      <Image src={post.node.frontmatter.imageUrl} />
+                    </Link>
+                    <CardText>
+                      <Link to={`${post.node.fields.slug}`}>
+                        <H2>{formatPostTitle(post.node.frontmatter.title)}</H2>
+                      </Link>
+                      <P>{post.node.excerpt}</P>
+                      <P>
+                        <Link to={`${post.node.fields.slug}`}>
+                          Read more >>
+                        </Link>
+                      </P>
+                    </CardText>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </React.Fragment>
+        </Grid>
+      </TopSection>
+      <UpcomingTrainingSection />
+    </React.Fragment>
+  )
 }
 
 export const query = graphql`
@@ -67,7 +70,8 @@ export const query = graphql`
             slug
           }
           frontmatter {
-            title, imageUrl
+            title
+            imageUrl
           }
           excerpt
         }

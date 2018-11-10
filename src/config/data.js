@@ -60,7 +60,8 @@ export const trainings = [
     type: REACT_BOOTCAMP,
     cityShortName: 'Lisbon',
     country: 'Portugal',
-    location: 'Torres Vedras LabCenter, Rua José Eduardo César n. 6, 2560-680, Torres Vedras, Portugal ',
+    location:
+      'Torres Vedras LabCenter, Rua José Eduardo César n. 6, 2560-680, Torres Vedras, Portugal ',
     pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
     trainingInstanceId: '5b74235404ba003b823513d7',
     price: 1800,
@@ -164,14 +165,14 @@ const meetups = [
 export const blogAuthors = {
   richard: {
     imgSrc: RICHARD,
-    fullname: "Richard Moss",
-    path: "richard-moss",
+    fullname: 'Richard Moss',
+    path: 'richard-moss',
   },
   alex: {
     imgSrc: ALEX,
-    fullname: "Alex Lobera",
-    path: "alex-lobera",
-  }
+    fullname: 'Alex Lobera',
+    path: 'alex-lobera',
+  },
 }
 
 export const instagramPictures = [
@@ -266,7 +267,6 @@ export const instagramPictures = [
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F17125812_1272222992812942_3290496564270727168_n.jpg?alt=media',
   },
 ]
-
 
 export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
   [...data]

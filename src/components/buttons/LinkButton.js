@@ -45,7 +45,10 @@ const StyledLinkButton = styled(Link)`
   text-decoration: none;
 `
 
-const LinkButton = ({ trackUserBehaviour: trackUserBehaviourProp, ...props }) => (
+const LinkButton = ({
+  trackUserBehaviour: trackUserBehaviourProp,
+  ...props
+}) => (
   <StyledLinkButton
     {...props}
     onClick={e => {

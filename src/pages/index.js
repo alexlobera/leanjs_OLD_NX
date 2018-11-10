@@ -118,7 +118,7 @@ const IndexPage = () => (
                 <strong>Stay ahead</strong> in modern development.
               </Li>
             </Ul>
-          <SectionButtonRow>
+            <SectionButtonRow>
               <Col sm={6}>
                 <LinkButton
                   cta
@@ -127,11 +127,11 @@ const IndexPage = () => (
                 />
               </Col>
               <Col sm={6}>
-              <LinkButton to="/corporate-team-training">
+                <LinkButton to="/corporate-team-training">
                   Corporate training
                 </LinkButton>
               </Col>
-          </SectionButtonRow>
+            </SectionButtonRow>
           </Col>
         </Row>
       </Grid>
@@ -155,9 +155,7 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5} mdOffset={1}>
-            <H2>
-              Is this training right for me? Why ReactJS Academy
-            </H2>
+            <H2>Is this training right for me? Why ReactJS Academy</H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={NotBegginerIcon} />
@@ -184,11 +182,10 @@ const IndexPage = () => (
                 for accelerated learning.
               </Li>
             </Ul>
-            <P>
-            </P>
-          <LinkButton secondary to="/curriculum">
-            Read our curriculum >>
-          </LinkButton>
+            <P />
+            <LinkButton secondary to="/curriculum">
+              Read our curriculum >>
+            </LinkButton>
           </Col>
           <HideComponentsUsingCss xs sm>
             <Col md={5} mdOffset={1}>
@@ -208,7 +205,8 @@ const IndexPage = () => (
               description={
                 <P>
                   <em>
-                    Andru Dunn, Senior Developer at <strong>John Lewis</strong> speaks how ReactJS Academy training has improved his team.
+                    Andru Dunn, Senior Developer at <strong>John Lewis</strong>{' '}
+                    speaks how ReactJS Academy training has improved his team.
                   </em>
                 </P>
               }
@@ -216,7 +214,8 @@ const IndexPage = () => (
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
-              What's in it for your company - why ReactJS Academy is great for your team
+              What's in it for your company - why ReactJS Academy is great for
+              your team
             </H2>
             <Ul unstyled>
               <Li>
@@ -249,11 +248,11 @@ const IndexPage = () => (
                 />
               </Col>
               <Col sm={6}>
-              <LinkButton to="/corporate-team-training">
+                <LinkButton to="/corporate-team-training">
                   Corporate training
                 </LinkButton>
               </Col>
-          </SectionButtonRow>
+            </SectionButtonRow>
           </Col>
         </Row>
       </Grid>

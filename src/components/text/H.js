@@ -40,7 +40,7 @@ export const H2_STYLE = `
 `
 
 export const H2 = styled.h2`
-  ${H2_STYLE}
+  ${H2_STYLE};
 `
 
 export const H2Ref = styled(H2)`
@@ -61,7 +61,7 @@ export const H3_STYLE = `
 `
 
 export const H3 = styled.h3`
-  ${H3_STYLE}
+  ${H3_STYLE};
 `
 
 export const H3Ref = styled(H3)`
@@ -75,7 +75,7 @@ export const H4_STYLE = `
 `
 
 export const H4 = styled.h4`
-  ${H4_STYLE}
+  ${H4_STYLE};
 `
 
 export const H4Ref = styled(H4)`
@@ -88,7 +88,7 @@ export const H5_STYLE = `
   font-weight: 700;
 `
 export const H5 = styled.h5`
-  ${H5_STYLE}
+  ${H5_STYLE};
 `
 
 export const H5Ref = styled(H5)`

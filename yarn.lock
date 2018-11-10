@@ -11993,6 +11993,10 @@ react-router@^4.1.1, react-router@^4.3.1:
     prop-types "^15.6.1"
     warning "^4.0.1"
 
+react-runkit@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-runkit/-/react-runkit-0.9.0.tgz#8a97aec60c2fcf9da17b0af2bb91a877e4336b05"
+
 react-scroll@^1.7.10:
   version "1.7.10"
   resolved "https://registry.yarnpkg.com/react-scroll/-/react-scroll-1.7.10.tgz#b59cfa11a899a362c6489607ed5865c9c5fd0b53"
