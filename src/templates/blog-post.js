@@ -15,6 +15,8 @@ import { blogAuthors } from '../config/data'
 import { Code, Tweet, Blockquote } from '../components/blog/Markdown'
 import ShareButtons from '../components/blog/ShareButtons'
 
+export const formatPostTitle = title => title.replace('<br/>', ' ')
+
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
@@ -100,7 +102,7 @@ const BlogPost = ({ data }) => {
                   <React.Fragment>
                     <P>
                       <Link to={post.node.fields.slug}>
-                        {post.node.frontmatter.title}
+                        {formatPostTitle(post.node.frontmatter.title)}
                       </Link>
                       <P>{post.node.frontmatter.date}</P>
                     </P>

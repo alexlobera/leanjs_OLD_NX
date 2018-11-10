@@ -7,6 +7,7 @@ import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
 import { Card, Image } from '../../components/elements'
 import { TopSection } from '../../components/layout/Section'
+import { formatPostTitle } from '../../templates/blog-post'
 
 const CardText = styled.div`
   padding: 18px;
@@ -39,9 +40,7 @@ const Blog = ({ data }) => {
                     </Link>
                     <CardText>
                       <Link to={`${post.node.fields.slug}`}>
-                        <H2>
-                          {post.node.frontmatter.title.replace('<br/>', ' ')}
-                        </H2>
+                        <H2>{formatPostTitle(post.node.frontmatter.title)}</H2>
                       </Link>
                       <P>{post.node.excerpt}</P>
                       <P>
