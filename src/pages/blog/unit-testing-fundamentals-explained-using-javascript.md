@@ -55,7 +55,7 @@ const byExpirationDate = (productA, productB)
         => productA.expiresOn - productB.expiresOn
 
 const availableProducts = products
-    .filter(inStock)
+    .filter(atLeast5InStock)
     .sort(byExpirationDate)
 ```
 
