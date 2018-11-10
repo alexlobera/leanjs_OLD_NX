@@ -35,7 +35,7 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-const SyledAuthor = styled.div`
+const StyledAuthor = styled.div`
   display: flex;
   color: ${WHITE};
   img {
@@ -49,7 +49,7 @@ const SyledAuthor = styled.div`
 `
 
 const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
-  <SyledAuthor>
+  <StyledAuthor>
     <Image src={blogAuthors[author].imgSrc} circle />
     <P>
       <Link to={`/about-us#${blogAuthors[author].path}`}>
@@ -60,11 +60,21 @@ const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
         Reading time: {timeToRead} mins
       </Span>
     </P>
-  </SyledAuthor>
+  </StyledAuthor>
 )
 
+const GridContent = styled(Grid)`
+  padding-top: 72px;
+`
+
 const BlogPost = ({ data }) => {
-  const { title, date, subtitle, author, imageUrl } = data.markdownRemark.frontmatter
+  const {
+    title,
+    date,
+    subtitle,
+    author,
+    imageUrl,
+  } = data.markdownRemark.frontmatter
   const { htmlAst, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
@@ -86,7 +96,7 @@ const BlogPost = ({ data }) => {
       >
         <PostMeta date={date} author={author} timeToRead={timeToRead} />
       </Header>
-      <Grid>
+      <GridContent>
         <Row>
           <Col md={6}>
             {subtitle ? <H2>{subtitle}</H2> : null}
@@ -127,7 +137,7 @@ const BlogPost = ({ data }) => {
             </P>
           </Col>
         </Row>
-      </Grid>
+      </GridContent>
       <UpcomingTrainingSection />
     </React.Fragment>
   )

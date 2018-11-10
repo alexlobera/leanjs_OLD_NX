@@ -17,7 +17,7 @@ I find useful to start explaining unit tests using the following example. Once I
 
 I’m not sure there is a consensus on what a unit is but it’s for sure not a “controller” with hundreds of lines of code.
 
-Would you way the following code is a unit?
+Would you say that the following code is a unit?
 
 ```
 function getAvailableProducts(products) {
