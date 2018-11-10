@@ -73,13 +73,17 @@ const backgroundImg = css`
         return `background-image: url(${COMMUNITY_IMG});`
       case 'corp-training':
         return `background-image: url(${CORP_TRAINING_HEADER_IMG});`
+      default:
+        return `background-image: url(${bgImg});`
     }
   }};
 `
 const HeaderSection = styled(Section)`
   ${({ bgImg }) =>
     bgImg === 'home' &&
-    `background-color: ${reactBlue(0.4)};`} position: relative;
+    `background-color: ${reactBlue(0.4)};`}
+    position: relative;
+
   &:before {
     content: '';
     position: absolute;
@@ -88,7 +92,9 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: -2;
-    ${backgroundImg} background-repeat: no-repeat;
+    background-image: url(${PART_TIME_IMG});
+    ${backgroundImg}
+    background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {

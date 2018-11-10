@@ -64,7 +64,7 @@ const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
 )
 
 const BlogPost = ({ data }) => {
-  const { title, date, subtitle, author } = data.markdownRemark.frontmatter
+  const { title, date, subtitle, author, imageUrl } = data.markdownRemark.frontmatter
   const { htmlAst, timeToRead } = data.markdownRemark
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
@@ -82,6 +82,7 @@ const BlogPost = ({ data }) => {
         titleLines={title.split('<br/>')}
         fullHeight={false}
         paddingBottom={80}
+        bgImg={imageUrl}
       >
         <PostMeta date={date} author={author} timeToRead={timeToRead} />
       </Header>
@@ -140,6 +141,7 @@ export const query = graphql`
         date
         subtitle
         author
+        imageUrl
       }
       fields {
         slug
