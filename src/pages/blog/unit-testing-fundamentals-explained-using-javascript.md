@@ -46,7 +46,7 @@ I define a unit as a piece of code that is isolated from the rest of the program
 
 A unit can be a function, class, module, etc. A function, or any of those previously mentioned, does not create a unit by definition. The unit is defined by two different axis, therefore the “unity” of the function depends on the degree to which it is isolated and reusable.
 
-The following code does the same that the previous one, but the following coe is more reusable (and testable!):
+The following code does the same that the previous does, but the following code is more reusable (and testable!):
 
 ```
 const atLeast5InStock =  product => product.quantity > 5
