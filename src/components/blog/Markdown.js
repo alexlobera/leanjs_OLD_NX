@@ -1,6 +1,5 @@
 import React from 'react'
 import { EmbedRunkit } from './Runkit'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
 import styled from 'styled-components'
 
 export const Code = props => {
@@ -11,7 +10,15 @@ export const Code = props => {
   }
 }
 
-export const Tweet = ({ id }) => <TwitterTweetEmbed tweetId={id} />
+export const Tweet = ({ id }) => {
+  if (typeof window !== 'undefined') {
+    const { TwitterTweetEmbed } = require('react-twitter-embed')
+
+    return <TwitterTweetEmbed tweetId={id} />
+  }
+
+  return null
+}
 
 export const Blockquote = styled.blockquote`
   padding-top: 10px;

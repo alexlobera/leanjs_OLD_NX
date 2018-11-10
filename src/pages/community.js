@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import Ul, { Li } from '../components/layout/Ul'
+import { Li } from '../components/layout/Ul'
 import { H2, H3, P } from '../components/text'
 import { Link } from '../components/navigation'
 import { Card, Image } from '../components/elements'

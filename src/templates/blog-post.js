@@ -75,7 +75,7 @@ const BlogPost = ({ data }) => {
         path={[
           { to: '/', label: 'Home' },
           { to: `/blog`, label: `Blog` },
-          { to: `/${slug}`, label: `${title}` },
+          { to: slug, label: title },
         ]}
       />
       <Header
