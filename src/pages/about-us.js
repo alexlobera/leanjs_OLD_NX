@@ -77,7 +77,7 @@ const AboutUs = () => (
       links={[
         { text: 'Coach profiles ', to: '#alex-lobera' },
         {
-          text: 'Continuous coach development ',
+          text: 'How we improve   ',
           to: '#continuous-coach-development',
         },
         { text: 'Manifesto', to: '#manifesto' },
@@ -323,7 +323,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -382,7 +381,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -434,7 +432,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -488,7 +485,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -636,33 +632,35 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section xsBgDarkGrey>
       <Grid>
         <Card bg="darkGrey" border="shadow">
           <Row>
-            <Col xs={12} md={5} mdOffset={1}>
+            <Col xs={12} md={4} mdOffset={1}>
               <Image src={CODEVELOP} width="100%" />
             </Col>
+            <Col xs={12} md={1} />
             <Col xs={12} md={5}>
               <H2Ref>
                 <Link to="#development" name="development" />
-                We can develop your product and tranfer our know-how
+                Need a quality product created? We can do that...
               </H2Ref>
               <LeanJSLink to="https://leanjs.com/">
-                <LeanJS height={60} color={WHITE} />
+                <LeanJS height={50} color={WHITE} />
               </LeanJSLink>
               <P>
-                Looking for an experienced team that can help you develop your
-                project on time and on budget?
+                Looking for an experienced team to create a digital project on
+                time and on budget? The core ReactJS Academy coaches form a
+                large part of LeanJS, a consultancy that specialises in product
+                design and development.
               </P>
               <P>
-                The consultants of our parent company LeanJS can significantly
-                contribute to the development of your products, whilst
-                transfering their know-how. Our expertice:
+                LeanJS's consultancy services can significantly aid the
+                evolution of your products, whilst transfering their training
+                know-how. Our expertise:{' '}
               </P>
               <Ul>
-                <Li>React, React Native, and GraphQL</Li>
+                <Li>React, React Native and GraphQL</Li>
                 <Li>Product & UX design</Li>
               </Ul>
               <P>

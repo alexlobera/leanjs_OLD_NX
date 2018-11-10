@@ -66,16 +66,16 @@ const IndexPage = () => (
               children="1-week React bootcamp >>"
             />
           </Col>
-          <Col xs={12} sm={4}>
+          <Col xs={12} sm={3}>
             <LinkButton
-              to="/react-native-bootcamp"
-              children="React Native training >>"
+              to="/advanced-react-redux-graphql-bootcamp"
+              children="React Advanced >>"
             />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              to="/react-redux-graphql-part-time-course"
-              children="React part-time course >>"
+              to="/corporate-team-training/"
+              children="Corporate team training >>"
             />
           </Col>
         </CallToActionRow>
@@ -118,9 +118,20 @@ const IndexPage = () => (
                 <strong>Stay ahead</strong> in modern development.
               </Li>
             </Ul>
-            <P>
-              <Link to="/curriculum">Checkout the curriculum</Link>
-            </P>
+            <SectionButtonRow>
+              <Col sm={6}>
+                <LinkButton
+                  cta
+                  to="/react-redux-graphql-bootcamp"
+                  children="React bootcamps"
+                />
+              </Col>
+              <Col sm={6}>
+                <LinkButton to="/corporate-team-training">
+                  Corporate training
+                </LinkButton>
+              </Col>
+            </SectionButtonRow>
           </Col>
         </Row>
       </Grid>
@@ -144,11 +155,7 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5} mdOffset={1}>
-            <H2>
-              Is this training right for me?
-              <br />
-              Why ReactJS Academy
-            </H2>
+            <H2>Is this training right for me? Why ReactJS Academy</H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={NotBegginerIcon} />
@@ -175,30 +182,10 @@ const IndexPage = () => (
                 for accelerated learning.
               </Li>
             </Ul>
-            <P>
-              <Link to="/curriculum">Checkout the curriculum</Link>
-            </P>
-            <SectionButtonRow>
-              <Col sm={4}>
-                <LinkButton
-                  cta
-                  to="/react-redux-graphql-bootcamp"
-                  children="React bootcamps"
-                />
-              </Col>
-              <Col sm={4}>
-                <LinkButton
-                  to="/react-native-bootcamp"
-                  children="React Native"
-                />
-              </Col>
-              <Col sm={4}>
-                <LinkButton
-                  to="/react-redux-graphql-part-time-course"
-                  children="Part-time courses"
-                />
-              </Col>
-            </SectionButtonRow>
+            <P />
+            <LinkButton secondary to="/curriculum">
+              Read our curriculum >>
+            </LinkButton>
           </Col>
           <HideComponentsUsingCss xs sm>
             <Col md={5} mdOffset={1}>
@@ -252,27 +239,18 @@ const IndexPage = () => (
                 Offer more services to internal and external clients
               </Li>
             </Ul>
-            <P>
-              <Link to="/curriculum">Checkout the curriculum</Link>
-            </P>
             <SectionButtonRow>
-              <Col md={4}>
+              <Col sm={6}>
                 <LinkButton
-                  to="/about-us#corporate-team-training"
-                  children="Corporate training"
-                />
-              </Col>
-              <Col md={4}>
-                <LinkButton
-                  to="/react-redux-graphql-part-time-course"
-                  children="Part-time courses"
-                />
-              </Col>
-              <Col md={4}>
-                <LinkButton
+                  cta
                   to="/react-redux-graphql-bootcamp"
                   children="React bootcamps"
                 />
+              </Col>
+              <Col sm={6}>
+                <LinkButton to="/corporate-team-training">
+                  Corporate training
+                </LinkButton>
               </Col>
             </SectionButtonRow>
           </Col>
@@ -297,5 +275,4 @@ const IndexPage = () => (
     <UpcomingTrainingSection />
   </React.Fragment>
 )
-
 export default IndexPage

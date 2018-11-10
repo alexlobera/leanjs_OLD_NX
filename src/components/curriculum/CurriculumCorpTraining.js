@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { H2Ref } from '../text'
+import { H2Ref, P } from '../text'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -107,11 +107,16 @@ const CurriculumBootcamp = ({
       <Row>
         <Col lg={10} lgOffset={1}>
           <H2Ref>
-            Example progressive curriculum (5 days)
+            Example corporate curriculum
             <Link to="#curriculum" name="curriculum">
               #
             </Link>
           </H2Ref>
+          <P>
+            This curriculum is the foundation from which we teach your team. We
+            may adapt our training so you get the best training possible for
+            your company's needs.
+          </P>
         </Col>
       </Row>
       {list ? (
