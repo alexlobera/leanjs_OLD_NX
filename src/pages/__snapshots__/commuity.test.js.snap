@@ -54,9 +54,9 @@ exports[`<Community /> should render component 1`] = `
               </styled.h2>
               <Styled(LinkButton)
                 cta={true}
-                to="/react-redux-graphql-bootcamp-lisbon/"
+                to="/react-redux-graphql-bootcamp-london"
               >
-                Next Bootcamp: 11 Nov, Lisbon &gt;&gt;
+                Next Bootcamp: 2 Dec, London &gt;&gt;
               </Styled(LinkButton)>
               <TwitterWidgetsOnlyOnClientSide />
             </Styled(Col)>
@@ -392,7 +392,7 @@ exports[`<Community /> should render component 1`] = `
           xs={12}
         >
           <styled.img
-            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpeg?alt=media"
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpg?alt=media"
           />
         </Styled(Col)>
         <Styled(Col)
