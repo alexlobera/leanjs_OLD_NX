@@ -6,22 +6,34 @@
   },
   {
     "to": "/react-redux-graphql-bootcamp",
-    "text": "React bootcamp",
-    "onlyOn": null
+    "text": "Training",
+    "onlyOn": null,
+    "children": [
+      {
+        "to": "/react-redux-graphql-bootcamp",
+        "text": "Bootcamp"
+      },
+      {
+        "to": "/corporate-team-training",
+        "text": "Corporate team training"
+      },
+      {
+        "to": "/advanced-react-redux-graphql-bootcamp",
+        "text": "Advanced React"
+      },
+      {
+        "to": "/react-native-bootcamp",
+        "text": "React Native"
+      },
+      {
+        "to": "/react-redux-graphql-part-time-course",
+        "text": "Part-time"
+      }
+    ]
   },
   {
-    "to": "/advanced-react-redux-graphql-bootcamp",
-    "text": "Advanced React",
-    "onlyOn": null
-  },
-  {
-    "to": "/react-native-bootcamp",
-    "text": "React Native",
-    "onlyOn": null
-  },
-  {
-    "to": "/react-redux-graphql-part-time-course",
-    "text": "Part-time",
+    "to": "/community",
+    "text": "Community",
     "onlyOn": null
   },
   {
@@ -30,7 +42,7 @@
     "onlyOn": null
   },
   {
-    "to": "#ContactUs",
+    "to": "#contact-us",
     "text": "Contact",
     "onlyOn": null
   }

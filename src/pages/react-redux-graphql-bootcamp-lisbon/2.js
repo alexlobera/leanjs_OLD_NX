@@ -59,7 +59,7 @@ const BootcampLisbon = () => (
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',
-        `${training.dates} - Lisbon distr, Portugal`,
+        `${training.dates} - Portugal`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
       links={header.landingTraining.links}
@@ -169,7 +169,7 @@ const BootcampLisbon = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory - it’s very balanced."
+              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
               fullname="Catalin Cislariu"
               job="Senior Developer"
               company="KLEIDO LTD"

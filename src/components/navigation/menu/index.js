@@ -53,7 +53,7 @@ export const Menu = ({ width }) => {
 }
 
 Menu.propTypes = {
-  width: PropTypes.number.isRequired,
+  width: PropTypes.number,
 }
 
 export default withWidth()(Menu)

@@ -134,8 +134,8 @@ const CurriculumPartTime = ({
           </Col>
         </Row>
       ) : (
-          ''
-        )}
+        ''
+      )}
 
       {list ? (
         <List>
@@ -143,15 +143,15 @@ const CurriculumPartTime = ({
           {secondHalf}
         </List>
       ) : (
-          <Row>
-            <Col md={6} lg={5} lgOffset={1}>
-              {firstHalf}
-            </Col>
-            <Col md={6} lg={5}>
-              {secondHalf}
-            </Col>
-          </Row>
-        )}
+        <Row>
+          <Col md={6} lg={5} lgOffset={1}>
+            {firstHalf}
+          </Col>
+          <Col md={6} lg={5}>
+            {secondHalf}
+          </Col>
+        </Row>
+      )}
 
       {showCallToActionBottom ? (
         <Row>
@@ -160,7 +160,7 @@ const CurriculumPartTime = ({
               <Row>
                 <Col lg={5} lgOffset={1}>
                   Looking for the most complete React curriculum? Our 1-week
-                  bootcamp has it...
+                  bootcamp has it all...
                 </Col>
                 <Col lg={6} center>
                   <LinkButton to="/react-redux-graphql-bootcamp" secondary>
@@ -172,8 +172,8 @@ const CurriculumPartTime = ({
           </Col>
         </Row>
       ) : (
-          ''
-        )}
+        ''
+      )}
     </React.Fragment>
   )
 }

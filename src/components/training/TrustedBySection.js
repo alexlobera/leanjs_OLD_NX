@@ -29,7 +29,8 @@ const FinancialTimes = styled(DefaultFinancialTimes)`
 const CompanyList = styled(Ul)`
   overflow: hidden;
   li {
-    margin-left: 10px;
+    margin-left: 0;
+    padding: 0.5rem 1rem 1.5rem 0;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
     li {
@@ -76,7 +77,7 @@ const TrustedBySection = () => (
       <Card bg="dark">
         <Row>
           <Col xs={12} lg={10} lgOffset={1}>
-            <H2>Trusted by industry leaders</H2>
+            <H2>Trusted by industry leaders:</H2>
           </Col>
         </Row>
         <Row>

@@ -269,14 +269,14 @@ class CheckoutForm extends React.Component {
                     </ValidateViesButton>
                   </Fragment>
                 ) : (
-                    <FormGroup>
-                      <AddCompanyDetailsButton
-                        onClick={this.toggleDisplayCompanyDetails}
-                      >
-                        + Add company details
+                  <FormGroup>
+                    <AddCompanyDetailsButton
+                      onClick={this.toggleDisplayCompanyDetails}
+                    >
+                      + Add company details
                     </AddCompanyDetailsButton>
-                    </FormGroup>
-                  )}
+                  </FormGroup>
+                )}
                 <CheckoutH4>Payment details</CheckoutH4>
                 <CCNameInput
                   label="Name on card:"
@@ -352,14 +352,14 @@ class CheckoutForm extends React.Component {
                     </ValidateVoucherButton>
                   </Fragment>
                 ) : (
-                    <FormGroup>
-                      <ShowVoucherButton
-                        onClick={this.toggleDisplayVoucherSection}
-                      >
-                        + Add discount voucher
+                  <FormGroup>
+                    <ShowVoucherButton
+                      onClick={this.toggleDisplayVoucherSection}
+                    >
+                      + Add discount voucher
                     </ShowVoucherButton>
-                    </FormGroup>
-                  )}
+                  </FormGroup>
+                )}
                 <RibbonBottomContainer>
                   <CheckoutH4>Pricing</CheckoutH4>
                   {currentPriceXQuantity ? (
@@ -372,8 +372,8 @@ class CheckoutForm extends React.Component {
                       )}
                     </Ribbon>
                   ) : (
-                      ''
-                    )}
+                    ''
+                  )}
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>

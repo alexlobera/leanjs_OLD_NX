@@ -8,8 +8,13 @@ describe('<DesktopMenu />', () => {
   it('should render the list of menu items', () => {
     const wrapper = shallow(<DesktopMenu />)
 
-    expect(wrapper.find(DesktopMenuItem).length).toBe(7)
     expect(toJson(wrapper)).toMatchSnapshot()
+  })
+
+  it('should have less than 7 links at the top level', () => {
+    const wrapper = shallow(<DesktopMenu />)
+
+    expect(wrapper.find(DesktopMenuItem).length).toBeLessThan(7)
   })
 
   it('should render curriculum as the first item on the menu', () => {
@@ -20,7 +25,7 @@ describe('<DesktopMenu />', () => {
         .find(DesktopMenuItem)
         .first()
         .props()
-        .children.toLowerCase()
+        .to.toLowerCase()
     ).toMatch(/curriculum/)
   })
 })

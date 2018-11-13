@@ -74,7 +74,7 @@ const BootcampLondon = () => (
               <Video youtubeID="yvROXLQ1jHg" />
               <TrainingDetails
                 date={training.dates}
-                timing="9am - 6:30pm, everyday"
+                timing="Sunday, 4pm - 7pm. Monday-Saturday, 9am - 6:30pm"
                 location={
                   <React.Fragment>
                     {training.location}
@@ -153,7 +153,7 @@ const BootcampLondon = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <AttendeeQuote
-              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory - it’s very balanced."
+              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
               fullname="Catalin Cislariu"
               job="Senior Developer"
               company="KLEIDO LTD"
