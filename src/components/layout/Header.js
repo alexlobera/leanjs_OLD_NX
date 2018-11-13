@@ -81,8 +81,7 @@ const backgroundImg = css`
 const HeaderSection = styled(Section)`
   ${({ bgImg }) =>
     bgImg === 'home' &&
-    `background-color: ${reactBlue(0.4)};`}
-    position: relative;
+    `background-color: ${reactBlue(0.4)};`} position: relative;
 
   &:before {
     content: '';
@@ -93,8 +92,7 @@ const HeaderSection = styled(Section)`
     height: 100%;
     z-index: -2;
     background-image: url(${PART_TIME_IMG});
-    ${backgroundImg}
-    background-repeat: no-repeat;
+    ${backgroundImg} background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
