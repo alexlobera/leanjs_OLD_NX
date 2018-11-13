@@ -8,11 +8,11 @@ exports[`<CodeOfConduct /> should render component 1`] = `
       Array [
         Object {
           "text": "Key takeaways ",
-          "to": "key-takeaways",
+          "to": "#key-takeaways",
         },
         Object {
           "text": "More detail",
-          "to": "more-detail",
+          "to": "#more-detail",
         },
       ]
     }

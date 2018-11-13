@@ -4,105 +4,426 @@ exports[`<Community /> should render component 1`] = `
 <Fragment>
   <Header
     bgImg="training-event"
-    subtitle="The ReactJS Academy supports the JavaScript community<br /> by providing free workshops and talks. Many of them are about<br />the React ecosystem, although we are interested in any JavaScript topic."
+    links={
+      Array [
+        Object {
+          "text": "Twitter ",
+          "to": "#twitter",
+        },
+        Object {
+          "text": "Meetups",
+          "to": "#meetups",
+        },
+        Object {
+          "text": "Instagram",
+          "to": "#instagram",
+        },
+        Object {
+          "text": "Mentor community",
+          "to": "#mentor-community",
+        },
+      ]
+    }
+    subtitle="We are not a group of people - but a movement!"
     titleLines={
       Array [
-        "Community",
+        "The ReactJS",
+        "Academy community",
       ]
     }
   />
   <TopSection>
     <Grid>
-      <Card
-        border="shadow"
-      >
-        <Row>
-          <Styled(Col)
-            lg={10}
-            lgOffset={1}
-            xs={12}
+      <Row>
+        <Styled(Col)
+          md={6}
+          xs={12}
+        >
+          <Card
+            border="shadow"
           >
-            <styled.h2>
-              Trusted by industry leaders
-            </styled.h2>
-            <TrustedByLogoList />
-          </Styled(Col)>
-        </Row>
-      </Card>
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Twitter? Sure.
+                <a
+                  name="twitter"
+                />
+              </styled.h2>
+              <Styled(LinkButton)
+                cta={true}
+                to="/react-redux-graphql-bootcamp-london"
+              >
+                Next Bootcamp: 2 Dec, London &gt;&gt;
+              </Styled(LinkButton)>
+              <TwitterWidgetsOnlyOnClientSide />
+            </Styled(Col)>
+          </Card>
+        </Styled(Col)>
+        <Styled(Col)
+          md={6}
+          xs={12}
+        >
+          <Card
+            border="shadow"
+          >
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Meetups? Absolutely! 
+                <a
+                  name="meetups"
+                />
+              </styled.h2>
+              <styled.h3>
+                Our groups
+              </styled.h3>
+              <Row>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-London"
+                  >
+                    JavaScript London
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Lisbon"
+                  >
+                    JavaScript Lisbon
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Barcelona"
+                  >
+                    JavaScript Barcelona
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Amsterdam"
+                  >
+                    JavaScript Amsterdam
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Paris"
+                  >
+                    JavaScript Paris
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Berlin"
+                  >
+                    JavaScript Berlin
+                  </Styled(Link)>
+                </Styled(Col)>
+              </Row>
+            </Styled(Col)>
+          </Card>
+          <Styled(Card)
+            border="shadow"
+          >
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Instagram - boom! 
+                <a
+                  name="instagram"
+                />
+              </styled.h2>
+              <p>
+                <Link
+                  to="https://www.instagram.com/reactjsacademy/"
+                >
+                  @reactjsacademy
+                </Link>
+              </p>
+              <Row>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BlKzTaDhgHi/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BlKzTaDhgHi/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36817558_450106245453815_6112091121972674560_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bk75sNohLYj/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bk75sNohLYj/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F35617654_170833687116966_1947517169063428096_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bk5YOLChqtU/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bk5YOLChqtU/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36086456_1480216008745939_24472745127444480_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bez93FGjzF_/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bez93FGjzF_/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26865648_169528813824877_4406314323148800000_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BegfOKJhqlI/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BegfOKJhqlI/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864897_328580144320192_5121053768045035520_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BetL4W9jgH-/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BetL4W9jgH-/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864416_129494071196900_7973896072546222080_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BehzsERhFD-/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BehzsERhFD-/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26297885_475227026212742_5117213139569475584_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bm6aQgUBf5I/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bm6aQgUBf5I/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39082080_461163161052325_8607426366004002816_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bn03JlsBzha/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bn03JlsBzha/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F40837332_948936048642799_1172628414218297748_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bm5oSYThgdh/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bm5oSYThgdh/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38906658_416479198875897_7532493989954453504_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bm1fSwqhbs6/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bm1fSwqhbs6/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39509245_240024560031837_3622283981887635456_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BmzERnchwWI/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BmzERnchwWI/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38910064_2053848154901051_8646084443217330176_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bmv2RtLh-ni/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bmv2RtLh-ni/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39134109_227966924551660_991928276173717504_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BmgFNYuAId9/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BmgFNYuAId9/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38254367_252576538717173_2313109170460557312_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BmGyp4KhDPq/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BmGyp4KhDPq/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F37866739_2091795601072327_8113206459233206272_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BejRn8khgOr/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BejRn8khgOr/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864283_388884551554676_8478013482342547456_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BkvoOb4B_CT/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BkvoOb4B_CT/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36160171_379799175876625_8073726428358639616_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BRYf6cZhEci/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BRYf6cZhEci/"
+                  >
+                    <styled.img
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F17125812_1272222992812942_3290496564270727168_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+              </Row>
+            </Styled(Col)>
+          </Styled(Card)>
+        </Styled(Col)>
+      </Row>
     </Grid>
   </TopSection>
-  <Section
-    xsBgDark={true}
-  >
+  <Section>
     <Grid>
-      <Card
-        bg="dark"
-      >
-        <Row>
-          <Styled(Col)
-            lg={4}
-            lgOffset={1}
-            md={6}
-            xs={12}
-          >
-            <Video
-              youtubeID="yvROXLQ1jHg"
+      <Row>
+        <Styled(Col)
+          md={6}
+          xs={12}
+        >
+          <styled.img
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpg?alt=media"
+          />
+        </Styled(Col)>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+          xs={12}
+        >
+          <styled.h2>
+            Our mentor community 
+            <a
+              name="mentor-community"
             />
-          </Styled(Col)>
-          <Styled(Col)
-            lg={5}
-            lgOffset={1}
-            md={6}
-            xs={12}
-          >
-            <styled.h2>
-              The value of giving to our community
-            </styled.h2>
-            <styled.h3>
-              Feedback
-            </styled.h3>
-            <styled.p>
-              The JavaScript community is very active, and the React ecosystem evolves very fast. We need to keep our curriculum up to date, adding new topics and exercises. We test our curriculum in our community. They tell us what works and what doesn't work, it helps us to continuously improve it.
-            </styled.p>
-            <styled.h3
-              style={
-                Object {
-                  "paddingTop": "20px",
-                }
-              }
+          </styled.h2>
+          <styled.p>
+            ReactJS Academy is devoted to helping developers grow in their professional career. Our dedication stands beyond making them awesome React developers. We want them to make an impact in the organizations and people they choose to work with.
+          </styled.p>
+          <styled.p>
+            Our experience tells us that the best way to master a skill is by teaching it. We believe sharing knowledge also contributes to creating collaborative workplaces & communities.
+          </styled.p>
+          <styled.p>
+            The ReactJS Academy mentorship program enables those experienced developers in our community to take a step farther and become a mentor in our community events and workshops. This way they can build the experience required to become not only a great developer but also a great coach, speaker, and team player.
+          </styled.p>
+          <styled.p>
+            <Link
+              to="#contact-us"
             >
-              Practise makes perfect
-            </styled.h3>
-            <styled.p>
-              The more we explain something, the better we become at teaching it. If cutting-edge JavaScript moves that fast then we can't stop practising. By teaching the community, we are exposed to a lot of developers, with different backgrounds, experiences and challenges. We learn from teaching them.
-            </styled.p>
-            <styled.h3
-              style={
-                Object {
-                  "paddingTop": "20px",
-                }
-              }
-            >
-              Word of mouth
-            </styled.h3>
-            <styled.p>
-              The community is open, and it spreads the word of what they think it's good. We help the community, we do a great job, and they talk about us.
-            </styled.p>
-            <styled.h3
-              style={
-                Object {
-                  "paddingTop": "20px",
-                }
-              }
-            >
-              Networking
-            </styled.h3>
-            <styled.p>
-              Organising events for the community connects us deeply with the community. It opens extraordinary opportunities for business, recruitment, learning and working on cool projects.
-            </styled.p>
-          </Styled(Col)>
-        </Row>
-      </Card>
+              Contact us
+            </Link>
+          </styled.p>
+        </Styled(Col)>
+      </Row>
     </Grid>
   </Section>
   <UpcomingTrainingSection />

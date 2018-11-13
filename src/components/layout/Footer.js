@@ -48,7 +48,7 @@ const Footer = () => (
       <footer>
         <Row>
           <Col md={5} mdOffset={1}>
-            <ContactForm />
+            <ContactForm addContactUsLink={true} />
           </Col>
           <Col md={4} mdOffset={1}>
             <Row>
@@ -63,6 +63,11 @@ const Footer = () => (
                     </Link>
                   </Li>
                   <Li>
+                    <Link to="/about-us#corporate-team-training">
+                      Corporate Training
+                    </Link>
+                  </Li>
+                  <Li>
                     <Link to="/react-native-bootcamp">React Native</Link>
                   </Li>
                   <Li>
@@ -71,33 +76,12 @@ const Footer = () => (
                     </Link>
                   </Li>
                   <Li>
-                    <Link to="/about-us">About us</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/about-us#corporate-team-training">
-                      Corporate Training
-                    </Link>
+                    <Link to="/blog">Blog</Link>
                   </Li>
                   <Li>
                     <Link to="/react-redux-graphql-training">
                       Training list
                     </Link>
-                  </Li>
-                  <Li>
-                    <Link to="/code-of-conduct">Code of conduct</Link>
-                  </Li>
-                </LinkList>
-              </Col>
-              <Col md={6}>
-                <LinkList>
-                  <Li>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/terms-of-service">Terms of service</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/blog">Blog</Link>
                   </Li>
                   <Li>
                     <Link
@@ -106,6 +90,25 @@ const Footer = () => (
                     >
                       hello@reactjs.academy
                     </Link>
+                  </Li>
+                </LinkList>
+              </Col>
+              <Col md={6}>
+                <LinkList>
+                  <Li>
+                    <Link to="/about-us">About us</Link>
+                  </Li>
+                  <Li>
+                    <Link to="/community">Community</Link>
+                  </Li>
+                  <Li>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
+                  </Li>
+                  <Li>
+                    <Link to="/terms-of-service">Terms of service</Link>
+                  </Li>
+                  <Li>
+                    <Link to="/code-of-conduct">Code of conduct</Link>
                   </Li>
                 </LinkList>
                 <P>Follow us...</P>

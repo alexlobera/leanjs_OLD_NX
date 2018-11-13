@@ -1,4 +1,4 @@
-import Link, { LinkScroll, DEFAULT_SCROLL_OFFSET } from './Link'
+import Link, { LinkScroll, DEFAULT_SCROLL_OFFSET, ANCHOR_STYLE } from './Link'
 import Breadcrumb from './Breadcrumb'
 import Menu from './menu'
 import Tabs, {
@@ -12,6 +12,7 @@ import Tabs, {
 export {
   Link,
   LinkScroll,
+  ANCHOR_STYLE,
   DEFAULT_SCROLL_OFFSET,
   Breadcrumb,
   Menu,

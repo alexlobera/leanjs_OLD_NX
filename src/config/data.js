@@ -1,9 +1,24 @@
+import { LONDON_MEETUP, RICHARD, ALEX } from './images'
+
 export const LONDON = 'London'
 export const LISBON = 'Lisbon dist.'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React bootcamp'
 export const ADVANCED_REACT = 'Advanced React'
+
+/*
+Boocamp prices:
+1450 
+1579.17 -> Nov 23
+1662.5 -> Dec 14
+1800 -> Jan 15 
+
+Part-time prices
+829.17
+1000
+1166.67
+*/
 
 const emptyTraining = (type, city) => ({
   dates: 'TBC',
@@ -18,27 +33,43 @@ const emptyTraining = (type, city) => ({
   currency: '',
 })
 
-export const selectTrainings = (type, city) =>
-  trainings
-    .filter(
-      training =>
-        (!type || training.type === type) &&
-        (!city || training.city === city) &&
-        training.dateStartsOn > Date.now()
-    )
-    .sort((a, b) => a.dateStartsOn > b.dateStartsOn)
-
-export const selectSecondTraining = (type, city) => {
-  const trainings = selectTrainings(type, city)
-  return trainings.length > 1 ? trainings[1] : emptyTraining(type, city)
-}
-
-export const selectFirstTraining = (type, city) => {
-  const trainings = selectTrainings(type, city)
-  return trainings.length ? trainings[0] : emptyTraining(type, city)
-}
-
 export const trainings = [
+  {
+    dates: 'Jan 27 to Feb 2, 2019',
+    dateStartsOn: new Date('2019-01-27T16:00:00'),
+    city: LISBON,
+    country: 'Portugal',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'Lisbon',
+    country: 'Portugal',
+    location: 'TBC',
+    pathUrl: '/react-redux-graphql-bootcamp-lisbon/2',
+    trainingInstanceId: '',
+    price: 1800,
+    nextDiscountPrice: 1579.17,
+    discountPrice: 1450,
+    priceGoesUpOn: 'Nov 23, 2018.',
+    ticketName: 'Discount ticket',
+    currency: 'gbp',
+  },
+  {
+    dates: '11-17 Nov, 2018',
+    dateStartsOn: new Date('2018-11-11T18:00:00'),
+    city: LISBON,
+    country: 'Portugal',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'Lisbon',
+    country: 'Portugal',
+    location:
+      'Torres Vedras LabCenter, Rua José Eduardo César n. 6, 2560-680, Torres Vedras, Portugal ',
+    pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
+    trainingInstanceId: '5b74235404ba003b823513d7',
+    price: 1800,
+    discountPrice: 1662.5,
+    priceGoesUpOn: 'Nov 7th, 2018.',
+    ticketName: 'Discount ticket',
+    currency: 'gbp',
+  },
   {
     dates: '06-08 Dec, 2018',
     dateStartsOn: new Date('06 Dec, 2018'),
@@ -54,8 +85,8 @@ export const trainings = [
     currency: 'gbp',
   },
   {
-    dates: '3-8 Dec, 2018',
-    dateStartsOn: new Date('3 December, 2018'),
+    dates: '2-8 Dec, 2018',
+    dateStartsOn: new Date('2 December, 2018'),
     city: LONDON,
     country: 'UK',
     type: REACT_BOOTCAMP,
@@ -65,15 +96,15 @@ export const trainings = [
     pathUrl: '/react-redux-graphql-bootcamp-london',
     trainingInstanceId: '5b98707c2bbd86e1b6c3c322',
     price: 1800,
-    discountPrice: 1450,
-    nextDiscountPrice: 1579.17,
-    priceGoesUpOn: new Date('november 3, 2018'),
+    discountPrice: 1579.17,
+    nextDiscountPrice: 1662.5,
+    priceGoesUpOn: 'Nov 12, 2018.',
     ticketName: 'Early bird ticket',
     currency: 'gbp',
   },
   {
-    dates: '16 Oct - 15 Nov, 2018',
-    dateStartsOn: new Date('16 October, 2018'),
+    dates: '15 Jan - 15 Feb, 2019',
+    dateStartsOn: new Date('15 Jan, 2019'),
     city: LONDON,
     country: 'UK',
     type: PART_TIME,
@@ -81,27 +112,9 @@ export const trainings = [
     country: 'UK',
     location: 'Makers Academy',
     pathUrl: '/react-redux-training-london',
-    trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
-    price: 1166.67,
+    trainingInstanceId: '5be3366f1307cabce7761593',
+    price: 829.17,
     ticketName: 'Standard ticket',
-    currency: 'gbp',
-  },
-  {
-    dates: '11-17 Nov, 2018',
-    dateStartsOn: new Date('2018-11-11T18:00:00'),
-    city: LISBON,
-    country: 'Portugal',
-    type: REACT_BOOTCAMP,
-    cityShortName: 'Lisbon',
-    country: 'Portugal',
-    location: 'Torres Vedras, Portugal',
-    pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
-    trainingInstanceId: '5b74235404ba003b823513d7',
-    price: 1800,
-    discountPrice: 1579.17,
-    nextDiscountPrice: 1662.5,
-    priceGoesUpOn: new Date('20 october, 2018'),
-    ticketName: 'Discount ticket',
     currency: 'gbp',
   },
   {
@@ -137,3 +150,147 @@ export const trainings = [
     currency: 'gbp',
   },
 ]
+
+const meetups = [
+  // {
+  //   dateStartsOn: new Date('17 Nov, 2018'),
+  //   cityShortName: 'London',
+  //   country: 'UK',
+  //   url: 'https://www.meetup.com/JavaScript-london/',
+  //   title: 'event name',
+  //   imgUrl: LONDON_MEETUP,
+  // },
+]
+
+export const blogAuthors = {
+  richard: {
+    imgSrc: RICHARD,
+    fullname: 'Richard Moss',
+    path: 'richard-moss',
+  },
+  alex: {
+    imgSrc: ALEX,
+    fullname: 'Alex Lobera',
+    path: 'alex-lobera',
+  },
+}
+
+export const instagramPictures = [
+  {
+    pageUrl: 'https://www.instagram.com/p/BlKzTaDhgHi/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36817558_450106245453815_6112091121972674560_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bk75sNohLYj/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F35617654_170833687116966_1947517169063428096_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bk5YOLChqtU/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36086456_1480216008745939_24472745127444480_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bez93FGjzF_/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26865648_169528813824877_4406314323148800000_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BegfOKJhqlI/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864897_328580144320192_5121053768045035520_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BetL4W9jgH-/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864416_129494071196900_7973896072546222080_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BehzsERhFD-/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26297885_475227026212742_5117213139569475584_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bm6aQgUBf5I/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39082080_461163161052325_8607426366004002816_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bn03JlsBzha/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F40837332_948936048642799_1172628414218297748_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bm5oSYThgdh/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38906658_416479198875897_7532493989954453504_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bm1fSwqhbs6/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39509245_240024560031837_3622283981887635456_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BmzERnchwWI/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38910064_2053848154901051_8646084443217330176_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/Bmv2RtLh-ni/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39134109_227966924551660_991928276173717504_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BmgFNYuAId9/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38254367_252576538717173_2313109170460557312_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BmGyp4KhDPq/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F37866739_2091795601072327_8113206459233206272_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BejRn8khgOr/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864283_388884551554676_8478013482342547456_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BkvoOb4B_CT/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36160171_379799175876625_8073726428358639616_n.jpg?alt=media',
+  },
+  {
+    pageUrl: 'https://www.instagram.com/p/BRYf6cZhEci/',
+    imageUrl:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F17125812_1272222992812942_3290496564270727168_n.jpg?alt=media',
+  },
+]
+
+export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
+  [...data]
+    .filter(
+      training =>
+        (!type || training.type === type) &&
+        (!city || training.city === city) &&
+        training.dateStartsOn > Date.now()
+    )
+    .sort((a, b) => a.dateStartsOn - b.dateStartsOn) || []
+
+export const selectTrainings = curriedSelectTrainings({ data: trainings })
+
+export const selectSecondTraining = (type, city) => {
+  const trainings = selectTrainings(type, city)
+  return trainings.length > 1 ? trainings[1] : emptyTraining(type, city)
+}
+
+export const selectFirstTraining = (type, city) => {
+  const trainings = selectTrainings(type, city)
+  return trainings.length ? trainings[0] : emptyTraining(type, city)
+}
+
+export const selectMeetups = () =>
+  meetups
+    .filter(meetup => meetup.dateStartsOn > Date.now())
+    .sort((a, b) => a.dateStartsOn > b.dateStartsOn)

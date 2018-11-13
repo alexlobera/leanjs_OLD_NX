@@ -48,17 +48,14 @@ const ThanksTitle = styled(H3)`
 const Form = styled.form`
   display: block;
   width: 100%;
-
   label {
     display: block;
     margin-bottom: 8px;
   }
-
   input[type='email'] {
     border-color: transparent;
     border-width: 0;
   }
-
   input[type='submit'] {
     margin-top: 8px;
   }
@@ -86,7 +83,9 @@ class ContactForm extends Component {
     function gtag() {
       dataLayer.push(arguments)
     }
-    gtag('event', 'conversion', { 'send_to': 'AW-877316317/d5TtCOmF_IoBEN2Rq6ID' });
+    gtag('event', 'conversion', {
+      send_to: 'AW-877316317/d5TtCOmF_IoBEN2Rq6ID',
+    })
   }
 
   handleEmailChange = e => {
@@ -101,30 +100,44 @@ class ContactForm extends Component {
   render() {
     const { email, emailValid } = this.state
     const isValid = emailValid && email.length > 0
+    const { addContactUsLink, simplified } = this.props
+
     return (
       <React.Fragment>
-        <H3 id="ContactUs">Contact us</H3>
+        {!simplified && (
+          <React.Fragment>
+            <H3>
+              {addContactUsLink ? <a name="contact-us" /> : null}
+              Contact us
+            </H3>
+            <P>
+              The best way to contact us is by emailing us at{' '}
+              <Link to="mailto:hello@reactjsacademy.com">
+                hello@reactjs.academy
+              </Link>
+              .{' '}
+            </P>
+            <P>
+              Otherwise, you can contact us socially on{' '}
+              <Link to="https://twitter.com/reactjsacademy">Twitter</Link>,{' '}
+              <Link to="https://www.instagram.com/reactjsacademy/">
+                Instagram
+              </Link>{' '}
+              and{' '}
+              <Link to="https://www.facebook.com/reactjsacademy/">
+                Facebook
+              </Link>{' '}
+              or visit our <Link to="/about-us">About Us page</Link> and
+              directly contact one of our coaches.{' '}
+            </P>
+          </React.Fragment>
+        )}
+        <H3>Signup to our newsletter</H3>
         <P>
-          The best way to contact us is by emailing us at{' '}
-          <Link to="mailto:hello@reactjsacademy.com">
-            hello@reactjs.academy
-          </Link>
-          .{' '}
-        </P>
-        <P>
-          Otherwise, you can contact us socially on{' '}
-          <Link to="https://twitter.com/reactjsacademy">Twitter</Link>,{' '}
-          <Link to="https://www.instagram.com/reactjsacademy/">Instagram</Link>{' '}
-          and{' '}
-          <Link to="https://www.facebook.com/reactjsacademy/">Facebook</Link> or
-          visit our <Link to="/about-us">About Us page</Link> and directly
-          contact one of our coaches.{' '}
-        </P>
-        <H3>Newsletter & pre-training resources</H3>
-        <P>
-          Enter your email below and we'll email you with our latest training
-          and free learning resources. And no, we don't spam you with anything
-          else, as per our <Link to="/privacy-policy">Privacy Policy</Link>.
+          Enter your email below and we'll email you with our{' '}
+          <strong>latest training and free learning resources</strong>. And no,
+          we don't spam you with anything else, as per our{' '}
+          <Link to="/privacy-policy">Privacy Policy</Link>.
         </P>
         <Row>
           <Col>

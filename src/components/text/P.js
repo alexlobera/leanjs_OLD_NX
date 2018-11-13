@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FONT_FAMILY, TEXT_SIZE } from '../../config/styles'
 
-export default styled.p`
+export const P_STYLE = `
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
   text-align: ${props => props.align || 'left'};
@@ -13,4 +13,8 @@ export default styled.p`
   > a {
     ${TEXT_SIZE({ lg: true })}
   }
+`
+
+export default styled.p`
+  ${P_STYLE};
 `

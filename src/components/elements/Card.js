@@ -24,22 +24,30 @@ const fontColor = color => `
 `
 
 const Card = styled.div` 
+  position: relative;
   ${props =>
     props.top
       ? `
       margin-top: ${props.top}px;
     `
       : null}
-  position: relative;
+  ${props =>
+    props.bottom
+      ? `
+      margin-bottom: ${props.bottom}px;
+    `
+      : null}
   ${props =>
     props.small
       ? `
       padding: 30px;
     `
-      : `
-    padding-top: 60px;
-    padding-bottom:40px;
-  `}
+      : props.padding !== false
+        ? `
+      padding-top: 60px;
+      padding-bottom:60px;
+  `
+        : ``}
   ${props => {
     switch (props.bg) {
       case 'dark':

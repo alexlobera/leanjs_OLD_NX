@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import { createHttpLink } from 'apollo-link-http'
 import { ApolloProvider } from 'react-apollo'
@@ -16,6 +16,7 @@ import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
 import './index.css'
 import favicon from './favicon.ico'
+import { RunkitProvider } from '../components/blog/Runkit'
 
 raven.config(SENTRY_DSN).install()
 
@@ -44,37 +45,40 @@ const graphqlClient = new ApolloClient({
 
 const Layout = ({ children, data }) => {
   return (
-    <ThemeProvider theme={gridTheme}>
-      <ApolloProvider client={graphqlClient}>
-        <React.Fragment>
-          <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              {
-                name: 'description',
-                content: data.site.siteMetadata.description,
-              },
-              { name: 'keywords', content: data.site.siteMetadata.keywords },
-            ]}
-            link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
-            script={[
-              {
-                type: 'text/javascript',
-                src: 'https://unpkg.com/jquery/dist/jquery.min.js',
-              },
-              {
-                type: 'text/javascript',
-                src: 'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                async: true,
-              },
-            ]}
-          />
-          <Menu />
-          {children()}
-          <Footer />
-        </React.Fragment>
-      </ApolloProvider>
-    </ThemeProvider>
+    <RunkitProvider>
+      <ThemeProvider theme={gridTheme}>
+        <ApolloProvider client={graphqlClient}>
+          <React.Fragment>
+            <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                {
+                  name: 'description',
+                  content: data.site.siteMetadata.description,
+                },
+                { name: 'keywords', content: data.site.siteMetadata.keywords },
+              ]}
+              link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
+              script={[
+                {
+                  type: 'text/javascript',
+                  src: 'https://unpkg.com/jquery/dist/jquery.min.js',
+                },
+                {
+                  type: 'text/javascript',
+                  src:
+                    'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                  async: true,
+                },
+              ]}
+            />
+            <Menu />
+            {children()}
+            <Footer />
+          </React.Fragment>
+        </ApolloProvider>
+      </ThemeProvider>
+    </RunkitProvider>
   )
 }
 

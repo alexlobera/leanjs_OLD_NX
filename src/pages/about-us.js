@@ -18,7 +18,7 @@ import {
   WILL,
   ADAM,
   EVA,
-  ABOUT_CORPORATE,
+  CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
 import { HideComponentsUsingCss } from '../components/utils'
@@ -75,13 +75,13 @@ const AboutUs = () => (
       titleLines={['About us']}
       subtitle="Our coaches are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> journey"
       links={[
-        { text: 'Coach profiles ', to: 'alex-lobera' },
+        { text: 'Coach profiles ', to: '#alex-lobera' },
         {
-          text: 'Continuous coach development ',
-          to: 'continuous-coach-development',
+          text: 'How we improve   ',
+          to: '#continuous-coach-development',
         },
-        { text: 'Manifesto', to: 'manifesto' },
-        { text: 'Corporate team training', to: 'corporate-team-training' },
+        { text: 'Manifesto', to: '#manifesto' },
+        { text: 'Development', to: '#development' },
       ]}
       bgImg="about-us"
     />
@@ -323,7 +323,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -382,7 +381,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -434,7 +432,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -488,7 +485,6 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Row>
@@ -636,45 +632,39 @@ const AboutUs = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section xsBgDarkGrey>
       <Grid>
         <Card bg="darkGrey" border="shadow">
           <Row>
-            <Col xs={12} md={5} mdOffset={1}>
-              <Image src={ABOUT_CORPORATE} width="100%" />
+            <Col xs={12} md={4} mdOffset={1}>
+              <Image src={CODEVELOP} width="100%" />
             </Col>
+            <Col xs={12} md={1} />
             <Col xs={12} md={5}>
               <H2Ref>
-                Corporate team training
-                <Link
-                  to="#corporate-team-training"
-                  name="corporate-team-training"
-                >
-                  #
-                </Link>
+                <Link to="#development" name="development" />
+                Need a quality product created? We can do that...
               </H2Ref>
               <LeanJSLink to="https://leanjs.com/">
-                <LeanJS height={60} color={WHITE} />
+                <LeanJS height={50} color={WHITE} />
               </LeanJSLink>
-              <P>Looking for a way to train your whole team? No problem!</P>
               <P>
-                Our parent company LeanJS delivers high quality, bespoke team
-                training on a host of different subjects - not just React…
+                Looking for an experienced team to create a digital project on
+                time and on budget? The core ReactJS Academy coaches form a
+                large part of LeanJS, a consultancy that specialises in product
+                design and development.
+              </P>
+              <P>
+                LeanJS's consultancy services can significantly aid the
+                evolution of your products, whilst transfering their training
+                know-how. Our expertise:{' '}
               </P>
               <Ul>
-                <Li>
-                  React, React Native, Javascript, GraphQL, Redux, Lean/Agile
-                  methodologies and UX design training available
-                </Li>
-                <Li>Delivered in your office - worldwide.</Li>
-                <Li>Tailored to your business needs - you choose the dates.</Li>
+                <Li>React, React Native and GraphQL</Li>
+                <Li>Product & UX design</Li>
               </Ul>
               <P>
-                <LinkButton
-                  secondary
-                  to="https://leanjs.com/training/private-react-redux-graphql-training"
-                >
+                <LinkButton secondary to="https://leanjs.com">
                   Visit LeanJS
                 </LinkButton>
               </P>
