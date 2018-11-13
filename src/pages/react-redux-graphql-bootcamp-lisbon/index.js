@@ -1,4 +1,6 @@
 import React from 'react'
+import Helmet from 'react-helmet'
+import moment from 'moment'
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../../components/text'
@@ -32,20 +34,32 @@ import { Link, Breadcrumb } from '../../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LISBON } from '../../config/data'
 
 const training = selectFirstTraining(REACT_BOOTCAMP, LISBON)
+const startMonth = moment(training.dateStartsOn).format('MMM')
 
 const BootcampLisbon = () => (
   <React.Fragment>
+    <Helmet
+      link={[
+        {
+          rel: 'canonical',
+          href: `https://reactjs.academy/react-redux-graphql-bootcamp-lisbon`,
+        },
+      ]}
+    />
     <Breadcrumb
       path={[
         { to: '/', label: 'Home' },
         { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
-        { to: '/react-redux-graphql-bootcamp-lisbon', label: 'Lisbon' },
+        {
+          to: '/react-redux-graphql-bootcamp-lisbon/',
+          label: `${training.cityShortName} ${startMonth}`,
+        },
       ]}
     />
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',
-        `${training.dates} - Lisbon distr, Portugal`,
+        `${training.dates} - Portugal`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
       links={header.landingTraining.links}
@@ -81,12 +95,17 @@ const BootcampLisbon = () => (
                 location={
                   <React.Fragment>
                     {training.location}.{' '}
-                    <Link to="https://goo.gl/maps/EhNnnDiHqSR2">
+                    {/* <Link to="https://www.google.com/maps/place/Torres+Vedras,+Portugal/@39.0930924,-9.2980036,13z/data=!3m1!4b1!4m5!3m4!1s0xd1f2dc22d3a1b53:0xca2cc4fc7eaba688!8m2!3d39.0917759!4d-9.2600341">
                       See on map
-                    </Link>
+                    </Link> */}
                   </React.Fragment>
                 }
-                coaches={[HORACIO_HERRERA, ALEX_LOBERA, RICHARD_MOSS]}
+                coaches={[
+                  HORACIO_HERRERA,
+                  WILL_VOELCKER,
+                  ALEX_LOBERA,
+                  RICHARD_MOSS,
+                ]}
               />
             </Col>
           </Row>
