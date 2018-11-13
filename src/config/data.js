@@ -43,7 +43,7 @@ export const trainings = [
     cityShortName: 'Lisbon',
     country: 'Portugal',
     location: 'TBC',
-    pathUrl: '/react-redux-graphql-bootcamp-lisbon/2',
+    pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
     trainingInstanceId: '',
     price: 1800,
     nextDiscountPrice: 1579.17,
