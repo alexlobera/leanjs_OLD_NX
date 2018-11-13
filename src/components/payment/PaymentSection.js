@@ -163,12 +163,7 @@ class PaymentSection extends React.Component {
                 <P>
                 <Countdown date={priceGoesUpOn} />
               </P>
-              {/*<P>
-                Price increases to{' '}
-                {formatPrice(currency, nextDiscountPrice, DEFAULT_VAT_RATE)} on{' '}
-                {moment(priceGoesUpOn).format('MMM Do Y')}
-              </P>
-              */}
+
             </React.Fragment>
           ) : (
             ''

@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { H4 } from '../text'
+import { H3 } from '../text/H.js'
+// import P from '..text/P.js'
+import { Col, Row } from '../layout/Grid.js'
+// import Span from '../text/Span.js'
+import styled from 'styled-components'
+
+const CountdownNumbers = styled.span `
+      font-size: 1.6rem;
+      text-align: center;
+`
 
 class Countdown extends Component {
   constructor(props) {
@@ -83,25 +92,26 @@ class Countdown extends Component {
 
     return (
       <React.Fragment>
-        <span>
-          <strong>{this.addLeadingZeros(countDown.days)}</strong>{' '}
-          <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>{' '}
-        </span>
-
-        <span>
-          <strong>{this.addLeadingZeros(countDown.hours)}</strong>{' '}
-          <span>Hours</span>{' '}
-        </span>
-
-        <span>
-          <strong>{this.addLeadingZeros(countDown.min)}</strong>{' '}
-          <span>Min</span>{' '}
-        </span>
-
-        <span>
-          <strong>{this.addLeadingZeros(countDown.sec)}</strong>{' '}
-          <span>Sec</span>
-        </span>
+        <Row>
+          <Col md={2}>
+            <React.Fragment>
+            <CountdownNumbers>{this.addLeadingZeros(countDown.days)}</CountdownNumbers>{' '}
+            <p>{countDown.days === 1 ? 'Day' : 'Days'}{' '}</p>
+            </React.Fragment>
+          </Col>
+          <Col md={2}>
+            <CountdownNumbers>{this.addLeadingZeros(countDown.hours)}</CountdownNumbers>{' '}
+            <p>Hours</p>{' '}
+          </Col>
+          <Col md={2}>
+            <CountdownNumbers>{this.addLeadingZeros(countDown.min)}</CountdownNumbers>{' '}
+            <p>Min</p>{' '}
+          </Col>
+          <Col md={2}>
+            <CountdownNumbers>{this.addLeadingZeros(countDown.sec)}</CountdownNumbers>{' '}
+            <p>Sec</p>
+          </Col>
+        </Row>
       </React.Fragment>
     )
   }
