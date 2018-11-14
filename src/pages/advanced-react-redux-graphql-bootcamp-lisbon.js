@@ -3,7 +3,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import { Curriculum1DayAdvancedReactRedux } from '../components/curriculum'
+import { CurriculumAdvancedReact } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -14,6 +14,8 @@ import {
   AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
+  HORACIO_HERRERA,
+  RICHARD_MOSS,
 } from '../components/training'
 import {
   BulletIcon,
@@ -46,10 +48,10 @@ const BootcampLondon = () => (
     />
     <Header
       titleLines={[
-        'Advanced React & Redux',
+        'Advanced React Redux GraphQL',
         `training, ${training.dates} - ${training.cityShortName}`,
       ]}
-      subtitle="Take your React career to the next level<br /> with this advanced 1-day React and Redux training"
+      subtitle="Take your React career to the next level by mastering<br />React, Redux, and GraphQL - in just 3 days!"
       links={header.landingTraining.links}
       bgImg="training-event"
     />
@@ -81,13 +83,13 @@ const BootcampLondon = () => (
                     </Link>
                   </React.Fragment>
                 }
-                coaches={[ALEX_LOBERA]}
+                coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
               />
             </Col>
           </Row>
         </Card>
         <Card white border="shadow">
-          <Curriculum1DayAdvancedReactRedux />
+          <CurriculumAdvancedReact />
         </Card>
       </Grid>
     </TopSection>
