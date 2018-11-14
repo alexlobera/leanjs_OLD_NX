@@ -119,7 +119,8 @@ const scholarships = () => (
                     All you have to do is click one of the links below and
                     register your interest.
                   </P>
-                  <H4>Companies currently offering scholarships:</H4>
+                  <H4>Companies currently offering scholarships</H4>
+                  <P>London courses only: </P>
                   <LinkButton secondary to="https://tradeledger.io/contact/">
                     Trade Ledger >>
                   </LinkButton>
@@ -148,7 +149,7 @@ const scholarships = () => (
               >
                 #
               </Link>
-              <H2>Minorities in Tech discount</H2>
+              <H2>Minorities in Tech</H2>
               <H3 style={{ paddingTop: 0 }}>
                 In our own little way, we want to bring more diversity to
                 tech...{' '}
@@ -156,16 +157,16 @@ const scholarships = () => (
               <Row>
                 <Col xs={12} sm={12} md={6}>
                   <P>
-                    The problem of diversity in tech is something we feel is
-                    something that should be tackled at all angles - with
-                    education being one of those angles.
+                    The problem of diversity in all levels of tech is an issue
+                    we feel should be tackled at all angles - with education
+                    being one of those angles!
                   </P>
                   <P>
-                    We are dedicated to investing in diversity, and as such, we
-                    offer a 30% discount if you identify as belonging to a
-                    ethnic minority.{' '}
+                    To facilitate this, offer different discounts and
+                    scholarships if you identify as belonging to a ethnic
+                    minority - depending on your unique circumstances. Just
+                    email us for more details.
                   </P>
-                  <P>Just email us for more details.</P>
                   <LinkButton secondary to="#contact-us">
                     Contact us >>
                   </LinkButton>

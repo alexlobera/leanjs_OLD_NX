@@ -32,11 +32,6 @@
     ]
   },
   {
-    "to": "/scholarships",
-    "text": "Scholarships",
-    "onlyOn": null
-  },
-  {
     "to": "/community",
     "text": "Community",
     "onlyOn": null
