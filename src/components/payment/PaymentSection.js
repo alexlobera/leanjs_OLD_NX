@@ -153,11 +153,15 @@ class PaymentSection extends React.Component {
           ) : (
             ''
           )}
-          {priceGoesUpOn && nextDiscountPrice ? (
+          {priceGoesUpOn ? (
             <P>
               Ticket price goes up to{' '}
-              {formatPrice(currency, nextDiscountPrice, DEFAULT_VAT_RATE)} on{' '}
-              {priceGoesUpOn}
+              {formatPrice(
+                currency,
+                nextDiscountPrice || price,
+                DEFAULT_VAT_RATE
+              )}{' '}
+              on {priceGoesUpOn}
             </P>
           ) : (
             ''
