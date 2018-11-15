@@ -112,7 +112,7 @@ export const trainings = [
     price: 1800,
     discountPrice: 1662.5,
     priceGoesUpOn: new Date('Nov 24, 2018.'),
-    ticketName: 'Early bird ticket',
+    ticketName: 'Discount ticket',
     currency: 'gbp',
   },
   {

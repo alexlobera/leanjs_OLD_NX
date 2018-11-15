@@ -14,7 +14,7 @@ import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../utils/trackUserBehaviour'
-import Countdown from './CountdownTimer'
+import Countdown from './Countdown'
 
 class PaymentSection extends React.Component {
   state = {
