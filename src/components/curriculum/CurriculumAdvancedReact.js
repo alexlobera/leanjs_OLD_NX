@@ -57,7 +57,7 @@ const CurriculumAdvancedReact = ({
         {...commonProps}
         title="Advanced React Day 3"
         name="day3"
-        subTitle="Final Project"
+        subTitle="Real-world Project"
       >
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app

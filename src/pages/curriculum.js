@@ -290,7 +290,7 @@ class Curriculum extends React.Component {
                               </Link>
                             </Li>
                             <Li>
-                              <Link to="#day7">Day 7: Hackathon</Link>
+                              <Link to="#day7">Day 7: </Link>
                             </Li>
                           </Ul>
                         </Col>
@@ -481,7 +481,7 @@ class Curriculum extends React.Component {
                             </Li>
                             <Li>
                               <Link to="#session10">
-                                Session 10: React mini hackathon
+                                Session 10: React mini
                               </Link>
                             </Li>
                           </Ul>

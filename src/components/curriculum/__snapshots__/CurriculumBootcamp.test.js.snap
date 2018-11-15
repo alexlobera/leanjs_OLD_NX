@@ -117,7 +117,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="day7"
-        subTitle="Final Project"
+        subTitle="Real-world Project"
         title="React Bootcamp Day 7"
         toggleNavigateTo={[Function]}
       >

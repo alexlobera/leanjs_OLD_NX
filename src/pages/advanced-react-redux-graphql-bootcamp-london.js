@@ -84,7 +84,7 @@ const BootcampLondon = () => (
                     </Link>
                   </React.Fragment>
                 }
-                coaches={[]}
+                coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
               />
             </Col>
           </Row>

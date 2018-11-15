@@ -112,7 +112,7 @@ const CurriculumPartTime = ({
       </Section>
       <Section
         {...commonProps}
-        title="Session 10 - React & Redux final project"
+        title="Session 10 - React & Redux Real-world Project"
         name="session10"
       >
         <PartTimeFinalProject />
