@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
+import moment from 'moment'
 
-import { H2Ref, H3, P } from '../text'
+import { H2Ref, H3, H4, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
 import Checkout from './checkout/'
@@ -13,6 +14,7 @@ import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../utils/trackUserBehaviour'
+import Countdown from './Countdown'
 
 class PaymentSection extends React.Component {
   state = {
@@ -153,16 +155,16 @@ class PaymentSection extends React.Component {
           ) : (
             ''
           )}
-          {priceGoesUpOn ? (
-            <P>
-              Ticket price goes up to{' '}
-              {formatPrice(
-                currency,
-                nextDiscountPrice || price,
-                DEFAULT_VAT_RATE
-              )}{' '}
-              on {priceGoesUpOn}
-            </P>
+          {priceGoesUpOn > Date.now() && nextDiscountPrice ? (
+            <React.Fragment>
+                <P>
+                  HURRY! This price is only available for...
+                </P>
+                <P>
+                <Countdown date={priceGoesUpOn} />
+              </P>
+
+            </React.Fragment>
           ) : (
             ''
           )}
@@ -201,7 +203,7 @@ PaymentSection.propTypes = {
     price: PropTypes.number.isRequired,
     discountPrice: PropTypes.number,
     nextDiscountPrice: PropTypes.number,
-    priceGoesUpOn: PropTypes.string,
+    priceGoesUpOn: PropTypes.object,
     ticketName: PropTypes.string,
     currency: PropTypes.string,
     paymentApi: PropTypes.object,
