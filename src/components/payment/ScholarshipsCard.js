@@ -1,16 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Col, Row } from '../layout/Grid'
-import { Span, P, H4 } from '../text'
-import { CALLTOACTIONRED } from '../../config/styles'
+import { P, H3 } from '../text'
+import { reactBlue, GREY2 } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 import { LinkButton } from '../buttons'
 
 const Card = styled.div`
+  background-color: ${reactBlue(1)};
   margin-top: 36px;
   margin-bottom: 6px;
   padding: 36px;
-  border: solid 4px ${CALLTOACTIONRED};
   @media (max-width: ${SCREEN_XS_MAX}) {
     a {
       display: block;
@@ -21,16 +20,16 @@ const Card = styled.div`
 
 const ScholarshipsCard = () => (
   <Card>
-    <H4>Looking to change careers and move into React?</H4>
-    <P>
-      We've partnered with Trade Ledger to offer a full scholarship for this
-      bootcamp which you can take advantage of.
+    <H3 style={{ color: `${GREY2}` }}>Scholarship available!</H3>
+    <P style={{ color: `${GREY2}` }}>
+      Looking to code React full time? We've partnered with Trade Ledger to
+      offer a <strong>full scholarship</strong> for this bootcamp.
     </P>
-    <P>
-      All you have to do is click the link below, contact Trade Ledger directly
-      and outline your interest in the scholarship... that's it!
+    <P style={{ color: `${GREY2}` }}>
+      Just click the link, contact Trade Ledger directly and outline your
+      interest... that's it!
     </P>
-    <LinkButton to={'https://tradeledger.io/contact/'}>
+    <LinkButton secondary to={'https://tradeledger.io/contact/'}>
       Contact Trade Ledger
     </LinkButton>
   </Card>
