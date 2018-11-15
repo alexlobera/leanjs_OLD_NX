@@ -27,7 +27,11 @@ import {
 } from '../components/icons'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, PaymentSection } from '../components/payment'
+import {
+  InstallmentsCard,
+  PaymentSection,
+  ScholarshipsCard,
+} from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LONDON } from '../config/data'
 
@@ -67,6 +71,7 @@ const BootcampLondon = () => (
                   currency: training.currency,
                 }}
               />
+              <ScholarshipsCard />
               <InstallmentsCard price={2160} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>

@@ -163,9 +163,9 @@ const scholarships = () => (
                   </P>
                   <P>
                     To facilitate this, offer different discounts and
-                    scholarships if you identify as belonging to a ethnic
-                    minority - depending on your unique circumstances. Just
-                    email us for more details.
+                    scholarships if you identify as belonging to a minority in
+                    tech - depending on your unique circumstances. Just email us
+                    for more details.
                   </P>
                   <LinkButton secondary to="#contact-us">
                     Contact us >>
