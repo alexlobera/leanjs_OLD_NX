@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ExternalLink = props => (
+const ExternalLinkIcon = props => (
   <svg height={26} width={25} {...props}>
     <g fillRule="evenodd">
       <path d="M24.036 0a.951.951 0 0 0-.104.01h-7.366a.907.907 0 0 0-.67.288c-.18.188-.28.444-.28.711s.1.523.28.711c.177.188.42.291.67.288h5.23L10.287 14.28h-.001a1.03 1.03 0 0 0-.287.71 1.03 1.03 0 0 0 .274.716c.178.19.42.295.67.293a.913.913 0 0 0 .666-.306L23.118 3.42v5.578l.001-.001c-.004.267.094.525.27.715.175.191.416.297.666.297s.49-.106.666-.297c.177-.19.274-.448.27-.715v-7.86a1.044 1.044 0 0 0-.23-.805.911.911 0 0 0-.725-.332z" />
@@ -9,4 +9,4 @@ const ExternalLink = props => (
   </svg>
 )
 
-export default ExternalLink
+export default ExternalLinkIcon

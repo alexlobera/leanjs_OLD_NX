@@ -4,7 +4,7 @@ import { P, H3 } from '../text'
 import { reactBlue, GREY2 } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 import { LinkButton } from '../buttons'
-import { ExternalLink } from '../../components/icons'
+import { ExternalLinkIcon } from '../../components/icons'
 import { TradeLedger } from '../../components/logos'
 
 const Card = styled.div`
@@ -20,11 +20,6 @@ const Card = styled.div`
   }
 `
 
-const IconMargins = styled.div`
-  float: left;
-  margin: ${props => (props.primary ? ' 10px 0 0 0;' : '5px 0 0 15px')};
-`
-
 const ScholarshipsCard = () => (
   <Card>
     <H3 style={{ color: `${GREY2}` }}>Scholarship available!</H3>
@@ -36,13 +31,8 @@ const ScholarshipsCard = () => (
       Just click the link, contact Trade Ledger directly and outline your
       interest... that's it!
     </P>
-    <LinkButton secondary to={'https://tradeledger.io/contact/'}>
-      <IconMargins primary>
-        <ExternalLink />
-      </IconMargins>
-      <IconMargins>
-        <TradeLedger />
-      </IconMargins>
+    <LinkButton external secondary to={'https://tradeledger.io/contact/'}>
+      <TradeLedger />
     </LinkButton>
   </Card>
 )

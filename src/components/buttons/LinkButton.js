@@ -5,6 +5,7 @@ import Link from '../navigation/Link'
 import { blue1, CALLTOACTIONRED, FONT_FAMILY, WHITE } from '../../config/styles'
 import { DEFAULT_BUTTON_STYLE } from './Button'
 import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
+import { ExternalLinkIcon } from '../../components/icons'
 
 const fontColor = color => `
   color: ${color} !important;
@@ -23,8 +24,11 @@ const fontColor = color => `
 `
 
 const StyledLinkButton = styled(Link)`
-  ${DEFAULT_BUTTON_STYLE}
-  ${FONT_FAMILY}
+svg {
+  0.5rem;
+}
+${DEFAULT_BUTTON_STYLE}
+${FONT_FAMILY}
   background-color: ${props => {
     if (props.secondary) {
       return WHITE
@@ -42,11 +46,15 @@ const StyledLinkButton = styled(Link)`
   ${props => (props.secondary ? fontColor(blue1()) : fontColor(WHITE))}
   border: ${props => props.secondary && `solid 1px ${blue1()}`};
   display: ${props => (props.block ? 'block' : 'inline-block')};
-  text-decoration: none;]
+  text-decoration: none;
+  ${props => (props.external && `
+    justify-content: space-evenly;
+  `)};
 `
 
 const LinkButton = ({
   trackUserBehaviour: trackUserBehaviourProp,
+  children,
   ...props
 }) => (
   <StyledLinkButton
@@ -62,7 +70,10 @@ const LinkButton = ({
       }
       props.onClick && props.onClick(e)
     }}
-  />
+  >
+    {props.external? <ExternalLinkIcon style={{margin: '0.5rem 0.5rem 0.5rem 0'}} />: null}
+    {children}
+  </StyledLinkButton>
 )
 
 LinkButton.propTypes = {
