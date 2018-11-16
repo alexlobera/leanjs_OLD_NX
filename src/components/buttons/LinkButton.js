@@ -71,7 +71,7 @@ const LinkButton = ({
       props.onClick && props.onClick(e)
     }}
   >
-    {props.external? <ExternalLinkIcon style={{margin: '0.5rem 0.5rem 0.5rem 0'}} />: null}
+    {props.external ? <ExternalLinkIcon style={{margin: '0.5rem 0.5rem 0.5rem 0'}} /> : null}
     {children}
   </StyledLinkButton>
 )

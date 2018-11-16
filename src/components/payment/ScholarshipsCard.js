@@ -4,7 +4,6 @@ import { P, H3 } from '../text'
 import { reactBlue, GREY2 } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 import { LinkButton } from '../buttons'
-import { ExternalLinkIcon } from '../../components/icons'
 import { TradeLedger } from '../../components/logos'
 
 const Card = styled.div`
