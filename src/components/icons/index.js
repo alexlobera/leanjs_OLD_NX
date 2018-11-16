@@ -22,6 +22,7 @@ import TrainerIcon from './TrainerIcon'
 import ReactIcon from './ReactIcon'
 import PeopleNetWorkIcon from './PeopleNetWorkIcon'
 import WorldIcon from './WorldIcon'
+import ExternalLinkIcon from './ExternalLinkIcon'
 
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -83,4 +84,5 @@ export {
   DiscussIcon,
   FacebookIcon,
   InstagramIcon,
+  ExternalLinkIcon,
 }

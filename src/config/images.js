@@ -37,6 +37,7 @@ export const CODEVELOP =
 
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.jpg?alt=media'
+
 export const ABOUT_VALUES =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutus_values.jpg?alt=media'
 
@@ -45,6 +46,9 @@ export const CURRICULUM_FULL_TRAINING_IMG =
 
 export const SMALL_CLASSROOM =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/classroom-small.jpg?alt=media'
+
+export const HELLO_STUDENT =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community_coachCommunity.jpg?alt=media'
 
 // Team members
 
