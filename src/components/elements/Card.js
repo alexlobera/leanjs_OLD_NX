@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW } from '../../config/styles'
+import { blue1, BROWN, WHITE, GREY2, BOX_SHADOW, reactBlue } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_MD_MAX, SCREEN_SM_MIN } from '../utils'
 import { styleChildLinkColor } from '../navigation/Link'
 
@@ -61,6 +61,11 @@ const Card = styled.div`
     background-color: ${GREY2};
     ${fontColor(WHITE)}
   `
+      case 'reactBlue':
+        return `
+      background-color: ${reactBlue()};
+      ${fontColor(GREY2)}
+      `
       default:
         return `
     background-color: ${WHITE};
