@@ -42,7 +42,7 @@ const StyledLinkButton = styled(Link)`
   ${props => (props.secondary ? fontColor(blue1()) : fontColor(WHITE))}
   border: ${props => props.secondary && `solid 1px ${blue1()}`};
   display: ${props => (props.block ? 'block' : 'inline-block')};
-  text-decoration: none;
+  text-decoration: none;]
 `
 
 const LinkButton = ({
