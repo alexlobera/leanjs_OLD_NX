@@ -166,14 +166,14 @@ export const trainings = [
 ]
 
 const meetups = [
-  // {
-  //   dateStartsOn: new Date('17 Nov, 2018'),
-  //   cityShortName: 'London',
-  //   country: 'UK',
-  //   url: 'https://www.meetup.com/JavaScript-london/',
-  //   title: 'event name',
-  //   imgUrl: LONDON_MEETUP,
-  // },
+  {
+    dateStartsOn: new Date('28 Nov, 2018'),
+    cityShortName: 'London',
+    country: 'UK',
+    url: 'https://www.meetup.com/JavaScript-London/events/256540561',
+    title: 'Build your Server-Side Rendering Framework in React',
+    imgUrl: LONDON_MEETUP,
+  },
 ]
 
 export const blogAuthors = {
