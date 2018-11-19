@@ -47,9 +47,11 @@ ${FONT_FAMILY}
   border: ${props => props.secondary && `solid 1px ${blue1()}`};
   display: ${props => (props.block ? 'block' : 'inline-block')};
   text-decoration: none;
-  ${props => (props.external && `
+  ${props =>
+    props.external &&
+    `
     justify-content: space-evenly;
-  `)};
+  `};
 `
 
 const LinkButton = ({
@@ -71,7 +73,9 @@ const LinkButton = ({
       props.onClick && props.onClick(e)
     }}
   >
-    {props.external ? <ExternalLinkIcon style={{margin: '0.5rem 0.5rem 0.5rem 0'}} /> : null}
+    {props.external ? (
+      <ExternalLinkIcon style={{ marginRight: '1.5rem' }} />
+    ) : null}
     {children}
   </StyledLinkButton>
 )
