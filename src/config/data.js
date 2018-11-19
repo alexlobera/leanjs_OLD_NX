@@ -171,7 +171,7 @@ const meetups = [
     cityShortName: 'London',
     country: 'UK',
     url: 'https://www.meetup.com/JavaScript-London/events/256540561',
-    title: 'Build your Server-Side Rendering Framework in React',
+    title: 'Build your Server-Side Rendering Framework',
     imgUrl: LONDON_MEETUP,
   },
 ]

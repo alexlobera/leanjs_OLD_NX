@@ -94,7 +94,7 @@ exports[`<Community /> should render component 1`] = `
                   <div>
                     <styled.p>
                       <strong>
-                        Event name
+                        Build your Server-Side Rendering Framework
                       </strong>
                       <br />
                       28 Nov

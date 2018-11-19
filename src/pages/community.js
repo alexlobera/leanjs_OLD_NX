@@ -138,13 +138,14 @@ const Community = () => (
                           country,
                           dateStartsOn,
                           url,
+                          title,
                           imgUrl,
                         }) => (
                           <Li key={url}>
                             <Image src={imgUrl} />
                             <div>
                               <P>
-                                <strong>Event name</strong>
+                                <strong>{title}</strong>
                                 <br />
                                 {moment(dateStartsOn).format('D MMM')} -{' '}
                                 {cityShortName}, {country}
