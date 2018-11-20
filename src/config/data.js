@@ -117,8 +117,8 @@ export const trainings = [
     currency: 'gbp',
   },
   {
-    dates: '15 Jan - 15 Feb, 2019',
-    dateStartsOn: new Date('15 Jan, 2019'),
+    dates: '22 Jan - 21 Feb, 2019',
+    dateStartsOn: new Date('22 Jan, 2019'),
     city: LONDON,
     country: 'UK',
     type: PART_TIME,
