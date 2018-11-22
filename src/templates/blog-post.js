@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
+import Helmet from 'react-helmet'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
 import { P, Span, H2, H3, H4, H5, Hr } from '../components/text'
@@ -63,6 +64,7 @@ const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
   </StyledAuthor>
 )
 
+
 const GridContent = styled(Grid)`
   padding-top: 72px;
 `
@@ -81,6 +83,12 @@ const BlogPost = ({ data }) => {
   const relatedPosts = allPosts.filter(post => post.node.fields.slug != slug)
   return (
     <React.Fragment>
+      <Helmet>
+        <meta property="og:title" content={title}/>
+        <meta property="og:image" content={imageUrl}/>
+        <meta property="og:description" content={subtitle} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <Breadcrumb
         path={[
           { to: '/', label: 'Home' },
