@@ -26,7 +26,7 @@ describe('<PhoneMenu />', () => {
   it('should render the list of menu items', () => {
     const wrapper = shallow(<PhoneMenu />)
 
-    expect(wrapper.find(PhoneMenuItem).length).toBe(9)
+    expect(wrapper.find(PhoneMenuItem).length).toBe(10)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 

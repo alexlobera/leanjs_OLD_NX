@@ -53,6 +53,11 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/about-us"
     />
     <DesktopMenuItem
+      key="/blog"
+      text="Blog"
+      to="/blog"
+    />
+    <DesktopMenuItem
       key="#contact-us"
       text="Contact"
       to="#contact-us"

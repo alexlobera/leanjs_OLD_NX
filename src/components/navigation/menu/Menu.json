@@ -42,6 +42,11 @@
     "onlyOn": null
   },
   {
+    "to": "/blog",
+    "text": "Blog",
+    "onlyOn": null
+  },
+  {
     "to": "#contact-us",
     "text": "Contact",
     "onlyOn": null
