@@ -118,7 +118,9 @@ export const trainings = [
     location: 'Makers Academy',
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5be3366f1307cabce7761593',
-    price: 829.17,
+    price: 1166.67,
+    discountPrice: 829.17,
+    priceGoesUpOn: new Date('Dec 10, 2018'),
     currency: 'gbp',
   },
   {
