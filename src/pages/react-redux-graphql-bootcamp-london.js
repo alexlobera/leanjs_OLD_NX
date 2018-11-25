@@ -49,7 +49,7 @@ const BootcampLondon = () => (
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',
-        `${training.dates} - Eden House, London`,
+        `${training.dates} - Brick Lane, London`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
       links={header.landingTraining.links}
@@ -83,7 +83,7 @@ const BootcampLondon = () => (
                 location={
                   <React.Fragment>
                     {training.location}
-                    <Link to="https://goo.gl/maps/Qsit5Y81Uy62">
+                    <Link to="https://goo.gl/maps/UGhm22uLDNr">
                       {' '}
                       See on map
                     </Link>
