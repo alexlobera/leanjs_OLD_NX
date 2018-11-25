@@ -110,10 +110,8 @@ export const trainings = [
     pathUrl: '/react-redux-graphql-bootcamp-london',
     trainingInstanceId: '5b98707c2bbd86e1b6c3c322',
     price: 1800,
-    nextDiscountPrice: 1662.5,
-    discountPrice: 1662.5,
     priceGoesUpOn: new Date('Nov 24, 2018.'),
-    ticketName: 'Discount ticket',
+    ticketName: 'Standard ticket',
     currency: 'gbp',
   },
   {
