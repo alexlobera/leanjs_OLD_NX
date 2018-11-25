@@ -40,7 +40,6 @@ describe('selectTrainings', () => {
     trainingInstanceId: '5b98707c2bbd86e1b6c3c322',
     price: 1800,
     discountPrice: 1450,
-    nextDiscountPrice: 1579.17,
     priceGoesUpOn: new Date('Nov 2nd, 2020.'),
     ticketName: 'Early bird ticket',
     currency: 'gbp',
