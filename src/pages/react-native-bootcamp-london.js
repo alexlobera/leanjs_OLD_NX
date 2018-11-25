@@ -56,7 +56,6 @@ const ReactNativeBoocampLondon = () => (
                   price: training.price,
                   discountPrice: training.discountPrice,
                   priceGoesUpOn: training.priceGoesUpOn,
-                  ticketName: training.ticketName,
                   currency: training.currency,
                 }}
               /> */}

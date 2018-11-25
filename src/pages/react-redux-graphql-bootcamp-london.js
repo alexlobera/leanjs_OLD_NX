@@ -67,7 +67,6 @@ const BootcampLondon = () => (
                   discountPrice: training.discountPrice,
                   priceGoesUpOn: training.priceGoesUpOn,
                   countdownDate: training.countdownDate,
-                  ticketName: training.ticketName,
                   currency: training.currency,
                 }}
               />

@@ -108,7 +108,6 @@ class PaymentSection extends React.Component {
       discountPrice,
       currency = 'gbp',
       priceGoesUpOn,
-      ticketName,
     } = data
     const {
       quantity,
@@ -140,7 +139,7 @@ class PaymentSection extends React.Component {
         </P>
         <Card small style={{ position: 'relative' }}>
           <H3>
-            <strong>{ticketName || 'Regular ticket'}</strong>
+            <strong>{discountPrice ? 'Discount ticket' : 'Regular ticket'}</strong>
           </H3>
           {discountPrice ? (
             <Ribbon>
@@ -202,7 +201,6 @@ PaymentSection.propTypes = {
     price: PropTypes.number.isRequired,
     discountPrice: PropTypes.number,
     priceGoesUpOn: PropTypes.object,
-    ticketName: PropTypes.string,
     currency: PropTypes.string,
     paymentApi: PropTypes.object,
   }),

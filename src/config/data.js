@@ -29,7 +29,6 @@ const emptyTraining = (type, city) => ({
   country: '',
   trainingInstanceId: '',
   price: 0,
-  ticketName: '',
   currency: '',
 })
 
@@ -48,7 +47,6 @@ export const trainings = [
     price: 1800,
     discountPrice: 1450,
     priceGoesUpOn: new Date('Dec 15, 2018'),
-    ticketName: 'Discount ticket',
     currency: 'gbp',
   },
   {
@@ -62,7 +60,6 @@ export const trainings = [
     pathUrl: '/advanced-react-redux-graphql-bootcamp-lisbon',
     trainingInstanceId: '5bec7b5e33b9da5035c01817',
     price: 1250,
-    ticketName: 'Regular ticket',
     currency: 'gbp',
   },
   {
@@ -80,7 +77,6 @@ export const trainings = [
     price: 1800,
     discountPrice: 1662.5,
     priceGoesUpOn: 'Nov 7th, 2018.',
-    ticketName: 'Discount ticket',
     currency: 'gbp',
   },
   {
@@ -94,7 +90,6 @@ export const trainings = [
     pathUrl: '/advanced-react-redux-graphql-bootcamp-london',
     trainingInstanceId: '5ba96ce0ad1320594b25457b',
     price: 1250,
-    ticketName: 'Regular ticket',
     currency: 'gbp',
   },
   {
@@ -110,7 +105,6 @@ export const trainings = [
     trainingInstanceId: '5b98707c2bbd86e1b6c3c322',
     price: 1800,
     priceGoesUpOn: new Date('Nov 24, 2018.'),
-    ticketName: 'Standard ticket',
     currency: 'gbp',
   },
   {
@@ -125,7 +119,6 @@ export const trainings = [
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5be3366f1307cabce7761593',
     price: 829.17,
-    ticketName: 'Standard ticket',
     currency: 'gbp',
   },
   {
@@ -140,7 +133,6 @@ export const trainings = [
     pathUrl: '/advanced-react-redux-graphql-bootcamp-lisbon',
     trainingInstanceId: '5ab6244a88546e46fa2b2601',
     price: 332.5,
-    ticketName: 'Regular ticket',
     currency: 'eur',
   },
   {
@@ -157,7 +149,6 @@ export const trainings = [
     price: 415.83,
     discountPrice: 375,
     priceGoesUpOn: 'September 14th, 2018.',
-    ticketName: 'Early bird ticket',
     currency: 'gbp',
   },
 ]

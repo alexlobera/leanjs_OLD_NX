@@ -23,7 +23,6 @@ describe('selectTrainings', () => {
     price: 1800,
     discountPrice: 1662.5,
     priceGoesUpOn: new Date('Nov 7th, 2020.'),
-    ticketName: 'Discount ticket',
     currency: 'gbp',
   }
 
@@ -41,7 +40,6 @@ describe('selectTrainings', () => {
     price: 1800,
     discountPrice: 1450,
     priceGoesUpOn: new Date('Nov 2nd, 2020.'),
-    ticketName: 'Early bird ticket',
     currency: 'gbp',
   }
 
@@ -57,7 +55,6 @@ describe('selectTrainings', () => {
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5b1c2197b8340f47a4b8e3e7',
     price: 1166.67,
-    ticketName: 'Standard ticket',
     currency: 'gbp',
   }
 
@@ -75,7 +72,6 @@ describe('selectTrainings', () => {
     price: 415.83,
     discountPrice: 375,
     priceGoesUpOn: 'September 14th, 2018.',
-    ticketName: 'Early bird ticket',
     currency: 'gbp',
   }
 
