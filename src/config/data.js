@@ -16,8 +16,8 @@ Boocamp prices:
 
 Part-time prices
 829.17
-1000
-1166.67
+1000 -> Jan 17
+1166.67 -> Jan 12
 */
 
 const emptyTraining = (type, city) => ({
@@ -120,7 +120,7 @@ export const trainings = [
     trainingInstanceId: '5be3366f1307cabce7761593',
     price: 1166.67,
     discountPrice: 829.17,
-    priceGoesUpOn: new Date('Dec 10, 2018'),
+    priceGoesUpOn: new Date('Dec 17, 2018'),
     currency: 'gbp',
   },
   {
