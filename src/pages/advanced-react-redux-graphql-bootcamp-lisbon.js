@@ -64,7 +64,6 @@ const BootcampLondon = () => (
                 data={{
                   trainingInstanceId: training.trainingInstanceId,
                   price: training.price,
-                  ticketName: training.ticketName,
                   currency: training.currency,
                 }}
               />

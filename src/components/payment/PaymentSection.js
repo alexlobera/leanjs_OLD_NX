@@ -106,10 +106,8 @@ class PaymentSection extends React.Component {
       trainingInstanceId,
       price,
       discountPrice,
-      nextDiscountPrice,
       currency = 'gbp',
       priceGoesUpOn,
-      ticketName,
     } = data
     const {
       quantity,
@@ -141,7 +139,7 @@ class PaymentSection extends React.Component {
         </P>
         <Card small style={{ position: 'relative' }}>
           <H3>
-            <strong>{ticketName || 'Regular ticket'}</strong>
+            <strong>{discountPrice ? 'Discount ticket' : 'Regular ticket'}</strong>
           </H3>
           {discountPrice ? (
             <Ribbon>
@@ -155,7 +153,7 @@ class PaymentSection extends React.Component {
           ) : (
             ''
           )}
-          {priceGoesUpOn > Date.now() && nextDiscountPrice ? (
+          {priceGoesUpOn > Date.now() ? (
             <React.Fragment>
                 <P>
                   HURRY! This price is only available for...
@@ -202,9 +200,7 @@ PaymentSection.propTypes = {
     trainingInstanceId: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     discountPrice: PropTypes.number,
-    nextDiscountPrice: PropTypes.number,
     priceGoesUpOn: PropTypes.object,
-    ticketName: PropTypes.string,
     currency: PropTypes.string,
     paymentApi: PropTypes.object,
   }),

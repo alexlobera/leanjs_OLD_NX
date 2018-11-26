@@ -52,7 +52,6 @@ const mountPaymentSection = (graphqlRequest, graphqlResponse) =>
             data={{
               trainingInstanceId: '5aa2acda7dcc782348ea1234',
               price: 995,
-              ticketName: 'Regular Ticket',
               currency: 'gbp',
             }}
             paymentApi={paymentApi}
