@@ -79,40 +79,6 @@ exports[`<Community /> should render component 1`] = `
                   name="meetups"
                 />
               </styled.h2>
-              <styled.ul>
-                <styled.li>
-                  <styled.h3>
-                    Events
-                  </styled.h3>
-                </styled.li>
-                <styled.li
-                  key="https://www.meetup.com/JavaScript-London/events/256540561"
-                >
-                  <styled.img
-                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media"
-                  />
-                  <div>
-                    <styled.p>
-                      <strong>
-                        Build your Server-Side Rendering Framework
-                      </strong>
-                      <br />
-                      28 Nov
-                       -
-                       
-                      London
-                      , 
-                      UK
-                    </styled.p>
-                    <LinkButton
-                      to="https://www.meetup.com/JavaScript-London/events/256540561"
-                      trackUserBehaviour={[Function]}
-                    >
-                      Read more
-                    </LinkButton>
-                  </div>
-                </styled.li>
-              </styled.ul>
               <styled.h3>
                 Our groups
               </styled.h3>
