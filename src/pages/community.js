@@ -207,7 +207,10 @@ const Community = () => (
                   {instagramPictures.map(({ imageUrl, pageUrl }) => (
                     <Col xs={4} key={pageUrl}>
                       <Link to={pageUrl}>
-                        <Image src={imageUrl} />
+                        <Image
+                          src={imageUrl}
+                          alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                        />
                       </Link>
                     </Col>
                   ))}
@@ -222,7 +225,10 @@ const Community = () => (
       <Grid>
         <Row>
           <Col xs={12} md={6}>
-            <Image src={MENTORSHIP_IMG} />
+            <Image
+              src={MENTORSHIP_IMG}
+              alt="A group of ReactJS Academy coaches and mentors, looking very happy indeed"
+            />
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
             <H2>

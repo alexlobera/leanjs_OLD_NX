@@ -14,6 +14,14 @@ export const MENTORSHIP_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpg?alt=media'
 export const LONDON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/london.jpg?alt=media'
+
+// export const LONDON  = () => (
+//   return (
+//     <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/london.jpg?alt=media" alt="London's Tower Bridge, which is a bridge with two tall towers on top of it"></img>
+//   )
+// )
+// ^^^ Why doesn't this work?
+
 export const LISBON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Flisbon.jpg?alt=media'
 export const COURSE_COLLAB =

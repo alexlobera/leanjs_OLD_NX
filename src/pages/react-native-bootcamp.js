@@ -64,7 +64,11 @@ const ReactNativeBoocamp = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={BOOTCAMP_RIGHT} width="100%" />
+            <Image
+              src={BOOTCAMP_RIGHT}
+              width="100%"
+              alt="ReactJS Academy coach Alex Lobera speaks to a class, the students are both listening and tapping on their laptops"
+            />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React Native training right for me?</H2>

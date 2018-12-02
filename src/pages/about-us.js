@@ -116,7 +116,10 @@ const AboutUs = () => (
                 </Col>
                 <HideComponentsUsingCss xs>
                   <Col xs={12} sm={12} md={4}>
-                    <Image src={ABOUT_VALUES} />
+                    <Image
+                      src={ABOUT_VALUES}
+                      alt="ReactJS Academy coach Richard, in a classroom presenting to a group of students during a bootcamp"
+                    />
                   </Col>
                 </HideComponentsUsingCss>
               </Row>
@@ -258,7 +261,11 @@ const AboutUs = () => (
             </Blockquote>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
-            <Image src={RICHARD} width="100%" />
+            <Image
+              src={RICHARD}
+              width="100%"
+              alt="ReactJS Academy coach Richard Moss, looking pretty happy with a beach in the background"
+            />
           </Col>
         </Row>
       </Grid>
@@ -267,7 +274,11 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5} smOrder={2}>
-            <Image src={HORACIO} width="100%" />
+            <Image
+              src={HORACIO}
+              width="100%"
+              alt="ReactJS Academy coach Horacio Herrera, smiling with sunglasses on."
+            />
           </Col>
           <Col xs={12} md={4} mdOffset={1} smOrder={1}>
             <H2Ref>
@@ -376,7 +387,11 @@ const AboutUs = () => (
             </Blockquote>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
-            <Image src={EVA} width="100%" />
+            <Image
+              src={EVA}
+              width="100%"
+              alt="ReactJS Academy coach Eva Hoffmann, smiling "
+            />
           </Col>
         </Row>
       </Grid>
@@ -385,7 +400,11 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5} smOrder={2}>
-            <Image src={WILL} width="100%" />
+            <Image
+              src={WILL}
+              width="100%"
+              alt="ReactJS Acadmey coach Will Voelcker, smiling with coach Alex in the background"
+            />
           </Col>
           <Col xs={12} md={4} mdOffset={1} smOrder={1}>
             <H2Ref>
@@ -480,7 +499,11 @@ const AboutUs = () => (
             </Blockquote>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>
-            <Image src={ADAM} width="100%" />
+            <Image
+              src={ADAM}
+              width="100%"
+              alt="ReactJS Academy coach Adam Lancaster, on top of a tall building as a cityscape is in the background fading out to the horizon"
+            />
           </Col>
         </Row>
       </Grid>
@@ -637,7 +660,11 @@ const AboutUs = () => (
         <Card bg="darkGrey" border="shadow">
           <Row>
             <Col xs={12} md={4} mdOffset={1}>
-              <Image src={CODEVELOP} width="100%" />
+              <Image
+                src={CODEVELOP}
+                width="100%"
+                alt="LeanJS UX designer Paul Woodley, sorting post-it notes into different columns "
+              />
             </Col>
             <Col xs={12} md={1} />
             <Col xs={12} md={5}>

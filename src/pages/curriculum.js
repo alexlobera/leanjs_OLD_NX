@@ -178,6 +178,7 @@ class Curriculum extends React.Component {
                     style={{ marginBottom: '36px' }}
                     src={CURRICULUM_FULL_TRAINING_IMG}
                     width="100%"
+                    alt="Four developer students concentrating on their laptop screens whilst ReactJS Academy coach Richard speaks"
                   />
                   <H3>With all courses you will:</H3>
                   <Ul>

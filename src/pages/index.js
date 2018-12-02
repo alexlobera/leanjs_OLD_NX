@@ -88,7 +88,11 @@ const IndexPage = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={COURSE_COLLAB} width="100%" />
+            <Image
+              src={COURSE_COLLAB}
+              width="100%"
+              alt="Four developers gathered around a laptop, pair programming together on a piece of work during a ReactJS Academy bootcamp."
+            />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>What will I get from a ReactJS Academy training?</H2>
@@ -189,7 +193,11 @@ const IndexPage = () => (
           </Col>
           <HideComponentsUsingCss xs sm>
             <Col md={5} mdOffset={1}>
-              <Image src={WHY_REACTJS_ACADEMY} width="100%" />
+              <Image
+                src={WHY_REACTJS_ACADEMY}
+                width="100%"
+                alt="Female ReactJS Academy student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
+              />
             </Col>
           </HideComponentsUsingCss>
         </Row>

@@ -56,7 +56,11 @@ const PartTime = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image src={PART_TIME_IMG} width="100%" />
+            <Image
+              src={PART_TIME_IMG}
+              width="100%"
+              alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+            />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React part-time course right for me?</H2>
