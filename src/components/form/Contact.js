@@ -112,7 +112,7 @@ class ContactForm extends Component {
             </H3>
             <P>
               The best way to contact us is by emailing us at{' '}
-              <Link to="mailto:hello@reactjsacademy.com">
+              <Link to="mailto:hello@reactjs.academy">
                 hello@reactjs.academy
               </Link>
               .{' '}
