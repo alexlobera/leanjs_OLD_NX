@@ -36,7 +36,10 @@ const Blog = ({ data }) => {
                 <Col lg={4}>
                   <Card border="shadow" padding={false} bottom={36}>
                     <Link to={`${post.node.fields.slug}`}>
-                      <Image src={post.node.frontmatter.imageUrl} />
+                      <Image
+                        src={post.node.frontmatter.imageUrl}
+                        alt={formatPostTitle(post.node.frontmatter.title)}
+                      />
                     </Link>
                     <CardText>
                       <Link to={`${post.node.fields.slug}`}>

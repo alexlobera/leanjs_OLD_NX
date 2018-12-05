@@ -101,7 +101,11 @@ const BootcampLondon = () => (
         <Row>
           <HideComponentsUsingCss xs sm>
             <Col md={6} lg={5}>
-              <Image src={PART_TIME_IMG} width="100%" />
+              <Image
+                src={PART_TIME_IMG}
+                width="100%"
+                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+              />
             </Col>
           </HideComponentsUsingCss>
           <Col md={6} lg={5} lgOffset={1}>

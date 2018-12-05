@@ -72,7 +72,7 @@ const AttendeeQuote = ({
         </strong>
       </Profile>
     </Text>
-    <Picture src={profilePicUrl} />
+    <Picture src={profilePicUrl} alt={fullname || 'Joe Bloggs'} />
   </Card>
 )
 
