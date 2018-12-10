@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
+
 import Link from '../navigation/Link'
-import { H2Ref } from '../text'
+import { H2Ref, H3 } from '../text'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -22,6 +24,10 @@ import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
+import TrainingItem from '../training/TrainingItem'
+import { selectTrainings, LONDON } from '../../config/data'
+
+const trainings = selectTrainings()
 
 const CurriculumBootcamp = ({
   showTitle = true,
@@ -128,7 +134,7 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={5} lgOffset={1}>
             <H2Ref>
               React Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -149,9 +155,23 @@ const CurriculumBootcamp = ({
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
             {firstHalf}
-          </Col>
-          <Col md={6} lg={5}>
             {secondHalf}
+          </Col>
+          <Col md={6} lg={5} lgOffset={1}>
+          <H3 style={{marginTop: '1em'}}>Upcoming courses</H3>
+          {
+            trainings.map(training => 
+              <TrainingItem
+                key={training.trainingInstanceId}
+                city={training.city}
+                country={training.country}
+                startDay={moment(training.dateStartsOn).format('D')}
+                startMonth={moment(training.dateStartsOn).format('MMM')}
+                type={training.type}
+                path={training.pathUrl}
+              />
+              )
+          }
           </Col>
         </Row>
       )}

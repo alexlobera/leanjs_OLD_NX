@@ -25,6 +25,9 @@ export const List = styled.div`
   display: flex;
   flex-direction: column;
 `
+const CurriculumItemTitle = styled(H4)`
+  margin-bottom: 0.5em;
+`
 
 class CurriculumSection extends React.Component {
   constructor(props) {
@@ -81,7 +84,7 @@ class CurriculumSection extends React.Component {
         </Link>
       </CurriculumSubSection>
     ) : (
-      <Link {...toogleLinkProps}>Click here for more detail</Link>
+      <Link {...toogleLinkProps}>More detail</Link>
     )
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
@@ -89,9 +92,11 @@ class CurriculumSection extends React.Component {
     return (
       <Section>
         <Element name={name || title} />
-        {title ? <H4>{title}</H4> : ''}
-        {subTitle ? <P>{subTitle}</P> : ''}
+        {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
+        <P>
+        {`${subTitle ? subTitle : ''} - `}
         {showToggle ? childrenWithToggle : childrenWithoutToggle}
+        </P> 
       </Section>
     )
   }
