@@ -48,34 +48,34 @@ class FullCurriculum extends React.Component {
     <Row>
       <Col>
       <P>Select Course:</P>
-                <Tabs onChange={this.setActive} active={this.state.active}>
-                  <TabList>
-                    <TabItem name={TAB_REACT_BOOTCAMP}>
-                      React 1-week bootcamp
-                    </TabItem>
-                    <TabItem name={TAB_ADVANCED_REACT}>
-                      Advanced React bootcamp
-                    </TabItem>
-                    <TabItem name={TAB_REACT_NATIVE}>
-                      React Native bootcamp
-                    </TabItem>
-                    <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
-                  </TabList>
-                <TabContent>
-                  <ContentItem name={TAB_REACT_BOOTCAMP}>
-                    <CurriculumBootcamp showTitle={false} />
-                  </ContentItem>
-                  <ContentItem name={TAB_ADVANCED_REACT}>
-                    <CurriculumAdvancedReact showTitle={false} />
-                  </ContentItem>
-                  <ContentItem name={TAB_REACT_NATIVE}>
-                    <CurriculumReactNative showTitle={false} />
-                  </ContentItem>
-                  <ContentItem name={TAB_PART_TIME}>
-                    <CurriculumPartTime showTitle={false} />
-                  </ContentItem>
-                </TabContent>
-                </Tabs>
+        <Tabs onChange={this.setActive} active={this.state.active}>
+          <TabList>
+            <TabItem name={TAB_REACT_BOOTCAMP}>
+              React 1-week bootcamp
+            </TabItem>
+            <TabItem name={TAB_ADVANCED_REACT}>
+              Advanced React bootcamp
+            </TabItem>
+            <TabItem name={TAB_REACT_NATIVE}>
+              React Native bootcamp
+            </TabItem>
+            <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
+            </TabList>
+          <TabContent>
+            <ContentItem name={TAB_REACT_BOOTCAMP}>
+              <CurriculumBootcamp showTitle={false} />
+            </ContentItem>
+            <ContentItem name={TAB_ADVANCED_REACT}>
+              <CurriculumAdvancedReact showTitle={false} />
+            </ContentItem>
+            <ContentItem name={TAB_REACT_NATIVE}>
+              <CurriculumReactNative showTitle={false} />
+            </ContentItem>
+            <ContentItem name={TAB_PART_TIME}>
+              <CurriculumPartTime showTitle={false} />
+            </ContentItem>
+          </TabContent>
+        </Tabs>
       </Col>
       </Row>
   </React.Fragment>
