@@ -21,8 +21,69 @@ exports[`<FullCurriculum /> should render component 1`] = `
       </Styled(styled.h1)>
     </Styled(Col)>
   </Row>
-  <CurriculumBootcamp
-    showTitle={false}
-  />
+  <Row>
+    <Styled(Col)>
+      <styled.p>
+        Select Course:
+      </styled.p>
+      <Tabs
+        active="react-bootcamp"
+        onChange={[Function]}
+      >
+        <TabList>
+          <TabItem
+            name="react-bootcamp"
+          >
+            React 1-week bootcamp
+          </TabItem>
+          <TabItem
+            name="advanced-react"
+          >
+            Advanced React bootcamp
+          </TabItem>
+          <TabItem
+            name="react-native"
+          >
+            React Native bootcamp
+          </TabItem>
+          <TabItem
+            name="part-time"
+          >
+            Part-time course
+          </TabItem>
+        </TabList>
+        <TabContent>
+          <ContentItem
+            name="react-bootcamp"
+          >
+            <CurriculumBootcamp
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="advanced-react"
+          >
+            <CurriculumAdvancedReact
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="react-native"
+          >
+            <CurriculumReactNative
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="part-time"
+          >
+            <CurriculumPartTime
+              showTitle={false}
+            />
+          </ContentItem>
+        </TabContent>
+      </Tabs>
+    </Styled(Col)>
+  </Row>
 </Fragment>
 `;

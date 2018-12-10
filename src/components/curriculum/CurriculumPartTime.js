@@ -15,6 +15,7 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
+import { UpcomingTrainingSection } from '../training';
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -146,9 +147,10 @@ const CurriculumPartTime = ({
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
             {firstHalf}
+            {secondHalf}
           </Col>
           <Col md={6} lg={5}>
-            {secondHalf}
+            <UpcomingTrainingSection curriculum />
           </Col>
         </Row>
       )}

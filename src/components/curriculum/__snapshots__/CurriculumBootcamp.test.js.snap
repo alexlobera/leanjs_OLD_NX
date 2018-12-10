@@ -135,41 +135,8 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <styled.h3
-        style={
-          Object {
-            "marginTop": "1em",
-          }
-        }
-      >
-        Upcoming courses
-      </styled.h3>
-      <TrainingItem
-        city="London"
-        country="UK"
-        key="5be3366f1307cabce7761593"
-        path="/react-redux-training-london"
-        startDay="22"
-        startMonth="Jan"
-        type="Part-time"
-      />
-      <TrainingItem
-        city="Lisbon dist."
-        country="Portugal"
-        key="5be3358f1307cabce7761591"
-        path="/react-redux-graphql-bootcamp-lisbon/"
-        startDay="27"
-        startMonth="Jan"
-        type="React bootcamp"
-      />
-      <TrainingItem
-        city="Lisbon dist."
-        country="Portugal"
-        key="5bec7b5e33b9da5035c01817"
-        path="/advanced-react-redux-graphql-bootcamp-lisbon"
-        startDay="31"
-        startMonth="Jan"
-        type="Advanced React"
+      <UpcomingTrainingSection
+        curriculum={true}
       />
     </Styled(Col)>
   </Row>

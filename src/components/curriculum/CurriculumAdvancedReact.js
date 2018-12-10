@@ -12,6 +12,7 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
+import { UpcomingTrainingSection } from '../training';
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
@@ -99,9 +100,10 @@ const CurriculumAdvancedReact = ({
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
             {firstHalf}
+            {secondHalf}
           </Col>
           <Col md={6} lg={5}>
-            {secondHalf}
+            <UpcomingTrainingSection curriculum />
           </Col>
         </Row>
       )}

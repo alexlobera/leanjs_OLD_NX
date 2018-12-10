@@ -41,6 +41,14 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         />
       </CurriculumSection>
     </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
+    </Styled(Col)>
   </Row>
 </Fragment>
 `;

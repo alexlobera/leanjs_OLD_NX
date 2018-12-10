@@ -57,11 +57,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
           title="Functional programming & advanced Redux"
         />
       </CurriculumSection>
-    </Styled(Col)>
-    <Styled(Col)
-      lg={5}
-      md={6}
-    >
       <CurriculumSection
         name="day3"
         subTitle="Real-world Project"
@@ -81,6 +76,14 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
           Full curriculum&gt;&gt;
         </LinkButton>
       </styled.div>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
     </Styled(Col)>
   </Row>
 </Fragment>

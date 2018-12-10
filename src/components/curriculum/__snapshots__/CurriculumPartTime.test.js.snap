@@ -60,11 +60,6 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       >
         <ReactFundamentalsRecapSession />
       </CurriculumSection>
-    </Styled(Col)>
-    <Styled(Col)
-      lg={5}
-      md={6}
-    >
       <CurriculumSection
         name="session6"
         title="Session 6 - Styling in React"
@@ -100,6 +95,14 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       >
         <PartTimeFinalProject />
       </CurriculumSection>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
     </Styled(Col)>
   </Row>
 </Fragment>
