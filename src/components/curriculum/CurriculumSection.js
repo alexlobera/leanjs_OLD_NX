@@ -1,19 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
 import { H4, P } from '../text'
-import { blue1 } from '../../config/styles'
+import { blue1, GREY2, YELLOW, LIGHT_RED, REACTBLUEDARK } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
+import { REACT_NATIVE, REACT_BOOTCAMP, PART_TIME, ADVANCED_REACT } from '../../config/data';
+
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
+const selectTypeColor = (type) => {
+  switch (type) {
+    case REACT_BOOTCAMP:
+      return REACTBLUEDARK
+    case PART_TIME:
+    return  GREY2
+    case REACT_NATIVE:
+      return  LIGHT_RED
+    case ADVANCED_REACT:
+      return YELLOW
+    default:
+      return GREY2
+  }
+}
+
 const Section = styled.div`
+  ${props => 
+    `border-left: 3px solid ${selectTypeColor(props.type)};`
+  }
   margin-top: 2em;
-  border-left: 3px solid ${blue1()};
   padding-left: 20px;
 `
 
@@ -89,8 +108,26 @@ class CurriculumSection extends React.Component {
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
     )
+    const type = () => {
+      const { title } = this.props
+      let type
+      if (title.includes('Session')) {
+        type = PART_TIME
+      } 
+      if (title.includes('Native')) {
+        type = REACT_NATIVE
+      } 
+      if (title.includes('Advanced')){
+        type = ADVANCED_REACT
+      }
+      if (title.includes('Bootcamp')) {
+        type = REACT_BOOTCAMP
+      }
+      return type
+    }
+
     return (
-      <Section>
+      <Section type={type()}>
         <Element name={name || title} />
         {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
         <P>

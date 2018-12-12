@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { reactBlue, FONT_FAMILY } from '../../config/styles'
+import { reactBlue, FONT_FAMILY, REACTBLUEDARK, YELLOW, LIGHT_RED, GREY2 } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../utils'
 
 const Ul = styled.ul`
@@ -69,29 +69,47 @@ const Li = styled.li`
       @media (min-width: ${SCREEN_SM_MIN}) {
         position:relative;
         text-align:center;
-        a::after {
-            height: 3px;
-            display: block;
-            width: 100%;
-            background: ${reactBlue()};
-            content: '';
-            position: absolute;
-            bottom:-10px;
-            left:0;
-        }
       }
       @media (max-width: ${SCREEN_XS_MAX}) {
         border: 1px solid ${reactBlue()}
       }
     `
       : ''};
+   ${props => {
+     if (props.isActive && props.name) {
+      switch (props.name) {
+        case 'react-bootcamp':
+          return `
+          background: ${REACTBLUEDARK}
+          a {
+            color: white;
+          }
+          `
+        case 'advanced-react':
+          return `background: ${YELLOW}`
+        case 'react-native':
+          return `background: ${LIGHT_RED}`
+        case 'part-time': 
+        return `
+        background: ${GREY2};
+        a {
+          color: white;
+        }
+        `
+      }
+   } 
+}}
+`
+const A = styled.a`
+  border-bottom: 3px solid ${REACTBLUEDARK}
+}
 `
 
-export const TabItem = ({ children, isActive, onClick, ...props }) => (
-  <Li isActive={isActive}>
-    <a {...props} onClick={onClick}>
+export const TabItem = ({ children, isActive, onClick, name, ...props }) => (
+  <Li isActive={isActive} name={name} >
+    <A {...props} onClick={onClick}>
       {children}
-    </a>
+    </A>
   </Li>
 )
 TabItem.displayName = 'TabItem'

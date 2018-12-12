@@ -1,7 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Col, Row } from '../layout/Grid'
-import { H1Ref, H4Ref, P } from '../text'
+import { H1Ref, P } from '../text'
 import Link from '../navigation/Link'
 import {
   Tabs,
@@ -45,9 +44,13 @@ class FullCurriculum extends React.Component {
         </H1Ref>
       </Col>
     </Row>
+      <Row>
+        <Col lgOffset={1}>
+          <P>Select Course:</P>
+        </Col>
+      </Row>
     <Row>
-      <Col>
-      <P>Select Course:</P>
+    <Col lgOffset={1}>
         <Tabs onChange={this.setActive} active={this.state.active}>
           <TabList>
             <TabItem name={TAB_REACT_BOOTCAMP}>
@@ -60,7 +63,8 @@ class FullCurriculum extends React.Component {
               React Native bootcamp
             </TabItem>
             <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
-            </TabList>
+          </TabList>
+          
           <TabContent>
             <ContentItem name={TAB_REACT_BOOTCAMP}>
               <CurriculumBootcamp showTitle={false} />
