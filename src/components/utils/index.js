@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { REACT_NATIVE, REACT_BOOTCAMP, PART_TIME, ADVANCED_REACT } from '../../config/data'
+import { GREY2, YELLOW, LIGHT_RED, REACTBLUEDARK } from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
 export const SCREEN_SM_MIN = '768px'
@@ -14,6 +16,21 @@ const Components = ({ children, ...props }) =>
       className: props.className,
     })
   )
+
+export const selectTypeColor = (type) => {
+switch (type) {
+    case REACT_BOOTCAMP:
+        return REACTBLUEDARK
+    case PART_TIME:
+        return  GREY2
+    case REACT_NATIVE:
+        return  LIGHT_RED
+    case ADVANCED_REACT:
+        return YELLOW
+    default:
+        return GREY2    
+    }
+}
 
 export const HideComponentsUsingCss = styled(Components)`
     ${props =>

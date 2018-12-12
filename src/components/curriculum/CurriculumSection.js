@@ -8,25 +8,11 @@ import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
 import { REACT_NATIVE, REACT_BOOTCAMP, PART_TIME, ADVANCED_REACT } from '../../config/data';
-
+import { selectTypeColor } from '../utils'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
-const selectTypeColor = (type) => {
-  switch (type) {
-    case REACT_BOOTCAMP:
-      return REACTBLUEDARK
-    case PART_TIME:
-    return  GREY2
-    case REACT_NATIVE:
-      return  LIGHT_RED
-    case ADVANCED_REACT:
-      return YELLOW
-    default:
-      return GREY2
-  }
-}
 
 const Section = styled.div`
   ${props => 

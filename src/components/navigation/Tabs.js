@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { reactBlue, FONT_FAMILY, REACTBLUEDARK, YELLOW, LIGHT_RED, GREY2 } from '../../config/styles'
-import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../utils'
+import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
+import { REACT_BOOTCAMP, PART_TIME } from '../../config/data';
 
 const Ul = styled.ul`
   margin: 0 0 32px 0;
@@ -73,41 +73,25 @@ const Li = styled.li`
       @media (max-width: ${SCREEN_XS_MAX}) {
         border: 1px solid ${reactBlue()}
       }
+      background: ${selectTypeColor(props.name)}
     `
       : ''};
-   ${props => {
-     if (props.isActive && props.name) {
-      switch (props.name) {
-        case 'react-bootcamp':
-          return `
-          background: ${REACTBLUEDARK}
-          a {
-            color: white;
-          }
-          `
-        case 'advanced-react':
-          return `background: ${YELLOW}`
-        case 'react-native':
-          return `background: ${LIGHT_RED}`
-        case 'part-time': 
-        return `
-        background: ${GREY2};
-        a {
-          color: white;
-        }
-        `
-      }
-   } 
-}}
+   }
 `
 const A = styled.a`
-  border-bottom: 3px solid ${REACTBLUEDARK}
-}
+  ${props => 
+    `border-bottom: 3px solid ${selectTypeColor(props.name)}`  
+  };
+  ${props => {
+    if (props.isActive && (props.name === PART_TIME || props.name === REACT_BOOTCAMP)) {
+      return `color: white !important`
+    }
+  }}
 `
 
 export const TabItem = ({ children, isActive, onClick, name, ...props }) => (
   <Li isActive={isActive} name={name} >
-    <A {...props} onClick={onClick}>
+    <A isActive={isActive} name={name} {...props} onClick={onClick}>
       {children}
     </A>
   </Li>

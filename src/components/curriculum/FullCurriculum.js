@@ -15,16 +15,12 @@ import {
   CurriculumReactNative,
   CurriculumAdvancedReact,
 } from './index' 
+import { REACT_NATIVE, REACT_BOOTCAMP, PART_TIME, ADVANCED_REACT } from '../../config/data';
 
-
-const TAB_REACT_BOOTCAMP = 'react-bootcamp'
-const TAB_REACT_NATIVE = 'react-native'
-const TAB_PART_TIME = 'part-time'
-const TAB_ADVANCED_REACT = 'advanced-react'
 
 class FullCurriculum extends React.Component {
   state = {
-    active: TAB_REACT_BOOTCAMP,
+    active: REACT_BOOTCAMP,
   }
   
   setActive = active => {
@@ -53,29 +49,29 @@ class FullCurriculum extends React.Component {
     <Col lgOffset={1}>
         <Tabs onChange={this.setActive} active={this.state.active}>
           <TabList>
-            <TabItem name={TAB_REACT_BOOTCAMP}>
+            <TabItem name={REACT_BOOTCAMP}>
               React 1-week bootcamp
             </TabItem>
-            <TabItem name={TAB_ADVANCED_REACT}>
+            <TabItem name={ADVANCED_REACT}>
               Advanced React bootcamp
             </TabItem>
-            <TabItem name={TAB_REACT_NATIVE}>
+            <TabItem name={REACT_NATIVE}>
               React Native bootcamp
             </TabItem>
-            <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
+            <TabItem name={PART_TIME}>Part-time course</TabItem>
           </TabList>
           
           <TabContent>
-            <ContentItem name={TAB_REACT_BOOTCAMP}>
+            <ContentItem name={REACT_BOOTCAMP}>
               <CurriculumBootcamp showTitle={false} />
             </ContentItem>
-            <ContentItem name={TAB_ADVANCED_REACT}>
+            <ContentItem name={ADVANCED_REACT}>
               <CurriculumAdvancedReact showTitle={false} />
             </ContentItem>
-            <ContentItem name={TAB_REACT_NATIVE}>
+            <ContentItem name={REACT_NATIVE}>
               <CurriculumReactNative showTitle={false} />
             </ContentItem>
-            <ContentItem name={TAB_PART_TIME}>
+            <ContentItem name={PART_TIME}>
               <CurriculumPartTime showTitle={false} />
             </ContentItem>
           </TabContent>
