@@ -13,6 +13,7 @@ import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
 import { UpcomingTrainingSection } from '../training';
+import { ADVANCED_REACT } from '../../config/data';
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
@@ -23,7 +24,7 @@ const CurriculumAdvancedReact = ({
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
+  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: ADVANCED_REACT }
   const firstHalf = (
     <React.Fragment>
       <Section

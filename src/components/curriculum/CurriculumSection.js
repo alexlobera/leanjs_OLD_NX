@@ -67,6 +67,7 @@ class CurriculumSection extends React.Component {
     const {
       title,
       name,
+      type,
       subTitle,
       children,
       showToggle = true,
@@ -94,26 +95,9 @@ class CurriculumSection extends React.Component {
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
     )
-    const type = () => {
-      const { title } = this.props
-      let type
-      if (title.includes('Session')) {
-        type = PART_TIME
-      } 
-      if (title.includes('Native')) {
-        type = REACT_NATIVE
-      } 
-      if (title.includes('Advanced')){
-        type = ADVANCED_REACT
-      }
-      if (title.includes('Bootcamp')) {
-        type = REACT_BOOTCAMP
-      }
-      return type
-    }
 
     return (
-      <Section type={type()}>
+      <Section type={type}>
         <Element name={name || title} />
         {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
         <P>

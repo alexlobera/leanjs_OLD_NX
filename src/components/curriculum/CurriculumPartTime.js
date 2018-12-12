@@ -16,6 +16,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
 import { UpcomingTrainingSection } from '../training';
+import { PART_TIME } from '../../config/data';
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -39,7 +40,7 @@ const CurriculumPartTime = ({
   marketingCard = null,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
+  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: PART_TIME }
   const firstHalf = (
     <React.Fragment>
       <Section
