@@ -7,7 +7,6 @@ import { Link } from '../navigation'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
-import { REACT_NATIVE, REACT_BOOTCAMP, PART_TIME, ADVANCED_REACT } from '../../config/data';
 import { selectTypeColor } from '../utils'
 
 export const curriedToggleNavigateTo = to => section =>

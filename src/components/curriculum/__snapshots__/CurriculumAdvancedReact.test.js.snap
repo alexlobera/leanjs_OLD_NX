@@ -30,6 +30,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
         title="Advanced React Day 1"
         toggleNavigateTo={[Function]}
+        type="Advanced React"
       >
         <HoCsAndRenderPropsSession
           title="Functional Programming & Advanced React patterns I"
@@ -46,6 +47,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
+        type="Advanced React"
       >
         <TestingInReactSession
           title="Testing in React"
@@ -62,6 +64,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Real-world Project"
         title="Advanced React Day 3"
         toggleNavigateTo={[Function]}
+        type="Advanced React"
       >
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app in teams from scratch"

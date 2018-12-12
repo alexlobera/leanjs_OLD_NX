@@ -29,6 +29,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         subTitle="Foundation, Navigation, and Animations"
         title="React Native Day 1"
         toggleNavigateTo={[Function]}
+        type="React Native"
       >
         <ReactNativeFoundationSession
           title="Foundation"
