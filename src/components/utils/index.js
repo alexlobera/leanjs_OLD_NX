@@ -28,7 +28,7 @@ switch (type) {
     case ADVANCED_REACT:
         return YELLOW
     default:
-        return GREY2    
+        return REACTBLUEDARK    
     }
 }
 
