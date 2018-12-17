@@ -150,7 +150,7 @@ const CurriculumPartTime = ({
             {firstHalf}
             {secondHalf}
           </Col>
-          <Col md={6} lg={5}>
+          <Col md={6} lg={5} lgOffset={1}>
             <UpcomingTrainingSection curriculum />
           </Col>
         </Row>

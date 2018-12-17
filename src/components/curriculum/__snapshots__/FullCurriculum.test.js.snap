@@ -23,7 +23,10 @@ exports[`<FullCurriculum /> should render component 1`] = `
   </Row>
   <Row>
     <Styled(Col)
+      lg={10}
       lgOffset={1}
+      md={12}
+      xs={12}
     >
       <styled.p>
         Select Course:
@@ -31,14 +34,14 @@ exports[`<FullCurriculum /> should render component 1`] = `
     </Styled(Col)>
   </Row>
   <Row>
-    <Styled(Col)
-      lgOffset={1}
-    >
+    <Styled(Col)>
       <Tabs
         active="React bootcamp"
         onChange={[Function]}
       >
-        <TabList>
+        <TabList
+          offset={true}
+        >
           <TabItem
             name="React bootcamp"
           >

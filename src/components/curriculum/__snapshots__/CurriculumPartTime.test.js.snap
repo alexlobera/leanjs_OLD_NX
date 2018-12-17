@@ -108,6 +108,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
     </Styled(Col)>
     <Styled(Col)
       lg={5}
+      lgOffset={1}
       md={6}
     >
       <UpcomingTrainingSection
