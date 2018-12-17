@@ -1,6 +1,8 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
 import moment from 'moment'
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
@@ -27,12 +29,7 @@ import { Card } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Image } from '../components/elements'
 import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  BulletIcon,
-  PeopleNetWorkIcon,
+ Tick
 } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
@@ -97,15 +94,96 @@ class Curriculum extends React.Component {
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <H2Ref>
-                    Bootcamps/part-time courses - what's the difference?{' '}
+                    Our courses - what are the differences?{' '}
                     <Link to="#differences" name="differences">
                       #
                     </Link>
                   </H2Ref>
+                  <H3>With all courses you will:</H3>
+                  <Ul>
+                    <Li>Build production ready React applications</Li>
+                    <Li>Discuss real-world projects</Li>
+                    <Li>Learn best practices</Li>
+                    <Li>Be mentored by the our expert coaches</Li>
+                    <Li>Join our alumni community</Li>
+                    <Li>Stay ahead in modern development</Li>
+                  </Ul>
                 </Col>
               </Row>
               <Row>
-                <Col md={6} mdOffset={1}>
+              <Col lg={10} lgOffset={1}>
+              <Table>
+	<Thead>
+		<Tr>
+      <Th></Th>
+			<Th>One week bootcamp</Th>
+			<Th>Advanced bootcamp</Th>
+			<Th>Native training</Th>
+			<Th>Part time course</Th>
+		</Tr>
+	</Thead>
+	<Tbody>
+		<Tr>
+			<Td>ES6</Td>
+			<Td><Tick/></Td>
+			<Td></Td>
+			<Td></Td>
+      <Td><Tick/></Td>
+		</Tr>
+		<Tr>
+			<Td>Routing in React</Td>
+			<Td><Tick/></Td>
+			<Td></Td>
+			<Td></Td>
+      <Td><Tick/></Td>
+		</Tr>
+		<Tr>
+			<Td>Forms and authentication</Td>
+			<Td><Tick/></Td>
+			<Td></Td>
+			<Td></Td>
+      <Td><Tick/></Td>
+		</Tr>
+		<Tr>
+			<Td>Testing in React</Td>
+			<Td><Tick/></Td>
+			<Td><Tick/></Td>
+			<Td></Td>
+      <Td><Tick/></Td>
+		</Tr>
+		<Tr>
+			<Td>GraphQL</Td>
+      <Td><Tick/></Td>
+			<Td><Tick/></Td>
+			<Td></Td>
+      <Td><Tick/></Td>
+		</Tr>
+    <Tr>
+			<Td>Adv. React patterns</Td>
+			<Td><Tick/></Td>
+			<Td><Tick/></Td>
+			<Td></Td>
+      <Td><Tick/></Td>
+		</Tr>
+    <Tr>
+			<Td>Animations</Td>
+      <Td></Td>
+			<Td></Td>
+			<Td><Tick/></Td>
+      <Td></Td>
+		</Tr>
+    <Tr>
+			<Td>Gestures</Td>
+			<Td></Td>
+			<Td></Td>
+			<Td><Tick/></Td>
+      <Td></Td>
+		</Tr>
+	</Tbody>
+</Table>
+                
+
+                {/* <Col md={6} mdOffset={1}>
                   <H3>React bootcamp</H3>
                   <P>
                     Our React bootcamp has the most complete curriculum on the
@@ -172,8 +250,8 @@ class Curriculum extends React.Component {
                       See React part-time course curriculum
                     </Link>
                   </P>
-                </Col>
-                <Col md={3} mdOffset={1}>
+                </Col> */}
+                {/* <Col md={3} mdOffset={1}>
                   <Image
                     style={{ marginBottom: '36px' }}
                     src={CURRICULUM_FULL_TRAINING_IMG}
@@ -189,6 +267,7 @@ class Curriculum extends React.Component {
                     <Li>Join our alumni community</Li>
                     <Li>Stay ahead in modern development</Li>
                   </Ul>
+                </Col> */}
                 </Col>
               </Row>
             </Card>
@@ -199,7 +278,7 @@ class Curriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <Element name="curriculum" />
-                <P>Choose a curriculum:</P>
+                <H2>Choose a curriculum:</H2>
                 <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
                     <TabItem name={TAB_REACT_BOOTCAMP}>
@@ -215,7 +294,6 @@ class Curriculum extends React.Component {
                   </TabList>
                   <TabContent>
                     <ContentItem name={TAB_REACT_BOOTCAMP}>
-                      <H2>React 1-week bootcamp curriculum</H2>
                       <P>
                         <strong>
                           On completion of the React bootcamp each student will:
@@ -322,7 +400,6 @@ class Curriculum extends React.Component {
                     </ContentItem>
 
                     <ContentItem name={TAB_ADVANCED_REACT}>
-                      <H2>Advanced React bootcamp curriculum</H2>
                       <P>
                         <strong>
                           On completion of the advanced React bootcamp each
@@ -371,7 +448,6 @@ class Curriculum extends React.Component {
                       </Row>
                     </ContentItem>
                     <ContentItem name={TAB_REACT_NATIVE}>
-                      <H2>React Native bootcamp curriculum</H2>
                       <P>
                         <strong>
                           On completion of the React Native bootcamp each
@@ -405,7 +481,6 @@ class Curriculum extends React.Component {
                     </ContentItem>
 
                     <ContentItem name={TAB_PART_TIME}>
-                      <H2>React part-time course curriculum</H2>
                       <P>
                         <strong>
                           On completion of the React bootcamp each student will:

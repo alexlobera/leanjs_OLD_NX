@@ -5,7 +5,7 @@ import { H2, H3 } from '../text'
 import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
 
-import { selectTrainings, LONDON } from '../../config/data'
+import { selectTrainings, LONDON } from '../../config/data' 
 
 
 const trainings = selectTrainings()
@@ -39,10 +39,10 @@ const UpcomingTrainingSection = (props) => (
                 </Col>
               </H2>
               <Row>
-                <Col md={10} mdOffset={1}>
+                <Col md={10} mdOffset={2}>
                 <TrainingList>
                   <UpcomingTrainings />
-              </TrainingList>
+                </TrainingList>
                 </Col>
               </Row>
             </Grid>

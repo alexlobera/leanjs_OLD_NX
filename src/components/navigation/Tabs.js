@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { reactBlue, FONT_FAMILY, REACTBLUEDARK, YELLOW, LIGHT_RED, GREY2 } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
 import { REACT_BOOTCAMP, PART_TIME } from '../../config/data';
+import { Col, Row } from '../layout/Grid'
 
 const Ul = styled.ul`
   margin: 0 0 32px 0;
@@ -30,10 +31,7 @@ const Ul = styled.ul`
 
       :first-child {
         margin-left: 0;
-        a,
-        span {
-          padding-left: 0;
-        }
+        a
       }
     }
   }
@@ -44,21 +42,38 @@ const Ul = styled.ul`
   }
 `
 
-export const TabList = ({ active, setActive, onChange, children }) => (
-  <Ul>
-    {React.Children.map(children, child =>
-      React.cloneElement(child, {
-        isActive: child.props.name === active,
-        onClick: child.props.name
-          ? () => {
-              onChange && onChange(child.props.name)
-              setActive(child.props.name)
-            }
-          : undefined,
-      })
-    )}
-  </Ul>
-)
+export const TabList = ({ active, setActive, onChange, children, offset }) => {
+  const compound = React.Children.map(children, child =>
+    React.cloneElement(child, {
+      isActive: child.props.name === active,
+      onClick: child.props.name
+        ? () => {
+            onChange && onChange(child.props.name)
+            setActive(child.props.name)
+          }
+        : undefined,
+    })
+  )
+  return (
+    <React.Fragment>
+      {offset ? 
+        <Row>
+          <Col lgOffset={1}>
+            <Ul>
+              {compound}
+            </Ul>
+          </Col>
+        </Row>
+      :
+        <Ul>
+          {compound}
+        </Ul>
+      }
+    </React.Fragment>
+  )
+}
+  
+
 
 TabList.displayName = 'TabList'
 

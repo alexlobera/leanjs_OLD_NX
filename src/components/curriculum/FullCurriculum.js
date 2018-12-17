@@ -30,36 +30,38 @@ class FullCurriculum extends React.Component {
   render() {
     return (
       <React.Fragment>
-    <Row>
-      <Col xs={12} md={12} lg={10} lgOffset={1}>
-        <H1Ref>
-          Our React curriculum{' '}
-          <Link to="#curriculum" name="curriculum">
-            #
-          </Link>
-        </H1Ref>
-      </Col>
-    </Row>
-      <Row>
-        <Col lgOffset={1}>
-          <P>Select Course:</P>
-        </Col>
-      </Row>
-    <Row>
-    <Col lgOffset={1}>
+        <Row>
+          <Col xs={12} md={12} lg={10} lgOffset={1}>
+            <H1Ref>
+              Our React curriculum{' '}
+              <Link to="#curriculum" name="curriculum">
+                #
+              </Link>
+            </H1Ref>
+          </Col>
+        </Row>
+          <Row>
+            <Col xs={12} md={12} lg={10} lgOffset={1}>
+              <P>Select Course:</P>
+            </Col>
+          </Row>
+        <Row>
+        <Col>
         <Tabs onChange={this.setActive} active={this.state.active}>
-          <TabList>
-            <TabItem name={REACT_BOOTCAMP}>
-              React 1-week bootcamp
-            </TabItem>
-            <TabItem name={ADVANCED_REACT}>
-              Advanced React bootcamp
-            </TabItem>
-            <TabItem name={REACT_NATIVE}>
-              React Native bootcamp
-            </TabItem>
-            <TabItem name={PART_TIME}>Part-time course</TabItem>
-          </TabList>
+            <TabList offset>
+              <TabItem name={REACT_BOOTCAMP}>
+                React 1-week bootcamp
+              </TabItem>
+              <TabItem name={ADVANCED_REACT}>
+                Advanced React bootcamp
+              </TabItem>
+              <TabItem name={REACT_NATIVE}>
+                React Native bootcamp
+              </TabItem>
+              <TabItem name={PART_TIME}>Part-time course</TabItem>
+            </TabList>
+          
+          
           
           <TabContent>
             <ContentItem name={REACT_BOOTCAMP}>
@@ -76,7 +78,9 @@ class FullCurriculum extends React.Component {
             </ContentItem>
           </TabContent>
         </Tabs>
-      </Col>
+        </Col>
+       
+        
       </Row>
   </React.Fragment>
     )
