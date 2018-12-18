@@ -119,58 +119,58 @@ class Curriculum extends React.Component {
                 <Tbody>
                   <Tr>
                     <Td>ES6</Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
                     <Td></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={PART_TIME}/></Td>
                   </Tr>
                   <Tr>
                     <Td>Routing in React</Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
                     <Td></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={PART_TIME}/></Td>
                   </Tr>
                   <Tr>
                     <Td>Forms and authentication</Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
                     <Td></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={PART_TIME}/></Td>
                   </Tr>
                   <Tr>
                     <Td>Testing in React</Td>
-                    <Td><Tick/></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                    <Td><Tick type={ADVANCED_REACT}/></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={PART_TIME}/></Td>
                   </Tr>
                   <Tr>
                     <Td>GraphQL</Td>
-                    <Td><Tick/></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                    <Td><Tick type={ADVANCED_REACT}/></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={PART_TIME}/></Td>
                   </Tr>
                   <Tr>
                     <Td>Adv. React patterns</Td>
-                    <Td><Tick/></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                    <Td><Tick type={ADVANCED_REACT}/></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={PART_TIME}/></Td>
                   </Tr>
                   <Tr>
                     <Td>Animations</Td>
                     <Td></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_NATIVE}/></Td>
                     <Td></Td>
                   </Tr>
                   <Tr>
                     <Td>Gestures</Td>
                     <Td></Td>
                     <Td></Td>
-                    <Td><Tick/></Td>
+                    <Td><Tick type={REACT_NATIVE}/></Td>
                     <Td></Td>
                   </Tr>
                 </Tbody>
