@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { H4, P } from '../text'
-import { blue1, GREY2, YELLOW, LIGHT_RED, REACTBLUEDARK } from '../../config/styles'
+import { FONT_FAMILY } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
 import trackUserBehaviour, {
@@ -31,6 +31,12 @@ export const List = styled.div`
 `
 const CurriculumItemTitle = styled(H4)`
   margin-bottom: 0.5em;
+`
+const SubTitleSection = styled.div` 
+  margin: 0;
+  padding-bottom: 18px;
+  line-height: 1.5;
+  ${FONT_FAMILY}
 `
 
 class CurriculumSection extends React.Component {
@@ -99,10 +105,10 @@ class CurriculumSection extends React.Component {
       <Section type={type}>
         <Element name={name || title} />
         {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
-        <P>
+        <SubTitleSection>
         {`${subTitle ? subTitle : ''} - `}
         {showToggle ? childrenWithToggle : childrenWithoutToggle}
-        </P> 
+        </SubTitleSection> 
       </Section>
     )
   }
