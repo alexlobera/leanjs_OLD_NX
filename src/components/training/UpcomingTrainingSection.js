@@ -22,11 +22,9 @@ const UpcomingTrainings = ({curriculum}) => trainings.map(training => {
       path={training.pathUrl}
   />
   return (
-    <React.Fragment>
+    <React.Fragment key={training.trainingInstanceId}>
       {curriculum ? 
-      <div>
-        {trainingInstance}
-      </div> 
+        trainingInstance
         :
         <Col md={4}>
           {trainingInstance}
