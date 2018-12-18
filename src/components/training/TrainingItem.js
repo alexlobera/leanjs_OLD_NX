@@ -29,14 +29,14 @@ const Calander = styled.div`
 const TrainingItem = ({ type, city, country, startDay, startMonth, path, imageSrc }) => (
   <React.Fragment>
     <TrainingRow>
-    <TrainingItemCol xs={5} md={6}>
+    <TrainingItemCol xs={5} md={3}>
       <Calander type={type}>
         {startDay}
         <br />
         {startMonth}
       </Calander>
     </TrainingItemCol>
-    <TrainingItemCol xs={7} md={6}>
+    <TrainingItemCol xs={7} md={7}>
       <P>
         {type}
         <br />
