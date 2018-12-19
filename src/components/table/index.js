@@ -2,8 +2,12 @@ import * as responsiveTable from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import styled from 'styled-components'
 import { selectTypeColor } from '../utils'
+import { FONT_FAMILY } from '../../config/styles'
 
-const Table = responsiveTable.Table
+const Table = styled(responsiveTable.Table)`
+    ${FONT_FAMILY}
+`
+
 const Thead = responsiveTable.Thead
 const Tbody = responsiveTable.Tbody
 const Tr = responsiveTable.Tr
