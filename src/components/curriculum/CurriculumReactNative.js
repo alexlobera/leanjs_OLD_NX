@@ -13,7 +13,7 @@ const CurriculumReactNative = ({
   showTitle = true,
   list,
   showToggle,
-  toggleNavigateTo = '/curriculum?tab=react-native',
+  toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: REACT_NATIVE }

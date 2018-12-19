@@ -19,12 +19,13 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
+import { REACT_BOOTCAMP } from '../../config/data'
 
 const CurriculumBootcamp = ({
   showTitle = true,
   list,
   showToggle,
-  toggleNavigateTo = '/curriculum?tab=react-bootcamp',
+  toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
 }) => {

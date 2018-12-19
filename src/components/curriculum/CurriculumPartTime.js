@@ -35,7 +35,7 @@ const CurriculumPartTime = ({
   showTitle = true,
   list,
   showToggle,
-  toggleNavigateTo = '/curriculum?tab=part-time',
+  toggleNavigateTo = `/curriculum?tab=${PART_TIME}`,
   showCallToActionBottom = false,
   marketingCard = null,
 }) => {
