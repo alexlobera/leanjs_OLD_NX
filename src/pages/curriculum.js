@@ -107,10 +107,10 @@ class Curriculum extends React.Component {
                 <Thead>
                   <Tr>
                     <Th></Th>
-                    <Th>One week bootcamp</Th>
-                    <Th>Advanced bootcamp</Th>
-                    <Th>Native training</Th>
-                    <Th>Part time course</Th>
+                    <Th type={REACT_BOOTCAMP}>One week bootcamp</Th>
+                    <Th type={ADVANCED_REACT}>Advanced bootcamp</Th>
+                    <Th type={REACT_NATIVE}>Native training</Th>
+                    <Th type={PART_TIME}>Part time course</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
