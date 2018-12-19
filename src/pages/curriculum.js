@@ -26,9 +26,7 @@ import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 import { Card } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import {
- Tick
-} from '../components/icons'
+import { Tick } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import {
   selectFirstTraining,
