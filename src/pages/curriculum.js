@@ -102,77 +102,76 @@ class Curriculum extends React.Component {
                 </Col>
               </Row>
               <Row>
-              <Col lg={10} lgOffset={1}>
-              <Table>
-                <Thead>
-                  <Tr>
-                    <Th></Th>
-                    <Th type={REACT_BOOTCAMP}>One week bootcamp</Th>
-                    <Th type={ADVANCED_REACT}>Advanced bootcamp</Th>
-                    <Th type={REACT_NATIVE}>Native training</Th>
-                    <Th type={PART_TIME}>Part time course</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>ES6</Td>
-                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                    <Td></Td>
-                    <Td></Td>
-                    <Td><Tick type={PART_TIME}/></Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Routing in React</Td>
-                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                    <Td></Td>
-                    <Td></Td>
-                    <Td><Tick type={PART_TIME}/></Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Forms and authentication</Td>
-                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                    <Td></Td>
-                    <Td></Td>
-                    <Td><Tick type={PART_TIME}/></Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Testing in React</Td>
-                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                    <Td><Tick type={ADVANCED_REACT}/></Td>
-                    <Td></Td>
-                    <Td><Tick type={PART_TIME}/></Td>
-                  </Tr>
-                  <Tr>
-                    <Td>GraphQL</Td>
-                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                    <Td><Tick type={ADVANCED_REACT}/></Td>
-                    <Td></Td>
-                    <Td><Tick type={PART_TIME}/></Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Adv. React patterns</Td>
-                    <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                    <Td><Tick type={ADVANCED_REACT}/></Td>
-                    <Td></Td>
-                    <Td><Tick type={PART_TIME}/></Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Animations</Td>
-                    <Td></Td>
-                    <Td></Td>
-                    <Td><Tick type={REACT_NATIVE}/></Td>
-                    <Td></Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Gestures</Td>
-                    <Td></Td>
-                    <Td></Td>
-                    <Td><Tick type={REACT_NATIVE}/></Td>
-                    <Td></Td>
-                  </Tr>
-                </Tbody>
-              </Table>
-
+                <Col lg={10} lgOffset={1}>
+                <Table>
+                  <Thead>
+                    <Tr>
+                      <Th></Th>
+                      <Th type={REACT_BOOTCAMP}>One week <br/> bootcamp</Th>
+                      <Th type={ADVANCED_REACT}>Advanced <br/>bootcamp</Th>
+                      <Th type={REACT_NATIVE}>React Native <br/>training</Th>
+                      <Th type={PART_TIME}>Part time <br/>course</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    <Tr>
+                      <Td>ES6</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Routing in React</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Forms and authentication</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Testing in React</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td><Tick type={ADVANCED_REACT}/></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>GraphQL</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td><Tick type={ADVANCED_REACT}/></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Adv. React patterns</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td><Tick type={ADVANCED_REACT}/></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Animations</Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={REACT_NATIVE}/></Td>
+                      <Td></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Gestures</Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={REACT_NATIVE}/></Td>
+                      <Td></Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
                 </Col>
               </Row>
             </Card>
