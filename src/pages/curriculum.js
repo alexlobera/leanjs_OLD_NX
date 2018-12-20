@@ -6,6 +6,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
 import { H2Ref, H2, P, H3 } from '../components/text'
+import LinkButton from '../components/buttons/LinkButton'
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
@@ -107,10 +108,10 @@ class Curriculum extends React.Component {
                   <Thead>
                     <Tr>
                       <Th></Th>
-                      <Th type={REACT_BOOTCAMP}>One week <br/> bootcamp</Th>
-                      <Th type={ADVANCED_REACT}>Advanced <br/>bootcamp</Th>
-                      <Th type={REACT_NATIVE}>React Native <br/>training</Th>
-                      <Th type={PART_TIME}>Part time <br/>course</Th>
+                      <Th type={REACT_BOOTCAMP}>One week bootcamp</Th>
+                      <Th type={ADVANCED_REACT}>Advanced bootcamp</Th>
+                      <Th type={REACT_NATIVE}>React Native training</Th>
+                      <Th type={PART_TIME}>Part time course</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
@@ -169,6 +170,13 @@ class Curriculum extends React.Component {
                       <Td></Td>
                       <Td><Tick type={REACT_NATIVE}/></Td>
                       <Td></Td>
+                    </Tr>
+                    <Tr>
+                      <Td></Td>
+                      <Td><LinkButton secondary to="/react-redux-graphql-bootcamp">React bootcamp >></LinkButton></Td>
+                      <Td><LinkButton secondary to="/advanced-react-redux-graphql-bootcamp">Advanced bootcamp >></LinkButton></Td>
+                      <Td><LinkButton secondary to="/react-native-bootcamp">React Native >></LinkButton></Td>
+                      <Td><LinkButton secondary to="/react-redux-graphql-part-time-course">Part Time >></LinkButton></Td>
                     </Tr>
                   </Tbody>
                 </Table>
@@ -273,7 +281,7 @@ class Curriculum extends React.Component {
                               </Link>
                             </Li>
                             <Li>
-                              <Link to="#day7">Day 7: </Link>
+                              <Link to="#day7">Day 7: Real world project</Link>
                             </Li>
                           </Ul>
                         </Col>
