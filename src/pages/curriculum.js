@@ -137,7 +137,7 @@ class Curriculum extends React.Component {
                       <Td><Tick type={PART_TIME}/></Td>
                     </Tr>
                     <Tr>
-                      <Td>Testing in React</Td>
+                      <Td>Testing</Td>
                       <Td><Tick type={REACT_BOOTCAMP}/></Td>
                       <Td><Tick type={ADVANCED_REACT}/></Td>
                       <Td></Td>
@@ -148,7 +148,7 @@ class Curriculum extends React.Component {
                       <Td><Tick type={REACT_BOOTCAMP}/></Td>
                       <Td><Tick type={ADVANCED_REACT}/></Td>
                       <Td></Td>
-                      <Td><Tick type={PART_TIME}/></Td>
+                      <Td></Td>
                     </Tr>
                     <Tr>
                       <Td>Adv. React patterns</Td>
