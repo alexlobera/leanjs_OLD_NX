@@ -1,19 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 import { H4, P } from '../text'
-import { blue1 } from '../../config/styles'
+import { FONT_FAMILY } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
+import { selectTypeColor } from '../utils'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
+
 const Section = styled.div`
+  ${props => 
+    `border-left: 3px solid ${selectTypeColor(props.type)};`
+  }
   margin-top: 2em;
-  border-left: 3px solid ${blue1()};
   padding-left: 20px;
 `
 
@@ -24,6 +28,15 @@ export const CurriculumSubSection = styled.div`
 export const List = styled.div`
   display: flex;
   flex-direction: column;
+`
+const CurriculumItemTitle = styled(H4)`
+  margin-bottom: 0.5em;
+`
+const SubTitleSection = styled.div` 
+  margin: 0;
+  padding-bottom: 18px;
+  line-height: 1.5;
+  ${FONT_FAMILY}
 `
 
 class CurriculumSection extends React.Component {
@@ -59,6 +72,7 @@ class CurriculumSection extends React.Component {
     const {
       title,
       name,
+      type,
       subTitle,
       children,
       showToggle = true,
@@ -81,17 +95,20 @@ class CurriculumSection extends React.Component {
         </Link>
       </CurriculumSubSection>
     ) : (
-      <Link {...toogleLinkProps}>Click here for more detail</Link>
+      <Link {...toogleLinkProps}>More detail</Link>
     )
     const childrenWithoutToggle = (
       <CurriculumSubSection>{children}</CurriculumSubSection>
     )
+
     return (
-      <Section>
+      <Section type={type}>
         <Element name={name || title} />
-        {title ? <H4>{title}</H4> : ''}
-        {subTitle ? <P>{subTitle}</P> : ''}
+        {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
+        <SubTitleSection>
+        {`${subTitle ? subTitle : ''} - `}
         {showToggle ? childrenWithToggle : childrenWithoutToggle}
+        </SubTitleSection> 
       </Section>
     )
   }

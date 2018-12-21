@@ -1,10 +1,12 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
 import moment from 'moment'
+import { Table, Thead, Tbody, Tr, Th, Td } from '../components/table'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
 import { H2Ref, H2, P, H3 } from '../components/text'
+import LinkButton from '../components/buttons/LinkButton'
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
@@ -25,36 +27,23 @@ import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 import { Card } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Image } from '../components/elements'
-import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  BulletIcon,
-  PeopleNetWorkIcon,
-} from '../components/icons'
+import { Tick } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
-import { CURRICULUM_FULL_TRAINING_IMG } from '../config/images'
 import {
   selectFirstTraining,
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
+  REACT_NATIVE
 } from '../config/data'
 
 const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const trainingPartTime = selectFirstTraining(PART_TIME)
 const trainingAdvanced = selectFirstTraining(ADVANCED_REACT)
 
-const TAB_REACT_BOOTCAMP = 'react-bootcamp'
-const TAB_REACT_NATIVE = 'react-native'
-const TAB_PART_TIME = 'part-time'
-const TAB_ADVANCED_REACT = 'advanced-react'
-
 class Curriculum extends React.Component {
   state = {
-    active: TAB_REACT_BOOTCAMP,
+    active: REACT_BOOTCAMP,
   }
 
   componentDidMount() {
@@ -97,89 +86,11 @@ class Curriculum extends React.Component {
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <H2Ref>
-                    Bootcamps/part-time courses - what's the difference?{' '}
+                    Our courses - what are the differences?{' '}
                     <Link to="#differences" name="differences">
                       #
                     </Link>
                   </H2Ref>
-                </Col>
-              </Row>
-              <Row>
-                <Col md={6} mdOffset={1}>
-                  <H3>React bootcamp</H3>
-                  <P>
-                    Our React bootcamp has the most complete curriculum on the
-                    market, with a syllabus that covers:
-                  </P>
-                  <Ul>
-                    <Li>Server-side rendering</Li>
-                    <Li>Advanced React patterns</Li>
-                    <Li>Advanced Redux</Li>
-                    <Li>Functional programming</Li>
-                    <Li>GraphQL</Li>
-                  </Ul>
-                  <P>
-                    <Link
-                      onClick={() => this.setActive(TAB_REACT_BOOTCAMP)}
-                      to="#curriculum"
-                    >
-                      See React bootcamp curriculum
-                    </Link>
-                  </P>
-                  <H3>React Native bootcamp</H3>
-                  <P>
-                    Our React Native bootcamp is the smoothest transition
-                    between React and Native.
-                  </P>
-                  <Ul>
-                    <Li>React Native foundation</Li>
-                    <Li>Native animations</Li>
-                    <Li>Gestures</Li>
-                  </Ul>
-                  <P>
-                    <Link
-                      onClick={() => this.setActive(TAB_ADVANCED_REACT)}
-                      to="#curriculum"
-                    >
-                      See React Native curriculum
-                    </Link>
-                  </P>
-                  <H3>Advanced React bootcamp</H3>
-                  <P>
-                    Our Advanced React bootcamp is the quickest way to go from
-                    React developer to senior React developer.
-                  </P>
-                  <P>
-                    <Link
-                      onClick={() => this.setActive(TAB_ADVANCED_REACT)}
-                      to="#curriculum"
-                    >
-                      See Advanced React curriculum
-                    </Link>
-                  </P>
-                  <H3>React part-time course</H3>
-                  <P>
-                    The part-time course has a condensed version of the React
-                    bootcamp curriculum by excluding the advanced sections and
-                    GraphQL. Ideal for those who value flexible learning and
-                    can’t miss a day at work.
-                  </P>
-                  <P>
-                    <Link
-                      onClick={() => this.setActive(TAB_PART_TIME)}
-                      to="#curriculum"
-                    >
-                      See React part-time course curriculum
-                    </Link>
-                  </P>
-                </Col>
-                <Col md={3} mdOffset={1}>
-                  <Image
-                    style={{ marginBottom: '36px' }}
-                    src={CURRICULUM_FULL_TRAINING_IMG}
-                    width="100%"
-                    alt="Four developer students concentrating on their laptop screens whilst ReactJS Academy coach Richard speaks"
-                  />
                   <H3>With all courses you will:</H3>
                   <Ul>
                     <Li>Build production ready React applications</Li>
@@ -191,6 +102,86 @@ class Curriculum extends React.Component {
                   </Ul>
                 </Col>
               </Row>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                <Table>
+                  <Thead>
+                    <Tr>
+                      <Th></Th>
+                      <Th type={REACT_BOOTCAMP}>One week bootcamp</Th>
+                      <Th type={ADVANCED_REACT}>Advanced bootcamp</Th>
+                      <Th type={REACT_NATIVE}>React Native training</Th>
+                      <Th type={PART_TIME}>Part time course</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    <Tr>
+                      <Td>ES6</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Routing in React</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Forms and authentication</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Testing in React</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td><Tick type={ADVANCED_REACT}/></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>GraphQL</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td><Tick type={ADVANCED_REACT}/></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Adv. React patterns</Td>
+                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
+                      <Td><Tick type={ADVANCED_REACT}/></Td>
+                      <Td></Td>
+                      <Td><Tick type={PART_TIME}/></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Animations</Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={REACT_NATIVE}/></Td>
+                      <Td></Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Gestures</Td>
+                      <Td></Td>
+                      <Td></Td>
+                      <Td><Tick type={REACT_NATIVE}/></Td>
+                      <Td></Td>
+                    </Tr>
+                    <Tr>
+                      <Td></Td>
+                      <Td><LinkButton secondary to="/react-redux-graphql-bootcamp">React bootcamp >></LinkButton></Td>
+                      <Td><LinkButton secondary to="/advanced-react-redux-graphql-bootcamp">Advanced bootcamp >></LinkButton></Td>
+                      <Td><LinkButton secondary to="/react-native-bootcamp">React Native >></LinkButton></Td>
+                      <Td><LinkButton secondary to="/react-redux-graphql-part-time-course">Part Time >></LinkButton></Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
+                </Col>
+              </Row>
             </Card>
           </Grid>
         </TopSection>
@@ -199,23 +190,22 @@ class Curriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <Element name="curriculum" />
-                <P>Choose a curriculum:</P>
+                <H2>Choose a curriculum:</H2>
                 <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
-                    <TabItem name={TAB_REACT_BOOTCAMP}>
+                    <TabItem name={REACT_BOOTCAMP}>
                       React 1-week bootcamp
                     </TabItem>
-                    <TabItem name={TAB_ADVANCED_REACT}>
+                    <TabItem name={ADVANCED_REACT}>
                       Advanced React bootcamp
                     </TabItem>
-                    <TabItem name={TAB_REACT_NATIVE}>
+                    <TabItem name={REACT_NATIVE}>
                       React Native bootcamp
                     </TabItem>
-                    <TabItem name={TAB_PART_TIME}>Part-time course</TabItem>
+                    <TabItem name={PART_TIME}>Part-time course</TabItem>
                   </TabList>
                   <TabContent>
-                    <ContentItem name={TAB_REACT_BOOTCAMP}>
-                      <H2>React 1-week bootcamp curriculum</H2>
+                    <ContentItem name={REACT_BOOTCAMP}>
                       <P>
                         <strong>
                           On completion of the React bootcamp each student will:
@@ -291,7 +281,7 @@ class Curriculum extends React.Component {
                               </Link>
                             </Li>
                             <Li>
-                              <Link to="#day7">Day 7: </Link>
+                              <Link to="#day7">Day 7: Real world project</Link>
                             </Li>
                           </Ul>
                         </Col>
@@ -321,8 +311,7 @@ class Curriculum extends React.Component {
                       </Row>
                     </ContentItem>
 
-                    <ContentItem name={TAB_ADVANCED_REACT}>
-                      <H2>Advanced React bootcamp curriculum</H2>
+                    <ContentItem name={ADVANCED_REACT}>
                       <P>
                         <strong>
                           On completion of the advanced React bootcamp each
@@ -370,8 +359,7 @@ class Curriculum extends React.Component {
                         </Col>
                       </Row>
                     </ContentItem>
-                    <ContentItem name={TAB_REACT_NATIVE}>
-                      <H2>React Native bootcamp curriculum</H2>
+                    <ContentItem name={REACT_NATIVE}>
                       <P>
                         <strong>
                           On completion of the React Native bootcamp each
@@ -404,8 +392,7 @@ class Curriculum extends React.Component {
                       </Row>
                     </ContentItem>
 
-                    <ContentItem name={TAB_PART_TIME}>
-                      <H2>React part-time course curriculum</H2>
+                    <ContentItem name={PART_TIME}>
                       <P>
                         <strong>
                           On completion of the React bootcamp each student will:

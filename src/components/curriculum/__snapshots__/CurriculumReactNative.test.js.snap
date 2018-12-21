@@ -29,6 +29,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         subTitle="Foundation, Navigation, and Animations"
         title="React Native Day 1"
         toggleNavigateTo={[Function]}
+        type="React Native"
       >
         <ReactNativeFoundationSession
           title="Foundation"
@@ -40,6 +41,15 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
           title="Animations"
         />
       </CurriculumSection>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
     </Styled(Col)>
   </Row>
 </Fragment>

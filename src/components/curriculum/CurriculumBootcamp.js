@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+
 import Link from '../navigation/Link'
-import { H2Ref } from '../text'
+import { H2Ref, H3 } from '../text'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -22,17 +22,19 @@ import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
+import { UpcomingTrainingSection } from '../training';
+import { REACT_BOOTCAMP } from '../../config/data';
 
 const CurriculumBootcamp = ({
   showTitle = true,
   list,
   showToggle,
-  toggleNavigateTo = '/curriculum?tab=react-bootcamp',
+  toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
+  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: REACT_BOOTCAMP }
   const firstHalf = (
     <React.Fragment>
       <Section
@@ -128,7 +130,7 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={5} lgOffset={1}>
             <H2Ref>
               React Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -149,9 +151,10 @@ const CurriculumBootcamp = ({
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
             {firstHalf}
-          </Col>
-          <Col md={6} lg={5}>
             {secondHalf}
+          </Col>
+          <Col md={6} lg={5} lgOffset={1}>
+            <UpcomingTrainingSection curriculum />
           </Col>
         </Row>
       )}

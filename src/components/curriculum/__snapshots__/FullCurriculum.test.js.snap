@@ -21,8 +21,80 @@ exports[`<FullCurriculum /> should render component 1`] = `
       </Styled(styled.h1)>
     </Styled(Col)>
   </Row>
-  <CurriculumBootcamp
-    showTitle={false}
-  />
+  <Row>
+    <Styled(Col)
+      lg={10}
+      lgOffset={1}
+      md={12}
+      xs={12}
+    >
+      <styled.p>
+        Select Course:
+      </styled.p>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)>
+      <Tabs
+        active="React bootcamp"
+        onChange={[Function]}
+      >
+        <TabList
+          offset={true}
+        >
+          <TabItem
+            name="React bootcamp"
+          >
+            React 1-week bootcamp
+          </TabItem>
+          <TabItem
+            name="Advanced React"
+          >
+            Advanced React bootcamp
+          </TabItem>
+          <TabItem
+            name="React Native"
+          >
+            React Native bootcamp
+          </TabItem>
+          <TabItem
+            name="Part-time"
+          >
+            Part-time course
+          </TabItem>
+        </TabList>
+        <TabContent>
+          <ContentItem
+            name="React bootcamp"
+          >
+            <CurriculumBootcamp
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="Advanced React"
+          >
+            <CurriculumAdvancedReact
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="React Native"
+          >
+            <CurriculumReactNative
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="Part-time"
+          >
+            <CurriculumPartTime
+              showTitle={false}
+            />
+          </ContentItem>
+        </TabContent>
+      </Tabs>
+    </Styled(Col)>
+  </Row>
 </Fragment>
 `;
