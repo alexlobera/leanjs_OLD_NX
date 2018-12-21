@@ -6,7 +6,7 @@ export const blue1 = (opacity = 1) => `rgba(0,41,56, ${opacity})` // #002938
 
 export const blue2 = (opacity = 1) => `rgba(87,178,212,${opacity})` 
 
-export const REACTBLUEDARK = '#57B2D4'
+export const REACT_BLUE_DARK = '#57B2D4'
 
 export const YELLOW = '#D6D100'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { reactBlue, FONT_FAMILY, REACTBLUEDARK, YELLOW, LIGHT_RED, GREY2 } from '../../config/styles'
+import { reactBlue, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
 import { REACT_BOOTCAMP, PART_TIME } from '../../config/data';
 import { Col, Row } from '../layout/Grid'
