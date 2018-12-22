@@ -24,7 +24,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <CurriculumSection
+      <withRouter(CurriculumSection)
         name="day1"
         subTitle="Foundation, Navigation, and Animations"
         title="React Native Day 1"
@@ -40,7 +40,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         <ReactNativeAnimationsSession
           title="Animations"
         />
-      </CurriculumSection>
+      </withRouter(CurriculumSection)>
     </Styled(Col)>
     <Styled(Col)
       lg={5}
