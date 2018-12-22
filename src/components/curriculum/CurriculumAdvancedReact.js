@@ -12,19 +12,25 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
-import { UpcomingTrainingSection } from '../training';
-import { ADVANCED_REACT } from '../../config/data';
+import { UpcomingTrainingSection } from '../training'
+import { ADVANCED_REACT } from '../../config/data'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
+  isOpen,
   list,
-  showToggle,
+  enableToggle,
   toggleNavigateTo = `/curriculum?tab=${ADVANCED_REACT}`,
   marketingCard = null,
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: ADVANCED_REACT }
+  const commonProps = {
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type: ADVANCED_REACT,
+    isOpen,
+  }
   const firstHalf = (
     <React.Fragment>
       <Section

@@ -15,8 +15,8 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
-import { UpcomingTrainingSection } from '../training';
-import { PART_TIME } from '../../config/data';
+import { UpcomingTrainingSection } from '../training'
+import { PART_TIME } from '../../config/data'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -33,14 +33,20 @@ const PartTimeFinalProject = () => (
 
 const CurriculumPartTime = ({
   showTitle = true,
+  isOpen,
   list,
-  showToggle,
+  enableToggle,
   toggleNavigateTo = `/curriculum?tab=${PART_TIME}`,
   showCallToActionBottom = false,
   marketingCard = null,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: PART_TIME }
+  const commonProps = {
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type: PART_TIME,
+    isOpen,
+  }
   const firstHalf = (
     <React.Fragment>
       <Section

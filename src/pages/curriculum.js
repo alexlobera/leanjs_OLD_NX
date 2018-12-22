@@ -34,7 +34,7 @@ import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
-  REACT_NATIVE
+  REACT_NATIVE,
 } from '../config/data'
 
 const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
@@ -104,82 +104,139 @@ class Curriculum extends React.Component {
               </Row>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                <Table>
-                  <Thead>
-                    <Tr>
-                      <Th></Th>
-                      <Th type={REACT_BOOTCAMP}>One week bootcamp</Th>
-                      <Th type={ADVANCED_REACT}>Advanced bootcamp</Th>
-                      <Th type={REACT_NATIVE}>React Native training</Th>
-                      <Th type={PART_TIME}>Part time course</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    <Tr>
-                      <Td>ES6</Td>
-                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                      <Td></Td>
-                      <Td></Td>
-                      <Td><Tick type={PART_TIME}/></Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Routing in React</Td>
-                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                      <Td></Td>
-                      <Td></Td>
-                      <Td><Tick type={PART_TIME}/></Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Forms and authentication</Td>
-                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                      <Td></Td>
-                      <Td></Td>
-                      <Td><Tick type={PART_TIME}/></Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Testing</Td>
-                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                      <Td><Tick type={ADVANCED_REACT}/></Td>
-                      <Td></Td>
-                      <Td><Tick type={PART_TIME}/></Td>
-                    </Tr>
-                    <Tr>
-                      <Td>GraphQL</Td>
-                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                      <Td><Tick type={ADVANCED_REACT}/></Td>
-                      <Td></Td>
-                      <Td></Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Adv. React patterns</Td>
-                      <Td><Tick type={REACT_BOOTCAMP}/></Td>
-                      <Td><Tick type={ADVANCED_REACT}/></Td>
-                      <Td></Td>
-                      <Td><Tick type={PART_TIME}/></Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Animations</Td>
-                      <Td></Td>
-                      <Td></Td>
-                      <Td><Tick type={REACT_NATIVE}/></Td>
-                      <Td></Td>
-                    </Tr>
-                    <Tr>
-                      <Td>Gestures</Td>
-                      <Td></Td>
-                      <Td></Td>
-                      <Td><Tick type={REACT_NATIVE}/></Td>
-                      <Td></Td>
-                    </Tr>
-                    <Tr>
-                      <Td></Td>
-                      <Td><LinkButton secondary to="/react-redux-graphql-bootcamp">React bootcamp >></LinkButton></Td>
-                      <Td><LinkButton secondary to="/advanced-react-redux-graphql-bootcamp">Advanced bootcamp >></LinkButton></Td>
-                      <Td><LinkButton secondary to="/react-native-bootcamp">React Native >></LinkButton></Td>
-                      <Td><LinkButton secondary to="/react-redux-graphql-part-time-course">Part Time >></LinkButton></Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
+                  <Table>
+                    <Thead>
+                      <Tr>
+                        <Th />
+                        <Th type={REACT_BOOTCAMP}>One week bootcamp</Th>
+                        <Th type={ADVANCED_REACT}>Advanced bootcamp</Th>
+                        <Th type={REACT_NATIVE}>React Native training</Th>
+                        <Th type={PART_TIME}>Part time course</Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                      <Tr>
+                        <Td>ES6</Td>
+                        <Td>
+                          <Tick type={REACT_BOOTCAMP} />
+                        </Td>
+                        <Td />
+                        <Td />
+                        <Td>
+                          <Tick type={PART_TIME} />
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>Routing in React</Td>
+                        <Td>
+                          <Tick type={REACT_BOOTCAMP} />
+                        </Td>
+                        <Td />
+                        <Td />
+                        <Td>
+                          <Tick type={PART_TIME} />
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>Forms and authentication</Td>
+                        <Td>
+                          <Tick type={REACT_BOOTCAMP} />
+                        </Td>
+                        <Td />
+                        <Td />
+                        <Td>
+                          <Tick type={PART_TIME} />
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>Testing</Td>
+                        <Td>
+                          <Tick type={REACT_BOOTCAMP} />
+                        </Td>
+                        <Td>
+                          <Tick type={ADVANCED_REACT} />
+                        </Td>
+                        <Td />
+                        <Td>
+                          <Tick type={PART_TIME} />
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>GraphQL</Td>
+                        <Td>
+                          <Tick type={REACT_BOOTCAMP} />
+                        </Td>
+                        <Td>
+                          <Tick type={ADVANCED_REACT} />
+                        </Td>
+                        <Td />
+                        <Td />
+                      </Tr>
+                      <Tr>
+                        <Td>Adv. React patterns</Td>
+                        <Td>
+                          <Tick type={REACT_BOOTCAMP} />
+                        </Td>
+                        <Td>
+                          <Tick type={ADVANCED_REACT} />
+                        </Td>
+                        <Td />
+                        <Td>
+                          <Tick type={PART_TIME} />
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>Animations</Td>
+                        <Td />
+                        <Td />
+                        <Td>
+                          <Tick type={REACT_NATIVE} />
+                        </Td>
+                        <Td />
+                      </Tr>
+                      <Tr>
+                        <Td>Gestures</Td>
+                        <Td />
+                        <Td />
+                        <Td>
+                          <Tick type={REACT_NATIVE} />
+                        </Td>
+                        <Td />
+                      </Tr>
+                      <Tr>
+                        <Td />
+                        <Td>
+                          <LinkButton
+                            secondary
+                            to="/react-redux-graphql-bootcamp"
+                          >
+                            React bootcamp >>
+                          </LinkButton>
+                        </Td>
+                        <Td>
+                          <LinkButton
+                            secondary
+                            to="/advanced-react-redux-graphql-bootcamp"
+                          >
+                            Advanced bootcamp >>
+                          </LinkButton>
+                        </Td>
+                        <Td>
+                          <LinkButton secondary to="/react-native-bootcamp">
+                            React Native >>
+                          </LinkButton>
+                        </Td>
+                        <Td>
+                          <LinkButton
+                            secondary
+                            to="/react-redux-graphql-part-time-course"
+                          >
+                            Part Time >>
+                          </LinkButton>
+                        </Td>
+                      </Tr>
+                    </Tbody>
+                  </Table>
                 </Col>
               </Row>
             </Card>
@@ -199,9 +256,7 @@ class Curriculum extends React.Component {
                     <TabItem name={ADVANCED_REACT}>
                       Advanced React bootcamp
                     </TabItem>
-                    <TabItem name={REACT_NATIVE}>
-                      React Native bootcamp
-                    </TabItem>
+                    <TabItem name={REACT_NATIVE}>React Native bootcamp</TabItem>
                     <TabItem name={PART_TIME}>Part-time course</TabItem>
                   </TabList>
                   <TabContent>
@@ -291,7 +346,7 @@ class Curriculum extends React.Component {
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
                           <CurriculumBootcamp
-                            showToggle={false}
+                            enableToggle={true}
                             showTitle={false}
                             showLinkToCurriculum={false}
                             list={true}
@@ -341,9 +396,10 @@ class Curriculum extends React.Component {
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
                           <CurriculumAdvancedReact
-                            showToggle={false}
+                            enableToggle={true}
                             showTitle={false}
                             list={true}
+                            showLinkToCurriculum={false}
                             marketingCard={
                               <MarketingCard
                                 text={`Next advanced React bootcamp starts on ${moment(
@@ -384,7 +440,8 @@ class Curriculum extends React.Component {
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
                           <CurriculumReactNative
-                            showToggle={false}
+                            isOpen={true}
+                            enableToggle={true}
                             showTitle={false}
                             list={true}
                           />
@@ -480,7 +537,7 @@ class Curriculum extends React.Component {
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
                           <CurriculumPartTime
-                            showToggle={false}
+                            enableToggle={true}
                             showTitle={false}
                             list={true}
                             marketingCard={
