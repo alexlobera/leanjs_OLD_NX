@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import queryString from 'query-string'
 import { H4 } from '../text'
 import { withRouter } from 'react-router-dom'
 import { FONT_FAMILY } from '../../config/styles'
