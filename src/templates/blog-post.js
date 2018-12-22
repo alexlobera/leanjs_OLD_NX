@@ -64,7 +64,6 @@ const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
   </StyledAuthor>
 )
 
-
 const GridContent = styled(Grid)`
   padding-top: 72px;
 `
@@ -84,8 +83,8 @@ const BlogPost = ({ data }) => {
   return (
     <React.Fragment>
       <Helmet>
-        <meta property="og:title" content={title}/>
-        <meta property="og:image" content={imageUrl}/>
+        <meta property="og:title" content={title} />
+        <meta property="og:image" content={imageUrl} />
         <meta property="og:description" content={subtitle} />
         <meta property="og:type" content="article" />
       </Helmet>

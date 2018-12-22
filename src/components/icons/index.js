@@ -86,5 +86,5 @@ export {
   FacebookIcon,
   InstagramIcon,
   ExternalLinkIcon,
-  Tick
+  Tick,
 }

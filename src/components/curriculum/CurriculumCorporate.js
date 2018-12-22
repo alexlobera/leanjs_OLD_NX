@@ -71,7 +71,7 @@ const CurriculumCorporate = ({
         <IntroReduxSession title="Introduction to Redux" />
         <TestingIntroSession title="Testing Principales" />
       </Section>
-      
+
       {marketingCard}
     </React.Fragment>
   )
@@ -100,13 +100,13 @@ const CurriculumCorporate = ({
         />
         <AdvancedReduxSession title="Functional programming & advanced Redux" />
       </Section>
-      {showLinkToCurriculum?(
+      {showLinkToCurriculum ? (
         <SectionCTA>
           <LinkButton secondary to="/curriculum">
             Full curriculum>>
           </LinkButton>
         </SectionCTA>
-      ):null}
+      ) : null}
     </React.Fragment>
   )
 

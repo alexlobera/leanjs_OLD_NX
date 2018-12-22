@@ -5,7 +5,7 @@ import { selectTypeColor } from '../utils'
 import { FONT_FAMILY } from '../../config/styles'
 
 const Table = styled(responsiveTable.Table)`
-    ${FONT_FAMILY}
+  ${FONT_FAMILY};
 `
 
 const Thead = responsiveTable.Thead
@@ -13,12 +13,14 @@ const Tbody = responsiveTable.Tbody
 const Tr = responsiveTable.Tr
 
 const Th = styled(responsiveTable.Th)`
-    text-align: center;
-    ${props => props.type ? `border-bottom 3px solid ${selectTypeColor(props.type)}` : 'border: none;'}
+  text-align: center;
+  ${props =>
+    props.type
+      ? `border-bottom 3px solid ${selectTypeColor(props.type)}`
+      : 'border: none;'};
 `
 const Td = styled(responsiveTable.Td)`
-    text-align: center;
+  text-align: center;
 `
-
 
 export { Table, Thead, Tbody, Tr, Th, Td }

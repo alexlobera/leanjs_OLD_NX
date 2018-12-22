@@ -5,7 +5,7 @@ import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
 import { Image } from '../elements'
-import { selectTypeColor } from '../utils';
+import { selectTypeColor } from '../utils'
 
 const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
@@ -26,27 +26,33 @@ const Calander = styled.div`
   font-size: 1.1em;
 `
 
-const TrainingItem = ({ type, city, country, startDay, startMonth, path, imageSrc }) => (
+const TrainingItem = ({
+  type,
+  city,
+  country,
+  startDay,
+  startMonth,
+  path,
+  imageSrc,
+}) => (
   <React.Fragment>
     <TrainingRow>
-    <TrainingItemCol xs={5} md={3}>
-      <Calander type={type}>
-        {startDay}
-        <br />
-        {startMonth}
-      </Calander>
-    </TrainingItemCol>
-    <TrainingItemCol xs={7} md={7}>
-      <P>
-        {type}
-        <br />
-        {city}, {country}
-        <br />
-      <Link to={path}>
-        Find out more
-      </Link>
-      </P>
-    </TrainingItemCol>
+      <TrainingItemCol xs={5} md={3}>
+        <Calander type={type}>
+          {startDay}
+          <br />
+          {startMonth}
+        </Calander>
+      </TrainingItemCol>
+      <TrainingItemCol xs={7} md={7}>
+        <P>
+          {type}
+          <br />
+          {city}, {country}
+          <br />
+          <Link to={path}>Find out more</Link>
+        </P>
+      </TrainingItemCol>
     </TrainingRow>
   </React.Fragment>
 )

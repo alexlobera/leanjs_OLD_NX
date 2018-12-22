@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { reactBlue, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
-import { REACT_BOOTCAMP, PART_TIME } from '../../config/data';
+import { REACT_BOOTCAMP, PART_TIME } from '../../config/data'
 import { Col, Row } from '../layout/Grid'
 
 const Ul = styled.ul`
@@ -56,24 +56,18 @@ export const TabList = ({ active, setActive, onChange, children, offset }) => {
   )
   return (
     <React.Fragment>
-      {offset ? 
+      {offset ? (
         <Row>
           <Col lgOffset={1}>
-            <Ul>
-              {compound}
-            </Ul>
+            <Ul>{compound}</Ul>
           </Col>
         </Row>
-      :
-        <Ul>
-          {compound}
-        </Ul>
-      }
+      ) : (
+        <Ul>{compound}</Ul>
+      )}
     </React.Fragment>
   )
 }
-  
-
 
 TabList.displayName = 'TabList'
 
@@ -94,18 +88,19 @@ const Li = styled.li`
    }
 `
 const A = styled.a`
-  ${props => 
-    `border-bottom: 3px solid ${selectTypeColor(props.name)}`  
-  };
+  ${props => `border-bottom: 3px solid ${selectTypeColor(props.name)}`};
   ${props => {
-    if (props.isActive && (props.name === PART_TIME || props.name === REACT_BOOTCAMP)) {
+    if (
+      props.isActive &&
+      (props.name === PART_TIME || props.name === REACT_BOOTCAMP)
+    ) {
       return `color: white !important`
     }
-  }}
+  }};
 `
 
 export const TabItem = ({ children, isActive, onClick, name, ...props }) => (
-  <Li isActive={isActive} name={name} >
+  <Li isActive={isActive} name={name}>
     <A isActive={isActive} name={name} {...props} onClick={onClick}>
       {children}
     </A>

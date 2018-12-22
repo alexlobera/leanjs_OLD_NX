@@ -6,9 +6,9 @@ import { Col, Row } from '../layout/Grid.js'
 // import Span from '../text/Span.js'
 import styled from 'styled-components'
 
-const CountdownNumbers = styled.span `
-      font-size: 1.6rem;
-      text-align: center;
+const CountdownNumbers = styled.span`
+  font-size: 1.6rem;
+  text-align: center;
 `
 
 class Countdown extends Component {
@@ -95,20 +95,28 @@ class Countdown extends Component {
         <Row>
           <Col xs={2}>
             <React.Fragment>
-            <CountdownNumbers>{this.addLeadingZeros(countDown.days)}</CountdownNumbers>{' '}
-            <p>{countDown.days === 1 ? 'Day' : 'Days'}{' '}</p>
+              <CountdownNumbers>
+                {this.addLeadingZeros(countDown.days)}
+              </CountdownNumbers>{' '}
+              <p>{countDown.days === 1 ? 'Day' : 'Days'} </p>
             </React.Fragment>
           </Col>
           <Col xs={2}>
-            <CountdownNumbers>{this.addLeadingZeros(countDown.hours)}</CountdownNumbers>{' '}
+            <CountdownNumbers>
+              {this.addLeadingZeros(countDown.hours)}
+            </CountdownNumbers>{' '}
             <p>Hours</p>{' '}
           </Col>
           <Col xs={2}>
-            <CountdownNumbers>{this.addLeadingZeros(countDown.min)}</CountdownNumbers>{' '}
+            <CountdownNumbers>
+              {this.addLeadingZeros(countDown.min)}
+            </CountdownNumbers>{' '}
             <p>Min</p>{' '}
           </Col>
           <Col xs={2}>
-            <CountdownNumbers>{this.addLeadingZeros(countDown.sec)}</CountdownNumbers>{' '}
+            <CountdownNumbers>
+              {this.addLeadingZeros(countDown.sec)}
+            </CountdownNumbers>{' '}
             <p>Sec</p>
           </Col>
         </Row>

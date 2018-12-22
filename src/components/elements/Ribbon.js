@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { FONT_FAMILY, TEXT_SIZE } from '../../config/styles'
 
-
 // export default styled.div`
 //   font-family: sans-serif;
 //   font-size: 0.9rem;

@@ -10,6 +10,7 @@ import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
 import { selectTypeColor } from '../utils'
+import 'url-search-params-polyfill'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
@@ -42,9 +43,13 @@ class CurriculumSection extends React.Component {
   constructor(props) {
     super(props)
 
-    const { section, tab } = queryString.parse(props.location.search) || {}
+    const queryString = props.location.search.replace('?', '')
+    const params = new URLSearchParams(queryString)
     this.state = {
-      isOpen: props.isOpen || (section === props.name && tab === props.type),
+      isOpen:
+        props.isOpen ||
+        (params.get('section') === props.name &&
+          params.get('tab') === props.type),
     }
   }
 
