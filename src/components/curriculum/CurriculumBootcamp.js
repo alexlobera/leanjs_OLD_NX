@@ -13,17 +13,16 @@ import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
-import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
-import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
+import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
 import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
-import { UpcomingTrainingSection } from '../training';
-import { REACT_BOOTCAMP } from '../../config/data';
+import { UpcomingTrainingSection } from '../training'
+import { REACT_BOOTCAMP } from '../../config/data'
 
 const CurriculumBootcamp = ({
   showTitle = true,
@@ -34,7 +33,11 @@ const CurriculumBootcamp = ({
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: REACT_BOOTCAMP }
+  const commonProps = {
+    showToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type: REACT_BOOTCAMP,
+  }
   const firstHalf = (
     <React.Fragment>
       <Section
@@ -86,24 +89,23 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 5"
         name="day5"
-        subTitle="Functional Programming & advanced React patterns I, GraphQL, and Server-side Rendering"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
       >
-        <HoCsAndRenderPropsSession title="Functional Programming & Advanced React patterns I" />
+        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns I" />
         <GraphQLSession title="GraphQL and Apollo client" />
-        <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
       </Section>
       <Section
         {...commonProps}
         title="React Bootcamp Day 6"
         name="day6"
-        subTitle="Testing in React, Advanced React Patterns II, Functional Programming & advanced Redux"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
       >
         <TestingInReactSession title="Testing in React" />
         <CompoundCompAndContextSession
           title="Advanced React patterns to create even more reusable
           UIs"
         />
-        <AdvancedReduxSession title="Functional programming & advanced Redux" />
+        <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
       </Section>
       <Section
         {...commonProps}

@@ -25,7 +25,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <CurriculumSection
+      <withRouter(CurriculumSection)
         name="day1"
         subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
         title="Advanced React Day 1"
@@ -41,8 +41,8 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <ServerSideRenderingSession
           title="Server Side Rendering (SSR)"
         />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day2"
         subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
         title="Advanced React Day 2"
@@ -58,8 +58,8 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <AdvancedReduxSession
           title="Functional programming & advanced Redux"
         />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day3"
         subTitle="Real-world Project"
         title="Advanced React Day 3"
@@ -69,7 +69,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app in teams from scratch"
         />
-      </CurriculumSection>
+      </withRouter(CurriculumSection)>
       <styled.div>
         <LinkButton
           secondary={true}
