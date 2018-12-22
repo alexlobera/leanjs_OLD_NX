@@ -25,7 +25,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <withRouter(CurriculumSection)
+      <CurriculumSection
         name="day1"
         subTitle="React 101 and JS fundamentals"
         title="React Bootcamp Day 1 (half day)"
@@ -33,8 +33,8 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         type="React bootcamp"
       >
         <ReactJS101Session />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day2"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
         title="React Bootcamp Day 2"
@@ -50,8 +50,8 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <RoutingAndDataFetchingSession
           title="Routing and Data Fetching"
         />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day3"
         subTitle="Forms, Authentication, Styling in React"
         title="React Bootcamp Day 3"
@@ -67,8 +67,8 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <StylingInReactSession
           title="Styling in React"
         />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day4"
         subTitle="Redux, and Testing Principles"
         title="React Bootcamp Day 4"
@@ -81,27 +81,24 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <TestingIntroSession
           title="Testing Principales"
         />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day5"
-        subTitle="Functional Programming & advanced React patterns I, GraphQL, and Server-side Rendering"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
         title="React Bootcamp Day 5"
         toggleNavigateTo={[Function]}
         type="React bootcamp"
       >
-        <HoCsAndRenderPropsSession
+        <HoCsRenderPropsStateReducerSession
           title="Functional Programming & Advanced React patterns I"
         />
         <GraphQLSession
           title="GraphQL and Apollo client"
         />
-        <ServerSideRenderingSession
-          title="Server Side Rendering (SSR)"
-        />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day6"
-        subTitle="Testing in React, Advanced React Patterns II, Functional Programming & advanced Redux"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
         title="React Bootcamp Day 6"
         toggleNavigateTo={[Function]}
         type="React bootcamp"
@@ -112,11 +109,11 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <CompoundCompAndContextSession
           title="Advanced React patterns to create even more reusable UIs"
         />
-        <AdvancedReduxSession
-          title="Functional programming & advanced Redux"
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
         />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day7"
         subTitle="Real-world Project"
         title="React Bootcamp Day 7"
@@ -126,7 +123,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app in teams from scratch"
         />
-      </withRouter(CurriculumSection)>
+      </CurriculumSection>
       <styled.div>
         <LinkButton
           secondary={true}
