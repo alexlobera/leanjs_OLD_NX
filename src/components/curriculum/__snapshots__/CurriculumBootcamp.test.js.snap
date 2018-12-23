@@ -84,24 +84,21 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="day5"
-        subTitle="Functional Programming & advanced React patterns I, GraphQL, and Server-side Rendering"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
         title="React Bootcamp Day 5"
         toggleNavigateTo={[Function]}
         type="React bootcamp"
       >
-        <HoCsAndRenderPropsSession
+        <HoCsRenderPropsStateReducerSession
           title="Functional Programming & Advanced React patterns I"
         />
         <GraphQLSession
           title="GraphQL and Apollo client"
         />
-        <ServerSideRenderingSession
-          title="Server Side Rendering (SSR)"
-        />
       </CurriculumSection>
       <CurriculumSection
         name="day6"
-        subTitle="Testing in React, Advanced React Patterns II, Functional Programming & advanced Redux"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
         title="React Bootcamp Day 6"
         toggleNavigateTo={[Function]}
         type="React bootcamp"
@@ -112,8 +109,8 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <CompoundCompAndContextSession
           title="Advanced React patterns to create even more reusable UIs"
         />
-        <AdvancedReduxSession
-          title="Functional programming & advanced Redux"
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
         />
       </CurriculumSection>
       <CurriculumSection
