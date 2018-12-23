@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { REACT_NATIVE, REACT_BOOTCAMP, PART_TIME, ADVANCED_REACT } from '../../config/data'
+import {
+  REACT_NATIVE,
+  REACT_BOOTCAMP,
+  PART_TIME,
+  ADVANCED_REACT,
+} from '../../config/data'
 import { GREY2, YELLOW, LIGHT_RED, REACT_BLUE_DARK } from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
@@ -17,19 +22,19 @@ const Components = ({ children, ...props }) =>
     })
   )
 
-export const selectTypeColor = (type) => {
-switch (type) {
+export const selectTypeColor = type => {
+  switch (type) {
     case REACT_BOOTCAMP:
-        return REACT_BLUE_DARK
+      return REACT_BLUE_DARK
     case PART_TIME:
-        return  GREY2
+      return GREY2
     case REACT_NATIVE:
-        return  LIGHT_RED
+      return LIGHT_RED
     case ADVANCED_REACT:
-        return YELLOW
+      return YELLOW
     default:
-        return REACT_BLUE_DARK    
-    }
+      return REACT_BLUE_DARK
+  }
 }
 
 export const HideComponentsUsingCss = styled(Components)`

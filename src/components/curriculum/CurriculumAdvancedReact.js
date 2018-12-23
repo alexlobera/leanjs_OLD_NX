@@ -16,17 +16,19 @@ import { ADVANCED_REACT } from '../../config/data'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
+  isOpen,
   list,
-  showToggle,
+  enableToggle,
   toggleNavigateTo = `/curriculum?tab=${ADVANCED_REACT}`,
   marketingCard = null,
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
-    showToggle,
+    enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type: ADVANCED_REACT,
+    isOpen,
   }
   const firstHalf = (
     <React.Fragment>

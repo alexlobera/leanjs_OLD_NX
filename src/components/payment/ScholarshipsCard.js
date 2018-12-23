@@ -6,7 +6,7 @@ import { TradeLedger } from '../../components/logos'
 import Card from '../elements/Card'
 
 const ScholarshipsCard = () => (
-  <Card top={36} bottom={36} bg='reactBlue' small>
+  <Card top={36} bottom={36} bg="reactBlue" small>
     <H3>Scholarship available!</H3>
     <P>
       Looking to code React full time? We've partnered with Trade Ledger to

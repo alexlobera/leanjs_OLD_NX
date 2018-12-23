@@ -7,16 +7,22 @@ import { UpcomingTrainingSection } from '../training'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
-import { REACT_NATIVE } from '../../config/data';
+import { REACT_NATIVE } from '../../config/data'
 
 const CurriculumReactNative = ({
   showTitle = true,
   list,
-  showToggle,
+  enableToggle,
+  isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection, type: REACT_NATIVE }
+  const commonProps = {
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type: REACT_NATIVE,
+    isOpen,
+  }
   const firstHalf = (
     <Section
       {...commonProps}

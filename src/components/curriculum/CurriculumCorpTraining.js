@@ -24,13 +24,18 @@ import { REACT_BOOTCAMP } from '../../config/data'
 const CurriculumBootcamp = ({
   showTitle = true,
   list,
-  showToggle,
+  isOpen,
+  enableToggle,
   toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
+  const commonProps = {
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    isOpen,
+  }
   const firstHalf = (
     <React.Fragment>
       <Section

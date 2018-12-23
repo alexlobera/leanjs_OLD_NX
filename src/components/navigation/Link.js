@@ -67,10 +67,19 @@ const Link = ({ to = '', children = '', ...rest }) => {
       </BasicLink>
     )
   } else if (to && to[0] === '#') {
+    const { onClick, ...restLinkScrollProps } = rest
+
     return (
       <Route
         render={({ history }) => (
-          <LinkScroll {...rest} onClick={() => history.push(to)} to={to}>
+          <LinkScroll
+            {...restLinkScrollProps}
+            onClick={() => {
+              history.push(to)
+              onClick && onClick()
+            }}
+            to={to}
+          >
             {children}
           </LinkScroll>
         )}

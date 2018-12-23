@@ -1,7 +1,6 @@
 import React from 'react'
-
 import Link from '../navigation/Link'
-import { H2Ref, H3 } from '../text'
+import { H2Ref } from '../text'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -27,16 +26,18 @@ import { REACT_BOOTCAMP } from '../../config/data'
 const CurriculumBootcamp = ({
   showTitle = true,
   list,
-  showToggle,
+  enableToggle,
+  isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
-    showToggle,
+    enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type: REACT_BOOTCAMP,
+    isOpen,
   }
   const firstHalf = (
     <React.Fragment>
