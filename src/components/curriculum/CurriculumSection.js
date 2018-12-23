@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { H4 } from '../text'
+import { H4, Span } from '../text'
 import { withRouter } from 'react-router-dom'
 import { FONT_FAMILY } from '../../config/styles'
 import { Element } from 'react-scroll'
@@ -95,7 +95,7 @@ class CurriculumSection extends React.Component {
     const subsection = isOpen ? (
       <CurriculumSubSection>
         {children}
-        <span> - </span>
+        <Span> - </Span>
         <Link
           duration={200}
           to={`#${name || title}`}
@@ -106,7 +106,7 @@ class CurriculumSection extends React.Component {
       </CurriculumSubSection>
     ) : (
       <React.Fragment>
-        <span> - </span>
+        <Span> - </Span>
         <Link {...toogleLinkProps}>More detail</Link>
       </React.Fragment>
     )
