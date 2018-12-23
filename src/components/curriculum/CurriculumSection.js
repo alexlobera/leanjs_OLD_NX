@@ -107,7 +107,7 @@ class CurriculumSection extends React.Component {
     ) : (
       <React.Fragment>
         <Span> - </Span>
-        <Link {...toogleLinkProps}>More detail</Link>
+        <Link {...toogleLinkProps}>Full detail</Link>
       </React.Fragment>
     )
 

@@ -5,7 +5,7 @@ import { Table, Thead, Tbody, Tr, Th, Td } from '../components/table'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
-import { H2Ref, H2, P, H3 } from '../components/text'
+import { H2Ref, H2, P, H3, H4 } from '../components/text'
 import LinkButton from '../components/buttons/LinkButton'
 import {
   Link,
@@ -294,54 +294,7 @@ class Curriculum extends React.Component {
                           improve your React apps development and performance
                         </Li>
                       </Ul>
-                      <Row>
-                        <Col md={2}>
-                          <Ul inline>
-                            <Li>Jump to:</Li>
-                          </Ul>
-                        </Col>
-                        <Col md={10}>
-                          <Ul unstyled>
-                            <Li>
-                              <Link to="#day1">
-                                Day 1 (half day): React 101 and JS fundamentals
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#day2">
-                                Day 2: ES6 & ESNEXT, Thinking in React, Routing
-                                & Data Fetching
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#day3">
-                                Day 3: Forms, Authentication, Styling in React
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#day4">
-                                Day 4: Redux, and Testing Principles
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#day5">
-                                Day 5: FP & advanced React patterns I, GraphQL,
-                                Server-side rendering
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#day6">
-                                Day 6: Testing in React, Advanced React patterns
-                                II, FP & advanced Redux
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#day7">Day 7: Real world project</Link>
-                            </Li>
-                          </Ul>
-                        </Col>
-                      </Row>
-
+                      <H4>Full course curriculum:</H4>
                       <Row>
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
@@ -392,6 +345,7 @@ class Curriculum extends React.Component {
                           improve your React apps development and performance
                         </Li>
                       </Ul>
+                      <H4>Full course curriculum:</H4>
                       <Row>
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
@@ -436,6 +390,7 @@ class Curriculum extends React.Component {
                           applications
                         </Li>
                       </Ul>
+                      <H4>Full course curriculum:</H4>
                       <Row>
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
@@ -473,65 +428,7 @@ class Curriculum extends React.Component {
                           real-world production-ready React applications
                         </Li>
                       </Ul>
-                      <Row>
-                        <Col md={2}>
-                          <Ul inline>
-                            <Li>Jump to:</Li>
-                          </Ul>
-                        </Col>
-                        <Col md={10}>
-                          <Ul unstyled>
-                            <Li>
-                              <Link to="#session1">Session 1: ES6</Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session2">
-                                Session 2: Thinking in React
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session3">
-                                Session 3: Routing & Data Fetching
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session4">
-                                Session 4: Forms & Auth
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session5">
-                                Session 5: Recap React Fundamentals
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session6">
-                                Session 6: Styling in React
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session7">
-                                Session 7: Introduction to Redux
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session8">
-                                Session 8: Introduction to Testing in JS
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session9">
-                                Session 9: Advanced React Patterns
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="#session10">
-                                Session 10: React mini
-                              </Link>
-                            </Li>
-                          </Ul>
-                        </Col>
-                      </Row>
+                      <H4>Full course curriculum:</H4>
 
                       <Row>
                         <Col lg={1} lgOffset={1} />
