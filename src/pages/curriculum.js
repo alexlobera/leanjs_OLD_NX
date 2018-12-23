@@ -96,7 +96,7 @@ class Curriculum extends React.Component {
                     <Li>Build production ready React applications</Li>
                     <Li>Discuss real-world projects</Li>
                     <Li>Learn best practices</Li>
-                    <Li>Be mentored by the our expert coaches</Li>
+                    <Li>Be mentored by our expert coaches</Li>
                     <Li>Join our alumni community</Li>
                     <Li>Stay ahead in modern development</Li>
                   </Ul>
@@ -271,9 +271,9 @@ class Curriculum extends React.Component {
                           Understand the core principles and libraries of the
                           React ecosystem{' '}
                           <code>
-                            react, react-router, styled-components, storybook,
-                            redux, react-redux, redux-saga, reselect, graphql,
-                            react-apollo
+                            react, react-router, styled-components,
+                            styled-system, storybook, redux, react-redux,
+                            graphql, react-apollo
                           </code>
                         </Li>
                         <Li>
