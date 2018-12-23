@@ -27,24 +27,21 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
     >
       <withRouter(CurriculumSection)
         name="day1"
-        subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
         title="Advanced React Day 1"
         toggleNavigateTo={[Function]}
         type="Advanced React"
       >
-        <HoCsAndRenderPropsSession
+        <HoCsRenderPropsStateReducerSession
           title="Functional Programming & Advanced React patterns I"
         />
         <GraphQLSession
           title="GraphQL and Apollo client"
         />
-        <ServerSideRenderingSession
-          title="Server Side Rendering (SSR)"
-        />
       </withRouter(CurriculumSection)>
       <withRouter(CurriculumSection)
         name="day2"
-        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
         type="Advanced React"
@@ -55,8 +52,8 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <CompoundCompAndContextSession
           title="Advanced React patterns to create even more reusable UIs"
         />
-        <AdvancedReduxSession
-          title="Functional programming & advanced Redux"
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
         />
       </withRouter(CurriculumSection)>
       <withRouter(CurriculumSection)
