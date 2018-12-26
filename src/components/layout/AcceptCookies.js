@@ -22,14 +22,11 @@ const StyledCookiesNotification = styled.div`
   }
   button {
     ${TEXT_SIZE({ lg: true })};
-
     margin: 0;
     padding: 10px;
-
     background: none;
     border: none;
     color: ${WHITE};
-
     cursor: pointer;
   }
 `
