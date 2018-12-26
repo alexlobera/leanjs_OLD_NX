@@ -3,7 +3,6 @@ import store from 'store'
 import styled from 'styled-components'
 import { WHITE, TEXT_SIZE, blue1, FONT_FAMILY } from '../../config/styles'
 import { Link } from '../navigation'
-import { SCREEN_MD_MAX, SCREEN_LG_MIN } from '../utils'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'
 
@@ -34,18 +33,6 @@ const StyledCookiesNotification = styled.div`
     cursor: pointer;
   }
 `
-
-// const CookiesNotificationWrapper = styled.div`
-//   @media (max-width: ${SCREEN_MD_MAX}) {
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 0.5rem;
-//   }
-//   @media (min-width: ${SCREEN_LG_MIN}) {
-//     float: right;
-//     padding: 0.5rem 1rem 0 0;
-//   }
-// `
 
 const CookiesNotificationWrapper = styled.div`
   position: fixed;
