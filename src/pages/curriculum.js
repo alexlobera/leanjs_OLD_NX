@@ -127,7 +127,7 @@ class Curriculum extends React.Component {
                         </Td>
                       </Tr>
                       <Tr>
-                        <Td>Routing in React</Td>
+                        <Td>Routing and Forms</Td>
                         <Td>
                           <Tick type={REACT_BOOTCAMP} />
                         </Td>
@@ -138,7 +138,7 @@ class Curriculum extends React.Component {
                         </Td>
                       </Tr>
                       <Tr>
-                        <Td>Forms and authentication</Td>
+                        <Td>Redux</Td>
                         <Td>
                           <Tick type={REACT_BOOTCAMP} />
                         </Td>
