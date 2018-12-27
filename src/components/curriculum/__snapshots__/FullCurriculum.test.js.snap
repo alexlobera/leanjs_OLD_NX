@@ -34,7 +34,11 @@ exports[`<FullCurriculum /> should render component 1`] = `
     </Styled(Col)>
   </Row>
   <Row>
-    <Styled(Col)>
+    <Styled(Col)
+      lg={11}
+      md={12}
+      xs={12}
+    >
       <Tabs
         active="React bootcamp"
         onChange={[Function]}
