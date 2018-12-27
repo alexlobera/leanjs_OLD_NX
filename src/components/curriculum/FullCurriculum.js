@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Col, Row } from '../layout/Grid'
 import { H1Ref, P } from '../text'
 import Link from '../navigation/Link'
@@ -16,10 +15,6 @@ import {
   PART_TIME,
   ADVANCED_REACT,
 } from '../../config/data'
-
-const TabsWrapper = styled.div`
-  padding-top: 1em;
-`
 
 class FullCurriculum extends React.Component {
   state = {
@@ -44,7 +39,12 @@ class FullCurriculum extends React.Component {
           </Col>
         </Row>
         <Row>
-          <TabsWrapper>
+          <Col xs={12} md={12} lg={10} lgOffset={1}>
+            <P>Select Course:</P>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React 1-week bootcamp</TabItem>
@@ -68,7 +68,7 @@ class FullCurriculum extends React.Component {
                 </ContentItem>
               </TabContent>
             </Tabs>
-          </TabsWrapper>
+          </Col>
         </Row>
       </React.Fragment>
     )
