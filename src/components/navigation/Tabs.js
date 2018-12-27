@@ -54,19 +54,7 @@ export const TabList = ({ active, setActive, onChange, children, offset }) => {
         : undefined,
     })
   )
-  return (
-    <React.Fragment>
-      {offset ? (
-        <Row>
-          <Col lgOffset={1}>
-            <Ul>{compound}</Ul>
-          </Col>
-        </Row>
-      ) : (
-        <Ul>{compound}</Ul>
-      )}
-    </React.Fragment>
-  )
+  return <Ul>{compound}</Ul>
 }
 
 TabList.displayName = 'TabList'

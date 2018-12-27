@@ -103,11 +103,11 @@ const CurriculumAdvancedReact = ({
         </List>
       ) : (
         <Row>
-          <Col md={6} lg={5} lgOffset={1}>
+          <Col md={6}>
             {firstHalf}
             {secondHalf}
           </Col>
-          <Col md={6} lg={5} lgOffset={1}>
+          <Col md={6}>
             <UpcomingTrainingSection curriculum />
           </Col>
         </Row>
