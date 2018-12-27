@@ -130,8 +130,12 @@ const CurriculumBootcamp = ({
         </List>
       ) : (
         <Row>
-          <Col md={6}>{firstHalf}</Col>
-          <Col md={6}>{secondHalf}</Col>
+          <Col md={6} lg={4} lgOffset={1}>
+            {firstHalf}
+          </Col>
+          <Col md={6} lg={4} lgOffset={1}>
+            {secondHalf}
+          </Col>
         </Row>
       )}
     </React.Fragment>
