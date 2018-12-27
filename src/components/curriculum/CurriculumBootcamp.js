@@ -133,7 +133,7 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col>
+          <Col lg={5} lgOffset={1}>
             <H2Ref>
               React Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -152,11 +152,11 @@ const CurriculumBootcamp = ({
         </List>
       ) : (
         <Row>
-          <Col md={6}>
+          <Col md={6} lg={5} lgOffset={1}>
             {firstHalf}
             {secondHalf}
           </Col>
-          <Col md={6}>
+          <Col md={6} lg={5} lgOffset={1}>
             <UpcomingTrainingSection curriculum />
           </Col>
         </Row>

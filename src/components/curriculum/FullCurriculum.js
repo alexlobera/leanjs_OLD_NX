@@ -44,7 +44,7 @@ class FullCurriculum extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} md={12} lg={10} lgOffset={1}>
+          <Col xs={12} md={12} lg={11}>
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React 1-week bootcamp</TabItem>
