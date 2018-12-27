@@ -1,7 +1,7 @@
 import React from 'react'
 import store from 'store'
 import styled from 'styled-components'
-import { WHITE, TEXT_SIZE, blue1, FONT_FAMILY } from '../../config/styles'
+import { WHITE, TEXT_SIZE, blue1, FONT_FAMILY, Z_INDEX_TOP } from '../../config/styles'
 import { Link } from '../navigation'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'
@@ -36,6 +36,7 @@ const CookiesNotificationWrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
+  z-index: ${Z_INDEX_TOP};
 `
 
 class AcceptCookies extends React.Component {

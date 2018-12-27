@@ -24,6 +24,7 @@ import {
   COMMUNITY_IMG,
   CORP_TRAINING_HEADER_IMG,
 } from '../../config/images'
+import { Z_INDEX_BG } from '../../config/styles'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -90,7 +91,7 @@ const HeaderSection = styled(Section)`
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2;
+    z-index: ${Z_INDEX_BG};
     background-image: url(${PART_TIME_IMG});
     ${backgroundImg} background-repeat: no-repeat;
     background-size: cover;
