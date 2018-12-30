@@ -24,6 +24,7 @@ import PeopleNetWorkIcon from './PeopleNetWorkIcon'
 import WorldIcon from './WorldIcon'
 import ExternalLinkIcon from './ExternalLinkIcon'
 import Tick from './Tick'
+import QuestionMarkIcon from './QuestionMarkIcon'
 
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -87,4 +88,5 @@ export {
   InstagramIcon,
   ExternalLinkIcon,
   Tick,
+  QuestionMarkIcon,
 }
