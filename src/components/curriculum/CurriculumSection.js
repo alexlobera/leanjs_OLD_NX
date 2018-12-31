@@ -10,6 +10,7 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { selectTypeColor } from '../utils'
 import 'url-search-params-polyfill'
+import Feedback from '../elements/Feedback'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
@@ -95,6 +96,7 @@ class CurriculumSection extends React.Component {
     const subsection = isOpen ? (
       <CurriculumSubSection>
         {children}
+        <Feedback />
         <Span> - </Span>
         <Link
           duration={200}
