@@ -1,7 +1,14 @@
-import { LONDON_MEETUP, RICHARD, ALEX } from './images'
+import {
+  LONDON_MEETUP,
+  LISBON as LIS_MEETUP,
+  BCN_MEETUP,
+  RICHARD,
+  ALEX,
+} from './images'
 
 export const LONDON = 'London'
 export const LISBON = 'Lisbon dist.'
+export const BARCELONA = 'Barcelona'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React bootcamp'
@@ -9,10 +16,10 @@ export const ADVANCED_REACT = 'Advanced React'
 
 /*
 Boocamp prices:
-1450 
+1450
 1579.17 -> Nov 23
 1662.5 -> Dec 14
-1800 -> Jan 15 
+1800 -> Jan 15
 
 Part-time prices
 829.17
@@ -153,15 +160,47 @@ export const trainings = [
     priceGoesUpOn: 'September 14th, 2018.',
     currency: 'gbp',
   },
+  {
+    dates: '23 Mar - 13 Apr, 2019',
+    dateStartsOn: new Date('23 Mar, 2019'),
+    city: BARCELONA,
+    country: 'BCN',
+    type: PART_TIME,
+    cityShortName: 'Barcelona',
+    country: 'Spain',
+    location: 'TBD',
+    pathUrl: '/react-redux-training-barcelona',
+    trainingInstanceId: '5c2a0d5e2ab1035da3138220',
+    price: 1166.67,
+    discountPrice: 829.17,
+    priceGoesUpOn: new Date('Feb 28, 2019'),
+    currency: 'eur',
+  },
 ]
 
 const meetups = [
   {
-    dateStartsOn: new Date('28 Nov, 2018'),
-    cityShortName: 'London',
+    dateStartsOn: new Date('15 Jan, 2019'),
+    cityShortName: 'Barcelona',
+    country: 'ES',
+    url: 'https://www.meetup.com/JavaScript-Barcelona/events/257156744',
+    title: 'Meet the Gatsby team!!',
+    imgUrl: BCN_MEETUP,
+  },
+  {
+    dateStartsOn: new Date('16 Jan, 2019'),
+    cityShortName: 'Lisbon',
+    country: 'PT',
+    url: 'https://www.meetup.com/JavaScript-Lisbon/events/257640193/',
+    title: 'Getting started with React Hooks ',
+    imgUrl: LIS_MEETUP,
+  },
+  {
+    dateStartsOn: new Date('21 Feb, 2019'),
+    cityShortName: 'Lisbon',
     country: 'UK',
-    url: 'https://www.meetup.com/JavaScript-London/events/256540561',
-    title: 'Build your Server-Side Rendering Framework',
+    url: 'https://www.meetup.com/JavaScript-London/events/257660896',
+    title: 'Functional programming in JavaScript',
     imgUrl: LONDON_MEETUP,
   },
 ]
