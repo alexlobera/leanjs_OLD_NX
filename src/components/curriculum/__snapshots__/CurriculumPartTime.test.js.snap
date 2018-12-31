@@ -25,81 +25,95 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <CurriculumSection
+      <withRouter(CurriculumSection)
         name="session1"
         title="Session 1 - Modern JavaScript"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <ES6Session />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session2"
         title="Session 2 - Thinking in React"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <ThinkingInReactSession />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session3"
         title="Session 3 - Routing & Data Fetching"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <RoutingAndDataFetchingSession />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session4"
         title="Session 4 - Forms & Auth"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <FormsAndAuthSession />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session5"
         title="Session 5 - Recap React Fundamentals"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <ReactFundamentalsRecapSession />
-      </CurriculumSection>
-    </Styled(Col)>
-    <Styled(Col)
-      lg={5}
-      md={6}
-    >
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session6"
         title="Session 6 - Styling in React"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <StylingInReactSession />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session7"
         title="Session 7 - Introduction to Redux"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <IntroReduxSession />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session8"
         title="Session 8 - Introduction to Testing in JS"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <TestingIntroSession />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session9"
         title="Session 9 - Advanced Patterns I"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <HoCsAndRenderPropsSession />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="session10"
         title="Session 10 - React & Redux Real-world Project"
         toggleNavigateTo={[Function]}
+        type="Part-time"
       >
         <PartTimeFinalProject />
-      </CurriculumSection>
+      </withRouter(CurriculumSection)>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
     </Styled(Col)>
   </Row>
 </Fragment>

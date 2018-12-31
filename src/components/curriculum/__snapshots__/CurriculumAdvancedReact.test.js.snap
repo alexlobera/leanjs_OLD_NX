@@ -25,27 +25,26 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <CurriculumSection
+      <withRouter(CurriculumSection)
         name="day1"
-        subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
         title="Advanced React Day 1"
         toggleNavigateTo={[Function]}
+        type="Advanced React"
       >
-        <HoCsAndRenderPropsSession
+        <HoCsRenderPropsStateReducerSession
           title="Functional Programming & Advanced React patterns I"
         />
         <GraphQLSession
           title="GraphQL and Apollo client"
         />
-        <ServerSideRenderingSession
-          title="Server Side Rendering (SSR)"
-        />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day2"
-        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
+        type="Advanced React"
       >
         <TestingInReactSession
           title="Testing in React"
@@ -53,25 +52,21 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <CompoundCompAndContextSession
           title="Advanced React patterns to create even more reusable UIs"
         />
-        <AdvancedReduxSession
-          title="Functional programming & advanced Redux"
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
         />
-      </CurriculumSection>
-    </Styled(Col)>
-    <Styled(Col)
-      lg={5}
-      md={6}
-    >
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day3"
         subTitle="Real-world Project"
         title="Advanced React Day 3"
         toggleNavigateTo={[Function]}
+        type="Advanced React"
       >
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app in teams from scratch"
         />
-      </CurriculumSection>
+      </withRouter(CurriculumSection)>
       <styled.div>
         <LinkButton
           secondary={true}
@@ -81,6 +76,15 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
           Full curriculum&gt;&gt;
         </LinkButton>
       </styled.div>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
     </Styled(Col)>
   </Row>
 </Fragment>

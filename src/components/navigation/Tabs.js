@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { reactBlue, FONT_FAMILY } from '../../config/styles'
-import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../utils'
+import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
+import { REACT_BOOTCAMP, PART_TIME } from '../../config/data'
+import { Col, Row } from '../layout/Grid'
 
 const Ul = styled.ul`
   margin: 0 0 32px 0;
@@ -30,10 +31,7 @@ const Ul = styled.ul`
 
       :first-child {
         margin-left: 0;
-        a,
-        span {
-          padding-left: 0;
-        }
+        a
       }
     }
   }
@@ -44,21 +42,32 @@ const Ul = styled.ul`
   }
 `
 
-export const TabList = ({ active, setActive, onChange, children }) => (
-  <Ul>
-    {React.Children.map(children, child =>
-      React.cloneElement(child, {
-        isActive: child.props.name === active,
-        onClick: child.props.name
-          ? () => {
-              onChange && onChange(child.props.name)
-              setActive(child.props.name)
-            }
-          : undefined,
-      })
-    )}
-  </Ul>
-)
+export const TabList = ({ active, setActive, onChange, children, offset }) => {
+  const compound = React.Children.map(children, child =>
+    React.cloneElement(child, {
+      isActive: child.props.name === active,
+      onClick: child.props.name
+        ? () => {
+            onChange && onChange(child.props.name)
+            setActive(child.props.name)
+          }
+        : undefined,
+    })
+  )
+  return (
+    <React.Fragment>
+      {offset ? (
+        <Row>
+          <Col lgOffset={1}>
+            <Ul>{compound}</Ul>
+          </Col>
+        </Row>
+      ) : (
+        <Ul>{compound}</Ul>
+      )}
+    </React.Fragment>
+  )
+}
 
 TabList.displayName = 'TabList'
 
@@ -69,29 +78,32 @@ const Li = styled.li`
       @media (min-width: ${SCREEN_SM_MIN}) {
         position:relative;
         text-align:center;
-        a::after {
-            height: 3px;
-            display: block;
-            width: 100%;
-            background: ${reactBlue()};
-            content: '';
-            position: absolute;
-            bottom:-10px;
-            left:0;
-        }
       }
       @media (max-width: ${SCREEN_XS_MAX}) {
         border: 1px solid ${reactBlue()}
       }
+      background: ${selectTypeColor(props.name)}
     `
       : ''};
+   }
+`
+const A = styled.a`
+  ${props => `border-bottom: 3px solid ${selectTypeColor(props.name)}`};
+  ${props => {
+    if (
+      props.isActive &&
+      (props.name === PART_TIME || props.name === REACT_BOOTCAMP)
+    ) {
+      return `color: white !important`
+    }
+  }};
 `
 
-export const TabItem = ({ children, isActive, onClick, ...props }) => (
-  <Li isActive={isActive}>
-    <a {...props} onClick={onClick}>
+export const TabItem = ({ children, isActive, onClick, name, ...props }) => (
+  <Li isActive={isActive} name={name}>
+    <A isActive={isActive} name={name} {...props} onClick={onClick}>
       {children}
-    </a>
+    </A>
   </Li>
 )
 TabItem.displayName = 'TabItem'

@@ -139,7 +139,9 @@ class PaymentSection extends React.Component {
         </P>
         <Card small style={{ position: 'relative' }}>
           <H3>
-            <strong>{discountPrice ? 'Discount ticket' : 'Regular ticket'}</strong>
+            <strong>
+              {discountPrice ? 'Discount ticket' : 'Regular ticket'}
+            </strong>
           </H3>
           {discountPrice ? (
             <Ribbon>
@@ -155,13 +157,10 @@ class PaymentSection extends React.Component {
           )}
           {priceGoesUpOn > Date.now() ? (
             <React.Fragment>
-                <P>
-                  HURRY! This price is only available for...
-                </P>
-                <P>
+              <P>HURRY! This price is only available for...</P>
+              <P>
                 <Countdown date={priceGoesUpOn} />
               </P>
-
             </React.Fragment>
           ) : (
             ''

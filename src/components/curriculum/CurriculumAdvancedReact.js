@@ -4,50 +4,56 @@ import { LinkButton } from '../buttons'
 import { H2Ref } from '../text'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
-import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
-import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
-import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
+import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
+import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
+import { UpcomingTrainingSection } from '../training'
+import { ADVANCED_REACT } from '../../config/data'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
+  isOpen,
   list,
-  showToggle,
-  toggleNavigateTo = '/curriculum?tab=advanced-react',
+  enableToggle,
+  toggleNavigateTo = `/curriculum?tab=${ADVANCED_REACT}`,
   marketingCard = null,
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
+  const commonProps = {
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type: ADVANCED_REACT,
+    isOpen,
+  }
   const firstHalf = (
     <React.Fragment>
       <Section
         {...commonProps}
         title="Advanced React Day 1"
         name="day1"
-        subTitle="Testing in React, Advanced React Patterns II, Server-side Rendering"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
       >
-        <HoCsAndRenderPropsSession title="Functional Programming & Advanced React patterns I" />
+        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns I" />
         <GraphQLSession title="GraphQL and Apollo client" />
-        <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
       </Section>
       {marketingCard}
       <Section
         {...commonProps}
         title="Advanced React Day 2"
         name="day2"
-        subTitle="Functional Programming, Advanced Patterns I, GraphQL, and Advanced Redux"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
       >
         <TestingInReactSession title="Testing in React" />
         <CompoundCompAndContextSession
           title="Advanced React patterns to create even more reusable
           UIs"
         />
-        <AdvancedReduxSession title="Functional programming & advanced Redux" />
+        <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
       </Section>
     </React.Fragment>
   )
@@ -99,9 +105,10 @@ const CurriculumAdvancedReact = ({
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
             {firstHalf}
-          </Col>
-          <Col md={6} lg={5}>
             {secondHalf}
+          </Col>
+          <Col md={6} lg={5} lgOffset={1}>
+            <UpcomingTrainingSection curriculum />
           </Col>
         </Row>
       )}

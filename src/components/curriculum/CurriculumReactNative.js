@@ -3,18 +3,26 @@ import { H1Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
+import { UpcomingTrainingSection } from '../training'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
+import { REACT_NATIVE } from '../../config/data'
 
 const CurriculumReactNative = ({
   showTitle = true,
   list,
-  showToggle,
-  toggleNavigateTo = '/curriculum?tab=react-native',
+  enableToggle,
+  isOpen,
+  toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const commonProps = { showToggle, toggleNavigateTo: toggleNavigateToSection }
+  const commonProps = {
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type: REACT_NATIVE,
+    isOpen,
+  }
   const firstHalf = (
     <Section
       {...commonProps}
@@ -50,6 +58,9 @@ const CurriculumReactNative = ({
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
             {firstHalf}
+          </Col>
+          <Col md={6} lg={5} lgOffset={1}>
+            <UpcomingTrainingSection curriculum />
           </Col>
         </Row>
       )}

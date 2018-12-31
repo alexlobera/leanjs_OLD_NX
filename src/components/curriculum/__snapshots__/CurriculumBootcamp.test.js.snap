@@ -4,7 +4,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
 <Fragment>
   <Row>
     <Styled(Col)
-      lg={10}
+      lg={5}
       lgOffset={1}
     >
       <Styled(styled.h2)>
@@ -25,19 +25,21 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <CurriculumSection
+      <withRouter(CurriculumSection)
         name="day1"
         subTitle="React 101 and JS fundamentals"
         title="React Bootcamp Day 1 (half day)"
         toggleNavigateTo={[Function]}
+        type="React bootcamp"
       >
         <ReactJS101Session />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day2"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
         title="React Bootcamp Day 2"
         toggleNavigateTo={[Function]}
+        type="React bootcamp"
       >
         <ES6Session
           title="Modern JavaScript"
@@ -48,12 +50,13 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <RoutingAndDataFetchingSession
           title="Routing and Data Fetching"
         />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day3"
         subTitle="Forms, Authentication, Styling in React"
         title="React Bootcamp Day 3"
         toggleNavigateTo={[Function]}
+        type="React bootcamp"
       >
         <FormsAndAuthSession
           title="Forms and Authentication"
@@ -64,12 +67,13 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <StylingInReactSession
           title="Styling in React"
         />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day4"
         subTitle="Redux, and Testing Principles"
         title="React Bootcamp Day 4"
         toggleNavigateTo={[Function]}
+        type="React bootcamp"
       >
         <IntroReduxSession
           title="Introduction to Redux"
@@ -77,33 +81,27 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <TestingIntroSession
           title="Testing Principales"
         />
-      </CurriculumSection>
-    </Styled(Col)>
-    <Styled(Col)
-      lg={5}
-      md={6}
-    >
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day5"
-        subTitle="Functional Programming & advanced React patterns I, GraphQL, and Server-side Rendering"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
         title="React Bootcamp Day 5"
         toggleNavigateTo={[Function]}
+        type="React bootcamp"
       >
-        <HoCsAndRenderPropsSession
+        <HoCsRenderPropsStateReducerSession
           title="Functional Programming & Advanced React patterns I"
         />
         <GraphQLSession
           title="GraphQL and Apollo client"
         />
-        <ServerSideRenderingSession
-          title="Server Side Rendering (SSR)"
-        />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day6"
-        subTitle="Testing in React, Advanced React Patterns II, Functional Programming & advanced Redux"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
         title="React Bootcamp Day 6"
         toggleNavigateTo={[Function]}
+        type="React bootcamp"
       >
         <TestingInReactSession
           title="Testing in React"
@@ -111,20 +109,21 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <CompoundCompAndContextSession
           title="Advanced React patterns to create even more reusable UIs"
         />
-        <AdvancedReduxSession
-          title="Functional programming & advanced Redux"
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
         />
-      </CurriculumSection>
-      <CurriculumSection
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
         name="day7"
         subTitle="Real-world Project"
         title="React Bootcamp Day 7"
         toggleNavigateTo={[Function]}
+        type="React bootcamp"
       >
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app in teams from scratch"
         />
-      </CurriculumSection>
+      </withRouter(CurriculumSection)>
       <styled.div>
         <LinkButton
           secondary={true}
@@ -134,6 +133,15 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
           Full curriculum &gt;&gt;
         </LinkButton>
       </styled.div>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
     </Styled(Col)>
   </Row>
 </Fragment>

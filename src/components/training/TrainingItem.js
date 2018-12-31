@@ -1,30 +1,59 @@
 import React from 'react'
 import styled from 'styled-components'
 import { P } from '../text'
-import { Col } from '../layout/Grid'
+import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
 import { Image } from '../elements'
+import { selectTypeColor } from '../utils'
 
 const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
 `
 
-const TrainingItem = ({ name, city, country, startDate, path, imageSrc }) => (
+const TrainingRow = styled(Row)`
+  margin-bottom: 1em;
+`
+
+const Calander = styled.div`
+  border: 3px solid ${props => selectTypeColor(props.type)};
+  padding: 10px;
+  font-family: barlow;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+`
+
+const TrainingItem = ({
+  type,
+  city,
+  country,
+  startDay,
+  startMonth,
+  path,
+  imageSrc,
+}) => (
   <React.Fragment>
-    <TrainingItemCol xs={5} md={2}>
-      <Link to={path}>
-        <Image src={imageSrc} />
-      </Link>
-    </TrainingItemCol>
-    <TrainingItemCol xs={7} md={4}>
-      <P>
-        Location: {city}, {country}
-        <br />
-        Starts: {startDate}
-      </P>
-      <LinkButton to={path} children={name} />
-    </TrainingItemCol>
+    <TrainingRow>
+      <TrainingItemCol xs={5} md={3}>
+        <Calander type={type}>
+          {startDay}
+          <br />
+          {startMonth}
+        </Calander>
+      </TrainingItemCol>
+      <TrainingItemCol xs={7} md={7}>
+        <P>
+          {type}
+          <br />
+          {city}, {country}
+          <br />
+          <Link to={path}>Find out more</Link>
+        </P>
+      </TrainingItemCol>
+    </TrainingRow>
   </React.Fragment>
 )
 
