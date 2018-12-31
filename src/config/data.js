@@ -1,4 +1,10 @@
-import { LONDON_MEETUP, BCN_MEETUP, RICHARD, ALEX } from './images'
+import {
+  LONDON_MEETUP,
+  LISBON as LIS_MEETUP,
+  BCN_MEETUP,
+  RICHARD,
+  ALEX,
+} from './images'
 
 export const LONDON = 'London'
 export const LISBON = 'Lisbon dist.'
@@ -187,7 +193,7 @@ const meetups = [
     country: 'PT',
     url: 'https://www.meetup.com/JavaScript-Lisbon/events/257640193/',
     title: 'Getting started with React Hooks ',
-    imgUrl: '',
+    imgUrl: LIS_MEETUP,
   },
 ]
 
