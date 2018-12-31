@@ -4,8 +4,11 @@ import { LIGHT_RED, FONT_FAMILY } from '../../config/styles'
 import Link from '../navigation/Link'
 import { QuestionMarkIcon } from '../icons'
 
-const FeedbackWrapper = styled.div`
+const StyledFeedback = styled.div`
   ${FONT_FAMILY};
+  a {
+    margin-left: 4px;
+  }
   border: 2px dashed ${LIGHT_RED};
   padding: 1rem;
   margin: 1rem 0;
@@ -14,13 +17,10 @@ const FeedbackWrapper = styled.div`
   align-items: center;
 `
 const Feedback = () => (
-  <FeedbackWrapper>
+  <StyledFeedback>
     <QuestionMarkIcon />
-    Any questions?{' '}
-    <Link to="#contact-us" style={{ marginLeft: 4 }}>
-      Contact us
-    </Link>
-  </FeedbackWrapper>
+    Any questions? <Link to="#contact-us">Contact us</Link>
+  </StyledFeedback>
 )
 
 export default Feedback
