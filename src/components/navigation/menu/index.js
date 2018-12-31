@@ -7,7 +7,7 @@ import { RJSALogo } from '../../logos'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'
-import { blue1 } from '../../../config/styles'
+import { blue1, Z_INDEX_SMALL, Z_INDEX_TOP } from '../../../config/styles'
 
 export { DesktopMenu, PhoneMenu }
 
@@ -18,7 +18,7 @@ const MenuContainer = styled.div`
   width: 100%;
   padding: 20px;
   position: relative;
-  z-index: 1;
+  z-index: ${Z_INDEX_SMALL};
   background-color: ${blue1(0.75)};
   display: flex;
   align-items: center;
@@ -30,7 +30,7 @@ const Navbar = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9992;
+  z-index: ${Z_INDEX_TOP};
 `
 
 export const Menu = ({ width }) => {
