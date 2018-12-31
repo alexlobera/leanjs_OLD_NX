@@ -1,5 +1,5 @@
-describe('programmatically generated pages', function () {
-  it('renders with the correct info', function () {
+describe('programmatically generated pages', function() {
+  it('renders with the correct info', function() {
     cy.visit('/react-redux-training-paris/')
     cy.get('h2').contains('Paris - France')
     cy.visit('/react-redux-training-sydney/')
@@ -8,8 +8,6 @@ describe('programmatically generated pages', function () {
     cy.get('h2').contains('Brussels - Belgium')
     cy.visit('/react-redux-training-berlin/')
     cy.get('h2').contains('Berlin - Germany')
-    cy.visit('/react-redux-training-barcelona/')
-    cy.get('h2').contains('Barcelona - Spain')
     cy.visit('/react-redux-training-amsterdam/')
     cy.get('h2').contains('Amsterdam - Holland')
     cy.visit('/react-redux-graphql-bootcamp-nyc/')

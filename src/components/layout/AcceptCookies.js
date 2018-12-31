@@ -1,7 +1,13 @@
 import React from 'react'
 import store from 'store'
 import styled from 'styled-components'
-import { WHITE, TEXT_SIZE, blue1, FONT_FAMILY, Z_INDEX_TOP } from '../../config/styles'
+import {
+  WHITE,
+  TEXT_SIZE,
+  blue1,
+  FONT_FAMILY,
+  Z_INDEX_TOP,
+} from '../../config/styles'
 import { Link } from '../navigation'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'

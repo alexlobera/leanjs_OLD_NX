@@ -11,7 +11,7 @@ import {
   TrustedByLogoList,
   TrainingDetails,
   HORACIO_HERRERA,
-  ALEX_LOBERA
+  ALEX_LOBERA,
 } from '../components/training'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -78,10 +78,7 @@ const PartTimeBarcelona = () => (
                     </Link> */}
                   </React.Fragment>
                 }
-                coaches={[
-                  HORACIO_HERRERA,
-                  ALEX_LOBERA,
-                ]}
+                coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
               />
             </Col>
           </Row>
