@@ -11,7 +11,7 @@ import {
   UpcomingTrainingSection,
   TrustedBySection,
 } from '../components/training'
-import { Card } from '../components/elements'
+import { Card, Video } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
@@ -56,11 +56,7 @@ const PartTime = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image
-              src={PART_TIME_IMG}
-              width="100%"
-              alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-            />
+            <Video youtubeID="E_4eQQHjc7A" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React part-time course right for me?</H2>
