@@ -195,6 +195,14 @@ const meetups = [
     title: 'Getting started with React Hooks ',
     imgUrl: LIS_MEETUP,
   },
+  {
+    dateStartsOn: new Date('21 Feb, 2019'),
+    cityShortName: 'Lisbon',
+    country: 'UK',
+    url: 'https://www.meetup.com/JavaScript-London/events/257660896',
+    title: 'Functional programming in JavaScript',
+    imgUrl: LONDON_MEETUP,
+  },
 ]
 
 export const blogAuthors = {
