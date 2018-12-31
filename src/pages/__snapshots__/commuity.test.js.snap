@@ -116,7 +116,7 @@ exports[`<Community /> should render component 1`] = `
                   key="https://www.meetup.com/JavaScript-Lisbon/events/257640193/"
                 >
                   <styled.img
-                    src=""
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Flisbon.jpg?alt=media"
                   />
                   <div>
                     <styled.p>
