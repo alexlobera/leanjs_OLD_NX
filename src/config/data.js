@@ -181,6 +181,14 @@ const meetups = [
     title: 'Meet the Gatsby team!!',
     imgUrl: BCN_MEETUP,
   },
+  {
+    dateStartsOn: new Date('16 Jan, 2019'),
+    cityShortName: 'Lisbon',
+    country: 'PT',
+    url: 'https://www.meetup.com/JavaScript-Lisbon/events/257640193/',
+    title: 'Getting started with React Hooks ',
+    imgUrl: '',
+  },
 ]
 
 export const blogAuthors = {
