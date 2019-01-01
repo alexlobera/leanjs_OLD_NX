@@ -49,6 +49,7 @@ const EventList = styled.ul`
     width: 126px;
     float: left;
     margin-right: 18px;
+    margin-bottom: 10px;
   }
 `
 
