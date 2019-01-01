@@ -37,7 +37,7 @@ const EventList = styled.ul`
   list-style: none;
   margin-left: 0;
   h3 {
-    paddingtop: 0;
+    padding-top: 0;
   }
   li {
     margin-top: 18px;
