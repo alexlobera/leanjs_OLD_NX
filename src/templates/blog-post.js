@@ -13,7 +13,12 @@ import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card } from '../components/elements'
 import { blogAuthors } from '../config/data'
-import { Code, Tweet, Blockquote } from '../components/blog/Markdown'
+import {
+  Code,
+  Tweet,
+  Blockquote,
+  Codesandbox,
+} from '../components/blog/Markdown'
 import ShareButtons from '../components/blog/ShareButtons'
 
 export const formatPostTitle = title => title.replace('<br/>', ' ')
@@ -33,6 +38,7 @@ const renderAst = new rehypeReact({
     span: Span,
     tweet: Tweet,
     blockquote: Blockquote,
+    codesandbox: Codesandbox,
   },
 }).Compiler
 

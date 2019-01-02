@@ -1,6 +1,6 @@
 import {
   LONDON_MEETUP,
-  LISBON as LIS_MEETUP,
+  LISBON_MEETUP,
   BCN_MEETUP,
   RICHARD,
   ALEX,
@@ -193,7 +193,7 @@ const meetups = [
     country: 'PT',
     url: 'https://www.meetup.com/JavaScript-Lisbon/events/257640193/',
     title: 'Getting started with React Hooks ',
-    imgUrl: LIS_MEETUP,
+    imgUrl: LISBON_MEETUP,
   },
   {
     dateStartsOn: new Date('21 Feb, 2019'),

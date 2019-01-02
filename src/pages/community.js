@@ -157,7 +157,11 @@ const Community = () => (
                                 {moment(dateStartsOn).format('D MMM')} -{' '}
                                 {cityShortName}, {country}
                               </P>
-                              <LinkButton to={url} children={'Read more'} />
+                              <LinkButton
+                                secondary
+                                to={url}
+                                children={'Read more'}
+                              />
                             </div>
                           </Li>
                         )
