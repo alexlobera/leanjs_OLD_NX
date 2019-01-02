@@ -15,8 +15,8 @@ const Newsletter = () => (
   <StyledNewsletter>
     <H5>Signup to our newsletter</H5>
     <P>
-      Join our community! Be the first to know all about the latest course
-      dates, offers and new course locations.{' '}
+      Be the first to know all about the latest course dates, offers and new
+      course locations.{' '}
     </P>
     <LinkButton secondary to="#contact-us">
       Sign up now

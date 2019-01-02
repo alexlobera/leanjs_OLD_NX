@@ -19,6 +19,7 @@ import {
   instagramPictures,
 } from '../config/data'
 import { MENTORSHIP_IMG } from '../config/images'
+import Newsletter from '../components/elements/Newsletter'
 
 const nextBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const nextBootcampStartDate =
@@ -120,6 +121,15 @@ const Community = () => (
                 <TwitterWidgetsOnlyOnClientSide />
               </Col>
             </Card>
+            <SecondaryCard border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>
+                  Keep informed...
+                  <a name="newsletter" />
+                </H2>
+                <Newsletter />
+              </Col>
+            </SecondaryCard>
           </Col>
           <Col xs={12} md={6}>
             <Card border="shadow">

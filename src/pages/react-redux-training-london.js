@@ -30,6 +30,7 @@ import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, PART_TIME, LONDON } from '../config/data'
+import Newsletter from '../components/elements/Newsletter'
 
 const training = selectFirstTraining(PART_TIME, LONDON)
 
@@ -87,11 +88,11 @@ const BootcampLondon = () => (
                   ALEX_LOBERA,
                 ]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
       </Grid>
     </TopSection>

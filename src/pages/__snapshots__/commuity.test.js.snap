@@ -61,6 +61,22 @@ exports[`<Community /> should render component 1`] = `
               <TwitterWidgetsOnlyOnClientSide />
             </Styled(Col)>
           </Card>
+          <Styled(Card)
+            border="shadow"
+          >
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Keep informed...
+                <a
+                  name="newsletter"
+                />
+              </styled.h2>
+              <Newsletter />
+            </Styled(Col)>
+          </Styled(Card)>
         </Styled(Col)>
         <Styled(Col)
           md={6}

@@ -84,11 +84,11 @@ const BootcampLondon = () => (
                 }
                 coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
               />
+              <Row>
+                <Newsletter />
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumAdvancedReact />
         </Card>
       </Grid>
     </TopSection>

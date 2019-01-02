@@ -38,7 +38,9 @@ const UpcomingTrainingSection = ({ curriculum }) => (
       <React.Fragment>
         <H3 style={{ marginTop: '1em' }}>Upcoming courses</H3>
         <UpcomingTrainings curriculum={curriculum} />
-        <Newsletter />
+        <Col md={10}>
+          <Newsletter />
+        </Col>
       </React.Fragment>
     ) : (
       <Section>

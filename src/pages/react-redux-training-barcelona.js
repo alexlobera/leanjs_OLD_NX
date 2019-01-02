@@ -28,6 +28,7 @@ import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, PART_TIME, BARCELONA } from '../config/data'
+import Newsletter from '../components/elements/Newsletter'
 
 const training = selectFirstTraining(PART_TIME, BARCELONA)
 
@@ -80,15 +81,14 @@ const PartTimeBarcelona = () => (
                 }
                 coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
         </Card>
-        <Card white border="shadow">
-          <CurriculumPartTime showCallToActionBottom={true} />
-        </Card>
       </Grid>
     </TopSection>
-
     <Section>
       <Grid>
         <Row>
