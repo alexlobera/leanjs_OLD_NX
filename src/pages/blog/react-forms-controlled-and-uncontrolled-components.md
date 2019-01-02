@@ -96,7 +96,7 @@ We recommend you to use an external **library to implement forms in React**. The
 - Very modular with its built in plugin system
 - Subscriptions based. Though this feature is only relevant in cases of extreme performance.
 
-Quoting the React documentation about these for libraries, they are [“built on the same principles of controlled components and managing state — so don’t neglect to learn them (the principles)”](https://reactjs.org/docs/forms.html#fully-fledged-solutions)
+Quoting the React documentation about these form libraries, they are [“built on the same principles of controlled components and managing state — so don’t neglect to learn them (the principles)”](https://reactjs.org/docs/forms.html#fully-fledged-solutions)
 
 ## Controlled and uncontrolled beyond forms
 
