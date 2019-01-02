@@ -126,7 +126,7 @@ export const trainings = [
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5be3366f1307cabce7761593',
     price: 1166.67,
-    discountPrice: 829.17,
+    discountPrice: 1000,
     priceGoesUpOn: new Date('Dec 17, 2018'),
     currency: 'gbp',
   },
