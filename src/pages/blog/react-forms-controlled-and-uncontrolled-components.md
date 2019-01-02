@@ -10,8 +10,8 @@ React is a tool, not a Framework. React’s job is to render user interfaces. Th
 
 What is a web form? It’s a sort of container that holds some data (state) that can be sent to a server for processing. There are three main concerns forms will have to deal with:
 
-- Handleing **form validation** of the data the user enters. React doesn’t provide any mechanism for this.
-- Handling **form submission**. React doesn’t provide any mechanism for this.
+- Handleing **form validation** of the data the user enters. React doesn’t provide any implementation for this.
+- Handling **form submission**. React doesn’t provide any implementation for this.
 - Getting values in and out of **form state**. There are two approaches that React provides to handle the state of the form called controlled and uncontrolled components
 
 ## Form state
