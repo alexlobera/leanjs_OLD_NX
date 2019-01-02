@@ -102,7 +102,7 @@ exports[`<Community /> should render component 1`] = `
                   key="https://www.meetup.com/JavaScript-Barcelona/events/257156744"
                 >
                   <styled.img
-                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Fbcnmeetup.jpg?alt=media"
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-Barcelona.png?alt=media"
                   />
                   <div>
                     <styled.p>
@@ -118,6 +118,7 @@ exports[`<Community /> should render component 1`] = `
                       ES
                     </styled.p>
                     <LinkButton
+                      secondary={true}
                       to="https://www.meetup.com/JavaScript-Barcelona/events/257156744"
                       trackUserBehaviour={[Function]}
                     >
@@ -129,7 +130,7 @@ exports[`<Community /> should render component 1`] = `
                   key="https://www.meetup.com/JavaScript-Lisbon/events/257640193/"
                 >
                   <styled.img
-                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Flisbon.jpg?alt=media"
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-Lisbon.png?alt=media"
                   />
                   <div>
                     <styled.p>
@@ -145,6 +146,7 @@ exports[`<Community /> should render component 1`] = `
                       PT
                     </styled.p>
                     <LinkButton
+                      secondary={true}
                       to="https://www.meetup.com/JavaScript-Lisbon/events/257640193/"
                       trackUserBehaviour={[Function]}
                     >
@@ -156,7 +158,7 @@ exports[`<Community /> should render component 1`] = `
                   key="https://www.meetup.com/JavaScript-London/events/257660896"
                 >
                   <styled.img
-                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media"
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-London.png?alt=media"
                   />
                   <div>
                     <styled.p>
@@ -167,11 +169,12 @@ exports[`<Community /> should render component 1`] = `
                       21 Feb
                        -
                        
-                      Lisbon
+                      London
                       , 
                       UK
                     </styled.p>
                     <LinkButton
+                      secondary={true}
                       to="https://www.meetup.com/JavaScript-London/events/257660896"
                       trackUserBehaviour={[Function]}
                     >
