@@ -105,11 +105,11 @@ const BootcampLisbon = () => (
                   RICHARD_MOSS,
                 ]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumBootcamp />
         </Card>
       </Grid>
     </TopSection>

@@ -3,57 +3,52 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumAdvancedReact } from '../components/curriculum'
+import { CurriculumPartTime } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
+import {
+  AttendeeQuote,
+  UpcomingTrainingSection,
+  TrustedByLogoList,
+  TrainingDetails,
+  HORACIO_HERRERA,
+  ALEX_LOBERA,
+} from '../components/training'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import {
-  UpcomingTrainingSection,
-  AttendeeQuote,
-  TrainingDetails,
-  ALEX_LOBERA,
-  HORACIO_HERRERA,
-  RICHARD_MOSS,
-} from '../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
+  CodeIcon,
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
+import { PART_TIME as PART_TIME_IMG, CATALIN } from '../config/images'
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { PaymentSection } from '../components/payment'
+import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
-import { selectFirstTraining, ADVANCED_REACT, LISBON } from '../config/data'
+import { selectFirstTraining, PART_TIME, BARCELONA } from '../config/data'
+import Newsletter from '../components/elements/Newsletter'
 
-const training = selectFirstTraining(ADVANCED_REACT, LISBON)
+const training = selectFirstTraining(PART_TIME, BARCELONA)
 
-const BootcampLondon = () => (
+const PartTimeBarcelona = () => (
   <React.Fragment>
     <Breadcrumb
       path={[
         { to: '/', label: 'Home' },
-        {
-          to: '/advanced-react-redux-graphql-bootcamp',
-          label: 'Advanced React',
-        },
-        {
-          to: '/advanced-react-redux-graphql-bootcamp-lisbon',
-          label: 'Lisbon',
-        },
+        { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
+        { to: '/react-redux-training-barcelona', label: 'Barcelona' },
       ]}
     />
     <Header
       titleLines={[
-        'Advanced React Redux GraphQL',
-        `training, ${training.dates} - ${training.cityShortName}`,
+        'React Redux part-time course',
+        `${training.dates} - Barcelona`,
       ]}
-      subtitle="Take your React career to the next level by mastering<br />React, Redux, and GraphQL - in just 3 days!"
+      subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
       links={header.landingTraining.links}
-      bgImg="training-event"
+      bgImg="part-time"
     />
     <TopSection xsBgDark>
       <Grid>
@@ -64,28 +59,30 @@ const BootcampLondon = () => (
                 data={{
                   trainingInstanceId: training.trainingInstanceId,
                   price: training.price,
+                  discountPrice: training.discountPrice,
+                  priceGoesUpOn: training.priceGoesUpOn,
                   currency: training.currency,
                 }}
               />
+              <InstallmentsCard price={1500} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
+              <Video youtubeID="E_4eQQHjc7A" />
               <TrainingDetails
                 date={training.dates}
-                timing="9:30am - 5:30pm"
-                foodIncluded={false}
+                timing="9am - 6pm Saturday's"
                 location={
                   <React.Fragment>
-                    {training.location}.{' '}
-                    <Link to="https://www.google.com/maps/place/Lisbon,+Portugal/@38.7436057,-9.2302432,12z/data=!3m1!4b1!4m5!3m4!1s0xd19331a61e4f33b:0x400ebbde49036d0!8m2!3d38.7222524!4d-9.1393366">
+                    {training.location}
+                    {/* <Link to="https://www.google.com/maps/place/Makers/@51.5173403,-0.0754695,17z/data=!3m1!4b1!4m5!3m4!1s0x48761caf26599a83:0x9b451d586c649129!8m2!3d51.5173403!4d-0.0732808">
                       See on map
-                    </Link>
+                    </Link> */}
                   </React.Fragment>
                 }
-                coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
+                coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
               />
               <Row>
-                <Newsletter />
+                <Newsletter />{' '}
               </Row>
             </Col>
           </Row>
@@ -98,47 +95,51 @@ const BootcampLondon = () => (
           <HideComponentsUsingCss xs sm>
             <Col md={6} lg={5}>
               <Image
-                src={BOOTCAMP_COLLAB}
+                src={PART_TIME_IMG}
                 width="100%"
-                alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
+                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
               />
             </Col>
           </HideComponentsUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
-              Is this 1-day Advanced React training right for me? Are you...{' '}
+              Is this React part-time course right for me? Are you...{' '}
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>
-                <BulletIcon icon={NotBegginerIcon} />A{' '}
-                <strong>React developer with 1+ year of development</strong>{' '}
-                under your belt using React?
+                <BulletIcon icon={NotBegginerIcon} />A developer with ~1 year of
+                development under your belt?
+              </Li>
+              <Li>
+                <BulletIcon icon={CodeIcon} />
+                Familiar with front-end technologies like JavaScript, CSS, and
+                HTML?
               </Li>
               <Li>
                 <BulletIcon icon={ReactIcon} />
-                Taking a step forward to become a{' '}
-                <strong>Senior React developer</strong> able to make critical
-                decisions about the architecture of a React application.
+                Taking a step forward to become a React JS specialist, able to
+                make critical decisions in the architecture of a React
+                application.
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
-                Not satisfied with the pace of online learning and it's lack of
-                1-on-1 mentoring?
+                Not satisfied with online learning and it's lack of 1-on-1
+                mentoring?
               </Li>
             </Ul>
             <P>
-              If you've said 'yes' to these, our{' '}
-              <strong>1-day advanced React training</strong> could be for you!
+              If you've said 'yes' to these, our part-time course could be for
+              you!
             </P>
             <H3>Not for beginner devs!</H3>
             <P>
-              This is a bootcamp for React developers that are experienced with
-              React. If you don't have 1+ year of experience using React we
-              recommend you to attend our{' '}
-              <Link to="/react-redux-graphql-bootcamp">React Bootcamp</Link>.
+              This is not a learn-to-code course. If you want to learn to code,
+              we recommend you contact our London-based partner{' '}
+              <Link to="https://makers.tech/">Makers</Link>. PLUS you'll get a
+              &pound;250 discount using our reference "ReactJS Academy".
             </P>
           </Col>
         </Row>
@@ -159,7 +160,6 @@ const BootcampLondon = () => (
         </Row>
       </Grid>
     </Section>
-
     <Section>
       <Grid>
         <Card border="shadow">
@@ -176,4 +176,4 @@ const BootcampLondon = () => (
   </React.Fragment>
 )
 
-export default BootcampLondon
+export default PartTimeBarcelona

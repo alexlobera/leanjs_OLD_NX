@@ -34,6 +34,7 @@ import {
 } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LONDON } from '../config/data'
+import Newsletter from '../components/elements/Newsletter'
 
 const training = selectFirstTraining(REACT_BOOTCAMP, LONDON)
 
@@ -94,11 +95,11 @@ const BootcampLondon = () => (
                   RICHARD_MOSS,
                 ]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumBootcamp />
         </Card>
       </Grid>
     </TopSection>

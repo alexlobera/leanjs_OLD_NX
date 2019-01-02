@@ -94,6 +94,9 @@ export const CODE_OF_CONDUCT_MORE_DETAIL =
 export const LONDON_MEETUP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media'
 
+export const BCN_MEETUP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Fbcnmeetup.jpg?alt=media'
+
 // Header backgrounds
 export const CORP_TRAINING_HEADER_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/header-backgrounds%2Fcorp-training-bg.jpg?alt=media'

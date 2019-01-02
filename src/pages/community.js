@@ -19,6 +19,7 @@ import {
   instagramPictures,
 } from '../config/data'
 import { MENTORSHIP_IMG } from '../config/images'
+import Newsletter from '../components/elements/Newsletter'
 
 const nextBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const nextBootcampStartDate =
@@ -37,7 +38,7 @@ const EventList = styled.ul`
   list-style: none;
   margin-left: 0;
   h3 {
-    paddingtop: 0;
+    padding-top: 0;
   }
   li {
     margin-top: 18px;
@@ -49,6 +50,7 @@ const EventList = styled.ul`
     width: 126px;
     float: left;
     margin-right: 18px;
+    margin-bottom: 10px;
   }
 `
 
@@ -119,6 +121,15 @@ const Community = () => (
                 <TwitterWidgetsOnlyOnClientSide />
               </Col>
             </Card>
+            <SecondaryCard border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>
+                  Keep informed...
+                  <a name="newsletter" />
+                </H2>
+                <Newsletter />
+              </Col>
+            </SecondaryCard>
           </Col>
           <Col xs={12} md={6}>
             <Card border="shadow">

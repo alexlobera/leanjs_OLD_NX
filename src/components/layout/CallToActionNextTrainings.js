@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import moment from 'moment'
 import { LinkButton } from '../buttons'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
+import { Z_INDEX_MEDIUM } from '../../config/styles'
 import { Col, Row } from './Grid'
 
 export const CallToActionRow = styled(Row)`
   text-align: ${props => (props.left ? 'left' : 'center')};
-  z-index: 999;
+  z-index: ${Z_INDEX_MEDIUM};
   position: relative;
   @media (min-width: ${SCREEN_SM_MIN}) {
     margin-bottom: -25px;

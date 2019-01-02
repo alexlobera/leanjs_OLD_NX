@@ -32,6 +32,7 @@ import header from '../../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../../components/payment'
 import { Link, Breadcrumb } from '../../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LISBON } from '../../config/data'
+import Newsletter from '../../components/elements/Newsletter'
 
 const training = selectFirstTraining(REACT_BOOTCAMP, LISBON)
 const startMonth = moment(training.dateStartsOn).format('MMM')
@@ -105,11 +106,11 @@ const BootcampLisbon = () => (
                   RICHARD_MOSS,
                 ]}
               />
+              <Row>
+                <Newsletter />
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumBootcamp />
         </Card>
       </Grid>
     </TopSection>

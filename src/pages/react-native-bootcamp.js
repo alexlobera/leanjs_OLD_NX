@@ -13,7 +13,7 @@ import {
 } from '../components/training'
 import { Card } from '../components/elements'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
-import { Image } from '../components/elements'
+import { Video } from '../components/elements'
 import { BOOTCAMP_RIGHT, POLINA } from '../config/images'
 import {
   NotBegginersIcon,
@@ -64,11 +64,7 @@ const ReactNativeBoocamp = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Image
-              src={BOOTCAMP_RIGHT}
-              width="100%"
-              alt="ReactJS Academy coach Alex Lobera speaks to a class, the students are both listening and tapping on their laptops"
-            />
+            <Video youtubeID="Z4s1gf09oeY" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React Native training right for me?</H2>

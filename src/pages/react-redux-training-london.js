@@ -30,6 +30,7 @@ import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, PART_TIME, LONDON } from '../config/data'
+import Newsletter from '../components/elements/Newsletter'
 
 const training = selectFirstTraining(PART_TIME, LONDON)
 
@@ -68,7 +69,7 @@ const BootcampLondon = () => (
               <InstallmentsCard price={1500} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
+              <Video youtubeID="E_4eQQHjc7A" />
               <TrainingDetails
                 date={training.dates}
                 timing="6pm - 9pm Tuesday's & Thursday's"
@@ -87,11 +88,11 @@ const BootcampLondon = () => (
                   ALEX_LOBERA,
                 ]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
       </Grid>
     </TopSection>
