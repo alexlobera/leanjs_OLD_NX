@@ -92,10 +92,13 @@ export const CODE_OF_CONDUCT_MORE_DETAIL =
 
 // Meetup
 export const LONDON_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Flondonmeetup.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-London.png?alt=media'
 
 export const BCN_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/meetup%2Fbcnmeetup.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-Barcelona.png?alt=media'
+
+export const LISBON_MEETUP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-Lisbon.png?alt=media'
 
 // Header backgrounds
 export const CORP_TRAINING_HEADER_IMG =
