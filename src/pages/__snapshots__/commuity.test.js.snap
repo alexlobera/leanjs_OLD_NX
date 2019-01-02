@@ -70,9 +70,6 @@ exports[`<Community /> should render component 1`] = `
             >
               <styled.h2>
                 Keep informed...
-                <a
-                  name="newsletter"
-                />
               </styled.h2>
               <Newsletter />
             </Styled(Col)>
