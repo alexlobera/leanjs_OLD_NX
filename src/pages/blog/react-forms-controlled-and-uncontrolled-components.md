@@ -130,6 +130,6 @@ This [burger menu](https://github.com/negomi/react-burger-menu) is a good exampl
 
 - Uncontrolled component, the component owns the state.
 - Controlled component, the component does not own the state.
-- A form library will help you submit, validate, and manage the state of the form (including user interactions)
+- A third-party form library will help you submit, validate, and manage the state of the form (including user interactions)
 - The concept of controlled and uncontrolled component applies to any component, not only form fields like inputs, select, etc
-- A well designed component has the flexibility to be used either controlled or uncontrolled, depending on the use case.
+- A well designed component has the flexibility to be used either controlled or uncontrolled depending on the use case.
