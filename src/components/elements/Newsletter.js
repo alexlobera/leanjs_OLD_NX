@@ -18,7 +18,7 @@ const Newsletter = () => (
       Be the first to know all about the latest course dates, offers and new
       course locations.{' '}
     </P>
-    <LinkButton secondary to="#contact-us">
+    <LinkButton secondary to="#newsletter">
       Sign up now
     </LinkButton>
   </StyledNewsletter>

@@ -123,10 +123,7 @@ const Community = () => (
             </Card>
             <SecondaryCard border="shadow">
               <Col md={8} mdOffset={2}>
-                <H2>
-                  Keep informed...
-                  <a name="newsletter" />
-                </H2>
+                <H2>Keep informed...</H2>
                 <Newsletter />
               </Col>
             </SecondaryCard>
