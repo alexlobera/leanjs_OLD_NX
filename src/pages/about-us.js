@@ -4,7 +4,7 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2, H2Ref, H3, P, H4 } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
@@ -123,6 +123,18 @@ const AboutUs = () => (
                   </Col>
                 </HideComponentsUsingCss>
               </Row>
+            </Col>
+            <Col md={10} mdOffset={1}>
+              <H4 style={{ marginTop: '1em', marginBottom: '1em' }}>
+                Signup to our newsletter
+              </H4>
+              <P>
+                Join our community! Be the first to know all about the latest
+                course dates, offers and new course locations.{' '}
+              </P>
+              <LinkButton secondary to="#contact-us">
+                Sign up now
+              </LinkButton>
             </Col>
           </Row>
         </Card>
