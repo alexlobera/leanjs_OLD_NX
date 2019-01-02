@@ -23,11 +23,10 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image } from '../components/elements'
+import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { selectFirstTraining, REACT_NATIVE, LONDON } from '../config/data'
-import Newsletter from '../components/elements/Newsletter'
 
 const training = selectFirstTraining(REACT_NATIVE, LONDON)
 

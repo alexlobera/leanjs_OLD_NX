@@ -25,7 +25,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image } from '../components/elements'
+import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import {
   InstallmentsCard,
@@ -34,7 +34,6 @@ import {
 } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LONDON } from '../config/data'
-import Newsletter from '../components/elements/Newsletter'
 
 const training = selectFirstTraining(REACT_BOOTCAMP, LONDON)
 

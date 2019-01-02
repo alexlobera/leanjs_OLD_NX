@@ -24,12 +24,11 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image } from '../components/elements'
+import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, ADVANCED_REACT, LONDON } from '../config/data'
-import Newsletter from '../components/elements/Newsletter'
 
 const training = selectFirstTraining(ADVANCED_REACT, LONDON)
 

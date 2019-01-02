@@ -7,7 +7,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { Li } from '../components/layout/Ul'
 import { H2, H3, P } from '../components/text'
 import { Link } from '../components/navigation'
-import { Card, Image } from '../components/elements'
+import { Card, Image, Newsletter } from '../components/elements'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 
@@ -19,7 +19,6 @@ import {
   instagramPictures,
 } from '../config/data'
 import { MENTORSHIP_IMG } from '../config/images'
-import Newsletter from '../components/elements/Newsletter'
 
 const nextBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const nextBootcampStartDate =

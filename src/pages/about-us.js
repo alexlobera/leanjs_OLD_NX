@@ -9,7 +9,7 @@ import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Card, Video, Image } from '../components/elements'
+import { Card, Video, Image, Newsletter } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { LeanJS } from '../components/logos'
 import {
@@ -28,7 +28,6 @@ import trackUserBehaviour, {
 } from '../components/utils/trackUserBehaviour'
 import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
 import { SCREEN_SM_MAX } from '../components/utils'
-import Newsletter from '../components/elements/Newsletter'
 
 const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
 
