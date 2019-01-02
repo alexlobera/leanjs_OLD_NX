@@ -23,7 +23,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image } from '../components/elements'
+import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { selectFirstTraining, REACT_NATIVE, LONDON } from '../config/data'
@@ -76,11 +76,11 @@ const ReactNativeBoocampLondon = () => (
                 foodIncluded
                 coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumReactNative />
         </Card>
       </Grid>
     </TopSection>

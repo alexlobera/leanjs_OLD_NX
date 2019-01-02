@@ -24,7 +24,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image } from '../components/elements'
+import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
@@ -85,11 +85,11 @@ const BootcampLondon = () => (
                 }
                 coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
               />
+              <Row>
+                <Newsletter />
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumAdvancedReact />
         </Card>
       </Grid>
     </TopSection>

@@ -132,6 +132,7 @@ class ContactForm extends Component {
             </P>
           </React.Fragment>
         )}
+        <a name="newsletter" />
         <H3>Signup to our newsletter</H3>
         <P>
           Enter your email below and we'll email you with our{' '}

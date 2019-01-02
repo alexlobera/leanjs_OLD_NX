@@ -25,7 +25,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image } from '../components/elements'
+import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import {
   InstallmentsCard,
@@ -94,11 +94,11 @@ const BootcampLondon = () => (
                   RICHARD_MOSS,
                 ]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumBootcamp />
         </Card>
       </Grid>
     </TopSection>

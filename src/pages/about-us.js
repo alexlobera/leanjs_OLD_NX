@@ -9,7 +9,7 @@ import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Card, Video, Image } from '../components/elements'
+import { Card, Video, Image, Newsletter } from '../components/elements'
 import { Blockquote } from '../components/text'
 import { LeanJS } from '../components/logos'
 import {
@@ -125,16 +125,7 @@ const AboutUs = () => (
               </Row>
             </Col>
             <Col md={10} mdOffset={1}>
-              <H4 style={{ marginTop: '1em', marginBottom: '1em' }}>
-                Signup to our newsletter
-              </H4>
-              <P>
-                Join our community! Be the first to know all about the latest
-                course dates, offers and new course locations.{' '}
-              </P>
-              <LinkButton secondary to="#contact-us">
-                Sign up now
-              </LinkButton>
+              <Newsletter />
             </Col>
           </Row>
         </Card>

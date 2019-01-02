@@ -7,7 +7,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { Li } from '../components/layout/Ul'
 import { H2, H3, P } from '../components/text'
 import { Link } from '../components/navigation'
-import { Card, Image } from '../components/elements'
+import { Card, Image, Newsletter } from '../components/elements'
 import Header from '../components/layout/Header'
 import { UpcomingTrainingSection } from '../components/training'
 
@@ -120,6 +120,12 @@ const Community = () => (
                 <TwitterWidgetsOnlyOnClientSide />
               </Col>
             </Card>
+            <SecondaryCard border="shadow">
+              <Col md={8} mdOffset={2}>
+                <H2>Keep informed...</H2>
+                <Newsletter />
+              </Col>
+            </SecondaryCard>
           </Col>
           <Col xs={12} md={6}>
             <Card border="shadow">

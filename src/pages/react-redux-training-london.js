@@ -25,7 +25,7 @@ import {
   CollabsIcon,
 } from '../components/icons'
 import { PART_TIME as PART_TIME_IMG, CATALIN } from '../config/images'
-import { Image } from '../components/elements'
+import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
@@ -87,11 +87,11 @@ const BootcampLondon = () => (
                   ALEX_LOBERA,
                 ]}
               />
+              <Row>
+                <Newsletter />{' '}
+              </Row>
             </Col>
           </Row>
-        </Card>
-        <Card white border="shadow">
-          <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
       </Grid>
     </TopSection>
