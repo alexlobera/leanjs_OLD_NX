@@ -32,6 +32,7 @@ import header from '../../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../../components/payment'
 import { Link, Breadcrumb } from '../../components/navigation'
 import { selectSecondTraining, REACT_BOOTCAMP, LISBON } from '../../config/data'
+import Newsletter from '../components/elements/Newsletter'
 
 const training = selectSecondTraining(REACT_BOOTCAMP, LISBON)
 const startMonth = moment(training.dateStartsOn).format('MMM')
