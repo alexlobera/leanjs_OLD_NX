@@ -28,6 +28,7 @@ import trackUserBehaviour, {
 } from '../components/utils/trackUserBehaviour'
 import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
 import { SCREEN_SM_MAX } from '../components/utils'
+import Newsletter from '../components/elements/Newsletter'
 
 const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
 
@@ -125,16 +126,7 @@ const AboutUs = () => (
               </Row>
             </Col>
             <Col md={10} mdOffset={1}>
-              <H4 style={{ marginTop: '1em', marginBottom: '1em' }}>
-                Signup to our newsletter
-              </H4>
-              <P>
-                Join our community! Be the first to know all about the latest
-                course dates, offers and new course locations.{' '}
-              </P>
-              <LinkButton secondary to="#contact-us">
-                Sign up now
-              </LinkButton>
+              <Newsletter />
             </Col>
           </Row>
         </Card>
