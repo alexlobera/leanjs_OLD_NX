@@ -409,7 +409,7 @@ pre {
   border-radius: 3px;
   overflow: auto;
   word-wrap: normal;
-  padding: 1.45rem;
+  padding: 0;
 }
 table {
   margin-left: 0;

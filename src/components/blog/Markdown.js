@@ -1,10 +1,19 @@
 import React from 'react'
 import { EmbedRunkit } from './Runkit'
 import styled from 'styled-components'
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 export const Code = props => {
   if (props.className === 'language-runkit') {
     return <EmbedRunkit {...props} source={props.children.toString()} />
+  } else if (props.className === 'language-.jsx') {
+    return (
+      <LiveProvider code={props.children.toString()}>
+        <LiveEditor tabIndex="-1" />
+        <LiveError />
+        <LivePreview />
+      </LiveProvider>
+    )
   } else {
     return <code>{props.children}</code>
   }
@@ -19,6 +28,20 @@ export const Tweet = ({ id }) => {
 
   return null
 }
+
+export const Codesandbox = ({ height = '600px', id, view = 'split' }) => (
+  <iframe
+    src={`https://codesandbox.io/embed/${id}?verticallayout=1&view=${view}`}
+    style={{
+      width: '100%',
+      height,
+      border: 0,
+      borderRadius: 0,
+      overflow: 'hidden',
+    }}
+    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin "
+  />
+)
 
 export const Blockquote = styled.blockquote`
   padding-top: 10px;
