@@ -197,7 +197,7 @@ const meetups = [
   },
   {
     dateStartsOn: new Date('21 Feb, 2019'),
-    cityShortName: 'Lisbon',
+    cityShortName: 'London',
     country: 'UK',
     url: 'https://www.meetup.com/JavaScript-London/events/257660896',
     title: 'Functional programming in JavaScript',
