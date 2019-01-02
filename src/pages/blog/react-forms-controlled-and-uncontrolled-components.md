@@ -116,6 +116,16 @@ The previous Modal is an uncontrolled component.
 
 Which modal is easier to reuse in different projects? The second one (the uncontrolled one). Why? Because the state is handled by the modal itself so we don’t need to do any extra work to reuse the modal.
 
+So which is better, controlled or uncontrolled components? It depends on the use case. Controlled components obviously give you more, well, control. Controlled components give you direct access to the state, so if you need to perform tasks like validating that state, it’s really easy since you own the state. Uncontrolled components are easier to reuse with minimal setup. If your app doesn’t need to know about the state of the component, like in the case of the modal, uncontrolled components will be simpler to use.
+
+A good component is one that can be either controlled or uncontrolled. Think of an &lt;input/&gt; itself. If you provide a value, the input becomes controlled. If you don’t provide a value, the input becomes uncontrolled.
+
+This [burger menu](https://github.com/negomi/react-burger-menu) is a good example. It’s implemented in a way that can be either controlled or uncontrolled.
+
+&lt;Menu/&gt; // [this is uncontrolled](https://github.com/negomi/react-burger-menu#usage)
+
+&lt;Menu isOpen={this.state.isOpen}/&gt; // [this is controlled](https://github.com/negomi/react-burger-menu#open-state)
+
 ## Conclusion
 
 - Uncontrolled component, the component owns the state.
