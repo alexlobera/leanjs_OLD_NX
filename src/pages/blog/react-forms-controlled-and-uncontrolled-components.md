@@ -116,7 +116,7 @@ The previous Modal is an uncontrolled component.
 
 Which modal is easier to reuse in different projects? The second one (the uncontrolled one). Why? Because the state is handled by the modal itself so we don’t need to do any extra work to reuse the modal.
 
-## Conlusion
+## Conclusion
 
 - Uncontrolled component, the component owns the state.
 - Controlled component, the component does not own the state.
