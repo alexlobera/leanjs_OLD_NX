@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import { H2, P } from '../../components/text'
+import { H3, P } from '../../components/text'
 import Header from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
@@ -27,29 +27,26 @@ const Blog = ({ data }) => {
         fullHeight={false}
         paddingBottom={170}
       />
-
       <TopSection>
         <Grid>
           <React.Fragment>
             <Row>
-              {posts.map(post => (
-                <Col lg={4}>
+              {posts.map(({ node: post }) => (
+                <Col lg={4} key={post.fields.slug}>
                   <Card border="shadow" padding={false} bottom={36}>
-                    <Link to={`${post.node.fields.slug}`}>
+                    <Link to={`${post.fields.slug}`}>
                       <Image
-                        src={post.node.frontmatter.imageUrl}
-                        alt={formatPostTitle(post.node.frontmatter.title)}
+                        src={post.frontmatter.imageUrl}
+                        alt={formatPostTitle(post.frontmatter.title)}
                       />
                     </Link>
                     <CardText>
-                      <Link to={`${post.node.fields.slug}`}>
-                        <H2>{formatPostTitle(post.node.frontmatter.title)}</H2>
+                      <Link to={`${post.fields.slug}`}>
+                        <H3>{formatPostTitle(post.frontmatter.title)}</H3>
                       </Link>
-                      <P>{post.node.excerpt}</P>
+                      <P>{post.excerpt}</P>
                       <P>
-                        <Link to={`${post.node.fields.slug}`}>
-                          Read more >>
-                        </Link>
+                        <Link to={`${post.fields.slug}`}>Read more >></Link>
                       </P>
                     </CardText>
                   </Card>
