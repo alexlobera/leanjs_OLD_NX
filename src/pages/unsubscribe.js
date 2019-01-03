@@ -41,6 +41,9 @@ class Unsubscribe extends React.Component {
       {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
+        },
+        body: {
           email: this.state.email,
         },
       }
