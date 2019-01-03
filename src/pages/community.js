@@ -45,12 +45,6 @@ const EventList = styled.ul`
   > li:first-child {
     margin-top: 0;
   }
-  img {
-    width: 126px;
-    float: left;
-    margin-right: 18px;
-    margin-bottom: 10px;
-  }
 `
 
 const MeetupLink = styled(Link)`
@@ -149,20 +143,27 @@ const Community = () => (
                           imgUrl,
                         }) => (
                           <Li key={url}>
-                            <Image src={imgUrl} />
-                            <div>
-                              <P>
-                                <strong>{title}</strong>
-                                <br />
-                                {moment(dateStartsOn).format('D MMM')} -{' '}
-                                {cityShortName}, {country}
-                              </P>
-                              <LinkButton
-                                secondary
-                                to={url}
-                                children={'Read more'}
-                              />
-                            </div>
+                            <Row>
+                              <Col sm={6}>
+                                <Image src={imgUrl} />
+                              </Col>
+                              <Col sm={6}>
+                                <div>
+                                  <P>
+                                    <strong>{title}</strong>
+                                    <br />
+                                    {moment(dateStartsOn).format(
+                                      'D MMM'
+                                    )} - {cityShortName}, {country}
+                                  </P>
+                                  <LinkButton
+                                    secondary
+                                    to={url}
+                                    children={'Read more'}
+                                  />
+                                </div>
+                              </Col>
+                            </Row>
                           </Li>
                         )
                       )}
