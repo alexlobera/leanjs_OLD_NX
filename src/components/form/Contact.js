@@ -175,9 +175,9 @@ class ContactForm extends Component {
           </Row>
         ) : null}
         <Unsubscribe>
-          Looking to unsubscribe? contact us at{' '}
-          <Link to="mailto:unsubscribe@reactjs.academy">
-            unsubscribe@reactjs.academy
+          Looking to unsubscribe? go to the{' '}
+          <Link to="/unsubscribe/">
+            unsubscribe page
           </Link>
         </Unsubscribe>
       </React.Fragment>
