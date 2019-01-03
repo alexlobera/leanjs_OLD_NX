@@ -10,18 +10,13 @@ import { H2, H3, P } from '../components/text'
 import Header from '../components/layout/Header'
 import { WHITE, FONT_FAMILY } from '../config/styles'
 
-import {
-  Label as DefaultLabel,
-
-} from '../components/text'
+import { Label as DefaultLabel } from '../components/text'
 
 const Input = styled(DefaultInput)`
   background-color: ${WHITE};
 `
 
-const Label = styled(DefaultLabel)`
-
-`
+const Label = styled(DefaultLabel)``
 
 const ThanksTitle = styled(H3)`
   margin: 1em 0;
@@ -37,16 +32,19 @@ class Unsubscribe extends React.Component {
   handleFormSubmit = e => {
     e.preventDefault()
     this.setState({ formSubmited: true })
-    this.triggerUnsubscribe();
+    this.triggerUnsubscribe()
   }
 
   triggerUnsubscribe = () => {
-    fetch(`https://api2.autopilothq.com/v1/trigger/${process.env.AUTOPILOT_UNSUBSCRIBE_TRIGGER_ID}/contact/${this.state.email}`, {
-      method: "POST",
-      headers: {
-        "autopilotapikey": process.env.AUTOPILOT_API_KEY
+    fetch(
+      `https://us-central1-reactjsacademy-react.cloudfunctions.net/helloWorld`,
+      {
+        method: 'POST',
+        headers: {
+          email: this.state.email,
+        },
       }
-    })
+    )
   }
 
   handleEmailChange = e => {
@@ -59,7 +57,7 @@ class Unsubscribe extends React.Component {
   }
 
   render() {
-    const { email, emailValid } = this.state;
+    const { email, emailValid } = this.state
     const isValid = emailValid && email.length > 0
     return (
       <React.Fragment>
@@ -73,7 +71,10 @@ class Unsubscribe extends React.Component {
           <Grid>
             <Row>
               <Col xs={12} md={6}>
-                <P>Fill the form to receive an email to unsubscribe from our mailing list.</P>
+                <P>
+                  Fill the form to receive an email to unsubscribe from our
+                  mailing list.
+                </P>
                 <form onSubmit={this.handleFormSubmit}>
                   <Label htmlFor="email">
                     <P>Your email address:</P>
@@ -98,7 +99,9 @@ class Unsubscribe extends React.Component {
             {this.state.formSubmited ? (
               <Row>
                 <Col>
-                  <ThanksTitle>To finish the process, check your Email.</ThanksTitle>
+                  <ThanksTitle>
+                    To finish the process, check your Email.
+                  </ThanksTitle>
                 </Col>
               </Row>
             ) : null}
