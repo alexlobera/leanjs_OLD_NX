@@ -100,6 +100,21 @@ export const BCN_MEETUP =
 export const LISBON_MEETUP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-Lisbon.png?alt=media'
 
+export const AMSTERDAM_MEETUP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_amsterdam.png?alt=media'
+
+export const PARIS_MEETUP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_paris.png?alt=media'
+
+export const BERLIN_MEETUP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_berlin.png?alt=media'
+
+export const BERN_MEETUP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_bern.png?alt=media'
+
+export const BRISTOL_MEETUP =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_bristol.png?alt=media'
+
 // Header backgrounds
 export const CORP_TRAINING_HEADER_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/header-backgrounds%2Fcorp-training-bg.jpg?alt=media'

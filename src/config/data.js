@@ -2,6 +2,7 @@ import {
   LONDON_MEETUP,
   LISBON_MEETUP,
   BCN_MEETUP,
+  AMSTERDAM_MEETUP,
   RICHARD,
   ALEX,
 } from './images'
@@ -202,6 +203,15 @@ const meetups = [
     url: 'https://www.meetup.com/JavaScript-London/events/257660896',
     title: 'Functional programming in JavaScript',
     imgUrl: LONDON_MEETUP,
+  },
+  {
+    dateStartsOn: new Date('18 Feb, 2019'),
+    cityShortName: 'Amsterdam',
+    country: 'NL',
+    url: 'https://www.meetup.com/JavaScript-Amsterdam/events/257709061/',
+    title:
+      'Learn JavaScript Testing Principles By Building Your Own Testing Library',
+    imgUrl: AMSTERDAM_MEETUP,
   },
 ]
 
