@@ -155,6 +155,34 @@ exports[`<Community /> should render component 1`] = `
                   </div>
                 </styled.li>
                 <styled.li
+                  key="https://www.meetup.com/JavaScript-Amsterdam/events/257709061/"
+                >
+                  <styled.img
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_amsterdam.png?alt=media"
+                  />
+                  <div>
+                    <styled.p>
+                      <strong>
+                        Learn JavaScript Testing Principles By Building Your Own Testing Library
+                      </strong>
+                      <br />
+                      18 Feb
+                       -
+                       
+                      Amsterdam
+                      , 
+                      NL
+                    </styled.p>
+                    <LinkButton
+                      secondary={true}
+                      to="https://www.meetup.com/JavaScript-Amsterdam/events/257709061/"
+                      trackUserBehaviour={[Function]}
+                    >
+                      Read more
+                    </LinkButton>
+                  </div>
+                </styled.li>
+                <styled.li
                   key="https://www.meetup.com/JavaScript-London/events/257660896"
                 >
                   <styled.img
