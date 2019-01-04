@@ -36,6 +36,7 @@ class Unsubscribe extends React.Component {
   }
 
   triggerUnsubscribe = () => {
+    console.log('email', this.state.email)
     fetch(
       `https://us-central1-reactjsacademy-react.cloudfunctions.net/helloWorld`,
       {
@@ -43,9 +44,9 @@ class Unsubscribe extends React.Component {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: {
+        body: JSON.stringify({
           email: this.state.email,
-        },
+        }),
       }
     )
   }
