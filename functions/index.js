@@ -1,8 +1,6 @@
 const functions = require('firebase-functions')
 const fetch = require('node-fetch')
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
 exports.unsubscribe = functions.https.onRequest((request, response) => {
   response.set('Access-Control-Allow-Origin', '*')
 
