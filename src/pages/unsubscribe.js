@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { validate } from 'email-validator'
 
+import * as api from '../api/triggerUnsubscribe'
 import Section, { TopSection } from '../components/layout/Section'
 import { InputButton } from '../components/buttons/Button'
 import DefaultInput, { ErrorMessage } from '../components/form/Input'
@@ -32,22 +33,7 @@ class Unsubscribe extends React.Component {
   handleFormSubmit = e => {
     e.preventDefault()
     this.setState({ formSubmited: true })
-    this.triggerUnsubscribe()
-  }
-
-  triggerUnsubscribe = () => {
-    fetch(
-      `https://us-central1-reactjsacademy-react.cloudfunctions.net/unsubscribe`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: this.state.email,
-        }),
-      }
-    )
+    api.triggerUnsubscribe(this.state.email)
   }
 
   handleEmailChange = e => {
@@ -113,6 +99,10 @@ class Unsubscribe extends React.Component {
       </React.Fragment>
     )
   }
+}
+
+Unsubscribe.defaultProps = {
+  api,
 }
 
 export default Unsubscribe
