@@ -1,23 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { validate } from 'email-validator'
-
 import * as api from '../api/triggerUnsubscribe'
-import Section, { TopSection } from '../components/layout/Section'
-import { InputButton } from '../components/buttons/Button'
-import DefaultInput, { ErrorMessage } from '../components/form/Input'
+import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H3, P } from '../components/text'
+import { H3, P } from '../components/text'
 import Header from '../components/layout/Header'
-import { WHITE, FONT_FAMILY } from '../config/styles'
+import { FieldInput, Form } from '../components/form'
+import { Button } from '../components/buttons'
+import { getComponentAliaser } from '../components/utils/aliasComponent'
+import { composeValidators, required, mustBeEmail } from '../components/form/validations'
 
-import { Label as DefaultLabel } from '../components/text'
-
-const Input = styled(DefaultInput)`
-  background-color: ${WHITE};
-`
-
-const Label = styled(DefaultLabel)``
+const aliasInput = getComponentAliaser(FieldInput)
+const EmailInput = aliasInput()
 
 const ThanksTitle = styled(H3)`
   margin: 1em 0;
@@ -25,29 +19,16 @@ const ThanksTitle = styled(H3)`
 
 class Unsubscribe extends React.Component {
   state = {
-    email: '',
-    formSubmited: false,
-    emailValid: false,
+    formSubmited: false
   }
 
-  handleFormSubmit = e => {
-    e.preventDefault()
+  handleFormSubmit = ({ email }) => {
     this.setState({ formSubmited: true })
-    api.triggerUnsubscribe(this.state.email)
-  }
-
-  handleEmailChange = e => {
-    this.setState({ email: e.target.value }, this.validateEmail)
-  }
-
-  validateEmail = () => {
-    let emailValid = validate(this.state.email)
-    this.setState({ emailValid })
+    this.props.api.triggerUnsubscribe(email)
   }
 
   render() {
-    const { email, emailValid } = this.state
-    const isValid = emailValid && email.length > 0
+    const { formSubmited } = this.state
     return (
       <React.Fragment>
         <Header
@@ -64,28 +45,32 @@ class Unsubscribe extends React.Component {
                   Fill the form to receive an email to unsubscribe from our
                   mailing list.
                 </P>
-                <form onSubmit={this.handleFormSubmit}>
-                  <Label htmlFor="email">
-                    <P>Your email address:</P>
-                  </Label>
-                  <Input
-                    type="email"
-                    value={email}
-                    onChange={this.handleEmailChange}
-                    name="email"
-                    placeholder="name@email.com"
-                  />
-                  {email.length > 0 ? (
-                    emailValid ? null : (
-                      <ErrorMessage>must enter a valid email</ErrorMessage>
+                <Form
+                  onSubmit={this.handleFormSubmit}
+                  render={({ handleSubmit, valid }) => {
+                    return (
+                      <form
+                        onSubmit={handleSubmit}
+                        style={
+                          this.state.formSubmited ? { display: 'none' } : {}
+                        }
+                      >
+                        <EmailInput
+                          validate={composeValidators(required, mustBeEmail)}
+                          label="Your email address:"
+                          name="email"
+                          placeholder="eg. steve@jobs.com"
+                        />
+                        <Button cta type="submit" disabled={!valid}>
+                          Submit email
+                        </Button>
+                      </form>
                     )
-                  ) : null}
-
-                  <InputButton cta value="Submit email" disabled={!isValid} />
-                </form>
+                  }}
+                />
               </Col>
             </Row>
-            {this.state.formSubmited ? (
+            {formSubmited ? (
               <Row>
                 <Col>
                   <ThanksTitle>

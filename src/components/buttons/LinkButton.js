@@ -24,9 +24,6 @@ const fontColor = color => `
 `
 
 const StyledLinkButton = styled(Link)`
-svg {
-  0.5rem;
-}
 ${DEFAULT_BUTTON_STYLE}
 ${FONT_FAMILY}
   background-color: ${props => {
@@ -43,7 +40,7 @@ ${FONT_FAMILY}
     props.secondary
       ? '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)'
       : '0 18px 29px -2px rgba(0, 0, 0, 0.26)'};
-  ${props => (props.secondary ? fontColor(blue1()) : fontColor(WHITE))}
+  ${props => (props.secondary ? fontColor(blue1()) : fontColor(WHITE))};
   border: ${props => props.secondary && `solid 1px ${blue1()}`};
   display: ${props => (props.block ? 'block' : 'inline-block')};
   text-decoration: none;
@@ -82,10 +79,12 @@ const LinkButton = ({
 
 LinkButton.propTypes = {
   trackUserBehaviour: PropTypes.func,
+  secondary: PropTypes.bool
 }
 
 LinkButton.defaultProps = {
   trackUserBehaviour,
+  secondary: false
 }
 
 export default LinkButton
