@@ -44,9 +44,9 @@ const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
 `
 
-export const LinkScroll = styled(({ to, ...rest }) => (
+export const LinkScroll = styled(({ to, secondary, ...rest }) => (
   <DefaultLinkScroll
-    smooth={true}
+    smooth
     duration={500}
     offset={DEFAULT_SCROLL_OFFSET}
     to={to && to.slice(1, to.length)}
