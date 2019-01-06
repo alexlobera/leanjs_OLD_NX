@@ -65,7 +65,7 @@ class AcceptCookies extends React.Component {
           <div>
             Using our site means you consent to our use of cookies. Find out
             more in our{' '}
-            <Link inheritFontSize to="/privacy-policy">
+            <Link to="/privacy-policy">
               privacy policy
             </Link>
             .
