@@ -1,4 +1,4 @@
-export const triggerUnsubscribe = email => {
+export const triggerUnsubscribe = email =>
   fetch(
     `https://us-central1-reactjsacademy-react.cloudfunctions.net/unsubscribe`,
     {
@@ -7,8 +7,7 @@ export const triggerUnsubscribe = email => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: email,
+        email,
       }),
     }
   )
-}
