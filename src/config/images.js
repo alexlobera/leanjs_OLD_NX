@@ -118,3 +118,10 @@ export const BRISTOL_MEETUP =
 // Header backgrounds
 export const CORP_TRAINING_HEADER_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/header-backgrounds%2Fcorp-training-bg.jpg?alt=media'
+
+// Training instance images
+
+export const HOUSE =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_1_small.jpg?alt=media'
+export const BEACH =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_2_small.jpg?alt=media'

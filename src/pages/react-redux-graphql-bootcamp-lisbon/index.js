@@ -9,7 +9,7 @@ import { CurriculumBootcamp } from '../../components/curriculum'
 import { Card, Video } from '../../components/elements'
 import { HideComponentsUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
+import { BOOTCAMP_COLLAB, CATALIN, BEACH, HOUSE } from '../../config/images'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
@@ -94,6 +94,29 @@ const BootcampLisbon = () => (
                   <React.Fragment>
                     {training.location}.{' '}
                     <Link to="https://goo.gl/maps/4YCHgrxzqbx">See on map</Link>
+                    <Row style={{ marginTop: '0.725rem' }}>
+                      <Col xs={6}>
+                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_2_big.jpg?alt=media">
+                          <Image
+                            src={BEACH}
+                            width="100%"
+                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
+                          />
+                        </Link>
+                      </Col>
+                      <Col xs={6}>
+                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_1_big.jpg?alt=media">
+                          <Image
+                            src={HOUSE}
+                            width="100%"
+                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
+                          />
+                        </Link>
+                      </Col>
+                    </Row>
+                    <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
+                      More Details on TripAdvisor
+                    </Link>
                   </React.Fragment>
                 }
                 coaches={[
