@@ -11,7 +11,7 @@ import { getComponentAliaser } from '../components/utils/aliasComponent'
 import { composeValidators, required, mustBeEmail } from '../components/form/validations'
 
 const aliasInput = getComponentAliaser(FieldInput)
-const EmailInput = aliasInput()
+export const EmailInput = aliasInput()
 
 const ThanksTitle = styled(H3)`
   margin: 1em 0;
