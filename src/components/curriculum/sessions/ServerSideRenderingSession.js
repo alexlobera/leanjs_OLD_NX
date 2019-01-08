@@ -10,6 +10,7 @@ const ServerSideRenderingSession = ({ title }) => (
       <Li>Universal Redux</Li>
       <Li>GraphQL SSR</Li>
       <Li>Styled-componets SSR</Li>
+      <Li>React Helmet</Li>
     </Ul>
   </Session>
 )
