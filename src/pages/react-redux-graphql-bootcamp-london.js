@@ -8,7 +8,6 @@ import { Card, Video } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -172,8 +171,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
+              <CurriculumBootcamp listTwoCol />
             </Col>
           </Row>
         </Card>
