@@ -9,7 +9,7 @@ import { CurriculumBootcamp } from '../../components/curriculum'
 import { Card, Video } from '../../components/elements'
 import { HideComponentsUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
+import { BOOTCAMP_COLLAB, CATALIN, BEACH, HOUSE } from '../../config/images'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
@@ -59,7 +59,7 @@ const BootcampLisbon = () => (
     <Header
       titleLines={[
         'React Redux GraphQL Bootcamp',
-        `${training.dates} - Portugal`,
+        `${training.dates} - ${training.cityShortName} ${training.country}`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
       links={header.landingTraining.links}
@@ -93,9 +93,30 @@ const BootcampLisbon = () => (
                 location={
                   <React.Fragment>
                     {training.location}.{' '}
-                    {/* <Link to="https://www.google.com/maps/place/Torres+Vedras,+Portugal/@39.0930924,-9.2980036,13z/data=!3m1!4b1!4m5!3m4!1s0xd1f2dc22d3a1b53:0xca2cc4fc7eaba688!8m2!3d39.0917759!4d-9.2600341">
-                      See on map
-                    </Link> */}
+                    <Link to="https://goo.gl/maps/4YCHgrxzqbx">See on map</Link>
+                    <Row style={{ marginTop: '0.725rem' }}>
+                      <Col xs={6}>
+                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_2_big.jpg?alt=media">
+                          <Image
+                            src={BEACH}
+                            width="100%"
+                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
+                          />
+                        </Link>
+                      </Col>
+                      <Col xs={6}>
+                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_1_big.jpg?alt=media">
+                          <Image
+                            src={HOUSE}
+                            width="100%"
+                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
+                          />
+                        </Link>
+                      </Col>
+                    </Row>
+                    <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
+                      More Details on TripAdvisor
+                    </Link>
                   </React.Fragment>
                 }
                 coaches={[

@@ -49,7 +49,8 @@ export const trainings = [
     type: REACT_BOOTCAMP,
     cityShortName: 'Lisbon',
     country: 'Portugal',
-    location: 'TBC',
+    location:
+      'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
     pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
     trainingInstanceId: '5be3358f1307cabce7761591',
     price: 1800,
@@ -64,7 +65,8 @@ export const trainings = [
     country: 'Portugal',
     type: ADVANCED_REACT,
     cityShortName: 'Lisbon',
-    location: 'TBC',
+    location:
+      'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
     pathUrl: '/advanced-react-redux-graphql-bootcamp-lisbon',
     trainingInstanceId: '5bec7b5e33b9da5035c01817',
     price: 1250,
