@@ -1,12 +1,17 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Unsubscribe, { EmailInput, ThanksTitle, THANKS_MESSAGE } from './unsubscribe'
-import { Button } from '../components/buttons'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Contact, { THANKS_MESSAGE, ThanksTitle, EmailInput } from './Contact'
+import { Button } from '../buttons'
 
-describe('Unsubscribe', () => {
-  const triggerUnsubscribe = jest.fn(({email}) => Promise.resolve(email))
+describe('Contact Form', () => {
+  const triggerSubscribe = jest.fn(email => Promise.resolve(email))
 
-  const wrapper = mount(<Unsubscribe triggerUnsubscribe={triggerUnsubscribe} />)
+  const wrapper = mount(
+    <Router>
+      <Route render={props => <Contact triggerSubscribe={triggerSubscribe} {...props} />} />
+    </Router>
+  )
 
   it('the input email should be empty', () => {
     expect(wrapper.find('input').text()).toBe('')
@@ -20,6 +25,7 @@ describe('Unsubscribe', () => {
 
     expect(wrapper.find(Button).prop('disabled')).toBe(true)
   })
+
   it(`should enable button if email is valid`, () => {
     wrapper
       .find(EmailInput)
@@ -40,11 +46,11 @@ describe('Unsubscribe', () => {
       .closest('form')
       .simulate('submit')
 
-    expect(triggerUnsubscribe).toHaveBeenCalledWith({email: 'hello@email.com'})
+    expect(triggerSubscribe).toHaveBeenCalledWith({email: 'hello@email.com'})
   })
 
-  it("should show the confirm message after form submit", () => {
-    const thanksMssg = wrapper.find(ThanksTitle).text();
-    expect(thanksMssg).toBe(THANKS_MESSAGE);
+  it('should show the confirm message after form submit', () => {
+    const thanksMssg = wrapper.find(ThanksTitle).text()
+    expect(thanksMssg).toBe(THANKS_MESSAGE)
   })
 })

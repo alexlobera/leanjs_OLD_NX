@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as api from '../api/triggerUnsubscribe'
+import { triggerUnsubscribe } from '../api'
 import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H3, P } from '../components/text'
@@ -13,9 +13,11 @@ import { composeValidators, required, mustBeEmail } from '../components/form/val
 const aliasInput = getComponentAliaser(FieldInput)
 export const EmailInput = aliasInput()
 
-const ThanksTitle = styled(H3)`
+export const ThanksTitle = styled(H3)`
   margin: 1em 0;
 ` //TODO: animate this later
+
+export const THANKS_MESSAGE = "To finish the process, check your Email."
 
 class Unsubscribe extends React.Component {
   state = {
@@ -24,7 +26,7 @@ class Unsubscribe extends React.Component {
 
   handleFormSubmit = ({ email }) => {
     this.setState({ formSubmited: true })
-    this.props.api.triggerUnsubscribe(email)
+    this.props.triggerUnsubscribe({email})
   }
 
   render() {
@@ -74,7 +76,7 @@ class Unsubscribe extends React.Component {
               <Row>
                 <Col>
                   <ThanksTitle>
-                    To finish the process, check your Email.
+                    {THANKS_MESSAGE}
                   </ThanksTitle>
                 </Col>
               </Row>
@@ -87,7 +89,7 @@ class Unsubscribe extends React.Component {
 }
 
 Unsubscribe.defaultProps = {
-  api,
+  triggerUnsubscribe
 }
 
 export default Unsubscribe

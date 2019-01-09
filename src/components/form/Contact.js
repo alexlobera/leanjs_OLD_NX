@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
 import DefaultLink from '../navigation/Link'
 import { Button } from '../buttons'
-import {
-  H3 as DefaultH3,
-  P as DefaultP,
-} from '../text'
+import { H3 as DefaultH3, P as DefaultP } from '../text'
 import { FieldInput, Form } from '../form'
 import { Col, Row } from '../layout/Grid'
 import { WHITE } from '../../config/styles'
 import { getComponentAliaser } from '../utils/aliasComponent'
 import { composeValidators, required, mustBeEmail } from '../form/validations'
+import { triggerSubscribe } from '../../api'
 
 const aliasInput = getComponentAliaser(FieldInput)
-const EmailInput = aliasInput()
+export const EmailInput = aliasInput()
+
+export const THANKS_MESSAGE = "thanks for submitting!"
 
 const H3 = styled(DefaultH3)`
   color: ${WHITE};
@@ -31,39 +30,23 @@ const Unsubscribe = styled(P)`
   padding-top: 25px;
 `
 
-const ThanksTitle = styled(H3)`
+export const ThanksTitle = styled(H3)`
   margin: 1em 0;
 ` //TODO: animate this later
 
 class ContactForm extends Component {
   state = {
-    email: '',
     formSubmited: false,
-    emailValid: false,
   }
+
   handleFormSubmit = ({ email }) => {
     this.setState({ formSubmited: true })
-    window &&
-      window.Autopilot &&
-      window.Autopilot.run('associate', {
-        _simpleAssociate: true,
-        Email: email,
-        custom: {
-          'string--From--Path': window.location.pathname,
-        },
-      })
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag('event', 'conversion', {
-      send_to: 'AW-877316317/d5TtCOmF_IoBEN2Rq6ID',
-    })
+    this.props.triggerSubscribe({ email })
   }
 
   render() {
     const { addContactUsLink, simplified } = this.props
-
+    const { formSubmited } = this.state;
     return (
       <React.Fragment>
         {!simplified && (
@@ -106,10 +89,7 @@ class ContactForm extends Component {
           <Col>
             <Form
               onSubmit={this.handleFormSubmit}
-              render={({
-                handleSubmit,
-                valid,
-              }) => {
+              render={({ handleSubmit, valid }) => {
                 return (
                   <form
                     onSubmit={handleSubmit}
@@ -121,31 +101,32 @@ class ContactForm extends Component {
                       name="email"
                       placeholder="eg. steve@jobs.com"
                     />
-                    <Button
-                      cta
-                      type="submit"
-                      disabled={!valid}
-                    >Submit email</Button>
+                    <Button cta type="submit" disabled={!valid}>
+                      Submit email
+                    </Button>
                   </form>
                 )
               }}
             />
           </Col>
         </Row>
-        {this.state.formSubmited ? (
+        {formSubmited ? (
           <Row>
             <Col>
-              <ThanksTitle>thanks for submitting!</ThanksTitle>
+              <ThanksTitle>{THANKS_MESSAGE}</ThanksTitle>
             </Col>
           </Row>
         ) : null}
         <Unsubscribe>
-          Looking to unsubscribe? go to the{' '}
-          <Link to="/unsubscribe/">unsubscribe page</Link>
+          Looking to <Link to="/unsubscribe/">unsubscribe?</Link>
         </Unsubscribe>
       </React.Fragment>
     )
   }
+}
+
+ContactForm.defaultProps = {
+  triggerSubscribe,
 }
 
 export default ContactForm
