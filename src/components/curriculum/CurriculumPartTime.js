@@ -34,7 +34,6 @@ const PartTimeFinalProject = () => (
 const CurriculumPartTime = ({
   showTitle = true,
   isOpen,
-  selectLayout,
   enableToggle,
   toggleNavigateTo = `/curriculum?tab=${PART_TIME}`,
   showCallToActionBottom = false,
@@ -145,7 +144,7 @@ const CurriculumPartTime = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout(firstHalf, secondHalf, layout)}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
       {showCallToActionBottom ? (
         <Row>
           <Col lg={10} lgOffset={1}>

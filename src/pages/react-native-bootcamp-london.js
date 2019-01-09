@@ -27,6 +27,7 @@ import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { selectFirstTraining, REACT_NATIVE, LONDON } from '../config/data'
+import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(REACT_NATIVE, LONDON)
 
@@ -151,7 +152,7 @@ const ReactNativeBoocampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <CurriculumReactNative layout="listTwoCol" />
+              <CurriculumReactNative layout={LIST_TWO_COL} />
             </Col>
           </Row>
         </Card>

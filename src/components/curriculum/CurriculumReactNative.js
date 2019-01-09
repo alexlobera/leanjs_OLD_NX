@@ -52,7 +52,7 @@ const CurriculumReactNative = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout(firstHalf, null, layout)}
+      {selectCurriculumLayout({ firstHalf, layout })}
     </React.Fragment>
   )
 }

@@ -3,8 +3,11 @@ import { Col, Row } from '../layout/Grid'
 import { List } from './CurriculumSection'
 import { UpcomingTrainingSection } from '../training'
 
-const selectCurriculumLayout = (firstHalf, secondHalf, layoutProp) => {
-  if (layoutProp === 'list') {
+export const LIST_LAYOUT = 'list'
+export const LIST_TWO_COL = 'listTwoCol'
+
+const selectCurriculumLayout = ({ firstHalf, secondHalf, layout }) => {
+  if (layout === LIST_LAYOUT) {
     return (
       <React.Fragment>
         <List>
@@ -13,7 +16,7 @@ const selectCurriculumLayout = (firstHalf, secondHalf, layoutProp) => {
         </List>
       </React.Fragment>
     )
-  } else if (layoutProp === 'listTwoCol') {
+  } else if (layout === LIST_TWO_COL) {
     return (
       <React.Fragment>
         <List>

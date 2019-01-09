@@ -31,6 +31,7 @@ import header from '../../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../../components/payment'
 import { Link, Breadcrumb } from '../../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LISBON } from '../../config/data'
+import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(REACT_BOOTCAMP, LISBON)
 const startMonth = moment(training.dateStartsOn).format('MMM')
@@ -207,7 +208,7 @@ const BootcampLisbon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <CurriculumBootcamp layout="listTwoCol" />
+              <CurriculumBootcamp layout={LIST_TWO_COL} />
             </Col>
           </Row>
         </Card>

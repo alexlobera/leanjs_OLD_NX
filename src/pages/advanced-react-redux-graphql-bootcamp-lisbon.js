@@ -27,6 +27,7 @@ import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, ADVANCED_REACT, LISBON } from '../config/data'
+import { LIST_TWO_COL } from '../components/curriculum'
 
 const training = selectFirstTraining(ADVANCED_REACT, LISBON)
 
@@ -164,7 +165,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <CurriculumAdvancedReact layout="listTwoCol" />
+              <CurriculumAdvancedReact layout={LIST_TWO_COL} />
             </Col>
           </Row>
         </Card>

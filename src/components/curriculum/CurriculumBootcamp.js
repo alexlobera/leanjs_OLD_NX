@@ -145,7 +145,7 @@ const CurriculumBootcamp = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout(firstHalf, secondHalf, layout)}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
     </React.Fragment>
   )
 }

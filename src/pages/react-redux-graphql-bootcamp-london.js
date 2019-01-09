@@ -33,6 +33,7 @@ import {
 } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LONDON } from '../config/data'
+import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(REACT_BOOTCAMP, LONDON)
 
@@ -171,7 +172,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <CurriculumBootcamp layout="listTwoCol" />
+              <CurriculumBootcamp layout={LIST_TWO_COL} />
             </Col>
           </Row>
         </Card>
