@@ -164,8 +164,7 @@ const PartTimeBarcelona = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
+              <CurriculumPartTime listTwoCol />
             </Col>
           </Row>
         </Card>
