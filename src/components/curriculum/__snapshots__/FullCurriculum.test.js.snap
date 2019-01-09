@@ -71,28 +71,28 @@ exports[`<FullCurriculum /> should render component 1`] = `
           <ContentItem
             name="React bootcamp"
           >
-            <ComponentWithCurriculumLayout
+            <CurriculumBootcamp
               showTitle={false}
             />
           </ContentItem>
           <ContentItem
             name="Advanced React"
           >
-            <ComponentWithCurriculumLayout
+            <CurriculumAdvancedReact
               showTitle={false}
             />
           </ContentItem>
           <ContentItem
             name="React Native"
           >
-            <ComponentWithCurriculumLayout
+            <CurriculumReactNative
               showTitle={false}
             />
           </ContentItem>
           <ContentItem
             name="Part-time"
           >
-            <ComponentWithCurriculumLayout
+            <CurriculumPartTime
               showTitle={false}
             />
           </ContentItem>

@@ -1,7 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CurriculumBootcamp /> should render component 1`] = `
-<CurriculumBootcamp
-  selectLayout={[Function]}
-/>
+<Fragment>
+  <Row>
+    <Styled(Col)
+      lgOffset={1}
+    >
+      <Styled(styled.h2)>
+        React Bootcamp Curriculum
+         
+        <Link
+          name="curriculum"
+          to="#curriculum"
+        >
+          #
+        </Link>
+      </Styled(styled.h2)>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <withRouter(CurriculumSection)
+        name="day1"
+        subTitle="React 101 and JS fundamentals"
+        title="React Bootcamp Day 1 (half day)"
+        toggleNavigateTo={[Function]}
+        type="React bootcamp"
+      >
+        <ReactJS101Session />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day2"
+        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+        title="React Bootcamp Day 2"
+        toggleNavigateTo={[Function]}
+        type="React bootcamp"
+      >
+        <ES6Session
+          title="Modern JavaScript"
+        />
+        <ThinkingInReactSession
+          title="Thinking in React"
+        />
+        <RoutingAndDataFetchingSession
+          title="Routing and Data Fetching"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day3"
+        subTitle="Forms, Authentication, Styling in React"
+        title="React Bootcamp Day 3"
+        toggleNavigateTo={[Function]}
+        type="React bootcamp"
+      >
+        <FormsAndAuthSession
+          title="Forms and Authentication"
+        />
+        <ReactFundamentalsRecapSession
+          title="React Fundamentals recap, build a React app from scratch on your own to consolidate:"
+        />
+        <StylingInReactSession
+          title="Styling in React"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day4"
+        subTitle="Redux, and Testing Principles"
+        title="React Bootcamp Day 4"
+        toggleNavigateTo={[Function]}
+        type="React bootcamp"
+      >
+        <IntroReduxSession
+          title="Introduction to Redux"
+        />
+        <TestingIntroSession
+          title="Testing Principales"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day5"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
+        title="React Bootcamp Day 5"
+        toggleNavigateTo={[Function]}
+        type="React bootcamp"
+      >
+        <HoCsRenderPropsStateReducerSession
+          title="Functional Programming & Advanced React patterns I"
+        />
+        <GraphQLSession
+          title="GraphQL and Apollo client"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day6"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
+        title="React Bootcamp Day 6"
+        toggleNavigateTo={[Function]}
+        type="React bootcamp"
+      >
+        <TestingInReactSession
+          title="Testing in React"
+        />
+        <CompoundCompAndContextSession
+          title="Advanced React patterns to create even more reusable UIs"
+        />
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day7"
+        subTitle="Real-world Project"
+        title="React Bootcamp Day 7"
+        toggleNavigateTo={[Function]}
+        type="React bootcamp"
+      >
+        <Hackathon
+          title="Last day real-world React challenge. We'll implement an app in teams from scratch"
+        />
+      </withRouter(CurriculumSection)>
+      <styled.div>
+        <LinkButton
+          secondary={true}
+          to="/curriculum"
+          trackUserBehaviour={[Function]}
+        >
+          Full curriculum &gt;&gt;
+        </LinkButton>
+      </styled.div>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
+    </Styled(Col)>
+  </Row>
+</Fragment>
 `;

@@ -1,7 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CurriculumAdvancedReact /> should render component 1`] = `
-<CurriculumAdvancedReact
-  selectLayout={[Function]}
-/>
+<Fragment>
+  <Row>
+    <Styled(Col)
+      lg={10}
+      lgOffset={1}
+    >
+      <Styled(styled.h2)>
+        Advanced React Curriculum
+         
+        <Link
+          name="curriculum"
+          to="#curriculum"
+        >
+          #
+        </Link>
+      </Styled(styled.h2)>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <withRouter(CurriculumSection)
+        name="day1"
+        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
+        title="Advanced React Day 1"
+        toggleNavigateTo={[Function]}
+        type="Advanced React"
+      >
+        <HoCsRenderPropsStateReducerSession
+          title="Functional Programming & Advanced React patterns I"
+        />
+        <GraphQLSession
+          title="GraphQL and Apollo client"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day2"
+        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
+        title="Advanced React Day 2"
+        toggleNavigateTo={[Function]}
+        type="Advanced React"
+      >
+        <TestingInReactSession
+          title="Testing in React"
+        />
+        <CompoundCompAndContextSession
+          title="Advanced React patterns to create even more reusable UIs"
+        />
+        <ServerSideRenderingSession
+          title="Server Side Rendering (SSR)"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day3"
+        subTitle="Real-world Project"
+        title="Advanced React Day 3"
+        toggleNavigateTo={[Function]}
+        type="Advanced React"
+      >
+        <Hackathon
+          title="Last day real-world React challenge. We'll implement an app in teams from scratch"
+        />
+      </withRouter(CurriculumSection)>
+      <styled.div>
+        <LinkButton
+          secondary={true}
+          to="/curriculum?tab=advanced-react"
+          trackUserBehaviour={[Function]}
+        >
+          Full curriculum&gt;&gt;
+        </LinkButton>
+      </styled.div>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <UpcomingTrainingSection
+        curriculum={true}
+      />
+    </Styled(Col)>
+  </Row>
+</Fragment>
 `;
