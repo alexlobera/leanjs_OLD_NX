@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
 import { H2Ref } from '../text'
-import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
+import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
 import ReactJS101Session from './sessions/ReactJS101Session'
@@ -20,18 +20,18 @@ import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
-import { UpcomingTrainingSection } from '../training'
 import { REACT_BOOTCAMP } from '../../config/data'
+import WithCurriculumLayout from './WithCurriculumLayout'
 
 const CurriculumBootcamp = ({
   showTitle = true,
-  list,
   listTwoCol,
   enableToggle,
   isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
+  selectLayout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -130,54 +130,6 @@ const CurriculumBootcamp = ({
     </React.Fragment>
   )
 
-  const listTwoColumn = (
-    <React.Fragment>
-      <List>
-        <Row>
-          <Col md={6} lg={5}>
-            {firstHalf}
-          </Col>
-          <Col md={6} lg={5} lgOffset={1}>
-            {secondHalf}
-          </Col>
-        </Row>
-      </List>
-    </React.Fragment>
-  )
-
-  const standardList = (
-    <React.Fragment>
-      <List>
-        {firstHalf}
-        {secondHalf}
-      </List>
-    </React.Fragment>
-  )
-
-  const listWithUpcoming = (
-    <React.Fragment>
-      <Row>
-        <Col md={6} lg={5} lgOffset={1}>
-          {firstHalf}
-          {secondHalf}
-        </Col>
-        <Col md={6} lg={5} lgOffset={1}>
-          <UpcomingTrainingSection curriculum />
-        </Col>
-      </Row>
-    </React.Fragment>
-  )
-
-  const selectListFormat = () => {
-    if (list) {
-      return standardList
-    } else if (listTwoCol) {
-      return listTwoColumn
-    } else {
-      return listWithUpcoming
-    }
-  }
-
   return (
     <React.Fragment>
       {showTitle ? (
@@ -194,9 +146,9 @@ const CurriculumBootcamp = ({
       ) : (
         ''
       )}
-      {selectListFormat()}
+      {selectLayout(firstHalf, secondHalf)}
     </React.Fragment>
   )
 }
 
-export default CurriculumBootcamp
+export default WithCurriculumLayout(CurriculumBootcamp)
