@@ -26,6 +26,7 @@ import { REACT_BOOTCAMP } from '../../config/data'
 const CurriculumBootcamp = ({
   showTitle = true,
   list,
+  listTwoCol,
   enableToggle,
   isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
@@ -129,11 +130,59 @@ const CurriculumBootcamp = ({
     </React.Fragment>
   )
 
+  const listTwoColumn = (
+    <React.Fragment>
+      <List>
+        <Row>
+          <Col md={6} lg={5}>
+            {firstHalf}
+          </Col>
+          <Col md={6} lg={5} lgOffset={1}>
+            {secondHalf}
+          </Col>
+        </Row>
+      </List>
+    </React.Fragment>
+  )
+
+  const standardList = (
+    <React.Fragment>
+      <List>
+        {firstHalf}
+        {secondHalf}
+      </List>
+    </React.Fragment>
+  )
+
+  const listWithUpcoming = (
+    <React.Fragment>
+      <Row>
+        <Col md={6} lg={5} lgOffset={1}>
+          {firstHalf}
+          {secondHalf}
+        </Col>
+        <Col md={6} lg={5} lgOffset={1}>
+          <UpcomingTrainingSection curriculum />
+        </Col>
+      </Row>
+    </React.Fragment>
+  )
+
+  const selectListFormat = () => {
+    if (list) {
+      return standardList
+    } else if (listTwoCol) {
+      return listTwoColumn
+    } else {
+      return listWithUpcoming
+    }
+  }
+
   return (
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={6} lgOffset={1}>
+          <Col lgOffset={listTwoCol ? null : 1}>
             <H2Ref>
               React Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -145,22 +194,7 @@ const CurriculumBootcamp = ({
       ) : (
         ''
       )}
-      {list ? (
-        <List>
-          {firstHalf}
-          {secondHalf}
-        </List>
-      ) : (
-        <Row>
-          <Col md={6} lg={5} lgOffset={1}>
-            {firstHalf}
-            {secondHalf}
-          </Col>
-          <Col md={6} lg={5} lgOffset={1}>
-            <UpcomingTrainingSection curriculum />
-          </Col>
-        </Row>
-      )}
+      {selectListFormat()}
     </React.Fragment>
   )
 }
