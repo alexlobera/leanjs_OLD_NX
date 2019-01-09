@@ -164,7 +164,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <CurriculumAdvancedReact listTwoCol />
+              <CurriculumAdvancedReact layout="listTwoCol" />
             </Col>
           </Row>
         </Card>

@@ -172,7 +172,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <CurriculumPartTime listTwoCol />
+              <CurriculumPartTime layout="listTwoCol" />
             </Col>
           </Row>
         </Card>

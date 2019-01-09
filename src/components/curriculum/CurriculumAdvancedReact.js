@@ -12,17 +12,16 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
 import { ADVANCED_REACT } from '../../config/data'
-import WithCurriculumLayout from './WithCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
   isOpen,
-  selectLayout,
   enableToggle,
   toggleNavigateTo = `/curriculum?tab=${ADVANCED_REACT}`,
   marketingCard = null,
   showLinkToCurriculum = true,
-  listTwoCol,
+  layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -85,7 +84,7 @@ const CurriculumAdvancedReact = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={listTwoCol ? null : 1}>
+          <Col lg={10} lgOffset={1}>
             <H2Ref>
               Advanced React Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -97,9 +96,9 @@ const CurriculumAdvancedReact = ({
       ) : (
         ''
       )}
-      {selectLayout(firstHalf, secondHalf)}
+      {selectCurriculumLayout(firstHalf, secondHalf, layout)}
     </React.Fragment>
   )
 }
 
-export default WithCurriculumLayout(CurriculumAdvancedReact)
+export default CurriculumAdvancedReact

@@ -21,17 +21,16 @@ import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
-import WithCurriculumLayout from './WithCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 
 const CurriculumBootcamp = ({
   showTitle = true,
-  listTwoCol,
+  layout,
   enableToggle,
   isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
-  selectLayout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -134,7 +133,7 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lgOffset={listTwoCol ? null : 1}>
+          <Col lgOffset={1}>
             <H2Ref>
               React Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -146,9 +145,9 @@ const CurriculumBootcamp = ({
       ) : (
         ''
       )}
-      {selectLayout(firstHalf, secondHalf)}
+      {selectCurriculumLayout(firstHalf, secondHalf, layout)}
     </React.Fragment>
   )
 }
 
-export default WithCurriculumLayout(CurriculumBootcamp)
+export default CurriculumBootcamp

@@ -16,7 +16,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
-import WithCurriculumLayout from './WithCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -39,7 +39,7 @@ const CurriculumPartTime = ({
   toggleNavigateTo = `/curriculum?tab=${PART_TIME}`,
   showCallToActionBottom = false,
   marketingCard = null,
-  listTwoCol,
+  layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -133,7 +133,7 @@ const CurriculumPartTime = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={listTwoCol ? null : 1}>
+          <Col lg={10} lgOffset={1}>
             <H1Ref>
               Part-time course curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -145,7 +145,7 @@ const CurriculumPartTime = ({
       ) : (
         ''
       )}
-      {selectLayout(firstHalf, secondHalf)}
+      {selectCurriculumLayout(firstHalf, secondHalf, layout)}
       {showCallToActionBottom ? (
         <Row>
           <Col lg={10} lgOffset={1}>
@@ -171,4 +171,4 @@ const CurriculumPartTime = ({
   )
 }
 
-export default WithCurriculumLayout(CurriculumPartTime)
+export default CurriculumPartTime

@@ -299,10 +299,11 @@ class Curriculum extends React.Component {
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
                           <CurriculumBootcamp
+                            layout="list"
                             enableToggle={true}
                             showTitle={false}
                             showLinkToCurriculum={false}
-                            list={true}
+                            layout="list"
                             marketingCard={
                               <MarketingCard
                                 text={`Next React bootcamp starts on ${moment(
@@ -352,7 +353,7 @@ class Curriculum extends React.Component {
                           <CurriculumAdvancedReact
                             enableToggle={true}
                             showTitle={false}
-                            list={true}
+                            layout="list"
                             showLinkToCurriculum={false}
                             marketingCard={
                               <MarketingCard
@@ -398,7 +399,7 @@ class Curriculum extends React.Component {
                             isOpen={true}
                             enableToggle={true}
                             showTitle={false}
-                            list={true}
+                            layout="list"
                           />
                         </Col>
                       </Row>
@@ -436,7 +437,7 @@ class Curriculum extends React.Component {
                           <CurriculumPartTime
                             enableToggle={true}
                             showTitle={false}
-                            list={true}
+                            layout="list"
                             marketingCard={
                               <MarketingCard
                                 text={`Next React part-time course starts on ${moment(

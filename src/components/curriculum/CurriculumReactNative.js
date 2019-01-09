@@ -7,7 +7,7 @@ import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundatio
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
 import { REACT_NATIVE } from '../../config/data'
-import WithCurriculumLayout from './WithCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 
 const CurriculumReactNative = ({
   showTitle = true,
@@ -15,7 +15,7 @@ const CurriculumReactNative = ({
   isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
   selectLayout,
-  listTwoCol,
+  layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -41,7 +41,7 @@ const CurriculumReactNative = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={listTwoCol ? null : 1}>
+          <Col lg={10} lgOffset={1}>
             <H1Ref>
               React Native Curriculum
               <Link to="#curriculum" name="curriculum">
@@ -53,9 +53,9 @@ const CurriculumReactNative = ({
       ) : (
         ''
       )}
-      {selectLayout(firstHalf)}
+      {selectCurriculumLayout(firstHalf, null, layout)}
     </React.Fragment>
   )
 }
 
-export default WithCurriculumLayout(CurriculumReactNative)
+export default CurriculumReactNative
