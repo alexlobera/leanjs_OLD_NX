@@ -12,7 +12,7 @@ import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSess
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
 import { ADVANCED_REACT } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
@@ -84,7 +84,7 @@ const CurriculumAdvancedReact = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
             <H2Ref>
               Advanced React Curriculum{' '}
               <Link to="#curriculum" name="curriculum">

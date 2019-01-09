@@ -16,7 +16,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -132,7 +132,7 @@ const CurriculumPartTime = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
             <H1Ref>
               Part-time course curriculum{' '}
               <Link to="#curriculum" name="curriculum">

@@ -27,7 +27,7 @@ import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, ADVANCED_REACT, LISBON } from '../config/data'
-import { LIST_TWO_COL } from '../components/curriculum'
+import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(ADVANCED_REACT, LISBON)
 

@@ -21,7 +21,7 @@ import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const CurriculumBootcamp = ({
   showTitle = true,
@@ -133,7 +133,7 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lgOffset={1}>
+          <Col lgOffset={layout != LIST_TWO_COL && 1}>
             <H2Ref>
               React Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">

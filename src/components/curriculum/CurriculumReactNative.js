@@ -7,7 +7,7 @@ import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundatio
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
 import { REACT_NATIVE } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const CurriculumReactNative = ({
   showTitle = true,
@@ -40,7 +40,7 @@ const CurriculumReactNative = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
             <H1Ref>
               React Native Curriculum
               <Link to="#curriculum" name="curriculum">
