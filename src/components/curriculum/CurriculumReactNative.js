@@ -3,18 +3,19 @@ import { H1Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
-import { UpcomingTrainingSection } from '../training'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
 import { REACT_NATIVE } from '../../config/data'
+import WithCurriculumLayout from './WithCurriculumLayout'
 
 const CurriculumReactNative = ({
   showTitle = true,
-  list,
   enableToggle,
   isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
+  selectLayout,
+  listTwoCol,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -40,7 +41,7 @@ const CurriculumReactNative = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={10} lgOffset={listTwoCol ? null : 1}>
             <H1Ref>
               React Native Curriculum
               <Link to="#curriculum" name="curriculum">
@@ -52,20 +53,9 @@ const CurriculumReactNative = ({
       ) : (
         ''
       )}
-      {list ? (
-        <List>{firstHalf}</List>
-      ) : (
-        <Row>
-          <Col md={6} lg={5} lgOffset={1}>
-            {firstHalf}
-          </Col>
-          <Col md={6} lg={5} lgOffset={1}>
-            <UpcomingTrainingSection curriculum />
-          </Col>
-        </Row>
-      )}
+      {selectLayout(firstHalf)}
     </React.Fragment>
   )
 }
 
-export default CurriculumReactNative
+export default WithCurriculumLayout(CurriculumReactNative)

@@ -151,8 +151,7 @@ const ReactNativeBoocampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
+              <CurriculumReactNative listTwoCol />
             </Col>
           </Row>
         </Card>
