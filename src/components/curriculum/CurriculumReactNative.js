@@ -14,7 +14,6 @@ const CurriculumReactNative = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
-  selectLayout,
   layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
