@@ -13,8 +13,8 @@ Image.propTypes = {
   circle: PropTypes.bool,
 }
 
-const withLazyLoad = Component => ({ lazyLoad=true, ...rest }) => {
-	const element = <Component {...rest} />
+const withLazyLoad = LazyLoadableComponent => ({ lazyLoad=true, ...rest }) => {
+	const element = <LazyLoadableComponent {...rest} />
 	const lazyLoadConfig = lazyLoad === true ? {} : lazyLoad
 	return lazyLoad ? <LazyLoad {...lazyLoadConfig}>{element}</LazyLoad> : element
 }
