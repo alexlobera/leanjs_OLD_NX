@@ -6,6 +6,13 @@ import { Col, Row } from '../layout/Grid'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
+import ReactNativeGesturesSession from './sessions/native/ReactNativeGesturesSession'
+import ReactNativeOfflineAndAssetCreationSession from './sessions/native/ReactNativeOfflineAndAssetCreationSession'
+import ReactNativePushNotificationSession from './sessions/native/ReactNativePushNotificationSession'
+import ReactNativeTestingSession from './sessions/native/ReactNativeTestingSession'
+import ReactNativeNativeModulesSession from './sessions/native/ReactNativeNativeModulesSession'
+import ReactNativeProductionSession from './sessions/native/ReactNativeProductionSession'
+
 import { REACT_NATIVE } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
@@ -24,15 +31,40 @@ const CurriculumReactNative = ({
     isOpen,
   }
   const firstHalf = (
+    <React.Fragment>
+      <Section
+        {...commonProps}
+        title="React Native Day 1"
+        name="day1"
+        subTitle="Foundation, Navigation, and Animations"
+      >
+        <ReactNativeFoundationSession title="Foundation" />
+        <ReactNativeNavigationSession title="Navigation" />
+        <ReactNativeAnimationsSession title="Animations" />
+      </Section>
+      <Section
+        {...commonProps}
+        title="React Native Day 2"
+        name="day2"
+        subTitle="Gestures, Offline, Assets Management & Push Notifications"
+      >
+        <ReactNativeGesturesSession title="Gestures" />
+        <ReactNativeOfflineAndAssetCreationSession title="Handling Offline & Assets Management" />
+        <ReactNativePushNotificationSession title="Push Notifications" />
+      </Section>
+    </React.Fragment>
+  )
+
+  const secondHalf = (
     <Section
       {...commonProps}
-      title="React Native Day 1"
-      name="day1"
-      subTitle="Foundation, Navigation, and Animations"
+      title="React Native Day 3"
+      name="day3"
+      subTitle="Testing, Native Modules & Release to Production"
     >
-      <ReactNativeFoundationSession title="Foundation" />
-      <ReactNativeNavigationSession title="Navigation" />
-      <ReactNativeAnimationsSession title="Animations" />
+      <ReactNativeTestingSession title="Testing in React Native" />
+      <ReactNativeNativeModulesSession title="Native Modules" />
+      <ReactNativeProductionSession title="Release to Production" />
     </Section>
   )
 
@@ -52,7 +84,7 @@ const CurriculumReactNative = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, layout })}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
     </React.Fragment>
   )
 }
