@@ -9,9 +9,9 @@ const ReactNativeOfflineAndAssetCreationSession = ({ title }) => (
       <Li>App icons</Li>
       <Li>Splash screen for iOS and Android</Li>
       <Li>Other assets per platform</Li>
-      <Li>using Netinfo</Li>
-      <Li>handling offline requests</Li>
-      <Li>notifying the user of their connection status</Li>
+      <Li>Using Netinfo</Li>
+      <Li>Handling offline requests</Li>
+      <Li>Notifying the user of their connection status</Li>
     </Ul>
   </Session>
 )
