@@ -9,7 +9,7 @@ const ReactNativeProductionSession = ({ title }) => (
       <Li>Build the app for production to iOS and submit to App Store</Li>
       <Li>Build Android app to production and Upload app</Li>
       <Li>Over the Air Updates</Li>
-      <Li>introducing fastlane & Using CI to build your apps</Li>
+      <Li>Introducing fastlane & Using CI to build your apps</Li>
     </Ul>
   </Session>
 )
