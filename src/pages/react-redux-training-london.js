@@ -30,6 +30,7 @@ import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, PART_TIME, LONDON } from '../config/data'
+import { LIST_TWO_COL } from '../components/curriculum'
 
 const training = selectFirstTraining(PART_TIME, LONDON)
 
@@ -172,8 +173,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
+              <CurriculumPartTime layout={LIST_TWO_COL} />
             </Col>
           </Row>
         </Card>

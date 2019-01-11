@@ -4,7 +4,6 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
 <Fragment>
   <Row>
     <Styled(Col)
-      lg={6}
       lgOffset={1}
     >
       <Styled(styled.h2)>
