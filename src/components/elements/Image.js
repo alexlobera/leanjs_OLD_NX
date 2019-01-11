@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import LazyLoad from 'react-lazyload';
+import withLazyLoad from './withLazyLoad';
 
 const Image = styled.img`
   margin: 0;
@@ -13,10 +13,4 @@ Image.propTypes = {
   circle: PropTypes.bool,
 }
 
-const withLazyLoad = Component => ({ lazyLoad=true, ...rest }) => {
-	const element = <Component {...rest} />
-	const lazyLoadConfig = lazyLoad === true ? {} : lazyLoad
-	return lazyLoad ? <LazyLoad {...lazyLoadConfig}>{element}</LazyLoad> : element
-}
-
-export default withLazyLoad(Image)
+export default withLazyLoad()(Image)

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import withLazyLoad from './withLazyLoad';
+
 
 const IframeWrapper = styled.div`
   > iframe {
@@ -30,4 +32,4 @@ Video.propTypes = {
   youtubeID: PropTypes.string.isRequired,
 }
 
-export default Video
+export default withLazyLoad()(Video)
