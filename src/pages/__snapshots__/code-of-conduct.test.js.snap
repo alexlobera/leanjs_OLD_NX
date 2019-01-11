@@ -65,7 +65,7 @@ exports[`<CodeOfConduct /> should render component 1`] = `
                     Basically, don’t be a dick.
                   </styled.li>
                 </styled.ul>
-                <styled.img
+                <Component
                   src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_keypoints.jpg?alt=media"
                 />
               </Styled(Col)>
@@ -185,7 +185,7 @@ exports[`<CodeOfConduct /> should render component 1`] = `
           mdOffset={1}
           xs={12}
         >
-          <styled.img
+          <Component
             src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_moredetail.jpg?alt=media"
           />
         </Styled(Col)>
