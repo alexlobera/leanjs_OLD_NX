@@ -5,9 +5,7 @@ url: /react-redux-training-brussels/
 youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the <b>React, Redux, GraphQL</b>
-    bootcamp in <b>Brussels, Belgium</b> In the heart of Europe.
-    Over the course of 6 days, our expert coaches will guide you in talking your front-end dev skills to the next level as you learn the core tools and technologies of the ReactJS ecosystem.
-  - Check out the 3 minute video on the left to get a feel for our
-    bootcamps and hear what some of our previous students think
-    about the experience :-)
+    traning in <b>Brussels, Belgium</b> - inn the heart of Europe.
+  - Using the most complete React <a href="/curriculum">curriculum</a>, our expert coaches will guide you in taking your front-end dev skills to the next level. You will learn the core tools and technologies of the ReactJS ecosystem in a collaborative and project-based training.
+  - Interested? Signup to our newsletter below and get all the latest news...
 ---

@@ -48,7 +48,7 @@ const Landing = ({ data }) => {
       />
       <Header
         titleLines={['React Redux GraphQL', `training in ${city}`]}
-        subtitle={`Take your dev career to the next level in ${city} - ${country} - by mastering<br />React, Redux, and GraphQL`}
+        subtitle={`Take your dev career to the next level in ${city}, ${country} - by mastering<br />React, Redux, and GraphQL`}
         bgImg="training-event"
       />
       <TopSection>
