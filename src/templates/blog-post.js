@@ -75,14 +75,9 @@ const GridContent = styled(Grid)`
 `
 
 const BlogPost = ({ data }) => {
-  const {
-    title,
-    date,
-    subtitle,
-    author,
-    imageUrl,
-  } = data.markdownRemark.frontmatter
-  const { htmlAst, timeToRead } = data.markdownRemark
+  const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
+  const { title, date, subtitle, author, imageUrl } = frontmatter
+  const authorTwitter = frontmatter.authorTwitter || 'reactjsacademy'
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
   const relatedPosts = allPosts.filter(post => post.node.fields.slug != slug)
@@ -150,6 +145,19 @@ const BlogPost = ({ data }) => {
             </P>
           </Col>
         </Row>
+
+        <Row>
+          <Col md={6}>
+            <Hr />
+            <P>
+              Comments? Shoot me a{' '}
+              <Link to={`http://twitter.com/${authorTwitter}`}>
+                tweet {`@${authorTwitter}`}
+              </Link>{' '}
+              !
+            </P>
+          </Col>
+        </Row>
       </GridContent>
       <UpcomingTrainingSection />
     </React.Fragment>
@@ -165,6 +173,7 @@ export const query = graphql`
         subtitle
         author
         imageUrl
+        authorTwitter
       }
       fields {
         slug

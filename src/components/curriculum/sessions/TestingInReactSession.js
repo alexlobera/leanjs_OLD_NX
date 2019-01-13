@@ -5,7 +5,7 @@ import Session from './Session'
 const TestingInReactSession = ({ title }) => (
   <Session title={title}>
     <Ul>
-      <Li>Unit Testing, Integration Testing, and Shapshot Testing</Li>
+      <Li>Unit Testing, Integration Testing, and Snapshot Testing</Li>
       <Li>Tooling: Enzyme & Jest</Li>
       <Li>Testing Components, Higher-Order Components, Connected Containers</Li>
       <Li>Unit tests Vs integration tests</Li>

@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { Form } from 'react-final-form'
 import Helmet from 'react-helmet'
 
 import { Span, P, H4 } from '../../text'
 import { Button, LinkButton } from '../../buttons'
-import { FormGroup, FieldInput, Input } from '../../form'
+import { FormGroup, FieldInput, Form } from '../../form'
 import {
   composeValidators,
   mustBeEuVat,
@@ -107,15 +106,15 @@ const CheckoutH4 = styled(H4)`
   margin: 18px 0 9px;
 `
 
-const RibbonBottomContainer = styled.div`
-  position:relative;
-    > div {
-        @media (min-width: ${SCREEN_SM_MIN}) {
-            right: -35px !important;
-        }
-        @media (max-width: ${SCREEN_XS_MAX}) {
-            right: -10px !important;
-        }
+const RibbonBottomContainer = styled('div')`
+  position: relative;
+
+  > div {
+    @media (min-width: ${SCREEN_SM_MIN}) {
+      right: -35px !important;
+    }
+    @media (max-width: ${SCREEN_XS_MAX}) {
+      right: -10px !important;
     }
   }
 `

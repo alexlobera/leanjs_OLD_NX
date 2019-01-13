@@ -36,6 +36,7 @@ import {
   PART_TIME,
   REACT_NATIVE,
 } from '../config/data'
+import { LIST_LAYOUT } from '../components/curriculum/selectCurriculumLayout'
 
 const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const trainingPartTime = selectFirstTraining(PART_TIME)
@@ -299,10 +300,11 @@ class Curriculum extends React.Component {
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
                           <CurriculumBootcamp
+                            layout={LIST_LAYOUT}
                             enableToggle={true}
                             showTitle={false}
                             showLinkToCurriculum={false}
-                            list={true}
+                            layout={LIST_LAYOUT}
                             marketingCard={
                               <MarketingCard
                                 text={`Next React bootcamp starts on ${moment(
@@ -352,7 +354,7 @@ class Curriculum extends React.Component {
                           <CurriculumAdvancedReact
                             enableToggle={true}
                             showTitle={false}
-                            list={true}
+                            layout={LIST_LAYOUT}
                             showLinkToCurriculum={false}
                             marketingCard={
                               <MarketingCard
@@ -398,7 +400,7 @@ class Curriculum extends React.Component {
                             isOpen={true}
                             enableToggle={true}
                             showTitle={false}
-                            list={true}
+                            layout={LIST_LAYOUT}
                           />
                         </Col>
                       </Row>
@@ -436,7 +438,7 @@ class Curriculum extends React.Component {
                           <CurriculumPartTime
                             enableToggle={true}
                             showTitle={false}
-                            list={true}
+                            layout={LIST_LAYOUT}
                             marketingCard={
                               <MarketingCard
                                 text={`Next React part-time course starts on ${moment(

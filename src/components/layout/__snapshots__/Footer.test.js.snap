@@ -11,6 +11,7 @@ exports[`<Footer /> should render component 1`] = `
         >
           <ContactForm
             addContactUsLink={true}
+            triggerSubscribe={[Function]}
           />
         </Styled(Col)>
         <Styled(Col)
@@ -172,7 +173,9 @@ exports[`<Footer /> should render component 1`] = `
               <styled.p
                 sm={true}
               >
-                Copyright © 2018, ReactJS Academy is a
+                Copyright © 
+                2017 - 2019
+                , ReactJS Academy is a
                  
                 <Link
                   to="https://leanjs.com"

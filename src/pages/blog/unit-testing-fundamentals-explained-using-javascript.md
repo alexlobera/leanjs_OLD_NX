@@ -4,6 +4,7 @@ date: Nov 7
 subtitle: Before writing unit tests for your React project, you should have a good foundation on unit testing
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effect.png?alt=media
+authorTwitter: alex_lobera
 ---
 
 This article is meant to show you two things:

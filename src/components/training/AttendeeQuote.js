@@ -44,9 +44,10 @@ const Profile = styled.div`
 const Picture = styled(Image)`
   @media (min-width: ${SCREEN_SM_MIN}) {
     max-width: 250px;
-    max-height: 250px;
+    height: 250px;
     border-radius: 50%;
     margin-right: -3px;
+    align-self: center;
   }
   @media (max-width: ${SCREEN_SM_MAX}) {
     margin: 20px auto 0 !important;

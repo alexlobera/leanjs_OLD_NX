@@ -41,6 +41,40 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
           title="Animations"
         />
       </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day2"
+        subTitle="Gestures, Offline, Assets Management & Push Notifications"
+        title="React Native Day 2"
+        toggleNavigateTo={[Function]}
+        type="React Native"
+      >
+        <ReactNativeGesturesSession
+          title="Gestures"
+        />
+        <ReactNativeOfflineAndAssetCreationSession
+          title="Handling Offline & Assets Management"
+        />
+        <ReactNativePushNotificationSession
+          title="Push Notifications"
+        />
+      </withRouter(CurriculumSection)>
+      <withRouter(CurriculumSection)
+        name="day3"
+        subTitle="Testing, Native Modules & Release to Production"
+        title="React Native Day 3"
+        toggleNavigateTo={[Function]}
+        type="React Native"
+      >
+        <ReactNativeTestingSession
+          title="Testing in React Native"
+        />
+        <ReactNativeNativeModulesSession
+          title="Native Modules"
+        />
+        <ReactNativeProductionSession
+          title="Release to Production"
+        />
+      </withRouter(CurriculumSection)>
     </Styled(Col)>
     <Styled(Col)
       lg={5}

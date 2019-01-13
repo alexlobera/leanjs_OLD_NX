@@ -8,7 +8,6 @@ import { Card, Video } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -34,6 +33,7 @@ import {
 } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LONDON } from '../config/data'
+import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(REACT_BOOTCAMP, LONDON)
 
@@ -172,8 +172,7 @@ const BootcampLondon = () => (
         <Card border="shadow">
           <Row>
             <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
+              <CurriculumBootcamp layout={LIST_TWO_COL} />
             </Col>
           </Row>
         </Card>

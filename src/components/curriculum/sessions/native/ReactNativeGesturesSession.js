@@ -11,7 +11,10 @@ const ReactNativeGesturesSession = ({ title }) => (
       <Li>PinchGestureHandler</Li>
       <Li>Gestures Lifecycle</Li>
       <Li>Composing Handlers</Li>
-      <Li>react-native-gesture-handler limitations</Li>
+      <Li>
+        <code>react-native-gesture-handler</code>
+        limitations
+      </Li>
     </Ul>
   </Session>
 )

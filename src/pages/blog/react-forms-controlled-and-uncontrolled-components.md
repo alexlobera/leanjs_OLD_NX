@@ -4,6 +4,7 @@ date: Jan 2, 2019
 subtitle: React doesn't implement forms per se, it sets the principles to be done by other devs. Learn how.
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcontrolled-uncontrolled.jpeg?alt=media
+authorTwitter: alex_lobera
 ---
 
 React is a tool, not a Framework. React’s job is to render user interfaces. This means that React does not ship any code to make the creation of React forms easy. Other frameworks like Angular provide a form implementation that makes handling forms easier. You might like this or not, but that’s the way it is :) I personally think it’s good. React’s philosophy is to do one thing and do it well, but also and very important, to set the foundation and principles to lay down many other tools around that.

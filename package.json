@@ -37,6 +37,7 @@
     "react-burger-menu": "^2.5.2",
     "react-final-form": "^3.6.5",
     "react-helmet": "^5.2.0",
+    "react-lazyload": "^2.3.0",
     "react-live": "^1.12.0",
     "react-runkit": "^0.9.0",
     "react-scroll": "^1.7.10",
@@ -49,7 +50,8 @@
     "rehype-react": "^3.0.3",
     "store": "^2.0.12",
     "styled-components": "^3.3.3",
-    "url-search-params-polyfill": "^5.0.0"
+    "url-search-params-polyfill": "^5.0.0",
+    "wait-for-expect": "^1.1.0"
   },
   "keywords": [
     "gatsby"
@@ -105,8 +107,7 @@
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.5.0",
-    "start-server-and-test": "^1.7.1",
-    "wait-for-expect": "^1.0.0"
+    "start-server-and-test": "^1.7.1"
   },
   "repository": {
     "type": "git",

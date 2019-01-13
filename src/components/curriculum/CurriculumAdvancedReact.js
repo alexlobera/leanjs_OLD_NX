@@ -2,7 +2,7 @@ import React from 'react'
 import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
 import { H2Ref } from '../text'
-import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
+import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
@@ -11,17 +11,17 @@ import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateR
 import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
-import { UpcomingTrainingSection } from '../training'
 import { ADVANCED_REACT } from '../../config/data'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
   isOpen,
-  list,
   enableToggle,
   toggleNavigateTo = `/curriculum?tab=${ADVANCED_REACT}`,
   marketingCard = null,
   showLinkToCurriculum = true,
+  layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -84,7 +84,7 @@ const CurriculumAdvancedReact = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
             <H2Ref>
               Advanced React Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -96,22 +96,7 @@ const CurriculumAdvancedReact = ({
       ) : (
         ''
       )}
-      {list ? (
-        <List>
-          {firstHalf}
-          {secondHalf}
-        </List>
-      ) : (
-        <Row>
-          <Col md={6} lg={5} lgOffset={1}>
-            {firstHalf}
-            {secondHalf}
-          </Col>
-          <Col md={6} lg={5} lgOffset={1}>
-            <UpcomingTrainingSection curriculum />
-          </Col>
-        </Row>
-      )}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
     </React.Fragment>
   )
 }

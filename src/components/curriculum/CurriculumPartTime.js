@@ -15,8 +15,8 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
-import { UpcomingTrainingSection } from '../training'
 import { PART_TIME } from '../../config/data'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -34,11 +34,11 @@ const PartTimeFinalProject = () => (
 const CurriculumPartTime = ({
   showTitle = true,
   isOpen,
-  list,
   enableToggle,
   toggleNavigateTo = `/curriculum?tab=${PART_TIME}`,
   showCallToActionBottom = false,
   marketingCard = null,
+  layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -132,7 +132,7 @@ const CurriculumPartTime = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
+          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
             <H1Ref>
               Part-time course curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -144,24 +144,7 @@ const CurriculumPartTime = ({
       ) : (
         ''
       )}
-
-      {list ? (
-        <List>
-          {firstHalf}
-          {secondHalf}
-        </List>
-      ) : (
-        <Row>
-          <Col md={6} lg={5} lgOffset={1}>
-            {firstHalf}
-            {secondHalf}
-          </Col>
-          <Col md={6} lg={5} lgOffset={1}>
-            <UpcomingTrainingSection curriculum />
-          </Col>
-        </Row>
-      )}
-
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
       {showCallToActionBottom ? (
         <Row>
           <Col lg={10} lgOffset={1}>
