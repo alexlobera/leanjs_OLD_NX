@@ -8,7 +8,7 @@ import {
 } from './images'
 
 export const LONDON = 'London'
-export const LISBON = 'Lisbon dist.'
+export const LISBON = 'Lisbon'
 export const BARCELONA = 'Barcelona'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'

@@ -5,12 +5,8 @@ url: /react-redux-training-brussels/
 youtubeID: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the <b>React, Redux, GraphQL</b>
-    bootcamp in <b>Berlin, Germany.</b> Our bootcamp format is formed of 6
-    intensive training days where you'll learn through practical
-    hands-on projects how to build production ready React
+    training in <b>Berlin, Germany.</b> Using the most complete React <a href="/curriculum">curriculum</a> available, you'll learn how to build production ready React
     applications and how tools like Redux and GraphQL fit into the picture.
-  - We also run the popular JavaScript Berlin Meetup group where we run hands-on workshops for the local dev community, we'd love to see you at the next one!
-  - Check out the 3 minute video on the left to get a feel for our
-    bootcamps and here what some of our previous students think
-    about the experience :-)
+  - We also run the popular <a href="/community/#meetups">JavaScript Berlin Meetup group</a> where we run hands-on workshops for the local dev community.
+  - Interested? Signup to our newsletter below and get all the latest news...
 ---
