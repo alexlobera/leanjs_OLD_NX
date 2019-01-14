@@ -9,7 +9,11 @@ describe('Contact Form', () => {
 
   const wrapper = mount(
     <Router>
-      <Route render={props => <Contact triggerSubscribe={triggerSubscribe} {...props} />} />
+      <Route
+        render={props => (
+          <Contact triggerSubscribe={triggerSubscribe} {...props} />
+        )}
+      />
     </Router>
   )
 
@@ -46,7 +50,7 @@ describe('Contact Form', () => {
       .closest('form')
       .simulate('submit')
 
-    expect(triggerSubscribe).toHaveBeenCalledWith({email: 'hello@email.com'})
+    expect(triggerSubscribe).toHaveBeenCalledWith({ email: 'hello@email.com' })
   })
 
   it('should show the confirm message after form submit', () => {

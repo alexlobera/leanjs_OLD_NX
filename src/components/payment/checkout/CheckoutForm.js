@@ -106,18 +106,18 @@ const CheckoutH4 = styled(H4)`
   margin: 18px 0 9px;
 `
 
-const RibbonBottomContainer = styled("div")`
-  position:relative;
+const RibbonBottomContainer = styled('div')`
+  position: relative;
 
   > div {
-      @media (min-width: ${SCREEN_SM_MIN}) {
-          right: -35px !important;
-      }
-      @media (max-width: ${SCREEN_XS_MAX}) {
-          right: -10px !important;
-      }
+    @media (min-width: ${SCREEN_SM_MIN}) {
+      right: -35px !important;
+    }
+    @media (max-width: ${SCREEN_XS_MAX}) {
+      right: -10px !important;
+    }
   }
-`;
+`
 
 class CheckoutForm extends React.Component {
   constructor(props) {

@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import withLazyLoad from './withLazyLoad';
-
+import withLazyLoad from './withLazyLoad'
 
 const IframeWrapper = styled.div`
   > iframe {

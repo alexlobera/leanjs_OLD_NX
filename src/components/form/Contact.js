@@ -13,7 +13,7 @@ import { triggerSubscribe } from '../../api'
 const aliasInput = getComponentAliaser(FieldInput)
 export const EmailInput = aliasInput()
 
-export const THANKS_MESSAGE = "thanks for submitting!"
+export const THANKS_MESSAGE = 'thanks for submitting!'
 
 const H3 = styled(DefaultH3)`
   color: ${WHITE};
@@ -46,7 +46,7 @@ class ContactForm extends Component {
 
   render() {
     const { addContactUsLink, simplified } = this.props
-    const { formSubmited } = this.state;
+    const { formSubmited } = this.state
     return (
       <React.Fragment>
         {!simplified && (

@@ -8,7 +8,11 @@ import Header from '../components/layout/Header'
 import { FieldInput, Form } from '../components/form'
 import { Button } from '../components/buttons'
 import { getComponentAliaser } from '../components/utils/aliasComponent'
-import { composeValidators, required, mustBeEmail } from '../components/form/validations'
+import {
+  composeValidators,
+  required,
+  mustBeEmail,
+} from '../components/form/validations'
 
 const aliasInput = getComponentAliaser(FieldInput)
 export const EmailInput = aliasInput()
@@ -17,16 +21,16 @@ export const ThanksTitle = styled(H3)`
   margin: 1em 0;
 ` //TODO: animate this later
 
-export const THANKS_MESSAGE = "To finish the process, check your Email."
+export const THANKS_MESSAGE = 'To finish the process, check your Email.'
 
 class Unsubscribe extends React.Component {
   state = {
-    formSubmited: false
+    formSubmited: false,
   }
 
   handleFormSubmit = ({ email }) => {
     this.setState({ formSubmited: true })
-    this.props.triggerUnsubscribe({email})
+    this.props.triggerUnsubscribe({ email })
   }
 
   render() {
@@ -75,9 +79,7 @@ class Unsubscribe extends React.Component {
             {formSubmited ? (
               <Row>
                 <Col>
-                  <ThanksTitle>
-                    {THANKS_MESSAGE}
-                  </ThanksTitle>
+                  <ThanksTitle>{THANKS_MESSAGE}</ThanksTitle>
                 </Col>
               </Row>
             ) : null}
@@ -89,7 +91,7 @@ class Unsubscribe extends React.Component {
 }
 
 Unsubscribe.defaultProps = {
-  triggerUnsubscribe
+  triggerUnsubscribe,
 }
 
 export default Unsubscribe

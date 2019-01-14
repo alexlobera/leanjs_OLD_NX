@@ -1,10 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Unsubscribe, { EmailInput, ThanksTitle, THANKS_MESSAGE } from './unsubscribe'
+import Unsubscribe, {
+  EmailInput,
+  ThanksTitle,
+  THANKS_MESSAGE,
+} from './unsubscribe'
 import { Button } from '../components/buttons'
 
 describe('Unsubscribe', () => {
-  const triggerUnsubscribe = jest.fn(({email}) => Promise.resolve(email))
+  const triggerUnsubscribe = jest.fn(({ email }) => Promise.resolve(email))
 
   const wrapper = mount(<Unsubscribe triggerUnsubscribe={triggerUnsubscribe} />)
 
@@ -40,11 +44,13 @@ describe('Unsubscribe', () => {
       .closest('form')
       .simulate('submit')
 
-    expect(triggerUnsubscribe).toHaveBeenCalledWith({email: 'hello@email.com'})
+    expect(triggerUnsubscribe).toHaveBeenCalledWith({
+      email: 'hello@email.com',
+    })
   })
 
-  it("should show the confirm message after form submit", () => {
-    const thanksMssg = wrapper.find(ThanksTitle).text();
-    expect(thanksMssg).toBe(THANKS_MESSAGE);
+  it('should show the confirm message after form submit', () => {
+    const thanksMssg = wrapper.find(ThanksTitle).text()
+    expect(thanksMssg).toBe(THANKS_MESSAGE)
   })
 })
