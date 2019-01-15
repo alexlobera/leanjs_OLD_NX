@@ -5,7 +5,7 @@ import Link from '../navigation/Link'
 import { blue1, CALLTOACTIONRED, FONT_FAMILY, WHITE } from '../../config/styles'
 import { DEFAULT_BUTTON_STYLE } from './Button'
 import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
-import { ExternalLinkIcon } from '../../components/icons'
+import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
 const fontColor = color => `
   color: ${color} !important;
@@ -49,6 +49,16 @@ ${FONT_FAMILY}
     `
     justify-content: space-evenly;
   `};
+  ${props =>
+    props.pdf && `
+    svg {
+      margin-right: 0.5rem
+    }
+    display: flex
+    justify-content: space-evenly;
+    align-items: center;
+    `
+  }
 `
 
 const LinkButton = ({
@@ -69,10 +79,13 @@ const LinkButton = ({
       }
       props.onClick && props.onClick(e)
     }}
-  >
+    >
+    {props.pdf ? (
+      <PdfDownload />
+    ) : null}
     {props.external ? (
       <ExternalLinkIcon style={{ marginRight: '1.5rem' }} />
-    ) : null}
+      ) : null}
     {children}
   </StyledLinkButton>
 )

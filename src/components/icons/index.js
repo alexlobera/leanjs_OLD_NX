@@ -25,6 +25,7 @@ import WorldIcon from './WorldIcon'
 import ExternalLinkIcon from './ExternalLinkIcon'
 import Tick from './Tick'
 import QuestionMarkIcon from './QuestionMarkIcon'
+import PdfDownload from './PdfDownload'
 
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -89,4 +90,5 @@ export {
   ExternalLinkIcon,
   Tick,
   QuestionMarkIcon,
+  PdfDownload,
 }
