@@ -250,12 +250,8 @@ const IndexPage = () => (
             </Ul>
             <SectionButtonRow>
               <Col sm={7}>
-                <LinkButton
-                  secondary
-                  pdf
-                  to={CONVINCE_THE_BOSS_PDF}
-                >
-                Why devs should learn with us
+                <LinkButton secondary pdf to={CONVINCE_THE_BOSS_PDF}>
+                  Why devs should learn with us
                 </LinkButton>
               </Col>
               <Col sm={5}>

@@ -10,7 +10,7 @@ import {
   UpcomingTrainingSection,
   TrainingDetails,
   ROY_DERKS,
-  ALEX_LOBERA
+  ALEX_LOBERA,
 } from '../components/training'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'

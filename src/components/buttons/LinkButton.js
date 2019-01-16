@@ -50,15 +50,15 @@ ${FONT_FAMILY}
     justify-content: space-evenly;
   `};
   ${props =>
-    props.pdf && `
+    props.pdf &&
+    `
     svg {
       margin-right: 0.5rem
     }
     display: flex
     justify-content: space-evenly;
     align-items: center;
-    `
-  }
+    `}
 `
 
 const LinkButton = ({
@@ -79,13 +79,11 @@ const LinkButton = ({
       }
       props.onClick && props.onClick(e)
     }}
-    >
-    {props.pdf ? (
-      <PdfDownload />
-    ) : null}
+  >
+    {props.pdf ? <PdfDownload /> : null}
     {props.external ? (
       <ExternalLinkIcon style={{ marginRight: '1.5rem' }} />
-      ) : null}
+    ) : null}
     {children}
   </StyledLinkButton>
 )

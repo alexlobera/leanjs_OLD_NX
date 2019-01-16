@@ -13,7 +13,7 @@ export {
   ALEX_LOBERA,
   RICHARD_MOSS,
   EVA_HOFFMANN,
-  ROY_DERKS
+  ROY_DERKS,
 } from './TrainingDetails'
 export {
   AttendeeQuote,

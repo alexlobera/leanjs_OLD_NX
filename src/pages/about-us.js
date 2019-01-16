@@ -523,40 +523,48 @@ const AboutUs = () => (
               </Link>
             </H2Ref>
             <CoachTitle>
-              Software Engineer at <Link to="https://nested.com">Hack Team</Link>
+              Senior Frontend Developer at{' '}
+              <Link to="https://switchbay.com">City of Amsterdam</Link>, CTO at{' '}
+              <Link to="https://data.amsterdam.nl">SwitchBay</Link>
             </CoachTitle>
             <Ul inline>
               <Li>
-                <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
+                <SocialLink to="https://github.com/royderks">GitHub</SocialLink>
               </Li>
               <Li>
-                <SocialLink to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
+                <SocialLink to="https://www.linkedin.com/in/royderks1/">
                   LinkedIn
                 </SocialLink>
               </Li>
               <Li>
-                <SocialLink to="https://twitter.com/ItizAdz/">
+                <SocialLink to="https://twitter.com/gethackteam/">
                   Twitter
+                </SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://medium.com/hackteam/">
+                  Medium
                 </SocialLink>
               </Li>
             </Ul>
             <Ul>
               <Li>
-                <strong>Full stack software engineer</strong> currently playing
-                with Elixir and React.
+                Develops products with <strong>React</strong>,{' '}
+                <strong>React Native</strong>, and <strong>GraphQL</strong> for
+                startups and non-profits.
               </Li>
               <Li>
-                Started working in startups and no one has told him to leave
-                yet, which he takes as encouragement.
+                Regularely talks on conferences about JavaScript and related
+                technologies such as <strong>ReasonML</strong>. Founded multiple
+                startups since the age of 16, hasn't stopped working ever since.
               </Li>
               <Li>
-                Always looking for new ~ways to procrastinate~ things to learn.
+                Always looking at what's on the horizon and curious about new
+                technologies
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
-              Teaching is always rewarding, but it is one of the most
-              undervalued skills in our industry. I always enjoy the chance to
-              practice it.
+              When in doubt, start coding.
             </Blockquote>
           </Col>
           <Col xs={12} md={5} mdOffset={1}>

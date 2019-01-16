@@ -194,7 +194,7 @@ export const trainings = [
     discountPrice: 829.17,
     priceGoesUpOn: new Date('Feb 28, 2019'),
     currency: 'eur',
-  }
+  },
 ]
 
 const meetups = [
@@ -339,7 +339,8 @@ export const instagramPictures = [
   },
 ]
 
-export const CONVINCE_THE_BOSS_PDF = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
+export const CONVINCE_THE_BOSS_PDF =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
 
 export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
   [...data]
