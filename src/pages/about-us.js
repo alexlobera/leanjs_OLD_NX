@@ -18,6 +18,7 @@ import {
   WILL,
   ADAM,
   EVA,
+  ROY,
   CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
@@ -506,6 +507,63 @@ const AboutUs = () => (
               src={ADAM}
               width="100%"
               alt="ReactJS Academy coach Adam Lancaster, on top of a tall building as a cityscape is in the background fading out to the horizon"
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <Row>
+          <Col xs={12} md={4} mdOffset={1}>
+            <H2Ref>
+              Roy Derks
+              <Link name="roy-derks" to="#roy-derks">
+                #
+              </Link>
+            </H2Ref>
+            <CoachTitle>
+              Software Engineer at <Link to="https://nested.com">Hack Team</Link>
+            </CoachTitle>
+            <Ul inline>
+              <Li>
+                <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
+                  LinkedIn
+                </SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://twitter.com/ItizAdz/">
+                  Twitter
+                </SocialLink>
+              </Li>
+            </Ul>
+            <Ul>
+              <Li>
+                <strong>Full stack software engineer</strong> currently playing
+                with Elixir and React.
+              </Li>
+              <Li>
+                Started working in startups and no one has told him to leave
+                yet, which he takes as encouragement.
+              </Li>
+              <Li>
+                Always looking for new ~ways to procrastinate~ things to learn.
+              </Li>
+            </Ul>
+            <Blockquote bg="primary" triangle="right">
+              Teaching is always rewarding, but it is one of the most
+              undervalued skills in our industry. I always enjoy the chance to
+              practice it.
+            </Blockquote>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <Image
+              src={ROY}
+              width="100%"
+              alt="ReactJS Academy coach Roy Derks, speaking at a developer conference with microphone"
             />
           </Col>
         </Row>
