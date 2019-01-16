@@ -10,6 +10,7 @@ import {
 export const LONDON = 'London'
 export const LISBON = 'Lisbon'
 export const BARCELONA = 'Barcelona'
+export const AMSTERDAM = 'Amsterdam'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React bootcamp'
@@ -178,6 +179,22 @@ export const trainings = [
     priceGoesUpOn: new Date('Feb 28, 2019'),
     currency: 'eur',
   },
+  {
+    dates: '23 Mar - 13 Apr, 2019',
+    dateStartsOn: new Date('23 Mar, 2019'),
+    city: AMSTERDAM,
+    country: 'BCN',
+    type: PART_TIME,
+    cityShortName: 'Amsterdam',
+    country: 'Holland',
+    location: 'TBD',
+    pathUrl: '/react-redux-training-amsterdam',
+    trainingInstanceId: '5c3f25fc672ede0e7feba96e',
+    price: 1166.67,
+    discountPrice: 829.17,
+    priceGoesUpOn: new Date('Feb 28, 2019'),
+    currency: 'eur',
+  }
 ]
 
 const meetups = [

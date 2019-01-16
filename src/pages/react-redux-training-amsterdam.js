@@ -9,8 +9,8 @@ import {
   AttendeeQuote,
   UpcomingTrainingSection,
   TrainingDetails,
+  ALEX_LOBERA,
   ROY_DERKS,
-  ALEX_LOBERA
 } from '../components/training'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -31,19 +31,19 @@ import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(PART_TIME, AMSTERDAM)
 
-const PartTimeBarcelona = () => (
+const PartTimeAmsterdam = () => (
   <React.Fragment>
     <Breadcrumb
       path={[
         { to: '/', label: 'Home' },
         { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
-        { to: '/react-redux-training-barcelona', label: 'Barcelona' },
+        { to: '/react-redux-training-amsterdam', label: 'Amsterdam' },
       ]}
     />
     <Header
       titleLines={[
         'React Redux part-time course',
-        `${training.dates} - Barcelona`,
+        `${training.dates} - Amsterdam`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
       links={header.landingTraining.links}
@@ -174,4 +174,4 @@ const PartTimeBarcelona = () => (
   </React.Fragment>
 )
 
-export default PartTimeBarcelona
+export default PartTimeAmsterdam
