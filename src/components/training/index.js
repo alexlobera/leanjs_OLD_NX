@@ -5,6 +5,7 @@ import TrustedBySection from './TrustedBySection'
 import UpcomingTrainingSection from './UpcomingTrainingSection'
 import { TrustedByLogoList } from './TrustedBySection'
 import TrainingDetails from './TrainingDetails'
+import TargetAudienceSection from './TargetAudienceSection'
 
 export {
   ADAM_LANCASTER,
@@ -23,4 +24,5 @@ export {
   TrustedByLogoList,
   UpcomingTrainingSection,
   TrainingDetails,
+  TargetAudienceSection
 }

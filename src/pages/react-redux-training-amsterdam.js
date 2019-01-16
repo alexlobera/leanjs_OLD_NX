@@ -1,31 +1,22 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2Ref, H3, P } from '../components/text'
-import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumPartTime } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
   TrainingDetails,
+  TargetAudienceSection,
   ALEX_LOBERA,
   ROY_DERKS,
 } from '../components/training'
-import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
-import {
-  BulletIcon,
-  NotBegginerIcon,
-  CodeIcon,
-  ReactIcon,
-  CollabsIcon,
-} from '../components/icons'
-import { PART_TIME as PART_TIME_IMG, CATALIN } from '../config/images'
-import { Image, Newsletter } from '../components/elements'
+import { CATALIN } from '../config/images'
+import { Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
-import { Link, Breadcrumb } from '../components/navigation'
+import { Breadcrumb } from '../components/navigation'
 import { selectFirstTraining, PART_TIME, AMSTERDAM } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
@@ -88,62 +79,7 @@ const PartTimeAmsterdam = () => (
         </Card>
       </Grid>
     </TopSection>
-    <Section>
-      <Grid>
-        <Row>
-          <HideComponentsUsingCss xs sm>
-            <Col md={6} lg={5}>
-              <Image
-                src={PART_TIME_IMG}
-                width="100%"
-                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-              />
-            </Col>
-          </HideComponentsUsingCss>
-          <Col md={6} lg={5} lgOffset={1}>
-            <H2Ref>
-              Is this React part-time course right for me? Are you...{' '}
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
-            </H2Ref>
-            <Ul unstyled>
-              <Li>
-                <BulletIcon icon={NotBegginerIcon} />A developer with ~1 year of
-                development under your belt?
-              </Li>
-              <Li>
-                <BulletIcon icon={CodeIcon} />
-                Familiar with front-end technologies like JavaScript, CSS, and
-                HTML?
-              </Li>
-              <Li>
-                <BulletIcon icon={ReactIcon} />
-                Taking a step forward to become a React JS specialist, able to
-                make critical decisions in the architecture of a React
-                application.
-              </Li>
-              <Li>
-                <BulletIcon icon={CollabsIcon} />
-                Not satisfied with online learning and it's lack of 1-on-1
-                mentoring?
-              </Li>
-            </Ul>
-            <P>
-              If you've said 'yes' to these, our part-time course could be for
-              you!
-            </P>
-            <H3>Not for beginner devs!</H3>
-            <P>
-              This is not a learn-to-code course. If you want to learn to code,
-              we recommend you contact our London-based partner{' '}
-              <Link to="https://makers.tech/">Makers</Link>. PLUS you'll get a
-              &pound;250 discount using our reference "ReactJS Academy".
-            </P>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
+    <TargetAudienceSection />
     <Section>
       <Grid>
         <Row>
