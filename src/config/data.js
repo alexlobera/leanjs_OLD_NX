@@ -10,6 +10,7 @@ import {
 export const LONDON = 'London'
 export const LISBON = 'Lisbon'
 export const BARCELONA = 'Barcelona'
+export const AMSTERDAM = 'Amsterdam'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React bootcamp'
@@ -178,6 +179,22 @@ export const trainings = [
     priceGoesUpOn: new Date('Feb 28, 2019'),
     currency: 'eur',
   },
+  {
+    dates: '15 Mar - 5 Apr, 2019',
+    dateStartsOn: new Date('15 Mar, 2019'),
+    city: AMSTERDAM,
+    country: 'NL',
+    type: PART_TIME,
+    cityShortName: 'Amsterdam',
+    country: 'Holland',
+    location: 'TBD',
+    pathUrl: '/react-redux-training-amsterdam',
+    trainingInstanceId: '5c3f25fc672ede0e7feba96e',
+    price: 1166.67,
+    discountPrice: 829.17,
+    priceGoesUpOn: new Date('Feb 28, 2019'),
+    currency: 'eur',
+  },
 ]
 
 const meetups = [
@@ -322,7 +339,8 @@ export const instagramPictures = [
   },
 ]
 
-export const CONVINCE_THE_BOSS_PDF = 'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
+export const CONVINCE_THE_BOSS_PDF =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
 
 export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
   [...data]

@@ -5,6 +5,7 @@ import TrustedBySection from './TrustedBySection'
 import UpcomingTrainingSection from './UpcomingTrainingSection'
 import { TrustedByLogoList } from './TrustedBySection'
 import TrainingDetails from './TrainingDetails'
+import TargetAudienceSection from './TargetAudienceSection'
 
 export {
   ADAM_LANCASTER,
@@ -13,6 +14,7 @@ export {
   ALEX_LOBERA,
   RICHARD_MOSS,
   EVA_HOFFMANN,
+  ROY_DERKS,
 } from './TrainingDetails'
 export {
   AttendeeQuote,
@@ -22,4 +24,5 @@ export {
   TrustedByLogoList,
   UpcomingTrainingSection,
   TrainingDetails,
+  TargetAudienceSection,
 }
