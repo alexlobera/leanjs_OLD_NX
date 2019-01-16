@@ -24,5 +24,5 @@ export {
   TrustedByLogoList,
   UpcomingTrainingSection,
   TrainingDetails,
-  TargetAudienceSection
+  TargetAudienceSection,
 }

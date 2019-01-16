@@ -8,71 +8,70 @@ import { H3, H2Ref, P } from '../text'
 import { HideComponentsUsingCss } from '../utils'
 import { PART_TIME as PART_TIME_IMG } from '../../config/images'
 import {
-    BulletIcon,
-    NotBegginerIcon,
-    CodeIcon,
-    ReactIcon,
-    CollabsIcon,
-  } from '../icons'
-
+  BulletIcon,
+  NotBegginerIcon,
+  CodeIcon,
+  ReactIcon,
+  CollabsIcon,
+} from '../icons'
 
 const TargetAudienceSection = () => (
-    <Section>
-      <Grid>
-        <Row>
-          <HideComponentsUsingCss xs sm>
-            <Col md={6} lg={5}>
-              <Image
-                src={PART_TIME_IMG}
-                width="100%"
-                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-              />
-            </Col>
-          </HideComponentsUsingCss>
-          <Col md={6} lg={5} lgOffset={1}>
-            <H2Ref>
-              Is this React part-time course right for me? Are you...{' '}
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
-            </H2Ref>
-            <Ul unstyled>
-              <Li>
-                <BulletIcon icon={NotBegginerIcon} />A developer with ~1 year of
-                development under your belt?
-              </Li>
-              <Li>
-                <BulletIcon icon={CodeIcon} />
-                Familiar with front-end technologies like JavaScript, CSS, and
-                HTML?
-              </Li>
-              <Li>
-                <BulletIcon icon={ReactIcon} />
-                Taking a step forward to become a React JS specialist, able to
-                make critical decisions in the architecture of a React
-                application.
-              </Li>
-              <Li>
-                <BulletIcon icon={CollabsIcon} />
-                Not satisfied with online learning and it's lack of 1-on-1
-                mentoring?
-              </Li>
-            </Ul>
-            <P>
-              If you've said 'yes' to these, our part-time course could be for
-              you!
-            </P>
-            <H3>Not for beginner devs!</H3>
-            <P>
-              This is not a learn-to-code course. If you want to learn to code,
-              we recommend you contact our London-based partner{' '}
-              <Link to="https://makers.tech/">Makers</Link>. PLUS you'll get a
-              &pound;250 discount using our reference "ReactJS Academy".
-            </P>
+  <Section>
+    <Grid>
+      <Row>
+        <HideComponentsUsingCss xs sm>
+          <Col md={6} lg={5}>
+            <Image
+              src={PART_TIME_IMG}
+              width="100%"
+              alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+            />
           </Col>
-        </Row>
-      </Grid>
-    </Section>
+        </HideComponentsUsingCss>
+        <Col md={6} lg={5} lgOffset={1}>
+          <H2Ref>
+            Is this React part-time course right for me? Are you...{' '}
+            <Link to="#target-audience" name="target-audience">
+              #
+            </Link>
+          </H2Ref>
+          <Ul unstyled>
+            <Li>
+              <BulletIcon icon={NotBegginerIcon} />A developer with ~1 year of
+              development under your belt?
+            </Li>
+            <Li>
+              <BulletIcon icon={CodeIcon} />
+              Familiar with front-end technologies like JavaScript, CSS, and
+              HTML?
+            </Li>
+            <Li>
+              <BulletIcon icon={ReactIcon} />
+              Taking a step forward to become a React JS specialist, able to
+              make critical decisions in the architecture of a React
+              application.
+            </Li>
+            <Li>
+              <BulletIcon icon={CollabsIcon} />
+              Not satisfied with online learning and it's lack of 1-on-1
+              mentoring?
+            </Li>
+          </Ul>
+          <P>
+            If you've said 'yes' to these, our part-time course could be for
+            you!
+          </P>
+          <H3>Not for beginner devs!</H3>
+          <P>
+            This is not a learn-to-code course. If you want to learn to code, we
+            recommend you contact our London-based partner{' '}
+            <Link to="https://makers.tech/">Makers</Link>. PLUS you'll get a
+            &pound;250 discount using our reference "ReactJS Academy".
+          </P>
+        </Col>
+      </Row>
+    </Grid>
+  </Section>
 )
 
 export default TargetAudienceSection
