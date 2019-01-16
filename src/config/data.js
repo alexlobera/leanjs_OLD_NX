@@ -180,10 +180,10 @@ export const trainings = [
     currency: 'eur',
   },
   {
-    dates: '23 Mar - 13 Apr, 2019',
-    dateStartsOn: new Date('23 Mar, 2019'),
+    dates: '15 Mar - 5 Apr, 2019',
+    dateStartsOn: new Date('15 Mar, 2019'),
     city: AMSTERDAM,
-    country: 'BCN',
+    country: 'NL',
     type: PART_TIME,
     cityShortName: 'Amsterdam',
     country: 'Holland',
