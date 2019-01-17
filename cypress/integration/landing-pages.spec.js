@@ -9,7 +9,7 @@ describe('programmatically generated pages', function() {
     cy.visit('/react-redux-training-berlin/')
     cy.get('h2').contains('in Berlin')
     cy.visit('/react-redux-training-amsterdam/')
-    cy.get('h2').contains('in Amsterdam')
+    cy.get('h2').contains('Amsterdam')
     cy.visit('/react-redux-graphql-bootcamp-nyc/')
     cy.get('h2').contains('in New York')
     cy.visit('/react-redux-graphql-bootcamp-austin/')
