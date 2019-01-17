@@ -6,7 +6,7 @@ ReactJS Academy has been built with Gatsby. Gatsby is a static site generator fo
 
 ## Install
 
-Cone this repo to your local machine and run
+Clone this repo to your local machine and run
 
 ```sh
 npm install
@@ -30,7 +30,6 @@ There are a few other scripts in the package.json that are used for formatting v
 ## Our Testing
 
 We use [Jest](https://jestjs.io/) for testing. As the site is content heavy, we use snapshot tests for parts with little or no logic and write full unit and integration tests for mission critical parts such as `src/components/payment/payment.test.js`
-
 
 ## Our Deploy and Hosting
 

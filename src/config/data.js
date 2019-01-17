@@ -203,7 +203,7 @@ const meetups = [
     cityShortName: 'Barcelona',
     country: 'ES',
     url: 'https://www.meetup.com/JavaScript-Barcelona/events/257156744',
-    title: 'Meet the Gatsby team!!',
+    title: 'Meet the Gatsby team!',
     imgUrl: BCN_MEETUP,
   },
   {
