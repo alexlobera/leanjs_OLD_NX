@@ -6,12 +6,10 @@ import { Card, Video } from '../components/elements'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
-  TargetAudienceSection,
   TrainingDetails,
-  ADAM_LANCASTER,
-  WILL_VOELCKER,
+  TargetAudienceSection,
   ALEX_LOBERA,
-  EVA_HOFFMANN,
+  ROY_DERKS,
 } from '../components/training'
 import Header from '../components/layout/Header'
 import { CATALIN } from '../config/images'
@@ -19,24 +17,24 @@ import { Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Breadcrumb } from '../components/navigation'
-import { selectFirstTraining, PART_TIME, LONDON } from '../config/data'
-import { LIST_TWO_COL } from '../components/curriculum'
+import { selectFirstTraining, PART_TIME, AMSTERDAM } from '../config/data'
+import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
-const training = selectFirstTraining(PART_TIME, LONDON)
+const training = selectFirstTraining(PART_TIME, AMSTERDAM)
 
-const BootcampLondon = () => (
+const PartTimeAmsterdam = () => (
   <React.Fragment>
     <Breadcrumb
       path={[
         { to: '/', label: 'Home' },
         { to: '/react-redux-graphql-part-time-course', label: 'Part-time' },
-        { to: '/react-redux-training-london', label: 'London' },
+        { to: '/react-redux-training-amsterdam', label: 'Amsterdam' },
       ]}
     />
     <Header
       titleLines={[
         'React Redux part-time course',
-        `${training.dates} - London`,
+        `${training.dates} - Amsterdam`,
       ]}
       subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
       links={header.landingTraining.links}
@@ -62,7 +60,7 @@ const BootcampLondon = () => (
               <Video youtubeID="E_4eQQHjc7A" />
               <TrainingDetails
                 date={training.dates}
-                timing="6pm - 9pm Tuesday's & Thursday's"
+                timing="9am - 6pm Friday's"
                 location={
                   <React.Fragment>
                     {training.location}
@@ -71,12 +69,7 @@ const BootcampLondon = () => (
                     </Link> */}
                   </React.Fragment>
                 }
-                coaches={[
-                  EVA_HOFFMANN,
-                  ADAM_LANCASTER,
-                  WILL_VOELCKER,
-                  ALEX_LOBERA,
-                ]}
+                coaches={[ROY_DERKS, ALEX_LOBERA]}
               />
               <Row>
                 <Newsletter />{' '}
@@ -117,4 +110,4 @@ const BootcampLondon = () => (
   </React.Fragment>
 )
 
-export default BootcampLondon
+export default PartTimeAmsterdam

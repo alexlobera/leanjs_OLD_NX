@@ -18,6 +18,7 @@ import {
   WILL,
   ADAM,
   EVA,
+  ROY,
   CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
@@ -506,6 +507,71 @@ const AboutUs = () => (
               src={ADAM}
               width="100%"
               alt="ReactJS Academy coach Adam Lancaster, on top of a tall building as a cityscape is in the background fading out to the horizon"
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <Row>
+          <Col xs={12} md={4} mdOffset={1}>
+            <H2Ref>
+              Roy Derks
+              <Link name="roy-derks" to="#roy-derks">
+                #
+              </Link>
+            </H2Ref>
+            <CoachTitle>
+              Senior Frontend Developer at{' '}
+              <Link to="https://switchbay.com">City of Amsterdam</Link>, CTO at{' '}
+              <Link to="https://data.amsterdam.nl">SwitchBay</Link>
+            </CoachTitle>
+            <Ul inline>
+              <Li>
+                <SocialLink to="https://github.com/royderks">GitHub</SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://www.linkedin.com/in/royderks1/">
+                  LinkedIn
+                </SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://twitter.com/gethackteam/">
+                  Twitter
+                </SocialLink>
+              </Li>
+              <Li>
+                <SocialLink to="https://medium.com/hackteam/">
+                  Medium
+                </SocialLink>
+              </Li>
+            </Ul>
+            <Ul>
+              <Li>
+                Develops products with <strong>React</strong>,{' '}
+                <strong>React Native</strong>, and <strong>GraphQL</strong> for
+                startups and non-profits.
+              </Li>
+              <Li>
+                Regularely talks on conferences about JavaScript and related
+                technologies such as <strong>ReasonML</strong>. Founded multiple
+                startups since the age of 16, hasn't stopped working ever since.
+              </Li>
+              <Li>
+                Always looking at what's on the horizon and curious about new
+                technologies
+              </Li>
+            </Ul>
+            <Blockquote bg="primary" triangle="right">
+              When in doubt, start coding.
+            </Blockquote>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <Image
+              src={ROY}
+              width="100%"
+              alt="ReactJS Academy coach Roy Derks, speaking at a developer conference with microphone"
             />
           </Col>
         </Row>

@@ -73,10 +73,12 @@ jobs:
 
 workflows:
   version: 2
-
   build-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: master
       - e2e-tests:
           requires:
             - build

@@ -38,6 +38,7 @@ import {
   DAN,
   NASSAR,
 } from '../config/images.js'
+import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
@@ -248,14 +249,12 @@ const IndexPage = () => (
               </Li>
             </Ul>
             <SectionButtonRow>
-              <Col sm={6}>
-                <LinkButton
-                  cta
-                  to="/react-redux-graphql-bootcamp"
-                  children="React bootcamps"
-                />
+              <Col sm={7}>
+                <LinkButton secondary pdf to={CONVINCE_THE_BOSS_PDF}>
+                  Why devs should learn with us
+                </LinkButton>
               </Col>
-              <Col sm={6}>
+              <Col sm={5}>
                 <LinkButton to="/corporate-team-training">
                   Corporate training
                 </LinkButton>

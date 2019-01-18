@@ -8,8 +8,9 @@ import {
 } from './images'
 
 export const LONDON = 'London'
-export const LISBON = 'Lisbon dist.'
+export const LISBON = 'Lisbon'
 export const BARCELONA = 'Barcelona'
+export const AMSTERDAM = 'Amsterdam'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React bootcamp'
@@ -129,7 +130,6 @@ export const trainings = [
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5be3366f1307cabce7761593',
     price: 1166.67,
-    discountPrice: 1000,
     priceGoesUpOn: new Date('Jan 12, 2019'),
     currency: 'gbp',
   },
@@ -174,6 +174,22 @@ export const trainings = [
     location: 'TBD',
     pathUrl: '/react-redux-training-barcelona',
     trainingInstanceId: '5c2a0d5e2ab1035da3138220',
+    price: 1166.67,
+    discountPrice: 829.17,
+    priceGoesUpOn: new Date('Feb 28, 2019'),
+    currency: 'eur',
+  },
+  {
+    dates: '15 Mar - 5 Apr, 2019',
+    dateStartsOn: new Date('15 Mar, 2019'),
+    city: AMSTERDAM,
+    country: 'NL',
+    type: PART_TIME,
+    cityShortName: 'Amsterdam',
+    country: 'Holland',
+    location: 'TBD',
+    pathUrl: '/react-redux-training-amsterdam',
+    trainingInstanceId: '5c3f25fc672ede0e7feba96e',
     price: 1166.67,
     discountPrice: 829.17,
     priceGoesUpOn: new Date('Feb 28, 2019'),
@@ -322,6 +338,9 @@ export const instagramPictures = [
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F17125812_1272222992812942_3290496564270727168_n.jpg?alt=media',
   },
 ]
+
+export const CONVINCE_THE_BOSS_PDF =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
 
 export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
   [...data]

@@ -22,12 +22,16 @@ import {
 import ShareButtons from '../components/blog/ShareButtons'
 
 export const formatPostTitle = title => title.replace('<br/>', ' ')
+
 const pre = styled.pre`
   > div {
     overflow: hidden;
   }
 `
-
+const img = styled(Image)`
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+`
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
@@ -40,6 +44,7 @@ const renderAst = new rehypeReact({
     ul: Ul,
     li: Li,
     pre,
+    img,
     code: Code,
     span: Span,
     tweet: Tweet,

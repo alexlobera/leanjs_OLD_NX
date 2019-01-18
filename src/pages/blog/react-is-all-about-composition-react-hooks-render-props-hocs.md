@@ -78,21 +78,21 @@ In React there is the notion of a tree made up of components. In this tree of co
 
 Since function composition uses a circle as operator, I'm also going to use circles to represent this composition model. There are two different perspectives I can think of to illustrate it:
 
-### Side perspective with many children
+### Tree side perspective with many children
 
 ![React component tree side perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-many-children-min.png?alt=media)
 
-### Top perspective with many children
+### Tree top perspective with many children
 
 ![React component tree top perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ftop-perspective-many-children-min.png?alt=media)
 
 I guess the first one makes more sense in this case because every parent has more than one child. But, what if parents have only one child?
 
-### Side perspective with one children
+### Tree side perspective with one children
 
 ![React component tree side perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-min.png?alt=media)
 
-### Top perspective with one children
+### Tree top perspective with one children
 
 ![React component tree top perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media)
 
