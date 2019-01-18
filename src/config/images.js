@@ -66,7 +66,8 @@ export const EVA =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Feva.jpg?alt=media'
 export const ROY =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Froy.jpg?alt=media'
-export const DAVID = 'FEED_ME'
+export const DAVID = 
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fdavid.jpg?alt=media'
 
 // Tesimonials
 
