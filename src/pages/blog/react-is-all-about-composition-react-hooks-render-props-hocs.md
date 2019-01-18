@@ -65,7 +65,7 @@ const compose = Component => {
 
 When we use **declarative composition `h = compose(f,g)` we can state that f doesn't know g exists and g doesn't know f exists**.
 
-You can apply composition in pure JavaScript code in your React real-world applications. For example to compose the validators of a form field. We use it in our website [TODO ADD LINK TO REPO RJSA]. Applying composition in your real-world JavaScript projects is very powerful. Composition is not an academic or theoretical concept that you can’t explicitly apply in your JavaScript code. We also cover this in our hand-on training [TODO ADD LINK TO ADVANCED PATTERNS COMPOSITION]
+You can apply composition in pure JavaScript code in your React real-world applications. For example to compose the validators of a form field. We use [composition to validate forms in this website](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/components/payment/checkout/CheckoutForm.js#L230). Applying composition in your real-world JavaScript projects is very powerful. Composition is not an academic or theoretical concept that you can’t explicitly apply in your JavaScript code. We also cover this in our hand-on training [TODO ADD LINK TO ADVANCED PATTERNS COMPOSITION]
 
 ## React composition model <a name="react-composition-model"></a>
 
@@ -78,23 +78,23 @@ In React there is the notion of a tree made up of components. In this tree of co
 
 Since function composition uses a circle as operator, I'm also going to use circles to represent this composition model. There are two different perspectives I can think of to illustrate it:
 
-### "side perspective"
+### Side perspective with many children
 
-[TODO ADD IMAGE OF CIRCLES ONE PARENT TWO CHILDREN]
+![React component tree side perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-many-children-min.png?alt=media)
 
-### "top-down perspective"
+### Top perspective with many children
 
-[TODO ADD IMAGE OF TREE ONE PARENT TWO CHILDREN]
+![React component tree top perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ftop-perspective-many-children-min.png?alt=media)
 
 I guess the first one makes more sense in this case because every parent has more than one child. But, what if parents have only one child?
 
-### "side perspective"
+### Side perspective with one children
 
-[TODO ADD IMAGE OF CIRCLES ON PARENT TWO CHILDREN]
+![React component tree side perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-min.png?alt=media)
 
-### "top-down perspective"
+### Top perspective with one children
 
-[TODO ADD IMAGE OF TREE ONE PARENT TWO CHILDREN]
+![React component tree top perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media)
 
 To me, in this case, the first image (concentric circles) illustrates better the case.
 
@@ -177,10 +177,9 @@ There is something very nice about “children”, it makes composition more dec
 
 HoCs is a pattern for reusing component logic. **Component logic means logic that has to do with lifecycle methods and/ or state and/or context**.
 
-[TODO ADD SOME “ALERT” COMPONENT]
 Heads up! You don’t need a HoC if the logic you want to reuse doesn’t use lifecycle methods and/or component state and/or context.
 
-A typical use case for using HoCs is fetching some data on componentDidMount and store it in the state [TODO ADD LINK TO OUR ADVANCED PATTERNS EXERCISE].
+A typical use case for using HoCs is fetching some data on componentDidMount and store it in the state. Here there is [an example called withData that we use in our advanced material](https://advanced-react-patterns.reactjs.academy/#higher-order-components)
 
 HoCs are functions that receive a component as an argument and return a new component.
 
@@ -193,7 +192,11 @@ export default withRouter(Threads)
 You can compose a component with as many HoCs as you need, for instance:
 
 ```
-export default withRouter(withApollo(QUERY)(connect(mapStateToProps)(Threads)))
+export default withRouter(
+    withApollo(QUERY)(
+        connect(mapStateToProps)(Threads)
+    )
+)
 ```
 
 If you find it hard to read the previous example, you can rewrite it using a compose function as follows:
@@ -220,25 +223,29 @@ Notice the reduceRight in the compose function. **Composition goes from right to
 
 HoCs return one component, that's why concentric circles is the prefered way by many people to illustrate the previous example.
 
-[TODO ADD EXAMPLE CONCENTRIC CIRCLES FOR THIS CASE]
+![React component tree top perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media)
 
 Notice the previous concentric circles represent the higher-order component functions but not the output of those functions (meaning the components that are rendered). We said that a higher-order component is a function that returns a new component, but that new component can contain other new components itself. That’s the case of withRouter and withApollo.
 
-withApollo added two new components in the hierarchy
-[TODO IMAGE HIERARCHY]
+###withApollo added two new components in the hierarchy
 
-withRouter added two new components in the hierarchy
-[TODO IMAGE HIERARCHY]
+![withApollo added two new components in the hierarchy](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fapollo-min.png?alt=media)
 
-connect only added a new 1 component in the hierarchy
-[TODO IMAGE HIERARCHY]
+###withRouter added two new components in the hierarchy
 
-Threads is the enhanced component.
-[TODO IMAGE HIERARCHY]
+![withRouter added two new components in the hierarchy](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2FwithRouter-min.png?alt=media)
+
+###connect only added a new component in the hierarchy
+
+![connect only added a new 1 component in the hierarchy](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconnect-min.png?alt=media)
+
+###Threads is the enhanced component.
+
+![Threads is the enhanced component](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2FThreads-min.png?alt=media)
 
 Wait, HoCs are functions, not components so how can we compose them? Same as the function composition we explained at the beginning of the article, although in this case the input & output of all the HoCs are always components:
 
-[TODO ADD IMAGE OF SLIDES -> COMPOSITION REACT]
+![HoC composition](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fhoc-composition.png?alt=media)
 
 Do you think the order of the HoCs matter? For instance, do the following two cases work the same:
 
@@ -275,8 +282,11 @@ Render Props, like HoC, help us reusing component logic (again! **only logic tha
 With HoCs composition happens all in one place, typically at the bottom of the file where we define the component:
 
 ```
-// ...
-export default withRouter(withApollo(QUERY)(connect(mapStateToProps)(Threads)))
+export default withRouter(
+    withApollo(QUERY)(
+        connect(mapStateToProps)(Threads)
+    )
+)
 ```
 
 A problem some people observe with HoCs is that composition doesn’t look very declarative from a React perspective. In React we tend to declare intent using components in JSX. In some cases, Render Props can make the code more readable. For instance:
