@@ -397,7 +397,6 @@ class Curriculum extends React.Component {
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
                           <CurriculumReactNative
-                            isOpen={true}
                             enableToggle={true}
                             showTitle={false}
                             layout={LIST_LAYOUT}
