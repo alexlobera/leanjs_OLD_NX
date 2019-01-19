@@ -107,7 +107,7 @@ Components have well-defined interfaces that enable explicit interactions betwee
 
 ### props.children
 
-Components have a prop called children. Because it is a prop, given this component `const User = (props) => <p>{props.children}</p>`, we can do either:
+Components have a prop called children. Because it is a prop, given this component `const User = props => <p>{props.children}</p>`, we can do either:
 
 ```
 <User children="@alex_lobera" />
@@ -122,7 +122,7 @@ or
 You can see the later as syntactic sugar of the former. Of course, you can also do this (or any prop name variation you can think of)
 
 ```
-const User = (props) => <p>{props.name}</p>
+const User = props => <p>{props.name}</p>
 ```
 
 and so
@@ -133,16 +133,16 @@ and so
 
 Based on my experience teaching React at the ReactJS Academy, I've seen many developers missing part of what the React composition model is and misunderstanding the “children” prop.
 
-If we look at this code
+If we look at the following code:
 
 ```
-const TwitterProfile = (props) => (
+const TwitterProfile = props => (
   <section>
     <Text>
       	Username
     </Text>
     <Text>
-	@alex_lobera
+	@alex\_lobera
     </Text>
   </section>
 )
@@ -153,7 +153,7 @@ we can state:
 - TwitterProfile has one child, section. We can also say TwitterProfile is composed with a section.
 - section has two children, Text and Text. We can also say section is composed with two Text components.
 - The first Text has one child, "username". We can also say Text one is composed with the string "username"
-- The second Text has one child, "@alex_lobera". We can also say Text two is composed with the string "@alex_lobera"
+- The second Text has one child. We can also say Text two is composed with the string \@alex_lobera
 - We don't know who is TwitterProfile's parent.
 
 ![Example TwitterProfile](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fchildren-example2-min.png?alt=media)
@@ -161,7 +161,7 @@ we can state:
 If we look at the following component in isolation
 
 ```
-const Text = (props) => <p>{props.children}</p>
+const Text = props => <p>{props.children}</p>
 ```
 
 we can state:
@@ -176,7 +176,7 @@ There is something very nice about “children”, it makes composition more dec
 
 ## Composition via Higher-Order components (HoCs) <a name="composition-via-hocs"></a>
 
-HoCs is a pattern for reusing component logic. **Component logic means logic that has to do with lifecycle methods and/ or state and/or context**.
+HoCs is a pattern for reusing component logic. **Component logic means logic that has to do with lifecycle methods and/or state and/or context**.
 
 Heads up! You don’t need a HoC if the logic you want to reuse doesn’t use lifecycle methods and/or component state and/or context.
 
@@ -273,13 +273,13 @@ export default compose(
 From a composition perspective both cases are the same since all the HoCs’ input & output are components. Now from a React implementation perspective there are a few considerations:
 
 - Prop name collision, meaning two HoCs inject a prop with the same name. In the previous example it doesn’t happen.
-- Performance. Imagine Threads is a form connected to ReduxForm. Everytime the user press a key it would cause a rerender of all the components in case B but not in case A. The reason is props need to be propagated down the composition to Threads through all the components inbetween.
+- Performance. Imagine Threads is a form connected to ReduxForm. Everytime the user press a key it would cause a rerender of all the components in case B but not in case A. The reason is props need to be propagated down the composition to Threads through all the components in between.
 
-We cover these and similar cases in more detail in any of the in-person React trainings we run, such as the [React bootcamp](/react-redux-graphql-bootcamp/), [advanced React training](/advanced-react-redux-graphql-bootcamp/), [part-time React course](/react-redux-graphql-part-time-course/), and of course the [on-site corporate React training](/corporate-team-training/). If you are interested in checking the material we use to teach HoCs click on this [link](https://advanced-react-patterns.reactjs.academy/higher-order-components).
+If you are interested in checking the material we use to teach HoCs click on this [link](https://advanced-react-patterns.reactjs.academy/higher-order-components). We cover these and similar cases in more detail in any of the in-person React training we run, such as the [React bootcamp](/react-redux-graphql-bootcamp/), [advanced React training](/advanced-react-redux-graphql-bootcamp/), [part-time React course](/react-redux-graphql-part-time-course/), and of course the [on-site corporate React training](/corporate-team-training/).
 
 ## Composition via Render Props <a name="composition-via-render-props"></a>
 
-Render Props, like HoC, help us reusing component logic (again! **only logic that has to do with lifecycle methods and/or component state and/or context**). The different is in the way they do it.
+Render Props, like HoC, helps us reusing component logic (again! **only logic that has to do with lifecycle methods and/or component state and/or context**). The different is in the way they do it.
 
 With HoCs composition happens all in one place, typically at the bottom of the file where we define the component:
 
@@ -315,7 +315,7 @@ const CoolComponent = () => (
 )
 ```
 
-With Render props we are composing with the logic we want to reuse, just for the components that are interested in that concern. In the previous example, only the image is composed with the Mesure logic. The HoC approach is composing the entire set of components with the mesure logic.
+With Render props we are composing with the logic we want to reuse, just for the components that are interested in that logic. In the previous example, only the image is composed with the Mesure logic. The HoC approach is composing the entire set of components with the mesure logic.
 
 Render Props is defined inside a method that is rendered, this means **composition with Render Props happens at render time, not at run time like HoCs**. This feature gives composition via Render Props access to props out of the box, which is very powerful. In HoC to get access to props you need to implement some code yourself to handle that case. You can see an [example in connect from react-redux](https://react-redux.js.org/api/connect#the-arity-of-maptoprops-functions) with the called ‘ownProps’.
 
@@ -329,18 +329,19 @@ Before Hooks, composition in React happened only vertically (bottom-up) between 
 
 <tweet id="1057392329739296768"></tweet>
 
-![React Hooks composition model](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-hooks-composition-model-min.png?alt=media)
-
 Composition perpendicular to the tree means that now we can **reuse component logic inside different components**. This is genius.
+
+![React Hooks composition model](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-hooks-composition-model-min.png?alt=media)
 
 I find brilliant the atom and electron analogy that Dan Abramov used to describe React Components and React Hooks.
 
 > When scientists discovered the atom they thought they were the smallest thing we are going to find. But later they discover the electron, which is a **smaller part inside the atom**. It turns out that the electrons explain a lot about **how atoms work**. - Dan Abramov.
 
 There are countless advantages of using Hooks compared to HoC and Render Props. Here are some that I find very relevant for the subject of this article:
-Hooks don’t create new components in the three. This make our tree more readable and performant (bye bye wrapper hell!) since Hooks don’t change your component hierarchy when you use them.
-Hooks let you split one component into smaller functions that can be reused across different components.
-Hooks remove the cognitive overhead that [Render Props](#composition-via-render-props) and [HoC](#composition-via-higher-order-components) add when reusing component logic.
+
+- Hooks don’t create new components in the three. This makes our tree more readable and performant (bye bye wrapper hell!) since Hooks don’t change our component hierarchy when we use them.
+- Hooks let you split one component into smaller functions that can be reused across different components.
+- Hooks remove the cognitive overhead that [Render Props](#composition-via-render-props) and [HoC](#composition-via-higher-order-components) add when reusing component logic.
 
 If you are excited about React Hooks (you probably should) and you want to learn more about it, I recommend you watching my colleague Richard’s video about useState
 
@@ -354,7 +355,7 @@ Inheritance is a rigid, [tightly-coupled](/blog/unit-testing-fundamentals-explai
 
 When we reuse a use case of a given class by inheriting from it, we also bring all the implicit code from the ancestors, even the code from the use cases we don’t use. In JavaScript that means more code to bundle. This extra code is also more difficult to optimize and reduce the size by for instance reducing the number of characters of method names or class properties.
 
-Due to tight coupling, changes to the base class could potentially break any of the descendant classes. The probability of a breaking changes increases when you extend a class implemented by a third-party author. That’s **the reason you should never extend a class that extends React.Component; your component extends React.Component and inheritance should stop there.**
+Due to tight coupling, changes to the base class could potentially break any of the descendant classes. The probability of breaking changes increases when you extend a class implemented by a third-party author. That’s **the reason you should never extend a class that extends React.Component; your component extends React.Component and inheritance should stop there.**
 
 ## Recap
 
