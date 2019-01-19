@@ -4,6 +4,7 @@ date: Jan 7
 subtitle: Understanding React Hooks, Render Props, HoCs, and the React composition model
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fzen-stones.jpeg?alt=media
+authorTwitter: alex_lobera
 ---
 
 Software development is, in essence, the process of breaking a problem down into smaller problems, implementing solutions for those smaller problems, and then **composing** those solutions to form partial solutions, and so on, until eventually completing the whole solution.
@@ -57,9 +58,9 @@ One of the fundamental concepts in React is the declarative approach. Functional
 ```
 // don’t do this!
 const compose = Component => {
- const afterG = withRouter(Component);
- const afterF = withApollo(afterG);
- return afterF;
+    const afterG = withRouter(Component);
+    const afterF = withApollo(afterG);
+    return afterF;
 };
 ```
 
@@ -78,21 +79,21 @@ In React there is the notion of a tree made up of components. In this tree of co
 
 Since function composition uses a circle as operator, I'm also going to use circles to represent this composition model. There are two different perspectives I can think of to illustrate it:
 
-### Tree side perspective with many children
+### Side perspective of a n-children per node tree
 
 ![React component tree side perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-many-children-min.png?alt=media)
 
-### Tree top perspective with many children
+### "Top" perspective of the previous tree
 
 ![React component tree top perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ftop-perspective-many-children-min.png?alt=media)
 
 I guess the first one makes more sense in this case because every parent has more than one child. But, what if parents have only one child?
 
-### Tree side perspective with one children
+### Tree side perspective of a one-child per node tree
 
 ![React component tree side perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-min.png?alt=media)
 
-### Tree top perspective with one children
+### "Top" perspective of the previous tree
 
 ![React component tree top perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media)
 
@@ -179,7 +180,7 @@ HoCs is a pattern for reusing component logic. **Component logic means logic tha
 
 Heads up! You don’t need a HoC if the logic you want to reuse doesn’t use lifecycle methods and/or component state and/or context.
 
-A typical use case for using HoCs is fetching some data on componentDidMount and store it in the state. Here there is [an example called withData that we use in our advanced material](https://advanced-react-patterns.reactjs.academy/higher-order-components#withdata)
+A typical use case for using HoCs is fetching some data on componentDidMount and store it in the state. Here there is [an example called withData that we use in our advanced material](https://advanced-react-patterns.reactjs.academy/higher-order-components#withdata).
 
 HoCs are functions that receive a component as an argument and return a new component.
 
@@ -320,15 +321,15 @@ Render Props is defined inside a method that is rendered, this means **compositi
 
 ## Composition via React Hooks <a name="composition-via-react-hooks"></a>
 
-Before Hooks, composition in React happened only vertically (bottom-up) between components in the tree. Heads up, I'm specifically talking about composition in the tree and not data flow. Data flow in the component tree is top-down
+Before Hooks, composition in React happened only vertically (bottom-up) between components in the tree. Heads up, I'm specifically talking about composition in the component tree and not data flow. Data flow in the component tree is top-down
 
-[TODO ADD IMAGE TREE AND ARROW TOP-DOWN FOR DATA-FLOW, BOTTOM-UP FOR COMPOSITION]
+![React component composition model](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-components-composition-model-min.png?alt=media)
 
 > Hooks allows composition perpendicular to the tree. - Sebastian Markbåge (author of the Hooks proposal)
 
 <tweet id="1057392329739296768"></tweet>
 
-[TODO ADD IMAGE TREE AND PERPENDICULAR ARROW LEFT-RIGHT AND RIGHT-LEFT]
+![React Hooks composition model](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-hooks-composition-model-min.png?alt=media)
 
 Composition perpendicular to the tree means that now we can **reuse component logic inside different components**. This is genius.
 
@@ -353,7 +354,7 @@ Inheritance is a rigid, [tightly-coupled](/blog/unit-testing-fundamentals-explai
 
 When we reuse a use case of a given class by inheriting from it, we also bring all the implicit code from the ancestors, even the code from the use cases we don’t use. In JavaScript that means more code to bundle. This extra code is also more difficult to optimize and reduce the size by for instance reducing the number of characters of method names or class properties.
 
-Due to tight coupling, changes to the base class could potentially break any of the descendant classes. The probability of a breaking changes increases when you extend a class implemented by a third-party author. That’s the reason **you should never extend a class that extends React.Component; your component extends React.Component and inheritance should stop there.**
+Due to tight coupling, changes to the base class could potentially break any of the descendant classes. The probability of a breaking changes increases when you extend a class implemented by a third-party author. That’s **the reason you should never extend a class that extends React.Component; your component extends React.Component and inheritance should stop there.**
 
 ## Recap
 
