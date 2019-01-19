@@ -53,7 +53,7 @@ We can use a compose function to declaratively compose (f ∘ g)(x)
 h = compose(f,g)
 ```
 
-One of the fundamental concepts in React is the declarative approach. Functional programming can be very declarative, but as in many cases, it's up to us. We could also code some imperative composition (don’t do it). Example:
+One of the fundamental concepts in React is the declarative approach. Composition can be very declarative, but as in many cases, it's up to us. We could also code some imperative composition (don’t do it). Example:
 
 ```
 // don’t do this!
