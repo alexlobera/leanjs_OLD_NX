@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Embed from 'react-runkit'
+import styled from 'styled-components'
 
 const RunkitContext = React.createContext()
 
@@ -47,16 +48,27 @@ export class RunkitProvider extends React.Component {
   }
 }
 
-export const EmbedRunkit = props => (
+const CodePlaceholder = styled.div`
+  height: ${props => props.height || '200px'};
+  width: 100%;
+`
+
+export const EmbedRunkit = ({ children, ...rest }) => (
   <RunkitContext.Consumer>
     {({ loaded, load, loadRunkit }) => {
       if (loaded) {
-        return <Embed {...props} />
+        return <Embed {...rest} />
       }
       if (!load) {
         loadRunkit()
       }
-      return null
+      let height
+      if (Array.isArray(children) && children[0]) {
+        const numberOfLines = children[0].split(/\r\n|\r|\n/).length
+        height = `${numberOfLines * 25}px`
+      }
+
+      return <CodePlaceholder height={height} />
     }}
   </RunkitContext.Consumer>
 )
