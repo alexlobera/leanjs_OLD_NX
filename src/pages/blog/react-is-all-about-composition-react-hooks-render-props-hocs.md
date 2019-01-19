@@ -31,7 +31,7 @@ export default compose(
 
 You can compose functions as long as the output of one function is the expected input of the next function. You can’t compose two functions if one returns an array and the next one’s input expects a string. We can illustrate this idea with the following image:
 
-![diagram function composition](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ffunction-composition.png?alt=media)
+![diagram function composition](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ffunction-composition-min.png?alt=media)
 
 Considering that the output of g is the input of f, which function do you think is executed first, f or g? g is executed first. Imagine you are the JS runtime and try to run the following code f(g(x)). You can’t run f until you resolve its argument.
 
