@@ -19,6 +19,7 @@ import {
   ADAM,
   EVA,
   ROY,
+  DAVID,
   CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
@@ -407,7 +408,7 @@ const AboutUs = () => (
             <Image
               src={WILL}
               width="100%"
-              alt="ReactJS Acadmey coach Will Voelcker, smiling with coach Alex in the background"
+              alt="ReactJS Academy coach Will Voelcker, smiling with coach Alex in the background"
             />
           </Col>
           <Col xs={12} md={4} mdOffset={1} smOrder={1}>
@@ -581,6 +582,68 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5} smOrder={2}>
+            <Image
+              src={DAVID}
+              width="100%"
+              alt="ReactJS Academy coach David Leuliette, jumping on the Brooklyn Bridge"
+            />
+          </Col>
+          <Col xs={12} md={4} mdOffset={1} smOrder={1}>
+            <H2Ref>
+              David Leuliette
+              <Link name="david-leuliette" to="#david-leuliette">
+                #
+              </Link>
+            </H2Ref>
+            <CoachTitle>Senior Front-end Engineer</CoachTitle>
+            <Ul inline>
+              <Li>
+                <SocialLink to="https://github.com/flexbox">GitHub</SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://medium.com/@flexbox">Medium</SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://twitter.com/_flexbox">
+                  Twitter
+                </SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://www.linkedin.com/in/david-leuliette/">
+                  LinkedIn
+                </SocialLink>
+              </Li>
+            </Ul>
+            <Ul>
+              <Li>
+                Focused on building <strong>memorable UX</strong> and{' '}
+                <strong>scalable User Interface</strong>.
+              </Li>
+              <Li>
+                Used to <strong>teach collaboration</strong> with GitHub,
+                <strong>bootstrapping web products</strong> and Growth Hacking
+                at University.
+              </Li>
+              <Li>
+                Organizer of the{' '}
+                <Link to="https://www.meetup.com/FranceJS/">ChtiJS Meetup</Link>{' '}
+                in France.
+              </Li>
+            </Ul>
+            <Blockquote bg="primary" triangle="left">
+              When you work 8 hours a day with a tool, every second matters.
+            </Blockquote>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <Row>
+          <Col xs={12} md={5} smOrder={2}>
             <Video youtubeId="Rx2v_6I7PMM" />
           </Col>
           <Col xs={12} md={6} mdOffset={1} smOrder={1}>
@@ -617,7 +680,7 @@ const AboutUs = () => (
             <BecomeACoachWrapper>
               <LinkButton
                 target="_self"
-                to="mailto:hello@reactjs.academy?subject=become a coach"
+                to="mailto:hello@reactjs.academy?subject=Become a coach"
               >
                 Become a coach
               </LinkButton>
