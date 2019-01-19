@@ -10,6 +10,7 @@ import LinkButton from '../components/buttons/LinkButton'
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
+  DEFAULT_SCROLL_DURATION,
   Tabs,
   TabList,
   TabItem,
@@ -56,7 +57,7 @@ class Curriculum extends React.Component {
         () =>
           scroller.scrollTo(defaultSection || 'curriculum', {
             smooth: true,
-            duration: 500,
+            duration: DEFAULT_SCROLL_DURATION,
             offset: DEFAULT_SCROLL_OFFSET,
           }),
         200
