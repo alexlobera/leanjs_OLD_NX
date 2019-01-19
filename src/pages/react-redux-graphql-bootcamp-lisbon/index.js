@@ -85,7 +85,7 @@ const BootcampLisbon = () => (
               />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="bMD_b7w7r-g" />
+              <Video youtubeId="bMD_b7w7r-g" />
               <TrainingDetails
                 date={training.dates}
                 timing="Sunday, 4pm - 7pm. Monday-Saturday, 9am - 6:30pm"

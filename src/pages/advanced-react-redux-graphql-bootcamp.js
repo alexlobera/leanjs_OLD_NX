@@ -56,7 +56,7 @@ const Boocamps = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Video youtubeID="1TLeIEkyUE4" />
+            <Video youtubeId="1TLeIEkyUE4" />
             <P>
               Listen to Ben Parish, a senior developer who attended our last
               bootcamp, on his experience at the bootcamp.

@@ -60,7 +60,7 @@ const CorporateTraining = () => (
         <Row>
           <Col md={5}>
             <Video
-              youtubeID="o6YwbHGfPOo"
+              youtubeId="o6YwbHGfPOo"
               description={
                 <P>
                   <em>

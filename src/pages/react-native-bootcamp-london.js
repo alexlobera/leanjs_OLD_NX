@@ -62,7 +62,7 @@ const ReactNativeBoocampLondon = () => (
               /> */}
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="yvROXLQ1jHg" />
+              <Video youtubeId="yvROXLQ1jHg" />
               <TrainingDetails
                 date={training.dates}
                 timing="9am - 6:30pm"

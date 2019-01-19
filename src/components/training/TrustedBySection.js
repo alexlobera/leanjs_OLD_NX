@@ -85,7 +85,7 @@ const TrustedBySection = () => (
             <TrustedByLogoList />
           </Col>
           <Col md={6} lg={5}>
-            <Video youtubeID="yvROXLQ1jHg" />
+            <Video youtubeId="yvROXLQ1jHg" />
           </Col>
         </Row>
       </Card>

@@ -14,8 +14,8 @@ const IframeWrapper = styled.div`
   }
 `
 
-const Video = ({ youtubeID, description = null, ...rest }) => {
-  console.log(rest, youtubeID)
+const Video = ({ youtubeId, description = null, ...rest }) => {
+  console.log(rest, youtubeId)
   debugger
   return (
     <IframeWrapper>
@@ -24,7 +24,7 @@ const Video = ({ youtubeID, description = null, ...rest }) => {
         frameBorder="0"
         allow="autoplay; encrypted-media"
         allowFullScreen
-        src={`https://www.youtube-nocookie.com/embed/${youtubeID}?rel=0&showinfo=0&wmode=opaque`}
+        src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&showinfo=0&wmode=opaque`}
       />
       {description ? <div>{description}</div> : null}
     </IframeWrapper>
@@ -32,7 +32,7 @@ const Video = ({ youtubeID, description = null, ...rest }) => {
 }
 
 Video.propTypes = {
-  youtubeID: PropTypes.string.isRequired,
+  youtubeId: PropTypes.string.isRequired,
 }
 
 export default withLazyLoad()(Video)

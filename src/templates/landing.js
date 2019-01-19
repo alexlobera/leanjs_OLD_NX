@@ -35,7 +35,7 @@ const Landing = ({ data }) => {
     city,
     url,
     paragraphs,
-    youtubeID,
+    youtubeId,
   } = data.markdownRemark.frontmatter
   return (
     <React.Fragment>
@@ -57,7 +57,7 @@ const Landing = ({ data }) => {
             <Card bg="dark">
               <Row>
                 <Col xs={12} md={6} lg={4} lgOffset={1}>
-                  <Video youtubeID={youtubeID} />
+                  <Video youtubeId={youtubeId} />
                 </Col>
                 <Col xs={12} md={6} lg={5} lgOffset={1}>
                   <H2>
@@ -79,7 +79,7 @@ const Landing = ({ data }) => {
         <Grid>
           <Row>
             <Col md={5}>
-              <Video youtubeID="6hmKu1-vW-8" />
+              <Video youtubeId="6hmKu1-vW-8" />
               <P>
                 Listen to Polina Stoyanova, a software engineer from tray.io who
                 attended our last bootcamp, on her experience at the bootcamp.
@@ -160,7 +160,7 @@ export const query = graphql`
         city
         url
         paragraphs
-        youtubeID
+        youtubeId
       }
     }
   }

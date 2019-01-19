@@ -2,7 +2,7 @@
 city: Berlin
 country: Germany
 url: /react-redux-training-brussels/
-youtubeID: yvROXLQ1jHg
+youtubeId: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the <b>React, Redux, GraphQL</b>
     training in <b>Berlin, Germany.</b> Using the most complete React <a href="/curriculum">curriculum</a> available, you'll learn how to build production ready React
