@@ -14,18 +14,22 @@ const IframeWrapper = styled.div`
   }
 `
 
-const Video = ({ youtubeID, description = null }) => (
-  <IframeWrapper>
-    <iframe
-      width="100%"
-      frameBorder="0"
-      allow="autoplay; encrypted-media"
-      allowFullScreen
-      src={`https://www.youtube-nocookie.com/embed/${youtubeID}?rel=0&showinfo=0&wmode=opaque`}
-    />
-    {description ? <div>{description}</div> : null}
-  </IframeWrapper>
-)
+const Video = ({ youtubeID, description = null, ...rest }) => {
+  console.log(rest, youtubeID)
+  debugger
+  return (
+    <IframeWrapper>
+      <iframe
+        width="100%"
+        frameBorder="0"
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+        src={`https://www.youtube-nocookie.com/embed/${youtubeID}?rel=0&showinfo=0&wmode=opaque`}
+      />
+      {description ? <div>{description}</div> : null}
+    </IframeWrapper>
+  )
+}
 
 Video.propTypes = {
   youtubeID: PropTypes.string.isRequired,

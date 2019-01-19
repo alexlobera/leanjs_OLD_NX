@@ -65,7 +65,7 @@ const compose = Component => {
 
 When we use **declarative composition `h = compose(f,g)` we can state that f doesn't know g exists and g doesn't know f exists**.
 
-You can apply composition in pure JavaScript code in your React real-world applications. For example to compose the validators of a form field. We use [composition to validate forms in this website](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/components/payment/checkout/CheckoutForm.js#L230). Applying composition in your real-world JavaScript projects is very powerful. Composition is not an academic or theoretical concept that you can’t explicitly apply in your JavaScript code. We also cover this in our hand-on training [TODO ADD LINK TO ADVANCED PATTERNS COMPOSITION]
+You can apply composition in pure JavaScript code in your React real-world applications. For example to compose the validators of a form field. We use [function composition to validate forms in our website](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/components/payment/checkout/CheckoutForm.js#L230). Applying composition in your real-world JavaScript projects is very powerful. Composition is not an academic or theoretical concept that you can’t explicitly apply in your JavaScript code. We cover this case in the [function composition exercise](https://advanced-react-patterns.reactjs.academy/composition) of our advanced hands-on React training.
 
 ## React composition model <a name="react-composition-model"></a>
 
@@ -96,7 +96,7 @@ I guess the first one makes more sense in this case because every parent has mor
 
 ![React component tree top perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media)
 
-To me, in this case, the first image (concentric circles) illustrates better the case.
+To me, in this case, the second image (concentric circles) illustrates better the case.
 
 Common sense tip. Looking from different perspectives when trying to understand something is very useful. Using the same lens is likely to show the same views.
 
@@ -155,7 +155,9 @@ we can state:
 - The second Text has one child, "@alex_lobera". We can also say Text two is composed with the string "@alex_lobera"
 - We don't know who is TwitterProfile's parent.
 
-If we look at this component in isolation
+![Example TwitterProfile](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fchildren-example2-min.png?alt=media)
+
+If we look at the following component in isolation
 
 ```
 const Text = (props) => <p>{props.children}</p>
@@ -164,10 +166,8 @@ const Text = (props) => <p>{props.children}</p>
 we can state:
 
 - Text has one child, p.
-- p has one child.. many children? we don't know ahead of time who is p's children from the Text perspective.
+- p has one child.. many children? **we don't know ahead of time who is p's children** from the Text perspective.
 - We don't know who is Text's parent.
-
-ADD SCREENSHOT REACT DEV TOOLS ABOUT THIS CASE
 
 There is something very nice about “children”, it makes composition more declarative in the component tree.
 
@@ -179,7 +179,7 @@ HoCs is a pattern for reusing component logic. **Component logic means logic tha
 
 Heads up! You don’t need a HoC if the logic you want to reuse doesn’t use lifecycle methods and/or component state and/or context.
 
-A typical use case for using HoCs is fetching some data on componentDidMount and store it in the state. Here there is [an example called withData that we use in our advanced material](https://advanced-react-patterns.reactjs.academy/#higher-order-components)
+A typical use case for using HoCs is fetching some data on componentDidMount and store it in the state. Here there is [an example called withData that we use in our advanced material](https://advanced-react-patterns.reactjs.academy/higher-order-components#withdata)
 
 HoCs are functions that receive a component as an argument and return a new component.
 
@@ -270,10 +270,11 @@ export default compose(
 ```
 
 From a composition perspective both cases are the same since all the HoCs’ input & output are components. Now from a React implementation perspective there are a few considerations:
-Prop name collision, meaning two HoCs inject a prop with the same name. In the previous example it doesn’t happen.
-Performance. Imagine Threads is a form connected to ReduxForm. Everytime the user press a key it would cause a rerender of all the components in case B but not in case A. The reason is props need to be propagated down the composition to Threads through all the components inbetween.
 
-We cover these and similar cases in more detail in any of the in-person React trainings we run, such as the [bootcamp](/react-redux-graphql-bootcamp/), [advanced training](/advanced-react-redux-graphql-bootcamp/), [part-time course](/react-redux-graphql-part-time-course/), and of course the [private on-site corporate training](/corporate-team-training/). If you are interested you can see here some of the exercises we do in this part as our materials are open source. [TODO LINK TO ADVANCED PATTERNS EXERCISE WEBSITE]
+- Prop name collision, meaning two HoCs inject a prop with the same name. In the previous example it doesn’t happen.
+- Performance. Imagine Threads is a form connected to ReduxForm. Everytime the user press a key it would cause a rerender of all the components in case B but not in case A. The reason is props need to be propagated down the composition to Threads through all the components inbetween.
+
+We cover these and similar cases in more detail in any of the in-person React trainings we run, such as the [React bootcamp](/react-redux-graphql-bootcamp/), [advanced React training](/advanced-react-redux-graphql-bootcamp/), [part-time React course](/react-redux-graphql-part-time-course/), and of course the [on-site corporate React training](/corporate-team-training/). If you are interested in checking the material we use to teach HoCs click on this [link](https://advanced-react-patterns.reactjs.academy/higher-order-components).
 
 ## Composition via Render Props <a name="composition-via-render-props"></a>
 
@@ -291,9 +292,27 @@ export default withRouter(
 
 A problem some people observe with HoCs is that composition doesn’t look very declarative from a React perspective. In React we tend to declare intent using components in JSX. In some cases, Render Props can make the code more readable. For instance:
 
-TODO EXAMPLE CODE MEASURE RENDER PROPS
+```
+const CoolComponent = () => (
 
-TODO EXAMPLE CODE MEASURE HOC
+  {/* some cool JSX here */}
+
+  {/* With Render Props we can apply the Measure logic
+  only to the figure. With HoC we would need to
+  wrap the entire CoolComponent */}
+
+  <Measure>
+    {(width, height) => (
+      <figure>
+        <img alt="dog" style={{ width }} src="/dog.jpg" />
+        <figcaption>My width is {width}px</figcaption>
+      </figure>
+    )}
+  </Measure>
+
+  {/* some JSX below */}
+)
+```
 
 With Render props we are composing with the logic we want to reuse, just for the components that are interested in that concern. In the previous example, only the image is composed with the Mesure logic. The HoC approach is composing the entire set of components with the mesure logic.
 
@@ -324,8 +343,7 @@ Hooks remove the cognitive overhead that [Render Props](#composition-via-render-
 
 If you are excited about React Hooks (you probably should) and you want to learn more about it, I recommend you watching my colleague Richard’s video about useState
 
-[TODO CREATE MARKDOWN VIDEO COMPONENT]
-https://www.youtube.com/watch?v=8ejtnaOxXQE&t=25s
+<video youtube-id="8ejtnaOxXQE"></video>
 
 ## Composition versus inheritance in React <a name="composition-vs-inheritance-in-react"></a>
 
