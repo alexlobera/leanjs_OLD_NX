@@ -48,7 +48,7 @@ export class RunkitProvider extends React.Component {
   }
 }
 
-// TODO add some SVG that looks like code
+// TODO add some SVG that looks like code?
 const CodePlaceholder = styled.div`
   height: ${props => props.height || '200px'};
   width: 100%;

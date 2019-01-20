@@ -92,7 +92,7 @@ Black-box testing leads to less fragile tests. If you change the implementation 
 
 Have you heard the mantra “do it, then do it right, then do it better”?
 
-<tweet id="314785735171518464"></tweet>
+<tweet id="314785735171518464" placeholder-height="250px"></tweet>
 
 If you write tests that are likely to be refactored everytime the code it tests is refactored, then it’s likely you are not going to refactor your code that often. Meaning you are likely to just “do it”. I don’t know about you, but most developers I know, including myself, don’t “do it right” in the first iteration. A senior developer will plan for future refactoring.
 
@@ -122,7 +122,7 @@ The problem they often find is that it doesn’t quite look like the code they w
 Real world code is made of many units, not just one. Those units might have dependencies between each other.
 Real world code has side-effects. I/O operations are side-effects. Therefore all applications have side effects by nature. Let me get philosophical, if a program has no side-effects at all, does the program exist if you can’t see or communicate with it? If a tree falls in a forest with no side-effects… did it fall?
 
-!["Apps with no side-effects?"](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effect.png?alt=media)
+<img placeholder-height="558px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effect.png?alt=media" alt="Apps with no side-effects?"></img>
 
 The issue that I observe is that the code they write is:
 Too complex. It has too much unpredictable code or predictable and unpredictable code is not clearly separated.
