@@ -63,7 +63,7 @@ export const EmbedRunkit = ({ children, ...rest }) => (
       if (!load) {
         loadRunkit()
       }
-      let height
+      let height = '200px'
       if (Array.isArray(children) && children[0]) {
         const numberOfLines = children[0].split(/\r\n|\r|\n/).length
         height = `${numberOfLines * 25}px`
