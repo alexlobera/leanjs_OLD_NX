@@ -341,7 +341,7 @@ There are countless advantages of using Hooks compared to HoC and Render Props. 
 
 - Hooks don’t create new components in the three. This makes our tree more readable and performant (bye bye wrapper hell!) since Hooks don’t change our component hierarchy when we use them.
 - Hooks let you split one component into smaller functions that can be reused across different components.
-- Hooks remove the cognitive overhead that [Render Props](#composition-via-render-props) and [HoC](#composition-via-higher-order-components) add when reusing component logic.
+- Hooks remove the cognitive overhead that [Render Props](#composition-via-render-props) and [HoC](#composition-via-hocs) add when reusing component logic.
 
 If you are excited about React Hooks (you probably should) and you want to learn more about it, I recommend you watching my colleague Richard’s video about useState
 
@@ -367,14 +367,14 @@ Due to tight coupling, changes to the base class could potentially break any of 
 
 - In the [React composition model](#react-composition-model) some components don't know who are their children ahead of time (we could also say at implementation time). The children prop enhances the React declarative approach.
 
-- Composition in React is everywhere, not only when we "compose" [higher-order components](#composition-via-higher-order-components).
+- Composition in React is everywhere, not only when we "compose" [higher-order components](#composition-via-hocs).
 
-- With [HoC](#composition-via-higher-order-components) composition happens at runtime, with [Render Props](#composition-via-render-props) composition happens at render time. Render Props gives you access to the component props out of the box
+- With [HoC](#composition-via-hocs) composition happens at runtime, with [Render Props](#composition-via-render-props) composition happens at render time. Render Props gives you access to the component props out of the box
 
 - [React Hooks](#composition-via-react-hooks) allow composition perpendicular to the tree by enabling reusing component logic inside different components. This way, we don’t change the component hierarchy when reusing component logic.
 
 - [React Hooks](#composition-via-react-hooks) let you split one component into smaller functions that can be reused across different components.
 
-- [React Hooks](#composition-via-react-hooks) remove the cognitive overhead that [Render Props](#composition-via-render-props) and [HoC](#composition-via-higher-order-components) add when reusing component logic.
+- [React Hooks](#composition-via-react-hooks) remove the cognitive overhead that [Render Props](#composition-via-render-props) and [HoC](#composition-via-hocs) add when reusing component logic.
 
 - Composition will make your code more reusable, easier to maintain, and easier to test. Long live composition!

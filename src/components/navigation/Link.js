@@ -77,6 +77,7 @@ class Link extends React.Component {
   render() {
     const { to = '', children = '', ...rest } = this.props
     const toHref = to || rest.href
+
     if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
       const { target = '_blank' } = rest
       return (
@@ -84,7 +85,7 @@ class Link extends React.Component {
           {children}
         </BasicLink>
       )
-    } else if (to && to[0] === '#') {
+    } else if (toHref && toHref[0] === '#') {
       const { onClick, ...restLinkScrollProps } = rest
 
       return (
@@ -93,10 +94,10 @@ class Link extends React.Component {
             <LinkScroll
               {...restLinkScrollProps}
               onClick={() => {
-                history.push(to)
+                history.push(toHref)
                 onClick && onClick()
               }}
-              to={to}
+              to={toHref}
             >
               {children}
             </LinkScroll>
