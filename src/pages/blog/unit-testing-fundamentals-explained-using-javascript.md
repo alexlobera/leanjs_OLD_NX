@@ -80,7 +80,7 @@ In case you didn't know, all the test frameworks like Jest simply throw Errors w
 
 Unit tests are tests which test individual units in isolation from the rest of the program. Code should by definition become more readable, flexible, and maintainable when you make it more testable.
 
-# White-box testing Vs. black-box testing
+# White-box testing Vs. black-box testing <a name="white-box-vs-black-box-testing"></a>
 
 A concept I find key when it comes to writing good tests is the idea of white-box testing and black-box testing.
 
@@ -132,7 +132,7 @@ Too complicated. The units are tightly coupled.
 
 Coupling is the degree of interdependence between units. Tight coupling makes code more rigid and fragile. Rigid because the more dependencies a unit has, the more work we need to do to reuse the unit. Fragile because the more dependencies, the more likely a unit is to break when changes are made to its dependencies.
 
-## Redux reducers
+## Redux reducers <a name="redux-reducers"></a>
 
 The challenge we often face when we learn a new skill is to go from the classroom/tutorial examples to the real-world everyday practice. Using pure functions takes practice.
 
@@ -164,7 +164,7 @@ Pure functions reduce the dependency between units. They receive data, transform
 
 The more dependencies our units have, the more we need to mock.
 
-##Mocking
+##Mocking <a name="mocking"></a>
 
 Mocks stand in for real code that the code to be tested depends on, therefore, mocks are an indication of coupling (tightly or loosely).
 

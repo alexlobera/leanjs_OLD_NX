@@ -365,7 +365,7 @@ Due to tight coupling, changes to the base class could potentially break any of 
 
 - Components never know who are their parents.
 
-- In the [React composition model](#react-composition-model) some components don't know who are their children ahead of time (we could also say at implementation time). The children prop enhances the React declarative approach.
+- In the [React composition model](#react-composition-model) some components don't know who are their children ahead of time (we could also say at implementation time). The children prop enhances the [React declarative approach](/blog/introduction-to-thinking-in-react/).
 
 - Composition in React is everywhere, not only when we "compose" [higher-order components](#composition-via-hocs).
 

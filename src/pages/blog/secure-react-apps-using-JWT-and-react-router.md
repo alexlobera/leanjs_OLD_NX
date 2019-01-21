@@ -16,7 +16,7 @@ Protecting the data is really the key one. If there is a bug in your React app, 
 
 In this article we are going to explain how to secure both layers focusing on the client-side of the application.
 
-## Session state
+## Session state <a name="session-state"></a>
 
 Either your app uses REST or GraphQL for the API, both cases work over the HTTP protocol. This means that your API is stateless at the protocol layer.
 
@@ -29,7 +29,7 @@ There is no one solution that fits all. I always say that we, developers, are pa
 
 So how does this client-side state work? Cryptography. The client stores the state, but it’s the server who has the (private) key to validate the session the client claims to be. For this we are going to use JWT.
 
-## JWT
+## JWT <a name="jwt"></a>
 
 JWT (JSON Web Token) is an open, **industry standard** RFC 7519 method for representing **claims securely** between two parties.
 
@@ -41,7 +41,7 @@ We are not going to get into much detail about JWT in this article, but we want 
 
 The [JWT website](https://jwt.io/) has a debugger tool on the home page and you can paste tokens and visualize the content. Have a look, it’s fun to play with it if you haven’t yet.
 
-## Storing the state on the client
+## Storing the state on the client <a name="storing-state-on-the-client"></a>
 
 OK we go for JWT, now the next question is “where do I store the token on the client”? There are typically two places on your web app you can use i) local storage or ii) cookies. If you can (meaning the server and the client are in the same domain/ subdomain) I recommend to use cookies. The reason is that your application won’t have to manage the token. The token will be managed at the browser level, so it makes it more difficult to create a bug that can potentially open some security vulnerability.
 
@@ -49,7 +49,7 @@ In the end, where you store the token is an implementation detail. In our [React
 
 First part, protecting the data, done! What did we have to implement on our React app for this? Nothing. The API will set a cookie, and the API will read and verify the cookie on every request before returning or manipulating any data. We told you it was going to be fast. The token is managed by the browser not by your React app.
 
-## Authentication vs Authorization
+## Authentication vs Authorization <a name="authentication-vs-authorization"></a>
 
 Authentication is the act of matching a session with a given user. Example, given a session I can securely identify the user is user_id 123.
 
@@ -59,7 +59,7 @@ Obviously authentication must happen before authorization.
 
 Authentication starts by having a mechanism for users to get a valid token they can use when accessing different resources in the app. Typically this will be a form that will submit the credentials (e.g. username and password) to an API. You can see how to create a React login form in this article https://reactjs.academy/blog/react-forms-controlled-and-uncontrolled-components/.
 
-## Protecting routes on the client
+## Protecting routes on the client <a name="protecting-routes-on-the-client"></a>
 
 This part is about deciding in your React code what views a given session can access to. As we discussed, we secure the data properly at the API layer, therefore the React layer does not add extra security but better user experience navigating the site.
 
@@ -67,17 +67,17 @@ There is mainly one task your React app needs to take care of, to stop the user 
 
 Example, given a website with public and private routes, if the user is not authenticated then redirect the user to the login page otherwise display the App.
 
-![React component tree private branch with React Router](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Fpriate-branch.jpeg?alt=media)
+<img placeholder-height="256px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Fpriate-branch.jpeg?alt=media" alt="React component tree private branch with React Router"></img>
 
 You can implement that easily by adding a condition at the Root level in the component tree making the App branch (left branch) render only if the condition is true (e.g there is a valid token)
 
-![React Router conditional rendering in the component tree](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Fconditional-rendering.jpeg?alt=media)
+<img placeholder-height="241px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Fconditional-rendering.jpeg?alt=media" alt="React Router conditional rendering in the component tree"></img>
 
 The following is an example of how to implement that conditional rendering in your React component
 
-![Conditional rendering code example with React Router](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Fconditional-rendering-code-2.jpg?alt=media)
+<img placeholder-height="320px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Fconditional-rendering-code-2.jpg?alt=media" alt="Conditional rendering code example with React Router"></img>
 
-In the previous example we’ve seen the Redirect component. The Redirect component is a declarative way to take the user to a different path. Internally the Redirect component is doing “history.push(path)”. The React component encapsulates some imperative code so we can be declarative. Declarative is the prefered choice in React so you should try to avoid using history.push(path).
+In the previous example we’ve seen the Redirect component. The Redirect component is a declarative way to take the user to a different path. Internally the Redirect component is doing “history.push(path)”. The React component encapsulates some imperative code so we can be declarative. [Declarative is the prefered choice in React](/blog/introduction-to-thinking-in-react/) so you should try to avoid using history.push(path).
 
 If we use a cookie to store the JWT, then the getSession function implementation in that example could be this
 
@@ -156,7 +156,7 @@ return (
 )
 ```
 
-## Let’s recap
+## Let’s recap <a name="recap"></a>
 
 - You can store the user’s session either on the client or on the server. On the server gives you more control but less scalability, the opposite is true on the client.
 - JWT is the de facto choice for storing the state on the client. JWT is secured but the payload is not private.
