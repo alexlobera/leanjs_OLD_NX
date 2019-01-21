@@ -31,7 +31,7 @@ export default compose(
 
 You can compose functions as long as the output of one function is the expected input of the next function. You can’t compose two functions if one returns an array and the next one’s input expects a string. We can illustrate this idea with the following image:
 
-![diagram function composition](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ffunction-composition-min.png?alt=media)
+<img placeholder-height="176px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ffunction-composition-min.png?alt=media" alt="diagram function composition"></img>
 
 Considering that the output of g is the input of f, which function do you think is executed first, f or g? g is executed first. Imagine you are the JS runtime and try to run the following code f(g(x)). You can’t run f until you resolve its argument.
 
@@ -81,21 +81,21 @@ Since function composition uses a circle as operator, I'm also going to use circ
 
 ### Side perspective of a n-children per node tree
 
-![React component tree side perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-many-children-min.png?alt=media)
+<img placeholder-height="387px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-many-children-min.png?alt=media" alt="React component tree side perspective many children"></img>
 
 ### "Top" perspective of the previous tree
 
-![React component tree top perspective many children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ftop-perspective-many-children-min.png?alt=media)
+<img placeholder-height="507px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Ftop-perspective-many-children-min.png?alt=media" alt="React component tree top perspective many children"></img>
 
 I guess the first one makes more sense in this case because every parent has more than one child. But, what if parents have only one child?
 
 ### Tree side perspective of a one-child per node tree
 
-![React component tree side perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-min.png?alt=media)
+<img placeholder-height="577px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fside-perspective-min.png?alt=media" alt="React component tree side perspective one children"></img>
 
 ### "Top" perspective of the previous tree
 
-![React component tree top perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media)
+<img placeholder-height="559px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media" alt="React component tree top perspective one children"></img>
 
 To me, in this case, the second image (concentric circles) illustrates better the case.
 
@@ -156,7 +156,7 @@ we can state:
 - The second Text has one child. We can also say Text two is composed with the string \@alex_lobera
 - We don't know who is TwitterProfile's parent.
 
-![Example TwitterProfile](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fchildren-example2-min.png?alt=media)
+<img placeholder-height="241px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fchildren-example2-min.png?alt=media" alt="Example TwitterProfile"></img>
 
 If we look at the following component in isolation
 
@@ -172,7 +172,7 @@ we can state:
 
 There is something very nice about “children”, it makes composition more declarative in the component tree.
 
-<tweet id="1021850499618955272"></tweet>
+<tweet id="1021850499618955272" placeholder-height="1054px"></tweet>
 
 ## Composition via Higher-Order components (HoCs) <a name="composition-via-hocs"></a>
 
@@ -224,29 +224,29 @@ Notice the reduceRight in the compose function. **Composition goes from right to
 
 HoCs return one component, that's why concentric circles is the prefered way by many people to illustrate the previous example.
 
-![React component tree top perspective one children](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media)
+<img placeholder-height="559px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconcentric-hoc-fun.png?alt=media" alt="React component tree top perspective one children"></img>
 
 Notice the previous concentric circles represent the higher-order component functions but not the output of those functions (meaning the components that are rendered). We said that a higher-order component is a function that returns a new component, but that new component can contain other new components itself. That’s the case of withRouter and withApollo.
 
 ###withApollo added two new components in the hierarchy
 
-![withApollo added two new components in the hierarchy](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fapollo-min.png?alt=media)
+<img placeholder-height="255px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fapollo-min.png?alt=media" alt="withApollo added two new components in the hierarchy"></img>
 
 ###withRouter added two new components in the hierarchy
 
-![withRouter added two new components in the hierarchy](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2FwithRouter-min.png?alt=media)
+<img placeholder-height="257px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2FwithRouter-min.png?alt=media" alt="withRouter added two new components in the hierarchy"></img>
 
 ###connect only added a new component in the hierarchy
 
-![connect only added a new 1 component in the hierarchy](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconnect-min.png?alt=media)
+<img placeholder-height="247px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fconnect-min.png?alt=media" alt="connect only added a new 1 component in the hierarchy"></img>
 
 ###Threads is the enhanced component.
 
-![Threads is the enhanced component](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2FThreads-min.png?alt=media)
+<img placeholder-height="247px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2FThreads-min.png?alt=media" alt="Threads is the enhanced component"></img>
 
 Wait, HoCs are functions, not components so how can we compose them? Same as the function composition we explained at the beginning of the article, although in this case the input & output of all the HoCs are always components:
 
-![HoC composition](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fhoc-composition.png?alt=media)
+<img placeholder-height="200px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fhoc-composition.png?alt=media" alt="HoC composition"></img>
 
 Do you think the order of the HoCs matter? For instance, do the following two cases work the same:
 
@@ -323,15 +323,15 @@ Render Props is defined inside a method that is rendered, this means **compositi
 
 Before Hooks, composition in React happened only vertically (bottom-up) between components in the tree. Heads up, I'm specifically talking about composition in the component tree and not data flow. Data flow in the component tree is top-down
 
-![React component composition model](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-components-composition-model-min.png?alt=media)
+<img placeholder-height="396px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-components-composition-model-min.png?alt=media" alt="React component composition model"></img>
 
 > Hooks allows composition perpendicular to the tree. - Sebastian Markbåge (author of the Hooks proposal)
 
-<tweet id="1057392329739296768"></tweet>
+<tweet id="1057392329739296768" placeholder-height="253px"></tweet>
 
 Composition perpendicular to the tree means that now we can **reuse component logic inside different components**. This is genius.
 
-![React Hooks composition model](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-hooks-composition-model-min.png?alt=media)
+<img placeholder-height="365px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Freact-hooks-composition-model-min.png?alt=media" alt="React Hooks composition model"></img>
 
 I find brilliant the atom and electron analogy that Dan Abramov used to describe React Components and React Hooks.
 
