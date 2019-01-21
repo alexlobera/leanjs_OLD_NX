@@ -6,7 +6,7 @@ const withLazyLoad = ({
   lazyLoadByDefault = true,
 } = {}) => Component => ({
   lazyLoad = lazyLoadByDefault,
-  placeholderHeight = '400px',
+  placeholderHeight,
   ...rest
 }) => {
   const element = <Component {...rest} />
