@@ -13,12 +13,8 @@ import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
 import { Card, Video } from '../components/elements'
 import { blogAuthors } from '../config/data'
-import {
-  Code,
-  Tweet,
-  Blockquote,
-  Codesandbox,
-} from '../components/blog/Markdown'
+import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
+import Tweet from '../components/blog/Tweet'
 import ShareButtons from '../components/blog/ShareButtons'
 
 export const formatPostTitle = title => title.replace('<br/>', ' ')

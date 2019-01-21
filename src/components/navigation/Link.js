@@ -2,11 +2,12 @@ import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import { Route } from 'react-router-dom'
 import styled from 'styled-components'
-import { Link as DefaultLinkScroll } from 'react-scroll'
+import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
 import { GREY2 } from '../../config/styles'
 
 export const DEFAULT_SCROLL_OFFSET = -125
+export const DEFAULT_SCROLL_DURATION = 500
 
 export const ANCHOR_STYLE = `
     cursor: pointer;
@@ -47,7 +48,7 @@ const RouterLink = styled(GatsbyLink)`
 export const LinkScroll = styled(({ to, secondary, ...rest }) => (
   <DefaultLinkScroll
     smooth
-    duration={500}
+    duration={DEFAULT_SCROLL_DURATION}
     offset={DEFAULT_SCROLL_OFFSET}
     to={to && to.slice(1, to.length)}
     {...rest}
@@ -57,53 +58,71 @@ export const LinkScroll = styled(({ to, secondary, ...rest }) => (
 `
 LinkScroll.displayName = 'LinkScroll'
 
-const Link = ({ to = '', children = '', ...rest }) => {
-  const toHref = to || rest.href
-  if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
-    const { target = '_blank' } = rest
-    return (
-      <BasicLink {...rest} target={target} href={toHref}>
-        {children}
-      </BasicLink>
-    )
-  } else if (to && to[0] === '#') {
-    const { onClick, ...restLinkScrollProps } = rest
+class Link extends React.Component {
+  componentDidMount() {
+    const hash = location.hash.substr(1)
+    if (hash && hash === this.props.name) {
+      // adds smooth scrolling to anchor links
+      setTimeout(() => {
+        window.scrollTo(0, 0)
+        scroller.scrollTo(hash, {
+          smooth: true,
+          duration: DEFAULT_SCROLL_DURATION,
+          offset: DEFAULT_SCROLL_OFFSET,
+        })
+      }, 100)
+    }
+  }
 
-    return (
-      <Route
-        render={({ history }) => (
-          <LinkScroll
-            {...restLinkScrollProps}
-            onClick={() => {
-              history.push(to)
-              onClick && onClick()
-            }}
-            to={to}
-          >
-            {children}
-          </LinkScroll>
-        )}
-      />
-    )
-  } else if (!to) {
-    return <BasicLink {...rest}>{children}</BasicLink>
-  } else {
-    // this two attrs where causing an anoying error while developing...
-    // GatsbyLink does not support strange props
-    delete rest.cta
-    delete rest.secondary
+  render() {
+    const { to = '', children = '', ...rest } = this.props
+    const toHref = to || rest.href
+    if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
+      const { target = '_blank' } = rest
+      return (
+        <BasicLink {...rest} target={target} href={toHref}>
+          {children}
+        </BasicLink>
+      )
+    } else if (to && to[0] === '#') {
+      const { onClick, ...restLinkScrollProps } = rest
 
-    // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
-    const dest =
-      to.slice(-1) === '/' || to.indexOf('?') > -1 || to.indexOf('#') > -1
-        ? to
-        : to + '/'
+      return (
+        <Route
+          render={({ history }) => (
+            <LinkScroll
+              {...restLinkScrollProps}
+              onClick={() => {
+                history.push(to)
+                onClick && onClick()
+              }}
+              to={to}
+            >
+              {children}
+            </LinkScroll>
+          )}
+        />
+      )
+    } else if (!to) {
+      return <BasicLink {...rest}>{children}</BasicLink>
+    } else {
+      // this two attrs where causing an anoying error while developing...
+      // GatsbyLink does not support strange props
+      delete rest.cta
+      delete rest.secondary
 
-    return (
-      <RouterLink {...rest} to={dest}>
-        {children}
-      </RouterLink>
-    )
+      // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
+      const dest =
+        to.slice(-1) === '/' || to.indexOf('?') > -1 || to.indexOf('#') > -1
+          ? to
+          : to + '/'
+
+      return (
+        <RouterLink {...rest} to={dest}>
+          {children}
+        </RouterLink>
+      )
+    }
   }
 }
 
