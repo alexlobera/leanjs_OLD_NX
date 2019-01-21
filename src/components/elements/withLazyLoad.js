@@ -4,11 +4,21 @@ import LazyLoad from 'react-lazyload'
 const withLazyLoad = ({
   defaultConfig = {},
   lazyLoadByDefault = true,
-} = {}) => Component => ({ lazyLoad = lazyLoadByDefault, ...rest }) => {
+} = {}) => Component => ({
+  lazyLoad = lazyLoadByDefault,
+  placeholderHeight = '400px',
+  ...rest
+}) => {
   const element = <Component {...rest} />
   const lazyLoadConfig =
     lazyLoad === true ? defaultConfig : { ...defaultConfig, ...lazyLoad }
-  return lazyLoad ? <LazyLoad {...lazyLoadConfig}>{element}</LazyLoad> : element
+  return lazyLoad ? (
+    <LazyLoad height={placeholderHeight} {...lazyLoadConfig}>
+      {element}
+    </LazyLoad>
+  ) : (
+    element
+  )
 }
 
 export default withLazyLoad

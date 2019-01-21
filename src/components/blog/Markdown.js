@@ -19,16 +19,6 @@ export const Code = props => {
   }
 }
 
-export const Tweet = ({ id }) => {
-  if (typeof window !== 'undefined') {
-    const { TwitterTweetEmbed } = require('react-twitter-embed')
-
-    return <TwitterTweetEmbed tweetId={id} />
-  }
-
-  return null
-}
-
 export const Codesandbox = ({ height = '600px', id, view = 'split' }) => (
   <iframe
     src={`https://codesandbox.io/embed/${id}?verticallayout=1&view=${view}`}
