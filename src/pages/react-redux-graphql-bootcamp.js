@@ -60,7 +60,7 @@ const Boocamps = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Video youtubeID="6hmKu1-vW-8" />
+            <Video youtubeId="6hmKu1-vW-8" />
             <P>
               Listen to Polina Stoyanova, a software engineer from tray.io who
               attended our last bootcamp, on her experience at the bootcamp.

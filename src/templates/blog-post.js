@@ -11,7 +11,7 @@ import { Breadcrumb, Link } from '../components/navigation'
 import { WHITE } from '../config/styles'
 import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
-import { Card } from '../components/elements'
+import { Card, Video } from '../components/elements'
 import { blogAuthors } from '../config/data'
 import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
 import Tweet from '../components/blog/Tweet'
@@ -19,6 +19,12 @@ import ShareButtons from '../components/blog/ShareButtons'
 
 export const formatPostTitle = title => title.replace('<br/>', ' ')
 
+const pre = styled.pre`
+  overflow: hidden;
+  > div {
+    overflow: hidden;
+  }
+`
 const img = styled(Image)`
   margin-top: 10px !important;
   margin-bottom: 10px !important;
@@ -34,12 +40,14 @@ const renderAst = new rehypeReact({
     h5: H5,
     ul: Ul,
     li: Li,
+    pre,
     img,
     code: Code,
     span: Span,
     tweet: Tweet,
     blockquote: Blockquote,
     codesandbox: Codesandbox,
+    video: Video,
   },
 }).Compiler
 

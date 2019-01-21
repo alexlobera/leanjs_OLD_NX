@@ -23,7 +23,10 @@ const IntroReduxSession = ({ title }) => (
       </Li>
       <Li>React-Redux: Provider and Connect</Li>
 
-      <Li>Build your own version of Redux using TDD</Li>
+      <Li>
+        Build your own version of
+        <code>Redux</code> using TDD
+      </Li>
       <Li>Fetching data from the server to Redux</Li>
       <Li>Configure Redux from scratch in a React app</Li>
     </Ul>

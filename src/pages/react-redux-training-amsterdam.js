@@ -57,7 +57,7 @@ const PartTimeAmsterdam = () => (
               <InstallmentsCard price={1500} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
-              <Video youtubeID="E_4eQQHjc7A" />
+              <Video youtubeId="E_4eQQHjc7A" />
               <TrainingDetails
                 date={training.dates}
                 timing="9am - 6pm Friday's"

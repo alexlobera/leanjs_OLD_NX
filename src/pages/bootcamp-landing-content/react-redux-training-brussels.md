@@ -2,7 +2,7 @@
 city: Brussels
 country: Belgium
 url: /react-redux-training-brussels/
-youtubeID: yvROXLQ1jHg
+youtubeId: yvROXLQ1jHg
 paragraphs:
   - Join us for our first addition of the <b>React, Redux, GraphQL</b>
     traning in <b>Brussels, Belgium</b> - inn the heart of Europe.

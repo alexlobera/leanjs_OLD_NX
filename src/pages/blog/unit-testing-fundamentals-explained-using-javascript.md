@@ -100,7 +100,7 @@ This is a fundamental problem in unit tests, if you test how the code is impleme
 
 That being said, sometimes testing the right way is not easy. In order to write black-box tests we need to make sure that the code we want to test is written in a way that it always produces the same output given the same input. To test that type of code we don’t need to know any implementation detail to assert the code to be tested does **what** it is supposed to do. We only need to set the input parameters, run the code, and assert that the output parameters are the expected ones. We need pure functions.
 
-#Pure functions
+#Pure functions <a name="pure-functions"></a>
 
 Pure functions are functions that:
 
@@ -128,7 +128,7 @@ The issue that I observe is that the code they write is:
 Too complex. It has too much unpredictable code or predictable and unpredictable code is not clearly separated.
 Too complicated. The units are tightly coupled.
 
-## Coupling
+## Coupling <a name="coupling"></a>
 
 Coupling is the degree of interdependence between units. Tight coupling makes code more rigid and fragile. Rigid because the more dependencies a unit has, the more work we need to do to reuse the unit. Fragile because the more dependencies, the more likely a unit is to break when changes are made to its dependencies.
 

@@ -138,7 +138,7 @@ const AboutUs = () => (
         <Row>
           <Col xs={12} md={5} smOrder={2}>
             <Video
-              youtubeID="QiR8iNq3tCQ"
+              youtubeId="QiR8iNq3tCQ"
               description={
                 <P>Alex talking about advanced testing at Facebook London HQ</P>
               }
@@ -644,7 +644,7 @@ const AboutUs = () => (
       <Grid>
         <Row>
           <Col xs={12} md={5} smOrder={2}>
-            <Video youtubeID="Rx2v_6I7PMM" />
+            <Video youtubeId="Rx2v_6I7PMM" />
           </Col>
           <Col xs={12} md={6} mdOffset={1} smOrder={1}>
             <H2Ref>

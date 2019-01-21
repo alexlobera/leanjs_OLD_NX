@@ -64,7 +64,7 @@ const ReactNativeBoocamp = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Video youtubeID="Z4s1gf09oeY" />
+            <Video youtubeId="Z4s1gf09oeY" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React Native training right for me?</H2>

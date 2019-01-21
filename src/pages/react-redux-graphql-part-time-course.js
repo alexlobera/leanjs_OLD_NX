@@ -56,7 +56,7 @@ const PartTime = () => (
       <Grid>
         <Row>
           <Col md={5}>
-            <Video youtubeID="E_4eQQHjc7A" />
+            <Video youtubeId="E_4eQQHjc7A" />
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>Is this React part-time course right for me?</H2>
