@@ -80,7 +80,7 @@ In case you didn't know, all the test frameworks like Jest simply throw Errors w
 
 Unit tests are tests which test individual units in isolation from the rest of the program. Code should by definition become more readable, flexible, and maintainable when you make it more testable.
 
-# White-box testing Vs. black-box testing <a name="white-box-vs-black-box-testing"></a>
+## White-box testing Vs. black-box testing <a name="white-box-vs-black-box-testing"></a>
 
 A concept I find key when it comes to writing good tests is the idea of white-box testing and black-box testing.
 
@@ -100,7 +100,7 @@ This is a fundamental problem in unit tests, if you test how the code is impleme
 
 That being said, sometimes testing the right way is not easy. In order to write black-box tests we need to make sure that the code we want to test is written in a way that it always produces the same output given the same input. To test that type of code we don’t need to know any implementation detail to assert the code to be tested does **what** it is supposed to do. We only need to set the input parameters, run the code, and assert that the output parameters are the expected ones. We need pure functions.
 
-#Pure functions <a name="pure-functions"></a>
+## Pure functions <a name="pure-functions"></a>
 
 Pure functions are functions that:
 
@@ -164,7 +164,7 @@ Pure functions reduce the dependency between units. They receive data, transform
 
 The more dependencies our units have, the more we need to mock.
 
-##Mocking <a name="mocking"></a>
+## Mocking <a name="mocking"></a>
 
 Mocks stand in for real code that the code to be tested depends on, therefore, mocks are an indication of coupling (tightly or loosely).
 
