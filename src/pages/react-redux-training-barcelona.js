@@ -8,7 +8,7 @@ import {
   UpcomingTrainingSection,
   TargetAudienceSection,
   TrainingDetails,
-  ROY_DERKS,
+  HORACIO_HERRERA,
   ALEX_LOBERA,
 } from '../components/training'
 import Header from '../components/layout/Header'
@@ -17,10 +17,10 @@ import { Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Breadcrumb } from '../components/navigation'
-import { selectFirstTraining, PART_TIME, AMSTERDAM } from '../config/data'
+import { selectFirstTraining, PART_TIME, BARCELONA } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
-const training = selectFirstTraining(PART_TIME, AMSTERDAM)
+const training = selectFirstTraining(PART_TIME, BARCELONA)
 
 const PartTimeBarcelona = () => (
   <React.Fragment>
@@ -69,7 +69,7 @@ const PartTimeBarcelona = () => (
                     </Link> */}
                   </React.Fragment>
                 }
-                coaches={[ROY_DERKS, ALEX_LOBERA]}
+                coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
               />
               <Row>
                 <Newsletter />{' '}
