@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import { LinkButton } from '../components/buttons'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
@@ -26,7 +27,8 @@ import {
 import { Breadcrumb } from '../components/navigation'
 import { selectTrainings, ADVANCED_REACT } from '../config/data'
 
-const trainings = selectTrainings(ADVANCED_REACT)
+const trainings = selectTrainings(ADVANCED_REACT) 
+const startDate = moment(trainings[0].dateStartsOn).format('D MMM')
 
 const Boocamps = () => (
   <React.Fragment>
@@ -98,7 +100,7 @@ const Boocamps = () => (
             </Ul>
             <P>
               <LinkButton cta to="/react-redux-graphql-bootcamp-lisbon">
-                Next one: October 11th, Lisbon >>
+                Next one: {`${startDate}, ${trainings[0].city} >>`}
               </LinkButton>
             </P>
           </Col>
