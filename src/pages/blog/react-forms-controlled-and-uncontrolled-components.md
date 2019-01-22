@@ -15,7 +15,7 @@ What is a web form? It’s a sort of container that holds some data (state) that
 - Handling **form submission**. React doesn’t provide any implementation for this.
 - Getting values in and out of **form state**. There are two approaches that React provides to handle the state of the form called controlled and uncontrolled components
 
-## Form state
+## Form state <a name="form-state"></a>
 
 The state of a form encompasses not only the value of each field (input, select, etc) but also the interaction between the user and the form itself. Here some examples:
 
@@ -24,7 +24,7 @@ The state of a form encompasses not only the value of each field (input, select,
 - Which fields have errors?
 - Are we currently submitting?
 
-## Controlled and Uncontrolled components
+## Controlled and Uncontrolled components <a name="controlled-uncontrolled"></a>
 
 Heads up! Controlled/uncontrolled is a characteristic that doesn’t only have to do with forms. It has to do with how a component relates to some state. Therefore **controlled and uncontrolled components have to do with components, not only with forms in React**.
 
@@ -79,7 +79,7 @@ Is the following component controlled or uncontrolled? Can you type "hello" in i
 
 The previous input is uncontrolled because we are not setting the "value" prop. We are setting the defaultValue which is the initial value set internally in the input state. Since we are not controlling the value of the input it changes even when you type on it.
 
-## Example of a Login form with controlled components
+## Example of a Login form with controlled components <a name="login-example"></a>
 
 <codesandbox id="712kk1y7o1"></codesandbox>
 
@@ -87,7 +87,7 @@ React recommends in most cases to use controlled components to handle a form. It
 
 > “React exposed the inherent complexity of forms interactions that was always there” - [Jordan Walke](https://twitter.com/jordwalke), creator of ReactJS.
 
-## Form library
+## Form library <a name="form-library"></a>
 
 We recommend you to use an external **library to implement forms in React**. The library we recommend at ReactJS Academy and we use at [LeanJS](https://leanjs.com/) with our client work is [Final Form](https://github.com/final-form/react-final-form). The reasons we recommend Final Form over other libraries are:
 
@@ -99,7 +99,7 @@ We recommend you to use an external **library to implement forms in React**. The
 
 Quoting the React documentation about these form libraries, they are [“built on the same principles of controlled components and managing state — so don’t neglect to learn them (the principles)”](https://reactjs.org/docs/forms.html#fully-fledged-solutions)
 
-## Controlled and uncontrolled beyond forms
+## Controlled and uncontrolled beyond forms <a name="controlled-uncontrolled-beyond-forms"></a>
 
 Controlled components require more code, while uncontrolled components are the opposite. Let’s have a look at some code and analyze why that’s the case.
 
@@ -127,7 +127,7 @@ This [burger menu](https://github.com/negomi/react-burger-menu) is a good exampl
 
 &lt;Menu isOpen={this.state.isOpen}/&gt; // [this is controlled](https://github.com/negomi/react-burger-menu#open-state)
 
-## Conclusion
+## Conclusion <a name="conclusion"></a>
 
 - Uncontrolled component, the component owns the state.
 - Controlled component, the component does not own the state.
