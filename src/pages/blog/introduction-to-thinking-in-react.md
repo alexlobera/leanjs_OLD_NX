@@ -11,11 +11,12 @@ In this post we are going focus on the declarative part of React.
 
 If you look at the following code, can you try to imagine this app?
 
-![Can you imagine this React app](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fcan-you-imagine-this.png?alt=media)
+<img placeholder-height="248px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fcan-you-imagine-this.png?alt=media" alt="Can you imagine this React app"></img>
 
 It could be something like the image below. It has a navigation bar, a header, some filter (it might look like tabs), there is a list of books, etc.
 
-![Screenshot of the Thinking in React exercise of ReactJS Academy](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Freactjs-academy-exercise.png?alt=media)
+<img placeholder-height="417px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Freactjs-academy-exercise.png?alt=media" alt="Screenshot of the Thinking in React exercise of ReactJS Academy"></img>
+_You can see a live version [here](https://thinking-in-react.reactjs.academy/)_
 
 The point is that you read the code, and it told you something. Each “piece” is declaring what it is, we’ll call them **components**.
 
@@ -36,21 +37,22 @@ So, why declarative UIs are better?:
 
 A React app is made of many components. Looking at the following image, which data structure do you think represents the components in a React app?
 
-![Screenshot component tree of a React app](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fscreenshot-component-tree.png?alt=media)
+<img placeholder-height="301px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fscreenshot-component-tree.png?alt=media" alt="Screenshot component tree of a React app"></img>
 
 It’s a tree. We think of UIs as hierarchical structures, it’s a very natural mental model for humans. The DOM is also a tree.
 
-![Example React component tree](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fcomponent-tree.png?alt=media)
+<img placeholder-height="302px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fcomponent-tree.png?alt=media" alt="Example React component tree"></img>
 
 I always find it very useful to think of my React apps as simply trees, not as a set of pages or views, as I did at the beginning when I moved from MVC frameworks to React (that might be your case). If you are just getting started with React, I recommend you draw out on paper (or any other fancy tool) the component tree of your app, just like the image above.
 
-![Component tree comparison](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fcomponent-tree-comparison.png?alt=media)_Components can “contain” other components. Intentionally avoided the word “compose” at this point._
+<img placeholder-height="241px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fcomponent-tree-comparison.png?alt=media" alt="Component tree comparison"></img>
+_Components can “contain” other components. Intentionally avoided the word “compose” at this point. [We explain composition in another post](/blog/react-is-all-about-composition-react-hooks-render-props-hocs)</a>_
 
 ## State
 
 In a declarative world, the state of the world is king. Let’s forget about React for a second. If you look at the image below, is the current selected tab (3rd from left) part of the state of the app? Is the data that comes from the API to display the chart part of the state of the app?
 
-![What is the state of an app](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fapp-state.png?alt=media)
+<img placeholder-height="266px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fapp-state.png?alt=media" alt="What is the state of an app"></img>
 
 Imagine the user navigates to the 3rd tab, then the app fetches some data and it displays a different chart. Then the user switches to a different app. If we tell the user that when she or he comes back to our app it will have the same “state”, what do you think she or he expects to see?
 The selected tab and the data from the API are part of the state.
@@ -59,7 +61,7 @@ The selected tab and the data from the API are part of the state.
 
 In a declarative UI a developer is not in charge of changing the UI when something happens. We don’t have to worry about hiding or showing divs, etc.
 
-![In React dev's job is not to add or remove divs](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fno-jquery.png?alt=media)
+<img placeholder-height="330px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fno-jquery.png?alt=media" alt="In React dev's job is not to add or remove divs"></img>
 
 In a declarative UI we are in charge of receiving state and rendering what the UI needs to be, given that particular state.
 
@@ -84,7 +86,7 @@ Components are made of two main ingredients, state and props. We know that state
 
 Considering the following component tree, if we have an array of books that is part of the state of the app, which component should be in charge of managing the books array? In other words, in which component does the books state live?
 
-![One-way React data flow model AKA 1-way data binding](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Flifting-state-1.png?alt=media)
+<img placeholder-height="331px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Flifting-state-1.png?alt=media" alt="One-way React data flow model AKA 1-way data binding"></img>
 
 What if we tell you that:
 
@@ -93,7 +95,7 @@ What if we tell you that:
 - BookList component has to display the books array.
 - Components can share state with their children but not with their parent.
 
-![One-way React data flow model AKA 1-way data binding component owns state](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Flifting-state-2.png?alt=media)
+<img placeholder-height="303px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Flifting-state-2.png?alt=media" alt="One-way React data flow model AKA 1-way data binding component owns state"></img>
 
 In this case, Books component should own the state of the books array. Now, how do we pass down the books array from Books component to BookList component? We use something called **props**.
 
@@ -101,8 +103,8 @@ Props can be any JavaScript type: number , undefined , null , string, object, fu
 
 When a component receives a prop with data that is part of some state, the component won’t update that data it has received. Instead, the data will be updated in the state (some parent component), and then the child component will automatically receive the updated version of the data via props again. Remember, if children need to update data, they can always receive a prop with a function that can update it. Updating state in React is explicit, there is no data binding between models and views like in other paradigms. This is what we call **one-way data flow** or **one-way data binding**.
 
-![In the one-way React data flow model data flows top-down](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Flifting-state-3.png?alt=media)
+<img placeholder-height="295px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Flifting-state-3.png?alt=media" alt="In the one-way React data flow model data flows top-down"></img>
 
 Components are reusable UIs that encapsulate implementation details like behavior and visuals. Components are independent of each other, but they have well-defined interfaces so they can be composed together to create complex UIs easily.
 
-Here is the [exercise for this part](https://github.com/reactjsacademy/thinking-in-react), if you want to give it a try. Alternatively, you are welcome to join any of our in-person trainings. Looking forward to meeting you :)
+Here is the [exercise for this part](https://github.com/reactjsacademy/thinking-in-react) which is based on this article, if you want to give it a try. [The solution of the exercise is deployed here](https://thinking-in-react.reactjs.academy). Alternatively, you are welcome to join any of our in-person trainings. Looking forward to meeting you :)
