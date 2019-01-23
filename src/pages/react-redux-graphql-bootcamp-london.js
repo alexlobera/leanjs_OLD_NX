@@ -70,7 +70,7 @@ const BootcampLondon = () => (
                   currency: training.currency,
                 }}
               />
-              <ScholarshipsCard />
+              {/* <ScholarshipsCard /> */}
               <InstallmentsCard price={2160} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
