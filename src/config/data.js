@@ -51,7 +51,7 @@ export const trainings = [
     cityShortName: 'London',
     location: 'Publicis.Sapient - Eden House, 8 Spital Square',
     pathUrl: '/advanced-react-redux-graphql-bootcamp-london',
-    trainingInstanceId: '',
+    trainingInstanceId: '5c487cd6672ede0e7feba974',
     price: 1250,
     currency: 'gbp',
   },
