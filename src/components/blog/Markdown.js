@@ -3,17 +3,23 @@ import { EmbedRunkit } from './Runkit'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
+function getEditor({ noInline, code }) {
+  return (
+    <LiveProvider code={code} scope={{ styled }} noInline={noInline}>
+      <LiveEditor tabIndex="-1" />
+      <LiveError />
+      <LivePreview />
+    </LiveProvider>
+  )
+}
+
 export const Code = props => {
   if (props.className === 'language-runkit') {
     return <EmbedRunkit {...props} source={props.children.toString()} />
   } else if (props.className === 'language-.jsx') {
-    return (
-      <LiveProvider code={props.children.toString()}>
-        <LiveEditor tabIndex="-1" />
-        <LiveError />
-        <LivePreview />
-      </LiveProvider>
-    )
+    return getEditor({ noInline: false, code: props.children.toString() })
+  } else if (props.className === 'language-.jsx-inline') {
+    return getEditor({ noInline: true, code: props.children.toString() })
   } else {
     return <code>{props.children}</code>
   }

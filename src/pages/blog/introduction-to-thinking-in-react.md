@@ -107,4 +107,10 @@ When a component receives a prop with data that is part of some state, the compo
 
 Components are reusable UIs that encapsulate implementation details like behavior and visuals. Components are independent of each other, but they have well-defined interfaces so they can be composed together to create complex UIs easily.
 
-Here is the [exercise for this part](https://github.com/reactjsacademy/thinking-in-react) which is based on this article, if you want to give it a try. [The solution of the exercise is deployed here](https://thinking-in-react.reactjs.academy). Alternatively, you are welcome to join any of our in-person trainings. Looking forward to meeting you :)
+## Components everywhere
+
+Everything on the UI can be a component (including the metas in the head! when we say everything it means everything :). You can learn more about using [components everywhere in this article](/blog/styling-in-react/#components-everywhere).
+
+## Let's practice
+
+Here is the [exercise for this part](https://github.com/reactjsacademy/thinking-in-react) which is based on this article that we use in our training. You can give it a try to practice what you just learned in this article. [The solution of the exercise is deployed here](https://thinking-in-react.reactjs.academy). Alternatively, you are welcome to join any of our in-person trainings. Looking forward to meeting you :)
