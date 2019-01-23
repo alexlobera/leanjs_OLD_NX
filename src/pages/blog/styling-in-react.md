@@ -22,7 +22,7 @@ One of the most amazing examples of this separation that I’ve seen is CSS Zen 
 
 You can visit [http://www.csszengarden.com/](http://www.csszengarden.com/), check some designs, and compare the HTML of some. You’ll see that the only line that changes is the one that imports the CSS. Impressive from the CSS and HTML separation of concerns point of view.
 
-## Glogal styles <a name="global-styles"></a>
+## Global styles <a name="global-styles"></a>
 
 One of the problems you might have with the previous way of separating concerns is maintainability of the code base. In the following example, you can see how a button is styled differently using rules based on sign-up, btn-facebook, chart-view, search, etc. The example is probably very extreme, but it makes the point.
 
