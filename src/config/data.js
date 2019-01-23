@@ -43,6 +43,19 @@ const emptyTraining = (type, city) => ({
 
 export const trainings = [
   {
+    dates: '07-09 March, 2018',
+    dateStartsOn: new Date('2019-03-07T18:00:00'),
+    city: LONDON,
+    country: 'UK',
+    type: ADVANCED_REACT,
+    cityShortName: 'London',
+    location: 'Publicis.Sapient - Eden House, 8 Spital Square',
+    pathUrl: '/advanced-react-redux-graphql-bootcamp-london',
+    trainingInstanceId: '',
+    price: 1250,
+    currency: 'gbp',
+  },
+  {
     dates: '3-9 March, 2019',
     dateStartsOn: new Date('2019-03-03T18:00:00'),
     city: LONDON,
@@ -50,7 +63,7 @@ export const trainings = [
     type: REACT_BOOTCAMP,
     cityShortName: 'London',
     location:
-      'Publicis.Sapient - Eden House, 8 Spital Square, London E1 6DU, UK',
+      'Publicis.Sapient - Eden House, 8 Spital Square',
     pathUrl: '/react-redux-graphql-bootcamp-london/',
     trainingInstanceId: '5c4875df672ede0e7feba96f',
     price: 1800,

@@ -3,19 +3,19 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumAdvancedReact } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
+import { CurriculumAdvancedReact } from '../components/curriculum'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
   TrainingDetails,
-  HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
+  HORACIO_HERRERA,
   RICHARD_MOSS,
+  WILL_VOELCKER
 } from '../components/training'
 import {
   BulletIcon,
@@ -42,17 +42,17 @@ const BootcampLondon = () => (
           label: 'Advanced React',
         },
         {
-          to: '/advanced-react-redux-graphql-bootcamp-london',
-          label: 'London',
+          to: '/advanced-react-redux-graphql-bootcamp-lisbon',
+          label: 'Lisbon',
         },
       ]}
     />
     <Header
       titleLines={[
         'Advanced React Redux GraphQL',
-        `Bootcamp, ${training.dates} - ${training.cityShortName}`,
+        `training, ${training.dates} - ${training.cityShortName}`,
       ]}
-      subtitle="Take your React career to the next level by mastering<br />React, Redux, and GraphQL - in just 3 days!"
+      subtitle="Take your React career to the next level by mastering advanced<br />React, Redux, and GraphQL - in just 3 days!"
       links={header.landingTraining.links}
       bgImg="training-event"
     />
@@ -73,17 +73,17 @@ const BootcampLondon = () => (
               <Video youtubeId="yvROXLQ1jHg" />
               <TrainingDetails
                 date={training.dates}
-                timing="9am - 6:30pm, everyday"
+                timing="9:30am - 5:30pm"
+                foodIncluded={false}
                 location={
                   <React.Fragment>
-                    {training.location}
-                    <Link to="https://goo.gl/maps/UGhm22uLDNr">
-                      {' '}
+                    {training.location}.{' '}
+                    <Link to="https://www.google.com/maps/place/Lisbon,+Portugal/@38.7436057,-9.2302432,12z/data=!3m1!4b1!4m5!3m4!1s0xd19331a61e4f33b:0x400ebbde49036d0!8m2!3d38.7222524!4d-9.1393366">
                       See on map
                     </Link>
                   </React.Fragment>
                 }
-                coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
+                coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS, WILL_VOELCKER]}
               />
               <Row>
                 <Newsletter />
@@ -107,7 +107,7 @@ const BootcampLondon = () => (
           </HideComponentsUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
-              Is this advanced React bootcamp right for me? Are you...{' '}
+              Is this 1-day Advanced React training right for me? Are you...{' '}
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>
@@ -132,7 +132,7 @@ const BootcampLondon = () => (
             </Ul>
             <P>
               If you've said 'yes' to these, our{' '}
-              <strong>advanced React bootcamp</strong> could be for you!
+              <strong>1-day advanced React training</strong> could be for you!
             </P>
             <H3>Not for beginner devs!</H3>
             <P>
