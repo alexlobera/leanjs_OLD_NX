@@ -75,6 +75,15 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
           title="Release to Production"
         />
       </withRouter(CurriculumSection)>
+      <styled.div>
+        <LinkButton
+          secondary={true}
+          to="/curriculum?tab=React Native"
+          trackUserBehaviour={[Function]}
+        >
+          Full curriculum&gt;&gt;
+        </LinkButton>
+      </styled.div>
     </Styled(Col)>
     <Styled(Col)
       lg={5}

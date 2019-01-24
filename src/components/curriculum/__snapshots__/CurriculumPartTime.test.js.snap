@@ -105,6 +105,15 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       >
         <PartTimeFinalProject />
       </withRouter(CurriculumSection)>
+      <styled.div>
+        <LinkButton
+          secondary={true}
+          to="/curriculum?tab=Part-time"
+          trackUserBehaviour={[Function]}
+        >
+          Full curriculum &gt;&gt;
+        </LinkButton>
+      </styled.div>
     </Styled(Col)>
     <Styled(Col)
       lg={5}
