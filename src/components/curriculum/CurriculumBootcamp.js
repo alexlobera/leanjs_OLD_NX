@@ -119,13 +119,13 @@ const CurriculumBootcamp = ({
           in teams from scratch"
         />
       </Section>
-      {showLinkToCurriculum ? (
+      {showLinkToCurriculum &&
         <SectionCTA>
-          <LinkButton secondary to="/curriculum">
+          <LinkButton secondary to={`/curriculum?tab=${REACT_BOOTCAMP}`}>
             Full curriculum >>
           </LinkButton>
         </SectionCTA>
-      ) : null}
+      }
     </React.Fragment>
   )
 

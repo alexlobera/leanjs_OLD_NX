@@ -1,6 +1,7 @@
 import React from 'react'
 import { H1Ref } from '../text'
 import Link from '../navigation/Link'
+import { LinkButton } from '../buttons'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
@@ -12,6 +13,7 @@ import ReactNativePushNotificationSession from './sessions/native/ReactNativePus
 import ReactNativeTestingSession from './sessions/native/ReactNativeTestingSession'
 import ReactNativeNativeModulesSession from './sessions/native/ReactNativeNativeModulesSession'
 import ReactNativeProductionSession from './sessions/native/ReactNativeProductionSession'
+import SectionCTA from './SectionCTA'
 
 import { REACT_NATIVE } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
@@ -21,6 +23,7 @@ const CurriculumReactNative = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
+  showLinkToCurriculum = true,
   layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
@@ -56,16 +59,25 @@ const CurriculumReactNative = ({
   )
 
   const secondHalf = (
-    <Section
-      {...commonProps}
-      title="React Native Day 3"
-      name="day3"
-      subTitle="Testing, Native Modules & Release to Production"
-    >
-      <ReactNativeTestingSession title="Testing in React Native" />
-      <ReactNativeNativeModulesSession title="Native Modules" />
-      <ReactNativeProductionSession title="Release to Production" />
-    </Section>
+    <React.Fragment>
+      <Section
+        {...commonProps}
+        title="React Native Day 3"
+        name="day3"
+        subTitle="Testing, Native Modules & Release to Production"
+      >
+        <ReactNativeTestingSession title="Testing in React Native" />
+        <ReactNativeNativeModulesSession title="Native Modules" />
+        <ReactNativeProductionSession title="Release to Production" />
+      </Section>
+      {showLinkToCurriculum && 
+        <SectionCTA>
+          <LinkButton secondary to={`/curriculum?tab=${REACT_NATIVE}`}>
+            Full curriculum>>
+          </LinkButton>
+        </SectionCTA>
+      }
+    </React.Fragment>
   )
 
   return (

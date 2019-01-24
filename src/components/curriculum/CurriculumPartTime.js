@@ -16,6 +16,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
 import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
+import SectionCTA from './SectionCTA'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const PartTimeFinalProject = () => (
@@ -39,6 +40,7 @@ const CurriculumPartTime = ({
   showCallToActionBottom = false,
   marketingCard = null,
   layout,
+  showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const commonProps = {
@@ -125,6 +127,13 @@ const CurriculumPartTime = ({
       >
         <PartTimeFinalProject />
       </Section>
+      {showLinkToCurriculum &&
+        <SectionCTA>
+          <LinkButton secondary to={`/curriculum?tab=${PART_TIME}`}>
+            Full curriculum >>
+          </LinkButton>
+        </SectionCTA>
+      }
     </React.Fragment>
   )
 
