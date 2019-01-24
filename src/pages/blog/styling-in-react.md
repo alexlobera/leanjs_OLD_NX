@@ -1,7 +1,7 @@
 ---
 title: Styling in React
 date: Jan 25, 2019
-subtitle: Styling apps is an important and sometimes underestimated work. Let's learn how to do it right following the React philosophy.
+subtitle: Styling apps is an important and sometimes underestimated task. Let's learn how to do it right following the React philosophy.
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyling.jpeg?alt=media
 ---
@@ -10,7 +10,7 @@ Let’s start by questioning some design principles that have dominated the way 
 
 ## Separation of concerns <a name="front-tend-old-school-separation-of-concerns"></a>
 
-We are not going to question separation of concerns, we think it’s a great design principle. We are going to question the way we have interpreted it for many years in front-end applications. Hopefully, you’ll agree on the new angle from which we look at it.
+We are not going to question separation of concerns, we think it’s a great design principle. We are going to question the way we have interpreted it for many years in front-end applications. Hopefully, you’ll agree about the new angle from which we look at it.
 
 The following image illustrates how we previously separated the concerns in the front-end:
 
@@ -20,7 +20,7 @@ One of the most amazing examples of this separation that I’ve seen is CSS Zen 
 
 <img placeholder-height="376px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fzen-garden-min.png?alt=media" alt="CSS Zen Garden"></img>
 
-You can visit [http://www.csszengarden.com/](http://www.csszengarden.com/), check some designs, and compare the HTML of some. You’ll see that the only line that changes is the one that imports the CSS. Impressive from the CSS and HTML separation of concerns point of view.
+You can visit [http://www.csszengarden.com/](http://www.csszengarden.com/),check some designs, and compare the HTML of some. You’ll see that the only line that changes is the one that imports the CSS. Impressive from the CSS and HTML separation of concerns point of view.
 
 ## Global styles <a name="global-styles"></a>
 
@@ -55,13 +55,13 @@ Change is the only constant, therefore it's good to [revise our concerns](#front
 
 ## create-react-app
 
-If you have used [create-react-app](https://github.com/facebook/create-react-app) you’ve seen that it creates a separate file for App.js and for App.css, and for index.js and index.css. Do you think create-react-app promotes separating the concerns in a way that is easier to maintain our code?
+If you have used [create-react-app](https://github.com/facebook/create-react-app) you’ve seen that it creates a separate file for App.js and for App.css, and for index.js and index.css. Do you think create-react-app promotes separating the concerns in a way that makes it easier to maintain our code?
 
 <img placeholder-height="312px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fcreate-react-app-min.png?alt=media" alt="Create React App css  approach"></img>
 
-I think it does. It follows the co-location principle, it co-locates the JS and the CSS close. Note, we also apply the co-location principle in React Router and GraphQL for instance.
+I think it does. It follows the co-location principle, it co-locates the JS and the CSS close together. Note, we also apply the co-location principle in React Router and GraphQL for instance.
 
-So, are we done with styling? Well, there is another issue created by global styles. That folder structure separates the code by concern, but nothing stops us from creating an “active” class in Button.css, and an “active” class in Alert.css with different values. What do you think it’s going to happen if we have an active button and an active alert in the same view?
+So, are we done with styling? Well, there is another issue created by global styles. That folder structure separates the code by concern, but nothing stops us from creating an “active” class in Button.css, and an “active” class in Alert.css with different values. What do you think is going to happen if we have an active button and an active alert in the same view?
 
 <img placeholder-height="298px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fcollision-min.png?alt=media" alt="CSS collision"></img>
 
@@ -69,7 +69,7 @@ So, are we done with styling? Well, there is another issue created by global sty
 
 ## Naming conventions
 
-The solution to the style collision is to use name conventions in our CSS classes. There are different conventions. The problem with name conventions is that humans must implement them. That’s more work, and it’s error-prone.
+The solution to the style collision is to use naming conventions in our CSS classes. There are a few different popular conventions. The problem with naming conventions is that humans must implement them. That’s more work, and it’s error-prone.
 
 <img placeholder-height="172px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fnaming-conventions-min.png?alt=media" alt="CSS naming conventions"></img>
 
@@ -81,7 +81,7 @@ A better approach is to automate that CSS naming. You can use CSS modules for th
 
 ## Styled-components <a name="styled-components"></a>
 
-[Styled-components](https://www.styled-components.com/) is the library we use at [LeanJS](https://leanjs.com) (ReactJS Academy parent company) to style our React components. Why? A single library that solves elegantly all the problems I’ve mentioned.
+[Styled-components](https://www.styled-components.com/) is the library we use at [LeanJS](https://leanjs.com) (ReactJS Academy's parent company) to style our React components. Why? It's a single library that elegantly solves all the problems I’ve mentioned.
 
 <img placeholder-height="329px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyled-components-check-list-min.png?alt=media" alt="Styled-components features"></img>
 
@@ -89,7 +89,7 @@ The [documentation of styled-components](https://www.styled-components.com/docs)
 
 ### Conditional rendering <a name="conditional-rendering"></a>
 
-However, let me point out one feature that is quite important and I don’t want you to miss if you are new to React. Styled-components, apart from solving all the problems we’ve mentioned, does something that SASS, LESS, BIM, SMACSS, and other approaches can’t do. Styled-components has conditional rendering. This means it can decide a style at render time based on some props. That’s very powerful and you should definitely leverage this feature.
+However, let me point out one feature that is quite important and I don’t want you to miss if you are new to React. Styled-components, apart from solving all the problems we’ve mentioned, does something that SASS, LESS, BIM, SMACSS, and other approaches can’t do. Styled-components allows for conditional rendering. This means it can decide a style at render time based on some props. That’s very powerful and you should definitely leverage this feature.
 
 The following image shows a button with conditional rendering based on a prop called “primary”. Depending on the value of “primary” it will render a different style.
 
@@ -117,11 +117,11 @@ render(
 );
 ```
 
-You can edit the previous code by removing 'primary' from the last button. The style will react and change the color.
+You can edit the previous code by removing 'primary' from the last button. Try it! The style will react and change the color.
 
 ### CSS optimization <a name="css-optimization"></a>
 
-Another amazing feature you get from using styled-components is that it will only generate the CSS required for a given page. The way it works is the following, when React traverses the tree rendering components, styled-components adds to the head of the page the `<style>` tag containing only the CSS of the components that were rendered. This works very well on server-side rendering or static site generators like Gatsbyjs, so it optimizes the first page load by reducing the CSS load.
+Another amazing feature you get from using styled-components is that it will only generate the CSS required for a given page. The way it works is the following, when React traverses the tree rendering components, styled-components adds to the head of the page the `<style>` tag containing only the CSS of the components that were rendered. This works very well on server-side rendering or static site generators like Gatsbyjs,so it optimizes the first page load by reducing the CSS load.
 
 This website uses styled-components, so you can see an example of the CSS injected by looking at the `<head>` in the source code of this page.
 
@@ -137,17 +137,17 @@ You can see an example in the ReactJS Academy website, where **EVERYTHING is a c
 - [Default page layout](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/layouts/index.js)
 - [Home page](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/pages/index.js)
 
-That being said, I often see that many new developers to React that are used to the "old .css" find it very difficult to only use component based styles. Common cases they mention:
+That being said, I often see that many developers new to React are used to the "old .css" and find it very difficult to only use component based styles. Some common cases they mention:
 
 - They want font colours and sizes in SASS or LESS variables. If you use component based styles those colours, fonts, etc become [simple JavaScript variables](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/config/styles.js).
 - Styling "default/ generic" h1, h2, h3, h4, h5, h6, p…. No problem, they can also be [components](https://github.com/reactjsacademy/reactjsacademy/tree/master/src/components/text).
-- Default paddings and margins. You can elegantly solve it by using [themings](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/layouts/index.js#L24).
+- Default paddings and margins. You can elegantly solve it by using [theming](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/layouts/index.js#L24).
 
-As you can see, in all those cases we can use a component, and so you can co-locate the style in that component. I know, it might not look that obvious at the beginning, especially if you are very used to SASS, LESS, or “classic” CSS.
+As you can see, in all those cases we can use a component, and so you can co-locate the style in that component. I know, it might not seem that obvious at the beginning, especially if you are very used to SASS, LESS, or “classic” CSS.
 
 ## Component libraries <a name="component-libraries"></a>
 
-There are different libraries (AKA component toolkits) that you can use to speed up the development of a UI. What I mean by component library is a set of React components that follow some design system and provide an implementation for common UI patterns such as Text, Button, Dropdown, Tabs, Datapicker, etc.
+There are different libraries (AKA component toolkits) that you can use to speed up the development of a UI. What I mean by component library is a set of React components that follow some design system and provide an implementation for common UI patterns such as Text, Button, Dropdown, Tabs,Datapicker, etc.
 
 These are some of the most popular component libraries in React:
 
@@ -171,7 +171,7 @@ There is an important consideration when choosing a component library: how easy 
 
 Good developers plan for successful change. Whatever component library you use you should make it as easy as possible to change it in the future.
 
-A good practice in this regard is to abstract any component library into your own components. This is a small work up front and a lot of value in the future. For instance, if you use Rebass you wouldn't `import { Button } from "Rebass"` everywhere you want to use a button. Instead, you would create your own Button that exports the Rebass Button:
+A good practice in this regard is to abstract any component library into your own components. This a small amount of work up-front but brings a  lot of value in the future. For instance, if you use Rebass, you wouldn't `import { Button } from "Rebass"` everywhere you want to use a button. Instead, you would create your own Button that exports the Rebass Button:
 
 ```
 // src/components/Button.js
