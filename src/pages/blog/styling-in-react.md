@@ -183,7 +183,7 @@ Then you can import your Button everywhere you need a button in your app. This m
 We built the first prototype in React in a few days using Rebass and we were able to test it immediately with real users. The reason we are called LeanJS is evident :D
 <img src="https://cdn-images-1.medium.com/max/1800/1*xHeXQyA_vTS3IAU4UQVb1A.gif" alt="ReactJS Academy React prototype"></img>
 
-Then we added custom styles to the Button incrementally. Two weeks after we had completely removed Rebass from the app. [Removing Rebass from the package.json was a piece of cake](https://github.com/reactjsacademy/reactjsacademy/commit/b4b132ab6849461d40024b4fd2991a5984517d1e). That's amazing considering that the initial version was entirely built with Rebass.
+Then we added custom styles to the Button incrementally. Two weeks after we had completely removed Rebass from the app. [Removing Rebass from the package.json was a piece of cake](https://github.com/reactjsacademy/reactjsacademy/commit/b4b132ab6849461d40024b4fd2991a5984517d1e). That's amazing considering that the initial version was entirely built with Rebass. Hopefully, I've convinced you of the advantages of creating these abstractions.
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fremoves-rebass-min.png?alt=media" alt="Commit that removes Rebass from ReactJS Academy"></img>
 
