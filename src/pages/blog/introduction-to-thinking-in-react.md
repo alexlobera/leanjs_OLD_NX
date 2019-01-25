@@ -1,5 +1,5 @@
 ---
-title: Introduction to <br/>Thinking in React
+title: Introduction to <br />Thinking in React
 date: Jan 17, 2019
 subtitle: React is a library -not a framework- that creates user interfaces; and it does in a predictable, efficient, and declarative way
 author: alex

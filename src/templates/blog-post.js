@@ -17,7 +17,7 @@ import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
 import Tweet from '../components/blog/Tweet'
 import ShareButtons from '../components/blog/ShareButtons'
 
-export const formatPostTitle = title => title.replace('<br/>', ' ')
+export const formatPostTitle = title => title.replace(/(<([^>]+)>)/gi, ' ')
 
 const pre = styled.pre`
   overflow: hidden;
@@ -106,7 +106,7 @@ const BlogPost = ({ data }) => {
         ]}
       />
       <Header
-        titleLines={title.split('<br/>')}
+        titleLines={title.split('<br />')}
         fullHeight={false}
         paddingBottom={80}
         bgImg={imageUrl}
