@@ -47,7 +47,7 @@ const Breadcrumb = ({ path }) =>
           <Col>
             <Ul inline>
               {path.map(({ to, label }) => {
-                const formatedLabel = label.replace('<br/>', ' ')
+                const formatedLabel = label.replace(/(<([^>]+)>)/gi, ' ')
 
                 return (
                   <Li key={to}>
