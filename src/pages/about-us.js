@@ -75,7 +75,7 @@ const AboutUs = () => (
   <React.Fragment>
     <Header
       titleLines={['About us']}
-      subtitle="Our coaches are expert, every day developers<br/> who will mentor you throughout your ReactJS<br/> journey"
+      subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your ReactJS<br /> journey"
       links={[
         { text: 'Coach profiles ', to: '#alex-lobera' },
         {

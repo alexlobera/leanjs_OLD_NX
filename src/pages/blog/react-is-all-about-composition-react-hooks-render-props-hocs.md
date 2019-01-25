@@ -1,10 +1,11 @@
 ---
-title: React is all about <br/>composition
+title: React is all about <br />composition
 date: Jan 7
 subtitle: Understanding React Hooks, Render Props, HoCs, and the React composition model
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fzen-stones.jpeg?alt=media
 authorTwitter: alex_lobera
+order: 100
 ---
 
 Software development is, in essence, the process of breaking a problem down into smaller problems, implementing solutions for those smaller problems, and then **composing** those solutions to form partial solutions, and so on, until eventually completing the whole solution.
