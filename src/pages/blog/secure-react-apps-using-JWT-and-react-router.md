@@ -1,10 +1,11 @@
 ---
 title: Secure React apps <br/>using JWT and React Router
-date: Nov 7
+date: 2018-11-07
 subtitle: Being able to secure certain parts of your app is very important. In this article we'll cover the two most important layers
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Farrow-wall-min.jpeg?alt=media
 authorTwitter: alex_lobera
+order: 3
 ---
 
 You should protect your React app at two different layers:

@@ -1,10 +1,11 @@
 ---
 title: Introduction to <br/>Thinking in React
-date: Jan 17, 2019
+date: 2018-10-17
 subtitle: React is a library -not a framework- that creates user interfaces; and it does in a predictable, efficient, and declarative way
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media
 authorTwitter: alex_lobera
+order: 1
 ---
 
 In this post we are going focus on the declarative part of React.
