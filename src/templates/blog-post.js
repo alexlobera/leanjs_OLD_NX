@@ -133,7 +133,11 @@ const BlogPost = ({ data }) => {
                       <Link to={post.node.fields.slug}>
                         {formatPostTitle(post.node.frontmatter.title)}
                       </Link>
-                      <P>{post.node.frontmatter.date}</P>
+                      <P>
+                        {moment(post.node.frontmatter.date).format(
+                          'MMM D, YYYY'
+                        )}
+                      </P>
                     </P>
                   </React.Fragment>
                 ))}
