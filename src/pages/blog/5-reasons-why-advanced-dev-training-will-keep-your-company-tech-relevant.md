@@ -1,24 +1,24 @@
 ---
 title: 5 reasons why advanced dev<br />training will keep your company<br />tech-relevant
 date: Nov 7
-subtitle: Technology evolves pretty fast, and in the highly competitive tech sector that makes it hard to keep your team and company tech-relevant.
+subtitle: Technology evolves pretty fast, and in the highly competitive tech sector, that makes it hard to keep your team and company tech-relevant.
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fxing%2Fxing-advanced-react-training-team.jpg?alt=media
 authorTwitter: alex_lobera
 ---
 
-But with advanced dev training, you can equip your team with the knowledge to satisfy their professional curiosity and take your company further.
+With advanced dev training, you can equip your team with the knowledge to satisfy their professional curiosity and take your company further.
 Why is that? We caught up with one of our clients, [Eber Herrera](https://www.linkedin.com/in/eberhm/), Technical Director from Xing, to find out why he and his team found our in-house advanced dev training valuable.
 
 So here’s our breakdown of the top reasons why advanced dev training will keep your team and company tech-relevant.
 
 ## 1) You’ll motivate your team
 
-One of the best ways to keep your team tech-relevant is to get everyone motivated and training is a great way of doing that.
+One of the best ways to keep your team tech-relevant is to get everyone motivated, and training is a great way of doing that.
 
 It teaches everyone new, more effective ways to develop apps in React. It gets them excited to try out new things and to build even better products.
 
-Passionate coaches play a key part in getting your team motivated, and the pay off is huge. For instance, during a week-long intensive course at Xing, we delivered React training that was tailored to the team’s needs. After, Eber said:
+Passionate coaches play a key part in getting your team motivated, and the pay off is huge. For instance, during a week-long intensive course at Xing,we delivered React training that was tailored to the team’s needs. After, Eber said:
 
 > The team is really motivated. We got what we wanted, which is that now our team discusses things in a different way. They’re more into the idea of doing things in the best way possible without compromising speed. [...] They want to do their job well.
 
