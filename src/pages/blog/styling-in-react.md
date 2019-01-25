@@ -1,9 +1,10 @@
 ---
 title: Styling in React
-date: Jan 25, 2019
+date: 2019-01-25
 subtitle: Styling apps is an important and sometimes underestimated task. Let's learn how to do it right following the React philosophy.
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyling.jpeg?alt=media
+order: 5
 ---
 
 Let’s start by questioning some design principles that have dominated the way we’ve styled websites for the last few decades.
@@ -171,7 +172,7 @@ There is an important consideration when choosing a component library: how easy 
 
 Good developers plan for successful change. Whatever component library you use you should make it as easy as possible to change it in the future.
 
-A good practice in this regard is to abstract any component library into your own components. This a small amount of work up-front but brings a  lot of value in the future. For instance, if you use Rebass, you wouldn't `import { Button } from "Rebass"` everywhere you want to use a button. Instead, you would create your own Button that exports the Rebass Button:
+A good practice in this regard is to abstract any component library into your own components. This a small amount of work up-front but brings a lot of value in the future. For instance, if you use Rebass, you wouldn't `import { Button } from "Rebass"` everywhere you want to use a button. Instead, you would create your own Button that exports the Rebass Button:
 
 ```
 // src/components/Button.js

@@ -1,10 +1,11 @@
 ---
 title: 5 reasons why advanced dev<br />training will keep your company<br />tech-relevant
-date: Nov 7
+date: 2019-01-25
 subtitle: Technology evolves pretty fast, and in the highly competitive tech sector, that makes it hard to keep your team and company tech-relevant.
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fxing%2Fxing-advanced-react-training-team.jpg?alt=media
 authorTwitter: alex_lobera
+order: 100
 ---
 
 With advanced dev training, you can equip your team with the knowledge to satisfy their professional curiosity and take your company further.
