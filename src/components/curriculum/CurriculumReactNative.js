@@ -70,13 +70,13 @@ const CurriculumReactNative = ({
         <ReactNativeNativeModulesSession title="Native Modules" />
         <ReactNativeProductionSession title="Release to Production" />
       </Section>
-      {showLinkToCurriculum && 
+      {showLinkToCurriculum && (
         <SectionCTA>
           <LinkButton secondary to={`/curriculum?tab=${REACT_NATIVE}`}>
             Full curriculum>>
           </LinkButton>
         </SectionCTA>
-      }
+      )}
     </React.Fragment>
   )
 

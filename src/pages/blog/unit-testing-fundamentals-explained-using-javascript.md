@@ -1,5 +1,5 @@
 ---
-title: Unit testing <br/>explained with JavaScript
+title: Unit testing <br />explained with JavaScript
 date: 2018-11-07
 subtitle: Before writing unit tests for your React project, you should have a good foundation on unit testing
 author: alex

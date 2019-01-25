@@ -1,5 +1,5 @@
 ---
-title: React is all about <br/>composition
+title: React is all about <br />composition
 date: 2019-01-07
 subtitle: Understanding React Hooks, Render Props, HoCs, and the React composition model
 author: alex

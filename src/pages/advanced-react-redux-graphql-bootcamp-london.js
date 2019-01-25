@@ -15,7 +15,7 @@ import {
   ALEX_LOBERA,
   HORACIO_HERRERA,
   RICHARD_MOSS,
-  WILL_VOELCKER
+  WILL_VOELCKER,
 } from '../components/training'
 import {
   BulletIcon,
@@ -83,7 +83,12 @@ const BootcampLondon = () => (
                     </Link>
                   </React.Fragment>
                 }
-                coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS, WILL_VOELCKER]}
+                coaches={[
+                  ALEX_LOBERA,
+                  HORACIO_HERRERA,
+                  RICHARD_MOSS,
+                  WILL_VOELCKER,
+                ]}
               />
               <Row>
                 <Newsletter />

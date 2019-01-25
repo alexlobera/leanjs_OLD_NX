@@ -27,7 +27,7 @@ import {
 import { Breadcrumb } from '../components/navigation'
 import { selectTrainings, ADVANCED_REACT } from '../config/data'
 
-const trainings = selectTrainings(ADVANCED_REACT) 
+const trainings = selectTrainings(ADVANCED_REACT)
 const startDate = moment(trainings[0].dateStartsOn).format('D MMM')
 
 const Boocamps = () => (
