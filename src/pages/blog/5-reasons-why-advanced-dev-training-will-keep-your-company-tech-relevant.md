@@ -9,7 +9,7 @@ order: 100
 ---
 
 With advanced dev training, you can equip your team with the knowledge to satisfy their professional curiosity and take your company further.
-Why is that? We caught up with one of our clients, [Eber Herrera](https://www.linkedin.com/in/eberhm/), Technical Director from Xing, to find out why he and his team found our in-house advanced dev training valuable.
+Why is that? We caught up with one of our clients, [Eber Herrera](https://www.xing.com/profile/Eber_Herrera/cv), Technical Director from Xing, to find out why he and his team found our in-house advanced dev training valuable.
 
 So here’s our breakdown of the top reasons why advanced dev training will keep your team and company tech-relevant.
 
@@ -70,3 +70,9 @@ Advanced dev training is how you make that happen. When your dev team knows how 
 Most importantly, when your processes are faster, you can set aside more time to develop your team, making them more efficient and more tech-relevant.
 
 It’s clear that advanced dev training has a lot of benefits, and that’s why we do what we do. At ReactJS Academy, we work alongside your team to deliver effective, tailored ReactJS training courses. Our [Corporate Team Training](/corporate-team-training/) course was a hit with Eber and his team at [Xing](https://www.xing.com/), so what are you waiting for? Contact us today to keep your team and company tech-relevant with our ReactJS training courses.
+
+You can reach Eber Herrera on [Twitter](https://twitter.com/eberhm), [LinkedIn](https://www.linkedin.com/in/eberhm/) and [Xing](https://www.xing.com/profile/Eber_Herrera/cv)
+
+Find below the video of the interview if you want to watch the full interview
+
+<video youtube-id="L-QTtmoLWd8" time="34"></video>

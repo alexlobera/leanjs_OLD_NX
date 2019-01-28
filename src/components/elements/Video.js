@@ -14,14 +14,16 @@ const IframeWrapper = styled.div`
   }
 `
 
-const Video = ({ youtubeId, description = null }) => (
+const Video = ({ youtubeId, time, description = null }) => (
   <IframeWrapper>
     <iframe
       width="100%"
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen
-      src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&showinfo=0&wmode=opaque`}
+      src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&showinfo=0&wmode=opaque${
+        time ? `&start=${33}` : ''
+      }`}
     />
     {description ? <div>{description}</div> : null}
   </IframeWrapper>
