@@ -350,10 +350,8 @@ const AboutUs = () => (
               </Link>
             </H2Ref>
             <CoachTitle>
-              Interactive Developer at{' '}
-              <Link to="https://www.sapientrazorfish.com/">
-                SapientRazorfish
-              </Link>
+              Software Engineer at{' '}
+              <Link to="https://engineering.dazn.com/">DAZN</Link>
             </CoachTitle>
             <Ul inline>
               <Li>
@@ -373,7 +371,7 @@ const AboutUs = () => (
             <Ul>
               <Li>
                 Currently, a <strong>front-end engineer</strong> working with{' '}
-                <strong>React/Redux</strong>.
+                <strong>React/Mobx</strong>.
               </Li>
               <Li>
                 Holds a degree in{' '}
