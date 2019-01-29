@@ -20,9 +20,13 @@ const HoCsRenderPropsStateReducerSession = ({ title }) => (
             Declarative composition using the Render Props (AKA function as
             children)
           </Li>
-          <li>
+          <Li>
             State Reducer pattern - how and when to apply to React components
-          </li>
+          </Li>
+          <Li>
+            Hooks - Managing state and side effects with Hooks (The future of
+            React!)
+          </Li>
         </Ul>
       </Li>
     </Ul>
