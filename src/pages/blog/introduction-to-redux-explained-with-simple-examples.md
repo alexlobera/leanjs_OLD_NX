@@ -51,7 +51,7 @@ The state tree is read-only. The only way to change the state tree is by dispatc
 
 Wait a moment, before talking about the 3rd principle, we need to understand what we’re referring to when talking about pure functions:
 
-**Pure functions**
+#### Pure functions <a name="pure-functions"></a>
 
 - The value a pure function returns depends solely on the value of the input parameters.
 - Every time you call a pure function with the same set of arguments they produce the same result
@@ -59,6 +59,8 @@ Wait a moment, before talking about the 3rd principle, we need to understand wha
 - Pure functions don’t have side effects
 
 OK now we are ready, the **third principle**:
+
+#### Redux reducer <a name="redux-reducer"></a>
 
 The state mutations in your app need to be described as a pure function called **reducer** that takes the current state and an action and returns a new state:
 
@@ -182,8 +184,6 @@ Redux can manage the state of any application, not just React. You can see this 
 - In a real-world application, we’ll have many reducers which we can combine into a single reducer. Notice that the Redux store is a tree, and so we can combine reducers multiple times down the tree.
 - Every time an action is dispatched, all the reducers are invoked and receive that action.
 - Redux is UI library agnostic and so it can be used in Vanilla JavaScript, React or any other UI library.
-
-This article is part of the training material of the [ReactJS Academy React & Redux & GraphQL Bootcamp](/react-redux-graphql-bootcamp/) for professional developers.
 
 ## Further learning
 
