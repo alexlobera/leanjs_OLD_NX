@@ -43,6 +43,23 @@ const emptyTraining = (type, city) => ({
 
 export const trainings = [
   {
+    dates: 'March 31 to April 6, 2019',
+    dateStartsOn: new Date('2019-03-31T16:00:00'),
+    city: LISBON,
+    country: 'Portugal',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'Lisbon',
+    country: 'Portugal',
+    location:
+      'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
+    pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
+    trainingInstanceId: '5c516d8b4a9b34298c038de0',
+    price: 1800,
+    discountPrice: 1450,
+    priceGoesUpOn: new Date('Feb 15, 2019'),
+    currency: 'gbp',
+  },
+  {
     dates: '07-09 March, 2018',
     dateStartsOn: new Date('2019-03-07T18:00:00'),
     city: LONDON,
