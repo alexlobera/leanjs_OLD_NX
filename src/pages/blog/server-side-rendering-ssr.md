@@ -3,7 +3,7 @@ title: Server-side rendering SSR <br /> made easy with React
 date: 2019-01-27
 subtitle: Server-side rendering (SSR) can improve significantly the user experience of you web app. Luckly React has built in SSR support.
 author: alex
-imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyling.jpeg?alt=media
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-clouds-min.jpeg?alt=media
 order: 8
 ---
 
