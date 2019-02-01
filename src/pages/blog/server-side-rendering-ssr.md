@@ -35,27 +35,57 @@ SPA bring some new issues. Have you seen the following screen:
 Some of the problems we can experience with SPA are:
 
 - Load time. What if the network is slow and it takes 2 seconds to download the initial
-- --SEO-- Not anymore
+- SEO, not anymore
 - Social metas
 
 ## Implementing SSR in React
 
-### React
+React has built in support for SSR. The only thing you need to do is `const { renderToString } = require("react-dom/server")` and then invoke the renderToString function with the Root component of you app.
 
-### Routing
+You can run the next code by clicking on the green "run" button and see how it works:
 
-### Styling
+```runkit
+const React = require("react")
+const { renderToString } = require("react-dom/server")
+const Root = React.createElement(
+    "div",
+    null,
+    "I am the root"
+)
+console.log(renderToString(Root))
+```
 
-### Data fetching
+The previous example is quite cool, we are running the renderToString from "react-dom/server" on the browser by rendering a node environment via Runkit using React 🤔.
 
-### Code splitting
+### React libraries with SSR support
+
+This is a list of libraries with great SSR support that you'll probably want to use in combination with react-dom/server:
+
+- React Router for routing both client and server side.
+- Styled-components for styling the app.
+- React Helmet to add metas to the head.
+- GraphQL for data fetching.
 
 ## Configuration
 
-### Frameworks
+Configuring Webpack to bundle your React application and run it during development with a good dev experience is not an easy task. Let's say you use Create React App (CRA) to create apps and you want to add SSR support to it.
 
-### Create React App configuration
+First, let's see how Webpack works in CRA. There are 2 parts, configuration and scripts, with a few pieces each that we going to look at:
 
-### react-scripts-ssr
+- Configuration
+  - webpack.config.js
+  - webpackDevServer.config
+- Srcipts:
+  - start.js
+  - build.js
+
+When we run `yarn start` (local environment) we start a Webpack development server
+When you navigate to localhost:300x Webpack dev server returns the bundle.js of your app
+
+<img src=""></img>
+
+## react-scripts-ssr
+
+## Frameworks
 
 ## SSR and PWA

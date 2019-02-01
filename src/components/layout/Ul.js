@@ -3,6 +3,12 @@ import styled from 'styled-components'
 import { FONT_FAMILY } from '../../config/styles'
 
 const Ul = styled.ul`
+  p {
+    padding-bottom: 5px;
+  }
+  ul {
+    margin-top: 0;
+  }
   ${props =>
     props.unstyled
       ? `
