@@ -68,21 +68,53 @@ This is a list of libraries with great SSR support that you'll probably want to 
 
 ## Configuration
 
+### Development
+
+To develop your application using Webpack you'll need at least:
+
+- Webpack, obviously:
+  ```
+  const webpack = require('webpack');
+  ```
+- A Webpack compiler based on some Webpack configuration:
+
+  ```
+  const webpackConfig = require('./webpack.config.js');
+  const compiler = webpack(webpackConfig)
+  ```
+
+- A server to serve HTML, JS, and CSS dynamically at dev time:
+
+  ```
+  const serverConfig = require('./webpackDevServer.config.js');
+  const devServer = new WebpackDevServer(
+        compiler, serverConfigs
+  );
+  ```
+
+  <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Flocal-env.png?alt=media" alt="Webpack development environment"></img>
+
 Configuring Webpack to bundle your React application and run it during development with a good dev experience is not an easy task. Let's say you use Create React App (CRA) to create apps and you want to add SSR support to it.
 
 First, let's see how Webpack works in CRA. There are 2 parts, configuration and scripts, with a few pieces each that we going to look at:
 
 - Configuration
   - webpack.config.js
-  - webpackDevServer.config
+  - webpackDevServer.config.js
 - Srcipts:
   - start.js
+
+When we run `yarn start` the script/start.js will start a Webpack dev server on our machine.
+When you navigate to localhost:300x the Webpack dev server returns static HTML and a bundle.js that contains the JS of your app. Webpack is watching the source code, so when the code is changed the `compiler` will compile the app. Then Webpack dev server will send a message to the browser via websocket to 'update' the UI with the new version of the app.
+
+### Production
+
+- Configuration
+  - webpack.config.js
+- Srcipts:
   - build.js
 
-When we run `yarn start` (local environment) we start a Webpack development server
-When you navigate to localhost:300x Webpack dev server returns the bundle.js of your app
-
-<img src=""></img>
+<img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fbuild-and-production.png?alt=media" alt="Webpack built in production"></img>
 
 ## react-scripts-ssr
 
