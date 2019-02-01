@@ -1,7 +1,7 @@
 ---
 title: Introduction to Redux
 date: 2018-10-04
-subtitle: Redux explained with very simple examples to building Redux from scratch
+subtitle: From Redux for dummies to building Redux from scratch
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fredux%2Fone-way-min.jpeg?alt=media
 order: 6
@@ -16,9 +16,9 @@ Let’s try to answer that question with plain English, let’s not think of Rea
 
 <img placeholder-height="px" alt="What is the state of an app?" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fredux%2Fwhats-state-of-app-min.png?alt=media"></img>
 
-In my experience teaching Redux at [reactjs.academy](https://reactjs.academy/) I’ve found cases where everyone in a workshop seemed to agree that just the selected tab is part of the state, and in other workshops, everyone seemed to agree that the only thing that was part of the state was the data that came from the API. 😲
+In my experience teaching Redux at [reactjs.academy](https://reactjs.academy/) I’ve found cases where everyone in a workshop seemed to agree that just the selected tab is part of the state, and in other workshops, everyone seemed to agree that the only thing that was part of the state was the data that came from the API 😲
 
-It might be obvious to you, or it might not, but I always find very useful to make sure we are all on the same page before moving forward.
+It might be obvious to you, or it might not, but I always find very useful to make sure we are all on the same "state" before moving forward.
 
 To answer the two previous questions, imagine that when a user runs the app shown above, by default the selected tab is “Day”. When the user selects “month” then the app requests the data for a given month to an API and displays the new chart. Now if we tell the user that if she/ he switches to another app, and when she/ he comes back the app will be in the same “state”, what do you think the user expects to see? The answer is tab selected equals month and the corresponding chart. So the answer to the original question is both, tab and chart, are part of the state.
 
