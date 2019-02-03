@@ -13,21 +13,21 @@ The idea of a web server that returns dynamic HTML on the HTTP response is nothi
 
 ## Single-page apps - SPA
 
-In the early 2000's a new approach started to become popular, the single-page app - also known as SPA.
+In the early 2000s a new approach started to become popular, the single-page app - also known as SPA.
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fgmail-min.png?alt=media" alt="First version of Gmail"></img>
 
-The idea of a single-page app is that we try to do as much work as possible on the browser by taking full advantage of modern browser capabilities. In this approach JavaScript becomes the main language to build web applications.
+The idea of a single-page app is that we try to do as much work as possible on the browser by taking full advantage of modern browser capabilities. In this approach, JavaScript becomes the main language to build web applications.
 
 If you use Create React App (CRA) to create React apps then you are creating SPAs.
 
 ### SPA advantatges
 
-A single-page app has many advantatges compared to the previous paradigm:
+A single-page app has many advantages compared to the previous paradigm:
 
 - It improves the user experience by making user interactions much faster avoiding network round-trips to the server.
 - It improves the user experience by enabling new and more sophisticated user interactions.
-- It can reduce costs and increase scallability. Think of a SPA connected directly to a Firebase DB.
+- It can reduce costs and increase scalability. Think of a SPA connected directly to a Firebase DB.
 - No need to maintain two different code bases, front and back.
 
 ### SPA problems
@@ -83,7 +83,7 @@ The time it takes to # 1,2,3 and 4 to complete depends on the network and the se
 
 The time it takes to # 5 to complete depends on the client device.
 
-The time it takes to # 6 and 7 to complete depends on the network and the server (more unlikelly than # 1 to 4 to be in a CDN)
+The time it takes to # 6 and 7 to complete depends on the network and the server (more unlikely than # 1 to 4 to be in a CDN)
 
 The time it takes to # 8 to complete depends on the client device.
 
@@ -119,9 +119,9 @@ This is a list of libraries with great SSR support that you'll probably want to 
 
 ## Configuration
 
-In the previous section we saw how easy it is to render React on the server. Modern real-world web apps are more complicated than the "Hello SSR" example we run, and we require extensive configuration to develop and build them.
+In the previous section, we saw how easy it is to render React on the server. Modern real-world web apps are more complicated than the "Hello SSR" example we run, and we require extensive configuration to develop and build them.
 
-[Webpack](https://webpack.js.org/) is nowadays the industry standard to develop and bundle web applications. Webpack does a lot of good things to help us bundle web apps, although configuring Webpack can be a tedious and ungrateful task for many developers. Fortunately there are many tools and frameworks to help us with the set-up. Unfortunately, not all of them support SSR.
+[Webpack](https://webpack.js.org/) is nowadays the industry standard to develop and bundle web applications. Webpack does a lot of good things to help us bundle web apps, although configuring Webpack can be a tedious and ungrateful task for many developers. Fortunately, there are many tools and frameworks to help us with the set-up. Unfortunately, not all of them support SSR.
 
 Let me give you an overview of how Webpack works to understand the different SSR alternatives.
 
@@ -162,7 +162,7 @@ First, we should understand how Webpack is set in CRA. There are 2 parts i) conf
 - Scripts:
   - [start.js](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/scripts/start.js)
 
-When we run `yarn start` the script/start.js starts a Webpack dev server on our machine. After, when we navigate to localhost:300X Webpack dev server will return static HTML and a bundle.js that contains the JS of the app. In this post I refer to port 300X as the port CRA has found available to run the WebpackDevServer.
+When we run `yarn start` the script/start.js starts a Webpack dev server on our machine. After, when we navigate to localhost:300X Webpack dev server will return static HTML and a bundle.js that contains the JS of the app. In this post, I refer to port 300X as the port CRA has found available to run the WebpackDevServer.
 
 Webpack is watching the source code of the app, so everytime you edit and save any code the `compiler` compiles the app. When that happens, Webpack dev server sends a message to the browser via websocket to say 'there is a new version of the UI' so it can be updated. This way CRA enables a good dev experience.
 
@@ -175,17 +175,17 @@ Before deploying your application to production you need to run the `build` proc
 - Scripts:
   - [build.js](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/scripts/build.js)
 
-Once you run the build script, localy or ideally in a CI (Continous Integration), you can deploy your web app.
+Once you run the build script, locally or ideally in a CI (Continous Integration), you can deploy your web app.
 
-Deploying a CRA is strightforward because the app is made of **static assets** like HTML, JS and CSS. We don't need a server to run the app in production because the app we send to all the browsers is the same for all of them. You can serve your static app from a CDN.
+Deploying a CRA is straightforward because the app is made of **static assets** like HTML, JS, and CSS. We don't need a server to run the app in production because the app we send to all the browsers is the same for all of them. You can serve your static app from a CDN.
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fno-ssr-build-and-production-min.png?alt=media" alt="Webpack built in production"></img>
 
 ## react-scripts-ssr
 
-If you, like most people, use Create React App to create a React app and now you want add SSR support to it, you'll have to make some significant changes. I see two paths to make those changes. One is to [eject](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject) your app (which is a one-way, not recommended operation), and replace WebpackDevServer by a production-ready server that can handle dev and production. The other path I see is not to eject your app and instead to add another "box" to the picture that you can easly remove at any point.
+If you, like most people, use Create React App to create a React app and now you want to add SSR support to it, you'll have to make some significant changes. I see two paths to make those changes. One is to [eject](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject) your app (which is a one-way, not recommended operation), and replace WebpackDevServer by a production-ready server that can handle dev and production. The other path I see is not to eject your app and instead to add another "box" to the picture that you can easily remove at any point.
 
-I think good software is such that it's designed in a way so we can make decisions in the now and easly change our minds in the future. In other words, good software is [composable software](/blog/react-is-all-about-composition-react-hooks-render-props-hocs).
+I think good software is such that it's designed in a way so we can make decisions in the now and easily change our minds in the future. In other words, good software is [composable software](/blog/react-is-all-about-composition-react-hooks-render-props-hocs).
 
 ### The server
 
@@ -193,13 +193,13 @@ Let's see how to compose CRA with SSR, and what I mean by adding another "box" t
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-dev-2-min.png?alt=media" alt="Create React App running with another Express server"></img>
 
-First we add another server, an Express server running on port 8888 in this case. This server will be responsible for generating the HTML dynamically instead of returning always the same index.html.
+First, we add another server, an Express server running on port 8888 in this case. This server will be responsible for generating the HTML dynamically instead of returning always the same index.html.
 
 When we navigate to localhost:8888 the new server will invoke renderToString with the root component of the React app and send that string in the HTTP response. The server should only do that if the request is not trying to access CSS or JS assets from the React app.
 
 If the request is trying to access CSS or JS assets from the React app then the server will proxy the request to the WebpackDevServer that is running on port 300X.
 
-What we are doing with this approach is to let the new server take care of what it's concerned about (HTML), and let CRA continue taking care of the rest. Implementing this is quite strightforward with Express by adding the following middleware:
+What we are doing with this approach is to let the new server take care of what it's concerned about (HTML), and let CRA continue taking care of the rest. Implementing this is quite straightforward with Express by adding the following middleware:
 
 ```
 const port = process.env.REACT_APP_WEBPACK_DEV_SERVER_PORT
@@ -221,7 +221,7 @@ A few notes on that snippet:
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-hmr-min.png?alt=media" alt="Webpack Hot Module Replacement (HMR) with Create React App (CRA)"></img>
 
-You will add this proxy in every CRA that you want to add SSR. Therefore you can [extract it into an Express middleware](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/middlewares.js) that you can reuse accross different apps.
+You will add this proxy in every CRA that you want to add SSR. Therefore you can [extract it into an Express middleware](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/middlewares.js) that you can reuse across different apps.
 
 #### index.html
 
@@ -230,7 +230,7 @@ CRA has an [index.html template](https://github.com/facebook/create-react-app/bl
 - Inject some data like the title of the page at build time .
 - Inject the HTML of the React app in `<div id="root"></div>` at runtime.
 
-Our server also needs an HTML template to inject the HTML from `renderToString(<App />);`. To continue composing CRA with SSR capabilites we are going to use the same template.
+Our server also needs an HTML template to inject the HTML from `renderToString(<App />);`. To continue composing CRA with SSR capabilities we are going to use the same template.
 
 In this post, I'm not going to discuss the implementation details of how to use the same template. As you might see, that implementation is going to be the same in every app, so we can abstracted into some [functions that we can reuse](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/render.js). Which I already did, [feel free to use](https://www.npmjs.com/package/react-scripts-ssr).
 
@@ -282,7 +282,7 @@ We need to create a build script to transform our code like JSX into some JS tha
 
 #### scripts/start.js
 
-We need to change the way CRA start scripts works since now it also need to start the server that renders HTML. Yes, it's [implemented](https://github.com/reactjsacademy/react-scripts-ssr#step-1) in the same package.
+We need to change the way CRA start scripts works since now it also needs to start the server that renders HTML. Yes, it's [implemented](https://github.com/reactjsacademy/react-scripts-ssr#step-1) in the same package.
 
 ## Frameworks
 
