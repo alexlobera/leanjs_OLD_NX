@@ -3,7 +3,7 @@ title: Styling in React
 date: 2019-01-25
 subtitle: Styling apps is an important and sometimes underestimated task. Let's learn how to do it right following the React philosophy.
 author: alex
-imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyling.jpeg?alt=media
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyled-components-make-up-min.jpeg?alt=media
 order: 5
 ---
 

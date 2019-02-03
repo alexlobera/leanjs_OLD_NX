@@ -5,6 +5,7 @@ import Session from './Session'
 const Hackathon = ({ title }) => (
   <Session title={title}>
     <Ul>
+      <Li>TypeScript lecture</Li>
       <Li>Create teams</Li>
       <Li>Discussion about architecture, features and tools</Li>
       <Li>Real-world Project - work in teams to build apps</Li>

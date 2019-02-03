@@ -3,7 +3,7 @@ title: React forms <br />controlled & uncontrolled components
 date: 2019-01-02
 subtitle: React doesn't implement forms per se, it sets the principles to be done by other devs. Learn how.
 author: alex
-imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcontrolled-uncontrolled.jpeg?alt=media
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fforms%2Fpuppets-min.jpeg?alt=media
 authorTwitter: alex_lobera
 order: 4
 ---

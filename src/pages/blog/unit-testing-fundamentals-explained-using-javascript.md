@@ -3,9 +3,9 @@ title: Unit testing <br />explained with JavaScript
 date: 2018-11-07
 subtitle: Before writing unit tests for your React project, you should have a good foundation on unit testing
 author: alex
-imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effect.png?alt=media
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effects-min.png?alt=media
 authorTwitter: alex_lobera
-order: 6
+order: 8
 ---
 
 This article is meant to show you two things:
@@ -123,7 +123,7 @@ The problem they often find is that it doesn’t quite look like the code they w
 Real world code is made of many units, not just one. Those units might have dependencies between each other.
 Real world code has side-effects. I/O operations are side-effects. Therefore all applications have side effects by nature. Let me get philosophical, if a program has no side-effects at all, does the program exist if you can’t see or communicate with it? If a tree falls in a forest with no side-effects… did it fall?
 
-<img placeholder-height="334px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effect.png?alt=media" alt="Apps with no side-effects?"></img>
+<img placeholder-height="372px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effects-min.png?alt=media" alt="Apps with no side-effects?"></img>
 
 The issue that I observe is that the code they write is:
 Too complex. It has too much unpredictable code or predictable and unpredictable code is not clearly separated.

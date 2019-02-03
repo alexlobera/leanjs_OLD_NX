@@ -270,12 +270,12 @@ class Curriculum extends React.Component {
                       </P>
                       <Ul>
                         <Li>
-                          Understand the core principles and libraries of the
-                          React ecosystem{' '}
+                          Understand the core principles and libraries to build
+                          production-ready React applications using:{' '}
                           <code>
                             react, react-router, styled-components,
                             styled-system, storybook, redux, react-redux,
-                            graphql, react-apollo
+                            graphql, react-apollo, TypeScript
                           </code>
                         </Li>
                         <Li>

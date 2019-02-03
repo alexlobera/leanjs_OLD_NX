@@ -54,9 +54,9 @@ exports[`<Community /> should render component 1`] = `
               </styled.h2>
               <Styled(LinkButton)
                 cta={true}
-                to="/react-redux-graphql-bootcamp-lisbon/"
+                to="/react-redux-graphql-bootcamp-london/"
               >
-                Next Bootcamp: 27 Jan, Lisbon &gt;&gt;
+                Next Bootcamp: 3 Mar, London &gt;&gt;
               </Styled(LinkButton)>
               <TwitterWidgetsOnlyOnClientSide />
             </Styled(Col)>
