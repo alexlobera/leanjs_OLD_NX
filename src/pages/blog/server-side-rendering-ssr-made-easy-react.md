@@ -19,7 +19,7 @@ In the early 2000s a new approach started to become popular, the single-page app
 
 The idea of a single-page app is that we try to do as much work as possible on the browser by taking full advantage of modern browser capabilities. In this approach, JavaScript becomes the main language to build web applications.
 
-If you use Create React App (CRA) to create React apps then you are creating SPAs.
+**If you use Create React App (CRA) to create React apps then you are creating SPAs.**
 
 ### SPA advantatges
 
@@ -64,7 +64,7 @@ server.listen(8889, () => {
 })
 ```
 
-### Improving performance
+### Improving performance with SSR
 
 One of the main advantages of rendering the page on the server is that we can improve the render time of the app, and so the user experience.
 
@@ -286,4 +286,36 @@ We need to change the way CRA start scripts works since now it also needs to sta
 
 ## Frameworks
 
-Now the big question, should I use a framework, or should I use a tool like react-scripts-ssr that adds SSR support to CRA?
+Now the often debated question, should I use a framework, or should I use a tool?
+
+Both frameworks and tools are abstractions of some concrete solution. The difference is tools are more specialized. Tools do less things. A framwork is an abstraction of abstractions, in other words a framework is a super set of tools.
+
+What all that means? A framework will solve a lot of problems without you knowing much about the more concrete pieces invovled in the solution. For instance you can use [Next.js](https://nextjs.org/) for server-side rendering in React, and by doing so you'll actually get code spliting and prefetching for free.
+
+What is the cost of using a framework? The obvious is, it might cover use cases that you don't need. The true cost to me is the cost of learning and the cost of change.
+
+### The cost of learning in the abstract
+
+There is a cost associated to learning domain knowleadge that belongs to a particular level of abstraction (framework), and that is not useful in more concrete implementations (tools). The opposite also applies.
+
+For instance, if the framework uses a specific implementation of a router that is tight to the solutions and cases the framework wants to address, you might learn how to make that abstraction of a router work, but you won't know how the actual rotuer works. Example, folloging some naming convetion or folder structure you could generate the routes of the application without understanding how the router works.
+
+I'm not suggesting that we should not use abstractions. Abstractions are very important. They help us do robust things faster by removing the cognitive overhead of understanding all the pieces involved. If you are very abstract, you might move fast now, but slower in the future. It's difficult to optimize or improve concrete parts if you don't understand them.
+
+### The cost of change in the abstract
+
+Another thing we should consider when deciding how many levels of abstraction we want to be in is what will be the cost of change. Will it be easy to change some concrete implementation of the framework for something else in the future? Frameworks help us do robust things faster. Robust in the future could potentially become rigid, meaning no flexible.
+
+When React Router v4 was released it brought some innovation in the routing space, but you couldn't use it in Next.js. Then someone created [After.js](https://github.com/jaredpalmer/after.js). After.js is self described as "Next.js-like framework for server-rendered React apps built with React Router 4"
+
+The question that remains to me is, if I use After.js, can I change in the future React Router 4 for another router if I need to? Or I will need to create another framework? Maybe the final.js?
+
+I'm not suggesting that we should not create frameworks to solve the specific use cases we have. Frameworks are useful in some cases, and actually, someone has to create them.
+
+## Conclusion
+
+- Server-side rendering can improve the performance and user experience of your web apps.
+- React has built-in support for server-side rendering.
+- Create React App doesn't support SSR but you can easily compose CRA with SSR functionality using [react-scripts-ssr](https://npmjs.com/package/react-scripts-ssr)
+- You can use frameworks like Next.js or After.js to create SSR React apps.
+- You need to know in which level of abstraction you should be based on the problems you are solving and the knowledge you have now, and the knowleadge you want to have in the future.
