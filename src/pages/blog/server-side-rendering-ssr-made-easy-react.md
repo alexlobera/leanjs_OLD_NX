@@ -284,13 +284,15 @@ We need to create a build script to transform our code like JSX into some JS tha
 
 We need to change the way CRA start scripts works since now it also needs to start the server that renders HTML. Yes, it's [implemented](https://github.com/reactjsacademy/react-scripts-ssr#step-1) in the same package.
 
-## Frameworks
+## Tools vs. frameworks
 
 Now the often debated question, should I use a framework, or should I use a tool?
 
 Both frameworks and tools are abstractions of some concrete solution. The difference is tools are more specialized. Tools do less things. A framwork is an abstraction of abstractions, in other words a framework is a super set of tools.
 
-What all that means? A framework will solve a lot of problems without you knowing much about the more concrete pieces invovled in the solution. For instance you can use [Next.js](https://nextjs.org/) for server-side rendering in React, and by doing so you'll actually get code spliting and prefetching for free.
+<video youtube-id="mVVNJKv9esE" time="510"></video>
+
+What all that means? A framework will solve a lot of problems without you knowing much about the more concrete pieces invovled in the solution. For instance you can use [Next.js](https://nextjs.org/) for server-side rendering in React, and by doing so you'll get code spliting and prefetching for free.
 
 What is the cost of using a framework? The obvious is, it might cover use cases that you don't need. The true cost to me is the cost of learning and the cost of change.
 
@@ -304,18 +306,24 @@ I'm not suggesting that we should not use abstractions. Abstractions are very im
 
 ### The cost of change in the abstract
 
-Another thing we should consider when deciding how many levels of abstraction we want to be in is what will be the cost of change. Will it be easy to change some concrete implementation of the framework for something else in the future? Frameworks help us do robust things faster. Robust in the future could potentially become rigid, meaning no flexible.
+Another thing we should consider when deciding how many levels of abstraction we want to be in is what the cost of change will be. Will it be easy to change some concrete implementation of the framework for something else in the future? Frameworks help us do robust things faster. Robust in the future could potentially become rigid, meaning no flexible.
 
 When React Router v4 was released it brought some innovation in the routing space, but you couldn't use it in Next.js. Then someone created [After.js](https://github.com/jaredpalmer/after.js). After.js is self described as "Next.js-like framework for server-rendered React apps built with React Router 4"
 
 The question that remains to me is, if I use After.js, can I change in the future React Router 4 for another router if I need to? Or I will need to create another framework? Maybe the final.js?
 
-I'm not suggesting that we should not create frameworks to solve the specific use cases we have. Frameworks are useful in some cases, and actually, someone has to create them.
+### Tools over frameworks
+
+I prefer to stay at the level of abstraction of the tool. It gives me the oportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the tool makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
+
+There are more tools than frameworks, and tools don't have consistent documentation across them. I think being at the level of abstraction of the tool requires more dedication, and maybe not everyone has the motivation to it. Therefore, it might be a personal decision.
+
+Another important factor to consider is your & your team's experience and knowledge. Maybe it doesn't work for you to use the right tools for the right problem if your team doesn't have enough time to master the tools. I'm biased, but in such case, I'd empower the team with high-quality intensive training such us ours :)
 
 ## Conclusion
 
 - Server-side rendering can improve the performance and user experience of your web apps.
 - React has built-in support for server-side rendering.
-- Create React App doesn't support SSR but you can easily compose CRA with SSR functionality using [react-scripts-ssr](https://npmjs.com/package/react-scripts-ssr)
-- You can use frameworks like Next.js or After.js to create SSR React apps.
+- Create React App doesn't support SSR but you can easily compose CRA with SSR functionality using [react-scripts-ssr](https://npmjs.com/package/react-scripts-ssr), which you can easily opt-out at any point.
+- You can use frameworks like Next.js or After.js to create SSR React apps, but you should consider the cost of change.
 - You need to know in which level of abstraction you should be based on the problems you are solving and the knowledge you have now, and the knowleadge you want to have in the future.
