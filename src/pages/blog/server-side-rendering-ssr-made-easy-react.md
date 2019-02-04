@@ -312,7 +312,7 @@ When React Router v4 was released it brought some innovation in the routing spac
 
 The question that remains to me is, if I use After.js, can I change in the future React Router 4 for another router if I need to? Or will I need to create another framework? Maybe the final.js?
 
-### Library over frameworks
+### Libraries over frameworks
 
 I prefer to stay at the level of abstraction of the library. It gives me the oportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the library makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
 
