@@ -310,7 +310,7 @@ Another thing we should consider when deciding how many levels of abstraction we
 
 When React Router v4 was released it brought some innovation in the routing space, but you couldn't use it in Next.js. Then someone created [After.js](https://github.com/jaredpalmer/after.js). After.js is self described as "Next.js-like framework for server-rendered React apps built with React Router 4"
 
-The question that remains to me is, if I use After.js, can I change in the future React Router 4 for another router if I need to? Or I will need to create another framework? Maybe the final.js?
+The question that remains to me is, if I use After.js, can I change in the future React Router 4 for another router if I need to? Or will I need to create another framework? Maybe the final.js?
 
 ### Library over frameworks
 
