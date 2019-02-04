@@ -11,7 +11,7 @@ Server-side rendering refers to the technique to which a web server returns dyna
 
 The idea of a web server that returns dynamic HTML on the HTTP response is nothing new at all; **web servers do SSR since they were created in the last century**. The difference between the last century and now is that before there was no alternative to SSR due to limited capabilities of web browsers at the time. In the old times, the server was the one doing most of the work. The use of JavaScript on the client was very limited.
 
-## Single-page apps - SPA
+## Single-page apps - <a name="spa"></a>
 
 In the early 2000s a new approach started to become popular, the single-page app - also known as SPA.
 
@@ -21,7 +21,7 @@ The idea of a single-page app is that we try to do as much work as possible on t
 
 **If you use Create React App (CRA) to create React apps then you are creating SPAs.**
 
-### SPA advantatges
+### SPA advantages <a name="spa-advantages"></a>
 
 A single-page app has many advantages compared to the previous paradigm:
 
@@ -30,7 +30,7 @@ A single-page app has many advantages compared to the previous paradigm:
 - It can reduce costs and increase scalability. Think of a SPA connected directly to a Firebase DB.
 - No need to maintain two different code bases, front and back.
 
-### SPA problems
+### SPA problems <a name="spa-problems"></a>
 
 SPA bring some new issues. Have you seen the following screen:
 
@@ -45,7 +45,7 @@ Some of the problems we can experience with SPA are:
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Freact-router-seo-min.png?alt=media&token=6f709d18-8f65-4bc0-b24d-58e282d4fa48" alt="React Router SPA Google indexed"></img>
 If you disable JS and navigate to the React Router site you'll see an empty blank page. Therefore Google can execute and read React SPAs.
 
-## Server-side rendering
+## Server-side rendering <a name="ssr"></a>
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-intersection.png?alt=media" alt="SSR the intersection server and client"></img>
 
@@ -64,7 +64,7 @@ server.listen(8889, () => {
 })
 ```
 
-### Improving performance with SSR
+### Improving performance with SSR <a name="improving-performance-with-ssr"></a>
 
 One of the main advantages of rendering the page on the server is that we can improve the render time of the app, and so the user experience.
 
@@ -89,7 +89,7 @@ The time it takes to # 8 to complete depends on the client device.
 
 Long story short, looking at the previous sequence, in a SPA the user needs to complete # 5 to see the UI and to complete # 8 to see the UI populated with data. In SSR the user can see the UI populated with data at the end of # 2
 
-## Implementing SSR in React
+## Implementing SSR in React <a name="implementing-ssr-in-react"></a>
 
 This is the easy part since React has built-in support for SSR (except Suspense, which is coming soon!). The only thing you need to do is to `import { renderToString } from "react-dom/server"` and invoke the renderToString function with the Root component of your app.
 
@@ -108,7 +108,7 @@ console.log(renderToString(Root))
 
 The previous example is quite cool, we are running the renderToString function from "react-dom/server" on your browser to render HTML dynamically in node (server) environment via Runkit using React 🤔 🤯.
 
-### React libraries with SSR support
+### React libraries with SSR support <a name="react-libraries-with-ssr-support"></a>
 
 This is a list of libraries with great SSR support that you'll probably want to use in combination with react-dom/server:
 
@@ -117,7 +117,7 @@ This is a list of libraries with great SSR support that you'll probably want to 
 - [React Helmet](https://github.com/nfl/react-helmet#server-usage) to add metas to the head.
 - [Apollo Client](https://www.apollographql.com/docs/react/features/server-side-rendering.html) for data fetching.
 
-## Configuration
+## Configuration <a name="configuration"></a>
 
 In the previous section, we saw how easy it is to render React on the server. Modern real-world web apps are more complicated than the "Hello SSR" example we run, and we require extensive configuration to develop and build them.
 
@@ -125,7 +125,7 @@ In the previous section, we saw how easy it is to render React on the server. Mo
 
 Let me give you an overview of how Webpack works to understand the different SSR alternatives.
 
-### Development
+### Development <a name="development"></a>
 
 To develop your application using Webpack you'll need at least:
 
@@ -166,7 +166,7 @@ When we run `yarn start` the script/start.js starts a Webpack dev server on our 
 
 Webpack is watching the source code of the app, so everytime you edit and save any code the `compiler` compiles the app. When that happens, Webpack dev server sends a message to the browser via websocket to say 'there is a new version of the UI' so it can be updated. This way CRA enables a good dev experience.
 
-### Production build
+### Production build <a name="production-build"></a>
 
 Before deploying your application to production you need to run the `build` process. The build in CRA executes the script/build.js which uses the webpack.config.js, both part of [react-scripts](https://www.npmjs.com/package/react-scripts), to package the source code of your app into something optimal that can be distributed to the Web.
 
@@ -181,13 +181,13 @@ Deploying a CRA is straightforward because the app is made of **static assets** 
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fno-ssr-build-and-production-min.png?alt=media" alt="Webpack built in production"></img>
 
-## react-scripts-ssr
+## react-scripts-ssr <a name="react-scripts-ssr"></a>
 
 If you, like most people, use Create React App to create a React app and now you want to add SSR support to it, you'll have to make some significant changes. I see two paths to make those changes. One is to [eject](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject) your app (which is a one-way, not recommended operation), and replace WebpackDevServer by a production-ready server that can handle dev and production. The other path I see is not to eject your app and instead to add another "box" to the picture that you can easily remove at any point.
 
 I think good software is such that it's designed in a way so we can make decisions in the now and easily change our minds in the future. In other words, good software is [composable software](/blog/react-is-all-about-composition-react-hooks-render-props-hocs).
 
-### The server
+### The server <a name="the-server"></a>
 
 Let's see how to compose CRA with SSR, and what I mean by adding another "box" to the picture:
 
@@ -223,7 +223,7 @@ A few notes on that snippet:
 
 You will add this proxy in every CRA that you want to add SSR. Therefore you can [extract it into an Express middleware](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/middlewares.js) that you can reuse across different apps.
 
-#### index.html
+#### index.html <a name="index-html"></a>
 
 CRA has an [index.html template](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/public/index.html) which is used to:
 
@@ -234,7 +234,7 @@ Our server also needs an HTML template to inject the HTML from `renderToString(<
 
 In this post, I'm not going to discuss the implementation details of how to use the same template. As you might see, that implementation is going to be the same in every app, so we can abstract it into some [functions that we can reuse](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/render.js). Which I already did, [feel free to use](https://www.npmjs.com/package/react-scripts-ssr).
 
-### App specific server code
+### App specific server code <a name="app-specific-code"></a>
 
 **There is some concrete code that belongs to each app, and so it can't be abstracted into a generic middleware**.
 
@@ -284,7 +284,7 @@ We need to create a build script to transform our code like JSX into some JS tha
 
 We need to change the way CRA start scripts works since now it also needs to start the server that renders HTML. Yes, it's [implemented](https://github.com/reactjsacademy/react-scripts-ssr#step-1) in the same package.
 
-## Libraries vs. frameworks
+## Libraries vs. frameworks <a name="libaries-vs-frameworks"></a>
 
 Now the often debated question, should I use a framework, or should I use a library?
 
@@ -296,7 +296,7 @@ What all that means? A framework will solve a lot of problems without you knowin
 
 What is the cost of using a framework? The obvious is, it might cover use cases that you don't need. The true cost in my view is the cost of learning and the cost of change.
 
-### The cost of learning in the abstract
+### The cost of learning in the abstract <a name="cost-of-learning"></a>
 
 There is a cost associated to learning domain knowledge that belongs to a particular level of abstraction (framework), and that might not be useful in more concrete implementations (libraries).
 
@@ -304,7 +304,7 @@ For instance, if the framework uses a specific implementation of a router that i
 
 I'm not suggesting that we should not use abstractions. Abstractions are very important. They help us do robust things faster by removing the cognitive overhead of understanding all the pieces involved. If you are very abstract, you might move fast now, but slower in the future. It's difficult to optimize or improve concrete parts if you don't understand them.
 
-### The cost of change in the abstract
+### The cost of change in the abstract <a name="cost-of-change"></a>
 
 Another thing we should consider when deciding how many levels of abstraction we want to be in is what the cost of change will be. Will it be easy to change some concrete implementation of the framework for something else in the future? Frameworks help us do robust things faster. Robust in the future could potentially become rigid, meaning no flexible.
 
@@ -312,7 +312,7 @@ When React Router v4 was released it brought some innovation in the routing spac
 
 The question that remains to me is, if I use After.js, can I change in the future React Router 4 for another router if I need to? Or will I need to create another framework? Maybe the final.js?
 
-### Libraries over frameworks
+### Libraries over frameworks <a name="libaries-over-frameworks"></a>
 
 I prefer to stay at the level of abstraction of the library. It gives me the opportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the library makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
 
@@ -320,7 +320,7 @@ There are more libraries than frameworks, and libraries don't have consistent do
 
 Another important factor to consider is your & your team's experience and knowledge. Maybe it doesn't work for you to use the right libraries for the right problem if your team doesn't have enough time to master the libraries. I'm biased, but in such case, I'd empower the team with high-quality intensive training such us ours :)
 
-## Conclusion
+## Conclusion <a name="conclusion"></a>
 
 - Server-side rendering can improve the performance and user experience of your web apps.
 - React has built-in support for server-side rendering.
