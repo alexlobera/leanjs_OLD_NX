@@ -1,3 +1,5 @@
+import trackUserBehaviour from "../components/utils/trackUserBehaviour";
+
 export const triggerUnsubscribe = ({ email }) =>
   fetch(
     `https://us-central1-reactjsacademy-react.cloudfunctions.net/unsubscribe`,
@@ -10,7 +12,11 @@ export const triggerUnsubscribe = ({ email }) =>
         email,
       }),
     }
-  )
+  ).then(() => {
+    trackUserBehaviour({
+      event: "NEWSLETTER_UNSUBSCRIBE"
+    })
+  })
 
 export const triggerSubscribe = ({ email, pathname }) => {
   window &&
@@ -22,11 +28,7 @@ export const triggerSubscribe = ({ email, pathname }) => {
         'string--From--Path': pathname,
       },
     })
-  window.dataLayer = window.dataLayer || []
-  function gtag() {
-    dataLayer.push(arguments)
-  }
-  gtag('event', 'conversion', {
-    send_to: 'AW-877316317/d5TtCOmF_IoBEN2Rq6ID',
+  trackUserBehaviour({
+    event: "NEWSLETTER_SIGNUP"
   })
 }
