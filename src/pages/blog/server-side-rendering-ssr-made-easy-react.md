@@ -232,7 +232,7 @@ CRA has an [index.html template](https://github.com/facebook/create-react-app/bl
 
 Our server also needs an HTML template to inject the HTML from `renderToString(<App />);`. To continue composing CRA with SSR capabilities we are going to use the same template.
 
-In this post, I'm not going to discuss the implementation details of how to use the same template. As you might see, that implementation is going to be the same in every app, so we can abstracted into some [functions that we can reuse](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/render.js). Which I already did, [feel free to use](https://www.npmjs.com/package/react-scripts-ssr).
+In this post, I'm not going to discuss the implementation details of how to use the same template. As you might see, that implementation is going to be the same in every app, so we can abstract it into some [functions that we can reuse](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/render.js). Which I already did, [feel free to use](https://www.npmjs.com/package/react-scripts-ssr).
 
 ### App specific server code
 
