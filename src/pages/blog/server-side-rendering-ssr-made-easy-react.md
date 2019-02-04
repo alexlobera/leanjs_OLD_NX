@@ -32,7 +32,7 @@ A single-page app has many advantages compared to the previous paradigm:
 
 ### SPA problems <a name="spa-problems"></a>
 
-SPA bring some new issues. Have you seen the following screen:
+SPA brings some new issues. Have you seen the following screen:
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fgmail-html5-min.png?alt=media" alt="Gmail load HTML version"></img>
 
@@ -49,7 +49,7 @@ If you disable JS and navigate to the React Router site you'll see an empty blan
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-intersection.png?alt=media" alt="SSR the intersection server and client"></img>
 
-With SSR most of our code runs both on the server and on the client. Obviously, we can't run 100% of the code on both server and client because there is code that only concerns to the server and code that only concerns to the client.
+With **SSR most of our code runs both on the server and on the client**. Obviously, we can't run 100% of the code on both server and client because there is code that only concerns to the server and code that only concerns to the client.
 
 It doesn't make sense to run the following code on the server since there is no DOM:
 
@@ -162,7 +162,7 @@ First, we should understand how Webpack is set in CRA. There are 2 parts i) conf
 - Scripts:
   - [start.js](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/scripts/start.js)
 
-When we run `yarn start` the script/start.js starts a Webpack dev server on our machine. After, when we navigate to localhost:300X Webpack dev server will return static HTML and a bundle.js that contains the JS of the app. In this post, I refer to port 300X as the port CRA has found available to run the WebpackDevServer.
+When we run `yarn start` the script/start.js starts a Webpack dev server on our machine. After, when we navigate to localhost:300X Webpack dev server will return static HTML and a bundle.js that contains the JS of the app. In this post, I refer to port 300X as the port CRA found available to run the WebpackDevServer.
 
 Webpack is watching the source code of the app, so everytime you edit and save any code the `compiler` compiles the app. When that happens, Webpack dev server sends a message to the browser via websocket to say 'there is a new version of the UI' so it can be updated. This way CRA enables a good dev experience.
 
@@ -193,7 +193,7 @@ Let's see how to compose CRA with SSR, and what I mean by adding another "box" t
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-dev-2-min.png?alt=media" alt="Create React App running with another Express server"></img>
 
-First, we add another server, an Express server running on port 8888 in this case. This server will be responsible for generating the HTML dynamically instead of returning always the same index.html.
+First, we add another server, an Express server running on port 8888 in this case. This new server will be responsible for generating the HTML dynamically instead of returning always the same index.html.
 
 When we navigate to localhost:8888 the new server will invoke renderToString with the root component of the React app and send that string in the HTTP response. The server should only do that if the request is not trying to access CSS or JS assets from the React app.
 
@@ -221,14 +221,14 @@ A few notes on that snippet:
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-hmr-min.png?alt=media" alt="Webpack Hot Module Replacement (HMR) with Create React App (CRA)"></img>
 
-You will add this proxy in every CRA that you want to add SSR. Therefore you can [extract it into an Express middleware](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/middlewares.js) that you can reuse across different apps.
+In this approach, you will add this proxy in every CRA that you want to add SSR. Therefore you can [extract it into an Express middleware](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/middlewares.js) that you can reuse across different apps.
 
 #### index.html <a name="index-html"></a>
 
 CRA has an [index.html template](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/public/index.html) which is used to:
 
-- Inject some data like the title of the page at build time .
-- Inject the HTML of the React app in `<div id="root"></div>` at runtime.
+- Inject some data like the title of the page at **build time**.
+- Inject the HTML of the React app in `<div id="root"></div>` at **runtime**.
 
 Our server also needs an HTML template to inject the HTML from `renderToString(<App />);`. To continue composing CRA with SSR capabilities we are going to use the same template.
 
@@ -278,7 +278,7 @@ The build script that bundles the app on the client in production is the same si
 
 #### scripts/build-server.js
 
-We need to create a build script to transform our code like JSX into some JS that can run on the server. I already [implemented that](https://github.com/reactjsacademy/react-scripts-ssr#step-1) if you want to use it.
+We need to create a new build script to transform our code like JSX into some JS that can run on the server. To keep composing, the new build will be composed with the react-scripts build && react-scripts-ssr server-build. I already [implemented a server-build script](https://github.com/reactjsacademy/react-scripts-ssr#step-1) if you want to use it.
 
 #### scripts/start.js
 
@@ -296,15 +296,15 @@ What all that means? A framework will solve a lot of problems without you knowin
 
 What is the cost of using a framework? The obvious is, it might cover use cases that you don't need. The true cost in my view is the cost of learning and the cost of change.
 
-### The cost of learning in the abstract <a name="cost-of-learning"></a>
+### The cost of learning <a name="cost-of-learning"></a>
 
 There is a cost associated to learning domain knowledge that belongs to a particular level of abstraction (framework), and that might not be useful in more concrete implementations (libraries).
 
-For instance, if the framework uses a specific implementation of a router that is tight to the solutions and cases the framework wants to address, you might learn how to make that abstraction of a router work, but you won't know how the actual rotuer works. Example, folloging some naming convetion or folder structure you could generate the routes of the application without understanding how the router works.
+For instance, if the framework uses a specific implementation of a router that is tight to the solutions and use cases the framework wants to address, you might learn how to make that abstraction of a router work, but you won't know how the actual rotuer works. Example, folloging some naming convetion or folder structure you could generate the routes of the application without understanding how the router works.
 
-I'm not suggesting that we should not use abstractions. Abstractions are very important. They help us do robust things faster by removing the cognitive overhead of understanding all the pieces involved. If you are very abstract, you might move fast now, but slower in the future. It's difficult to optimize or improve concrete parts if you don't understand them.
+I'm not suggesting that we should not use abstractions. Abstractions are very important. They help us do robust things faster by removing the cognitive overhead of understanding all the pieces involved. You should also consider that if you are very abstract, you might move fast now, but slower in the future. It's difficult to optimize or improve concrete parts if you don't understand them.
 
-### The cost of change in the abstract <a name="cost-of-change"></a>
+### The cost of change <a name="cost-of-change"></a>
 
 Another thing we should consider when deciding how many levels of abstraction we want to be in is what the cost of change will be. Will it be easy to change some concrete implementation of the framework for something else in the future? Frameworks help us do robust things faster. Robust in the future could potentially become rigid, meaning no flexible.
 
@@ -322,8 +322,8 @@ Another important factor to consider is your & your team's experience and knowle
 
 ## Conclusion <a name="conclusion"></a>
 
-- Server-side rendering can improve the performance and user experience of your web apps.
-- React has built-in support for server-side rendering.
+- Server-side rendering can [improve performance](#improving-performance-with-ssr) and user experience of your web apps.
+- [React has built-in support](#implementing-ssr-in-react) for server-side rendering.
 - Create React App doesn't support SSR but you can easily compose CRA with SSR functionality using [react-scripts-ssr](https://npmjs.com/package/react-scripts-ssr), which you can easily opt-out at any point.
-- You can use frameworks like Next.js or After.js to create SSR React apps, but you should consider the cost of change.
-- You need to know in which level of abstraction you should be based on the problems you are solving and the knowledge you have now, and the knowleadge you want to have in the future.
+- You need to know in which [level of abstraction](#libaries-vs-frameworks) you should be based on the problems you are solving and the knowledge you have now, and the knowleadge you plan to have in the future.
+- You can use frameworks like Next.js or After.js to create SSR React apps, but you should consider [the cost of learning](#cost-of-learning) and [the cost of change](#cost-of-change).
