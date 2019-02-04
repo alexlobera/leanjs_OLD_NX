@@ -314,7 +314,7 @@ The question that remains to me is, if I use After.js, can I change in the futur
 
 ### Libraries over frameworks
 
-I prefer to stay at the level of abstraction of the library. It gives me the oportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the library makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
+I prefer to stay at the level of abstraction of the library. It gives me the opportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the library makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
 
 There are more libraries than frameworks, and libraries don't have consistent documentation across them. I think being at the level of abstraction of the library requires more dedication, and maybe not everyone has the motivation to it. Therefore, it might be a personal decision.
 
