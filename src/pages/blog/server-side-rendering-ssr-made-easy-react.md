@@ -298,7 +298,7 @@ What is the cost of using a framework? The obvious is, it might cover use cases 
 
 ### The cost of learning in the abstract
 
-There is a cost associated to learning domain knowleadge that belongs to a particular level of abstraction (framework), and that is not useful in more concrete implementations (libraries). The opposite also applies.
+There is a cost associated to learning domain knowledge that belongs to a particular level of abstraction (framework), and that might not be useful in more concrete implementations (libraries).
 
 For instance, if the framework uses a specific implementation of a router that is tight to the solutions and cases the framework wants to address, you might learn how to make that abstraction of a router work, but you won't know how the actual rotuer works. Example, folloging some naming convetion or folder structure you could generate the routes of the application without understanding how the router works.
 
