@@ -4,7 +4,7 @@ date: 2019-01-27
 subtitle: Server-side rendering (SSR) can improve significantly the user experience of you web app. React has built-in SSR support.
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-clouds-min.jpeg?alt=media
-order: 8
+order: 9
 ---
 
 Server-side rendering refers to the technique to which a web server returns dynamic HTML on the HTTP response. By dynamic I mean the HTML on the response varies depending on some variable on the request. Typically the variable is the URL.
@@ -115,13 +115,13 @@ This is a list of libraries with great SSR support that you'll probably want to 
 - [React Router](https://reacttraining.com/react-router/web/guides/server-rendering) for routing both client and server side.
 - [Styled-components](https://www.styled-components.com/docs/advanced#server-side-rendering) for styling the app.
 - [React Helmet](https://github.com/nfl/react-helmet#server-usage) to add metas to the head.
-- [GraphQL](https://www.apollographql.com/docs/react/features/server-side-rendering.html) for data fetching.
+- [Apollo Client](https://www.apollographql.com/docs/react/features/server-side-rendering.html) for data fetching.
 
 ## Configuration
 
 In the previous section, we saw how easy it is to render React on the server. Modern real-world web apps are more complicated than the "Hello SSR" example we run, and we require extensive configuration to develop and build them.
 
-[Webpack](https://webpack.js.org/) is nowadays the industry standard to develop and bundle web applications. Webpack does a lot of good things to help us bundle web apps, although configuring Webpack can be a tedious and ungrateful task for many developers. Fortunately, there are many tools and frameworks to help us with the set-up. Unfortunately, not all of them support SSR.
+[Webpack](https://webpack.js.org/) is nowadays the industry standard to develop and bundle web applications. Webpack does a lot of good things to help us bundle web apps, although configuring Webpack can be a tedious and ungrateful task for many developers. Fortunately, there are many libraries and frameworks to help us with the set-up. Unfortunately, not all of them support SSR.
 
 Let me give you an overview of how Webpack works to understand the different SSR alternatives.
 
@@ -284,13 +284,13 @@ We need to create a build script to transform our code like JSX into some JS tha
 
 We need to change the way CRA start scripts works since now it also needs to start the server that renders HTML. Yes, it's [implemented](https://github.com/reactjsacademy/react-scripts-ssr#step-1) in the same package.
 
-## Tools vs. frameworks
+## Libraries vs. frameworks
 
-Now the often debated question, should I use a framework, or should I use a tool?
+Now the often debated question, should I use a framework, or should I use a library?
 
-Both frameworks and tools are abstractions of some concrete solution. The difference is tools are more specialized. Tools do less things. A framwork is an abstraction of abstractions, in other words a framework is a super set of tools.
+Both frameworks and libraries are abstractions of some concrete solution. The difference is libraries are more specialized. Libraries do less things. A framwork is an abstraction of abstractions, in other words a framework is a super set of libraries.
 
-<video youtube-id="mVVNJKv9esE" time="510"></video>
+<video youtube-id="mVVNJKv9esE" time="511"></video>
 
 What all that means? A framework will solve a lot of problems without you knowing much about the more concrete pieces invovled in the solution. For instance you can use [Next.js](https://nextjs.org/) for server-side rendering in React, and by doing so you'll get code spliting and prefetching for free.
 
@@ -298,7 +298,7 @@ What is the cost of using a framework? The obvious is, it might cover use cases 
 
 ### The cost of learning in the abstract
 
-There is a cost associated to learning domain knowleadge that belongs to a particular level of abstraction (framework), and that is not useful in more concrete implementations (tools). The opposite also applies.
+There is a cost associated to learning domain knowleadge that belongs to a particular level of abstraction (framework), and that is not useful in more concrete implementations (libraries). The opposite also applies.
 
 For instance, if the framework uses a specific implementation of a router that is tight to the solutions and cases the framework wants to address, you might learn how to make that abstraction of a router work, but you won't know how the actual rotuer works. Example, folloging some naming convetion or folder structure you could generate the routes of the application without understanding how the router works.
 
@@ -312,13 +312,13 @@ When React Router v4 was released it brought some innovation in the routing spac
 
 The question that remains to me is, if I use After.js, can I change in the future React Router 4 for another router if I need to? Or I will need to create another framework? Maybe the final.js?
 
-### Tools over frameworks
+### Library over frameworks
 
-I prefer to stay at the level of abstraction of the tool. It gives me the oportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the tool makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
+I prefer to stay at the level of abstraction of the library. It gives me the oportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the library makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
 
-There are more tools than frameworks, and tools don't have consistent documentation across them. I think being at the level of abstraction of the tool requires more dedication, and maybe not everyone has the motivation to it. Therefore, it might be a personal decision.
+There are more libraries than frameworks, and libraries don't have consistent documentation across them. I think being at the level of abstraction of the library requires more dedication, and maybe not everyone has the motivation to it. Therefore, it might be a personal decision.
 
-Another important factor to consider is your & your team's experience and knowledge. Maybe it doesn't work for you to use the right tools for the right problem if your team doesn't have enough time to master the tools. I'm biased, but in such case, I'd empower the team with high-quality intensive training such us ours :)
+Another important factor to consider is your & your team's experience and knowledge. Maybe it doesn't work for you to use the right libraries for the right problem if your team doesn't have enough time to master the libraries. I'm biased, but in such case, I'd empower the team with high-quality intensive training such us ours :)
 
 ## Conclusion
 
