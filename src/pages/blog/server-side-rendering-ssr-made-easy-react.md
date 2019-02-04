@@ -294,7 +294,7 @@ Both frameworks and libraries are abstractions of some concrete solution. The di
 
 What all that means? A framework will solve a lot of problems without you knowing much about the more concrete pieces invovled in the solution. For instance you can use [Next.js](https://nextjs.org/) for server-side rendering in React, and by doing so you'll get code spliting and prefetching for free.
 
-What is the cost of using a framework? The obvious is, it might cover use cases that you don't need. The true cost to me is the cost of learning and the cost of change.
+What is the cost of using a framework? The obvious is, it might cover use cases that you don't need. The true cost in my view is the cost of learning and the cost of change.
 
 ### The cost of learning in the abstract
 
