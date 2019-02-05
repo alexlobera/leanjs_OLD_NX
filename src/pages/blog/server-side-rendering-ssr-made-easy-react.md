@@ -1,15 +1,15 @@
 ---
 title: Server-side rendering SSR <br /> made easy with React
 date: 2019-01-27
-subtitle: Server-side rendering (SSR) can improve significantly the user experience of you web app. React has built-in SSR support.
+subtitle: Server-side rendering (SSR) can significantly improve the user experience of you web app. React has built-in SSR support.
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-clouds-min.jpeg?alt=media
 order: 9
 ---
 
-Server-side rendering refers to the technique to which a web server returns dynamic HTML on the HTTP response. By dynamic I mean the HTML on the response varies depending on some variable on the request. Typically the variable is the URL.
+Server-side rendering refers to the technique in which a web server returns dynamic HTML on the HTTP response. By dynamic I mean the HTML on the response varies depending on some variable on the request. Typically the variable is the URL.
 
-The idea of a web server that returns dynamic HTML on the HTTP response is nothing new at all; **web servers do SSR since they were created in the last century**. The difference between the last century and now is that before there was no alternative to SSR due to limited capabilities of web browsers at the time. In the old times, the server was the one doing most of the work. The use of JavaScript on the client was very limited.
+The idea of a web server that returns dynamic HTML on the HTTP response is nothing new at all; **web servers have done SSR since they were created in the last century**. The difference between the last century and now is that before there was no alternative to SSR due to limited capabilities of web browsers at the time. In the old days, the server was the one doing most of the work. The use of JavaScript on the client was very limited.
 
 ## Single-page apps - <a name="spa"></a>
 
@@ -17,7 +17,7 @@ In the early 2000s a new approach started to become popular, the single-page app
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fgmail-min.png?alt=media" alt="First version of Gmail"></img>
 
-The idea of a single-page app is that we try to do as much work as possible on the browser by taking full advantage of modern browser capabilities. In this approach, JavaScript becomes the main language to build web applications.
+The idea of a single-page app is that we try to do as much work as possible on the browser by taking full advantage of modern browser capabilities. In this approach, JavaScript becomes the main language used in building web applications.
 
 **If you use Create React App (CRA) to create React apps then you are creating SPAs.**
 
@@ -25,18 +25,18 @@ The idea of a single-page app is that we try to do as much work as possible on t
 
 A single-page app has many advantages compared to the previous paradigm:
 
-- It improves the user experience by making user interactions much faster avoiding network round-trips to the server.
+- It improves the user experience by making user interactions much faster, avoiding network round-trips to the server.
 - It improves the user experience by enabling new and more sophisticated user interactions.
 - It can reduce costs and increase scalability. Think of a SPA connected directly to a Firebase DB.
 - No need to maintain two different code bases, front and back.
 
 ### SPA problems <a name="spa-problems"></a>
 
-SPA brings some new issues. Have you seen the following screen:
+SPA brings some new issues. Have you ever seen the following screen:
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fgmail-html5-min.png?alt=media" alt="Gmail load HTML version"></img>
 
-Some of the problems we can experience with SPA are:
+Some of the problems we can experience with SPA's are:
 
 - What if the network is slow and it takes 5 seconds to download the initial JavaScript bundle? The user won't see anything until then.
 - Social metas. Some like the Facebook metas don't work on SPA.
@@ -66,7 +66,7 @@ server.listen(8889, () => {
 
 ### Improving performance with SSR <a name="improving-performance-with-ssr"></a>
 
-One of the main advantages of rendering the page on the server is that we can improve the render time of the app, and so the user experience.
+One of the main advantages of rendering the page on the server is that we can improve the render time of the app, and hence the user experience.
 
 ```
 1 -> HTML Request
@@ -81,11 +81,11 @@ One of the main advantages of rendering the page on the server is that we can im
 
 The time it takes to # 1,2,3 and 4 to complete depends on the network and the server. It will be very fast in the case of a CDN, although in SSR only # 3 and 4 will benefit from a CDN.
 
-The time it takes to # 5 to complete depends on the client device.
+The time it takes for # 5 to complete depends on the client device.
 
-The time it takes to # 6 and 7 to complete depends on the network and the server (more unlikely than # 1 to 4 to be in a CDN)
+The time it takes for # 6 and 7 to complete depends on the network and the server (more unlikely than # 1 to 4 to be in a CDN)
 
-The time it takes to # 8 to complete depends on the client device.
+The time it takes for # 8 to complete depends on the client device.
 
 Long story short, looking at the previous sequence, in a SPA the user needs to complete # 5 to see the UI and to complete # 8 to see the UI populated with data. In SSR the user can see the UI populated with data at the end of # 2
 
@@ -93,7 +93,7 @@ Long story short, looking at the previous sequence, in a SPA the user needs to c
 
 This is the easy part since React has built-in support for SSR (except Suspense, which is coming soon!). The only thing you need to do is to `import { renderToString } from "react-dom/server"` and invoke the renderToString function with the Root component of your app.
 
-You can run the next code by clicking on the green "run" button and see how it works:
+You can run the following code by clicking on the green "run" button to see how it works:
 
 ```runkit
 const React = require("react")
@@ -106,7 +106,7 @@ const Root = React.createElement(
 console.log(renderToString(Root))
 ```
 
-The previous example is quite cool, we are running the renderToString function from "react-dom/server" on your browser to render HTML dynamically in node (server) environment via Runkit using React 🤔 🤯.
+The previous example is quite cool, we are running the renderToString function from "react-dom/server" on your browser to render HTML dynamically in a node (server) environment via Runkit using React 🤔 🤯.
 
 ### React libraries with SSR support <a name="react-libraries-with-ssr-support"></a>
 
@@ -121,7 +121,7 @@ This is a list of libraries with great SSR support that you'll probably want to 
 
 In the previous section, we saw how easy it is to render React on the server. Modern real-world web apps are more complicated than the "Hello SSR" example we run, and we require extensive configuration to develop and build them.
 
-[Webpack](https://webpack.js.org/) is nowadays the industry standard to develop and bundle web applications. Webpack does a lot of good things to help us bundle web apps, although configuring Webpack can be a tedious and ungrateful task for many developers. Fortunately, there are many libraries and frameworks to help us with the set-up. Unfortunately, not all of them support SSR.
+[Webpack](https://webpack.js.org/) is nowadays the industry standard to develop and bundle web applications. Webpack does a lot of good things to help us bundle web apps, although configuring Webpack can be a tedious and thankless task for many developers. Fortunately, there are many libraries and frameworks to help us with the set-up. Unfortunately, not all of them support SSR.
 
 Let me give you an overview of how Webpack works to understand the different SSR alternatives.
 
@@ -177,7 +177,7 @@ Before deploying your application to production you need to run the `build` proc
 
 Once you run the build script, locally or ideally in a CI (Continous Integration), you can deploy your web app.
 
-Deploying a CRA is straightforward because the app is made of **static assets** like HTML, JS, and CSS. We don't need a server to run the app in production because the app we send to all the browsers is the same for all of them. You can serve your static app from a CDN.
+Deploying a CRA is straightforward because the app is made up of **static assets** like HTML, JS, and CSS. We don't need a server to run the app in production because the app we send to all the browsers is the same for all of them. You can serve your static app from a CDN.
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fno-ssr-build-and-production-min.png?alt=media" alt="Webpack built in production"></img>
 
@@ -193,7 +193,7 @@ Let's see how to compose CRA with SSR, and what I mean by adding another "box" t
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-dev-2-min.png?alt=media" alt="Create React App running with another Express server"></img>
 
-First, we add another server, an Express server running on port 8888 in this case. This new server will be responsible for generating the HTML dynamically instead of returning always the same index.html.
+First, we add another server, an Express server running on port 8888 in this case. This new server will be responsible for generating the HTML dynamically instead of always returning the same index.html.
 
 When we navigate to localhost:8888 the new server will invoke renderToString with the root component of the React app and send that string in the HTTP response. The server should only do that if the request is not trying to access CSS or JS assets from the React app.
 
@@ -292,21 +292,21 @@ Both frameworks and libraries are abstractions of some concrete solution. The di
 
 <video youtube-id="mVVNJKv9esE" time="511"></video>
 
-What all that means? A framework will solve a lot of problems without you knowing much about the more concrete pieces invovled in the solution. For instance you can use [Next.js](https://nextjs.org/) for server-side rendering in React, and by doing so you'll get code spliting and prefetching for free.
+What does all that mean? A framework will solve a lot of problems without you knowing much about the more concrete pieces invovled in the solution. For instance you can use [Next.js](https://nextjs.org/) for server-side rendering in React, and by doing so you'll get code spliting and pre-fetching for free.
 
-What is the cost of using a framework? The obvious is, it might cover use cases that you don't need. The true cost in my view is the cost of learning and the cost of change.
+What is the cost of using a framework? The most obvious is that it might cover use cases that you don't need. The true cost in my view is the cost of learning and the cost of change.
 
 ### The cost of learning <a name="cost-of-learning"></a>
 
-There is a cost associated to learning domain knowledge that belongs to a particular level of abstraction (framework), and that might not be useful in more concrete implementations (libraries).
+There is a cost associated to gaining domain knowledge that belongs to a particular level of abstraction (framework), and that might not be useful in more concrete implementations (libraries).
 
-For instance, if the framework uses a specific implementation of a router that is tight to the solutions and use cases the framework wants to address, you might learn how to make that abstraction of a router work, but you won't know how the actual rotuer works. Example, folloging some naming convetion or folder structure you could generate the routes of the application without understanding how the router works.
+For instance, if the framework uses a specific implementation of a router that is tightly coupled to the solutions and use cases the framework wants to address, you might learn how to make that abstraction of a router work, but you won't know how the actual rotuer works. Example, following some naming convetion or folder structure you could generate the routes of the application without understanding how the router works.
 
 I'm not suggesting that we should not use abstractions. Abstractions are very important. They help us do robust things faster by removing the cognitive overhead of understanding all the pieces involved. You should also consider that if you are very abstract, you might move fast now, but slower in the future. It's difficult to optimize or improve concrete parts if you don't understand them.
 
 ### The cost of change <a name="cost-of-change"></a>
 
-Another thing we should consider when deciding how many levels of abstraction we want to be in is what the cost of change will be. Will it be easy to change some concrete implementation of the framework for something else in the future? Frameworks help us do robust things faster. Robust in the future could potentially become rigid, meaning no flexible.
+Another thing we should consider when deciding how many levels of abstraction we are comfortable with is what the cost of change will be. Will it be easy to change some concrete implementation of the framework for something else in the future? Frameworks help us do robust things faster. Robust in the future could potentially become rigid, meaning not flexible.
 
 When React Router v4 was released it brought some innovation in the routing space, but you couldn't use it in Next.js. Then someone created [After.js](https://github.com/jaredpalmer/after.js). After.js is self described as "Next.js-like framework for server-rendered React apps built with React Router 4"
 
@@ -314,11 +314,11 @@ The question that remains to me is, if I use After.js, can I change in the futur
 
 ### Libraries over frameworks <a name="libaries-over-frameworks"></a>
 
-I prefer to stay at the level of abstraction of the library. It gives me the opportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the library makes it easier to adapt to change, which I think it's very important in the hectic tech industry.
+I prefer to stay at the level of abstraction of the library. It gives me the opportunity to understand more concrete cases that I can use effectively and optimize. Also being at the level of abstraction of the library makes it easier to adapt to change, which I think is very important in the hectic tech industry.
 
-There are more libraries than frameworks, and libraries don't have consistent documentation across them. I think being at the level of abstraction of the library requires more dedication, and maybe not everyone has the motivation to it. Therefore, it might be a personal decision.
+There are more libraries than frameworks, and libraries don't always have consistent documentation. I think being at the level of abstraction of the library requires more dedication, and maybe not everyone has the motivation for it. Therefore, it might be a personal decision.
 
-Another important factor to consider is your & your team's experience and knowledge. Maybe it doesn't work for you to use the right libraries for the right problem if your team doesn't have enough time to master the libraries. I'm biased, but in such case, I'd empower the team with high-quality intensive training such us ours :)
+Another important factor to consider is your & your team's experience and knowledge. Maybe it doesn't work for you to use the right libraries for the right problem if your team doesn't have enough time to master the libraries. I'm biased, but in such cases, I'd help empower the team with a high-quality intensive training such us ours :)
 
 ## Conclusion <a name="conclusion"></a>
 
