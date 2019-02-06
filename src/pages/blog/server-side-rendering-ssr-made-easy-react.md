@@ -11,7 +11,7 @@ Server-side rendering refers to the technique in which a web server returns dyna
 
 The idea of a web server that returns dynamic HTML on the HTTP response is nothing new at all; **web servers have done SSR since they were created in the last century**. The difference between the last century and now is that before there was no alternative to SSR due to limited capabilities of web browsers at the time. In the old days, the server was the one doing most of the work. The use of JavaScript on the client was very limited.
 
-## Single-page apps - <a name="spa"></a>
+## Single-page apps <a name="spa"></a>
 
 In the early 2000s a new approach started to become popular, the single-page app - also known as SPA.
 
