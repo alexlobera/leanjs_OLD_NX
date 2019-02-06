@@ -22,7 +22,7 @@ const Video = ({ youtubeId, time, description = null }) => (
       allow="autoplay; encrypted-media"
       allowFullScreen
       src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&showinfo=0&wmode=opaque${
-        time ? `&start=${33}` : ''
+        time ? `&start=${time}` : ''
       }`}
     />
     {description ? <div>{description}</div> : null}
