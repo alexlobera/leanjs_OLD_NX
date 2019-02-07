@@ -122,8 +122,8 @@ class PaymentSection extends React.Component {
       voucherPriceXQuantity !== null
         ? voucherPriceXQuantity
         : discountPrice
-          ? discountPrice * quantity
-          : priceXQuantity
+        ? discountPrice * quantity
+        : priceXQuantity
 
     return price ? (
       <React.Fragment>

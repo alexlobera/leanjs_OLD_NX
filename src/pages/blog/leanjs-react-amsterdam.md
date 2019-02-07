@@ -1,10 +1,9 @@
 ---
-title: Heading to React Amsterdam?<br />We’ll see you there!
+title: Heading to React Amsterdam? <br /> We’ll see you there!
 date: 2019-02-05
 subtitle: Not only is it our first time at React Amsterdam, we’re also running our first part-time course in Amsterdam this March - and you’re invited!
 author: richard
-imageUrl: 
-https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Famsterdam.jpg?alt=media
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Famsterdam.jpg?alt=media
 order: 14
 ---
 

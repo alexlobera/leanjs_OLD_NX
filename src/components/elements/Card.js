@@ -50,11 +50,11 @@ const Card = styled.div`
       padding: 30px;
     `
       : props.padding !== false
-        ? `
+      ? `
       padding-top: 60px;
       padding-bottom:60px;
   `
-        : ``}
+      : ``}
   ${props => {
     switch (props.bg) {
       case 'dark':

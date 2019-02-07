@@ -1,4 +1,4 @@
-import trackUserBehaviour from "../components/utils/trackUserBehaviour";
+import trackUserBehaviour from '../components/utils/trackUserBehaviour'
 
 export const triggerUnsubscribe = ({ email }) =>
   fetch(
@@ -14,7 +14,7 @@ export const triggerUnsubscribe = ({ email }) =>
     }
   ).then(() => {
     trackUserBehaviour({
-      event: "NEWSLETTER_UNSUBSCRIBE"
+      event: 'NEWSLETTER_UNSUBSCRIBE',
     })
   })
 
@@ -29,6 +29,6 @@ export const triggerSubscribe = ({ email, pathname }) => {
       },
     })
   trackUserBehaviour({
-    event: "NEWSLETTER_SIGNUP"
+    event: 'NEWSLETTER_SIGNUP',
   })
 }
