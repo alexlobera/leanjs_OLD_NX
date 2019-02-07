@@ -30,6 +30,8 @@ class PaymentConfirmation extends React.Component {
       transaction_id: id ? `${trainingInstanceId}_${id}` : '',
     })
 
+    console.log('this.props.location.state', this.props.location.state.makePayment)
+
     if (id) {
       trackUserBehaviour({
         event: CHECKOUT_PAYMENT_SUCCESS,
