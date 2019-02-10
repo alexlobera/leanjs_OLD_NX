@@ -35,6 +35,7 @@ The reason I want to emphasize this is because most examples you find on the net
 
 **Controlled component** <a name="controlled-component"></a>, the component does not own the state.
 
+<a name="live-example-1"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
@@ -46,6 +47,7 @@ Is the following component controlled or uncontrolled? Can you type "hello" in i
 
 The previous input is uncontrolled because we are not setting any state to it. In other words, we are not setting the "value" prop. The value (state) is managed internally by the input.
 
+<a name="live-example-2"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
@@ -57,6 +59,7 @@ Is the following component controlled or uncontrolled? Can you type "hello" in i
 
 The previous input is controlled because we (some parent component) are setting its state. In other words, we are setting the "value" prop. The value (state) is hardcoded to "type here!" therefore it never changes even when you type on it because we are saying all the time to the input your value is "type here!" regardless of what you type.
 
+<a name="live-example-3"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
@@ -68,7 +71,7 @@ Is the following component controlled or uncontrolled? Can you type "hello" in i
 ```
 
 The previous input is controlled because we are setting the "value" prop to an empty string. The value (state) is hardcoded to "" therefore it never changes even when you type on it.
-
+<a name="live-example-4"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
