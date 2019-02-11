@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { Card, Video } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
@@ -42,8 +42,8 @@ const BootcampLondon = () => (
           label: 'Advanced React',
         },
         {
-          to: '/advanced-react-redux-graphql-bootcamp-lisbon',
-          label: 'Lisbon',
+          to: '/advanced-react-redux-graphql-bootcamp-london',
+          label: 'London',
         },
       ]}
     />
