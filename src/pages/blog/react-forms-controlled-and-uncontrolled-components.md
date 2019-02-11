@@ -31,10 +31,11 @@ Heads up! Controlled/uncontrolled is a characteristic that doesn’t only have t
 
 The reason I want to emphasize this is because most examples you find on the net use &lt;input/&gt; or &lt;select/&gt; to illustrate the concept, for instance, the [React official documentation](https://reactjs.org/docs/forms.html). I’ve observed that some React devs think that controlled and uncontrolled components only have to do with forms and inputs or selects. I want to make this clear. First, let’s discuss the “classic” controlled and uncontrolled example, and then let’s see other broader examples.
 
-**Uncontrolled component**, the component owns the state.
+**Uncontrolled component** <a name="uncontrolled-component"></a>, the component owns the state.
 
-**Controlled component**, the component does not own the state.
+**Controlled component** <a name="controlled-component"></a>, the component does not own the state.
 
+<a name="live-example-1"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
@@ -46,6 +47,7 @@ Is the following component controlled or uncontrolled? Can you type "hello" in i
 
 The previous input is uncontrolled because we are not setting any state to it. In other words, we are not setting the "value" prop. The value (state) is managed internally by the input.
 
+<a name="live-example-2"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
@@ -57,6 +59,7 @@ Is the following component controlled or uncontrolled? Can you type "hello" in i
 
 The previous input is controlled because we (some parent component) are setting its state. In other words, we are setting the "value" prop. The value (state) is hardcoded to "type here!" therefore it never changes even when you type on it because we are saying all the time to the input your value is "type here!" regardless of what you type.
 
+<a name="live-example-3"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
@@ -68,7 +71,7 @@ Is the following component controlled or uncontrolled? Can you type "hello" in i
 ```
 
 The previous input is controlled because we are setting the "value" prop to an empty string. The value (state) is hardcoded to "" therefore it never changes even when you type on it.
-
+<a name="live-example-4"></a>
 Is the following component controlled or uncontrolled? Can you type "hello" in it?
 
 ```.jsx
@@ -118,6 +121,8 @@ The previous Modal is an uncontrolled component.
 
 Which modal is easier to reuse in different projects? The second one (the uncontrolled one). Why? Because the state is handled by the modal itself so we don’t need to do any extra work to reuse the modal.
 
+### Controlled vs uncontrolled components <a name="controlled-vs-uncontrolled"></a>
+
 So which is better, controlled or uncontrolled components? It depends on the use case. Controlled components obviously give you more, well, control. Controlled components give you direct access to the state, so if you need to perform tasks like validating that state, it’s really easy since you own the state. Uncontrolled components are easier to reuse with minimal setup. If your app doesn’t need to know about the state of the component, like in the case of the modal, uncontrolled components will be simpler to use.
 
 A good component is one that can be either controlled or uncontrolled. Think of an &lt;input/&gt; itself. If you provide a value, the input becomes controlled. If you don’t provide a value, the input becomes uncontrolled.
@@ -130,8 +135,8 @@ This [burger menu](https://github.com/negomi/react-burger-menu) is a good exampl
 
 ## Conclusion <a name="conclusion"></a>
 
-- Uncontrolled component, the component owns the state.
-- Controlled component, the component does not own the state.
-- A third-party form library will help you submit, validate, and manage the state of the form (including user interactions)
-- The concept of controlled and uncontrolled component applies to any component, not only form fields like inputs, select, etc
-- A well designed component has the flexibility to be used either controlled or uncontrolled depending on the use case.
+- [Uncontrolled component](#uncontrolled-component), the component owns the state.
+- [Controlled component](#controlled-component), the component does not own the state.
+- A [third-party form library](#form-library) will help you submit, validate, and manage the state of the form (including user interactions)
+- The concept of controlled and uncontrolled component goes [ beyond forms, it applies to any component not only form fields like inputs, select, etc](#controlled-uncontrolled-beyond-forms)
+- A [well designed component has the flexibility to be used either controlled or uncontrolled](#controlled-vs-uncontrolled) depending on the use case.

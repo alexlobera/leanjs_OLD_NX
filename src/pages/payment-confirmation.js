@@ -21,7 +21,6 @@ class PaymentConfirmation extends React.Component {
     function gtag() {
       dataLayer.push(arguments)
     }
-    console.log('this.props.location.state', this.props.location.state)
     //conversion
     gtag('event', 'conversion', {
       send_to: 'AW-877316317/KPHjCIHC7ocBEN2Rq6ID',
@@ -30,15 +29,16 @@ class PaymentConfirmation extends React.Component {
       transaction_id: id ? `${trainingInstanceId}_${id}` : '',
     })
 
-    console.log('this.props.location.state', this.props.location.state.makePayment)
+    const payload = {
+      makePayment,
+      trainingInstanceId,
+      metadata: JSON.parse(makePayment.metadata)
+    }
 
     if (id) {
       trackUserBehaviour({
         event: CHECKOUT_PAYMENT_SUCCESS,
-        payload: {
-          makePayment,
-          trainingInstanceId,
-        },
+        payload,
       })
     }
   }
