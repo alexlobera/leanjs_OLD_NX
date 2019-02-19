@@ -8,7 +8,7 @@ import {
   UpcomingTrainingSection,
   TargetAudienceSection,
   TrainingDetails,
-  ADAM_LANCASTER,
+  DAVID_LEULIETTE,
   WILL_VOELCKER,
   ALEX_LOBERA,
   EVA_HOFFMANN,
@@ -73,7 +73,7 @@ const BootcampLondon = () => (
                 }
                 coaches={[
                   EVA_HOFFMANN,
-                  ADAM_LANCASTER,
+                  DAVID_LEULIETTE,
                   WILL_VOELCKER,
                   ALEX_LOBERA,
                 ]}

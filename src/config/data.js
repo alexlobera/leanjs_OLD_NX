@@ -43,6 +43,21 @@ const emptyTraining = (type, city) => ({
 
 export const trainings = [
   {
+    dates: 'March 12 - April 11, 2019',
+    dateStartsOn: new Date('Mar 12, 2019'),
+    city: LONDON,
+    country: 'UK',
+    type: PART_TIME,
+    cityShortName: 'London',
+    country: 'UK',
+    location: 'Makers Academy',
+    pathUrl: '/react-redux-training-london',
+    trainingInstanceId: '',
+    price: 829.17,
+    priceGoesUpOn: new Date('Feb 25, 2019'),
+    currency: 'gbp',
+  },
+  {
     dates: 'March 31 to April 6, 2019',
     dateStartsOn: new Date('2019-03-31T16:00:00'),
     city: LISBON,
