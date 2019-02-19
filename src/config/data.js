@@ -52,7 +52,7 @@ export const trainings = [
     country: 'UK',
     location: 'Makers Academy',
     pathUrl: '/react-redux-training-london',
-    trainingInstanceId: '',
+    trainingInstanceId: '5c6c7befef523c695ce4aaa2',
     price: 829.17,
     priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
