@@ -56,7 +56,7 @@ export const trainings = [
     trainingInstanceId: '5c516d8b4a9b34298c038de0',
     price: 1800,
     discountPrice: 1450,
-    priceGoesUpOn: new Date('Feb 15, 2019'),
+    priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
   },
   {
