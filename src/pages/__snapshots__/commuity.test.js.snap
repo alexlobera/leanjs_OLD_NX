@@ -99,43 +99,6 @@ exports[`<Community /> should render component 1`] = `
                   </styled.h3>
                 </styled.li>
                 <styled.li
-                  key="https://www.meetup.com/JavaScript-Amsterdam/events/257709061/"
-                >
-                  <Row>
-                    <Styled(Col)
-                      sm={6}
-                    >
-                      <Component
-                        src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_amsterdam.png?alt=media"
-                      />
-                    </Styled(Col)>
-                    <Styled(Col)
-                      sm={6}
-                    >
-                      <div>
-                        <styled.p>
-                          <strong>
-                            Learn JavaScript Testing Principles By Building Your Own Testing Library
-                          </strong>
-                          <br />
-                          18 Feb
-                           - 
-                          Amsterdam
-                          , 
-                          NL
-                        </styled.p>
-                        <LinkButton
-                          secondary={true}
-                          to="https://www.meetup.com/JavaScript-Amsterdam/events/257709061/"
-                          trackUserBehaviour={[Function]}
-                        >
-                          Read more
-                        </LinkButton>
-                      </div>
-                    </Styled(Col)>
-                  </Row>
-                </styled.li>
-                <styled.li
                   key="https://www.meetup.com/JavaScript-London/events/257660896"
                 >
                   <Row>
