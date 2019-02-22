@@ -92,50 +92,6 @@ exports[`<Community /> should render component 1`] = `
                   name="meetups"
                 />
               </styled.h2>
-              <styled.ul>
-                <styled.li>
-                  <styled.h3>
-                    Events
-                  </styled.h3>
-                </styled.li>
-                <styled.li
-                  key="https://www.meetup.com/JavaScript-London/events/257660896"
-                >
-                  <Row>
-                    <Styled(Col)
-                      sm={6}
-                    >
-                      <Component
-                        src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-London.png?alt=media"
-                      />
-                    </Styled(Col)>
-                    <Styled(Col)
-                      sm={6}
-                    >
-                      <div>
-                        <styled.p>
-                          <strong>
-                            Functional programming in JavaScript
-                          </strong>
-                          <br />
-                          21 Feb
-                           - 
-                          London
-                          , 
-                          UK
-                        </styled.p>
-                        <LinkButton
-                          secondary={true}
-                          to="https://www.meetup.com/JavaScript-London/events/257660896"
-                          trackUserBehaviour={[Function]}
-                        >
-                          Read more
-                        </LinkButton>
-                      </div>
-                    </Styled(Col)>
-                  </Row>
-                </styled.li>
-              </styled.ul>
               <styled.h3>
                 Our groups
               </styled.h3>

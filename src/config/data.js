@@ -43,6 +43,21 @@ const emptyTraining = (type, city) => ({
 
 export const trainings = [
   {
+    dates: 'March 19, 2019',
+    dateStartsOn: new Date('Mar 19, 2019'),
+    city: BARCELONA,
+    country: 'ES',
+    type: REACT_NATIVE,
+    cityShortName: 'Barcelona',
+    country: 'ES',
+    location: 'Marfeel HQ',
+    pathUrl: '/react-native-foundation-barcelona',
+    trainingInstanceId: '',
+    price: 829.17,
+    priceGoesUpOn: new Date('Feb 25, 2019'),
+    currency: 'eur',
+  },
+  {
     dates: 'March 12 - April 11, 2019',
     dateStartsOn: new Date('Mar 12, 2019'),
     city: LONDON,
