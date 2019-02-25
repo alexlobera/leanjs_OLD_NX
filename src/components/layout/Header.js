@@ -181,8 +181,12 @@ const TitleCol = styled(Col)`
     margin-left: 9px;
   `}
 `
+const InfoBox = styled(Card)`
+  border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
+`
 
 const Header = ({
+  training,
   type = '',
   titleLines = [],
   subtitle,
@@ -200,7 +204,7 @@ const Header = ({
   >
     <Grid>
       <Row>
-        <TitleCol md={6} type={type}>
+        <TitleCol md={training && 7} type={type}>
           <H1>
             {titleLines.map((line, i) => (
               <TitleBackground key={i} children={line} />
@@ -215,11 +219,17 @@ const Header = ({
             <SubTitleBackground>{children}</SubTitleBackground>
           ) : null}
         </TitleCol>
-        <Col md={5}>
-          <Card small bg="dark" top={20}>
-            <H1>Something</H1>
-          </Card>
-        </Col>
+        {training && (
+          <Col md={3} mdOffset={1}>
+            <InfoBox type={type}>
+              <Ul>
+                <Li>Date: {training.dates}</Li>
+                <Li>Timings: {training.timings || `9am to 6:30pm`}</Li>
+                <Li>Venue: {training.location}</Li>
+              </Ul>
+            </InfoBox>
+          </Col>
+        )}
       </Row>
       <Row>
         <Col>

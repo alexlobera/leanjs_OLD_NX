@@ -55,6 +55,7 @@ const BootcampLondon = () => (
       links={header.landingTraining.links}
       bgImg="training-event"
       type={REACT_BOOTCAMP}
+      training={training}
     />
     <TopSection xsBgDark>
       <Grid>

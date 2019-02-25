@@ -40,6 +40,7 @@ const PartTimeBarcelona = () => (
       links={header.landingTraining.links}
       bgImg="part-time"
       type={PART_TIME}
+      training={training}
     />
     <TopSection xsBgDark>
       <Grid>

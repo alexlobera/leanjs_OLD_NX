@@ -46,6 +46,7 @@ const ReactNativeBoocampLondon = () => (
       links={header.landingTraining.links}
       bgImg="training-event"
       type={REACT_NATIVE}
+      training={training}
     />
     <TopSection xsBgDark>
       <Grid>
