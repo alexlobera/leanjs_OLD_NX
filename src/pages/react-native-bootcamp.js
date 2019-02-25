@@ -40,6 +40,7 @@ const ReactNativeBoocamp = () => (
       titleLines={['React Native Training']}
       subtitle="Intense hands-on React Native training, <br /> return to work as a React Native specialist"
       bgImg="full-time"
+      type={REACT_NATIVE}
     />
     <TopSection>
       <Grid>

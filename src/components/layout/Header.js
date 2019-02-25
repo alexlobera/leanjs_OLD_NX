@@ -27,10 +27,10 @@ import {
 import { Z_INDEX_BG } from '../../config/styles'
 import { REACT_BOOTCAMP } from '../../config/data'
 import { selectTypeColor } from '../utils/index.js'
+import { Card } from '../elements'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
-  font-size: 64px;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -174,12 +174,16 @@ const Nav = styled.div`
   }
 `
 const TitleCol = styled(Col)`
-  border-left: solid 27px ${props => selectTypeColor(props.type)};
-  margin-left: 9px;
+  ${({ type }) =>
+    type &&
+    `
+    border-left: solid 27px ${selectTypeColor(type)};
+    margin-left: 9px;
+  `}
 `
 
 const Header = ({
-  type = REACT_BOOTCAMP,
+  type = '',
   titleLines = [],
   subtitle,
   links = [],
@@ -196,7 +200,7 @@ const Header = ({
   >
     <Grid>
       <Row>
-        <TitleCol type={type}>
+        <TitleCol md={6} type={type}>
           <H1>
             {titleLines.map((line, i) => (
               <TitleBackground key={i} children={line} />
@@ -211,6 +215,11 @@ const Header = ({
             <SubTitleBackground>{children}</SubTitleBackground>
           ) : null}
         </TitleCol>
+        <Col md={5}>
+          <Card small bg="dark" top={20}>
+            <H1>Something</H1>
+          </Card>
+        </Col>
       </Row>
       <Row>
         <Col>

@@ -41,6 +41,7 @@ const BootcampLondon = () => (
       subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
       links={header.landingTraining.links}
       bgImg="part-time"
+      type={PART_TIME}
     />
     <TopSection xsBgDark>
       <Grid>

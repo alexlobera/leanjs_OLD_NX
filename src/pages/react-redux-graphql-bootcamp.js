@@ -46,9 +46,10 @@ const Boocamps = () => (
     />
     <Header
       titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
-      subtitle="For a week, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a React specialist"
+      subtitle="For a week, expert coaches and mentors will work alongside you to master the React ecosystem so you return to work as a React specialist"
       bgImg="full-time"
       links={header.landingPageLinks.links}
+      type={REACT_BOOTCAMP}
     />
     <TopSection>
       <Grid>

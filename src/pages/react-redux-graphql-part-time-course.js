@@ -43,6 +43,7 @@ const PartTime = () => (
       titleLines={['5-week part-time', 'React Redux course']}
       subtitle="Expert coaches work alongside you, 2 evenings a week, <br /> to master the React ecosystem without having to cut <br /> into valuable work-days"
       bgImg="part-time"
+      type={PART_TIME}
     />
     <TopSection>
       <Grid>
