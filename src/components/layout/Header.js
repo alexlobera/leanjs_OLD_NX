@@ -25,6 +25,8 @@ import {
   CORP_TRAINING_HEADER_IMG,
 } from '../../config/images'
 import { Z_INDEX_BG } from '../../config/styles'
+import { REACT_BOOTCAMP } from '../../config/data'
+import { selectTypeColor } from '../utils/index.js'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -171,8 +173,13 @@ const Nav = styled.div`
     }
   }
 `
+const TitleCol = styled(Col)`
+  border-left: solid 27px ${props => selectTypeColor(props.type)};
+  margin-left: 9px;
+`
 
 const Header = ({
+  type = REACT_BOOTCAMP,
   titleLines = [],
   subtitle,
   links = [],
@@ -189,7 +196,7 @@ const Header = ({
   >
     <Grid>
       <Row>
-        <Col>
+        <TitleCol type={type}>
           <H1>
             {titleLines.map((line, i) => (
               <TitleBackground key={i} children={line} />
@@ -203,7 +210,7 @@ const Header = ({
           {children ? (
             <SubTitleBackground>{children}</SubTitleBackground>
           ) : null}
-        </Col>
+        </TitleCol>
       </Row>
       <Row>
         <Col>
