@@ -3,7 +3,7 @@ title: Must know JavaSctipt for react developers
 date: 2019-02-24
 subtitle: Understanding ES6 key features for React crucial to rapidly learning the react ecosystem
 author: richard
-imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcoding_learning_curve.png?alt=media
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fjoshua-aragon-1229018-unsplash%20(1).jpg?alt=media
 order: 7
 ---
 
@@ -39,13 +39,13 @@ What is ESNEXT? It’s the future, everything that is not in a current release a
 
 What version should react developers use??
 
-![image alt text](image_0.jpg)
+![image of babel logo](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_0.jpg?alt=media)
 
 Babel is a transpiler for JavaScript. This means going from one version of the language to another version (unlike a compiler where you change language). We use babel as JavaScript is an evolving language, not all of the newest updates are supported, both by browsers (client-side) and node (server-side). If you’d like to understand how babel works and watch it work it’s magic, check out this quick session: [https://github.com/reactjsacademy/babel-exercise#babel-exercise](https://github.com/reactjsacademy/babel-exercise#babel-exercise)
 
 You see the point? If you didn’t do it no problem as this is normally a configuration step and is done for you if you are using create react app to spin up a react project. However, we do recommend understanding how it works as babel is an essential piece of the mix for React apps:
 
-![image alt text](image_1.png)
+![ingredients of a react app, es6, react, webpack, babel](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_1.png?alt=media)
 
 ## Let’s look at some ES6 must know features
 
@@ -59,7 +59,7 @@ The two key reasons that it’s good to use these new variable declarations are:
 
 2. Let and const are block scoped
 
-![image alt text](image_2.png)
+![image of if statement with block scoped variable](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_2.png?alt=media)
 
 Simply put, scope is where something is available. In the example above where is c available? Inside the { } This is a block. What about if we used var here? Then c would be available in the global scope. It’s also important to remember that JavaScript is function scoped, meaning is there was a function in the code above and we used var, it’d be available inside that function.
 
@@ -89,13 +89,13 @@ There are three main advantages to arrow functions:
 
 An implicit return means you don’t have to write the return keyword:
 
-![image alt text](image_3.png)
+![es6 arrow function with implicit return](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_3.png?alt=media)
 
 In this example we are using the implicit return in the function passed to array.prototype.map
 
 You could also do this:
 
-![image alt text](image_4.png)
+![es6 arrow function with explicit return](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_4.png?alt=media)
 
 If you are writing an inner function or declaring a variable inside your function you’ll want to take this approach. This is why the implicit return is also known as a *one-liner syntax *as generally you’ll use it on one line to make the code more concise.
 
@@ -113,11 +113,11 @@ Destructuring allows us to extract values from arrays and objects and store them
 
 You can destructure arrays:
 
-![image alt text](image_5.png)
+![example of array destructuring in JS](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_5.png?alt=media)
 
 And also objects:
 
-![image alt text](image_6.png)
+![example of object destructuring in JS](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_6.png?alt=media)
 
 The most important thing to remember when first getting started is that **everything to the left of the \*\***= \***\*is destructuring syntax and everything to the right is the object or array being destructured**. So in the example above, we assign two variables, leanjs and reactjsacademy from the object at the nested point of apiData.links.websites
 
@@ -127,7 +127,7 @@ So the values of those newly declared variables will be equal to the values of t
 
 This is a convenient way to assign variables. With ES6 we can also assign variables in this way directly inside function parameters if you know the keys of the object passed in, this is very common in react:
 
-![image alt text](image_7.png)
+![react components with props, one with optional destructuring the the parameters](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_7.png?alt=media)
 
 ### Default params, rest, and spread
 
@@ -151,11 +151,11 @@ In reality you’re not likely to see code like this as it’s confusing (not a 
 
 This allows us to "spread" a set of values from a data structure inside another data structure:
 
-![image alt text](image_8.png)
+![example of ES6 spread operator with arrays](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_8.png?alt=media)
 
-In this case we have declared a new array called allLanguages which is the result of *spreading *the values of languages and dsl. This is incredibly useful for helping us to avoid mutations, and it works the same way with objects, consider the following:
+In this case we have declared a new array called `allLanguages` which is the result of *spreading *the values of `languages` and `dsl`. This is incredibly useful for helping us to avoid mutations, and it works the same way with objects, consider the following:
 
-![image alt text](image_9.png)
+![example of using spread operator to avoid mutations with objects in ES6](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_9.png?alt=media)
 
 By using spread on line 8 we avoid mutating. Why is this useful? In a nutshell state mutations make it incredibly hard to keep track of values at a given time, we recommend reading what the react docs say on [the power of not mutating data](https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data).
 
@@ -163,7 +163,7 @@ By using spread on line 8 we avoid mutating. Why is this useful? In a nutshell s
 
 The rest operator has similar syntax to spread but does the opposite. It allows us to pass an indefinite amount of arguments:
 
-![image alt text](image_10.png)
+![example of the rest operator in ES6 with arrays](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_10.png?alt=media)
 
 In this example we are doing some array destructuring, what value do you think additionalInfo is?
 
@@ -173,7 +173,7 @@ When used with destructuring, the rest operator will scope up the rest of the va
 
 Here’s an example of how we commonly use the rest operator in react along with some destructuring in the parameters:
 
-![image alt text](image_11.png)
+![example of a react component with parameter destructuring and rest operator for props](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_11.png?alt=media)
 
 ### The class syntax
 
@@ -187,21 +187,23 @@ Why was this introduced? Basically to make JS more approachable to developers fr
 
 Consider the following code:
 
-![image alt text](image_12.png)
+![Basic example of class syntax in JS with constuctor and super](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_12.png?alt=media)
 
 This should look familiar if you’ve used an OOP language before. We have a constructor which is called upon instantiation of the class, we can write class variables, and we can define class methods. Simple stuff I hope 😎
 
-However, be aware that what’s happening behind the scenes is this:
+However, be aware that what’s happening under the hood in JS is this:
 
-![image alt text](image_13.png)
+![example of a class written with functions in es5 and prototypical inheritence](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_13.png?alt=media)
 
 As the MDN docs point out:
 
-\*"**When it comes to inheritance, JavaScript only has one construct: objects. Each object has a private property which holds a link to another object called its \***_prototype__\*\*."_
+_"When it comes to inheritance, JavaScript only has one construct: objects. Each object has a private property which holds a link to another object called its."_
 
-If you wanted to extend a class, you can now do this also with the class syntax as you can imagine. However, we won’t delve into that here as **when using React, you should never use inheritance beyond extending \*\***React.Component\***\*. **
+If you wanted to extend a class, you can now do this also with the class syntax as you can imagine. However, we won’t delve into that here as **when using React, you should never use inheritance beyond extending** `React.Component`
 
-![image alt text](image_14.png)
+On that note, have you ever heard the phrase _favour composition over inheritance_? Well, [react is all about composition](https://reactjs.academy/blog/react-is-all-about-composition-react-hooks-render-props-hocs/).
+
+![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_14.png?alt=media)
 
 If you’d like to get started writing React components using the class syntax, check out our article on [thinking in react](https://reactjs.academy/blog/introduction-to-thinking-in-react/) and it’s[ exercise repo](https://github.com/reactjsacademy/thinking-in-react).
 
@@ -217,7 +219,7 @@ Can you spot the error in the above code? There is a spacing issue! And that’s
 
 The key thing to know is that now we can use ` `` ` (back ticks) to create a string and then everything inside the `${ }` is JavaScript. This is incredibly useful as we can do things like this:
 
-![image alt text](image_15.png)
+![es6 template literal used inside a map function](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_15.png?alt=media)
 
 The other key features of template literals are:
 
@@ -233,9 +235,9 @@ Models are something that those coming from other languages should already be ve
 
 Before modules we used to do things like this:
 
-![image alt text](image_16.png)
+![Example of an immediately invoked function](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_16.png?alt=media)
 
-Why? Here we are using the fact that JS is function scoped and writing and immediately invoked function in order to ensure that variables do not *leak *into the global scope. If this doesn’t make sense to you, no problem! Now we have modules so you won’t be doing it!
+Why? Here we are using the fact that JS is function scoped and writing and [immediately invoked function](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) in order to ensure that variables do not leak into the global scope. If this doesn’t make sense to you, no problem! Now we have modules so you won’t be using it!
 
 Just as in other languages modules can be imported and exported, and there are a few ways of expressing these depending on the use case.
 
@@ -243,7 +245,7 @@ Just as in other languages modules can be imported and exported, and there are a
 
 When exporting, the most common thing to do is create a default export. This should be done at the bottom of your file and when working with react will be the way you export your components:
 
-![image alt text](image_17.png)
+![example of using the default export syntax in JS](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_17.png?alt=media)
 
 Sometimes you may want to export multiple values from a modules, a good example of this is a utils file.
 
@@ -298,9 +300,9 @@ The most important thing you’ll need to do as a react developer is understand 
 
 So you may do something like this:
 
-![image alt text](image_18.png)
+![Example of using fetch to call an api and handling the promise to extract a sessionID](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_18.png?alt=media)
 
-So what’s happening here? First up we call an API using [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) (check out the link). That call returns a promise which we can call then()on. We then parse the response to json and that returns another promise where we can then extract the session. If something goes wrong, we use catch()to handle the error. You’ll need to be comfortable with consuming promises as a react developer so take your time and don’t forget to consult the docs: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+So what’s happening here? First up we call an API using [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) (check out the link). That call returns a promise which we can call `then()` on. We then parse the response to json and that returns another promise where we can then extract the session. If something goes wrong, we use `catch()` to handle the error. You’ll need to be comfortable with consuming promises as a react developer so take your time and don’t forget to consult the docs: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 **So how do I write my own promise?**
 
@@ -316,9 +318,9 @@ resolve() or reject()
 })
 ```
 
-In the case of an API, in the resolve you would return the data itself and in the reject you would return an error object with a status. You probably won’t have to write your own promises but it’s worth understanding how to as you will be working with them a lot.
+In the case of an API, in the resolve you would return the data itself and in the reject you would return an error object with a status. You probably won’t have to write your own promises but it’s worth understanding how to, as you will be working with them a lot.
 
-A new feature was added in ES8 which builds on top of the idea of promises, which is [async await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await). This builds on top of promises and you can refactor in either direction so it’s important to first understand the concept of promises before using this alternative syntax.
+A new feature was added in ES8 which builds on top of the idea of promises called [async await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await). This builds on top of promises and you can refactor in either direction, so it’s important to first understand the concept of promises before using this alternative syntax.
 
 ### That’s all for now!
 
