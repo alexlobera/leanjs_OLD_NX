@@ -149,7 +149,7 @@ const Nav = styled.div`
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
-  background-color: ${blue2(0.9)};
+  background-color: ${props => (props.quickLinks ? blue1(0.75) : blue2(0.9))};
   color: ${WHITE};
   ${styleChildLinkColor(WHITE)}
   padding-top: 8px
@@ -208,7 +208,7 @@ const Header = ({
       <Row>
         <Col>
           {links.length ? (
-            <Nav>
+            <Nav quickLinks>
               <Ul inline>
                 <Li>
                   <Span>On this page:</Span>
