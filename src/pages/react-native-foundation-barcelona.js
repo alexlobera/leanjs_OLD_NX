@@ -48,7 +48,6 @@ const ReactNativeBoocampLondon = () => (
         `${training.dates} - Barcelona`,
       ]}
       subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
-      links={header.landingTraining.links}
       bgImg="training-event"
     />
     <TopSection xsBgDark>
@@ -155,18 +154,17 @@ const ReactNativeBoocampLondon = () => (
     <Section>
       <Grid>
         <Card border="shadow">
-        <Row>
-                <Col lg={10} lgOffset={1}>
-                  <H1Ref>
-                    React Native Curriculum
-                    <Link to="#curriculum" name="curriculum">
-                      #
-                    </Link>
-                  </H1Ref>
-                </Col>
-              </Row>
           <Row>
-
+            <Col lg={10} lgOffset={1}>
+              <H1Ref>
+                React Native Curriculum
+                <Link to="#curriculum" name="curriculum">
+                  #
+                </Link>
+              </H1Ref>
+            </Col>
+          </Row>
+          <Row>
             <Col lg={10} lgOffset={1}>
               <CurriculumSection
                 enableToggle={false}

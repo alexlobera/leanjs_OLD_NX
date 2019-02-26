@@ -54,8 +54,6 @@ export const trainings = [
     pathUrl: '/react-native-foundation-barcelona',
     trainingInstanceId: '5c75c36cbb737b555e1d6233',
     price: 415.83,
-    discountPrice: 375,
-    priceGoesUpOn: 'March 12th, 2019.',
     currency: 'eur',
   },
   {
