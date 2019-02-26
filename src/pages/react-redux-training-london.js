@@ -44,7 +44,7 @@ const BootcampLondon = () => (
       type={PART_TIME}
       training={training}
     />
-    <TopSection xsBgDark>
+    <TopSection top xsBgDark>
       <Grid>
         <Card bg="dark">
           <Row>

@@ -48,7 +48,7 @@ const ReactNativeBoocampLondon = () => (
       type={REACT_NATIVE}
       training={training}
     />
-    <TopSection xsBgDark>
+    <TopSection xsBgDark top>
       <Grid>
         <Card bg="dark">
           <Row>

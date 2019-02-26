@@ -57,7 +57,7 @@ const BootcampLondon = () => (
       type={ADVANCED_REACT}
       training={training}
     />
-    <TopSection xsBgDark>
+    <TopSection xsBgDark top>
       <Grid>
         <Card bg="dark">
           <Row>

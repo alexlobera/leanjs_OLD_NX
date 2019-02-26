@@ -67,7 +67,7 @@ const BootcampLisbon = () => (
       type={REACT_BOOTCAMP}
       training={training}
     />
-    <TopSection xsBgDark>
+    <TopSection xsBgDark top>
       <Grid>
         <Card bg="dark">
           <Row>

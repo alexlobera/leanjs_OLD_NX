@@ -42,7 +42,7 @@ const PartTimeAmsterdam = () => (
       type={PART_TIME}
       training={training}
     />
-    <TopSection xsBgDark>
+    <TopSection xsBgDark top>
       <Grid>
         <Card bg="dark">
           <Row>
