@@ -182,7 +182,15 @@ const TitleCol = styled(Col)`
   `}
 `
 const InfoBox = styled(Card)`
-  padding: 0;
+  ul {
+    padding: 0 10px;
+    margin: 0;
+  }
+  a {
+    font-size: 16px;
+  }
+  font-size: 16px;
+  padding: 10px;
   border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
 `
 
@@ -231,7 +239,10 @@ const Header = ({
               <Ul unstyled>
                 <Li>Date: {training.dates}</Li>
                 <Li>Timings: {training.timings || `9am to 6:30pm`}</Li>
-                <Li>Venue: {training.location}</Li>
+                <Li>
+                  Venue: {training.location}{' '}
+                  {training.mapLink && <Link to={training.mapLink}>- map</Link>}
+                </Li>
               </Ul>
             </InfoBox>
           </Col>

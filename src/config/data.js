@@ -122,6 +122,7 @@ export const trainings = [
     priceGoesUpOn: new Date('Feb 26, 2019'),
     currency: 'gbp',
     image: LONDON_LOCATION,
+    mapLink: 'https://goo.gl/maps/jjX9zs5Ags32',
   },
   {
     dates: 'Jan 27 to Feb 2, 2019',
