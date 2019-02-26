@@ -5,6 +5,8 @@ import {
   AMSTERDAM_MEETUP,
   RICHARD,
   ALEX,
+  LISBON_LOCATION,
+  LONDON_LOCATION,
 } from './images'
 
 export const LONDON = 'London'
@@ -71,6 +73,7 @@ export const trainings = [
     price: 829.17,
     priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
+    image: LONDON_LOCATION,
   },
   {
     dates: 'March 31 to April 6, 2019',
@@ -88,6 +91,7 @@ export const trainings = [
     discountPrice: 1450,
     priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
+    image: LISBON_LOCATION,
   },
   {
     dates: '07-09 March, 2018',
@@ -101,6 +105,7 @@ export const trainings = [
     trainingInstanceId: '5c487cd6672ede0e7feba974',
     price: 1250,
     currency: 'gbp',
+    image: LONDON_LOCATION,
   },
   {
     dates: '3-9 March, 2019',
@@ -116,6 +121,7 @@ export const trainings = [
     discountPrice: 1662.5,
     priceGoesUpOn: new Date('Feb 26, 2019'),
     currency: 'gbp',
+    image: LONDON_LOCATION,
   },
   {
     dates: 'Jan 27 to Feb 2, 2019',

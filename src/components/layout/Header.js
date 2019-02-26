@@ -23,11 +23,11 @@ import {
   CURRICULUM_IMG,
   COMMUNITY_IMG,
   CORP_TRAINING_HEADER_IMG,
+  SMALL_CLASSROOM,
 } from '../../config/images'
 import { Z_INDEX_BG } from '../../config/styles'
-import { REACT_BOOTCAMP } from '../../config/data'
 import { selectTypeColor } from '../utils/index.js'
-import { Card } from '../elements'
+import { Card, Image } from '../elements'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -182,6 +182,7 @@ const TitleCol = styled(Col)`
   `}
 `
 const InfoBox = styled(Card)`
+  padding: 0;
   border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
 `
 
@@ -222,6 +223,11 @@ const Header = ({
         {training && (
           <Col md={3} mdOffset={1}>
             <InfoBox type={type}>
+              <Image
+                src={training.image || SMALL_CLASSROOM}
+                width="100%"
+                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+              />
               <Ul>
                 <Li>Date: {training.dates}</Li>
                 <Li>Timings: {training.timings || `9am to 6:30pm`}</Li>
