@@ -33,7 +33,7 @@ Section.displayName = 'Section'
 export const TopSection = styled(Section)`
   position: relative;
   @media (min-width: ${SCREEN_SM_MIN}) {
-    margin-top: ${({ marginTop }) => (marginTop ? marginTop : '-60')}px;
+    margin-top: ${({ marginTop }) => (marginTop ? marginTop : '-128')}px;
   }
 `
 
