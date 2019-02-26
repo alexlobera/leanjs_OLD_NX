@@ -8,7 +8,6 @@ import { Link, Breadcrumb } from '../components/navigation'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -44,10 +43,11 @@ const ReactNativeBoocampLondon = () => (
     />
     <Header
       titleLines={[
-        '1-Day React Native Foundation Training',
+        '1-Day React Native Foundation',
         `${training.dates} - Barcelona`,
       ]}
-      subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
+      links={header.landingTraining.links}
+      subtitle="Take your React developer career to the next level by learning React Native, in only one day. "
       bgImg="training-event"
     />
     <TopSection xsBgDark>
