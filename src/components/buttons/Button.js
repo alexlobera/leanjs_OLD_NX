@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { blue1, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../config/styles'
 
 export const DEFAULT_BUTTON_STYLE = css`
-  font-size: 18px;
+  font-size: 1rem;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;

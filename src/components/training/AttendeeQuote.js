@@ -30,7 +30,7 @@ const Text = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
-  font-size: 17px;
+  font-size: 0.9rem;
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;

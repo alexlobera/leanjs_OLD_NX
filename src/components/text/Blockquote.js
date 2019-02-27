@@ -79,7 +79,7 @@ const StyledBlockquote = styled(Blockquote)`
       return `
         padding: 24px;
         background-color: ${reactBlue()};
-        font-size: 16px;
+        font-size: 0.9rem;
         font-style: italic;
       `
     }

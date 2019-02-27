@@ -48,7 +48,7 @@ const EventList = styled.ul`
 `
 
 const MeetupLink = styled(Link)`
-  font-size: 16px;
+  font-size: 0.9rem;
 `
 
 const TwitterWidgetsOnlyOnClientSide = () => {

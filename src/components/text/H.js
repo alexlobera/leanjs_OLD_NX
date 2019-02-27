@@ -14,7 +14,7 @@ const REF = `
 }
 `
 export const H1 = styled.h1`
-  font-size: 50px;
+  font-size: 2.77rem;
   ${FONT_FAMILY};
 `
 
@@ -30,13 +30,13 @@ export const H2_STYLE = `
   line-height: 1.5;
   letter-spacing: normal;
   margin-bottom: 1.5rem;
-  font-size: 37px;
+  font-size: 2.05rem;
   padding-top: 2rem;
   :first-child {
     padding-top: 0;
   }
   a {
-    font-size: 36px;
+    font-size: 2.05rem;
 }
 `
 
@@ -55,9 +55,9 @@ export const H3_STYLE = `
   :first-child {
     padding-top: 0;
   }
-  font-size: 28px;
+  font-size: 1.55rem;
   a {
-    font-size: 28px;
+    font-size: 1.55rem;
   }
 `
 
@@ -70,7 +70,7 @@ export const H3Ref = styled(H3)`
 `
 
 export const H4_STYLE = `
-  ${FONT_FAMILY} font-size: 21px;
+  ${FONT_FAMILY} font-size: 1.16rem;
   line-height: 1.3;
   font-weight: 600;
 `
@@ -84,7 +84,7 @@ export const H4Ref = styled(H4)`
 `
 
 export const H5_STYLE = `
-  ${FONT_FAMILY} font-size: 16px;
+  ${FONT_FAMILY} font-size: 1rem;
   line-height: 1.2;
   font-weight: 700;
 `

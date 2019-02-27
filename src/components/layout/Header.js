@@ -39,10 +39,10 @@ const H1 = styled(BaseH1)`
   color: ${WHITE};
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
   @media (max-width: ${SCREEN_SM_MAX}) {
-    font-size: 58px;
+    font-size: 2.77rem;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    font-size: 40px;
+    font-size: 2.05rem;
   }
 `
 
@@ -115,7 +115,7 @@ HeaderSection.displayName = 'HeaderSection'
 const H2Header = styled(BaseH2)`
   padding: 0 !important;
   margin: 0 !important;
-  font-size: 24px !important;
+  font-size: 1.16rem !important;
   color: ${WHITE};
   font-weight: normal;
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
@@ -181,20 +181,20 @@ const TitleCol = styled(Col)`
     border-left: solid 27px ${selectTypeColor(type)};
     margin-left: 9px;
     margin-bottom: 1em;
-  `}
+  `};
 `
 const InfoBox = styled(Card)`
   ul {
-    padding: 0 10px;
+    padding: 5px 10px 0 10px;
     margin: 0;
   }
   li {
     margin-bottom: 1em;
   }
   a {
-    font-size: 16px;
+    font-size: 0.9rem;
   }
-  font-size: 16px;
+  font-size: 0.9rem;
   padding: 10px 10px 0 10px;
   border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
 `

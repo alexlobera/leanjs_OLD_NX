@@ -7,7 +7,7 @@ import { Col, Row } from '../layout/Grid.js'
 import styled from 'styled-components'
 
 const CountdownNumbers = styled.span`
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   text-align: center;
 `
 

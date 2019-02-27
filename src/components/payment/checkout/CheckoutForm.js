@@ -57,7 +57,7 @@ const QuantityActions = styled.div`
   margin: 8px 0;
 `
 const QuantityButton = styled(Button)`
-  font-size: 20px !important;
+  font-size: 1.16rem !important;
   @media (max-width: ${SCREEN_XS_MAX}) {
     padding-right: 18px !important;
     padding-left: 18px !important;
@@ -67,7 +67,7 @@ const QuantityButton = styled(Button)`
 const Quantity = styled.span`
   ${FONT_FAMILY} align-self: center;
   text-align: center;
-  font-size: 22px;
+  font-size: 1.16rem;
   display: inline-block;
   border-bottom: 1px solid ${BROWN};
   border-top: 1px solid ${BROWN};
@@ -263,8 +263,8 @@ class CheckoutForm extends React.Component {
                       {companyVat.isViesValidationInProgress
                         ? '...'
                         : companyVat.isViesValid
-                        ? 'Validated'
-                        : 'Validate EU VAT and update taxes'}
+                          ? 'Validated'
+                          : 'Validate EU VAT and update taxes'}
                     </ValidateViesButton>
                   </Fragment>
                 ) : (
@@ -346,8 +346,8 @@ class CheckoutForm extends React.Component {
                       {isVoucherValidationInProgress
                         ? '...'
                         : isVoucherValid
-                        ? 'Valid Voucher'
-                        : 'Validate voucher'}
+                          ? 'Valid Voucher'
+                          : 'Validate voucher'}
                     </ValidateVoucherButton>
                   </Fragment>
                 ) : (
