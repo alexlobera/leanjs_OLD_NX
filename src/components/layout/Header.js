@@ -177,6 +177,7 @@ const TitleCol = styled(Col)`
   ${({ type }) =>
     type &&
     `
+    height: 100%;
     border-left: solid 27px ${selectTypeColor(type)};
     margin-left: 9px;
   `}
@@ -186,11 +187,14 @@ const InfoBox = styled(Card)`
     padding: 0 10px;
     margin: 0;
   }
+  li {
+    margin-bottom: 1em;
+  }
   a {
     font-size: 16px;
   }
   font-size: 16px;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
 `
 
