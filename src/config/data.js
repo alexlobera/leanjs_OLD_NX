@@ -7,6 +7,8 @@ import {
   ALEX,
   LISBON_LOCATION,
   LONDON_LOCATION,
+  BARCELONA_LOCATION,
+  AMSTERDAM_LOCATION,
 } from './images'
 
 export const LONDON = 'London'
@@ -74,6 +76,7 @@ export const trainings = [
     discountPrice: 375,
     priceGoesUpOn: new Date('Mar 12, 2019'),
     currency: 'eur',
+    image: BARCELONA_LOCATION,
   },
   {
     dates: 'March 12 - April 11, 2019',
@@ -280,6 +283,7 @@ export const trainings = [
     discountPrice: 829.17,
     priceGoesUpOn: new Date('Feb 28, 2019'),
     currency: 'eur',
+    image: BARCELONA_LOCATION,
   },
   {
     dates: '15 Mar - 5 Apr, 2019',
@@ -297,6 +301,7 @@ export const trainings = [
     discountPrice: 829.17,
     priceGoesUpOn: new Date('Feb 28, 2019'),
     currency: 'eur',
+    image: AMSTERDAM_LOCATION,
   },
 ]
 
