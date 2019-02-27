@@ -1,12 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import moment from 'moment'
+
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import { Card, Video } from '../../components/elements'
+import Gallery from '../../components/elements/Gallery'
 import { HideComponentsUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN, BEACH, HOUSE } from '../../config/images'
@@ -147,50 +149,8 @@ const BootcampLisbon = () => (
           </Col>
         </Row>
         <Row>
-          <Col lg={2} xs={6} lgOffset={1}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6} lgOffset={1}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6} lgOffset={1}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
-          </Col>
-          <Col lg={2} xs={6}>
-            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          <Col lg={10} lgOffset={1}>
+            <Gallery />
           </Col>
         </Row>
       </Grid>
