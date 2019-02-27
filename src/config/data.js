@@ -70,7 +70,9 @@ export const trainings = [
     location: 'Marfeel HQ',
     pathUrl: '/react-native-foundation-barcelona',
     trainingInstanceId: '5c75c36cbb737b555e1d6233',
-    price: 415.83,
+    price: 415,
+    discountPrice: 375,
+    priceGoesUpOn: new Date('Mar 12, 2019'),
     currency: 'eur',
   },
   {
