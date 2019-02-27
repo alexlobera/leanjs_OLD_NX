@@ -48,7 +48,7 @@ const ReactNativeBoocamp = () => (
     />
     <TopSection>
       <Grid>
-        {trainings ? (
+        {trainings.length ? (
           <React.Fragment>
             <CallToActionNextTrainings left trainings={trainings} />
           </React.Fragment>
