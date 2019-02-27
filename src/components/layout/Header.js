@@ -235,7 +235,7 @@ const Header = ({
         </TitleCol>
         {training && (
           <Col md={3} mdOffset={1}>
-            <InfoBox type={type}>
+            <InfoBox padding={false} type={type}>
               <Image
                 src={training.image || SMALL_CLASSROOM}
                 width="100%"
