@@ -78,11 +78,11 @@ class ContactForm extends Component {
           </React.Fragment>
         )}
         <a name="newsletter" />
-        <H3>Signup to our newsletter</H3>
+        <H3>Signup for free learning resources</H3>
         <P>
-          Enter your email below and we'll email you with our{' '}
-          <strong>latest training and free learning resources</strong>. And no,
-          we don't spam you with anything else, as per our{' '}
+          Enter your email below and we'll email you with{' '}
+          <strong>free learning resources</strong> and news on our latest
+          courses. And no, we don't spam you with anything else, as per our{' '}
           <Link to="/privacy-policy">Privacy Policy</Link>.
         </P>
         <Row>

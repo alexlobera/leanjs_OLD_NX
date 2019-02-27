@@ -32,6 +32,16 @@ export const TEXT_SIZE = ({ sm = false, lg = false }) => {
 
   return `font-size: 16px;`
 }
+
+// Font sizing needs to be standardised to the following system:
+// H1: 50px/2.77rem
+// H2: 37px/2.05rem
+// H3: 28px/1.55rem
+// H4: 21px/1.16rem
+// P: 18px/1rem
+// P small: 16px/0.9rem
+// NB - i know this isn't good practice to include notes but this information needs to be kept somewhere and i'd rather it be in the code than in my head ;)
+
 export const Z_INDEX_TOP = 10
 export const Z_INDEX_MEDIUM = 5
 export const Z_INDEX_SMALL = 1
