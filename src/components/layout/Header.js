@@ -209,6 +209,7 @@ const Header = ({
   fullHeight,
   paddingBottom,
   children,
+  linkToGallery,
 }) => (
   <HeaderSection
     top
@@ -241,6 +242,9 @@ const Header = ({
                 width="100%"
                 alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
               />
+              {linkToGallery && (
+                <Link to={`#${linkToGallery}`}>See more pictures</Link>
+              )}
               <Ul unstyled>
                 <Li>Date: {training.dates}</Li>
                 <Li>Timings: {training.timings || `9am to 6:30pm`}</Li>

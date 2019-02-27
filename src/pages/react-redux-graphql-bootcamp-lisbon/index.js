@@ -63,6 +63,7 @@ const BootcampLisbon = () => (
       bgImg="training-event"
       type={REACT_BOOTCAMP}
       training={training}
+      linkToGallery="venue"
     />
     <TopSection xsBgDark top>
       <Grid>
@@ -133,6 +134,52 @@ const BootcampLisbon = () => (
         </Card>
       </Grid>
     </TopSection>
+    <Section>
+      <Grid>
+        <Row>
+          <Col lg={10} xs={12} lgOffset={1}>
+            <H2Ref>
+              Our Venue
+              <Link to="#venue" name="venue">
+                #
+              </Link>
+            </H2Ref>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={2} xs={6} lgOffset={1}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6} lgOffset={1}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+          <Col lg={2} xs={6}>
+            <Image src="https://images.unsplash.com/photo-1551158025-3c01098e3f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
     <Section>
       <Grid>
         <Row>
