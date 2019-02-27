@@ -2,7 +2,8 @@ import React from 'react'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P } from '../components/text'
+import { H2 } from '../components/text'
+import { Link } from '../components/navigation'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumReactNative } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -14,7 +15,7 @@ import {
 import { Card } from '../components/elements'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Video } from '../components/elements'
-import { BOOTCAMP_RIGHT, POLINA } from '../config/images'
+import { POLINA } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -23,8 +24,10 @@ import {
   BulletIcon,
   PeopleNetWorkIcon,
 } from '../components/icons'
+import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Breadcrumb } from '../components/navigation'
 import { selectTrainings, REACT_NATIVE } from '../config/data'
+import header from '../components/layout/Header.json'
 
 const trainings = selectTrainings(REACT_NATIVE)
 
@@ -41,22 +44,30 @@ const ReactNativeBoocamp = () => (
       subtitle="Intense hands-on React Native training, <br /> return to work as a React Native specialist"
       bgImg="full-time"
       type={REACT_NATIVE}
+      links={header.landingPageLinks.links}
     />
     <TopSection>
       <Grid>
-        <CallToActionRow>
-          <Col sm={6}>
-            <LinkButton
-              cta
-              to="#contact-us"
-              children="Signup to our newsletter for latest updates"
-            />
-          </Col>
-          <Col sm={3}>
-            <LinkButton secondary to="" children="Next course TBA" />
-          </Col>
-        </CallToActionRow>
+        {trainings ? (
+          <React.Fragment>
+            <CallToActionNextTrainings left trainings={trainings} />
+          </React.Fragment>
+        ) : (
+          <CallToActionRow>
+            <Col sm={6}>
+              <LinkButton
+                cta
+                to="#contact-us"
+                children="Signup to our newsletter for latest updates"
+              />
+            </Col>
+            <Col sm={3}>
+              <LinkButton secondary to="" children="Next course TBA" />
+            </Col>
+          </CallToActionRow>
+        )}
         <Card border="shadow">
+          <Link to="#upcoming-courses" name="upcoming-courses" />
           <CurriculumReactNative />
         </Card>
       </Grid>
@@ -68,6 +79,7 @@ const ReactNativeBoocamp = () => (
             <Video youtubeId="Z4s1gf09oeY" />
           </Col>
           <Col md={5} mdOffset={1}>
+            <Link to="#target-audience" name="target-audience" />
             <H2>Is this React Native training right for me?</H2>
             <Ul unstyled>
               <Li>

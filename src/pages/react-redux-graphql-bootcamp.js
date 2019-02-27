@@ -75,8 +75,8 @@ const Boocamps = () => (
           </Col>
           <Col md={5} mdOffset={1}>
             <H2>
-              Is this React bootcamp right for me?
               <Link to="#target-audience" name="target-audience" />
+              Is this React bootcamp right for me?
             </H2>
             <Ul unstyled>
               <Li>
