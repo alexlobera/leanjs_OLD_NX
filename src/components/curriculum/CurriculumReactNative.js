@@ -45,6 +45,11 @@ const CurriculumReactNative = ({
         <ReactNativeNavigationSession title="Navigation" />
         <ReactNativeAnimationsSession title="Animations" />
       </Section>
+    </React.Fragment>
+  )
+
+  const secondHalf = (
+    <React.Fragment>
       <Section
         {...commonProps}
         title="React Native Day 2"
@@ -55,11 +60,6 @@ const CurriculumReactNative = ({
         <ReactNativeOfflineAndAssetCreationSession title="Handling Offline & Assets Management" />
         <ReactNativePushNotificationSession title="Push Notifications" />
       </Section>
-    </React.Fragment>
-  )
-
-  const secondHalf = (
-    <React.Fragment>
       <Section
         {...commonProps}
         title="React Native Day 3"
