@@ -81,8 +81,11 @@ class ContactForm extends Component {
         <H3>Signup for free learning resources</H3>
         <P>
           Enter your email below and we'll email you with{' '}
-          <strong>free learning resources</strong> and news on our latest
-          courses. And no, we don't spam you with anything else, as per our{' '}
+          <strong>free learning resources</strong> and latest news from ReactJS
+          Academy.
+        </P>
+        <P>
+          We promise not to spam you or share your details as per our{' '}
           <Link to="/privacy-policy">Privacy Policy</Link>.
         </P>
         <Row>
@@ -117,6 +120,7 @@ class ContactForm extends Component {
             </Col>
           </Row>
         ) : null}
+
         <Unsubscribe>
           Looking to <Link to="/unsubscribe/">unsubscribe?</Link>
         </Unsubscribe>
