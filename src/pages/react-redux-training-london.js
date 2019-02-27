@@ -34,15 +34,14 @@ const BootcampLondon = () => (
       ]}
     />
     <Header
-      titleLines={[
-        'React Redux part-time course',
-        `${training.dates} - London`,
-      ]}
+      titleLines={['React Redux part-time course - London']}
       subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
       links={header.landingTraining.links}
       bgImg="part-time"
+      type={PART_TIME}
+      training={training}
     />
-    <TopSection xsBgDark>
+    <TopSection top xsBgDark>
       <Grid>
         <Card bg="dark">
           <Row>

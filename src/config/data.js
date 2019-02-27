@@ -5,6 +5,10 @@ import {
   AMSTERDAM_MEETUP,
   RICHARD,
   ALEX,
+  LISBON_LOCATION,
+  LONDON_LOCATION,
+  BARCELONA_LOCATION,
+  AMSTERDAM_LOCATION,
 } from './images'
 
 export const LONDON = 'London'
@@ -72,6 +76,7 @@ export const trainings = [
     discountPrice: 375,
     priceGoesUpOn: new Date('Mar 12, 2019'),
     currency: 'eur',
+    image: BARCELONA_LOCATION,
   },
   {
     dates: 'March 12 - April 11, 2019',
@@ -82,11 +87,13 @@ export const trainings = [
     cityShortName: 'London',
     country: 'UK',
     location: 'Makers Academy',
+    timings: "6pm - 9pm Tuesday's & Thursday's",
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5c6c7befef523c695ce4aaa2',
     price: 829.17,
     priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
+    image: LONDON_LOCATION,
   },
   {
     dates: 'March 31 to April 6, 2019',
@@ -98,12 +105,14 @@ export const trainings = [
     country: 'Portugal',
     location:
       'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
+    timings: 'Sunday, 4pm - 7pm. Monday-Saturday, 9am - 6:30pm',
     pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
     trainingInstanceId: '5c516d8b4a9b34298c038de0',
     price: 1800,
     discountPrice: 1450,
     priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
+    image: LISBON_LOCATION,
   },
   {
     dates: '07-09 March, 2018',
@@ -117,6 +126,7 @@ export const trainings = [
     trainingInstanceId: '5c487cd6672ede0e7feba974',
     price: 1250,
     currency: 'gbp',
+    image: LONDON_LOCATION,
   },
   {
     dates: '3-9 March, 2019',
@@ -126,12 +136,15 @@ export const trainings = [
     type: REACT_BOOTCAMP,
     cityShortName: 'London',
     location: 'Publicis.Sapient - Eden House, 8 Spital Square',
+    timings: 'Sunday, 4pm - 7pm. Monday-Saturday, 9am - 6:30pm',
     pathUrl: '/react-redux-graphql-bootcamp-london/',
     trainingInstanceId: '5c4875df672ede0e7feba96f',
     price: 1800,
     discountPrice: 1662.5,
     priceGoesUpOn: new Date('Feb 26, 2019'),
     currency: 'gbp',
+    image: LONDON_LOCATION,
+    mapLink: 'https://goo.gl/maps/jjX9zs5Ags32',
   },
   {
     dates: 'Jan 27 to Feb 2, 2019',
@@ -263,12 +276,14 @@ export const trainings = [
     cityShortName: 'Barcelona',
     country: 'Spain',
     location: 'TBD',
+    timings: "9am - 6pm Saturday's",
     pathUrl: '/react-redux-training-barcelona',
     trainingInstanceId: '5c2a0d5e2ab1035da3138220',
     price: 1166.67,
     discountPrice: 829.17,
     priceGoesUpOn: new Date('Feb 28, 2019'),
     currency: 'eur',
+    image: BARCELONA_LOCATION,
   },
   {
     dates: '15 Mar - 5 Apr, 2019',
@@ -279,12 +294,14 @@ export const trainings = [
     cityShortName: 'Amsterdam',
     country: 'Holland',
     location: 'TBD',
+    timings: "9am - 6pm Friday's",
     pathUrl: '/react-redux-training-amsterdam',
     trainingInstanceId: '5c3f25fc672ede0e7feba96e',
     price: 1166.67,
     discountPrice: 829.17,
     priceGoesUpOn: new Date('Feb 28, 2019'),
     currency: 'eur',
+    image: AMSTERDAM_LOCATION,
   },
 ]
 

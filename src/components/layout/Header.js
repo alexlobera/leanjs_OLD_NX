@@ -23,12 +23,14 @@ import {
   CURRICULUM_IMG,
   COMMUNITY_IMG,
   CORP_TRAINING_HEADER_IMG,
+  SMALL_CLASSROOM,
 } from '../../config/images'
 import { Z_INDEX_BG } from '../../config/styles'
+import { selectTypeColor } from '../utils/index.js'
+import { Card, Image } from '../elements'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
-  font-size: 64px;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -149,7 +151,7 @@ const Nav = styled.div`
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
-  background-color: ${blue2(0.9)};
+  background-color: ${props => (props.quickLinks ? blue1(0.75) : blue2(0.9))};
   color: ${WHITE};
   ${styleChildLinkColor(WHITE)}
   padding-top: 8px
@@ -171,8 +173,35 @@ const Nav = styled.div`
     }
   }
 `
+const TitleCol = styled(Col)`
+  ${({ type }) =>
+    type &&
+    `
+    height: 100%;
+    border-left: solid 27px ${selectTypeColor(type)};
+    margin-left: 9px;
+    margin-bottom: 1em;
+  `}
+`
+const InfoBox = styled(Card)`
+  ul {
+    padding: 0 10px;
+    margin: 0;
+  }
+  li {
+    margin-bottom: 1em;
+  }
+  a {
+    font-size: 16px;
+  }
+  font-size: 16px;
+  padding: 10px 10px 0 10px;
+  border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
+`
 
 const Header = ({
+  training,
+  type = '',
   titleLines = [],
   subtitle,
   links = [],
@@ -189,7 +218,7 @@ const Header = ({
   >
     <Grid>
       <Row>
-        <Col>
+        <TitleCol md={training && 7} type={type}>
           <H1>
             {titleLines.map((line, i) => (
               <TitleBackground key={i} children={line} />
@@ -203,12 +232,31 @@ const Header = ({
           {children ? (
             <SubTitleBackground>{children}</SubTitleBackground>
           ) : null}
-        </Col>
+        </TitleCol>
+        {training && (
+          <Col md={3} mdOffset={1}>
+            <InfoBox type={type}>
+              <Image
+                src={training.image || SMALL_CLASSROOM}
+                width="100%"
+                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+              />
+              <Ul unstyled>
+                <Li>Date: {training.dates}</Li>
+                <Li>Timings: {training.timings || `9am to 6:30pm`}</Li>
+                <Li>
+                  Venue: {training.location}{' '}
+                  {training.mapLink && <Link to={training.mapLink}>- map</Link>}
+                </Li>
+              </Ul>
+            </InfoBox>
+          </Col>
+        )}
       </Row>
       <Row>
         <Col>
           {links.length ? (
-            <Nav>
+            <Nav quickLinks>
               <Ul inline>
                 <Li>
                   <Span>On this page:</Span>

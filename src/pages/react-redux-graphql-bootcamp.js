@@ -31,6 +31,7 @@ import {
   selectFirstTraining,
   REACT_BOOTCAMP,
 } from '../config/data'
+import header from '../components/layout/Header.json'
 
 const trainings = selectTrainings(REACT_BOOTCAMP)
 const nextTraining = selectFirstTraining(REACT_BOOTCAMP)
@@ -45,13 +46,16 @@ const Boocamps = () => (
     />
     <Header
       titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
-      subtitle="For a week, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a React specialist"
+      subtitle="For a week, expert coaches and mentors will work alongside you <br/> to master the React ecosystem so you return to work as a React specialist"
       bgImg="full-time"
+      links={header.landingPageLinks.links}
+      type={REACT_BOOTCAMP}
     />
     <TopSection>
       <Grid>
         <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
+          <Link to="#upcoming-courses" name="upcoming-courses" />
           <CurriculumBootcamp />
         </Card>
       </Grid>
@@ -70,7 +74,10 @@ const Boocamps = () => (
             </Link>
           </Col>
           <Col md={5} mdOffset={1}>
-            <H2>Is this React bootcamp right for me?</H2>
+            <H2>
+              <Link to="#target-audience" name="target-audience" />
+              Is this React bootcamp right for me?
+            </H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={RunFastIcon} />

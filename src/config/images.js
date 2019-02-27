@@ -129,3 +129,15 @@ export const HOUSE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_1_small.jpg?alt=media'
 export const BEACH =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_2_small.jpg?alt=media'
+
+export const LISBON_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_lisbon-perede.jpg?alt=media'
+
+export const LONDON_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_london.jpg?alt=media'
+
+export const BARCELONA_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_barcelona.jpg?alt=media'
+
+export const AMSTERDAM_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_amsterdam.jpg?alt=media'

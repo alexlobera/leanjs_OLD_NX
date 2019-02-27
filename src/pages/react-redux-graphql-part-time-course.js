@@ -24,9 +24,9 @@ import {
   BulletIcon,
   DiscussIcon,
 } from '../components/icons'
-import { Image } from '../components/elements'
 import { PART_TIME as PART_TIME_IMG, STEFANO } from '../config/images'
 import { selectTrainings, selectFirstTraining, PART_TIME } from '../config/data'
+import header from '../components/layout/Header.json'
 
 const trainings = selectTrainings(PART_TIME)
 const nextTraining = selectFirstTraining(PART_TIME)
@@ -43,11 +43,14 @@ const PartTime = () => (
       titleLines={['5-week part-time', 'React Redux course']}
       subtitle="Expert coaches work alongside you, 2 evenings a week, <br /> to master the React ecosystem without having to cut <br /> into valuable work-days"
       bgImg="part-time"
+      type={PART_TIME}
+      links={header.landingPageLinks.links}
     />
     <TopSection>
       <Grid>
         <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
+          <Link to="#upcoming-courses" name="upcoming-courses" />
           <CurriculumPartTime showCallToActionBottom={true} />
         </Card>
       </Grid>
@@ -59,6 +62,7 @@ const PartTime = () => (
             <Video youtubeId="E_4eQQHjc7A" />
           </Col>
           <Col md={5} mdOffset={1}>
+            <Link to="#target-audience" name="target-audience" />
             <H2>Is this React part-time course right for me?</H2>
             <Ul unstyled>
               <Li>
