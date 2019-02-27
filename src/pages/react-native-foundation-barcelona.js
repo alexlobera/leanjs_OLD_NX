@@ -32,7 +32,7 @@ import CurriculumSection from '../components/curriculum/CurriculumSection'
 
 const training = selectFirstTraining(REACT_NATIVE, BARCELONA)
 
-const ReactNativeBoocampLondon = () => (
+const ReactNativeBoocampBarcelona = () => (
   <React.Fragment>
     <Breadcrumb
       path={[
@@ -49,6 +49,8 @@ const ReactNativeBoocampLondon = () => (
       links={header.landingTraining.links}
       subtitle="Take your React developer career to the next level by learning React Native, in only one day. "
       bgImg="training-event"
+      training={training}
+      type={REACT_NATIVE}
     />
     <TopSection xsBgDark>
       <Grid>
@@ -99,10 +101,8 @@ const ReactNativeBoocampLondon = () => (
           </HideComponentsUsingCss>
           <Col md={6} lg={5} lgOffset={1}>
             <H2Ref>
+              <Link to="#target-audience" name="target-audience" />
               Is this React Native training right for me? Are you...{' '}
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
             </H2Ref>
             <Ul unstyled>
               <Li>
@@ -188,4 +188,4 @@ const ReactNativeBoocampLondon = () => (
   </React.Fragment>
 )
 
-export default ReactNativeBoocampLondon
+export default ReactNativeBoocampBarcelona
