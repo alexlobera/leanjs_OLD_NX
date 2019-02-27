@@ -1,6 +1,7 @@
 import React from 'react'
 import PhotoGallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
+import Image from './Image'
 
 const photos = [
   {
@@ -50,6 +51,28 @@ const photos = [
   },
 ]
 
+const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
+  const imgStyle = { margin: margin }
+  const imgWithClick = { cursor: 'pointer' }
+
+  if (direction === 'column') {
+    imgStyle.position = 'absolute'
+    imgStyle.left = left
+    imgStyle.top = top
+  }
+
+  const handleClick = event => {
+    onClick(event, { photo, index })
+  }
+
+  return (
+    <Image
+      style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
+      {...photo}
+      onClick={onClick ? handleClick : null}
+    />
+  )
+}
 class Gallery extends React.Component {
   constructor() {
     super()
@@ -84,7 +107,11 @@ class Gallery extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <PhotoGallery photos={photos} onClick={this.openLightbox} />
+        <PhotoGallery
+          photos={photos}
+          onClick={this.openLightbox}
+          ImageComponent={Photo}
+        />
         <Lightbox
           images={photos}
           onClose={this.closeLightbox}
