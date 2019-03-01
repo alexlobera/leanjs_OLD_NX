@@ -115,6 +115,21 @@ export const trainings = [
     image: LISBON_LOCATION,
   },
   {
+    dates: 'April 4 to April 6, 2019',
+    dateStartsOn: new Date('4 April, 2019'),
+    city: LISBON,
+    country: 'Portugal',
+    type: ADVANCED_REACT,
+    cityShortName: 'Lisbon',
+    location:
+      'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
+    pathUrl: '/advanced-react-redux-graphql-bootcamp-lisbon',
+    trainingInstanceId: '5c78bf4043cb62667ada9487',
+    price: 1250,
+    currency: 'gbp',
+    image: LISBON_LOCATION,
+  },
+  {
     dates: '07-09 March, 2018',
     dateStartsOn: new Date('2019-03-07T18:00:00'),
     city: LONDON,
