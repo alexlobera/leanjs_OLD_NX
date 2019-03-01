@@ -119,7 +119,7 @@ And also objects:
 
 ![example of object destructuring in JS](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_6.png?alt=media)
 
-The most important thing to remember when first getting started is that **everything to the left of the \*\***= \***\*is destructuring syntax and everything to the right is the object or array being destructured**. So in the example above, we assign two variables, leanjs and reactjsacademy from the object at the nested point of apiData.links.websites
+The most important thing to remember when first getting started is that **everything to the left of the `=`is destructuring syntax and everything to the right is the object or array being destructured**. So in the example above, we assign two variables, leanjs and reactjsacademy from the object at the nested point of apiData.links.websites
 
 So the values of those newly declared variables will be equal to the values of the key’s (the two urls). Another way of declaring and assigning the variable leanjs would be:
 
@@ -153,7 +153,7 @@ This allows us to "spread" a set of values from a data structure inside another 
 
 ![example of ES6 spread operator with arrays](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_8.png?alt=media)
 
-In this case we have declared a new array called `allLanguages` which is the result of *spreading *the values of `languages` and `dsl`. This is incredibly useful for helping us to avoid mutations, and it works the same way with objects, consider the following:
+In this case we have declared a new array called `allLanguages` which is the result of _spreading_ the values of `languages` and `dsl`. This is incredibly useful for helping us to avoid mutations, and it works the same way with objects, consider the following:
 
 ![example of using spread operator to avoid mutations with objects in ES6](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_9.png?alt=media)
 
