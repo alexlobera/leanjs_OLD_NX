@@ -179,7 +179,9 @@ const TitleCol = styled(Col)`
     `
     height: 100%;
     border-left: solid 27px ${selectTypeColor(type)};
-    margin-left: 9px;
+    @media (min-width: ${SCREEN_SM_MIN}) {
+      margin-left: 9px;
+    }
     margin-bottom: 1em;
   `}
 `
