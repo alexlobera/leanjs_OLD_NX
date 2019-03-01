@@ -3,7 +3,7 @@ title: Top 10 reasons why you should learn React right now
 date: 2019-02-28
 subtitle:
 author: richard
-imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Ftop_10_reasons_to_learn_react%2FImage_from_iOS_(88).jpg?alt=media
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Ftop_10_reasons_to_learn_react%2Fcoding_react.jpg?alt=media
 order: 10
 ---
 
