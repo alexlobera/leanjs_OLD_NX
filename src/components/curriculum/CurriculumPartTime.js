@@ -1,6 +1,6 @@
 import React from 'react'
 import { LinkButton } from '../buttons'
-import { H1Ref } from '../text'
+import { H2Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -142,12 +142,12 @@ const CurriculumPartTime = ({
       {showTitle ? (
         <Row>
           <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
-            <H1Ref>
+            <H2Ref>
               Part-time course curriculum{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>
-            </H1Ref>
+            </H2Ref>
           </Col>
         </Row>
       ) : (
