@@ -38,6 +38,45 @@ import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout
 const training = selectFirstTraining(REACT_BOOTCAMP, LISBON)
 const startMonth = moment(training.dateStartsOn).format('MMM')
 
+const photos = [
+  {
+    srcSmall: 'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 4,
+    height: 3,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 1,
+    height: 1,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/iecJiKe_RNg/600x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/epcsn8Ed8kY/600x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/NQSWvyVRIJk/800x599',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 4,
+    height: 3,
+  },
+]
+
 const BootcampLisbon = () => (
   <React.Fragment>
     <Helmet
@@ -150,7 +189,7 @@ const BootcampLisbon = () => (
         </Row>
         <Row>
           <Col lg={10} lgOffset={1}>
-            <Gallery />
+            <Gallery photos={photos} />
           </Col>
         </Row>
       </Grid>

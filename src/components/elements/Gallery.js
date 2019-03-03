@@ -3,54 +3,6 @@ import PhotoGallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
 import Image from './Image'
 
-const photos = [
-  {
-    src: 'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
-    width: 4,
-    height: 3,
-  },
-  {
-    src: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    width: 1,
-    height: 1,
-  },
-  {
-    src: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: 'https://source.unsplash.com/iecJiKe_RNg/600x799',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: 'https://source.unsplash.com/epcsn8Ed8kY/600x799',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: 'https://source.unsplash.com/NQSWvyVRIJk/800x599',
-    width: 4,
-    height: 3,
-  },
-  {
-    src: 'https://source.unsplash.com/zh7GEuORbUw/600x799',
-    width: 3,
-    height: 4,
-  },
-  {
-    src: 'https://source.unsplash.com/PpOHJezOalU/800x599',
-    width: 4,
-    height: 3,
-  },
-  {
-    src: 'https://source.unsplash.com/I1ASdgphUH4/800x599',
-    width: 4,
-    height: 3,
-  },
-]
-
 const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
   const imgStyle = { margin: margin }
   const imgWithClick = { cursor: 'pointer' }
@@ -105,15 +57,24 @@ class Gallery extends React.Component {
     })
   }
   render() {
+    const { photos = [] } = this.props
+
     return (
       <React.Fragment>
         <PhotoGallery
-          photos={photos}
+          photos={photos.map(({ srcSmall, width, height }) => ({
+            src: srcSmall,
+            width,
+            height,
+          }))}
           onClick={this.openLightbox}
           ImageComponent={Photo}
         />
         <Lightbox
-          images={photos}
+          backdropClosesModal={true}
+          images={photos.map(photo => ({
+            src: photo.srcLarge,
+          }))}
           onClose={this.closeLightbox}
           onClickPrev={this.gotoPrevious}
           onClickNext={this.gotoNext}
