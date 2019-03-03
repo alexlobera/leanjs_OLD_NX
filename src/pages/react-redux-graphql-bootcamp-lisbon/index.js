@@ -73,6 +73,8 @@ const photos = [
     // PLEASE DON'T CHANGE THIS ONE, THIS IS THE MAP OF THE LOCATION
     srcSmall:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
     href:
       'https://www.google.com/maps/place/R.+Cidade+de+Coimbra+193,+2775-180+Parede,+Portugal/@38.691922,-9.3665942,16z/data=!4m5!3m4!1s0xd1ec8ac7c522ef5:0x23caa118b27f6f97!8m2!3d38.6929353!4d-9.3612727',
     width: 3,
@@ -123,15 +125,15 @@ const photos = [
   },
   {
     srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcLarge: 'https://source.unsplash.com/iecJiKe_RNg/600x799',
     width: 1,
     height: 1,
   },
   {
-    srcSmall: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    width: 3,
-    height: 4,
+    srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcLarge: 'https://source.unsplash.com/iecJiKe_RNg/600x799',
+    width: 1,
+    height: 1,
   },
 ]
 

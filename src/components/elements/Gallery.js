@@ -1,6 +1,8 @@
 import React from 'react'
 import PhotoGallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
+import { Width, SMALL } from 'react-width'
+
 import Image from './Image'
 import Button from '../buttons/Button'
 import P from '../text/P'
@@ -43,6 +45,7 @@ class Gallery extends React.Component {
     this.state = { currentImage: 0, lastImage: NUMBER_OF_IMAGES_PER_PAGE }
   }
   openLightbox = (event, obj) => {
+    debugger
     this.setState({
       currentImage: obj.index,
       lightboxIsOpen: true,
@@ -93,19 +96,23 @@ class Gallery extends React.Component {
             <Button onClick={this.loadMore}>Load more pictures</Button>
           </P>
         )}
-        <Lightbox
-          backdropClosesModal={true}
-          images={photos
-            .filter(photo => !photo.href)
-            .map(photo => ({
-              src: photo.srcLarge,
-            }))}
-          onClose={this.closeLightbox}
-          onClickPrev={this.gotoPrevious}
-          onClickNext={this.gotoNext}
-          currentImage={this.state.currentImage}
-          isOpen={this.state.lightboxIsOpen}
-        />
+        <Width>
+          {width =>
+            width && width > SMALL ? (
+              <Lightbox
+                backdropClosesModal={true}
+                images={photos.map(photo => ({
+                  src: photo.srcLarge,
+                }))}
+                onClose={this.closeLightbox}
+                onClickPrev={this.gotoPrevious}
+                onClickNext={this.gotoNext}
+                currentImage={this.state.currentImage}
+                isOpen={this.state.lightboxIsOpen}
+              />
+            ) : null
+          }
+        </Width>
       </React.Fragment>
     )
   }
