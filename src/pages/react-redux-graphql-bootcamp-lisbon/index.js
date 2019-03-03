@@ -11,7 +11,7 @@ import { Card, Video } from '../../components/elements'
 import Gallery from '../../components/elements/Gallery'
 import { HideComponentsUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN, BEACH, HOUSE } from '../../config/images'
+import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -66,14 +66,72 @@ const photos = [
   {
     srcSmall: 'https://source.unsplash.com/epcsn8Ed8kY/600x799',
     srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 4,
+    height: 3,
+  },
+  {
+    // PLEASE DON'T CHANGE THIS ONE, THIS IS THE MAP OF THE LOCATION
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
+    href:
+      'https://www.google.com/maps/place/R.+Cidade+de+Coimbra+193,+2775-180+Parede,+Portugal/@38.691922,-9.3665942,16z/data=!4m5!3m4!1s0xd1ec8ac7c522ef5:0x23caa118b27f6f97!8m2!3d38.6929353!4d-9.3612727',
     width: 3,
     height: 4,
   },
   {
-    srcSmall: 'https://source.unsplash.com/NQSWvyVRIJk/800x599',
+    srcSmall: 'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
     srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
     width: 4,
     height: 3,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 1,
+    height: 1,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 4,
+    height: 3,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 1,
+    height: 1,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 3,
+    height: 4,
+  },
+
+  {
+    srcSmall: 'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 4,
+    height: 3,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 1,
+    height: 1,
+  },
+  {
+    srcSmall: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
+    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    width: 3,
+    height: 4,
   },
 ]
 
@@ -134,30 +192,12 @@ const BootcampLisbon = () => (
                 location={
                   <React.Fragment>
                     {training.location}.{' '}
-                    <Link to="https://goo.gl/maps/4YCHgrxzqbx">See on map</Link>
-                    <Row style={{ marginTop: '0.725rem' }}>
-                      <Col xs={6}>
-                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_2_big.jpg?alt=media">
-                          <Image
-                            src={BEACH}
-                            width="100%"
-                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
-                          />
-                        </Link>
-                      </Col>
-                      <Col xs={6}>
-                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_1_big.jpg?alt=media">
-                          <Image
-                            src={HOUSE}
-                            width="100%"
-                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
-                          />
-                        </Link>
-                      </Col>
-                    </Row>
-                    <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
-                      More Details on TripAdvisor
-                    </Link>
+                    <P>
+                      <Link to="#venue">See venue</Link> |{' '}
+                      <Link to="https://goo.gl/maps/4YCHgrxzqbx">
+                        See on map
+                      </Link>
+                    </P>
                   </React.Fragment>
                 }
                 coaches={[
@@ -190,6 +230,11 @@ const BootcampLisbon = () => (
         <Row>
           <Col lg={10} lgOffset={1}>
             <Gallery photos={photos} />
+            <P align="center" top="20">
+              <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
+                More Details on TripAdvisor
+              </Link>
+            </P>
           </Col>
         </Row>
       </Grid>
