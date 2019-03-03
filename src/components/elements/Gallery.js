@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PhotoGallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
 import { Width, SMALL } from 'react-width'
@@ -39,83 +39,82 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
 
 const NUMBER_OF_IMAGES_PER_PAGE = 6
 
-class Gallery extends React.Component {
-  constructor() {
-    super()
-    this.state = { currentImage: 0, lastImage: NUMBER_OF_IMAGES_PER_PAGE }
+const Gallery = props => {
+  const [{ currentImage, lastImage }, setImageState] = useState({
+    currentImage: 0,
+    lastImage: NUMBER_OF_IMAGES_PER_PAGE,
+  })
+  const [lightboxIsOpen, setLightboxIsOpen] = useState()
+
+  const openLightbox = (event, obj) => {
+    setImageState(prevState => ({ ...prevState, currentImage: obj.index }))
+    setLightboxIsOpen(true)
   }
-  openLightbox = (event, obj) => {
-    debugger
-    this.setState({
-      currentImage: obj.index,
-      lightboxIsOpen: true,
-    })
+  const closeLightbox = () => {
+    setImageState(prevState => ({ ...prevState, currentImage: 0 }))
+    setLightboxIsOpen(false)
   }
-  closeLightbox = () => {
-    this.setState({
-      currentImage: 0,
-      lightboxIsOpen: false,
-    })
+  const gotoPrevious = () => {
+    setImageState(prevState => ({
+      ...prevState,
+      currentImage: currentImage - 1,
+    }))
   }
-  gotoPrevious = () => {
-    this.setState({
-      currentImage: this.state.currentImage - 1,
-    })
+  const gotoNext = () => {
+    setImageState(prevState => ({
+      ...prevState,
+      currentImage: currentImage + 1,
+    }))
   }
-  gotoNext = () => {
-    this.setState({
-      currentImage: this.state.currentImage + 1,
-    })
-  }
-  hasMorePictures = () => this.state.lastImage < this.props.photos.length
-  loadMore = () => {
-    if (this.hasMorePictures()) {
-      this.setState(state => ({
-        lastImage: state.lastImage + NUMBER_OF_IMAGES_PER_PAGE,
+  const hasMorePictures = () => lastImage < props.photos.length
+  const loadMore = () => {
+    if (hasMorePictures()) {
+      setImageState(prevState => ({
+        ...prevState,
+        lastImage: lastImage + NUMBER_OF_IMAGES_PER_PAGE,
       }))
     }
   }
-  render() {
-    const { photos: rawPhotos = [] } = this.props
-    const photos = rawPhotos.slice(0, this.state.lastImage)
 
-    return (
-      <React.Fragment>
-        <PhotoGallery
-          photos={photos.map(({ srcSmall, href, width, height }) => ({
-            src: srcSmall,
-            width,
-            height,
-            href,
-          }))}
-          onClick={this.openLightbox}
-          ImageComponent={Photo}
-        />
-        {this.hasMorePictures() && (
-          <P align="center" top="20">
-            <Button onClick={this.loadMore}>Load more pictures</Button>
-          </P>
-        )}
-        <Width>
-          {width =>
-            width && width > SMALL ? (
-              <Lightbox
-                backdropClosesModal={true}
-                images={photos.map(photo => ({
-                  src: photo.srcLarge,
-                }))}
-                onClose={this.closeLightbox}
-                onClickPrev={this.gotoPrevious}
-                onClickNext={this.gotoNext}
-                currentImage={this.state.currentImage}
-                isOpen={this.state.lightboxIsOpen}
-              />
-            ) : null
-          }
-        </Width>
-      </React.Fragment>
-    )
-  }
+  const { photos: rawPhotos = [] } = props
+  const photos = rawPhotos.slice(0, lastImage)
+
+  return (
+    <React.Fragment>
+      <PhotoGallery
+        photos={photos.map(({ srcSmall, href, width, height }) => ({
+          src: srcSmall,
+          width,
+          height,
+          href,
+        }))}
+        onClick={openLightbox}
+        ImageComponent={Photo}
+      />
+      {hasMorePictures() && (
+        <P align="center" top="20">
+          <Button onClick={loadMore}>Load more pictures</Button>
+        </P>
+      )}
+      <Width>
+        {width =>
+          width && width > SMALL ? (
+            <Lightbox
+              backdropClosesModal={true}
+              images={photos.map(photo => ({
+                src: photo.srcLarge,
+              }))}
+              onClose={closeLightbox}
+              onClickPrev={gotoPrevious}
+              onClickNext={gotoNext}
+              currentImage={currentImage}
+              isOpen={lightboxIsOpen}
+            />
+          ) : null
+        }
+      </Width>
+    </React.Fragment>
+  )
 }
 
 export default Gallery

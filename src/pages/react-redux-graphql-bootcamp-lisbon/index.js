@@ -116,7 +116,6 @@ const photos = [
     width: 3,
     height: 4,
   },
-
   {
     srcSmall: 'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
     srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
