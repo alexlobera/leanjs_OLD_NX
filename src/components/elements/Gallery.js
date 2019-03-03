@@ -39,12 +39,13 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
 
 const NUMBER_OF_IMAGES_PER_PAGE = 6
 
-const Gallery = props => {
+const Gallery = ({ photos = [] }) => {
   const [{ currentImage, lastImage }, setImageState] = useState({
     currentImage: 0,
     lastImage: NUMBER_OF_IMAGES_PER_PAGE,
   })
   const [lightboxIsOpen, setLightboxIsOpen] = useState()
+  const paginatedPhotos = photos.slice(0, lastImage)
 
   const openLightbox = (event, obj) => {
     setImageState(prevState => ({ ...prevState, currentImage: obj.index }))
@@ -66,7 +67,7 @@ const Gallery = props => {
       currentImage: currentImage + 1,
     }))
   }
-  const hasMorePictures = () => lastImage < props.photos.length
+  const hasMorePictures = () => lastImage < photos.length
   const loadMore = () => {
     if (hasMorePictures()) {
       setImageState(prevState => ({
@@ -76,13 +77,10 @@ const Gallery = props => {
     }
   }
 
-  const { photos: rawPhotos = [] } = props
-  const photos = rawPhotos.slice(0, lastImage)
-
   return (
     <React.Fragment>
       <PhotoGallery
-        photos={photos.map(({ srcSmall, href, width, height }) => ({
+        photos={paginatedPhotos.map(({ srcSmall, href, width, height }) => ({
           src: srcSmall,
           width,
           height,
@@ -101,7 +99,7 @@ const Gallery = props => {
           width && width > SMALL ? (
             <Lightbox
               backdropClosesModal={true}
-              images={photos.map(photo => ({
+              images={paginatedPhotos.map(photo => ({
                 src: photo.srcLarge,
               }))}
               onClose={closeLightbox}
