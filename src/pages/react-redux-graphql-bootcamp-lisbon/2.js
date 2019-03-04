@@ -5,7 +5,7 @@ import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/layout/Ul'
-import { CurriculumBootcamp } from '../../components/curriculum'
+import ContactForm from '../../components/form/Contact'
 import { Card, Video } from '../../components/elements'
 import { HideComponentsUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
@@ -27,9 +27,9 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../../components/icons'
-import { Image, Newsletter } from '../../components/elements'
+import { Image } from '../../components/elements'
 import header from '../../components/layout/Header.json'
-import { InstallmentsCard, PaymentSection } from '../../components/payment'
+import { PaymentSection } from '../../components/payment'
 import { Link, Breadcrumb } from '../../components/navigation'
 import { selectSecondTraining, REACT_BOOTCAMP, LISBON } from '../../config/data'
 
@@ -78,10 +78,9 @@ const BootcampLisbon = () => (
                   currency: training.currency,
                 }}
               />
-              <InstallmentsCard
-                price={training.price}
-                currency={training.currency}
-              />
+              <Card small bg="dark" top={20}>
+                <ContactForm simplified />
+              </Card>
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeId="bMD_b7w7r-g" />
@@ -104,9 +103,6 @@ const BootcampLisbon = () => (
                   RICHARD_MOSS,
                 ]}
               />
-              <Row>
-                <Newsletter />{' '}
-              </Row>
             </Col>
           </Row>
         </Card>

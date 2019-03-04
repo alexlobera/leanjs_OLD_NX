@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../../components/text'
+import { H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import { Card, Video } from '../../components/elements'
@@ -28,9 +28,9 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../../components/icons'
-import { Image, Newsletter } from '../../components/elements'
+import { Image } from '../../components/elements'
 import header from '../../components/layout/Header.json'
-import { InstallmentsCard, PaymentSection } from '../../components/payment'
+import { PaymentSection } from '../../components/payment'
 import { Link, Breadcrumb } from '../../components/navigation'
 import { selectFirstTraining, REACT_BOOTCAMP, LISBON } from '../../config/data'
 import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
@@ -41,9 +41,9 @@ const startMonth = moment(training.dateStartsOn).format('MMM')
 const photos = [
   {
     srcSmall:
-      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_House.jpg?alt=media',
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_Lunch.jpg?alt=media',
     srcLarge:
-      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_house.jpg?alt=media',
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_Lunch.jpg?alt=media',
     width: 4,
     height: 3,
   },
@@ -90,14 +90,16 @@ const photos = [
     width: 3,
     height: 4,
   },
+
   {
     srcSmall:
-      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_Lunch.jpg?alt=media',
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_House.jpg?alt=media',
     srcLarge:
-      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_Lunch.jpg?alt=media',
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_house.jpg?alt=media',
     width: 4,
     height: 3,
   },
+
   {
     srcSmall:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_Rich.jpg?alt=media',
@@ -114,7 +116,6 @@ const photos = [
     width: 1,
     height: 1,
   },
-
   {
     srcSmall:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_fran.jpg?alt=media',
@@ -139,7 +140,6 @@ const photos = [
     width: 3,
     height: 4,
   },
-  ,
 ]
 
 const BootcampLisbon = () => (
@@ -191,10 +191,6 @@ const BootcampLisbon = () => (
                   currency: training.currency,
                 }}
               />
-              <InstallmentsCard
-                price={training.price}
-                currency={training.currency}
-              />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeId="bMD_b7w7r-g" />
@@ -217,9 +213,6 @@ const BootcampLisbon = () => (
                   RICHARD_MOSS,
                 ]}
               />
-              <Row>
-                <Newsletter />
-              </Row>
             </Col>
           </Row>
         </Card>

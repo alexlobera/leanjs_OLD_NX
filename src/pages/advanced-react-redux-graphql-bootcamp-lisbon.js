@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { Card, Video } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
@@ -22,7 +22,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image, Newsletter } from '../components/elements'
+import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
@@ -83,9 +83,6 @@ const BootcampLondon = () => (
                 }
                 coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
               />
-              <Row>
-                <Newsletter />
-              </Row>
             </Col>
           </Row>
         </Card>

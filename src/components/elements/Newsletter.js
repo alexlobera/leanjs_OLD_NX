@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { FONT_FAMILY } from '../../config/styles'
 import LinkButton from '../buttons/LinkButton'
-import { P, H5 } from '../text'
+import { P, H3 } from '../text'
+import Link from '../navigation/Link'
 
 const StyledNewsletter = styled.div`
   ${FONT_FAMILY};
@@ -13,14 +14,20 @@ const StyledNewsletter = styled.div`
 `
 const Newsletter = () => (
   <StyledNewsletter>
-    <H5>Free learning resources</H5>
+    <H3>Free learning resources</H3>
     <P>
-      We share learning resources directly from our curriculum and we'd love to
-      let you know about it.{' '}
+      We share our learning resources{' '}
+      <strong>
+        directly from our{' '}
+        <Link to="/curriculum">
+          <strong>curriculum</strong>
+        </Link>
+      </strong>{' '}
+      and we'd love for you to enjoy and learn from them!{' '}
     </P>
     <P>
-      Signup and learn about cutting-edge React thinking plus the latest on our
-      course dates{' '}
+      Signup and learn about cutting-edge React thinking plus the latest news on
+      our courses...{' '}
     </P>
     <LinkButton secondary to="#newsletter">
       Sign up now

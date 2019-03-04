@@ -19,13 +19,7 @@ const CoachItem = ({ path, name }) => (
   </Li>
 )
 
-const TrainingDetails = ({
-  date,
-  timing,
-  location,
-  foodIncluded = false,
-  coaches = [],
-}) => (
+const TrainingDetails = ({ foodIncluded = false, coaches = [] }) => (
   <React.Fragment>
     <H3>Further details</H3>
     <Ul>

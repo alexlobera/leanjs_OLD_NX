@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
-import moment from 'moment'
 
-import { H2Ref, H3, H4, P } from '../text'
+import ContactForm from '../../components/form/Contact'
+import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
 import Checkout from './checkout/'
@@ -125,68 +125,75 @@ class PaymentSection extends React.Component {
         ? discountPrice * quantity
         : priceXQuantity
 
-    return price ? (
+    return (
       <React.Fragment>
-        <H2Ref>
-          Prices{' '}
-          <Link to="#pricing" name="pricing">
-            #
-          </Link>
-        </H2Ref>
-        <P>
-          Please be aware that the ticket only covers the cost of the training,
-          it does not include travel expenses.
-        </P>
-        <Card small style={{ position: 'relative' }}>
-          <H3>
-            <strong>
-              {discountPrice ? 'Discount ticket' : 'Regular ticket'}
-            </strong>
-          </H3>
-          {discountPrice ? (
-            <Ribbon>
-              Save{' '}
-              {formatPrice(
-                currency,
-                priceXQuantity - currentPriceXQuantity,
-                vatRate
+        {price ? (
+          <React.Fragment>
+            <H2Ref>
+              Prices{' '}
+              <Link to="#pricing" name="pricing">
+                #
+              </Link>
+            </H2Ref>
+            <P>
+              Please be aware that the ticket only covers the cost of the
+              training, it does not include travel expenses.
+            </P>
+            <Card small style={{ position: 'relative' }}>
+              <H3>
+                <strong>
+                  {discountPrice ? 'Discount ticket' : 'Regular ticket'}
+                </strong>
+              </H3>
+              {discountPrice ? (
+                <Ribbon>
+                  Save{' '}
+                  {formatPrice(
+                    currency,
+                    priceXQuantity - currentPriceXQuantity,
+                    vatRate
+                  )}
+                </Ribbon>
+              ) : (
+                ''
               )}
-            </Ribbon>
-          ) : (
-            ''
-          )}
-          {priceGoesUpOn > Date.now() ? (
-            <React.Fragment>
-              <P>HURRY! This price is only available for...</P>
-              <P>
-                <Countdown date={priceGoesUpOn} />
-              </P>
-            </React.Fragment>
-          ) : (
-            ''
-          )}
-          <Checkout
-            trainingInstanceId={trainingInstanceId}
-            vatRate={vatRate}
-            updateVatRate={this.updateVatRate}
-            price={price}
-            discountPrice={discountPrice}
-            currency={currency}
-            quantity={this.state.quantity}
-            removeCourse={this.removeCourse}
-            addCourse={this.addCourse}
-            priceXQuantity={priceXQuantity}
-            currentPriceXQuantity={currentPriceXQuantity}
-            validateVoucher={this.validateVoucher}
-            resetVoucher={this.resetVoucher}
-            voucher={voucher}
-            isVoucherValid={isVoucherValid}
-            isVoucherValidationInProgress={isVoucherValidationInProgress}
-            paymentApi={paymentApi}
-          />
+              {priceGoesUpOn > Date.now() ? (
+                <React.Fragment>
+                  <P>HURRY! This price is only available for...</P>
+                  <P>
+                    <Countdown date={priceGoesUpOn} />
+                  </P>
+                </React.Fragment>
+              ) : (
+                ''
+              )}
+              <Checkout
+                trainingInstanceId={trainingInstanceId}
+                vatRate={vatRate}
+                updateVatRate={this.updateVatRate}
+                price={price}
+                discountPrice={discountPrice}
+                currency={currency}
+                quantity={this.state.quantity}
+                removeCourse={this.removeCourse}
+                addCourse={this.addCourse}
+                priceXQuantity={priceXQuantity}
+                currentPriceXQuantity={currentPriceXQuantity}
+                validateVoucher={this.validateVoucher}
+                resetVoucher={this.resetVoucher}
+                voucher={voucher}
+                isVoucherValid={isVoucherValid}
+                isVoucherValidationInProgress={isVoucherValidationInProgress}
+                paymentApi={paymentApi}
+              />
+            </Card>
+          </React.Fragment>
+        ) : null}
+        <Card small bg="dark" top={20}>
+          <ContactForm simplified />
         </Card>
       </React.Fragment>
-    ) : null
+    )
   }
 }
 

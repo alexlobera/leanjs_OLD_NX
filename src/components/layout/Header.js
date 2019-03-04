@@ -179,6 +179,7 @@ const TitleCol = styled(Col)`
     `
     height: 100%;
     border-left: solid 27px ${selectTypeColor(type)};
+    box-shadow: #373a477d -12px 0px 9px -13px;
     @media (min-width: ${SCREEN_SM_MIN}) {
       margin-left: 9px;
     }
@@ -266,10 +267,14 @@ const Header = ({
               </Link>
 
               <Ul unstyled>
-                <Li>Date: {training.dates}</Li>
-                <Li>Timings: {training.timings || `9am - 6:30pm`}</Li>
                 <Li>
-                  Venue: {training.location}{' '}
+                  <strong>Date</strong>: {training.dates}
+                </Li>
+                <Li>
+                  <strong>Timings</strong>: {training.timings || `9am - 6:30pm`}
+                </Li>
+                <Li>
+                  <strong>Venue</strong>: {training.location}{' '}
                   {training.mapLink && <Link to={training.mapLink}>- map</Link>}
                   - <Link to="https://goo.gl/maps/4YCHgrxzqbx">Map</Link>
                 </Li>

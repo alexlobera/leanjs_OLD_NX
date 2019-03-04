@@ -89,8 +89,8 @@ const Gallery = ({ photos = [] }) => {
         onClick={openLightbox}
         ImageComponent={Photo}
       />
-      {hasMorePictures() && (
-        <Row>
+      <Row>
+        {hasMorePictures() && (
           <Col md={3} xs={12}>
             <P align="left" top="20">
               <Button onClick={loadMore} primary>
@@ -98,15 +98,15 @@ const Gallery = ({ photos = [] }) => {
               </Button>
             </P>
           </Col>
-          <Col md={9} xs={12}>
-            <P align="left" top="30">
-              <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
-                Parede on TripAdvisor
-              </Link>
-            </P>
-          </Col>
-        </Row>
-      )}
+        )}
+        <Col md={9} xs={12}>
+          <P align="left" top="30">
+            <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
+              Parede on TripAdvisor
+            </Link>
+          </P>
+        </Col>
+      </Row>
       <Width>
         {width =>
           width && width > SMALL ? (
