@@ -78,7 +78,7 @@ class ContactForm extends Component {
           </React.Fragment>
         )}
         <a name="newsletter" />
-        <H3>Signup for free learning resources</H3>
+        <H3>Free learning resources</H3>
         <P>
           Enter your email below and we'll email you with{' '}
           <strong>free learning resources</strong> and latest news from ReactJS
