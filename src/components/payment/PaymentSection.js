@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
-import moment from 'moment'
 
-import { H2Ref, H3, H4, P } from '../text'
+import ContactForm from '../../components/form/Contact'
+import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
 import Link from '../navigation/Link'
 import Checkout from './checkout/'
@@ -184,6 +184,10 @@ class PaymentSection extends React.Component {
             isVoucherValidationInProgress={isVoucherValidationInProgress}
             paymentApi={paymentApi}
           />
+        </Card>
+
+        <Card small bg="dark" top={20}>
+          <ContactForm simplified />
         </Card>
       </React.Fragment>
     ) : null

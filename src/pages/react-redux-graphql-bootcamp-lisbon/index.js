@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import moment from 'moment'
 
-import ContactForm from '../../components/form/Contact'
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2Ref, H3, P } from '../../components/text'
@@ -194,9 +193,6 @@ const BootcampLisbon = () => (
                   currency: training.currency,
                 }}
               />
-              <Card small bg="dark" top={20}>
-                <ContactForm simplified />
-              </Card>
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeId="bMD_b7w7r-g" />
