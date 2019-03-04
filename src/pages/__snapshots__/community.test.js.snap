@@ -1,0 +1,463 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Community /> should render component 1`] = `
+<Fragment>
+  <Header
+    bgImg="training-event"
+    links={
+      Array [
+        Object {
+          "text": "Twitter ",
+          "to": "#twitter",
+        },
+        Object {
+          "text": "Meetups",
+          "to": "#meetups",
+        },
+        Object {
+          "text": "Instagram",
+          "to": "#instagram",
+        },
+        Object {
+          "text": "Mentor community",
+          "to": "#mentor-community",
+        },
+      ]
+    }
+    subtitle="We are not a group of people - but a movement!"
+    titleLines={
+      Array [
+        "The ReactJS",
+        "Academy community",
+      ]
+    }
+  />
+  <TopSection>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={6}
+          xs={12}
+        >
+          <Card
+            border="shadow"
+          >
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Twitter? Sure.
+                <a
+                  name="twitter"
+                />
+              </styled.h2>
+              <Styled(LinkButton)
+                cta={true}
+                to="/react-redux-graphql-bootcamp-lisbon/"
+              >
+                Next Bootcamp: 31 Mar, Lisbon &gt;&gt;
+              </Styled(LinkButton)>
+              <TwitterWidgetsOnlyOnClientSide />
+            </Styled(Col)>
+          </Card>
+          <Styled(Card)
+            border="shadow"
+          >
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Keep informed...
+              </styled.h2>
+              <Newsletter />
+            </Styled(Col)>
+          </Styled(Card)>
+        </Styled(Col)>
+        <Styled(Col)
+          md={6}
+          xs={12}
+        >
+          <Card
+            border="shadow"
+          >
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Meetups? Absolutely! 
+                <a
+                  name="meetups"
+                />
+              </styled.h2>
+              <styled.h3>
+                Our groups
+              </styled.h3>
+              <Row>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-London"
+                  >
+                    JavaScript London
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Lisbon"
+                  >
+                    JavaScript Lisbon
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Barcelona"
+                  >
+                    JavaScript Barcelona
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Amsterdam"
+                  >
+                    JavaScript Amsterdam
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Paris"
+                  >
+                    JavaScript Paris
+                  </Styled(Link)>
+                </Styled(Col)>
+                <Styled(Col)
+                  xs={6}
+                >
+                  <Styled(Link)
+                    to="http://meetup.com/JavaScript-Berlin"
+                  >
+                    JavaScript Berlin
+                  </Styled(Link)>
+                </Styled(Col)>
+              </Row>
+            </Styled(Col)>
+          </Card>
+          <Styled(Card)
+            border="shadow"
+          >
+            <Styled(Col)
+              md={8}
+              mdOffset={2}
+            >
+              <styled.h2>
+                Instagram - boom! 
+                <a
+                  name="instagram"
+                />
+              </styled.h2>
+              <p>
+                <Link
+                  to="https://www.instagram.com/reactjsacademy/"
+                >
+                  @reactjsacademy
+                </Link>
+              </p>
+              <Row>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BlKzTaDhgHi/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BlKzTaDhgHi/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36817558_450106245453815_6112091121972674560_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bk75sNohLYj/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bk75sNohLYj/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F35617654_170833687116966_1947517169063428096_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bk5YOLChqtU/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bk5YOLChqtU/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36086456_1480216008745939_24472745127444480_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bez93FGjzF_/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bez93FGjzF_/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26865648_169528813824877_4406314323148800000_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BegfOKJhqlI/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BegfOKJhqlI/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864897_328580144320192_5121053768045035520_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BetL4W9jgH-/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BetL4W9jgH-/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864416_129494071196900_7973896072546222080_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BehzsERhFD-/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BehzsERhFD-/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26297885_475227026212742_5117213139569475584_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bm6aQgUBf5I/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bm6aQgUBf5I/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39082080_461163161052325_8607426366004002816_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bn03JlsBzha/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bn03JlsBzha/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F40837332_948936048642799_1172628414218297748_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bm5oSYThgdh/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bm5oSYThgdh/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38906658_416479198875897_7532493989954453504_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bm1fSwqhbs6/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bm1fSwqhbs6/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39509245_240024560031837_3622283981887635456_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BmzERnchwWI/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BmzERnchwWI/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38910064_2053848154901051_8646084443217330176_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/Bmv2RtLh-ni/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/Bmv2RtLh-ni/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F39134109_227966924551660_991928276173717504_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BmgFNYuAId9/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BmgFNYuAId9/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F38254367_252576538717173_2313109170460557312_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BmGyp4KhDPq/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BmGyp4KhDPq/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F37866739_2091795601072327_8113206459233206272_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BejRn8khgOr/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BejRn8khgOr/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F26864283_388884551554676_8478013482342547456_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BkvoOb4B_CT/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BkvoOb4B_CT/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F36160171_379799175876625_8073726428358639616_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+                <Styled(Col)
+                  key="https://www.instagram.com/p/BRYf6cZhEci/"
+                  xs={4}
+                >
+                  <Link
+                    to="https://www.instagram.com/p/BRYf6cZhEci/"
+                  >
+                    <Component
+                      alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                      src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/instagram%2F17125812_1272222992812942_3290496564270727168_n.jpg?alt=media"
+                    />
+                  </Link>
+                </Styled(Col)>
+              </Row>
+            </Styled(Col)>
+          </Styled(Card)>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </TopSection>
+  <Section>
+    <Grid>
+      <Row>
+        <Styled(Col)
+          md={6}
+          xs={12}
+        >
+          <Component
+            alt="A group of ReactJS Academy coaches and mentors, looking very happy indeed"
+            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpg?alt=media"
+          />
+        </Styled(Col)>
+        <Styled(Col)
+          md={5}
+          mdOffset={1}
+          xs={12}
+        >
+          <styled.h2>
+            Our mentor community 
+            <a
+              name="mentor-community"
+            />
+          </styled.h2>
+          <styled.p>
+            ReactJS Academy is devoted to helping developers grow in their professional career. Our dedication stands beyond making them awesome React developers. We want them to make an impact in the organizations and people they choose to work with.
+          </styled.p>
+          <styled.p>
+            Our experience tells us that the best way to master a skill is by teaching it. We believe sharing knowledge also contributes to creating collaborative workplaces & communities.
+          </styled.p>
+          <styled.p>
+            The ReactJS Academy mentorship program enables those experienced developers in our community to take a step farther and become a mentor in our community events and workshops. This way they can build the experience required to become not only a great developer but also a great coach, speaker, and team player.
+          </styled.p>
+          <styled.p>
+            <Link
+              to="#contact-us"
+            >
+              Contact us
+            </Link>
+          </styled.p>
+        </Styled(Col)>
+      </Row>
+    </Grid>
+  </Section>
+  <UpcomingTrainingSection />
+</Fragment>
+`;
