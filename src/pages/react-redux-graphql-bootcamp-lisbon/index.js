@@ -116,7 +116,6 @@ const photos = [
     width: 1,
     height: 1,
   },
-
   {
     srcSmall:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_fran.jpg?alt=media',
@@ -141,7 +140,6 @@ const photos = [
     width: 3,
     height: 4,
   },
-  ,
 ]
 
 const BootcampLisbon = () => (
