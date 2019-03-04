@@ -13,10 +13,14 @@ const StyledNewsletter = styled.div`
 `
 const Newsletter = () => (
   <StyledNewsletter>
-    <H5>Signup to our newsletter</H5>
+    <H5>Free learning resources</H5>
     <P>
-      Be the first to know all about the latest course dates, offers and new
-      course locations.{' '}
+      We share learning resources directly from our curriculum and we'd love to
+      let you know about it.{' '}
+    </P>
+    <P>
+      Signup and learn about cutting-edge React thinking plus the latest on our
+      course dates{' '}
     </P>
     <LinkButton secondary to="#newsletter">
       Sign up now

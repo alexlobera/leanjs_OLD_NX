@@ -13,7 +13,7 @@ export const ANCHOR_STYLE = `
     cursor: pointer;
     color: blue;
     text-decoration: underline;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 500;
     font-style: normal;
     line-height: 1.5;

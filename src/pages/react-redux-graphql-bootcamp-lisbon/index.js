@@ -1,15 +1,17 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import moment from 'moment'
+
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/layout/Ul'
 import { CurriculumBootcamp } from '../../components/curriculum'
 import { Card, Video } from '../../components/elements'
+import Gallery from '../../components/elements/Gallery'
 import { HideComponentsUsingCss } from '../../components/utils'
 import Header from '../../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN, BEACH, HOUSE } from '../../config/images'
+import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -36,6 +38,110 @@ import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout
 const training = selectFirstTraining(REACT_BOOTCAMP, LISBON)
 const startMonth = moment(training.dateStartsOn).format('MMM')
 
+const photos = [
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_House.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_house.jpg?alt=media',
+    width: 4,
+    height: 3,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FSquare_small_Sofa.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_sofa.jpg?alt=media',
+    width: 1,
+    height: 1,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_InnerHouse.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_InnerHouse.jpg?alt=media',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_students.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_innerhouse.jpg?alt=media',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_Beach.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_Beach.jpg?alt=media',
+    width: 4,
+    height: 3,
+  },
+  {
+    // PLEASE DON'T CHANGE THIS ONE, THIS IS THE MAP OF THE LOCATION
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_map.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
+    href:
+      'https://www.google.com/maps/place/R.+Cidade+de+Coimbra+193,+2775-180+Parede,+Portugal/@38.691922,-9.3665942,16z/data=!4m5!3m4!1s0xd1ec8ac7c522ef5:0x23caa118b27f6f97!8m2!3d38.6929353!4d-9.3612727',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_Lunch.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_Lunch.jpg?alt=media',
+    width: 4,
+    height: 3,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_Rich.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_Rich.jpg?alt=media',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2Fsquare_small_studentsofa.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_sofastudent.jpg?alt=media',
+    width: 1,
+    height: 1,
+  },
+
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_fran.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_fran.jpg?alt=media',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_drinks.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_drinks.jpg?alt=media',
+    width: 4,
+    height: 3,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_paredeWall.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_ParedeWall.jpg?alt=media&',
+    width: 3,
+    height: 4,
+  },
+  ,
+]
+
 const BootcampLisbon = () => (
   <React.Fragment>
     <Helmet
@@ -59,10 +165,17 @@ const BootcampLisbon = () => (
     <Header
       titleLines={['React Redux GraphQL Bootcamp - Lisbon']}
       subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
-      links={header.landingTraining.links}
+      links={[
+        ...header.landingTraining.links,
+        {
+          text: 'Venue',
+          to: '#venue',
+        },
+      ]}
       bgImg="training-event"
       type={REACT_BOOTCAMP}
       training={training}
+      linkToGallery="venue"
     />
     <TopSection xsBgDark top>
       <Grid>
@@ -92,30 +205,9 @@ const BootcampLisbon = () => (
                 location={
                   <React.Fragment>
                     {training.location}.{' '}
-                    <Link to="https://goo.gl/maps/4YCHgrxzqbx">See on map</Link>
-                    <Row style={{ marginTop: '0.725rem' }}>
-                      <Col xs={6}>
-                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_2_big.jpg?alt=media">
-                          <Image
-                            src={BEACH}
-                            width="100%"
-                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
-                          />
-                        </Link>
-                      </Col>
-                      <Col xs={6}>
-                        <Link to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_1_big.jpg?alt=media">
-                          <Image
-                            src={HOUSE}
-                            width="100%"
-                            alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
-                          />
-                        </Link>
-                      </Col>
-                    </Row>
-                    <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
-                      More Details on TripAdvisor
-                    </Link>
+                    <P>
+                      <Link to="#venue">See venue</Link> |{' '}
+                    </P>
                   </React.Fragment>
                 }
                 coaches={[
@@ -133,6 +225,25 @@ const BootcampLisbon = () => (
         </Card>
       </Grid>
     </TopSection>
+    <Section>
+      <Grid>
+        <Row>
+          <Col lg={10} xs={12} lgOffset={1}>
+            <H2Ref>
+              Our Venue
+              <Link to="#venue" name="venue">
+                #
+              </Link>
+            </H2Ref>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={10} lgOffset={1}>
+            <Gallery photos={photos} />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
     <Section>
       <Grid>
         <Row>

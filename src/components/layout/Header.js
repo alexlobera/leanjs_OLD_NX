@@ -39,10 +39,10 @@ const H1 = styled(BaseH1)`
   color: ${WHITE};
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
   @media (max-width: ${SCREEN_SM_MAX}) {
-    font-size: 58px;
+    font-size: 2.77rem;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    font-size: 40px;
+    font-size: 2.05rem;
   }
 `
 
@@ -115,7 +115,7 @@ HeaderSection.displayName = 'HeaderSection'
 const H2Header = styled(BaseH2)`
   padding: 0 !important;
   margin: 0 !important;
-  font-size: 24px !important;
+  font-size: 1.16rem !important;
   color: ${WHITE};
   font-weight: normal;
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
@@ -160,7 +160,7 @@ const Nav = styled.div`
 
   @media (min-width: ${SCREEN_SM_MIN}) {
     text-shadow: 1px -1px 17px #367088;
-    margin-bottom:36px;
+    
     display: inline-block;
     ul {
       display:inline-block;
@@ -183,20 +183,20 @@ const TitleCol = styled(Col)`
       margin-left: 9px;
     }
     margin-bottom: 1em;
-  `}
+  `};
 `
 const InfoBox = styled(Card)`
   ul {
-    padding: 0 10px;
+    padding: 5px 10px 10px 10px;
     margin: 0;
   }
   li {
     margin-bottom: 1em;
   }
   a {
-    font-size: 16px;
+    font-size: 0.9rem;
   }
-  font-size: 16px;
+  font-size: 0.9rem;
   padding: 10px 10px 0 10px;
   border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
 `
@@ -211,6 +211,7 @@ const Header = ({
   fullHeight,
   paddingBottom,
   children,
+  linkToGallery,
 }) => (
   <HeaderSection
     top
@@ -234,44 +235,51 @@ const Header = ({
           {children ? (
             <SubTitleBackground>{children}</SubTitleBackground>
           ) : null}
+          <Row>
+            <Col>
+              {links.length ? (
+                <Nav quickLinks>
+                  <Ul inline>
+                    <Li>
+                      <Span>On this page:</Span>
+                    </Li>
+                    {links.map(({ to, text }, i) => (
+                      <Li key={i}>
+                        <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
+                      </Li>
+                    ))}
+                  </Ul>
+                </Nav>
+              ) : null}
+            </Col>
+          </Row>
         </TitleCol>
         {training && (
           <Col md={3} mdOffset={1}>
-            <InfoBox padding={false} type={type}>
-              <Image
-                src={training.image || SMALL_CLASSROOM}
-                width="100%"
-                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-              />
+            <InfoBox type={type}>
+              <Link to={`#${linkToGallery}`}>
+                <Image
+                  src={training.image || SMALL_CLASSROOM}
+                  width="100%"
+                  alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                />
+              </Link>
+
               <Ul unstyled>
                 <Li>Date: {training.dates}</Li>
-                <Li>Timings: {training.timings || `9am to 6:30pm`}</Li>
+                <Li>Timings: {training.timings || `9am - 6:30pm`}</Li>
                 <Li>
                   Venue: {training.location}{' '}
                   {training.mapLink && <Link to={training.mapLink}>- map</Link>}
+                  - <Link to="https://goo.gl/maps/4YCHgrxzqbx">Map</Link>
                 </Li>
+                {linkToGallery && (
+                  <Link to={`#${linkToGallery}`}>See venue pictures</Link>
+                )}
               </Ul>
             </InfoBox>
           </Col>
         )}
-      </Row>
-      <Row>
-        <Col>
-          {links.length ? (
-            <Nav quickLinks>
-              <Ul inline>
-                <Li>
-                  <Span>On this page:</Span>
-                </Li>
-                {links.map(({ to, text }, i) => (
-                  <Li key={i}>
-                    <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
-                  </Li>
-                ))}
-              </Ul>
-            </Nav>
-          ) : null}
-        </Col>
       </Row>
     </Grid>
   </HeaderSection>

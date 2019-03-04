@@ -27,11 +27,8 @@ const TrainingDetails = ({
   coaches = [],
 }) => (
   <React.Fragment>
-    <H3>Details</H3>
+    <H3>Further details</H3>
     <Ul>
-      <Li>Date: {date}</Li>
-      <Li>Timing: {timing}</Li>
-      <Li>Location: {location}</Li>
       <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}</Li>
       <Li>Accomodation not included</Li>
     </Ul>

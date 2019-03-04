@@ -23,7 +23,7 @@ const Calander = styled.div`
   flex-direction: column;
   text-align: center;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.16rem;
 `
 
 const TrainingItem = ({

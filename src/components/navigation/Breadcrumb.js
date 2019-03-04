@@ -20,7 +20,7 @@ const BreadcrumbContainer = styled.nav`
       padding-left: 0px;
       padding-right: 4px;
       ${styleChildLinkColor(WHITE)} a {
-        font-size: 16px;
+        font-size: 0.9rem;
         text-shadow: 1px -1px 17px #367088;
       }
     }

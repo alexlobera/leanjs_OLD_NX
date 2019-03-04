@@ -14,6 +14,6 @@ export {
 } from './H'
 export { default as Blockquote } from './Blockquote'
 export { default as Label } from './Label'
-export { default as P, P_STYLE } from './P'
+export { default as P } from './P'
 export { default as Span } from './Span'
 export { default as Hr } from './Hr'
