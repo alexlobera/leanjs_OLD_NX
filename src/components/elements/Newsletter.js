@@ -15,12 +15,12 @@ const Newsletter = () => (
   <StyledNewsletter>
     <H5>Free learning resources</H5>
     <P>
-      We publish learning resources directly from our curriculum regularly and
-      we'd love to let you know about it.{' '}
+      We share learning resources directly from our curriculum and we'd love to
+      let you know about it.{' '}
     </P>
     <P>
-      Signup below and learn about the cutting-edge in React thinking plus all
-      the latest on our course dates{' '}
+      Signup and learn about cutting-edge React thinking plus the latest on our
+      course dates{' '}
     </P>
     <LinkButton secondary to="#newsletter">
       Sign up now

@@ -160,7 +160,7 @@ const Nav = styled.div`
 
   @media (min-width: ${SCREEN_SM_MIN}) {
     text-shadow: 1px -1px 17px #367088;
-    margin-bottom:36px;
+    
     display: inline-block;
     ul {
       display:inline-block;
@@ -185,7 +185,7 @@ const TitleCol = styled(Col)`
 `
 const InfoBox = styled(Card)`
   ul {
-    padding: 5px 10px 0 10px;
+    padding: 5px 10px 10px 10px;
     margin: 0;
   }
   li {
@@ -233,47 +233,51 @@ const Header = ({
           {children ? (
             <SubTitleBackground>{children}</SubTitleBackground>
           ) : null}
+          <Row>
+            <Col>
+              {links.length ? (
+                <Nav quickLinks>
+                  <Ul inline>
+                    <Li>
+                      <Span>On this page:</Span>
+                    </Li>
+                    {links.map(({ to, text }, i) => (
+                      <Li key={i}>
+                        <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
+                      </Li>
+                    ))}
+                  </Ul>
+                </Nav>
+              ) : null}
+            </Col>
+          </Row>
         </TitleCol>
         {training && (
           <Col md={3} mdOffset={1}>
             <InfoBox type={type}>
-              <Image
-                src={training.image || SMALL_CLASSROOM}
-                width="100%"
-                alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-              />
-              {linkToGallery && (
-                <Link to={`#${linkToGallery}`}>See more pictures</Link>
-              )}
+              <Link to={`#${linkToGallery}`}>
+                <Image
+                  src={training.image || SMALL_CLASSROOM}
+                  width="100%"
+                  alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                />
+              </Link>
+
               <Ul unstyled>
                 <Li>Date: {training.dates}</Li>
-                <Li>Timings: {training.timings || `9am to 6:30pm`}</Li>
+                <Li>Timings: {training.timings || `9am - 6:30pm`}</Li>
                 <Li>
                   Venue: {training.location}{' '}
                   {training.mapLink && <Link to={training.mapLink}>- map</Link>}
+                  - <Link to="https://goo.gl/maps/4YCHgrxzqbx">Map</Link>
                 </Li>
+                {linkToGallery && (
+                  <Link to={`#${linkToGallery}`}>See venue pictures</Link>
+                )}
               </Ul>
             </InfoBox>
           </Col>
         )}
-      </Row>
-      <Row>
-        <Col>
-          {links.length ? (
-            <Nav quickLinks>
-              <Ul inline>
-                <Li>
-                  <Span>On this page:</Span>
-                </Li>
-                {links.map(({ to, text }, i) => (
-                  <Li key={i}>
-                    <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
-                  </Li>
-                ))}
-              </Ul>
-            </Nav>
-          ) : null}
-        </Col>
       </Row>
     </Grid>
   </HeaderSection>

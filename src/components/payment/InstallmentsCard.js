@@ -17,9 +17,8 @@ const InstallmentsCard = ({ currency, price, vatRate = 1.2 }) =>
         <strong>Pay by Installments</strong>
       </H3>
       <P>
-        Pay in 3 installments - the first one being 50% of the total cost and
-        the others to follow over 3 months. Contact us and we can talk things
-        through with you.
+        Pay in 3 installments - the first being 50% of the total cost and the
+        others follow over 3 months. Contact us for more info.
       </P>
       <InstallmentsContainer>
         <Price>{formatPrice(currency, price, vatRate)}</Price>

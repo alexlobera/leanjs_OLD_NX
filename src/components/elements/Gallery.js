@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PhotoGallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
 import { Width, SMALL } from 'react-width'
-
+import Grid, { Col, Row } from '../../components/layout/Grid'
 import Image from './Image'
 import Button from '../buttons/Button'
 import P from '../text/P'
@@ -90,9 +90,22 @@ const Gallery = ({ photos = [] }) => {
         ImageComponent={Photo}
       />
       {hasMorePictures() && (
-        <P align="center" top="20">
-          <Button onClick={loadMore}>Load more pictures</Button>
-        </P>
+        <Row>
+          <Col md={3} xs={12}>
+            <P align="left" top="20">
+              <Button onClick={loadMore} primary>
+                Load more pictures
+              </Button>
+            </P>
+          </Col>
+          <Col md={9} xs={12}>
+            <P align="left" top="30">
+              <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
+                Parede on TripAdvisor
+              </Link>
+            </P>
+          </Col>
+        </Row>
       )}
       <Width>
         {width =>
