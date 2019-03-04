@@ -186,7 +186,8 @@ const TitleCol = styled(Col)`
     margin-bottom: 1em;
   `};
 `
-const InfoBox = styled(Card)`
+const InfoBox = styled.div`
+  background-color: ${WHITE};
   ul {
     padding: 5px 10px 10px 10px;
     margin: 0;
