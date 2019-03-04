@@ -7,7 +7,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       lg={10}
       lgOffset={1}
     >
-      <Styled(styled.h1)>
+      <Styled(styled.h2)>
         Part-time course curriculum
          
         <Link
@@ -16,7 +16,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         >
           #
         </Link>
-      </Styled(styled.h1)>
+      </Styled(styled.h2)>
     </Styled(Col)>
   </Row>
   <Row>

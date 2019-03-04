@@ -7,7 +7,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
       lg={10}
       lgOffset={1}
     >
-      <Styled(styled.h1)>
+      <Styled(styled.h2)>
         React Native Curriculum
         <Link
           name="curriculum"
@@ -15,7 +15,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         >
           #
         </Link>
-      </Styled(styled.h1)>
+      </Styled(styled.h2)>
     </Styled(Col)>
   </Row>
   <Row>
