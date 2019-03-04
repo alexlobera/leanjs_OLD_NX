@@ -15,8 +15,7 @@ import {
 } from '../components/training'
 import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Image } from '../components/elements'
-import { BOOTCAMP_RIGHT, DAVIAN } from '../config/images'
+import { DAVIAN } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,

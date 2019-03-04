@@ -69,8 +69,6 @@ const BootcampLondon = () => (
                   currency: training.currency,
                 }}
               />
-              {/* <ScholarshipsCard /> */}
-              <InstallmentsCard price={2160} />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeId="yvROXLQ1jHg" />
@@ -93,9 +91,6 @@ const BootcampLondon = () => (
                   RICHARD_MOSS,
                 ]}
               />
-              <Row>
-                <Newsletter />{' '}
-              </Row>
             </Col>
           </Row>
         </Card>

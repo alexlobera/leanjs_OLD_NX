@@ -15,7 +15,6 @@ import {
 } from '../components/training'
 import Header from '../components/layout/Header'
 import { CATALIN } from '../config/images'
-import { Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { InstallmentsCard, PaymentSection } from '../components/payment'
 import { Breadcrumb } from '../components/navigation'
@@ -77,9 +76,6 @@ const BootcampLondon = () => (
                   ALEX_LOBERA,
                 ]}
               />
-              <Row>
-                <Newsletter />{' '}
-              </Row>
             </Col>
           </Row>
         </Card>

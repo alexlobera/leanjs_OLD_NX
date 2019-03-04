@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumReactNative } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -9,7 +9,6 @@ import { Link, Breadcrumb } from '../components/navigation'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
-import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -23,7 +22,7 @@ import {
   ReactIcon,
   CollabsIcon,
 } from '../components/icons'
-import { Image, Newsletter } from '../components/elements'
+import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { selectFirstTraining, REACT_NATIVE, LONDON } from '../config/data'
@@ -53,7 +52,7 @@ const ReactNativeBoocampLondon = () => (
         <Card bg="dark">
           <Row>
             <Col xs={12} md={6} lg={5} lgOffset={1}>
-              {/* <PaymentSection
+              <PaymentSection
                 data={{
                   trainingInstanceId: training.trainingInstanceId,
                   price: training.price,
@@ -61,7 +60,7 @@ const ReactNativeBoocampLondon = () => (
                   priceGoesUpOn: training.priceGoesUpOn,
                   currency: training.currency,
                 }}
-              /> */}
+              />
             </Col>
             <Col xs={12} md={6} lg={4} lgOffset={1}>
               <Video youtubeId="yvROXLQ1jHg" />
@@ -79,9 +78,6 @@ const ReactNativeBoocampLondon = () => (
                 foodIncluded
                 coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
               />
-              <Row>
-                <Newsletter />{' '}
-              </Row>
             </Col>
           </Row>
         </Card>

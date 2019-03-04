@@ -4,7 +4,7 @@ import { LinkButton } from '../components/buttons'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P, Span } from '../components/text'
+import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -15,8 +15,7 @@ import {
 } from '../components/training'
 import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Image } from '../components/elements'
-import { BOOTCAMP_RIGHT, OLU } from '../config/images'
+import { OLU } from '../config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
