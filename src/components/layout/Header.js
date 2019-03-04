@@ -266,10 +266,14 @@ const Header = ({
               </Link>
 
               <Ul unstyled>
-                <Li>Date: {training.dates}</Li>
-                <Li>Timings: {training.timings || `9am - 6:30pm`}</Li>
                 <Li>
-                  Venue: {training.location}{' '}
+                  <strong>Date</strong>: {training.dates}
+                </Li>
+                <Li>
+                  <strong>Timings</strong>: {training.timings || `9am - 6:30pm`}
+                </Li>
+                <Li>
+                  <strong>Venue</strong>: {training.location}{' '}
                   {training.mapLink && <Link to={training.mapLink}>- map</Link>}
                   - <Link to="https://goo.gl/maps/4YCHgrxzqbx">Map</Link>
                 </Li>
