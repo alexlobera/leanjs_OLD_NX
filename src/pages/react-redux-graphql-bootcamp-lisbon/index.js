@@ -48,20 +48,26 @@ const photos = [
     height: 3,
   },
   {
-    srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FSquare_small_Sofa.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_sofa.jpg?alt=media',
     width: 1,
     height: 1,
   },
   {
-    srcSmall: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_InnerHouse.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_InnerHouse.jpg?alt=media',
     width: 3,
     height: 4,
   },
   {
-    srcSmall: 'https://source.unsplash.com/iecJiKe_RNg/600x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_students.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_innerhouse.jpg?alt=media',
     width: 3,
     height: 4,
   },
@@ -76,7 +82,7 @@ const photos = [
   {
     // PLEASE DON'T CHANGE THIS ONE, THIS IS THE MAP OF THE LOCATION
     srcSmall:
-      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_map.jpg?alt=media',
     srcLarge:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
     href:
@@ -85,40 +91,51 @@ const photos = [
     height: 4,
   },
   {
-    srcSmall: 'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    width: 4,
-    height: 3,
-  },
-  {
-    srcSmall: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    width: 1,
-    height: 1,
-  },
-  {
-    srcSmall: 'https://source.unsplash.com/qDkso9nvCg0/600x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    width: 3,
-    height: 4,
-  },
-  {
-    srcSmall: 'https://source.unsplash.com/iecJiKe_RNg/600x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
-    width: 3,
-    height: 4,
-  },
-  {
-    srcSmall: 'https://source.unsplash.com/epcsn8Ed8kY/600x799',
-    srcLarge: 'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_Lunch.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_Lunch.jpg?alt=media',
     width: 4,
     height: 3,
   },
   {
     srcSmall:
-      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_Rich.jpg?alt=media',
     srcLarge:
-      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Fmap-parede-min.png?alt=media',
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_Rich.jpg?alt=media',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2Fsquare_small_studentsofa.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_sofastudent.jpg?alt=media',
+    width: 1,
+    height: 1,
+  },
+
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_fran.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_fran.jpg?alt=media',
+    width: 3,
+    height: 4,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_small_drinks.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_drinks.jpg?alt=media',
+    width: 4,
+    height: 3,
+  },
+  {
+    srcSmall:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FPortfolio_small_paredeWall.jpg?alt=media',
+    srcLarge:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flisbon_parede%2FLandscape_large_ParedeWall.jpg?alt=media&',
     width: 3,
     height: 4,
   },
