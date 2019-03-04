@@ -80,13 +80,18 @@ class ContactForm extends Component {
         <a name="newsletter" />
         <H3>Free learning resources</H3>
         <P>
-          Enter your email below and we'll email you with{' '}
-          <strong>free learning resources</strong> and latest news from ReactJS
-          Academy.
+          We share our learning resources{' '}
+          <strong>
+            directly from our{' '}
+            <Link to="/curriculum">
+              <strong>curriculum</strong>
+            </Link>
+          </strong>{' '}
+          and we'd love for you to enjoy and learn from them!{' '}
         </P>
         <P>
-          We promise not to spam you or share your details as per our{' '}
-          <Link to="/privacy-policy">Privacy Policy</Link>.
+          Signup and learn about cutting-edge React thinking plus the latest
+          news on our courses...{' '}
         </P>
         <Row>
           <Col>
@@ -111,6 +116,10 @@ class ContactForm extends Component {
                 )
               }}
             />
+            <P>
+              We wont spam you as per our{' '}
+              <Link to="/privacy-policy">Privacy Policy</Link>.
+            </P>
           </Col>
         </Row>
         {formSubmited ? (

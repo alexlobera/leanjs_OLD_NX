@@ -179,6 +179,7 @@ const TitleCol = styled(Col)`
     `
     height: 100%;
     border-left: solid 27px ${selectTypeColor(type)};
+    box-shadow: #373a477d -12px 0px 9px -13px;
     @media (min-width: ${SCREEN_SM_MIN}) {
       margin-left: 9px;
     }
