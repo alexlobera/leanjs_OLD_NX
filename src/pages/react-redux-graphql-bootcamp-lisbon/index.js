@@ -142,6 +142,8 @@ const photos = [
   },
 ]
 
+const VENUE_PDF =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2Fparede.pdf?alt=media'
 const BootcampLisbon = () => (
   <React.Fragment>
     <Helmet
@@ -176,6 +178,7 @@ const BootcampLisbon = () => (
       type={REACT_BOOTCAMP}
       training={training}
       linkToGallery="venue"
+      downloadVenuePDF={VENUE_PDF}
     />
     <TopSection xsBgDark top>
       <Grid>
@@ -232,7 +235,7 @@ const BootcampLisbon = () => (
         </Row>
         <Row>
           <Col lg={10} lgOffset={1}>
-            <Gallery photos={photos} />
+            <Gallery downloadVenuePDF={VENUE_PDF} photos={photos} />
           </Col>
         </Row>
       </Grid>
