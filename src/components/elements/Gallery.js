@@ -99,11 +99,13 @@ const Gallery = ({ photos = [], downloadVenuePDF }) => {
             </P>
           </Col>
         )}
-        <Col md={9} xs={12}>
-          <P align="left" top="30">
-            <Link to={downloadVenuePDF}>Download more info PDF</Link>
-          </P>
-        </Col>
+        {downloadVenuePDF && (
+          <Col md={9} xs={12}>
+            <P align="left" top="30">
+              <Link to={downloadVenuePDF}>Download more info PDF</Link>
+            </P>
+          </Col>
+        )}
       </Row>
       <Width>
         {width =>
