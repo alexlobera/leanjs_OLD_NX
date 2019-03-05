@@ -74,7 +74,7 @@ export const trainings = [
     trainingInstanceId: '5c75c36cbb737b555e1d6233',
     price: 415,
     discountPrice: 165.835,
-    priceGoesUpOn: new Date('Mar 15, 2019'),
+    // priceGoesUpOn: new Date('Mar 15, 2019'),
     currency: 'eur',
     image: BARCELONA_LOCATION,
   },
