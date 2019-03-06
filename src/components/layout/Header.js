@@ -214,6 +214,7 @@ const Header = ({
   paddingBottom,
   children,
   linkToGallery,
+  downloadVenuePDF,
 }) => (
   <HeaderSection
     top
@@ -280,7 +281,14 @@ const Header = ({
                   - <Link to="https://goo.gl/maps/4YCHgrxzqbx">Map</Link>
                 </Li>
                 {linkToGallery && (
-                  <Link to={`#${linkToGallery}`}>See venue pictures</Link>
+                  <Li>
+                    <Link to={`#${linkToGallery}`}>See venue pictures</Link>
+                  </Li>
+                )}
+                {downloadVenuePDF && (
+                  <Li>
+                    <Link to={downloadVenuePDF}>Download more info PDF</Link>
+                  </Li>
                 )}
               </Ul>
             </InfoBox>

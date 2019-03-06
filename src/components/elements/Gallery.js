@@ -39,7 +39,7 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
 
 const NUMBER_OF_IMAGES_PER_PAGE = 6
 
-const Gallery = ({ photos = [] }) => {
+const Gallery = ({ photos = [], downloadVenuePDF }) => {
   const [{ currentImage, lastImage }, setImageState] = useState({
     currentImage: 0,
     lastImage: NUMBER_OF_IMAGES_PER_PAGE,
@@ -99,13 +99,13 @@ const Gallery = ({ photos = [] }) => {
             </P>
           </Col>
         )}
-        <Col md={9} xs={12}>
-          <P align="left" top="30">
-            <Link to="https://www.tripadvisor.co.uk/Tourism-g1426241-Parede_Lisbon_District_Central_Portugal-Vacations.html">
-              Parede on TripAdvisor
-            </Link>
-          </P>
-        </Col>
+        {downloadVenuePDF && (
+          <Col md={9} xs={12}>
+            <P align="left" top="30">
+              <Link to={downloadVenuePDF}>Download more info PDF</Link>
+            </P>
+          </Col>
+        )}
       </Row>
       <Width>
         {width =>
