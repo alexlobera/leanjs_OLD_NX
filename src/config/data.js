@@ -46,21 +46,23 @@ const emptyTraining = (type, city) => ({
 })
 
 export const trainings = [
-  // {
-  //   dates: '12-18 May, 2019',
-  //   dateStartsOn: new Date('2019-05-12T18:00:00'),
-  //   city: LONDON,
-  //   country: 'UK',
-  //   type: REACT_BOOTCAMP,
-  //   cityShortName: 'London',
-  //   location: 'Publicis.Sapient - Eden House, 8 Spital Square',
-  //   pathUrl: '/react-redux-graphql-bootcamp-london/',
-  //   trainingInstanceId: '5c6ca2dfef523c695ce4aaa4',
-  //   price: 1800,
-  //   discountPrice: 1450,
-  //   priceGoesUpOn: new Date('March 29, 2019'),
-  //   currency: 'gbp',
-  // },
+  {
+    dates: '12-18 May, 2019',
+    dateStartsOn: new Date('2019-05-12T18:00:00'),
+    city: LONDON,
+    country: 'UK',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'London',
+    location: 'Publicis.Sapient - Eden House, 8 Spital Square',
+    pathUrl: '/react-redux-graphql-bootcamp-london/',
+    trainingInstanceId: '5c6ca2dfef523c695ce4aaa4',
+    price: 1800,
+    discountPrice: 1450,
+    priceGoesUpOn: new Date('March 29, 2019'),
+    currency: 'gbp',
+    image: LONDON_LOCATION,
+    mapLink: 'https://goo.gl/maps/jjX9zs5Ags32',
+  },
   {
     dates: 'March 19, 2019',
     dateStartsOn: new Date('Mar 19, 2019'),
