@@ -86,7 +86,7 @@ export const trainings = [
     type: PART_TIME,
     cityShortName: 'London',
     country: 'UK',
-    location: 'Makers Academy',
+    location: 'Publicis.Sapient - Eden House, 8 Spital Square',
     timings: "6pm - 9pm Tuesday's & Thursday's",
     pathUrl: '/react-redux-training-london',
     trainingInstanceId: '5c6c7befef523c695ce4aaa2',
@@ -94,6 +94,7 @@ export const trainings = [
     priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
     image: LONDON_LOCATION,
+    mapLink: 'https://goo.gl/maps/jjX9zs5Ags32',
   },
   {
     dates: 'March 31 to April 6, 2019',
@@ -113,6 +114,7 @@ export const trainings = [
     priceGoesUpOn: new Date('Feb 25, 2019'),
     currency: 'gbp',
     image: LISBON_LOCATION,
+    mapLink: 'https://goo.gl/maps/4YCHgrxzqbx',
   },
   {
     dates: '07-09 March, 2018',

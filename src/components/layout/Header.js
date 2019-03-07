@@ -278,7 +278,6 @@ const Header = ({
                 <Li>
                   <strong>Venue</strong>: {training.location}{' '}
                   {training.mapLink && <Link to={training.mapLink}>- map</Link>}
-                  - <Link to="https://goo.gl/maps/4YCHgrxzqbx">Map</Link>
                 </Li>
                 {linkToGallery && (
                   <Li>
