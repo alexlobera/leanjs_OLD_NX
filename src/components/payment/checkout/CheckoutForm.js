@@ -263,8 +263,8 @@ class CheckoutForm extends React.Component {
                       {companyVat.isViesValidationInProgress
                         ? '...'
                         : companyVat.isViesValid
-                          ? 'Validated'
-                          : 'Validate EU VAT and update taxes'}
+                        ? 'Validated'
+                        : 'Validate EU VAT and update taxes'}
                     </ValidateViesButton>
                   </Fragment>
                 ) : (
@@ -346,8 +346,8 @@ class CheckoutForm extends React.Component {
                       {isVoucherValidationInProgress
                         ? '...'
                         : isVoucherValid
-                          ? 'Valid Voucher'
-                          : 'Validate voucher'}
+                        ? 'Valid Voucher'
+                        : 'Validate voucher'}
                     </ValidateVoucherButton>
                   </Fragment>
                 ) : (

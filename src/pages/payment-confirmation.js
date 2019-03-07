@@ -32,7 +32,7 @@ class PaymentConfirmation extends React.Component {
     const payload = {
       makePayment,
       trainingInstanceId,
-      metadata: JSON.parse(makePayment.metadata)
+      metadata: JSON.parse(makePayment.metadata),
     }
 
     if (id) {
