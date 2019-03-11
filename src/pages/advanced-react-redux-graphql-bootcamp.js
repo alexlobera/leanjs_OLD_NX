@@ -28,7 +28,10 @@ import { Breadcrumb } from '../components/navigation'
 import { selectTrainings, ADVANCED_REACT } from '../config/data'
 
 const trainings = selectTrainings(ADVANCED_REACT)
-const startDate = moment(trainings[0].dateStartsOn).format('D MMM')
+const nextTraining = trainings.length && trainings[0]
+// const nextStartDate =
+//   trainings.length && moment(trainings[0].dateStartsOn).format('D MMM')
+// const nextCity = trainings.length && trainings[0].city
 
 const Boocamps = () => (
   <React.Fragment>
@@ -99,11 +102,16 @@ const Boocamps = () => (
                 social fun!
               </Li>
             </Ul>
-            <P>
-              <LinkButton cta to="/react-redux-graphql-bootcamp-lisbon">
-                Next one: {`${startDate}, ${trainings[0].city} >>`}
-              </LinkButton>
-            </P>
+            {nextTraining ? (
+              <P>
+                <LinkButton cta to={nextTraining.pathUrl}>
+                  Next one:{' '}
+                  {`${moment(nextTraining.dateStartsOn).format('D MMM')}, ${
+                    nextTraining.city
+                  } >>`}
+                </LinkButton>
+              </P>
+            ) : null}
           </Col>
         </Row>
       </Grid>
