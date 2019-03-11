@@ -29,9 +29,6 @@ import { selectTrainings, ADVANCED_REACT } from '../config/data'
 
 const trainings = selectTrainings(ADVANCED_REACT)
 const nextTraining = trainings.length && trainings[0]
-// const nextStartDate =
-//   trainings.length && moment(trainings[0].dateStartsOn).format('D MMM')
-// const nextCity = trainings.length && trainings[0].city
 
 const Boocamps = () => (
   <React.Fragment>
