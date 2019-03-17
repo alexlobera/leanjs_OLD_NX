@@ -6,14 +6,13 @@ import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
 import LinkButton from '../buttons/LinkButton'
 
-import { selectTrainings } from '../../config/data'
+import { selectTrainings, REACT_BOOTCAMP } from '../../config/data'
 import MarketingCard from '../curriculum/MarketingCard'
 import Newsletter from '../elements/Newsletter'
 
-const trainings = selectTrainings()
-
-const UpcomingTrainings = ({ curriculum }) =>
-  trainings.map(training => {
+const UpcomingTrainings = ({ curriculum, type }) => {
+  const trainings = selectTrainings(type)
+  return trainings.map(training => {
     const trainingInstance = (
       <TrainingItem
         key={training.trainingInstanceId}
@@ -31,13 +30,14 @@ const UpcomingTrainings = ({ curriculum }) =>
       </React.Fragment>
     )
   })
+}
 
-const UpcomingTrainingSection = ({ curriculum }) => (
+const UpcomingTrainingSection = ({ curriculum, type }) => (
   <React.Fragment>
     {curriculum ? (
       <React.Fragment>
-        <H3 style={{ marginTop: '1em' }}>Upcoming courses</H3>
-        <UpcomingTrainings curriculum={curriculum} />
+        <H3 style={{ marginTop: '1em' }}>Upcoming {type} courses</H3>
+        <UpcomingTrainings type={type} curriculum={curriculum} />
         <Row>
           <Col md={10}>
             <Newsletter />
@@ -55,7 +55,7 @@ const UpcomingTrainingSection = ({ curriculum }) => (
           <Row>
             <Col md={11} mdOffset={1}>
               <TrainingList>
-                <UpcomingTrainings curriculum={curriculum} />
+                <UpcomingTrainings type={type} curriculum={curriculum} />
               </TrainingList>
             </Col>
           </Row>

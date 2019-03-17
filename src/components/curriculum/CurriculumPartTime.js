@@ -43,10 +43,11 @@ const CurriculumPartTime = ({
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const type = PART_TIME
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
-    type: PART_TIME,
+    type,
     isOpen,
   }
   const firstHalf = (
@@ -153,7 +154,7 @@ const CurriculumPartTime = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
       {showCallToActionBottom ? (
         <Row>
           <Col lg={10} lgOffset={1}>

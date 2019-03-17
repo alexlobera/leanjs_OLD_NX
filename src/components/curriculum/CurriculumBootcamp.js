@@ -33,10 +33,11 @@ const CurriculumBootcamp = ({
   showLinkToCurriculum = true,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const type = REACT_BOOTCAMP
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
-    type: REACT_BOOTCAMP,
+    type,
     isOpen,
   }
   const firstHalf = (
@@ -145,7 +146,7 @@ const CurriculumBootcamp = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
     </React.Fragment>
   )
 }

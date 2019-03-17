@@ -24,10 +24,11 @@ const CurriculumAdvancedReact = ({
   layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const type = ADVANCED_REACT
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
-    type: ADVANCED_REACT,
+    type,
     isOpen,
   }
   const firstHalf = (
@@ -96,7 +97,7 @@ const CurriculumAdvancedReact = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
     </React.Fragment>
   )
 }
