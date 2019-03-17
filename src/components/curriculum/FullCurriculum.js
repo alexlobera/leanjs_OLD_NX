@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
-import { H2, P } from '../text'
+import { H2Ref, P } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
 import {
@@ -30,12 +30,12 @@ class FullCurriculum extends React.Component {
       <React.Fragment>
         <Row>
           <Col xs={12} md={12} lg={10} lgOffset={1}>
-            <H2>
+            <H2Ref>
               Our React curriculum{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>
-            </H2>
+            </H2Ref>
           </Col>
         </Row>
         <Row>
