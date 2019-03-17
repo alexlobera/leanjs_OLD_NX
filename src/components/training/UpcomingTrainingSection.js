@@ -1,13 +1,11 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { P, H2, H3, H5 } from '../text'
+import { H2, H3 } from '../text'
 import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
-import LinkButton from '../buttons/LinkButton'
 
-import { selectTrainings, REACT_BOOTCAMP } from '../../config/data'
-import MarketingCard from '../curriculum/MarketingCard'
+import { selectTrainings } from '../../config/data'
 import Newsletter from '../elements/Newsletter'
 
 const UpcomingTrainings = ({ curriculum, type }) => {
