@@ -34,7 +34,7 @@ const UpcomingTrainingSection = ({ curriculum, type }) => (
   <React.Fragment>
     {curriculum ? (
       <React.Fragment>
-        <H3 style={{ marginTop: '1em' }}>Upcoming {type} courses</H3>
+        <H3 style={{ marginTop: '1em' }}>{`Upcoming ${type} courses`}</H3>
         <UpcomingTrainings type={type} curriculum={curriculum} />
         <Row>
           <Col md={10}>
