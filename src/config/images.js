@@ -47,6 +47,9 @@ export const CURRICULUM_FULL_TRAINING_IMG =
 export const SMALL_CLASSROOM =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/classroom-small.jpg?alt=media'
 
+export const WHY_GQLU_ACADEMY =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media'
+
 export const HELLO_STUDENT =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community_coachCommunity.jpg?alt=media'
 

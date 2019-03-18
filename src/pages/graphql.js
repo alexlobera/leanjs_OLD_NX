@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import { LinkButton } from '../components/buttons'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
@@ -8,6 +7,7 @@ import { H2, P, Span } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumGraphQL } from '../components/curriculum'
 import Header from '../components/layout/Header'
+import { HideComponentsUsingCss } from '../components/utils'
 import {
   TrustedBySection,
   AttendeeQuote,
@@ -15,15 +15,21 @@ import {
 } from '../components/training'
 import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { DAVIAN } from '../config/images'
+import { WHY_GQLU_ACADEMY, SMALL_CLASSROOM } from '../config/images.js'
 import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
+  CalendarIcon,
+  CodeIcon,
+  CollabsIcon,
+  HeartIcon,
+  NotBegginerIcon,
+  ProductionReadyIcon,
+  SpannerIcon,
+  StarIcon,
+  TimeIcon,
+  TrainerIcon,
   BulletIcon,
-  PeopleNetWorkIcon,
 } from '../components/icons'
+import { Image } from '../components/elements'
 import { Breadcrumb } from '../components/navigation'
 import {
   selectTrainings,
@@ -31,6 +37,16 @@ import {
   GRAPHQL_BOOTCAMP,
 } from '../config/data'
 import header from '../components/layout/Header.json'
+
+// const SectionButtonRow = styled(Row)`
+//   margin-top: 30px;
+//   @media (max-width: ${SCREEN_XS_MAX}) {
+//     a {
+//       margin-top: 5px;
+//       display: block;
+//     }
+//   }
+// `
 
 const trainings = selectTrainings(GRAPHQL_BOOTCAMP)
 const nextTraining = selectFirstTraining(GRAPHQL_BOOTCAMP)
@@ -59,76 +75,112 @@ const GraphQL = () => (
         </Card>
       </Grid>
     </TopSection>
+
+    <Section>
+      <Grid>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <H2>Is GraphQL University right for me?</H2>
+            <Ul unstyled>
+              <Li>
+                <BulletIcon icon={NotBegginerIcon} />
+                For working developers - <strong>not for beginners!</strong>
+              </Li>
+              <Li>
+                <BulletIcon icon={SpannerIcon} />
+                <strong>Hands-on project-based</strong> training.
+              </Li>
+              <Li>
+                <BulletIcon icon={CollabsIcon} />A{' '}
+                <strong>collaborative</strong> learning environment.
+              </Li>
+              {/* <Li>
+                    <BulletIcon icon={TimeIcon} />
+                    <Link to="/graphql-bootcamp-london">Bootcamps</Link> for
+                    accelerated learning.
+                  </Li>
+                  <Li>
+                    <BulletIcon icon={CalendarIcon} />
+                    <Link to="/react-redux-graphql-part-time-course">
+                      Part-time courses
+                    </Link>{' '}
+                    for accelerated learning.
+                  </Li> */}
+            </Ul>
+            <P />
+            {/* <SectionButtonRow>
+                  <Col sm={6}>
+                    <LinkButton
+                      cta
+                      to={trainingBootcamp.pathUrl}
+                      children="GraphQL Bootcamp"
+                    />
+                  </Col>
+                </SectionButtonRow> */}
+          </Col>
+          <HideComponentsUsingCss xs sm>
+            <Col md={5} mdOffset={1}>
+              <Image
+                src={WHY_GQLU_ACADEMY}
+                width="100%"
+                alt="Female GraphQL University student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
+              />
+            </Col>
+          </HideComponentsUsingCss>
+        </Row>
+      </Grid>
+    </Section>
+
     <Section>
       <Grid>
         <Row>
           <Col md={5}>
-            <Video youtubeId="6hmKu1-vW-8" />
-            <P>
-              Listen to Polina Stoyanova, a software engineer from tray.io who
-              attended our last bootcamp, on her experience at the bootcamp.
-            </P>
-            <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">
-              Watch further testimonials
-            </Link>
-          </Col>
-          <Col md={5} mdOffset={1}>
-            <H2>
-              <Link to="#target-audience" name="target-audience" />
-              Is this React bootcamp right for me?
-            </H2>
-            <Ul unstyled>
-              <Li>
-                <BulletIcon icon={RunFastIcon} />
-                Extremely rapid, intense learning
-              </Li>
-              <Li>
-                <BulletIcon icon={NotBegginersIcon} />
-                Ideal for experienced programmers familiar with good practices.
-                Not for beginners!
-              </Li>
-              <Li>
-                <BulletIcon icon={TickBadgeIcon} />
-                Small classes with expert developer coaches - roughly one for
-                every four students
-              </Li>
-              <Li>
-                <BulletIcon icon={TargetIcon} />
-                Hands-on project-based training - most of the time you'll be
-                coding.
-              </Li>
-              <Li>
-                <BulletIcon icon={PeopleNetWorkIcon} />
-                Join a growing network of alumni for advice, knowledge and
-                social fun!
-              </Li>
-            </Ul>
-            <P>
-              <LinkButton cta to={nextTraining.pathUrl}>
-                Next bootcamp:{' '}
-                {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
-                {nextTraining.city}
-              </LinkButton>
-            </P>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
-    <Section>
-      <Grid>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <AttendeeQuote
-              quote="After the bootcamp, I felt very very confident. You understand how to use React, how to build components from scratch and then into complex applications. Don’t be afraid - book as quickly as possible!"
-              fullname="Davian Robinson"
-              job="Senior Software Engineer"
-              company="ETZ Payments"
-              profilePicUrl={DAVIAN}
+            <Image
+              src={SMALL_CLASSROOM}
+              width="100%"
+              alt="Four developers gathered around a laptop, pair programming together on a piece of work during a GraphQL University bootcamp."
             />
           </Col>
+          <Col md={5} mdOffset={1}>
+            <H2>Why GraphQL University is great for your developers</H2>
+            <Ul unstyled>
+              <Li>
+                <BulletIcon icon={ProductionReadyIcon} />
+                <strong>Build production ready</strong> apps leverging graphQL.
+              </Li>
+              <Li>
+                <BulletIcon icon={CollabsIcon} />
+                Discuss <strong>real-world projects</strong>.
+              </Li>
+              <Li>
+                <BulletIcon icon={StarIcon} />
+                Learn <strong>best practices</strong>.
+              </Li>
+              <Li>
+                <BulletIcon icon={TrainerIcon} />
+                <strong>Mentoring</strong> by our expert coaches.
+              </Li>
+              <Li>
+                <BulletIcon icon={HeartIcon} />
+                Alumni <strong>community</strong>.
+              </Li>
+              <Li>
+                <BulletIcon icon={CodeIcon} />
+                <strong>Stay ahead</strong> in modern development.
+              </Li>
+            </Ul>
+            {/* <SectionButtonRow>
+                  <Col sm={6}>
+                    <LinkButton to="/#contact-us">
+                      Corporate training - Get in touch!
+                    </LinkButton>
+                  </Col>
+                </SectionButtonRow> */}
+          </Col>
         </Row>
       </Grid>
     </Section>
+
     <TrustedBySection />
     <UpcomingTrainingSection />
   </React.Fragment>
