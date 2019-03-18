@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { withRouter } from 'react-router-dom'
+
 import DefaultLink from '../navigation/Link'
 import { Button } from '../buttons'
 import { H3 as DefaultH3, P as DefaultP } from '../text'
@@ -42,6 +44,7 @@ class ContactForm extends Component {
   handleFormSubmit = ({ email }) => {
     this.setState({ formSubmited: true })
     this.props.triggerSubscribe({ email })
+    this.props.history.push('/thanks-for-signing-up')
   }
 
   render() {
@@ -142,4 +145,4 @@ ContactForm.defaultProps = {
   triggerSubscribe,
 }
 
-export default ContactForm
+export default withRouter(ContactForm)
