@@ -64,10 +64,10 @@ const IndexPage = () => (
             <LinkButton
               cta
               to="/react-redux-graphql-bootcamp"
-              children="1-week React bootcamp >>"
+              children="1-week bootcamp >>"
             />
           </Col>
-          <Col xs={12} sm={3}>
+          <Col xs={12} sm={4}>
             <LinkButton
               to="/advanced-react-redux-graphql-bootcamp"
               children="React Advanced >>"
@@ -76,7 +76,7 @@ const IndexPage = () => (
           <Col xs={12} sm={4}>
             <LinkButton
               to="/corporate-team-training/"
-              children="Corporate team training >>"
+              children="Corporate training >>"
             />
           </Col>
         </CallToActionRow>

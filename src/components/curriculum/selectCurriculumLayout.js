@@ -6,7 +6,12 @@ import { UpcomingTrainingSection } from '../training'
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
 
-const selectCurriculumLayout = ({ firstHalf, secondHalf, layout }) => {
+const selectCurriculumLayout = ({
+  firstHalf,
+  secondHalf,
+  layout,
+  type = '',
+}) => {
   if (layout === LIST_LAYOUT) {
     return (
       <React.Fragment>
@@ -40,7 +45,7 @@ const selectCurriculumLayout = ({ firstHalf, secondHalf, layout }) => {
             {secondHalf}
           </Col>
           <Col md={6} lg={5} lgOffset={1}>
-            <UpcomingTrainingSection curriculum />
+            <UpcomingTrainingSection curriculum type={type} />
           </Col>
         </Row>
       </React.Fragment>

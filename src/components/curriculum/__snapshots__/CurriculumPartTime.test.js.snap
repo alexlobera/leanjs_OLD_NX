@@ -122,6 +122,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
     >
       <UpcomingTrainingSection
         curriculum={true}
+        type="Part-time"
       />
     </Styled(Col)>
   </Row>

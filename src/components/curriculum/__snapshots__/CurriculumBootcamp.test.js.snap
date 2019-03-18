@@ -141,6 +141,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
     >
       <UpcomingTrainingSection
         curriculum={true}
+        type="React bootcamp"
       />
     </Styled(Col)>
   </Row>

@@ -27,10 +27,11 @@ const CurriculumReactNative = ({
   layout,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const type = REACT_NATIVE
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
-    type: REACT_NATIVE,
+    type,
     isOpen,
   }
   const firstHalf = (
@@ -96,7 +97,7 @@ const CurriculumReactNative = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
     </React.Fragment>
   )
 }

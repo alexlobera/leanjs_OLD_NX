@@ -1,19 +1,17 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { P, H2, H3, H5 } from '../text'
+import { H2Ref, H3 } from '../text'
 import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
-import LinkButton from '../buttons/LinkButton'
+import Link from '../navigation/Link'
 
 import { selectTrainings } from '../../config/data'
-import MarketingCard from '../curriculum/MarketingCard'
 import Newsletter from '../elements/Newsletter'
 
-const trainings = selectTrainings()
-
-const UpcomingTrainings = ({ curriculum }) =>
-  trainings.map(training => {
+const UpcomingTrainings = ({ curriculum, type }) => {
+  const trainings = selectTrainings(type)
+  return trainings.map(training => {
     const trainingInstance = (
       <TrainingItem
         key={training.trainingInstanceId}
@@ -31,13 +29,15 @@ const UpcomingTrainings = ({ curriculum }) =>
       </React.Fragment>
     )
   })
+}
 
-const UpcomingTrainingSection = ({ curriculum }) => (
+const UpcomingTrainingSection = ({ curriculum, type }) => (
   <React.Fragment>
     {curriculum ? (
       <React.Fragment>
         <H3 style={{ marginTop: '1em' }}>Upcoming courses</H3>
-        <UpcomingTrainings curriculum={curriculum} />
+        <UpcomingTrainings type={type} curriculum={curriculum} />
+        <Link to="#upcoming">See all upcoming courses</Link>
         <Row>
           <Col md={10}>
             <Newsletter />
@@ -49,13 +49,18 @@ const UpcomingTrainingSection = ({ curriculum }) => (
         <Grid>
           <Row>
             <Col md={10} mdOffset={1}>
-              <H2>Upcoming Training</H2>
+              <H2Ref>
+                Upcoming Training
+                <Link to="#upcoming" name="upcoming">
+                  #
+                </Link>
+              </H2Ref>
             </Col>
           </Row>
           <Row>
             <Col md={11} mdOffset={1}>
               <TrainingList>
-                <UpcomingTrainings curriculum={curriculum} />
+                <UpcomingTrainings type={type} curriculum={curriculum} />
               </TrainingList>
             </Col>
           </Row>
