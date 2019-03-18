@@ -84,6 +84,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
     >
       <UpcomingTrainingSection
         curriculum={true}
+        type="Advanced React"
       />
     </Styled(Col)>
   </Row>

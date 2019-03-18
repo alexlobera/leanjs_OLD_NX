@@ -92,6 +92,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
     >
       <UpcomingTrainingSection
         curriculum={true}
+        type="React Native"
       />
     </Styled(Col)>
   </Row>
