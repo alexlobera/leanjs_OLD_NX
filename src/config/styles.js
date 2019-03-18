@@ -19,7 +19,12 @@ export const GREY2 = '#4a4a4a'
 export const WHITE = '#fff'
 
 export const RED = 'red'
-export const LIGHT_RED = '#f388a2'
+
+export const PINK = '#f388a2'
+
+export const GRAPHQL_PINK = '#ed7dc8'
+
+export const REACT_NATIVE_GREEN = '#80da8d'
 
 export const CALLTOACTIONRED = '#be6045'
 

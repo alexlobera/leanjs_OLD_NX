@@ -19,6 +19,7 @@ export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React bootcamp'
 export const ADVANCED_REACT = 'Advanced React'
+export const GRAPHQL_BOOTCAMP = 'GraphQL bootcamp'
 
 /*
 Boocamp prices:
