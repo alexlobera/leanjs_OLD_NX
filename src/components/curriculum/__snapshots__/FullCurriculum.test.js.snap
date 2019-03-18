@@ -9,7 +9,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
       md={12}
       xs={12}
     >
-      <styled.h2>
+      <Styled(styled.h2)>
         Our React curriculum
          
         <Link
@@ -18,7 +18,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
         >
           #
         </Link>
-      </styled.h2>
+      </Styled(styled.h2)>
     </Styled(Col)>
   </Row>
   <Row>
