@@ -23,10 +23,11 @@ const CurriculumGraphQL = ({
   showLinkToCurriculum = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const type = GRAPHQL_BOOTCAMP
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
-    type: GRAPHQL_BOOTCAMP,
+    type,
     isOpen,
   }
   const firstHalf = (
@@ -101,7 +102,7 @@ const CurriculumGraphQL = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout })}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
     </React.Fragment>
   )
 }
