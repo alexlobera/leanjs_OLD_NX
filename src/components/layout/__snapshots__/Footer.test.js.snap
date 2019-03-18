@@ -9,9 +9,8 @@ exports[`<Footer /> should render component 1`] = `
           md={5}
           mdOffset={1}
         >
-          <ContactForm
+          <withRouter(ContactForm)
             addContactUsLink={true}
-            triggerSubscribe={[Function]}
           />
         </Styled(Col)>
         <Styled(Col)
