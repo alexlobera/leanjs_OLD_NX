@@ -1,9 +1,10 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { H2, H3 } from '../text'
+import { H2Ref, H3 } from '../text'
 import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
+import Link from '../navigation/Link'
 
 import { selectTrainings } from '../../config/data'
 import Newsletter from '../elements/Newsletter'
@@ -34,8 +35,9 @@ const UpcomingTrainingSection = ({ curriculum, type }) => (
   <React.Fragment>
     {curriculum ? (
       <React.Fragment>
-        <H3 style={{ marginTop: '1em' }}>{`Upcoming ${type} courses`}</H3>
+        <H3 style={{ marginTop: '1em' }}>Upcoming courses</H3>
         <UpcomingTrainings type={type} curriculum={curriculum} />
+        <Link to="#upcoming">See all upcoming courses</Link>
         <Row>
           <Col md={10}>
             <Newsletter />
@@ -47,7 +49,12 @@ const UpcomingTrainingSection = ({ curriculum, type }) => (
         <Grid>
           <Row>
             <Col md={10} mdOffset={1}>
-              <H2>Upcoming Training</H2>
+              <H2Ref>
+                Upcoming Training
+                <Link to="#upcoming" name="upcoming">
+                  #
+                </Link>
+              </H2Ref>
             </Col>
           </Row>
           <Row>
