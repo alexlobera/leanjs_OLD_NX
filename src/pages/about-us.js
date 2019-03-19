@@ -357,11 +357,13 @@ const AboutUs = () => (
               <Li>
                 <SocialLink to="github.com/evandyou ">GitHub</SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://www.linkedin.com/in/evamhoffmann/">
                   LinkedIn
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/evandyou">
                   Twitter
@@ -471,11 +473,15 @@ const AboutUs = () => (
               <Li>
                 <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
               </Li>
+              
+              
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
                   LinkedIn
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/ItizAdz/">
                   Twitter
@@ -530,16 +536,19 @@ const AboutUs = () => (
               <Li>
                 <SocialLink to="https://github.com/royderks">GitHub</SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://www.linkedin.com/in/royderks1/">
                   LinkedIn
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/gethackteam/">
                   Twitter
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://medium.com/hackteam/">
                   Medium
@@ -601,6 +610,67 @@ const AboutUs = () => (
               <Li>|</Li>
               <Li>
                 <SocialLink to="https://medium.com/@flexbox">Medium</SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://twitter.com/_flexbox">
+                  Twitter
+                </SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://www.linkedin.com/in/david-leuliette/">
+                  LinkedIn
+                </SocialLink>
+              </Li>
+            </Ul>
+            <Ul>
+              <Li>
+                Focused on building <strong>memorable UX</strong> and{' '}
+                <strong>scalable User Interface</strong>.
+              </Li>
+              <Li>
+                Used to <strong>teach collaboration</strong> with GitHub,
+                <strong>bootstrapping web products</strong> and Growth Hacking
+                at University.
+              </Li>
+              <Li>
+                Organizer of the{' '}
+                <Link to="https://www.meetup.com/FranceJS/">ChtiJS Meetup</Link>{' '}
+                in France.
+              </Li>
+            </Ul>
+            <Blockquote bg="primary" triangle="left">
+              When you work 8 hours a day with a tool, every second matters.
+            </Blockquote>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <Row>
+          <Col xs={12} md={5} smOrder={2}>
+            <Image
+              src={FRANCISCO}
+              width="100%"
+              alt="ReactJS Academy coach David Leuliette, smiling"
+            />
+          </Col>
+          <Col xs={12} md={4} mdOffset={1} smOrder={1}>
+            <H2Ref>
+              Francisco Gomes
+              <Link name="francisco-gomes" to="#francisco-gomes">
+                #
+              </Link>
+            </H2Ref>
+            <CoachTitle>
+              Developer at{' '}
+              <Link to="https://leanjs.com">LeanJS</Link>
+            </CoachTitle>
+            <Ul inline>
+              <Li>
+                <SocialLink to="https://github.com/franciscomcg">GitHub</SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
