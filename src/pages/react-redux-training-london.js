@@ -12,6 +12,7 @@ import {
   WILL_VOELCKER,
   ALEX_LOBERA,
   EVA_HOFFMANN,
+  FRANCISCO_GOMES,
 } from '../components/training'
 import Header from '../components/layout/Header'
 import { CATALIN } from '../config/images'
@@ -66,6 +67,7 @@ const BootcampLondon = () => (
                   DAVID_LEULIETTE,
                   WILL_VOELCKER,
                   ALEX_LOBERA,
+                  FRANCISCO_GOMES,
                 ]}
               />
             </Col>
