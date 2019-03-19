@@ -37,6 +37,10 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "text": "Part-time",
             "to": "/react-redux-graphql-part-time-course",
           },
+          Object {
+            "text": "GraphQL",
+            "to": "/graphql",
+          },
         ]
       }
       text="Training"
