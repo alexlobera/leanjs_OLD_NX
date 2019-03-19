@@ -20,6 +20,7 @@ import {
   EVA,
   ROY,
   DAVID,
+  FRANCISCO,
   CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
@@ -437,7 +438,7 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Professional web <strong>developer since 2005</strong>
+                Professional web <strong>developer since 2005</strong>.
               </Li>
               <Li>
                 <strong>Qualified teacher</strong>, experienced teaching in a
@@ -473,8 +474,7 @@ const AboutUs = () => (
               <Li>
                 <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
               </Li>
-              
-              
+
               <Li>|</Li>
               <Li>
                 <SocialLink to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
@@ -498,7 +498,7 @@ const AboutUs = () => (
                 yet, which he takes as encouragement.
               </Li>
               <Li>
-                Always looking for new ~ways to procrastinate~ things to learn.
+                Always looking for new ways to procrastinate things to learn.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
@@ -568,7 +568,7 @@ const AboutUs = () => (
               </Li>
               <Li>
                 Always looking at what's on the horizon and curious about new
-                technologies
+                technologies.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
@@ -650,14 +650,7 @@ const AboutUs = () => (
     <Section>
       <Grid>
         <Row>
-          <Col xs={12} md={5} smOrder={2}>
-            <Image
-              src={FRANCISCO}
-              width="100%"
-              alt="ReactJS Academy coach David Leuliette, smiling"
-            />
-          </Col>
-          <Col xs={12} md={4} mdOffset={1} smOrder={1}>
+          <Col xs={12} md={4} mdOffset={1}>
             <H2Ref>
               Francisco Gomes
               <Link name="francisco-gomes" to="#francisco-gomes">
@@ -665,45 +658,52 @@ const AboutUs = () => (
               </Link>
             </H2Ref>
             <CoachTitle>
-              Developer at{' '}
-              <Link to="https://leanjs.com">LeanJS</Link>
+              Developer at <Link to="https://leanjs.com">LeanJS</Link>
             </CoachTitle>
             <Ul inline>
               <Li>
-                <SocialLink to="https://github.com/franciscomcg">GitHub</SocialLink>
+                <SocialLink to="https://github.com/franciscomcg">
+                  GitHub
+                </SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://twitter.com/_flexbox">
+                <SocialLink to="https://twitter.com/francisgomes83">
                   Twitter
                 </SocialLink>
               </Li>
               <Li>|</Li>
               <Li>
-                <SocialLink to="https://www.linkedin.com/in/david-leuliette/">
+                <SocialLink to="https://www.linkedin.com/in/francisco-gomes-webdev/">
                   LinkedIn
                 </SocialLink>
               </Li>
             </Ul>
             <Ul>
               <Li>
-                Focused on building <strong>memorable UX</strong> and{' '}
-                <strong>scalable User Interface</strong>.
+                Builds products with <strong>React</strong> and{' '}
+                <strong>GraphQL</strong>.
               </Li>
               <Li>
-                Used to <strong>teach collaboration</strong> with GitHub,
-                <strong>bootstrapping web products</strong> and Growth Hacking
-                at University.
+                Currently finishing his degree in{' '}
+                <strong>Business and Information Systems</strong>.
               </Li>
               <Li>
-                Organizer of the{' '}
-                <Link to="https://www.meetup.com/FranceJS/">ChtiJS Meetup</Link>{' '}
-                in France.
+                Crazy about <strong>innovation</strong> and{' '}
+                <strong>structured solutions</strong>.
               </Li>
             </Ul>
-            <Blockquote bg="primary" triangle="left">
-              When you work 8 hours a day with a tool, every second matters.
+            <Blockquote bg="primary" triangle="right">
+              While teaching, the technology itself is not life-changing. It's
+              the passion and commitment.
             </Blockquote>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <Image
+              src={FRANCISCO}
+              width="100%"
+              alt="ReactJS Academy coach Francisco Gomes, smiling with sunglasses on"
+            />
           </Col>
         </Row>
       </Grid>
