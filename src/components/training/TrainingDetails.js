@@ -12,6 +12,7 @@ export const ADAM_LANCASTER = 'adam-lancaster'
 export const EVA_HOFFMANN = 'eva-hoffmann'
 export const ROY_DERKS = 'roy-derks'
 export const DAVID_LEULIETTE = 'david-leuliette'
+export const FRANCISCO_GOMES = 'francisco-gomes'
 
 const CoachItem = ({ path, name }) => (
   <Li>

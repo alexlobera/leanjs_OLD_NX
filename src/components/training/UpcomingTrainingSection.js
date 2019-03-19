@@ -1,7 +1,7 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { H2Ref, H3 } from '../text'
+import { H2Ref, H3, P } from '../text'
 import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
 import Link from '../navigation/Link'
@@ -11,24 +11,28 @@ import Newsletter from '../elements/Newsletter'
 
 const UpcomingTrainings = ({ curriculum, type }) => {
   const trainings = selectTrainings(type)
-  return trainings.map(training => {
-    const trainingInstance = (
-      <TrainingItem
-        key={training.trainingInstanceId}
-        city={training.city}
-        country={training.country}
-        startDay={moment(training.dateStartsOn).format('D')}
-        startMonth={moment(training.dateStartsOn).format('MMM')}
-        type={training.type}
-        path={training.pathUrl}
-      />
-    )
-    return (
-      <React.Fragment key={training.trainingInstanceId}>
-        {curriculum ? trainingInstance : <Col md={4}>{trainingInstance}</Col>}
-      </React.Fragment>
-    )
-  })
+  if (!trainings.length) {
+    return <P>Sorry! There are no {type} dates confirmed.</P>
+  } else {
+    return trainings.map(training => {
+      const trainingInstance = (
+        <TrainingItem
+          key={training.trainingInstanceId}
+          city={training.city}
+          country={training.country}
+          startDay={moment(training.dateStartsOn).format('D')}
+          startMonth={moment(training.dateStartsOn).format('MMM')}
+          type={training.type}
+          path={training.pathUrl}
+        />
+      )
+      return (
+        <React.Fragment key={training.trainingInstanceId}>
+          {curriculum ? trainingInstance : <Col md={4}>{trainingInstance}</Col>}
+        </React.Fragment>
+      )
+    })
+  }
 }
 
 const UpcomingTrainingSection = ({ curriculum, type }) => (
