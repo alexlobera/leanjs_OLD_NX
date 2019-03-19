@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P } from '../components/text'
+import { H2, P, H2Ref } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumGraphQL } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -66,7 +66,12 @@ const GraphQL = () => (
       <Grid>
         <Row>
           <Col md={5} mdOffset={1}>
-            <H2>Is GraphQL University right for me?</H2>
+            <H2Ref>
+              Is ReactJS Academy's GraphQL course right for me?
+              <Link to="#target-audience" name="target-audience">
+                #
+              </Link>
+            </H2Ref>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={NotBegginerIcon} />
@@ -88,7 +93,7 @@ const GraphQL = () => (
               <Image
                 src={WHY_GQLU_ACADEMY}
                 width="100%"
-                alt="Female GraphQL University student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
+                alt="Female GraphQL course student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
               />
             </Col>
           </HideComponentsUsingCss>
@@ -103,15 +108,15 @@ const GraphQL = () => (
             <Image
               src={SMALL_CLASSROOM}
               width="100%"
-              alt="Four developers gathered around a laptop, pair programming together on a piece of work during a GraphQL University bootcamp."
+              alt="Four developers gathered around a laptop, pair programming together on a piece of work during a GraphQL bootcamp."
             />
           </Col>
           <Col md={5} mdOffset={1}>
-            <H2>Why GraphQL University is great for your developers</H2>
+            <H2>Why our GraphQL course is great for your developers</H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={ProductionReadyIcon} />
-                <strong>Build production ready</strong> apps leverging graphQL.
+                <strong>Build production ready</strong> apps leverging GraphQL.
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
