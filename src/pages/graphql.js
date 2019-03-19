@@ -1,23 +1,20 @@
 import React from 'react'
-import { LinkButton } from '../components/buttons'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P, Span } from '../components/text'
+import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumGraphQL } from '../components/curriculum'
 import Header from '../components/layout/Header'
 import { HideComponentsUsingCss } from '../components/utils'
 import {
   TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
 } from '../components/training'
-import { Card, Video } from '../components/elements'
+import { Card } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { WHY_GQLU_ACADEMY, SMALL_CLASSROOM } from '../config/images.js'
 import {
-  CalendarIcon,
   CodeIcon,
   CollabsIcon,
   HeartIcon,
@@ -25,7 +22,6 @@ import {
   ProductionReadyIcon,
   SpannerIcon,
   StarIcon,
-  TimeIcon,
   TrainerIcon,
   BulletIcon,
 } from '../components/icons'
@@ -37,16 +33,6 @@ import {
   GRAPHQL_BOOTCAMP,
 } from '../config/data'
 import header from '../components/layout/Header.json'
-
-// const SectionButtonRow = styled(Row)`
-//   margin-top: 30px;
-//   @media (max-width: ${SCREEN_XS_MAX}) {
-//     a {
-//       margin-top: 5px;
-//       display: block;
-//     }
-//   }
-// `
 
 const trainings = selectTrainings(GRAPHQL_BOOTCAMP)
 const nextTraining = selectFirstTraining(GRAPHQL_BOOTCAMP)
@@ -71,7 +57,7 @@ const GraphQL = () => (
         <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
           <Link to="#upcoming-courses" name="upcoming-courses" />
-          <CurriculumGraphQL />
+          <CurriculumGraphQL enableToggle isOpen={false} />
         </Card>
       </Grid>
     </TopSection>
@@ -94,29 +80,8 @@ const GraphQL = () => (
                 <BulletIcon icon={CollabsIcon} />A{' '}
                 <strong>collaborative</strong> learning environment.
               </Li>
-              {/* <Li>
-                    <BulletIcon icon={TimeIcon} />
-                    <Link to="/graphql-bootcamp-london">Bootcamps</Link> for
-                    accelerated learning.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={CalendarIcon} />
-                    <Link to="/react-redux-graphql-part-time-course">
-                      Part-time courses
-                    </Link>{' '}
-                    for accelerated learning.
-                  </Li> */}
             </Ul>
             <P />
-            {/* <SectionButtonRow>
-                  <Col sm={6}>
-                    <LinkButton
-                      cta
-                      to={trainingBootcamp.pathUrl}
-                      children="GraphQL Bootcamp"
-                    />
-                  </Col>
-                </SectionButtonRow> */}
           </Col>
           <HideComponentsUsingCss xs sm>
             <Col md={5} mdOffset={1}>
@@ -169,13 +134,6 @@ const GraphQL = () => (
                 <strong>Stay ahead</strong> in modern development.
               </Li>
             </Ul>
-            {/* <SectionButtonRow>
-                  <Col sm={6}>
-                    <LinkButton to="/#contact-us">
-                      Corporate training - Get in touch!
-                    </LinkButton>
-                  </Col>
-                </SectionButtonRow> */}
           </Col>
         </Row>
       </Grid>
