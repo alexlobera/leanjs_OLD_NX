@@ -45,7 +45,7 @@ const emptyTraining = (type, city) => ({
   currency: '',
 })
 
-export const trainings = [
+const upcomingPartTimes = [
   {
     dates: 'April 23 - May 23, 2019',
     dateStartsOn: new Date('April 23, 2019'),
@@ -64,6 +64,26 @@ export const trainings = [
     image: LONDON_LOCATION,
     mapLink: '',
   },
+  {
+    dates: 'April 26 - 24 May, 2019',
+    dateStartsOn: new Date('26 April, 2019'),
+    city: AMSTERDAM,
+    country: 'NL',
+    type: PART_TIME,
+    cityShortName: 'Amsterdam',
+    country: 'Holland',
+    location: 'TBD',
+    timings: "9am - 6pm Friday's",
+    pathUrl: '/react-redux-training-amsterdam',
+    trainingInstanceId: '5c90fdcacb52b3bf20685e72',
+    price: 1166.67,
+    currency: 'eur',
+    image: AMSTERDAM_LOCATION,
+  },
+]
+
+export const trainings = [
+  ...upcomingPartTimes,
   {
     dates: '12-18 May, 2019',
     dateStartsOn: new Date('2019-05-12T18:00:00'),
