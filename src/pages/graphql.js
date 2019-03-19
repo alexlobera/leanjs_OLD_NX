@@ -61,7 +61,7 @@ const GraphQL = () => (
             <LinkButton
               cta
               to="#contact-us"
-              children="Contact us to find out more >>"
+              children="Interested? Contact us >>"
             />
           </Col>
         </CallToActionRow>
