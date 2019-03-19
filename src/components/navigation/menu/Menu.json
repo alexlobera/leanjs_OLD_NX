@@ -28,6 +28,10 @@
       {
         "to": "/react-redux-graphql-part-time-course",
         "text": "Part-time"
+      },
+      {
+        "to": "/graphql",
+        "text": "GraphQL"
       }
     ]
   },

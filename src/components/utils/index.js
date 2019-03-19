@@ -5,8 +5,15 @@ import {
   REACT_BOOTCAMP,
   PART_TIME,
   ADVANCED_REACT,
+  GRAPHQL_BOOTCAMP,
 } from '../../config/data'
-import { GREY2, YELLOW, LIGHT_RED, REACT_BLUE_DARK } from '../../config/styles'
+import {
+  GREY2,
+  YELLOW,
+  GRAPHQL_PINK,
+  REACT_BLUE_DARK,
+  REACT_NATIVE_GREEN,
+} from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
 export const SCREEN_SM_MIN = '768px'
@@ -29,9 +36,11 @@ export const selectTypeColor = type => {
     case PART_TIME:
       return GREY2
     case REACT_NATIVE:
-      return LIGHT_RED
+      return REACT_NATIVE_GREEN
     case ADVANCED_REACT:
       return YELLOW
+    case GRAPHQL_BOOTCAMP:
+      return GRAPHQL_PINK
     default:
       return REACT_BLUE_DARK
   }

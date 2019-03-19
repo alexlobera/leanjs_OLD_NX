@@ -6,7 +6,7 @@ import {
   GREY2,
   FONT_FAMILY,
   blue1,
-  LIGHT_RED,
+  PINK,
 } from '../../config/styles'
 
 const Label = styled.label`
@@ -30,7 +30,7 @@ export const ErrorMessage = styled.p`
   font-size: 0.77rem;
   padding: 0 8px;
   color: ${blue1()};
-  background-color: ${LIGHT_RED};
+  background-color: ${PINK};
   ${FONT_FAMILY};
   font-weight: bold;
   margin-bottom: 0;
