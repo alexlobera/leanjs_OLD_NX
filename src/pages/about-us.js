@@ -20,6 +20,7 @@ import {
   EVA,
   ROY,
   DAVID,
+  FRANCISCO,
   CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
@@ -357,11 +358,13 @@ const AboutUs = () => (
               <Li>
                 <SocialLink to="github.com/evandyou ">GitHub</SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://www.linkedin.com/in/evamhoffmann/">
                   LinkedIn
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/evandyou">
                   Twitter
@@ -435,7 +438,7 @@ const AboutUs = () => (
             </Ul>
             <Ul>
               <Li>
-                Professional web <strong>developer since 2005</strong>
+                Professional web <strong>developer since 2005</strong>.
               </Li>
               <Li>
                 <strong>Qualified teacher</strong>, experienced teaching in a
@@ -471,11 +474,14 @@ const AboutUs = () => (
               <Li>
                 <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
               </Li>
+
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
                   LinkedIn
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/ItizAdz/">
                   Twitter
@@ -492,7 +498,7 @@ const AboutUs = () => (
                 yet, which he takes as encouragement.
               </Li>
               <Li>
-                Always looking for new ~ways to procrastinate~ things to learn.
+                Always looking for new ways to procrastinate things to learn.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
@@ -530,16 +536,19 @@ const AboutUs = () => (
               <Li>
                 <SocialLink to="https://github.com/royderks">GitHub</SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://www.linkedin.com/in/royderks1/">
                   LinkedIn
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://twitter.com/gethackteam/">
                   Twitter
                 </SocialLink>
               </Li>
+              <Li>|</Li>
               <Li>
                 <SocialLink to="https://medium.com/hackteam/">
                   Medium
@@ -559,7 +568,7 @@ const AboutUs = () => (
               </Li>
               <Li>
                 Always looking at what's on the horizon and curious about new
-                technologies
+                technologies.
               </Li>
             </Ul>
             <Blockquote bg="primary" triangle="right">
@@ -634,6 +643,67 @@ const AboutUs = () => (
             <Blockquote bg="primary" triangle="left">
               When you work 8 hours a day with a tool, every second matters.
             </Blockquote>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+    <Section>
+      <Grid>
+        <Row>
+          <Col xs={12} md={4} mdOffset={1}>
+            <H2Ref>
+              Francisco Gomes
+              <Link name="francisco-gomes" to="#francisco-gomes">
+                #
+              </Link>
+            </H2Ref>
+            <CoachTitle>
+              Developer at <Link to="https://leanjs.com">LeanJS</Link>
+            </CoachTitle>
+            <Ul inline>
+              <Li>
+                <SocialLink to="https://github.com/franciscomcg">
+                  GitHub
+                </SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://twitter.com/francisgomes83">
+                  Twitter
+                </SocialLink>
+              </Li>
+              <Li>|</Li>
+              <Li>
+                <SocialLink to="https://www.linkedin.com/in/francisco-gomes-webdev/">
+                  LinkedIn
+                </SocialLink>
+              </Li>
+            </Ul>
+            <Ul>
+              <Li>
+                Builds products with <strong>React</strong> and{' '}
+                <strong>GraphQL</strong>.
+              </Li>
+              <Li>
+                Currently finishing his degree in{' '}
+                <strong>Business and Information Systems</strong>.
+              </Li>
+              <Li>
+                Crazy about <strong>innovation</strong> and{' '}
+                <strong>structured solutions</strong>.
+              </Li>
+            </Ul>
+            <Blockquote bg="primary" triangle="right">
+              While teaching, the technology itself is not life-changing. It's
+              the passion and commitment.
+            </Blockquote>
+          </Col>
+          <Col xs={12} md={5} mdOffset={1}>
+            <Image
+              src={FRANCISCO}
+              width="100%"
+              alt="ReactJS Academy coach Francisco Gomes, smiling with sunglasses on"
+            />
           </Col>
         </Row>
       </Grid>
