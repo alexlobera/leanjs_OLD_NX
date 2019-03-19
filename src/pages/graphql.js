@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from '../components/navigation'
+import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P, H2Ref } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumGraphQL } from '../components/curriculum'
 import Header from '../components/layout/Header'
+import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { HideComponentsUsingCss } from '../components/utils'
 import {
   TrustedBySection,
@@ -54,7 +56,16 @@ const GraphQL = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionNextTrainings left trainings={trainings} />
+        <CallToActionRow left>
+          <Col xs={12} mdOffset={1} md={5}>
+            <LinkButton
+              cta
+              to="#contact-us"
+              children="Contact us to find out more >>"
+            />
+          </Col>
+        </CallToActionRow>
+        {/* <CallToActionNextTrainings left trainings={trainings} /> */}
         <Card border="shadow">
           <Link to="#upcoming-courses" name="upcoming-courses" />
           <CurriculumGraphQL enableToggle isOpen={false} />
