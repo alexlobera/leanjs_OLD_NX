@@ -150,6 +150,7 @@ export const trainings = [
     trainingInstanceId: '5c879e7a0b0b32c9aee1049d',
     price: 1250,
     currency: 'gbp',
+    image: LISBON_LOCATION,
   },
   {
     dates: 'March 31 to April 6, 2019',
