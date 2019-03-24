@@ -147,7 +147,7 @@ export const trainings = [
     location:
       'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
     pathUrl: '/advanced-react-redux-graphql-bootcamp-lisbon',
-    trainingInstanceId: '5c879e7a0b0b32c9aee1049d',
+    trainingInstanceId: '5c78bf4043cb62667ada9487',
     price: 1250,
     currency: 'gbp',
     image: LISBON_LOCATION,
