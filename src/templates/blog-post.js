@@ -17,6 +17,7 @@ import { blogAuthors } from '../config/data'
 import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
 import Tweet from '../components/blog/Tweet'
 import ShareButtons from '../components/blog/ShareButtons'
+import { MarketingCard } from '../components/curriculum'
 
 export const formatPostTitle = title => title.replace(/(<([^>]+)>)/gi, ' ')
 
@@ -49,6 +50,7 @@ const renderAst = new rehypeReact({
     blockquote: Blockquote,
     codesandbox: Codesandbox,
     video: Video,
+    marketingcard: MarketingCard,
   },
 }).Compiler
 

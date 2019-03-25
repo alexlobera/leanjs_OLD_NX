@@ -68,10 +68,7 @@ const IndexPage = () => (
             />
           </Col>
           <Col xs={12} sm={4}>
-            <LinkButton
-              to="/advanced-react-redux-graphql-bootcamp"
-              children="React Advanced >>"
-            />
+            <LinkButton to="/graphql" children="GraphQL Bootcamp >>" />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
