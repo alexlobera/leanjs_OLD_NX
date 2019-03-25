@@ -1,8 +1,8 @@
 import React from 'react'
-import Section, { TopSection } from '../../components/layout/Section'
-import Grid, { Col, Row } from '../../components/layout/Grid'
-import { CurriculumPartTime } from '../../components/curriculum'
-import { Card, Video } from '../../components/elements'
+import Section, { TopSection } from '../components/layout/Section'
+import Grid, { Col, Row } from '../components/layout/Grid'
+import { CurriculumPartTime } from '../components/curriculum'
+import { Card, Video } from '../components/elements'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
@@ -13,14 +13,14 @@ import {
   ALEX_LOBERA,
   EVA_HOFFMANN,
   FRANCISCO_GOMES,
-} from '../../components/training'
-import Header from '../../components/layout/Header'
-import { CATALIN } from '../../config/images'
-import header from '../../components/layout/Header.json'
-import { InstallmentsCard, PaymentSection } from '../../components/payment'
-import { Breadcrumb } from '../../components/navigation'
-import { selectFirstTraining, PART_TIME, LONDON } from '../../config/data'
-import { LIST_TWO_COL } from '../../components/curriculum'
+} from '../components/training'
+import Header from '../components/layout/Header'
+import { CATALIN } from '../config/images'
+import header from '../components/layout/Header.json'
+import { InstallmentsCard, PaymentSection } from '../components/payment'
+import { Breadcrumb } from '../components/navigation'
+import { selectFirstTraining, PART_TIME, LONDON } from '../config/data'
+import { LIST_TWO_COL } from '../components/curriculum'
 
 const training = selectFirstTraining(PART_TIME, LONDON)
 

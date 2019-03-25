@@ -83,8 +83,27 @@ const upcomingPartTimes = [
   },
 ]
 
-export const trainings = [
-  ...upcomingPartTimes,
+const upcomingBootCamps = [
+  {
+    dates: 'March 31 to April 6, 2019',
+    dateStartsOn: new Date('2019-03-31T16:00:00'),
+    city: LISBON,
+    country: 'Portugal',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'Lisbon',
+    country: 'Portugal',
+    location:
+      'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
+    timings: 'Sunday, 4pm - 7pm. Monday-Saturday, 9am - 6:30pm',
+    pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
+    trainingInstanceId: '5c516d8b4a9b34298c038de0',
+    price: 1800,
+    discountPrice: 1662.5,
+    priceGoesUpOn: new Date('March 18, 2019'),
+    currency: 'gbp',
+    image: LISBON_LOCATION,
+    mapLink: 'https://goo.gl/maps/4YCHgrxzqbx',
+  },
   {
     dates: '12-18 May, 2019',
     dateStartsOn: new Date('2019-05-12T18:00:00'),
@@ -102,6 +121,27 @@ export const trainings = [
     image: LONDON_LOCATION,
     mapLink: 'https://goo.gl/maps/jjX9zs5Ags32',
   },
+  {
+    dates: '7-13 July, 2019',
+    dateStartsOn: new Date('2019-07-07T18:00:00'),
+    city: LONDON,
+    country: 'UK',
+    type: REACT_BOOTCAMP,
+    cityShortName: 'London',
+    location: 'TBD',
+    pathUrl: '/react-redux-graphql-bootcamp-london/2',
+    trainingInstanceId: '',
+    price: 1800,
+    discountPrice: 1450,
+    priceGoesUpOn: new Date('June 1, 2019'),
+    currency: 'gbp',
+    image: LONDON_LOCATION,
+    mapLink: 'https://goo.gl/maps/jjX9zs5Ags32',
+  },
+]
+export const trainings = [
+  ...upcomingPartTimes,
+  ...upcomingBootCamps,
   {
     dates: 'March 19, 2019',
     dateStartsOn: new Date('Mar 19, 2019'),
@@ -151,26 +191,6 @@ export const trainings = [
     price: 1250,
     currency: 'gbp',
     image: LISBON_LOCATION,
-  },
-  {
-    dates: 'March 31 to April 6, 2019',
-    dateStartsOn: new Date('2019-03-31T16:00:00'),
-    city: LISBON,
-    country: 'Portugal',
-    type: REACT_BOOTCAMP,
-    cityShortName: 'Lisbon',
-    country: 'Portugal',
-    location:
-      'R. Cidade de Coimbra, 193, Bairro de Santa Teresinha, 2775 - 180 Parede',
-    timings: 'Sunday, 4pm - 7pm. Monday-Saturday, 9am - 6:30pm',
-    pathUrl: '/react-redux-graphql-bootcamp-lisbon/',
-    trainingInstanceId: '5c516d8b4a9b34298c038de0',
-    price: 1800,
-    discountPrice: 1662.5,
-    priceGoesUpOn: new Date('March 18, 2019'),
-    currency: 'gbp',
-    image: LISBON_LOCATION,
-    mapLink: 'https://goo.gl/maps/4YCHgrxzqbx',
   },
   {
     dates: '07-09 March, 2018',
