@@ -22,7 +22,7 @@ export const RED = 'red'
 
 export const PINK = '#f388a2'
 
-export const GRAPHQL_PINK = '#ed7dc8'
+export const GRAPHQL_PINK = '#DF0098'
 
 export const REACT_NATIVE_GREEN = '#80da8d'
 

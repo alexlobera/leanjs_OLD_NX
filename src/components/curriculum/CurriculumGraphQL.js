@@ -62,16 +62,16 @@ const CurriculumGraphQL = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Day 5: Production-ready GraphQL & React"
-        name="day5"
+        title="Day 4: Production-ready GraphQL & React"
+        name="day4"
         subTitle="Testing GraphQL, replacing redux with GraphQL and production tooling"
       >
         <GraphQLDayFiveSessions />
       </Section>
       <Section
         {...commonProps}
-        title="Day 4: GraphQL & React"
-        name="day4"
+        title="Day 5: GraphQL & React"
+        name="day5"
         subTitle="Apollo Client, Advanced Queries and mutations"
       >
         <GraphQLDayFourSessions />
