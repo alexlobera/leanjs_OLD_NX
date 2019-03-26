@@ -21,8 +21,6 @@ But that’s just on conference day itself. For the two days before the main con
 
 In fact, we’re not only attending our first ever React Amsterdam conference this year. We’re also bringing a taster of our renowned ReactJS Academy training curriculum and teaching style. Join us on April 11th 2019 for the ReactJS Academy workshop!
 
-<marketingcard text="New GraphQL bootcamp" to="/graphql" button-text="Learn GraphQL"></marketingcard>
-
 ## What to expect from our React Amsterdam workshop
 
 During our day-long [React Amsterdam workshop](https://react.amsterdam/workshops#react-native), you’ll get a taster of our reputed React knowledge and teaching approach.

@@ -278,6 +278,8 @@ From a composition perspective both cases are the same since all the HoCs’ inp
 
 If you are interested in checking the material we use to teach HoCs click on this [link](https://advanced-react-patterns.reactjs.academy/higher-order-components). We cover these and similar cases in more detail in any of the in-person React training we run, such as the [React bootcamp](/react-redux-graphql-bootcamp/), [advanced React training](/advanced-react-redux-graphql-bootcamp/), [part-time React course](/react-redux-graphql-part-time-course/), and of course the [on-site corporate React training](/corporate-team-training/).
 
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+
 ## Composition via Render Props <a name="composition-via-render-props"></a>
 
 Render Props, like HoC, helps us reusing component logic (again! **only logic that has to do with lifecycle methods and/or component state and/or context**). The different is in the way they do it.

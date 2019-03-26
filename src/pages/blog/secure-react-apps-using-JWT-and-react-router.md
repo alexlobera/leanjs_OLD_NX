@@ -42,6 +42,8 @@ We are not going to get into much detail about JWT in this article, but we want 
 
 The [JWT website](https://jwt.io/) has a debugger tool on the home page and you can paste tokens and visualize the content. Have a look, it’s fun to play with it if you haven’t yet.
 
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+
 ## Storing the state on the client <a name="storing-state-on-the-client"></a>
 
 OK we go for JWT, now the next question is “where do I store the token on the client”? There are typically two places on your web app you can use i) local storage or ii) cookies. If you can (meaning the server and the client are in the same domain/ subdomain) I recommend to use cookies. The reason is that your application won’t have to manage the token. The token will be managed at the browser level, so it makes it more difficult to create a bug that can potentially open some security vulnerability.

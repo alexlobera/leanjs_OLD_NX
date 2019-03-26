@@ -120,6 +120,8 @@ render(
 
 You can edit the previous code by removing 'primary' from the last button. Try it! The style will react and change the color.
 
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+
 ### CSS optimization <a name="css-optimization"></a>
 
 Another amazing feature you get from using styled-components is that it will only generate the CSS required for a given page. The way it works is the following, when React traverses the tree rendering components, styled-components adds to the head of the page the `<style>` tag containing only the CSS of the components that were rendered. This works very well on server-side rendering or static site generators like Gatsbyjs,so it optimizes the first page load by reducing the CSS load.

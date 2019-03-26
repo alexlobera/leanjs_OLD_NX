@@ -121,6 +121,8 @@ The previous Modal is an uncontrolled component.
 
 Which modal is easier to reuse in different projects? The second one (the uncontrolled one). Why? Because the state is handled by the modal itself so we don’t need to do any extra work to reuse the modal.
 
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+
 ### Controlled vs uncontrolled components <a name="controlled-vs-uncontrolled"></a>
 
 So which is better, controlled or uncontrolled components? It depends on the use case. Controlled components obviously give you more, well, control. Controlled components give you direct access to the state, so if you need to perform tasks like validating that state, it’s really easy since you own the state. Uncontrolled components are easier to reuse with minimal setup. If your app doesn’t need to know about the state of the component, like in the case of the modal, uncontrolled components will be simpler to use.

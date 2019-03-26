@@ -35,6 +35,8 @@ But advanced dev training helps you standardise knowledge across your team. Not 
 
 Your team can evolve and develop together, helping each other (as well as the company) to stay tech-relevant.
 
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+
 ## 3. You’ll empower your team
 
 A team that feels appreciated is one that you invest time and resources in. If you set aside time to train and upskill your team, you’re making sure they know you appreciate them and want to develop their skills.

@@ -207,6 +207,8 @@ On that note, have you ever heard the phrase _favour composition over inheritanc
 
 If you’d like to get started writing React components using the class syntax, check out our article on [thinking in react](https://reactjs.academy/blog/introduction-to-thinking-in-react/) and it’s[ exercise repo](https://github.com/reactjsacademy/thinking-in-react).
 
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+
 ### Template literals
 
 Template literals, also called "string literals" are a great new way to use strings in our JS. Let’s consider the old way we used to do things:

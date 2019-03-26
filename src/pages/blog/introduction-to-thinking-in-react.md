@@ -81,6 +81,8 @@ In a **declarative UI (like React)**, when a user clicks on the buy button we ha
 
 Notice two things in the example. i) In the imperative UI we had to do more things, ii) in the declarative UI we didn’t use the word “then”. Why didn’t we use “then”? Because the state is a snapshot at **a given point in time**. Events can produce new state, but they are not the state of the app itself.
 
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+
 ## Components
 
 Components are made of two main ingredients, state and props. We know that state tells the app what to be at a given point in time. State is very important, so we should think carefully what is the minimal (but complete) representation of UI state. Obviously we don’t want to store the same state in two different places — imagine we had two different variables telling our app which tab is selected, what a mess!
