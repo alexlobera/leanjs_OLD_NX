@@ -1,0 +1,25 @@
+query upcomingTrainingInstancesWithAutoDiscounts {
+  trainingInstancesConnection(filter: {ownerId:"5aaa9b07f146e5cfafad189e", city:"London", startDate: future}, orderBy: {sort: startDate, direction: ASC}) {
+    edges {
+      node {
+        id
+        startDate
+        city
+        upcomingAutomaticDiscounts {
+          edges {
+            node {
+              code
+              id
+              discountPercentage
+              startsAt
+              expiresAt
+            }
+          }
+        }
+        training {
+          type
+        }
+      }
+    }
+  }
+}

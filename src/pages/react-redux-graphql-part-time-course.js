@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import { Query } from 'react-apollo'
 import { Link, Breadcrumb } from '../components/navigation'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
@@ -27,8 +28,9 @@ import {
 import { PART_TIME as PART_TIME_IMG, STEFANO } from '../config/images'
 import { selectTrainings, selectFirstTraining, PART_TIME } from '../config/data'
 import header from '../components/layout/Header.json'
+import GET_TRAINING_INSTANCES from '../components/training/query/getTrainingInstances.graphql'
 
-const trainings = selectTrainings(PART_TIME)
+// const trainings = selectTrainings(PART_TIME)
 const nextTraining = selectFirstTraining(PART_TIME)
 
 const PartTime = () => (
@@ -48,7 +50,20 @@ const PartTime = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionNextTrainings left trainings={trainings} />
+        <Query query={GET_TRAINING_INSTANCES}>
+          {({ loading, error, data }) => {
+            if (loading) return 'Loading...'
+            if (error) return `Sorry there was an error :-(`
+
+            return (
+              <CallToActionNextTrainings
+                left
+                type="Part-time"
+                trainings={data.trainingInstancesConnection.edges}
+              />
+            )
+          }}
+        </Query>
         <Card border="shadow">
           <Link to="#upcoming-courses" name="upcoming-courses" />
           <CurriculumPartTime showCallToActionBottom={true} />
