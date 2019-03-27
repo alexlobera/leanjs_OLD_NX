@@ -51,3 +51,17 @@ export const Z_INDEX_TOP = 10
 export const Z_INDEX_MEDIUM = 5
 export const Z_INDEX_SMALL = 1
 export const Z_INDEX_BG = -2
+
+export const theme = {
+  buttons: {
+    primary: {
+      backgroundColor: blue1(),
+    },
+    secondary: {
+      backgroundColor: WHITE,
+    },
+    tertiary: {
+      backgroundColor: CALLTOACTIONRED,
+    },
+  },
+}

@@ -13,7 +13,10 @@ export const DEFAULT_BUTTON_STYLE = css`
   padding: 13px 25px;
   border-radius: 2px;
   cursor: pointer;
-  background-color: ${props => (props.cta ? CALLTOACTIONRED : blue1())};
+  background-color: ${props =>
+    props.cta
+      ? props.theme.buttons.primary.backgroundColor
+      : props.theme.buttons.secondary.backgroundColor};
   font-weight: ${props => (props.cta ? 'bold' : '')};
   box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
   color: ${WHITE};

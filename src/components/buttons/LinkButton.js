@@ -6,6 +6,7 @@ import { blue1, CALLTOACTIONRED, FONT_FAMILY, WHITE } from '../../config/styles'
 import { DEFAULT_BUTTON_STYLE } from './Button'
 import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
+import { variant } from 'styled-system'
 
 const fontColor = color => `
   color: ${color} !important;
