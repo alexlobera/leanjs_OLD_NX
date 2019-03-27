@@ -31,7 +31,7 @@ const withUpcomingTrainings = ({
   type,
   city,
   limit = 3,
-}) => InnerComponent => props => (
+} = {}) => InnerComponent => props => (
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
