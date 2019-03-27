@@ -22,10 +22,10 @@ jobs:
       # fix https://discuss.circleci.com/t/failed-to-fetch-debian/29258/3
       - run:
           name: update fix for debian /etc/apt/sources.list
-            command: |
-              echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list
-              echo "deb http://deb.debian.org/debian stable-updates main" >> /etc/apt/sources.list
-              sudo apt-get update && sudo apt-get install -y gettext-base
+          command: |
+            echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list
+            echo "deb http://deb.debian.org/debian stable-updates main" >> /etc/apt/sources.list
+            sudo apt-get update && sudo apt-get install -y gettext-base
       - run: envsubst < ".env.ci" > ".env.production"
       - run: yarn build
       - persist_to_workspace:
