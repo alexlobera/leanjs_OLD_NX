@@ -37,7 +37,7 @@ const withUpcomingTrainings = ({
       const cityIndex = {}
       const nodeByType = ({ node }) => type && node.training.type === type
       const trainings =
-        !error && !loading
+        !error && !loading && data.trainingInstancesConnection.edges
           ? data.trainingInstancesConnection.edges
               .filter(nodeByType)
               .slice(0, limit)
