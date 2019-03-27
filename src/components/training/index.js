@@ -1,4 +1,7 @@
-export { default as withUpcomingTrainings } from './withUpcomingTrainings'
+export {
+  default as withUpcomingTrainings,
+  selectUpcomingTrainings,
+} from './withUpcomingTrainings'
 export { default as AttendeeQuote } from './AttendeeQuote'
 export { default as TrainingItem } from './TrainingItem'
 export { default as TrainingList } from './TrainingList'

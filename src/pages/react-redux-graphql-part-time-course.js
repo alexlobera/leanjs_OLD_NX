@@ -11,6 +11,7 @@ import {
   UpcomingTrainingSection,
   TrustedBySection,
   withUpcomingTrainings,
+  selectUpcomingTrainings,
 } from '../components/training'
 
 import { Card, Video } from '../components/elements'
@@ -31,8 +32,12 @@ import { PART_TIME } from '../config/data'
 import header from '../components/layout/Header.json'
 
 const PartTime = ({ trainings }) => {
-  const nextTraining = trainings && trainings.length && trainings[0]
-
+  const upcomingPartTimeTrainings = selectUpcomingTrainings({
+    type: PART_TIME,
+    trainings,
+  })
+  const nextTraining =
+    upcomingPartTimeTrainings.length && upcomingPartTimeTrainings[0]
   return (
     <React.Fragment>
       <Breadcrumb
@@ -50,7 +55,7 @@ const PartTime = ({ trainings }) => {
       />
       <TopSection>
         <Grid>
-          <CallToActionNextTrainings trainings={trainings} />
+          <CallToActionNextTrainings trainings={upcomingPartTimeTrainings} />
           <Card border="shadow">
             <Link to="#upcoming-courses" name="upcoming-courses" />
             <CurriculumPartTime showCallToActionBottom={true} />
@@ -125,13 +130,13 @@ const PartTime = ({ trainings }) => {
 
       <TrustedBySection />
 
-      <UpcomingTrainingSection />
+      <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
 
-const withPartTimeLondon = withUpcomingTrainings({
-  type: PART_TIME,
+const withPartTimeCourses = withUpcomingTrainings({
+  // type: PART_TIME
 })
 
-export default withPartTimeLondon(PartTime)
+export default withPartTimeCourses(PartTime)

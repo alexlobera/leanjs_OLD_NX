@@ -27,6 +27,21 @@ const createTrainingPath = ({ type, city = '', index }) => {
   }
 }
 
+export const selectUpcomingTrainings = ({
+  type,
+  city,
+  trainings = [],
+  limit,
+}) => {
+  const trainingByType = training => !type || (type && training.type === type)
+  const trainingByCity = training => !city || (city && training.city === city)
+  // console.log(trainings)
+  return trainings
+    .filter(trainingByType)
+    .filter(trainingByCity)
+    .slice(0, limit)
+}
+
 const withUpcomingTrainings = ({
   type,
   city,
@@ -35,30 +50,32 @@ const withUpcomingTrainings = ({
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
-      const nodeByType = ({ node }) =>
-        !type || (type && node.training.type === type)
+      const formatTraining = ({ node }) => {
+        const { city } = node
+        cityIndex[city] = cityIndex[city] ? cityIndex[city] + 1 : 1
+
+        return {
+          ...node,
+          toPath: createTrainingPath({
+            type,
+            city,
+            index: cityIndex[city],
+          }),
+        }
+      }
 
       const trainings =
-        !error && !loading && data.trainingInstancesConnection.edges
-          ? data.trainingInstancesConnection.edges
-              .filter(nodeByType)
-              .slice(0, limit)
-              .map(({ node }) => {
-                const { city } = node
-                cityIndex[city] = cityIndex[city] ? cityIndex[city] + 1 : 1
+        !error &&
+        !loading &&
+        data.trainingInstancesConnection &&
+        data.trainingInstancesConnection.edges.map(formatTraining)
 
-                return {
-                  ...node,
-                  toPath: createTrainingPath({
-                    type,
-                    city,
-                    index: cityIndex[city],
-                  }),
-                }
-              })
-          : []
-
-      return <InnerComponent {...props} trainings={trainings} />
+      return (
+        <InnerComponent
+          {...props}
+          trainings={selectUpcomingTrainings({ trainings, type, city, limit })}
+        />
+      )
     }}
   </Query>
 )
