@@ -567,6 +567,9 @@ export const selectFirstTraining = (type, city) => {
   return trainings.length ? trainings[0] : emptyTraining(type, city)
 }
 
+export const firstTraining = (trainings, type = '', city = '') =>
+  trainings && trainings.length ? trainings[0] : emptyTraining(type, city)
+
 export const selectMeetups = () =>
   meetups
     .filter(meetup => meetup.dateStartsOn > Date.now())

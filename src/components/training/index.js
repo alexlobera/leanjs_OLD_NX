@@ -1,13 +1,13 @@
-import AttendeeQuote from './AttendeeQuote'
-import TrainingItem from './TrainingItem'
-import TrainingList from './TrainingList'
-import TrustedBySection from './TrustedBySection'
-import UpcomingTrainingSection from './UpcomingTrainingSection'
-import { TrustedByLogoList } from './TrustedBySection'
-import TrainingDetails from './TrainingDetails'
-import TargetAudienceSection from './TargetAudienceSection'
-
+export { default as withUpcomingTrainings } from './withUpcomingTrainings'
+export { default as AttendeeQuote } from './AttendeeQuote'
+export { default as TrainingItem } from './TrainingItem'
+export { default as TrainingList } from './TrainingList'
+export { default as TrustedBySection } from './TrustedBySection'
+export { default as UpcomingTrainingSection } from './UpcomingTrainingSection'
+export { TrustedByLogoList } from './TrustedBySection'
+export { default as TargetAudienceSection } from './TargetAudienceSection'
 export {
+  default as TrainingDetails,
   ADAM_LANCASTER,
   HORACIO_HERRERA,
   WILL_VOELCKER,
@@ -18,13 +18,3 @@ export {
   DAVID_LEULIETTE,
   FRANCISCO_GOMES,
 } from './TrainingDetails'
-export {
-  AttendeeQuote,
-  TrainingItem,
-  TrainingList,
-  TrustedBySection,
-  TrustedByLogoList,
-  UpcomingTrainingSection,
-  TrainingDetails,
-  TargetAudienceSection,
-}

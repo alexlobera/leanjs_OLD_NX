@@ -1,17 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+
 import { LinkButton } from '../buttons'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
 import { Z_INDEX_MEDIUM } from '../../config/styles'
 import { Col, Row } from './Grid'
-import {
-  PART_TIME,
-  REACT_BOOTCAMP,
-  REACT_NATIVE,
-  ADVANCED_REACT,
-  GRAPHQL_BOOTCAMP,
-} from '../../config/data'
 
 export const CallToActionRow = styled(Row)`
   text-align: ${props => (props.left ? 'left' : 'center')};
@@ -28,39 +22,27 @@ export const CallToActionRow = styled(Row)`
     }
   }
 `
-const createTrainingPathUrl = (type, location = '', index) => {
-  switch (type) {
-    case PART_TIME:
-      return `/react-redux-training-${location.toLowerCase()}/${
-        index > 1 ? index : ''
-      }`
-  }
-}
-const CallToActionNextTrainings = ({ left, type, trainings = [] }) => (
+
+const CallToActionNextTrainings = ({ trainings = [] }) => (
   <CallToActionRow left>
-    {trainings
-      .slice(0, 3)
-      .filter(({ node }) => node.training.type === type)
-      .map(({ node: training }, index) => {
-        const startDate = moment(training.startDate).format('D MMM')
-        const pathUrl = createTrainingPathUrl(type, training.city, index)
+    {trainings.map(
+      ({ startDate: sDate, city, toPath, training: { type } }, index) => {
+        const startDate = moment(sDate).format('D MMM')
         return index === 0 ? (
           <Col key={index} xs={12} mdOffset={1} md={5}>
             <LinkButton
               cta
-              to={pathUrl}
-              children={`Next ${type}: ${startDate}, ${training.city}  >>`}
+              to={toPath}
+              children={`Next ${type}: ${startDate}, ${city}  >>`}
             />
           </Col>
         ) : (
           <Col key={index} xs={12} md={3} center={index === 1}>
-            <LinkButton
-              to={pathUrl}
-              children={`${startDate}, ${training.city}`}
-            />
+            <LinkButton to={toPath} children={`${startDate}, ${city}`} />
           </Col>
         )
-      })}
+      }
+    )}
   </CallToActionRow>
 )
 
