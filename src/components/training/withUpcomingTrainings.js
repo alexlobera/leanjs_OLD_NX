@@ -35,10 +35,11 @@ const withUpcomingTrainings = ({
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
+      const nodeByType = ({ node }) => type && node.training.type === type
       const trainings =
         !error && !loading
           ? data.trainingInstancesConnection.edges
-              .filter(({ node }) => type && node.training.type === type)
+              .filter(nodeByType)
               .slice(0, limit)
               .map(({ node }) => {
                 const { city } = node
