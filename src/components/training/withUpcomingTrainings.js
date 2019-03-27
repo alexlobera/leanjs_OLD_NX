@@ -35,7 +35,9 @@ const withUpcomingTrainings = ({
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
-      const nodeByType = ({ node }) => type && node.training.type === type
+      const nodeByType = ({ node }) =>
+        !type || (type && node.training.type === type)
+
       const trainings =
         !error && !loading && data.trainingInstancesConnection.edges
           ? data.trainingInstancesConnection.edges
