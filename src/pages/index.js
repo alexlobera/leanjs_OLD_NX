@@ -62,16 +62,21 @@ const IndexPage = () => (
         <CallToActionRow>
           <Col xs={12} sm={4}>
             <LinkButton
-              cta
+              variant="primary"
               to="/react-redux-graphql-bootcamp"
               children="1-week bootcamp >>"
             />
           </Col>
           <Col xs={12} sm={4}>
-            <LinkButton to="/graphql" children="GraphQL Bootcamp >>" />
+            <LinkButton
+              to="/graphql"
+              children="GraphQL Bootcamp >>"
+              variant="secondary"
+            />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
+              variant="secondary"
               to="/corporate-team-training/"
               children="Corporate training >>"
             />

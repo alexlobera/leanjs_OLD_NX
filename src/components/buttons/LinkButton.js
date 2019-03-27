@@ -6,7 +6,6 @@ import { blue1, CALLTOACTIONRED, FONT_FAMILY, WHITE } from '../../config/styles'
 import { DEFAULT_BUTTON_STYLE } from './Button'
 import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
-import { variant } from 'styled-system'
 
 const fontColor = color => `
   color: ${color} !important;
@@ -27,16 +26,6 @@ const fontColor = color => `
 const StyledLinkButton = styled(Link)`
 ${DEFAULT_BUTTON_STYLE}
 ${FONT_FAMILY}
-  background-color: ${props => {
-    if (props.secondary) {
-      return WHITE
-    } else if (props.cta) {
-      return CALLTOACTIONRED
-    } else {
-      return blue1()
-    }
-  }};
-  font-weight: ${props => (props.cta ? 800 : 400)};
   box-shadow: ${props =>
     props.secondary
       ? '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)'
@@ -61,6 +50,7 @@ ${FONT_FAMILY}
     align-items: center;
     `}
 `
+StyledLinkButton.displayName = 'StyledLinkButton'
 
 const LinkButton = ({
   trackUserBehaviour: trackUserBehaviourProp,
@@ -97,6 +87,7 @@ LinkButton.propTypes = {
 LinkButton.defaultProps = {
   trackUserBehaviour,
   secondary: false,
+  variant: 'default',
 }
 
 export default LinkButton

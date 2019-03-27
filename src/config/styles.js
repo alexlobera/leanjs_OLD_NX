@@ -55,13 +55,16 @@ export const Z_INDEX_BG = -2
 export const theme = {
   buttons: {
     primary: {
-      backgroundColor: blue1(),
+      backgroundColor: CALLTOACTIONRED,
+      fontWeight: 800,
     },
     secondary: {
-      backgroundColor: WHITE,
+      backgroundColor: blue1(),
+      fontWeight: 400,
     },
-    tertiary: {
-      backgroundColor: CALLTOACTIONRED,
+    default: {
+      backgroundColor: WHITE,
+      fontWeight: 400,
     },
   },
 }

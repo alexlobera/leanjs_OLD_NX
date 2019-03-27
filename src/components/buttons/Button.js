@@ -1,8 +1,14 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { blue1, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../config/styles'
+import { variant } from 'styled-system'
+
+const buttonsStyle = variant({
+  key: 'buttons',
+})
 
 export const DEFAULT_BUTTON_STYLE = css`
+  ${buttonsStyle};
   font-size: 1rem;
   font-style: normal;
   font-stretch: normal;
@@ -13,11 +19,6 @@ export const DEFAULT_BUTTON_STYLE = css`
   padding: 13px 25px;
   border-radius: 2px;
   cursor: pointer;
-  background-color: ${props =>
-    props.cta
-      ? props.theme.buttons.primary.backgroundColor
-      : props.theme.buttons.secondary.backgroundColor};
-  font-weight: ${props => (props.cta ? 'bold' : '')};
   box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
   color: ${WHITE};
   ${props => (props.block ? 'width: 100%;' : 'display: inline-block;')}
