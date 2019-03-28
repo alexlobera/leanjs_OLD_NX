@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Link from '../navigation/Link'
-import { DEFAULT_BUTTON_STYLE } from './Button'
+import { defaultButtonStyle } from './Button'
 import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
@@ -30,7 +30,7 @@ const fontColor = css`
 
 const StyledLinkButton = styled(Link)`
   text-decoration: none;
-  ${DEFAULT_BUTTON_STYLE}
+  ${defaultButtonStyle}
   ${fontColor}
   ${props => props.external && 'justify-content: space-evenly;'};
   ${props =>

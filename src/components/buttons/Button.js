@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { FONT_FAMILY } from '../../config/styles'
 import { variant } from 'styled-system'
 
-export const DEFAULT_BUTTON_STYLE = css`
+export const defaultButtonStyle = css`
   ${FONT_FAMILY}
   font-size: 1rem;
   font-weight: 400;
@@ -31,5 +31,5 @@ export const DEFAULT_BUTTON_STYLE = css`
 `
 
 export default styled.button`
-  ${DEFAULT_BUTTON_STYLE};
+  ${defaultButtonStyle};
 `
