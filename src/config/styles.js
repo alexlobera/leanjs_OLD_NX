@@ -71,4 +71,13 @@ export const theme = {
       border: `solid 1px ${blue1()}`,
     },
   },
+  flexboxgrid: {
+    gutterWidth: 1,
+    outerMargin: 0.5,
+    container: {
+      sm: null, // rem
+      md: null, // rem
+      lg: 64, // rem
+    },
+  },
 }

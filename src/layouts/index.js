@@ -22,23 +22,6 @@ import { theme } from '../config/styles'
 
 raven.config(SENTRY_DSN).install()
 
-const gridTheme = {
-  flexboxgrid: {
-    gutterWidth: 1,
-    outerMargin: 0.5,
-    container: {
-      sm: null, // rem
-      md: null, // rem
-      lg: 64, // rem
-    },
-  },
-}
-
-const siteTheme = {
-  ...gridTheme,
-  ...theme,
-}
-
 const configLink = {
   uri: UPMENTORING_API_URL,
   credentials: 'include',
@@ -52,7 +35,7 @@ const graphqlClient = new ApolloClient({
 
 const Layout = ({ children, data }) => (
   <RunkitProvider>
-    <ThemeProvider theme={siteTheme}>
+    <ThemeProvider theme={theme}>
       <ApolloProvider client={graphqlClient}>
         <React.Fragment>
           <Helmet
