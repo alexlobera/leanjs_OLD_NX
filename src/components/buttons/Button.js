@@ -1,11 +1,6 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 import { FONT_FAMILY } from '../../config/styles'
 import { variant } from 'styled-system'
-
-const buttonsStyle = variant({
-  key: 'buttons',
-})
 
 export const DEFAULT_BUTTON_STYLE = css`
   ${FONT_FAMILY}
@@ -31,7 +26,8 @@ export const DEFAULT_BUTTON_STYLE = css`
       cursor: not-allowed;
     }
   `}
-  ${buttonsStyle};
+
+  ${variant({ key: 'buttons' })};
 `
 
 export default styled.button`
