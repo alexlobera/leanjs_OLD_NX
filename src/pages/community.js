@@ -9,7 +9,10 @@ import { H2, H3, P } from '../components/text'
 import { Link } from '../components/navigation'
 import { Card, Image, Newsletter } from '../components/elements'
 import Header from '../components/layout/Header'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../components/training'
 
 import { LinkButton } from '../components/buttons'
 import {
@@ -81,7 +84,7 @@ const TwitterWidgetsOnlyOnClientSide = () => {
   }
 }
 
-const Community = () => (
+const Community = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['The ReactJS', 'Academy community']}
@@ -272,8 +275,8 @@ const Community = () => (
       </Grid>
     </Section>
 
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default Community
+export default withUpcomingTrainings()(Community)

@@ -31,6 +31,7 @@ const CurriculumBootcamp = ({
   toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
+  trainings,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
@@ -146,7 +147,13 @@ const CurriculumBootcamp = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        trainings,
+      })}
     </React.Fragment>
   )
 }

@@ -5,6 +5,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import {
   UpcomingTrainingSection,
+  withUpcomingTrainings,
   AttendeeQuote,
   TrustedByLogoList,
 } from '../components/training'
@@ -27,7 +28,7 @@ import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
 
-const CorporateTraining = () => (
+const CorporateTraining = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['Corporate team training']}
@@ -137,8 +138,8 @@ const CorporateTraining = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default CorporateTraining
+export default withUpcomingTrainings()(CorporateTraining)

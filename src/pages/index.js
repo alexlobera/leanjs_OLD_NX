@@ -14,7 +14,10 @@ import Header from '../components/layout/Header'
 import { Card, Image, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../components/training'
 import {
   BussinessIcon,
   CalendarIcon,
@@ -49,7 +52,7 @@ const SectionButtonRow = styled(Row)`
     }
   }
 `
-const IndexPage = () => (
+const IndexPage = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['Take your dev career further', 'by mastering React']}
@@ -78,7 +81,7 @@ const IndexPage = () => (
           </Col>
         </CallToActionRow>
         <Card border="shadow">
-          <FullCurriculum />
+          <FullCurriculum trainings={trainings} />
         </Card>
       </Grid>
     </TopSection>
@@ -280,4 +283,4 @@ const IndexPage = () => (
   </React.Fragment>
 )
 
-export default IndexPage
+export default withUpcomingTrainings()(IndexPage)

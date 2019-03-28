@@ -5,7 +5,10 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P, H4 } from '../components/text'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
@@ -72,7 +75,7 @@ const SocialLink = ({ to, children, onClick }) => (
   </Link>
 )
 
-const AboutUs = () => (
+const AboutUs = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['About us']}
@@ -900,8 +903,8 @@ const AboutUs = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default AboutUs
+export default withUpcomingTrainings()(AboutUs)

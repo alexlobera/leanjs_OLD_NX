@@ -10,6 +10,7 @@ import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import { CurriculumAdvancedReact } from '../components/curriculum'
 import {
   UpcomingTrainingSection,
+  withUpcomingTrainings,
   AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
@@ -32,7 +33,7 @@ import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(ADVANCED_REACT, LONDON)
 
-const BootcampLondon = () => (
+const BootcampLondon = ({ trainings }) => (
   <React.Fragment>
     <Breadcrumb
       path={[
@@ -173,8 +174,8 @@ const BootcampLondon = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default BootcampLondon
+export default withUpcomingTrainings()(BootcampLondon)

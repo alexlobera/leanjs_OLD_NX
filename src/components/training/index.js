@@ -1,6 +1,7 @@
 export {
   default as withUpcomingTrainings,
   selectUpcomingTrainings,
+  selectFirstTraining,
 } from './withUpcomingTrainings'
 export { default as AttendeeQuote } from './AttendeeQuote'
 export { default as TrainingItem } from './TrainingItem'

@@ -12,6 +12,7 @@ import {
   TrustedBySection,
   withUpcomingTrainings,
   selectUpcomingTrainings,
+  selectFirstTraining,
 } from '../components/training'
 
 import { Card, Video } from '../components/elements'
@@ -36,8 +37,10 @@ const PartTime = ({ trainings }) => {
     type: PART_TIME,
     trainings,
   })
-  const nextTraining =
-    upcomingPartTimeTrainings.length && upcomingPartTimeTrainings[0]
+  const nextTraining = selectFirstTraining({
+    trainings: upcomingPartTimeTrainings,
+  })
+
   return (
     <React.Fragment>
       <Breadcrumb
@@ -135,8 +138,4 @@ const PartTime = ({ trainings }) => {
   )
 }
 
-const withPartTimeCourses = withUpcomingTrainings({
-  // type: PART_TIME
-})
-
-export default withPartTimeCourses(PartTime)
+export default withUpcomingTrainings()(PartTime)

@@ -10,7 +10,7 @@ import Newsletter from '../elements/Newsletter'
 
 const UpcomingTrainings = ({ curriculum, type, trainings }) => {
   const filteredTrainings = selectUpcomingTrainings({ type, trainings })
-  if (!trainings.length) {
+  if (!filteredTrainings.length) {
     return <P>Sorry! There are no {type} dates confirmed.</P>
   } else {
     return filteredTrainings.map(training => {

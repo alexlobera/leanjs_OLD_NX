@@ -12,6 +12,7 @@ import {
   TrustedBySection,
   AttendeeQuote,
   UpcomingTrainingSection,
+  withUpcomingTrainings,
 } from '../components/training'
 import { Card, Video } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
@@ -30,7 +31,7 @@ import { selectTrainings, ADVANCED_REACT } from '../config/data'
 const trainings = selectTrainings(ADVANCED_REACT)
 const nextTraining = trainings.length && trainings[0]
 
-const Boocamps = () => (
+const Boocamps = ({ trainings }) => (
   <React.Fragment>
     <Breadcrumb
       path={[
@@ -129,8 +130,8 @@ const Boocamps = () => (
       </Grid>
     </Section>
     <TrustedBySection />
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default Boocamps
+export default withUpcomingTrainings()(Boocamps)

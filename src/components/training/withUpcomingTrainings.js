@@ -27,6 +27,13 @@ const createTrainingPath = ({ type, city = '', index }) => {
   }
 }
 
+export const selectFirstTraining = ({ trainings, type }) => {
+  const typeTrainings = type
+    ? trainings.filter(training => training.type === type)
+    : trainings
+  return typeTrainings.length && typeTrainings[0]
+}
+
 export const selectUpcomingTrainings = ({
   type,
   city,
@@ -35,7 +42,6 @@ export const selectUpcomingTrainings = ({
 }) => {
   const trainingByType = training => !type || (type && training.type === type)
   const trainingByCity = training => !city || (city && training.city === city)
-  // console.log(trainings)
   return trainings
     .filter(trainingByType)
     .filter(trainingByCity)
@@ -65,10 +71,9 @@ const withUpcomingTrainings = ({
       }
 
       const trainings =
-        !error &&
-        !loading &&
-        data.trainingInstancesConnection &&
-        data.trainingInstancesConnection.edges.map(formatTraining)
+        !error && !loading && data.trainingInstancesConnection
+          ? data.trainingInstancesConnection.edges.map(formatTraining)
+          : []
 
       return (
         <InnerComponent
