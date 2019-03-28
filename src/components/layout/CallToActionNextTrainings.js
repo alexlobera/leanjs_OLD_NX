@@ -29,7 +29,7 @@ const CallToActionNextTrainings = ({ left, trainings = [] }) => (
       return index === 0 ? (
         <Col key={index} xs={12} mdOffset={1} md={5}>
           <LinkButton
-            cta
+            variant="primary"
             to={training.pathUrl}
             children={`Next ${training.type}: ${startDate}, ${
               training.cityShortName
@@ -39,6 +39,7 @@ const CallToActionNextTrainings = ({ left, trainings = [] }) => (
       ) : (
         <Col key={index} xs={12} md={3} center={index === 1}>
           <LinkButton
+            variant="secondary"
             to={training.pathUrl}
             children={`${startDate}, ${training.cityShortName}`}
           />

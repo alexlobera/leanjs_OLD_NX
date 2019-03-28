@@ -93,7 +93,7 @@ const PartTime = () => (
                 Expert coaches with extensive React experience
               </Li>
             </Ul>
-            <LinkButton cta to={nextTraining.pathUrl}>
+            <LinkButton variant="primary" to={nextTraining.pathUrl}>
               Next bootcamp: {moment(nextTraining.dateStartsOn).format('D MMM')}
               , {nextTraining.city}
             </LinkButton>

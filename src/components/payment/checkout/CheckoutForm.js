@@ -201,9 +201,17 @@ class CheckoutForm extends React.Component {
             <Span>Number of tickets:</Span>
             <RowNumTickets>
               <QuantityActions>
-                <QuantityButton onClick={removeCourse} children="-" />
+                <QuantityButton
+                  variant="secondary"
+                  onClick={removeCourse}
+                  children="-"
+                />
                 <Quantity children={quantity} />
-                <QuantityButton onClick={addCourse} children="+" />
+                <QuantityButton
+                  variant="secondary"
+                  onClick={addCourse}
+                  children="+"
+                />
               </QuantityActions>
             </RowNumTickets>
           </Col>
@@ -451,7 +459,7 @@ class CheckoutForm extends React.Component {
                   ) : null}
                   <SubmitPaymentFormButton
                     type="submit"
-                    cta
+                    variant="primary"
                     block
                     onClick={this.onSubmitClicked}
                     disabled={submitting || isPaymentInProgress}

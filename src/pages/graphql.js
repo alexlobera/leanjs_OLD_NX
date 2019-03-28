@@ -59,7 +59,7 @@ const GraphQL = () => (
         <CallToActionRow left>
           <Col xs={12} mdOffset={1} md={5}>
             <LinkButton
-              cta
+              variant="primary"
               to="#contact-us"
               children="Interested? Contact us >>"
             />

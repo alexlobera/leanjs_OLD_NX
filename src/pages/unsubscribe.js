@@ -67,7 +67,11 @@ class Unsubscribe extends React.Component {
                           name="email"
                           placeholder="eg. steve@jobs.com"
                         />
-                        <Button cta type="submit" disabled={!valid}>
+                        <Button
+                          variant="primary"
+                          type="submit"
+                          disabled={!valid}
+                        >
                           Submit email
                         </Button>
                       </form>
