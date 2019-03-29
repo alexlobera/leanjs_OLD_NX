@@ -8,7 +8,10 @@ import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
 const fontColor = css`
   ${props => {
-    const { variant } = props
+    const { variant, theme } = props
+    if (!theme || !theme.buttons) {
+      return
+    }
     const { color } = props.theme.buttons[variant]
 
     return `

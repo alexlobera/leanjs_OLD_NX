@@ -13,9 +13,9 @@ exports[`<MarketingCard /> should render component 1`] = `
       md={6}
     >
       <LinkButton
-        cta={true}
         secondary={false}
         trackUserBehaviour={[Function]}
+        variant="primary"
       />
     </Styled(Col)>
   </Row>

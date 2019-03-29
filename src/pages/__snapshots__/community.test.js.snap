@@ -53,8 +53,8 @@ exports[`<Community /> should render component 1`] = `
                 />
               </styled.h2>
               <Styled(LinkButton)
-                cta={true}
                 to="/react-redux-graphql-bootcamp-lisbon/"
+                variant="primary"
               >
                 Next Bootcamp: 31 Mar, Lisbon &gt;&gt;
               </Styled(LinkButton)>
