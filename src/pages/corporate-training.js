@@ -30,7 +30,7 @@ import {
 import { Breadcrumb } from '../components/navigation'
 import { REACT_BOOTCAMP } from '../config/data'
 
-const Boocamps = ({ trainings }) => {
+const Bootcamps = ({ trainings }) => {
   const bootcampTrainings = selectUpcomingTrainings({
     trainings: trainings,
     type: REACT_BOOTCAMP,
@@ -51,7 +51,7 @@ const Boocamps = ({ trainings }) => {
       />
       <TopSection>
         <Grid>
-          <CallToActionNextTrainings left trainings={trainings} />
+          <CallToActionNextTrainings left trainings={bootcampTrainings} />
           <Card border="shadow">
             <CurriculumBootcamp />
           </Card>
@@ -130,4 +130,4 @@ const Boocamps = ({ trainings }) => {
   )
 }
 
-export default withUpcomingTrainings()(Boocamps)
+export default withUpcomingTrainings()(Bootcamps)

@@ -42,10 +42,12 @@ export const selectUpcomingTrainings = ({
 }) => {
   const trainingByType = training => !type || (type && training.type === type)
   const trainingByCity = training => !city || (city && training.city === city)
-  return trainings
+  const filteredTrainings = trainings
     .filter(trainingByType)
     .filter(trainingByCity)
     .slice(0, limit)
+  console.log(filteredTrainings)
+  return filteredTrainings
 }
 
 const withUpcomingTrainings = ({
