@@ -40,20 +40,19 @@ export const selectUpcomingTrainings = ({
   trainings = [],
   limit,
 }) => {
-  const trainingByType = training => !type || (type && training.type === type)
-  const trainingByCity = training => !city || (city && training.city === city)
+  const trainingByType = training => !type || training.training.type === type
+  const trainingByCity = training => !city || training.city === city
   const filteredTrainings = trainings
     .filter(trainingByType)
     .filter(trainingByCity)
     .slice(0, limit)
-  console.log(filteredTrainings)
   return filteredTrainings
 }
 
 const withUpcomingTrainings = ({
   type,
   city,
-  limit = 3,
+  limit,
 } = {}) => InnerComponent => props => (
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
@@ -65,7 +64,7 @@ const withUpcomingTrainings = ({
         return {
           ...node,
           toPath: createTrainingPath({
-            type,
+            type: node.training.type,
             city,
             index: cityIndex[city],
           }),

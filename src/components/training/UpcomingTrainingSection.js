@@ -19,10 +19,10 @@ const UpcomingTrainings = ({ curriculum, type, trainings }) => {
           key={training.id}
           city={training.city}
           country={training.country}
-          startDay={moment(training.dateStartsOn).format('D')}
-          startMonth={moment(training.dateStartsOn).format('MMM')}
-          type={training.type}
-          path={training.pathUrl}
+          startDay={moment(training.startDate).format('D')}
+          startMonth={moment(training.startDate).format('MMM')}
+          type={training.training.type}
+          path={training.toPath}
         />
       )
       return (

@@ -279,7 +279,7 @@ const IndexPage = ({ trainings }) => (
         </Row>
       </Grid>
     </Section>
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
