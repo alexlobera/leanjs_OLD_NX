@@ -88,7 +88,7 @@ class Checkout extends React.Component {
                 onClick={this.toggleIsOpen}
                 right
                 children="Buy now"
-                cta
+                variant="primary"
               />
             </Fragment>
           </PurchaseWrapper>

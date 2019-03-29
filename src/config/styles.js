@@ -51,3 +51,33 @@ export const Z_INDEX_TOP = 10
 export const Z_INDEX_MEDIUM = 5
 export const Z_INDEX_SMALL = 1
 export const Z_INDEX_BG = -2
+
+export const theme = {
+  buttons: {
+    primary: {
+      color: WHITE,
+      backgroundColor: CALLTOACTIONRED,
+      fontWeight: 800,
+    },
+    secondary: {
+      color: WHITE,
+      backgroundColor: blue1(),
+    },
+    default: {
+      color: GREY2,
+      backgroundColor: WHITE,
+      boxShadow:
+        '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
+      border: `solid 1px ${blue1()}`,
+    },
+  },
+  flexboxgrid: {
+    gutterWidth: 1,
+    outerMargin: 0.5,
+    container: {
+      sm: null, // rem
+      md: null, // rem
+      lg: 64, // rem
+    },
+  },
+}

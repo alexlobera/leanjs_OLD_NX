@@ -62,16 +62,21 @@ const IndexPage = () => (
         <CallToActionRow>
           <Col xs={12} sm={4}>
             <LinkButton
-              cta
+              variant="primary"
               to="/react-redux-graphql-bootcamp"
               children="1-week bootcamp >>"
             />
           </Col>
           <Col xs={12} sm={4}>
-            <LinkButton to="/graphql" children="GraphQL Bootcamp >>" />
+            <LinkButton
+              to="/graphql"
+              children="GraphQL Bootcamp >>"
+              variant="secondary"
+            />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
+              variant="secondary"
               to="/corporate-team-training/"
               children="Corporate training >>"
             />
@@ -123,13 +128,13 @@ const IndexPage = () => (
             <SectionButtonRow>
               <Col sm={6}>
                 <LinkButton
-                  cta
+                  variant="primary"
                   to="/react-redux-graphql-bootcamp"
                   children="React bootcamps"
                 />
               </Col>
               <Col sm={6}>
-                <LinkButton to="/corporate-team-training">
+                <LinkButton variant="secondary" to="/corporate-team-training">
                   Corporate training
                 </LinkButton>
               </Col>
@@ -252,7 +257,7 @@ const IndexPage = () => (
                 </LinkButton>
               </Col>
               <Col sm={5}>
-                <LinkButton to="/corporate-team-training">
+                <LinkButton variant="secondary" to="/corporate-team-training">
                   Corporate training
                 </LinkButton>
               </Col>

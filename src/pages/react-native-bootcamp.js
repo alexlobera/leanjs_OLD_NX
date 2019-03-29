@@ -56,7 +56,7 @@ const ReactNativeBoocamp = () => (
           <CallToActionRow>
             <Col sm={6}>
               <LinkButton
-                cta
+                variant="primary"
                 to="#contact-us"
                 children="Signup to our newsletter for latest updates"
               />
@@ -108,7 +108,7 @@ const ReactNativeBoocamp = () => (
               </Li>
             </Ul>
             {/* <P>
-              <LinkButton cta to="/react-native-bootcamp-london">
+              <LinkButton variant="primary" to="/react-native-bootcamp-london">
                 Next React Native: 17th Sept, London >>
               </LinkButton>
             </P>

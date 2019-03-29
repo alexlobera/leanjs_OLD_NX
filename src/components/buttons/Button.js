@@ -1,9 +1,12 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
-import { blue1, WHITE, CALLTOACTIONRED, FONT_FAMILY } from '../../config/styles'
+import { FONT_FAMILY } from '../../config/styles'
+import { variant } from 'styled-system'
 
-export const DEFAULT_BUTTON_STYLE = css`
+export const defaultButtonStyle = css`
+  ${FONT_FAMILY}
   font-size: 1rem;
+  font-weight: 400;
+  box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
@@ -13,30 +16,20 @@ export const DEFAULT_BUTTON_STYLE = css`
   padding: 13px 25px;
   border-radius: 2px;
   cursor: pointer;
-  background-color: ${props => (props.cta ? CALLTOACTIONRED : blue1())};
-  font-weight: ${props => (props.cta ? 'bold' : '')};
-  box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26);
-  color: ${WHITE};
+  border-color: rgba(0, 0, 0, 0);
   ${props => (props.block ? 'width: 100%;' : 'display: inline-block;')}
   ${props => (props.right ? `margin-left:auto;` : null)}
   ${props =>
-    props.disabled
-      ? `
-    border-color: rgba(255, 255, 255, 0.2);
+    props.disabled &&
+    `
     :hover {
       cursor: not-allowed;
     }
-  `
-      : ''}
+  `}
+
+  ${variant({ key: 'buttons' })};
 `
 
 export default styled.button`
-  ${DEFAULT_BUTTON_STYLE} ${FONT_FAMILY};
-`
-
-export const InputButton = styled.input.attrs({
-  type: 'submit',
-})`
-  ${DEFAULT_BUTTON_STYLE} ${FONT_FAMILY};
-  border-color: rgba(0, 0, 0, 0);
+  ${defaultButtonStyle};
 `

@@ -18,20 +18,9 @@ import './index.css'
 import favicon from './favicon.ico'
 import { RunkitProvider } from '../components/blog/Runkit'
 import AcceptCookies from '../components/layout/AcceptCookies'
+import { theme } from '../config/styles'
 
 raven.config(SENTRY_DSN).install()
-
-const gridTheme = {
-  flexboxgrid: {
-    gutterWidth: 1,
-    outerMargin: 0.5,
-    container: {
-      sm: null, // rem
-      md: null, // rem
-      lg: 64, // rem
-    },
-  },
-}
 
 const configLink = {
   uri: UPMENTORING_API_URL,
@@ -46,7 +35,7 @@ const graphqlClient = new ApolloClient({
 
 const Layout = ({ children, data }) => (
   <RunkitProvider>
-    <ThemeProvider theme={gridTheme}>
+    <ThemeProvider theme={theme}>
       <ApolloProvider client={graphqlClient}>
         <React.Fragment>
           <Helmet

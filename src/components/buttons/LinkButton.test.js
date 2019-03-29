@@ -8,7 +8,7 @@ describe('<LinkButton />', () => {
     const trackUserBehaviour = jest.fn()
 
     const wrapper = shallow(
-      <LinkButton cta trackUserBehaviour={trackUserBehaviour} />
+      <LinkButton variant="primary" trackUserBehaviour={trackUserBehaviour} />
     )
 
     wrapper.props().onClick()
