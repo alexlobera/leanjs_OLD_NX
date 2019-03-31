@@ -12,6 +12,8 @@ import { HideComponentsUsingCss } from '../components/utils'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
+  withUpcomingTrainings,
+  selectFirstTraining,
 } from '../components/training'
 import { Card } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
@@ -29,135 +31,135 @@ import {
 } from '../components/icons'
 import { Image } from '../components/elements'
 import { Breadcrumb } from '../components/navigation'
-import {
-  selectTrainings,
-  selectFirstTraining,
-  GRAPHQL_BOOTCAMP,
-} from '../config/data'
+import { GRAPHQL_BOOTCAMP } from '../config/data'
 import header from '../components/layout/Header.json'
 
-const trainings = selectTrainings(GRAPHQL_BOOTCAMP)
-const nextTraining = selectFirstTraining(GRAPHQL_BOOTCAMP)
-
-const GraphQL = () => (
-  <React.Fragment>
-    <Breadcrumb
-      path={[
-        { to: '/', label: 'Home' },
-        { to: '/graphql', label: 'GraphQL bootcamp' },
-      ]}
-    />
-    <Header
-      titleLines={['Take your dev career further', 'by mastering GraphQL']}
-      subtitle="In-person development training from industry experts"
-      bgImg="full-time"
-      links={header.landingPageLinks.links}
-      type={GRAPHQL_BOOTCAMP}
-    />
-    <TopSection>
-      <Grid>
-        <CallToActionRow left>
-          <Col xs={12} mdOffset={1} md={5}>
-            <LinkButton
-              cta
-              to="#contact-us"
-              children="Interested? Contact us >>"
-            />
-          </Col>
-        </CallToActionRow>
-        {/* <CallToActionNextTrainings left trainings={trainings} /> */}
-        <Card border="shadow">
-          <Link to="#upcoming-courses" name="upcoming-courses" />
-          <CurriculumGraphQL enableToggle isOpen={false} />
-        </Card>
-      </Grid>
-    </TopSection>
-
-    <Section>
-      <Grid>
-        <Row>
-          <Col md={5} mdOffset={1}>
-            <H2Ref>
-              Is ReactJS Academy's GraphQL course right for me?
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
-            </H2Ref>
-            <Ul unstyled>
-              <Li>
-                <BulletIcon icon={NotBegginerIcon} />
-                For working developers - <strong>not for beginners!</strong>
-              </Li>
-              <Li>
-                <BulletIcon icon={SpannerIcon} />
-                <strong>Hands-on project-based</strong> training.
-              </Li>
-              <Li>
-                <BulletIcon icon={CollabsIcon} />A{' '}
-                <strong>collaborative</strong> learning environment.
-              </Li>
-            </Ul>
-            <P />
-          </Col>
-          <HideComponentsUsingCss xs sm>
-            <Col md={5} mdOffset={1}>
-              <Image
-                src={WHY_GQLU_ACADEMY}
-                width="100%"
-                alt="Female GraphQL course student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
+const GraphQL = ({ trainings }) => {
+  const nextTraining = selectFirstTraining({
+    trainings,
+    type: GRAPHQL_BOOTCAMP,
+  })
+  return (
+    <React.Fragment>
+      <Breadcrumb
+        path={[
+          { to: '/', label: 'Home' },
+          { to: '/graphql', label: 'GraphQL bootcamp' },
+        ]}
+      />
+      <Header
+        titleLines={['Take your dev career further', 'by mastering GraphQL']}
+        subtitle="In-person development training from industry experts"
+        bgImg="full-time"
+        links={header.landingPageLinks.links}
+        type={GRAPHQL_BOOTCAMP}
+      />
+      <TopSection>
+        <Grid>
+          <CallToActionRow left>
+            <Col xs={12} mdOffset={1} md={5}>
+              <LinkButton
+                cta
+                to="#contact-us"
+                children="Interested? Contact us >>"
               />
             </Col>
-          </HideComponentsUsingCss>
-        </Row>
-      </Grid>
-    </Section>
+          </CallToActionRow>
+          {/* <CallToActionNextTrainings left trainings={trainings} /> */}
+          <Card border="shadow">
+            <Link to="#upcoming-courses" name="upcoming-courses" />
+            <CurriculumGraphQL enableToggle isOpen={false} />
+          </Card>
+        </Grid>
+      </TopSection>
 
-    <Section>
-      <Grid>
-        <Row>
-          <Col md={5}>
-            <Image
-              src={SMALL_CLASSROOM}
-              width="100%"
-              alt="Four developers gathered around a laptop, pair programming together on a piece of work during a GraphQL bootcamp."
-            />
-          </Col>
-          <Col md={5} mdOffset={1}>
-            <H2>Why our GraphQL course is great for your developers</H2>
-            <Ul unstyled>
-              <Li>
-                <BulletIcon icon={ProductionReadyIcon} />
-                <strong>Build production ready</strong> apps leverging GraphQL.
-              </Li>
-              <Li>
-                <BulletIcon icon={CollabsIcon} />
-                Discuss <strong>real-world projects</strong>.
-              </Li>
-              <Li>
-                <BulletIcon icon={StarIcon} />
-                Learn <strong>best practices</strong>.
-              </Li>
-              <Li>
-                <BulletIcon icon={TrainerIcon} />
-                <strong>Mentoring</strong> by our expert coaches.
-              </Li>
-              <Li>
-                <BulletIcon icon={HeartIcon} />
-                Alumni <strong>community</strong>.
-              </Li>
-              <Li>
-                <BulletIcon icon={CodeIcon} />
-                <strong>Stay ahead</strong> in modern development.
-              </Li>
-            </Ul>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
+      <Section>
+        <Grid>
+          <Row>
+            <Col md={5} mdOffset={1}>
+              <H2Ref>
+                Is ReactJS Academy's GraphQL course right for me?
+                <Link to="#target-audience" name="target-audience">
+                  #
+                </Link>
+              </H2Ref>
+              <Ul unstyled>
+                <Li>
+                  <BulletIcon icon={NotBegginerIcon} />
+                  For working developers - <strong>not for beginners!</strong>
+                </Li>
+                <Li>
+                  <BulletIcon icon={SpannerIcon} />
+                  <strong>Hands-on project-based</strong> training.
+                </Li>
+                <Li>
+                  <BulletIcon icon={CollabsIcon} />A{' '}
+                  <strong>collaborative</strong> learning environment.
+                </Li>
+              </Ul>
+              <P />
+            </Col>
+            <HideComponentsUsingCss xs sm>
+              <Col md={5} mdOffset={1}>
+                <Image
+                  src={WHY_GQLU_ACADEMY}
+                  width="100%"
+                  alt="Female GraphQL course student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
+                />
+              </Col>
+            </HideComponentsUsingCss>
+          </Row>
+        </Grid>
+      </Section>
 
-    <TrustedBySection />
-    <UpcomingTrainingSection />
-  </React.Fragment>
-)
+      <Section>
+        <Grid>
+          <Row>
+            <Col md={5}>
+              <Image
+                src={SMALL_CLASSROOM}
+                width="100%"
+                alt="Four developers gathered around a laptop, pair programming together on a piece of work during a GraphQL bootcamp."
+              />
+            </Col>
+            <Col md={5} mdOffset={1}>
+              <H2>Why our GraphQL course is great for your developers</H2>
+              <Ul unstyled>
+                <Li>
+                  <BulletIcon icon={ProductionReadyIcon} />
+                  <strong>Build production ready</strong> apps leverging
+                  GraphQL.
+                </Li>
+                <Li>
+                  <BulletIcon icon={CollabsIcon} />
+                  Discuss <strong>real-world projects</strong>.
+                </Li>
+                <Li>
+                  <BulletIcon icon={StarIcon} />
+                  Learn <strong>best practices</strong>.
+                </Li>
+                <Li>
+                  <BulletIcon icon={TrainerIcon} />
+                  <strong>Mentoring</strong> by our expert coaches.
+                </Li>
+                <Li>
+                  <BulletIcon icon={HeartIcon} />
+                  Alumni <strong>community</strong>.
+                </Li>
+                <Li>
+                  <BulletIcon icon={CodeIcon} />
+                  <strong>Stay ahead</strong> in modern development.
+                </Li>
+              </Ul>
+            </Col>
+          </Row>
+        </Grid>
+      </Section>
 
-export default GraphQL
+      <TrustedBySection />
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
+
+export default withUpcomingTrainings()(GraphQL)

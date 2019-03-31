@@ -29,10 +29,13 @@ const createTrainingPath = ({ type, city = '', index }) => {
 
 export const selectFirstTraining = ({ trainings, type }) => {
   const typeTrainings = type
-    ? trainings.filter(training => training.type === type)
+    ? trainings.filter(trainingByType(type))
     : trainings
-  return typeTrainings.length && typeTrainings[0]
+  return typeTrainings.length ? typeTrainings[0] : undefined
 }
+const trainingByType = type => training =>
+  !type || training.training.type === type
+const trainingByCity = city => training => !city || training.city === city
 
 export const selectUpcomingTrainings = ({
   type,
@@ -40,11 +43,9 @@ export const selectUpcomingTrainings = ({
   trainings = [],
   limit,
 }) => {
-  const trainingByType = training => !type || training.training.type === type
-  const trainingByCity = training => !city || training.city === city
   const filteredTrainings = trainings
-    .filter(trainingByType)
-    .filter(trainingByCity)
+    .filter(trainingByType(type))
+    .filter(trainingByCity(city))
     .slice(0, limit)
   return filteredTrainings
 }
@@ -58,15 +59,17 @@ const withUpcomingTrainings = ({
     {({ loading, error, data }) => {
       const cityIndex = {}
       const formatTraining = ({ node }) => {
+        const { type } = node.training
         const { city } = node
-        cityIndex[city] = cityIndex[city] ? cityIndex[city] + 1 : 1
+        const key = `${city}${type}`
+        cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
         return {
           ...node,
           toPath: createTrainingPath({
-            type: node.training.type,
+            type,
             city,
-            index: cityIndex[city],
+            index: cityIndex[key],
           }),
         }
       }

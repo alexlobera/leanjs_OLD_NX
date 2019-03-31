@@ -11,6 +11,7 @@ import Header from '../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
 import {
   UpcomingTrainingSection,
+  withUpcomingTrainings,
   AttendeeQuote,
   TrainingDetails,
   HORACIO_HERRERA,
@@ -25,12 +26,12 @@ import {
 import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
-import { selectFirstTraining, REACT_NATIVE, LONDON } from '../config/data'
+import { REACT_NATIVE, LONDON } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
-const training = selectFirstTraining(REACT_NATIVE, LONDON)
+// const training = selectFirstTraining(REACT_NATIVE, LONDON)
 
-const ReactNativeBoocampLondon = () => (
+const ReactNativeBoocampLondon = ({ trainings }) => (
   <React.Fragment>
     <Breadcrumb
       path={[
@@ -156,8 +157,8 @@ const ReactNativeBoocampLondon = () => (
         </Card>
       </Grid>
     </Section>
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default ReactNativeBoocampLondon
+export default withUpcomingTrainings()(ReactNativeBoocampLondon)
