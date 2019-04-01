@@ -79,6 +79,7 @@ const upcomingPartTimes = [
     trainingInstanceId: '5c90fdcacb52b3bf20685e72',
     price: 1166.67,
     discountPrice: 829.17,
+    priceGoesUpOn: new Date('April 10, 2019'),
     currency: 'eur',
     image: AMSTERDAM_LOCATION,
     mapLink: '',
