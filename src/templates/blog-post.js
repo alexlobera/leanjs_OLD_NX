@@ -18,6 +18,7 @@ import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
 import Tweet from '../components/blog/Tweet'
 import ShareButtons from '../components/blog/ShareButtons'
 import { MarketingCard } from '../components/curriculum'
+// import { Table, Tr, Th, Td } from '../components/table'
 
 export const formatPostTitle = title => title.replace(/(<([^>]+)>)/gi, ' ')
 
@@ -35,6 +36,10 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     a: Link,
+    // table: Table,
+    // tr: Tr,
+    // th: Th,
+    // td: Td,
     p: P,
     h2: H2,
     h3: H3,

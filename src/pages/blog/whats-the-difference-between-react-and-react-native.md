@@ -58,6 +58,29 @@ In React, you need to account for HTML and the DOM. So when you code, you’re g
 | `<a>`        | `<Touchable/>` |
 | `<button>`   | `<Button/>`    |
 
+<table>
+    <tr>
+      <th>HTML (React)</th>
+      <th>React Native</th>
+    </tr>
+    <tr>
+      <td>< div ></td>
+      <td>< View ></td>
+    </tr>
+    <tr>
+      <td>< p ></td>
+      <td>< Text ></td>
+    </tr>
+    <tr>
+      <td>< input/ ></td>
+      <td>< TextInput ></td>
+    </tr>
+    <tr>
+      <td>< button ></td>
+      <td>< Button/ ></td>
+    </tr>
+</table>
+
 These differ from React in logical ways. The `<a>` command can’t be translated to a native mobile app because you don’t click on a smartphone, you touch, which is why you have the <Touchable/> component instead.
 
 ### How are React and React Native’s tools different?
