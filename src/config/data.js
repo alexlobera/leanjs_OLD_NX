@@ -5,6 +5,7 @@ import {
   AMSTERDAM_MEETUP,
   RICHARD,
   ALEX,
+  HORACIO,
   LISBON_LOCATION,
   LONDON_LOCATION,
   BARCELONA_LOCATION,
@@ -448,6 +449,11 @@ export const blogAuthors = {
     imgSrc: ALEX,
     fullname: 'Alex Lobera',
     path: 'alex-lobera',
+  },
+  horacio: {
+    imgSrc: HORACIO,
+    fullname: 'Horacio Herrera',
+    path: 'horacio-herrera',
   },
 }
 

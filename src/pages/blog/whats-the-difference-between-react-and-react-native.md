@@ -2,9 +2,9 @@
 title: What's the difference between React & React Native?
 date: 2018-11-07
 subtitle: If you’re new to React, it won’t be long before you come across React Native.
-author: alex
+author: horacio
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Freact-native-differences%2FreactNative_differences2.jpg?alt=media
-authorTwitter: alex_lobera
+authorTwitter: hhg2288
 order: 15
 ---
 
