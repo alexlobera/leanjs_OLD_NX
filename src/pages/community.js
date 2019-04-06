@@ -108,7 +108,7 @@ const Community = ({ trainings }) => (
                   <a name="twitter" />
                 </H2>
                 <CallToAction
-                  cta
+                  variant="primary"
                   to={nextBootcamp && nextBootcamp.pathUrl}
                   children={`Next Bootcamp: ${nextBootcampStartDate}, ${
                     nextBootcamp.cityShortName

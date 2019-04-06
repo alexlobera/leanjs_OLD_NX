@@ -72,6 +72,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
           secondary={true}
           to="/curriculum?tab=Advanced React"
           trackUserBehaviour={[Function]}
+          variant="default"
         >
           Full curriculum&gt;&gt;
         </LinkButton>

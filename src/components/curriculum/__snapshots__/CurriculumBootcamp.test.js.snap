@@ -129,6 +129,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
           secondary={true}
           to="/curriculum?tab=React bootcamp"
           trackUserBehaviour={[Function]}
+          variant="default"
         >
           Full curriculum &gt;&gt;
         </LinkButton>

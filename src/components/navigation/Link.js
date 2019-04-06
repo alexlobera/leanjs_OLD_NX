@@ -109,8 +109,7 @@ class Link extends React.Component {
     } else {
       // this two attrs where causing an anoying error while developing...
       // GatsbyLink does not support strange props
-      delete rest.cta
-      delete rest.secondary
+      delete rest.variant
 
       // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
       const dest =

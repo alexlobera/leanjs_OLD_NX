@@ -44,7 +44,7 @@ const CorporateTraining = ({ trainings }) => (
         <CallToActionRow left>
           <Col xs={12} mdOffset={1} md={5}>
             <LinkButton
-              cta
+              variant="primary"
               to="#contact-us"
               children="Contact us to find out more >>"
             />
@@ -103,7 +103,7 @@ const CorporateTraining = ({ trainings }) => (
               </Li>
             </Ul>
             <P>
-              <LinkButton cta to="#contact-us">
+              <LinkButton variant="primary" to="#contact-us">
                 Contact us to find out more >>
               </LinkButton>
             </P>

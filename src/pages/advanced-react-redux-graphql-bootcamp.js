@@ -102,7 +102,7 @@ const Boocamps = ({ trainings }) => (
             </Ul>
             {nextTraining ? (
               <P>
-                <LinkButton cta to={nextTraining.pathUrl}>
+                <LinkButton variant="primary" to={nextTraining.pathUrl}>
                   Next one:{' '}
                   {`${moment(nextTraining.dateStartsOn).format('D MMM')}, ${
                     nextTraining.city

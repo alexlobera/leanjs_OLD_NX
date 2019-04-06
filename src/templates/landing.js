@@ -117,7 +117,7 @@ const Landing = ({ data }) => {
                 </Li>
               </Ul>
               <P>
-                <LinkButton cta to={nextTraining.pathUrl}>
+                <LinkButton variant="primary" to={nextTraining.pathUrl}>
                   Next bootcamp:{' '}
                   {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
                   {nextTraining.city}

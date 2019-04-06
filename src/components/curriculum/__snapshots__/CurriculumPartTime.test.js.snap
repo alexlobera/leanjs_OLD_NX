@@ -110,6 +110,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
           secondary={true}
           to="/curriculum?tab=Part-time"
           trackUserBehaviour={[Function]}
+          variant="default"
         >
           Full curriculum &gt;&gt;
         </LinkButton>
