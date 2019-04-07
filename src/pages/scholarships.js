@@ -5,7 +5,10 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, H4, P } from '../components/text'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
@@ -29,8 +32,6 @@ import trackUserBehaviour, {
 } from '../components/utils/trackUserBehaviour'
 import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
 import { SCREEN_SM_MAX } from '../components/utils'
-
-const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
 
 const LeanJSLink = styled(Link)`
   position: absolute;
@@ -70,7 +71,7 @@ const SocialLink = ({ to, children, onClick }) => (
   </Link>
 )
 
-const scholarships = () => (
+const scholarships = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['Scholarships & discounts']}
@@ -184,8 +185,8 @@ const scholarships = () => (
       </Grid>
     </Section>
 
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default scholarships
+export default withUpcomingTrainings()(scholarships)

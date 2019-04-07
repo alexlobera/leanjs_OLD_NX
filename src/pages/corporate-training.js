@@ -35,7 +35,9 @@ const Bootcamps = ({ trainings }) => {
     trainings: trainings,
     type: REACT_BOOTCAMP,
   })
-  const nextTraining = selectFirstTraining({ trainings: bootcampTrainings })
+  const nextTraining =
+    selectFirstTraining({ trainings: bootcampTrainings }) || {}
+
   return (
     <React.Fragment>
       <Breadcrumb
@@ -99,7 +101,7 @@ const Bootcamps = ({ trainings }) => {
                 </Li>
               </Ul>
               <P>
-                <LinkButton cta to={nextTraining.pathUrl}>
+                <LinkButton cta to={nextTraining.toPath}>
                   Next bootcamp:{' '}
                   {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
                   {nextTraining.city}

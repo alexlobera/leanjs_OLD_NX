@@ -14,17 +14,25 @@ import {
   EVA_HOFFMANN,
   FRANCISCO_GOMES,
   withUpcomingTrainings,
+  selectFirstTraining,
+  selectUpcomingTrainings,
 } from '../../components/training'
 import Header from '../../components/layout/Header'
 import { CATALIN } from '../../config/images'
 import header from '../../components/layout/Header.json'
 import { PaymentSection } from '../../components/payment'
 import { Breadcrumb } from '../../components/navigation'
-import { firstTraining, PART_TIME, LONDON } from '../../config/data'
+import { PART_TIME, LONDON } from '../../config/data'
 import { LIST_TWO_COL } from '../../components/curriculum'
 
 const BootcampLondon = ({ trainings }) => {
-  const training = firstTraining(trainings, PART_TIME, LONDON)
+  const partTimeTrainings = selectUpcomingTrainings({
+    trainings,
+    type: PART_TIME,
+    city: LONDON,
+  })
+  const training = selectFirstTraining({ trainings: partTimeTrainings }) || {}
+  console.log('training', training)
   return (
     <React.Fragment>
       <Breadcrumb
@@ -49,7 +57,7 @@ const BootcampLondon = ({ trainings }) => {
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
                   data={{
-                    trainingInstanceId: training.trainingInstanceId,
+                    trainingInstanceId: training.id,
                     price: training.price,
                     discountPrice: training.discountPrice,
                     priceGoesUpOn: training.priceGoesUpOn,
@@ -62,9 +70,7 @@ const BootcampLondon = ({ trainings }) => {
                 <TrainingDetails
                   date={training.dates}
                   timing="6pm - 9pm Tuesday's & Thursday's"
-                  location={
-                    <React.Fragment>{training.location}</React.Fragment>
-                  }
+                  location={<React.Fragment>{training.city}</React.Fragment>}
                   coaches={[
                     EVA_HOFFMANN,
                     DAVID_LEULIETTE,
@@ -105,14 +111,9 @@ const BootcampLondon = ({ trainings }) => {
           </Card>
         </Grid>
       </Section>
-      <UpcomingTrainingSection />
+      <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
 
-const withPartTimeLondon = withUpcomingTrainings({
-  type: PART_TIME,
-  city: LONDON,
-})
-
-export default withPartTimeLondon(BootcampLondon)
+export default withUpcomingTrainings()(BootcampLondon)
