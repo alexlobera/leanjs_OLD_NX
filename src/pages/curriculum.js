@@ -301,7 +301,7 @@ class Curriculum extends React.Component {
                     <TabItem name={ADVANCED_REACT}>
                       Advanced React Bootcamp
                     </TabItem>
-                    <TabItem name={PART_TIME}>Part-time course</TabItem>
+                    <TabItem name={PART_TIME}>Part-time Course</TabItem>
                     <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
                     <TabItem name={REACT_NATIVE}>React Native Training</TabItem>
                   </TabList>
