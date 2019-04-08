@@ -30,7 +30,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         subTitle="React 101 and JS fundamentals"
         title="React Bootcamp Day 1 (half day)"
         toggleNavigateTo={[Function]}
-        type="React bootcamp"
+        type="React Bootcamp"
       >
         <ReactJS101Session />
       </withRouter(CurriculumSection)>
@@ -39,7 +39,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
         title="React Bootcamp Day 2"
         toggleNavigateTo={[Function]}
-        type="React bootcamp"
+        type="React Bootcamp"
       >
         <ES6Session
           title="Modern JavaScript"
@@ -56,7 +56,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         subTitle="Forms, Authentication, Styling in React"
         title="React Bootcamp Day 3"
         toggleNavigateTo={[Function]}
-        type="React bootcamp"
+        type="React Bootcamp"
       >
         <FormsAndAuthSession
           title="Forms and Authentication"
@@ -73,7 +73,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         subTitle="Redux, and Testing Principles"
         title="React Bootcamp Day 4"
         toggleNavigateTo={[Function]}
-        type="React bootcamp"
+        type="React Bootcamp"
       >
         <IntroReduxSession
           title="Introduction to Redux"
@@ -87,7 +87,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
         title="React Bootcamp Day 5"
         toggleNavigateTo={[Function]}
-        type="React bootcamp"
+        type="React Bootcamp"
       >
         <HoCsRenderPropsStateReducerSession
           title="Functional Programming & Advanced React patterns I"
@@ -101,7 +101,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
         title="React Bootcamp Day 6"
         toggleNavigateTo={[Function]}
-        type="React bootcamp"
+        type="React Bootcamp"
       >
         <TestingInReactSession
           title="Testing in React"
@@ -118,7 +118,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         subTitle="Real-world Project"
         title="React Bootcamp Day 7"
         toggleNavigateTo={[Function]}
-        type="React bootcamp"
+        type="React Bootcamp"
       >
         <Hackathon
           title="Last day real-world React challenge. We'll implement an app in teams from scratch"
@@ -127,7 +127,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       <styled.div>
         <LinkButton
           secondary={true}
-          to="/curriculum?tab=React bootcamp"
+          to="/curriculum?tab=React Bootcamp"
           trackUserBehaviour={[Function]}
           variant="default"
         >
@@ -142,7 +142,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
     >
       <UpcomingTrainingSection
         curriculum={true}
-        type="React bootcamp"
+        type="React Bootcamp"
       />
     </Styled(Col)>
   </Row>

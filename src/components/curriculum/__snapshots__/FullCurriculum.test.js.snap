@@ -28,9 +28,9 @@ exports[`<FullCurriculum /> should render component 1`] = `
       md={12}
       xs={12}
     >
-      <styled.p>
+      <styled.h4>
         Select Course:
-      </styled.p>
+      </styled.h4>
     </Styled(Col)>
   </Row>
   <Row>
@@ -40,36 +40,41 @@ exports[`<FullCurriculum /> should render component 1`] = `
       xs={12}
     >
       <Tabs
-        active="React bootcamp"
+        active="React Bootcamp"
         onChange={[Function]}
       >
         <TabList
           offset={true}
         >
           <TabItem
-            name="React bootcamp"
+            name="React Bootcamp"
           >
-            React 1-week bootcamp
+            React Bootcamp
           </TabItem>
           <TabItem
             name="Advanced React"
           >
-            Advanced React bootcamp
-          </TabItem>
-          <TabItem
-            name="React Native"
-          >
-            React Native bootcamp
+            Advanced React Bootcamp
           </TabItem>
           <TabItem
             name="Part-time"
           >
-            Part-time course
+            Part-time Course
+          </TabItem>
+          <TabItem
+            name="GraphQL Bootcamp"
+          >
+            GraphQL Bootcamp
+          </TabItem>
+          <TabItem
+            name="React Native"
+          >
+            React Native Training
           </TabItem>
         </TabList>
         <TabContent>
           <ContentItem
-            name="React bootcamp"
+            name="React Bootcamp"
           >
             <CurriculumBootcamp
               showTitle={false}
@@ -83,16 +88,23 @@ exports[`<FullCurriculum /> should render component 1`] = `
             />
           </ContentItem>
           <ContentItem
-            name="React Native"
+            name="Part-time"
           >
-            <CurriculumReactNative
+            <CurriculumPartTime
               showTitle={false}
             />
           </ContentItem>
           <ContentItem
-            name="Part-time"
+            name="GraphQL Bootcamp"
           >
-            <CurriculumPartTime
+            <CurriculumGraphQL
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="React Native"
+          >
+            <CurriculumReactNative
               showTitle={false}
             />
           </ContentItem>
