@@ -69,7 +69,7 @@ const IndexPage = () => (
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
-              to="/graphql"
+              to="/graphql-bootcamp"
               children="GraphQL Bootcamp >>"
               variant="secondary"
             />

@@ -44,7 +44,7 @@ const GraphQL = () => (
     <Breadcrumb
       path={[
         { to: '/', label: 'Home' },
-        { to: '/graphql', label: 'GraphQL bootcamp' },
+        { to: '/graphql-bootcamp', label: 'GraphQL bootcamp' },
       ]}
     />
     <Header
@@ -131,7 +131,8 @@ const GraphQL = () => (
               </Li>
               <Li>
                 <BulletIcon icon={CollabsIcon} />
-                Discuss <strong>real-world projects</strong>.
+                Discuss <strong>real-world projects</strong> with experienced
+                developers.
               </Li>
               <Li>
                 <BulletIcon icon={StarIcon} />
