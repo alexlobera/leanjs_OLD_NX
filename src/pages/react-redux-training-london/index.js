@@ -106,7 +106,10 @@ const BootcampLondon = ({ trainings }) => {
           <Card border="shadow">
             <Row>
               <Col lg={10} lgOffset={1}>
-                <CurriculumPartTime layout={LIST_TWO_COL} />
+                <CurriculumPartTime
+                  trainings={partTimeTrainings}
+                  layout={LIST_TWO_COL}
+                />
               </Col>
             </Row>
           </Card>
