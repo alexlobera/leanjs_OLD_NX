@@ -36,21 +36,35 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     onClick={[Function]}
     to="/react-redux-graphql-bootcamp"
   >
-    Bootcamp
+    React Bootcamp
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/corporate-team-training"
     onClick={[Function]}
     to="/corporate-team-training"
   >
-    Corporate team training
+    Corporate Team Training
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/advanced-react-redux-graphql-bootcamp"
     onClick={[Function]}
     to="/advanced-react-redux-graphql-bootcamp"
   >
-    Advanced React
+    Advanced React 
+  </PhoneMenuItem>
+  <PhoneMenuItem
+    key="/react-redux-graphql-part-time-course"
+    onClick={[Function]}
+    to="/react-redux-graphql-part-time-course"
+  >
+    Part-time Course
+  </PhoneMenuItem>
+  <PhoneMenuItem
+    key="/graphql-bootcamp"
+    onClick={[Function]}
+    to="/graphql-bootcamp"
+  >
+    GraphQL Bootcamp
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/react-native-bootcamp"
@@ -58,20 +72,6 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     to="/react-native-bootcamp"
   >
     React Native
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/react-redux-graphql-part-time-course"
-    onClick={[Function]}
-    to="/react-redux-graphql-part-time-course"
-  >
-    Part-time
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/graphql"
-    onClick={[Function]}
-    to="/graphql"
-  >
-    GraphQL
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/community"

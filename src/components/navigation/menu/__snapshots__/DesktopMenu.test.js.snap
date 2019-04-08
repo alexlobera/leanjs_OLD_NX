@@ -18,28 +18,28 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       submenuItems={
         Array [
           Object {
-            "text": "Bootcamp",
+            "text": "React Bootcamp",
             "to": "/react-redux-graphql-bootcamp",
           },
           Object {
-            "text": "Corporate team training",
+            "text": "Corporate Team Training",
             "to": "/corporate-team-training",
           },
           Object {
-            "text": "Advanced React",
+            "text": "Advanced React ",
             "to": "/advanced-react-redux-graphql-bootcamp",
+          },
+          Object {
+            "text": "Part-time Course",
+            "to": "/react-redux-graphql-part-time-course",
+          },
+          Object {
+            "text": "GraphQL Bootcamp",
+            "to": "/graphql-bootcamp",
           },
           Object {
             "text": "React Native",
             "to": "/react-native-bootcamp",
-          },
-          Object {
-            "text": "Part-time",
-            "to": "/react-redux-graphql-part-time-course",
-          },
-          Object {
-            "text": "GraphQL",
-            "to": "/graphql",
           },
         ]
       }
