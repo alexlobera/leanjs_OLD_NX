@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { CurriculumPartTime } from '../../components/curriculum'

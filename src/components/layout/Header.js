@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
+
 import styled, { css } from 'styled-components'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
@@ -215,88 +217,96 @@ const Header = ({
   children,
   linkToGallery,
   downloadVenuePDF,
-}) => (
-  <HeaderSection
-    top
-    bgImg={bgImg}
-    fullHeight={fullHeight}
-    paddingBottom={paddingBottom}
-  >
-    <Grid>
-      <Row>
-        <TitleCol md={training && 7} type={type}>
-          <H1>
-            {titleLines.map((line, i) => (
-              <TitleBackground key={i} children={line} />
-            ))}
-          </H1>
-          {subtitle ? (
-            <SubTitleBackground>
-              <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
-            </SubTitleBackground>
-          ) : null}
-          {children ? (
-            <SubTitleBackground>{children}</SubTitleBackground>
-          ) : null}
-          <Row>
-            <Col>
-              {links.length ? (
-                <Nav quickLinks>
-                  <Ul inline>
-                    <Li>
-                      <Span>On this page:</Span>
-                    </Li>
-                    {links.map(({ to, text }, i) => (
-                      <Li key={i}>
-                        <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
+}) => {
+  console.log('training', training)
+  return (
+    <HeaderSection
+      top
+      bgImg={bgImg}
+      fullHeight={fullHeight}
+      paddingBottom={paddingBottom}
+    >
+      <Grid>
+        <Row>
+          <TitleCol md={training && 7} type={type}>
+            <H1>
+              {titleLines.map((line, i) => (
+                <TitleBackground key={i} children={line} />
+              ))}
+            </H1>
+            {subtitle ? (
+              <SubTitleBackground>
+                <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
+              </SubTitleBackground>
+            ) : null}
+            {children ? (
+              <SubTitleBackground>{children}</SubTitleBackground>
+            ) : null}
+            <Row>
+              <Col>
+                {links.length ? (
+                  <Nav quickLinks>
+                    <Ul inline>
+                      <Li>
+                        <Span>On this page:</Span>
                       </Li>
-                    ))}
-                  </Ul>
-                </Nav>
-              ) : null}
-            </Col>
-          </Row>
-        </TitleCol>
-        {training && (
-          <Col md={3} mdOffset={1}>
-            <InfoBox type={type}>
-              <Link to={`#${linkToGallery}`}>
-                <Image
-                  src={training.image || SMALL_CLASSROOM}
-                  width="100%"
-                  alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-                />
-              </Link>
+                      {links.map(({ to, text }, i) => (
+                        <Li key={i}>
+                          <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
+                        </Li>
+                      ))}
+                    </Ul>
+                  </Nav>
+                ) : null}
+              </Col>
+            </Row>
+          </TitleCol>
+          {training && (
+            <Col md={3} mdOffset={1}>
+              <InfoBox type={type}>
+                <Link to={`#${linkToGallery}`}>
+                  <Image
+                    src={training.image || SMALL_CLASSROOM}
+                    width="100%"
+                    alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                  />
+                </Link>
 
-              <Ul unstyled>
-                <Li>
-                  <strong>Date</strong>: {training.dates}
-                </Li>
-                <Li>
-                  <strong>Timings</strong>: {training.timings || `9am - 6:30pm`}
-                </Li>
-                <Li>
-                  <strong>Venue</strong>: {training.location}{' '}
-                  {training.mapLink && <Link to={training.mapLink}>- map</Link>}
-                </Li>
-                {linkToGallery && (
+                <Ul unstyled>
                   <Li>
-                    <Link to={`#${linkToGallery}`}>See venue pictures</Link>
+                    <strong>Date</strong>:{' '}
+                    {`${moment(training.dateStartsOn).format(
+                      'D MMM'
+                    )} - ${moment(training.dateEndsOn).format('D MMM')}` ||
+                      'TBD'}
                   </Li>
-                )}
-                {downloadVenuePDF && (
                   <Li>
-                    <Link to={downloadVenuePDF}>Download more info PDF</Link>
+                    <strong>Timings</strong>:{' '}
+                    {training.timings || `9am - 6:30pm`}
                   </Li>
-                )}
-              </Ul>
-            </InfoBox>
-          </Col>
-        )}
-      </Row>
-    </Grid>
-  </HeaderSection>
-)
+                  <Li>
+                    <strong>Venue</strong>: {training.address || 'TBD'}{' '}
+                    {training.mapUrl && <Link to={training.mapUrl}>- map</Link>}
+                  </Li>
+                  {linkToGallery && (
+                    <Li>
+                      <Link to={`#${linkToGallery}`}>See venue pictures</Link>
+                    </Li>
+                  )}
+                  {downloadVenuePDF && (
+                    <Li>
+                      <Link to={downloadVenuePDF}>Download more info PDF</Link>
+                    </Li>
+                  )}
+                </Ul>
+              </InfoBox>
+            </Col>
+          )}
+        </Row>
+      </Grid>
+    </HeaderSection>
+  )
+}
 
 Header.propTypes = {
   titleLines: PropTypes.array.isRequired,

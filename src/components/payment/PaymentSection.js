@@ -102,6 +102,7 @@ class PaymentSection extends React.Component {
 
   render() {
     const { paymentApi, data = {} } = this.props
+    console.log('data', this.props.data)
     const {
       trainingInstanceId,
       price,

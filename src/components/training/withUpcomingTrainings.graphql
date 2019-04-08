@@ -11,8 +11,12 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
       node {
         id
         startDate
+        endDate
         city
         country
+        address
+        mapUrl
+        price
         upcomingAutomaticDiscounts {
           edges {
             node {
