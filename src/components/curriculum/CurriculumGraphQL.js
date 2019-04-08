@@ -34,7 +34,7 @@ const CurriculumGraphQL = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="GraphQL API Fundamentals"
+        title="Day 1: GraphQL API Fundamentals"
         name="day1"
         subTitle="Nodejs and GraphQL fundamentals"
       >

@@ -43,7 +43,7 @@ There’s a reason why React is so popular, and that’s because it’s been pro
 
 Facebook continues to care for and improve React, meaning you’ll benefit from this knowledge too.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql-bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 
 ### 6. React is SEO-friendly
 

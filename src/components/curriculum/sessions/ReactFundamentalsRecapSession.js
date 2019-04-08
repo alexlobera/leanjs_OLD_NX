@@ -5,9 +5,16 @@ import Session from './Session'
 const ReactFundamentalsRecapSession = ({ title }) => (
   <Session title={title}>
     <Ul>
-      <Li>React</Li>
-      <Li>React Router</Li>
-      <Li>Data fetching</Li>
+      <Li>
+        Consolidate your new React skills by building a React app from scratch
+        using:
+        <Ul>
+          <Li>React</Li>
+          <Li>React Router</Li>
+          <Li>Data fetching</Li>
+          <Li>Forms</Li>
+        </Ul>
+      </Li>
     </Ul>
   </Session>
 )

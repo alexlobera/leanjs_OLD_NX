@@ -27,6 +27,14 @@ const DayOneSessions = ({ title }) => (
           </Li>
         </Ul>
       </Li>
+      <Li>
+        Building a GraphQL API
+        <Ul>
+          <Li>graphql-express and Apollo</Li>
+          <Li>Rapid GraphQL development with mocked schemas</Li>
+          <Li>Resolvers</Li>
+        </Ul>
+      </Li>
     </Ul>
   </Session>
 )

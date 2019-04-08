@@ -22,6 +22,7 @@ import {
   CurriculumBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
+  CurriculumGraphQL,
   MarketingCard,
 } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -97,7 +98,9 @@ class Curriculum extends React.Component {
                   <H3>With all courses you will:</H3>
                   <Ul>
                     <Li>Build production ready React applications</Li>
-                    <Li>Discuss real-world projects</Li>
+                    <Li>
+                      Discuss real-world projects with experienced developers
+                    </Li>
                     <Li>Learn best practices</Li>
                     <Li>Be mentored by our expert coaches</Li>
                     <Li>Join our alumni community</Li>
@@ -111,10 +114,13 @@ class Curriculum extends React.Component {
                     <Thead>
                       <Tr>
                         <Th />
-                        <Th type={REACT_BOOTCAMP}>Full React bootcamp</Th>
-                        <Th type={ADVANCED_REACT}>Advanced React bootcamp</Th>
+                        <Th type={REACT_BOOTCAMP}>
+                          React
+                          <br /> Bootcamp
+                        </Th>
+                        <Th type={ADVANCED_REACT}>Advanced React Bootcamp</Th>
                         <Th type={PART_TIME}>Part time course</Th>
-                        <Th type={GRAPHQL_BOOTCAMP}>GraphQL bootcamp</Th>
+                        <Th type={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</Th>
                         <Th type={REACT_NATIVE}>React Native training</Th>
                       </Tr>
                     </Thead>
@@ -246,7 +252,7 @@ class Curriculum extends React.Component {
                             secondary
                             to="/react-redux-graphql-bootcamp"
                           >
-                            Full React Bootcamp
+                            React Bootcamp
                           </LinkButton>
                         </Td>
                         <Td>
@@ -266,7 +272,7 @@ class Curriculum extends React.Component {
                           </LinkButton>
                         </Td>
                         <Td>
-                          <LinkButton secondary to="/graphql">
+                          <LinkButton secondary to="/graphql-bootcamp">
                             GraphQL Bootcamp
                           </LinkButton>
                         </Td>
@@ -291,20 +297,19 @@ class Curriculum extends React.Component {
                 <H2>Choose a curriculum:</H2>
                 <Tabs onChange={this.setActive} active={this.state.active}>
                   <TabList>
-                    <TabItem name={REACT_BOOTCAMP}>
-                      React 1-week bootcamp
-                    </TabItem>
+                    <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
                     <TabItem name={ADVANCED_REACT}>
-                      Advanced React bootcamp
+                      Advanced React Bootcamp
                     </TabItem>
-                    <TabItem name={REACT_NATIVE}>React Native bootcamp</TabItem>
                     <TabItem name={PART_TIME}>Part-time course</TabItem>
+                    <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
+                    <TabItem name={REACT_NATIVE}>React Native Training</TabItem>
                   </TabList>
                   <TabContent>
                     <ContentItem name={REACT_BOOTCAMP}>
                       <P>
                         <strong>
-                          On completion of the React bootcamp each student will:
+                          On completion of the React Bootcamp each student will:
                         </strong>
                       </P>
                       <Ul>
@@ -347,13 +352,13 @@ class Curriculum extends React.Component {
                             layout={LIST_LAYOUT}
                             marketingCard={
                               <MarketingCard
-                                text={`Next React bootcamp starts on ${moment(
+                                text={`Next React Bootcamp starts on ${moment(
                                   trainingBootcamp.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingBootcamp.city
                                 }`}
                                 to={trainingBootcamp.pathUrl}
-                                buttonText="Next React bootcamp >>"
+                                buttonText="Next React Bootcamp >>"
                               />
                             }
                           />
@@ -364,7 +369,7 @@ class Curriculum extends React.Component {
                     <ContentItem name={ADVANCED_REACT}>
                       <P>
                         <strong>
-                          On completion of the advanced React bootcamp each
+                          On completion of the Advanced React Bootcamp each
                           student will:
                         </strong>
                       </P>
@@ -398,23 +403,62 @@ class Curriculum extends React.Component {
                             showLinkToCurriculum={false}
                             marketingCard={
                               <MarketingCard
-                                text={`Next advanced React bootcamp starts on ${moment(
+                                text={`Next advanced React Bootcamp starts on ${moment(
                                   trainingAdvanced.dateStartsOn
                                 ).format('D MMM, YYYY')} in ${
                                   trainingAdvanced.city
                                 }`}
                                 to={trainingAdvanced.pathUrl}
-                                buttonText="Next advanced React bootcamp >>"
+                                buttonText="Next Advanced React Bootcamp >>"
                               />
                             }
                           />
                         </Col>
                       </Row>
                     </ContentItem>
+
+                    <ContentItem name={GRAPHQL_BOOTCAMP}>
+                      <P>
+                        <strong>
+                          On completion of the GraphQL Bootcamp each student
+                          will:
+                        </strong>
+                      </P>
+                      <Ul>
+                        <Li>
+                          Understand how to build a production-ready GraphQL API
+                          using Nodejs
+                        </Li>
+                        <Li>
+                          Learn how to wrap an existent REST API with GraphQL
+                        </Li>
+                        <Li>
+                          Comprehend how to connect GraphQL to different data
+                          sources like MongoDB
+                        </Li>
+                        <Li>
+                          Understand the best practices to leverage GraphQL in
+                          React in real-world production-ready complex
+                          applications
+                        </Li>
+                      </Ul>
+                      <H4>Full course curriculum:</H4>
+                      <Row>
+                        <Col lg={1} lgOffset={1} />
+                        <Col lg={9}>
+                          <CurriculumGraphQL
+                            enableToggle={true}
+                            showTitle={false}
+                            layout={LIST_LAYOUT}
+                          />
+                        </Col>
+                      </Row>
+                    </ContentItem>
+
                     <ContentItem name={REACT_NATIVE}>
                       <P>
                         <strong>
-                          On completion of the React Native bootcamp each
+                          On completion of the React Native training each
                           student will:
                         </strong>
                       </P>
@@ -448,7 +492,7 @@ class Curriculum extends React.Component {
                     <ContentItem name={PART_TIME}>
                       <P>
                         <strong>
-                          On completion of the React bootcamp each student will:
+                          On completion of the React Bootcamp each student will:
                         </strong>
                       </P>
                       <Ul>

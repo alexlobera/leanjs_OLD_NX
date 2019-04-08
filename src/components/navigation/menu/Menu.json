@@ -11,27 +11,27 @@
     "children": [
       {
         "to": "/react-redux-graphql-bootcamp",
-        "text": "Bootcamp"
+        "text": "React Bootcamp"
       },
       {
         "to": "/corporate-team-training",
-        "text": "Corporate team training"
+        "text": "Corporate Team Training"
       },
       {
         "to": "/advanced-react-redux-graphql-bootcamp",
-        "text": "Advanced React"
+        "text": "Advanced React "
+      },
+      {
+        "to": "/react-redux-graphql-part-time-course",
+        "text": "Part-time Course"
+      },
+      {
+        "to": "/graphql-bootcamp",
+        "text": "GraphQL Bootcamp"
       },
       {
         "to": "/react-native-bootcamp",
         "text": "React Native"
-      },
-      {
-        "to": "/react-redux-graphql-part-time-course",
-        "text": "Part-time"
-      },
-      {
-        "to": "/graphql",
-        "text": "GraphQL"
       }
     ]
   },

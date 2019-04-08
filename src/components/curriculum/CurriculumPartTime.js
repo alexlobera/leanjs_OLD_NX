@@ -2,7 +2,7 @@ import React from 'react'
 import { LinkButton } from '../buttons'
 import { H2Ref } from '../text'
 import Link from '../navigation/Link'
-import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
+import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import ES6Session from './sessions/ES6Session'
@@ -13,7 +13,7 @@ import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
-import HoCsAndRenderPropsSession from './sessions/HoCsAndRenderPropsSession'
+import GraphQLIntroSession from './sessions/GraphQLIntroSession'
 import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
 import SectionCTA from './SectionCTA'
@@ -22,8 +22,8 @@ import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 const PartTimeFinalProject = () => (
   <Ul>
     <Li>
-      Consolidate your new React skills by building a React Redux application
-      from scratch
+      Consolidate your new React skills by adding Redux or GraphQL to the
+      application you built on session 5
     </Li>
     <Li>Discussion about architecture, features and tools</Li>
     <Li>
@@ -82,7 +82,7 @@ const CurriculumPartTime = ({
       </Section>
       <Section
         {...commonProps}
-        title="Session 5 - Recap React Fundamentals"
+        title="Session 5 - Recap: build a React app from scratch"
         name="session5"
       >
         <ReactFundamentalsRecapSession />
@@ -100,30 +100,26 @@ const CurriculumPartTime = ({
       >
         <StylingInReactSession />
       </Section>
-      <Section
-        {...commonProps}
-        title="Session 7 - Introduction to Redux"
-        name="session7"
-      >
+      <Section {...commonProps} title="Session 7 - Redux" name="session7">
         <IntroReduxSession />
       </Section>
       <Section
         {...commonProps}
-        title="Session 8 - Introduction to Testing in JS"
+        title="Session 8 - Testing Fundamentals in JS"
         name="session8"
       >
         <TestingIntroSession />
       </Section>
       <Section
         {...commonProps}
-        title="Session 9 - Advanced Patterns I"
+        title="Session 9 - Introduction to GraphQL"
         name="session9"
       >
-        <HoCsAndRenderPropsSession />
+        <GraphQLIntroSession />
       </Section>
       <Section
         {...commonProps}
-        title="Session 10 - React & Redux Real-world Project"
+        title="Session 10 - React Redux or GraphQL Real-world Project"
         name="session10"
       >
         <PartTimeFinalProject />
