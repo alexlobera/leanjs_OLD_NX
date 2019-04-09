@@ -1,13 +1,13 @@
 import React from 'react'
-import Section, { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2Ref, H3, P } from '../components/text'
-import Ul, { Li } from '../components/layout/Ul'
-import { Card, Video } from '../components/elements'
-import { HideComponentsUsingCss } from '../components/utils'
-import Header from '../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
-import { CurriculumAdvancedReact } from '../components/curriculum'
+import Section, { TopSection } from '../../components/layout/Section'
+import Grid, { Col, Row } from '../../components/layout/Grid'
+import { H2Ref, H3, P } from '../../components/text'
+import Ul, { Li } from '../../components/layout/Ul'
+import { Card, Video } from '../../components/elements'
+import { HideComponentsUsingCss } from '../../components/utils'
+import Header from '../../components/layout/Header'
+import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
+import { CurriculumAdvancedReact } from '../../components/curriculum'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -16,19 +16,19 @@ import {
   HORACIO_HERRERA,
   RICHARD_MOSS,
   WILL_VOELCKER,
-} from '../components/training'
+} from '../../components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
   ReactIcon,
   CollabsIcon,
-} from '../components/icons'
-import { Image } from '../components/elements'
-import header from '../components/layout/Header.json'
-import { PaymentSection } from '../components/payment'
-import { Link, Breadcrumb } from '../components/navigation'
-import { selectFirstTraining, ADVANCED_REACT, LONDON } from '../config/data'
-import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
+} from '../../components/icons'
+import { Image } from '../../components/elements'
+import header from '../../components/layout/Header.json'
+import { PaymentSection } from '../../components/payment'
+import { Link, Breadcrumb } from '../../components/navigation'
+import { selectFirstTraining, ADVANCED_REACT, LONDON } from '../../config/data'
+import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
 
 const training = selectFirstTraining(ADVANCED_REACT, LONDON)
 

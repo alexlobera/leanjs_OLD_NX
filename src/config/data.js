@@ -178,7 +178,7 @@ const upcomingAdvanced = [
     type: ADVANCED_REACT,
     cityShortName: 'London',
     location: 'Publicis.Sapient - Eden House, 8 Spital Square',
-    pathUrl: '/advanced-react-redux-graphql-bootcamp-london',
+    pathUrl: '/advanced-react-redux-graphql-bootcamp-london/2',
     trainingInstanceId: '5cacbfae80c1577e379810e1',
     price: 1250,
     currency: 'gbp',
