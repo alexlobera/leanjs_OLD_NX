@@ -18,9 +18,9 @@ export const BARCELONA = 'Barcelona'
 export const AMSTERDAM = 'Amsterdam'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
-export const REACT_BOOTCAMP = 'React bootcamp'
+export const REACT_BOOTCAMP = 'React Bootcamp'
 export const ADVANCED_REACT = 'Advanced React'
-export const GRAPHQL_BOOTCAMP = 'GraphQL bootcamp'
+export const GRAPHQL_BOOTCAMP = 'GraphQL Bootcamp'
 
 /*
 Boocamp prices:
