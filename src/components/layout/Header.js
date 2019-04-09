@@ -275,14 +275,15 @@ const Header = ({
                 <Ul unstyled>
                   <Li>
                     <strong>Date</strong>:{' '}
-                    {`${moment(training.dateStartsOn).format(
-                      'D MMM'
-                    )} - ${moment(training.dateEndsOn).format('D MMM')}` ||
-                      'TBD'}
+                    {`${moment(training.startDate).format('D MMM')} - ${moment(
+                      training.endDate
+                    ).format('D MMM')}` || 'TBD'}
                   </Li>
                   <Li>
                     <strong>Timings</strong>:{' '}
-                    {training.timings || `9am - 6:30pm`}
+                    {`${moment(training.startDate).format('HH:mm') ||
+                      '9am'} - ${moment(training.endDate).format('HH:mm') ||
+                      '6:30pm'}`}
                   </Li>
                   <Li>
                     <strong>Venue</strong>: {training.address || 'TBD'}{' '}
