@@ -27,11 +27,11 @@ const createTrainingPath = ({ type, city = '', index }) => {
   }
 }
 
-export const selectFirstTraining = ({ trainings, type }) => {
+export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
   const typeTrainings = type
     ? trainings.filter(trainingByType(type))
     : trainings
-  return typeTrainings.length ? typeTrainings[0] : undefined
+  return typeTrainings.length ? typeTrainings[nth - 1] : undefined
 }
 const trainingByType = type => training =>
   !type || training.training.type === type

@@ -15,7 +15,7 @@ import {
   EVA_HOFFMANN,
   FRANCISCO_GOMES,
   withUpcomingTrainings,
-  selectFirstTraining,
+  selectNthTraining,
   selectUpcomingTrainings,
 } from '../../components/training'
 import Header from '../../components/layout/Header'
@@ -32,7 +32,7 @@ const BootcampLondon = ({ trainings }) => {
     type: PART_TIME,
     city: LONDON,
   })
-  const training = selectFirstTraining({ trainings: partTimeTrainings }) || {}
+  const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
   return (
     <React.Fragment>
       <Breadcrumb
