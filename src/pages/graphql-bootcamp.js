@@ -122,6 +122,20 @@ const GraphQL = ({ trainings }) => {
                 alt="Four developers gathered around a laptop, pair programming together on a piece of work during a GraphQL bootcamp."
               />
             </Col>
+          </Row>
+        </Grid>
+      </Section>
+
+      <Section>
+        <Grid>
+          <Row>
+            <Col md={5}>
+              <Image
+                src={SMALL_CLASSROOM}
+                width="100%"
+                alt="Four developers gathered around a laptop, pair programming together on a piece of work during a GraphQL bootcamp."
+              />
+            </Col>
             <Col md={5} mdOffset={1}>
               <H2>Why our GraphQL course is great for your developers</H2>
               <Ul unstyled>
@@ -132,7 +146,8 @@ const GraphQL = ({ trainings }) => {
                 </Li>
                 <Li>
                   <BulletIcon icon={CollabsIcon} />
-                  Discuss <strong>real-world projects</strong>.
+                  Discuss <strong>real-world projects</strong> with experienced
+                  developers.
                 </Li>
                 <Li>
                   <BulletIcon icon={StarIcon} />

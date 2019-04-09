@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { reactBlue, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
-import { REACT_BOOTCAMP, PART_TIME } from '../../config/data'
+import { REACT_BOOTCAMP, PART_TIME, GRAPHQL_BOOTCAMP } from '../../config/data'
 import { Col, Row } from '../layout/Grid'
 
 const Ul = styled.ul`
@@ -31,7 +31,6 @@ const Ul = styled.ul`
 
       :first-child {
         margin-left: 0;
-        a
       }
     }
   }
@@ -92,7 +91,9 @@ const A = styled.a`
   ${props => {
     if (
       props.isActive &&
-      (props.name === PART_TIME || props.name === REACT_BOOTCAMP)
+      (props.name === PART_TIME ||
+        props.name === REACT_BOOTCAMP ||
+        props.name === GRAPHQL_BOOTCAMP)
     ) {
       return `color: white !important`
     }

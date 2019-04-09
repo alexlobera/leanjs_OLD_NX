@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
-import { H2Ref, P } from '../text'
+import { H2Ref, P, H4 } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
 import {
@@ -8,12 +8,14 @@ import {
   CurriculumPartTime,
   CurriculumReactNative,
   CurriculumAdvancedReact,
+  CurriculumGraphQL,
 } from './index'
 import {
   REACT_NATIVE,
   REACT_BOOTCAMP,
   PART_TIME,
   ADVANCED_REACT,
+  GRAPHQL_BOOTCAMP,
 } from '../../config/data'
 
 class FullCurriculum extends React.Component {
@@ -45,17 +47,18 @@ class FullCurriculum extends React.Component {
         </Row>
         <Row>
           <Col xs={12} md={12} lg={10} lgOffset={1}>
-            <P>Select Course:</P>
+            <H4>Select Course:</H4>
           </Col>
         </Row>
         <Row>
           <Col xs={12} md={12} lg={11}>
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
-                <TabItem name={REACT_BOOTCAMP}>React 1-week bootcamp</TabItem>
-                <TabItem name={ADVANCED_REACT}>Advanced React bootcamp</TabItem>
-                <TabItem name={REACT_NATIVE}>React Native bootcamp</TabItem>
-                <TabItem name={PART_TIME}>Part-time course</TabItem>
+                <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
+                <TabItem name={ADVANCED_REACT}>Advanced React Bootcamp</TabItem>
+                <TabItem name={PART_TIME}>Part-time Course</TabItem>
+                <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
+                <TabItem name={REACT_NATIVE}>React Native Training</TabItem>
               </TabList>
 
               <TabContent>
@@ -65,11 +68,14 @@ class FullCurriculum extends React.Component {
                 <ContentItem name={ADVANCED_REACT}>
                   <CurriculumAdvancedReact {...commonCurriculumProps} />
                 </ContentItem>
-                <ContentItem name={REACT_NATIVE}>
-                  <CurriculumReactNative {...commonCurriculumProps} />
-                </ContentItem>
                 <ContentItem name={PART_TIME}>
                   <CurriculumPartTime {...commonCurriculumProps} />
+                </ContentItem>
+                <ContentItem name={GRAPHQL_BOOTCAMP}>
+                  <CurriculumGraphQL showTitle={false} />
+                </ContentItem>
+                <ContentItem name={REACT_NATIVE}>
+                  <CurriculumReactNative showTitle={false} />
                 </ContentItem>
               </TabContent>
             </Tabs>

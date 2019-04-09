@@ -59,7 +59,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </withRouter(CurriculumSection)>
       <withRouter(CurriculumSection)
         name="session5"
-        title="Session 5 - Recap React Fundamentals"
+        title="Session 5 - Recap: build a React app from scratch"
         toggleNavigateTo={[Function]}
         type="Part-time"
       >
@@ -75,7 +75,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </withRouter(CurriculumSection)>
       <withRouter(CurriculumSection)
         name="session7"
-        title="Session 7 - Introduction to Redux"
+        title="Session 7 - Redux"
         toggleNavigateTo={[Function]}
         type="Part-time"
       >
@@ -83,7 +83,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </withRouter(CurriculumSection)>
       <withRouter(CurriculumSection)
         name="session8"
-        title="Session 8 - Introduction to Testing in JS"
+        title="Session 8 - Testing Fundamentals in JS"
         toggleNavigateTo={[Function]}
         type="Part-time"
       >
@@ -91,15 +91,15 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </withRouter(CurriculumSection)>
       <withRouter(CurriculumSection)
         name="session9"
-        title="Session 9 - Advanced Patterns I"
+        title="Session 9 - Introduction to GraphQL"
         toggleNavigateTo={[Function]}
         type="Part-time"
       >
-        <HoCsAndRenderPropsSession />
+        <GraphQLIntroSession />
       </withRouter(CurriculumSection)>
       <withRouter(CurriculumSection)
         name="session10"
-        title="Session 10 - React & Redux Real-world Project"
+        title="Session 10 - React Redux/ GraphQL Real-world Project"
         toggleNavigateTo={[Function]}
         type="Part-time"
       >

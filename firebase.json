@@ -29,6 +29,16 @@
         "source": "/why-training",
         "destination": "/about-us/",
         "type": 301
+      },
+      {
+        "source": "/graphql/",
+        "destination": "/graphql-bootcamp/",
+        "type": 301
+      },
+      {
+        "source": "/graphql",
+        "destination": "/graphql-bootcamp/",
+        "type": 301
       }
     ]
   },
