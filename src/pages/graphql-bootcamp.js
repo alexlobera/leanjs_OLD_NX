@@ -56,7 +56,7 @@ const GraphQL = () => (
     />
     <TopSection>
       <Grid>
-        <CallToActionRow left>
+        {/* <CallToActionRow left>
           <Col xs={12} mdOffset={1} md={5}>
             <LinkButton
               variant="primary"
@@ -64,8 +64,8 @@ const GraphQL = () => (
               children="Interested? Contact us >>"
             />
           </Col>
-        </CallToActionRow>
-        {/* <CallToActionNextTrainings left trainings={trainings} /> */}
+        </CallToActionRow> */}
+        <CallToActionNextTrainings left trainings={trainings} />
         <Card border="shadow">
           <Link to="#upcoming-courses" name="upcoming-courses" />
           <CurriculumGraphQL enableToggle isOpen={false} />
