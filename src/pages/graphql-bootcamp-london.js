@@ -66,8 +66,6 @@ const BootcampLondon = () => {
                     currency: training.currency,
                   }}
                 />
-                <InstallmentsCard price={2160} />
-                <Newsletter />
               </Col>
               <Col xs={12} md={6} lg={4} lgOffset={1}>
                 <Video youtubeId="2-IPT7Plsfc" />
