@@ -27,12 +27,13 @@ import {
 import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
+import LeanJSsprints from '../components/elements/LeanJSsprints'
 
 const CorporateTraining = () => (
   <React.Fragment>
     <Header
       titleLines={['Corporate team training']}
-      subtitle="Learn React and GraphQL as a team with our tried and tested syllabus - wherever you are in the world!"
+      subtitle="Private team training, based in your offices anywhere in the world, based on our proven curriculum for React, Graphql and React Native."
       links={[
         { text: 'Curriculum ', to: '#curriculum' },
         { text: 'Is it right for my team?', to: '#right-for-my-team' },
@@ -56,6 +57,26 @@ const CorporateTraining = () => (
         </Card>
       </Grid>
     </TopSection>
+    <Section>
+      <Grid>
+        <Row>
+          <Col lg={6}>
+            <H2>Trusted by industry leaders</H2>
+            <TrustedByLogoList />
+          </Col>
+          <Col lg={6}>
+            <AttendeeQuote
+              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
+              fullname="Catalin Cislariu"
+              job="Senior Developer"
+              company="KLEIDO LTD"
+              profilePicUrl={CATALIN}
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+
     <Section>
       <Grid>
         <Row>
@@ -111,33 +132,12 @@ const CorporateTraining = () => (
         </Row>
       </Grid>
     </Section>
-    <Section>
+    <Section xsBgDarkGrey>
       <Grid>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <AttendeeQuote
-              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-              fullname="Catalin Cislariu"
-              job="Senior Developer"
-              company="KLEIDO LTD"
-              profilePicUrl={CATALIN}
-            />
-          </Col>
-        </Row>
+        <LeanJSsprints />
       </Grid>
     </Section>
-    <Section>
-      <Grid>
-        <Card border="shadow">
-          <Row>
-            <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
-            </Col>
-          </Row>
-        </Card>
-      </Grid>
-    </Section>
+
     <UpcomingTrainingSection />
   </React.Fragment>
 )
