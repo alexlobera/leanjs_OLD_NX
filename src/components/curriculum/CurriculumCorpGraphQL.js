@@ -1,0 +1,84 @@
+import React from 'react'
+import Link from '../navigation/Link'
+import { H2Ref } from '../text'
+import Section, { curriedToggleNavigateTo } from './CurriculumSection'
+import { Col, Row } from '../layout/Grid'
+import { LinkButton } from '../buttons'
+import SectionCTA from './SectionCTA'
+import { GRAPHQL_BOOTCAMP } from '../../config/data'
+import selectCurriculumCorpLayout, {
+  LIST_TWO_COL,
+} from './selectCurriculumCorpLayout'
+
+const CurriculumCorpGraphQL = ({
+  showTitle = true,
+  layout,
+  enableToggle,
+  isOpen,
+  toggleNavigateTo = `/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
+  marketingCard = null,
+  showLinkToCurriculum = false,
+}) => {
+  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const type = GRAPHQL_BOOTCAMP
+  const commonProps = {
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type,
+    isOpen,
+  }
+  const firstHalf = (
+    <React.Fragment>
+      <Section
+        {...commonProps}
+        title="Day 1 - GraphQL API Fundamentals"
+        name="day1"
+        subTitle="Nodejs and GraphQL fundamentals"
+      />
+      <Section
+        {...commonProps}
+        title="Day 2 - Advanced GraphQL API"
+        name="day2"
+        subTitle="Implement a GraphQL API, Advanced Schema, Performance"
+      />
+      <Section
+        {...commonProps}
+        title="Day 3 - Real-world GraphQL API"
+        name="day3"
+        subTitle="Data sources and GraphQL in production considerations"
+      />
+      <Section
+        {...commonProps}
+        title="Day 4 - Production-ready GraphQL & React"
+        name="day4"
+        subTitle="Testing GraphQL, replacing redux with GraphQL and production tooling"
+      />
+      {marketingCard}
+    </React.Fragment>
+  )
+  const secondHalf = (
+    <React.Fragment>
+      <Section
+        {...commonProps}
+        title="GraphQL & React"
+        name="day5"
+        subTitle="Apollo Client, Advanced Queries and mutations"
+      />
+    </React.Fragment>
+  )
+
+  return (
+    <React.Fragment>
+      {showTitle ? (
+        <Row>
+          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1} />
+        </Row>
+      ) : (
+        ''
+      )}
+      {selectCurriculumCorpLayout({ firstHalf, secondHalf, layout, type })}
+    </React.Fragment>
+  )
+}
+
+export default CurriculumCorpGraphQL

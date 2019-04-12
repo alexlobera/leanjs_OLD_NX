@@ -13,6 +13,7 @@ import Header from '../components/layout/Header'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Card, Image, Video } from '../components/elements'
 import { CurriculumCorpTraining } from '../components/curriculum'
+import CorporateTechSelector from '../components/curriculum/CorporateTechSelector'
 
 import { CATALIN } from '../config/images'
 import {
@@ -31,7 +32,7 @@ const CorporateTraining = () => (
   <React.Fragment>
     <Header
       titleLines={['Corporate team training']}
-      subtitle="If you're looking for the most up-to-date React training for your team without</br>having to leave your office, then our corporate team training is for you..."
+      subtitle="Learn React and GraphQL as a team with our tried and tested syllabus - wherever you are in the world!"
       links={[
         { text: 'Curriculum ', to: '#curriculum' },
         { text: 'Is it right for my team?', to: '#right-for-my-team' },
@@ -45,13 +46,13 @@ const CorporateTraining = () => (
             <LinkButton
               variant="primary"
               to="#contact-us"
-              children="Contact us to find out more >>"
+              children="Team Training - Key Facts (PDF)"
             />
           </Col>
         </CallToActionRow>
 
         <Card border="shadow">
-          <CurriculumCorpTraining />
+          <CorporateTechSelector />
         </Card>
       </Grid>
     </TopSection>
