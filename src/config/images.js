@@ -90,6 +90,8 @@ export const DAVIAN =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/DavianRobinson.png?alt=media'
 export const POLINA =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/polinaStoyanova.png?alt=media'
+export const EBER =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/quote_images%2Feber_herrera.png?alt=media'
 
 // Code of conduct
 export const CODE_OF_CONDUCT_SPLASH =

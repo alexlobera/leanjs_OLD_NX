@@ -8,10 +8,13 @@ import { SCREEN_SM_MIN, SCREEN_MD_MIN, SCREEN_SM_MAX } from '../utils'
 const Card = styled.div`
   background-color: ${reactBlue()};
   display: flex;
+  padding-top: ${props => (props.small ? '1rem' : null)};
+  border-radius: ${props => (props.small ? '1rem!important' : null)};
   @media (min-width: ${SCREEN_MD_MIN}) {
     border-top-right-radius: 160px;
     border-bottom-right-radius: 160px;
   }
+  flex-direction: ${props => (props.small ? 'column-reverse' : null)};
   @media (max-width: ${SCREEN_SM_MAX}) {
     flex-direction: column-reverse;
   }
@@ -30,7 +33,7 @@ const Text = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;

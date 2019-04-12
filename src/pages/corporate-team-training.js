@@ -15,7 +15,7 @@ import { Card, Image, Video } from '../components/elements'
 import { CurriculumCorpTraining } from '../components/curriculum'
 import CorporateTechSelector from '../components/curriculum/CorporateTechSelector'
 
-import { CATALIN } from '../config/images'
+import { EBER } from '../config/images'
 import {
   BussinessIcon,
   CollabsIcon,
@@ -66,11 +66,12 @@ const CorporateTraining = () => (
           </Col>
           <Col lg={6}>
             <AttendeeQuote
-              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-              fullname="Catalin Cislariu"
-              job="Senior Developer"
-              company="KLEIDO LTD"
-              profilePicUrl={CATALIN}
+              small
+              quote="If you asked me if I would put my team in for this sort of training instead of a conference, I would say yes. I think it’s way deeper, you learn a lot more and, in the end, your team gets back way more rewarded."
+              fullname="Eber Herrera"
+              job="Technical Director"
+              company="Xing"
+              profilePicUrl={EBER}
             />
           </Col>
         </Row>
