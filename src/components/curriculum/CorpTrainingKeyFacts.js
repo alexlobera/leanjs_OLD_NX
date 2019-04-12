@@ -6,17 +6,17 @@ import { LinkButton } from '../buttons'
 
 const StyledCorpTrainingFacts = styled.div`
   h3 {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 `
 
 const CorpTrainingFacts = () => (
   <StyledCorpTrainingFacts>
+    <a name="dev-level" />
     <H3>Level expertise across your team</H3>
     <P>
       If you're looking to change your tech stack, avoiding risk is key. So
-      knowing developers are on the same level of expertise can really help with
-      forward planning.
+      knowing developers are on the same skill level can really help.
     </P>
     <P>
       Aimed at developers with{' '}
@@ -26,8 +26,11 @@ const CorpTrainingFacts = () => (
     <H3>How tailored is training?</H3>
     <P>
       As any training progresses and we discover issues your developers have, we
-      quickly adapt our learning methods to ensure meaningful learning.
+      quickly adapt our learning methods to ensure meaningful learning. If you
+      want to learn using <strong>your</strong> codebase{' '}
+      <Link to="#custom-training">click here.</Link>
     </P>
+    <a name="pricing" />
     <H3>Pricing, locations, scheduling </H3>
     <P>
       We have run private trainings worldwide and work around your schedule.

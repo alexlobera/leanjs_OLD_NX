@@ -35,8 +35,12 @@ const CorporateTraining = () => (
       titleLines={['Corporate team training']}
       subtitle="Private team training, based in your offices anywhere in the world, based on our proven curriculum for React, Graphql and React Native."
       links={[
-        { text: 'Curriculum ', to: '#curriculum' },
-        { text: 'Is it right for my team?', to: '#right-for-my-team' },
+        { text: 'Training schedule', to: '#schedule' },
+        { text: 'Developer level', to: '#dev-level' },
+        { text: 'Pricing', to: '#pricing' },
+        { text: 'Previous clients', to: '#previous-clients' },
+        { text: 'Benefits to you', to: '#right-for-my-team' },
+        { text: 'Custom training', to: '#custom-training' },
       ]}
       bgImg="corp-training"
     />
@@ -51,7 +55,7 @@ const CorporateTraining = () => (
             />
           </Col>
         </CallToActionRow>
-
+        <a name="schedule" />
         <Card border="shadow">
           <CorporateTechSelector />
         </Card>
@@ -60,6 +64,7 @@ const CorporateTraining = () => (
     <Section>
       <Grid>
         <Row>
+          <a name="previous-clients" />
           <Col lg={6}>
             <H2>Trusted by industry leaders</H2>
             <TrustedByLogoList />
@@ -81,6 +86,7 @@ const CorporateTraining = () => (
     <Section>
       <Grid>
         <Row>
+          <a name="right-for-my-team" />
           <Col md={5}>
             <Video
               youtubeId="o6YwbHGfPOo"
@@ -95,10 +101,7 @@ const CorporateTraining = () => (
             />
           </Col>
           <Col md={5} mdOffset={1}>
-            <H2>
-              <a name="right-for-my-team" />
-              Why ReactJS Academy is great for your dev team
-            </H2>
+            <H2>Why ReactJS Academy is great for your dev team</H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={BussinessIcon} />
@@ -135,6 +138,7 @@ const CorporateTraining = () => (
     </Section>
     <Section xsBgDarkGrey>
       <Grid>
+        <a name="custom-training" />
         <LeanJSsprints />
       </Grid>
     </Section>
