@@ -21,7 +21,7 @@ import {
 import Header from '../../components/layout/Header'
 import { CATALIN } from '../../config/images'
 import header from '../../components/layout/Header.json'
-import { InstallmentsCard, PaymentSection } from '../../components/payment'
+import { PaymentSection } from '../../components/payment'
 import { Breadcrumb } from '../../components/navigation'
 import { PART_TIME, LONDON } from '../../config/data'
 import { LIST_TWO_COL } from '../../components/curriculum'
@@ -33,7 +33,13 @@ const BootcampLondon = ({ trainings }) => {
     city: LONDON,
   })
   const training =
-    selectNthTraining({ trainings: partTimeTrainings, nth: 2 }) || {}
+    selectNthTraining({ trainings: partTimeTrainings, nth: 3 }) || {}
+  console.log('training', training)
+
+  const priceGoesUpOn =
+    training.upcomingAutomaticDiscounts.edges &&
+    training.upcomingAutomaticDiscounts.edges[0].node.expiresAt
+
   return (
     <React.Fragment>
       <Breadcrumb
@@ -61,7 +67,7 @@ const BootcampLondon = ({ trainings }) => {
                     trainingInstanceId: training.id,
                     price: training.price,
                     discountPrice: training.discountPrice,
-                    priceGoesUpOn: training.priceGoesUpOn,
+                    priceGoesUpOn: priceGoesUpOn,
                     currency: training.currency,
                   }}
                 />
