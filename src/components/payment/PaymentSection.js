@@ -102,14 +102,35 @@ class PaymentSection extends React.Component {
 
   render() {
     const { paymentApi, data = {} } = this.props
-    console.log('data', this.props.data)
     const {
       trainingInstanceId,
       price,
-      discountPrice,
       currency = 'gbp',
-      priceGoesUpOn,
+      upcomingAutomaticDiscounts = [],
     } = data
+    // It seems that data is returned date sorted, is that 100%?
+
+    const discounts = upcomingAutomaticDiscounts.length
+      ? upcomingAutomaticDiscounts
+      : []
+    const priceGoesUpOn = discounts[0] && new Date(discounts[0].node.expiresAt)
+
+    const currentAutoDiscount = discounts[0] && discounts[0].node
+    const discountPercentage =
+      currentAutoDiscount && currentAutoDiscount.discountPercentage
+    const discountAmount =
+      currentAutoDiscount && currentAutoDiscount.discountAmount
+
+    // Calc discount price based on discountPercentage passing value or null
+    const discountPrice = discountPercentage
+      ? price - price * (discountPercentage / 100)
+      : price - discountAmount
+
+    console.log('discounts', discounts)
+    console.log('appliedDiscount', currentAutoDiscount)
+    console.log('price', price)
+    console.log('discountPrice', discountPrice)
+
     const {
       quantity,
       vatRate,
