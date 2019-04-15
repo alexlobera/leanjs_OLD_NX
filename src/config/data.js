@@ -108,7 +108,7 @@ const upcomingPartTimes = [
 const upcomingBootCamps = [
   {
     dates: '24-30 July, 2019',
-    dateStartsOn: new Date('2019-06-24T18:00:00'),
+    dateStartsOn: new Date('2019-07-24T18:00:00'),
     city: LONDON,
     country: 'UK',
     type: GRAPHQL_BOOTCAMP,
