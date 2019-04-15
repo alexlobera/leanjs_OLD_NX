@@ -33,6 +33,10 @@ const BootcampLondon = ({ trainings }) => {
     city: LONDON,
   })
   const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
+  const upcomingAutomaticDiscounts =
+    (training.upcomingAutomaticDiscounts &&
+      training.upcomingAutomaticDiscounts.edges) ||
+    []
   return (
     <React.Fragment>
       <Breadcrumb
@@ -59,8 +63,7 @@ const BootcampLondon = ({ trainings }) => {
                   data={{
                     trainingInstanceId: training.id,
                     price: training.price,
-                    discountPrice: training.discountPrice,
-                    priceGoesUpOn: training.priceGoesUpOn,
+                    upcomingAutomaticDiscounts: upcomingAutomaticDiscounts,
                     currency: training.currency,
                   }}
                 />
