@@ -4,11 +4,6 @@ import { H2Ref, P, H4 } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
 import {
-  CurriculumBootcamp,
-  CurriculumPartTime,
-  CurriculumReactNative,
-  CurriculumAdvancedReact,
-  CurriculumGraphQL,
   CurriculumCorpReact,
   CurriculumCorpRNative,
   CurriculumCorpGraphQL,
@@ -16,10 +11,7 @@ import {
 import {
   REACT_NATIVE,
   REACT_BOOTCAMP,
-  PART_TIME,
-  ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
-  REACT_CORPORATE,
 } from '../../config/data'
 
 class CorporateTechSelector extends React.Component {
@@ -60,13 +52,13 @@ class CorporateTechSelector extends React.Component {
 
               <TabContent>
                 <ContentItem name={REACT_BOOTCAMP}>
-                  <CurriculumCorpReact showTitle={true} />
+                  <CurriculumCorpReact enableToggle={false} showTitle={true} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
-                  <CurriculumCorpGraphQL showTitle={false} />
+                  <CurriculumCorpGraphQL showTitle={true} />
                 </ContentItem>
                 <ContentItem name={REACT_NATIVE}>
-                  <CurriculumCorpRNative showTitle={false} />
+                  <CurriculumCorpRNative showTitle={true} />
                 </ContentItem>
               </TabContent>
             </Tabs>

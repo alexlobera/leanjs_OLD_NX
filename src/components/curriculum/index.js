@@ -6,6 +6,8 @@ import MarketingCard from './MarketingCard'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 import Curriculum1DayAdvancedReactRedux from './Curriculum1DayAdvancedReactRedux'
 import CurriculumCorpReact from './CurriculumCorpReact'
+import CurriculumCorpGrapQL from './CurriculumCorpGraphQL'
+import CurriculumCorpRNative from './CurriculumCorpRNative'
 import CurriculumGraphQL from './CurriculumGraphQL'
 
 export {
@@ -16,6 +18,8 @@ export {
   MarketingCard,
   CurriculumAdvancedReact,
   Curriculum1DayAdvancedReactRedux,
-  CurriculumCorpReact,
   CurriculumGraphQL,
+  CurriculumCorpReact,
+  CurriculumCorpGrapQL,
+  CurriculumCorpRNative,
 }

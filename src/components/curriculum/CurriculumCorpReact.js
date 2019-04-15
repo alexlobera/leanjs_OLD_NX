@@ -22,6 +22,7 @@ const CurriculumCorpReact = ({
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
   const commonProps = {
+    showLinkToCurriculum,
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type,
