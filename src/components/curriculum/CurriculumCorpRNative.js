@@ -59,7 +59,7 @@ const CurriculumCorpRNative = ({
       ) : (
         ''
       )}
-      {selectCurriculumCorpLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumCorpLayout({ firstHalf, layout, type })}
     </React.Fragment>
   )
 }

@@ -6,7 +6,7 @@ import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
 import {
   CurriculumCorpReact,
   CurriculumCorpRNative,
-  CurriculumCorpGraphQL,
+  CurriculumCorpGrapQL,
 } from './index'
 import {
   REACT_NATIVE,
@@ -55,7 +55,7 @@ class CorporateTechSelector extends React.Component {
                   <CurriculumCorpReact enableToggle={false} showTitle={true} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
-                  <CurriculumCorpGraphQL showTitle={true} />
+                  <CurriculumCorpGrapQL showTitle={true} />
                 </ContentItem>
                 <ContentItem name={REACT_NATIVE}>
                   <CurriculumCorpRNative showTitle={true} />

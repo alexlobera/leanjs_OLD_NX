@@ -12,7 +12,7 @@ export const LIST_TWO_COL = 'listTwoCol'
 
 const selectCurriculumCorpLayout = ({
   firstHalf,
-  secondHalf = [],
+  secondHalf,
   layout,
   type = '',
 }) => {
