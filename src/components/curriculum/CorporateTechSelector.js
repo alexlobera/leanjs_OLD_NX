@@ -52,13 +52,13 @@ class CorporateTechSelector extends React.Component {
 
               <TabContent>
                 <ContentItem name={REACT_BOOTCAMP}>
-                  <CurriculumCorpReact enableToggle={false} showTitle={true} />
+                  <CurriculumCorpReact enableToggle={false} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
-                  <CurriculumCorpGrapQL showTitle={true} />
+                  <CurriculumCorpGrapQL enableToggle={false} />
                 </ContentItem>
                 <ContentItem name={REACT_NATIVE}>
-                  <CurriculumCorpRNative showTitle={true} />
+                  <CurriculumCorpRNative enableToggle={false} />
                 </ContentItem>
               </TabContent>
             </Tabs>
