@@ -28,7 +28,7 @@ const CorporateTraining = () => (
   <React.Fragment>
     <Header
       titleLines={['Corporate team training']}
-      subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React, Graphql and React Native."
+      subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
       links={[
         { text: 'Training schedule', to: '#schedule' },
         { text: 'Developer level', to: '#dev-level' },

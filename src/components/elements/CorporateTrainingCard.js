@@ -17,7 +17,7 @@ const CorporateTrainingCard = () => (
     <H3>Corporate Team Training</H3>
     <P>
       Private team training, located in your offices anywhere in the world,
-      based on our proven curriculum for React and Graphql{' '}
+      based on our proven curriculum for React and GraphQL{' '}
     </P>
     <LinkButton secondary to="/corporate-team-training/">
       Corporate Team Training

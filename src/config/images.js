@@ -33,7 +33,7 @@ export const PART_TIME =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/partTime_rightForMe.jpg?alt=media'
 
 export const CODEVELOP =
-  'https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/paul_postits.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/alex_leanJS.jpg?alt=media'
 
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.jpg?alt=media'

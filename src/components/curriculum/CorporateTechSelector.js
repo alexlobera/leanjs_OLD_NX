@@ -48,7 +48,6 @@ class CorporateTechSelector extends React.Component {
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React - 5 Days</TabItem>
                 <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL - 5 Days</TabItem>
-                <TabItem name={REACT_NATIVE}>React Native - 3 Days</TabItem>
               </TabList>
 
               <TabContent>
@@ -57,9 +56,6 @@ class CorporateTechSelector extends React.Component {
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
                   <CurriculumCorpGrapQL showTitle={true} />
-                </ContentItem>
-                <ContentItem name={REACT_NATIVE}>
-                  <CurriculumCorpRNative showTitle={true} />
                 </ContentItem>
               </TabContent>
             </Tabs>
