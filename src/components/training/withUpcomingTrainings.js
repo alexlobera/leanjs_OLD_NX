@@ -88,10 +88,8 @@ const withUpcomingTrainings = ({
             city,
             limit,
           })}
-          trainingStatus={{
-            loading,
-            error,
-          }}
+          trainingLoading={loading}
+          trainingError={error}
         />
       )
     }}

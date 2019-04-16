@@ -26,19 +26,13 @@ import { Breadcrumb } from '../../components/navigation'
 import { PART_TIME, LONDON } from '../../config/data'
 import { LIST_TWO_COL } from '../../components/curriculum'
 
-const BootcampLondon = ({ trainings, trainingStatus }) => {
+const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
   const partTimeTrainings = selectUpcomingTrainings({
     trainings,
     type: PART_TIME,
     city: LONDON,
   })
-  const training =
-    selectNthTraining({ trainings: partTimeTrainings, nth: 3 }) || {}
-
-  // const upcomingAutomaticDiscounts =
-  //   (training.upcomingAutomaticDiscounts &&
-  //     training.upcomingAutomaticDiscounts.edges) ||
-  //   []
+  const training = selectNthTraining({ trainings: partTimeTrainings, nth: 3 })
 
   return (
     <React.Fragment>
@@ -56,6 +50,7 @@ const BootcampLondon = ({ trainings, trainingStatus }) => {
         bgImg="part-time"
         type={PART_TIME}
         training={training}
+        showInfoBox={true}
       />
       <TopSection top xsBgDark>
         <Grid>
@@ -63,12 +58,9 @@ const BootcampLondon = ({ trainings, trainingStatus }) => {
             <Row>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
-                  training={{
-                    trainingInstanceId: training.id,
-                    price: training.price,
-                    currency: training.currency,
-                  }}
-                  trainingStatus={trainingStatus}
+                  training={training}
+                  trainingError={trainingError}
+                  trainingLoading={trainingLoading}
                 />
               </Col>
               <Col xs={12} md={6} lg={4} lgOffset={1}>

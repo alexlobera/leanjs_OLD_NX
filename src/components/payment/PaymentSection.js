@@ -110,31 +110,30 @@ class PaymentSection extends React.Component {
   render() {
     const {
       paymentApi,
-      trainingStatus,
+      trainingError,
+      trainingLoading,
       training = {},
-      data: autoVoucherData,
+      data: autoVoucherData = {},
     } = this.props
-    // const { trainingInstanceId, price, currency = 'gbp' } = trainingData
-    let trainingInstanceId, price, currency, title, priceGoesUpOn, discountPrice
+    let trainingInstanceId,
+      price = 0,
+      currency,
+      title,
+      priceGoesUpOn,
+      discountPrice
 
-    if (trainingStatus.error) {
-      // do something
-    } else if (trainingStatus.loading) {
+    if (trainingError || autoVoucherData.error) {
+      title = 'There was an error'
+    } else if (trainingLoading || autoVoucherData.loading) {
       title = 'Loading ...'
+    } else if (!training || !training.id) {
+      title = 'There is no training scheduled'
     } else {
-      // I got data!
+      title = 'Regular ticket'
       trainingInstanceId = training.id
       price = training.price
       currency = training.currency || 'gbp'
-    }
 
-    const { trainingInstanceId, price, currency = 'gbp' } = training
-
-    if (autoVoucherData.error) {
-      // do something
-    } else if (autoVoucherData.loading) {
-      title = 'Loading ...'
-    } else {
       const discount =
         autoVoucherData.trainingInstance &&
         autoVoucherData.trainingInstance.upcomingAutomaticDiscounts &&
@@ -144,6 +143,7 @@ class PaymentSection extends React.Component {
           .node
 
       if (discount) {
+        title = 'Discount ticket'
         const { expiresAt, discountAmount, discountPercentage } = discount
         priceGoesUpOn = new Date(expiresAt)
         discountPrice = discountPercentage
@@ -151,11 +151,6 @@ class PaymentSection extends React.Component {
           : price - discountAmount
       }
     }
-
-    console.log('discounts', discounts)
-    console.log('appliedDiscount', currentAutoDiscount)
-    console.log('price', price)
-    console.log('discountPrice', discountPrice)
 
     const {
       quantity,
@@ -175,47 +170,40 @@ class PaymentSection extends React.Component {
 
     return (
       <React.Fragment>
-        {price ? (
-          <React.Fragment>
-            <H2Ref>
-              Prices{' '}
-              <Link to="#pricing" name="pricing">
-                #
-              </Link>
-            </H2Ref>
-            <P>
-              Please be aware that the ticket only covers the cost of the
-              training, it does not include travel expenses.
-            </P>
-            <Card small style={{ position: 'relative' }}>
-              <H3>
-                <strong>
-                  {/* {discountPrice ? 'Discount ticket' : 'Regular ticket'} */}
-                  {title}
-                </strong>
-              </H3>
-              {discountPrice ? (
-                <Ribbon>
-                  Save{' '}
-                  {formatPrice(
-                    currency,
-                    priceXQuantity - currentPriceXQuantity,
-                    vatRate
-                  )}
-                </Ribbon>
-              ) : (
-                ''
-              )}
-              {priceGoesUpOn > Date.now() ? (
-                <React.Fragment>
-                  <P>HURRY! This price is only available for...</P>
-                  <P>
-                    <Countdown date={priceGoesUpOn} />
-                  </P>
-                </React.Fragment>
-              ) : (
-                ''
-              )}
+        <React.Fragment>
+          <H2Ref>
+            Prices{' '}
+            <Link to="#pricing" name="pricing">
+              #
+            </Link>
+          </H2Ref>
+          <P>
+            Please be aware that the ticket only covers the cost of the
+            training, it does not include travel expenses.
+          </P>
+          <Card small style={{ position: 'relative' }}>
+            <H3>
+              <strong>{title}</strong>
+            </H3>
+            {discountPrice ? (
+              <Ribbon>
+                Save{' '}
+                {formatPrice(
+                  currency,
+                  priceXQuantity - currentPriceXQuantity,
+                  vatRate
+                )}
+              </Ribbon>
+            ) : null}
+            {priceGoesUpOn > Date.now() ? (
+              <React.Fragment>
+                <P>HURRY! This price is only available for...</P>
+                <P>
+                  <Countdown date={priceGoesUpOn} />
+                </P>
+              </React.Fragment>
+            ) : null}
+            {parseInt(price, 10) > 0 && (
               <Checkout
                 trainingInstanceId={trainingInstanceId}
                 vatRate={vatRate}
@@ -235,9 +223,9 @@ class PaymentSection extends React.Component {
                 isVoucherValidationInProgress={isVoucherValidationInProgress}
                 paymentApi={paymentApi}
               />
-            </Card>
-          </React.Fragment>
-        ) : null}
+            )}
+          </Card>
+        </React.Fragment>
         <Card small bg="dark" top={20}>
           <ContactForm simplified />
         </Card>
@@ -251,18 +239,24 @@ PaymentSection.defaultProps = {
 }
 
 PaymentSection.propTypes = {
-  data: PropTypes.shape({
-    trainingInstanceId: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    discountPrice: PropTypes.number,
-    priceGoesUpOn: PropTypes.object,
-    currency: PropTypes.string,
-    paymentApi: PropTypes.object,
-  }),
+  // TODO RICHARD THIS IS A PRESENT FROM ALEX :-P
+  // data: PropTypes.shape({
+  //   trainingInstanceId: PropTypes.string.isRequired,
+  //   price: PropTypes.number.isRequired,
+  //   discountPrice: PropTypes.number,
+  //   priceGoesUpOn: PropTypes.object,
+  //   currency: PropTypes.string,
+  //   paymentApi: PropTypes.object,
+  // }),
   paymentApi: PropTypes.object,
 }
 
-const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY)
+const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {
+  options: ({ training }) => ({
+    variables: { trainingInstanceId: training.id },
+  }),
+  skip: ({ training }) => !training || !training.id,
+})
 
 export default compose(
   withUpcomingVouchers,

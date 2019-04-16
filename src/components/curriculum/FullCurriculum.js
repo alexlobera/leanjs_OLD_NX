@@ -72,10 +72,10 @@ class FullCurriculum extends React.Component {
                   <CurriculumPartTime {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
-                  <CurriculumGraphQL showTitle={false} />
+                  <CurriculumGraphQL {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={REACT_NATIVE}>
-                  <CurriculumReactNative showTitle={false} />
+                  <CurriculumReactNative {...commonCurriculumProps} />
                 </ContentItem>
               </TabContent>
             </Tabs>
