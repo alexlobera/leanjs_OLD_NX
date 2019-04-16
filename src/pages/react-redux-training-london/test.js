@@ -63,10 +63,9 @@ const BootcampLondon = ({ trainings }) => {
             <Row>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
-                  data={{
+                  trainingData={{
                     trainingInstanceId: training.id,
                     price: training.price,
-                    upcomingAutomaticDiscounts: upcomingAutomaticDiscounts,
                     currency: training.currency,
                   }}
                 />
@@ -123,19 +122,5 @@ const BootcampLondon = ({ trainings }) => {
     </React.Fragment>
   )
 }
-
-const DISCOUNTS_QUERY = gql`
-  query upcomingAutomaticDiscounts {
-    edges {
-      node {
-        code
-        id
-        discountPercentage
-        startsAt
-        expiresAt
-      }
-    }
-  }
-`
 
 export default withUpcomingTrainings()(BootcampLondon)

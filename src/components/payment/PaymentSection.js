@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
 
+import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
 import ContactForm from '../../components/form/Contact'
 import { H2Ref, H3, P } from '../text'
 import { Ribbon, Card } from '../elements'
@@ -101,13 +103,8 @@ class PaymentSection extends React.Component {
   }
 
   render() {
-    const { paymentApi, data = {} } = this.props
-    const {
-      trainingInstanceId,
-      price,
-      currency = 'gbp',
-      upcomingAutomaticDiscounts = [],
-    } = data
+    const { paymentApi, trainingData = {}, data: voucherData } = this.props
+    const { trainingInstanceId, price, currency = 'gbp' } = trainingData
     // It seems that data is returned date sorted, is that 100%?
 
     const discounts = upcomingAutomaticDiscounts.length
@@ -235,4 +232,9 @@ PaymentSection.propTypes = {
   paymentApi: PropTypes.object,
 }
 
-export default withApollo(PaymentSection)
+const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY)
+
+export default compose(
+  withUpcomingVouchers,
+  withApollo
+)(PaymentSection)
