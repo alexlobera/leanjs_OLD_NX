@@ -290,7 +290,7 @@ class Curriculum extends React.Component {
                   </Table>
                   <MarketingCard
                     heading="Looking for training for your whole team?"
-                    text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React, Graphql and React Native."
+                    text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and Graphql."
                     to="/corporate-team-training/"
                     buttonText="Corporate Team Training"
                   />

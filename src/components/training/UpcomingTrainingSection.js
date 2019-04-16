@@ -8,6 +8,8 @@ import Link from '../navigation/Link'
 
 import { selectTrainings } from '../../config/data'
 import Newsletter from '../elements/Newsletter'
+import { MarketingCard } from '../curriculum'
+import CorporateTrainingCard from '../elements/CorporateTrainingCard'
 
 const UpcomingTrainings = ({ curriculum, type }) => {
   const trainings = selectTrainings(type)
@@ -45,6 +47,11 @@ const UpcomingTrainingSection = ({ curriculum, type }) => (
         <Row>
           <Col md={10}>
             <Newsletter />
+          </Col>
+        </Row>
+        <Row>
+          <Col md={10}>
+            <CorporateTrainingCard />
           </Col>
         </Row>
       </React.Fragment>
