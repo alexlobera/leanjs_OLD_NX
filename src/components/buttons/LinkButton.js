@@ -45,6 +45,7 @@ const StyledLinkButton = styled(Link)`
     display: flex
     justify-content: space-evenly;
     align-items: center;
+    margin-top: ${props => (props.margin ? '2rem!important' : null)} 
     `}
 `
 

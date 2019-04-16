@@ -4,6 +4,7 @@ import { Blockquote } from '../text'
 import { Image } from '../elements'
 import { reactBlue, GREY2, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_MD_MIN, SCREEN_SM_MAX } from '../utils'
+import { Button, LinkButton } from '../buttons'
 
 const Card = styled.div`
   background-color: ${reactBlue()};
@@ -17,6 +18,9 @@ const Card = styled.div`
   flex-direction: ${props => (props.small ? 'column-reverse' : null)};
   @media (max-width: ${SCREEN_SM_MAX}) {
     flex-direction: column-reverse;
+  }
+  a {
+    margin-top: 1rem;
   }
 `
 
@@ -63,6 +67,8 @@ const AttendeeQuote = ({
   company,
   job,
   profilePicUrl,
+  ctaButton,
+  ctaUrl = '/#',
   ...props
 }) => (
   <Card {...props}>
@@ -70,11 +76,15 @@ const AttendeeQuote = ({
       <StyledBlockquote>
         {quote || 'This is a quote from a trainee.'}
       </StyledBlockquote>
+
       <Profile>
         <strong>
           {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'Freelance'}{' '}
         </strong>
       </Profile>
+      {ctaButton && (
+        <LinkButton to={ctaUrl}>{ctaButton || 'Click here'}</LinkButton>
+      )}
     </Text>
     <Picture src={profilePicUrl} alt={fullname || 'Joe Bloggs'} />
   </Card>

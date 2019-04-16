@@ -105,7 +105,7 @@ const Boocamps = () => (
                   Next one:{' '}
                   {`${moment(nextTraining.dateStartsOn).format('D MMM')}, ${
                     nextTraining.city
-                  } >>`}
+                  } `}
                 </LinkButton>
               </P>
             ) : null}

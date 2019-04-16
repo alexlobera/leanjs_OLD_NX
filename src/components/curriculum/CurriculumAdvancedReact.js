@@ -74,7 +74,7 @@ const CurriculumAdvancedReact = ({
       {showLinkToCurriculum && (
         <SectionCTA>
           <LinkButton secondary to={`/curriculum?tab=${ADVANCED_REACT}`}>
-            Full curriculum>>
+            Full curriculum
           </LinkButton>
         </SectionCTA>
       )}

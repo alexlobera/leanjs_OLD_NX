@@ -1,10 +1,8 @@
 import React from 'react'
-import Link from '../navigation/Link'
-import { H2Ref } from '../text'
+import styled from 'styled-components'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumCorpLayout, {
   LIST_TWO_COL,
@@ -65,6 +63,7 @@ const CurriculumCorpReact = ({
         name="day5"
         subTitle="Advanced React patterns I, and GraphQL"
       />
+      <LinkButton margin to="#contact-us" children="Contact Us" />
     </React.Fragment>
   )
 

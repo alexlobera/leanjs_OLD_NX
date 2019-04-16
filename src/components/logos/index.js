@@ -12,6 +12,7 @@ import Tesco from './Tesco'
 import Trainline from './Trainline'
 import LeanJS from './LeanJS'
 import TradeLedger from './TradeLedger'
+import Xing from './Xing'
 
 export {
   ASOS,
@@ -28,4 +29,5 @@ export {
   Trainline,
   LeanJS,
   TradeLedger,
+  Xing,
 }

@@ -109,7 +109,7 @@ const ReactNativeBoocamp = () => (
             </Ul>
             {/* <P>
               <LinkButton variant="primary" to="/react-native-bootcamp-london">
-                Next React Native: 17th Sept, London >>
+                Next React Native: 17th Sept, London 
               </LinkButton>
             </P>
             */}

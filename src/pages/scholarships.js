@@ -122,7 +122,7 @@ const scholarships = () => (
                   <H4>Companies currently offering scholarships</H4>
                   <P>London courses only: </P>
                   <LinkButton secondary to="https://tradeledger.io/contact/">
-                    Trade Ledger >>
+                    Trade Ledger
                   </LinkButton>
                 </Col>
                 <Col md={1} />
@@ -168,7 +168,7 @@ const scholarships = () => (
                     for more details.
                   </P>
                   <LinkButton secondary to="#contact-us">
-                    Contact us >>
+                    Contact us
                   </LinkButton>
                 </Col>
                 <Col md={1} />

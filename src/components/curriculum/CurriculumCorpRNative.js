@@ -22,6 +22,7 @@ const CurriculumCorpRNative = ({
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_NATIVE
   const commonProps = {
+    showLinkToCurriculum,
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type,

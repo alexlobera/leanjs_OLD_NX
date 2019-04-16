@@ -15,6 +15,7 @@ import {
   SainBurys,
   Tesco,
   Telegraph,
+  Xing,
 } from '../logos'
 import { GREY, REACT_BLUE_DARK } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
@@ -45,20 +46,18 @@ export const TrustedByLogoList = () => (
       <ASOS colour={REACT_BLUE_DARK} height={35} />
     </Li>
     <Li>
-      <Blockchain colour={REACT_BLUE_DARK} height={30} />
-    </Li>
-    <Li>
       <Capgemini
         colour={REACT_BLUE_DARK}
         secColour={REACT_BLUE_DARK}
         height={47}
       />
     </Li>
-    <Li>
-      <JohnLewis colour={REACT_BLUE_DARK} height={35} />
-    </Li>
+
     <Li>
       <FinancialTimes colour={REACT_BLUE_DARK} height={30} />
+    </Li>
+    <Li>
+      <JohnLewis colour={REACT_BLUE_DARK} height={35} />
     </Li>
     <Li>
       <SainBurys colour={REACT_BLUE_DARK} height={35} />
@@ -76,6 +75,9 @@ export const TrustedByLogoList = () => (
     </Li>
     <Li>
       <Trainline colour={REACT_BLUE_DARK} height={48} y={5} />
+    </Li>
+    <Li>
+      <Xing colour={REACT_BLUE_DARK} height={48} y={20} />
     </Li>
   </CompanyList>
 )

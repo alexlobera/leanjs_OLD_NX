@@ -464,7 +464,7 @@ class CheckoutForm extends React.Component {
                     onClick={this.onSubmitClicked}
                     disabled={submitting || isPaymentInProgress}
                   >
-                    Buy now >>
+                    Buy now
                   </SubmitPaymentFormButton>
                 </RowBuy>
               </form>

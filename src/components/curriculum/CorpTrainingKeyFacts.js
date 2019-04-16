@@ -19,8 +19,7 @@ const CorpTrainingFacts = () => (
       knowing developers are on the same skill level can really help.
     </P>
     <P>
-      Aimed at developers with{' '}
-      <strong>at least 1 year's experience with JavaScript</strong> , our
+      Great for <strong>experienced developers who know JavaScript</strong>, our
       training is a deep dive into React, GraphQL or React Native.
     </P>
     <H3>How tailored is training?</H3>

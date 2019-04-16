@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Element, scroller } from 'react-scroll'
 import moment from 'moment'
 import { Table, Thead, Tbody, Tr, Th, Td } from '../components/table'
@@ -44,6 +45,8 @@ import { LIST_LAYOUT } from '../components/curriculum/selectCurriculumLayout'
 const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
 const trainingPartTime = selectFirstTraining(PART_TIME)
 const trainingAdvanced = selectFirstTraining(ADVANCED_REACT)
+
+const CorporateTrainingLink = styled.div``
 
 class Curriculum extends React.Component {
   state = {
@@ -95,6 +98,7 @@ class Curriculum extends React.Component {
                       #
                     </Link>
                   </H2Ref>
+
                   <H3>With all courses you will:</H3>
                   <Ul>
                     <Li>Build production ready React applications</Li>
@@ -284,6 +288,12 @@ class Curriculum extends React.Component {
                       </Tr>
                     </Tbody>
                   </Table>
+                  <MarketingCard
+                    heading="Looking for training for your whole team?"
+                    text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React, Graphql and React Native."
+                    to="/corporate-team-training/"
+                    buttonText="Corporate Team Training"
+                  />
                 </Col>
               </Row>
             </Card>
@@ -352,13 +362,14 @@ class Curriculum extends React.Component {
                             layout={LIST_LAYOUT}
                             marketingCard={
                               <MarketingCard
-                                text={`Next React Bootcamp starts on ${moment(
-                                  trainingBootcamp.dateStartsOn
-                                ).format('D MMM, YYYY')} in ${
-                                  trainingBootcamp.city
-                                }`}
+                                heading="Next React Bootcamp"
+                                text={`Take your career to the next level and master React in just 1 week!`}
                                 to={trainingBootcamp.pathUrl}
-                                buttonText="Next React Bootcamp >>"
+                                buttonText={`${
+                                  trainingBootcamp.city
+                                } React Bootcamp, ${moment(
+                                  trainingBootcamp.dateStartsOn
+                                ).format('MMM YY')}  `}
                               />
                             }
                           />
@@ -403,13 +414,14 @@ class Curriculum extends React.Component {
                             showLinkToCurriculum={false}
                             marketingCard={
                               <MarketingCard
-                                text={`Next advanced React Bootcamp starts on ${moment(
-                                  trainingAdvanced.dateStartsOn
-                                ).format('D MMM, YYYY')} in ${
-                                  trainingAdvanced.city
-                                }`}
+                                heading="Next React Advanced Training"
+                                text={`You can master Advanced React, Redux, and GraphQL - in just 3 days!`}
                                 to={trainingAdvanced.pathUrl}
-                                buttonText="Next Advanced React Bootcamp >>"
+                                buttonText={`${
+                                  trainingAdvanced.city
+                                } React Advanced, ${moment(
+                                  trainingAdvanced.dateStartsOn
+                                ).format('MMM YY')}  `}
                               />
                             }
                           />
@@ -524,13 +536,14 @@ class Curriculum extends React.Component {
                             layout={LIST_LAYOUT}
                             marketingCard={
                               <MarketingCard
-                                text={`Next React part-time course starts on ${moment(
-                                  trainingPartTime.dateStartsOn
-                                ).format('D MMM, YYYY')} in ${
-                                  trainingPartTime.city
-                                }`}
+                                heading="Next Part-Time React Course"
+                                text={`Flexible learning meaning you don't miss work whilst upskilling into React.`}
                                 to={trainingPartTime.pathUrl}
-                                buttonText="Next React part-time >>"
+                                buttonText={`${
+                                  trainingPartTime.city
+                                } React Part-Time, ${moment(
+                                  trainingPartTime.dateStartsOn
+                                ).format('MMM YY')}  `}
                               />
                             }
                           />

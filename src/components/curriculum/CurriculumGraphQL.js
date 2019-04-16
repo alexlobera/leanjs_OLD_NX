@@ -79,7 +79,7 @@ const CurriculumGraphQL = ({
       {showLinkToCurriculum ? (
         <SectionCTA>
           <LinkButton secondary to="/curriculum">
-            Full curriculum >>
+            Full curriculum
           </LinkButton>
         </SectionCTA>
       ) : null}
