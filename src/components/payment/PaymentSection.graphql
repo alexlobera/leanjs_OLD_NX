@@ -1,11 +1,15 @@
 query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
   trainingInstance(id: $trainingInstanceId) {
     upcomingAutomaticDiscounts {
-      code
-      id
-      discountPercentage
-      startsAt
-      expiresAt
+      edges {
+        node {
+          code
+          id
+          discountPercentage
+          startsAt
+          expiresAt
+        }
+      }
     }
   }
 }

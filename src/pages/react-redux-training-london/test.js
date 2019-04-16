@@ -26,7 +26,7 @@ import { Breadcrumb } from '../../components/navigation'
 import { PART_TIME, LONDON } from '../../config/data'
 import { LIST_TWO_COL } from '../../components/curriculum'
 
-const BootcampLondon = ({ trainings }) => {
+const BootcampLondon = ({ trainings, trainingStatus }) => {
   const partTimeTrainings = selectUpcomingTrainings({
     trainings,
     type: PART_TIME,
@@ -35,10 +35,10 @@ const BootcampLondon = ({ trainings }) => {
   const training =
     selectNthTraining({ trainings: partTimeTrainings, nth: 3 }) || {}
 
-  const upcomingAutomaticDiscounts =
-    (training.upcomingAutomaticDiscounts &&
-      training.upcomingAutomaticDiscounts.edges) ||
-    []
+  // const upcomingAutomaticDiscounts =
+  //   (training.upcomingAutomaticDiscounts &&
+  //     training.upcomingAutomaticDiscounts.edges) ||
+  //   []
 
   return (
     <React.Fragment>
@@ -63,11 +63,12 @@ const BootcampLondon = ({ trainings }) => {
             <Row>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
-                  trainingData={{
+                  training={{
                     trainingInstanceId: training.id,
                     price: training.price,
                     currency: training.currency,
                   }}
+                  trainingStatus={trainingStatus}
                 />
               </Col>
               <Col xs={12} md={6} lg={4} lgOffset={1}>

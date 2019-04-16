@@ -37,9 +37,14 @@ class PaymentSection extends React.Component {
   }
 
   validateVoucher = voucher => {
-    const { client, data = {}, trackUserBehaviour } = this.props
+    // const { client, data = {}, trackUserBehaviour } = this.props
+    const {
+      client,
+      training: { id: trainingInstanceId },
+      trackUserBehaviour,
+    } = this.props
     const { isVoucherValidationInProgress, quantity } = this.state
-    const { trainingInstanceId } = data
+    // const { trainingInstanceId } = data
 
     if (!voucher || isVoucherValidationInProgress) {
       return
@@ -103,25 +108,49 @@ class PaymentSection extends React.Component {
   }
 
   render() {
-    const { paymentApi, trainingData = {}, data: voucherData } = this.props
-    const { trainingInstanceId, price, currency = 'gbp' } = trainingData
-    // It seems that data is returned date sorted, is that 100%?
+    const {
+      paymentApi,
+      trainingStatus,
+      training = {},
+      data: autoVoucherData,
+    } = this.props
+    // const { trainingInstanceId, price, currency = 'gbp' } = trainingData
+    let trainingInstanceId, price, currency, title, priceGoesUpOn, discountPrice
 
-    const discounts = upcomingAutomaticDiscounts.length
-      ? upcomingAutomaticDiscounts
-      : []
-    const priceGoesUpOn = discounts[0] && new Date(discounts[0].node.expiresAt)
+    if (trainingStatus.error) {
+      // do something
+    } else if (trainingStatus.loading) {
+      title = 'Loading ...'
+    } else {
+      // I got data!
+      trainingInstanceId = training.id
+      price = training.price
+      currency = training.currency || 'gbp'
+    }
 
-    const currentAutoDiscount = discounts[0] && discounts[0].node
-    const discountPercentage =
-      currentAutoDiscount && currentAutoDiscount.discountPercentage
-    const discountAmount =
-      currentAutoDiscount && currentAutoDiscount.discountAmount
+    const { trainingInstanceId, price, currency = 'gbp' } = training
 
-    // Calc discount price based on discountPercentage passing value or null
-    const discountPrice = discountPercentage
-      ? price - price * (discountPercentage / 100)
-      : price - discountAmount
+    if (autoVoucherData.error) {
+      // do something
+    } else if (autoVoucherData.loading) {
+      title = 'Loading ...'
+    } else {
+      const discount =
+        autoVoucherData.trainingInstance &&
+        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts &&
+        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts.edges
+          .length &&
+        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts.edges[0]
+          .node
+
+      if (discount) {
+        const { expiresAt, discountAmount, discountPercentage } = discount
+        priceGoesUpOn = new Date(expiresAt)
+        discountPrice = discountPercentage
+          ? price - price * (discountPercentage / 100)
+          : price - discountAmount
+      }
+    }
 
     console.log('discounts', discounts)
     console.log('appliedDiscount', currentAutoDiscount)
@@ -161,7 +190,8 @@ class PaymentSection extends React.Component {
             <Card small style={{ position: 'relative' }}>
               <H3>
                 <strong>
-                  {discountPrice ? 'Discount ticket' : 'Regular ticket'}
+                  {/* {discountPrice ? 'Discount ticket' : 'Regular ticket'} */}
+                  {title}
                 </strong>
               </H3>
               {discountPrice ? (

@@ -82,7 +82,16 @@ const withUpcomingTrainings = ({
       return (
         <InnerComponent
           {...props}
-          trainings={selectUpcomingTrainings({ trainings, type, city, limit })}
+          trainings={selectUpcomingTrainings({
+            trainings,
+            type,
+            city,
+            limit,
+          })}
+          trainingStatus={{
+            loading,
+            error,
+          }}
         />
       )
     }}
