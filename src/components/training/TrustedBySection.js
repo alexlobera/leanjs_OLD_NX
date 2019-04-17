@@ -15,6 +15,10 @@ import {
   SainBurys,
   Tesco,
   Telegraph,
+  Xing,
+  IBM,
+  IKEA,
+  Microsoft,
 } from '../logos'
 import { GREY, REACT_BLUE_DARK } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
@@ -41,12 +45,9 @@ const CompanyList = styled(Ul)`
 `
 export const TrustedByLogoList = () => (
   <CompanyList inline>
-    <Li>
+    {/* <Li>
       <ASOS colour={REACT_BLUE_DARK} height={35} />
-    </Li>
-    <Li>
-      <Blockchain colour={REACT_BLUE_DARK} height={30} />
-    </Li>
+    </Li> */}
     <Li>
       <Capgemini
         colour={REACT_BLUE_DARK}
@@ -55,14 +56,23 @@ export const TrustedByLogoList = () => (
       />
     </Li>
     <Li>
-      <JohnLewis colour={REACT_BLUE_DARK} height={35} />
-    </Li>
-    <Li>
       <FinancialTimes colour={REACT_BLUE_DARK} height={30} />
     </Li>
     <Li>
-      <SainBurys colour={REACT_BLUE_DARK} height={35} />
+      <IBM colour={REACT_BLUE_DARK} height={30} />
     </Li>
+    <Li>
+      <IKEA colour={REACT_BLUE_DARK} height={40} />
+    </Li>
+    <Li>
+      <Microsoft colour={REACT_BLUE_DARK} height={40} width={280} />
+    </Li>
+    {/* <Li>
+      <JohnLewis colour={REACT_BLUE_DARK} height={35} />
+    </Li>
+    <Li>
+      <SainBurys colour={REACT_BLUE_DARK} height={35} />
+    </Li> */}
     <Li>
       <Tesco
         colour={REACT_BLUE_DARK}
@@ -71,11 +81,14 @@ export const TrustedByLogoList = () => (
         height={40}
       />
     </Li>
-    <Li>
+    {/* <Li>
       <Telegraph colour={REACT_BLUE_DARK} height={40} />
-    </Li>
-    <Li>
+    </Li> */}
+    {/* <Li>
       <Trainline colour={REACT_BLUE_DARK} height={48} y={5} />
+    </Li> */}
+    <Li>
+      <Xing colour={REACT_BLUE_DARK} height={48} y={20} />
     </Li>
   </CompanyList>
 )

@@ -46,7 +46,7 @@ const Blog = ({ data }) => {
                       </Link>
                       <P>{post.excerpt}</P>
                       <P>
-                        <Link to={`${post.fields.slug}`}>Read more >></Link>
+                        <Link to={`${post.fields.slug}`}>Read more</Link>
                       </P>
                     </CardText>
                   </Card>

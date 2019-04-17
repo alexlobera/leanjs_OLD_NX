@@ -22,6 +22,7 @@ const CurriculumCorpGraphQL = ({
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = GRAPHQL_BOOTCAMP
   const commonProps = {
+    showLinkToCurriculum,
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type,

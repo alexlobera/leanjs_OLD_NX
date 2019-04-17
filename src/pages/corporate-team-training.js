@@ -12,9 +12,7 @@ import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Card, Image, Video } from '../components/elements'
-import { CurriculumCorpTraining } from '../components/curriculum'
 import CorporateTechSelector from '../components/curriculum/CorporateTechSelector'
-
 import { EBER } from '../config/images'
 import {
   BussinessIcon,
@@ -24,16 +22,13 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import trackUserBehaviour, {
-  SOCIAL_NETWORK_LINK_CLICK,
-} from '../components/utils/trackUserBehaviour'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
 
 const CorporateTraining = () => (
   <React.Fragment>
     <Header
       titleLines={['Corporate team training']}
-      subtitle="Private team training, based in your offices anywhere in the world, based on our proven curriculum for React, Graphql and React Native."
+      subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
       links={[
         { text: 'Training schedule', to: '#schedule' },
         { text: 'Developer level', to: '#dev-level' },
@@ -47,13 +42,14 @@ const CorporateTraining = () => (
     <TopSection>
       <Grid>
         <CallToActionRow left>
-          <Col xs={12} mdOffset={1} md={5}>
+          <Col xs={12} mdOffset={1} md={4}>
             <LinkButton
               variant="primary"
               to="#contact-us"
               children="Team Training - Key Facts (PDF)"
             />
           </Col>
+          <Col xs={12} mdOffset={1} md={6} />
         </CallToActionRow>
         <a name="schedule" />
         <Card border="shadow">
@@ -65,11 +61,11 @@ const CorporateTraining = () => (
       <Grid>
         <Row>
           <a name="previous-clients" />
-          <Col lg={6}>
+          <Col lg={5}>
             <H2>Trusted by industry leaders</H2>
             <TrustedByLogoList />
           </Col>
-          <Col lg={6}>
+          <Col lg={6} mdOffset={1}>
             <AttendeeQuote
               small
               quote="If you asked me if I would put my team in for this sort of training instead of a conference, I would say yes. I think it’s way deeper, you learn a lot more and, in the end, your team gets back way more rewarded."
@@ -77,6 +73,9 @@ const CorporateTraining = () => (
               job="Technical Director"
               company="Xing"
               profilePicUrl={EBER}
+              ctaButton="How Training Keeps Xing 
+              Tech-Relevant (Blog)"
+              ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"
             />
           </Col>
         </Row>
@@ -129,7 +128,7 @@ const CorporateTraining = () => (
             </Ul>
             <P>
               <LinkButton variant="primary" to="#contact-us">
-                Contact us to find out more >>
+                Contact us to find out more
               </LinkButton>
             </P>
           </Col>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
+import { LinkButton } from '../buttons/LinkButton'
 import { H2Ref, P, H4 } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
@@ -47,7 +48,6 @@ class CorporateTechSelector extends React.Component {
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React - 5 Days</TabItem>
                 <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL - 5 Days</TabItem>
-                <TabItem name={REACT_NATIVE}>React Native - 3 Days</TabItem>
               </TabList>
 
               <TabContent>
@@ -56,9 +56,6 @@ class CorporateTechSelector extends React.Component {
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
                   <CurriculumCorpGrapQL enableToggle={false} />
-                </ContentItem>
-                <ContentItem name={REACT_NATIVE}>
-                  <CurriculumCorpRNative enableToggle={false} />
                 </ContentItem>
               </TabContent>
             </Tabs>
