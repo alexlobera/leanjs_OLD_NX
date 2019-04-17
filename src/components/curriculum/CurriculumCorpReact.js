@@ -44,13 +44,13 @@ const CurriculumCorpReact = ({
         {...commonProps}
         title="Day 3 - Forms and Styling in React"
         name="day3"
-        subTitle="Forms, Authentication, Styling in React"
+        subTitle="Forms, Authentication, Consolidation, Styling in React"
       />
       <Section
         {...commonProps}
         title="Day 4 - Redux and Testing"
         name="day4"
-        subTitle="Redux, and Testing Principles"
+        subTitle="Redux and Testing Principles"
       />
       {marketingCard}
     </React.Fragment>
@@ -61,7 +61,7 @@ const CurriculumCorpReact = ({
         {...commonProps}
         title="Day 5 - Functional Programming"
         name="day5"
-        subTitle="Advanced React patterns I, and GraphQL"
+        subTitle="Advanced React patterns and GraphQL"
       />
       <LinkButton margin to="#contact-us" children="Contact Us" />
     </React.Fragment>

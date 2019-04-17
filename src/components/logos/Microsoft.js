@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Microsoft = ({ colour = '#231F20', width, height }) => (
   <svg
-    viewBox="0 0 2500 300"
+    viewBox="0 20 2000 300"
     preserveAspectRatio="xMidYMid meet"
     width={width}
     height={height}

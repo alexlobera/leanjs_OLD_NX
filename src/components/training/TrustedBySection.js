@@ -45,9 +45,6 @@ const CompanyList = styled(Ul)`
 `
 export const TrustedByLogoList = () => (
   <CompanyList inline>
-    {/* <Li>
-      <ASOS colour={REACT_BLUE_DARK} height={35} />
-    </Li> */}
     <Li>
       <Capgemini
         colour={REACT_BLUE_DARK}
@@ -62,17 +59,11 @@ export const TrustedByLogoList = () => (
       <IBM colour={REACT_BLUE_DARK} height={50} width={100} />
     </Li>
     <Li>
-      <IKEA colour={REACT_BLUE_DARK} height={40} />
+      <Microsoft colour={REACT_BLUE_DARK} height={50} width={280} />
     </Li>
     <Li>
-      <Microsoft colour={REACT_BLUE_DARK} height={40} width={280} />
+      <IKEA colour={REACT_BLUE_DARK} height={50} />
     </Li>
-    {/* <Li>
-      <JohnLewis colour={REACT_BLUE_DARK} height={35} />
-    </Li>
-    <Li>
-      <SainBurys colour={REACT_BLUE_DARK} height={35} />
-    </Li> */}
     <Li>
       <Tesco
         colour={REACT_BLUE_DARK}
@@ -81,12 +72,6 @@ export const TrustedByLogoList = () => (
         height={40}
       />
     </Li>
-    {/* <Li>
-      <Telegraph colour={REACT_BLUE_DARK} height={40} />
-    </Li> */}
-    {/* <Li>
-      <Trainline colour={REACT_BLUE_DARK} height={48} y={5} />
-    </Li> */}
     <Li>
       <Xing colour={REACT_BLUE_DARK} height={48} y={20} />
     </Li>
