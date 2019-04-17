@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const IBM = ({ colour = '#00d5b5', width, height, y }) => (
+const IBM = ({ colour = '#00d5b5', width, height }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
-    viewBox={`0 ${y} 0 400`}
+    viewBox="0 0 396 158"
     width={width}
     height={height}
   >
