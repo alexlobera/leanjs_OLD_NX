@@ -8,11 +8,12 @@ import Link from '../navigation/Link'
 import styled from 'styled-components'
 import { selectTrainings } from '../../config/data'
 import Newsletter from '../elements/Newsletter'
+import { GREY, REACT_BLUE_DARK } from '../../config/styles'
 
 import CorporateTrainingCard from '../elements/CorporateTrainingCard'
 
 const CorporateCrossSell = styled.div`
-  border: 3px dotted #dedede;
+  border: 3px dotted ${GREY};
   max-height: 78px;
   max-width: 100%;
   display: block;
