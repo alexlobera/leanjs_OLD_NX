@@ -131,7 +131,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
           trackUserBehaviour={[Function]}
           variant="default"
         >
-          Full curriculum &gt;&gt;
+          Full curriculum
         </LinkButton>
       </styled.div>
     </Styled(Col)>
