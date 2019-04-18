@@ -1,10 +1,7 @@
 import React from 'react'
-import Link from '../navigation/Link'
-import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumCorpLayout, {
   LIST_TWO_COL,
@@ -65,6 +62,7 @@ const CurriculumCorpGraphQL = ({
         name="day5"
         subTitle="Apollo Client, Advanced Queries and mutations"
       />
+      <LinkButton margin to="#contact-us" children="Contact Us" />
     </React.Fragment>
   )
 

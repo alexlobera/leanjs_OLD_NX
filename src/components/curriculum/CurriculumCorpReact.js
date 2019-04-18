@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'

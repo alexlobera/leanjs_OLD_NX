@@ -1,19 +1,10 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
-import { LinkButton } from '../buttons/LinkButton'
 import { H2Ref, P, H4 } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
-import {
-  CurriculumCorpReact,
-  CurriculumCorpRNative,
-  CurriculumCorpGrapQL,
-} from './index'
-import {
-  REACT_NATIVE,
-  REACT_BOOTCAMP,
-  GRAPHQL_BOOTCAMP,
-} from '../../config/data'
+import { CurriculumCorpReact, CurriculumCorpGrapQL } from './index'
+import { REACT_BOOTCAMP, GRAPHQL_BOOTCAMP } from '../../config/data'
 
 class CorporateTechSelector extends React.Component {
   state = {
