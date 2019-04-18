@@ -40,7 +40,12 @@ const CorpTrainingFacts = () => (
       quote but our <strong>Key Facts PDF</strong> has information regarding
       pricing too.
     </P>
-    <LinkButton primary>Team Training - Key Facts (PDF)</LinkButton>
+    <LinkButton
+      primary
+      to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FCorporate%20Team%20Training%20with%20ReactJS%20Academy.pdf?alt=media&"
+    >
+      Team Training - Key Facts (PDF)
+    </LinkButton>
   </StyledCorpTrainingFacts>
 )
 
