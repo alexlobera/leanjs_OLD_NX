@@ -149,7 +149,6 @@ const upcomingBootCamps = [
     location: 'Publicis.Sapient - Eden House, 8 Spital Square',
     pathUrl: '/react-redux-graphql-bootcamp-london/',
     trainingInstanceId: '5cacbaec80c1577e379810df',
-    discountPrice: 1662.5,
     priceGoesUpOn: new Date('April 15, 2019'),
     price: 1800,
     currency: 'gbp',
