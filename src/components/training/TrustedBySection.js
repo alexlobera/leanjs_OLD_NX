@@ -59,7 +59,7 @@ export const TrustedByLogoList = () => (
       <IBM colour={REACT_BLUE_DARK} height={50} width={100} />
     </Li>
     <Li>
-      <Microsoft colour={REACT_BLUE_DARK} height={50} width={280} />
+      <Microsoft colour={REACT_BLUE_DARK} height={50} width={250} />
     </Li>
     <Li>
       <IKEA colour={REACT_BLUE_DARK} height={50} />
