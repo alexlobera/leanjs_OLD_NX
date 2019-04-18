@@ -21,6 +21,7 @@ export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React Bootcamp'
 export const ADVANCED_REACT = 'Advanced React'
 export const GRAPHQL_BOOTCAMP = 'GraphQL Bootcamp'
+export const REACT_CORPORATE = 'React - 5 Days'
 
 /*
 Boocamp prices:

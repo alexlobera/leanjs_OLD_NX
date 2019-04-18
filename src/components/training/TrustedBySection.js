@@ -15,8 +15,12 @@ import {
   SainBurys,
   Tesco,
   Telegraph,
+  Xing,
+  IBM,
+  IKEA,
+  Microsoft,
 } from '../logos'
-import { GREY } from '../../config/styles'
+import { GREY, REACT_BLUE_DARK } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
@@ -42,31 +46,34 @@ const CompanyList = styled(Ul)`
 export const TrustedByLogoList = () => (
   <CompanyList inline>
     <Li>
-      <ASOS colour={GREY} height={35} />
+      <Capgemini
+        colour={REACT_BLUE_DARK}
+        secColour={REACT_BLUE_DARK}
+        height={47}
+      />
     </Li>
     <Li>
-      <Blockchain colour={GREY} height={30} />
+      <FinancialTimes colour={REACT_BLUE_DARK} height={30} />
     </Li>
     <Li>
-      <Capgemini colour={GREY} secColour={GREY} height={47} />
+      <IBM colour={REACT_BLUE_DARK} height={50} width={100} />
     </Li>
     <Li>
-      <JohnLewis colour={GREY} height={35} />
+      <Microsoft colour={REACT_BLUE_DARK} height={50} width={250} />
     </Li>
     <Li>
-      <FinancialTimes colour={GREY} height={30} />
+      <IKEA colour={REACT_BLUE_DARK} height={50} />
     </Li>
     <Li>
-      <SainBurys colour={GREY} height={35} />
+      <Tesco
+        colour={REACT_BLUE_DARK}
+        secColour={REACT_BLUE_DARK}
+        stroke={REACT_BLUE_DARK}
+        height={40}
+      />
     </Li>
     <Li>
-      <Tesco colour={GREY} secColour={GREY} stroke={GREY} height={40} />
-    </Li>
-    <Li>
-      <Telegraph colour={GREY} height={40} />
-    </Li>
-    <Li>
-      <Trainline colour={GREY} height={48} y={5} />
+      <Xing colour={REACT_BLUE_DARK} height={48} y={20} />
     </Li>
   </CompanyList>
 )

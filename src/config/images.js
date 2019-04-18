@@ -33,7 +33,7 @@ export const PART_TIME =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/partTime_rightForMe.jpg?alt=media'
 
 export const CODEVELOP =
-  'https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/paul_postits.jpg?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/alex_leanJS.jpg?alt=media'
 
 export const ABOUT_CORPORATE =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.jpg?alt=media'
@@ -90,6 +90,8 @@ export const DAVIAN =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/DavianRobinson.png?alt=media'
 export const POLINA =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/polinaStoyanova.png?alt=media'
+export const EBER =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/quote_images%2Feber_herrera.png?alt=media'
 
 // Code of conduct
 export const CODE_OF_CONDUCT_SPLASH =

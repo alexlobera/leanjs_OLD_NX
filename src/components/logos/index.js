@@ -12,6 +12,10 @@ import Tesco from './Tesco'
 import Trainline from './Trainline'
 import LeanJS from './LeanJS'
 import TradeLedger from './TradeLedger'
+import Xing from './Xing'
+import IBM from './IBM'
+import IKEA from './IKEA'
+import Microsoft from './Microsoft'
 
 export {
   ASOS,
@@ -28,4 +32,8 @@ export {
   Trainline,
   LeanJS,
   TradeLedger,
+  Xing,
+  IBM,
+  IKEA,
+  Microsoft,
 }

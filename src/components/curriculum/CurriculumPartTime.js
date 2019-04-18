@@ -127,7 +127,7 @@ const CurriculumPartTime = ({
       {showLinkToCurriculum && (
         <SectionCTA>
           <LinkButton secondary to={`/curriculum?tab=${PART_TIME}`}>
-            Full curriculum >>
+            Full curriculum
           </LinkButton>
         </SectionCTA>
       )}
@@ -162,7 +162,7 @@ const CurriculumPartTime = ({
                 </Col>
                 <Col lg={6} center>
                   <LinkButton to="/react-redux-graphql-bootcamp" secondary>
-                    1 week bootcamp >>
+                    1 week bootcamp
                   </LinkButton>
                 </Col>
               </Row>

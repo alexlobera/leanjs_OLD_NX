@@ -33,7 +33,7 @@ const CallToActionNextTrainings = ({ left, trainings = [] }) => (
             to={training.pathUrl}
             children={`Next ${training.type}: ${startDate}, ${
               training.cityShortName
-            }  >>`}
+            }  `}
           />
         </Col>
       ) : (

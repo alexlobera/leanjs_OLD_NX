@@ -36,6 +36,7 @@ const StyledLinkButton = styled(Link)`
   ${defaultButtonStyle}
   ${fontColor}
   ${props => props.external && 'justify-content: space-evenly;'};
+  ${props => props.margin && 'margin-top: 2rem'} 
   ${props =>
     props.pdf &&
     `

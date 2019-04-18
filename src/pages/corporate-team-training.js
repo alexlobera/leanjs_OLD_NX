@@ -12,9 +12,8 @@ import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { Card, Image, Video } from '../components/elements'
-import { CurriculumCorpTraining } from '../components/curriculum'
-
-import { CATALIN } from '../config/images'
+import CorporateTechSelector from '../components/curriculum/CorporateTechSelector'
+import { EBER } from '../config/images'
 import {
   BussinessIcon,
   CollabsIcon,
@@ -23,41 +22,70 @@ import {
   WorldIcon,
   BulletIcon,
 } from '../components/icons'
-import trackUserBehaviour, {
-  SOCIAL_NETWORK_LINK_CLICK,
-} from '../components/utils/trackUserBehaviour'
+import LeanJSsprints from '../components/elements/LeanJSsprints'
 
 const CorporateTraining = () => (
   <React.Fragment>
     <Header
       titleLines={['Corporate team training']}
-      subtitle="If you're looking for the most up-to-date React training for your team without</br>having to leave your office, then our corporate team training is for you..."
+      subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
       links={[
-        { text: 'Curriculum ', to: '#curriculum' },
-        { text: 'Is it right for my team?', to: '#right-for-my-team' },
+        { text: 'Training schedule', to: '#schedule' },
+        { text: 'Developer level', to: '#dev-level' },
+        { text: 'Pricing', to: '#pricing' },
+        { text: 'Previous clients', to: '#previous-clients' },
+        { text: 'Benefits to you', to: '#right-for-my-team' },
+        { text: 'Custom training', to: '#custom-training' },
       ]}
       bgImg="corp-training"
     />
     <TopSection>
       <Grid>
         <CallToActionRow left>
-          <Col xs={12} mdOffset={1} md={5}>
+          <Col xs={12} mdOffset={1} md={4}>
             <LinkButton
               variant="primary"
-              to="#contact-us"
-              children="Contact us to find out more >>"
+              to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FCorporate%20Team%20Training%20with%20ReactJS%20Academy.pdf?alt=media&"
+              children="Team Training - Key Facts (PDF)"
             />
           </Col>
+          <Col xs={12} mdOffset={1} md={6} />
         </CallToActionRow>
-
+        <a name="schedule" />
         <Card border="shadow">
-          <CurriculumCorpTraining />
+          <CorporateTechSelector />
         </Card>
       </Grid>
     </TopSection>
     <Section>
       <Grid>
         <Row>
+          <a name="previous-clients" />
+          <Col lg={5}>
+            <H2>Trusted by industry leaders</H2>
+            <TrustedByLogoList />
+          </Col>
+          <Col lg={6} mdOffset={1}>
+            <AttendeeQuote
+              small
+              quote="If you asked me if I would put my team in for this sort of training instead of a conference, I would say yes. I think it’s way deeper, you learn a lot more and, in the end, your team gets back way more rewarded."
+              fullname="Eber Herrera"
+              job="Technical Director"
+              company="Xing"
+              profilePicUrl={EBER}
+              ctaButton="How Training Keeps Xing 
+              Tech-Relevant (Blog)"
+              ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"
+            />
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
+
+    <Section>
+      <Grid>
+        <Row>
+          <a name="right-for-my-team" />
           <Col md={5}>
             <Video
               youtubeId="o6YwbHGfPOo"
@@ -72,10 +100,7 @@ const CorporateTraining = () => (
             />
           </Col>
           <Col md={5} mdOffset={1}>
-            <H2>
-              <a name="right-for-my-team" />
-              Why ReactJS Academy is great for your dev team
-            </H2>
+            <H2>Why ReactJS Academy is great for your dev team</H2>
             <Ul unstyled>
               <Li>
                 <BulletIcon icon={BussinessIcon} />
@@ -103,40 +128,20 @@ const CorporateTraining = () => (
             </Ul>
             <P>
               <LinkButton variant="primary" to="#contact-us">
-                Contact us to find out more >>
+                Contact us to find out more
               </LinkButton>
             </P>
           </Col>
         </Row>
       </Grid>
     </Section>
-    <Section>
+    <Section xsBgDarkGrey>
       <Grid>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <AttendeeQuote
-              quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-              fullname="Catalin Cislariu"
-              job="Senior Developer"
-              company="KLEIDO LTD"
-              profilePicUrl={CATALIN}
-            />
-          </Col>
-        </Row>
+        <a name="custom-training" />
+        <LeanJSsprints />
       </Grid>
     </Section>
-    <Section>
-      <Grid>
-        <Card border="shadow">
-          <Row>
-            <Col lg={10} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
-            </Col>
-          </Row>
-        </Card>
-      </Grid>
-    </Section>
+
     <UpcomingTrainingSection />
   </React.Fragment>
 )
