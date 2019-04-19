@@ -39,6 +39,11 @@
         "source": "/graphql",
         "destination": "/graphql-bootcamp/",
         "type": 301
+      },
+      {
+        "source": "/corporate-training{,/}",
+        "destination": "/corporate-team-training/",
+        "type": 301
       }
     ]
   },
