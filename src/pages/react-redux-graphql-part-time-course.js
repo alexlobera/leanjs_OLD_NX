@@ -12,7 +12,7 @@ import {
   TrustedBySection,
   withUpcomingTrainings,
   selectUpcomingTrainings,
-  selectFirstTraining,
+  selectNthTraining,
 } from '../components/training'
 
 import { Card, Video } from '../components/elements'
@@ -37,7 +37,7 @@ const PartTime = ({ trainings }) => {
     type: PART_TIME,
     trainings,
   })
-  const nextTraining = selectFirstTraining({
+  const nextTraining = selectNthTraining({
     trainings: upcomingPartTimeTrainings,
   })
 

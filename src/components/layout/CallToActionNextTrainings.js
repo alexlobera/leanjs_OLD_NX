@@ -23,27 +23,30 @@ export const CallToActionRow = styled(Row)`
   }
 `
 
-const CallToActionNextTrainings = ({ trainings = [] }) => (
-  <CallToActionRow left>
-    {trainings.map(
-      ({ startDate: sDate, city, toPath, training: { type } }, index) => {
-        const startDate = moment(sDate).format('D MMM')
-        return index === 0 ? (
-          <Col key={index} xs={12} mdOffset={1} md={5}>
-            <LinkButton
-              cta
-              to={toPath}
-              children={`Next ${type}: ${startDate}, ${city}  >>`}
-            />
-          </Col>
-        ) : (
-          <Col key={index} xs={12} md={3} center={index === 1}>
-            <LinkButton to={toPath} children={`${startDate}, ${city}`} />
-          </Col>
-        )
-      }
-    )}
-  </CallToActionRow>
-)
+const CallToActionNextTrainings = ({ trainings = [] }) => {
+  const filteredTrainings = trainings.filter((undefined, i) => i < 3)
+  return (
+    <CallToActionRow left>
+      {filteredTrainings.map(
+        ({ startDate: sDate, city, toPath, training: { type } }, index) => {
+          const startDate = moment(sDate).format('D MMM')
+          return index === 0 ? (
+            <Col key={index} xs={12} mdOffset={1} md={5}>
+              <LinkButton
+                variant="primary"
+                to={toPath}
+                children={`Next ${type}: ${startDate}, ${city}  >>`}
+              />
+            </Col>
+          ) : (
+            <Col key={index} xs={12} md={3} center={index === 1}>
+              <LinkButton to={toPath} children={`${startDate}, ${city}`} />
+            </Col>
+          )
+        }
+      )}
+    </CallToActionRow>
+  )
+}
 
 export default CallToActionNextTrainings
