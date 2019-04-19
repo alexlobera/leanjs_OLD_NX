@@ -62,7 +62,7 @@ const Boocamps = ({ trainings }) => {
           />
           <Card border="shadow">
             <Link to="#upcoming-courses" name="upcoming-courses" />
-            <CurriculumBootcamp />
+            <CurriculumBootcamp trainings={upcomingBootCampTrainings} />
           </Card>
         </Grid>
       </TopSection>
