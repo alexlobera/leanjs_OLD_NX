@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Col, Row } from '../layout/Grid'
-import { Span } from '../text'
+import { Span, H4 } from '../text'
 import { CALLTOACTIONRED } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 import { LinkButton } from '../buttons'
@@ -11,6 +11,9 @@ const Card = styled.div`
   margin-bottom: 6px;
   padding: 36px;
   border: solid 4px ${CALLTOACTIONRED};
+  div {
+    align-items: center;
+  }
   @media (max-width: ${SCREEN_XS_MAX}) {
     a {
       display: block;
@@ -19,14 +22,17 @@ const Card = styled.div`
   }
 `
 
-const MarketingCard = ({ text, to, buttonText }) => (
+const MarketingCard = ({ text, to, heading, buttonText }) => (
   <Card>
     <Row>
       <Col md={6}>
+        <H4>{heading}</H4>
         <Span>{text}</Span>
       </Col>
-      <Col md={6} center>
-        <LinkButton to={to} variant="primary" children={buttonText} />
+      <Col md={5} lgOffset={1} center>
+        <div>
+          <LinkButton to={to} variant="secondary" children={buttonText} />
+        </div>
       </Col>
     </Row>
   </Card>

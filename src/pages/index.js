@@ -67,13 +67,13 @@ const IndexPage = ({ trainings }) => (
             <LinkButton
               variant="primary"
               to="/react-redux-graphql-bootcamp"
-              children="1-week bootcamp >>"
+              children="1-week bootcamp "
             />
           </Col>
           <Col xs={12} sm={4}>
             <LinkButton
               to="/graphql-bootcamp"
-              children="GraphQL Bootcamp >>"
+              children="GraphQL Bootcamp "
               variant="secondary"
             />
           </Col>
@@ -81,7 +81,7 @@ const IndexPage = ({ trainings }) => (
             <LinkButton
               variant="secondary"
               to="/corporate-team-training/"
-              children="Corporate training >>"
+              children="Corporate training "
             />
           </Col>
         </CallToActionRow>
@@ -194,7 +194,7 @@ const IndexPage = ({ trainings }) => (
             </Ul>
             <P />
             <LinkButton secondary to="/curriculum">
-              Read our curriculum >>
+              Read our curriculum
             </LinkButton>
           </Col>
           <HideComponentsUsingCss xs sm>

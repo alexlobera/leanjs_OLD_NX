@@ -6,17 +6,21 @@ exports[`<MarketingCard /> should render component 1`] = `
     <Styled(Col)
       md={6}
     >
+      <styled.h4 />
       <styled.span />
     </Styled(Col)>
     <Styled(Col)
       center={true}
-      md={6}
+      lgOffset={1}
+      md={5}
     >
-      <LinkButton
-        secondary={false}
-        trackUserBehaviour={[Function]}
-        variant="primary"
-      />
+      <div>
+        <LinkButton
+          secondary={false}
+          trackUserBehaviour={[Function]}
+          variant="secondary"
+        />
+      </div>
     </Styled(Col)>
   </Row>
 </styled.div>

@@ -75,7 +75,7 @@ const CurriculumReactNative = ({
       {showLinkToCurriculum && (
         <SectionCTA>
           <LinkButton secondary to={`/curriculum?tab=${REACT_NATIVE}`}>
-            Full curriculum>>
+            Full curriculum
           </LinkButton>
         </SectionCTA>
       )}

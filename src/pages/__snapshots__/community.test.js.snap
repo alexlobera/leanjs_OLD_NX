@@ -56,7 +56,7 @@ exports[`<Community /> should render component 1`] = `
                 to="/react-redux-graphql-bootcamp-london/"
                 variant="primary"
               >
-                Next Bootcamp: 12 May, London &gt;&gt;
+                Next Bootcamp: 12 May, London 
               </Styled(LinkButton)>
               <TwitterWidgetsOnlyOnClientSide />
             </Styled(Col)>

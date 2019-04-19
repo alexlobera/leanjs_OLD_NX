@@ -112,7 +112,7 @@ const Community = ({ trainings }) => (
                   to={nextBootcamp && nextBootcamp.pathUrl}
                   children={`Next Bootcamp: ${nextBootcampStartDate}, ${
                     nextBootcamp.cityShortName
-                  } >>`}
+                  } `}
                 />
                 <TwitterWidgetsOnlyOnClientSide />
               </Col>

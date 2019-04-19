@@ -25,10 +25,6 @@ const Newsletter = () => (
       </strong>{' '}
       and we'd love for you to enjoy and learn from them!{' '}
     </P>
-    <P>
-      Signup and learn about cutting-edge React thinking plus the latest news on
-      our courses...{' '}
-    </P>
     <LinkButton secondary to="#newsletter">
       Sign up now
     </LinkButton>

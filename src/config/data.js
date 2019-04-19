@@ -21,6 +21,7 @@ export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React Bootcamp'
 export const ADVANCED_REACT = 'Advanced React'
 export const GRAPHQL_BOOTCAMP = 'GraphQL Bootcamp'
+export const REACT_CORPORATE = 'React - 5 Days'
 
 /*
 Boocamp prices:
@@ -108,7 +109,7 @@ const upcomingPartTimes = [
 const upcomingBootCamps = [
   {
     dates: '24-30 July, 2019',
-    dateStartsOn: new Date('2019-06-24T18:00:00'),
+    dateStartsOn: new Date('2019-07-24T18:00:00'),
     city: LONDON,
     country: 'UK',
     type: GRAPHQL_BOOTCAMP,
@@ -148,6 +149,7 @@ const upcomingBootCamps = [
     location: 'Publicis.Sapient - Eden House, 8 Spital Square',
     pathUrl: '/react-redux-graphql-bootcamp-london/',
     trainingInstanceId: '5cacbaec80c1577e379810df',
+    priceGoesUpOn: new Date('April 15, 2019'),
     price: 1800,
     currency: 'gbp',
     image: LONDON_LOCATION,

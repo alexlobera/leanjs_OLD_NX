@@ -82,6 +82,7 @@ class CurriculumSection extends React.Component {
       children,
       enableToggle = false,
       toggleNavigateTo,
+      showLinkToCurriculum = true,
     } = this.props
     const { toggleSubSection } = this
     const toogleLinkProps =
@@ -119,7 +120,7 @@ class CurriculumSection extends React.Component {
         {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
         <SubTitleSection>
           {subTitle ? subTitle : ''}
-          {subsection}
+          {showLinkToCurriculum ? subsection : ''}
         </SubTitleSection>
       </Section>
     )

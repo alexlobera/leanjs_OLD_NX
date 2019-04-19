@@ -1,0 +1,52 @@
+import React from 'react'
+import styled from 'styled-components'
+import { H3, P } from '../text'
+import Link from '../navigation/Link'
+import { LinkButton } from '../buttons'
+
+const StyledCorpTrainingFacts = styled.div`
+  h3 {
+    margin-top: 0.5rem;
+  }
+`
+
+const CorpTrainingFacts = () => (
+  <StyledCorpTrainingFacts>
+    <a name="dev-level" />
+    <H3>Level expertise across your team</H3>
+    <P>
+      If you're looking to change your tech stack, avoiding risk is key. So
+      knowing developers are on the same skill level can really help.
+    </P>
+    <P>
+      Great for <strong>experienced developers who know JavaScript</strong>, our
+      training is a deep dive into React, GraphQL or React Native.
+    </P>
+    <H3>How tailored is training?</H3>
+    <P>
+      As any training progresses and we discover issues your developers have, we
+      quickly adapt our learning methods to ensure meaningful learning. If you
+      want to learn using <strong>your</strong> codebase{' '}
+      <Link to="#custom-training">click here.</Link>
+    </P>
+    <a name="pricing" />
+    <H3>Pricing, locations, scheduling </H3>
+    <P>
+      We have run private trainings worldwide and work around your schedule.
+    </P>
+    <P>
+      For pricing information, it's best to{' '}
+      <Link to="mailto:hello@reactjs.academy">email us</Link> to get a tailored
+      quote but our <strong>Key Facts PDF</strong> has information regarding
+      pricing too.
+    </P>
+    <LinkButton
+      primary
+      to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FCorporate%20Team%20Training%20with%20ReactJS%20Academy.pdf?alt=media&"
+    >
+      Team Training - Key Facts (PDF)
+    </LinkButton>
+  </StyledCorpTrainingFacts>
+)
+
+export default CorpTrainingFacts

@@ -1,12 +1,30 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { H2Ref, H3, P } from '../text'
+import { H2Ref, H3, P, H5 } from '../text'
 import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
 import Link from '../navigation/Link'
 import { selectUpcomingTrainings } from './withUpcomingTrainings'
 import Newsletter from '../elements/Newsletter'
+import { GREY } from '../../config/styles'
+
+import CorporateTrainingCard from '../elements/CorporateTrainingCard'
+
+const CorporateCrossSell = styled.div`
+  border: 3px dotted ${GREY};
+  max-height: 78px;
+  max-width: 100%;
+  display: block;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  a,
+  p {
+    line-height: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+`
 
 const UpcomingTrainings = ({ curriculum, type, trainings }) => {
   const filteredTrainings = selectUpcomingTrainings({ type, trainings })
@@ -50,6 +68,11 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
             <Newsletter />
           </Col>
         </Row>
+        <Row>
+          <Col md={10}>
+            <CorporateTrainingCard />
+          </Col>
+        </Row>
       </React.Fragment>
     ) : (
       <Section>
@@ -72,6 +95,12 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
                   curriculum={curriculum}
                   trainings={trainings}
                 />
+                <CorporateCrossSell>
+                  <P>
+                    <strong>Corporate team training</strong>
+                  </P>
+                  <Link to="/corporate-team-training/">Find out more</Link>
+                </CorporateCrossSell>
               </TrainingList>
             </Col>
           </Row>
