@@ -80,14 +80,6 @@ const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
                 <Video youtubeId="yvROXLQ1jHg" />
                 <TrainingDetails
                   foodIncluded={false}
-                  location={
-                    <React.Fragment>
-                      {training.location}.{' '}
-                      <Link to="https://goo.gl/maps/jjX9zs5Ags32">
-                        See on map
-                      </Link>
-                    </React.Fragment>
-                  }
                   coaches={[
                     ALEX_LOBERA,
                     HORACIO_HERRERA,
