@@ -31,13 +31,13 @@
         "type": 301
       },
       {
-        "source": "/graphql/",
+        "source": "/graphql{,/}",
         "destination": "/graphql-bootcamp/",
         "type": 301
       },
       {
-        "source": "/graphql",
-        "destination": "/graphql-bootcamp/",
+        "source": "/corporate-training{,/}",
+        "destination": "/corporate-team-training/",
         "type": 301
       }
     ]
