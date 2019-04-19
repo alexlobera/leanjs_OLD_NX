@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { CurriculumPartTime } from '../../components/curriculum'
@@ -20,12 +21,12 @@ import {
 import Header from '../../components/layout/Header'
 import { CATALIN } from '../../config/images'
 import header from '../../components/layout/Header.json'
-import { InstallmentsCard, PaymentSection } from '../../components/payment'
+import { PaymentSection } from '../../components/payment'
 import { Breadcrumb } from '../../components/navigation'
 import { PART_TIME, LONDON } from '../../config/data'
 import { LIST_TWO_COL } from '../../components/curriculum'
 
-const BootcampLondon = ({ trainings }) => {
+const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
   const partTimeTrainings = selectUpcomingTrainings({
     trainings,
     type: PART_TIME,
@@ -33,10 +34,7 @@ const BootcampLondon = ({ trainings }) => {
   })
   const training =
     selectNthTraining({ trainings: partTimeTrainings, nth: 2 }) || {}
-  const upcomingAutomaticDiscounts =
-    (training.upcomingAutomaticDiscounts &&
-      training.upcomingAutomaticDiscounts.edges) ||
-    []
+
   return (
     <React.Fragment>
       <Breadcrumb
@@ -60,12 +58,9 @@ const BootcampLondon = ({ trainings }) => {
             <Row>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
-                  data={{
-                    trainingInstanceId: training.id,
-                    price: training.price,
-                    upcomingAutomaticDiscounts: upcomingAutomaticDiscounts,
-                    currency: training.currency,
-                  }}
+                  training={training}
+                  trainingError={trainingError}
+                  trainingLoading={trainingLoading}
                 />
               </Col>
               <Col xs={12} md={6} lg={4} lgOffset={1}>

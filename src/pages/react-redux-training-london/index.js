@@ -26,17 +26,14 @@ import { Breadcrumb } from '../../components/navigation'
 import { PART_TIME, LONDON } from '../../config/data'
 import { LIST_TWO_COL } from '../../components/curriculum'
 
-const BootcampLondon = ({ trainings }) => {
+const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
   const partTimeTrainings = selectUpcomingTrainings({
     trainings,
     type: PART_TIME,
     city: LONDON,
   })
   const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
-  const upcomingAutomaticDiscounts =
-    (training.upcomingAutomaticDiscounts &&
-      training.upcomingAutomaticDiscounts.edges) ||
-    []
+
   return (
     <React.Fragment>
       <Breadcrumb
@@ -60,12 +57,9 @@ const BootcampLondon = ({ trainings }) => {
             <Row>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
-                  data={{
-                    trainingInstanceId: training.id,
-                    price: training.price,
-                    upcomingAutomaticDiscounts: upcomingAutomaticDiscounts,
-                    currency: training.currency,
-                  }}
+                  training={training}
+                  trainingError={trainingError}
+                  trainingLoading={trainingLoading}
                 />
               </Col>
               <Col xs={12} md={6} lg={4} lgOffset={1}>
