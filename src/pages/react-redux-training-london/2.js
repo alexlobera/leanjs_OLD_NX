@@ -51,6 +51,7 @@ const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
         bgImg="part-time"
         type={PART_TIME}
         training={training}
+        showInfoBox={true}
       />
       <TopSection top xsBgDark>
         <Grid>
@@ -66,8 +67,6 @@ const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
               <Col xs={12} md={6} lg={4} lgOffset={1}>
                 <Video youtubeId="E_4eQQHjc7A" />
                 <TrainingDetails
-                  timing="6pm - 9pm Tuesday's & Thursday's"
-                  // location={<React.Fragment>{training.city}</React.Fragment>}
                   coaches={[
                     EVA_HOFFMANN,
                     DAVID_LEULIETTE,

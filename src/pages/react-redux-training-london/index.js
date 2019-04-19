@@ -50,6 +50,7 @@ const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
         bgImg="part-time"
         type={PART_TIME}
         training={training}
+        showInfoBox={true}
       />
       <TopSection top xsBgDark>
         <Grid>
