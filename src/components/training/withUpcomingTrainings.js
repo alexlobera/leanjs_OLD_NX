@@ -23,7 +23,7 @@ const createTrainingPath = ({ type, city = '', index }) => {
     case ADVANCED_REACT:
       return `/advanced-react-redux-graphql-bootcamp-${city.toLowerCase()}/${i}`
     case GRAPHQL_BOOTCAMP:
-      return `/graphql-${city.toLowerCase()}/${i}`
+      return `/graphql-bootcamp-${city.toLowerCase()}/${i}`
   }
 }
 
