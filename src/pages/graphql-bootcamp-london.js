@@ -33,12 +33,12 @@ import { GRAPHQL_BOOTCAMP, LONDON } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
-  const partTimeTrainings = selectUpcomingTrainings({
+  const upcomingGqlTrainings = selectUpcomingTrainings({
     trainings,
     type: GRAPHQL_BOOTCAMP,
     city: LONDON,
   })
-  const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
+  const training = selectNthTraining({ trainings: upcomingGqlTrainings }) || {}
   return (
     <React.Fragment>
       <Breadcrumb
