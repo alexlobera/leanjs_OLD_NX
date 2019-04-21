@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2Ref, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumGraphQL } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -21,9 +21,7 @@ import {
 } from '../components/training'
 import {
   BulletIcon,
-  NotBegginerIcon,
   CodeIcon,
-  ReactIcon,
   CollabsIcon,
   SpannerIcon,
 } from '../components/icons'
