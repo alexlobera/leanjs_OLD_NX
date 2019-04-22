@@ -22,7 +22,7 @@ import { Breadcrumb } from '../components/navigation'
 import { PART_TIME, AMSTERDAM } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
-const PartTimeAmsterdam = ({ trainings }) => {
+const PartTimeAmsterdam = ({ trainings, trainingLoading, trainingError }) => {
   const partTimeTrainings = selectUpcomingTrainings({
     trainings,
     type: PART_TIME,
@@ -45,6 +45,7 @@ const PartTimeAmsterdam = ({ trainings }) => {
         bgImg="part-time"
         type={PART_TIME}
         training={training}
+        showInfoBox={true}
       />
       <TopSection xsBgDark top>
         <Grid>
@@ -52,13 +53,9 @@ const PartTimeAmsterdam = ({ trainings }) => {
             <Row>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
-                  data={{
-                    trainingInstanceId: training.id,
-                    price: training.price,
-                    discountPrice: training.discountPrice,
-                    priceGoesUpOn: training.priceGoesUpOn,
-                    currency: training.currency,
-                  }}
+                  training={training}
+                  trainingLoading={trainingLoading}
+                  trainingError={trainingError}
                 />
               </Col>
               <Col xs={12} md={6} lg={4} lgOffset={1}>
