@@ -239,15 +239,10 @@ PaymentSection.defaultProps = {
 }
 
 PaymentSection.propTypes = {
-  // TODO RICHARD THIS IS A PRESENT FROM ALEX :-P
-  // data: PropTypes.shape({
-  //   trainingInstanceId: PropTypes.string.isRequired,
-  //   price: PropTypes.number.isRequired,
-  //   discountPrice: PropTypes.number,
-  //   priceGoesUpOn: PropTypes.object,
-  //   currency: PropTypes.string,
-  //   paymentApi: PropTypes.object,
-  // }),
+  trainingError: PropTypes.bool,
+  trainingLoading: PropTypes.bool,
+  training: PropTypes.object,
+  data: PropTypes.object,
   paymentApi: PropTypes.object,
 }
 
