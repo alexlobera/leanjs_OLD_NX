@@ -31,7 +31,11 @@ import { PaymentSection } from '../components/payment'
 import { REACT_NATIVE, LONDON } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
-const ReactNativeBoocampLondon = ({ trainings }) => {
+const ReactNativeBoocampLondon = ({
+  trainings,
+  trainingLoading,
+  trainingError,
+}) => {
   const upcomingNativeTrainings = selectUpcomingTrainings({
     trainings,
     type: REACT_NATIVE,
