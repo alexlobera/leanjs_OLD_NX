@@ -1,14 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { H2Ref, H3, P, H5 } from '../text'
+import { H2Ref, H3, P } from '../text'
 import { TrainingItem, TrainingList } from './'
 import moment from 'moment'
 import Link from '../navigation/Link'
-import styled from 'styled-components'
-import { selectTrainings } from '../../config/data'
+import { selectUpcomingTrainings } from './withUpcomingTrainings'
 import Newsletter from '../elements/Newsletter'
-import { GREY, REACT_BLUE_DARK } from '../../config/styles'
+import { GREY } from '../../config/styles'
 
 import CorporateTrainingCard from '../elements/CorporateTrainingCard'
 
@@ -27,25 +27,25 @@ const CorporateCrossSell = styled.div`
   }
 `
 
-const UpcomingTrainings = ({ curriculum, type }) => {
-  const trainings = selectTrainings(type)
-  if (!trainings.length) {
+const UpcomingTrainings = ({ curriculum, type, trainings }) => {
+  const filteredTrainings = selectUpcomingTrainings({ type, trainings })
+  if (!filteredTrainings.length) {
     return <P>Sorry! There are no {type} dates confirmed.</P>
   } else {
-    return trainings.map(training => {
+    return filteredTrainings.map(training => {
       const trainingInstance = (
         <TrainingItem
-          key={training.trainingInstanceId}
+          key={training.id}
           city={training.city}
           country={training.country}
-          startDay={moment(training.dateStartsOn).format('D')}
-          startMonth={moment(training.dateStartsOn).format('MMM')}
-          type={training.type}
-          path={training.pathUrl}
+          startDay={moment(training.startDate).format('D')}
+          startMonth={moment(training.startDate).format('MMM')}
+          type={training.training && training.training.type}
+          path={training.toPath}
         />
       )
       return (
-        <React.Fragment key={training.trainingInstanceId}>
+        <React.Fragment key={training.id}>
           {curriculum ? trainingInstance : <Col md={4}>{trainingInstance}</Col>}
         </React.Fragment>
       )
@@ -53,12 +53,16 @@ const UpcomingTrainings = ({ curriculum, type }) => {
   }
 }
 
-const UpcomingTrainingSection = ({ curriculum, type }) => (
+const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
   <React.Fragment>
     {curriculum ? (
       <React.Fragment>
         <H3 style={{ marginTop: '1em' }}>Upcoming courses</H3>
-        <UpcomingTrainings type={type} curriculum={curriculum} />
+        <UpcomingTrainings
+          type={type}
+          curriculum={curriculum}
+          trainings={trainings}
+        />
         <Link to="#upcoming">See all upcoming courses</Link>
         <Row>
           <Col md={10}>
@@ -87,7 +91,11 @@ const UpcomingTrainingSection = ({ curriculum, type }) => (
           <Row>
             <Col md={11} mdOffset={1}>
               <TrainingList>
-                <UpcomingTrainings type={type} curriculum={curriculum} />
+                <UpcomingTrainings
+                  type={type}
+                  curriculum={curriculum}
+                  trainings={trainings}
+                />
                 <CorporateCrossSell>
                   <P>
                     <strong>Corporate team training</strong>

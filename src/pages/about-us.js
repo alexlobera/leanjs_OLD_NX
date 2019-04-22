@@ -5,13 +5,15 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P, H4 } from '../components/text'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Card, Video, Image, Newsletter } from '../components/elements'
 import { Blockquote } from '../components/text'
-import { LeanJS } from '../components/logos'
 import {
   RICHARD,
   HORACIO,
@@ -21,25 +23,14 @@ import {
   ROY,
   DAVID,
   FRANCISCO,
-  CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
 import { HideComponentsUsingCss } from '../components/utils'
-import { WHITE } from '../config/styles'
 import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
-import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
 import { SCREEN_SM_MAX } from '../components/utils'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
-
-const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
-
-const LeanJSLink = styled(Link)`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-`
 
 const CoachTitle = styled(H3)`
   & {
@@ -73,7 +64,7 @@ const SocialLink = ({ to, children, onClick }) => (
   </Link>
 )
 
-const AboutUs = () => (
+const AboutUs = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['About us']}
@@ -861,8 +852,8 @@ const AboutUs = () => (
         <LeanJSsprints />
       </Grid>
     </Section>
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default AboutUs
+export default withUpcomingTrainings()(AboutUs)

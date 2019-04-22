@@ -11,6 +11,7 @@ const selectCurriculumLayout = ({
   secondHalf,
   layout,
   type = '',
+  trainings,
 }) => {
   if (layout === LIST_LAYOUT) {
     return (
@@ -45,7 +46,11 @@ const selectCurriculumLayout = ({
             {secondHalf}
           </Col>
           <Col md={6} lg={5} lgOffset={1}>
-            <UpcomingTrainingSection curriculum type={type} />
+            <UpcomingTrainingSection
+              trainings={trainings}
+              curriculum
+              type={type}
+            />
           </Col>
         </Row>
       </React.Fragment>

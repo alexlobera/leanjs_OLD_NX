@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2Ref, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumGraphQL } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
@@ -15,26 +15,30 @@ import {
   HORACIO_HERRERA,
   WILL_VOELCKER,
   ALEX_LOBERA,
-  RICHARD_MOSS,
+  withUpcomingTrainings,
+  selectUpcomingTrainings,
+  selectNthTraining,
 } from '../components/training'
 import {
   BulletIcon,
-  NotBegginerIcon,
   CodeIcon,
-  ReactIcon,
   CollabsIcon,
   SpannerIcon,
 } from '../components/icons'
 import { Image, Newsletter } from '../components/elements'
 import header from '../components/layout/Header.json'
-import { InstallmentsCard, PaymentSection } from '../components/payment'
+import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
-import { selectFirstTraining, GRAPHQL_BOOTCAMP, LONDON } from '../config/data'
+import { GRAPHQL_BOOTCAMP, LONDON } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
-import { LinkButton } from '../components/buttons'
 
-const training = selectFirstTraining(GRAPHQL_BOOTCAMP, LONDON)
-const BootcampLondon = () => {
+const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
+  const upcomingGqlTrainings = selectUpcomingTrainings({
+    trainings,
+    type: GRAPHQL_BOOTCAMP,
+    city: LONDON,
+  })
+  const training = selectNthTraining({ trainings: upcomingGqlTrainings }) || {}
   return (
     <React.Fragment>
       <Breadcrumb
@@ -44,12 +48,13 @@ const BootcampLondon = () => {
         ]}
       />
       <Header
-        titleLines={['React GraphQL Bootcamp', `${training.dates} - London`]}
+        titleLines={['React GraphQL Bootcamp', `London`]}
         subtitle="Take your dev career to the next level by mastering<br />React and GraphQL - in just 1 week!"
         links={header.landingTraining.links}
         bgImg="training-event"
         type={GRAPHQL_BOOTCAMP}
         training={training}
+        showInfoBox={true}
       />
       <TopSection xsBgDark>
         <Grid>
@@ -57,30 +62,14 @@ const BootcampLondon = () => {
             <Row>
               <Col xs={12} md={6} lg={5} lgOffset={1}>
                 <PaymentSection
-                  data={{
-                    trainingInstanceId: training.trainingInstanceId,
-                    price: training.price,
-                    discountPrice: training.discountPrice,
-                    priceGoesUpOn: training.priceGoesUpOn,
-                    countdownDate: training.countdownDate,
-                    currency: training.currency,
-                  }}
+                  training={training}
+                  trainingError={trainingError}
+                  trainingLoading={trainingLoading}
                 />
               </Col>
               <Col xs={12} md={6} lg={4} lgOffset={1}>
                 <Video youtubeId="2-IPT7Plsfc" />
                 <TrainingDetails
-                  date={training.dates}
-                  timing="Wednesday-Tuesday, 9am - 6:30pm"
-                  location={
-                    <React.Fragment>
-                      {training.location}
-                      <Link to="https://goo.gl/maps/jjX9zs5Ags32">
-                        {' '}
-                        See on map
-                      </Link>
-                    </React.Fragment>
-                  }
                   coaches={[ALEX_LOBERA, WILL_VOELCKER, HORACIO_HERRERA]}
                 />
               </Col>
@@ -155,9 +144,9 @@ const BootcampLondon = () => {
           </Card>
         </Grid>
       </Section>
-      <UpcomingTrainingSection />
+      <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
 
-export default BootcampLondon
+export default withUpcomingTrainings()(BootcampLondon)

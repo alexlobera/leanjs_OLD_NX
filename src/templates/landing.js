@@ -7,7 +7,12 @@ import { CurriculumBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+  selectUpcomingTrainings,
+  selectNthTraining,
+} from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 import {
   NotBegginersIcon,
@@ -20,16 +25,10 @@ import {
 import { Link } from '../components/navigation'
 import Ul, { Li } from '../components/layout/Ul'
 import { LinkButton } from '../components/buttons'
-import {
-  selectTrainings,
-  selectFirstTraining,
-  REACT_BOOTCAMP,
-} from '../config/data'
+import { REACT_BOOTCAMP } from '../config/data'
 import Newsletter from '../components/elements/Newsletter'
 
-const nextTraining = selectFirstTraining(REACT_BOOTCAMP)
-
-const Landing = ({ data }) => {
+const Landing = ({ data, trainings }) => {
   const {
     country,
     city,
@@ -37,6 +36,12 @@ const Landing = ({ data }) => {
     paragraphs,
     youtubeId,
   } = data.markdownRemark.frontmatter
+
+  const bootcampTrainings = selectUpcomingTrainings({
+    trainings: trainings,
+    type: REACT_BOOTCAMP,
+  })
+  const nextTraining = selectNthTraining({ trainings: bootcampTrainings }) || {}
   return (
     <React.Fragment>
       <Breadcrumb
@@ -117,10 +122,12 @@ const Landing = ({ data }) => {
                 </Li>
               </Ul>
               <P>
-                <LinkButton variant="primary" to={nextTraining.pathUrl}>
+                <LinkButton variant="primary" to={nextTraining.toPath}>
                   Next bootcamp:{' '}
-                  {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
-                  {nextTraining.city}
+                  {moment(nextTraining && nextTraining.startDate).format(
+                    'D MMM'
+                  )}
+                  , {nextTraining && nextTraining.city}
                 </LinkButton>
               </P>
             </Col>
@@ -147,7 +154,7 @@ const Landing = ({ data }) => {
         </Grid>
       </Section>
 
-      <UpcomingTrainingSection />
+      <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
@@ -166,4 +173,4 @@ export const query = graphql`
   }
 `
 
-export default Landing
+export default withUpcomingTrainings()(Landing)

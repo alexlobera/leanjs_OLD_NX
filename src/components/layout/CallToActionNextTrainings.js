@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+
 import { LinkButton } from '../buttons'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
 import { Z_INDEX_MEDIUM } from '../../config/styles'
@@ -22,31 +23,30 @@ export const CallToActionRow = styled(Row)`
   }
 `
 
-const CallToActionNextTrainings = ({ left, trainings = [] }) => (
-  <CallToActionRow left>
-    {trainings.slice(0, 3).map((training, index) => {
-      const startDate = moment(training.dateStartsOn).format('D MMM')
-      return index === 0 ? (
-        <Col key={index} xs={12} mdOffset={1} md={5}>
-          <LinkButton
-            variant="primary"
-            to={training.pathUrl}
-            children={`Next ${training.type}: ${startDate}, ${
-              training.cityShortName
-            }  `}
-          />
-        </Col>
-      ) : (
-        <Col key={index} xs={12} md={3} center={index === 1}>
-          <LinkButton
-            variant="secondary"
-            to={training.pathUrl}
-            children={`${startDate}, ${training.cityShortName}`}
-          />
-        </Col>
-      )
-    })}
-  </CallToActionRow>
-)
+const CallToActionNextTrainings = ({ trainings = [] }) => {
+  const filteredTrainings = trainings.filter((undefined, i) => i < 3)
+  return (
+    <CallToActionRow left>
+      {filteredTrainings.map(
+        ({ startDate: sDate, city, toPath, training: { type } }, index) => {
+          const startDate = moment(sDate).format('D MMM')
+          return index === 0 ? (
+            <Col key={index} xs={12} mdOffset={1} md={5}>
+              <LinkButton
+                variant="primary"
+                to={toPath}
+                children={`Next ${type}: ${startDate}, ${city}  >>`}
+              />
+            </Col>
+          ) : (
+            <Col key={index} xs={12} md={3} center={index === 1}>
+              <LinkButton to={toPath} children={`${startDate}, ${city}`} />
+            </Col>
+          )
+        }
+      )}
+    </CallToActionRow>
+  )
+}
 
 export default CallToActionNextTrainings

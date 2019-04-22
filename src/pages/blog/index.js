@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H3, P } from '../../components/text'
 import Header from '../../components/layout/Header'
-import { UpcomingTrainingSection } from '../../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
 import { Card, Image } from '../../components/elements'
 import { TopSection } from '../../components/layout/Section'
@@ -13,7 +16,7 @@ const CardText = styled.div`
   padding: 18px;
 `
 
-const Blog = ({ data }) => {
+const Blog = ({ data, trainings }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <React.Fragment>
@@ -56,7 +59,7 @@ const Blog = ({ data }) => {
           </React.Fragment>
         </Grid>
       </TopSection>
-      <UpcomingTrainingSection />
+      <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
@@ -83,4 +86,4 @@ export const query = graphql`
   }
 `
 
-export default Blog
+export default withUpcomingTrainings()(Blog)

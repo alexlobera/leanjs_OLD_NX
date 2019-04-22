@@ -5,6 +5,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import {
   UpcomingTrainingSection,
+  withUpcomingTrainings,
   AttendeeQuote,
   TrustedByLogoList,
 } from '../components/training'
@@ -24,7 +25,7 @@ import {
 } from '../components/icons'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
 
-const CorporateTraining = () => (
+const CorporateTraining = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['Corporate team training']}
@@ -141,9 +142,8 @@ const CorporateTraining = () => (
         <LeanJSsprints />
       </Grid>
     </Section>
-
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default CorporateTraining
+export default withUpcomingTrainings()(CorporateTraining)

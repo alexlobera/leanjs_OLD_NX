@@ -7,7 +7,10 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
 import { P, Span, H2, H3, H4, H5, Hr } from '../components/text'
 import Header from '../components/layout/Header'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../components/training'
 import { Breadcrumb, Link } from '../components/navigation'
 import { WHITE } from '../config/styles'
 import { Image } from '../components/elements'
@@ -92,7 +95,7 @@ const GridContent = styled(Grid)`
   padding-top: 72px;
 `
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, trainings }) => {
   const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
   const { title, date, subtitle, author, imageUrl } = frontmatter
   const authorTwitter = frontmatter.authorTwitter || 'reactjsacademy'
@@ -181,7 +184,7 @@ const BlogPost = ({ data }) => {
           </Col>
         </Row>
       </GridContent>
-      <UpcomingTrainingSection />
+      <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
@@ -222,4 +225,4 @@ export const query = graphql`
   }
 `
 
-export default BlogPost
+export default withUpcomingTrainings()(BlogPost)

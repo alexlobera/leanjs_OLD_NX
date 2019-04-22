@@ -64,6 +64,7 @@ class Checkout extends React.Component {
     const { isOpen } = this.state
     // The class `gtm-purchase-box` is needed for Tracking purposes,
     // please DON'T DELETE IT!!
+
     return (
       <Fragment>
         {!isOpen ? (

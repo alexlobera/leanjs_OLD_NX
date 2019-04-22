@@ -2,7 +2,11 @@ import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, P } from '../components/text'
-import { UpcomingTrainingSection, AttendeeQuote } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  AttendeeQuote,
+  withUpcomingTrainings,
+} from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import { Card } from '../components/elements'
@@ -13,7 +17,7 @@ import {
 } from '../config/images'
 import Link from '../components/navigation/Link'
 
-const CodeOfConduct = () => (
+const CodeOfConduct = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['Our code of conduct']}
@@ -168,8 +172,8 @@ const CodeOfConduct = () => (
         </Row>
       </Grid>
     </Section>
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default CodeOfConduct
+export default withUpcomingTrainings()(CodeOfConduct)

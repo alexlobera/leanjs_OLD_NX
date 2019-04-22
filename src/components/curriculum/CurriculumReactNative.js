@@ -25,6 +25,7 @@ const CurriculumReactNative = ({
   toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
   showLinkToCurriculum = true,
   layout,
+  trainings,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_NATIVE
@@ -97,7 +98,13 @@ const CurriculumReactNative = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        trainings,
+      })}
     </React.Fragment>
   )
 }

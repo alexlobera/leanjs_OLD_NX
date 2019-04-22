@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, withApollo } from 'react-apollo'
-import gql from 'graphql-tag'
 import { withRouter } from 'react-router-dom'
 
 import PAY from './Pay.graphql'

@@ -1,0 +1,26 @@
+query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
+  trainingInstancesConnection(
+    filter: {
+      ownerId: "5aaa9b07f146e5cfafad189e"
+      city: $city
+      startDate: future
+    }
+    orderBy: { sort: startDate, direction: ASC }
+  ) {
+    edges {
+      node {
+        id
+        startDate
+        endDate
+        city
+        country
+        address
+        mapUrl
+        price
+        training {
+          type
+        }
+      }
+    }
+  }
+}

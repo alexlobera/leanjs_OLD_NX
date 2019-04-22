@@ -22,6 +22,7 @@ const CurriculumAdvancedReact = ({
   marketingCard = null,
   showLinkToCurriculum = true,
   layout,
+  trainings,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = ADVANCED_REACT
@@ -97,7 +98,13 @@ const CurriculumAdvancedReact = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        trainings,
+      })}
     </React.Fragment>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { CurriculumPartTime } from '../../components/curriculum'
@@ -32,7 +31,7 @@ const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
     type: PART_TIME,
     city: LONDON,
   })
-  const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
+  const training = selectNthTraining({ trainings: partTimeTrainings, nth: 3 })
 
   return (
     <React.Fragment>
@@ -66,9 +65,6 @@ const BootcampLondon = ({ trainings, trainingLoading, trainingError }) => {
               <Col xs={12} md={6} lg={4} lgOffset={1}>
                 <Video youtubeId="E_4eQQHjc7A" />
                 <TrainingDetails
-                  date={training.dates}
-                  timing="6pm - 9pm Tuesday's & Thursday's"
-                  location={<React.Fragment>{training.city}</React.Fragment>}
                   coaches={[
                     EVA_HOFFMANN,
                     DAVID_LEULIETTE,

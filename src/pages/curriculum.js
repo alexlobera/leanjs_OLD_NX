@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Element, scroller } from 'react-scroll'
 import moment from 'moment'
 import { Table, Thead, Tbody, Tr, Th, Td } from '../components/table'
@@ -27,13 +26,16 @@ import {
   MarketingCard,
 } from '../components/curriculum'
 import Header from '../components/layout/Header'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+  selectNthTraining,
+} from '../components/training'
 import { Card } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Tick } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
 import {
-  selectFirstTraining,
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
@@ -41,12 +43,6 @@ import {
   GRAPHQL_BOOTCAMP,
 } from '../config/data'
 import { LIST_LAYOUT } from '../components/curriculum/selectCurriculumLayout'
-
-const trainingBootcamp = selectFirstTraining(REACT_BOOTCAMP)
-const trainingPartTime = selectFirstTraining(PART_TIME)
-const trainingAdvanced = selectFirstTraining(ADVANCED_REACT)
-
-const CorporateTrainingLink = styled.div``
 
 class Curriculum extends React.Component {
   state = {
@@ -75,6 +71,17 @@ class Curriculum extends React.Component {
   }
 
   render() {
+    const { trainings } = this.props
+    const trainingBootcamp = selectNthTraining({
+      trainings,
+      type: REACT_BOOTCAMP,
+    })
+    const trainingPartTime = selectNthTraining({ trainings, type: PART_TIME })
+    const trainingAdvanced = selectNthTraining({
+      trainings,
+      type: ADVANCED_REACT,
+    })
+
     return (
       <React.Fragment>
         <Header
@@ -88,7 +95,10 @@ class Curriculum extends React.Component {
         />
         <TopSection>
           <Grid>
-            <CallToActionNextTrainings left trainings={[trainingBootcamp]} />
+            <CallToActionNextTrainings
+              left
+              trainings={trainingBootcamp ? [trainingBootcamp] : []}
+            />
             <Card border="shadow">
               <Row>
                 <Col lg={10} lgOffset={1}>
@@ -98,18 +108,6 @@ class Curriculum extends React.Component {
                       #
                     </Link>
                   </H2Ref>
-
-                  <H3>With all courses you will:</H3>
-                  <Ul>
-                    <Li>Build production ready React applications</Li>
-                    <Li>
-                      Discuss real-world projects with experienced developers
-                    </Li>
-                    <Li>Learn best practices</Li>
-                    <Li>Be mentored by our expert coaches</Li>
-                    <Li>Join our alumni community</Li>
-                    <Li>Stay ahead in modern development</Li>
-                  </Ul>
                 </Col>
               </Row>
               <Row>
@@ -354,25 +352,27 @@ class Curriculum extends React.Component {
                       <Row>
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
-                          <CurriculumBootcamp
-                            layout={LIST_LAYOUT}
-                            enableToggle={true}
-                            showTitle={false}
-                            showLinkToCurriculum={false}
-                            layout={LIST_LAYOUT}
-                            marketingCard={
-                              <MarketingCard
-                                heading="Next React Bootcamp"
-                                text={`Take your career to the next level and master React in just 1 week!`}
-                                to={trainingBootcamp.pathUrl}
-                                buttonText={`${
-                                  trainingBootcamp.city
-                                } React Bootcamp, ${moment(
-                                  trainingBootcamp.dateStartsOn
-                                ).format('MMM YY')}  `}
-                              />
-                            }
-                          />
+                          {trainingBootcamp && (
+                            <CurriculumBootcamp
+                              layout={LIST_LAYOUT}
+                              enableToggle={true}
+                              showTitle={false}
+                              showLinkToCurriculum={false}
+                              layout={LIST_LAYOUT}
+                              marketingCard={
+                                <MarketingCard
+                                  heading="Next React Bootcamp"
+                                  text={`Take your career to the next level and master React in just 1 week!`}
+                                  to={trainingBootcamp.toPath}
+                                  buttonText={`${
+                                    trainingBootcamp.city
+                                  } React Bootcamp, ${moment(
+                                    trainingBootcamp.startDate
+                                  ).format('MMM DD')}  `}
+                                />
+                              }
+                            />
+                          )}
                         </Col>
                       </Row>
                     </ContentItem>
@@ -407,24 +407,26 @@ class Curriculum extends React.Component {
                       <Row>
                         <Col lg={1} lgOffset={1} />
                         <Col lg={9}>
-                          <CurriculumAdvancedReact
-                            enableToggle={true}
-                            showTitle={false}
-                            layout={LIST_LAYOUT}
-                            showLinkToCurriculum={false}
-                            marketingCard={
-                              <MarketingCard
-                                heading="Next React Advanced Training"
-                                text={`You can master Advanced React, Redux, and GraphQL - in just 3 days!`}
-                                to={trainingAdvanced.pathUrl}
-                                buttonText={`${
-                                  trainingAdvanced.city
-                                } React Advanced, ${moment(
-                                  trainingAdvanced.dateStartsOn
-                                ).format('MMM YY')}  `}
-                              />
-                            }
-                          />
+                          {trainingAdvanced && (
+                            <CurriculumAdvancedReact
+                              enableToggle={true}
+                              showTitle={false}
+                              layout={LIST_LAYOUT}
+                              showLinkToCurriculum={false}
+                              marketingCard={
+                                <MarketingCard
+                                  heading="Next React Advanced Training"
+                                  text={`You can master Advanced React, Redux, and GraphQL - in just 3 days!`}
+                                  to={trainingAdvanced.pathUrl}
+                                  buttonText={`${
+                                    trainingAdvanced.city
+                                  } React Advanced, ${moment(
+                                    trainingAdvanced.startDate
+                                  ).format('MMM DD')}  `}
+                                />
+                              }
+                            />
+                          )}
                         </Col>
                       </Row>
                     </ContentItem>
@@ -535,16 +537,22 @@ class Curriculum extends React.Component {
                             showTitle={false}
                             layout={LIST_LAYOUT}
                             marketingCard={
-                              <MarketingCard
-                                heading="Next Part-Time React Course"
-                                text={`Flexible learning meaning you don't miss work whilst upskilling into React.`}
-                                to={trainingPartTime.pathUrl}
-                                buttonText={`${
-                                  trainingPartTime.city
-                                } React Part-Time, ${moment(
-                                  trainingPartTime.dateStartsOn
-                                ).format('MMM YY')}  `}
-                              />
+                              trainingPartTime && (
+                                <MarketingCard
+                                  heading="Next React Part time Training"
+                                  text={`Next React part-time course starts on ${moment(
+                                    trainingPartTime.startDate
+                                  ).format('MMM DD')} in ${
+                                    trainingPartTime.city
+                                  }`}
+                                  to={trainingPartTime.toPath}
+                                  buttonText={`${
+                                    trainingPartTime.city
+                                  } React part-time ${moment(
+                                    trainingPartTime.startDate
+                                  ).format('MMM DD')}  `}
+                                />
+                              )
                             }
                           />
                         </Col>
@@ -556,10 +564,10 @@ class Curriculum extends React.Component {
             </Row>
           </Grid>
         </Section>
-        <UpcomingTrainingSection />
+        <UpcomingTrainingSection trainings={trainings} />
       </React.Fragment>
     )
   }
 }
 
-export default Curriculum
+export default withUpcomingTrainings()(Curriculum)

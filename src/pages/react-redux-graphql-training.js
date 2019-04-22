@@ -7,9 +7,12 @@ import { Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
-import { UpcomingTrainingSection } from '../components/training'
+import {
+  UpcomingTrainingSection,
+  withUpcomingTrainings,
+} from '../components/training'
 
-const BootcampAustin = () => (
+const BootcampAustin = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['React Redux GraphQL Training']}
@@ -97,8 +100,8 @@ const BootcampAustin = () => (
       </Grid>
     </Section>
 
-    <UpcomingTrainingSection />
+    <UpcomingTrainingSection trainings={trainings} />
   </React.Fragment>
 )
 
-export default BootcampAustin
+export default withUpcomingTrainings()(BootcampAustin)

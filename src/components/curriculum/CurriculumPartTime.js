@@ -41,6 +41,7 @@ const CurriculumPartTime = ({
   marketingCard = null,
   layout,
   showLinkToCurriculum = true,
+  trainings,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = PART_TIME
@@ -150,7 +151,13 @@ const CurriculumPartTime = ({
       ) : (
         ''
       )}
-      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        trainings,
+      })}
       {showCallToActionBottom ? (
         <Row>
           <Col lg={10} lgOffset={1}>

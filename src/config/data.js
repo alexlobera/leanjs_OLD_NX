@@ -343,28 +343,6 @@ export const instagramPictures = [
 export const CONVINCE_THE_BOSS_PDF =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
 
-export const curriedSelectTrainings = ({ data } = {}) => (type, city) =>
-  [...data]
-    .filter(
-      training =>
-        (!type || training.type === type) &&
-        (!city || training.city === city) &&
-        training.dateStartsOn > Date.now()
-    )
-    .sort((a, b) => a.dateStartsOn - b.dateStartsOn) || []
-
-export const selectTrainings = curriedSelectTrainings({ data: trainings })
-
-export const selectSecondTraining = (type, city) => {
-  const trainings = selectTrainings(type, city)
-  return trainings.length > 1 ? trainings[1] : emptyTraining(type, city)
-}
-
-export const selectFirstTraining = (type, city) => {
-  const trainings = selectTrainings(type, city)
-  return trainings.length ? trainings[0] : emptyTraining(type, city)
-}
-
 export const selectMeetups = () =>
   meetups
     .filter(meetup => meetup.dateStartsOn > Date.now())

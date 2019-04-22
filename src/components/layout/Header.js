@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
+
 import styled, { css } from 'styled-components'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
@@ -205,7 +207,8 @@ const InfoBox = styled.div`
 `
 
 const Header = ({
-  training,
+  training = {},
+  showInfoBox = false,
   type = '',
   titleLines = [],
   subtitle,
@@ -258,7 +261,7 @@ const Header = ({
             </Col>
           </Row>
         </TitleCol>
-        {training && (
+        {showInfoBox && (
           <Col md={3} mdOffset={1}>
             <InfoBox type={type}>
               <Link to={`#${linkToGallery}`}>
@@ -271,14 +274,22 @@ const Header = ({
 
               <Ul unstyled>
                 <Li>
-                  <strong>Date</strong>: {training.dates}
+                  <strong>Date</strong>:{' '}
+                  {training.startDate
+                    ? `${moment(training.startDate).format('D MMM')} - ${moment(
+                        training.endDate
+                      ).format('D MMM')}`
+                    : 'TBD'}
                 </Li>
                 <Li>
-                  <strong>Timings</strong>: {training.timings || `9am - 6:30pm`}
+                  <strong>Timings</strong>:{' '}
+                  {`${moment(training.startDate).format('HH:mm') ||
+                    '9am'} - ${moment(training.endDate).format('HH:mm') ||
+                    '6:30pm'}`}
                 </Li>
                 <Li>
-                  <strong>Venue</strong>: {training.location}{' '}
-                  {training.mapLink && <Link to={training.mapLink}>- map</Link>}
+                  <strong>Venue</strong>: {training.address || 'TBD'}{' '}
+                  {training.mapUrl && <Link to={training.mapUrl}>- map</Link>}
                 </Li>
                 {linkToGallery && (
                   <Li>
@@ -305,6 +316,7 @@ Header.propTypes = {
   links: PropTypes.array,
   height: PropTypes.number,
   bgImg: PropTypes.string,
+  training: PropTypes.object,
 }
 
 export default Header

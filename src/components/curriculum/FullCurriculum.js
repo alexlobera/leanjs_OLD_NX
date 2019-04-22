@@ -28,6 +28,11 @@ class FullCurriculum extends React.Component {
   }
 
   render() {
+    const { trainings } = this.props
+    const commonCurriculumProps = {
+      trainings,
+      showTitle: false,
+    }
     return (
       <React.Fragment>
         <Row>
@@ -58,19 +63,19 @@ class FullCurriculum extends React.Component {
 
               <TabContent>
                 <ContentItem name={REACT_BOOTCAMP}>
-                  <CurriculumBootcamp showTitle={false} />
+                  <CurriculumBootcamp {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={ADVANCED_REACT}>
-                  <CurriculumAdvancedReact showTitle={false} />
+                  <CurriculumAdvancedReact {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={PART_TIME}>
-                  <CurriculumPartTime showTitle={false} />
+                  <CurriculumPartTime {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
-                  <CurriculumGraphQL showTitle={false} />
+                  <CurriculumGraphQL {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={REACT_NATIVE}>
-                  <CurriculumReactNative showTitle={false} />
+                  <CurriculumReactNative {...commonCurriculumProps} />
                 </ContentItem>
               </TabContent>
             </Tabs>
