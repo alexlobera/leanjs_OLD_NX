@@ -14,7 +14,6 @@ import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Card, Video, Image, Newsletter } from '../components/elements'
 import { Blockquote } from '../components/text'
-import { LeanJS } from '../components/logos'
 import {
   RICHARD,
   HORACIO,
@@ -24,25 +23,14 @@ import {
   ROY,
   DAVID,
   FRANCISCO,
-  CODEVELOP,
   ABOUT_VALUES,
 } from '../config/images'
 import { HideComponentsUsingCss } from '../components/utils'
-import { WHITE } from '../config/styles'
 import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
 } from '../components/utils/trackUserBehaviour'
-import { selectFirstTraining, REACT_BOOTCAMP } from '../config/data'
 import { SCREEN_SM_MAX } from '../components/utils'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
-
-const trainings = [selectFirstTraining(REACT_BOOTCAMP)]
-
-const LeanJSLink = styled(Link)`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-`
 
 const CoachTitle = styled(H3)`
   & {

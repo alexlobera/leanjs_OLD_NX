@@ -29,8 +29,6 @@ import { PaymentSection } from '../components/payment'
 import { REACT_NATIVE, LONDON } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
-// const training = selectFirstTraining(REACT_NATIVE, LONDON)
-
 const ReactNativeBoocampLondon = ({ trainings }) => (
   <React.Fragment>
     <Breadcrumb

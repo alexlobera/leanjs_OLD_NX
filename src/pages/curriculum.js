@@ -29,7 +29,6 @@ import Header from '../components/layout/Header'
 import {
   UpcomingTrainingSection,
   withUpcomingTrainings,
-  selectUpcomingTrainings,
   selectNthTraining,
 } from '../components/training'
 import { Card } from '../components/elements'
@@ -82,9 +81,6 @@ class Curriculum extends React.Component {
       trainings,
       type: ADVANCED_REACT,
     })
-    console.log('trainingBootcamp', trainingBootcamp)
-    console.log('trainingPartTime', trainingPartTime)
-    console.log('trainingAdvanced', trainingAdvanced)
 
     return (
       <React.Fragment>
@@ -112,18 +108,6 @@ class Curriculum extends React.Component {
                       #
                     </Link>
                   </H2Ref>
-
-                  <H3>With all courses you will:</H3>
-                  <Ul>
-                    <Li>Build production ready React applications</Li>
-                    <Li>
-                      Discuss real-world projects with experienced developers
-                    </Li>
-                    <Li>Learn best practices</Li>
-                    <Li>Be mentored by our expert coaches</Li>
-                    <Li>Join our alumni community</Li>
-                    <Li>Stay ahead in modern development</Li>
-                  </Ul>
                 </Col>
               </Row>
               <Row>

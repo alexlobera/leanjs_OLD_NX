@@ -12,21 +12,17 @@ import Header from '../components/layout/Header'
 import {
   UpcomingTrainingSection,
   withUpcomingTrainings,
+  selectUpcomingTrainings,
+  selectNthTraining,
 } from '../components/training'
 
 import { LinkButton } from '../components/buttons'
 import {
-  selectFirstTraining,
   REACT_BOOTCAMP,
   selectMeetups,
   instagramPictures,
 } from '../config/data'
 import { MENTORSHIP_IMG } from '../config/images'
-
-const nextBootcamp = selectFirstTraining(REACT_BOOTCAMP)
-const nextBootcampStartDate =
-  nextBootcamp && moment(nextBootcamp.dateStartsOn).format('D MMM')
-const meetups = selectMeetups()
 
 const CallToAction = styled(LinkButton)`
   position: absolute;
@@ -84,199 +80,210 @@ const TwitterWidgetsOnlyOnClientSide = () => {
   }
 }
 
-const Community = ({ trainings }) => (
-  <React.Fragment>
-    <Header
-      titleLines={['The ReactJS', 'Academy community']}
-      subtitle="We are not a group of people - but a movement!"
-      links={[
-        { text: 'Twitter ', to: '#twitter' },
-        { text: 'Meetups', to: '#meetups' },
-        { text: 'Instagram', to: '#instagram' },
-        { text: 'Mentor community', to: '#mentor-community' },
-      ]}
-      bgImg="training-event"
-    />
-    <TopSection>
-      <Grid>
-        <Row>
-          <Col xs={12} md={6}>
-            <Card border="shadow">
-              <Col md={8} mdOffset={2}>
-                <H2>
-                  Twitter? Sure.
-                  <a name="twitter" />
-                </H2>
-                <CallToAction
-                  variant="primary"
-                  to={nextBootcamp && nextBootcamp.pathUrl}
-                  children={`Next Bootcamp: ${nextBootcampStartDate}, ${
-                    nextBootcamp.cityShortName
-                  } `}
-                />
-                <TwitterWidgetsOnlyOnClientSide />
-              </Col>
-            </Card>
-            <SecondaryCard border="shadow">
-              <Col md={8} mdOffset={2}>
-                <H2>Keep informed...</H2>
-                <Newsletter />
-              </Col>
-            </SecondaryCard>
-          </Col>
-          <Col xs={12} md={6}>
-            <Card border="shadow">
-              <Col md={8} mdOffset={2}>
-                <H2>
-                  Meetups? Absolutely! <a name="meetups" />
-                </H2>
-                {meetups.length ? (
-                  <React.Fragment>
-                    <EventList>
-                      <Li>
-                        <H3>Events</H3>
-                      </Li>
-                      {meetups.map(
-                        ({
-                          cityShortName,
-                          country,
-                          dateStartsOn,
-                          url,
-                          title,
-                          imgUrl,
-                        }) => (
-                          <Li key={url}>
-                            <Row>
-                              <Col sm={6}>
-                                <Image src={imgUrl} />
-                              </Col>
-                              <Col sm={6}>
-                                <div>
-                                  <P>
-                                    <strong>{title}</strong>
-                                    <br />
-                                    {moment(dateStartsOn).format(
-                                      'D MMM'
-                                    )} - {cityShortName}, {country}
-                                  </P>
-                                  <LinkButton
-                                    secondary
-                                    to={url}
-                                    children={'Read more'}
-                                  />
-                                </div>
-                              </Col>
-                            </Row>
-                          </Li>
-                        )
-                      )}
-                    </EventList>
-                  </React.Fragment>
-                ) : null}
-                <H3>Our groups</H3>
-                <Row>
-                  <Col xs={6}>
-                    <MeetupLink to="http://meetup.com/JavaScript-London">
-                      JavaScript London
-                    </MeetupLink>
-                  </Col>
-                  <Col xs={6}>
-                    <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                      JavaScript Lisbon
-                    </MeetupLink>
-                  </Col>
-                  <Col xs={6}>
-                    <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                      JavaScript Barcelona
-                    </MeetupLink>
-                  </Col>
-                  <Col xs={6}>
-                    <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                      JavaScript Amsterdam
-                    </MeetupLink>
-                  </Col>
-                  <Col xs={6}>
-                    <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                      JavaScript Paris
-                    </MeetupLink>
-                  </Col>
-                  <Col xs={6}>
-                    <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                      JavaScript Berlin
-                    </MeetupLink>
-                  </Col>
-                </Row>
-              </Col>
-            </Card>
-            <SecondaryCard border="shadow">
-              <Col md={8} mdOffset={2}>
-                <H2>
-                  Instagram - boom! <a name="instagram" />
-                </H2>
-                <p>
-                  <Link to="https://www.instagram.com/reactjsacademy/">
-                    @reactjsacademy
-                  </Link>
-                </p>
-                <Row>
-                  {instagramPictures.map(({ imageUrl, pageUrl }) => (
-                    <Col xs={4} key={pageUrl}>
-                      <Link to={pageUrl}>
-                        <Image
-                          src={imageUrl}
-                          alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
-                        />
-                      </Link>
+const Community = ({ trainings }) => {
+  const upcomingBootcamps = selectUpcomingTrainings({
+    trainings,
+    type: REACT_BOOTCAMP,
+  })
+  const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
+  debugger
+  const nextBootcampStartDate =
+    nextBootcamp && moment(nextBootcamp.startDate).format('D MMM')
+  const meetups = selectMeetups()
+  return (
+    <React.Fragment>
+      <Header
+        titleLines={['The ReactJS', 'Academy community']}
+        subtitle="We are not a group of people - but a movement!"
+        links={[
+          { text: 'Twitter ', to: '#twitter' },
+          { text: 'Meetups', to: '#meetups' },
+          { text: 'Instagram', to: '#instagram' },
+          { text: 'Mentor community', to: '#mentor-community' },
+        ]}
+        bgImg="training-event"
+        training={nextBootcamp}
+      />
+      <TopSection>
+        <Grid>
+          <Row>
+            <Col xs={12} md={6}>
+              <Card border="shadow">
+                <Col md={8} mdOffset={2}>
+                  <H2>
+                    Twitter? Sure.
+                    <a name="twitter" />
+                  </H2>
+                  <CallToAction
+                    variant="primary"
+                    to={nextBootcamp && nextBootcamp.pathUrl}
+                    children={`Next Bootcamp: ${nextBootcampStartDate}, ${nextBootcamp &&
+                      nextBootcamp.city} `}
+                  />
+                  <TwitterWidgetsOnlyOnClientSide />
+                </Col>
+              </Card>
+              <SecondaryCard border="shadow">
+                <Col md={8} mdOffset={2}>
+                  <H2>Keep informed...</H2>
+                  <Newsletter />
+                </Col>
+              </SecondaryCard>
+            </Col>
+            <Col xs={12} md={6}>
+              <Card border="shadow">
+                <Col md={8} mdOffset={2}>
+                  <H2>
+                    Meetups? Absolutely! <a name="meetups" />
+                  </H2>
+                  {meetups.length ? (
+                    <React.Fragment>
+                      <EventList>
+                        <Li>
+                          <H3>Events</H3>
+                        </Li>
+                        {meetups.map(
+                          ({
+                            cityShortName,
+                            country,
+                            dateStartsOn,
+                            url,
+                            title,
+                            imgUrl,
+                          }) => (
+                            <Li key={url}>
+                              <Row>
+                                <Col sm={6}>
+                                  <Image src={imgUrl} />
+                                </Col>
+                                <Col sm={6}>
+                                  <div>
+                                    <P>
+                                      <strong>{title}</strong>
+                                      <br />
+                                      {moment(dateStartsOn).format(
+                                        'D MMM'
+                                      )} - {cityShortName}, {country}
+                                    </P>
+                                    <LinkButton
+                                      secondary
+                                      to={url}
+                                      children={'Read more'}
+                                    />
+                                  </div>
+                                </Col>
+                              </Row>
+                            </Li>
+                          )
+                        )}
+                      </EventList>
+                    </React.Fragment>
+                  ) : null}
+                  <H3>Our groups</H3>
+                  <Row>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-London">
+                        JavaScript London
+                      </MeetupLink>
                     </Col>
-                  ))}
-                </Row>
-              </Col>
-            </SecondaryCard>
-          </Col>
-        </Row>
-      </Grid>
-    </TopSection>
-    <Section>
-      <Grid>
-        <Row>
-          <Col xs={12} md={6}>
-            <Image
-              src={MENTORSHIP_IMG}
-              alt="A group of ReactJS Academy coaches and mentors, looking very happy indeed"
-            />
-          </Col>
-          <Col xs={12} md={5} mdOffset={1}>
-            <H2>
-              Our mentor community <a name="mentor-community" />
-            </H2>
-            <P>
-              ReactJS Academy is devoted to helping developers grow in their
-              professional career. Our dedication stands beyond making them
-              awesome React developers. We want them to make an impact in the
-              organizations and people they choose to work with.
-            </P>
-            <P>
-              Our experience tells us that the best way to master a skill is by
-              teaching it. We believe sharing knowledge also contributes to
-              creating collaborative workplaces & communities.
-            </P>
-            <P>
-              The ReactJS Academy mentorship program enables those experienced
-              developers in our community to take a step farther and become a
-              mentor in our community events and workshops. This way they can
-              build the experience required to become not only a great developer
-              but also a great coach, speaker, and team player.
-            </P>
-            <P>
-              <Link to="#contact-us">Contact us</Link>
-            </P>
-          </Col>
-        </Row>
-      </Grid>
-    </Section>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
+                        JavaScript Lisbon
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
+                        JavaScript Barcelona
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
+                        JavaScript Amsterdam
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Paris">
+                        JavaScript Paris
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Berlin">
+                        JavaScript Berlin
+                      </MeetupLink>
+                    </Col>
+                  </Row>
+                </Col>
+              </Card>
+              <SecondaryCard border="shadow">
+                <Col md={8} mdOffset={2}>
+                  <H2>
+                    Instagram - boom! <a name="instagram" />
+                  </H2>
+                  <p>
+                    <Link to="https://www.instagram.com/reactjsacademy/">
+                      @reactjsacademy
+                    </Link>
+                  </p>
+                  <Row>
+                    {instagramPictures.map(({ imageUrl, pageUrl }) => (
+                      <Col xs={4} key={pageUrl}>
+                        <Link to={pageUrl}>
+                          <Image
+                            src={imageUrl}
+                            alt="ReactJS Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
+                          />
+                        </Link>
+                      </Col>
+                    ))}
+                  </Row>
+                </Col>
+              </SecondaryCard>
+            </Col>
+          </Row>
+        </Grid>
+      </TopSection>
+      <Section>
+        <Grid>
+          <Row>
+            <Col xs={12} md={6}>
+              <Image
+                src={MENTORSHIP_IMG}
+                alt="A group of ReactJS Academy coaches and mentors, looking very happy indeed"
+              />
+            </Col>
+            <Col xs={12} md={5} mdOffset={1}>
+              <H2>
+                Our mentor community <a name="mentor-community" />
+              </H2>
+              <P>
+                ReactJS Academy is devoted to helping developers grow in their
+                professional career. Our dedication stands beyond making them
+                awesome React developers. We want them to make an impact in the
+                organizations and people they choose to work with.
+              </P>
+              <P>
+                Our experience tells us that the best way to master a skill is
+                by teaching it. We believe sharing knowledge also contributes to
+                creating collaborative workplaces & communities.
+              </P>
+              <P>
+                The ReactJS Academy mentorship program enables those experienced
+                developers in our community to take a step farther and become a
+                mentor in our community events and workshops. This way they can
+                build the experience required to become not only a great
+                developer but also a great coach, speaker, and team player.
+              </P>
+              <P>
+                <Link to="#contact-us">Contact us</Link>
+              </P>
+            </Col>
+          </Row>
+        </Grid>
+      </Section>
 
-    <UpcomingTrainingSection trainings={trainings} />
-  </React.Fragment>
-)
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export default withUpcomingTrainings()(Community)

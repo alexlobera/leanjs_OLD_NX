@@ -17,18 +17,6 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
         address
         mapUrl
         price
-        upcomingAutomaticDiscounts {
-          edges {
-            node {
-              code
-              id
-              discountPercentage
-              discountAmount
-              startsAt
-              expiresAt
-            }
-          }
-        }
         training {
           type
         }

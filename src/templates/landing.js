@@ -11,7 +11,7 @@ import {
   UpcomingTrainingSection,
   withUpcomingTrainings,
   selectUpcomingTrainings,
-  selectFirstTraining,
+  selectNthTraining,
 } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 import {
@@ -41,8 +41,7 @@ const Landing = ({ data, trainings }) => {
     trainings: trainings,
     type: REACT_BOOTCAMP,
   })
-  const nextTraining =
-    selectFirstTraining({ trainings: bootcampTrainings }) || {}
+  const nextTraining = selectNthTraining({ trainings: bootcampTrainings }) || {}
   return (
     <React.Fragment>
       <Breadcrumb
@@ -125,8 +124,10 @@ const Landing = ({ data, trainings }) => {
               <P>
                 <LinkButton variant="primary" to={nextTraining.toPath}>
                   Next bootcamp:{' '}
-                  {moment(nextTraining.dateStartsOn).format('D MMM')},{' '}
-                  {nextTraining.city}
+                  {moment(nextTraining && nextTraining.startDate).format(
+                    'D MMM'
+                  )}
+                  , {nextTraining && nextTraining.city}
                 </LinkButton>
               </P>
             </Col>

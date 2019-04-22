@@ -37,14 +37,12 @@ class PaymentSection extends React.Component {
   }
 
   validateVoucher = voucher => {
-    // const { client, data = {}, trackUserBehaviour } = this.props
     const {
       client,
       training: { id: trainingInstanceId },
       trackUserBehaviour,
     } = this.props
     const { isVoucherValidationInProgress, quantity } = this.state
-    // const { trainingInstanceId } = data
 
     if (!voucher || isVoucherValidationInProgress) {
       return
