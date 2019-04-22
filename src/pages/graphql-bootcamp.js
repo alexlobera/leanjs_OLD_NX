@@ -39,7 +39,6 @@ const GraphQL = ({ trainings }) => {
     trainings,
     type: GRAPHQL_BOOTCAMP,
   })
-  console.log(upcomingGraphQLTrainings)
   return (
     <React.Fragment>
       <Breadcrumb
