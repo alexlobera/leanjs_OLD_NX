@@ -99,8 +99,6 @@ const mountPaymentSection = ({
   )
 
 describe('<PaymentSection />', () => {
-  //let wrapper
-
   let request = {
     query: PAY,
     variables: {
