@@ -9,6 +9,13 @@ import {
   GRAPHQL_BOOTCAMP,
 } from '../../config/data'
 
+import {
+  LISBON_LOCATION,
+  LONDON_LOCATION,
+  BARCELONA_LOCATION,
+  AMSTERDAM_LOCATION,
+} from '../../config/images'
+
 import GET_UPCOMING_TRAINING from './withUpcomingTrainings.graphql'
 
 const createTrainingPath = ({ type, city = '', index }) => {
@@ -24,6 +31,21 @@ const createTrainingPath = ({ type, city = '', index }) => {
       return `/advanced-react-redux-graphql-bootcamp-${city.toLowerCase()}/${i}`
     case GRAPHQL_BOOTCAMP:
       return `/graphql-bootcamp-${city.toLowerCase()}/${i}`
+  }
+}
+
+const selectLocationImage = ({ city = '' }) => {
+  switch (city) {
+    case 'London':
+      return LONDON_LOCATION
+    case 'Amsterdam':
+      return AMSTERDAM_LOCATION
+    case 'Lisbon':
+      return LISBON_LOCATION
+    case 'Barcelona':
+      return BARCELONA_LOCATION
+    default:
+      return SMALL_CLASSROOM
   }
 }
 
@@ -71,6 +93,7 @@ const withUpcomingTrainings = ({
             city,
             index: cityIndex[key],
           }),
+          image: selectLocationImage({ city }),
         }
       }
 
