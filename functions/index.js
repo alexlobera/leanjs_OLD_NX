@@ -51,11 +51,10 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
     // Set CORS headers for the main request
     response.set('Access-Control-Allow-Origin', '*')
 
-    const AUTOPILOT_SESSION_SUBSCRIBE_KEY = '0011'
+    const email = request && request.body && request.body.email
     const data = request && request.body
     const {
       name,
-      email,
       fundamentals,
       styling,
       hooks,
@@ -65,31 +64,29 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
     } = data
     const AUTOPILOT_API_KEY = functions.config().autopilot.key
     if (email) {
-      fetch(
-        `https://api2.autopilothq.com/v1/trigger/${AUTOPILOT_SESSION_SUBSCRIBE_KEY}/contact/`,
-        {
-          method: 'POST',
-          headers: {
-            autopilotapikey: AUTOPILOT_API_KEY,
-          },
-          body: JSON.stringify({
-            contact: {
-              FirstName: name,
-              Email: email,
-              custom: {
-                'fundamentals-session': fundamentals,
-                'styling-session': styling,
-                'hooks-session': hooks,
-                'perf-session': perf,
-                'gqlclient-session': gqlclient,
-                'testing-session': testing,
-              },
+      fetch(`https://api2.autopilothq.com/v1/contact`, {
+        method: 'POST',
+        headers: {
+          autopilotapikey: AUTOPILOT_API_KEY,
+        },
+        body: JSON.stringify({
+          contact: {
+            FirstName: name,
+            Email: email,
+            _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
+            custom: {
+              'boolean--Fundamentals--Session': fundamentals,
+              'boolean--Styling--Session': styling,
+              'boolean--Hooks--Session': hooks,
+              'boolean--Perf--Session': perf,
+              'boolean--GQLclient--Session': gqlclient,
+              'boolean--Testing--Session': testing,
             },
-          }),
-        }
-      )
+          },
+        }),
+      })
         .then(res => res.json())
-        .then(json => console.log(json))
+        .then(json => console.log('json response:', json))
         .catch(console.log('not working'))
 
       response.status(200).send('it worked')
