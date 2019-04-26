@@ -96,33 +96,33 @@ class ContactForm extends Component {
           news on our courses...{' '}
         </P>
         <Row>
-          <Form
-            onSubmit={this.handleFormSubmit}
-            render={({ handleSubmit, valid }) => {
-              return (
-                <form
-                  onSubmit={handleSubmit}
-                  style={this.state.formSubmited ? { display: 'none' } : {}}
-                >
-                  <Col md={6}>
+          <Col>
+            <Form
+              onSubmit={this.handleFormSubmit}
+              render={({ handleSubmit, valid }) => {
+                return (
+                  <form
+                    onSubmit={handleSubmit}
+                    style={this.state.formSubmited ? { display: 'none' } : {}}
+                  >
                     <EmailInput
                       validate={composeValidators(required, mustBeEmail)}
                       label="Your email address:"
                       name="email"
                       placeholder="eg. steve@jobs.com"
                     />
-                  </Col>
-                  <Button variant="primary" type="submit" disabled={!valid}>
-                    Submit email
-                  </Button>
-                </form>
-              )
-            }}
-          />
-          <P>
-            We wont spam you as per our{' '}
-            <Link to="/privacy-policy">Privacy Policy</Link>.
-          </P>
+                    <Button variant="primary" type="submit" disabled={!valid}>
+                      Submit email
+                    </Button>
+                  </form>
+                )
+              }}
+            />
+            <P>
+              We wont spam you as per our{' '}
+              <Link to="/privacy-policy">Privacy Policy</Link>.
+            </P>
+          </Col>
         </Row>
         {formSubmited ? (
           <Row>
