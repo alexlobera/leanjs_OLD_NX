@@ -86,7 +86,6 @@ const Community = ({ trainings }) => {
     type: REACT_BOOTCAMP,
   })
   const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
-  debugger
   const nextBootcampStartDate =
     nextBootcamp && moment(nextBootcamp.startDate).format('D MMM')
   const meetups = selectMeetups()

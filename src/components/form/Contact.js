@@ -34,8 +34,7 @@ const Unsubscribe = styled(P)`
 
 export const ThanksTitle = styled(H3)`
   margin: 1em 0;
-` //TODO: animate this later
-
+`
 class ContactForm extends Component {
   state = {
     formSubmited: false,
@@ -97,33 +96,33 @@ class ContactForm extends Component {
           news on our courses...{' '}
         </P>
         <Row>
-          <Col>
-            <Form
-              onSubmit={this.handleFormSubmit}
-              render={({ handleSubmit, valid }) => {
-                return (
-                  <form
-                    onSubmit={handleSubmit}
-                    style={this.state.formSubmited ? { display: 'none' } : {}}
-                  >
+          <Form
+            onSubmit={this.handleFormSubmit}
+            render={({ handleSubmit, valid }) => {
+              return (
+                <form
+                  onSubmit={handleSubmit}
+                  style={this.state.formSubmited ? { display: 'none' } : {}}
+                >
+                  <Col md={6}>
                     <EmailInput
                       validate={composeValidators(required, mustBeEmail)}
                       label="Your email address:"
                       name="email"
                       placeholder="eg. steve@jobs.com"
                     />
-                    <Button variant="primary" type="submit" disabled={!valid}>
-                      Submit email
-                    </Button>
-                  </form>
-                )
-              }}
-            />
-            <P>
-              We wont spam you as per our{' '}
-              <Link to="/privacy-policy">Privacy Policy</Link>.
-            </P>
-          </Col>
+                  </Col>
+                  <Button variant="primary" type="submit" disabled={!valid}>
+                    Submit email
+                  </Button>
+                </form>
+              )
+            }}
+          />
+          <P>
+            We wont spam you as per our{' '}
+            <Link to="/privacy-policy">Privacy Policy</Link>.
+          </P>
         </Row>
         {formSubmited ? (
           <Row>
