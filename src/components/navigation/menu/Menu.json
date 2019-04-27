@@ -32,6 +32,10 @@
       {
         "to": "/react-native-bootcamp",
         "text": "React Native"
+      },
+      {
+        "to": "/react-workshops",
+        "text": "One day workshops"
       }
     ]
   },
