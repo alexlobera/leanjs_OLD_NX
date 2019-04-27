@@ -111,9 +111,22 @@ const SessionInterest = ({ trainings, history }) => {
                         </strong>{' '}
                         and we'd love for you to enjoy and learn from them!{' '}
                       </P>
-                      <Button variant="primary" type="submit" disabled={!valid}>
-                        Submit
-                      </Button>
+                      <FieldInput
+                        name="resources"
+                        type="checkbox"
+                        label="I want free leanring resources!"
+                      />
+                      <Row>
+                        <Col>
+                          <Button
+                            variant="primary"
+                            type="submit"
+                            disabled={!valid}
+                          >
+                            Submit
+                          </Button>
+                        </Col>
+                      </Row>
                     </Col>
                     <Col xs={12} md={6}>
                       <React.Fragment>
