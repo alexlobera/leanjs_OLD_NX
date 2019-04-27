@@ -9,6 +9,7 @@ export const triggerSessionSubscribe = ({
   perf,
   gqlclient,
   testing,
+  resources,
 }) =>
   fetch(
     `https://us-central1-reactjsacademy-react.cloudfunctions.net/sessionSubscribe`,
@@ -26,12 +27,13 @@ export const triggerSessionSubscribe = ({
         perf,
         gqlclient,
         testing,
+        resources,
       }),
     }
   ).then(() => {
-    console.log('web hook called')
-    // trackUserBehaviour({
-    //   event: 'NEWSLETTER_UNSUBSCRIBE',
+    trackUserBehaviour({
+      event: '1-DAY_SESSION_SUBSCRIBE',
+    })
   })
 
 export const triggerUnsubscribe = ({ email }) =>

@@ -42,6 +42,7 @@ const SessionInterest = ({ trainings, history }) => {
     perf = false,
     gqlclient = false,
     testing = false,
+    resources = false,
   }) => {
     triggerSessionSubscribe({
       name,
@@ -52,6 +53,7 @@ const SessionInterest = ({ trainings, history }) => {
       perf,
       gqlclient,
       testing,
+      resources,
     })
     history.push('/thanks-for-signing-up')
   }

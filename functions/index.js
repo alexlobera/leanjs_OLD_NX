@@ -61,6 +61,7 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
       perf,
       gqlclient,
       testing,
+      resources,
     } = data
     const AUTOPILOT_API_KEY = functions.config().autopilot.key
     if (email) {
@@ -81,6 +82,7 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
               'boolean--Perf--Session': perf,
               'boolean--GQLclient--Session': gqlclient,
               'boolean--Testing--Session': testing,
+              'boolean--Resources--Signup': resources,
             },
           },
         }),

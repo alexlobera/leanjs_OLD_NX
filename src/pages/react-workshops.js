@@ -68,7 +68,8 @@ const Workshops = ({ trainings }) => (
                     <H4>React Hooks & Suspense</H4>
                     <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
                     <P>
-                      Learn 2 of the newest and most exciting features in React
+                      Learn two of the newest and most exciting features in
+                      React
                     </P>
 
                     <LinkButton variant="secondary" to="/interest-form">
