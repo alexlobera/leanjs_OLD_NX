@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
-import moment from 'moment'
-import styled from 'styled-components'
+import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-import Section, { TopSection } from '../components/layout/Section'
+import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { Li } from '../components/layout/Ul'
-import { H2, H3, P } from '../components/text'
+import { H3, P } from '../components/text'
 import { Link } from '../components/navigation'
-import { Card, Image } from '../components/elements'
+import { Card } from '../components/elements'
 import { Button } from '../components/buttons'
 import Header from '../components/layout/Header'
 import {
@@ -19,7 +16,6 @@ import {
 } from '../components/training'
 
 import { REACT_BOOTCAMP, selectMeetups } from '../config/data'
-import { MENTORSHIP_IMG } from '../config/images'
 import { FieldInput, Form } from '../components/form'
 import {
   composeValidators,
@@ -68,7 +64,7 @@ const SessionInterest = ({ trainings, history }) => {
       <Header
         titleLines={['React Workshops']}
         subtitle={[
-          'Join the wait and be the first to know about upcoming 1-day sessions',
+          'Join the wait and be the first to know about our upcoming 1-day workshops',
         ]}
         bgImg="training-event"
         training={nextBootcamp}

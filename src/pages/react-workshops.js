@@ -30,7 +30,7 @@ const Workshops = ({ trainings }) => (
       subtitle="Intense, 1-day workshops that focusses on one specific part of React - all based on our proven Bootcamp curriculum"
       bgImg="about-us"
     />
-    <TopSection>
+    <TopSection marginTop={`-250`}>
       <Grid>
         <Card border="shadow">
           <Row>

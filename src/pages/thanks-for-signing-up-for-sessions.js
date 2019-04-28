@@ -10,7 +10,7 @@ const ThanksForSignUpSessions = () => (
   <React.Fragment>
     <Header
       titleLines={['Thanks - your signed up for 1-day session info!']}
-      subtitle="If you also also asked for free resources, every week for the next 5 weeks, you'll get a new email with juicy React goodness..."
+      subtitle="If you also also asked for free learning resources, every week for the next 5 weeks, you'll get a new email with juicy React goodness..."
       bgImg="training-event"
     />
     <TopSection marginTop="-250">
