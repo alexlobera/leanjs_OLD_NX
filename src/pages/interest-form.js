@@ -121,7 +121,7 @@ const SessionInterest = ({ trainings, history }) => {
                               label="I want free leanring resources!"
                             />
                             <Row>
-                              <Col>
+                              <Col md={3}>
                                 <Button
                                   variant="primary"
                                   type="submit"
@@ -129,6 +129,15 @@ const SessionInterest = ({ trainings, history }) => {
                                 >
                                   Submit
                                 </Button>
+                              </Col>
+                              <Col mdOffset={1} md={8}>
+                                <P>
+                                  We wont spam you as per our{' '}
+                                  <Link to="/privacy-policy">
+                                    Privacy Policy
+                                  </Link>
+                                  .
+                                </P>
                               </Col>
                             </Row>
                           </Col>
