@@ -195,6 +195,14 @@ export const trainings = [
 
 const meetups = [
   {
+    dateStartsOn: new Date('9 May, 2019'),
+    cityShortName: 'London',
+    country: 'UK',
+    url: 'https://www.meetup.com/JavaScript-London/events/260824278/',
+    title: 'GraphQL deep dive with Vladimir Novick & ReactJS Academy',
+    imgUrl: LONDON_MEETUP,
+  },
+  {
     dateStartsOn: new Date('15 Jan, 2019'),
     cityShortName: 'Barcelona',
     country: 'ES',
