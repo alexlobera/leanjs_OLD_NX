@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Field } from 'react-final-form'
 import Input from './Input'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { TopSection } from '../components/layout/Section'
@@ -15,8 +15,8 @@ import {
   selectNthTraining,
 } from '../components/training'
 
-import { REACT_BOOTCAMP, selectMeetups } from '../config/data'
-import { FieldInput, Form } from '../components/form'
+import { REACT_BOOTCAMP } from '../config/data'
+import { FieldInput, Form, Checkbox } from '../components/form'
 import {
   composeValidators,
   required,
@@ -40,6 +40,7 @@ const SessionInterest = ({ trainings, history }) => {
     testing = false,
     resources = false,
   }) => {
+    console.log(fundamentals)
     triggerSessionSubscribe({
       name,
       email,
@@ -88,17 +89,17 @@ const SessionInterest = ({ trainings, history }) => {
                               placeholder="eg. Steve Jobs"
                             />
                             <P>Which Workshops are you interested in?</P>
-                            <FieldInput
+                            <Checkbox
                               name="fundamentals"
                               type="checkbox"
                               label="Modern JS and React Fundamentals"
                             />
-                            <FieldInput
+                            <Checkbox
                               name="styling"
                               type="checkbox"
                               label="Styling in React and Design Systems"
                             />
-                            <FieldInput
+                            <Checkbox
                               name="hooks"
                               type="checkbox"
                               label="React Hooks & Suspense"
@@ -115,7 +116,7 @@ const SessionInterest = ({ trainings, history }) => {
                               and we'd love for you to enjoy and learn from
                               them!{' '}
                             </P>
-                            <FieldInput
+                            <Checkbox
                               name="resources"
                               type="checkbox"
                               label="I want free leanring resources!"
@@ -152,17 +153,17 @@ const SessionInterest = ({ trainings, history }) => {
                                 name="email"
                                 placeholder="eg. steve@jobs.com"
                               />
-                              <FieldInput
+                              <Checkbox
                                 name="perf"
                                 type="checkbox"
                                 label="Performance & FP in React"
                               />
-                              <FieldInput
+                              <Checkbox
                                 name="gqlclient"
                                 type="checkbox"
                                 label="React with GraphQL client"
                               />
-                              <FieldInput
+                              <Checkbox
                                 name="testing"
                                 type="checkbox"
                                 label="Testing in React"
