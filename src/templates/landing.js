@@ -1,5 +1,6 @@
 import React from 'react'
-import moment from 'moment'
+
+import { formatUTC } from '../components/utils'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
@@ -124,9 +125,12 @@ const Landing = ({ data, trainings }) => {
               <P>
                 <LinkButton variant="primary" to={nextTraining.toPath}>
                   Next bootcamp:{' '}
-                  {moment(nextTraining && nextTraining.startDate).format(
-                    'D MMM'
-                  )}
+                  {nextTraining &&
+                    formatUTC(
+                      nextTraining.startDate,
+                      nextTraining.utcOffset,
+                      'D MMM'
+                    )}
                   , {nextTraining && nextTraining.city}
                 </LinkButton>
               </P>

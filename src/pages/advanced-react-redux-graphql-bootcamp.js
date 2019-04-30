@@ -1,5 +1,6 @@
 import React from 'react'
-import moment from 'moment'
+
+import { formatUTC } from '../components/utils'
 import { LinkButton } from '../components/buttons'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
@@ -114,9 +115,11 @@ const AdvancedTraining = ({ trainings }) => {
                 <P>
                   <LinkButton variant="primary" to={nextTraining.toPath}>
                     Next one:{' '}
-                    {`${moment(nextTraining.startDate).format('D MMM')}, ${
-                      nextTraining.city
-                    } >>`}
+                    {`${formatUTC(
+                      nextTraining.startDate,
+                      nextTraining.utcOffset,
+                      'D MMM'
+                    )}, ${nextTraining.city} >>`}
                   </LinkButton>
                 </P>
               ) : null}

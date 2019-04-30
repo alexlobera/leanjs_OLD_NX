@@ -1,11 +1,11 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
-import moment from 'moment'
+
 import { Table, Thead, Tbody, Tr, Th, Td } from '../components/table'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Ul, { Li } from '../components/layout/Ul'
-import { H2Ref, H2, P, H3, H4 } from '../components/text'
+import { H2Ref, H2, P, H4 } from '../components/text'
 import LinkButton from '../components/buttons/LinkButton'
 import {
   Link,
@@ -35,6 +35,7 @@ import { Card } from '../components/elements'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Tick } from '../components/icons'
 import { getURLParameter } from '../components/utils/url'
+import { formatUTC } from '../components/utils'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
@@ -366,9 +367,11 @@ class Curriculum extends React.Component {
                                   to={trainingBootcamp.toPath}
                                   buttonText={`${
                                     trainingBootcamp.city
-                                  } React Bootcamp, ${moment(
-                                    trainingBootcamp.startDate
-                                  ).format('MMM DD')}  `}
+                                  } React Bootcamp, ${formatUTC(
+                                    trainingBootcamp.startDate,
+                                    trainingBootcamp.utcOffset,
+                                    'MMM DD'
+                                  )}  `}
                                 />
                               }
                             />
@@ -420,9 +423,11 @@ class Curriculum extends React.Component {
                                   to={trainingAdvanced.pathUrl}
                                   buttonText={`${
                                     trainingAdvanced.city
-                                  } React Advanced, ${moment(
-                                    trainingAdvanced.startDate
-                                  ).format('MMM DD')}  `}
+                                  } React Advanced, ${formatUTC(
+                                    trainingAdvanced.startDate,
+                                    trainingAdvanced.utcOffset,
+                                    'MMM DD'
+                                  )}  `}
                                 />
                               }
                             />
@@ -540,17 +545,19 @@ class Curriculum extends React.Component {
                               trainingPartTime && (
                                 <MarketingCard
                                   heading="Next React Part time Training"
-                                  text={`Next React part-time course starts on ${moment(
-                                    trainingPartTime.startDate
-                                  ).format('MMM DD')} in ${
-                                    trainingPartTime.city
-                                  }`}
+                                  text={`Next React part-time course starts on ${formatUTC(
+                                    trainingPartTime.startDate,
+                                    trainingPartTime.utcOffset,
+                                    'MMM DD'
+                                  )} in ${trainingPartTime.city}`}
                                   to={trainingPartTime.toPath}
                                   buttonText={`${
                                     trainingPartTime.city
-                                  } React part-time ${moment(
-                                    trainingPartTime.startDate
-                                  ).format('MMM DD')}  `}
+                                  } React part-time ${formatUTC(
+                                    trainingPartTime.startDate,
+                                    trainingPartTime.utcOffset,
+                                    'MMM DD'
+                                  )}  `}
                                 />
                               )
                             }

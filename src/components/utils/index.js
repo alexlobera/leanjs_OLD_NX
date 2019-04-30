@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
+
 import {
   REACT_NATIVE,
   REACT_BOOTCAMP,
@@ -116,3 +118,9 @@ export const DisplayComponentsUsingCss = styled(Components)`
     `
         : ''}
 `
+
+export const formatUTC = (utcDate, utcOffset, format = "D MMM 'YYYY") =>
+  moment
+    .utc(utcDate)
+    .utcOffset(utcOffset || 1)
+    .format(format)
