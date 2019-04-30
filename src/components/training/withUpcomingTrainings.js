@@ -14,6 +14,7 @@ import {
   LONDON_LOCATION,
   BARCELONA_LOCATION,
   AMSTERDAM_LOCATION,
+  SMALL_CLASSROOM,
 } from '../../config/images'
 
 import GET_UPCOMING_TRAINING from './withUpcomingTrainings.graphql'
