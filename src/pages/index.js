@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
@@ -53,7 +55,10 @@ const SectionButtonRow = styled(Row)`
   }
 `
 const IndexPage = ({ trainings }) => (
-  <React.Fragment>
+  <Layout>
+    {/* {({trainings}) => (
+
+    )} */}
     <Header
       titleLines={['Take your dev career further', 'by mastering React']}
       subtitle="In-person training from experts who were <br /> the first in
@@ -285,7 +290,7 @@ const IndexPage = ({ trainings }) => (
       </Grid>
     </Section>
     <UpcomingTrainingSection trainings={trainings} />
-  </React.Fragment>
+  </Layout>
 )
 
 export default withUpcomingTrainings()(IndexPage)

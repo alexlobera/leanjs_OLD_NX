@@ -61,7 +61,7 @@ const Layout = ({ children, data }) => (
             ]}
           />
           <Menu />
-          {children()}
+          {children({ trainings })}
           <Footer />
           <AcceptCookies />
         </React.Fragment>
