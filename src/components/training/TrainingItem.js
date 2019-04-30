@@ -26,19 +26,11 @@ const Calander = styled(Link)`
   line-height: normal;
 `
 
-const TrainingItem = ({
-  type,
-  city,
-  country,
-  startDay,
-  startMonth,
-  path,
-  imageSrc,
-}) => (
+const TrainingItem = ({ type, city, country, startDay, startMonth, path }) => (
   <React.Fragment>
     <TrainingRow>
       <TrainingItemCol xs={5} md={3}>
-        <Calander type={type}>
+        <Calander type={type} to={path}>
           {startDay}
           <br />
           {startMonth}
