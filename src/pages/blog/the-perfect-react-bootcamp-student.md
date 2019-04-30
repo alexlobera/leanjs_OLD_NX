@@ -7,25 +7,25 @@ imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 order: 15
 ---
 
-We’ve been teaching React since 2016 and in that time we’ve often been asked what makes the perfect ReactJS Academy student. We’ve been asked what base knowledge you need, especially. So today we’re going to answer a few FAQs to make sure you get the most out of React Bootcamp - and we’ll have some snippets from past students along the way!
+We’ve been teaching React since 2016 and in that time we’ve often been asked what makes the perfect ReactJS Academy student. We’ve been asked what base knowledge you need, especially. So today we’re going to answer a few FAQs to make sure you get the most out of [React Bootcamp](/react-redux-graphql-bootcamp/) - and we’ll have some snippets from past students along the way!
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2Fimage_1.jpg?alt=media&)
 
-## What do ReactJS Academy students learn?
+## What do ReactJS Academy students learn? <a name="react-bootcamp-syllabus"></a>
 
 Just to recap what the React Bootcamp is, it’s a week-long intensive React training course. We introduce students to React and get them thinking in a React way. Then we mentor students rapidly, taking a deep dive into the React ecosystem to cover:
 
 - Modern JS
 
-- Forms
+- [Forms](/blog/react-forms-controlled-and-uncontrolled-components/)
 
 - Authentication
 
-- Styling
+- [Styling](/blog/styling-in-react/)
 
-- Redux
+- [Redux](/blog/introduction-to-redux-explained-with-simple-examples/)
 
-- Testing principles and testing in React
+- Testing principles and [testing in React](/blog/unit-testing-fundamentals-explained-using-javascript/)
 
 - Functional programming
 
@@ -33,13 +33,15 @@ Just to recap what the React Bootcamp is, it’s a week-long intensive React tra
 
 - GraphQL
 
-Obviously, this kind of React training and GraphQL course can be pretty intense. It isn’t for the faint-hearted, but we make sure classes are small enough so that students get the most out of their face-to-face React and GraphQL training.
+[See full curriculum here](/curriculum?tab=React%20Bootcamp&section=day1)
+
+Obviously, this kind of React training and [GraphQL course](/blog/announcing-our-new-graphql-bootcamp/) can be pretty intense. It isn’t for the faint-hearted, but we make sure classes are small enough so that students get the most out of their face-to-face React and GraphQL training.
 
 **To get the most out of the Bootcamp, you’ve got to be at the right stage in your career and at a certain level of experience.**
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2Fimage_2.jpg?alt=media&)
 
-## How much experience do I need to learn React?
+## How much experience do I need to learn React? <a name="developer-student-level"></a>
 
 As I said above, the React Bootcamp is intense and rapid. **We’re not here to introduce you to coding, we’re here to supplement your knowledge and introduce you to a new technology.** So the students who get the most out of our React training course are experienced developers.
 
@@ -53,7 +55,7 @@ Although the course is intense, it’s worth it. One former student, Polina Stoy
 
 On another note, if you’re a manager the Bootcamp is perfect for levelling out your team. Our course will get your devs up to speed and enhance the knowledge of your best employees. Everyone will be on the same wavelength afterwards, and that team cohesion will pay dividends for you going forward. Find out more about how team training can level your team’s skills [on our blog](https://reactjs.academy/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/).
 
-## Who will get the most out of the React Bootcamp?
+## Who will get the most out of the React Bootcamp? <a name="passionate-react-developers"></a>
 
 But it isn’t just about experience. **The ideal RJSA student is passionate about their work and loves what they do.** You’ll get the most out of our week-long training course if you engage with the material and are able to pick up new ideas quickly.
 
@@ -65,11 +67,11 @@ That’s the opinion of Senior Software Developer, Davian Robinson anyway. After
 
 <video youtube-id="8C09x9D_4kk" ></video>
 
-##Why should I learn React? Is it easy to adopt?
+##Why should I learn React? Is it easy to adopt? <a name="react-easy-to-learn"></a>
 
-We’ll build on your baseline of experience to get you thinking in the React way. Throughout the week, you’ll always be coding. **In every unit, you’ll work on a hands-on, practical mini-project so you can learn how to build in React.**
+We’ll build on your baseline of experience to get you thinking in the React way. Throughout the week, you’ll always be coding. **In every unit, you’ll work on a hands-on, practical mini-project so you can learn how to build in React.** [See the 'Introduction to Thinking In React' project on our Github](https://github.com/reactjsacademy/thinking-in-react) - you can try for yourself right now!
 
-After the React Bootcamp, you’ll have all the skills you need to implement React best practices and apply it to your companies use case. The great thing about React is that it’s adaptable - you can easily adopt in your organisation. So if you want to change how your organisation creates UIs for the better, the React Bootcamp is for you.
+After the [React Bootcamp](/react-redux-graphql-bootcamp/), you’ll have all the skills you need to implement React best practices and apply it to your companies use case. The great thing about React is that it’s adaptable - you can easily adopt in your organisation. So if you want to change how your organisation creates UIs for the better, the React Bootcamp is for you.
 
 Jaron Schulz, a developer from Berlin, had this to say:
 
@@ -88,5 +90,13 @@ There are loads of reasons to choose RJSA - here’s just a few:
 - Practical application - you’ll be hands-on coding throughout
 
 - Alumni support following completion of the React training course
+  <a name="conclusion"></a>
+
+## Conclusion
+
+- [React bootcamp includes:](#react-bootcamp-syllabus) Forms, Authentication, Styling, Redux, Testing, Functional programming, Advanced patterns, GraphQL and more
+- [It's not for beginners](#developer-student-level) - the bootcamp caters for working developers who want to upskill.
+- [Passion for development is a must](#passionate-react-developers) - the week long format is intense so if you love what you do, you'll have a blast!
+- [Learning React in our bootcamp will be easier](#react-easy-to-learn) - we'll give you hands-on projects and will be with you, person-to-person, all the way
 
 If you think you’re ready to learn React, [get in touch today](#contact-us)!
