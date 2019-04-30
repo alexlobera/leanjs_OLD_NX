@@ -63,6 +63,7 @@
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
+    "start": "npm run develop",
     "predeploy": "npm run build",
     "deploy": "./node_modules/.bin/firebase deploy --only hosting",
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
