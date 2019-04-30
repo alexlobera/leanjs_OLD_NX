@@ -11,7 +11,6 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark',
-    'gatsby-plugin-react-next',
     {
       resolve: `gatsby-plugin-offline`,
       options: {
