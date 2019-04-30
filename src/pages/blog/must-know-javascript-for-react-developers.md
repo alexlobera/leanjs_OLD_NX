@@ -1,5 +1,5 @@
 ---
-title: Must know JavaSctipt for React developers
+title: Must know JavaScript for React developers
 date: 2019-02-24
 subtitle: Understanding ES6 key features for React is crucial to rapidly learning the React ecosystem
 author: richard
