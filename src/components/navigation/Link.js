@@ -1,3 +1,5 @@
+/* eslint no-restricted-globals: 0 */
+
 import React from 'react'
 import GatsbyLink from 'gatsby-link'
 import { Route } from 'react-router-dom'

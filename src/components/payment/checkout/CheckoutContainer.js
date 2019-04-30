@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, withApollo } from 'react-apollo'

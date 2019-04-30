@@ -1,10 +1,12 @@
+/* eslint no-undef: 0 */
+
 import React from 'react'
 import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P, H4 } from '../components/text'
+import { H2, H2Ref, H3, P } from '../components/text'
 import {
   UpcomingTrainingSection,
   withUpcomingTrainings,
