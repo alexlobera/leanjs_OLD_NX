@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { P } from '../text'
 import { Col, Row } from '../layout/Grid'
-import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
-import { Image } from '../elements'
 import { selectTypeColor } from '../utils'
 
 const TrainingItemCol = styled(Col)`
@@ -15,7 +13,7 @@ const TrainingRow = styled(Row)`
   margin-bottom: 1em;
 `
 
-const Calander = styled.div`
+const Calander = styled(Link)`
   border: 3px solid ${props => selectTypeColor(props.type)};
   padding: 10px;
   font-family: barlow;
@@ -24,6 +22,8 @@ const Calander = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 1.16rem;
+  text-decoration: none;
+  line-height: normal;
 `
 
 const TrainingItem = ({
