@@ -27,7 +27,6 @@ const HiddenCheckbox = styled(FieldInput).attrs({
 const StyledCheckbox = styled.div`
   margin: 1em 0;
   border: 1px solid black;
-  background: ${props => (props.checked ? 'salmon' : 'papayawhip')}
   height: ${props => (props.size ? props.size : defaultSize)}em;
   width: ${props => (props.size ? props.size : defaultSize)}em;
   ${HiddenCheckbox}:focus + & {

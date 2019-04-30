@@ -12,16 +12,44 @@ import Header from '../components/layout/Header'
 import { Card, Newsletter } from '../components/elements'
 import { GREY2 } from '../config/styles'
 
-const WorkshopCard = styled.div`
-  border: 1px solid black;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  h4 {
-    border-left: 0.4rem solid ${GREY2};
-    padding-left: 1rem;
-  }
+const BorderLeftH4 = styled(H4)`
+  border-left: 0.4rem solid ${GREY2};
+  padding-left: 1rem;
 `
 const PROVISIONAL_WORKSHOP_PRICE = '£300+VAT'
+
+const workshops = [
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+  },
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+  },
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+  },
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+  },
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+  },
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+  },
+]
 
 const Workshops = ({ trainings }) => (
   <React.Fragment>
@@ -37,89 +65,18 @@ const Workshops = ({ trainings }) => (
             <Col md={10} mdOffset={1}>
               <H2>Which 1-day React training are you looking for?</H2>
               <Row>
-                <Col xs={12} sm={6} md={4}>
-                  <WorkshopCard>
-                    <H4>React Fundamentals & ModernJS</H4>
-                    <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                    <P>
-                      Learn the basics of React and jumpstart your way into a
-                      new coding ecosystem
-                    </P>
-                    <LinkButton variant="secondary" to="/interest-form">
-                      Join Waitlist
-                    </LinkButton>
-                  </WorkshopCard>
-                </Col>
-                <Col xs={12} sm={6} md={4}>
-                  <WorkshopCard>
-                    <H4>Styling in React and Design Systems</H4>
-                    <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                    <P>
-                      See how React can look gorgeous and encourage design
-                      consistency
-                    </P>
-                    <LinkButton variant="secondary" to="/interest-form">
-                      Join Waitlist
-                    </LinkButton>
-                  </WorkshopCard>
-                </Col>
-                <Col xs={12} sm={6} md={4}>
-                  <WorkshopCard>
-                    <H4>React Hooks & Suspense</H4>
-                    <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                    <P>
-                      Learn two of the newest and most exciting features in
-                      React
-                    </P>
-
-                    <LinkButton variant="secondary" to="/interest-form">
-                      Join Waitlist
-                    </LinkButton>
-                  </WorkshopCard>
-                </Col>
-                <Col xs={12} sm={6} md={4}>
-                  <WorkshopCard>
-                    <H4>Performance & FP in React</H4>
-                    <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                    <P>Discover best practice for permonant React apps</P>
-                    <LinkButton variant="secondary" to="/interest-form">
-                      Join Waitlist
-                    </LinkButton>
-                  </WorkshopCard>
-                </Col>
-                <Col xs={12} sm={6} md={4}>
-                  <WorkshopCard>
-                    <H4>React with GraphQL client</H4>
-                    <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                    <P>Consume GraphQL APIs in any React application</P>
-                    <LinkButton variant="secondary" to="/interest-form">
-                      Join Waitlist
-                    </LinkButton>
-                  </WorkshopCard>
-                </Col>
-                <Col xs={12} sm={6} md={4}>
-                  <WorkshopCard>
-                    <H4>Testing in React</H4>
-                    <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                    <P>
-                      Ensure consistent, reliable code across the React
-                      ecosystem
-                    </P>
-                    <LinkButton variant="secondary" to="/interest-form">
-                      Join Waitlist
-                    </LinkButton>
-                  </WorkshopCard>
-                </Col>
-                <Col xs={12} sm={6} md={4}>
-                  <WorkshopCard>
-                    <H4>React Native</H4>
-                    <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                    <P>Learn how to take your React skills into native apps</P>
-                    <LinkButton variant="secondary" to="/interest-form">
-                      Join Waitlist
-                    </LinkButton>
-                  </WorkshopCard>
-                </Col>
+                {workshops.map(workshop => (
+                  <Col xs={12} sm={6} md={4}>
+                    <Card small border="black" bottom={32}>
+                      <BorderLeftH4>{workshop.title}</BorderLeftH4>
+                      <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
+                      <P>{workshop.description}</P>
+                      <LinkButton variant="secondary" to="/interest-form">
+                        Join Waitlist
+                      </LinkButton>
+                    </Card>
+                  </Col>
+                ))}
               </Row>
             </Col>
             <Col md={10} mdOffset={1}>
