@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import moment from 'moment'
-
 import styled, { css } from 'styled-components'
+
+import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
@@ -29,7 +29,7 @@ import {
 } from '../../config/images'
 import { Z_INDEX_BG } from '../../config/styles'
 import { selectTypeColor } from '../utils/index.js'
-import { Card, Image } from '../elements'
+import { Image } from '../elements'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -157,7 +157,7 @@ const Nav = styled.div`
   background-color: ${props => (props.quickLinks ? blue1(0.75) : blue2(0.9))};
   color: ${WHITE};
   ${styleChildLinkColor(WHITE)}
-  padding-top: 8px
+  padding-top: 8px;
   padding-bottom: 8px;
   margin-top:36px;
 
@@ -228,7 +228,7 @@ const Header = ({
   >
     <Grid>
       <Row>
-        <TitleCol md={training && 7} type={type}>
+        <TitleCol md={showInfoBox && training ? 7 : 12} type={type}>
           <H1>
             {titleLines.map((line, i) => (
               <TitleBackground key={i} children={line} />
@@ -276,16 +276,28 @@ const Header = ({
                 <Li>
                   <strong>Date</strong>:{' '}
                   {training.startDate
-                    ? `${moment(training.startDate).format('D MMM')} - ${moment(
-                        training.endDate
-                      ).format('D MMM')}`
+                    ? `${formatUTC(
+                        training.startDate,
+                        training.utcOffset,
+                        'D MMM'
+                      )} - ${formatUTC(
+                        training.endDate,
+                        training.utcOffset,
+                        'D MMM'
+                      )}`
                     : 'TBD'}
                 </Li>
                 <Li>
                   <strong>Timings</strong>:{' '}
-                  {`${moment(training.startDate).format('HH:mm') ||
-                    '9am'} - ${moment(training.endDate).format('HH:mm') ||
-                    '6:30pm'}`}
+                  {`${formatUTC(
+                    training.startDate,
+                    training.utcOffset,
+                    'HH:mm'
+                  ) || '9am'} - ${formatUTC(
+                    training.endDate,
+                    training.utcOffset,
+                    'HH:mm'
+                  ) || '6:30pm'}`}
                 </Li>
                 <Li>
                   <strong>Venue</strong>: {training.address || 'TBD'}{' '}

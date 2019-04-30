@@ -1,7 +1,7 @@
 import React from 'react'
-import moment from 'moment'
 import styled from 'styled-components'
 
+import { formatUTC } from '../components/utils'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { Li } from '../components/layout/Ul'
@@ -88,7 +88,8 @@ const Community = ({ trainings }) => {
   const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
   debugger
   const nextBootcampStartDate =
-    nextBootcamp && moment(nextBootcamp.startDate).format('D MMM')
+    nextBootcamp &&
+    formatUTC(nextBootcamp.startDate, nextBootcamp.utcOffset, 'D MMM')
   const meetups = selectMeetups()
   return (
     <React.Fragment>
@@ -147,6 +148,7 @@ const Community = ({ trainings }) => {
                             cityShortName,
                             country,
                             dateStartsOn,
+                            utcOffset,
                             url,
                             title,
                             imgUrl,
@@ -161,9 +163,12 @@ const Community = ({ trainings }) => {
                                     <P>
                                       <strong>{title}</strong>
                                       <br />
-                                      {moment(dateStartsOn).format(
+                                      {formatUTC(
+                                        dateStartsOn,
+                                        utcOffset,
                                         'D MMM'
-                                      )} - {cityShortName}, {country}
+                                      )}{' '}
+                                      - {cityShortName}, {country}
                                     </P>
                                     <LinkButton
                                       secondary

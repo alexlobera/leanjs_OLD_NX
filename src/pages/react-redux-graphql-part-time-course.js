@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import { Link, Breadcrumb } from '../components/navigation'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
@@ -14,6 +13,7 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from '../components/training'
+import { formatUTC } from '../components/utils'
 
 import { Card, Video } from '../components/elements'
 import { CurriculumPartTime } from '../components/curriculum'
@@ -109,8 +109,12 @@ const PartTime = ({ trainings }) => {
               {nextTraining && (
                 <LinkButton cta to={nextTraining.toPath}>
                   Next bootcamp:{' '}
-                  {moment(nextTraining.startDate).format('D MMM')},{' '}
-                  {nextTraining.city}
+                  {formatUTC(
+                    nextTraining.startDate,
+                    nextTraining.utcOffset,
+                    'D MMM'
+                  )}
+                  , {nextTraining.city}
                 </LinkButton>
               )}
             </Col>

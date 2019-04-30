@@ -11,6 +11,7 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
       node {
         id
         startDate
+        utcOffset
         endDate
         city
         country

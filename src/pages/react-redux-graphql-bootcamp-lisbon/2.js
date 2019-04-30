@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import moment from 'moment'
+
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, H2Ref, H3, P } from '../../components/text'
 import Ul, { Li } from '../../components/layout/Ul'
 import ContactForm from '../../components/form/Contact'
 import { Card, Video } from '../../components/elements'
-import { HideComponentsUsingCss } from '../../components/utils'
+import { HideComponentsUsingCss, formatUTC } from '../../components/utils'
 import Header from '../../components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
 import { TrustedByLogoList } from '../../components/training/TrustedBySection'
@@ -44,7 +44,7 @@ const BootcampLisbon = ({ trainings, trainingLoading, trainingError }) => {
   })
   const training =
     selectNthTraining({ trainings: upcomingLisbonBootcamps, nth: 2 }) || {}
-  const startMonth = moment(training.dateStartsOn).format('MMM')
+  const startMonth = formatUTC(training.dateStartsOn, training.utcOffset, 'MMM')
   return (
     <React.Fragment>
       <Helmet

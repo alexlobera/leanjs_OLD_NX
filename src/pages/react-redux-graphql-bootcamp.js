@@ -1,10 +1,11 @@
 import React from 'react'
-import moment from 'moment'
+
+import { formatUTC } from '../components/utils'
 import { LinkButton } from '../components/buttons'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P, Span } from '../components/text'
+import { H2, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { CurriculumBootcamp } from '../components/curriculum'
 import Header from '../components/layout/Header'
@@ -114,8 +115,12 @@ const Boocamps = ({ trainings }) => {
                 {nextTraining && (
                   <LinkButton variant="primary" to={nextTraining.toPath}>
                     Next bootcamp:{' '}
-                    {moment(nextTraining.startDate).format('D MMM')},{' '}
-                    {nextTraining.city}
+                    {formatUTC(
+                      nextTraining.startDate,
+                      nextTraining.utcOffset,
+                      'D MMM'
+                    )}
+                    , {nextTraining.city}
                   </LinkButton>
                 )}
               </P>

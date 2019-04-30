@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
 
 import { LinkButton } from '../buttons'
-import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
+import { SCREEN_SM_MIN, SCREEN_XS_MAX, formatUTC } from '../utils'
 import { Z_INDEX_MEDIUM } from '../../config/styles'
 import { Col, Row } from './Grid'
 
@@ -28,8 +27,11 @@ const CallToActionNextTrainings = ({ trainings = [] }) => {
   return (
     <CallToActionRow left>
       {filteredTrainings.map(
-        ({ startDate: sDate, city, toPath, training: { type } }, index) => {
-          const startDate = moment(sDate).format('D MMM')
+        (
+          { startDate: sDate, city, toPath, utcOffset, training: { type } },
+          index
+        ) => {
+          const startDate = formatUTC(sDate, utcOffset, 'D MMM')
           return index === 0 ? (
             <Col key={index} xs={12} mdOffset={1} md={5}>
               <LinkButton

@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import { formatUTC } from '../utils'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import { H2Ref, H3, P } from '../text'
 import { TrainingItem, TrainingList } from './'
-import moment from 'moment'
 import Link from '../navigation/Link'
 import { selectUpcomingTrainings } from './withUpcomingTrainings'
 import Newsletter from '../elements/Newsletter'
@@ -38,8 +39,8 @@ const UpcomingTrainings = ({ curriculum, type, trainings }) => {
           key={training.id}
           city={training.city}
           country={training.country}
-          startDay={moment(training.startDate).format('D')}
-          startMonth={moment(training.startDate).format('MMM')}
+          startDay={formatUTC(training.startDate, training.utcOffset, 'D')}
+          startMonth={formatUTC(training.startDate, training.utcOffset, 'MMM')}
           type={training.training && training.training.type}
           path={training.toPath}
         />
