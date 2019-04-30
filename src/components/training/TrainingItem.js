@@ -13,7 +13,7 @@ const TrainingRow = styled(Row)`
   margin-bottom: 1em;
 `
 
-const Calander = styled(Link)`
+const Calendar = styled(Link)`
   border: 3px solid ${props => selectTypeColor(props.type)};
   padding: 10px;
   font-family: barlow;
@@ -30,11 +30,11 @@ const TrainingItem = ({ type, city, country, startDay, startMonth, path }) => (
   <React.Fragment>
     <TrainingRow>
       <TrainingItemCol xs={5} md={3}>
-        <Calander type={type} to={path}>
+        <Calendar type={type} to={path}>
           {startDay}
           <br />
           {startMonth}
-        </Calander>
+        </Calendar>
       </TrainingItemCol>
       <TrainingItemCol xs={7} md={7}>
         <P>
