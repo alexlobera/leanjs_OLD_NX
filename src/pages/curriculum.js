@@ -444,7 +444,7 @@ class Curriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next React Advanced Training"
                                         text={`You can master Advanced React, Redux, and GraphQL - in just 3 days!`}
-                                        to={trainingAdvanced.pathUrl}
+                                        to={trainingAdvanced.toPath}
                                         buttonText={`${
                                           trainingAdvanced.city
                                         } React Advanced, ${formatUTC(

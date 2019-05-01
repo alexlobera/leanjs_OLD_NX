@@ -120,7 +120,7 @@ const Community = () => (
                       </H2>
                       <CallToAction
                         variant="primary"
-                        to={nextBootcamp && nextBootcamp.pathUrl}
+                        to={nextBootcamp && nextBootcamp.toPath}
                         children={`Next Bootcamp: ${nextBootcampStartDate}, ${nextBootcamp &&
                           nextBootcamp.city} `}
                       />
