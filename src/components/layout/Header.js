@@ -289,15 +289,15 @@ const Header = ({
                 </Li>
                 <Li>
                   <strong>Timings</strong>:{' '}
-                  {`${formatUTC(
-                    training.startDate,
-                    training.utcOffset,
-                    'HH:mm'
-                  ) || '9am'} - ${formatUTC(
-                    training.endDate,
-                    training.utcOffset,
-                    'HH:mm'
-                  ) || '6:30pm'}`}
+                  {`${(training.startDate &&
+                    formatUTC(
+                      training.startDate,
+                      training.utcOffset,
+                      'HH:mm'
+                    )) ||
+                    '9am'} - ${(training.endDate &&
+                    formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
+                    '6:30pm'}`}
                 </Li>
                 <Li>
                   <strong>Venue</strong>: {training.address || 'TBD'}{' '}
