@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
 import { graphql, compose } from 'react-apollo'
-import { navigate } from '@reach/router'
+import { navigate } from 'gatsby'
 
 import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
 import ContactForm from '../../components/form/Contact'

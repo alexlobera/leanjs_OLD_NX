@@ -1,5 +1,5 @@
 import React from 'react'
-import { navigate } from '@reach/router'
+import { navigate } from 'gatsby'
 
 import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'

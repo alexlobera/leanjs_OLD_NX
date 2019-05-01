@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { navigate } from '@reach/router'
+import { navigate } from 'gatsby'
 
 import DefaultLink from '../navigation/Link'
 import { Button } from '../buttons'
