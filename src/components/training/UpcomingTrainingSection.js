@@ -43,8 +43,7 @@ const UpcomingTrainings = ({ curriculum, type, trainings }) => {
       const trainingInstance = (
         <TrainingItem
           key={training.id}
-          city={training.city}
-          country={training.country}
+          cityCountry={training.cityCountry}
           startDay={dayMonth[0]}
           startMonth={dayMonth[1]}
           type={training.training && training.training.type}
