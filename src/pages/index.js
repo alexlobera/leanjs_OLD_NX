@@ -16,10 +16,7 @@ import Header from '../components/layout/Header'
 import { Card, Image, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
-import {
-  UpcomingTrainingSection,
-  withUpcomingTrainings,
-} from '../components/training'
+import { UpcomingTrainingSection } from '../components/training'
 import {
   BussinessIcon,
   CalendarIcon,
