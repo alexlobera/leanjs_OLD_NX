@@ -66,13 +66,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
 const Webpack = require('webpack')
 
-exports.modifyBabelrc = ({ babelrc }) => ({
-  ...babelrc,
-  plugins: babelrc.plugins.concat(
-    ['transform-regenerator'],
-    ['transform-runtime']
-  ),
-})
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: '@babel/plugin-transform-regenerator',
+    name: '@babel/plugin-transform-runtime',
+  })
+}
 
 exports.onCreateWebpackConfig = ({ stage, getConfig, actions }) => {
   actions.setWebpackConfig({
