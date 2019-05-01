@@ -35,7 +35,7 @@ const BootcampLondon = () => (
         city: LONDON,
       })
       const training =
-        selectNthTraining({ trainings: partTimeTrainings, nth: 2 }) || {}
+        selectNthTraining({ trainings: partTimeTrainings, nth: 3 }) || {}
       return (
         <React.Fragment>
           <Breadcrumb
