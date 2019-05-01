@@ -6,11 +6,11 @@ import Header from '../components/layout/Header'
 import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
 
-const ThanksForSignUp = () => (
+const ThanksForSignUpSessions = () => (
   <React.Fragment>
     <Header
-      titleLines={['Thanks - your free resources are on their way!']}
-      subtitle="Every week for the next 5 weeks, you'll get a new email with juicy React goodness... You don't have to do a thing."
+      titleLines={['Thanks - your signed up for 1-day session info!']}
+      subtitle="If you also also asked for free learning resources, every week for the next 5 weeks, you'll get a new email with juicy React goodness..."
       bgImg="training-event"
     />
     <TopSection marginTop="-250">
@@ -20,9 +20,13 @@ const ThanksForSignUp = () => (
             <Col md={5} mdOffset={1}>
               <H2>What happens now?</H2>
               <P>
-                Now that you're part of the club, you should be recieving your
-                first learning resource very soon. Just keep and eye on your
-                email inbox.
+                As soon as we have a date for the 1-day trainings you are
+                intersted in, you'll recieve an email.
+              </P>
+              <P>
+                If you also asked for learning resources, you should be
+                recieving your first learning resource very soon. Just keep and
+                eye on your email inbox.
               </P>
               <P>
                 If you've made a mistake and you don't want to recieve our
@@ -47,4 +51,4 @@ const ThanksForSignUp = () => (
   </React.Fragment>
 )
 
-export default ThanksForSignUp
+export default ThanksForSignUpSessions

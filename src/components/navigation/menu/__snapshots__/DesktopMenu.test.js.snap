@@ -41,6 +41,10 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "text": "React Native",
             "to": "/react-native-bootcamp",
           },
+          Object {
+            "text": "1-day Workshops",
+            "to": "/react-workshops",
+          },
         ]
       }
       text="Training"

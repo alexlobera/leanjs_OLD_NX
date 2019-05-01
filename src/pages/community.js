@@ -86,7 +86,6 @@ const Community = ({ trainings }) => {
     type: REACT_BOOTCAMP,
   })
   const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
-  debugger
   const nextBootcampStartDate =
     nextBootcamp &&
     formatUTC(nextBootcamp.startDate, nextBootcamp.utcOffset, 'D MMM')
