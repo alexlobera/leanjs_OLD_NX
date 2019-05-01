@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import { Route } from 'react-router-dom'
+import { navigate } from '@reach/router'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
@@ -79,7 +79,6 @@ class Link extends React.Component {
   render() {
     const { to = '', children = '', ...rest } = this.props
     const toHref = to || rest.href
-
     if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
       const { target = '_blank' } = rest
       return (
@@ -91,20 +90,17 @@ class Link extends React.Component {
       const { onClick, ...restLinkScrollProps } = rest
 
       return (
-        <Route
-          render={({ history }) => (
-            <LinkScroll
-              {...restLinkScrollProps}
-              onClick={() => {
-                history.push(toHref)
-                onClick && onClick()
-              }}
-              to={toHref}
-            >
-              {children}
-            </LinkScroll>
-          )}
-        />
+        <LinkScroll
+          {...restLinkScrollProps}
+          onClick={e => {
+            e.preventDefault()
+            navigate(toHref)
+            onClick && onClick()
+          }}
+          to={toHref}
+        >
+          {children}
+        </LinkScroll>
       )
     } else if (!to) {
       return <BasicLink {...rest}>{children}</BasicLink>

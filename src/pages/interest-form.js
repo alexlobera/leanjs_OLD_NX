@@ -1,6 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
-
+import { navigate } from '@reach/router'
 import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H3, P } from '../components/text'
@@ -28,7 +27,7 @@ import { triggerSessionSubscribe } from '../api'
 
 const NameInput = aliasComponent(InputField)
 
-const SessionInterest = ({ trainings, history }) => {
+const SessionInterest = ({ trainings }) => {
   const handleFormSubmit = ({
     name,
     email,
@@ -51,7 +50,7 @@ const SessionInterest = ({ trainings, history }) => {
       testing,
       resources,
     })
-    history.push('/thanks-for-signing-up-for-sessions')
+    navigate('/thanks-for-signing-up-for-sessions')
   }
 
   const upcomingBootcamps = selectUpcomingTrainings({
@@ -178,4 +177,4 @@ const SessionInterest = ({ trainings, history }) => {
   )
 }
 
-export default withRouter(withUpcomingTrainings()(SessionInterest))
+export default withUpcomingTrainings()(SessionInterest)

@@ -63,13 +63,13 @@ const Layout = ({ children, data, trainings }) => (
               },
             ]}
           />
-          {/* <Menu /> */}
+          <Menu />
           <UpcomingTrainings>
             {args =>
               typeof children === 'function' ? children(args) : children
             }
           </UpcomingTrainings>
-          {/* <Footer /> */}
+          <Footer />
           <AcceptCookies />
         </React.Fragment>
       </ApolloProvider>
