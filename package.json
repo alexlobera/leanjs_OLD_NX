@@ -32,16 +32,16 @@
     "pre-commit": "^1.2.2",
     "prop-types": "^15.6.2",
     "raven-js": "^3.26.4",
+    "react": "^16.8.6",
     "react-apollo": "^2.1.9",
     "react-burger-menu": "^2.5.2",
+    "react-dom": "^16.8.6",
     "react-final-form": "^3.6.5",
     "react-helmet": "^5.2.0",
     "react-images": "^0.5.19",
     "react-lazyload": "^2.3.0",
     "react-live": "^1.12.0",
     "react-photo-gallery": "^6.3.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "react-router-dom": "^4.3.1",
     "react-runkit": "^0.9.0",
     "react-scroll": "^1.7.10",
@@ -54,8 +54,7 @@
     "rehype-react": "^3.0.3",
     "store": "^2.0.12",
     "styled-components": "^4.2.0",
-    "styled-system": "^4.1.0",
-    "url-search-params-polyfill": "^6.0.0"
+    "styled-system": "^4.1.0"
   },
   "keywords": [
     "gatsby"

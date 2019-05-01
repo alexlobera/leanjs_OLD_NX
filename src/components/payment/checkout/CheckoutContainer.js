@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, withApollo } from 'react-apollo'
-import { withRouter } from 'react-router-dom'
+import { navigate } from '@reach/router'
 
 import PAY from './Pay.graphql'
 import VALIDATE_VIES from './ValidateVies.graphql'
@@ -138,7 +138,7 @@ export class CheckoutContainer extends React.Component {
         })
           .then(({ data }) => {
             if (!data.errors) {
-              this.props.history.push('/payment-confirmation', {
+              navigate('/payment-confirmation', {
                 email,
                 makePayment: data.makePayment,
                 trainingInstanceId,
@@ -231,4 +231,4 @@ const withPay = graphql(PAY, {
   name: 'pay',
 })
 
-export default withRouter(withPay(withApollo(CheckoutContainer)))
+export default withPay(withApollo(CheckoutContainer))
