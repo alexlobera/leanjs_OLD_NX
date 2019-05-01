@@ -1,7 +1,7 @@
 /* eslint no-restricted-globals: 0 */
 
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
+import { Link as GatsbyLink } from 'gatsby'
 import { Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'

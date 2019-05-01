@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { H4, Span } from '../text'
 import { withRouter } from 'react-router-dom'
@@ -39,7 +39,75 @@ const SubTitleSection = styled.div`
   ${FONT_FAMILY};
 `
 
-class CurriculumSection extends React.Component {
+const CurriculumSection = props => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleSubSection = () => {
+    setIsOpen(
+      prevState => ({
+        isOpen: !prevState.isOpen,
+      }),
+      () => {
+        if (isOpen) {
+          // send event to analytics
+          trackUserBehaviour({
+            event: CURRICULUM_MORE_DETAILS,
+            payload: {
+              section: props.title,
+            },
+          })
+        }
+      }
+    )
+  }
+
+  const {
+    title,
+    name,
+    type,
+    subTitle,
+    children,
+    enableToggle = false,
+    toggleNavigateTo,
+    showLinkToCurriculum = true,
+  } = props
+  const toogleLinkProps =
+    toggleNavigateTo && !enableToggle
+      ? {
+          to:
+            typeof toggleNavigateTo === 'function'
+              ? toggleNavigateTo(name)
+              : toggleNavigateTo,
+        }
+      : { onClick: toggleSubSection }
+  const subsection = isOpen ? (
+    <CurriculumSubSection>
+      {children}
+      <Feedback />
+      <Span> - </Span>
+      <Link duration={200} to={`#${name || title}`} onClick={toggleSubSection}>
+        Hide detail
+      </Link>
+    </CurriculumSubSection>
+  ) : (
+    <React.Fragment>
+      <Span> - </Span>
+      <Link {...toogleLinkProps}>Full detail</Link>
+    </React.Fragment>
+  )
+
+  return (
+    <Section type={type}>
+      <Element name={name || title} />
+      {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
+      <SubTitleSection>
+        {subTitle ? subTitle : ''}
+        {showLinkToCurriculum ? subsection : ''}
+      </SubTitleSection>
+    </Section>
+  )
+}
+
+class CurriculumSection2 extends React.Component {
   constructor(props) {
     super(props)
 

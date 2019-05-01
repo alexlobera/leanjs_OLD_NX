@@ -19,6 +19,9 @@ import favicon from './favicon.ico'
 import { RunkitProvider } from '../components/blog/Runkit'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
+import withUpcomingTrainings, {
+  UpcomingTrainings,
+} from '../components/training/withUpcomingTrainings'
 
 raven.config(SENTRY_DSN).install()
 
@@ -33,7 +36,7 @@ const graphqlClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-const Layout = ({ children, data }) => (
+const Layout = ({ children, data, trainings }) => (
   <RunkitProvider>
     <ThemeProvider theme={theme}>
       <ApolloProvider client={graphqlClient}>
@@ -60,9 +63,13 @@ const Layout = ({ children, data }) => (
               },
             ]}
           />
-          <Menu />
-          {children({ trainings })}
-          <Footer />
+          {/* <Menu /> */}
+          <UpcomingTrainings>
+            {args =>
+              typeof children === 'function' ? children(args) : children
+            }
+          </UpcomingTrainings>
+          {/* <Footer /> */}
           <AcceptCookies />
         </React.Fragment>
       </ApolloProvider>

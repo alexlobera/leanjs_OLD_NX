@@ -73,11 +73,7 @@ export const selectUpcomingTrainings = ({
   return filteredTrainings
 }
 
-const withUpcomingTrainings = ({
-  type,
-  city,
-  limit,
-} = {}) => InnerComponent => props => (
+export const UpcomingTrainings = ({ type, city, limit, children }) => (
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
@@ -103,21 +99,31 @@ const withUpcomingTrainings = ({
           ? data.trainingInstancesConnection.edges.map(formatTraining)
           : []
 
-      return (
-        <InnerComponent
-          {...props}
-          trainings={selectUpcomingTrainings({
-            trainings,
-            type,
-            city,
-            limit,
-          })}
-          trainingLoading={loading}
-          trainingError={error}
-        />
-      )
+      return children({
+        trainings: selectUpcomingTrainings({
+          trainings,
+          type,
+          city,
+          limit,
+        }),
+        trainingLoading: loading,
+        trainingError: error,
+      })
     }}
   </Query>
+)
+
+const withUpcomingTrainings = ({
+  type,
+  city,
+  limit,
+} = {}) => InnerComponent => props => (
+  <UpcomingTrainings
+    type={type}
+    city={city}
+    limit={limit}
+    children={trainingProps => <InnerComponent {...trainingProps} {...props} />}
+  />
 )
 
 export default withUpcomingTrainings
