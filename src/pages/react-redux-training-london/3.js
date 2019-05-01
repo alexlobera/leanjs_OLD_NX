@@ -24,7 +24,7 @@ import header from '../../components/layout/Header.json'
 import { PaymentSection } from '../../components/payment'
 import { Breadcrumb } from '../../components/navigation'
 import { PART_TIME, LONDON } from '../../config/data'
-import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
+import { LIST_TWO_COL } from '../../components/curriculum'
 
 const BootcampLondon = () => (
   <Layout>
@@ -34,7 +34,8 @@ const BootcampLondon = () => (
         type: PART_TIME,
         city: LONDON,
       })
-      const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
+      const training =
+        selectNthTraining({ trainings: partTimeTrainings, nth: 3 }) || {}
       return (
         <React.Fragment>
           <Breadcrumb
@@ -70,11 +71,6 @@ const BootcampLondon = () => (
                   <Col xs={12} md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="E_4eQQHjc7A" />
                     <TrainingDetails
-                      date={training.dates}
-                      timing="6pm - 9pm Tuesday's & Thursday's"
-                      location={
-                        <React.Fragment>{training.city}</React.Fragment>
-                      }
                       coaches={[
                         EVA_HOFFMANN,
                         DAVID_LEULIETTE,
