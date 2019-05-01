@@ -124,3 +124,24 @@ export const formatUTC = (utcDate, utcOffset, format = "D MMM 'YYYY") =>
     .utc(utcDate)
     .utcOffset(utcOffset || 1)
     .format(format)
+
+export const formatUTC2 = (utcDate, utcOffset = 1, format = "D MMM 'YYYY") => {
+  const targetTime = new Date(utcDate)
+  // convert the offset to milliseconds, add to targetTime, and make a new Date
+  const offsetTime = new Date(targetTime.getTime() + utcOffset * 60 * 1000)
+
+  switch (format) {
+    case "D MMM 'YYYY":
+      return // todo;
+    case 'D MMM':
+      return // todo;
+    case 'HH:mm':
+      return // todo;
+    case 'D':
+      return // todo;
+    case 'MMM DD':
+      return // todo;
+    case 'MMM':
+      return // todo;
+  }
+}

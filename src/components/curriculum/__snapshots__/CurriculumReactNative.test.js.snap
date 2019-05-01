@@ -24,7 +24,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <withRouter(CurriculumSection)
+      <CurriculumSection
         name="day1"
         subTitle="Foundation, Navigation, and Animations"
         title="React Native Day 1"
@@ -40,8 +40,8 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         <ReactNativeAnimationsSession
           title="Animations"
         />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day2"
         subTitle="Gestures, Offline, Assets Management & Push Notifications"
         title="React Native Day 2"
@@ -57,8 +57,8 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         <ReactNativePushNotificationSession
           title="Push Notifications"
         />
-      </withRouter(CurriculumSection)>
-      <withRouter(CurriculumSection)
+      </CurriculumSection>
+      <CurriculumSection
         name="day3"
         subTitle="Testing, Native Modules & Release to Production"
         title="React Native Day 3"
@@ -74,13 +74,12 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         <ReactNativeProductionSession
           title="Release to Production"
         />
-      </withRouter(CurriculumSection)>
+      </CurriculumSection>
       <styled.div>
         <LinkButton
-          secondary={true}
           to="/curriculum?tab=React Native"
           trackUserBehaviour={[Function]}
-          variant="default"
+          variant="secondary"
         >
           Full curriculum
         </LinkButton>

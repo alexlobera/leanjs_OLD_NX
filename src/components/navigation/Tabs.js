@@ -102,7 +102,15 @@ const A = styled.a`
 
 export const TabItem = ({ children, isActive, onClick, name, ...props }) => (
   <Li isActive={isActive} name={name}>
-    <A isActive={isActive} name={name} {...props} onClick={onClick}>
+    <A
+      isActive={isActive}
+      name={name}
+      {...props}
+      onClick={e => {
+        e.preventDefault()
+        onClick && onClick()
+      }}
+    >
       {children}
     </A>
   </Li>

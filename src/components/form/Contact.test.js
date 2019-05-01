@@ -1,15 +1,12 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Contact, { THANKS_MESSAGE, ThanksTitle, EmailInput } from './Contact'
 import { Button } from '../buttons'
 
 describe('Contact Form', () => {
   const triggerSubscribe = jest.fn(email => Promise.resolve(email))
 
-  const wrapper = mount(
-    <Contact triggerSubscribe={triggerSubscribe} {...props} />
-  )
+  const wrapper = mount(<Contact triggerSubscribe={triggerSubscribe} />)
 
   it('the input email should be empty', () => {
     expect(wrapper.find('input').text()).toBe('')
