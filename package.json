@@ -55,8 +55,7 @@
     "rehype-react": "^3.0.3",
     "store": "^2.0.12",
     "styled-components": "^4.2.0",
-    "styled-system": "^4.1.0",
-    "url-search-params-polyfill": "^6.0.0"
+    "styled-system": "^4.1.0"
   },
   "keywords": [
     "gatsby"

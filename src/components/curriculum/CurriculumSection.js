@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { H4, Span } from '../text'
-import { withRouter } from 'react-router-dom'
 import { FONT_FAMILY } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
@@ -9,7 +8,7 @@ import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
 import { selectTypeColor } from '../utils'
-import 'url-search-params-polyfill'
+import { getURLParameter } from '../utils/url'
 import Feedback from '../elements/Feedback'
 
 export const curriedToggleNavigateTo = to => section =>
@@ -38,23 +37,12 @@ const SubTitleSection = styled.div`
   line-height: 1.5;
   ${FONT_FAMILY};
 `
-function getUrlParams() {
-  let vars = {}
-  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(
-    m,
-    key,
-    value
-  ) {
-    vars[key] = value
-  })
-  return vars
-}
 
 const CurriculumSection = props => {
-  const params = getUrlParams()
   const isOpen =
     props.isOpen ||
-    (params['section'] === props.name && params['tab'] === props.type)
+    (getURLParameter('section') === props.name &&
+      getURLParameter('tab') === props.type)
 
   const [isOpen, setIsOpen] = useState(isOpen)
 

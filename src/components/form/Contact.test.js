@@ -8,13 +8,7 @@ describe('Contact Form', () => {
   const triggerSubscribe = jest.fn(email => Promise.resolve(email))
 
   const wrapper = mount(
-    <Router>
-      <Route
-        render={props => (
-          <Contact triggerSubscribe={triggerSubscribe} {...props} />
-        )}
-      />
-    </Router>
+    <Contact triggerSubscribe={triggerSubscribe} {...props} />
   )
 
   it('the input email should be empty', () => {
