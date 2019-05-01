@@ -52,7 +52,7 @@ const Checkbox = ({ checked, label, ...props }) => (
   </React.Fragment>
 )
 
-const CheckBoxContainer = props => {
+const CheckBoxField = props => {
   const [checked, setChecked] = useState(false)
 
   const handleCheckboxChange = event => setChecked(event.target.checked)
@@ -72,4 +72,4 @@ const CheckBoxContainer = props => {
   )
 }
 
-export default CheckBoxContainer
+export default CheckBoxField

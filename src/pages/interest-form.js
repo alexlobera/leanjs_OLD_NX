@@ -16,7 +16,7 @@ import {
 } from '../components/training'
 
 import { REACT_BOOTCAMP } from '../config/data'
-import { InputField, Form, Checkbox } from '../components/form'
+import { InputField, Form, CheckBoxField } from '../components/form'
 import {
   composeValidators,
   required,
@@ -88,19 +88,19 @@ const SessionInterest = ({ trainings, history }) => {
                               placeholder="eg. Steve Jobs"
                             />
                             <P>Which Workshops are you interested in?</P>
-                            <Checkbox
+                            <CheckBoxField
                               name="fundamentals"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="Modern JS and React Fundamentals"
                             />
-                            <Checkbox
+                            <CheckBoxField
                               name="styling"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="Styling in React and Design Systems"
                             />
-                            <Checkbox
+                            <CheckBoxField
                               name="hooks"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="React Hooks & Suspense"
                             />
                             <H3>Free learning resources</H3>
@@ -115,9 +115,9 @@ const SessionInterest = ({ trainings, history }) => {
                               and we'd love for you to enjoy and learn from
                               them!{' '}
                             </P>
-                            <Checkbox
+                            <CheckBoxField
                               name="resources"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="I want free leanring resources!"
                             />
                             <Row>
@@ -152,19 +152,19 @@ const SessionInterest = ({ trainings, history }) => {
                                 name="email"
                                 placeholder="eg. steve@jobs.com"
                               />
-                              <Checkbox
+                              <CheckBoxField
                                 name="perf"
-                                type="checkbox"
+                                type="CheckBoxField"
                                 label="Performance & FP in React"
                               />
-                              <Checkbox
+                              <CheckBoxField
                                 name="gqlclient"
-                                type="checkbox"
+                                type="CheckBoxField"
                                 label="React with GraphQL client"
                               />
-                              <Checkbox
+                              <CheckBoxField
                                 name="testing"
-                                type="checkbox"
+                                type="CheckBoxField"
                                 label="Testing in React"
                               />
                             </React.Fragment>
