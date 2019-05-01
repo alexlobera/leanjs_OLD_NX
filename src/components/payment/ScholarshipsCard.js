@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { P, H3 } from '../text'
 import { LinkButton } from '../buttons'
-import { TradeLedger } from '../../components/logos'
 import Card from '../elements/Card'
 
 const ScholarshipsCard = () => (
@@ -16,9 +15,6 @@ const ScholarshipsCard = () => (
       Just click the link, contact Trade Ledger directly and outline your
       interest... that's it!
     </P>
-    <LinkButton external secondary to={'https://tradeledger.io/contact/'}>
-      <TradeLedger />
-    </LinkButton>
   </Card>
 )
 
