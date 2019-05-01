@@ -5,7 +5,7 @@ import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H3, P } from '../components/text'
 import Header from '../components/layout/Header'
-import { FieldInput, Form } from '../components/form'
+import { InputField, Form } from '../components/form'
 import { Button } from '../components/buttons'
 import { getComponentAliaser } from '../components/utils/aliasComponent'
 import {
@@ -14,7 +14,7 @@ import {
   mustBeEmail,
 } from '../components/form/validations'
 
-const aliasInput = getComponentAliaser(FieldInput)
+const aliasInput = getComponentAliaser(InputField)
 export const EmailInput = aliasInput()
 
 export const ThanksTitle = styled(H3)`

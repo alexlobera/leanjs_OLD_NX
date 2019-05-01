@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import { Span, P, H4 } from '../../text'
 import { Button, LinkButton } from '../../buttons'
-import { FormGroup, FieldInput, Form } from '../../form'
+import { FormGroup, InputField, Form } from '../../form'
 import {
   composeValidators,
   mustBeEuVat,
@@ -31,7 +31,7 @@ import { getComponentAliaser } from '../../utils/aliasComponent'
 // These aliases enable the relevant elements to be selected by Enzyme for testing
 // Have caution when updating these names as you will then need to update the tests as well.
 const aliasLink = getComponentAliaser(Link)
-const aliasInput = getComponentAliaser(FieldInput)
+const aliasInput = getComponentAliaser(InputField)
 const aliasLinkButton = getComponentAliaser(LinkButton)
 const aliasPrice = getComponentAliaser(Price)
 const aliasButton = getComponentAliaser(Button)
@@ -247,7 +247,7 @@ class CheckoutForm extends React.Component {
                         - Hide company details
                       </Link>
                     </FormGroup>
-                    <FieldInput
+                    <InputField
                       label="Company name:"
                       name="companyName"
                       placeholder="eg. Acme Inc"

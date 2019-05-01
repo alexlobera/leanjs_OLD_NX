@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { TopSection } from '../components/layout/Section'
@@ -15,8 +15,8 @@ import {
   selectNthTraining,
 } from '../components/training'
 
-import { REACT_BOOTCAMP, selectMeetups } from '../config/data'
-import { FieldInput, Form } from '../components/form'
+import { REACT_BOOTCAMP } from '../config/data'
+import { InputField, Form, CheckBoxField } from '../components/form'
 import {
   composeValidators,
   required,
@@ -26,7 +26,7 @@ import { aliasComponent } from '../components/utils/aliasComponent'
 import { EmailInput } from '../components/form/Contact'
 import { triggerSessionSubscribe } from '../api'
 
-const NameInput = aliasComponent(FieldInput)
+const NameInput = aliasComponent(InputField)
 
 const SessionInterest = ({ trainings, history }) => {
   const handleFormSubmit = ({
@@ -88,19 +88,19 @@ const SessionInterest = ({ trainings, history }) => {
                               placeholder="eg. Steve Jobs"
                             />
                             <P>Which Workshops are you interested in?</P>
-                            <FieldInput
+                            <CheckBoxField
                               name="fundamentals"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="Modern JS and React Fundamentals"
                             />
-                            <FieldInput
+                            <CheckBoxField
                               name="styling"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="Styling in React and Design Systems"
                             />
-                            <FieldInput
+                            <CheckBoxField
                               name="hooks"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="React Hooks & Suspense"
                             />
                             <H3>Free learning resources</H3>
@@ -115,13 +115,13 @@ const SessionInterest = ({ trainings, history }) => {
                               and we'd love for you to enjoy and learn from
                               them!{' '}
                             </P>
-                            <FieldInput
+                            <CheckBoxField
                               name="resources"
-                              type="checkbox"
+                              type="CheckBoxField"
                               label="I want free leanring resources!"
                             />
                             <Row>
-                              <Col>
+                              <Col md={3}>
                                 <Button
                                   variant="primary"
                                   type="submit"
@@ -129,6 +129,15 @@ const SessionInterest = ({ trainings, history }) => {
                                 >
                                   Submit
                                 </Button>
+                              </Col>
+                              <Col mdOffset={1} md={8}>
+                                <P>
+                                  We wont spam you as per our{' '}
+                                  <Link to="/privacy-policy">
+                                    Privacy Policy
+                                  </Link>
+                                  .
+                                </P>
                               </Col>
                             </Row>
                           </Col>
@@ -143,19 +152,19 @@ const SessionInterest = ({ trainings, history }) => {
                                 name="email"
                                 placeholder="eg. steve@jobs.com"
                               />
-                              <FieldInput
+                              <CheckBoxField
                                 name="perf"
-                                type="checkbox"
+                                type="CheckBoxField"
                                 label="Performance & FP in React"
                               />
-                              <FieldInput
+                              <CheckBoxField
                                 name="gqlclient"
-                                type="checkbox"
+                                type="CheckBoxField"
                                 label="React with GraphQL client"
                               />
-                              <FieldInput
+                              <CheckBoxField
                                 name="testing"
-                                type="checkbox"
+                                type="CheckBoxField"
                                 label="Testing in React"
                               />
                             </React.Fragment>
