@@ -300,8 +300,8 @@ const Header = ({
                     '6:30pm'}`}
                 </Li>
                 <Li>
-                  <strong>Venue</strong>: {training.address || 'TBD'}{' '}
-                  {training.mapUrl && <Link to={training.mapUrl}>- map</Link>}
+                  <strong>Venue</strong>: {training.address || 'TBD'} -{' '}
+                  {training.mapUrl && <Link to={training.mapUrl}> map</Link>}
                 </Li>
                 {linkToGallery && (
                   <Li>
