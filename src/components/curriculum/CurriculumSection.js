@@ -38,9 +38,26 @@ const SubTitleSection = styled.div`
   line-height: 1.5;
   ${FONT_FAMILY};
 `
+function getUrlParams() {
+  let vars = {}
+  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(
+    m,
+    key,
+    value
+  ) {
+    vars[key] = value
+  })
+  return vars
+}
 
 const CurriculumSection = props => {
-  const [isOpen, setIsOpen] = useState(false)
+  const params = getUrlParams()
+  const isOpen =
+    props.isOpen ||
+    (params['section'] === props.name && params['tab'] === props.type)
+
+  const [isOpen, setIsOpen] = useState(isOpen)
+
   const toggleSubSection = () => {
     setIsOpen(
       prevState => ({
@@ -79,6 +96,7 @@ const CurriculumSection = props => {
               : toggleNavigateTo,
         }
       : { onClick: toggleSubSection }
+
   const subsection = isOpen ? (
     <CurriculumSubSection>
       {children}
@@ -107,92 +125,92 @@ const CurriculumSection = props => {
   )
 }
 
-class CurriculumSection2 extends React.Component {
-  constructor(props) {
-    super(props)
+// class CurriculumSection2 extends React.Component {
+//   constructor(props) {
+//     super(props)
 
-    const queryString = props.location.search.replace('?', '')
-    const params = new URLSearchParams(queryString)
-    this.state = {
-      isOpen:
-        props.isOpen ||
-        (params.get('section') === props.name &&
-          params.get('tab') === props.type),
-    }
-  }
+//     const queryString = props.location.search.replace('?', '')
+//     const params = new URLSearchParams(queryString)
+//     this.state = {
+//       isOpen:
+//         props.isOpen ||
+//         (params.get('section') === props.name &&
+//           params.get('tab') === props.type),
+//     }
+//   }
 
-  toggleSubSection = () => {
-    this.setState(
-      state => ({
-        isOpen: !state.isOpen,
-      }),
-      () => {
-        if (this.state.isOpen) {
-          // send event to analytics
-          trackUserBehaviour({
-            event: CURRICULUM_MORE_DETAILS,
-            payload: {
-              section: this.props.title,
-            },
-          })
-        }
-      }
-    )
-  }
+//   toggleSubSection = () => {
+//     this.setState(
+//       state => ({
+//         isOpen: !state.isOpen,
+//       }),
+//       () => {
+//         if (this.state.isOpen) {
+//           // send event to analytics
+//           trackUserBehaviour({
+//             event: CURRICULUM_MORE_DETAILS,
+//             payload: {
+//               section: this.props.title,
+//             },
+//           })
+//         }
+//       }
+//     )
+//   }
 
-  render() {
-    const { isOpen } = this.state
-    const {
-      title,
-      name,
-      type,
-      subTitle,
-      children,
-      enableToggle = false,
-      toggleNavigateTo,
-      showLinkToCurriculum = true,
-    } = this.props
-    const { toggleSubSection } = this
-    const toogleLinkProps =
-      toggleNavigateTo && !enableToggle
-        ? {
-            to:
-              typeof toggleNavigateTo === 'function'
-                ? toggleNavigateTo(name)
-                : toggleNavigateTo,
-          }
-        : { onClick: toggleSubSection }
-    const subsection = isOpen ? (
-      <CurriculumSubSection>
-        {children}
-        <Feedback />
-        <Span> - </Span>
-        <Link
-          duration={200}
-          to={`#${name || title}`}
-          onClick={toggleSubSection}
-        >
-          Hide detail
-        </Link>
-      </CurriculumSubSection>
-    ) : (
-      <React.Fragment>
-        <Span> - </Span>
-        <Link {...toogleLinkProps}>Full detail</Link>
-      </React.Fragment>
-    )
+//   render() {
+//     const { isOpen } = this.state
+//     const {
+//       title,
+//       name,
+//       type,
+//       subTitle,
+//       children,
+//       enableToggle = false,
+//       toggleNavigateTo,
+//       showLinkToCurriculum = true,
+//     } = this.props
+//     const { toggleSubSection } = this
+//     const toogleLinkProps =
+//       toggleNavigateTo && !enableToggle
+//         ? {
+//             to:
+//               typeof toggleNavigateTo === 'function'
+//                 ? toggleNavigateTo(name)
+//                 : toggleNavigateTo,
+//           }
+//         : { onClick: toggleSubSection }
+//     const subsection = isOpen ? (
+//       <CurriculumSubSection>
+//         {children}
+//         <Feedback />
+//         <Span> - </Span>
+//         <Link
+//           duration={200}
+//           to={`#${name || title}`}
+//           onClick={toggleSubSection}
+//         >
+//           Hide detail
+//         </Link>
+//       </CurriculumSubSection>
+//     ) : (
+//       <React.Fragment>
+//         <Span> - </Span>
+//         <Link {...toogleLinkProps}>Full detail</Link>
+//       </React.Fragment>
+//     )
 
-    return (
-      <Section type={type}>
-        <Element name={name || title} />
-        {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
-        <SubTitleSection>
-          {subTitle ? subTitle : ''}
-          {showLinkToCurriculum ? subsection : ''}
-        </SubTitleSection>
-      </Section>
-    )
-  }
-}
+//     return (
+//       <Section type={type}>
+//         <Element name={name || title} />
+//         {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
+//         <SubTitleSection>
+//           {subTitle ? subTitle : ''}
+//           {showLinkToCurriculum ? subsection : ''}
+//         </SubTitleSection>
+//       </Section>
+//     )
+//   }
+// }
 
-export default withRouter(CurriculumSection)
+export default CurriculumSection
