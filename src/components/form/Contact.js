@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Router, navigate } from '@reach/router'
+import { navigate } from '@reach/router'
 
 import DefaultLink from '../navigation/Link'
 import { Button } from '../buttons'
@@ -238,4 +238,4 @@ ContactForm.defaultProps = {
   triggerSubscribe,
 }
 
-export default withRouter(ContactForm)
+export default ContactForm
