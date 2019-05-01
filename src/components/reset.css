@@ -157,7 +157,7 @@ legend {
 textarea {
   overflow: auto;
 }
-[type='checkbox'],
+[type='CheckBoxField'],
 [type='radio'] {
   box-sizing: border-box;
   padding: 0;

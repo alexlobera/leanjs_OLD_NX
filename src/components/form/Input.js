@@ -41,7 +41,14 @@ export const FormGroup = styled.div`
   display: block;
 `
 
-const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
+const Input = ({
+  label,
+  type = 'text',
+  checked = false,
+  input = {},
+  meta = {},
+  ...props
+}) => {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta
   const name = props.name || input.name
   const onChange = e => {
@@ -60,6 +67,7 @@ const Input = ({ label, type = 'text', input = {}, meta = {}, ...props }) => {
             onChange={onChange}
             type={type}
             name={name}
+            checked={checked}
           />
         </React.Fragment>
       ) : (

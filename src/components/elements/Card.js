@@ -87,6 +87,8 @@ const Card = styled.div`
         return 'border: solid 2px rgba(255, 255, 255, 0.9);'
       case 'shadow':
         return BOX_SHADOW
+      case 'black':
+        return `border: 1px solid ${BROWN};`
     }
   }}
   h3 {
