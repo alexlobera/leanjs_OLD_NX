@@ -151,6 +151,7 @@ const SessionInterest = ({ trainings }) => (
                                     name="email"
                                     placeholder="eg. steve@jobs.com"
                                   />
+                                  <P>We currently run the following:</P>
                                   <CheckboxField
                                     name="perf"
                                     label="Performance & FP in React"

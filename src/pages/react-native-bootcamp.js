@@ -122,12 +122,6 @@ const ReactNativeBoocamp = () => (
                       social fun!
                     </Li>
                   </Ul>
-                  {/* <P>
-                <LinkButton cta to="/react-native-bootcamp-london">
-                  Next React Native: 17th Sept, London >>
-                </LinkButton>
-              </P>
-              */}
                 </Col>
               </Row>
             </Grid>
