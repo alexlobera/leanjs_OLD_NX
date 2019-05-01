@@ -34,13 +34,19 @@ const UpcomingTrainings = ({ curriculum, type, trainings }) => {
     return <P>Sorry! There are no {type} dates confirmed.</P>
   } else {
     return filteredTrainings.map(training => {
+      const formatedDate = formatUTC(
+        training.startDate,
+        training.utcOffset,
+        'D MMM'
+      )
+      const dayMonth = formatedDate ? formatedDate.split(' ') : ['', '']
       const trainingInstance = (
         <TrainingItem
           key={training.id}
           city={training.city}
           country={training.country}
-          startDay={formatUTC(training.startDate, training.utcOffset, 'D')}
-          startMonth={formatUTC(training.startDate, training.utcOffset, 'MMM')}
+          startDay={dayMonth[0]}
+          startMonth={dayMonth[1]}
           type={training.training && training.training.type}
           path={training.toPath}
         />

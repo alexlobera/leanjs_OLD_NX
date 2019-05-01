@@ -393,7 +393,7 @@ class Curriculum extends React.Component {
                                         } React Bootcamp, ${formatUTC(
                                           trainingBootcamp.startDate,
                                           trainingBootcamp.utcOffset,
-                                          'MMM DD'
+                                          'D MMM'
                                         )}  `}
                                       />
                                     }
@@ -450,7 +450,7 @@ class Curriculum extends React.Component {
                                         } React Advanced, ${formatUTC(
                                           trainingAdvanced.startDate,
                                           trainingAdvanced.utcOffset,
-                                          'MMM DD'
+                                          'D MMM'
                                         )}  `}
                                       />
                                     }
@@ -575,7 +575,7 @@ class Curriculum extends React.Component {
                                         text={`Next React part-time course starts on ${formatUTC(
                                           trainingPartTime.startDate,
                                           trainingPartTime.utcOffset,
-                                          'MMM DD'
+                                          'D MMM'
                                         )} in ${trainingPartTime.city}`}
                                         to={trainingPartTime.toPath}
                                         buttonText={`${
@@ -583,7 +583,7 @@ class Curriculum extends React.Component {
                                         } React part-time ${formatUTC(
                                           trainingPartTime.startDate,
                                           trainingPartTime.utcOffset,
-                                          'MMM DD'
+                                          'D MMM'
                                         )}  `}
                                       />
                                     )

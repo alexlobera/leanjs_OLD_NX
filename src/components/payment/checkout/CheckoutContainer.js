@@ -140,7 +140,6 @@ export class CheckoutContainer extends React.Component {
           vatNumber,
           vatCountry,
         }
-        console.log('dddddd -> var', JSON.stringify(variables))
         return pay({
           variables,
         })
@@ -156,8 +155,6 @@ export class CheckoutContainer extends React.Component {
             }
           })
           .catch(error => {
-            console.log('--------------> 5555')
-            // throw new Error('aaafasdfasdfa    oooooo')
             this.processPaymentError(error)
           })
       }

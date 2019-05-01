@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
 
 import {
   REACT_NATIVE,
@@ -119,29 +118,44 @@ export const DisplayComponentsUsingCss = styled(Components)`
         : ''}
 `
 
-export const formatUTC = (utcDate, utcOffset, format = "D MMM 'YYYY") =>
-  moment
-    .utc(utcDate)
-    .utcOffset(utcOffset || 1)
-    .format(format)
+// export const formatUTC = (utcDate, utcOffset, format = "D MMM 'YYYY") =>
+//   moment
+//     .utc(utcDate)
+//     .utcOffset(utcOffset || 1)
+//     .format(format)
 
-export const formatUTC2 = (utcDate, utcOffset = 1, format = "D MMM 'YYYY") => {
+export const formatUTC = (utcDate, utcOffset = 1, format = "D MMM 'YYYY") => {
   const targetTime = new Date(utcDate)
   // convert the offset to milliseconds, add to targetTime, and make a new Date
-  const offsetTime = new Date(targetTime.getTime() + utcOffset * 60 * 1000)
-
+  const offsetDate = new Date(targetTime.getTime() + utcOffset * 60 * 1000)
+  const months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ],
+    D = offsetDate.getDate(),
+    MMM = months[offsetDate.getMonth()],
+    YYYY = offsetDate.getFullYear(),
+    HH = offsetDate.getHours(),
+    mm = offsetDate.getMinutes()
   switch (format) {
-    case "D MMM 'YYYY":
-      return // todo;
     case 'D MMM':
-      return // todo;
-    case 'HH:mm':
-      return // todo;
-    case 'D':
-      return // todo;
-    case 'MMM DD':
-      return // todo;
+      return `${D} ${MMM}`
     case 'MMM':
-      return // todo;
+      return `${MMM}`
+    case 'HH:mm':
+      return `${HH}:${mm}`
+    case "D MMM 'YYYY":
+      return `${D} ${MMM} ${YYYY}`
   }
+  return ''
 }

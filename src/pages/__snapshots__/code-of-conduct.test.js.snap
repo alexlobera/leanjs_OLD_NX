@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CodeOfConduct /> should render component 1`] = `
-<UpcomingTrainings>
+<Layout
+  data={
+    Object {
+      "site": Object {
+        "siteMetadata": Object {},
+      },
+    }
+  }
+>
   <Component />
-</UpcomingTrainings>
+</Layout>
 `;

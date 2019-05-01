@@ -261,7 +261,6 @@ class CheckoutForm extends React.Component {
                       onChange={companyVat.resetVatRate}
                     />
                     <ValidateViesButton
-                      block
                       disabled={
                         companyVat.isViesValid ||
                         companyVat.isViesValidationInProgress
