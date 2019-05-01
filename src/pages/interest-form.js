@@ -16,7 +16,7 @@ import {
 } from '../components/training'
 
 import { REACT_BOOTCAMP } from '../config/data'
-import { FieldInput, Form, Checkbox } from '../components/form'
+import { InputField, Form, Checkbox } from '../components/form'
 import {
   composeValidators,
   required,
@@ -26,7 +26,7 @@ import { aliasComponent } from '../components/utils/aliasComponent'
 import { EmailInput } from '../components/form/Contact'
 import { triggerSessionSubscribe } from '../api'
 
-const NameInput = aliasComponent(FieldInput)
+const NameInput = aliasComponent(InputField)
 
 const SessionInterest = ({ trainings, history }) => {
   const handleFormSubmit = ({
@@ -40,7 +40,6 @@ const SessionInterest = ({ trainings, history }) => {
     testing = false,
     resources = false,
   }) => {
-    console.log(fundamentals)
     triggerSessionSubscribe({
       name,
       email,

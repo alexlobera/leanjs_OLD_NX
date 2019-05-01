@@ -5,14 +5,14 @@ import { withRouter } from 'react-router-dom'
 import DefaultLink from '../navigation/Link'
 import { Button } from '../buttons'
 import { H3 as DefaultH3, P as DefaultP } from '../text'
-import { FieldInput, Form } from '../form'
+import { InputField, Form } from '../form'
 import { Col, Row } from '../layout/Grid'
 import { WHITE } from '../../config/styles'
 import { getComponentAliaser } from '../utils/aliasComponent'
 import { composeValidators, required, mustBeEmail } from '../form/validations'
 import { triggerSubscribe } from '../../api'
 
-const aliasInput = getComponentAliaser(FieldInput)
+const aliasInput = getComponentAliaser(InputField)
 export const EmailInput = aliasInput()
 
 export const THANKS_MESSAGE = 'thanks for submitting!'

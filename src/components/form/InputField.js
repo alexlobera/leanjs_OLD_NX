@@ -2,6 +2,6 @@ import React from 'react'
 import { Field } from 'react-final-form'
 import Input from './Input'
 
-const FieldInput = props => <Field {...props} component={Input} />
+const InputField = props => <Field {...props} component={Input} />
 
-export default FieldInput
+export default InputField

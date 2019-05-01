@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import FieldInput from './FieldInput'
+import InputField from './InputField'
 import Label from '../text/Label'
 
 const defaultSize = 2
@@ -11,7 +11,7 @@ const Icon = styled.svg`
   stroke: black;
   stroke-width: 2px;
 `
-const HiddenCheckbox = styled(FieldInput).attrs({
+const HiddenCheckbox = styled(InputField).attrs({
   type: 'checkbox',
 })`
   clip: rect(0 0 0 0);
