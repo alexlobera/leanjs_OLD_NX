@@ -252,7 +252,7 @@ class Curriculum extends React.Component {
                         <Td />
                         <Td>
                           <LinkButton
-                            secondary
+                            variant="secondary"
                             to="/react-redux-graphql-bootcamp"
                           >
                             React Bootcamp
@@ -260,7 +260,7 @@ class Curriculum extends React.Component {
                         </Td>
                         <Td>
                           <LinkButton
-                            secondary
+                            variant="secondary"
                             to="/advanced-react-redux-graphql-bootcamp"
                           >
                             Advanced React
@@ -268,19 +268,25 @@ class Curriculum extends React.Component {
                         </Td>
                         <Td>
                           <LinkButton
-                            secondary
+                            variant="secondary"
                             to="/react-redux-graphql-part-time-course"
                           >
                             Part Time
                           </LinkButton>
                         </Td>
                         <Td>
-                          <LinkButton secondary to="/graphql-bootcamp">
+                          <LinkButton
+                            variant="secondary"
+                            to="/graphql-bootcamp"
+                          >
                             GraphQL Bootcamp
                           </LinkButton>
                         </Td>
                         <Td>
-                          <LinkButton secondary to="/react-native-bootcamp">
+                          <LinkButton
+                            variant="secondary"
+                            to="/react-native-bootcamp"
+                          >
                             React Native
                           </LinkButton>
                         </Td>

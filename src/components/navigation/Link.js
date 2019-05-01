@@ -47,7 +47,7 @@ const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
 `
 
-export const LinkScroll = styled(({ to, secondary, ...rest }) => (
+export const LinkScroll = styled(({ to, ...rest }) => (
   <DefaultLinkScroll
     smooth
     duration={DEFAULT_SCROLL_DURATION}

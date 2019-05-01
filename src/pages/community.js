@@ -170,7 +170,7 @@ const Community = ({ trainings }) => {
                                       - {cityShortName}, {country}
                                     </P>
                                     <LinkButton
-                                      secondary
+                                      variant="secondary"
                                       to={url}
                                       children={'Read more'}
                                     />

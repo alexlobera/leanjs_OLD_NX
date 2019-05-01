@@ -202,7 +202,7 @@ const IndexPage = () => (
                   </Li>
                 </Ul>
                 <P />
-                <LinkButton secondary to="/curriculum">
+                <LinkButton variant="secondary" to="/curriculum">
                   Read our curriculum
                 </LinkButton>
               </Col>
@@ -265,7 +265,11 @@ const IndexPage = () => (
                 </Ul>
                 <SectionButtonRow>
                   <Col sm={7}>
-                    <LinkButton secondary pdf to={CONVINCE_THE_BOSS_PDF}>
+                    <LinkButton
+                      variant="secondary"
+                      pdf
+                      to={CONVINCE_THE_BOSS_PDF}
+                    >
                       Why devs should learn with us
                     </LinkButton>
                   </Col>
