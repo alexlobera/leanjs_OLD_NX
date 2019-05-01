@@ -44,15 +44,13 @@ const CurriculumSection = props => {
     (getURLParameter('section') === props.name &&
       getURLParameter('tab') === props.type)
 
-  const [isOpen, setIsOpen] = useState(isOpen)
+  const [isTabOpen, setIsOpen] = useState(isOpen)
 
   const toggleSubSection = () => {
     setIsOpen(
-      prevState => ({
-        isOpen: !prevState.isOpen,
-      }),
+      prevState => !prevState,
       () => {
-        if (isOpen) {
+        if (isTabOpen) {
           // send event to analytics
           trackUserBehaviour({
             event: CURRICULUM_MORE_DETAILS,
@@ -85,7 +83,7 @@ const CurriculumSection = props => {
         }
       : { onClick: toggleSubSection }
 
-  const subsection = isOpen ? (
+  const subsection = isTabOpen ? (
     <CurriculumSubSection>
       {children}
       <Feedback />
