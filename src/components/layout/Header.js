@@ -33,7 +33,7 @@ import { Image } from '../elements'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
-  font-weight: 900;
+  font-weight: 800;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.5;
