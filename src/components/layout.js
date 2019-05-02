@@ -10,18 +10,16 @@ import { ApolloClient } from 'apollo-client'
 import fetch from 'node-fetch'
 import raven from 'raven-js'
 
-import './reset.css'
+import LayoutStyle from './reset.style'
+import ResetStyle from './layout.style'
 import { UPMENTORING_API_URL, SENTRY_DSN } from '../config/apps'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
-import './index.css'
 import favicon from './favicon.ico'
 import { RunkitProvider } from '../components/blog/Runkit'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
-import withUpcomingTrainings, {
-  UpcomingTrainings,
-} from '../components/training/withUpcomingTrainings'
+import { UpcomingTrainings } from '../components/training/withUpcomingTrainings'
 
 raven.config(SENTRY_DSN).install()
 
@@ -38,6 +36,8 @@ const graphqlClient = new ApolloClient({
 
 const Layout = ({ children, data, trainings }) => (
   <RunkitProvider>
+    <LayoutStyle />
+    <ResetStyle />
     <ThemeProvider theme={theme}>
       <ApolloProvider client={graphqlClient}>
         <React.Fragment>

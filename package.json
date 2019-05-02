@@ -16,6 +16,7 @@
     "gatsby-plugin-google-tagmanager": "^2.0.13",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-remark": "^2.3.12",
     "payment": "^2.3.0",
