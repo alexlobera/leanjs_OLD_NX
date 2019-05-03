@@ -1,6 +1,7 @@
 /* eslint no-undef: 0 */
-
 import React from 'react'
+
+import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
@@ -46,7 +47,7 @@ class PaymentConfirmation extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Layout>
         <Header
           titleLines={['Thanks!']}
           subtitle="We can’t wait to help you on your React journey."
@@ -78,7 +79,7 @@ class PaymentConfirmation extends React.Component {
             </Card>
           </Grid>
         </TopSection>
-      </React.Fragment>
+      </Layout>
     )
   }
 }

@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H3, P, H4 } from '../components/text'
@@ -8,7 +10,7 @@ import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
 
 const PrivacyPolicy = () => (
-  <React.Fragment>
+  <Layout>
     <Header titleLines={['Privacy Policy']} />
     <TopSection>
       <Grid>
@@ -296,7 +298,7 @@ const PrivacyPolicy = () => (
         </Row>
       </Grid>
     </Section>
-  </React.Fragment>
+  </Layout>
 )
 
 export default PrivacyPolicy

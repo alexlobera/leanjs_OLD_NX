@@ -10,8 +10,8 @@ import { ApolloClient } from 'apollo-client'
 import fetch from 'node-fetch'
 import raven from 'raven-js'
 
-import LayoutStyle from './reset.style'
-import ResetStyle from './layout.style'
+import './reset.css'
+import LayoutStyle from './layout.style'
 import { UPMENTORING_API_URL, SENTRY_DSN } from '../config/apps'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
@@ -54,7 +54,6 @@ const preloadFontUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingT
   })
 )
 const preconnectUrls = [
-  'https://firebasestorage.googleapis.com',
   'https://www.googletagmanager.com',
   'https://api.autopilothq.com',
   'https://connect.facebook.net',
@@ -68,7 +67,6 @@ const preconnectUrls = [
 const Layout = ({ children, data }) => (
   <RunkitProvider>
     <LayoutStyle />
-    <ResetStyle />
     <ThemeProvider theme={theme}>
       <ApolloProvider client={graphqlClient}>
         <React.Fragment>
@@ -84,7 +82,6 @@ const Layout = ({ children, data }) => (
             link={[
               ...preloadFontUrls,
               ...preconnectUrls,
-              ...dnsPrefetchUrls,
               { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
             ]}
             script={[

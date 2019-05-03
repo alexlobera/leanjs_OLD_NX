@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
@@ -7,7 +9,7 @@ import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
 
 const ThanksForSignUp = () => (
-  <React.Fragment>
+  <Layout>
     <Header
       titleLines={['Thanks - your free resources are on their way!']}
       subtitle="Every week for the next 5 weeks, you'll get a new email with juicy React goodness... You don't have to do a thing."
@@ -44,7 +46,7 @@ const ThanksForSignUp = () => (
         </Card>
       </Grid>
     </TopSection>
-  </React.Fragment>
+  </Layout>
 )
 
 export default ThanksForSignUp

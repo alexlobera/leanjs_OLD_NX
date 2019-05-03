@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import Layout from '../components/layout'
 import { triggerUnsubscribe } from '../api'
 import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -36,7 +38,7 @@ class Unsubscribe extends React.Component {
   render() {
     const { formSubmited } = this.state
     return (
-      <React.Fragment>
+      <Layout>
         <Header
           fullHeight={false}
           titleLines={['Unsubscribe']}
@@ -89,7 +91,7 @@ class Unsubscribe extends React.Component {
             ) : null}
           </Grid>
         </Section>
-      </React.Fragment>
+      </Layout>
     )
   }
 }

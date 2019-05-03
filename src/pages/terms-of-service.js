@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H3, P } from '../components/text'
@@ -8,7 +10,7 @@ import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
 
 const TermsOfService = () => (
-  <React.Fragment>
+  <Layout>
     <Header bgImg="about-us" titleLines={['Terms of service']} />
     <TopSection>
       <Grid>
@@ -97,7 +99,7 @@ const TermsOfService = () => (
         </Row>
       </Grid>
     </Section>
-  </React.Fragment>
+  </Layout>
 )
 
 export default TermsOfService
