@@ -20,6 +20,12 @@ import { RunkitProvider } from '../components/blog/Runkit'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
 import { UpcomingTrainings } from '../components/training/withUpcomingTrainings'
+// https://github.com/gatsbyjs/gatsby/issues/2583#issuecomment-340722928
+import {
+  FONT_BARLOW_400_LATIN_EXT_WOFF2,
+  FONT_BARLOW_500_LATIN_EXT_WOFF2,
+  FONT_BARLOW_800_LATIN_EXT_WOFF2,
+} from '../fonts'
 
 raven.config(SENTRY_DSN).install()
 
@@ -34,7 +40,19 @@ const graphqlClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-const Layout = ({ children, data, trainings }) => (
+const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
+  FONT_BARLOW_400_LATIN_EXT_WOFF2,
+  FONT_BARLOW_500_LATIN_EXT_WOFF2,
+  FONT_BARLOW_800_LATIN_EXT_WOFF2,
+]
+const preloadFontUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
+  url => ({
+    rel: 'preload',
+    href: url,
+  })
+)
+
+const Layout = ({ children, data }) => (
   <RunkitProvider>
     <LayoutStyle />
     <ResetStyle />
@@ -50,7 +68,10 @@ const Layout = ({ children, data, trainings }) => (
               },
               { name: 'keywords', content: data.site.siteMetadata.keywords },
             ]}
-            link={[{ rel: 'icon', type: 'image/x-icon', href: `${favicon}` }]}
+            link={[
+              ...preloadFontUrls,
+              { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
+            ]}
             script={[
               {
                 type: 'text/javascript',
