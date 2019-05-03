@@ -21,11 +21,11 @@ import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
 import { UpcomingTrainings } from '../components/training/withUpcomingTrainings'
 // https://github.com/gatsbyjs/gatsby/issues/2583#issuecomment-340722928
-// import {
-//   FONT_BARLOW_400_LATIN_EXT_WOFF2,
-//   FONT_BARLOW_500_LATIN_EXT_WOFF2,
-//   FONT_BARLOW_800_LATIN_EXT_WOFF2,
-// } from '../fonts'
+import {
+  FONT_BARLOW_400_LATIN_EXT_WOFF2,
+  FONT_BARLOW_500_LATIN_EXT_WOFF2,
+  FONT_BARLOW_800_LATIN_EXT_WOFF2,
+} from '../fonts'
 
 raven.config(SENTRY_DSN).install()
 
@@ -40,18 +40,30 @@ const graphqlClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-// [Alex 2019-05-03] Disabled temporarily until we check in production that this is doing anything
-// const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
-//   FONT_BARLOW_400_LATIN_EXT_WOFF2,
-//   FONT_BARLOW_500_LATIN_EXT_WOFF2,
-//   FONT_BARLOW_800_LATIN_EXT_WOFF2,
-// ]
-// const preloadFontUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
-//   url => ({
-//     rel: 'preload',
-//     href: url,
-//   })
-// )
+const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
+  FONT_BARLOW_400_LATIN_EXT_WOFF2,
+  FONT_BARLOW_500_LATIN_EXT_WOFF2,
+  FONT_BARLOW_800_LATIN_EXT_WOFF2,
+]
+const preloadFontUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
+  url => ({
+    rel: 'preload',
+    href: url,
+    as: 'font',
+    type: 'font/woff2',
+  })
+)
+const preconnectUrls = [
+  'https://firebasestorage.googleapis.com',
+  'https://www.googletagmanager.com',
+  'https://api.autopilothq.com',
+  'https://connect.facebook.net',
+  'https://www.google-analytics.com',
+  'https://apenterprise.io',
+].map(href => ({
+  rel: 'preconnect',
+  href,
+}))
 
 const Layout = ({ children, data }) => (
   <RunkitProvider>
@@ -70,7 +82,9 @@ const Layout = ({ children, data }) => (
               { name: 'keywords', content: data.site.siteMetadata.keywords },
             ]}
             link={[
-              // ...preloadFontUrls,
+              ...preloadFontUrls,
+              ...preconnectUrls,
+              ...dnsPrefetchUrls,
               { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
             ]}
             script={[
