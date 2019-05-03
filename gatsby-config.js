@@ -12,10 +12,6 @@ module.exports = {
     'gatsby-transformer-remark',
     {
       resolve: `gatsby-plugin-offline`,
-      options: {
-        navigateFallback: null,
-        navigateFallbackWhitelist: [],
-      },
     },
     {
       resolve: `gatsby-source-filesystem`,
