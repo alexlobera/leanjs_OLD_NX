@@ -45,7 +45,7 @@ const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_500_LATIN_EXT_WOFF2,
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
 ]
-const preloadFontUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
+const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
   url => ({
     rel: 'preload',
     href: url,
@@ -53,15 +53,24 @@ const preloadFontUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingT
     type: 'font/woff2',
   })
 )
-const preconnectUrls = [
+
+// [Alex 2019-05-04] Do we need to add https://www.googletagmanager.com to this list if <script data-react-helmet="true" type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=AW-877316317" async="" is already on the head of the page?
+// [Alex 2019-05-04] Should we use rel = dns-prefetch or rel = preconnect for the following?
+const prefetchUrls = [
   'https://www.googletagmanager.com',
   'https://api.autopilothq.com',
   'https://connect.facebook.net',
   'https://www.google-analytics.com',
   'https://apenterprise.io',
 ].map(href => ({
+  rel: 'dns-prefetch',
+  href,
+}))
+
+const preconnectUrls = ['https://api.upmentoring.com'].map(href => ({
   rel: 'preconnect',
   href,
+  crossorigin: '', // [Alex 2019-05-04] do we need crossorigin ?
 }))
 
 const Layout = ({ children, data }) => (
@@ -80,8 +89,9 @@ const Layout = ({ children, data }) => (
               { name: 'keywords', content: data.site.siteMetadata.keywords },
             ]}
             link={[
-              ...preloadFontUrls,
+              ...preloadUrls,
               ...preconnectUrls,
+              ...prefetchUrls,
               { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
             ]}
             script={[
