@@ -13,6 +13,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `images`,
+        path: `${__dirname}/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `src`,
         path: `${__dirname}/src/`,
       },
@@ -30,5 +37,7 @@ module.exports = {
         trackingId: 'UA-84002357-1',
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 }
