@@ -57,7 +57,7 @@ const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.
 )
 
 // [Alex 2019-05-04] Do we need to add https://www.googletagmanager.com to this list if <script data-react-helmet="true" type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=AW-877316317" async="" is already on the head of the page?
-const prefetchUrls = [
+const prefetchDnsUrls = [
   'https://www.googletagmanager.com',
   'https://api.autopilothq.com',
   'https://connect.facebook.net',
@@ -108,7 +108,7 @@ const Layout = ({ children }) => (
                 link={[
                   ...preloadUrls,
                   ...preconnectUrls,
-                  ...prefetchUrls,
+                  ...prefetchDnsUrls,
                   { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
                 ]}
                 script={[
