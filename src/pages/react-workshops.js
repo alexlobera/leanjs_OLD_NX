@@ -25,29 +25,25 @@ const workshops = [
       'Learn the basics of React and jumpstart your way into a new coding ecosystem',
   },
   {
-    title: 'React Fundamentals & ModernJS',
+    title: 'Styling in React and Design Systems',
     description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+      'See how React can look gorgeous and encourage design consistency',
   },
   {
-    title: 'React Fundamentals & ModernJS',
-    description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+    title: 'React Hooks & Suspense',
+    description: 'Learn 2 of the newest and most exciting features in React',
   },
   {
-    title: 'React Fundamentals & ModernJS',
-    description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+    title: 'Performance & FP in React',
+    description: 'Discover best practice for permonant React apps',
   },
   {
-    title: 'React Fundamentals & ModernJS',
-    description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+    title: 'React with GraphQL client',
+    description: 'Consume GraphQL APIs in any React application',
   },
   {
-    title: 'React Fundamentals & ModernJS',
-    description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
+    title: 'Testing in React',
+    description: 'Ensure consistent, reliable code across the React ecosystem',
   },
 ]
 
