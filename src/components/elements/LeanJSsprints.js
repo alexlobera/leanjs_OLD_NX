@@ -39,7 +39,7 @@ const LeanJSsprints = () => (
             to open up advanced Lean techniques skills to your team.
           </P>
           <P>
-            <LinkButton variant="secondary" to="https://leanjs.com">
+            <LinkButton to="https://leanjs.com">
               Find out more at LeanJS.com
             </LinkButton>
           </P>

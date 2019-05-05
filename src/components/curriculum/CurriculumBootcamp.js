@@ -123,10 +123,7 @@ const CurriculumBootcamp = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton
-            variant="secondary"
-            to={`/curriculum?tab=${REACT_BOOTCAMP}`}
-          >
+          <LinkButton to={`/curriculum?tab=${REACT_BOOTCAMP}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>

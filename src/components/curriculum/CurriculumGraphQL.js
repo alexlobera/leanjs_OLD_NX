@@ -79,9 +79,7 @@ const CurriculumGraphQL = ({
       </Section>
       {showLinkToCurriculum ? (
         <SectionCTA>
-          <LinkButton variant="secondary" to="/curriculum">
-            Full curriculum
-          </LinkButton>
+          <LinkButton to="/curriculum">Full curriculum</LinkButton>
         </SectionCTA>
       ) : null}
     </React.Fragment>

@@ -19,7 +19,7 @@ const CorporateTrainingCard = () => (
       Private team training, located in your offices anywhere in the world,
       based on our proven curriculum for React and GraphQL{' '}
     </P>
-    <LinkButton variant="secondary" to="/corporate-team-training/">
+    <LinkButton to="/corporate-team-training/">
       Corporate Team Training
     </LinkButton>
   </StyledCorporateTrainingCard>
