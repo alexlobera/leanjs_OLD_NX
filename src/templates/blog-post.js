@@ -101,7 +101,7 @@ const BlogPost = ({ data }) => {
   const authorTwitter = frontmatter.authorTwitter || 'reactjsacademy'
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
-  const relatedPosts = allPosts.filter(post => post.node.fields.slug != slug)
+  const relatedPosts = allPosts.filter(post => post.node.fields.slug !== slug)
   return (
     <Layout>
       {({ trainings }) => (
@@ -140,14 +140,12 @@ const BlogPost = ({ data }) => {
                 {relatedPosts.length ? (
                   <Card border="shadow" small top={20}>
                     <H4>Related articles</H4>
-                    {relatedPosts.map(post => (
-                      <React.Fragment>
-                        <P>
-                          <Link to={post.node.fields.slug}>
-                            {formatPostTitle(post.node.frontmatter.title)}
-                          </Link>
-                          <P>{formatUTC(post.node.frontmatter.date)}</P>
-                        </P>
+                    {relatedPosts.map((post, index) => (
+                      <React.Fragment key={index}>
+                        <Link to={post.node.fields.slug}>
+                          {formatPostTitle(post.node.frontmatter.title)}
+                        </Link>
+                        <P>{formatUTC(post.node.frontmatter.date)}</P>
                       </React.Fragment>
                     ))}
                   </Card>
