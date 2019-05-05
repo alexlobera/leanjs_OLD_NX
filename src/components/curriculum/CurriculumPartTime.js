@@ -139,7 +139,7 @@ const CurriculumPartTime = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
+          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
               Part-time course curriculum{' '}
               <Link to="#curriculum" name="curriculum">

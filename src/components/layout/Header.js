@@ -7,7 +7,7 @@ import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
-import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
+import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
 import {
   blue1,
   blue2,
@@ -30,7 +30,6 @@ import {
 import { Z_INDEX_BG } from '../../config/styles'
 import { selectTypeColor } from '../utils/index.js'
 import { Image } from '../elements'
-//import HOME_IMG from 'img/homepage_topPage.jpg'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;

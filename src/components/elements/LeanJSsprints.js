@@ -2,13 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
-import Grid, { Col, Row } from '../layout/Grid'
+import { Col, Row } from '../layout/Grid'
 import { H2Ref, P } from '../text'
-import Ul, { Li } from '../layout/Ul'
 import { Card, Image } from '../elements'
-import { LeanJS } from '../logos'
 import { CODEVELOP } from '../../config/images'
-import { WHITE } from '../../config/styles'
 
 const StyledLeanJSsprints = styled.div``
 const LeanJSsprints = () => (

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link, { styleChildLinkColor } from '../../../navigation/Link'
 import React from 'react'

@@ -12,7 +12,6 @@ import { Card, Image, Newsletter } from '../components/elements'
 import Header from '../components/layout/Header'
 import {
   UpcomingTrainingSection,
-  withUpcomingTrainings,
   selectUpcomingTrainings,
   selectNthTraining,
 } from '../components/training'

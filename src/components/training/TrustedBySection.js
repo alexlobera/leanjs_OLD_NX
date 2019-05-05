@@ -6,15 +6,9 @@ import { Video, Card } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { H2 } from '../text'
 import {
-  Trainline,
-  ASOS,
-  Blockchain,
-  JohnLewis,
   Capgemini,
   FinancialTimes as DefaultFinancialTimes,
-  SainBurys,
   Tesco,
-  Telegraph,
   Xing,
   IBM,
   IKEA,

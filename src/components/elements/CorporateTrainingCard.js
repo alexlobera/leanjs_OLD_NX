@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { FONT_FAMILY } from '../../config/styles'
 import LinkButton from '../buttons/LinkButton'
 import { P, H3 } from '../text'
-import Link from '../navigation/Link'
 
 const StyledCorporateTrainingCard = styled.div`
   ${FONT_FAMILY};
