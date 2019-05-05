@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { PINK, FONT_FAMILY } from '../../config/styles'
 
