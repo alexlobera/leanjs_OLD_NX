@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout.js'
 import { formatUTC } from '../components/utils'
@@ -11,7 +12,6 @@ import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
-  withUpcomingTrainings,
   selectUpcomingTrainings,
   selectNthTraining,
 } from '../components/training'

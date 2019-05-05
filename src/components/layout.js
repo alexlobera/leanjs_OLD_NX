@@ -9,6 +9,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import fetch from 'node-fetch'
 import raven from 'raven-js'
+import { graphql, StaticQuery } from 'gatsby'
 
 import './reset.css'
 import LayoutStyle from './layout.style'
@@ -73,51 +74,70 @@ const preconnectUrls = ['https://api.upmentoring.com'].map(href => ({
   crossorigin: 'crossorigin',
 }))
 
-const Layout = ({ children, data }) => (
-  <RunkitProvider>
-    <LayoutStyle />
-    <ThemeProvider theme={theme}>
-      <ApolloProvider client={graphqlClient}>
-        <React.Fragment>
-          <Helmet
-            title={data.site.siteMetadata.title}
-            meta={[
-              {
-                name: 'description',
-                content: data.site.siteMetadata.description,
-              },
-              { name: 'keywords', content: data.site.siteMetadata.keywords },
-            ]}
-            link={[
-              ...preloadUrls,
-              ...preconnectUrls,
-              ...prefetchUrls,
-              { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
-            ]}
-            script={[
-              {
-                type: 'text/javascript',
-                src: 'https://unpkg.com/jquery/dist/jquery.min.js',
-              },
-              {
-                type: 'text/javascript',
-                src: 'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                async: true,
-              },
-            ]}
-          />
-          <Menu />
-          <UpcomingTrainings>
-            {args =>
-              typeof children === 'function' ? children(args) : children
-            }
-          </UpcomingTrainings>
-          <Footer />
-          <AcceptCookies />
-        </React.Fragment>
-      </ApolloProvider>
-    </ThemeProvider>
-  </RunkitProvider>
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+            description
+            keywords
+          }
+        }
+      }
+    `}
+    render={data => (
+      <RunkitProvider>
+        <LayoutStyle />
+        <ThemeProvider theme={theme}>
+          <ApolloProvider client={graphqlClient}>
+            <React.Fragment>
+              <Helmet
+                title={data.site.siteMetadata.title}
+                meta={[
+                  {
+                    name: 'description',
+                    content: data.site.siteMetadata.description,
+                  },
+                  {
+                    name: 'keywords',
+                    content: data.site.siteMetadata.keywords,
+                  },
+                ]}
+                link={[
+                  ...preloadUrls,
+                  ...preconnectUrls,
+                  ...prefetchUrls,
+                  { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
+                ]}
+                script={[
+                  {
+                    type: 'text/javascript',
+                    src: 'https://unpkg.com/jquery/dist/jquery.min.js',
+                  },
+                  {
+                    type: 'text/javascript',
+                    src:
+                      'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                    async: true,
+                  },
+                ]}
+              />
+              <Menu />
+              <UpcomingTrainings>
+                {args =>
+                  typeof children === 'function' ? children(args) : children
+                }
+              </UpcomingTrainings>
+              <Footer />
+              <AcceptCookies />
+            </React.Fragment>
+          </ApolloProvider>
+        </ThemeProvider>
+      </RunkitProvider>
+    )}
+  />
 )
 
 Layout.propTypes = {
@@ -133,15 +153,3 @@ Layout.defaultProps = {
 }
 
 export default Layout
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        keywords
-      }
-    }
-  }
-`

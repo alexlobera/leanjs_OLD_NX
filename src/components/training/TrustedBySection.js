@@ -6,21 +6,15 @@ import { Video, Card } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { H2 } from '../text'
 import {
-  Trainline,
-  ASOS,
-  Blockchain,
-  JohnLewis,
   Capgemini,
   FinancialTimes as DefaultFinancialTimes,
-  SainBurys,
   Tesco,
-  Telegraph,
   Xing,
   IBM,
   IKEA,
   Microsoft,
 } from '../logos'
-import { GREY, REACT_BLUE_DARK } from '../../config/styles'
+import { REACT_BLUE_DARK } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE

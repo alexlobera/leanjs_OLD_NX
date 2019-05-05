@@ -1,8 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
-import { width } from 'window-size'
 
 const ASOS = ({ colour = '#0B0B0A', width, height }) => (
   <svg

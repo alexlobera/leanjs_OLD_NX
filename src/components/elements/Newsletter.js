@@ -25,9 +25,7 @@ const Newsletter = () => (
       </strong>{' '}
       and we'd love for you to enjoy and learn from them!{' '}
     </P>
-    <LinkButton secondary to="#newsletter">
-      Sign up now
-    </LinkButton>
+    <LinkButton to="#newsletter">Sign up now</LinkButton>
   </StyledNewsletter>
 )
 

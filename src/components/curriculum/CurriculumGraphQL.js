@@ -79,9 +79,7 @@ const CurriculumGraphQL = ({
       </Section>
       {showLinkToCurriculum ? (
         <SectionCTA>
-          <LinkButton variant="secondary" to="/curriculum">
-            Full curriculum
-          </LinkButton>
+          <LinkButton to="/curriculum">Full curriculum</LinkButton>
         </SectionCTA>
       ) : null}
     </React.Fragment>
@@ -91,7 +89,7 @@ const CurriculumGraphQL = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lgOffset={layout != LIST_TWO_COL && 1}>
+          <Col lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
               GraphQL Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">

@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
 
 const EnterMindIcon = props => (
   <svg viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet">

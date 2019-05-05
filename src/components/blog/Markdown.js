@@ -27,6 +27,7 @@ export const Code = props => {
 
 export const Codesandbox = ({ height = '600px', id, view = 'split' }) => (
   <iframe
+    title="code sandbox"
     src={`https://codesandbox.io/embed/${id}?verticallayout=1&view=${view}`}
     style={{
       width: '100%',

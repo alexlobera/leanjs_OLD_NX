@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout.js'
 import { formatUTC } from '../components/utils'

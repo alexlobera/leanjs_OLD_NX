@@ -2,7 +2,7 @@ import React from 'react'
 import { H2Ref } from '../text'
 import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
-import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
+import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
@@ -74,10 +74,7 @@ const CurriculumReactNative = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton
-            variant="secondary"
-            to={`/curriculum?tab=${REACT_NATIVE}`}
-          >
+          <LinkButton to={`/curriculum?tab=${REACT_NATIVE}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>
@@ -89,7 +86,7 @@ const CurriculumReactNative = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
+          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
               React Native Curriculum
               <Link to="#curriculum" name="curriculum">

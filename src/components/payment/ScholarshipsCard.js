@@ -1,7 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 import { P, H3 } from '../text'
-import { LinkButton } from '../buttons'
 import Card from '../elements/Card'
 
 const ScholarshipsCard = () => (
