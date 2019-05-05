@@ -382,7 +382,6 @@ class Curriculum extends React.Component {
                                     enableToggle={true}
                                     showTitle={false}
                                     showLinkToCurriculum={false}
-                                    layout={LIST_LAYOUT}
                                     marketingCard={
                                       <MarketingCard
                                         heading="Next React Bootcamp"
