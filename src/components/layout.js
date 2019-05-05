@@ -9,6 +9,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import fetch from 'node-fetch'
 import raven from 'raven-js'
+import { graphql } from 'gatsby'
 
 import './reset.css'
 import LayoutStyle from './layout.style'
