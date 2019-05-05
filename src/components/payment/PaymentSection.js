@@ -198,9 +198,7 @@ class PaymentSection extends React.Component {
             {priceGoesUpOn > Date.now() ? (
               <React.Fragment>
                 <P>HURRY! This price is only available for...</P>
-                <P>
-                  <Countdown date={priceGoesUpOn} />
-                </P>
+                <Countdown date={priceGoesUpOn} />
               </React.Fragment>
             ) : null}
             {parseInt(price, 10) > 0 && (
