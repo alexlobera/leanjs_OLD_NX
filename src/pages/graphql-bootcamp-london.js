@@ -26,7 +26,7 @@ import {
   CollabsIcon,
   SpannerIcon,
 } from '../components/icons'
-import { Image, Newsletter } from '../components/elements'
+import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'

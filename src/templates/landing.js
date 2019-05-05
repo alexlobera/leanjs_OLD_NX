@@ -12,7 +12,6 @@ import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import {
   UpcomingTrainingSection,
-  withUpcomingTrainings,
   selectUpcomingTrainings,
   selectNthTraining,
 } from '../components/training'

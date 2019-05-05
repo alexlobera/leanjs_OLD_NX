@@ -13,7 +13,7 @@ import {
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
-import { Card, Image, Video } from '../components/elements'
+import { Card, Video } from '../components/elements'
 import CorporateTechSelector from '../components/curriculum/CorporateTechSelector'
 import { EBER } from '../config/images'
 import {
