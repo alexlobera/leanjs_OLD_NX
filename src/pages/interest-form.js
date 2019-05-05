@@ -80,6 +80,7 @@ const SessionInterest = ({ trainings, history }) => {
                   render={({ handleSubmit, valid }) => {
                     return (
                       <form onSubmit={handleSubmit}>
+                        <P>Which Workshops are you interested in?</P>
                         <Row>
                           <Col xs={12} md={6}>
                             <NameInput
@@ -87,7 +88,6 @@ const SessionInterest = ({ trainings, history }) => {
                               name="name"
                               placeholder="eg. Steve Jobs"
                             />
-                            <P>Which Workshops are you interested in?</P>
                             <CheckboxField
                               name="fundamentals"
                               label="Modern JS and React Fundamentals"
