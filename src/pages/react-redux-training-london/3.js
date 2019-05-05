@@ -24,7 +24,7 @@ import header from '../../components/layout/Header.json'
 import { PaymentSection } from '../../components/payment'
 import { Breadcrumb } from '../../components/navigation'
 import { PART_TIME, LONDON } from '../../config/data'
-import { LIST_TWO_COL } from '../../components/curriculum'
+import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
 
 const BootcampLondon = () => (
   <Layout>
