@@ -3,7 +3,7 @@
 exports[`<TermsOfService /> should render component 1`] = `
 <Fragment>
   <Header
-    bgImg="about-us"
+    
     titleLines={
       Array [
         "Terms of service",

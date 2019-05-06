@@ -54,7 +54,6 @@ const Workshops = () => (
           <Header
             titleLines={['1-day React Workshops']}
             subtitle="Intense, 1-day workshops that focusses on one specific part of React - all based on our proven Bootcamp curriculum"
-            bgImg="about-us"
           />
           <TopSection marginTop={`-250`}>
             <Grid>

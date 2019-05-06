@@ -26,7 +26,6 @@ const CodeOfConduct = () => (
             { text: 'Key takeaways ', to: '#key-takeaways' },
             { text: 'More detail', to: '#more-detail' },
           ]}
-          bgImg="about-us"
         />
         <TopSection>
           <Grid>

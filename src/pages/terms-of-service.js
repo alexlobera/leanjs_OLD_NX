@@ -10,7 +10,7 @@ import { Card } from '../components/elements'
 
 const TermsOfService = () => (
   <Layout>
-    <Header bgImg="about-us" titleLines={['Terms of service']} />
+    <Header titleLines={['Terms of service']} />
     <TopSection>
       <Grid>
         <Card border="shadow">

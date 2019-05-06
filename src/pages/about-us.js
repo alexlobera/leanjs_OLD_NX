@@ -80,7 +80,6 @@ const AboutUs = () => (
             { text: 'Manifesto', to: '#manifesto' },
             { text: 'Development', to: '#development' },
           ]}
-          bgImg="about-us"
         />
         <TopSection>
           <Grid>
