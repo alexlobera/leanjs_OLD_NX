@@ -38,6 +38,7 @@ export const TEXT_SIZE = ({ sm = false, lg = false }) => {
   return `font-size: 16px;`
 }
 
+export const DEFAULT_BACKGROUND_HEADER_IMAGE_WIDTH = 1000
 // Font sizing needs to be standardised to the following system:
 // H1: 50px/2.77rem
 // H2: 37px/2.05rem

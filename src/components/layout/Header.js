@@ -58,31 +58,26 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
     padding-right: 8px;
   }
 `
-
-const backgroundImg = css`
-  ${({ bgImg, bgImage }) => {
-    switch (bgImg) {
-      // case 'home':
-      //   return `background-image: url(${HOME_IMG});`
-      case 'part-time':
-        return `background-image: url(${PART_TIME_IMG});`
-      case 'full-time':
-        return `background-image: url(${FULL_TIME_IMG});`
-      case 'training-event':
-        return `background-image: url(${TRAINING_EVENT_IMG});`
-      case 'about-us':
-        return `background-image: url(${PART_TIME_IMG});`
-      case 'curriculum':
-        return `background-image: url(${CURRICULUM_IMG});`
-      case 'community':
-        return `background-image: url(${COMMUNITY_IMG});`
-      case 'corp-training':
-        return `background-image: url(${CORP_TRAINING_HEADER_IMG});`
-      default:
-        return `background-image: url(${bgImage});`
-    }
-  }};
-`
+// switch (bgImg) {
+//   // case 'home':
+//   //   return `background-image: url(${HOME_IMG});`
+//   case 'part-time':
+//     return `background-image: url(${PART_TIME_IMG});`
+//   case 'full-time':
+//     return `background-image: url(${FULL_TIME_IMG});`
+//   case 'training-event':
+//     return `background-image: url(${TRAINING_EVENT_IMG});`
+//   case 'about-us':
+//     return `background-image: url(${PART_TIME_IMG});`
+//   case 'curriculum':
+//     return `background-image: url(${CURRICULUM_IMG});`
+//   case 'community':
+//     return `background-image: url(${COMMUNITY_IMG});`
+//   case 'corp-training':
+//     return `background-image: url(${CORP_TRAINING_HEADER_IMG});`
+//   default:
+//     return `background-image: url(${bgImage});`
+// }
 const HeaderSection = styled(Section)`
   ${({ bgColor }) =>
     bgColor === 'blue' &&
@@ -97,7 +92,10 @@ const HeaderSection = styled(Section)`
     height: 100%;
     z-index: ${Z_INDEX_BG};
     background-image: url(${PART_TIME_IMG});
-    ${backgroundImg} background-repeat: no-repeat;
+    ${({ defaultBgImage, bgImage }) =>
+      `background-image: url(${
+        bgImage ? bgImage : defaultBgImage
+      });`} background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -213,8 +211,8 @@ const Header = ({
   titleLines = [],
   subtitle,
   links = [],
-  bgImg,
   bgImage,
+  defaultBgImage,
   bgColor,
   fullHeight,
   paddingBottom,
@@ -223,123 +221,135 @@ const Header = ({
   downloadVenuePDF,
 }) => (
   <React.Fragment>
-    {bgImage && (
-      <Helmet
-        link={[
-          {
-            rel: 'preload',
-            href: bgImage,
-            as: 'image',
-          },
-        ]}
-      />
-    )}
-    <HeaderSection
-      top
-      bgImg={bgImg}
-      bgColor={bgColor}
-      bgImage={bgImage}
-      fullHeight={fullHeight}
-      paddingBottom={paddingBottom}
-    >
-      <Grid>
-        <Row>
-          <TitleCol md={showInfoBox && training ? 7 : 12} type={type}>
-            <H1>
-              {titleLines.map((line, i) => (
-                <TitleBackground key={i} children={line} />
-              ))}
-            </H1>
-            {subtitle ? (
-              <SubTitleBackground>
-                <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
-              </SubTitleBackground>
-            ) : null}
-            {children ? (
-              <SubTitleBackground>{children}</SubTitleBackground>
-            ) : null}
+    <HeaderContext.Consumer>
+      {bgImage && (
+        <Helmet
+          link={[
+            {
+              rel: 'preload',
+              href: bgImage,
+              as: 'image',
+            },
+          ]}
+        />
+      )}
+      {value => (
+        <HeaderSection
+          top
+          bgColor={bgColor}
+          bgImage={bgImage}
+          defaultBgImage={value}
+          fullHeight={fullHeight}
+          paddingBottom={paddingBottom}
+        >
+          <Grid>
             <Row>
-              <Col>
-                {links.length ? (
-                  <Nav quickLinks>
-                    <Ul inline>
-                      <Li>
-                        <Span>On this page:</Span>
-                      </Li>
-                      {links.map(({ to, text }, i) => (
-                        <Li key={i}>
-                          <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
-                        </Li>
-                      ))}
-                    </Ul>
-                  </Nav>
+              <TitleCol md={showInfoBox && training ? 7 : 12} type={type}>
+                <H1>
+                  {titleLines.map((line, i) => (
+                    <TitleBackground key={i} children={line} />
+                  ))}
+                </H1>
+                {subtitle ? (
+                  <SubTitleBackground>
+                    <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
+                  </SubTitleBackground>
                 ) : null}
-              </Col>
-            </Row>
-          </TitleCol>
-          {showInfoBox && (
-            <Col md={3} mdOffset={1}>
-              <InfoBox type={type}>
-                <Link to={`#${linkToGallery}`}>
-                  <Image
-                    src={training.image || SMALL_CLASSROOM}
-                    width="100%"
-                    alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-                  />
-                </Link>
+                {children ? (
+                  <SubTitleBackground>{children}</SubTitleBackground>
+                ) : null}
+                <Row>
+                  <Col>
+                    {links.length ? (
+                      <Nav quickLinks>
+                        <Ul inline>
+                          <Li>
+                            <Span>On this page:</Span>
+                          </Li>
+                          {links.map(({ to, text }, i) => (
+                            <Li key={i}>
+                              <Link to={to[0] !== '#' ? `#${to}` : to}>
+                                {text}
+                              </Link>
+                            </Li>
+                          ))}
+                        </Ul>
+                      </Nav>
+                    ) : null}
+                  </Col>
+                </Row>
+              </TitleCol>
+              {showInfoBox && (
+                <Col md={3} mdOffset={1}>
+                  <InfoBox type={type}>
+                    <Link to={`#${linkToGallery}`}>
+                      <Image
+                        src={training.image || SMALL_CLASSROOM}
+                        width="100%"
+                        alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                      />
+                    </Link>
 
-                <Ul unstyled>
-                  <Li>
-                    <strong>Date</strong>:{' '}
-                    {training.startDate
-                      ? `${formatUTC(
-                          training.startDate,
-                          training.utcOffset,
-                          'D MMM'
-                        )} - ${formatUTC(
-                          training.endDate,
-                          training.utcOffset,
-                          'D MMM'
-                        )}`
-                      : 'TBD'}
-                  </Li>
-                  <Li>
-                    <strong>Timings</strong>:{' '}
-                    {`${(training.startDate &&
-                      formatUTC(
-                        training.startDate,
-                        training.utcOffset,
-                        'HH:mm'
-                      )) ||
-                      '9am'} - ${(training.endDate &&
-                      formatUTC(
-                        training.endDate,
-                        training.utcOffset,
-                        'HH:mm'
-                      )) ||
-                      '6:30pm'}`}
-                  </Li>
-                  <Li>
-                    <strong>Venue</strong>: {training.address || 'TBD'} -{' '}
-                    {training.mapUrl && <Link to={training.mapUrl}> map</Link>}
-                  </Li>
-                  {linkToGallery && (
-                    <Li>
-                      <Link to={`#${linkToGallery}`}>See venue pictures</Link>
-                    </Li>
-                  )}
-                  {downloadVenuePDF && (
-                    <Li>
-                      <Link to={downloadVenuePDF}>Download more info PDF</Link>
-                    </Li>
-                  )}
-                </Ul>
-              </InfoBox>
-            </Col>
-          )}
-        </Row>
-      </Grid>
-    </HeaderSection>
+                    <Ul unstyled>
+                      <Li>
+                        <strong>Date</strong>:{' '}
+                        {training.startDate
+                          ? `${formatUTC(
+                              training.startDate,
+                              training.utcOffset,
+                              'D MMM'
+                            )} - ${formatUTC(
+                              training.endDate,
+                              training.utcOffset,
+                              'D MMM'
+                            )}`
+                          : 'TBD'}
+                      </Li>
+                      <Li>
+                        <strong>Timings</strong>:{' '}
+                        {`${(training.startDate &&
+                          formatUTC(
+                            training.startDate,
+                            training.utcOffset,
+                            'HH:mm'
+                          )) ||
+                          '9am'} - ${(training.endDate &&
+                          formatUTC(
+                            training.endDate,
+                            training.utcOffset,
+                            'HH:mm'
+                          )) ||
+                          '6:30pm'}`}
+                      </Li>
+                      <Li>
+                        <strong>Venue</strong>: {training.address || 'TBD'} -{' '}
+                        {training.mapUrl && (
+                          <Link to={training.mapUrl}> map</Link>
+                        )}
+                      </Li>
+                      {linkToGallery && (
+                        <Li>
+                          <Link to={`#${linkToGallery}`}>
+                            See venue pictures
+                          </Link>
+                        </Li>
+                      )}
+                      {downloadVenuePDF && (
+                        <Li>
+                          <Link to={downloadVenuePDF}>
+                            Download more info PDF
+                          </Link>
+                        </Li>
+                      )}
+                    </Ul>
+                  </InfoBox>
+                </Col>
+              )}
+            </Row>
+          </Grid>
+        </HeaderSection>
+      )}
+    </HeaderContext.Consumer>
   </React.Fragment>
 )
 

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
+import { DEFAULT_BACKGROUND_HEADER_IMAGE_WIDTH } from '../config/styles'
 import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
@@ -57,14 +58,15 @@ const IndexPage = props => {
   const headerImage = props.data.headerImage.childImageSharp.fluid.src
   return (
     <Layout>
-      {({ trainings }) => (
+      {({ trainings, defaultBgImage }) => (
         <React.Fragment>
           <Header
             titleLines={['Take your dev career further', 'by mastering React']}
             subtitle="In-person training from experts who were <br /> the first in
         Europe to teach React"
             bgColor="blue"
-            bgImage={headerImage}
+            // bgImage={headerImage}
+            defaultBgImage={defaultBgImage}
           />
           <TopSection>
             <Grid>
@@ -312,10 +314,10 @@ const IndexPage = props => {
 }
 
 export const pageQuery = graphql`
-  query {
+  query imageQuery($maxWidth: Int = 1000) {
     headerImage: file(relativePath: { regex: "/covers/homepage_topPage/" }) {
       childImageSharp {
-        fluid(maxWidth: 1000) {
+        fluid(maxWidth: $maxWidth) {
           ...GatsbyImageSharpFluid
         }
       }
