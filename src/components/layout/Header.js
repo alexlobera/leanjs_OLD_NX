@@ -93,10 +93,8 @@ const HeaderSection = styled(Section)`
     height: 100%;
     z-index: ${Z_INDEX_BG};
     background-image: url(${PART_TIME_IMG});
-    ${({ defaultBgImage, bgImage }) =>
-      `background-image: url(${
-        bgImage ? bgImage : defaultBgImage
-      });`} background-repeat: no-repeat;
+    ${({ bgImage }) =>
+      `background-image: url(${bgImage});`} background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -205,6 +203,19 @@ const InfoBox = styled.div`
   border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
 `
 
+const getBackgroundImageSrc = (data, fileName) => {
+  const bgImage = data.allFile.nodes.find(({ relativePath }) => {
+    const nodeFileName = relativePath
+      .split('.')
+      .slice(0, -1)
+      .join('.')
+    return nodeFileName === fileName
+  })
+  const img = bgImage || data.defaultHeaderImage
+
+  return img.childImageSharp.fluid.src
+}
+
 const Header = ({
   training = {},
   showInfoBox = false,
@@ -212,7 +223,7 @@ const Header = ({
   titleLines = [],
   subtitle,
   links = [],
-  bgImage,
+  bgImageName,
   bgColor,
   fullHeight,
   paddingBottom,
@@ -222,10 +233,22 @@ const Header = ({
 }) => (
   <StaticQuery
     query={graphql`
-      query {
-        headerImage: file(relativePath: { regex: "/covers/partTime_splash/" }) {
+      query getBackgroundImage($maxWidth: Int = 1000) {
+        allFile(filter: { relativePath: { regex: "/covers/" } }) {
+          nodes {
+            relativePath
+            childImageSharp {
+              fluid(maxWidth: $maxWidth) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        defaultHeaderImage: file(
+          relativePath: { regex: "/covers/partTime_splash/" }
+        ) {
           childImageSharp {
-            fluid(maxWidth: 1000) {
+            fluid(maxWidth: $maxWidth) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -233,7 +256,8 @@ const Header = ({
       }
     `}
     render={data => {
-      const defaultBgImage = data.headerImage.childImageSharp.fluid.src
+      // const defaultBgImage = data.headerImages.childImageSharp.fluid.src
+      const bgImage = getBackgroundImageSrc(data, bgImageName)
 
       return (
         <React.Fragment>
@@ -252,7 +276,6 @@ const Header = ({
             top
             bgColor={bgColor}
             bgImage={bgImage}
-            defaultBgImage={defaultBgImage}
             fullHeight={fullHeight}
             paddingBottom={paddingBottom}
           >

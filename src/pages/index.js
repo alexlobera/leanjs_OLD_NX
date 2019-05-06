@@ -55,7 +55,7 @@ const SectionButtonRow = styled(Row)`
 `
 
 const IndexPage = props => {
-  const headerImage = props.data.headerImage.childImageSharp.fluid.src
+  // const headerImage = props.data.headerImage.childImageSharp.fluid.src
   return (
     <Layout>
       {({ trainings }) => (
@@ -65,7 +65,7 @@ const IndexPage = props => {
             subtitle="In-person training from experts who were <br /> the first in
         Europe to teach React"
             bgColor="blue"
-            bgImage={headerImage}
+            bgImageName="homepage_topPage"
           />
           <TopSection>
             <Grid>
@@ -312,16 +312,16 @@ const IndexPage = props => {
   )
 }
 
-export const pageQuery = graphql`
-  query imageQuery($maxWidth: Int = 1000) {
-    headerImage: file(relativePath: { regex: "/covers/homepage_topPage/" }) {
-      childImageSharp {
-        fluid(maxWidth: $maxWidth) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query imageQuery($maxWidth: Int = 1000) {
+//     headerImage: file(relativePath: { regex: "/covers/homepage_topPage/" }) {
+//       childImageSharp {
+//         fluid(maxWidth: $maxWidth) {
+//           ...GatsbyImageSharpFluid
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default IndexPage
