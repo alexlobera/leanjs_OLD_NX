@@ -101,7 +101,7 @@ const BlogPost = ({ data }) => {
   const authorTwitter = frontmatter.authorTwitter || 'reactjsacademy'
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
-  const relatedPosts = allPosts.filter(post => post.node.fields.slug != slug)
+  const relatedPosts = allPosts.filter(post => post.node.fields.slug !== slug)
   return (
     <Layout>
       {({ trainings }) => (

@@ -6,9 +6,7 @@ import {
   RICHARD,
   ALEX,
   HORACIO,
-  LISBON_LOCATION,
   LONDON_LOCATION,
-  BARCELONA_LOCATION,
   AMSTERDAM_LOCATION,
 } from './images'
 
@@ -36,18 +34,6 @@ Part-time prices
 1166.67 -> Jan 12
 */
 
-const emptyTraining = (type, city) => ({
-  dates: 'TBC',
-  dateStartsOn: null,
-  city,
-  type,
-  cityShortName: city,
-  country: '',
-  trainingInstanceId: '',
-  price: 0,
-  currency: '',
-})
-
 const upcomingPartTimes = [
   {
     dates: 'April 23 - May 23, 2019',
@@ -71,7 +57,6 @@ const upcomingPartTimes = [
     dates: 'April 26 - 24 May, 2019',
     dateStartsOn: new Date('26 April, 2019'),
     city: AMSTERDAM,
-    country: 'NL',
     type: PART_TIME,
     cityShortName: 'Amsterdam',
     country: 'Holland',
