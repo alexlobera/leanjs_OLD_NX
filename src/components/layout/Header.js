@@ -204,11 +204,8 @@ const InfoBox = styled.div`
 `
 
 const getBackgroundImageSrc = (data, fileName) => {
-  const bgImage = data.allFile.nodes.find(({ relativePath }) => {
-    const nodeFileName = relativePath
-      .split('.')
-      .slice(0, -1)
-      .join('.')
+  const bgImage = data.allFile.nodes.find(({ relativePath: r }) => {
+    const nodeFileName = r.substring(r.lastIndexOf('/') + 1, r.lastIndexOf('.'))
     return nodeFileName === fileName
   })
   const img = bgImage || data.defaultHeaderImage
