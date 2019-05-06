@@ -93,15 +93,17 @@ const Layout = ({ children }) => (
           <ApolloProvider client={graphqlClient}>
             <React.Fragment>
               <Helmet
-                title={data.site.siteMetadata.title}
+                title={data && data.site && data.site.siteMetadata.title}
                 meta={[
                   {
                     name: 'description',
-                    content: data.site.siteMetadata.description,
+                    content:
+                      data && data.site && data.site.siteMetadata.description,
                   },
                   {
                     name: 'keywords',
-                    content: data.site.siteMetadata.keywords,
+                    content:
+                      data && data.site && data.site.siteMetadata.keywords,
                   },
                 ]}
                 link={[

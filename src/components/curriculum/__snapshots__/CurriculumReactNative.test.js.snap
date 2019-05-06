@@ -79,7 +79,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         <LinkButton
           to="/curriculum?tab=React Native"
           trackUserBehaviour={[Function]}
-          variant="secondary"
+          variant="default"
         >
           Full curriculum
         </LinkButton>

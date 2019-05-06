@@ -1,15 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Community /> should render component 1`] = `
-<Layout
-  data={
-    Object {
-      "site": Object {
-        "siteMetadata": Object {},
-      },
-    }
-  }
->
+<Layout>
   <Component />
 </Layout>
 `;

@@ -11,13 +11,13 @@ exports[`<CurriculumCard /> should render component 1`] = `
         "isStatic": true,
         "rules": Array [
           "
-    background-color: ",
+  background-color: ",
           "#be6045",
           ";
-    padding: 2em;
-    color: #ffffff
-    margin-top: 2em;
-    ",
+  padding: 2em;
+  color: #ffffff;
+  margin-top: 2em;
+  ",
           "font-family: 'Barlow', sans-serif;",
           "
 ",

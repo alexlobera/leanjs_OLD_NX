@@ -176,6 +176,9 @@ const InfoBox = styled.div`
 `
 
 const getBackgroundImageSrc = (data, fileName) => {
+  if (!data) {
+    return ''
+  }
   const bgImage = data.allFile.nodes.find(({ relativePath: r }) => {
     const nodeFileName = r.substring(r.lastIndexOf('/') + 1, r.lastIndexOf('.'))
     return nodeFileName === fileName

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PrivacyPolicy /> should render component 1`] = `
-<Fragment>
+<Layout>
   <Header
     titleLines={
       Array [
@@ -350,5 +350,5 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
       </Row>
     </Grid>
   </Section>
-</Fragment>
+</Layout>
 `;

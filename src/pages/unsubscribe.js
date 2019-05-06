@@ -26,7 +26,7 @@ export const ThanksTitle = styled(H3)`
 
 export const THANKS_MESSAGE = 'To finish the process, check your Email.'
 
-class Unsubscribe extends React.Component {
+export class Unsubscribe extends React.Component {
   state = {
     formSubmited: false,
   }
@@ -39,7 +39,7 @@ class Unsubscribe extends React.Component {
   render() {
     const { formSubmited } = this.state
     return (
-      <Layout>
+      <React.Fragment>
         <Header
           fullHeight={false}
           titleLines={['Unsubscribe']}
@@ -92,7 +92,7 @@ class Unsubscribe extends React.Component {
             ) : null}
           </Grid>
         </Section>
-      </Layout>
+      </React.Fragment>
     )
   }
 }
@@ -101,4 +101,10 @@ Unsubscribe.defaultProps = {
   triggerUnsubscribe,
 }
 
-export default Unsubscribe
+const UnsubscribePage = () => (
+  <Layout>
+    <Unsubscribe />
+  </Layout>
+)
+
+export default UnsubscribePage
