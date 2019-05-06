@@ -112,7 +112,7 @@ const Layout = ({ children }) => (
                 script={[
                   {
                     type: 'text/javascript',
-                    src: 'https://unpkg.com/jquery/dist/jquery.min.js',
+                    src: 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js',
                     async: true,
                   },
                   {
