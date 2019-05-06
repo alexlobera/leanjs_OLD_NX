@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { formatUTC } from '../components/utils'
 import Section, { TopSection } from '../components/layout/Section'
@@ -104,7 +105,7 @@ const Community = () => (
               { text: 'Instagram', to: '#instagram' },
               { text: 'Mentor community', to: '#mentor-community' },
             ]}
-            bgImg="training-event"
+            bgImageName={BOOTCAMP}
             training={nextBootcamp}
           />
           <TopSection>

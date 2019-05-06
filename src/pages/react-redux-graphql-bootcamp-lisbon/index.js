@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { BOOTCAMP } from '../../../images/imageNames.js'
 import Layout from '../../components/layout'
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
@@ -189,7 +190,7 @@ const BootcampLisbon = () => (
                 to: '#venue',
               },
             ]}
-            bgImg="training-event"
+            bgImageName={BOOTCAMP}
             type={REACT_BOOTCAMP}
             training={training}
             linkToGallery="venue"

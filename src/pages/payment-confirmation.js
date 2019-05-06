@@ -1,6 +1,7 @@
 /* eslint no-undef: 0 */
 import React from 'react'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -51,7 +52,7 @@ class PaymentConfirmation extends React.Component {
         <Header
           titleLines={['Thanks!']}
           subtitle="We can’t wait to help you on your React journey."
-          bgImg="training-event"
+          bgImageName={BOOTCAMP}
         />
         <TopSection marginTop="-250">
           <Grid>

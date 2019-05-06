@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -60,7 +61,7 @@ const ReactNativeBoocampBarcelona = () => (
             titleLines={['1-Day React Native Foundation - Barcelona']}
             links={header.landingTraining.links}
             subtitle="Take your React developer career to the next level by learning React Native, in only one day. "
-            bgImg="training-event"
+            bgImageName={BOOTCAMP}
             training={training}
             type={REACT_NATIVE}
             showInfoBox={true}

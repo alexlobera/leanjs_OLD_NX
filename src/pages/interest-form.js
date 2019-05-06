@@ -1,6 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -69,7 +70,7 @@ const SessionInterest = ({ trainings }) => (
             subtitle={[
               'Join the wait and be the first to know about our upcoming 1-day workshops',
             ]}
-            bgImg="training-event"
+            bgImageName={BOOTCAMP}
             training={nextBootcamp}
           />
 

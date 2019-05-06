@@ -241,9 +241,7 @@ const Header = ({
             }
           }
         }
-        defaultHeaderImage: file(
-          relativePath: { regex: "/covers/partTime_splash/" }
-        ) {
+        defaultHeaderImage: file(relativePath: { regex: "/covers/default/" }) {
           childImageSharp {
             fluid(maxWidth: $maxWidth) {
               ...GatsbyImageSharpFluid

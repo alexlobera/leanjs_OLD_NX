@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { triggerUnsubscribe } from '../api'
 import Section from '../components/layout/Section'
@@ -43,7 +44,7 @@ class Unsubscribe extends React.Component {
           fullHeight={false}
           titleLines={['Unsubscribe']}
           subtitle=""
-          bgImg="training-event"
+          bgImageName={BOOTCAMP}
         />
         <Section>
           <Grid>

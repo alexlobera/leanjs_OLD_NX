@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout.js'
 import { formatUTC } from '../components/utils'
 import Section, { TopSection } from '../components/layout/Section'
@@ -63,7 +64,7 @@ const Landing = ({ data }) => {
             <Header
               titleLines={['React Redux GraphQL', `training in ${city}`]}
               subtitle={`Take your dev career to the next level in ${city}, ${country} - by mastering<br />React, Redux, and GraphQL`}
-              bgImg="training-event"
+              bgImageName={BOOTCAMP}
             />
             <TopSection>
               <Section xsBgDark>
