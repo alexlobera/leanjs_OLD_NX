@@ -92,8 +92,6 @@ class Link extends React.Component {
         <LinkScroll
           {...restLinkScrollProps}
           onClick={e => {
-            e.preventDefault()
-            navigate(toHref)
             onClick && onClick()
           }}
           to={toHref}
