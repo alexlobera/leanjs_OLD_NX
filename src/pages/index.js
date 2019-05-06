@@ -312,16 +312,4 @@ const IndexPage = props => {
   )
 }
 
-// export const pageQuery = graphql`
-//   query imageQuery($maxWidth: Int = 1000) {
-//     headerImage: file(relativePath: { regex: "/covers/homepage_topPage/" }) {
-//       childImageSharp {
-//         fluid(maxWidth: $maxWidth) {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//   }
-// `
-
 export default IndexPage

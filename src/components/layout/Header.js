@@ -251,7 +251,6 @@ const Header = ({
       }
     `}
     render={data => {
-      // const defaultBgImage = data.headerImages.childImageSharp.fluid.src
       const bgImage = getBackgroundImageSrc(data, bgImageName)
 
       return (
