@@ -52,7 +52,6 @@ const BootcampLondon = () => (
             titleLines={['React Redux part-time course - London']}
             subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
             links={header.landingTraining.links}
-            bgImg="part-time"
             type={PART_TIME}
             training={training}
             showInfoBox={true}

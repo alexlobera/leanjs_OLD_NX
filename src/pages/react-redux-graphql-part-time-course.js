@@ -56,7 +56,6 @@ const PartTime = ({ trainings }) => (
           <Header
             titleLines={['5-week part-time', 'React Redux course']}
             subtitle="Expert coaches work with you, 2 evenings a week, <br /> to master React without having to cut into valuable work-days"
-            bgImg="part-time"
             type={PART_TIME}
             links={header.landingPageLinks.links}
           />
