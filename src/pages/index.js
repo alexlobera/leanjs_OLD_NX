@@ -65,7 +65,7 @@ const IndexPage = props => {
             subtitle="In-person training from experts who were <br /> the first in
         Europe to teach React"
             bgColor="blue"
-            // bgImage={headerImage}
+            bgImage={headerImage}
           />
           <TopSection>
             <Grid>

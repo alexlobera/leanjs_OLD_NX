@@ -223,9 +223,7 @@ const Header = ({
   <StaticQuery
     query={graphql`
       query {
-        headerImage: file(
-          relativePath: { regex: "/covers/homepage_topPage/" }
-        ) {
+        headerImage: file(relativePath: { regex: "/covers/partTime_splash/" }) {
           childImageSharp {
             fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
