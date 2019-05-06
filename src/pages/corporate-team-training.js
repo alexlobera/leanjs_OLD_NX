@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { CORP_TRAINING } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
@@ -41,7 +42,7 @@ const CorporateTraining = () => (
             { text: 'Benefits to you', to: '#right-for-my-team' },
             { text: 'Custom training', to: '#custom-training' },
           ]}
-          bgImg="corp-training"
+          bgImageName={CORP_TRAINING}
         />
         <TopSection>
           <Grid>
