@@ -49,7 +49,6 @@ const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.
     href: url,
     as: 'font',
     type: 'font/woff2',
-    crossorigin: 'crossorigin',
   })
 )
 
