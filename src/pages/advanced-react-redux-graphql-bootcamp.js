@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { formatUTC } from '../components/utils'
 import { LinkButton } from '../components/buttons'
@@ -55,7 +56,7 @@ const AdvancedTraining = () => (
           <Header
             titleLines={['Advanced React, Redux,', 'GraphQL Bootcamp']}
             subtitle="For 3 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
-            bgImg="full-time"
+            bgImageName={BOOTCAMP}
             type={ADVANCED_REACT}
           />
           <TopSection>

@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { Link } from '../components/navigation'
 import Section, { TopSection } from '../components/layout/Section'
@@ -54,7 +55,7 @@ const GraphQL = () => (
               'by mastering GraphQL',
             ]}
             subtitle="In-person development training from industry experts"
-            bgImg="full-time"
+            bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
             type={GRAPHQL_BOOTCAMP}
           />

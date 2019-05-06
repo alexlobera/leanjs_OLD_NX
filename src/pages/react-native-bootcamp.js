@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
@@ -50,7 +51,7 @@ const ReactNativeBoocamp = () => (
           <Header
             titleLines={['React Native Training']}
             subtitle="Intense hands-on React Native training, <br /> return to work as a React Native specialist"
-            bgImg="full-time"
+            bgImageName={BOOTCAMP}
             type={REACT_NATIVE}
             links={header.landingPageLinks.links}
           />

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
 
+import { BOOTCAMP } from '../../images/imageNames.js'
 import Layout from '../components/layout'
 import { Table, Thead, Tbody, Tr, Th, Td } from '../components/table'
 import Section, { TopSection } from '../components/layout/Section'
@@ -96,7 +97,7 @@ class Curriculum extends React.Component {
                   { text: 'Differences in our courses ', to: '#differences' },
                   { text: 'Full curriculums', to: '#curriculum' },
                 ]}
-                bgImg="full-time"
+                bgImageName={BOOTCAMP}
               />
               <TopSection>
                 <Grid>
