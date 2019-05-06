@@ -125,11 +125,11 @@ const Layout = ({ children }) => (
                 ]}
               />
               <Menu />
-              <UpcomingTrainings>
-                {args =>
-                  typeof children === 'function' ? children(args) : children
-                }
-              </UpcomingTrainings>
+              {typeof children === 'function' ? (
+                <UpcomingTrainings>{children}</UpcomingTrainings>
+              ) : (
+                children
+              )}
               <Footer />
               <AcceptCookies />
             </React.Fragment>
