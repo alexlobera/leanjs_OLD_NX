@@ -19,10 +19,9 @@ import favicon from './favicon.ico'
 import { RunkitProvider } from '../components/blog/Runkit'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
-import { UpcomingTrainings } from '../components/training/withUpcomingTrainings'
+import { UpcomingTrainings } from '../components/training'
 // https://github.com/gatsbyjs/gatsby/issues/2583#issuecomment-340722928
 import {
-  FONT_BARLOW_400_LATIN_EXT_WOFF2,
   FONT_BARLOW_500_LATIN_EXT_WOFF2,
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
 } from '../fonts'
@@ -41,7 +40,6 @@ const graphqlClient = new ApolloClient({
 })
 
 const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
-  FONT_BARLOW_400_LATIN_EXT_WOFF2,
   FONT_BARLOW_500_LATIN_EXT_WOFF2,
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
 ]

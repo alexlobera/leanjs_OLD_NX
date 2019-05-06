@@ -17,7 +17,7 @@ import {
   SMALL_CLASSROOM,
 } from '../../config/images'
 
-import GET_UPCOMING_TRAINING from './withUpcomingTrainings.graphql'
+import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 
 const createTrainingPath = ({ type, city = '', index }) => {
   const i = index > 1 ? index : ''
@@ -75,7 +75,7 @@ export const selectUpcomingTrainings = ({
   return filteredTrainings
 }
 
-export const UpcomingTrainings = ({ type, city, limit, children }) => (
+const UpcomingTrainings = ({ type, city, limit, children }) => (
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
@@ -115,17 +115,4 @@ export const UpcomingTrainings = ({ type, city, limit, children }) => (
   </Query>
 )
 
-const withUpcomingTrainings = ({
-  type,
-  city,
-  limit,
-} = {}) => InnerComponent => props => (
-  <UpcomingTrainings
-    type={type}
-    city={city}
-    limit={limit}
-    children={trainingProps => <InnerComponent {...trainingProps} {...props} />}
-  />
-)
-
-export default withUpcomingTrainings
+export default UpcomingTrainings

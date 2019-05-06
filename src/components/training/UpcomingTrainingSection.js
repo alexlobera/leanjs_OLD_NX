@@ -7,7 +7,7 @@ import Grid, { Col, Row } from '../layout/Grid'
 import { H2Ref, H3, P } from '../text'
 import { TrainingItem, TrainingList } from './'
 import Link from '../navigation/Link'
-import { selectUpcomingTrainings } from './withUpcomingTrainings'
+import { selectUpcomingTrainings } from './UpcomingTrainings'
 import Newsletter from '../elements/Newsletter'
 import { GREY } from '../../config/styles'
 

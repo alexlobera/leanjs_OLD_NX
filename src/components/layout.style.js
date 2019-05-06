@@ -5,24 +5,6 @@ export default createGlobalStyle`
   @font-face {
     font-family: 'Barlow';
     font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(${fonts.FONT_BARLOW_400_LATIN_EXT_EOT}); /* IE9 Compat Modes */
-    src: local('Barlow Regular'), local('Barlow-Regular'),
-        url(${
-          fonts.FONT_BARLOW_400_LATIN_EXT_WOFF2
-        }) format('woff2'), /* Super Modern Browsers */
-        url(${
-          fonts.FONT_BARLOW_400_LATIN_EXT_WOFF
-        }) format('woff'), /* Modern Browsers */
-        url(${
-          fonts.FONT_BARLOW_400_LATIN_EXT_TTF
-        }) format('truetype') /* Safari, Android, iOS */
-  }
-
-  @font-face {
-    font-family: 'Barlow';
-    font-style: normal;
     font-weight: 500;
     font-display: swap;
     src: url(${fonts.FONT_BARLOW_500_LATIN_EXT_EOT}); /* IE9 Compat Modes */
