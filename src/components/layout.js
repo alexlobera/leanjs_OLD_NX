@@ -85,15 +85,6 @@ const Layout = ({ children }) => (
             keywords
           }
         }
-        headerImage: file(
-          relativePath: { regex: "/covers/homepage_topPage/" }
-        ) {
-          childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     `}
     render={data => (
