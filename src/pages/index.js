@@ -58,7 +58,7 @@ const IndexPage = props => {
   const headerImage = props.data.headerImage.childImageSharp.fluid.src
   return (
     <Layout>
-      {({ trainings, defaultBgImage }) => (
+      {({ trainings }) => (
         <React.Fragment>
           <Header
             titleLines={['Take your dev career further', 'by mastering React']}
@@ -66,7 +66,6 @@ const IndexPage = props => {
         Europe to teach React"
             bgColor="blue"
             // bgImage={headerImage}
-            defaultBgImage={defaultBgImage}
           />
           <TopSection>
             <Grid>

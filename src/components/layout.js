@@ -96,62 +96,56 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => {
-      const defaultBgImage = data.headerImage.childImageSharp.fluid.src
-      export const HeaderContext = React.createContext(defaultBgImage)
-      return (
-        <RunkitProvider>
-          <LayoutStyle />
-          <ThemeProvider theme={theme}>
-            <ApolloProvider client={graphqlClient}>
-              <React.Fragment>
-                <Helmet
-                  title={data.site.siteMetadata.title}
-                  meta={[
-                    {
-                      name: 'description',
-                      content: data.site.siteMetadata.description,
-                    },
-                    {
-                      name: 'keywords',
-                      content: data.site.siteMetadata.keywords,
-                    },
-                  ]}
-                  link={[
-                    ...preloadUrls,
-                    ...preconnectUrls,
-                    ...prefetchDnsUrls,
-                    { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
-                  ]}
-                  script={[
-                    {
-                      type: 'text/javascript',
-                      src: 'https://unpkg.com/jquery/dist/jquery.min.js',
-                    },
-                    {
-                      type: 'text/javascript',
-                      src:
-                        'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                      async: true,
-                    },
-                  ]}
-                />
-                <Menu />
-                <HeaderContext.Provider>
-                  <UpcomingTrainings>
-                    {args =>
-                      typeof children === 'function' ? children(args) : children
-                    }
-                  </UpcomingTrainings>
-                </HeaderContext.Provider>
-                <Footer />
-                <AcceptCookies />
-              </React.Fragment>
-            </ApolloProvider>
-          </ThemeProvider>
-        </RunkitProvider>
-      )
-    }}
+    render={data => (
+      <RunkitProvider>
+        <LayoutStyle />
+        <ThemeProvider theme={theme}>
+          <ApolloProvider client={graphqlClient}>
+            <React.Fragment>
+              <Helmet
+                title={data.site.siteMetadata.title}
+                meta={[
+                  {
+                    name: 'description',
+                    content: data.site.siteMetadata.description,
+                  },
+                  {
+                    name: 'keywords',
+                    content: data.site.siteMetadata.keywords,
+                  },
+                ]}
+                link={[
+                  ...preloadUrls,
+                  ...preconnectUrls,
+                  ...prefetchDnsUrls,
+                  { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
+                ]}
+                script={[
+                  {
+                    type: 'text/javascript',
+                    src: 'https://unpkg.com/jquery/dist/jquery.min.js',
+                  },
+                  {
+                    type: 'text/javascript',
+                    src:
+                      'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                    async: true,
+                  },
+                ]}
+              />
+              <Menu />
+              <UpcomingTrainings>
+                {args =>
+                  typeof children === 'function' ? children(args) : children
+                }
+              </UpcomingTrainings>
+              <Footer />
+              <AcceptCookies />
+            </React.Fragment>
+          </ApolloProvider>
+        </ThemeProvider>
+      </RunkitProvider>
+    )}
   />
 )
 
