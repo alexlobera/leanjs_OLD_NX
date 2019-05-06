@@ -52,12 +52,12 @@ const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.
     href: url,
     as: 'font',
     type: 'font/woff2',
+    crossorigin: 'crossorigin',
   })
 )
 
 // [Alex 2019-05-04] Do we need to add https://www.googletagmanager.com to this list if <script data-react-helmet="true" type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=AW-877316317" async="" is already on the head of the page?
-// [Alex 2019-05-04] Should we use rel = dns-prefetch or rel = preconnect for the following?
-const prefetchUrls = [
+const prefetchDnsUrls = [
   'https://www.googletagmanager.com',
   'https://api.autopilothq.com',
   'https://connect.facebook.net',
@@ -71,7 +71,7 @@ const prefetchUrls = [
 const preconnectUrls = ['https://api.upmentoring.com'].map(href => ({
   rel: 'preconnect',
   href,
-  crossorigin: '', // [Alex 2019-05-04] do we need crossorigin ?
+  crossorigin: 'crossorigin',
 }))
 
 const Layout = ({ children }) => (
@@ -108,7 +108,7 @@ const Layout = ({ children }) => (
                 link={[
                   ...preloadUrls,
                   ...preconnectUrls,
-                  ...prefetchUrls,
+                  ...prefetchDnsUrls,
                   { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
                 ]}
                 script={[
