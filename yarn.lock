@@ -7895,12 +7895,6 @@ gatsby-link@^2.1.1:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
-gatsby-plugin-google-analytics@^2.0.19:
-  version "2.0.19"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.0.19.tgz#02430313336aa65712bad75600e45a7b510bbd40"
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-
 gatsby-plugin-google-tagmanager@^2.0.13:
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-2.0.13.tgz#c2a0e4cb02c8a96c591d022c50bdda4f8fa2a861"
