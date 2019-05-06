@@ -73,7 +73,7 @@ class Checkout extends React.Component {
             <Fragment>
               {currentPriceXQuantity ? (
                 <PriceAndDiscount>
-                  {priceXQuantity != currentPriceXQuantity ? (
+                  {priceXQuantity !== currentPriceXQuantity ? (
                     <Span lineThrough>
                       {formatPrice(currency, priceXQuantity, vatRate)}
                     </Span>

@@ -14,7 +14,7 @@ const IframeWrapper = styled.div`
   }
 `
 
-const Video = ({ youtubeId, time, description = null }) => (
+const Video = ({ youtubeId, time, description = 'React GraphQL Video' }) => (
   <IframeWrapper>
     <iframe
       title="ReactJS Academy video"
@@ -22,6 +22,7 @@ const Video = ({ youtubeId, time, description = null }) => (
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen
+      title={description}
       src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&showinfo=0&wmode=opaque${
         time ? `&start=${time}` : ''
       }`}

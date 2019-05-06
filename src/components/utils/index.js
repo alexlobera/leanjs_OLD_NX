@@ -155,8 +155,9 @@ export const formatUTC = (utcDate, utcOffset = 60, format = "D MMM 'YYYY") => {
       return `${HH}:${mm}`
     case "D MMM 'YYYY":
       return `${D} ${MMM} ${YYYY}`
+    default:
+      return ''
   }
-  return ''
 }
 
 function twoDigits(number) {

@@ -1,7 +1,7 @@
 /* eslint no-restricted-globals: 0 */
 
 import React from 'react'
-import { Link as GatsbyLink, navigate } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
@@ -92,8 +92,6 @@ class Link extends React.Component {
         <LinkScroll
           {...restLinkScrollProps}
           onClick={e => {
-            e.preventDefault()
-            navigate(toHref)
             onClick && onClick()
           }}
           to={toHref}

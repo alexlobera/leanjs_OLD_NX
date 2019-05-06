@@ -74,7 +74,6 @@ const preconnectUrls = ['https://api.upmentoring.com'].map(href => ({
   crossorigin: 'crossorigin',
 }))
 
-export const HeaderContext = React.createContext(defaultBgImage)
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -99,6 +98,7 @@ const Layout = ({ children }) => (
     `}
     render={data => {
       const defaultBgImage = data.headerImage.childImageSharp.fluid.src
+      export const HeaderContext = React.createContext(defaultBgImage)
       return (
         <RunkitProvider>
           <LayoutStyle />
