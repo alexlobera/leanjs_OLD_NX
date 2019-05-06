@@ -1,6 +1,5 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import { createHttpLink } from 'apollo-link-http'
 import { ApolloProvider } from 'react-apollo'
@@ -139,17 +138,5 @@ const Layout = ({ children }) => (
     )}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.func,
-}
-
-Layout.defaultProps = {
-  data: {
-    site: {
-      siteMetadata: {},
-    },
-  },
-}
 
 export default Layout
