@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Helmet from 'react-helmet'
 
+import { HeaderContext } from '../layout.js'
 import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
@@ -220,20 +221,20 @@ const Header = ({
   linkToGallery,
   downloadVenuePDF,
 }) => (
-  <React.Fragment>
-    <HeaderContext.Consumer>
-      {bgImage && (
-        <Helmet
-          link={[
-            {
-              rel: 'preload',
-              href: bgImage,
-              as: 'image',
-            },
-          ]}
-        />
-      )}
-      {value => (
+  <HeaderContext.Consumer>
+    {value => (
+      <React.Fragment>
+        {bgImage && (
+          <Helmet
+            link={[
+              {
+                rel: 'preload',
+                href: bgImage,
+                as: 'image',
+              },
+            ]}
+          />
+        )}
         <HeaderSection
           top
           bgColor={bgColor}
@@ -348,9 +349,9 @@ const Header = ({
             </Row>
           </Grid>
         </HeaderSection>
-      )}
-    </HeaderContext.Consumer>
-  </React.Fragment>
+      </React.Fragment>
+    )}
+  </HeaderContext.Consumer>
 )
 
 Header.propTypes = {
