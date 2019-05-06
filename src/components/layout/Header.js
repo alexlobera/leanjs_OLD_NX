@@ -19,15 +19,7 @@ import {
 } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import {
-  PART_TIME_IMG,
-  FULL_TIME_IMG,
-  TRAINING_EVENT_IMG,
-  CURRICULUM_IMG,
-  COMMUNITY_IMG,
-  CORP_TRAINING_HEADER_IMG,
-  SMALL_CLASSROOM,
-} from '../../config/images'
+import { PART_TIME_IMG, SMALL_CLASSROOM } from '../../config/images'
 import { Z_INDEX_BG } from '../../config/styles'
 import { selectTypeColor } from '../utils/index.js'
 import { Image } from '../elements'
@@ -59,26 +51,7 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
     padding-right: 8px;
   }
 `
-// switch (bgImg) {
-//   // case 'home':
-//   //   return `background-image: url(${HOME_IMG});`
-//   case 'part-time':
-//     return `background-image: url(${PART_TIME_IMG});`
-//   case 'full-time':
-//     return `background-image: url(${FULL_TIME_IMG});`
-//   case 'training-event':
-//     return `background-image: url(${TRAINING_EVENT_IMG});`
-//   case 'about-us':
-//     return `background-image: url(${PART_TIME_IMG});`
-//   case 'curriculum':
-//     return `background-image: url(${CURRICULUM_IMG});`
-//   case 'community':
-//     return `background-image: url(${COMMUNITY_IMG});`
-//   case 'corp-training':
-//     return `background-image: url(${CORP_TRAINING_HEADER_IMG});`
-//   default:
-//     return `background-image: url(${bgImage});`
-// }
+
 const HeaderSection = styled(Section)`
   ${({ bgColor }) =>
     bgColor === 'blue' &&
@@ -92,7 +65,6 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: ${Z_INDEX_BG};
-    background-image: url(${PART_TIME_IMG});
     ${({ bgImage }) =>
       `background-image: url(${bgImage});`} background-repeat: no-repeat;
     background-size: cover;
