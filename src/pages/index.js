@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
 
 import { HOME_PAGE } from '../../images/imageNames.js'
 import Layout from '../components/layout'

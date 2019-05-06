@@ -33,5 +33,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      options: {
+        analyzerPort: 3333,
+        production: true,
+        disable: true,
+      },
+    },
   ],
 }
