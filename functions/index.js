@@ -123,6 +123,7 @@ exports.subscribe = functions.https.onRequest((request, response) => {
         body: JSON.stringify({
           contact: {
             Email: email,
+            LeadSource: 'Footer contact form',
             custom: {
               'string--From--Path': pathname,
             },
