@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -89,6 +88,8 @@ const Card = styled.div`
         return BOX_SHADOW
       case 'black':
         return `border: 1px solid ${BROWN};`
+      default:
+        return ``
     }
   }}
   h3 {

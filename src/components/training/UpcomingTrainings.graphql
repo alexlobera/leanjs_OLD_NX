@@ -14,7 +14,7 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
         utcOffset
         endDate
         city
-        country
+        cityCountry
         address
         mapUrl
         price

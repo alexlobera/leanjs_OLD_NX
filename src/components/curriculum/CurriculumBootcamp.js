@@ -123,7 +123,7 @@ const CurriculumBootcamp = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton secondary to={`/curriculum?tab=${REACT_BOOTCAMP}`}>
+          <LinkButton to={`/curriculum?tab=${REACT_BOOTCAMP}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>
@@ -135,7 +135,7 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
+          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
               React Bootcamp Curriculum{' '}
               <Link to="#curriculum" name="curriculum">

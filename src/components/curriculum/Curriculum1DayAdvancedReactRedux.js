@@ -1,6 +1,6 @@
 import React from 'react'
 import { H1 } from '../text'
-import Section, { List, curriedToggleNavigateTo } from './CurriculumSection'
+import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'

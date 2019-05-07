@@ -1,7 +1,8 @@
+/* eslint no-undef: 0 */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, withApollo } from 'react-apollo'
-import { withRouter } from 'react-router-dom'
 
 import PAY from './Pay.graphql'
 import VALIDATE_VIES from './ValidateVies.graphql'
@@ -97,14 +98,15 @@ export class CheckoutContainer extends React.Component {
       companyName,
       companyVat,
     } = values
+
     const {
       quantity,
       trackUserBehaviour,
-      vatRate,
       pay,
       trainingInstanceId,
       paymentApi = Stripe,
       voucher,
+      navigate,
     } = this.props
     const number = formatCreditCardNumber(CCnumber)
     const cvc = formatCVC(CCcvc)
@@ -120,23 +122,30 @@ export class CheckoutContainer extends React.Component {
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
     paymentApi.card.createToken(
       { number, cvc, exp_month, exp_year },
-      (status, response) =>
-        pay({
-          variables: {
-            voucherCode: voucher,
-            quantity,
-            trainingInstanceId,
-            email,
-            name,
-            token: response.id,
-            vatRate,
-            companyName,
-            companyVat,
-          },
+      (status, response) => {
+        let vatNumber = null,
+          vatCountry = null
+        if (companyVat && companyVat.length > 2) {
+          vatNumber = companyVat.substring(2, companyVat.length)
+          vatCountry = companyVat.substring(0, 2)
+        }
+        const variables = {
+          voucherCode: voucher,
+          quantity,
+          trainingInstanceId,
+          email,
+          name,
+          token: response.id,
+          companyName,
+          vatNumber,
+          vatCountry,
+        }
+        return pay({
+          variables,
         })
           .then(({ data }) => {
             if (!data.errors) {
-              this.props.history.push('/payment-confirmation', {
+              navigate('/payment-confirmation', {
                 email,
                 makePayment: data.makePayment,
                 trainingInstanceId,
@@ -148,6 +157,7 @@ export class CheckoutContainer extends React.Component {
           .catch(error => {
             this.processPaymentError(error)
           })
+      }
     )
   }
 
@@ -211,7 +221,6 @@ CheckoutContainer.propTypes = {
   removeCourse: PropTypes.func.isRequired,
   client: PropTypes.object.isRequired,
   updateVatRate: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
   quantity: PropTypes.number.isRequired,
   currentPriceXQuantity: PropTypes.number.isRequired,
   priceXQuantity: PropTypes.number.isRequired,
@@ -223,10 +232,11 @@ CheckoutContainer.propTypes = {
   isVoucherValid: PropTypes.bool,
   isVoucherValidationInProgress: PropTypes.bool.isRequired,
   paymentApi: PropTypes.object,
+  navigate: PropTypes.func.isRequired,
 }
 
 const withPay = graphql(PAY, {
   name: 'pay',
 })
 
-export default withRouter(withPay(withApollo(CheckoutContainer)))
+export default withPay(withApollo(CheckoutContainer))

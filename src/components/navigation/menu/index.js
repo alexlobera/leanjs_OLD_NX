@@ -1,9 +1,9 @@
 import React from 'react'
-import withWidth, { MEDIUM } from 'react-width'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { RJSALogo } from '../../logos'
+import withWidth, { MEDIUM } from '../../utils/WithWidth'
+import { RJSALogo } from '../../logos/RJSALogo'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'

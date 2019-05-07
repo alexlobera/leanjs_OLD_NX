@@ -1,6 +1,7 @@
+/* eslint no-restricted-globals: 0 */
+
 import React from 'react'
-import GatsbyLink from 'gatsby-link'
-import { Route } from 'react-router-dom'
+import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
@@ -45,7 +46,7 @@ const RouterLink = styled(GatsbyLink)`
   ${ANCHOR_STYLE};
 `
 
-export const LinkScroll = styled(({ to, secondary, ...rest }) => (
+export const LinkScroll = styled(({ to, ...rest }) => (
   <DefaultLinkScroll
     smooth
     duration={DEFAULT_SCROLL_DURATION}
@@ -77,7 +78,6 @@ class Link extends React.Component {
   render() {
     const { to = '', children = '', ...rest } = this.props
     const toHref = to || rest.href
-
     if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
       const { target = '_blank' } = rest
       return (
@@ -89,20 +89,15 @@ class Link extends React.Component {
       const { onClick, ...restLinkScrollProps } = rest
 
       return (
-        <Route
-          render={({ history }) => (
-            <LinkScroll
-              {...restLinkScrollProps}
-              onClick={() => {
-                history.push(toHref)
-                onClick && onClick()
-              }}
-              to={toHref}
-            >
-              {children}
-            </LinkScroll>
-          )}
-        />
+        <LinkScroll
+          {...restLinkScrollProps}
+          onClick={e => {
+            onClick && onClick()
+          }}
+          to={toHref}
+        >
+          {children}
+        </LinkScroll>
       )
     } else if (!to) {
       return <BasicLink {...rest}>{children}</BasicLink>

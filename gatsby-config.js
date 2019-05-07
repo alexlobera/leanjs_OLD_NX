@@ -8,15 +8,13 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark',
-    'gatsby-plugin-react-next',
     {
-      resolve: `gatsby-plugin-offline`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        navigateFallback: null,
-        navigateFallbackWhitelist: [],
+        name: `images`,
+        path: `${__dirname}/images/`,
       },
     },
     {
@@ -33,10 +31,14 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
-        trackingId: 'UA-84002357-1',
+        analyzerPort: 3333,
+        production: true,
+        disable: false,
       },
     },
   ],

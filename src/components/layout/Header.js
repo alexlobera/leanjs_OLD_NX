@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
 import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
-import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
+import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
 import {
   blue1,
   blue2,
@@ -17,23 +19,14 @@ import {
 } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import {
-  HOME_IMG,
-  PART_TIME_IMG,
-  FULL_TIME_IMG,
-  TRAINING_EVENT_IMG,
-  CURRICULUM_IMG,
-  COMMUNITY_IMG,
-  CORP_TRAINING_HEADER_IMG,
-  SMALL_CLASSROOM,
-} from '../../config/images'
+import { SMALL_CLASSROOM } from '../../config/images'
 import { Z_INDEX_BG } from '../../config/styles'
 import { selectTypeColor } from '../utils/index.js'
 import { Image } from '../elements'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
-  font-weight: 900;
+  font-weight: 800;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.5;
@@ -59,33 +52,9 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
   }
 `
 
-const backgroundImg = css`
-  ${({ bgImg }) => {
-    switch (bgImg) {
-      case 'home':
-        return `background-image: url(${HOME_IMG});`
-      case 'part-time':
-        return `background-image: url(${PART_TIME_IMG});`
-      case 'full-time':
-        return `background-image: url(${FULL_TIME_IMG});`
-      case 'training-event':
-        return `background-image: url(${TRAINING_EVENT_IMG});`
-      case 'about-us':
-        return `background-image: url(${PART_TIME_IMG});`
-      case 'curriculum':
-        return `background-image: url(${CURRICULUM_IMG});`
-      case 'community':
-        return `background-image: url(${COMMUNITY_IMG});`
-      case 'corp-training':
-        return `background-image: url(${CORP_TRAINING_HEADER_IMG});`
-      default:
-        return `background-image: url(${bgImg});`
-    }
-  }};
-`
 const HeaderSection = styled(Section)`
-  ${({ bgImg }) =>
-    bgImg === 'home' &&
+  ${({ bgColor }) =>
+    bgColor === 'blue' &&
     `background-color: ${reactBlue(0.4)};`} position: relative;
 
   &:before {
@@ -96,8 +65,8 @@ const HeaderSection = styled(Section)`
     width: 100%;
     height: 100%;
     z-index: ${Z_INDEX_BG};
-    background-image: url(${PART_TIME_IMG});
-    ${backgroundImg} background-repeat: no-repeat;
+    ${({ bgImage }) =>
+      `background-image: url(${bgImage});`} background-repeat: no-repeat;
     background-size: cover;
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -206,6 +175,19 @@ const InfoBox = styled.div`
   border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
 `
 
+const getBackgroundImageSrc = (data, fileName) => {
+  if (!data) {
+    return ''
+  }
+  const bgImage = data.allFile.nodes.find(({ relativePath: r }) => {
+    const nodeFileName = r.substring(r.lastIndexOf('/') + 1, r.lastIndexOf('.'))
+    return nodeFileName === fileName
+  })
+  const img = bgImage || data.defaultHeaderImage
+
+  return img.childImageSharp.fluid.src
+}
+
 const Header = ({
   training = {},
   showInfoBox = false,
@@ -213,113 +195,171 @@ const Header = ({
   titleLines = [],
   subtitle,
   links = [],
-  bgImg,
+  bgImageName,
+  bgColor,
   fullHeight,
   paddingBottom,
   children,
   linkToGallery,
   downloadVenuePDF,
 }) => (
-  <HeaderSection
-    top
-    bgImg={bgImg}
-    fullHeight={fullHeight}
-    paddingBottom={paddingBottom}
-  >
-    <Grid>
-      <Row>
-        <TitleCol md={showInfoBox && training ? 7 : 12} type={type}>
-          <H1>
-            {titleLines.map((line, i) => (
-              <TitleBackground key={i} children={line} />
-            ))}
-          </H1>
-          {subtitle ? (
-            <SubTitleBackground>
-              <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
-            </SubTitleBackground>
-          ) : null}
-          {children ? (
-            <SubTitleBackground>{children}</SubTitleBackground>
-          ) : null}
-          <Row>
-            <Col>
-              {links.length ? (
-                <Nav quickLinks>
-                  <Ul inline>
-                    <Li>
-                      <Span>On this page:</Span>
-                    </Li>
-                    {links.map(({ to, text }, i) => (
-                      <Li key={i}>
-                        <Link to={to[0] !== '#' ? `#${to}` : to}>{text}</Link>
-                      </Li>
-                    ))}
-                  </Ul>
-                </Nav>
-              ) : null}
-            </Col>
-          </Row>
-        </TitleCol>
-        {showInfoBox && (
-          <Col md={3} mdOffset={1}>
-            <InfoBox type={type}>
-              <Link to={`#${linkToGallery}`}>
-                <Image
-                  src={training.image || SMALL_CLASSROOM}
-                  width="100%"
-                  alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-                />
-              </Link>
+  <StaticQuery
+    query={graphql`
+      query getBackgroundImage($maxWidth: Int = 1000) {
+        allFile(filter: { relativePath: { regex: "/covers/" } }) {
+          nodes {
+            relativePath
+            childImageSharp {
+              fluid(maxWidth: $maxWidth) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        defaultHeaderImage: file(relativePath: { regex: "/covers/default/" }) {
+          childImageSharp {
+            fluid(maxWidth: $maxWidth) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const bgImage = getBackgroundImageSrc(data, bgImageName)
 
-              <Ul unstyled>
-                <Li>
-                  <strong>Date</strong>:{' '}
-                  {training.startDate
-                    ? `${formatUTC(
-                        training.startDate,
-                        training.utcOffset,
-                        'D MMM'
-                      )} - ${formatUTC(
-                        training.endDate,
-                        training.utcOffset,
-                        'D MMM'
-                      )}`
-                    : 'TBD'}
-                </Li>
-                <Li>
-                  <strong>Timings</strong>:{' '}
-                  {`${formatUTC(
-                    training.startDate,
-                    training.utcOffset,
-                    'HH:mm'
-                  ) || '9am'} - ${formatUTC(
-                    training.endDate,
-                    training.utcOffset,
-                    'HH:mm'
-                  ) || '6:30pm'}`}
-                </Li>
-                <Li>
-                  <strong>Venue</strong>: {training.address || 'TBD'}{' '}
-                  {training.mapUrl && <Link to={training.mapUrl}>- map</Link>}
-                </Li>
-                {linkToGallery && (
-                  <Li>
-                    <Link to={`#${linkToGallery}`}>See venue pictures</Link>
-                  </Li>
+      return (
+        <React.Fragment>
+          {bgImage && (
+            <Helmet
+              link={[
+                {
+                  rel: 'preload',
+                  href: bgImage,
+                  as: 'image',
+                },
+              ]}
+            />
+          )}
+          <HeaderSection
+            top
+            bgColor={bgColor}
+            bgImage={bgImage}
+            fullHeight={fullHeight}
+            paddingBottom={paddingBottom}
+          >
+            <Grid>
+              <Row>
+                <TitleCol md={showInfoBox && training ? 7 : 12} type={type}>
+                  <H1>
+                    {titleLines.map((line, i) => (
+                      <TitleBackground key={i} children={line} />
+                    ))}
+                  </H1>
+                  {subtitle ? (
+                    <SubTitleBackground>
+                      <H2Header
+                        dangerouslySetInnerHTML={{ __html: subtitle }}
+                      />
+                    </SubTitleBackground>
+                  ) : null}
+                  {children ? (
+                    <SubTitleBackground>{children}</SubTitleBackground>
+                  ) : null}
+                  <Row>
+                    <Col>
+                      {links.length ? (
+                        <Nav quickLinks>
+                          <Ul inline>
+                            <Li>
+                              <Span>On this page:</Span>
+                            </Li>
+                            {links.map(({ to, text }, i) => (
+                              <Li key={i}>
+                                <Link to={to[0] !== '#' ? `#${to}` : to}>
+                                  {text}
+                                </Link>
+                              </Li>
+                            ))}
+                          </Ul>
+                        </Nav>
+                      ) : null}
+                    </Col>
+                  </Row>
+                </TitleCol>
+                {showInfoBox && (
+                  <Col md={3} mdOffset={1}>
+                    <InfoBox type={type}>
+                      <Link to={`#${linkToGallery}`}>
+                        <Image
+                          src={training.image || SMALL_CLASSROOM}
+                          width="100%"
+                          alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                        />
+                      </Link>
+
+                      <Ul unstyled>
+                        <Li>
+                          <strong>Date</strong>:{' '}
+                          {training.startDate
+                            ? `${formatUTC(
+                                training.startDate,
+                                training.utcOffset,
+                                'D MMM'
+                              )} - ${formatUTC(
+                                training.endDate,
+                                training.utcOffset,
+                                'D MMM'
+                              )}`
+                            : 'TBD'}
+                        </Li>
+                        <Li>
+                          <strong>Timings</strong>:{' '}
+                          {`${(training.startDate &&
+                            formatUTC(
+                              training.startDate,
+                              training.utcOffset,
+                              'HH:mm'
+                            )) ||
+                            '9am'} - ${(training.endDate &&
+                            formatUTC(
+                              training.endDate,
+                              training.utcOffset,
+                              'HH:mm'
+                            )) ||
+                            '6:30pm'}`}
+                        </Li>
+                        <Li>
+                          <strong>Venue</strong>: {training.address || 'TBD'} -{' '}
+                          {training.mapUrl && (
+                            <Link to={training.mapUrl}> map</Link>
+                          )}
+                        </Li>
+                        {linkToGallery && (
+                          <Li>
+                            <Link to={`#${linkToGallery}`}>
+                              See venue pictures
+                            </Link>
+                          </Li>
+                        )}
+                        {downloadVenuePDF && (
+                          <Li>
+                            <Link to={downloadVenuePDF}>
+                              Download more info PDF
+                            </Link>
+                          </Li>
+                        )}
+                      </Ul>
+                    </InfoBox>
+                  </Col>
                 )}
-                {downloadVenuePDF && (
-                  <Li>
-                    <Link to={downloadVenuePDF}>Download more info PDF</Link>
-                  </Li>
-                )}
-              </Ul>
-            </InfoBox>
-          </Col>
-        )}
-      </Row>
-    </Grid>
-  </HeaderSection>
+              </Row>
+            </Grid>
+          </HeaderSection>
+        </React.Fragment>
+      )
+    }}
+  />
 )
 
 Header.propTypes = {

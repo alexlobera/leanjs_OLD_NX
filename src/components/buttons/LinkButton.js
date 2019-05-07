@@ -80,12 +80,11 @@ const LinkButton = ({
 
 LinkButton.propTypes = {
   trackUserBehaviour: PropTypes.func,
-  secondary: PropTypes.bool,
+  variant: PropTypes.string,
 }
 
 LinkButton.defaultProps = {
   trackUserBehaviour,
-  secondary: false,
   variant: 'default',
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withApollo } from 'react-apollo'
 import { graphql, compose } from 'react-apollo'
+import { navigate } from 'gatsby'
 
 import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
 import ContactForm from '../../components/form/Contact'
@@ -111,6 +112,7 @@ class PaymentSection extends React.Component {
       trainingError,
       trainingLoading,
       training = {},
+      navigate,
       data: autoVoucherData = {},
     } = this.props
     let trainingInstanceId,
@@ -196,13 +198,12 @@ class PaymentSection extends React.Component {
             {priceGoesUpOn > Date.now() ? (
               <React.Fragment>
                 <P>HURRY! This price is only available for...</P>
-                <P>
-                  <Countdown date={priceGoesUpOn} />
-                </P>
+                <Countdown date={priceGoesUpOn} />
               </React.Fragment>
             ) : null}
             {parseInt(price, 10) > 0 && (
               <Checkout
+                navigate={navigate}
                 trainingInstanceId={trainingInstanceId}
                 vatRate={vatRate}
                 updateVatRate={this.updateVatRate}
@@ -234,6 +235,7 @@ class PaymentSection extends React.Component {
 
 PaymentSection.defaultProps = {
   trackUserBehaviour,
+  navigate,
 }
 
 PaymentSection.propTypes = {
@@ -242,6 +244,7 @@ PaymentSection.propTypes = {
   training: PropTypes.object,
   data: PropTypes.object,
   paymentApi: PropTypes.object,
+  navigate: PropTypes.func,
 }
 
 const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {

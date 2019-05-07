@@ -1,10 +1,6 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { List } from './CurriculumSection'
-import { H3, P, H4 } from '../text'
-import styled from 'styled-components'
-import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
 export const LIST_LAYOUT = 'list'

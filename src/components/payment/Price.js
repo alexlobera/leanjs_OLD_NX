@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { GREY2, FONT_FAMILY } from '../../config/styles'
 

@@ -6,8 +6,8 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({
       node,
@@ -22,8 +22,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   }
 }
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -66,22 +66,30 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
 const Webpack = require('webpack')
 
-exports.modifyBabelrc = ({ babelrc }) => ({
-  ...babelrc,
-  plugins: babelrc.plugins.concat(
-    ['transform-regenerator'],
-    ['transform-runtime']
-  ),
-})
-
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  const timestamp = Date.now()
-  config.loader('graphql-tag/loader', {
-    test: /\.(graphql|gql)$/,
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: '@babel/plugin-transform-regenerator',
+    name: '@babel/plugin-transform-runtime',
   })
+}
+
+exports.onCreateWebpackConfig = ({ stage, getConfig, actions }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.(graphql|gql)$/,
+          use: [`graphql-tag/loader`],
+        },
+      ],
+    },
+  })
+
+  const timestamp = Date.now()
+  const config = getConfig()
   switch (stage) {
     case 'build-javascript':
-      config.merge({
+      actions.setWebpackConfig({
         output: {
           filename: `[name]-${timestamp}-[chunkhash].js`,
           chunkFilename: `[name]-${timestamp}-[chunkhash].js`,

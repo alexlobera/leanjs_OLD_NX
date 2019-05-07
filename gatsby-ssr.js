@@ -1,5 +1,5 @@
-import React from 'react'
-import { stripIndent } from 'common-tags'
+const React = require('react')
+const { stripIndent } = require('common-tags')
 
 const pluginOptions = {
   includeInDevelopment: true,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
-import { H2Ref, P, H4 } from '../text'
+import { H2Ref, H4 } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
 import {

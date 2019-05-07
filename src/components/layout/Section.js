@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
 import { blue1, GREY2 } from '../../config/styles'
