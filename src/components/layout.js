@@ -65,7 +65,10 @@ const prefetchDnsUrls = [
   href,
 }))
 
-const preconnectUrls = ['https://api.upmentoring.com'].map(href => ({
+const preconnectUrls = [
+  'https://api.upmentoring.com',
+  'https://api.autopilothq.com',
+].map(href => ({
   rel: 'preconnect',
   href,
   crossorigin: 'crossorigin',
