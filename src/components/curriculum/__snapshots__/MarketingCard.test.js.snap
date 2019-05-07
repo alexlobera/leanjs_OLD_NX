@@ -6,7 +6,6 @@ exports[`<MarketingCard /> should render component 1`] = `
     <Styled(Col)
       md={6}
     >
-      <styled.h4 />
       <styled.span />
     </Styled(Col)>
     <Styled(Col)

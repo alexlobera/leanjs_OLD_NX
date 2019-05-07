@@ -22,16 +22,20 @@ const Card = styled.div`
   }
 `
 
-const MarketingCard = ({ text, to, heading, buttonText }) => (
+const MarketingCard = ({ text, to, heading, ...rest }) => (
   <Card>
     <Row>
       <Col md={6}>
-        <H4>{heading}</H4>
+        {heading && <H4>{heading}</H4>}
         <Span>{text}</Span>
       </Col>
       <Col md={5} lgOffset={1} center>
         <div>
-          <LinkButton to={to} variant="secondary" children={buttonText} />
+          <LinkButton
+            to={to}
+            variant="secondary"
+            children={rest.buttonText || rest['button-text']}
+          />
         </div>
       </Col>
     </Row>
