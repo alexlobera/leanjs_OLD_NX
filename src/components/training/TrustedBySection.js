@@ -5,15 +5,13 @@ import Grid, { Col, Row } from '../layout/Grid'
 import { Video, Card } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { H2 } from '../text'
-import {
-  Capgemini,
-  FinancialTimes as DefaultFinancialTimes,
-  Tesco,
-  Xing,
-  IBM,
-  IKEA,
-  Microsoft,
-} from '../logos'
+import Capgemini from '../logos/Capgemini'
+import DefaultFinancialTimes from '../logos/FinancialTimes'
+import Tesco from '../logos/Tesco'
+import Xing from '../logos/Xing'
+import IBM from '../logos/IBM'
+import IKEA from '../logos/IKEA'
+import Microsoft from '../logos/Microsoft'
 import { REACT_BLUE_DARK } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 

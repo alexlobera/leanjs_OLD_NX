@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Link from '../Link'
 import React from 'react'
 import MenuData from './Menu.json'
-import { RJSALogo } from '../../logos'
+import { RJSALogo } from '../../logos/RJSALogo'
 import './PhoneMenu.css'
 
 export { Menu }
