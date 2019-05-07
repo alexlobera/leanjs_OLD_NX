@@ -12,6 +12,20 @@ exports.onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   ) {
     setHeadComponents([
       <script
+        key="jquery"
+        dangerouslySetInnerHTML={{
+          __html: stripIndent`
+            (function(){
+              var bsa = document.createElement('script');
+                bsa.type = 'text/javascript';
+                bsa.async = true;
+                bsa.src = 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js';
+              (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+            })();
+        `,
+        }}
+      />,
+      <script
         key="plugin-autopilot"
         dangerouslySetInnerHTML={{
           __html: stripIndent`

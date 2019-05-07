@@ -111,13 +111,6 @@ const Layout = ({ children }) => (
                 script={[
                   {
                     type: 'text/javascript',
-                    // [Alex 2019-05-06] Since this is only for Autopilothq,
-                    // can we load it via Google Tag Manager right before Autopilot and after Window load event?
-                    src: 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js',
-                    async: true,
-                  },
-                  {
-                    type: 'text/javascript',
                     src:
                       'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
                     async: true,
