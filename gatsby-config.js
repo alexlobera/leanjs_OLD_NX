@@ -38,7 +38,7 @@ module.exports = {
       options: {
         analyzerPort: 3333,
         production: true,
-        disable: true,
+        disable: false,
       },
     },
   ],

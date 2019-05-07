@@ -5132,7 +5132,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.6.0, create-react-class@^15.6.2:
+create-react-class@^15.6.2:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -14785,23 +14785,6 @@ react-twitter-embed@^2.0.8:
     exenv "^1.2.2"
     react-proptype-conditional-require "^1.0.4"
     scriptjs "^2.5.9"
-
-react-width@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/react-width/-/react-width-0.1.8.tgz#08c179e44799e3d874c1758fc0d8c4756169e602"
-  dependencies:
-    prop-types "^15.5.10"
-    react "^15.5.4"
-
-react@^15.5.4:
-  version "15.6.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
-  dependencies:
-    create-react-class "^15.6.0"
-    fbjs "^0.8.9"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
-    prop-types "^15.5.10"
 
 react@^16.8.6:
   version "16.8.6"

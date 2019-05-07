@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import PhotoGallery from 'react-photo-gallery'
 import Lightbox from 'react-images'
-import { Width, SMALL } from 'react-width'
-import { Col, Row } from '../../components/layout/Grid'
+
+import { Width, SMALL } from '../utils/WithWidth'
+import { Col, Row } from '../layout/Grid'
 import Image from './Image'
 import Button from '../buttons/Button'
 import P from '../text/P'
