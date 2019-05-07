@@ -54,7 +54,7 @@ export const triggerUnsubscribe = ({ email }) =>
     })
   })
 
-export const triggerSubscribe = ({ email, pathname }) =>
+export const triggerSubscribe = ({ email, pathname = '/test' }) =>
   fetch(
     `https://us-central1-reactjsacademy-react.cloudfunctions.net/subscribe`,
     {

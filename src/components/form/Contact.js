@@ -38,7 +38,7 @@ export const ThanksTitle = styled(H3)`
 
 const ContactForm = props => {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const handleFormSubmit = ({ email, pathname = '/test' }) => {
+  const handleFormSubmit = ({ email }) => {
     setFormSubmitted(prevState => !prevState)
     props.triggerSubscribe({ email })
     navigate('/thanks-for-signing-up')
