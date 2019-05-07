@@ -1,7 +1,7 @@
 const functions = require('firebase-functions')
 const fetch = require('node-fetch')
 
-exports = functions.https.onRequest((request, response) => {
+exports.unsubscribe = functions.https.onRequest((request, response) => {
   response.set('Access-Control-Allow-Origin', '*')
 
   if (request.method === 'OPTIONS') {
@@ -14,7 +14,7 @@ exports = functions.https.onRequest((request, response) => {
     // Set CORS headers for the main request
     response.set('Access-Control-Allow-Origin', '*')
 
-    const AUTOPILOT_TRIGGER_ID = '0008'
+    const AUTOPILOT_UNSUBSCRIBE_TRIGGER_ID = '0008'
     const email = request && request.body && request.body.email
     const AUTOPILOT_API_KEY = functions.config().autopilot.key
     if (email) {
