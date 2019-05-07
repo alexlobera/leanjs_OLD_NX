@@ -16,7 +16,6 @@ exports[`<MarketingCard /> should render component 1`] = `
     >
       <div>
         <LinkButton
-          secondary={false}
           trackUserBehaviour={[Function]}
           variant="secondary"
         />

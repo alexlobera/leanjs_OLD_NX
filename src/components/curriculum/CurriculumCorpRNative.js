@@ -1,10 +1,6 @@
 import React from 'react'
-import Link from '../navigation/Link'
-import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
-import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { REACT_NATIVE } from '../../config/data'
 import selectCurriculumCorpLayout, {
   LIST_TWO_COL,
@@ -55,7 +51,7 @@ const CurriculumCorpRNative = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1} />
+          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0} />
         </Row>
       ) : (
         ''

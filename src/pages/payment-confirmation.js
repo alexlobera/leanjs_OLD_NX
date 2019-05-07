@@ -1,8 +1,11 @@
+/* eslint no-undef: 0 */
 import React from 'react'
-import Section, { TopSection } from '../components/layout/Section'
+
+import { BOOTCAMP } from '../../images/imageNames.js'
+import Layout from '../components/layout'
+import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H3, P } from '../components/text'
-import Ul, { Li } from '../components/layout/Ul'
+import { H2, P } from '../components/text'
 import Header from '../components/layout/Header'
 import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
@@ -45,11 +48,11 @@ class PaymentConfirmation extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Layout>
         <Header
           titleLines={['Thanks!']}
           subtitle="We can’t wait to help you on your React journey."
-          bgImg="training-event"
+          bgImageName={BOOTCAMP}
         />
         <TopSection marginTop="-250">
           <Grid>
@@ -77,7 +80,7 @@ class PaymentConfirmation extends React.Component {
             </Card>
           </Grid>
         </TopSection>
-      </React.Fragment>
+      </Layout>
     )
   }
 }

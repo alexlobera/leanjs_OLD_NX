@@ -23,7 +23,7 @@ export const CallToActionRow = styled(Row)`
 `
 
 const CallToActionNextTrainings = ({ trainings = [] }) => {
-  const filteredTrainings = trainings.filter((undefined, i) => i < 3)
+  const filteredTrainings = trainings.filter((_, i) => i < 3)
   return (
     <CallToActionRow left>
       {filteredTrainings.map(

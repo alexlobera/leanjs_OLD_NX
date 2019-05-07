@@ -79,9 +79,9 @@ const Li = styled.li`
         text-align:center;
       }
       @media (max-width: ${SCREEN_XS_MAX}) {
-        border: 1px solid ${reactBlue()}
+        border: 1px solid ${reactBlue()};
       }
-      background: ${selectTypeColor(props.name)}
+      background: ${selectTypeColor(props.name)};
     `
       : ''};
    }
@@ -102,7 +102,15 @@ const A = styled.a`
 
 export const TabItem = ({ children, isActive, onClick, name, ...props }) => (
   <Li isActive={isActive} name={name}>
-    <A isActive={isActive} name={name} {...props} onClick={onClick}>
+    <A
+      isActive={isActive}
+      name={name}
+      {...props}
+      onClick={e => {
+        e.preventDefault()
+        onClick && onClick()
+      }}
+    >
       {children}
     </A>
   </Li>

@@ -127,7 +127,7 @@ const CurriculumPartTime = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton secondary to={`/curriculum?tab=${PART_TIME}`}>
+          <LinkButton to={`/curriculum?tab=${PART_TIME}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>
@@ -139,7 +139,7 @@ const CurriculumPartTime = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={layout != LIST_TWO_COL && 1}>
+          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
               Part-time course curriculum{' '}
               <Link to="#curriculum" name="curriculum">
@@ -168,7 +168,7 @@ const CurriculumPartTime = ({
                   bootcamp has it all...
                 </Col>
                 <Col lg={6} center>
-                  <LinkButton to="/react-redux-graphql-bootcamp" secondary>
+                  <LinkButton to="/react-redux-graphql-bootcamp">
                     1 week bootcamp
                   </LinkButton>
                 </Col>

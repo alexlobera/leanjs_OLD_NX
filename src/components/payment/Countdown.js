@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { H3 } from '../text/H.js'
-// import P from '..text/P.js'
 import { Col, Row } from '../layout/Grid.js'
-// import Span from '../text/Span.js'
+import Span from '../text/Span.js'
 import styled from 'styled-components'
 
-const CountdownNumbers = styled.span`
+const CountdownNumbers = styled(Span)`
   font-size: 1.55rem;
   text-align: center;
 `
@@ -98,26 +96,26 @@ class Countdown extends Component {
               <CountdownNumbers>
                 {this.addLeadingZeros(countDown.days)}
               </CountdownNumbers>{' '}
-              <p>{countDown.days === 1 ? 'Day' : 'Days'} </p>
+              <Span>{countDown.days === 1 ? 'Day' : 'Days'} </Span>
             </React.Fragment>
           </Col>
           <Col xs={2}>
             <CountdownNumbers>
               {this.addLeadingZeros(countDown.hours)}
             </CountdownNumbers>{' '}
-            <p>Hours</p>{' '}
+            <Span>Hours</Span>{' '}
           </Col>
           <Col xs={2}>
             <CountdownNumbers>
               {this.addLeadingZeros(countDown.min)}
             </CountdownNumbers>{' '}
-            <p>Min</p>{' '}
+            <Span>Min</Span>{' '}
           </Col>
           <Col xs={2}>
             <CountdownNumbers>
               {this.addLeadingZeros(countDown.sec)}
             </CountdownNumbers>{' '}
-            <p>Sec</p>
+            <Span>Sec</Span>
           </Col>
         </Row>
       </React.Fragment>

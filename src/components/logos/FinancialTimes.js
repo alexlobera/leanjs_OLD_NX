@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FinancialTimes = ({ colour = '#231F20', width, height }) => (
+const FinancialTimes = ({ colour = '#231F20', width, height, className }) => (
   <svg
+    className={className}
     viewBox="0 0 1054 86"
     preserveAspectRatio="xMidYMid meet"
     width={width}

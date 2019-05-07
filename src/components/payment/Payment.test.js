@@ -1,7 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import waitForExpect from 'wait-for-expect'
-import { Route } from 'react-router-dom'
 
 import Root from '../../../test/utils/Root'
 import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
@@ -76,27 +75,25 @@ const mountPaymentSection = ({
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
   validateVatQuery,
-}) =>
-  mount(
-    <Root
-      graphQlMocks={[
-        paymentMutation,
-        autoVoucherQuery,
-        validateVoucherQuery,
-        validateVatQuery,
-      ].filter(obj => obj)}
-    >
-      <Route
-        render={props => (
-          <PaymentSection
-            {...props}
-            {...defaultTrainingData}
-            paymentApi={paymentApi}
-          />
-        )}
+  navigate = () => {},
+}) => {
+  const mocks = [
+    paymentMutation,
+    autoVoucherQuery,
+    validateVoucherQuery,
+    validateVatQuery,
+  ].filter(obj => obj)
+
+  return mount(
+    <Root graphQlMocks={mocks}>
+      <PaymentSection
+        {...defaultTrainingData}
+        navigate={navigate}
+        paymentApi={paymentApi}
       />
     </Root>
   )
+}
 
 describe('<PaymentSection />', () => {
   let request = {
@@ -108,9 +105,9 @@ describe('<PaymentSection />', () => {
       email: 'test@example.com',
       name: 'Joe Bloggs',
       token: 2,
-      vatRate: 1.2,
+      vatCountry: null,
+      vatNumber: null,
       companyName: undefined,
-      companyVat: undefined,
     },
   }
   let result = {
@@ -149,8 +146,10 @@ describe('<PaymentSection />', () => {
     }
 
     it('should make a payment', async () => {
+      const navigate = jest.fn(() => {})
       let wrapper = mountPaymentSection({
         paymentMutation: { request, result },
+        navigate,
       })
       wrapper = await fillPaymentForm(wrapper)
 
@@ -163,10 +162,11 @@ describe('<PaymentSection />', () => {
         .simulate('submit')
 
       await waitForExpect(() => {
-        wrapper.update()
-        expect(
-          wrapper.find(PaymentSection).props().history.location.pathname
-        ).toBe('/payment-confirmation')
+        expect(navigate).toHaveBeenCalledWith('/payment-confirmation', {
+          email: 'test@example.com',
+          makePayment: result.data.makePayment,
+          trainingInstanceId: request.variables.trainingInstanceId,
+        })
       })
     })
 
@@ -257,9 +257,10 @@ describe('<PaymentSection />', () => {
       it('should flag-up invalid-format EU vat numbers', async () => {
         const { wrapper, change } = await mountCompanyDetailsSection()
         expect(getNumErrorNodes(wrapper)).toBe(0)
+
         change(EUVATNumberField, INVALID_EU_VAT_NUMBER)
         wrapper.update()
-        expect(getNumErrorNodes(wrapper)).toBe(1)
+        expect(getNumErrorNodes(wrapper)).toBe(2)
       })
 
       it('should not flag-up valid-format EU vat numbers', async () => {

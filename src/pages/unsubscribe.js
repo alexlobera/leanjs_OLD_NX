@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import { BOOTCAMP } from '../../images/imageNames.js'
+import Layout from '../components/layout'
 import { triggerUnsubscribe } from '../api'
 import Section from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -23,7 +26,7 @@ export const ThanksTitle = styled(H3)`
 
 export const THANKS_MESSAGE = 'To finish the process, check your Email.'
 
-class Unsubscribe extends React.Component {
+export class Unsubscribe extends React.Component {
   state = {
     formSubmited: false,
   }
@@ -41,7 +44,7 @@ class Unsubscribe extends React.Component {
           fullHeight={false}
           titleLines={['Unsubscribe']}
           subtitle=""
-          bgImg="training-event"
+          bgImageName={BOOTCAMP}
         />
         <Section>
           <Grid>
@@ -98,4 +101,10 @@ Unsubscribe.defaultProps = {
   triggerUnsubscribe,
 }
 
-export default Unsubscribe
+const UnsubscribePage = () => (
+  <Layout>
+    <Unsubscribe />
+  </Layout>
+)
+
+export default UnsubscribePage

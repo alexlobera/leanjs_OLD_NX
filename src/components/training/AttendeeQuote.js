@@ -4,7 +4,7 @@ import { Blockquote } from '../text'
 import { Image } from '../elements'
 import { reactBlue, GREY2, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_MD_MIN, SCREEN_SM_MAX } from '../utils'
-import { Button, LinkButton } from '../buttons'
+import { LinkButton } from '../buttons'
 
 const Card = styled.div`
   background-color: ${reactBlue()};

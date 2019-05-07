@@ -17,7 +17,7 @@ import {
   SMALL_CLASSROOM,
 } from '../../config/images'
 
-import GET_UPCOMING_TRAINING from './withUpcomingTrainings.graphql'
+import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 
 const createTrainingPath = ({ type, city = '', index }) => {
   const i = index > 1 ? index : ''
@@ -32,6 +32,8 @@ const createTrainingPath = ({ type, city = '', index }) => {
       return `/advanced-react-redux-graphql-bootcamp-${city.toLowerCase()}/${i}`
     case GRAPHQL_BOOTCAMP:
       return `/graphql-bootcamp-${city.toLowerCase()}/${i}`
+    default:
+      return '/'
   }
 }
 
@@ -73,11 +75,7 @@ export const selectUpcomingTrainings = ({
   return filteredTrainings
 }
 
-const withUpcomingTrainings = ({
-  type,
-  city,
-  limit,
-} = {}) => InnerComponent => props => (
+const UpcomingTrainings = ({ type, city, limit, children }) => (
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
@@ -103,21 +101,18 @@ const withUpcomingTrainings = ({
           ? data.trainingInstancesConnection.edges.map(formatTraining)
           : []
 
-      return (
-        <InnerComponent
-          {...props}
-          trainings={selectUpcomingTrainings({
-            trainings,
-            type,
-            city,
-            limit,
-          })}
-          trainingLoading={loading}
-          trainingError={error}
-        />
-      )
+      return children({
+        trainings: selectUpcomingTrainings({
+          trainings,
+          type,
+          city,
+          limit,
+        }),
+        trainingLoading: loading,
+        trainingError: error,
+      })
     }}
   </Query>
 )
 
-export default withUpcomingTrainings
+export default UpcomingTrainings

@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Unsubscribe, {
+import {
+  Unsubscribe,
   EmailInput,
   ThanksTitle,
   THANKS_MESSAGE,

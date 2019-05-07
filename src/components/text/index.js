@@ -6,7 +6,6 @@ export {
   H3,
   H4,
   H5,
-  H1_STYLE,
   H2_STYLE,
   H3_STYLE,
   H4_STYLE,

@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -6,8 +7,8 @@
 
 // You can delete this file if you're not using it
 
+// init GTM for Google Ads
 exports.onRouteUpdate = ({ location }) => {
-  // init GTM for Google Ads
   window.dataLayer = window.dataLayer || []
   function gtag() {
     dataLayer.push(arguments)
