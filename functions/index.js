@@ -112,7 +112,7 @@ exports.subscribe = functions.https.onRequest((request, response) => {
     response.set('Access-Control-Allow-Origin', '*')
 
     const email = request && request.body && request.body.email
-    const pathname = requrest && request.body && request.body.pathname
+    const pathname = request && request.body && request.body.pathname
     const AUTOPILOT_API_KEY = functions.config().autopilot.key
     if (email) {
       fetch(`https://api2.autopilothq.com/v1/contact`, {
@@ -122,7 +122,6 @@ exports.subscribe = functions.https.onRequest((request, response) => {
         },
         body: JSON.stringify({
           contact: {
-            FirstName: name,
             Email: email,
             custom: {
               'string--From--Path': pathname,
