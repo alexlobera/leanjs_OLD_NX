@@ -11,26 +11,25 @@ exports.onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
     pluginOptions.includeInDevelopment
   ) {
     setHeadComponents([
-      // [removes it temporarely to test if autopilot heads up works]
-      // <script
-      //   key="jquery"
-      //   dangerouslySetInnerHTML={{
-      //     __html: stripIndent`
-      //     ;(function() {
-      //       function downloadJSAtOnload() {
-      //         var element = document.createElement('script')
-      //         element.async = true
-      //         element.src = 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js'
-      //         document.body.appendChild(element)
-      //       }
-      //       if (window.addEventListener)
-      //         window.addEventListener('load', downloadJSAtOnload, false)
-      //       else if (window.attachEvent) window.attachEvent('onload', downloadJSAtOnload)
-      //       else window.onload = downloadJSAtOnload
-      //     })();
-      //   `,
-      //   }}
-      // />,
+      <script
+        key="jquery"
+        dangerouslySetInnerHTML={{
+          __html: stripIndent`
+          ;(function() {
+            function downloadJSAtOnload() {
+              var element = document.createElement('script')
+              element.async = true
+              element.src = 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js'
+              document.body.appendChild(element)
+            }
+            if (window.addEventListener)
+              window.addEventListener('load', downloadJSAtOnload, false)
+            else if (window.attachEvent) window.attachEvent('onload', downloadJSAtOnload)
+            else window.onload = downloadJSAtOnload
+          })();
+        `,
+        }}
+      />,
       <script
         key="plugin-autopilot"
         dangerouslySetInnerHTML={{
