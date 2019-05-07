@@ -14,7 +14,7 @@ const IframeWrapper = styled.div`
   }
 `
 
-const Video = ({ youtubeId, time, description = 'React GraphQL Video' }) => (
+const Video = ({ youtubeId, time, description = '' }) => (
   <IframeWrapper>
     <iframe
       title="ReactJS Academy video"
