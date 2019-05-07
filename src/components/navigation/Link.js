@@ -80,6 +80,7 @@ class Link extends React.Component {
     const toHref = to || rest.href
     if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
       const { target = '_blank' } = rest
+      rest.rel = target === '_blank' ? 'noopener' : undefined
       return (
         <BasicLink {...rest} target={target} href={toHref}>
           {children}
