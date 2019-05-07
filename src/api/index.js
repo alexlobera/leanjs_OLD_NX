@@ -54,17 +54,21 @@ export const triggerUnsubscribe = ({ email }) =>
     })
   })
 
-export const triggerSubscribe = ({ email, pathname }) => {
-  window &&
-    window.Autopilot &&
-    window.Autopilot.run('associate', {
-      _simpleAssociate: true,
-      Email: email,
-      custom: {
-        'string--From--Path': pathname,
+export const triggerSubscribe = ({ email, pathname = 'footer' }) =>
+  fetch(
+    `https://us-central1-reactjsacademy-react.cloudfunctions.net/subscribe`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        email,
+        pathname,
+      }),
+    }
+  ).then(() => {
+    trackUserBehaviour({
+      event: 'NEWSLETTER_SIGNUP',
     })
-  trackUserBehaviour({
-    event: 'NEWSLETTER_SIGNUP',
   })
-}
