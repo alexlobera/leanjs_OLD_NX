@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { RunkitProvider } from '../components/blog/Runkit'
 
 import Layout from '../components/layout.js'
 import { formatUTC } from '../components/utils'
@@ -105,7 +106,7 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       {({ trainings }) => (
-        <React.Fragment>
+        <RunkitProvider>
           <Helmet>
             <meta property="og:title" content={title} />
             <meta property="og:image" content={imageUrl} />
@@ -181,7 +182,7 @@ const BlogPost = ({ data }) => {
             </Row>
           </GridContent>
           <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
+        </RunkitProvider>
       )}
     </Layout>
   )

@@ -16,7 +16,6 @@ import { UPMENTORING_API_URL, SENTRY_DSN } from '../config/apps'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
 import favicon from './favicon.ico'
-import { RunkitProvider } from '../components/blog/Runkit'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
 import { UpcomingTrainings } from '../components/training'
@@ -85,7 +84,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <RunkitProvider>
+      <React.Fragment>
         <LayoutStyle />
         <ThemeProvider theme={theme}>
           <ApolloProvider client={graphqlClient}>
@@ -137,7 +136,7 @@ const Layout = ({ children }) => (
             </React.Fragment>
           </ApolloProvider>
         </ThemeProvider>
-      </RunkitProvider>
+      </React.Fragment>
     )}
   />
 )
