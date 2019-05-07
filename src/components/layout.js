@@ -59,6 +59,7 @@ const prefetchDnsUrls = [
   'https://connect.facebook.net',
   'https://www.google-analytics.com',
   'https://apenterprise.io',
+  'https://unpkg.com',
 ].map(href => ({
   rel: 'dns-prefetch',
   href,

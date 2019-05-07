@@ -15,13 +15,18 @@ exports.onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
         key="jquery"
         dangerouslySetInnerHTML={{
           __html: stripIndent`
-            (function(){
-              var bsa = document.createElement('script');
-                bsa.type = 'text/javascript';
-                bsa.async = true;
-                bsa.src = 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js';
-              (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
-            })();
+          ;(function() {
+            function downloadJSAtOnload() {
+              var element = document.createElement('script')
+              element.async = true
+              element.src = 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js'
+              document.body.appendChild(element)
+            }
+            if (window.addEventListener)
+              window.addEventListener('load', downloadJSAtOnload, false)
+            else if (window.attachEvent) window.attachEvent('onload', downloadJSAtOnload)
+            else window.onload = downloadJSAtOnload
+          })();
         `,
         }}
       />,
