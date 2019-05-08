@@ -68,9 +68,22 @@ const Workshops = () => (
                             <BorderLeftH4>{workshop.title}</BorderLeftH4>
                             <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
                             <P>{workshop.description}</P>
-                            <LinkButton variant="secondary" to="/interest-form">
-                              Join Waitlist
-                            </LinkButton>
+                            {workshop.title ===
+                            'Styling in React and Design Systems' ? (
+                              <LinkButton
+                                variant="primary"
+                                to="/react-one-day-workshop"
+                              >
+                                Get ticket!
+                              </LinkButton>
+                            ) : (
+                              <LinkButton
+                                variant="secondary"
+                                to="/interest-form"
+                              >
+                                Join Waitlist
+                              </LinkButton>
+                            )}
                           </Card>
                         </Col>
                       ))}
