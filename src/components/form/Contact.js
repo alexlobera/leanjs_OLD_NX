@@ -57,6 +57,7 @@ const ContactForm = props => {
             <Link to="mailto:hello@reactjs.academy">hello@reactjs.academy</Link>
             .{' '}
           </P>
+          <P>You can call us during working hours on: +44 20 8123 8184</P>
           <P>
             Otherwise, you can contact us socially on{' '}
             <Link to="https://twitter.com/reactjsacademy">Twitter</Link>,{' '}
