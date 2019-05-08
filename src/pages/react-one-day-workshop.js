@@ -33,7 +33,7 @@ import { Image } from '../components/elements'
 import header from '../components/layout/Header.json'
 import { PaymentSection } from '../components/payment'
 import { Link, Breadcrumb } from '../components/navigation'
-import { ADVANCED_REACT, LONDON } from '../config/data'
+import { ONE_DAY_WORKSHOP, LONDON } from '../config/data'
 import { LIST_TWO_COL } from '../components/curriculum/selectCurriculumLayout'
 
 const StylingDesignSystemWorkshop = () => (
@@ -41,12 +41,11 @@ const StylingDesignSystemWorkshop = () => (
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
         trainings,
-        type: ADVANCED_REACT,
+        type: ONE_DAY_WORKSHOP,
         city: LONDON,
       })
       const training = selectNthTraining({
         trainings: bootCampTrainings,
-        nth: 3,
       })
       return (
         <React.Fragment>
@@ -62,7 +61,7 @@ const StylingDesignSystemWorkshop = () => (
             subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
-            type={ADVANCED_REACT}
+            type={ONE_DAY_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
@@ -159,7 +158,7 @@ const StylingDesignSystemWorkshop = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    {/* <CurriculumBootcamp layout={LIST_TWO_COL} /> */}
+                    <CurriculumBootcamp layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
