@@ -19,17 +19,17 @@ Just to recap what the React Bootcamp is, it’s a week-long intensive React tra
 
 - [Forms](/blog/react-forms-controlled-and-uncontrolled-components/)
 
-- Authentication
+- [Authentication](/blog/secure-react-apps-using-JWT-and-react-router/)
 
 - [Styling](/blog/styling-in-react/)
 
 - [Redux](/blog/introduction-to-redux-explained-with-simple-examples/)
 
-- Testing principles and [testing in React](/blog/unit-testing-fundamentals-explained-using-javascript/)
+- [Testing principles](/blog/unit-testing-fundamentals-explained-using-javascript/) and testing in React.
 
-- Functional programming
+- [Functional programming](https://advanced-react-patterns.reactjs.academy/composition)
 
-- Advanced React patterns
+- [Advanced React patterns](https://advanced-react-patterns.reactjs.academy/higher-order-components)
 
 - GraphQL
 
