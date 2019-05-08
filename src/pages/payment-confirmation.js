@@ -19,30 +19,33 @@ class PaymentConfirmation extends React.Component {
     const { makePayment = {}, trainingInstanceId = '' } =
       this.props.location.state || {}
     const { amount = 100, id } = makePayment
-
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    //conversion
-    gtag('event', 'conversion', {
-      send_to: 'AW-877316317/KPHjCIHC7ocBEN2Rq6ID',
-      currency: 'GBP',
-      value: amount * 0.01,
-      transaction_id: id ? `${trainingInstanceId}_${id}` : '',
-    })
-
-    const payload = {
-      makePayment,
-      trainingInstanceId,
-      metadata: JSON.parse(makePayment.metadata),
-    }
-
-    if (id) {
-      trackUserBehaviour({
-        event: CHECKOUT_PAYMENT_SUCCESS,
-        payload,
+    try {
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      //conversion
+      gtag('event', 'conversion', {
+        send_to: 'AW-877316317/KPHjCIHC7ocBEN2Rq6ID',
+        currency: 'GBP',
+        value: amount * 0.01,
+        transaction_id: id ? `${trainingInstanceId}_${id}` : '',
       })
+
+      const payload = {
+        makePayment,
+        trainingInstanceId,
+        metadata: JSON.parse(makePayment.metadata || '{}'),
+      }
+
+      if (id) {
+        trackUserBehaviour({
+          event: CHECKOUT_PAYMENT_SUCCESS,
+          payload,
+        })
+      }
+    } catch (err) {
+      console.log(err)
     }
   }
 
