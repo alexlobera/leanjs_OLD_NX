@@ -54,8 +54,9 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
 
 const HeaderSection = styled(Section)`
   ${({ bgColor }) =>
-    bgColor === 'blue' &&
-    `background-color: ${reactBlue(0.4)};`} position: relative;
+    `background-color: ${
+      bgColor === 'blue' ? reactBlue(0.4) : 'rgba(196,196,196,0.4)'
+    };`} position: relative;
 
   &:before {
     content: '';
