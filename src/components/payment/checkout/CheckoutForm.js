@@ -368,7 +368,8 @@ class CheckoutForm extends React.Component {
                 )}
                 <RibbonBottomContainer>
                   <CheckoutH4>Pricing</CheckoutH4>
-                  {currentPriceXQuantity ? (
+                  {currentPriceXQuantity &&
+                  priceXQuantity - currentPriceXQuantity > 0 ? (
                     <Ribbon top={'-5'}>
                       Save{' '}
                       {formatPrice(

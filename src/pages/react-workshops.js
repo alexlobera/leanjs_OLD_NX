@@ -15,18 +15,19 @@ const BorderLeftH4 = styled(H4)`
   border-left: 0.4rem solid ${GREY2};
   padding-left: 1rem;
 `
-const PROVISIONAL_WORKSHOP_PRICE = '£300+VAT'
+const PROVISIONAL_WORKSHOP_PRICE = '£360 Inc VAT'
 
 const workshops = [
-  {
-    title: 'React Fundamentals & ModernJS',
-    description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
-  },
   {
     title: 'Styling in React and Design Systems',
     description:
       'See how React can look gorgeous and encourage design consistency',
+    sell: true,
+  },
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
   },
   {
     title: 'React Hooks & Suspense',
@@ -68,9 +69,21 @@ const Workshops = () => (
                             <BorderLeftH4>{workshop.title}</BorderLeftH4>
                             <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
                             <P>{workshop.description}</P>
-                            <LinkButton variant="secondary" to="/interest-form">
-                              Join Waitlist
-                            </LinkButton>
+                            {workshop.sell ? (
+                              <LinkButton
+                                variant="primary"
+                                to="/react-one-day-workshop"
+                              >
+                                Get ticket!
+                              </LinkButton>
+                            ) : (
+                              <LinkButton
+                                variant="secondary"
+                                to="/interest-form"
+                              >
+                                Join Waitlist
+                              </LinkButton>
+                            )}
                           </Card>
                         </Col>
                       ))}

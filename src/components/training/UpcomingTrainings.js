@@ -7,6 +7,7 @@ import {
   REACT_NATIVE,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
+  ONE_DAY_WORKSHOP,
 } from '../../config/data'
 
 import {
@@ -32,6 +33,8 @@ const createTrainingPath = ({ type, city = '', index }) => {
       return `/advanced-react-redux-graphql-bootcamp-${city.toLowerCase()}/${i}`
     case GRAPHQL_BOOTCAMP:
       return `/graphql-bootcamp-${city.toLowerCase()}/${i}`
+    case ONE_DAY_WORKSHOP:
+      return `/react-one-day-workshop`
     default:
       return '/'
   }

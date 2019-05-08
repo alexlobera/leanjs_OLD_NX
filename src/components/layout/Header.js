@@ -228,7 +228,14 @@ const Header = ({
     `}
     render={data => {
       const bgImage = getBackgroundImageSrc(data, bgImageName)
-
+      const startDate =
+        training &&
+        training.startDate &&
+        formatUTC(training.startDate, training.utcOffset, 'D MMM')
+      const endDate =
+        training &&
+        training.endDate &&
+        formatUTC(training.endDate, training.utcOffset, 'D MMM')
       return (
         <React.Fragment>
           {bgImage && (
@@ -301,18 +308,8 @@ const Header = ({
 
                       <Ul unstyled>
                         <Li>
-                          <strong>Date</strong>:{' '}
-                          {training.startDate
-                            ? `${formatUTC(
-                                training.startDate,
-                                training.utcOffset,
-                                'D MMM'
-                              )} - ${formatUTC(
-                                training.endDate,
-                                training.utcOffset,
-                                'D MMM'
-                              )}`
-                            : 'TBD'}
+                          <strong>Date</strong>:{startDate ? startDate : 'TBD'}
+                          {startDate === endDate ? '' : ` - ${endDate}`}
                         </Li>
                         <Li>
                           <strong>Timings</strong>:{' '}
