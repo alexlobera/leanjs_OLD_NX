@@ -15,8 +15,6 @@ import {
   UpcomingTrainingSection,
   AttendeeQuote,
   TrainingDetails,
-  HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
   RICHARD_MOSS,
   selectNthTraining,

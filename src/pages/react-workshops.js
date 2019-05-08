@@ -22,6 +22,7 @@ const workshops = [
     title: 'Styling in React and Design Systems',
     description:
       'See how React can look gorgeous and encourage design consistency',
+    sell: true,
   },
   {
     title: 'React Fundamentals & ModernJS',
@@ -68,8 +69,7 @@ const Workshops = () => (
                             <BorderLeftH4>{workshop.title}</BorderLeftH4>
                             <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
                             <P>{workshop.description}</P>
-                            {workshop.title ===
-                            'Styling in React and Design Systems' ? (
+                            {workshop.sell ? (
                               <LinkButton
                                 variant="primary"
                                 to="/react-one-day-workshop"
