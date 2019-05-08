@@ -19,14 +19,14 @@ const PROVISIONAL_WORKSHOP_PRICE = '£300+VAT'
 
 const workshops = [
   {
-    title: 'React Fundamentals & ModernJS',
-    description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
-  },
-  {
     title: 'Styling in React and Design Systems',
     description:
       'See how React can look gorgeous and encourage design consistency',
+  },
+  {
+    title: 'React Fundamentals & ModernJS',
+    description:
+      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
   },
   {
     title: 'React Hooks & Suspense',

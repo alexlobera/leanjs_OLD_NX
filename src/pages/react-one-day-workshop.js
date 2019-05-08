@@ -6,7 +6,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2Ref, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumBootcamp } from '../components/curriculum'
+import { CurriculumOneDayStyling } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Header from '../components/layout/Header'
@@ -52,20 +52,31 @@ const StylingDesignSystemWorkshop = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react-redux-graphql-bootcamp', label: 'React bootcamp' },
-              { to: '/react-redux-graphql-bootcamp-london', label: 'London' },
+              { to: '/react-workshops', label: 'React workshops' },
+              { to: '/react-one-day-workshop', label: 'London' },
             ]}
           />
           <Header
-            titleLines={['React Redux GraphQL Bootcamp - London']}
-            subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
+            titleLines={['Styling in React and Design Systems - London']}
+            subtitle="See how React can look gorgeous and encourage design consistency"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
-          <TopSection xsBgDark top>
+          <TopSection top>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </TopSection>
+          <Section xsBgDark>
             <Grid>
               <Card bg="dark">
                 <Row>
@@ -83,7 +94,7 @@ const StylingDesignSystemWorkshop = () => (
                 </Row>
               </Card>
             </Grid>
-          </TopSection>
+          </Section>
           <Section>
             <Grid>
               <Row>
@@ -153,17 +164,6 @@ const StylingDesignSystemWorkshop = () => (
             </Grid>
           </Section>
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumBootcamp layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
