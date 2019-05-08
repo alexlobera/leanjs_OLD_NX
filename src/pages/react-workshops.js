@@ -15,7 +15,7 @@ const BorderLeftH4 = styled(H4)`
   border-left: 0.4rem solid ${GREY2};
   padding-left: 1rem;
 `
-const PROVISIONAL_WORKSHOP_PRICE = '£300+VAT'
+const PROVISIONAL_WORKSHOP_PRICE = '£360 Inc VAT'
 
 const workshops = [
   {
