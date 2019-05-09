@@ -72,14 +72,14 @@ const Workshops = () => (
                             {workshop.sell ? (
                               <LinkButton
                                 variant="primary"
-                                to="/react-one-day-workshop"
+                                to="/react/training/workshops/design-system-styling-in-react"
                               >
                                 Get ticket!
                               </LinkButton>
                             ) : (
                               <LinkButton
                                 variant="secondary"
-                                to="/interest-form"
+                                to="/react/training/workshops/interest-form"
                               >
                                 Join Waitlist
                               </LinkButton>

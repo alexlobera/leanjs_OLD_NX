@@ -1,31 +1,31 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 
-import { BOOTCAMP } from '../../images/imageNames.js'
-import Layout from '../components/layout'
-import { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import { H3, P } from '../components/text'
-import { Link } from '../components/navigation'
-import { Card } from '../components/elements'
-import { Button } from '../components/buttons'
-import Header from '../components/layout/Header'
+import { BOOTCAMP } from 'src/../images/imageNames.js'
+import Layout from 'src/components/layout'
+import { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { H3, P } from 'src/components/text'
+import { Link } from 'src/components/navigation'
+import { Card } from 'src/components/elements'
+import { Button } from 'src/components/buttons'
+import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-} from '../components/training'
+} from 'src/components/training'
 
-import { REACT_BOOTCAMP } from '../config/data'
-import { InputField, Form, CheckboxField } from '../components/form'
+import { REACT_BOOTCAMP } from 'src/config/data'
+import { InputField, Form, CheckboxField } from 'src/components/form'
 import {
   composeValidators,
   required,
   mustBeEmail,
-} from '../components/form/validations'
-import { aliasComponent } from '../components/utils/aliasComponent'
-import { EmailInput } from '../components/form/Contact'
-import { triggerSessionSubscribe } from '../api'
+} from 'src/components/form/validations'
+import { aliasComponent } from 'src/components/utils/aliasComponent'
+import { EmailInput } from 'src/components/form/Contact'
+import { triggerSessionSubscribe } from 'src/api'
 
 const NameInput = aliasComponent(InputField)
 
