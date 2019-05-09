@@ -50,12 +50,14 @@ const BootcampLondon = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
+              { to: '/react', label: 'React' },
+              { to: '/react/training/', label: 'Training' },
               {
-                to: '/advanced-react-redux-graphql-bootcamp',
-                label: 'Advanced React',
+                to: '/react/training/advanced',
+                label: 'Advanced',
               },
               {
-                to: '/advanced-react-redux-graphql-bootcamp-london',
+                to: '/react/training/advanced/london',
                 label: 'London',
               },
             ]}

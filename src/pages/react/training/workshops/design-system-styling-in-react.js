@@ -50,8 +50,13 @@ const StylingDesignSystemWorkshop = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react-workshops', label: 'React workshops' },
-              { to: '/react-one-day-workshop', label: 'London' },
+              { to: '/react', label: 'React' },
+              { to: '/react/training/', label: 'Training' },
+              { to: '/react/training/workshops', label: 'Workshops' },
+              {
+                to: '/react/training/workshops/design-system-styling-in-react',
+                label: 'Design Systems and Styling in React',
+              },
             ]}
           />
           <Header

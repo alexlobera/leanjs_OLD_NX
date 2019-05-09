@@ -48,10 +48,7 @@ const GraphQLPage = props => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              {
-                to: '/graphql',
-                label: 'GraphQL',
-              },
+              { to: '/graphql', label: 'GraphQL' },
             ]}
           />
           <Header

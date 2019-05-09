@@ -48,9 +48,11 @@ const Bootcamps = props => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
+              { to: '/react', label: 'React' },
+              { to: '/react/training/', label: 'Training' },
               {
-                to: '/react-redux-graphql-bootcamp',
-                label: 'React bootcamp',
+                to: '/react/training/bootcamp',
+                label: 'Bootcamp',
               },
             ]}
           />

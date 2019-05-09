@@ -10,6 +10,7 @@ import { UpcomingTrainingSection } from 'src/components/training'
 import Header from 'src/components/layout/Header'
 import { Card, Newsletter } from 'src/components/elements'
 import { GREY2 } from 'src/config/styles'
+import { Breadcrumb } from 'src/components/navigation'
 
 const BorderLeftH4 = styled(H4)`
   border-left: 0.4rem solid ${GREY2};
@@ -52,6 +53,23 @@ const Workshops = () => (
     {({ trainings }) => {
       return (
         <React.Fragment>
+          <Breadcrumb
+            path={[
+              { to: '/', label: 'Home' },
+              {
+                to: '/react',
+                label: 'React',
+              },
+              {
+                to: '/react/training/',
+                label: 'Training',
+              },
+              {
+                to: '/react/training/workshops',
+                label: 'Workshops',
+              },
+            ]}
+          />
           <Header
             titleLines={['1-day React Workshops']}
             subtitle="Intense, 1-day workshops that focusses on one specific part of React - all based on our proven Bootcamp curriculum"

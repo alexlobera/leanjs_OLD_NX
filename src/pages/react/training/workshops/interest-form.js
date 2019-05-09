@@ -26,6 +26,7 @@ import {
 import { aliasComponent } from 'src/components/utils/aliasComponent'
 import { EmailInput } from 'src/components/form/Contact'
 import { triggerSessionSubscribe } from 'src/api'
+import { Breadcrumb } from 'src/components/navigation'
 
 const NameInput = aliasComponent(InputField)
 
@@ -65,6 +66,18 @@ const SessionInterest = ({ trainings }) => (
         selectNthTraining({ trainings: upcomingBootcamps }) || {}
       return (
         <React.Fragment>
+          <Breadcrumb
+            path={[
+              { to: '/', label: 'Home' },
+              { to: '/react', label: 'React' },
+              { to: '/react/training/', label: 'Training' },
+              { to: '/react/training/workshops', label: 'Workshops' },
+              {
+                to: '/react/training/workshops/interest-form',
+                label: 'Interest Form',
+              },
+            ]}
+          />
           <Header
             titleLines={['React Workshops']}
             subtitle={[

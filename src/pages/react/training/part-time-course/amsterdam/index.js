@@ -37,11 +37,16 @@ const PartTimeAmsterdam = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
+              { to: '/react', label: 'React' },
+              { to: '/react/training/', label: 'Training' },
               {
-                to: '/react-redux-graphql-part-time-course',
-                label: 'Part-time',
+                to: '/react/training/part-time-course',
+                label: 'Part Time Course',
               },
-              { to: '/react-redux-training-amsterdam', label: 'Amsterdam' },
+              {
+                to: '/react/training/part-time-course/amsterdam',
+                label: 'Amsterdam',
+              },
             ]}
           />
           <Header
