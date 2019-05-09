@@ -92,6 +92,21 @@ const SessionInterest = ({ trainings }) => (
                                   name="name"
                                   placeholder="eg. Steve Jobs"
                                 />
+                              </Col>
+                              <Col xs={12} md={6}>
+                                <EmailInput
+                                  validate={composeValidators(
+                                    required,
+                                    mustBeEmail
+                                  )}
+                                  label="Your best email address"
+                                  name="email"
+                                  placeholder="eg. steve@jobs.com"
+                                />
+                              </Col>
+                            </Row>
+                            <Row>
+                              <Col xs={12} md={6}>
                                 <CheckboxField
                                   name="fundamentals"
                                   label="Modern JS and React Fundamentals"
@@ -107,15 +122,6 @@ const SessionInterest = ({ trainings }) => (
                               </Col>
                               <Col xs={12} md={6}>
                                 <React.Fragment>
-                                  <EmailInput
-                                    validate={composeValidators(
-                                      required,
-                                      mustBeEmail
-                                    )}
-                                    label="Your best email address"
-                                    name="email"
-                                    placeholder="eg. steve@jobs.com"
-                                  />
                                   <CheckboxField
                                     name="perf"
                                     label="Performance & FP in React"
@@ -132,26 +138,29 @@ const SessionInterest = ({ trainings }) => (
                               </Col>
                             </Row>
                             <Row style={{ marginTop: '2em' }}>
-                              <H3>Free learning resources</H3>
-                              <P>
-                                We share our learning resources{' '}
-                                <strong>
-                                  directly from our{' '}
-                                  <Link to="/curriculum">
-                                    <strong>curriculum</strong>
-                                  </Link>
-                                </strong>{' '}
-                                and we'd love for you to enjoy and learn from
-                                them!{' '}
-                              </P>
-                              <CheckboxField
-                                name="resources"
-                                label="I want free leanring resources!"
-                              />
+                              <Col>
+                                <H3>Free learning resources</H3>
+                                <P>
+                                  We share our learning resources{' '}
+                                  <strong>
+                                    directly from our{' '}
+                                    <Link to="/curriculum">
+                                      <strong>curriculum</strong>
+                                    </Link>
+                                  </strong>{' '}
+                                  and we'd love for you to enjoy and learn from
+                                  them!{' '}
+                                </P>
+                                <CheckboxField
+                                  name="resources"
+                                  label="I want free leanring resources!"
+                                />
+                              </Col>
                             </Row>
                             <Row style={{ marginTop: '2em' }}>
                               <Col md={3}>
                                 <Button
+                                  block
                                   variant="primary"
                                   type="submit"
                                   disabled={!valid}
