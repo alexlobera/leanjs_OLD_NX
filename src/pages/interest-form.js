@@ -104,42 +104,6 @@ const SessionInterest = ({ trainings }) => (
                                   name="hooks"
                                   label="React Hooks & Suspense"
                                 />
-                                <H3>Free learning resources</H3>
-                                <P>
-                                  We share our learning resources{' '}
-                                  <strong>
-                                    directly from our{' '}
-                                    <Link to="/curriculum">
-                                      <strong>curriculum</strong>
-                                    </Link>
-                                  </strong>{' '}
-                                  and we'd love for you to enjoy and learn from
-                                  them!{' '}
-                                </P>
-                                <CheckboxField
-                                  name="resources"
-                                  label="I want free leanring resources!"
-                                />
-                                <Row>
-                                  <Col md={3}>
-                                    <Button
-                                      variant="primary"
-                                      type="submit"
-                                      disabled={!valid}
-                                    >
-                                      Submit
-                                    </Button>
-                                  </Col>
-                                  <Col mdOffset={1} md={8}>
-                                    <P>
-                                      We wont spam you as per our{' '}
-                                      <Link to="/privacy-policy">
-                                        Privacy Policy
-                                      </Link>
-                                      .
-                                    </P>
-                                  </Col>
-                                </Row>
                               </Col>
                               <Col xs={12} md={6}>
                                 <React.Fragment>
@@ -165,6 +129,44 @@ const SessionInterest = ({ trainings }) => (
                                     label="Testing in React"
                                   />
                                 </React.Fragment>
+                              </Col>
+                            </Row>
+                            <Row style={{ marginTop: '2em' }}>
+                              <H3>Free learning resources</H3>
+                              <P>
+                                We share our learning resources{' '}
+                                <strong>
+                                  directly from our{' '}
+                                  <Link to="/curriculum">
+                                    <strong>curriculum</strong>
+                                  </Link>
+                                </strong>{' '}
+                                and we'd love for you to enjoy and learn from
+                                them!{' '}
+                              </P>
+                              <CheckboxField
+                                name="resources"
+                                label="I want free leanring resources!"
+                              />
+                            </Row>
+                            <Row style={{ marginTop: '2em' }}>
+                              <Col md={3}>
+                                <Button
+                                  variant="primary"
+                                  type="submit"
+                                  disabled={!valid}
+                                >
+                                  Submit
+                                </Button>
+                              </Col>
+                              <Col mdOffset={1} md={8}>
+                                <P>
+                                  We wont spam you as per our{' '}
+                                  <Link to="/privacy-policy">
+                                    Privacy Policy
+                                  </Link>
+                                  .
+                                </P>
                               </Col>
                             </Row>
                           </form>
