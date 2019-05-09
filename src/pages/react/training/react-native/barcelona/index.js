@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { BOOTCAMP } from '../../images/imageNames.js'
-import Layout from '../components/layout'
-import Section, { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2Ref, H3, P, H1Ref } from '../components/text'
-import Ul, { Li } from '../components/layout/Ul'
-import { Card, Video } from '../components/elements'
-import { Link, Breadcrumb } from '../components/navigation'
-import { HideComponentsUsingCss } from '../components/utils'
-import Header from '../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from '../config/images'
+import { BOOTCAMP } from 'src/../images/imageNames.js'
+import Layout from 'src/components/layout'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { H2Ref, H3, P, H1Ref } from 'src/components/text'
+import Ul, { Li } from 'src/components/layout/Ul'
+import { Card, Video } from 'src/components/elements'
+import { Link, Breadcrumb } from 'src/components/navigation'
+import { HideComponentsUsingCss } from 'src/components/utils'
+import Header from 'src/components/layout/Header'
+import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
@@ -19,21 +19,21 @@ import {
   TrainingDetails,
   HORACIO_HERRERA,
   ALEX_LOBERA,
-} from '../components/training'
+} from 'src/components/training'
 import {
   BulletIcon,
   NotBegginersIcon,
   ReactIcon,
   CollabsIcon,
-} from '../components/icons'
-import { Image } from '../components/elements'
-import header from '../components/layout/Header.json'
-import { PaymentSection } from '../components/payment'
-import { REACT_NATIVE, BARCELONA } from '../config/data'
-import ReactNativeFoundationSession from '../components/curriculum/sessions/native/ReactNativeFoundationSession'
-import ReactNativeNavigationSession from '../components/curriculum/sessions/native/ReactNativeNavigationSession'
-import ReactNativeAnimationsSession from '../components/curriculum/sessions/native/ReactNativeAnimationsSession'
-import CurriculumSection from '../components/curriculum/CurriculumSection'
+} from 'src/components/icons'
+import { Image } from 'src/components/elements'
+import header from 'src/components/layout/Header.json'
+import { PaymentSection } from 'src/components/payment'
+import { REACT_NATIVE, BARCELONA } from 'src/config/data'
+import ReactNativeFoundationSession from 'src/components/curriculum/sessions/native/ReactNativeFoundationSession'
+import ReactNativeNavigationSession from 'src/components/curriculum/sessions/native/ReactNativeNavigationSession'
+import ReactNativeAnimationsSession from 'src/components/curriculum/sessions/native/ReactNativeAnimationsSession'
+import CurriculumSection from 'src/components/curriculum/CurriculumSection'
 
 const ReactNativeBoocampBarcelona = () => (
   <Layout>

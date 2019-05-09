@@ -1,25 +1,25 @@
 import React from 'react'
 
-import { BOOTCAMP } from '../../images/imageNames.js'
-import Layout from '../components/layout'
-import { LinkButton } from '../components/buttons'
-import Section, { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2 } from '../components/text'
-import { Link } from '../components/navigation'
-import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumReactNative } from '../components/curriculum'
-import Header from '../components/layout/Header'
+import { BOOTCAMP } from 'src/../images/imageNames.js'
+import Layout from 'src/components/layout'
+import { LinkButton } from 'src/components/buttons'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { H2 } from 'src/components/text'
+import { Link } from 'src/components/navigation'
+import Ul, { Li } from 'src/components/layout/Ul'
+import { CurriculumReactNative } from 'src/components/curriculum'
+import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
   AttendeeQuote,
   UpcomingTrainingSection,
   selectUpcomingTrainings,
-} from '../components/training'
-import { Card } from '../components/elements'
-import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
-import { Video } from '../components/elements'
-import { POLINA } from '../config/images'
+} from 'src/components/training'
+import { Card } from 'src/components/elements'
+import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
+import { Video } from 'src/components/elements'
+import { POLINA } from 'src/config/images'
 import {
   NotBegginersIcon,
   RunFastIcon,
@@ -27,11 +27,11 @@ import {
   TickBadgeIcon,
   BulletIcon,
   PeopleNetWorkIcon,
-} from '../components/icons'
-import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Breadcrumb } from '../components/navigation'
-import { REACT_NATIVE } from '../config/data'
-import header from '../components/layout/Header.json'
+} from 'src/components/icons'
+import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
+import { Breadcrumb } from 'src/components/navigation'
+import { REACT_NATIVE } from 'src/config/data'
+import header from 'src/components/layout/Header.json'
 
 const ReactNativeBoocamp = () => (
   <Layout>
