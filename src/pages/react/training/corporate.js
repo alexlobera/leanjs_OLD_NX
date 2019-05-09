@@ -28,7 +28,7 @@ import {
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
 
-const CorporateGraphQLTraining = () => (
+const CorporateReactTraining = () => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
@@ -36,21 +36,17 @@ const CorporateGraphQLTraining = () => (
           path={[
             { to: '/', label: 'Home' },
             {
-              to: '/graphql',
-              label: 'GraphQL',
+              to: '/react',
+              label: 'React',
             },
             {
-              to: '/graphql/training',
-              label: 'Training',
-            },
-            {
-              to: '/graphql/training/corporate',
+              to: '/react/corporate',
               label: 'Corporate',
             },
           ]}
         />
         <Header
-          titleLines={['Corporate GraphQL team training']}
+          titleLines={['Corporate React team training']}
           subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
           links={[
             { text: 'Training schedule', to: '#schedule' },
@@ -171,4 +167,4 @@ const CorporateGraphQLTraining = () => (
   </Layout>
 )
 
-export default CorporateGraphQLTraining
+export default CorporateReactTraining

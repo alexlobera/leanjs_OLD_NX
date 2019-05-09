@@ -1,23 +1,23 @@
 import React from 'react'
 
-import { BOOTCAMP } from '../../images/imageNames.js'
-import Layout from '../components/layout'
-import { Link } from '../components/navigation'
-import Section, { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, P, H2Ref } from '../components/text'
-import Ul, { Li } from '../components/layout/Ul'
-import { CurriculumGraphQL } from '../components/curriculum'
-import Header from '../components/layout/Header'
-import { HideComponentsUsingCss } from '../components/utils'
+import { BOOTCAMP } from 'src/../images/imageNames.js'
+import Layout from 'src/components/layout'
+import { Link } from 'src/components/navigation'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { H2, P, H2Ref } from 'src/components/text'
+import Ul, { Li } from 'src/components/layout/Ul'
+import { CurriculumGraphQL } from 'src/components/curriculum'
+import Header from 'src/components/layout/Header'
+import { HideComponentsUsingCss } from 'src/components/utils'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
   selectUpcomingTrainings,
-} from '../components/training'
-import { Card } from '../components/elements'
-import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { WHY_GQLU_ACADEMY, SMALL_CLASSROOM } from '../config/images.js'
+} from 'src/components/training'
+import { Card } from 'src/components/elements'
+import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
+import { WHY_GQLU_ACADEMY, SMALL_CLASSROOM } from 'src/config/images.js'
 import {
   CodeIcon,
   CollabsIcon,
@@ -28,11 +28,11 @@ import {
   StarIcon,
   TrainerIcon,
   BulletIcon,
-} from '../components/icons'
-import { Image } from '../components/elements'
-import { Breadcrumb } from '../components/navigation'
-import { GRAPHQL_BOOTCAMP } from '../config/data'
-import header from '../components/layout/Header.json'
+} from 'src/components/icons'
+import { Image } from 'src/components/elements'
+import { Breadcrumb } from 'src/components/navigation'
+import { GRAPHQL_BOOTCAMP } from 'src/config/data'
+import header from 'src/components/layout/Header.json'
 
 const GraphQL = () => (
   <Layout>
@@ -46,7 +46,9 @@ const GraphQL = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/graphql-bootcamp', label: 'GraphQL bootcamp' },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training', label: 'Training' },
+              { to: '/graphql/training/bootcamp', label: 'Bootcamp' },
             ]}
           />
           <Header

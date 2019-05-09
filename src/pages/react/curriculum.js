@@ -47,7 +47,7 @@ import {
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
 
-class GraphQLCurriculum extends React.Component {
+class ReactCurriculum extends React.Component {
   state = {
     active: REACT_BOOTCAMP,
   }
@@ -95,17 +95,17 @@ class GraphQLCurriculum extends React.Component {
                 path={[
                   { to: '/', label: 'Home' },
                   {
-                    to: '/graphql',
-                    label: 'GraphQL',
+                    to: '/react',
+                    label: 'React',
                   },
                   {
-                    to: '/graphql/curriculum',
+                    to: '/react/curriculum',
                     label: 'Curriculum',
                   },
                 ]}
               />
               <Header
-                titleLines={['GraphQL curriculum']}
+                titleLines={['React curriculum']}
                 subtitle="We're proud to say that our curriculum is the most<br />complete and up-to-date on the market - there really is<br />nowhere better to learn React."
                 links={[
                   { text: 'Differences in our courses ', to: '#differences' },
@@ -621,4 +621,4 @@ class GraphQLCurriculum extends React.Component {
   }
 }
 
-export default GraphQLCurriculum
+export default ReactCurriculum
