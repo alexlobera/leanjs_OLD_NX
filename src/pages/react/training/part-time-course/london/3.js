@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Layout from '../../components/layout'
-import Section, { TopSection } from '../../components/layout/Section'
-import Grid, { Col, Row } from '../../components/layout/Grid'
-import { CurriculumPartTime } from '../../components/curriculum'
-import { Card, Video } from '../../components/elements'
+import Layout from 'src/components/layout'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { CurriculumPartTime } from 'src/components/curriculum'
+import { Card, Video } from 'src/components/elements'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
@@ -17,14 +17,14 @@ import {
   FRANCISCO_GOMES,
   selectNthTraining,
   selectUpcomingTrainings,
-} from '../../components/training'
-import Header from '../../components/layout/Header'
-import { CATALIN } from '../../config/images'
-import header from '../../components/layout/Header.json'
-import { PaymentSection } from '../../components/payment'
-import { Breadcrumb } from '../../components/navigation'
-import { PART_TIME, LONDON } from '../../config/data'
-import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
+} from 'src/components/training'
+import Header from 'src/components/layout/Header'
+import { CATALIN } from 'src/config/images'
+import header from 'src/components/layout/Header.json'
+import { PaymentSection } from 'src/components/payment'
+import { Breadcrumb } from 'src/components/navigation'
+import { PART_TIME, LONDON } from 'src/config/data'
+import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const BootcampLondon = () => (
   <Layout>

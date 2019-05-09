@@ -1,18 +1,18 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BOOTCAMP } from '../../../images/imageNames.js'
-import Layout from '../../components/layout'
-import Section, { TopSection } from '../../components/layout/Section'
-import Grid, { Col, Row } from '../../components/layout/Grid'
-import { H2Ref, H3, P } from '../../components/text'
-import Ul, { Li } from '../../components/layout/Ul'
-import { CurriculumBootcamp } from '../../components/curriculum'
-import { Card, Video } from '../../components/elements'
-import Gallery from '../../components/elements/Gallery'
-import { HideComponentsUsingCss, formatUTC } from '../../components/utils'
-import Header from '../../components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from '../../config/images'
+import { BOOTCAMP } from 'src/../images/imageNames.js'
+import Layout from 'src/components/layout'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { H2Ref, H3, P } from 'src/components/text'
+import Ul, { Li } from 'src/components/layout/Ul'
+import { CurriculumBootcamp } from 'src/components/curriculum'
+import { Card, Video } from 'src/components/elements'
+import Gallery from 'src/components/elements/Gallery'
+import { HideComponentsUsingCss, formatUTC } from 'src/components/utils'
+import Header from 'src/components/layout/Header'
+import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
@@ -23,20 +23,20 @@ import {
   WILL_VOELCKER,
   ALEX_LOBERA,
   RICHARD_MOSS,
-} from '../../components/training'
+} from 'src/components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
   CodeIcon,
   ReactIcon,
   CollabsIcon,
-} from '../../components/icons'
-import { Image } from '../../components/elements'
-import header from '../../components/layout/Header.json'
-import { PaymentSection } from '../../components/payment'
-import { Link, Breadcrumb } from '../../components/navigation'
-import { REACT_BOOTCAMP, LISBON } from '../../config/data'
-import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
+} from 'src/components/icons'
+import { Image } from 'src/components/elements'
+import header from 'src/components/layout/Header.json'
+import { PaymentSection } from 'src/components/payment'
+import { Link, Breadcrumb } from 'src/components/navigation'
+import { REACT_BOOTCAMP, LISBON } from 'src/config/data'
+import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const photos = [
   {
@@ -154,7 +154,7 @@ const BootcampLisbon = () => (
         city: LISBON,
       })
       const training =
-        selectNthTraining({ trainings: upcomingLisbonBootcamps }) || {}
+        selectNthTraining({ trainings: upcomingLisbonBootcamps, nth: 2 }) || {}
       const startMonth = formatUTC(
         training.dateStartsOn,
         training.utcOffset,

@@ -1,40 +1,38 @@
 import React from 'react'
 
-import Layout from '../../components/layout'
-import Section, { TopSection } from '../../components/layout/Section'
-import Grid, { Col, Row } from '../../components/layout/Grid'
-import { CurriculumPartTime } from '../../components/curriculum'
-import { Card, Video } from '../../components/elements'
+import Layout from 'src/components/layout'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { CurriculumPartTime } from 'src/components/curriculum'
+import { Card, Video } from 'src/components/elements'
 import {
   AttendeeQuote,
   UpcomingTrainingSection,
+  selectUpcomingTrainings,
+  selectNthTraining,
   TargetAudienceSection,
   TrainingDetails,
-  DAVID_LEULIETTE,
-  WILL_VOELCKER,
+  HORACIO_HERRERA,
   ALEX_LOBERA,
-  EVA_HOFFMANN,
-  FRANCISCO_GOMES,
-  selectNthTraining,
-  selectUpcomingTrainings,
-} from '../../components/training'
-import Header from '../../components/layout/Header'
-import { CATALIN } from '../../config/images'
-import header from '../../components/layout/Header.json'
-import { PaymentSection } from '../../components/payment'
-import { Breadcrumb } from '../../components/navigation'
-import { PART_TIME, LONDON } from '../../config/data'
-import { LIST_TWO_COL } from '../../components/curriculum/selectCurriculumLayout'
+} from 'src/components/training'
+import Header from 'src/components/layout/Header'
+import { CATALIN } from 'src/config/images'
+import header from 'src/components/layout/Header.json'
+import { PaymentSection } from 'src/components/payment'
+import { Breadcrumb } from 'src/components/navigation'
+import { PART_TIME, BARCELONA } from 'src/config/data'
+import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const BootcampLondon = () => (
+const PartTimeBarcelona = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const partTimeTrainings = selectUpcomingTrainings({
+      const upcomingPartTimeTrainings = selectUpcomingTrainings({
         trainings,
         type: PART_TIME,
-        city: LONDON,
+        city: BARCELONA,
       })
-      const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
+      const training =
+        selectNthTraining({ trainings: upcomingPartTimeTrainings }) || {}
       return (
         <React.Fragment>
           <Breadcrumb
@@ -44,18 +42,18 @@ const BootcampLondon = () => (
                 to: '/react-redux-graphql-part-time-course',
                 label: 'Part-time',
               },
-              { to: '/react-redux-training-london', label: 'London' },
+              { to: '/react-redux-training-barcelona', label: 'Barcelona' },
             ]}
           />
           <Header
-            titleLines={['React Redux part-time course - London']}
+            titleLines={['React Redux part-time course - Barcelona']}
             subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
             links={header.landingTraining.links}
             type={PART_TIME}
             training={training}
             showInfoBox={true}
           />
-          <TopSection top xsBgDark>
+          <TopSection xsBgDark top>
             <Grid>
               <Card bg="dark">
                 <Row>
@@ -68,20 +66,7 @@ const BootcampLondon = () => (
                   </Col>
                   <Col xs={12} md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="E_4eQQHjc7A" />
-                    <TrainingDetails
-                      date={training.dates}
-                      timing="6pm - 9pm Tuesday's & Thursday's"
-                      location={
-                        <React.Fragment>{training.city}</React.Fragment>
-                      }
-                      coaches={[
-                        EVA_HOFFMANN,
-                        DAVID_LEULIETTE,
-                        WILL_VOELCKER,
-                        ALEX_LOBERA,
-                        FRANCISCO_GOMES,
-                      ]}
-                    />
+                    <TrainingDetails coaches={[HORACIO_HERRERA, ALEX_LOBERA]} />
                   </Col>
                 </Row>
               </Card>
@@ -108,10 +93,7 @@ const BootcampLondon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumPartTime
-                      trainings={partTimeTrainings}
-                      layout={LIST_TWO_COL}
-                    />
+                    <CurriculumPartTime layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
@@ -124,4 +106,4 @@ const BootcampLondon = () => (
   </Layout>
 )
 
-export default BootcampLondon
+export default PartTimeBarcelona
