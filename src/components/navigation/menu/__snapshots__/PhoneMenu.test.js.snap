@@ -27,67 +27,39 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
 >
   <RJSALogo />
   <PhoneMenuItem
-    key="/curriculum"
+    key="/react/curriculum"
     onClick={[Function]}
-    to="/curriculum"
+    to="/react/curriculum"
   >
-    Curriculum
+    React Curriculum
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/react/training/bootcamp"
+    key="/react/training"
     onClick={[Function]}
-    to="/react/training/bootcamp"
+    to="/react/training"
   >
-    React Bootcamp
+    React Training
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/corporate-team-training"
+    key="/graphql/curriculum"
     onClick={[Function]}
-    to="/corporate-team-training"
+    to="/graphql/curriculum"
   >
-    Corporate Team Training
+    GraphQL Curriculum
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/advanced-react-redux-graphql-bootcamp"
+    key="/graphql/training"
     onClick={[Function]}
-    to="/advanced-react-redux-graphql-bootcamp"
+    to="/graphql/training"
   >
-    Advanced React 
+    GraphQL Training
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/react-redux-graphql-part-time-course"
+    key="/blog"
     onClick={[Function]}
-    to="/react-redux-graphql-part-time-course"
+    to="/blog"
   >
-    Part-time Course
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/graphql/training/bootcamp"
-    onClick={[Function]}
-    to="/graphql/training/bootcamp"
-  >
-    GraphQL Bootcamp
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/react-native-bootcamp"
-    onClick={[Function]}
-    to="/react-native-bootcamp"
-  >
-    React Native
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/react-workshops"
-    onClick={[Function]}
-    to="/react-workshops"
-  >
-    1-day Workshops
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/community"
-    onClick={[Function]}
-    to="/community"
-  >
-    Community
+    Blog
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/about-us"
@@ -97,11 +69,11 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     About us
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/blog"
+    key="/community"
     onClick={[Function]}
-    to="/blog"
+    to="/community"
   >
-    Blog
+    Community
   </PhoneMenuItem>
   <PhoneMenuItem
     key="#contact-us"
