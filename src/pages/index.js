@@ -71,7 +71,7 @@ const IndexPage = () => (
                 <LinkButton
                   variant="primary"
                   to="/react/training/bootcamp"
-                  children="1-week bootcamp "
+                  children="React bootcamp "
                 />
               </Col>
               <Col xs={12} sm={4}>
