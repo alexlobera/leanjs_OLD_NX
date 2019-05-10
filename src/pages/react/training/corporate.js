@@ -15,7 +15,7 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import { Card, Video } from 'src/components/elements'
-import CorporateTechSelector from 'src/components/curriculum/CorporateTechSelector'
+import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
 import { EBER } from 'src/config/images'
 import {
   BussinessIcon,
@@ -72,7 +72,7 @@ const CorporateReactTraining = () => (
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">
-              <CorporateTechSelector />
+              <CurriculumCorporateReact />
             </Card>
           </Grid>
         </TopSection>

@@ -15,7 +15,7 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import { Card, Video } from 'src/components/elements'
-import CorporateTechSelector from 'src/components/curriculum/CorporateTechSelector'
+import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL.js'
 import { EBER } from 'src/config/images'
 import {
   BussinessIcon,
@@ -40,17 +40,13 @@ const CorporateGraphQLTraining = () => (
               label: 'GraphQL',
             },
             {
-              to: '/graphql/training',
-              label: 'Training',
-            },
-            {
-              to: '/graphql/training/corporate',
+              to: '/graphql/corporate',
               label: 'Corporate',
             },
           ]}
         />
         <Header
-          titleLines={['Corporate GraphQL team training']}
+          titleLines={['Corporate React team training']}
           subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
           links={[
             { text: 'Training schedule', to: '#schedule' },
@@ -76,7 +72,7 @@ const CorporateGraphQLTraining = () => (
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">
-              <CorporateTechSelector />
+              <CurriculumCorporateGraphQL />
             </Card>
           </Grid>
         </TopSection>
