@@ -46,7 +46,7 @@ const CorporateGraphQLTraining = () => (
           ]}
         />
         <Header
-          titleLines={['Corporate React team training']}
+          titleLines={['Corporate GraphQL team training']}
           subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
           links={[
             { text: 'Training schedule', to: '#schedule' },
