@@ -38,8 +38,9 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
+      const blogPaths = /(\/blog\/|\/react\/|\/graphql\/)/g
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if (node.fields.slug.includes('/blog')) {
+        if (node.fields.slug.match(blogPaths)) {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/blog-post.js`),
