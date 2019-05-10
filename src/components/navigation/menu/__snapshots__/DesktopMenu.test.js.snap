@@ -9,51 +9,43 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
     inline={true}
   >
     <DesktopMenuItem
-      key="/curriculum"
-      text="Curriculum"
-      to="/curriculum"
-    />
-    <DesktopMenuItem
-      key="/react/training/bootcamp"
+      key="/react"
       submenuItems={
         Array [
           Object {
-            "text": "React Bootcamp",
-            "to": "/react/training/bootcamp",
+            "text": "React Curriculum",
+            "to": "/react/curriculum",
           },
           Object {
-            "text": "Corporate Team Training",
-            "to": "/corporate-team-training",
-          },
-          Object {
-            "text": "Advanced React ",
-            "to": "/advanced-react-redux-graphql-bootcamp",
-          },
-          Object {
-            "text": "Part-time Course",
-            "to": "/react-redux-graphql-part-time-course",
-          },
-          Object {
-            "text": "GraphQL Bootcamp",
-            "to": "/graphql/training/bootcamp",
-          },
-          Object {
-            "text": "React Native",
-            "to": "/react-native-bootcamp",
-          },
-          Object {
-            "text": "1-day Workshops",
-            "to": "/react-workshops",
+            "text": "React Training",
+            "to": "/react/training",
           },
         ]
       }
-      text="Training"
-      to="/react/training/bootcamp"
+      text="React"
+      to="/react"
     />
     <DesktopMenuItem
-      key="/community"
-      text="Community"
-      to="/community"
+      key="/graphql"
+      submenuItems={
+        Array [
+          Object {
+            "text": "GraphQL Curriculum",
+            "to": "/graphql/curriculum",
+          },
+          Object {
+            "text": "GraphQL Training",
+            "to": "/graphql/training",
+          },
+        ]
+      }
+      text="GraphQL"
+      to="/graphql"
+    />
+    <DesktopMenuItem
+      key="/blog"
+      text="Blog"
+      to="/blog"
     />
     <DesktopMenuItem
       key="/about-us"
@@ -61,9 +53,9 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/about-us"
     />
     <DesktopMenuItem
-      key="/blog"
-      text="Blog"
-      to="/blog"
+      key="/community"
+      text="Community"
+      to="/community"
     />
     <DesktopMenuItem
       key="#contact-us"

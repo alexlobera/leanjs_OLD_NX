@@ -21,27 +21,13 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Card, Image, Video } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { DAVIAN, COURSE_COLLAB } from 'src/config/images'
+
 import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  PeopleNetWorkIcon,
-  BussinessIcon,
-  CalendarIcon,
   CodeIcon,
   CollabsIcon,
-  EnterMindIcon,
-  HeartIcon,
-  NotBegginerIcon,
   ProductionReadyIcon,
-  SpannerIcon,
   StarIcon,
-  TimeIcon,
   TrainerIcon,
-  ReactIcon,
   BulletIcon,
 } from 'src/components/icons'
 
@@ -91,23 +77,23 @@ const TrainingPage = props => (
             links={[
               {
                 text: 'Curriculum',
-                to: '#please-change-paul',
+                to: '#curriculum',
               },
               {
                 text: 'Upcoming Courses',
-                to: '#please-change-paul',
+                to: '#upcoming-courses',
               },
               {
                 text: 'Free Learning Resources',
-                to: '#please-change-paul',
+                to: '#free-learning-resources',
               },
               {
                 text: 'Corporate Training',
-                to: '#please-change-paul',
+                to: '#corporate-training',
               },
               {
                 text: 'Student Outcomes',
-                to: '#please-change-paul',
+                to: '#student-outcomes',
               },
             ]}
             type={REACT_BOOTCAMP}
@@ -145,7 +131,6 @@ const TrainingPage = props => (
                 </Col>
               </CallToActionRow>
               <Card border="shadow">
-                <Link to="#upcoming-courses" name="upcoming-courses" />
                 <FullCurriculumsReact trainings={trainings} />
               </Card>
             </Grid>
@@ -157,6 +142,7 @@ const TrainingPage = props => (
                   <Video youtubeId="E_4eQQHjc7A" />
                 </Col>
                 <Col md={5} mdOffset={1}>
+                  <Link to="#student-outcomes" name="student-outcomes" />
                   <H2>What students get from a our training</H2>
                   <Ul unstyled>
                     <Li>
