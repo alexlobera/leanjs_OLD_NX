@@ -24,15 +24,15 @@ const createTrainingPath = ({ type, city = '', index }) => {
   const i = index > 1 ? index : ''
   switch (type) {
     case PART_TIME:
-      return `/react-redux-training-${city.toLowerCase()}/${i}`
+      return `/react/training/part-time-course/${city.toLowerCase()}/${i}`
     case REACT_BOOTCAMP:
-      return `/react-redux-graphql-bootcamp-${city.toLowerCase()}/${i}`
+      return `/react/training/bootcamp/${city.toLowerCase()}/${i}`
     case REACT_NATIVE:
-      return `/react-native-bootcamp-${city.toLowerCase()}/${i}`
+      return `/react/training/react-native/${city.toLowerCase()}/${i}`
     case ADVANCED_REACT:
-      return `/advanced-react-redux-graphql-bootcamp-${city.toLowerCase()}/${i}`
+      return `/react/training/advanced/${city.toLowerCase()}/${i}`
     case GRAPHQL_BOOTCAMP:
-      return `/graphql-bootcamp-${city.toLowerCase()}/${i}`
+      return `/graphql/training/bootcamp/${city.toLowerCase()}/${i}`
     case ONE_DAY_WORKSHOP:
       return `/react-one-day-workshop`
     default:
