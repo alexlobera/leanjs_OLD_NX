@@ -70,13 +70,13 @@ const IndexPage = () => (
               <Col xs={12} sm={4}>
                 <LinkButton
                   variant="primary"
-                  to="/react-redux-graphql-bootcamp"
+                  to="/react/training/bootcamp"
                   children="1-week bootcamp "
                 />
               </Col>
               <Col xs={12} sm={4}>
                 <LinkButton
-                  to="/graphql-bootcamp"
+                  to="/graphql/training/bootcamp"
                   children="GraphQL Bootcamp "
                   variant="secondary"
                 />
@@ -136,7 +136,7 @@ const IndexPage = () => (
                   <Col sm={6}>
                     <LinkButton
                       variant="primary"
-                      to="/react-redux-graphql-bootcamp"
+                      to="/react/training/bootcamp"
                       children="React bootcamps"
                     />
                   </Col>
@@ -188,10 +188,8 @@ const IndexPage = () => (
                   </Li>
                   <Li>
                     <BulletIcon icon={TimeIcon} />
-                    <Link to="/react-redux-graphql-bootcamp">
-                      Bootcamps
-                    </Link>{' '}
-                    for accelerated learning.
+                    <Link to="/react/training/bootcamp">Bootcamps</Link> for
+                    accelerated learning.
                   </Li>
                   <Li>
                     <BulletIcon icon={CalendarIcon} />

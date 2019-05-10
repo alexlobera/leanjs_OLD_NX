@@ -14,12 +14,12 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/curriculum"
     />
     <DesktopMenuItem
-      key="/react-redux-graphql-bootcamp"
+      key="/react/training/bootcamp"
       submenuItems={
         Array [
           Object {
             "text": "React Bootcamp",
-            "to": "/react-redux-graphql-bootcamp",
+            "to": "/react/training/bootcamp",
           },
           Object {
             "text": "Corporate Team Training",
@@ -35,7 +35,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
           },
           Object {
             "text": "GraphQL Bootcamp",
-            "to": "/graphql-bootcamp",
+            "to": "/graphql/training/bootcamp",
           },
           Object {
             "text": "React Native",
@@ -48,7 +48,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
         ]
       }
       text="Training"
-      to="/react-redux-graphql-bootcamp"
+      to="/react/training/bootcamp"
     />
     <DesktopMenuItem
       key="/community"

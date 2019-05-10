@@ -168,7 +168,7 @@ const CurriculumPartTime = ({
                   bootcamp has it all...
                 </Col>
                 <Col lg={6} center>
-                  <LinkButton to="/react-redux-graphql-bootcamp">
+                  <LinkButton to="/react/training/bootcamp">
                     1 week bootcamp
                   </LinkButton>
                 </Col>

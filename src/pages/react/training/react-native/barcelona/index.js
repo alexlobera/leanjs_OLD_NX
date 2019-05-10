@@ -109,9 +109,7 @@ const ReactNativeBoocampBarcelona = () => (
                       You have at least a few months of experience using React
                       on the web. If you don't know React, we recommend you
                       first to attend our{' '}
-                      <Link to="/react-redux-graphql-bootcamp">
-                        React Bootcamp
-                      </Link>
+                      <Link to="/react/training/bootcamp">React Bootcamp</Link>
                     </Li>
                     <Li>
                       <BulletIcon icon={ReactIcon} />
@@ -133,10 +131,7 @@ const ReactNativeBoocampBarcelona = () => (
                   <P>
                     This is not a training for React beginners. If you don't
                     know React, we recommend you first to attend our{' '}
-                    <Link to="/react-redux-graphql-bootcamp">
-                      React Bootcamp
-                    </Link>
-                    .
+                    <Link to="/react/training/bootcamp">React Bootcamp</Link>.
                   </P>
                 </Col>
               </Row>

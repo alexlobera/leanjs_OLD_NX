@@ -1,47 +1,37 @@
 [
   {
-    "to": "/curriculum",
-    "text": "Curriculum",
-    "onlyOn": null
-  },
-  {
-    "to": "/react-redux-graphql-bootcamp",
-    "text": "Training",
+    "to": "/react",
+    "text": "React",
     "onlyOn": null,
     "children": [
       {
-        "to": "/react-redux-graphql-bootcamp",
-        "text": "React Bootcamp"
+        "to": "/react/curriculum",
+        "text": "React Curriculum"
       },
       {
-        "to": "/corporate-team-training",
-        "text": "Corporate Team Training"
-      },
-      {
-        "to": "/advanced-react-redux-graphql-bootcamp",
-        "text": "Advanced React "
-      },
-      {
-        "to": "/react-redux-graphql-part-time-course",
-        "text": "Part-time Course"
-      },
-      {
-        "to": "/graphql-bootcamp",
-        "text": "GraphQL Bootcamp"
-      },
-      {
-        "to": "/react-native-bootcamp",
-        "text": "React Native"
-      },
-      {
-        "to": "/react-workshops",
-        "text": "1-day Workshops"
+        "to": "/react/training",
+        "text": "React Training"
       }
     ]
   },
   {
-    "to": "/community",
-    "text": "Community",
+    "to": "/graphql",
+    "text": "GraphQL",
+    "onlyOn": null,
+    "children": [
+      {
+        "to": "/graphql/curriculum",
+        "text": "GraphQL Curriculum"
+      },
+      {
+        "to": "/graphql/training",
+        "text": "GraphQL Training"
+      }
+    ]
+  },
+  {
+    "to": "/blog",
+    "text": "Blog",
     "onlyOn": null
   },
   {
@@ -50,8 +40,8 @@
     "onlyOn": null
   },
   {
-    "to": "/blog",
-    "text": "Blog",
+    "to": "/community",
+    "text": "Community",
     "onlyOn": null
   },
   {

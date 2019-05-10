@@ -274,7 +274,7 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <LinkButton
                                   variant="secondary"
-                                  to="/react-redux-graphql-bootcamp"
+                                  to="/react/training/bootcamp"
                                 >
                                   React Bootcamp
                                 </LinkButton>
@@ -298,7 +298,7 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <LinkButton
                                   variant="secondary"
-                                  to="/graphql-bootcamp"
+                                  to="/graphql/training/bootcamp"
                                 >
                                   GraphQL Bootcamp
                                 </LinkButton>

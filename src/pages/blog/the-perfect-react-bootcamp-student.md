@@ -7,7 +7,7 @@ imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 order: 15
 ---
 
-We’ve been teaching React since 2016 and in that time we’ve often been asked what makes the perfect ReactJS Academy student. We’ve been asked what base knowledge you need, especially. So today we’re going to answer a few FAQs to make sure you get the most out of [React Bootcamp](/react-redux-graphql-bootcamp/) - and we’ll have some snippets from past students along the way!
+We’ve been teaching React since 2016 and in that time we’ve often been asked what makes the perfect ReactJS Academy student. We’ve been asked what base knowledge you need, especially. So today we’re going to answer a few FAQs to make sure you get the most out of [React Bootcamp](/react/training/bootcamp/) - and we’ll have some snippets from past students along the way!
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2Fimage_1.jpg?alt=media&)
 
@@ -71,7 +71,7 @@ That’s the opinion of Senior Software Developer, Davian Robinson anyway. After
 
 We’ll build on your baseline of experience to get you thinking in the React way. Throughout the week, you’ll always be coding. **In every unit, you’ll work on a hands-on, practical mini-project so you can learn how to build in React.** [See the 'Introduction to Thinking In React' project on our Github](https://github.com/reactjsacademy/thinking-in-react) - you can try for yourself right now!
 
-After the [React Bootcamp](/react-redux-graphql-bootcamp/), you’ll have all the skills you need to implement React best practices and apply it to your companies use case. The great thing about React is that it’s adaptable - you can easily adopt in your organisation. So if you want to change how your organisation creates UIs for the better, the React Bootcamp is for you.
+After the [React Bootcamp](/react/training/bootcamp/), you’ll have all the skills you need to implement React best practices and apply it to your companies use case. The great thing about React is that it’s adaptable - you can easily adopt in your organisation. So if you want to change how your organisation creates UIs for the better, the React Bootcamp is for you.
 
 Jaron Schulz, a developer from Berlin, had this to say:
 

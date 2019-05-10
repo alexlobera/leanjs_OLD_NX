@@ -150,10 +150,7 @@ const BootcampLondon = () => (
                     This is a bootcamp for React developers that are experienced
                     with React. If you don't have 1+ year of experience using
                     React we recommend you to attend our{' '}
-                    <Link to="/react-redux-graphql-bootcamp">
-                      React Bootcamp
-                    </Link>
-                    .
+                    <Link to="/react/training/bootcamp">React Bootcamp</Link>.
                   </P>
                 </Col>
               </Row>

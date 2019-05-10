@@ -42,7 +42,7 @@ We are not going to get into much detail about JWT in this article, but we want 
 
 The [JWT website](https://jwt.io/) has a debugger tool on the home page and you can paste tokens and visualize the content. Have a look, it’s fun to play with it if you haven’t yet.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql-bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 
 ## Storing the state on the client <a name="storing-state-on-the-client"></a>
 

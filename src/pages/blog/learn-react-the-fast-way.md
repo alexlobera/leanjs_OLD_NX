@@ -76,7 +76,7 @@ To do data fetching in React, you can now use the well supported [fetch API](htt
 
 At this stage you now have learned all the fundamentals that you know in order to build basic applications so it’s time to practice! I highly recommend building an application that consumes some data from an API, you can implement basic routing in order to give a _list view_ and _detail view_ and then you can add some forms and login to practice those parts. If you’d like some inspiration and a scaffold, [there’s one here](https://github.com/reactjsacademy/fb-messenger/tree/recap1)! I’m sure you can think of a few other fun ones to make tho, what about using a weather api, or the [Rick and Morty api](https://rickandmortyapi.com/) ?? So many options 😁
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql-bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 
 ### Step 6 and beyond <a name="beyond"></a>
 
@@ -86,7 +86,7 @@ If you get to this stage you are in good shape to start looking at some of the o
 
 ### How to tackle this <a name="how-to-tackle-this"></a>
 
-In one word, persistence. Of course there is another option here, which is to join us at one of our [React bootcamps and advanced trainings](/react-redux-graphql-bootcamp/) 😉
+In one word, persistence. Of course there is another option here, which is to join us at one of our [React bootcamps and advanced trainings](/react/training/bootcamp/) 😉
 
 Coming back to the advice at the beginning though, take it one step at a time. There is a lot to learn and trying to do it all at once in a non-structured way will be harder. When it comes to the tooling in the React ecosystem, it is very extensive. When assessing whether to learn and use a new tool, the first step is to understand why you may need it. In the case of both Redux and GraphQL this is incredibly important. It’s not worth trying to learn Redux if you don’t understand the problem it’s solving, for example, did you know that the GraphQL apollo client solves a lot of the same problems? As does the new context API in React itself.
 

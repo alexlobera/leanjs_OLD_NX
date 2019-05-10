@@ -34,7 +34,7 @@ const createTrainingPath = ({ type, city = '', index }) => {
     case GRAPHQL_BOOTCAMP:
       return `/graphql/training/bootcamp/${city.toLowerCase()}/${i}`
     case ONE_DAY_WORKSHOP:
-      return `/react-one-day-workshop`
+      return `/react/training/workshops/design-system-styling-in-react/`
     default:
       return '/'
   }
