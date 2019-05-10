@@ -53,7 +53,10 @@ const IndexPage = () => (
     {({ trainings }) => (
       <React.Fragment>
         <Header
-          titleLines={['Take your dev career further', 'by mastering React']}
+          titleLines={[
+            'Take your dev career further',
+            'by mastering React and GraphQL',
+          ]}
           subtitle="In-person training from experts who were <br /> the first in
         Europe to teach React"
           bgColor="blue"
@@ -65,22 +68,15 @@ const IndexPage = () => (
               <Col xs={12} sm={4}>
                 <LinkButton
                   variant="primary"
-                  to="/react/training/bootcamp"
-                  children="React bootcamp "
+                  to="/react/training"
+                  children="React Training >>"
                 />
               </Col>
-              <Col xs={12} sm={4}>
+              <Col xs={12} sm={3}>
                 <LinkButton
-                  to="/graphql/training/bootcamp"
-                  children="GraphQL Bootcamp "
-                  variant="secondary"
-                />
-              </Col>
-              <Col xs={12} sm={4}>
-                <LinkButton
-                  variant="secondary"
-                  to="/corporate-team-training/"
-                  children="Corporate training "
+                  to="/graphql/training"
+                  children="GraphQL Training >>"
+                  variant="primary"
                 />
               </Col>
             </CallToActionRow>
