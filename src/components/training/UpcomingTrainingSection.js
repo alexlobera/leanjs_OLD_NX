@@ -80,7 +80,7 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
         <Row>
           <Link to="#corporate-training" name="corporate-training" />
           <Col md={10}>
-            <CorporateTrainingCard />
+            <CorporateTrainingCard type={type} />
           </Col>
         </Row>
       </React.Fragment>

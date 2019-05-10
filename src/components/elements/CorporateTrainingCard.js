@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { FONT_FAMILY } from '../../config/styles'
 import LinkButton from '../buttons/LinkButton'
 import { P, H3 } from '../text'
+import { GRAPHQL_BOOTCAMP } from '../../config/data'
 
 const StyledCorporateTrainingCard = styled.div`
   ${FONT_FAMILY};
@@ -11,7 +12,7 @@ const StyledCorporateTrainingCard = styled.div`
     margin: 1rem 0;
   }
 `
-const CorporateTrainingCard = props => (
+const CorporateTrainingCard = ({ type }) => (
   <StyledCorporateTrainingCard>
     <H3>Corporate Team Training</H3>
     <P>
@@ -20,7 +21,7 @@ const CorporateTrainingCard = props => (
     </P>
     <LinkButton
       to={
-        props.graphql
+        type === GRAPHQL_BOOTCAMP
           ? `/graphql/training/corporate/`
           : '/react/training/corporate/'
       }
