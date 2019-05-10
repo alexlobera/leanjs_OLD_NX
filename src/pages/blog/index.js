@@ -18,6 +18,7 @@ const CardText = styled.div`
 
 const Blog = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
+  console.log(posts)
   return (
     <Layout>
       {({ trainings }) => (
@@ -70,7 +71,7 @@ const Blog = ({ data }) => {
 export const query = graphql`
   query blogQuery {
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/blog/" } } }
+      filter: { fields: { slug: { regex: "/(/blog/|/react/|/graphql/)/g" } } }
       sort: { fields: [frontmatter___order], order: DESC }
     ) {
       edges {
