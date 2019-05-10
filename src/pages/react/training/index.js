@@ -105,12 +105,12 @@ const TrainingPage = props => (
                   <LinkButton
                     variant="primary"
                     to="/react/training/bootcamp"
-                    children="7-Day Bootcamp "
+                    children="7-Day Bootcamp"
                   />
                 </Col>
                 <Col xs={12} sm={3}>
                   <LinkButton
-                    to="/graphql/training/bootcamp"
+                    to="/react/training/part-time-course"
                     children="Part-Time Course"
                     variant="secondary"
                   />
@@ -118,15 +118,15 @@ const TrainingPage = props => (
                 <Col xs={12} sm={3}>
                   <LinkButton
                     variant="secondary"
-                    to="/corporate-team-training/"
+                    to="/react/training/advanced"
                     children="React Advanced"
                   />
                 </Col>
                 <Col xs={12} sm={3}>
                   <LinkButton
                     variant="secondary"
-                    to="/corporate-team-training/"
-                    children="Workshops"
+                    to="/react/training/workshops"
+                    children="1-Day Workshops"
                   />
                 </Col>
               </CallToActionRow>
