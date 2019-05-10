@@ -35,12 +35,7 @@ import {
   ReactIcon,
   BulletIcon,
 } from '../components/icons'
-import {
-  COURSE_COLLAB,
-  WHY_REACTJS_ACADEMY,
-  DAN,
-  NASSAR,
-} from '../config/images.js'
+import { WHY_REACTJS_ACADEMY, DAN, NASSAR } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 
 const SectionButtonRow = styled(Row)`
@@ -94,80 +89,6 @@ const IndexPage = () => (
             </Card>
           </Grid>
         </TopSection>
-        <Section>
-          <Grid>
-            <Row>
-              <Col md={5}>
-                <Image
-                  src={COURSE_COLLAB}
-                  width="100%"
-                  alt="Four developers gathered around a laptop, pair programming together on a piece of work during a ReactJS Academy bootcamp."
-                />
-              </Col>
-              <Col md={5} mdOffset={1}>
-                <H2>What will I get from a ReactJS Academy training?</H2>
-                <Ul unstyled>
-                  <Li>
-                    <BulletIcon icon={ProductionReadyIcon} />
-                    <strong>Build production ready</strong> React apps.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={CollabsIcon} />
-                    Discuss <strong>real-world projects</strong>.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={StarIcon} />
-                    Learn <strong>best practices</strong>.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={TrainerIcon} />
-                    <strong>Mentoring</strong> by our expert coaches.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={HeartIcon} />
-                    Alumni <strong>community</strong>.
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={CodeIcon} />
-                    <strong>Stay ahead</strong> in modern development.
-                  </Li>
-                </Ul>
-                <SectionButtonRow>
-                  <Col sm={6}>
-                    <LinkButton
-                      variant="primary"
-                      to="/react/training/bootcamp"
-                      children="React bootcamps"
-                    />
-                  </Col>
-                  <Col sm={6}>
-                    <LinkButton
-                      variant="secondary"
-                      to="/corporate-team-training"
-                    >
-                      Corporate training
-                    </LinkButton>
-                  </Col>
-                </SectionButtonRow>
-              </Col>
-            </Row>
-          </Grid>
-        </Section>
-        <Section>
-          <Grid>
-            <Row>
-              <Col mdOffset={1} md={10}>
-                <AttendeeQuote
-                  quote="ReactJS Academy has literally taken me from no React experience to feeling like I can go back to my company as an expert. It’s forwarded my career significantly."
-                  fullname="Dan Jones"
-                  job="React developer"
-                  company="AgilityWorks"
-                  profilePicUrl={DAN}
-                />
-              </Col>
-            </Row>
-          </Grid>
-        </Section>
         <Section>
           <Grid>
             <Row>

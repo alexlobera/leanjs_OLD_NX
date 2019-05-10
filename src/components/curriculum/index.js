@@ -10,6 +10,7 @@ import CurriculumCorpGrapQL from './CurriculumCorpGraphQL'
 import CurriculumCorpRNative from './CurriculumCorpRNative'
 import CurriculumGraphQL from './CurriculumGraphQL'
 import CurriculumOneDayStyling from './CurriculumOneDayStyling'
+import FullCurriculumsReact from './FullCurriculumsReact'
 
 export {
   CurriculumBootcamp,
@@ -24,4 +25,5 @@ export {
   CurriculumCorpGrapQL,
   CurriculumCorpRNative,
   CurriculumOneDayStyling,
+  FullCurriculumsReact,
 }

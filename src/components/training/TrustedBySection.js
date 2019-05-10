@@ -14,6 +14,7 @@ import IKEA from '../logos/IKEA'
 import Microsoft from '../logos/Microsoft'
 import { REACT_BLUE_DARK } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
+import { LinkButton } from 'src/components/buttons'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
 const FinancialTimes = styled(DefaultFinancialTimes)`
@@ -76,7 +77,7 @@ const TrustedBySection = () => (
       <Card bg="dark">
         <Row>
           <Col xs={12} lg={10} lgOffset={1}>
-            <H2>Trusted by industry leaders:</H2>
+            <H2>Trusted by industry leaders</H2>
           </Col>
         </Row>
         <Row>
