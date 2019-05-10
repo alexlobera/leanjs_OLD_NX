@@ -74,6 +74,7 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
           contact: {
             FirstName: name,
             Email: email,
+            LeadSource: '1-day workshops form',
             _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
             custom: {
               'boolean--Fundamentals--Session': fundamentals,
