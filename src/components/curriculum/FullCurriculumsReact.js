@@ -14,7 +14,7 @@ import {
   REACT_BOOTCAMP,
   PART_TIME,
   ADVANCED_REACT,
-  REACT_CORPORATE,
+  ONE_DAY_WORKSHOP,
 } from '../../config/data'
 
 class FullCurriculumsReact extends React.Component {
@@ -56,9 +56,7 @@ class FullCurriculumsReact extends React.Component {
                 <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
                 <TabItem name={ADVANCED_REACT}>Advanced React Bootcamp</TabItem>
                 <TabItem name={PART_TIME}>Part-time Course</TabItem>
-                <TabItem name={REACT_CORPORATE}>
-                  <Link to="/react/training/corporate">Corporate Training</Link>
-                </TabItem>
+                <TabItem name={ONE_DAY_WORKSHOP}>1-Day Workshops</TabItem>
               </TabList>
 
               <TabContent>
@@ -69,6 +67,9 @@ class FullCurriculumsReact extends React.Component {
                   <CurriculumAdvancedReact {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={PART_TIME}>
+                  <CurriculumPartTime {...commonCurriculumProps} />
+                </ContentItem>
+                <ContentItem name={ONE_DAY_WORKSHOP}>
                   <CurriculumPartTime {...commonCurriculumProps} />
                 </ContentItem>
               </TabContent>

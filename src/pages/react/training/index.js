@@ -105,7 +105,7 @@ const TrainingPage = props => (
                   <LinkButton
                     variant="primary"
                     to="/react/training/bootcamp"
-                    children="7-Day Bootcamp"
+                    children="1-Week Bootcamp"
                   />
                 </Col>
                 <Col xs={12} sm={3}>
@@ -125,8 +125,8 @@ const TrainingPage = props => (
                 <Col xs={12} sm={3}>
                   <LinkButton
                     variant="secondary"
-                    to="/react/training/workshops"
-                    children="1-Day Workshops"
+                    to="/react/training/corporate"
+                    children="Corporate Training"
                   />
                 </Col>
               </CallToActionRow>
