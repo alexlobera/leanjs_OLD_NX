@@ -77,7 +77,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
       </CurriculumSection>
       <styled.div>
         <LinkButton
-          to="/curriculum?tab=React Native"
+          to="/react/curriculum?tab=React Native"
           trackUserBehaviour={[Function]}
           variant="default"
         >
