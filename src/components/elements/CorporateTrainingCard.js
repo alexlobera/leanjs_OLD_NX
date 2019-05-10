@@ -11,14 +11,20 @@ const StyledCorporateTrainingCard = styled.div`
     margin: 1rem 0;
   }
 `
-const CorporateTrainingCard = () => (
+const CorporateTrainingCard = props => (
   <StyledCorporateTrainingCard>
     <H3>Corporate Team Training</H3>
     <P>
       Private team training, located in your offices anywhere in the world,
       based on our proven curriculum for React and GraphQL{' '}
     </P>
-    <LinkButton to="/corporate-team-training/">
+    <LinkButton
+      to={
+        props.graphql
+          ? `/graphql/training/corporate/`
+          : '/react/training/corporate/'
+      }
+    >
       Corporate Team Training
     </LinkButton>
   </StyledCorporateTrainingCard>
