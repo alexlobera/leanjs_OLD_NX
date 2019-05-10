@@ -14,7 +14,7 @@ const CurriculumOneDayStyling = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/curriculum?tab=${ONE_DAY_WORKSHOP}`,
+  toggleNavigateTo = `/react/curriculum?tab=${ONE_DAY_WORKSHOP}`,
   marketingCard = null,
   showLinkToCurriculum = false,
 }) => {

@@ -36,7 +36,7 @@ const CurriculumPartTime = ({
   showTitle = true,
   isOpen,
   enableToggle,
-  toggleNavigateTo = `/curriculum?tab=${PART_TIME}`,
+  toggleNavigateTo = `/react/curriculum?tab=${PART_TIME}`,
   showCallToActionBottom = false,
   marketingCard = null,
   layout,

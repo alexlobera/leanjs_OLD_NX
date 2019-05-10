@@ -78,17 +78,6 @@ const Bootcamps = props => (
           <Section>
             <Grid>
               <Row>
-                <Col md={5}>
-                  <Video youtubeId="6hmKu1-vW-8" />
-                  <P>
-                    Listen to Polina Stoyanova, a software engineer from tray.io
-                    who attended our last bootcamp, on her experience at the
-                    bootcamp.
-                  </P>
-                  <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">
-                    Watch further testimonials
-                  </Link>
-                </Col>
                 <Col md={5} mdOffset={1}>
                   <H2>
                     <Link to="#target-audience" name="target-audience" />
@@ -133,6 +122,17 @@ const Bootcamps = props => (
                       </LinkButton>
                     )}
                   </P>
+                </Col>
+                <Col md={5}>
+                  <Video youtubeId="6hmKu1-vW-8" />
+                  <P>
+                    Listen to Polina Stoyanova, a software engineer from tray.io
+                    who attended our last bootcamp, on her experience at the
+                    bootcamp.
+                  </P>
+                  <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">
+                    Watch further testimonials
+                  </Link>
                 </Col>
               </Row>
             </Grid>
