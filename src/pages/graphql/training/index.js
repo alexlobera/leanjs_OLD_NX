@@ -125,7 +125,7 @@ const TrainingPage = props => (
             <Grid>
               <Row>
                 <Col md={5}>
-                  <Video youtubeId="E_4eQQHjc7A" />
+                  <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media&" />
                 </Col>
                 <Col md={5} mdOffset={1}>
                   <Link to="#student-outcomes" name="student-outcomes" />
@@ -133,7 +133,7 @@ const TrainingPage = props => (
                   <Ul unstyled>
                     <Li>
                       <BulletIcon icon={ProductionReadyIcon} />
-                      <strong>Build production ready</strong> React apps.
+                      <strong>Build production ready</strong> apps.
                     </Li>
                     <Li>
                       <BulletIcon icon={CollabsIcon} />
