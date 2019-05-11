@@ -5,11 +5,9 @@ import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
 import { ONE_DAY_WORKSHOP } from '../../config/data'
 import { H2Ref } from '../text'
-import selectCurriculumCorpLayout, {
-  LIST_TWO_COL,
-} from './selectCurriculumCorpLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
-const CurriculumOneDayStyling = ({
+const CurriculumOneDayWorkshops = ({
   showTitle = true,
   layout,
   enableToggle,
@@ -17,6 +15,7 @@ const CurriculumOneDayStyling = ({
   toggleNavigateTo = `/react/curriculum?tab=${ONE_DAY_WORKSHOP}`,
   marketingCard = null,
   showLinkToCurriculum = false,
+  trainings,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = ONE_DAY_WORKSHOP
@@ -26,6 +25,7 @@ const CurriculumOneDayStyling = ({
     toggleNavigateTo: toggleNavigateToSection,
     type,
     isOpen,
+    trainings,
   }
   const firstHalf = (
     <React.Fragment>
@@ -88,9 +88,15 @@ const CurriculumOneDayStyling = ({
       ) : (
         ''
       )}
-      {selectCurriculumCorpLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        trainings,
+      })}
     </React.Fragment>
   )
 }
 
-export default CurriculumOneDayStyling
+export default CurriculumOneDayWorkshops
