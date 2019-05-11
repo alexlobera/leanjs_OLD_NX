@@ -6,9 +6,8 @@ import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
 import {
   CurriculumBootcamp,
   CurriculumPartTime,
-  CurriculumReactNative,
   CurriculumAdvancedReact,
-  CurriculumGraphQL,
+  CurriculumOneDayWorkshops,
 } from './index'
 import {
   REACT_BOOTCAMP,
@@ -70,7 +69,7 @@ class FullCurriculumsReact extends React.Component {
                   <CurriculumPartTime {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={ONE_DAY_WORKSHOP}>
-                  <CurriculumPartTime {...commonCurriculumProps} />
+                  <CurriculumOneDayWorkshops {...commonCurriculumProps} />
                 </ContentItem>
               </TabContent>
             </Tabs>
