@@ -4,7 +4,6 @@ date: 2018-11-07
 subtitle: GraphQL is a modern syntax for building and querying APIs, but what does that actually mean? And why should you use GraphQL?
 author: richard
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fwhat-is-graphql-used-for%2Fwhat-is-graphql.jpg?alt=media&
-authorTwitter: richard
 order: 17
 ---
 
