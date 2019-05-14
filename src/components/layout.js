@@ -25,7 +25,7 @@ import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 import Navigation from './Navigation'
 import getFirebase, { FirebaseContext } from './Firebase'
-// import withAuthentication from './Session/withAuthentication'
+import withAuthentication from './Session/withAuthentication'
 
 raven.config(SENTRY_DSN).install()
 
@@ -83,9 +83,9 @@ const Layout = ({ children }) => {
     const database = import('firebase/database')
 
     Promise.all([app, auth, database]).then(values => {
-      const firebase = getFirebase(values[0])
+      const firebaseApp = getFirebase(values[0])
 
-      setFirebase(firebase)
+      setFirebase(firebaseApp)
     })
   }, [])
 

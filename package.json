@@ -8,7 +8,7 @@
     "apollo-client": "^2.3.5",
     "apollo-link-http": "^1.5.4",
     "final-form": "^4.9.1",
-    "firebase": "4.x",
+    "firebase": "^6.0.2",
     "firebase-admin": "^5.12.1",
     "firebase-functions": "^1.1.0",
     "gatsby": "^2.3.34",
