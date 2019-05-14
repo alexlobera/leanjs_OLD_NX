@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import { createHttpLink } from 'apollo-link-http'
@@ -23,6 +23,9 @@ import { UpcomingTrainings } from '../components/training'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
 import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-500.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
+import Navigation from './Navigation'
+import getFirebase, { FirebaseContext } from './Firebase'
+// import withAuthentication from './Session/withAuthentication'
 
 raven.config(SENTRY_DSN).install()
 
@@ -71,67 +74,83 @@ const preconnectUrls = [
   crossorigin: 'crossorigin',
 }))
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
-            keywords
+const Layout = ({ children }) => {
+  const [firebase, setFirebase] = useState(null)
+
+  useEffect(() => {
+    const app = import('firebase/app')
+    const auth = import('firebase/auth')
+    const database = import('firebase/database')
+
+    Promise.all([app, auth, database]).then(values => {
+      const firebase = getFirebase(values[0])
+
+      setFirebase(firebase)
+    })
+  }, [])
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+              description
+              keywords
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <React.Fragment>
-        <ThemeProvider theme={theme}>
-          <ApolloProvider client={graphqlClient}>
-            <React.Fragment>
-              <Helmet
-                title={data && data.site && data.site.siteMetadata.title}
-                meta={[
-                  {
-                    name: 'description',
-                    content:
-                      data && data.site && data.site.siteMetadata.description,
-                  },
-                  {
-                    name: 'keywords',
-                    content:
-                      data && data.site && data.site.siteMetadata.keywords,
-                  },
-                ]}
-                link={[
-                  ...preloadUrls,
-                  ...preconnectUrls,
-                  ...prefetchDnsUrls,
-                  { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
-                ]}
-                script={[
-                  {
-                    type: 'text/javascript',
-                    src:
-                      'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                    async: true,
-                  },
-                ]}
-              />
-              <Menu />
-              {typeof children === 'function' ? (
-                <UpcomingTrainings>{children}</UpcomingTrainings>
-              ) : (
-                children
-              )}
-              <Footer />
-              <AcceptCookies />
-            </React.Fragment>
-          </ApolloProvider>
-        </ThemeProvider>
-      </React.Fragment>
-    )}
-  />
-)
+      `}
+      render={data => (
+        <React.Fragment>
+          <ThemeProvider theme={theme}>
+            <ApolloProvider client={graphqlClient}>
+              <React.Fragment>
+                <Helmet
+                  title={data && data.site && data.site.siteMetadata.title}
+                  meta={[
+                    {
+                      name: 'description',
+                      content:
+                        data && data.site && data.site.siteMetadata.description,
+                    },
+                    {
+                      name: 'keywords',
+                      content:
+                        data && data.site && data.site.siteMetadata.keywords,
+                    },
+                  ]}
+                  link={[
+                    ...preloadUrls,
+                    ...preconnectUrls,
+                    ...prefetchDnsUrls,
+                    { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
+                  ]}
+                  script={[
+                    {
+                      type: 'text/javascript',
+                      src:
+                        'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                      async: true,
+                    },
+                  ]}
+                />
+                <Menu />
+                {typeof children === 'function' ? (
+                  <UpcomingTrainings>{children}</UpcomingTrainings>
+                ) : (
+                  children
+                )}
+                <Footer />
+                <AcceptCookies />
+              </React.Fragment>
+            </ApolloProvider>
+          </ThemeProvider>
+        </React.Fragment>
+      )}
+    />
+  )
+}
 
 export default Layout
