@@ -379,12 +379,13 @@ class CheckoutForm extends React.Component {
                   {currentPriceXQuantity &&
                   priceXQuantity - currentPriceXQuantity > 0 ? (
                     <Ribbon top={'-5'}>
-                      Save{' '}
+                      You save{' '}
                       {formatPrice(
                         currency,
                         priceXQuantity - currentPriceXQuantity,
                         vatRate
                       )}
+                      !
                     </Ribbon>
                   ) : (
                     ''
@@ -392,7 +393,7 @@ class CheckoutForm extends React.Component {
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>
-                    <Span>Full ticket price:</Span>
+                    <Span>Ticket (ex.VAT):</Span>
                   </Col>
                   <Col xs={7}>
                     <Span>{formatPrice(currency, priceXQuantity, 0)}</Span>
@@ -402,7 +403,7 @@ class CheckoutForm extends React.Component {
                   <React.Fragment>
                     <Row>
                       <Col xs={5}>
-                        <Span>Discount(s):</Span>
+                        <Span>Discounts:</Span>
                       </Col>
                       <Col xs={7}>
                         <Span>-{formatPrice(currency, discount, 0)}</Span>
