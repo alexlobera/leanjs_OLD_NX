@@ -102,7 +102,7 @@ const Layout = ({ children, ...props }) => {
       `}
       render={data => (
         <React.Fragment>
-          <FirebaseContext.Provider value={firebase}>
+          <AuthNav firebase={firebase}>
             <ThemeProvider theme={theme}>
               <ApolloProvider client={graphqlClient}>
                 <React.Fragment>
@@ -147,16 +147,13 @@ const Layout = ({ children, ...props }) => {
                   ) : (
                     children
                   )}
-                  <AuthNav
-                    firebase={firebase}
-                    style={{ marginBottom: '4em' }}
-                  />
+
                   <Footer />
                   <AcceptCookies />
                 </React.Fragment>
               </ApolloProvider>
             </ThemeProvider>
-          </FirebaseContext.Provider>
+          </AuthNav>
         </React.Fragment>
       )}
     />

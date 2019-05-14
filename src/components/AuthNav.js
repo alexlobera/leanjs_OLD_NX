@@ -4,21 +4,12 @@ import { Link } from 'gatsby'
 import SignIn from './SignIn'
 // import SignOutButton from '../SignOut'
 
-const Navigation = ({ firebase }) => {
+const Navigation = ({ firebase, children }) => {
   console.log('firebaseNavigation', firebase)
   const user = firebase && firebase.auth && firebase.auth.currentUser
 
-  return user ? <NavigationAuth /> : <NavigationNonAuth firebase={firebase} />
+  return user ? <>{children}</> : <NavigationNonAuth firebase={firebase} />
 }
-
-const NavigationAuth = () => (
-  <ul>
-    <li>
-      <p>signed in</p>
-      <Link to="/">Landing</Link>
-    </li>
-  </ul>
-)
 
 const NavigationNonAuth = ({ firebase }) => {
   console.log('navNonAuthfirebase', firebase)

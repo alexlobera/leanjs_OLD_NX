@@ -4,7 +4,7 @@ node_modules
 yarn-error.log
 firebase/firebase.js
 firebase-debug.log
-.firebase
+.firebaserc
 package.lock
 package-lock.json
 
