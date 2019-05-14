@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { navigate } from 'gatsby'
-import { withFirebase } from './firebase'
 
 const updateByPropertyName = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -35,11 +34,11 @@ class SignInForm extends Component {
   }
 
   render() {
+    console.log('signInprops', this.props)
     const { email, password, error } = this.state
 
     const isInvalid = password === '' || email === ''
-    console.log(this.state)
-    console.log(this.props)
+    // console.log(this.state)
     return (
       <form onSubmit={this.onSubmit}>
         <input
@@ -68,4 +67,4 @@ class SignInForm extends Component {
   }
 }
 
-export default withFirebase(SignInForm)
+export default SignInForm

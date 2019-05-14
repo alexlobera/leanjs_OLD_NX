@@ -76,7 +76,6 @@ const preconnectUrls = [
 
 const Layout = ({ children, ...props }) => {
   const [firebase, setFirebase] = useState(null)
-
   useEffect(() => {
     const app = import('firebase/app')
     const auth = import('firebase/auth')
@@ -84,7 +83,6 @@ const Layout = ({ children, ...props }) => {
 
     Promise.all([app, auth, database]).then(values => {
       const firebaseApp = getFirebase(values[0])
-
       setFirebase(firebaseApp)
     })
   }, [])
@@ -105,60 +103,59 @@ const Layout = ({ children, ...props }) => {
       render={data => (
         <React.Fragment>
           <FirebaseContext.Provider value={firebase}>
-            <AppWithAuthentication {...props}>
-              <ThemeProvider theme={theme}>
-                <ApolloProvider client={graphqlClient}>
-                  <React.Fragment>
-                    <Helmet
-                      title={data && data.site && data.site.siteMetadata.title}
-                      meta={[
-                        {
-                          name: 'description',
-                          content:
-                            data &&
-                            data.site &&
-                            data.site.siteMetadata.description,
-                        },
-                        {
-                          name: 'keywords',
-                          content:
-                            data &&
-                            data.site &&
-                            data.site.siteMetadata.keywords,
-                        },
-                      ]}
-                      link={[
-                        ...preloadUrls,
-                        ...preconnectUrls,
-                        ...prefetchDnsUrls,
-                        {
-                          rel: 'icon',
-                          type: 'image/x-icon',
-                          href: `${favicon}`,
-                        },
-                      ]}
-                      script={[
-                        {
-                          type: 'text/javascript',
-                          src:
-                            'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                          async: true,
-                        },
-                      ]}
-                    />
-                    <Menu />
-                    {typeof children === 'function' ? (
-                      <UpcomingTrainings>{children}</UpcomingTrainings>
-                    ) : (
-                      children
-                    )}
-                    <AuthNav style={{ marginBottom: '4em' }} />
-                    <Footer />
-                    <AcceptCookies />
-                  </React.Fragment>
-                </ApolloProvider>
-              </ThemeProvider>
-            </AppWithAuthentication>
+            <ThemeProvider theme={theme}>
+              <ApolloProvider client={graphqlClient}>
+                <React.Fragment>
+                  <Helmet
+                    title={data && data.site && data.site.siteMetadata.title}
+                    meta={[
+                      {
+                        name: 'description',
+                        content:
+                          data &&
+                          data.site &&
+                          data.site.siteMetadata.description,
+                      },
+                      {
+                        name: 'keywords',
+                        content:
+                          data && data.site && data.site.siteMetadata.keywords,
+                      },
+                    ]}
+                    link={[
+                      ...preloadUrls,
+                      ...preconnectUrls,
+                      ...prefetchDnsUrls,
+                      {
+                        rel: 'icon',
+                        type: 'image/x-icon',
+                        href: `${favicon}`,
+                      },
+                    ]}
+                    script={[
+                      {
+                        type: 'text/javascript',
+                        src:
+                          'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                        async: true,
+                      },
+                    ]}
+                  />
+                  <Menu />
+                  {typeof children === 'function' ? (
+                    <UpcomingTrainings>{children}</UpcomingTrainings>
+                  ) : (
+                    children
+                  )}
+                  <AuthNav
+                    firebase={firebase}
+                    style={{ marginBottom: '4em' }}
+                  />
+                  <Footer />
+                  <AcceptCookies />
+                </React.Fragment>
+              </ApolloProvider>
+            </ThemeProvider>
           </FirebaseContext.Provider>
         </React.Fragment>
       )}
@@ -166,11 +163,11 @@ const Layout = ({ children, ...props }) => {
   )
 }
 
-const AppWithAuthentication = withAuthentication(({ children }) => (
-  <React.Fragment>
-    <hr />
-    {children}
-  </React.Fragment>
-))
+// const AppWithAuthentication = withAuthentication(({ children }) => (
+//   <React.Fragment>
+//     <hr />
+//     {children}
+//   </React.Fragment>
+// ))
 
 export default Layout
