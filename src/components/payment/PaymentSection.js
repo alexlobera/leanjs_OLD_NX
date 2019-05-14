@@ -129,7 +129,7 @@ class PaymentSection extends React.Component {
     } else if (!training || !training.id) {
       title = 'There is no training scheduled'
     } else {
-      title = 'Regular ticket'
+      title = 'Standard priced ticket'
       trainingInstanceId = training.id
       price = training.price
       currency = training.currency || 'gbp'
@@ -143,7 +143,7 @@ class PaymentSection extends React.Component {
           .node
 
       if (discount) {
-        title = 'Discount ticket'
+        title = 'Discounted Ticket'
         const { expiresAt, discountAmount, discountPercentage } = discount
         priceGoesUpOn = new Date(expiresAt)
         discountPrice = discountPercentage
@@ -187,17 +187,23 @@ class PaymentSection extends React.Component {
             </H3>
             {discountPrice ? (
               <Ribbon>
-                Save{' '}
-                {formatPrice(
-                  currency,
-                  priceXQuantity - currentPriceXQuantity,
-                  vatRate
-                )}
+                <strong>
+                  SAVE{' '}
+                  {formatPrice(
+                    currency,
+                    priceXQuantity - currentPriceXQuantity,
+                    vatRate
+                  )}
+                </strong>
               </Ribbon>
             ) : null}
             {priceGoesUpOn > Date.now() ? (
               <React.Fragment>
-                <P>HURRY! This price is only available for...</P>
+                <P>
+                  This EARLY BIRD price available for a{' '}
+                  <strong>limited time</strong>. Get this discount now before
+                  it's too late! Prices go up in...
+                </P>
                 <Countdown date={priceGoesUpOn} />
               </React.Fragment>
             ) : null}
