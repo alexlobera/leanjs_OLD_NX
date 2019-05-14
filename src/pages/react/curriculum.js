@@ -7,7 +7,7 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { H2Ref, H2, P, H4 } from 'src/components/text'
+import { H2Ref, H2, H3, P, H4 } from 'src/components/text'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
   Link,
@@ -136,16 +136,10 @@ class ReactCurriculum extends React.Component {
                           <Thead>
                             <Tr>
                               <Th />
-                              <Th type={REACT_BOOTCAMP}>
-                                React
-                                <br /> Bootcamp
-                              </Th>
-                              <Th type={ADVANCED_REACT}>
-                                Advanced React Bootcamp
-                              </Th>
-                              <Th type={PART_TIME}>Part time course</Th>
-                              <Th type={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</Th>
-                              <Th type={REACT_NATIVE}>React Native training</Th>
+                              <Th type={REACT_BOOTCAMP}>React Bootcamp</Th>
+                              <Th type={ADVANCED_REACT}>Advanced React</Th>
+                              <Th type={PART_TIME}>Part Time </Th>
+                              <Th type={REACT_NATIVE}>React Native</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
@@ -159,7 +153,6 @@ class ReactCurriculum extends React.Component {
                                 <Tick type={PART_TIME} />
                               </Td>
                               <Td />
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Routing and Forms</Td>
@@ -170,7 +163,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
-                              <Td />
                               <Td />
                             </Tr>
                             <Tr>
@@ -183,7 +175,6 @@ class ReactCurriculum extends React.Component {
                                 <Tick type={PART_TIME} />
                               </Td>
                               <Td />
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Testing</Td>
@@ -195,7 +186,6 @@ class ReactCurriculum extends React.Component {
                                 <Tick type={PART_TIME} />
                               </Td>
                               <Td />
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Advanced Testing</Td>
@@ -206,9 +196,6 @@ class ReactCurriculum extends React.Component {
                                 <Tick type={ADVANCED_REACT} />
                               </Td>
                               <Td />
-                              <Td>
-                                <Tick type={GRAPHQL_BOOTCAMP} />
-                              </Td>
                               <Td />
                             </Tr>
                             <Tr>
@@ -222,29 +209,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
-                              <Td>
-                                <Tick type={GRAPHQL_BOOTCAMP} />
-                              </Td>
-                              <Td />
-                            </Tr>
-                            <Tr>
-                              <Td>Advanced GraphQL client</Td>
-                              <Td />
-                              <Td />
-                              <Td />
-                              <Td>
-                                <Tick type={GRAPHQL_BOOTCAMP} />
-                              </Td>
-                              <Td />
-                            </Tr>
-                            <Tr>
-                              <Td>GraphQL Server</Td>
-                              <Td />
-                              <Td />
-                              <Td />
-                              <Td>
-                                <Tick type={GRAPHQL_BOOTCAMP} />
-                              </Td>
                               <Td />
                             </Tr>
                             <Tr>
@@ -257,11 +221,9 @@ class ReactCurriculum extends React.Component {
                               </Td>
                               <Td />
                               <Td />
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Animations & Gestures</Td>
-                              <Td />
                               <Td />
                               <Td />
                               <Td />
@@ -276,7 +238,7 @@ class ReactCurriculum extends React.Component {
                                   variant="secondary"
                                   to="/react/training/bootcamp"
                                 >
-                                  React Bootcamp
+                                  7-Day Bootcamp
                                 </LinkButton>
                               </Td>
                               <Td>
@@ -298,14 +260,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <LinkButton
                                   variant="secondary"
-                                  to="/graphql/training/bootcamp"
-                                >
-                                  GraphQL Bootcamp
-                                </LinkButton>
-                              </Td>
-                              <Td>
-                                <LinkButton
-                                  variant="secondary"
                                   to="/react-native-bootcamp"
                                 >
                                   React Native
@@ -317,7 +271,7 @@ class ReactCurriculum extends React.Component {
                         <MarketingCard
                           heading="Looking for training for your whole team?"
                           text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
-                          to="/corporate-team-training/"
+                          to="react/training/corporate"
                           buttonText="Corporate Team Training"
                         />
                       </Col>
@@ -340,12 +294,9 @@ class ReactCurriculum extends React.Component {
                             React Bootcamp
                           </TabItem>
                           <TabItem name={ADVANCED_REACT}>
-                            Advanced React Bootcamp
+                            Advanced React
                           </TabItem>
                           <TabItem name={PART_TIME}>Part-time Course</TabItem>
-                          <TabItem name={GRAPHQL_BOOTCAMP}>
-                            GraphQL Bootcamp
-                          </TabItem>
                           <TabItem name={REACT_NATIVE}>
                             React Native Training
                           </TabItem>
@@ -387,7 +338,7 @@ class ReactCurriculum extends React.Component {
                                 performance
                               </Li>
                             </Ul>
-                            <H4>Full course curriculum:</H4>
+                            <H3>Full course curriculum:</H3>
                             <Row>
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
@@ -470,45 +421,6 @@ class ReactCurriculum extends React.Component {
                                     }
                                   />
                                 )}
-                              </Col>
-                            </Row>
-                          </ContentItem>
-
-                          <ContentItem name={GRAPHQL_BOOTCAMP}>
-                            <P>
-                              <strong>
-                                On completion of the GraphQL Bootcamp each
-                                student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <Li>
-                                Understand how to build a production-ready
-                                GraphQL API using Nodejs
-                              </Li>
-                              <Li>
-                                Learn how to wrap an existent REST API with
-                                GraphQL
-                              </Li>
-                              <Li>
-                                Comprehend how to connect GraphQL to different
-                                data sources like MongoDB
-                              </Li>
-                              <Li>
-                                Understand the best practices to leverage
-                                GraphQL in React in real-world production-ready
-                                complex applications
-                              </Li>
-                            </Ul>
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                <CurriculumGraphQL
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
-                                />
                               </Col>
                             </Row>
                           </ContentItem>

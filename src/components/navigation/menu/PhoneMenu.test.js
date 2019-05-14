@@ -39,6 +39,6 @@ describe('<PhoneMenu />', () => {
         .first()
         .props()
         .children.toLowerCase()
-    ).toMatch(/curriculum/)
+    ).toMatch(/react courses/)
   })
 })

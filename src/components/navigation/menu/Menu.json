@@ -5,12 +5,12 @@
     "onlyOn": null,
     "children": [
       {
-        "to": "/react/curriculum",
-        "text": "React Curriculum"
+        "to": "/react/training",
+        "text": "React Courses"
       },
       {
-        "to": "/react/training",
-        "text": "React Training"
+        "to": "/react/curriculum",
+        "text": "React Curriculum"
       }
     ]
   },
@@ -20,12 +20,12 @@
     "onlyOn": null,
     "children": [
       {
-        "to": "/graphql/curriculum",
-        "text": "GraphQL Curriculum"
+        "to": "/graphql/training",
+        "text": "GraphQL Courses"
       },
       {
-        "to": "/graphql/training",
-        "text": "GraphQL Training"
+        "to": "/graphql/curriculum",
+        "text": "GraphQL Curriculum"
       }
     ]
   },
