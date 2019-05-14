@@ -8,7 +8,7 @@ const config = {
   appId: '1:589792712908:web:3b7616bf6beb36f2',
 }
 
-class Firebase {
+export class Firebase {
   constructor(app) {
     app.initializeApp(config)
 

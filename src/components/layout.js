@@ -152,6 +152,7 @@ const Layout = ({ children, ...props }) => {
                     ) : (
                       children
                     )}
+                    <AuthNav style={{ marginBottom: '4em' }} />
                     <Footer />
                     <AcceptCookies />
                   </React.Fragment>
@@ -167,7 +168,6 @@ const Layout = ({ children, ...props }) => {
 
 const AppWithAuthentication = withAuthentication(({ children }) => (
   <React.Fragment>
-    <AuthNav />
     <hr />
     {children}
   </React.Fragment>
