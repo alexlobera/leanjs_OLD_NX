@@ -23,7 +23,7 @@ import { UpcomingTrainings } from '../components/training'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
 import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-500.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
-import Navigation from './Navigation'
+import AuthNav from './AuthNav'
 import getFirebase, { FirebaseContext } from './Firebase'
 import withAuthentication from './Session/withAuthentication'
 
@@ -74,7 +74,7 @@ const preconnectUrls = [
   crossorigin: 'crossorigin',
 }))
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...props }) => {
   const [firebase, setFirebase] = useState(null)
 
   useEffect(() => {
@@ -104,53 +104,73 @@ const Layout = ({ children }) => {
       `}
       render={data => (
         <React.Fragment>
-          <ThemeProvider theme={theme}>
-            <ApolloProvider client={graphqlClient}>
-              <React.Fragment>
-                <Helmet
-                  title={data && data.site && data.site.siteMetadata.title}
-                  meta={[
-                    {
-                      name: 'description',
-                      content:
-                        data && data.site && data.site.siteMetadata.description,
-                    },
-                    {
-                      name: 'keywords',
-                      content:
-                        data && data.site && data.site.siteMetadata.keywords,
-                    },
-                  ]}
-                  link={[
-                    ...preloadUrls,
-                    ...preconnectUrls,
-                    ...prefetchDnsUrls,
-                    { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
-                  ]}
-                  script={[
-                    {
-                      type: 'text/javascript',
-                      src:
-                        'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                      async: true,
-                    },
-                  ]}
-                />
-                <Menu />
-                {typeof children === 'function' ? (
-                  <UpcomingTrainings>{children}</UpcomingTrainings>
-                ) : (
-                  children
-                )}
-                <Footer />
-                <AcceptCookies />
-              </React.Fragment>
-            </ApolloProvider>
-          </ThemeProvider>
+          <FirebaseContext.Provider value={firebase}>
+            <AppWithAuthentication {...props}>
+              <ThemeProvider theme={theme}>
+                <ApolloProvider client={graphqlClient}>
+                  <React.Fragment>
+                    <Helmet
+                      title={data && data.site && data.site.siteMetadata.title}
+                      meta={[
+                        {
+                          name: 'description',
+                          content:
+                            data &&
+                            data.site &&
+                            data.site.siteMetadata.description,
+                        },
+                        {
+                          name: 'keywords',
+                          content:
+                            data &&
+                            data.site &&
+                            data.site.siteMetadata.keywords,
+                        },
+                      ]}
+                      link={[
+                        ...preloadUrls,
+                        ...preconnectUrls,
+                        ...prefetchDnsUrls,
+                        {
+                          rel: 'icon',
+                          type: 'image/x-icon',
+                          href: `${favicon}`,
+                        },
+                      ]}
+                      script={[
+                        {
+                          type: 'text/javascript',
+                          src:
+                            'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                          async: true,
+                        },
+                      ]}
+                    />
+                    <Menu />
+                    {typeof children === 'function' ? (
+                      <UpcomingTrainings>{children}</UpcomingTrainings>
+                    ) : (
+                      children
+                    )}
+                    <Footer />
+                    <AcceptCookies />
+                  </React.Fragment>
+                </ApolloProvider>
+              </ThemeProvider>
+            </AppWithAuthentication>
+          </FirebaseContext.Provider>
         </React.Fragment>
       )}
     />
   )
 }
+
+const AppWithAuthentication = withAuthentication(({ children }) => (
+  <React.Fragment>
+    <AuthNav />
+    <hr />
+    {children}
+  </React.Fragment>
+))
 
 export default Layout
