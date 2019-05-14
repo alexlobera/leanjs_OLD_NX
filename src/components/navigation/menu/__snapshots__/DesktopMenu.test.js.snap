@@ -13,12 +13,12 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       submenuItems={
         Array [
           Object {
-            "text": "React Curriculum",
-            "to": "/react/curriculum",
+            "text": "React Courses",
+            "to": "/react/training",
           },
           Object {
-            "text": "React Training",
-            "to": "/react/training",
+            "text": "React Curriculum",
+            "to": "/react/curriculum",
           },
         ]
       }
@@ -30,12 +30,12 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       submenuItems={
         Array [
           Object {
-            "text": "GraphQL Curriculum",
-            "to": "/graphql/curriculum",
+            "text": "GraphQL Courses",
+            "to": "/graphql/training",
           },
           Object {
-            "text": "GraphQL Training",
-            "to": "/graphql/training",
+            "text": "GraphQL Curriculum",
+            "to": "/graphql/curriculum",
           },
         ]
       }

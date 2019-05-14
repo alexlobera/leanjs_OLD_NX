@@ -27,6 +27,13 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
 >
   <RJSALogo />
   <PhoneMenuItem
+    key="/react/training"
+    onClick={[Function]}
+    to="/react/training"
+  >
+    React Courses
+  </PhoneMenuItem>
+  <PhoneMenuItem
     key="/react/curriculum"
     onClick={[Function]}
     to="/react/curriculum"
@@ -34,11 +41,11 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     React Curriculum
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/react/training"
+    key="/graphql/training"
     onClick={[Function]}
-    to="/react/training"
+    to="/graphql/training"
   >
-    React Training
+    GraphQL Courses
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/graphql/curriculum"
@@ -46,13 +53,6 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     to="/graphql/curriculum"
   >
     GraphQL Curriculum
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/graphql/training"
-    onClick={[Function]}
-    to="/graphql/training"
-  >
-    GraphQL Training
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/blog"

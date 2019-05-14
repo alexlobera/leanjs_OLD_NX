@@ -7,7 +7,8 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { H2Ref, H2, P, H4 } from 'src/components/text'
+import { H2Ref, H2, H3, P, H4 } from 'src/components/text'
+import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
   Link,
@@ -46,6 +47,8 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
+import CorporateTrainingCard from '../../components/elements/CorporateTrainingCard'
+import Newsletter from '../../components/elements/Newsletter'
 
 class GraphQLCurriculum extends React.Component {
   state = {
@@ -109,6 +112,48 @@ class GraphQLCurriculum extends React.Component {
                 subtitle="We're proud to say that our curriculum is the most<br /> up-to-date on the market - there really is<br />nowhere better to learn GraphQL."
                 bgImageName={BOOTCAMP}
               />
+              <TopSection>
+                <Grid>
+                  <CallToActionRow>
+                    <Col xs={12} sm={5}>
+                      <LinkButton
+                        variant="primary"
+                        to="/graphql/training/bootcamp/london"
+                        children="GraphQL Bootcamp London"
+                      />
+                    </Col>
+                  </CallToActionRow>
+                  <Card border="shadow">
+                    <Row>
+                      <Col md={1} />
+                      <Col md={10}>
+                        <H4>
+                          On completion of the GraphQL Bootcamp each student
+                          will:
+                        </H4>
+                        <Ul>
+                          <Li>
+                            Understand how to build a production-ready GraphQL
+                            API using Nodejs
+                          </Li>
+                          <Li>
+                            Learn how to wrap an existent REST API with GraphQL
+                          </Li>
+                          <Li>
+                            Comprehend how to connect GraphQL to different data
+                            sources like MongoDB
+                          </Li>
+                          <Li>
+                            Understand the best practices to leverage GraphQL in
+                            React in real-world production-ready complex
+                            applications
+                          </Li>
+                        </Ul>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Grid>
+              </TopSection>
 
               <Section>
                 <Grid>
@@ -119,39 +164,9 @@ class GraphQLCurriculum extends React.Component {
                         onChange={this.setActive}
                         active={this.state.active}
                       >
-                        <TabList>
-                          <TabItem name={GRAPHQL_BOOTCAMP}>
-                            GraphQL Bootcamp Curriculum
-                          </TabItem>
-                        </TabList>
                         <TabContent>
                           <ContentItem name={GRAPHQL_BOOTCAMP}>
-                            <P>
-                              <strong>
-                                On completion of the GraphQL Bootcamp each
-                                student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <Li>
-                                Understand how to build a production-ready
-                                GraphQL API using Nodejs
-                              </Li>
-                              <Li>
-                                Learn how to wrap an existent REST API with
-                                GraphQL
-                              </Li>
-                              <Li>
-                                Comprehend how to connect GraphQL to different
-                                data sources like MongoDB
-                              </Li>
-                              <Li>
-                                Understand the best practices to leverage
-                                GraphQL in React in real-world production-ready
-                                complex applications
-                              </Li>
-                            </Ul>
-                            <H4>Full course curriculum:</H4>
+                            <H3>Full GraphQL curriculum:</H3>
                             <Row>
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
