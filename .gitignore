@@ -2,7 +2,7 @@
 .cache
 node_modules
 yarn-error.log
-firebase/firebase.js
+/components/firebase/firebase.js
 firebase-debug.log
 .firebaserc
 package.lock
