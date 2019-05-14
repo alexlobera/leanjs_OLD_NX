@@ -271,7 +271,7 @@ class ReactCurriculum extends React.Component {
                         <MarketingCard
                           heading="Looking for training for your whole team?"
                           text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
-                          to="/corporate-team-training/"
+                          to="react/training/corporate"
                           buttonText="Corporate Team Training"
                         />
                       </Col>

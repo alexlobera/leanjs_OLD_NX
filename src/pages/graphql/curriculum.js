@@ -150,6 +150,15 @@ class GraphQLCurriculum extends React.Component {
                           </Li>
                         </Ul>
                       </Col>
+
+                      <Col md={10} lgOffset={1}>
+                        <MarketingCard
+                          heading="Looking for training for your whole team?"
+                          text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
+                          to="/graphql/training/corporate/"
+                          buttonText="Corporate Team Training"
+                        />
+                      </Col>
                     </Row>
                   </Card>
                 </Grid>

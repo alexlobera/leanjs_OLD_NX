@@ -35,16 +35,6 @@ class FullCurriculumsReact extends React.Component {
       <React.Fragment>
         <Row>
           <Col xs={12} md={12} lg={10} lgOffset={1}>
-            <H2Ref>
-              Our React curriculum{' '}
-              <Link to="#curriculum" name="curriculum">
-                #
-              </Link>
-            </H2Ref>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={12} lg={10} lgOffset={1}>
             <H4>Select Course:</H4>
           </Col>
         </Row>
