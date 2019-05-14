@@ -24,8 +24,6 @@ import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-
 import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-500.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 import AuthNav from './AuthNav'
-import getFirebase, { FirebaseContext } from './Firebase'
-import withAuthentication from './Session/withAuthentication'
 
 raven.config(SENTRY_DSN).install()
 
@@ -74,19 +72,7 @@ const preconnectUrls = [
   crossorigin: 'crossorigin',
 }))
 
-const Layout = ({ children, ...props }) => {
-  const [firebase, setFirebase] = useState(null)
-  useEffect(() => {
-    const app = import('firebase/app')
-    const auth = import('firebase/auth')
-    const database = import('firebase/database')
-
-    Promise.all([app, auth, database]).then(values => {
-      const firebaseApp = getFirebase(values[0])
-      setFirebase(firebaseApp)
-    })
-  }, [])
-
+const Layout = ({ children }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -102,45 +88,43 @@ const Layout = ({ children, ...props }) => {
       `}
       render={data => (
         <React.Fragment>
-          <AuthNav firebase={firebase}>
-            <ThemeProvider theme={theme}>
-              <ApolloProvider client={graphqlClient}>
-                <React.Fragment>
-                  <Helmet
-                    title={data && data.site && data.site.siteMetadata.title}
-                    meta={[
-                      {
-                        name: 'description',
-                        content:
-                          data &&
-                          data.site &&
-                          data.site.siteMetadata.description,
-                      },
-                      {
-                        name: 'keywords',
-                        content:
-                          data && data.site && data.site.siteMetadata.keywords,
-                      },
-                    ]}
-                    link={[
-                      ...preloadUrls,
-                      ...preconnectUrls,
-                      ...prefetchDnsUrls,
-                      {
-                        rel: 'icon',
-                        type: 'image/x-icon',
-                        href: `${favicon}`,
-                      },
-                    ]}
-                    script={[
-                      {
-                        type: 'text/javascript',
-                        src:
-                          'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                        async: true,
-                      },
-                    ]}
-                  />
+          <ThemeProvider theme={theme}>
+            <ApolloProvider client={graphqlClient}>
+              <React.Fragment>
+                <Helmet
+                  title={data && data.site && data.site.siteMetadata.title}
+                  meta={[
+                    {
+                      name: 'description',
+                      content:
+                        data && data.site && data.site.siteMetadata.description,
+                    },
+                    {
+                      name: 'keywords',
+                      content:
+                        data && data.site && data.site.siteMetadata.keywords,
+                    },
+                  ]}
+                  link={[
+                    ...preloadUrls,
+                    ...preconnectUrls,
+                    ...prefetchDnsUrls,
+                    {
+                      rel: 'icon',
+                      type: 'image/x-icon',
+                      href: `${favicon}`,
+                    },
+                  ]}
+                  script={[
+                    {
+                      type: 'text/javascript',
+                      src:
+                        'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                      async: true,
+                    },
+                  ]}
+                />
+                <AuthNav>
                   <Menu />
                   {typeof children === 'function' ? (
                     <UpcomingTrainings>{children}</UpcomingTrainings>
@@ -150,10 +134,10 @@ const Layout = ({ children, ...props }) => {
 
                   <Footer />
                   <AcceptCookies />
-                </React.Fragment>
-              </ApolloProvider>
-            </ThemeProvider>
-          </AuthNav>
+                </AuthNav>
+              </React.Fragment>
+            </ApolloProvider>
+          </ThemeProvider>
         </React.Fragment>
       )}
     />
