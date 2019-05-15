@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import getFirebase from '../.firebase'
+import getFirebase from './Firebase'
 import SignIn from './SignIn'
-// import SignOutButton from '../SignOut'
 
 const Navigation = ({ children }) => {
   const [firebase, setFirebase] = useState(null)
