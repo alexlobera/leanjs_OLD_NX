@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import getFirebase from './Firebase'
 import SignIn from './SignIn'
 
+let firebase
+
 const Navigation = ({ children }) => {
   const [firebase, setFirebase] = useState(null)
   //RM: @alex the bellow code is copied from session/auth
   // const [authUser, setAuthUser] = useState(null)
   const [authUser, setAuthUser] = useState(localStorage.getItem('authUser'))
-  let _initFirebase = false
 
+  // let _initFirebase = false
   // const firebaseInit = () => {
   //   if (firebase && !_initFirebase) {
   //     _initFirebase = true
@@ -28,24 +30,28 @@ const Navigation = ({ children }) => {
   // }
 
   useEffect(() => {
-    const app = import('firebase/app')
-    const auth = import('firebase/auth')
-    const database = import('firebase/database')
     if (!firebase) {
+      const app = import('firebase/app')
+      const auth = import('firebase/auth')
+      const database = import('firebase/database')
       Promise.all([app, auth, database]).then(values => {
         const firebaseApp = getFirebase(values[0])
         setFirebase(firebaseApp)
       })
 
-      // setAuthUser(JSON.parse(localStorage.getItem('authUser')))
-      console.log('adfasd', firebase)
-      // firebaseInit()
+      const listener = firebase.onAuthUserListener(
+        authUser => {
+          localStorage.setItem('authUser', JSON.stringify(authUser))
+          setAuthUser(authUser)
+        },
+        () => {
+          localStorage.removeItem('authUser')
+          setAuthUser(null)
+        }
+      )
+      listener()
     }
   }, [])
-  if (!authUser) {
-    const user = firebase && firebase.auth && firebase.auth.currentUser
-    localStorage.setItem('authUser', JSON.stringify(user))
-  }
 
   return authUser ? children : <NavigationNonAuth firebase={firebase} />
 }
