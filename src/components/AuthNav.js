@@ -5,6 +5,29 @@ import SignIn from './SignIn'
 
 const Navigation = ({ children }) => {
   const [firebase, setFirebase] = useState(null)
+  //RM: @alex the bellow code is copied from session/auth
+  const [authUser, setAuthUser] = useState(null)
+
+  let _initFirebase = false
+
+  const firebaseInit = () => {
+    if (firebase && !_initFirebase) {
+      _initFirebase = true
+
+      const listener = firebase.onAuthUserListener(
+        authUser => {
+          localStorage.setItem('authUser', JSON.stringify(authUser))
+          setAuthUser(authUser)
+        },
+        () => {
+          localStorage.removeItem('authUser')
+          setAuthUser(null)
+        }
+      )
+      listener()
+    }
+  }
+
   useEffect(() => {
     const app = import('firebase/app')
     const auth = import('firebase/auth')
@@ -14,10 +37,14 @@ const Navigation = ({ children }) => {
       const firebaseApp = getFirebase(values[0])
       setFirebase(firebaseApp)
     })
+
+    setAuthUser(JSON.parse(localStorage.getItem('authUser')))
+
+    firebaseInit()
   }, [])
   const user = firebase && firebase.auth && firebase.auth.currentUser
 
-  return user ? <>{children}</> : <NavigationNonAuth firebase={firebase} />
+  return user ? children : <NavigationNonAuth firebase={firebase} />
 }
 
 const NavigationNonAuth = ({ firebase }) => {
