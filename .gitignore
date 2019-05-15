@@ -5,6 +5,7 @@ yarn-error.log
 /components/firebase/firebase.js
 firebase-debug.log
 .firebaserc
+.firebase.js
 package.lock
 package-lock.json
 
