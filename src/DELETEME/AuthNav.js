@@ -4,7 +4,9 @@ import SignIn from './SignIn'
 
 const Navigation = ({ children }) => {
   const [firebase, setFirebase] = useState(null)
-  const [authUser, setAuthUser] = useState(localStorage.getItem('authUser'))
+  const [authUser, setAuthUser] = useState(
+    typeof window !== 'undefined' ? localStorage.getItem('authUser') : null
+  )
   useEffect(() => {
     if (!firebase) {
       const app = import('firebase/app')

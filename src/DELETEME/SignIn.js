@@ -34,7 +34,6 @@ class SignInForm extends Component {
   }
 
   render() {
-    console.log('signInprops', this.props)
     const { email, password, error } = this.state
 
     const isInvalid = password === '' || email === ''
