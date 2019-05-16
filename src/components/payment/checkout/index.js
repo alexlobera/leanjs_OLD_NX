@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button } from '../../buttons'
-import { Span } from '../../text'
+import { Span, P } from '../../text'
 import { Price } from '../'
 import formatPrice from '../../utils/currency'
 import { aliasComponent } from '../../utils/aliasComponent'
@@ -19,8 +19,8 @@ const PurchaseWrapper = styled.div`
 
 const PriceAndDiscount = styled.div`
   display: flex;
-  align-items: flex-end;
-  margin-bottom: 5px;
+  align-items: flex-start;
+  flex-direction: column;
 `
 
 export const BuyButton = aliasComponent(Button)
@@ -73,15 +73,19 @@ class Checkout extends React.Component {
             <Fragment>
               {currentPriceXQuantity ? (
                 <PriceAndDiscount>
-                  {priceXQuantity !== currentPriceXQuantity ? (
-                    <Span lineThrough>
-                      {formatPrice(currency, priceXQuantity, vatRate)}
-                    </Span>
-                  ) : null}
                   <Price>
                     &nbsp;
                     {formatPrice(currency, currentPriceXQuantity, vatRate)}
                   </Price>
+                  <P>
+                    (Full price:{' '}
+                    {priceXQuantity !== currentPriceXQuantity ? (
+                      <Span lineThrough>
+                        {formatPrice(currency, priceXQuantity, vatRate)}
+                      </Span>
+                    ) : null}
+                    )
+                  </P>
                 </PriceAndDiscount>
               ) : (
                 <Price>{formatPrice(currency, priceXQuantity, vatRate)}</Price>
