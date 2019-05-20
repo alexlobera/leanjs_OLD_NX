@@ -3,11 +3,10 @@ import { Element, scroller } from 'react-scroll'
 
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
-import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { H2Ref, H2, H3, P, H4 } from 'src/components/text'
+import { H3, H4 } from 'src/components/text'
 import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
@@ -26,12 +25,7 @@ import {
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
 import { getURLParameter } from 'src/components/utils/url'
-import {
-  REACT_BOOTCAMP,
-  ADVANCED_REACT,
-  PART_TIME,
-  GRAPHQL_BOOTCAMP,
-} from 'src/config/data'
+import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
 import { formatUTC } from 'src/components/utils'

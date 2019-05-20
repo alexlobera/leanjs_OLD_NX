@@ -2,37 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
-import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, H4, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
-  selectNthTraining,
 } from 'src/components/training'
-import { Card, Video } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { DAVIAN } from 'src/config/images'
-import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  BulletIcon,
-  PeopleNetWorkIcon,
-} from 'src/components/icons'
+import { Card, Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
-import header from 'src/components/layout/Header.json'
-import { reactBlue, REACT_BLUE_DARK, GRAPHQL_PINK } from '../../config/styles'
+import { GRAPHQL_PINK } from '../../config/styles'
 
 const LearningResource = styled.div`
   img {
@@ -66,16 +50,9 @@ const TrainingType = styled.div`
 
 const MoreFreeResouces = styled.div``
 
-const GraphQLPage = props => (
+const GraphQLPage = () => (
   <Layout>
     {({ trainings }) => {
-      const upcomingBootCampTrainings = selectUpcomingTrainings({
-        type: GRAPHQL_BOOTCAMP,
-        trainings,
-      })
-      const nextTraining = selectNthTraining({
-        trainings: upcomingBootCampTrainings,
-      })
       return (
         <React.Fragment>
           <Breadcrumb
@@ -119,7 +96,10 @@ const GraphQLPage = props => (
                     <LearningResourceWrapper>
                       <Card border="shadow" small bottom={36}>
                         <LearningResource>
-                          <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media" />
+                          <Image
+                            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media"
+                            alt="Think outside the box with GraphQL"
+                          />
                           <Link to="/blog/what-is-graphql-used-for/">
                             <H4>What is GraphQL and what is it used for?</H4>
                           </Link>
@@ -135,7 +115,10 @@ const GraphQLPage = props => (
                       </Card>
                       <Card border="shadow" small bottom={36}>
                         <LearningResource>
-                          <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media" />
+                          <Image
+                            src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media"
+                            alt="Think outside the box with React"
+                          />
                           <Link to="/blog/who-uses-graphql-anyway/">
                             <H4>Who uses GraphQL anyway?</H4>
                           </Link>
@@ -247,7 +230,10 @@ const GraphQLPage = props => (
                   </LinkButton>
                 </Col>
                 <Col md={5}>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media&" />
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media&"
+                    alt="Why learn GraphQL"
+                  />
                 </Col>
               </Row>
             </Grid>

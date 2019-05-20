@@ -10,7 +10,7 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import Gallery from 'src/components/elements/Gallery'
-import { HideComponentsUsingCss, formatUTC } from 'src/components/utils'
+import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
 import {
@@ -155,11 +155,6 @@ const BootcampLisbon = () => (
       })
       const training =
         selectNthTraining({ trainings: upcomingLisbonBootcamps, nth: 2 }) || {}
-      const startMonth = formatUTC(
-        training.dateStartsOn,
-        training.utcOffset,
-        'MMM'
-      )
       return (
         <React.Fragment>
           <Helmet

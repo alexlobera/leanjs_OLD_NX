@@ -1,8 +1,7 @@
 import React from 'react'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
+import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
 import { ONE_DAY_WORKSHOP } from '../../config/data'
 import { H2Ref } from '../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
@@ -13,11 +12,9 @@ const CurriculumOneDayWorkshops = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/react/training/workshops`,
-  marketingCard = null,
   showLinkToCurriculum = false,
   trainings,
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = ONE_DAY_WORKSHOP
   const commonProps = {
     showLinkToCurriculum,

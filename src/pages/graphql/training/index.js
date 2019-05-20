@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
-import { formatUTC, SCREEN_XS_MAX } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -11,16 +9,12 @@ import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CallToActionRow } from '../../../components/layout/CallToActionNextTrainings'
 import { CurriculumGraphQL } from '../../../components/curriculum'
-import { CurriculumBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
-  selectNthTraining,
 } from 'src/components/training'
-import { Card, Image, Video } from 'src/components/elements'
+import { Card, Image } from 'src/components/elements'
 
 import {
   CodeIcon,
@@ -33,28 +27,10 @@ import {
 
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
-import header from 'src/components/layout/Header.json'
-
-const SectionButtonRow = styled(Row)`
-  margin-top: 30px;
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      margin-top: 5px;
-      display: block;
-    }
-  }
-`
 
 const TrainingPage = props => (
   <Layout>
     {({ trainings }) => {
-      const upcomingBootCampTrainings = selectUpcomingTrainings({
-        type: GRAPHQL_BOOTCAMP,
-        trainings,
-      })
-      const nextTraining = selectNthTraining({
-        trainings: upcomingBootCampTrainings,
-      })
       return (
         <React.Fragment>
           <Breadcrumb
@@ -125,7 +101,10 @@ const TrainingPage = props => (
             <Grid>
               <Row>
                 <Col md={5}>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media&" />
+                  <Image
+                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media&"
+                    alt="GraphQL training student"
+                  />
                 </Col>
                 <Col md={5} mdOffset={1}>
                   <Link to="#student-outcomes" name="student-outcomes" />

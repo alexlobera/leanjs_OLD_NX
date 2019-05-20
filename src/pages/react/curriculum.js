@@ -24,7 +24,6 @@ import {
   CurriculumBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
-  CurriculumGraphQL,
   MarketingCard,
 } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
@@ -42,12 +41,11 @@ import {
   ADVANCED_REACT,
   PART_TIME,
   REACT_NATIVE,
-  GRAPHQL_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
 
-import { reactBlue, GRAPHQL_PINK, REACT_BLUE_DARK } from '../../config/styles'
+import { REACT_BLUE_DARK } from '../../config/styles'
 
 const TrainingType = styled.div`
   border-left: 5px solid;

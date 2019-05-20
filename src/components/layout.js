@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import { createHttpLink } from 'apollo-link-http'
@@ -12,7 +12,6 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import './reset.css'
 import './layout.css'
-// import LayoutStyle from './layout.style'
 import { UPMENTORING_API_URL, SENTRY_DSN } from '../config/apps'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
@@ -143,12 +142,5 @@ const Layout = ({ children }) => {
     />
   )
 }
-
-// const AppWithAuthentication = withAuthentication(({ children }) => (
-//   <React.Fragment>
-//     <hr />
-//     {children}
-//   </React.Fragment>
-// ))
 
 export default Layout

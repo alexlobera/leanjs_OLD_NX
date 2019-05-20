@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
-import { formatUTC, SCREEN_XS_MAX } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -11,16 +9,12 @@ import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CallToActionRow } from '../../../components/layout/CallToActionNextTrainings'
 import { FullCurriculumsReact } from '../../../components/curriculum'
-import { CurriculumBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
-  selectNthTraining,
 } from 'src/components/training'
-import { Card, Image, Video } from 'src/components/elements'
+import { Card, Video } from 'src/components/elements'
 
 import {
   CodeIcon,
@@ -33,28 +27,10 @@ import {
 
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
-import header from 'src/components/layout/Header.json'
 
-const SectionButtonRow = styled(Row)`
-  margin-top: 30px;
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      margin-top: 5px;
-      display: block;
-    }
-  }
-`
-
-const TrainingPage = props => (
+const TrainingPage = () => (
   <Layout>
     {({ trainings }) => {
-      const upcomingBootCampTrainings = selectUpcomingTrainings({
-        type: REACT_BOOTCAMP,
-        trainings,
-      })
-      const nextTraining = selectNthTraining({
-        trainings: upcomingBootCampTrainings,
-      })
       return (
         <React.Fragment>
           <Breadcrumb

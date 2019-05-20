@@ -21,21 +21,17 @@ import { UpcomingTrainingSection } from '../components/training'
 import {
   BussinessIcon,
   CalendarIcon,
-  CodeIcon,
   CollabsIcon,
   EnterMindIcon,
   HeartIcon,
   NotBegginerIcon,
-  ProductionReadyIcon,
   SpannerIcon,
-  StarIcon,
   TickBadgeIcon,
   TimeIcon,
-  TrainerIcon,
   ReactIcon,
   BulletIcon,
 } from '../components/icons'
-import { WHY_REACTJS_ACADEMY, DAN, NASSAR } from '../config/images.js'
+import { WHY_REACTJS_ACADEMY, NASSAR } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 
 const SectionButtonRow = styled(Row)`

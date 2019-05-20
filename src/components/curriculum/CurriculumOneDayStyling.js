@@ -2,7 +2,6 @@ import React from 'react'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
 import { ONE_DAY_WORKSHOP } from '../../config/data'
 import { H2Ref } from '../text'
 import selectCurriculumCorpLayout, {

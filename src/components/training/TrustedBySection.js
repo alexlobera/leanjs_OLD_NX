@@ -14,7 +14,6 @@ import IKEA from '../logos/IKEA'
 import Microsoft from '../logos/Microsoft'
 import { REACT_BLUE_DARK } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
-import { LinkButton } from '../buttons'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
 const FinancialTimes = styled(DefaultFinancialTimes)`
