@@ -18,7 +18,6 @@ const CardText = styled.div`
 
 const Blog = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
-  console.log(posts)
   return (
     <Layout>
       {({ trainings }) => (
