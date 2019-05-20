@@ -55,7 +55,7 @@ const IndexPage = () => (
         <Header
           titleLines={[
             'Take your dev career further',
-            'by mastering React and GraphQL',
+            'by mastering React & GraphQL',
           ]}
           subtitle="In-person training from experts who were <br /> the first in
         Europe to teach React"
@@ -69,13 +69,13 @@ const IndexPage = () => (
                 <LinkButton
                   variant="primary"
                   to="/react/training"
-                  children="React Training >>"
+                  children="React Courses >>"
                 />
               </Col>
               <Col xs={12} sm={3}>
                 <LinkButton
                   to="/graphql/training"
-                  children="GraphQL Training >>"
+                  children="GraphQL Courses >>"
                   variant="primary"
                 />
               </Col>
@@ -89,7 +89,7 @@ const IndexPage = () => (
           <Grid>
             <Row>
               <Col md={5} mdOffset={1}>
-                <H2>Is this training right for me? Why ReactJS Academy</H2>
+                <H2>Is this training right for me?</H2>
                 <Ul unstyled>
                   <Li>
                     <BulletIcon icon={NotBegginerIcon} />
@@ -117,8 +117,8 @@ const IndexPage = () => (
                   </Li>
                 </Ul>
                 <P />
-                <LinkButton variant="secondary" to="/curriculum">
-                  Read our curriculum
+                <LinkButton to="/blog/the-perfect-react-bootcamp-student/">
+                  Blog: Are YOU the Perfect Bootcamp Student?
                 </LinkButton>
               </Col>
               <HideComponentsUsingCss xs sm>
@@ -126,7 +126,7 @@ const IndexPage = () => (
                   <Image
                     src={WHY_REACTJS_ACADEMY}
                     width="100%"
-                    alt="Female ReactJS Academy student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
+                    alt="Female React GraphQL Academy student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
                   />
                 </Col>
               </HideComponentsUsingCss>
@@ -144,18 +144,15 @@ const IndexPage = () => (
                     <P>
                       <em>
                         Andru Dunn, Senior Developer at{' '}
-                        <strong>John Lewis</strong> speaks how ReactJS Academy
-                        training has improved his team.
+                        <strong>John Lewis</strong> speaks how React GraphQL
+                        Academy training has improved his team.
                       </em>
                     </P>
                   }
                 />
               </Col>
               <Col md={5} mdOffset={1}>
-                <H2>
-                  What's in it for your company - why ReactJS Academy is great
-                  for your team
-                </H2>
+                <H2>React GraphQL Academy - great for your whole team</H2>
                 <Ul unstyled>
                   <Li>
                     <BulletIcon icon={TickBadgeIcon} />
@@ -163,7 +160,7 @@ const IndexPage = () => (
                   </Li>
                   <Li>
                     <BulletIcon icon={ReactIcon} />
-                    Minimize risk of onboarding React
+                    Minimize risk of onboarding React & GraphQL
                   </Li>
                   <Li>
                     <BulletIcon icon={EnterMindIcon} />
@@ -181,7 +178,7 @@ const IndexPage = () => (
                 <SectionButtonRow>
                   <Col sm={7}>
                     <LinkButton
-                      variant="secondary"
+                      variant="default"
                       pdf
                       to={CONVINCE_THE_BOSS_PDF}
                     >
@@ -193,7 +190,7 @@ const IndexPage = () => (
                       variant="secondary"
                       to="/corporate-team-training"
                     >
-                      Corporate training
+                      Corporate team training
                     </LinkButton>
                   </Col>
                 </SectionButtonRow>

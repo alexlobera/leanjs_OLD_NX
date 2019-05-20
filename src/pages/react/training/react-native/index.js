@@ -134,7 +134,7 @@ const ReactNativeBoocamp = () => (
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <AttendeeQuote
-                    quote="I like how friendly the training was. I loved spending time pair programming and then sharing what we'd learnt from each other - that was the best bit. I would definitely recommend [ReactJS Academy]."
+                    quote="I like how friendly the training was. I loved spending time pair programming and then sharing what we'd learnt from each other - that was the best bit. I would definitely recommend [React GraphQL Academy]."
                     fullname="Polina Stoyanova"
                     job="Front-end and UX developer"
                     company="tray.io"

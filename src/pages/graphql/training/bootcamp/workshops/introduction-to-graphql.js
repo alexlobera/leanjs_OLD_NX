@@ -1,30 +1,29 @@
 import React from 'react'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
+import { CurriculumOneDayStyling } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
-import { CurriculumAdvancedReact } from 'src/components/curriculum'
 import {
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
-  selectNthTraining,
   AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
-  HORACIO_HERRERA,
   RICHARD_MOSS,
-  WILL_VOELCKER,
+  selectNthTraining,
+  selectUpcomingTrainings,
 } from 'src/components/training'
 import {
   BulletIcon,
   NotBegginerIcon,
+  CodeIcon,
   ReactIcon,
   CollabsIcon,
 } from 'src/components/icons'
@@ -32,20 +31,20 @@ import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ADVANCED_REACT, LONDON } from 'src/config/data'
+import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const BootcampLondon = () => (
+const StylingDesignSystemWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const upcomingAdvancedTrainings = selectUpcomingTrainings({
+      const bootCampTrainings = selectUpcomingTrainings({
         trainings,
-        type: ADVANCED_REACT,
+        type: ONE_DAY_WORKSHOP,
         city: LONDON,
       })
-      const training =
-        selectNthTraining({ trainings: upcomingAdvancedTrainings, nth: 2 }) ||
-        {}
+      const training = selectNthTraining({
+        trainings: bootCampTrainings,
+      })
       return (
         <React.Fragment>
           <Breadcrumb
@@ -53,86 +52,82 @@ const BootcampLondon = () => (
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
+              { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/advanced',
-                label: 'Advanced',
-              },
-              {
-                to: '/react/training/advanced/london/2',
-                label: 'London',
+                to: '/react/training/workshops/design-system-styling-in-react',
+                label: 'Design Systems and Styling in React',
               },
             ]}
           />
           <Header
-            titleLines={['Advanced React Redux GraphQL training - London']}
-            subtitle="Take your React career to the next level by mastering advanced React, Redux, and GraphQL - in just 3 days!"
+            titleLines={['Styling in React and Design Systems - London']}
+            subtitle="See how React can look gorgeous and encourage design consistency"
             links={header.landingTraining.links}
-            bgImageName={BOOTCAMP}
-            type={ADVANCED_REACT}
+            bgImageName={LONDON_BOOTCAMP}
+            type={ONE_DAY_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
-          <TopSection xsBgDark top>
+          <TopSection top>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </TopSection>
+          <Section xsBgDark>
             <Grid>
               <Card bg="dark">
                 <Row>
                   <Col xs={12} md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
-                      trainingLoading={trainingLoading}
                       trainingError={trainingError}
+                      trainingLoading={trainingLoading}
                     />
                   </Col>
                   <Col xs={12} md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="yvROXLQ1jHg" />
-                    <TrainingDetails
-                      foodIncluded={false}
-                      coaches={[
-                        ALEX_LOBERA,
-                        HORACIO_HERRERA,
-                        RICHARD_MOSS,
-                        WILL_VOELCKER,
-                      ]}
-                    />
+                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>
                 </Row>
               </Card>
             </Grid>
-          </TopSection>
+          </Section>
           <Section>
             <Grid>
               <Row>
                 <HideComponentsUsingCss xs sm>
                   <Col md={6} lg={5}>
-                    <Image
-                      src={BOOTCAMP_COLLAB}
-                      width="100%"
-                      alt="React GraphQL Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
-                    />
+                    <Image src={BOOTCAMP_COLLAB} width="100%" />
                   </Col>
                 </HideComponentsUsingCss>
                 <Col md={6} lg={5} lgOffset={1}>
                   <H2Ref>
-                    Is this 1-day Advanced React training right for me? Are
-                    you...{' '}
+                    Is this one day workshop right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
                   </H2Ref>
                   <Ul unstyled>
                     <Li>
-                      <BulletIcon icon={NotBegginerIcon} />A{' '}
-                      <strong>
-                        React developer with 1+ year of development
-                      </strong>{' '}
-                      under your belt using React?
+                      <BulletIcon icon={NotBegginerIcon} />A developer with some
+                      experience developing React applications?
+                    </Li>
+                    <Li>
+                      <BulletIcon icon={CodeIcon} />
+                      Familiar with front-end technologies like JavaScript, CSS,
+                      and HTML?
                     </Li>
                     <Li>
                       <BulletIcon icon={ReactIcon} />
-                      Taking a step forward to become a{' '}
-                      <strong>Senior React developer</strong> able to make
-                      critical decisions about the architecture of a React
-                      application.
+                      Taking a step forward to become a React JS Specialist able
+                      to make critical decisions about the architecture of a
+                      React application.
                     </Li>
                     <Li>
                       <BulletIcon icon={CollabsIcon} />
@@ -141,16 +136,16 @@ const BootcampLondon = () => (
                     </Li>
                   </Ul>
                   <P>
-                    If you've said 'yes' to these, our{' '}
-                    <strong>1-day advanced React training</strong> could be for
+                    If you've said 'yes' to these, this workshop could be for
                     you!
                   </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
-                    This is a bootcamp for React developers that are experienced
-                    with React. If you don't have 1+ year of experience using
-                    React we recommend you to attend our{' '}
-                    <Link to="/react/training/bootcamp">React Bootcamp</Link>.
+                    This is not a learn-to-code workshop. If you want to learn
+                    to code, we recommend you to contact our London-based
+                    partner <Link to="https://makers.tech/">Makers</Link>. PLUS
+                    you'll get a &pound;250 discount using our reference
+                    "ReactJS Academy".
                   </P>
                 </Col>
               </Row>
@@ -172,17 +167,6 @@ const BootcampLondon = () => (
             </Grid>
           </Section>
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumAdvancedReact layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -190,4 +174,4 @@ const BootcampLondon = () => (
   </Layout>
 )
 
-export default BootcampLondon
+export default StylingDesignSystemWorkshop

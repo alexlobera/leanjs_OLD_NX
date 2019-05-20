@@ -21,6 +21,7 @@ const CurriculumGraphQL = ({
   isOpen,
   toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
   showLinkToCurriculum = false,
+  marketingCard,
   trainings,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
@@ -82,6 +83,7 @@ const CurriculumGraphQL = ({
           <LinkButton to="/graphql/curriculum">Full curriculum</LinkButton>
         </SectionCTA>
       ) : null}
+      {marketingCard}
     </React.Fragment>
   )
 

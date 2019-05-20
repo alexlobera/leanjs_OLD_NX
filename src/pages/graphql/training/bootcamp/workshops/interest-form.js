@@ -69,17 +69,17 @@ const SessionInterest = ({ trainings }) => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training/', label: 'Training' },
+              { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/interest-form',
+                to: '/graphql/training/workshops/interest-form',
                 label: 'Interest Form',
               },
             ]}
           />
           <Header
-            titleLines={['React Workshops']}
+            titleLines={['GraphQL Workshops']}
             subtitle={[
               'Join the wait and be the first to know about our upcoming 1-day workshops',
             ]}
@@ -125,38 +125,11 @@ const SessionInterest = ({ trainings }) => (
                               </Col>
                               <Col xs={12} md={6}>
                                 <CheckboxField
-                                  name="fundamentals"
-                                  label="Modern JS and React Fundamentals"
-                                />
-                                <CheckboxField
-                                  name="styling"
-                                  label="Styling in React and Design Systems"
-                                />
-                                <CheckboxField
-                                  name="hooks"
-                                  label="React Hooks & Suspense"
-                                />
-                                <CheckboxField
-                                  name="perf"
-                                  label="Performance & FP in React"
+                                  name="intro-graphql"
+                                  label="Introduction to GraphQL"
                                 />
                               </Col>
-                              <Col xs={12} md={6}>
-                                <React.Fragment>
-                                  <CheckboxField
-                                    name="gqlclient"
-                                    label="React with GraphQL client"
-                                  />
-                                  <CheckboxField
-                                    name="testing"
-                                    label="Testing in React"
-                                  />
-                                  <CheckboxField
-                                    name="react-native"
-                                    label="React Native"
-                                  />
-                                </React.Fragment>
-                              </Col>
+                              <Col xs={12} md={6} />
                             </Row>
                             <Row style={{ marginTop: '2em' }}>
                               <Col>
@@ -165,7 +138,7 @@ const SessionInterest = ({ trainings }) => (
                                   We share our learning resources{' '}
                                   <strong>
                                     directly from our{' '}
-                                    <Link to="/react/curriculum">
+                                    <Link to="/graphql/curriculum">
                                       <strong>curriculum</strong>
                                     </Link>
                                   </strong>{' '}

@@ -82,7 +82,7 @@ A better approach is to automate that CSS naming. You can use CSS modules for th
 
 ## Styled-components <a name="styled-components"></a>
 
-[Styled-components](https://www.styled-components.com/) is the library we use at [LeanJS](https://leanjs.com) (ReactJS Academy's parent company) to style our React components. Why? It's a single library that elegantly solves all the problems I’ve mentioned.
+[Styled-components](https://www.styled-components.com/) is the library we use at [LeanJS](https://leanjs.com) (React GraphQL Academy's parent company) to style our React components. Why? It's a single library that elegantly solves all the problems I’ve mentioned.
 
 <img placeholder-height="329px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyled-components-check-list-min.png?alt=media" alt="Styled-components features"></img>
 
@@ -134,7 +134,7 @@ This website uses styled-components, so you can see an example of the CSS inject
 
 Everything on the UI can be a component (including the metas in the head! when we say everything it means everything :). Therefore you can define all your styles using styled-components. That means no need for SASS, LESS, or other CSS pre-processors.
 
-You can see an example in the ReactJS Academy website, where **EVERYTHING is a component**:
+You can see an example in the React GraphQL Academy website, where **EVERYTHING is a component**:
 
 - [Some basic components](https://github.com/reactjsacademy/reactjsacademy/tree/master/src/components/text)
 - [Default page layout](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/layouts/index.js)
@@ -181,14 +181,14 @@ A good practice in this regard is to abstract any component library into your ow
 export { default as Button } from 'rebass'
 ```
 
-Then you can import your Button everywhere you need a button in your app. This might look very simple, but creating this abstraction is very important. When we created the first version of the ReactJS Academy website we used Rebass and we created this [abstraction on top of the Rebass button in the first commit](https://github.com/reactjsacademy/reactjsacademy/blob/e9f2699ade8f0c37dcdc1513ae8b68bd6a285349/src/components/buttons/Button.js).
+Then you can import your Button everywhere you need a button in your app. This might look very simple, but creating this abstraction is very important. When we created the first version of the React GraphQL Academy website we used Rebass and we created this [abstraction on top of the Rebass button in the first commit](https://github.com/reactjsacademy/reactjsacademy/blob/e9f2699ade8f0c37dcdc1513ae8b68bd6a285349/src/components/buttons/Button.js).
 
 We built the first prototype in React in a few days using Rebass and we were able to test it immediately with real users. The reason we are called LeanJS is evident :D
-<img src="https://cdn-images-1.medium.com/max/1800/1*xHeXQyA_vTS3IAU4UQVb1A.gif" alt="ReactJS Academy React prototype"></img>
+<img src="https://cdn-images-1.medium.com/max/1800/1*xHeXQyA_vTS3IAU4UQVb1A.gif" alt="React GraphQL Academy React prototype"></img>
 
 Then we added custom styles to the Button incrementally. Two weeks after we had completely removed Rebass from the app. [Removing Rebass from the package.json was a piece of cake](https://github.com/reactjsacademy/reactjsacademy/commit/b4b132ab6849461d40024b4fd2991a5984517d1e). That's amazing considering that the initial version was entirely built with Rebass. Hopefully, I've convinced you of the advantages of creating these abstractions.
 
-<img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fremoves-rebass-min.png?alt=media" alt="Commit that removes Rebass from ReactJS Academy"></img>
+<img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fremoves-rebass-min.png?alt=media" alt="Commit that removes Rebass from React GraphQL Academy"></img>
 
 If you want to know more about how [LeanJS](https://leanjs.com) designed, built, and tested in a month the MVP for this website check out this [blog post](https://medium.com/leanjs/reactjs-academy-2018-website-design-case-study-4b2074dc4e5d)
 

@@ -32,6 +32,7 @@ import {
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
+import { reactBlue, REACT_BLUE_DARK, GRAPHQL_PINK } from '../../config/styles'
 
 const LearningResource = styled.div`
   img {
@@ -53,7 +54,7 @@ const LearningResourceWrapper = styled.div`
 `
 
 const TrainingType = styled.div`
-  border-left: 5px solid blue;
+  border-left: 5px solid ${GRAPHQL_PINK};
   padding: 1rem 1rem 1rem 2rem;
   display: flex;
   flex-direction: column;

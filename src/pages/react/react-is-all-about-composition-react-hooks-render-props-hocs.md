@@ -132,7 +132,7 @@ and so
 <User name="@alex_lobera" />
 ```
 
-Based on my experience teaching React at the ReactJS Academy, I've seen many developers missing part of what the React composition model is and misunderstanding the “children” prop.
+Based on my experience teaching React at the React GraphQL Academy, I've seen many developers missing part of what the React composition model is and misunderstanding the “children” prop.
 
 If we look at the following code:
 

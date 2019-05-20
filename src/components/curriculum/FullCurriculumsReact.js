@@ -35,7 +35,7 @@ class FullCurriculumsReact extends React.Component {
       <React.Fragment>
         <Row>
           <Col xs={12} md={12} lg={10} lgOffset={1}>
-            <H4>Select Course:</H4>
+            <H4>Select React Curriculum:</H4>
           </Col>
         </Row>
         <Row>

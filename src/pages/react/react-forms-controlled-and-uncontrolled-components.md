@@ -93,7 +93,7 @@ React recommends in most cases to use controlled components to handle a form. It
 
 ## Form library <a name="form-library"></a>
 
-We recommend you to use an external **library to implement forms in React**. The library we recommend at ReactJS Academy and we use at [LeanJS](https://leanjs.com/) with our client work is [Final Form](https://github.com/final-form/react-final-form). The reasons we recommend Final Form over other libraries are:
+We recommend you to use an external **library to implement forms in React**. The library we recommend at React GraphQL Academy and we use at [LeanJS](https://leanjs.com/) with our client work is [Final Form](https://github.com/final-form/react-final-form). The reasons we recommend Final Form over other libraries are:
 
 - Very small. Almost half of the size of Formik or 5 times smaller than Redux Form at the time of this article.
 - Pure JavaScript, no dependencies with other libraries

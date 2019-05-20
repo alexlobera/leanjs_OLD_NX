@@ -43,7 +43,6 @@ const CurriculumAdvancedReact = ({
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns I" />
         <GraphQLSession title="GraphQL and Apollo client" />
       </Section>
-      {marketingCard}
       <Section
         {...commonProps}
         title="Advanced React Day 2"
@@ -79,6 +78,7 @@ const CurriculumAdvancedReact = ({
           </LinkButton>
         </SectionCTA>
       )}
+      {marketingCard}
     </React.Fragment>
   )
 

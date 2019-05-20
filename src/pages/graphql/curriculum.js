@@ -15,40 +15,26 @@ import {
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
   Tabs,
-  TabList,
-  TabItem,
   TabContent,
   ContentItem,
 } from 'src/components/navigation'
-import {
-  CurriculumReactNative,
-  CurriculumBootcamp,
-  CurriculumPartTime,
-  CurriculumAdvancedReact,
-  CurriculumGraphQL,
-  MarketingCard,
-} from 'src/components/curriculum'
+import { CurriculumGraphQL, MarketingCard } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { Tick } from 'src/components/icons'
 import { getURLParameter } from 'src/components/utils/url'
-import { formatUTC } from 'src/components/utils'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
-  REACT_NATIVE,
   GRAPHQL_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-import CorporateTrainingCard from '../../components/elements/CorporateTrainingCard'
-import Newsletter from '../../components/elements/Newsletter'
+import { formatUTC } from 'src/components/utils'
 
 class GraphQLCurriculum extends React.Component {
   state = {
@@ -80,17 +66,9 @@ class GraphQLCurriculum extends React.Component {
     return (
       <Layout>
         {({ trainings }) => {
-          const trainingBootcamp = selectNthTraining({
+          const graphql = selectNthTraining({
             trainings,
-            type: REACT_BOOTCAMP,
-          })
-          const trainingPartTime = selectNthTraining({
-            trainings,
-            type: PART_TIME,
-          })
-          const trainingAdvanced = selectNthTraining({
-            trainings,
-            type: ADVANCED_REACT,
+            type: GRAPHQL_BOOTCAMP,
           })
           return (
             <React.Fragment>
@@ -148,6 +126,15 @@ class GraphQLCurriculum extends React.Component {
                             React in real-world production-ready complex
                             applications
                           </Li>
+                          <Li>
+                            Not sure if our trainings are right for you? Read
+                            our blog{' '}
+                            <Link to="/blog/the-perfect-react-bootcamp-student/">
+                              <strong>
+                                Are YOU the Perfect React GraphQL Student?
+                              </strong>
+                            </Link>
+                          </Li>
                         </Ul>
                       </Col>
 
@@ -183,6 +170,20 @@ class GraphQLCurriculum extends React.Component {
                                   enableToggle={true}
                                   showTitle={false}
                                   layout={LIST_LAYOUT}
+                                  marketingCard={
+                                    <MarketingCard
+                                      heading="Next GraphQL Bootcamp"
+                                      text={`In just 5 days, learn the secrets of effecient apps with GraphQL`}
+                                      to={graphql.toPath}
+                                      buttonText={`${
+                                        graphql.city
+                                      } GraphQL Bootcamp, ${formatUTC(
+                                        graphql.startDate,
+                                        graphql.utcOffset,
+                                        'D MMM'
+                                      )}  `}
+                                    />
+                                  }
                                 />
                               </Col>
                             </Row>

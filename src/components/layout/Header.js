@@ -303,7 +303,7 @@ const Header = ({
                         <Image
                           src={training.image || SMALL_CLASSROOM}
                           width="100%"
-                          alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                          alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
                         />
                       </Link>
 

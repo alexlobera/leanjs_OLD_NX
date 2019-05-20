@@ -101,9 +101,9 @@ const PrivacyPolicy = () => (
               Who is collecting my information?
             </H2>
             <P>
-              ReactJS Academy will be collecting information. As mentioned
-              previously, ReactJS Academy is part of the LeanJS family. Find out
-              more about LeanJS at{' '}
+              React GraphQL Academy will be collecting information. As mentioned
+              previously, React GraphQL Academy is part of the LeanJS family.
+              Find out more about LeanJS at{' '}
               <Link to="https://leanjs.com/" target="_blank">
                 LeanJS.com/
               </Link>{' '}

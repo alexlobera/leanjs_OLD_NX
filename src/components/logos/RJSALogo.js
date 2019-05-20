@@ -4,7 +4,7 @@ import Link from '../navigation/Link'
 
 const SvgLogo = () => (
   <svg focusable="false" width={160} height={58}>
-    <title>ReactJs Academy Logo</title>
+    <title>React GraphQL Academy Logo</title>
     <g fill="none" fillRule="evenodd">
       <g fillRule="nonzero">
         <path

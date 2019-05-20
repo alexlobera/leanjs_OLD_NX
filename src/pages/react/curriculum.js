@@ -1,13 +1,13 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
-
+import styled from 'styled-components'
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
 import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { H2Ref, H2, H3, P, H4 } from 'src/components/text'
+import { H2Ref, H2, H3, P, H4, H5 } from 'src/components/text'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
   Link,
@@ -46,6 +46,20 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
+
+import { reactBlue, GRAPHQL_PINK, REACT_BLUE_DARK } from '../../config/styles'
+
+const TrainingType = styled.div`
+  border-left: 5px solid;
+  border-color: ${REACT_BLUE_DARK};
+  padding: 1rem 1rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem 1rem 0;
+  button {
+    display: inline-block;
+  }
+`
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -139,7 +153,6 @@ class ReactCurriculum extends React.Component {
                               <Th type={REACT_BOOTCAMP}>React Bootcamp</Th>
                               <Th type={ADVANCED_REACT}>Advanced React</Th>
                               <Th type={PART_TIME}>Part Time </Th>
-                              <Th type={REACT_NATIVE}>React Native</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
@@ -152,7 +165,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Routing and Forms</Td>
@@ -163,7 +175,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Redux</Td>
@@ -174,7 +185,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Testing</Td>
@@ -185,7 +195,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Advanced Testing</Td>
@@ -195,7 +204,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={ADVANCED_REACT} />
                               </Td>
-                              <Td />
                               <Td />
                             </Tr>
                             <Tr>
@@ -209,7 +217,6 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
-                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Advanced React</Td>
@@ -220,17 +227,8 @@ class ReactCurriculum extends React.Component {
                                 <Tick type={ADVANCED_REACT} />
                               </Td>
                               <Td />
-                              <Td />
                             </Tr>
-                            <Tr>
-                              <Td>Animations & Gestures</Td>
-                              <Td />
-                              <Td />
-                              <Td />
-                              <Td>
-                                <Tick type={REACT_NATIVE} />
-                              </Td>
-                            </Tr>
+
                             <Tr>
                               <Td />
                               <Td>
@@ -257,23 +255,41 @@ class ReactCurriculum extends React.Component {
                                   Part Time
                                 </LinkButton>
                               </Td>
-                              <Td>
-                                <LinkButton
-                                  variant="secondary"
-                                  to="/react-native-bootcamp"
-                                >
-                                  React Native
-                                </LinkButton>
-                              </Td>
                             </Tr>
                           </Tbody>
                         </Table>
-                        <MarketingCard
-                          heading="Looking for training for your whole team?"
-                          text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
-                          to="react/training/corporate"
-                          buttonText="Corporate Team Training"
-                        />
+                        <Row>
+                          <Col md={12}>
+                            <H5>Also available...</H5>
+                          </Col>
+                          <Col md={6}>
+                            <TrainingType>
+                              <H4>Corporate training</H4>
+                              <P>
+                                Private team training, located in your offices
+                                anywhere in the world.
+                              </P>
+                              <Link to="/react/training/corporate">
+                                Find Out More
+                              </Link>
+                            </TrainingType>
+                          </Col>
+                          <Col md={6}>
+                            <TrainingType>
+                              <H4>1 Day Workshops</H4>
+                              <P>
+                                Instense training focussing on specific parts of
+                                our React curriculum.
+                              </P>
+                              <Link
+                                variant="secondary"
+                                to="/react/training/workshops"
+                              >
+                                Find Out More
+                              </Link>
+                            </TrainingType>
+                          </Col>
+                        </Row>
                       </Col>
                     </Row>
                   </Card>
@@ -297,9 +313,6 @@ class ReactCurriculum extends React.Component {
                             Advanced React
                           </TabItem>
                           <TabItem name={PART_TIME}>Part-time Course</TabItem>
-                          <TabItem name={REACT_NATIVE}>
-                            React Native Training
-                          </TabItem>
                         </TabList>
                         <TabContent>
                           <ContentItem name={REACT_BOOTCAMP}>
@@ -337,7 +350,17 @@ class ReactCurriculum extends React.Component {
                                 to improve your React apps development and
                                 performance
                               </Li>
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link to="/blog/the-perfect-react-bootcamp-student/">
+                                  <strong>
+                                    Are YOU the Perfect React GraphQL Student?
+                                  </strong>
+                                </Link>
+                              </Li>
                             </Ul>
+
                             <H3>Full course curriculum:</H3>
                             <Row>
                               <Col lg={1} lgOffset={1} />
@@ -393,6 +416,15 @@ class ReactCurriculum extends React.Component {
                                 Understand how to use GraphQL on the client-side
                                 to improve your React apps development and
                                 performance
+                              </Li>
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link to="/blog/the-perfect-react-bootcamp-student/">
+                                  <strong>
+                                    Are YOU the Perfect React GraphQL Student?
+                                  </strong>
+                                </Link>
                               </Li>
                             </Ul>
                             <H4>Full course curriculum:</H4>
@@ -483,6 +515,15 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Learn some of the best practices for building
                                 real-world production-ready React applications
+                              </Li>
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link to="/blog/the-perfect-react-bootcamp-student/">
+                                  <strong>
+                                    Are YOU the Perfect React GraphQL Student?
+                                  </strong>
+                                </Link>
                               </Li>
                             </Ul>
                             <H4>Full course curriculum:</H4>

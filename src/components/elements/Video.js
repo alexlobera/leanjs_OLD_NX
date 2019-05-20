@@ -17,7 +17,7 @@ const IframeWrapper = styled.div`
 const Video = ({ youtubeId, time, description = '' }) => (
   <IframeWrapper>
     <iframe
-      title="ReactJS Academy video"
+      title="React GraphQL Academy video"
       width="100%"
       frameBorder="0"
       allow="autoplay; encrypted-media"

@@ -255,7 +255,7 @@ const BootcampLisbon = () => (
                     <Image
                       src={BOOTCAMP_COLLAB}
                       width="100%"
-                      alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
+                      alt="React GraphQL Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
                     />
                   </Col>
                 </HideComponentsUsingCss>
@@ -297,8 +297,8 @@ const BootcampLisbon = () => (
                     This is not a learn-to-code bootcamp. If you want to learn
                     to code, we recommend you to contact our London-based
                     partner <Link to="https://makers.tech/">Makers</Link>. PLUS
-                    you'll get a &pound;250 discount using our reference
-                    "ReactJS Academy".
+                    you'll get a &pound;250 discount using our reference "React
+                    GraphQL Academy".
                   </P>
                 </Col>
               </Row>

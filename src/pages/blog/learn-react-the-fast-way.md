@@ -13,7 +13,7 @@ The good news is that learning React fundamentals is achievable quite quickly (a
 
 2. Methodology
 
-I’m sure you’re highly motivated ;-) so with that said, let’s lay out what we at ReactJS Academy believe is the fastest path to success in learning and mastering the ecosystem.
+I’m sure you’re highly motivated ;-) so with that said, let’s lay out what we at React GraphQL Academy believe is the fastest path to success in learning and mastering the ecosystem.
 
 ### Learn iteratively, one step at a time! <a name="learn-iteratively"></a>
 

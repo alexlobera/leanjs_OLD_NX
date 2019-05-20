@@ -7,7 +7,7 @@ imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 order: 500
 ---
 
-At ReactJS Academy, we’re keen to get more people into the world of the React ecosystem. Our expert developers have been coaching since the inception of the ecosystem, and our React and React Native training courses have gone down really well with developers and companies throughout the EU.
+At React GraphQL Academy, we’re keen to get more people into the world of the React ecosystem. Our expert developers have been coaching since the inception of the ecosystem, and our React and React Native training courses have gone down really well with developers and companies throughout the EU.
 
 But anyone who knows anything about React will tell you there’s so much more to sink your teeth into! That said, we’re thrilled to be bringing a brand new course to developers. Today, we’re announcing our new [GraphQL Bootcamp](https://reactjs.academy/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp&utm_content=graphql_announcement).
 
@@ -33,7 +33,7 @@ If you’re not already familiar with GraphQL, don’t worry. The GraphQL Bootca
 
 We’ll then take you through Advanced GraphQL material, and even show you how to apply what you’ve learned to a real scenario by day three’s Real World GraphQL API class.
 
-![Woman student smiling at a ReactJS Academy Bootcamp](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fgraphql_announcement%2Fimage_1.jpg?alt=media&)
+![Woman student smiling at a React GraphQL Academy Bootcamp](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fgraphql_announcement%2Fimage_1.jpg?alt=media&)
 
 By the end of the week, you’ll have all you need to build Production-Ready GraphQL and React apps. Our expert developers will show you how to test what you build with GraphQL, and how to replace Redux with GraphQL. Likewise, we’ll show you GraphQL tooling to help speed up your front-end development time.
 

@@ -20,35 +20,9 @@ const PROVISIONAL_WORKSHOP_PRICE = '£360 Inc VAT'
 
 const workshops = [
   {
-    title: 'Styling in React and Design Systems',
+    title: 'Introduction to GraphQL',
     description:
-      'See how React can look gorgeous and encourage design consistency',
-    sell: true,
-  },
-  {
-    title: 'React Fundamentals & ModernJS',
-    description:
-      'Learn the basics of React and jumpstart your way into a new coding ecosystem',
-  },
-  {
-    title: 'React Hooks & Suspense',
-    description: 'Learn 2 of the newest and most exciting features in React',
-  },
-  {
-    title: 'Performance & FP in React',
-    description: 'Discover best practice for permonant React apps',
-  },
-  {
-    title: 'React with GraphQL client',
-    description: 'Consume GraphQL APIs in any React application',
-  },
-  {
-    title: 'Testing in React',
-    description: 'Ensure consistent, reliable code across the React ecosystem',
-  },
-  {
-    title: 'React Native',
-    description: 'Build upon your React knowledge and create great apps',
+      'See how GraphQL can make your products faster and more effecient',
   },
 ]
 
@@ -61,29 +35,29 @@ const Workshops = () => (
             path={[
               { to: '/', label: 'Home' },
               {
-                to: '/react',
-                label: 'React',
+                to: '/graphql',
+                label: 'GraphQL',
               },
               {
-                to: '/react/training/',
+                to: '/graphql/training/',
                 label: 'Training',
               },
               {
-                to: '/react/training/workshops',
+                to: '/graphql/training/workshops',
                 label: 'Workshops',
               },
             ]}
           />
           <Header
-            titleLines={['1-day React Workshops']}
-            subtitle="Intense, 1-day workshops that focusses on one specific part of React - all based on our proven Bootcamp curriculum"
+            titleLines={['1-day GraphQL Workshops']}
+            subtitle="Intense, 1-day workshops that focusses on one specific part of GraphQL - all based on our GraphQL Bootcamp curriculum"
           />
           <TopSection marginTop={`-250`}>
             <Grid>
               <Card border="shadow">
                 <Row>
                   <Col md={10} mdOffset={1}>
-                    <H2>Which 1-day React training are you looking for?</H2>
+                    <H2>Which 1-day GraphQL training are you looking for?</H2>
                     <Row>
                       {workshops.map(workshop => (
                         <Col xs={12} sm={6} md={4}>
@@ -94,14 +68,14 @@ const Workshops = () => (
                             {workshop.sell ? (
                               <LinkButton
                                 variant="primary"
-                                to="/react/training/workshops/design-system-styling-in-react"
+                                to="/graphql/training/workshops/introduction-to-graphql"
                               >
                                 Get ticket!
                               </LinkButton>
                             ) : (
                               <LinkButton
                                 variant="secondary"
-                                to="/react/training/workshops/interest-form"
+                                to="/graphql/training/workshops/interest-form"
                               >
                                 Join Waitlist
                               </LinkButton>

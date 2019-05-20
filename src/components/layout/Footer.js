@@ -8,7 +8,7 @@ import Ul, { Li } from './Ul'
 import Link, { styleChildLinkColor } from '../navigation/Link'
 import { blue1, WHITE } from '../../config/styles'
 import { SCREEN_SM_MAX } from '../utils'
-import { P } from '../text'
+import { P, H3 } from '../text'
 import { BulletIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons'
 
 const StyledFooter = styled.div`
@@ -37,6 +37,7 @@ const SocialMenu = styled(Ul)`
   > li {
     padding: 0;
   }
+  margin: 1rem 0;
 `
 
 const SocialLink = styled(Link)`
@@ -52,42 +53,25 @@ const Footer = () => (
           </Col>
           <Col md={4} mdOffset={1}>
             <Row>
+              <Col md={12}>
+                <H3>Site links</H3>
+              </Col>
               <Col md={6}>
                 <LinkList>
                   <Li>
-                    <Link to="/curriculum">Curriculum</Link>
+                    <Link to="/react/training">React Courses</Link>
                   </Li>
                   <Li>
-                    <Link to="/react/training/bootcamp">React bootcamp</Link>
+                    <Link to="/react/curriculum">React Curriculum</Link>
                   </Li>
                   <Li>
-                    <Link to="/about-us#corporate-team-training">
-                      Corporate Training
-                    </Link>
+                    <Link to="/graphql/training">GraphQL Courses</Link>
                   </Li>
                   <Li>
-                    <Link to="/react-native-bootcamp">React Native</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/react-redux-graphql-part-time-course">
-                      Part-time course
-                    </Link>
+                    <Link to="/graphql/curriculum">GraphQL Curriculum</Link>
                   </Li>
                   <Li>
                     <Link to="/blog">Blog</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/react-redux-graphql-training">
-                      Training list
-                    </Link>
-                  </Li>
-                  <Li>
-                    <Link
-                      style={{ fontSize: '16px' }}
-                      to="mailto:hello@reactjs.academy"
-                    >
-                      hello@reactjs.academy
-                    </Link>
                   </Li>
                 </LinkList>
               </Col>
@@ -109,35 +93,39 @@ const Footer = () => (
                     <Link to="/code-of-conduct">Code of conduct</Link>
                   </Li>
                 </LinkList>
-                <P>Follow us...</P>
-                <SocialMenu unstyled inline>
-                  <Li>
-                    <SocialLink to="https://twitter.com/reactjsacademy">
-                      <BulletIcon social icon={TwitterIcon} />
-                    </SocialLink>
-                  </Li>
-                  <Li>
-                    <SocialLink to="https://www.instagram.com/reactjsacademy/">
-                      <BulletIcon social icon={InstagramIcon} />
-                    </SocialLink>
-                  </Li>
-                  <Li>
-                    <SocialLink to="https://www.facebook.com/reactjsacademy/">
-                      <BulletIcon social icon={FacebookIcon} />
-                    </SocialLink>
-                  </Li>
-                </SocialMenu>
               </Col>
             </Row>
             <Row>
-              <Col md={6}>
+              <Col md={12}>
+                <P>
+                  Follow us...
+                  <SocialMenu unstyled inline>
+                    <Li>
+                      <SocialLink to="https://twitter.com/reactjsacademy">
+                        <BulletIcon social icon={TwitterIcon} />
+                      </SocialLink>
+                    </Li>
+                    <Li>
+                      <SocialLink to="https://www.instagram.com/reactjsacademy/">
+                        <BulletIcon social icon={InstagramIcon} />
+                      </SocialLink>
+                    </Li>
+                    <Li>
+                      <SocialLink to="https://www.facebook.com/reactjsacademy/">
+                        <BulletIcon social icon={FacebookIcon} />
+                      </SocialLink>
+                    </Li>
+                  </SocialMenu>
+                </P>
+              </Col>
+              <Col md={12}>
                 <P sm>
-                  Copyright &copy; {`2017 - ${new Date().getFullYear()}`},
-                  ReactJS Academy is a{' '}
+                  Copyright &copy; {`2017 - ${new Date().getFullYear()}`}, React
+                  GraphQL Academy is a{' '}
                   <Link to="https://leanjs.com">LeanJS</Link> product
                 </P>
               </Col>
-              <Col md={6}>
+              <Col md={12}>
                 <RJSALogo />
               </Col>
             </Row>

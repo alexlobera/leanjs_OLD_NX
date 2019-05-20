@@ -20,6 +20,8 @@ import { Card, Video } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 
+import { reactBlue, GRAPHQL_PINK, REACT_BLUE_DARK } from '../../config/styles'
+
 const LearningResource = styled.div`
   img {
     max-height: 5rem;
@@ -40,7 +42,8 @@ const LearningResourceWrapper = styled.div`
 `
 
 const TrainingType = styled.div`
-  border-left: 5px solid blue;
+  border-left: 5px solid;
+  border-color: ${REACT_BLUE_DARK};
   padding: 1rem 1rem 1rem 2rem;
   display: flex;
   flex-direction: column;

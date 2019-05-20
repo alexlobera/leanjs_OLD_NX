@@ -106,7 +106,7 @@ const BootcampLondon = () => (
                     <Image
                       src={BOOTCAMP_COLLAB}
                       width="100%"
-                      alt="ReactJS Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
+                      alt="React GraphQL Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
                     />
                   </Col>
                 </HideComponentsUsingCss>

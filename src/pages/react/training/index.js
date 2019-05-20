@@ -101,28 +101,22 @@ const TrainingPage = props => (
           <TopSection>
             <Grid>
               <CallToActionRow>
-                <Col xs={12} sm={3}>
+                <Col xs={12} sm={4}>
                   <LinkButton
                     variant="primary"
                     to="/react/training/bootcamp"
                     children="1-Week Bootcamp"
                   />
                 </Col>
-                <Col xs={12} sm={3}>
+                <Col xs={12} sm={4}>
                   <LinkButton
-                    to="/react/training/part-time-course"
-                    children="Part-Time Course"
+                    to="/react/training/workshops"
+                    children="1-Day Workshops"
                     variant="secondary"
                   />
                 </Col>
-                <Col xs={12} sm={3}>
-                  <LinkButton
-                    variant="secondary"
-                    to="/react/training/advanced"
-                    children="React Advanced"
-                  />
-                </Col>
-                <Col xs={12} sm={3}>
+
+                <Col xs={12} sm={4}>
                   <LinkButton
                     variant="secondary"
                     to="/react/training/corporate"

@@ -46,8 +46,8 @@ const CodeOfConduct = () => (
                           - <strong>everyone</strong>.
                         </Li>
                         <Li>
-                          ReactJS Academy is a harassment-free zone - offline
-                          AND online.
+                          React GraphQL Academy is a harassment-free zone -
+                          offline AND online.
                         </Li>
                         <Li>
                           If you don’t adhere, you’ll get thrown out without a
@@ -62,7 +62,8 @@ const CodeOfConduct = () => (
                       <P>
                         Every person at our trainings will be required to agree
                         with this code of conduct and organisers will enforce
-                        this code throughout any event run by ReactJS Academy.
+                        this code throughout any event run by React GraphQL
+                        Academy.
                       </P>
                       <P>
                         All participants are expected to cooperate with us to
@@ -152,12 +153,12 @@ const CodeOfConduct = () => (
                 <P>
                   If you are being harassed, notice that someone else is being
                   harassed, or have any other concerns, please contact a member
-                  of ReactJS Academy staff immediately. Our coaches and
+                  of React GraphQL Academy staff immediately. Our coaches and
                   representatives will identify themselves to you at the start
                   of any event and may also be identified via branded clothing.
                 </P>
                 <P>
-                  ReactJS Academy staff will be happy to help participants
+                  React GraphQL Academy staff will be happy to help participants
                   contact local law enforcement, source escorts, or otherwise
                   assist those experiencing harassment to feel safe for the
                   duration of the training event. We value your attendance

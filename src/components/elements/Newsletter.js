@@ -16,14 +16,10 @@ const Newsletter = () => (
   <StyledNewsletter>
     <H3>Free learning resources</H3>
     <P>
-      We share our learning resources{' '}
-      <strong>
-        directly from our{' '}
-        <Link to="/curriculum">
-          <strong>curriculum</strong>
-        </Link>
-      </strong>{' '}
-      and we'd love for you to enjoy and learn from them!{' '}
+      We share our resources directly from our{' '}
+      <Link to="/react/curriculum">React</Link> and{' '}
+      <Link to="/graphql/curriculum">GraphQL</Link> curriculums and we'd love
+      for you to enjoy and learn from them!{' '}
     </P>
     <LinkButton to="#newsletter">Sign up now</LinkButton>
   </StyledNewsletter>

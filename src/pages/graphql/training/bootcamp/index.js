@@ -83,7 +83,7 @@ const GraphQL = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <H2Ref>
-                    Is ReactJS Academy's GraphQL course right for me?
+                    Is React GraphQL Academy's GraphQL course right for me?
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>

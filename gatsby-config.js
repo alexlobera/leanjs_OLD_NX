@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'ReactJS Academy',
+    title: 'React GraphQL Academy',
     description:
       'React, Redux & GraphQL bootcamps and trainings - Take your dev career further by mastering the React ecosystem',
     keywords:

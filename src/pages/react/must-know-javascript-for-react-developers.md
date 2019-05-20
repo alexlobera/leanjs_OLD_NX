@@ -9,7 +9,7 @@ order: 7
 
 React is written in JavaScript (JS), and not just any JS, modern JS.
 
-At ReactJS Academy the thing that we often see students struggling with most is understanding the syntax of modern JS and applying it correctly in the context of React, often times what may seem like an "Understanding React issue" is actually a misconception about JS. So let’s take a look at the **essential JS features all React devs should know**.
+At React GraphQL Academy the thing that we often see students struggling with most is understanding the syntax of modern JS and applying it correctly in the context of React, often times what may seem like an "Understanding React issue" is actually a misconception about JS. So let’s take a look at the **essential JS features all React devs should know**.
 
 ## ES = ECMAScript
 
@@ -137,7 +137,7 @@ You can assign default values to function parameters using "=", for example:
 
 Try it out here: [https://jsbin.com/kederum/3/edit?js,console](https://jsbin.com/kederum/3/edit?js,console)
 
-We can rename variables when destructuring using ":" and assign a new name. At ReactJS Academy we like to ask people this head scratcher that combines a few of these concepts togther:
+We can rename variables when destructuring using ":" and assign a new name. At React GraphQL Academy we like to ask people this head scratcher that combines a few of these concepts togther:
 
 `const { w: width = 400, h: height = 500 } = { w: 800 }`
 

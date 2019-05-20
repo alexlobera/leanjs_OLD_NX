@@ -16,7 +16,7 @@ If you look at the following code, can you try to imagine this app?
 
 It could be something like the image below. It has a navigation bar, a header, some filter (it might look like tabs), there is a list of books, etc.
 
-<img placeholder-height="417px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Freactjs-academy-exercise.png?alt=media" alt="Screenshot of the Thinking in React exercise of ReactJS Academy"></img>
+<img placeholder-height="417px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Freactjs-academy-exercise.png?alt=media" alt="Screenshot of the Thinking in React exercise of React GraphQL Academy"></img>
 _You can see a live version [here](https://thinking-in-react.reactjs.academy/)_
 
 The point is that you read the code, and it told you something. Each “piece” is declaring what it is, we’ll call them **components**.

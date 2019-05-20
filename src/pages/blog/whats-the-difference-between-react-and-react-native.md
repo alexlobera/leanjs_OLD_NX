@@ -76,6 +76,6 @@ It’s not just the code itself that’s different - the tools differ too, thoug
 
 The likes of Facebook, Microsoft, Bloomberg, Wix and more are already benefitting from React Native, so there’s no better time than now to learn it too!
 
-At ReactJS Academy, you’ll find a range of courses to help you harness the power of React Native today. We train teams throughout Europe - find out more [here](https://reactjs.academy/react-native-bootcamp/)!
+At React GraphQL Academy, you’ll find a range of courses to help you harness the power of React Native today. We train teams throughout Europe - find out more [here](https://reactjs.academy/react-native-bootcamp/)!
 
 We’ll also be at [React Amsterdam this April](https://reactjs.academy/blog/leanjs-react-amsterdam/)! If you’re there, sign up to our React Native workshop to get a kickstart in the field.

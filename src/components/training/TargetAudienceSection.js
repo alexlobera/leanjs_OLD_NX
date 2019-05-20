@@ -24,7 +24,7 @@ const TargetAudienceSection = () => (
             <Image
               src={PART_TIME_IMG}
               width="100%"
-              alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+              alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
             />
           </Col>
         </HideComponentsUsingCss>

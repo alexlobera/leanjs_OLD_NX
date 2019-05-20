@@ -64,7 +64,7 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
     {curriculum ? (
       <React.Fragment>
         <Link to="#upcoming-courses" name="upcoming-courses" />
-        <H3 style={{ marginTop: '1em' }}>Upcoming courses</H3>
+        <H3 style={{ marginTop: '1em' }}>Upcoming dates:</H3>
         <UpcomingTrainings
           type={type}
           curriculum={curriculum}
@@ -90,7 +90,7 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
           <Row>
             <Col md={10} mdOffset={1}>
               <H2Ref>
-                Upcoming Training
+                Upcoming - All Courses
                 <Link to="#upcoming" name="upcoming">
                   #
                 </Link>
@@ -109,7 +109,9 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
                   <P>
                     <strong>Corporate team training</strong>
                   </P>
-                  <Link to="/corporate-team-training/">Find out more</Link>
+                  <Link to="react/training/corporate-team-training/">
+                    Find out more
+                  </Link>
                 </CorporateCrossSell>
               </TrainingList>
             </Col>

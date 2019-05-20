@@ -6,9 +6,9 @@ import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
 import {
   CurriculumBootcamp,
   CurriculumPartTime,
-  CurriculumReactNative,
   CurriculumAdvancedReact,
   CurriculumGraphQL,
+  CurriculumOneDayWorkshops,
 } from './index'
 import {
   REACT_NATIVE,
@@ -16,6 +16,7 @@ import {
   PART_TIME,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
+  ONE_DAY_WORKSHOP,
 } from '../../config/data'
 
 class FullCurriculum extends React.Component {
@@ -38,7 +39,7 @@ class FullCurriculum extends React.Component {
         <Row>
           <Col xs={12} md={12} lg={10} lgOffset={1}>
             <H2Ref>
-              Our React curriculum{' '}
+              Choose a course...{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>
@@ -46,19 +47,14 @@ class FullCurriculum extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} md={12} lg={10} lgOffset={1}>
-            <H4>Select Course:</H4>
-          </Col>
-        </Row>
-        <Row>
           <Col xs={12} md={12} lg={11}>
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-                <TabItem name={ADVANCED_REACT}>Advanced React Bootcamp</TabItem>
-                <TabItem name={PART_TIME}>Part-time Course</TabItem>
+                <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
+                <TabItem name={PART_TIME}>Part-time React</TabItem>
+                <TabItem name={REACT_NATIVE}>1-Day Workshops</TabItem>
                 <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
-                <TabItem name={REACT_NATIVE}>React Native Training</TabItem>
               </TabList>
 
               <TabContent>
@@ -71,11 +67,11 @@ class FullCurriculum extends React.Component {
                 <ContentItem name={PART_TIME}>
                   <CurriculumPartTime {...commonCurriculumProps} />
                 </ContentItem>
+                <ContentItem name={REACT_NATIVE}>
+                  <CurriculumOneDayWorkshops {...commonCurriculumProps} />
+                </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
                   <CurriculumGraphQL {...commonCurriculumProps} />
-                </ContentItem>
-                <ContentItem name={REACT_NATIVE}>
-                  <CurriculumReactNative {...commonCurriculumProps} />
                 </ContentItem>
               </TabContent>
             </Tabs>
