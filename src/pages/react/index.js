@@ -111,7 +111,7 @@ const ReactPage = props => (
 
                   <Col md={1} />
                   <Col md={6}>
-                    <H2>Learn React - Free Resources</H2>
+                    <H2>Latest React Blogs</H2>
                     <LearningResourceWrapper>
                       <Card border="shadow" small bottom={36}>
                         <LearningResource>
