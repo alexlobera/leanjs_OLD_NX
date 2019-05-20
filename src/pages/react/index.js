@@ -22,7 +22,7 @@ import { REACT_BLUE_DARK } from '../../config/styles'
 
 const LearningResource = styled.div`
   img {
-    max-height: 5rem;
+    max-height: 8rem;
     width: 100%;
     object-fit: cover;
     margin-bottom: 0;
@@ -45,7 +45,7 @@ const TrainingType = styled.div`
   padding: 1rem 1rem 1rem 2rem;
   display: flex;
   flex-direction: column;
-  margin: 0 2rem 1rem 0;
+  margin: 0 0 1rem 0;
   button {
     display: inline-block;
   }
@@ -98,9 +98,7 @@ const ReactPage = ({ data }) => {
                     to="#free-react-resources"
                     name="free-react-resources"
                   />
-
-                  <Col md={1} />
-                  <Col md={6}>
+                  <Col md={5} mdOffset={1}>
                     <H2>Latest React Blogs</H2>
                     <LearningResourceWrapper>
                       {posts.map(({ node: post }) => {
@@ -141,8 +139,7 @@ const ReactPage = ({ data }) => {
                     </LearningResourceWrapper>
                   </Col>
                   <Link to="#our-react-training" name="our-react-training" />
-                  <Col md={1} />
-                  <Col md={4}>
+                  <Col md={4} mdOffset={1}>
                     <H3>Our React training</H3>
                     <TrainingType>
                       <H4>7-day Bootcamp</H4>
