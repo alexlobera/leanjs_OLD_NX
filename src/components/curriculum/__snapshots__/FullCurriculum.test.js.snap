@@ -10,7 +10,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
       xs={12}
     >
       <Styled(styled.h2)>
-        Our React curriculum
+        Choose a course...
          
         <Link
           name="curriculum"
@@ -19,18 +19,6 @@ exports[`<FullCurriculum /> should render component 1`] = `
           #
         </Link>
       </Styled(styled.h2)>
-    </Styled(Col)>
-  </Row>
-  <Row>
-    <Styled(Col)
-      lg={10}
-      lgOffset={1}
-      md={12}
-      xs={12}
-    >
-      <styled.h4>
-        Select Course:
-      </styled.h4>
     </Styled(Col)>
   </Row>
   <Row>
@@ -54,22 +42,22 @@ exports[`<FullCurriculum /> should render component 1`] = `
           <TabItem
             name="Advanced React"
           >
-            Advanced React Bootcamp
+            Advanced React
           </TabItem>
           <TabItem
             name="Part-time"
           >
-            Part-time Course
+            Part-time React
+          </TabItem>
+          <TabItem
+            name="React Native"
+          >
+            1-Day Workshops
           </TabItem>
           <TabItem
             name="GraphQL Bootcamp"
           >
             GraphQL Bootcamp
-          </TabItem>
-          <TabItem
-            name="React Native"
-          >
-            React Native Training
           </TabItem>
         </TabList>
         <TabContent>
@@ -95,16 +83,16 @@ exports[`<FullCurriculum /> should render component 1`] = `
             />
           </ContentItem>
           <ContentItem
-            name="GraphQL Bootcamp"
+            name="React Native"
           >
-            <CurriculumGraphQL
+            <CurriculumOneDayWorkshops
               showTitle={false}
             />
           </ContentItem>
           <ContentItem
-            name="React Native"
+            name="GraphQL Bootcamp"
           >
-            <CurriculumReactNative
+            <CurriculumGraphQL
               showTitle={false}
             />
           </ContentItem>
