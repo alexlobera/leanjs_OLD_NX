@@ -39,7 +39,7 @@ const ReactPage = ({ data }) => {
             bgImageName={BOOTCAMP}
             links={[
               {
-                text: 'Free React Learning',
+                text: 'Latest React Blogs',
                 to: '#free-react-resources',
               },
               {

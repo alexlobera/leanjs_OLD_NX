@@ -54,7 +54,6 @@ const posts = [
     },
   },
 ]
-const MoreFreeResouces = styled.div``
 
 const GraphQLPage = props => (
   <Layout>
