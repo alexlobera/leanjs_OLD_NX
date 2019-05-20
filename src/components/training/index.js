@@ -22,3 +22,5 @@ export {
   DAVID_LEULIETTE,
   FRANCISCO_GOMES,
 } from './TrainingDetails'
+
+export { default as TrainingCard } from './TrainingCard'

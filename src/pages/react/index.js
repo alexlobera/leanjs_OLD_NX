@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -13,43 +12,11 @@ import {
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
-import { Card, Video, Image } from 'src/components/elements'
+import { Card, Video } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
-import { formatPostTitle } from 'src/templates/blog-post'
-
-import { REACT_BLUE_DARK } from '../../config/styles'
-
-const LearningResource = styled.div`
-  img {
-    max-height: 8rem;
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 0;
-  }
-  h4 p {
-    margin: 0.5rem 2rem;
-  }
-  h4 {
-    margin-top: 1rem;
-  }
-`
-
-const LearningResourceWrapper = styled.div`
-  margin-top: 2rem;
-`
-
-const TrainingType = styled.div`
-  border-left: 5px solid;
-  border-color: ${REACT_BLUE_DARK};
-  padding: 1rem 1rem 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 1rem 0;
-  button {
-    display: inline-block;
-  }
-`
+import { TrainingCard } from 'src/components/training'
+import LearningResources from 'src/components/blog/LearningResources'
 
 const ReactPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -100,48 +67,26 @@ const ReactPage = ({ data }) => {
                   />
                   <Col md={5} mdOffset={1}>
                     <H2>Latest React Blogs</H2>
-                    <LearningResourceWrapper>
-                      {posts.map(({ node: post }) => {
-                        return (
-                          <Card border="shadow" small bottom={36}>
-                            <LearningResource>
-                              <Image
-                                src={post.frontmatter.imageUrl}
-                                alt={formatPostTitle(post.frontmatter.title)}
-                              />
-                              <Link to={post.fields.slug}>
-                                <H4>
-                                  {formatPostTitle(post.frontmatter.title)}
-                                </H4>
-                              </Link>
-                              <P>
-                                {post.excerpt}{' '}
-                                <Link to={post.fields.slug}>Learn More</Link>
-                              </P>
-                            </LearningResource>
-                          </Card>
-                        )
-                      })}
-                      <H3>Get more learning resources</H3>
-                      <P>
-                        Over 5 weeks, we email you directly with free resources{' '}
-                        <strong>
-                          directly from our{' '}
-                          <Link to="/react/curriculum">
-                            <strong>React Curriculum</strong>
-                          </Link>
-                        </strong>{' '}
-                        . We'd love for you to enjoy and learn from them!{' '}
-                      </P>
-                      <LinkButton variant="primary" to="#newsletter">
-                        Sign up now
-                      </LinkButton>
-                    </LearningResourceWrapper>
+                    <LearningResources resources={posts} />
+                    <H3>Get more learning resources</H3>
+                    <P>
+                      Over 5 weeks, we email you directly with free resources{' '}
+                      <strong>
+                        directly from our{' '}
+                        <Link to="/react/curriculum">
+                          <strong>React Curriculum</strong>
+                        </Link>
+                      </strong>{' '}
+                      . We'd love for you to enjoy and learn from them!{' '}
+                    </P>
+                    <LinkButton variant="primary" to="#newsletter">
+                      Sign up now
+                    </LinkButton>
                   </Col>
                   <Link to="#our-react-training" name="our-react-training" />
                   <Col md={4} mdOffset={1}>
                     <H3>Our React training</H3>
-                    <TrainingType>
+                    <TrainingCard>
                       <H4>7-day Bootcamp</H4>
                       <P>
                         Rapid learning with a deep-dive into the whole React
@@ -153,8 +98,8 @@ const ReactPage = ({ data }) => {
                       >
                         Find Out More
                       </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
+                    </TrainingCard>
+                    <TrainingCard>
                       <H4>Part-Time Course</H4>
                       <P>
                         Maximum flexibility React training that fits around your
@@ -166,8 +111,8 @@ const ReactPage = ({ data }) => {
                       >
                         Find Out More
                       </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
+                    </TrainingCard>
+                    <TrainingCard>
                       <H4>Corporate Team Training</H4>
                       <P>
                         We come to you, teach skills and best practice to your
@@ -179,8 +124,8 @@ const ReactPage = ({ data }) => {
                       >
                         Find Out More
                       </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
+                    </TrainingCard>
+                    <TrainingCard>
                       <H4>React Advanced</H4>
                       <P>
                         For React developers who need to supercharge their
@@ -192,8 +137,8 @@ const ReactPage = ({ data }) => {
                       >
                         Find Out More
                       </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
+                    </TrainingCard>
+                    <TrainingCard>
                       <H4>1-day Workshops</H4>
                       <P>
                         Covering specific aspects in our Curriculum so you can
@@ -205,7 +150,7 @@ const ReactPage = ({ data }) => {
                       >
                         Find Out More
                       </LinkButton>
-                    </TrainingType>
+                    </TrainingCard>
                   </Col>
                 </Row>
               </Card>
