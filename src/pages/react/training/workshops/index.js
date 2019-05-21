@@ -26,7 +26,7 @@ const workshops = [
     sell: true,
   },
   {
-    title: 'React Fundamentals & ModernJS',
+    title: 'React Fundamentals & Modern JavaScript',
     description:
       'Learn the basics of React and jumpstart your way into a new coding ecosystem',
   },

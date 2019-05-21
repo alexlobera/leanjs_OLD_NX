@@ -36,7 +36,7 @@ const CurriculumOneDayWorkshops = ({
 
       <Section
         {...commonProps}
-        title="React Fundamentals & ModernJS"
+        title="React Fundamentals & Modern JavaScript"
         name="fundamentals"
         subTitle="Learn the basics of React and jumpstart your way into a new coding ecosystem"
         showLinkToCurriculum
