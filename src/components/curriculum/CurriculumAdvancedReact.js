@@ -18,7 +18,7 @@ const CurriculumAdvancedReact = ({
   showTitle = true,
   isOpen,
   enableToggle,
-  toggleNavigateTo = `/curriculum?tab=${ADVANCED_REACT}`,
+  toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT}`,
   marketingCard = null,
   showLinkToCurriculum = true,
   layout,
