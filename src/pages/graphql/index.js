@@ -18,40 +18,6 @@ import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 
-const posts = [
-  {
-    node: {
-      frontmatter: {
-        imageUrl:
-          'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media',
-        title: 'What is GraphQL and what is it used for?',
-      },
-      excerpt: `Some say that data is the new oil, but it isn’t
-      enough to just have a vast amount of data - you also
-      need to know how to use it efficiently...`,
-      fields: {
-        slug: '/blog/what-is-graphql-used-for/',
-      },
-    },
-  },
-  {
-    node: {
-      frontmatter: {
-        imageUrl:
-          'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media',
-        title: 'Who uses GraphQL anyway?',
-      },
-      excerpt: `You may know what GraphQL is and why it’s so
-      useful, but if you’re yet to be convinced of this
-      syntax’s capabilities you need only look at some of
-      the big names that are already using it...`,
-      fields: {
-        slug: '/blog/who-uses-graphql-anyway/',
-      },
-    },
-  },
-]
-
 const trainingList = [
   {
     title: 'Bootcamp',
@@ -67,10 +33,11 @@ const trainingList = [
   },
 ]
 
-const GraphQLPage = () => (
-  <Layout>
-    {({ trainings }) => {
-      return (
+const GraphQLPage = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges
+  return (
+    <Layout>
+      {({ trainings }) => (
         <React.Fragment>
           <Breadcrumb
             path={[
@@ -170,9 +137,31 @@ const GraphQLPage = () => (
           <TrustedBySection />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+      )}
+    </Layout>
+  )
+}
 
+export const query = graphql`
+  query graphqlPage {
+    allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/(/graphql/)/g" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 3
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            imageUrl
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`
 export default GraphQLPage
