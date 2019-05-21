@@ -1,55 +1,55 @@
 import React from 'react'
-import styled from 'styled-components'
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, H3, H4, P } from 'src/components/text'
+import { H2, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
-import { Card, Video, Image } from 'src/components/elements'
+import { Card, Video } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
-import { formatPostTitle } from 'src/templates/blog-post'
+import { TrainingCardList } from 'src/components/training'
+import LearningResources from 'src/components/blog/LearningResources'
 
-import { REACT_BLUE_DARK } from '../../config/styles'
-
-const LearningResource = styled.div`
-  img {
-    max-height: 5rem;
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 0;
-  }
-  h4 p {
-    margin: 0.5rem 2rem;
-  }
-  h4 {
-    margin-top: 1rem;
-  }
-`
-
-const LearningResourceWrapper = styled.div`
-  margin-top: 2rem;
-`
-
-const TrainingType = styled.div`
-  border-left: 5px solid;
-  border-color: ${REACT_BLUE_DARK};
-  padding: 1rem 1rem 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 2rem 1rem 0;
-  button {
-    display: inline-block;
-  }
-`
+const trainingList = [
+  {
+    title: '7-day Bootcamp',
+    text: ` Rapid learning with a deep-dive into the whole React
+    Ecosystem`,
+    to: '/react/training/bootcamp/',
+  },
+  {
+    title: 'Part-Time Course',
+    text: `Maximum flexibility React training that fits around your
+    job`,
+    to: 'react/training/part-time-course',
+  },
+  {
+    title: 'Corporate Team Training',
+    text: ` We come to you, teach skills and best practice to your
+    entire team!`,
+    to: '/react/training/corporate',
+  },
+  {
+    title: 'React Advanced',
+    text: `For React developers who need to supercharge their
+    skills`,
+    to: '/react/training/advanced/',
+  },
+  {
+    title: '1-day Workshops',
+    text: `Covering specific aspects in our Curriculum so you can
+    specialise`,
+    to: '/react/training/workshops',
+  },
+]
 
 const ReactPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -72,7 +72,7 @@ const ReactPage = ({ data }) => {
             bgImageName={BOOTCAMP}
             links={[
               {
-                text: 'Free React Learning',
+                text: 'Latest React Blogs',
                 to: '#free-react-resources',
               },
               {
@@ -98,117 +98,13 @@ const ReactPage = ({ data }) => {
                     to="#free-react-resources"
                     name="free-react-resources"
                   />
-
-                  <Col md={1} />
-                  <Col md={6}>
-                    <H2>Latest React Blogs</H2>
-                    <LearningResourceWrapper>
-                      {posts.map(({ node: post }) => {
-                        return (
-                          <Card border="shadow" small bottom={36}>
-                            <LearningResource>
-                              <Image
-                                src={post.frontmatter.imageUrl}
-                                alt={formatPostTitle(post.frontmatter.title)}
-                              />
-                              <Link to={post.fields.slug}>
-                                <H4>
-                                  {formatPostTitle(post.frontmatter.title)}
-                                </H4>
-                              </Link>
-                              <P>
-                                {post.excerpt}{' '}
-                                <Link to={post.fields.slug}>Learn More</Link>
-                              </P>
-                            </LearningResource>
-                          </Card>
-                        )
-                      })}
-                      <H3>Get more learning resources</H3>
-                      <P>
-                        Over 5 weeks, we email you directly with free resources{' '}
-                        <strong>
-                          directly from our{' '}
-                          <Link to="/react/curriculum">
-                            <strong>React Curriculum</strong>
-                          </Link>
-                        </strong>{' '}
-                        . We'd love for you to enjoy and learn from them!{' '}
-                      </P>
-                      <LinkButton variant="primary" to="#newsletter">
-                        Sign up now
-                      </LinkButton>
-                    </LearningResourceWrapper>
+                  <Col md={5} mdOffset={1}>
+                    <LearningResources resources={posts} type="react" />
                   </Col>
                   <Link to="#our-react-training" name="our-react-training" />
-                  <Col md={1} />
-                  <Col md={4}>
+                  <Col md={4} mdOffset={1}>
                     <H3>Our React training</H3>
-                    <TrainingType>
-                      <H4>7-day Bootcamp</H4>
-                      <P>
-                        Rapid learning with a deep-dive into the whole React
-                        Ecosystem
-                      </P>
-                      <LinkButton
-                        variant="secondary"
-                        to="/react/training/bootcamp/"
-                      >
-                        Find Out More
-                      </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
-                      <H4>Part-Time Course</H4>
-                      <P>
-                        Maximum flexibility React training that fits around your
-                        job
-                      </P>
-                      <LinkButton
-                        to="react/training/part-time-course"
-                        variant="secondary"
-                      >
-                        Find Out More
-                      </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
-                      <H4>Corporate Team Training</H4>
-                      <P>
-                        We come to you, teach skills and best practice to your
-                        entire team!
-                      </P>
-                      <LinkButton
-                        to="/react/training/corporate"
-                        variant="secondary"
-                      >
-                        Find Out More
-                      </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
-                      <H4>React Advanced</H4>
-                      <P>
-                        For React developers who need to supercharge their
-                        skills
-                      </P>
-                      <LinkButton
-                        to="/react/training/advanced/"
-                        variant="secondary"
-                      >
-                        Find Out More
-                      </LinkButton>
-                    </TrainingType>
-                    <TrainingType>
-                      <H4>1-day Workshops</H4>
-                      <P>
-                        Covering specific aspects in our Curriculum so you can
-                        specialise
-                      </P>
-                      <LinkButton
-                        to="/react/training/workshops"
-                        variant="secondary"
-                      >
-                        Find Out More
-                      </LinkButton>
-                    </TrainingType>
+                    <TrainingCardList data={trainingList} />
                   </Col>
                 </Row>
               </Card>

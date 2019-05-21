@@ -166,3 +166,8 @@ export const formatUTC = (utcDate, utcOffset = 60, format = "D MMM 'YYYY") => {
 function twoDigits(number) {
   return ('0' + number).slice(-2)
 }
+
+export function capitalize(str) {
+  if (typeof str !== 'string') return ''
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
