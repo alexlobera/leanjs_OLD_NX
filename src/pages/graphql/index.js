@@ -145,7 +145,7 @@ const GraphQLPage = ({ data }) => {
 export const query = graphql`
   query graphqlPage {
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/(/graphql/)/g" } } }
+      filter: { fields: { slug: { regex: "/(/graphql/)/" } } }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 3
     ) {

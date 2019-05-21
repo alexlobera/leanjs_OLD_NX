@@ -4,7 +4,7 @@ date: 2018-11-07
 subtitle: We’ve covered what GraphQL is, but who actually uses GraphQL? You might be surprised by the big names that use it, and why...!
 author: richard
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fwhat-is-graphql-used-for%2Fwhat-is-graphql.jpg?alt=media&
-order: 100
+order: 15
 ---
 
 You may know [what GraphQL is](/graphql/what-is-GraphQL-used-for/) and why it’s so useful, but if you’re yet to be convinced of this syntax’s capabilities you need only look at some of the big names that are already using it - and making a success of it!
