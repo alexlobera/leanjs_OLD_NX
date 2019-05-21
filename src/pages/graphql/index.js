@@ -1,19 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, H4, H3, P } from 'src/components/text'
+import { H2, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Card, Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
