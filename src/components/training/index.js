@@ -23,4 +23,4 @@ export {
   FRANCISCO_GOMES,
 } from './TrainingDetails'
 
-export { default as TrainingCard } from './TrainingCard'
+export { default as TrainingCard, TrainingCardList } from './TrainingCard'

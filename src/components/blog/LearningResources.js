@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Card, Image } from 'src/components/elements'
-import { H4, P } from 'src/components/text'
+import { H2, H3, H4, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
 import { formatPostTitle } from 'src/templates/blog-post'
+import { capitalize } from 'src/components/utils'
+import { LinkButton } from 'src/components/buttons'
 
 const LearningResource = styled.div`
   img {
@@ -24,27 +26,47 @@ const LearningResourcesWrapper = styled.div`
   margin-top: 2rem;
 `
 
-const LearningResources = ({ resources = [] }) => (
-  <LearningResourcesWrapper>
-    {resources.map(({ node: post }) => {
-      return (
-        <Card border="shadow" small bottom={36}>
-          <LearningResource>
-            <Image
-              src={post.frontmatter.imageUrl}
-              alt={formatPostTitle(post.frontmatter.title)}
-            />
-            <Link to={post.fields.slug}>
-              <H4>{formatPostTitle(post.frontmatter.title)}</H4>
-            </Link>
-            <P>
-              {post.excerpt} <Link to={post.fields.slug}>Learn More</Link>
-            </P>
-          </LearningResource>
-        </Card>
-      )
-    })}
-  </LearningResourcesWrapper>
-)
+const LearningResources = ({ resources = [], type = '' }) => {
+  const capitalizedType = capitalize(type)
+  return (
+    <React.Fragment>
+      <H2>Latest GraphQL Blogs</H2>
+      <LearningResourcesWrapper>
+        {resources.map(({ node: post }) => {
+          return (
+            <Card key={post.fields.slug} border="shadow" small bottom={36}>
+              <LearningResource>
+                <Image
+                  src={post.frontmatter.imageUrl}
+                  alt={formatPostTitle(post.frontmatter.title)}
+                />
+                <Link to={post.fields.slug}>
+                  <H4>{formatPostTitle(post.frontmatter.title)}</H4>
+                </Link>
+                <P>
+                  {post.excerpt} <Link to={post.fields.slug}>Learn More</Link>
+                </P>
+              </LearningResource>
+            </Card>
+          )
+        })}
+      </LearningResourcesWrapper>
+      <H3>Get {capitalizedType} learning resources</H3>
+      <P>
+        Over 5 weeks, we email you directly with free resources{' '}
+        <strong>
+          directly from our{' '}
+          <Link to={`/${type.toLowerCase()}/curriculum`}>
+            <strong>{capitalizedType} Curriculum</strong>
+          </Link>
+        </strong>{' '}
+        . We'd love for you to enjoy and learn from them!{' '}
+      </P>
+      <LinkButton variant="primary" to="#newsletter">
+        Sign up now
+      </LinkButton>
+    </React.Fragment>
+  )
+}
 
 export default LearningResources

@@ -18,7 +18,7 @@ import {
 import { Card } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
-import { TrainingCard } from 'src/components/training'
+import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 
 const posts = [
@@ -52,6 +52,21 @@ const posts = [
         slug: '/blog/who-uses-graphql-anyway/',
       },
     },
+  },
+]
+
+const trainingList = [
+  {
+    title: 'Bootcamp',
+    text: `Rapid learning with a deep-dive into GraphQL in it's
+    entirity`,
+    to: '/graphql/training/bootcamp/',
+  },
+  {
+    title: 'Corporate Team Training',
+    text: ` We come to you, teach skills and best practice to your
+    entire team!`,
+    to: '/graphql/training/corporate',
   },
 ]
 
@@ -102,23 +117,7 @@ const GraphQLPage = props => (
                     name="free-graphql-resources"
                   />
                   <Col md={5} mdOffset={1}>
-                    <H2>Latest GraphQL Blogs</H2>
-                    <LearningResources resources={posts} />
-
-                    <H3>Get React learning resources</H3>
-                    <P>
-                      Over 5 weeks, we email you directly with free resources{' '}
-                      <strong>
-                        directly from our{' '}
-                        <Link to="/react/curriculum">
-                          <strong>React Curriculum</strong>
-                        </Link>
-                      </strong>{' '}
-                      . We'd love for you to enjoy and learn from them!{' '}
-                    </P>
-                    <LinkButton variant="primary" to="#newsletter">
-                      Sign up now
-                    </LinkButton>
+                    <LearningResources resources={posts} type="graphql" />
                   </Col>
                   <Link
                     to="#our-graphql-training"
@@ -126,33 +125,7 @@ const GraphQLPage = props => (
                   />
                   <Col md={4} mdOffset={1}>
                     <H3>Our GraphQL training</H3>
-                    <TrainingCard>
-                      <H4>7-day Bootcamp</H4>
-                      <P>
-                        Rapid learning with a deep-dive into GraphQL in it's
-                        entirity
-                      </P>
-                      <LinkButton
-                        variant="secondary"
-                        to="/graphql/training/bootcamp/"
-                      >
-                        Find Out More
-                      </LinkButton>
-                    </TrainingCard>
-
-                    <TrainingCard>
-                      <H4>Corporate Team Training</H4>
-                      <P>
-                        We come to you, teach skills and best practice to your
-                        entire team!
-                      </P>
-                      <LinkButton
-                        to="/graphql/training/corporate"
-                        variant="secondary"
-                      >
-                        Find Out More
-                      </LinkButton>
-                    </TrainingCard>
+                    <TrainingCardList data={trainingList} />
                   </Col>
                 </Row>
               </Card>

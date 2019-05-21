@@ -8,7 +8,7 @@ import Ul, { Li } from './Ul'
 import Link, { styleChildLinkColor } from '../navigation/Link'
 import { blue1, WHITE } from '../../config/styles'
 import { SCREEN_SM_MAX } from '../utils'
-import { P, H3 } from '../text'
+import { P, H3, Span } from '../text'
 import { BulletIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons'
 
 const StyledFooter = styled.div`
@@ -97,26 +97,24 @@ const Footer = () => (
             </Row>
             <Row>
               <Col md={12}>
-                <P>
-                  Follow us...
-                  <SocialMenu unstyled inline>
-                    <Li>
-                      <SocialLink to="https://twitter.com/reactjsacademy">
-                        <BulletIcon social icon={TwitterIcon} />
-                      </SocialLink>
-                    </Li>
-                    <Li>
-                      <SocialLink to="https://www.instagram.com/reactjsacademy/">
-                        <BulletIcon social icon={InstagramIcon} />
-                      </SocialLink>
-                    </Li>
-                    <Li>
-                      <SocialLink to="https://www.facebook.com/reactjsacademy/">
-                        <BulletIcon social icon={FacebookIcon} />
-                      </SocialLink>
-                    </Li>
-                  </SocialMenu>
-                </P>
+                <Span>Follow us...</Span>
+                <SocialMenu unstyled inline>
+                  <Li>
+                    <SocialLink to="https://twitter.com/reactjsacademy">
+                      <BulletIcon social icon={TwitterIcon} />
+                    </SocialLink>
+                  </Li>
+                  <Li>
+                    <SocialLink to="https://www.instagram.com/reactjsacademy/">
+                      <BulletIcon social icon={InstagramIcon} />
+                    </SocialLink>
+                  </Li>
+                  <Li>
+                    <SocialLink to="https://www.facebook.com/reactjsacademy/">
+                      <BulletIcon social icon={FacebookIcon} />
+                    </SocialLink>
+                  </Li>
+                </SocialMenu>
               </Col>
               <Col md={12}>
                 <P sm>
