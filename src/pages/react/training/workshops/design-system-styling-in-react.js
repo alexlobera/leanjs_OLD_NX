@@ -148,6 +148,9 @@ const StylingDesignSystemWorkshop = () => (
                     </Link>
                     .
                   </P>
+                  <Link to="/blog/the-perfect-react-bootcamp-student/">
+                    Blog: Are YOU the Perfect React Student?
+                  </Link>
                 </Col>
               </Row>
             </Grid>

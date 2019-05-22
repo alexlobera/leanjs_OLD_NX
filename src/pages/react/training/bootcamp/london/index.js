@@ -140,13 +140,11 @@ const BootcampLondon = () => (
                   </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
-                    This is not a learn-to-code course. If you want to learn to
-                    code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code camps
-                    </Link>
-                    .
+                    <strong>We do not run learn-to-code bootcamps</strong>.
                   </P>
+                  <Link to="/blog/the-perfect-react-bootcamp-student/">
+                    Blog: Are YOU the Perfect React Student?
+                  </Link>
                 </Col>
               </Row>
             </Grid>
