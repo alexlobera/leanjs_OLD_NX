@@ -48,7 +48,8 @@ export const H2Ref = styled(H2)`
 `
 
 export const H3_STYLE = `
-  ${FONT_FAMILY} line-height: 1.5;
+  ${FONT_FAMILY} 
+  line-height: 1.5;
   font-weight: 500;
   padding-top: 1.5rem;
   :first-child {
@@ -69,7 +70,8 @@ export const H3Ref = styled(H3)`
 `
 
 export const H4_STYLE = `
-  ${FONT_FAMILY} font-size: 1.16rem;
+  ${FONT_FAMILY} 
+  font-size: 1.16rem;
   line-height: 1.3;
   font-weight: 600;
 `
@@ -83,7 +85,8 @@ export const H4Ref = styled(H4)`
 `
 
 export const H5_STYLE = `
-  ${FONT_FAMILY} font-size: 1rem;
+  ${FONT_FAMILY} 
+  font-size: 1rem;
   line-height: 1.2;
   font-weight: 700;
 `
