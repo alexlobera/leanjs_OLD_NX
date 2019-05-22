@@ -137,11 +137,11 @@ const TrainingPage = props => (
                   <H3>Not for beginner devs!</H3>
                   <P>
                     <strong>We do not run learn-to-code bootcamps</strong>. If
-                    you want to learn to code, we recommend you to contact our
-                    London-based partner{' '}
-                    <Link to="https://makers.tech/">Makers</Link>. PLUS you'll
-                    get a &pound;250 discount using our reference "ReactJS
-                    Academy".
+                    you want to learn to code, we recommend checking out{' '}
+                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                      Free Code camps
+                    </Link>
+                    .
                   </P>
                   <Link to="/blog/the-perfect-react-bootcamp-student/">
                     Blog: Are YOU the Perfect React Student?
