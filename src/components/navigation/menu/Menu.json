@@ -2,11 +2,20 @@
   {
     "to": "/react",
     "text": "React",
-    "onlyOn": null,
     "children": [
       {
         "to": "/react/training",
         "text": "React Courses"
+      },
+      {
+        "to": "/react/training/corporate",
+        "text": "React Corporate Training",
+        "hideOnMobile": true
+      },
+      {
+        "to": "/react/training/workshops",
+        "text": "React Workshops",
+        "hideOnMobile": true
       },
       {
         "to": "/react/curriculum",
@@ -17,11 +26,20 @@
   {
     "to": "/graphql",
     "text": "GraphQL",
-    "onlyOn": null,
     "children": [
       {
         "to": "/graphql/training",
         "text": "GraphQL Courses"
+      },
+      {
+        "to": "/graphql/training/corporate",
+        "text": "GraphQL Corporate Training",
+        "hideOnMobile": true
+      },
+      {
+        "to": "/graphql/training/workshops",
+        "text": "GraphQL Workshops",
+        "hideOnMobile": true
       },
       {
         "to": "/graphql/curriculum",
@@ -31,22 +49,19 @@
   },
   {
     "to": "/blog",
-    "text": "Blog",
-    "onlyOn": null
+    "text": "Blog"
   },
   {
     "to": "/about-us",
-    "text": "About us",
-    "onlyOn": null
+    "text": "About us"
   },
   {
     "to": "/community",
     "text": "Community",
-    "onlyOn": null
+    "hideOnMobile": true
   },
   {
     "to": "#contact-us",
-    "text": "Contact",
-    "onlyOn": null
+    "text": "Contact"
   }
 ]

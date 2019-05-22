@@ -39,9 +39,14 @@ class PhoneMenu extends React.Component {
 
     const items = MenuData.reduce((accumulatedItems, currentItem) => {
       if (currentItem.children) {
-        return [...accumulatedItems, ...currentItem.children]
-      } else {
+        return [
+          ...accumulatedItems,
+          ...currentItem.children.filter(i => !i.hideOnMobile),
+        ]
+      } else if (!currentItem.hideOnMobile) {
         return [...accumulatedItems, currentItem]
+      } else {
+        return accumulatedItems
       }
     }, [])
 
