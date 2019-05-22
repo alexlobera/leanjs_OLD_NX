@@ -366,7 +366,9 @@ const AboutUs = () => (
                 </CoachTitle>
                 <Ul inline>
                   <Li>
-                    <SocialLink to="github.com/evandyou">GitHub</SocialLink>
+                    <SocialLink to="https://github.com/evandyou">
+                      GitHub
+                    </SocialLink>
                   </Li>
                   <Li>|</Li>
                   <Li>
