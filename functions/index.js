@@ -51,10 +51,10 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
     // Set CORS headers for the main request
     response.set('Access-Control-Allow-Origin', '*')
 
-    const email = request && request.body && request.body.email
     const data = request && request.body
     const {
       name,
+      email,
       fundamentals,
       styling,
       hooks,
@@ -62,6 +62,7 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
       gqlclient,
       testing,
       resources,
+      pathname,
     } = data
     const AUTOPILOT_API_KEY = functions.config().autopilot.key
     if (email) {
@@ -77,6 +78,7 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
             LeadSource: '1-day workshops form',
             _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
             custom: {
+              'string--From--Path': pathname,
               'boolean--Fundamentals--Session': fundamentals,
               'boolean--Styling--Session': styling,
               'boolean--Hooks--Session': hooks,
@@ -84,6 +86,7 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
               'boolean--GQLclient--Session': gqlclient,
               'boolean--Testing--Session': testing,
               'boolean--Resources--Signup': resources,
+              'boolean--Native--Signup': resources,
             },
           },
         }),

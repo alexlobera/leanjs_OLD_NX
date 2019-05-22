@@ -10,6 +10,8 @@ export const triggerSessionSubscribe = ({
   gqlclient,
   testing,
   resources,
+  native,
+  pathname = '/interest-form',
 }) =>
   fetch(
     `https://us-central1-reactjsacademy-react.cloudfunctions.net/sessionSubscribe`,
@@ -28,6 +30,8 @@ export const triggerSessionSubscribe = ({
         gqlclient,
         testing,
         resources,
+        native,
+        pathname,
       }),
     }
   ).then(() => {
