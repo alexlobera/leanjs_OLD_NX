@@ -63,21 +63,12 @@ const TargetAudienceSection = () => (
           </P>
           <H3>Not for beginner devs!</H3>
           <P>
-<<<<<<< HEAD
             This is not a learn-to-code course. If you want to learn to code, we
             recommend checking out{' '}
             <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
               Free Code camps
             </Link>
             .
-||||||| merged common ancestors
-            This is not a learn-to-code course. If you want to learn to code, we
-            recommend you contact our London-based partner{' '}
-            <Link to="https://makers.tech/">Makers</Link>. PLUS you'll get a
-            &pound;250 discount using our reference "ReactJS Academy".
-=======
-            <strong>We do not run learn-to-code bootcamps</strong>.
->>>>>>> 35dcf507f9ab1c29b83bb5a31f050cb7db7a20be
           </P>
           <Link to="/blog/the-perfect-react-bootcamp-student/">
             Blog: Are YOU the Perfect React Student?
