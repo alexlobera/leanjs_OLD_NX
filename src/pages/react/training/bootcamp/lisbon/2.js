@@ -161,7 +161,7 @@ const BootcampLisbon = () => (
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactjs.academy/react/training/bootcamp-lisbon`,
+                href: `https://reactgraphql.academy/react/training/bootcamp/lisbon`,
               },
             ]}
           />
