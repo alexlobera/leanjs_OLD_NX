@@ -290,12 +290,11 @@ const BootcampLisbon = () => (
                   </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
-                    This is not a learn-to-code bootcamp. If you want to learn
-                    to code, we recommend you to contact our London-based
-                    partner <Link to="https://makers.tech/">Makers</Link>. PLUS
-                    you'll get a &pound;250 discount using our reference
-                    "ReactJS Academy".
+                    <strong>We do not run learn-to-code bootcamps</strong>.
                   </P>
+                  <Link to="/blog/the-perfect-react-bootcamp-student/">
+                    Blog: Are YOU the Perfect React Student?
+                  </Link>
                 </Col>
               </Row>
             </Grid>

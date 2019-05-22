@@ -99,10 +99,7 @@ const PartTime = ({ trainings }) => (
                     </Li>
                     <Li>
                       <BulletIcon icon={NotBegginersIcon} />
-                      Not for beginners! Looking for a{' '}
-                      <Link to="https://makers.tech/">
-                        Learn-to-Code course?
-                      </Link>{' '}
+                      Not for beginners!
                     </Li>
                     <Li>
                       <BulletIcon icon={DiscussIcon} />
