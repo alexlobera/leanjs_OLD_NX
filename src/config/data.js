@@ -335,7 +335,7 @@ export const instagramPictures = [
 ]
 
 export const CONVINCE_THE_BOSS_PDF =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media&'
 
 export const selectMeetups = () =>
   meetups
