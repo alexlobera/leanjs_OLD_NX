@@ -42,7 +42,7 @@ const CorpTrainingFacts = () => (
     </P>
     <LinkButton
       primary
-      to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FCorporate%20Team%20Training%20with%20ReactJS%20Academy.pdf?alt=media&"
+      to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
     >
       Team Training - Key Facts (PDF)
     </LinkButton>

@@ -14,7 +14,7 @@ const StyledNewsletter = styled.div`
 `
 const Newsletter = () => (
   <StyledNewsletter>
-    <H3>Free learning resources</H3>
+    <H3>Free learning resources!</H3>
     <P>
       We share our resources directly from our{' '}
       <Link to="/react/curriculum">React</Link> and{' '}
