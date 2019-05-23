@@ -11,7 +11,7 @@ const CurriculumCorpRNative = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
+  toggleNavigateTo = `/react/training/workshops/`,
   marketingCard = null,
   showLinkToCurriculum = false,
 }) => {

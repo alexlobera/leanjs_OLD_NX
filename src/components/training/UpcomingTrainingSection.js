@@ -109,9 +109,7 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
                   <P>
                     <strong>Corporate team training</strong>
                   </P>
-                  <Link to="react/training/corporate-team-training/">
-                    Find out more
-                  </Link>
+                  <Link to="/react/training/corporate/">Find out more</Link>
                 </CorporateCrossSell>
               </TrainingList>
             </Col>

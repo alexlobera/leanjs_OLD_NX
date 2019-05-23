@@ -1,28 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { LONDON_BOOTCAMP } from '../../images/imageNames.js'
-import Layout from '../components/layout'
-import { formatUTC } from '../components/utils'
-import Section, { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import { Li } from '../components/layout/Ul'
-import { H2, H3, P } from '../components/text'
-import { Link } from '../components/navigation'
-import { Card, Image, Newsletter } from '../components/elements'
-import Header from '../components/layout/Header'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
+import Layout from 'src/components/layout'
+import { formatUTC } from 'src/components/utils'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Li } from 'src/components/layout/Ul'
+import { H2, H3, P } from 'src/components/text'
+import { Link } from 'src/components/navigation'
+import { Card, Image, Newsletter } from 'src/components/elements'
+import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-} from '../components/training'
-import { LinkButton } from '../components/buttons'
+} from 'src/components/training'
+import { LinkButton } from 'src/components/buttons'
 import {
   REACT_BOOTCAMP,
   selectMeetups,
   instagramPictures,
-} from '../config/data'
-import { MENTORSHIP_IMG } from '../config/images'
+} from 'src/config/data'
+import { MENTORSHIP_IMG } from 'src/config/images'
 
 const CallToAction = styled(LinkButton)`
   position: absolute;
