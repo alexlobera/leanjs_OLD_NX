@@ -276,7 +276,7 @@ From a composition perspective both cases are the same since all the HoCs’ inp
 - Prop name collision, meaning two HoCs inject a prop with the same name. In the previous example it doesn’t happen.
 - Performance. Imagine Threads is a form connected to ReduxForm. Everytime the user press a key it would cause a rerender of all the components in case B but not in case A. The reason is props need to be propagated down the composition to Threads through all the components in between.
 
-If you are interested in checking the material we use to teach HoCs click on this [link](https://advanced-react-patterns.reactjs.academy/higher-order-components). We cover these and similar cases in more detail in any of the in-person React training we run, such as the [React bootcamp](/react/training/bootcamp/), [advanced React training](/advanced-react-redux-graphql-bootcamp/), [part-time React course](/react-redux-graphql-part-time-course/), and of course the [on-site corporate React training](/corporate-team-training/).
+If you are interested in checking the material we use to teach HoCs click on this [link](https://advanced-react-patterns.reactjs.academy/higher-order-components). We cover these and similar cases in more detail in any of the in-person React training we run, such as the [React bootcamp](/react/training/bootcamp/), [advanced React training](/react/training/advanced/), [part-time React course](/react/training/part-time-course/), and of course the [on-site corporate React training](/react/training/corporate/).
 
 <marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 
