@@ -146,6 +146,7 @@ const Bootcamps = props => (
                     fullname="Davian Robinson"
                     job="Senior Software Engineer"
                     company="ETZ Payments"
+                    profilePic
                     profilePicUrl={DAVIAN}
                   />
                 </Col>

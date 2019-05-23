@@ -4,7 +4,7 @@ date: 2019-03-26
 subtitle: After a great reception for our ReactJS Bootcamps around Europe, we’re really proud to bring you our latest week-long course - The GraphQL Bootcamp!
 author: richard
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fgraphql_announcement%2FGQL_announcement.jpg?alt=media&
-order: 500
+order: 50
 ---
 
 At React GraphQL Academy, we’re keen to get more people into the world of the React ecosystem. Our expert developers have been coaching since the inception of the ecosystem, and our React and React Native training courses have gone down really well with developers and companies throughout the EU.

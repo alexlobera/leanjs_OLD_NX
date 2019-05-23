@@ -91,6 +91,7 @@ const CorporateGraphQLTraining = () => (
                   fullname="Eber Herrera"
                   job="Technical Director"
                   company="Xing"
+                  profilePic
                   profilePicUrl={EBER}
                   ctaButton="How Training Keeps Xing 
               Tech-Relevant (Blog)"

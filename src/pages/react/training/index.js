@@ -11,10 +11,12 @@ import { CallToActionRow } from '../../../components/layout/CallToActionNextTrai
 import { FullCurriculumsReact } from '../../../components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
+  AttendeeQuote,
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
 import { Card, Video } from 'src/components/elements'
+import { EBER } from 'src/config/images'
 
 import {
   CodeIcon,
@@ -109,7 +111,15 @@ const TrainingPage = () => (
             <Grid>
               <Row>
                 <Col md={5}>
-                  <Video youtubeId="E_4eQQHjc7A" />
+                  <AttendeeQuote
+                    small
+                    quote="I'd been self-teaching myself, but I needed something more concrete so taking this course was the best thing I could do."
+                    fullname="Bogdan Stanciu"
+                    job="Lead Front End Developer"
+                    company="Kaizen"
+                    video
+                    videoUrl="E_4eQQHjc7A"
+                  />
                 </Col>
                 <Col md={5} mdOffset={1}>
                   <Link to="#student-outcomes" name="student-outcomes" />
