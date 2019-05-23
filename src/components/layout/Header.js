@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-
 import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
@@ -302,7 +301,7 @@ const Header = ({
                         <Image
                           src={training.image || SMALL_CLASSROOM}
                           width="100%"
-                          alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                          alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
                         />
                       </Link>
 

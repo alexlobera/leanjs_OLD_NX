@@ -32,8 +32,8 @@ const LeanJSsprints = () => (
           </P>
           <P>
             Working on a product/codebase that you help identify, these 5-day
-            workshops bolster learnings from the ReactJS Academy core curriculum
-            to open up advanced Lean techniques skills to your team.
+            workshops bolster learnings from the React GraphQL Academy core
+            curriculum to open up advanced Lean techniques skills to your team.
           </P>
           <P>
             <LinkButton to="https://leanjs.com">

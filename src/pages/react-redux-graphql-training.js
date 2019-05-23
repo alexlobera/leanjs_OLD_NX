@@ -12,14 +12,14 @@ import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
 
-const BootcampAustin = () => (
+const BootcampList = () => (
   <Layout>
     {({ trainings }) => {
       return (
         <React.Fragment>
           <Header
             titleLines={['React Redux GraphQL Training']}
-            subtitle="Full list of trainings by ReactJS Academy"
+            subtitle="Full list of trainings by React GraphQL Academy"
             bgImageName={BOOTCAMP}
           />
           <TopSection>
@@ -102,12 +102,10 @@ const BootcampAustin = () => (
               </Card>
             </Grid>
           </Section>
-
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
     }}
   </Layout>
 )
-
-export default BootcampAustin
+export default BootcampList

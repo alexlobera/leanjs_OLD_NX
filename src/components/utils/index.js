@@ -7,6 +7,7 @@ import {
   PART_TIME,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
+  ONE_DAY_WORKSHOP,
 } from '../../config/data'
 import {
   GREY2,
@@ -42,6 +43,8 @@ export const selectTypeColor = type => {
       return YELLOW
     case GRAPHQL_BOOTCAMP:
       return GRAPHQL_PINK
+    case ONE_DAY_WORKSHOP:
+      return REACT_NATIVE_GREEN
     default:
       return REACT_BLUE_DARK
   }
@@ -162,4 +165,9 @@ export const formatUTC = (utcDate, utcOffset = 60, format = "D MMM 'YYYY") => {
 
 function twoDigits(number) {
   return ('0' + number).slice(-2)
+}
+
+export function capitalize(str) {
+  if (typeof str !== 'string') return ''
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }

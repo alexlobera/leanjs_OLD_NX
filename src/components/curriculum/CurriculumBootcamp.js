@@ -28,7 +28,7 @@ const CurriculumBootcamp = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
+  toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = true,
   trainings,
@@ -123,7 +123,7 @@ const CurriculumBootcamp = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton to={`/curriculum?tab=${REACT_BOOTCAMP}`}>
+          <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>

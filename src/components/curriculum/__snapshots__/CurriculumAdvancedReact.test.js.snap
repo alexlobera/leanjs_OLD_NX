@@ -69,7 +69,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       </CurriculumSection>
       <styled.div>
         <LinkButton
-          to="/curriculum?tab=Advanced React"
+          to="/react/curriculum?tab=Advanced React"
           trackUserBehaviour={[Function]}
           variant="default"
         >

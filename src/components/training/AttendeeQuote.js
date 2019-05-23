@@ -1,20 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Blockquote } from '../text'
-import { Image } from '../elements'
+import { Image, Video } from '../elements'
 import { reactBlue, GREY2, FONT_FAMILY } from '../../config/styles'
-import { SCREEN_SM_MIN, SCREEN_MD_MIN, SCREEN_SM_MAX } from '../utils'
+import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
 import { LinkButton } from '../buttons'
 
 const Card = styled.div`
-  background-color: ${reactBlue()};
+  border: 3px solid;
+  border-color: ${reactBlue()};
+  padding: 1rem;
   display: flex;
   padding-top: ${props => (props.small ? '1rem' : null)};
-  border-radius: ${props => (props.small ? '1rem!important' : null)};
-  @media (min-width: ${SCREEN_MD_MIN}) {
-    border-top-right-radius: 160px;
-    border-bottom-right-radius: 160px;
-  }
   flex-direction: ${props => (props.small ? 'column-reverse' : null)};
   @media (max-width: ${SCREEN_SM_MAX}) {
     flex-direction: column-reverse;
@@ -69,24 +66,27 @@ const AttendeeQuote = ({
   profilePicUrl,
   ctaButton,
   ctaUrl = '/#',
-  ...props
+  videoUrl,
+  ...rest
 }) => (
-  <Card {...props}>
+  <Card {...rest}>
     <Text>
+      {videoUrl && <Video youtubeId={videoUrl} />}
+
       <StyledBlockquote>
         {quote || 'This is a quote from a trainee.'}
       </StyledBlockquote>
 
       <Profile>
         <strong>
-          {fullname || 'Joe Bloggs'}, {job || 'CTO'} - {company || 'Freelance'}{' '}
+          {fullname || ''}, {job || ''} - {company || 'Freelance'}{' '}
         </strong>
       </Profile>
       {ctaButton && (
         <LinkButton to={ctaUrl}>{ctaButton || 'Click here'}</LinkButton>
       )}
     </Text>
-    <Picture src={profilePicUrl} alt={fullname || 'Joe Bloggs'} />
+    {profilePicUrl && <Picture src={profilePicUrl} alt={fullname} />}
   </Card>
 )
 

@@ -26,7 +26,7 @@ describe('<PhoneMenu />', () => {
   it('should render the list of menu items', () => {
     const wrapper = shallow(<PhoneMenu />)
 
-    expect(wrapper.find(PhoneMenuItem).length).toBe(12)
+    expect(wrapper.find(PhoneMenuItem).length).toBe(7)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -39,6 +39,6 @@ describe('<PhoneMenu />', () => {
         .first()
         .props()
         .children.toLowerCase()
-    ).toMatch(/curriculum/)
+    ).toMatch(/react courses/)
   })
 })
