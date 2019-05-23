@@ -168,12 +168,11 @@ class GraphQLCurriculum extends React.Component {
                                     <MarketingCard
                                       heading="Next GraphQL Bootcamp"
                                       text={`In just 5 days, learn the secrets of effecient apps with GraphQL`}
-                                      to={graphql.toPath}
-                                      buttonText={`${
-                                        graphql.city
-                                      } GraphQL Bootcamp, ${formatUTC(
-                                        graphql.startDate,
-                                        graphql.utcOffset,
+                                      to={graphql && graphql.toPath}
+                                      buttonText={`${graphql &&
+                                        graphql.city} GraphQL Bootcamp, ${formatUTC(
+                                        graphql && graphql.startDate,
+                                        graphql && graphql.utcOffset,
                                         'D MMM'
                                       )}  `}
                                     />
