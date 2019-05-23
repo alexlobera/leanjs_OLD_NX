@@ -184,7 +184,7 @@ const IndexPage = () => (
                   <Col sm={5}>
                     <LinkButton
                       variant="secondary"
-                      to="/corporate-team-training"
+                      to="/react/training/corporate/"
                     >
                       Corporate team training
                     </LinkButton>
