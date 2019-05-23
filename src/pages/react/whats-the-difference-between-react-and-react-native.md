@@ -14,7 +14,7 @@ The two share a lot in common, but you’re going to want to take a minute befor
 
 To start off, let’s make sure you’re up to speed on what ReactJS is. React is a JavaScript library used to create user interfaces (UI) in a predictable and declarative way. It allows you to build UI component hierarchies with support for both front-end and server-side. It’s an efficient tool that saves you time and money on development.
 
-You can find out more about React in our blog: [Introduction to thinking in React](https://reactjs.academy/blog/introduction-to-thinking-in-react/).
+You can find out more about React in our blog: [Introduction to thinking in React](https://reactgraphql.academy/react/introduction-to-thinking-in-react/).
 
 ### What is React Native?
 
@@ -24,7 +24,7 @@ One of its greatest features, however, is the ‘Learn once, write anywhere’ p
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2IC0rXKfchU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-_Enjoying this blog? Check out our accompanying video, presented by our React Native guru [Horacio Herrera](https://reactjs.academy/about-us/#horacio-herrera)._
+_Enjoying this blog? Check out our accompanying video, presented by our React Native guru [Horacio Herrera](https://reactgraphql.academy/about-us/#horacio-herrera)._
 
 ### How does React Native work?
 
@@ -76,6 +76,6 @@ It’s not just the code itself that’s different - the tools differ too, thoug
 
 The likes of Facebook, Microsoft, Bloomberg, Wix and more are already benefitting from React Native, so there’s no better time than now to learn it too!
 
-At React GraphQL Academy, you’ll find a range of courses to help you harness the power of React Native today. We train teams throughout Europe - find out more [here](https://reactjs.academy/react-native-bootcamp/)!
+At React GraphQL Academy, you’ll find a range of courses to help you harness the power of React Native today. We train teams throughout Europe - find out more [here](https://reactgraphql.academy/react/training/workshops/)!
 
-We’ll also be at [React Amsterdam this April](https://reactjs.academy/blog/leanjs-react-amsterdam/)! If you’re there, sign up to our React Native workshop to get a kickstart in the field.
+We’ll also be at [React Amsterdam this April](https://reactgraphql.academy/react/leanjs-react-amsterdam/)! If you’re there, sign up to our React Native workshop to get a kickstart in the field.

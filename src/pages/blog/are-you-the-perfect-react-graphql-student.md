@@ -73,7 +73,7 @@ Although the courses are intense, it’s worth it. One former student, Polina St
 
 <video youtube-id="6hmKu1-vW-8" ></video>
 
-On another note, if you’re a manager the Bootcamp is perfect for levelling out your team. Our course will get your devs up to speed and enhance the knowledge of your best employees. Everyone will be on the same wavelength afterwards, and that team cohesion will pay dividends for you going forward. Find out more about how team training can level your team’s skills [on our blog](https://reactjs.academy/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/).
+On another note, if you’re a manager the Bootcamp is perfect for levelling out your team. Our course will get your devs up to speed and enhance the knowledge of your best employees. Everyone will be on the same wavelength afterwards, and that team cohesion will pay dividends for you going forward. Find out more about how team training can level your team’s skills [on our blog](https://reactgraphql.academy/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/).
 
 <marketingcard text="Check out the latest dates for all our React Courses" to="/react/training/" button-text="Learn React with us!"></marketingcard>
 
