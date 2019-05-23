@@ -57,6 +57,11 @@ const StylingDesignSystemWorkshop = () => (
                 to: '/react/training/workshops/design-system-styling-in-react',
                 label: 'Design Systems and Styling in React',
               },
+              {
+                to:
+                  '/react/training/workshops/design-system-styling-in-react/london',
+                label: 'London  ',
+              },
             ]}
           />
           <Header
@@ -68,18 +73,7 @@ const StylingDesignSystemWorkshop = () => (
             training={training}
             showInfoBox={true}
           />
-          <TopSection top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section xsBgDark>
+          <TopSection xsBgDark>
             <Grid>
               <Card bg="dark">
                 <Row>
@@ -97,7 +91,7 @@ const StylingDesignSystemWorkshop = () => (
                 </Row>
               </Card>
             </Grid>
-          </Section>
+          </TopSection>
           <Section>
             <Grid>
               <Row>
@@ -155,6 +149,18 @@ const StylingDesignSystemWorkshop = () => (
               </Row>
             </Grid>
           </Section>
+          <Section top>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
           <Section>
             <Grid>
               <Row>

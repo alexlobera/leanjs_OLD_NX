@@ -96,10 +96,10 @@ const CodeOfConduct = () => (
                         other online outlouts.
                       </P>
                       <P>
-                        Participants to any ReactJS Acadmey event that violate
-                        these rules may be sanctioned or expelled from the event
-                        without a refund at the discretion of the conference
-                        organisers.
+                        Participants to any React GraphQL Academy event that
+                        violate these rules may be sanctioned or expelled from
+                        the event without a refund at the discretion of the
+                        conference organisers.
                       </P>
                     </Col>
                   </Row>

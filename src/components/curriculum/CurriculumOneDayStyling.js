@@ -66,7 +66,7 @@ const CurriculumOneDayStyling = ({
         <Row>
           <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
-              Design Systems & styling in React{' '}
+              Design Systems & Styling in React{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>

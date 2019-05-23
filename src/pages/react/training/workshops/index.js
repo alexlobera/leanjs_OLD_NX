@@ -96,7 +96,7 @@ const Workshops = () => (
                                 variant="primary"
                                 to="/react/training/workshops/design-system-styling-in-react"
                               >
-                                Get ticket!
+                                Find out more
                               </LinkButton>
                             ) : (
                               <LinkButton

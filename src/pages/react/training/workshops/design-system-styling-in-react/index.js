@@ -7,16 +7,14 @@ import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumOneDayStyling } from 'src/components/curriculum'
-import { Card, Video } from 'src/components/elements'
+import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  TrainingDetails,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
 } from 'src/components/training'
@@ -29,8 +27,7 @@ import {
 } from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
-import { PaymentSection } from 'src/components/payment'
-import { Link, Breadcrumb } from 'src/components/navigation'
+import { Link, Breadcrumb, LinkButton } from 'src/components/navigation'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
@@ -60,16 +57,29 @@ const StylingDesignSystemWorkshop = () => (
             ]}
           />
           <Header
-            titleLines={['Styling in React and Design Systems - London']}
+            titleLines={['Styling in React and Design Systems']}
             subtitle="See how React can look gorgeous and encourage design consistency"
-            links={header.landingTraining.links}
+            links={[
+              { text: 'Workshop Agenda', to: '#curriculum' },
+              { text: 'Is this right for me?', to: '#target-audience' },
+            ]}
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
             training={training}
-            showInfoBox={true}
+            showInfoBox={false}
           />
           <TopSection top>
             <Grid>
+              {/* <CallToActionRow left>
+                <Col xs={12} mdOffset={1} md={4}>
+                  <LinkButton
+                    variant="primary"
+                    to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FCorporate%20Team%20Training%20with%20ReactJS%20Academy.pdf?alt=media&"
+                    children="Team Training - Key Facts (PDF)"
+                  />
+                </Col>
+                <Col xs={12} mdOffset={1} md={6} />
+              </CallToActionRow> */}
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
@@ -79,25 +89,7 @@ const StylingDesignSystemWorkshop = () => (
               </Card>
             </Grid>
           </TopSection>
-          <Section xsBgDark>
-            <Grid>
-              <Card bg="dark">
-                <Row>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="yvROXLQ1jHg" />
-                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
+
           <Section>
             <Grid>
               <Row>
@@ -141,7 +133,12 @@ const StylingDesignSystemWorkshop = () => (
                   </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
-                    <strong>We do not run learn-to-code bootcamps</strong>.
+                    This is not a learn-to-code workshop. If you want to learn
+                    to code, we recommend checking out{' '}
+                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                      Free Code Camp
+                    </Link>
+                    .
                   </P>
                   <Link to="/react/the-perfect-react-bootcamp-student/">
                     Blog: Are YOU the Perfect React Student?
