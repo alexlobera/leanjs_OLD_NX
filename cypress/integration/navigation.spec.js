@@ -1,6 +1,6 @@
 describe('Navigation', function() {
   it("clicking '1-week bootcamp' navigates to a correct url", function() {
-    cy.visit('/')
+    cy.visit('/react/training/')
 
     cy.contains('React Courses').click()
 
