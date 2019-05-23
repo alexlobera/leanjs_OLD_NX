@@ -176,7 +176,7 @@ const SessionInterest = ({ trainings }) => (
                                 </P>
                                 <CheckboxField
                                   name="resources"
-                                  label="I want free leanring resources!"
+                                  label="I want free learning resources!"
                                 />
                               </Col>
                             </Row>
