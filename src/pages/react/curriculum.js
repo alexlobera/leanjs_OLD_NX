@@ -351,7 +351,7 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/the-perfect-react-bootcamp-student/">
+                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -418,7 +418,7 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/the-perfect-react-bootcamp-student/">
+                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -517,7 +517,7 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/the-perfect-react-bootcamp-student/">
+                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>

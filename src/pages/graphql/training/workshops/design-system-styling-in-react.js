@@ -57,11 +57,6 @@ const StylingDesignSystemWorkshop = () => (
                 to: '/react/training/workshops/design-system-styling-in-react',
                 label: 'Design Systems and Styling in React',
               },
-              {
-                to:
-                  '/react/training/workshops/design-system-styling-in-react/london',
-                label: 'London  ',
-              },
             ]}
           />
           <Header
@@ -73,7 +68,18 @@ const StylingDesignSystemWorkshop = () => (
             training={training}
             showInfoBox={true}
           />
-          <TopSection xsBgDark>
+          <TopSection top>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </TopSection>
+          <Section xsBgDark>
             <Grid>
               <Card bg="dark">
                 <Row>
@@ -91,7 +97,7 @@ const StylingDesignSystemWorkshop = () => (
                 </Row>
               </Card>
             </Grid>
-          </TopSection>
+          </Section>
           <Section>
             <Grid>
               <Row>
@@ -135,12 +141,7 @@ const StylingDesignSystemWorkshop = () => (
                   </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
-                    This is not a learn-to-code course. If you want to learn to
-                    code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code camps
-                    </Link>
-                    .
+                    <strong>We do not run learn-to-code bootcamps</strong>.
                   </P>
                   <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
@@ -149,18 +150,6 @@ const StylingDesignSystemWorkshop = () => (
               </Row>
             </Grid>
           </Section>
-          <Section top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
-
           <Section>
             <Grid>
               <Row>

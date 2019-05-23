@@ -373,7 +373,7 @@ class Curriculum extends React.Component {
                                 performance
                               </Li>
                             </Ul>
-                            <LinkButton to="/blog/the-perfect-react-bootcamp-student/">
+                            <LinkButton to="/blog/are-you-the-perfect-react-graphql-student/">
                               Blog: Are YOU the Perfect React GraphQL Student?
                             </LinkButton>
                             <H4>Full course curriculum:</H4>

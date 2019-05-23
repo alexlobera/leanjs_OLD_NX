@@ -113,7 +113,7 @@ const IndexPage = () => (
                   </Li>
                 </Ul>
                 <P />
-                <LinkButton to="/blog/the-perfect-react-bootcamp-student/">
+                <LinkButton to="/blog/are-you-the-perfect-react-graphql-student/">
                   Blog: Are YOU the Perfect Bootcamp Student?
                 </LinkButton>
               </Col>

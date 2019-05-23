@@ -156,7 +156,7 @@ const TrainingPage = () => (
                     </Link>
                     .
                   </P>
-                  <Link to="/react/the-perfect-react-bootcamp-student/">
+                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

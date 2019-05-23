@@ -154,7 +154,7 @@ const ReactPage = ({ data }) => {
                     Polina Stoyanova, a software engineer from tray.io, explains
                     her experiences of learning React on our 7-day Bootcamp
                   </P>
-                  <Link to="/react/the-perfect-react-bootcamp-student/">
+                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>
