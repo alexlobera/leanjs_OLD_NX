@@ -171,7 +171,7 @@ const ReactNativeBoocampBarcelona = () => (
                     <CurriculumSection
                       enableToggle={false}
                       type={REACT_NATIVE}
-                      toggleNavigateTo={`/curriculum?tab=${REACT_NATIVE}`}
+                      toggleNavigateTo={`/react/training/workshops/`}
                       isOpen={true}
                       title="React Native Day 1"
                       name="day1"
