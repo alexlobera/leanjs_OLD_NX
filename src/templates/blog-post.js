@@ -131,7 +131,8 @@ const BlogPost = ({ data }) => {
             titleLines={title.split('<br />')}
             fullHeight={false}
             paddingBottom={80}
-            bgImg={imageUrl}
+            bgImgUrl={imageUrl}
+            bgColor={null}
           >
             <PostMeta date={date} author={author} timeToRead={timeToRead} />
           </Header>
