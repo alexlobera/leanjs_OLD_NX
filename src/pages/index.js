@@ -106,7 +106,7 @@ const IndexPage = () => (
                   </Li>
                   <Li>
                     <BulletIcon icon={CalendarIcon} />
-                    <Link to="/react-redux-graphql-part-time-course">
+                    <Link to="/react/training/part-time-course/">
                       Part-time courses
                     </Link>{' '}
                     for accelerated learning.
