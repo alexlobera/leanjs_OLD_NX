@@ -2,7 +2,7 @@
   "name": "react-js-academy",
   "description": "React GraphQL website, built with Gatsby",
   "version": "2.0.0",
-  "author": "React GraphQL Academy <hello@reactjs.academy>",
+  "author": "React GraphQL Academy <hello@reactgraphql.academy>",
   "dependencies": {
     "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",

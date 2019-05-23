@@ -34,7 +34,7 @@ const PrivacyPolicy = () => (
                 and if you have any question, please don’t hesitate in
                 contacting us on{' '}
                 <Link to="mailto:hello@reactgraphql.academy">
-                  hello@reactjs.academy
+                  hello@reactgraphql.academy
                 </Link>
                 .
               </P>
@@ -152,7 +152,7 @@ const PrivacyPolicy = () => (
               with us. You are able to unsubscribe to these marketing emails by
               contactin us at{' '}
               <Link to="mailto:hello@reactgraphql.academy">
-                hello@reactjs.academy
+                hello@reactgraphql.academy
               </Link>
               .
             </P>
@@ -224,7 +224,7 @@ const PrivacyPolicy = () => (
             <P>
               Easily! Just email us at{' '}
               <Link to="mailto:hello@reactgraphql.academy">
-                hello@reactjs.academy
+                hello@reactgraphql.academy
               </Link>{' '}
               and let us know and we’ll remove all your details (forever).
             </P>

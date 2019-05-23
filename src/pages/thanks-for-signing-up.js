@@ -36,7 +36,7 @@ const ThanksForSignUp = () => (
                 If you have any questions, please don’t hesitate in contacting
                 us. You can email us:{' '}
                 <Link to="mailto:hello@reactgraphql.academy">
-                  hello@reactjs.academy
+                  hello@reactgraphql.academy
                 </Link>{' '}
                 or you can shout us on{' '}
                 <Link to="/community/">social media.</Link>

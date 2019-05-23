@@ -35,7 +35,7 @@ const TermsOfService = () => (
                 We’ll happily transfer your place to a lucky colleague if you
                 need to. Please let us know as soon as possible – email{' '}
                 <Link to="mailto:hello@reactgraphql.academy">
-                  hello@reactjs.academy
+                  hello@reactgraphql.academy
                 </Link>
                 .
               </P>

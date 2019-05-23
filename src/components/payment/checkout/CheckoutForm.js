@@ -453,7 +453,7 @@ class CheckoutForm extends React.Component {
                       check your credit card with your bank. If the problem
                       persists contact{' '}
                       <Link to="mailto:hello@reactgraphql.academy">
-                        hello@reactjs.academy
+                        hello@reactgraphql.academy
                       </Link>
                     </Alert>
                   ) : null}

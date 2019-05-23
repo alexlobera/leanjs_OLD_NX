@@ -55,7 +55,7 @@ const ContactForm = props => {
           <P>
             The best way to contact us is by emailing us at{' '}
             <Link to="mailto:hello@reactgrahql.academy">
-              hello@reactjs.academy
+              hello@reactgraphql.academy
             </Link>
             .{' '}
           </P>

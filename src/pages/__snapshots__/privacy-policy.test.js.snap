@@ -35,9 +35,9 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               and if you have any question, please don’t hesitate in contacting us on
                
               <Link
-                to="mailto:hello@reactjs.academy"
+                to="mailto:hello@reactgraphql.academy"
               >
-                hello@reactjs.academy
+                hello@reactgraphql.academy
               </Link>
               .
             </styled.p>
@@ -189,9 +189,9 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Lastly, if you have opted-in to the email newsletter, you will receive emails of a marketing nature that will feature events/trainings/services that you may not have indicated to us that you are interested in but we feel will enrich your experience with us. You are able to unsubscribe to these marketing emails by contactin us at
              
             <Link
-              to="mailto:hello@reactjs.academy"
+              to="mailto:hello@reactgraphql.academy"
             >
-              hello@reactjs.academy
+              hello@reactgraphql.academy
             </Link>
             .
           </styled.p>
@@ -271,9 +271,9 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Easily! Just email us at
              
             <Link
-              to="mailto:hello@reactjs.academy"
+              to="mailto:hello@reactgraphql.academy"
             >
-              hello@reactjs.academy
+              hello@reactgraphql.academy
             </Link>
              
             and let us know and we’ll remove all your details (forever).
