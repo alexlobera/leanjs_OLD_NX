@@ -285,7 +285,12 @@ const Community = () => (
                     speaker, and team player.
                   </P>
                   <P>
-                    <Link to="#contact-us">Contact us</Link>
+                    <LinkButton
+                      target="_self"
+                      to="mailto:hello@reactgraphql.academy?subject=Become a coach"
+                    >
+                      Become a coach
+                    </LinkButton>
                   </P>
                 </Col>
               </Row>
