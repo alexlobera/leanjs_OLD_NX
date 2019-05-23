@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -38,6 +39,14 @@ const BootcampLondon = () => (
         selectNthTraining({ trainings: partTimeTrainings, nth: 2 }) || {}
       return (
         <React.Fragment>
+          <Helmet
+            link={[
+              {
+                rel: 'canonical',
+                href: `https://reactgraphql.academy/react/training/part-time-course/london`,
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

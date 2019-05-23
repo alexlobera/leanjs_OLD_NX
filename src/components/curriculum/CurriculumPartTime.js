@@ -127,7 +127,7 @@ const CurriculumPartTime = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton to={`/curriculum?tab=${PART_TIME}`}>
+          <LinkButton to={`/react/curriculum?tab=${PART_TIME}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>

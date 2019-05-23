@@ -107,7 +107,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </CurriculumSection>
       <styled.div>
         <LinkButton
-          to="/curriculum?tab=Part-time"
+          to="/react/curriculum?tab=Part-time"
           trackUserBehaviour={[Function]}
           variant="default"
         >

@@ -43,6 +43,7 @@ const SessionInterest = ({ trainings }) => (
         gqlclient = false,
         testing = false,
         resources = false,
+        native = false,
       }) => {
         triggerSessionSubscribe({
           name,
@@ -54,6 +55,7 @@ const SessionInterest = ({ trainings }) => (
           gqlclient,
           testing,
           resources,
+          native,
         })
         navigate('/thanks-for-signing-up-for-sessions')
       }
@@ -152,7 +154,7 @@ const SessionInterest = ({ trainings }) => (
                                     label="Testing in React"
                                   />
                                   <CheckboxField
-                                    name="react-native"
+                                    name="native"
                                     label="React Native"
                                   />
                                 </React.Fragment>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
@@ -50,6 +51,14 @@ const BootcampLondon = () => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            link={[
+              {
+                rel: 'canonical',
+                href: `https://reactgraphql.academy/react/training/bootcamp/london`,
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

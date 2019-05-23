@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { H4, P } from 'src/components/text'
-import { LinkButton } from 'src/components/buttons'
-import { REACT_BLUE_DARK } from 'src/config/styles'
+import { H4, P } from '../text'
+import { LinkButton } from '../buttons'
+import Link from '../navigation/Link'
+import { REACT_BLUE_DARK } from '../../config/styles'
 
 const TrainingCard = styled.div`
   border-left: 5px solid;
@@ -20,9 +21,11 @@ const TrainingCard = styled.div`
 export const TrainingCardList = ({ data = [] }) =>
   data.map(training => (
     <TrainingCard>
-      <H4>{training.title}</H4>
+      <Link to={training.to}>
+        <H4>{training.title}</H4>
+      </Link>
       <P>{training.text}</P>
-      <LinkButton to={data.to} variant="secondary">
+      <LinkButton to={training.to} variant="secondary">
         Find Out More
       </LinkButton>
     </TrainingCard>
