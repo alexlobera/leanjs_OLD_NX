@@ -15,8 +15,7 @@ import {
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
-import { Card, Video } from 'src/components/elements'
-import { EBER } from 'src/config/images'
+import { Card } from 'src/components/elements'
 
 import {
   CodeIcon,
