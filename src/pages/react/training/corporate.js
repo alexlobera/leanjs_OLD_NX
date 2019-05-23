@@ -92,7 +92,6 @@ const CorporateReactTraining = () => (
                   job="Technical Director"
                   company="Xing"
                   profilePicUrl={EBER}
-                  profilePic
                   ctaButton="How Training Keeps Xing 
               Tech-Relevant (Blog)"
                   ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"

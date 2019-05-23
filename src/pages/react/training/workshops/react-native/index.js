@@ -138,7 +138,6 @@ const ReactNativeBoocamp = () => (
                     fullname="Polina Stoyanova"
                     job="Front-end and UX developer"
                     company="tray.io"
-                    profilePic
                     profilePicUrl={POLINA}
                   />
                 </Col>

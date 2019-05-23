@@ -203,7 +203,6 @@ const IndexPage = () => (
                   fullname="Nassar Kasirye"
                   job="Web Developer"
                   company=""
-                  profilePic
                   profilePicUrl={NASSAR}
                 />
               </Col>

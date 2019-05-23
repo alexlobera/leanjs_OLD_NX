@@ -165,7 +165,6 @@ const BootcampLondon = () => (
                     fullname="Catalin Cislariu"
                     job="Senior Developer"
                     company="KLEIDO LTD"
-                    profilePic
                     profilePicUrl={CATALIN}
                   />
                 </Col>

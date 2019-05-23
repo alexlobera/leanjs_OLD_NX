@@ -135,7 +135,6 @@ const PartTime = ({ trainings }) => (
                     fullname="Stefano Mezza"
                     job="Core Developer"
                     company="SISLAB UniTN"
-                    profilePic
                     profilePicUrl={STEFANO}
                   />
                 </Col>

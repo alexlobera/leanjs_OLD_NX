@@ -143,7 +143,6 @@ const AdvancedTraining = () => (
                     fullname="Olu Omoniyi"
                     job="React & React Native Developer"
                     company="S&P Global"
-                    profilePic
                     profilePicUrl={OLU}
                   />
                 </Col>

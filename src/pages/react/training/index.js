@@ -116,7 +116,6 @@ const TrainingPage = () => (
                     fullname="Bogdan Stanciu"
                     job="Lead Front End Developer"
                     company="Kaizen"
-                    video
                     videoUrl="E_4eQQHjc7A"
                   />
                 </Col>

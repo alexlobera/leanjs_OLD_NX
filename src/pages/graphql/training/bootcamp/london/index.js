@@ -134,7 +134,6 @@ const BootcampLondon = () => (
                     quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
                     fullname="Catalin Cislariu"
                     job="Senior Developer"
-                    profilePic
                     company="KLEIDO LTD"
                     profilePicUrl={CATALIN}
                   />
