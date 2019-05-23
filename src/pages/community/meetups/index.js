@@ -97,7 +97,7 @@ const Community = () => (
       return (
         <React.Fragment>
           <Header
-            titleLines={['The ReactJS', 'Academy community']}
+            titleLines={['The React GraphQL', 'Academy community']}
             subtitle="We are not a group of people - but a movement!"
             links={[
               { text: 'Twitter ', to: '#twitter' },
