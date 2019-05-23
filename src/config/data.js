@@ -185,7 +185,7 @@ const meetups = [
     cityShortName: 'London',
     country: 'UK',
     url: 'https://www.meetup.com/JavaScript-London/events/260824278/',
-    title: 'GraphQL deep dive with Vladimir Novick & ReactJS Academy',
+    title: 'GraphQL deep dive with Vladimir Novick & React GraphQL Academy',
     imgUrl: LONDON_MEETUP,
   },
   {

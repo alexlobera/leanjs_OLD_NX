@@ -51,7 +51,7 @@ There are myriad companies using GraphQL right now. Some have been using it sinc
 
 - [You only get the data that you’ve asked for](#what-is-graphql-used-for), making your code base more efficient
 
-## Learn GraphQL with ReactJS Academy
+## Learn GraphQL with React GraphQL Academy
 
 Want to use of data more efficiently in your apps? Then the [GraphQL Bootcamp](https://reactjs.academy/graphql-bootcamp/) is for you. Our week-long intensive GraphQL training course helps devs upskill quickly.
 

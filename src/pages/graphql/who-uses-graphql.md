@@ -61,9 +61,9 @@ They always received too much irrelevant data, but GraphQL has fixed that. Githu
 
 - [Github](#github)
 
-## Learn GraphQL with ReactJS Academy
+## Learn GraphQL with React GraphQL Academy
 
-If you want to join the trailblazers of the tech industry and bring GraphQL to your organisation, ReactJS Academy is here to help. Our [GraphQL Bootcamp](https://reactjs.academy/graphql-bootcamp/) is a week-long intensive GraphQL training course that helps devs upskill quickly.
+If you want to join the trailblazers of the tech industry and bring GraphQL to your organisation, React GraphQL Academy is here to help. Our [GraphQL Bootcamp](https://reactjs.academy/graphql-bootcamp/) is a week-long intensive GraphQL training course that helps devs upskill quickly.
 
 Over five days, our students learn the fundamentals of GraphQL before moving on to learning advanced GraphQL API practices and how to apply this knowledge in the real world. We also show students how GraphQL can work hand-in-hand with React.
 

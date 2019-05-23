@@ -18,13 +18,13 @@ const PrivacyPolicy = () => (
           <Row>
             <Col md={10} mdOffset={1}>
               <P>
-                Here at ReactJS.academy, we take your privacy seriously and are
-                always aiming to ensure your personal information is kept safe.
-                We aim to instill trust in everything that we do and give you
-                the best quality experience with us.
+                Here at ReactGraphQL.Academy, we take your privacy seriously and
+                are always aiming to ensure your personal information is kept
+                safe. We aim to instill trust in everything that we do and give
+                you the best quality experience with us.
               </P>
               <P>
-                ReactJS.academy is part of the LeanJS family. LeanJS is a
+                ReactGraphQL.Academy is part of the LeanJS family. LeanJS is a
                 digital design, development and training company who produces
                 digital products, trainings and associated services based in
                 London, UK. For more information, please check out{' '}
@@ -113,7 +113,7 @@ const PrivacyPolicy = () => (
               How are my details collected?
             </H2>
             <P>
-              Aside from when you sign up to a training, ReactJS.academy is
+              Aside from when you sign up to a training, ReactGraphQL.Academy is
               collecting your email through a newsletter sign-up form.{' '}
             </P>
             <H2>
@@ -122,7 +122,7 @@ const PrivacyPolicy = () => (
             </H2>
             <P>
               Apart from sending you details about any purchases with us, your
-              email address is used to send you newsletters about ReactJS
+              email address is used to send you newsletters about React GraphQL
               Academy news and offers.
             </P>
             <H2>
@@ -180,9 +180,9 @@ const PrivacyPolicy = () => (
               will be sent to them to create a vistors list.
             </P>
             <P>
-              ReactJS.academy promises not to share your information with third
-              parties that aren't connected to a training/event/service that
-              you've signed up for without expressed consent from you.
+              ReactGraphQL.Academy promises not to share your information with
+              third parties that aren't connected to a training/event/service
+              that you've signed up for without expressed consent from you.
             </P>
             <H3>Our hosting providers</H3>
             <P>
@@ -202,9 +202,9 @@ const PrivacyPolicy = () => (
               How long will my details be kept for?
             </H2>
             <P>
-              ReactJS.academy promises that we will not keep your details on
-              file for more than 10 years and we will be in contact then to ask
-              whether you would like us to keep your information on file.
+              ReactGraphQL.Academy promises that we will not keep your details
+              on file for more than 10 years and we will be in contact then to
+              ask whether you would like us to keep your information on file.
             </P>
             <H2>
               <Link name="8" />
@@ -212,10 +212,10 @@ const PrivacyPolicy = () => (
             </H2>
             <P>
               There shouldn’t be any difference in the way that you have
-              experienced ReactJS.academy previously. However, due to the way
-              that the GDPR regulations have been introduced in May 2018, you
-              will have to make sure you opt-in to email newsletters again from
-              ReactJS.academy or any other LeanJS-related parties.
+              experienced ReactGraphQL.Academy previously. However, due to the
+              way that the GDPR regulations have been introduced in May 2018,
+              you will have to make sure you opt-in to email newsletters again
+              from ReactGraphQL.Academy or any other LeanJS-related parties.
             </P>
             <H2>
               <Link name="9" />
@@ -236,9 +236,9 @@ const PrivacyPolicy = () => (
               In addition to personal information that you give us, there is
               anonymous data that is collected through ‘Cookies’. Cookies is a
               small text file that our site may place on your computer that
-              helps us understand how people use ReactJS.academy - this in turn
-              helps us improve our service. For more information about cookies,
-              click{' '}
+              helps us understand how people use ReactGraphQL.Academy - this in
+              turn helps us improve our service. For more information about
+              cookies, click{' '}
               <Link
                 to="https://www.theguardian.com/technology/2012/apr/23/cookies-and-web-tracking-intro"
                 target="_blank"
@@ -260,17 +260,17 @@ const PrivacyPolicy = () => (
             <P>
               You may refuse the use of these cookies by selecting the
               appropriate settings on your browser, but please be aware that
-              doing so may affect the functionality of ReactJS.academy.
+              doing so may affect the functionality of ReactGraphQL.Academy.
             </P>
             <P>
-              We use two systems that employ cookies on ReactJS.academy. These
-              are:
+              We use two systems that employ cookies on ReactGraphQL.Academy.
+              These are:
             </P>
             <H3>Google Analytics</H3>
             <P>
-              ReactJS.academy utilises the Google Analytics platform - which
-              transmits website data to their servers in the United States of
-              America. Google Analytics does not identify individual users to
+              ReactGraphQL.Academy utilises the Google Analytics platform -
+              which transmits website data to their servers in the United States
+              of America. Google Analytics does not identify individual users to
               your IP addresses or any other data that Google holds. For more
               information, please check out{' '}
               <Link
