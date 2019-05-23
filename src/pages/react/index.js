@@ -112,17 +112,14 @@ const ReactPage = ({ data }) => {
               </Card>
             </Grid>
           </TopSection>
-
           <Section>
             <Grid>
               <Row>
-                <Col md={12} mdOffset={1}>
+                <Col md={5} mdOffset={1}>
                   <H2>
                     <Link to="#what-is-react" name="what-is-react" />
                     What is React?
                   </H2>
-                </Col>
-                <Col md={5} mdOffset={1}>
                   <P>
                     Created by Facebook in 2015, React is a JavaScript library -
                     not a framework - that creates user interfaces. Basically,
@@ -144,7 +141,7 @@ const ReactPage = ({ data }) => {
                     </LinkButton>
                   </P>
                 </Col>
-                <Col md={5}>
+                <Col md={5} mdOffset={1}>
                   <Link
                     to="#should-i-learn-react"
                     name="should-i-learn-react"

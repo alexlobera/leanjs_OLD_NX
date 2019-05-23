@@ -33,10 +33,12 @@ const LearningResources = ({ resources = [], type = '' }) => (
         return (
           <Card key={post.fields.slug} border="shadow" small bottom={36}>
             <LearningResource>
-              <Image
-                src={post.frontmatter.imageUrl}
-                alt={formatPostTitle(post.frontmatter.title)}
-              />
+              <Link to={post.fields.slug}>
+                <Image
+                  src={post.frontmatter.imageUrl}
+                  alt={formatPostTitle(post.frontmatter.title)}
+                />
+              </Link>
               <Link to={post.fields.slug}>
                 <H4>{formatPostTitle(post.frontmatter.title)}</H4>
               </Link>

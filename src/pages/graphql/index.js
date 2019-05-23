@@ -94,13 +94,11 @@ const GraphQLPage = ({ data }) => {
           <Section>
             <Grid>
               <Row>
-                <Col md={12} mdOffset={1}>
+                <Col md={5} mdOffset={1}>
                   <H2>
                     <Link to="#what-is-graphql" name="what-is-graphql" />
                     What is GraphQL?
                   </H2>
-                </Col>
-                <Col md={5} mdOffset={1}>
                   <P>
                     GraphQL is a modern syntax for building and querying APIs,
                     but what does that actually mean? And why should you use
@@ -127,7 +125,7 @@ const GraphQLPage = ({ data }) => {
                     Blog: What is GraphQL and What Is It Used For?
                   </LinkButton>
                 </Col>
-                <Col md={5}>
+                <Col md={5} mdOffset={1}>
                   <Image
                     src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media&"
                     alt="Why learn GraphQL"
