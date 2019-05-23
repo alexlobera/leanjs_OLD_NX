@@ -54,7 +54,9 @@ const ContactForm = props => {
           </H3>
           <P>
             The best way to contact us is by emailing us at{' '}
-            <Link to="mailto:hello@reactjs.academy">hello@reactjs.academy</Link>
+            <Link to="mailto:hello@reactgrahql.academy">
+              hello@reactjs.academy
+            </Link>
             .{' '}
           </P>
           <P>You can call us during working hours on: +44 20 8123 8184</P>

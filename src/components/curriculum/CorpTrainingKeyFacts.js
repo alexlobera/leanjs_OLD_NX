@@ -36,9 +36,9 @@ const CorpTrainingFacts = () => (
     </P>
     <P>
       For pricing information, it's best to{' '}
-      <Link to="mailto:hello@reactjs.academy">email us</Link> to get a tailored
-      quote but our <strong>Key Facts PDF</strong> has information regarding
-      pricing too.
+      <Link to="mailto:hello@reactgraphql.academy">email us</Link> to get a
+      tailored quote but our <strong>Key Facts PDF</strong> has information
+      regarding pricing too.
     </P>
     <LinkButton
       primary

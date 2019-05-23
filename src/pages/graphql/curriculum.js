@@ -123,7 +123,7 @@ class GraphQLCurriculum extends React.Component {
                           <Li>
                             Not sure if our trainings are right for you? Read
                             our blog{' '}
-                            <Link to="/blog/the-perfect-react-bootcamp-student/">
+                            <Link to="/react/the-perfect-react-bootcamp-student/">
                               <strong>
                                 Are YOU the Perfect React GraphQL Student?
                               </strong>

@@ -72,7 +72,7 @@ class PaymentConfirmation extends React.Component {
                   <P>
                     If you have any questions, please don’t hesitate in
                     contacting us. You can email us:{' '}
-                    <Link to="mailto:hello@reactjs.academy">
+                    <Link to="mailto:hello@reactgraphql.academy">
                       hello@reactjs.academy
                     </Link>{' '}
                     or you can contact us on social media.
