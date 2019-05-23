@@ -20,10 +20,10 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             mdOffset={1}
           >
             <styled.p>
-              Here at ReactJS.academy, we take your privacy seriously and are always aiming to ensure your personal information is kept safe. We aim to instill trust in everything that we do and give you the best quality experience with us.
+              Here at ReactGraphQL.Academy, we take your privacy seriously and are always aiming to ensure your personal information is kept safe. We aim to instill trust in everything that we do and give you the best quality experience with us.
             </styled.p>
             <styled.p>
-              ReactJS.academy is part of the LeanJS family. LeanJS is a digital design, development and training company who produces digital products, trainings and associated services based in London, UK. For more information, please check out
+              ReactGraphQL.Academy is part of the LeanJS family. LeanJS is a digital design, development and training company who produces digital products, trainings and associated services based in London, UK. For more information, please check out
                
               <Link
                 target="_blank"
@@ -144,7 +144,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Who is collecting my information?
           </styled.h2>
           <styled.p>
-            ReactJS Academy will be collecting information. As mentioned previously, ReactJS Academy is part of the LeanJS family. Find out more about LeanJS at
+            React GraphQL Academy will be collecting information. As mentioned previously, React GraphQL Academy is part of the LeanJS family. Find out more about LeanJS at
              
             <Link
               target="_blank"
@@ -161,7 +161,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             How are my details collected?
           </styled.h2>
           <styled.p>
-            Aside from when you sign up to a training, ReactJS.academy is collecting your email through a newsletter sign-up form.
+            Aside from when you sign up to a training, ReactGraphQL.Academy is collecting your email through a newsletter sign-up form.
              
           </styled.p>
           <styled.h2>
@@ -171,7 +171,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Why is it collected?
           </styled.h2>
           <styled.p>
-            Apart from sending you details about any purchases with us, your email address is used to send you newsletters about ReactJS Academy news and offers.
+            Apart from sending you details about any purchases with us, your email address is used to send you newsletters about React GraphQL Academy news and offers.
           </styled.p>
           <styled.h2>
             <Link
@@ -218,7 +218,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             For example, we hold many training events at third party venues and to ensure you are allowed to enter the building, your details will be sent to them to create a vistors list.
           </styled.p>
           <styled.p>
-            ReactJS.academy promises not to share your information with third parties that aren't connected to a training/event/service that you've signed up for without expressed consent from you.
+            ReactGraphQL.Academy promises not to share your information with third parties that aren't connected to a training/event/service that you've signed up for without expressed consent from you.
           </styled.p>
           <styled.h3>
             Our hosting providers
@@ -250,7 +250,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             How long will my details be kept for?
           </styled.h2>
           <styled.p>
-            ReactJS.academy promises that we will not keep your details on file for more than 10 years and we will be in contact then to ask whether you would like us to keep your information on file.
+            ReactGraphQL.Academy promises that we will not keep your details on file for more than 10 years and we will be in contact then to ask whether you would like us to keep your information on file.
           </styled.p>
           <styled.h2>
             <Link
@@ -259,7 +259,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             What will be the effect of GDPR regulations to me?
           </styled.h2>
           <styled.p>
-            There shouldn’t be any difference in the way that you have experienced ReactJS.academy previously. However, due to the way that the GDPR regulations have been introduced in May 2018, you will have to make sure you opt-in to email newsletters again from ReactJS.academy or any other LeanJS-related parties.
+            There shouldn’t be any difference in the way that you have experienced ReactGraphQL.Academy previously. However, due to the way that the GDPR regulations have been introduced in May 2018, you will have to make sure you opt-in to email newsletters again from ReactGraphQL.Academy or any other LeanJS-related parties.
           </styled.p>
           <styled.h2>
             <Link
@@ -285,7 +285,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             What are cookies and what do they do with my information?
           </styled.h2>
           <styled.p>
-            In addition to personal information that you give us, there is anonymous data that is collected through ‘Cookies’. Cookies is a small text file that our site may place on your computer that helps us understand how people use ReactJS.academy - this in turn helps us improve our service. For more information about cookies, click
+            In addition to personal information that you give us, there is anonymous data that is collected through ‘Cookies’. Cookies is a small text file that our site may place on your computer that helps us understand how people use ReactGraphQL.Academy - this in turn helps us improve our service. For more information about cookies, click
              
             <Link
               target="_blank"
@@ -313,16 +313,16 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             </styled.li>
           </styled.ul>
           <styled.p>
-            You may refuse the use of these cookies by selecting the appropriate settings on your browser, but please be aware that doing so may affect the functionality of ReactJS.academy.
+            You may refuse the use of these cookies by selecting the appropriate settings on your browser, but please be aware that doing so may affect the functionality of ReactGraphQL.Academy.
           </styled.p>
           <styled.p>
-            We use two systems that employ cookies on ReactJS.academy. These are:
+            We use two systems that employ cookies on ReactGraphQL.Academy. These are:
           </styled.p>
           <styled.h3>
             Google Analytics
           </styled.h3>
           <styled.p>
-            ReactJS.academy utilises the Google Analytics platform - which transmits website data to their servers in the United States of America. Google Analytics does not identify individual users to your IP addresses or any other data that Google holds. For more information, please check out
+            ReactGraphQL.Academy utilises the Google Analytics platform - which transmits website data to their servers in the United States of America. Google Analytics does not identify individual users to your IP addresses or any other data that Google holds. For more information, please check out
              
             <Link
               target="_blank"
