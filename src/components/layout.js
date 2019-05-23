@@ -123,17 +123,17 @@ const Layout = ({ children }) => {
                     },
                   ]}
                 />
-                <AuthNav>
-                  <Menu />
-                  {typeof children === 'function' ? (
-                    <UpcomingTrainings>{children}</UpcomingTrainings>
-                  ) : (
-                    children
-                  )}
+                {/* <AuthNav> */}
+                <Menu />
+                {typeof children === 'function' ? (
+                  <UpcomingTrainings>{children}</UpcomingTrainings>
+                ) : (
+                  children
+                )}
 
-                  <Footer />
-                  <AcceptCookies />
-                </AuthNav>
+                <Footer />
+                <AcceptCookies />
+                {/* </AuthNav> */}
               </React.Fragment>
             </ApolloProvider>
           </ThemeProvider>
