@@ -101,7 +101,7 @@ const ReactPage = ({ data }) => {
                     name="free-react-resources"
                   />
                   <Col md={5} mdOffset={1}>
-                    <LearningResources resources={posts} type="react" />
+                    <LearningResources resources={posts} type="React" />
                   </Col>
                   <Link to="#our-react-training" name="our-react-training" />
                   <Col md={4} mdOffset={1}>

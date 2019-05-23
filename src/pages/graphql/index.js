@@ -76,7 +76,7 @@ const GraphQLPage = ({ data }) => {
                     name="free-graphql-resources"
                   />
                   <Col md={5} mdOffset={1}>
-                    <LearningResources resources={posts} type="graphql" />
+                    <LearningResources resources={posts} type="GraphQL" />
                   </Col>
                   <Link
                     to="#our-graphql-training"
