@@ -13,7 +13,7 @@ Here are our top 10 reasons why you should choose React.
 
 ### 1. React is declarative
 
-React uses declarative instead of imperative syntax. It’s a simpler way of developing apps, and you can learn why [here](https://reactjs.academy/blog/introduction-to-thinking-in-react/).
+React uses declarative instead of imperative syntax. It’s a simpler way of developing apps, and you can learn why [here](https://reactgraphql.academy/react/introduction-to-thinking-in-react/).
 
 Basically, React is faster to develop with because you don’t need to tell the app how to represent the state - you just need to say what you’d like to happen. It’s quick, it’s easy, and there’s less room for human error.
 
@@ -23,7 +23,7 @@ You may have heard of the phrase "Write once, run anywhere" before. React Native
 
 Once you understand the basic architecture and thinking behind React, you’ll be able to develop fully functioning apps for both Android and iOS. You won’t have to learn two different ways to represent your app. So after you learn React, you can bring your new product to users not just as quickly as possible, but as widely as possible.
 
-Sounds good, right? Well, if you want to learn React Native you can [catch us at React Amsterdam](https://reactjs.academy/blog/leanjs-react-amsterdam/), where we’ll show you how to create reusable and maintainable React Native UI.
+Sounds good, right? Well, if you want to learn React Native you can [catch us at React Amsterdam](https://reactgraphql.academy/react/leanjs-react-amsterdam/), where we’ll show you how to create reusable and maintainable React Native UI.
 
 ### 3. The React community is amazing
 

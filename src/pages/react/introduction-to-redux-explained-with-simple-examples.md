@@ -16,7 +16,7 @@ Let’s try to answer that question with plain English, let’s not think of Rea
 
 <img placeholder-height="px" alt="What is the state of an app?" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fredux%2Fwhats-state-of-app-min.png?alt=media"></img>
 
-In my experience teaching Redux at [reactjs.academy](https://reactjs.academy/) I’ve found cases where everyone in a workshop seemed to agree that just the selected tab is part of the state, and in other workshops, everyone seemed to agree that the only thing that was part of the state was the data that came from the API 😲
+In my experience teaching Redux at [reactgraphql.academy](https://reactgraphql.academy/) I’ve found cases where everyone in a workshop seemed to agree that just the selected tab is part of the state, and in other workshops, everyone seemed to agree that the only thing that was part of the state was the data that came from the API 😲
 
 It might be obvious to you, or it might not, but I always find very useful to make sure we are all on the same "state" before moving forward.
 

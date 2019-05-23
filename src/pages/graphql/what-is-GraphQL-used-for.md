@@ -53,7 +53,7 @@ There are myriad companies using GraphQL right now. Some have been using it sinc
 
 ## Learn GraphQL with React GraphQL Academy
 
-Want to use of data more efficiently in your apps? Then the [GraphQL Bootcamp](https://reactjs.academy/graphql-bootcamp/) is for you. Our week-long intensive GraphQL training course helps devs upskill quickly.
+Want to use of data more efficiently in your apps? Then the [GraphQL Bootcamp](https://reactgraphql.academy/graphql/training/bootcamp/) is for you. Our week-long intensive GraphQL training course helps devs upskill quickly.
 
 Over five days, our students learn the fundamentals of GraphQL before moving on to learning advanced GraphQL API practices and how to apply this knowledge in the real world. We also show students how GraphQL can work hand-in-hand with React.
 

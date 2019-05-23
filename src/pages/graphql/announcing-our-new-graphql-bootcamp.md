@@ -9,7 +9,7 @@ order: 50
 
 At React GraphQL Academy, we’re keen to get more people into the world of the React ecosystem. Our expert developers have been coaching since the inception of the ecosystem, and our React and React Native training courses have gone down really well with developers and companies throughout the EU.
 
-But anyone who knows anything about React will tell you there’s so much more to sink your teeth into! That said, we’re thrilled to be bringing a brand new course to developers. Today, we’re announcing our new [GraphQL Bootcamp](https://reactjs.academy/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp&utm_content=graphql_announcement).
+But anyone who knows anything about React will tell you there’s so much more to sink your teeth into! That said, we’re thrilled to be bringing a brand new course to developers. Today, we’re announcing our new [GraphQL Bootcamp](https://reactgraphql.academy/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp&utm_content=graphql_announcement).
 
 ## Why GraphQL?
 
@@ -25,7 +25,7 @@ GraphQL works differently. It is a typed query language that defines *how *to as
 
 In the end, GraphQL will give you a sleeker codebase that is way easier to maintain, and will help speed up your front-end dev time as a result!
 
-These are just some of the reasons why we’re introducing a new [GraphQL Bootcamp](https://reactjs.academy/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp&utm_content=graphql_announcement). We want to show more developers how they can benefit from implementing GraphQL and bring beautiful, sleek code to the community.
+These are just some of the reasons why we’re introducing a new [GraphQL Bootcamp](https://reactgraphql.academy/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp&utm_content=graphql_announcement). We want to show more developers how they can benefit from implementing GraphQL and bring beautiful, sleek code to the community.
 
 ## Is a GraphQL Bootcamp right for me?
 
@@ -39,6 +39,6 @@ By the end of the week, you’ll have all you need to build Production-Ready Gra
 
 ## Show your interest in GraphQL training today
 
-We’re really excited about our new GraphQL Bootcamp and can’t wait to bring it to developers throughout the EU. We’re going to be announcing dates very soon so be sure you don’t miss out! If you’d like to learn how to harness the logical power of GraphQL, you can find out more about our GraphQL course [here](https://reactjs.academy/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp&utm_content=graphql_announcement).
+We’re really excited about our new GraphQL Bootcamp and can’t wait to bring it to developers throughout the EU. We’re going to be announcing dates very soon so be sure you don’t miss out! If you’d like to learn how to harness the logical power of GraphQL, you can find out more about our GraphQL course [here](https://reactgraphql.academy/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp&utm_content=graphql_announcement).
 
-Questions? If there’s anything you’d like to know, or if you’d like to book a full-stack React and GraphQL training session with your company, don’t hesitate to [contact us today!](https://reactjs.academy/graphql/training/bootcamp/#contact-us)
+Questions? If there’s anything you’d like to know, or if you’d like to book a full-stack React and GraphQL training session with your company, don’t hesitate to [contact us today!](https://reactgraphql.academy/graphql/training/bootcamp/#contact-us)

@@ -51,7 +51,7 @@ const IndexPage = () => (
         <Header
           titleLines={[
             'Take your dev career further',
-            'by mastering React & GraphQL',
+            'with React GraphQL Academy',
           ]}
           subtitle="In-person training from experts who were <br /> the first in
         Europe to teach React"
@@ -106,14 +106,14 @@ const IndexPage = () => (
                   </Li>
                   <Li>
                     <BulletIcon icon={CalendarIcon} />
-                    <Link to="/react-redux-graphql-part-time-course">
+                    <Link to="/react/training/part-time-course/">
                       Part-time courses
                     </Link>{' '}
                     for accelerated learning.
                   </Li>
                 </Ul>
                 <P />
-                <LinkButton to="/blog/the-perfect-react-bootcamp-student/">
+                <LinkButton to="/blog/are-you-the-perfect-react-graphql-student/">
                   Blog: Are YOU the Perfect Bootcamp Student?
                 </LinkButton>
               </Col>

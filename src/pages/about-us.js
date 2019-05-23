@@ -773,7 +773,7 @@ const AboutUs = () => (
                 <BecomeACoachWrapper>
                   <LinkButton
                     target="_self"
-                    to="mailto:hello@reactjs.academy?subject=Become a coach"
+                    to="mailto:hello@reactgraphql.academy?subject=Become a coach"
                   >
                     Become a coach
                   </LinkButton>

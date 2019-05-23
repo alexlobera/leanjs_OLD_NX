@@ -22,22 +22,31 @@ const SocialShare = styled.div`
 const ShareButtons = ({ slug }) => (
   <SocialShare>
     <TwitterShareButton
-      url={`https://reactjs.academy${slug}`}
+      url={`https://reactgraphql.academy${slug}`}
       quote={'title'}
       via="reactjsacademy"
     >
       <TwitterIcon size={36} round />
     </TwitterShareButton>
 
-    <FacebookShareButton url={`https://reactjs.academy${slug}`} quote={'title'}>
+    <FacebookShareButton
+      url={`https://reactgraphql.academy${slug}`}
+      quote={'title'}
+    >
       <FacebookIcon size={36} round />
     </FacebookShareButton>
 
-    <LinkedinShareButton url={`https://reactjs.academy${slug}`} quote={'title'}>
+    <LinkedinShareButton
+      url={`https://reactgraphql.academy${slug}`}
+      quote={'title'}
+    >
       <LinkedinIcon size={36} round />
     </LinkedinShareButton>
 
-    <EmailShareButton url={`https://reactjs.academy${slug}`} quote={'title'}>
+    <EmailShareButton
+      url={`https://reactgraphql.academy${slug}`}
+      quote={'title'}
+    >
       <EmailIcon size={36} round />
     </EmailShareButton>
   </SocialShare>

@@ -162,7 +162,7 @@ These are some of the most popular component libraries in React:
 
 The component library that we use at [LeanJS](https://leanjs.com) when we want to speed up the development of a new React app is Rebass, here is why:
 
-Rebass is based on styled-components. Since we use styled-components to build React apps, Rebass integrates very well with the rest of the style and optimizes bundle size. The other reason we use Rebass is because it's wonderfully designed. It's based on [styled-system](https://github.com/jxnblk/styled-system), an elegant responsive, theme-based style props for building design systems with React. Styled-system is part of our [advanced React training](/curriculum/?tab=advanced-react) and [bootcamp](https://reactjs.academy/curriculum/?tab=bootcamp) curriculum.
+Rebass is based on styled-components. Since we use styled-components to build React apps, Rebass integrates very well with the rest of the style and optimizes bundle size. The other reason we use Rebass is because it's wonderfully designed. It's based on [styled-system](https://github.com/jxnblk/styled-system), an elegant responsive, theme-based style props for building design systems with React. Styled-system is part of our [advanced React training](/react/curriculum/?tab=Advanced%20React) and [bootcamp](https://reactgraphql.academy/react/curriculum/) curriculum.
 
 Reactstrap current version (v7) uses one global CSS :(
 

@@ -101,7 +101,7 @@ const ReactPage = ({ data }) => {
                     name="free-react-resources"
                   />
                   <Col md={5} mdOffset={1}>
-                    <LearningResources resources={posts} type="react" />
+                    <LearningResources resources={posts} type="React" />
                   </Col>
                   <Link to="#our-react-training" name="our-react-training" />
                   <Col md={4} mdOffset={1}>
@@ -154,7 +154,7 @@ const ReactPage = ({ data }) => {
                     Polina Stoyanova, a software engineer from tray.io, explains
                     her experiences of learning React on our 7-day Bootcamp
                   </P>
-                  <Link to="/blog/the-perfect-react-bootcamp-student/">
+                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

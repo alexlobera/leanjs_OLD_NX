@@ -201,11 +201,11 @@ _"When it comes to inheritance, JavaScript only has one construct: objects. Each
 
 If you wanted to extend a class, you can now do this also with the class syntax as you can imagine. However, we won’t delve into that here as **when using React, you should never use inheritance beyond extending** `React.Component`
 
-On that note, have you ever heard the phrase _favour composition over inheritance_? Well, [react is all about composition](https://reactjs.academy/blog/react-is-all-about-composition-react-hooks-render-props-hocs/).
+On that note, have you ever heard the phrase _favour composition over inheritance_? Well, [react is all about composition](https://reactgraphql.academy/react/react-is-all-about-composition-react-hooks-render-props-hocs/).
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_14.png?alt=media)
 
-If you’d like to get started writing React components using the class syntax, check out our article on [thinking in react](https://reactjs.academy/blog/introduction-to-thinking-in-react/) and it’s[ exercise repo](https://github.com/reactjsacademy/thinking-in-react).
+If you’d like to get started writing React components using the class syntax, check out our article on [thinking in react](https://reactgraphql.academy/react/introduction-to-thinking-in-react/) and it’s[ exercise repo](https://github.com/reactjsacademy/thinking-in-react).
 
 <marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 
@@ -326,6 +326,6 @@ A new feature was added in ES8 which builds on top of the idea of promises calle
 
 ### That’s all for now!
 
-Of course there are many more features in ES6 that were not covered here. This article does not aim to be exhaustive, but rather give you a good idea about what we consider to be the **most important ES6 features** you must know to use React well. When we see people struggling with JS on one of our [intensive react developer courses](https://reactjs.academy/react/training/bootcamp/) 99% of the time it’s something that was covered here. Of course, in order to get familiar with the language the only way is to practice! We recommend trying out some of [these exercises](https://github.com/reactjsacademy/es6-exercise) to expand your understanding of ES6.
+Of course there are many more features in ES6 that were not covered here. This article does not aim to be exhaustive, but rather give you a good idea about what we consider to be the **most important ES6 features** you must know to use React well. When we see people struggling with JS on one of our [intensive react developer courses](https://reactgraphql.academy/react/training/bootcamp/) 99% of the time it’s something that was covered here. Of course, in order to get familiar with the language the only way is to practice! We recommend trying out some of [these exercises](https://github.com/reactjsacademy/es6-exercise) to expand your understanding of ES6.
 
 Looking forward to seeing you soon in a meetup or training ;-)

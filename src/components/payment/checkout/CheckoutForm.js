@@ -452,8 +452,8 @@ class CheckoutForm extends React.Component {
                       There was an error processing your credit card. Please
                       check your credit card with your bank. If the problem
                       persists contact{' '}
-                      <Link to="mailto:hello@reactjs.academy">
-                        hello@reactjs.academy
+                      <Link to="mailto:hello@reactgraphql.academy">
+                        hello@reactgraphql.academy
                       </Link>
                     </Alert>
                   ) : null}

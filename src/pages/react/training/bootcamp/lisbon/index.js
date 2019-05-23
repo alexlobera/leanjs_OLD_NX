@@ -162,7 +162,7 @@ const BootcampLisbon = () => (
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactjs.academy/react/training/bootcamp-lisbon`,
+                href: `https://reactgraphql.academy/react/training/bootcamp-lisbon`,
               },
             ]}
           />
@@ -297,7 +297,7 @@ const BootcampLisbon = () => (
                     </Link>
                     .
                   </P>
-                  <Link to="/blog/the-perfect-react-bootcamp-student/">
+                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

@@ -48,7 +48,7 @@ The [JWT website](https://jwt.io/) has a debugger tool on the home page and you 
 
 OK we go for JWT, now the next question is “where do I store the token on the client”? There are typically two places on your web app you can use i) local storage or ii) cookies. If you can (meaning the server and the client are in the same domain/ subdomain) I recommend to use cookies. The reason is that your application won’t have to manage the token. The token will be managed at the browser level, so it makes it more difficult to create a bug that can potentially open some security vulnerability.
 
-In the end, where you store the token is an implementation detail. In our [React training](https://reactjs.academy/curriculum?tab=React%20bootcamp&section=day3) we always use cookies also for the sake of simplicity. Since the browser takes care of it, we implement less code and so move faster through the curriculum (which is quite dense!).
+In the end, where you store the token is an implementation detail. In our [React training](https://reactgraphql.academy/react/curriculum/) we always use cookies also for the sake of simplicity. Since the browser takes care of it, we implement less code and so move faster through the curriculum (which is quite dense!).
 
 First part, protecting the data, done! What did we have to implement on our React app for this? Nothing. The API will set a cookie, and the API will read and verify the cookie on every request before returning or manipulating any data. We told you it was going to be fast. The token is managed by the browser not by your React app.
 
@@ -60,7 +60,7 @@ Authorization is the act determining if a given user can access a given resource
 
 Obviously authentication must happen before authorization.
 
-Authentication starts by having a mechanism for users to get a valid token they can use when accessing different resources in the app. Typically this will be a form that will submit the credentials (e.g. username and password) to an API. You can see how to create a React login form in this article https://reactjs.academy/blog/react-forms-controlled-and-uncontrolled-components/.
+Authentication starts by having a mechanism for users to get a valid token they can use when accessing different resources in the app. Typically this will be a form that will submit the credentials (e.g. username and password) to an API. You can see how to create a React login form in this article https://reactgraphql.academy/react/react-forms-controlled-and-uncontrolled-components/.
 
 ## Protecting routes on the client <a name="protecting-routes-on-the-client"></a>
 
