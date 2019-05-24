@@ -358,7 +358,7 @@ describe('<PaymentSection />', () => {
     it('should display an error message if the voucher is not valid, and not update the price', async () => {
       const graphqlInvalidVoucherResult = {
         data: {
-          voucherGetNetPriceWithDiscount: null,
+          redeemVoucher: null,
         },
       }
 
@@ -377,8 +377,9 @@ describe('<PaymentSection />', () => {
     it('should update the total price if the voucher is valid', async () => {
       const graphqlValidVoucherResponse = {
         data: {
-          voucherGetNetPriceWithDiscount: {
-            amount: 1,
+          redeemVoucher: {
+            netPrice: 1,
+            totalDiscount: 10,
           },
         },
       }
