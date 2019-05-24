@@ -93,7 +93,7 @@ That’s the opinion of Senior Software Developer, Davian Robinson anyway. After
 
 We’ll build on your baseline of experience to get you thinking in the React and GraphQL way. Throughout the week, you’ll always be coding. **In every unit, you’ll work on a hands-on, practical mini-project so you can learn how to build in React and GraphQL.**
 
-[See the 'Introduction to Thinking In React' project on our Github](https://github.com/reactjsacademy/thinking-in-react) - you can try for yourself right now!
+[See the 'Introduction to Thinking In React' project on our Github](https://github.com/reactgraphqlacademy/thinking-in-react) - you can try for yourself right now!
 
 After the [React Bootcamp](/react/training/bootcamp/), you’ll have all the skills you need to implement React best practices and apply it to your companies use case. The great thing about React is that it’s adaptable - you can easily adopt in your organisation. So if you want to change how your organisation creates UIs for the better, the React Bootcamp is for you.
 

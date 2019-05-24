@@ -62,12 +62,14 @@ const ContactForm = props => {
           <P>You can call us during working hours on: +44 20 8123 8184</P>
           <P>
             Otherwise, you can contact us socially on{' '}
-            <Link to="https://twitter.com/reactjsacademy">Twitter</Link>,{' '}
-            <Link to="https://www.instagram.com/reactjsacademy/">
+            <Link to="https://twitter.com/reactgqlacademy">Twitter</Link>,{' '}
+            <Link to="https://www.instagram.com/reactgraphqlacademy/">
               Instagram
             </Link>{' '}
             and{' '}
-            <Link to="https://www.facebook.com/reactjsacademy/">Facebook</Link>{' '}
+            <Link to="https://www.facebook.com/reactgraphqlacademy/">
+              Facebook
+            </Link>{' '}
             or visit our <Link to="/about-us">About Us page</Link> and directly
             contact one of our coaches.{' '}
           </P>

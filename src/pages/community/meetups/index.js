@@ -61,16 +61,16 @@ const TwitterWidgetsOnlyOnClientSide = () => {
     return (
       <React.Fragment>
         <TwitterFollowButton
-          screenName="reactjsacademy"
+          screenName="reactgqlacademy"
           options={{ size: 'large' }}
         />
         <TwitterTimelineEmbed
           sourceType="profile"
-          screenName="reactjsacademy"
+          screenName="reactgqlacademy"
           options={{ height: 800 }}
         />
         <TwitterFollowButton
-          screenName="reactjsacademy"
+          screenName="reactgqlacademy"
           options={{ size: 'large' }}
         />
       </React.Fragment>
@@ -228,8 +228,8 @@ const Community = () => (
                         Instagram - boom! <a name="instagram" />
                       </H2>
                       <p>
-                        <Link to="https://www.instagram.com/reactjsacademy/">
-                          @reactjsacademy
+                        <Link to="https://www.instagram.com/reactgraphqlacademy/">
+                          @reactgraphqlacademy
                         </Link>
                       </p>
                       <Row>

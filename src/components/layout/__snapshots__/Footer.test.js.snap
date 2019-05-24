@@ -122,7 +122,7 @@ exports[`<Footer /> should render component 1`] = `
               >
                 <styled.li>
                   <Styled(Link)
-                    to="https://twitter.com/reactjsacademy"
+                    to="https://twitter.com/reactgqlacademy"
                   >
                     <BulletIcon
                       icon={[Function]}
@@ -132,7 +132,7 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Styled(Link)
-                    to="https://www.instagram.com/reactjsacademy/"
+                    to="https://www.instagram.com/reactgraphqlacademy/"
                   >
                     <BulletIcon
                       icon={[Function]}
@@ -142,7 +142,7 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Styled(Link)
-                    to="https://www.facebook.com/reactjsacademy/"
+                    to="https://www.facebook.com/reactgraphqlacademy/"
                   >
                     <BulletIcon
                       icon={[Function]}

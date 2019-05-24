@@ -24,7 +24,7 @@ const ShareButtons = ({ slug }) => (
     <TwitterShareButton
       url={`https://reactgraphql.academy${slug}`}
       quote={'title'}
-      via="reactjsacademy"
+      via="reactgqlacademy"
     >
       <TwitterIcon size={36} round />
     </TwitterShareButton>

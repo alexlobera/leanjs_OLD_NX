@@ -223,7 +223,7 @@ A few notes on that snippet:
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-hmr-min.png?alt=media" alt="Webpack Hot Module Replacement (HMR) with Create React App (CRA)"></img>
 
-In this approach, you will add this proxy in every CRA that you want to add SSR. Therefore you can [extract it into an Express middleware](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/middlewares.js) that you can reuse across different apps.
+In this approach, you will add this proxy in every CRA that you want to add SSR. Therefore you can [extract it into an Express middleware](https://github.com/reactgraphqlacademy/react-scripts-ssr/blob/master/src/middlewares.js) that you can reuse across different apps.
 
 #### index.html <a name="index-html"></a>
 
@@ -234,7 +234,7 @@ CRA has an [index.html template](https://github.com/facebook/create-react-app/bl
 
 Our server also needs an HTML template to inject the HTML from `renderToString(<App />);`. To continue composing CRA with SSR capabilities we are going to use the same template.
 
-In this post, I'm not going to discuss the implementation details of how to use the same template. As you might see, that implementation is going to be the same in every app, so we can abstract it into some [functions that we can reuse](https://github.com/reactjsacademy/react-scripts-ssr/blob/master/src/render.js). Which I already did, [feel free to use](https://www.npmjs.com/package/react-scripts-ssr).
+In this post, I'm not going to discuss the implementation details of how to use the same template. As you might see, that implementation is going to be the same in every app, so we can abstract it into some [functions that we can reuse](https://github.com/reactgraphqlacademy/react-scripts-ssr/blob/master/src/render.js). Which I already did, [feel free to use](https://www.npmjs.com/package/react-scripts-ssr).
 
 ### App specific server code <a name="app-specific-code"></a>
 
@@ -280,11 +280,11 @@ The build script that bundles the app on the client in production is the same si
 
 #### scripts/build-server.js
 
-We need to create a new build script to transform our code like JSX into some JS that can run on the server. To keep composing, the new build will be composed with the react-scripts build && react-scripts-ssr server-build. I already [implemented a server-build script](https://github.com/reactjsacademy/react-scripts-ssr#step-1) if you want to use it.
+We need to create a new build script to transform our code like JSX into some JS that can run on the server. To keep composing, the new build will be composed with the react-scripts build && react-scripts-ssr server-build. I already [implemented a server-build script](https://github.com/reactgraphqlacademy/react-scripts-ssr#step-1) if you want to use it.
 
 #### scripts/start.js
 
-We need to change the way CRA start scripts works since now it also needs to start the server that renders HTML. Yes, it's [implemented](https://github.com/reactjsacademy/react-scripts-ssr#step-1) in the same package.
+We need to change the way CRA start scripts works since now it also needs to start the server that renders HTML. Yes, it's [implemented](https://github.com/reactgraphqlacademy/react-scripts-ssr#step-1) in the same package.
 
 ## Libraries vs. frameworks <a name="libaries-vs-frameworks"></a>
 

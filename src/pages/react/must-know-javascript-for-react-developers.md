@@ -41,7 +41,7 @@ What version should React developers use??
 
 ![image of babel logo](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_0.jpg?alt=media)
 
-Babel is a transpiler for JavaScript. This means going from one version of the language to another version (unlike a compiler where you change language). We use babel as JavaScript is an evolving language, not all of the newest updates are supported, both by browsers (client-side) and node (server-side). If you’d like to understand how babel works and watch it work it’s magic, check out this quick session: [https://github.com/reactjsacademy/babel-exercise#babel-exercise](https://github.com/reactjsacademy/babel-exercise#babel-exercise)
+Babel is a transpiler for JavaScript. This means going from one version of the language to another version (unlike a compiler where you change language). We use babel as JavaScript is an evolving language, not all of the newest updates are supported, both by browsers (client-side) and node (server-side). If you’d like to understand how babel works and watch it work it’s magic, check out this quick session: [https://github.com/reactgraphqlacademy/babel-exercise#babel-exercise](https://github.com/reactgraphqlacademy/babel-exercise#babel-exercise)
 
 You see the point? If you didn’t do it no problem as this is normally a configuration step and is done for you if you are using create- react-app to spin up a React project. However, we do recommend understanding how it works as babel is an essential piece of the mix for React apps:
 
@@ -119,7 +119,7 @@ And also objects:
 
 ![example of object destructuring in JS](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_6.png?alt=media)
 
-The most important thing to remember when first getting started is that **everything to the left of the `=`is destructuring syntax and everything to the right is the object or array being destructured**. So in the example above, we assign two variables, leanjs and reactjsacademy from the object at the nested point of apiData.links.websites
+The most important thing to remember when first getting started is that **everything to the left of the `=`is destructuring syntax and everything to the right is the object or array being destructured**. So in the example above, we assign two variables, leanjs and reactgraphqlacademy from the object at the nested point of apiData.links.websites
 
 So the values of those newly declared variables will be equal to the values of the key’s (the two urls). Another way of declaring and assigning the variable leanjs would be:
 
@@ -205,7 +205,7 @@ On that note, have you ever heard the phrase _favour composition over inheritanc
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Fimage_14.png?alt=media)
 
-If you’d like to get started writing React components using the class syntax, check out our article on [thinking in react](https://reactgraphql.academy/react/introduction-to-thinking-in-react/) and it’s[ exercise repo](https://github.com/reactjsacademy/thinking-in-react).
+If you’d like to get started writing React components using the class syntax, check out our article on [thinking in react](https://reactgraphql.academy/react/introduction-to-thinking-in-react/) and it’s[ exercise repo](https://github.com/reactgraphqlacademy/thinking-in-react).
 
 <marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 
@@ -326,6 +326,6 @@ A new feature was added in ES8 which builds on top of the idea of promises calle
 
 ### That’s all for now!
 
-Of course there are many more features in ES6 that were not covered here. This article does not aim to be exhaustive, but rather give you a good idea about what we consider to be the **most important ES6 features** you must know to use React well. When we see people struggling with JS on one of our [intensive react developer courses](https://reactgraphql.academy/react/training/bootcamp/) 99% of the time it’s something that was covered here. Of course, in order to get familiar with the language the only way is to practice! We recommend trying out some of [these exercises](https://github.com/reactjsacademy/es6-exercise) to expand your understanding of ES6.
+Of course there are many more features in ES6 that were not covered here. This article does not aim to be exhaustive, but rather give you a good idea about what we consider to be the **most important ES6 features** you must know to use React well. When we see people struggling with JS on one of our [intensive react developer courses](https://reactgraphql.academy/react/training/bootcamp/) 99% of the time it’s something that was covered here. Of course, in order to get familiar with the language the only way is to practice! We recommend trying out some of [these exercises](https://github.com/reactgraphqlacademy/es6-exercise) to expand your understanding of ES6.
 
 Looking forward to seeing you soon in a meetup or training ;-)

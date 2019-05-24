@@ -99,7 +99,7 @@ const GridContent = styled(Grid)`
 const BlogPost = ({ data }) => {
   const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
   const { title, date, subtitle, author, imageUrl } = frontmatter
-  const authorTwitter = frontmatter.authorTwitter || 'reactjsacademy'
+  const authorTwitter = frontmatter.authorTwitter || 'reactgqlacademy'
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
   const relatedPosts = allPosts.filter(post => post.node.fields.slug !== slug)
@@ -169,7 +169,7 @@ const BlogPost = ({ data }) => {
                 <P>
                   This website is built using Gatsbyjs. Curious about how this
                   blog is implemented? It's open source so you can{' '}
-                  <Link to="https://github.com/leanjscom/reactjsacademy/blob/master/src/templates/blog-post.js">
+                  <Link to="https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/templates/blog-post.js">
                     check the source code
                   </Link>
                 </P>

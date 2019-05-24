@@ -67,7 +67,7 @@ const compose = Component => {
 
 When we use **declarative composition `h = compose(f,g)` we can state that f doesn't know g exists and g doesn't know f exists**.
 
-You can apply composition in pure JavaScript code in your React real-world applications. For example to compose the validators of a form field. We use [function composition to validate forms in our website](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/components/payment/checkout/CheckoutForm.js#L230). Applying composition in your real-world JavaScript projects is very powerful. Composition is not an academic or theoretical concept that you can’t explicitly apply in your JavaScript code. We cover this case in the [function composition exercise](https://advanced-react-patterns.reactjs.academy/composition) of our advanced hands-on React training.
+You can apply composition in pure JavaScript code in your React real-world applications. For example to compose the validators of a form field. We use [function composition to validate forms in our website](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/components/payment/checkout/CheckoutForm.js#L230). Applying composition in your real-world JavaScript projects is very powerful. Composition is not an academic or theoretical concept that you can’t explicitly apply in your JavaScript code. We cover this case in the [function composition exercise](https://advanced-react-patterns.reactjs.academy/composition) of our advanced hands-on React training.
 
 ## React composition model <a name="react-composition-model"></a>
 

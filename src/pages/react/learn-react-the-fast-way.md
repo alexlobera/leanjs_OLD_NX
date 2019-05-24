@@ -56,7 +56,7 @@ architecture is a great solution.
 
 I would highly recommend starting with [this article](/blog/introduction-to-thinking-in-react/).
 
-With that covered, I recommend starting by refactoring some code in an already existing codebase to re-enforce this. Here is the one we do in our workshops ;-) Just follow the README! [https://github.com/reactjsacademy/thinking-in-react](https://github.com/reactjsacademy/thinking-in-react)
+With that covered, I recommend starting by refactoring some code in an already existing codebase to re-enforce this. Here is the one we do in our workshops ;-) Just follow the README! [https://github.com/reactgraphqlacademy/thinking-in-react](https://github.com/reactgraphqlacademy/thinking-in-react)
 
 ### Step 3: Learn how to use React Router <a name="react-router"></a>
 
@@ -74,7 +74,7 @@ To do data fetching in React, you can now use the well supported [fetch API](htt
 
 ### Step 5: Build and deploy a few React apps <a name="build-and-deploy"></a>
 
-At this stage you now have learned all the fundamentals that you know in order to build basic applications so it’s time to practice! I highly recommend building an application that consumes some data from an API, you can implement basic routing in order to give a _list view_ and _detail view_ and then you can add some forms and login to practice those parts. If you’d like some inspiration and a scaffold, [there’s one here](https://github.com/reactjsacademy/fb-messenger/tree/recap1)! I’m sure you can think of a few other fun ones to make tho, what about using a weather api, or the [Rick and Morty api](https://rickandmortyapi.com/) ?? So many options 😁
+At this stage you now have learned all the fundamentals that you know in order to build basic applications so it’s time to practice! I highly recommend building an application that consumes some data from an API, you can implement basic routing in order to give a _list view_ and _detail view_ and then you can add some forms and login to practice those parts. If you’d like some inspiration and a scaffold, [there’s one here](https://github.com/reactgraphqlacademy/fb-messenger/tree/recap1)! I’m sure you can think of a few other fun ones to make tho, what about using a weather api, or the [Rick and Morty api](https://rickandmortyapi.com/) ?? So many options 😁
 
 <marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 

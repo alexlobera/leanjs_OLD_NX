@@ -116,4 +116,4 @@ Everything on the UI can be a component (including the metas in the head! when w
 
 ## Let's practice
 
-Here is the [exercise for this part](https://github.com/reactjsacademy/thinking-in-react) which is based on this article that we use in our training. You can give it a try to practice what you just learned in this article. [The solution of the exercise is deployed here](https://thinking-in-react.reactjs.academy). Alternatively, you are welcome to join any of our in-person trainings. Looking forward to meeting you :)
+Here is the [exercise for this part](https://github.com/reactgraphqlacademy/thinking-in-react) which is based on this article that we use in our training. You can give it a try to practice what you just learned in this article. [The solution of the exercise is deployed here](https://thinking-in-react.reactjs.academy). Alternatively, you are welcome to join any of our in-person trainings. Looking forward to meeting you :)

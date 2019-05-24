@@ -136,15 +136,15 @@ Everything on the UI can be a component (including the metas in the head! when w
 
 You can see an example in the React GraphQL Academy website, where **EVERYTHING is a component**:
 
-- [Some basic components](https://github.com/reactjsacademy/reactjsacademy/tree/master/src/components/text)
-- [Default page layout](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/layouts/index.js)
-- [Home page](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/pages/index.js)
+- [Some basic components](https://github.com/reactgraphqlacademy/reactgraphqlacademy/tree/master/src/components/text)
+- [Default page layout](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/components/layout.js)
+- [Home page](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/pages/index.js)
 
 That being said, I often see that many developers new to React are used to the "old .css" and find it very difficult to only use component based styles. Some common cases they mention:
 
-- They want font colours and sizes in SASS or LESS variables. If you use component based styles those colours, fonts, etc become [simple JavaScript variables](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/config/styles.js).
-- Styling "default/ generic" h1, h2, h3, h4, h5, h6, p…. No problem, they can also be [components](https://github.com/reactjsacademy/reactjsacademy/tree/master/src/components/text).
-- Default paddings and margins. You can elegantly solve it by using [theming](https://github.com/reactjsacademy/reactjsacademy/blob/master/src/layouts/index.js#L24).
+- They want font colours and sizes in SASS or LESS variables. If you use component based styles those colours, fonts, etc become [simple JavaScript variables](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/config/styles.js).
+- Styling "default/ generic" h1, h2, h3, h4, h5, h6, p…. No problem, they can also be [components](https://github.com/reactgraphqlacademy/reactgraphqlacademy/tree/master/src/components/text).
+- Default paddings and margins. You can elegantly solve it by using [theming](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/layouts/index.js#L24).
 
 As you can see, in all those cases we can use a component, and so you can co-locate the style in that component. I know, it might not seem that obvious at the beginning, especially if you are very used to SASS, LESS, or “classic” CSS.
 
@@ -181,12 +181,12 @@ A good practice in this regard is to abstract any component library into your ow
 export { default as Button } from 'rebass'
 ```
 
-Then you can import your Button everywhere you need a button in your app. This might look very simple, but creating this abstraction is very important. When we created the first version of the React GraphQL Academy website we used Rebass and we created this [abstraction on top of the Rebass button in the first commit](https://github.com/reactjsacademy/reactjsacademy/blob/e9f2699ade8f0c37dcdc1513ae8b68bd6a285349/src/components/buttons/Button.js).
+Then you can import your Button everywhere you need a button in your app. This might look very simple, but creating this abstraction is very important. When we created the first version of the React GraphQL Academy website we used Rebass and we created this [abstraction on top of the Rebass button in the first commit](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/e9f2699ade8f0c37dcdc1513ae8b68bd6a285349/src/components/buttons/Button.js).
 
 We built the first prototype in React in a few days using Rebass and we were able to test it immediately with real users. The reason we are called LeanJS is evident :D
 <img src="https://cdn-images-1.medium.com/max/1800/1*xHeXQyA_vTS3IAU4UQVb1A.gif" alt="React GraphQL Academy React prototype"></img>
 
-Then we added custom styles to the Button incrementally. Two weeks after we had completely removed Rebass from the app. [Removing Rebass from the package.json was a piece of cake](https://github.com/reactjsacademy/reactjsacademy/commit/b4b132ab6849461d40024b4fd2991a5984517d1e). That's amazing considering that the initial version was entirely built with Rebass. Hopefully, I've convinced you of the advantages of creating these abstractions.
+Then we added custom styles to the Button incrementally. Two weeks after we had completely removed Rebass from the app. [Removing Rebass from the package.json was a piece of cake](https://github.com/reactgraphqlacademy/reactgraphqlacademy/commit/b4b132ab6849461d40024b4fd2991a5984517d1e). That's amazing considering that the initial version was entirely built with Rebass. Hopefully, I've convinced you of the advantages of creating these abstractions.
 
 <img src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fremoves-rebass-min.png?alt=media" alt="Commit that removes Rebass from React GraphQL Academy"></img>
 
@@ -196,7 +196,7 @@ If you want to know more about how [LeanJS](https://leanjs.com) designed, built,
 
 Add a global and generic CSS like [normalize.css](https://necolas.github.io/normalize.css/) to remove all the custom browser styling (paddings, margins, etc). Then use only styled-components to style your app.
 
-If you really think you need to create a separate SASS or LESS file and you need to define variables there, you can export those variables to JavaScript using CSS Modules so you don’t have to define them twice. For instance variables for colors. You can see an [example here](https://github.com/reactjsacademy/fb-messenger/blob/styling-in-react-leanjs/src/styles/export/colours.scss).
+If you really think you need to create a separate SASS or LESS file and you need to define variables there, you can export those variables to JavaScript using CSS Modules so you don’t have to define them twice. For instance variables for colors. You can see an [example here](https://github.com/reactgraphqlacademy/fb-messenger/blob/styling-in-react-leanjs/src/styles/export/colours.scss).
 
 ## Conclusion
 
