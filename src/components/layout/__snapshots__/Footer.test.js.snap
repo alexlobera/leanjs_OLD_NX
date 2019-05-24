@@ -20,42 +20,42 @@ exports[`<Footer /> should render component 1`] = `
         >
           <Row>
             <Styled(Col)
+              md={12}
+            >
+              <styled.h3>
+                Site links
+              </styled.h3>
+            </Styled(Col)>
+            <Styled(Col)
               md={6}
             >
               <Styled(styled.ul)>
                 <styled.li>
                   <Link
-                    to="/curriculum"
+                    to="/react/training"
                   >
-                    Curriculum
+                    React Courses
                   </Link>
                 </styled.li>
                 <styled.li>
                   <Link
-                    to="/react-redux-graphql-bootcamp"
+                    to="/react/curriculum"
                   >
-                    React bootcamp
+                    React Curriculum
                   </Link>
                 </styled.li>
                 <styled.li>
                   <Link
-                    to="/about-us#corporate-team-training"
+                    to="/graphql/training"
                   >
-                    Corporate Training
+                    GraphQL Courses
                   </Link>
                 </styled.li>
                 <styled.li>
                   <Link
-                    to="/react-native-bootcamp"
+                    to="/graphql/curriculum"
                   >
-                    React Native
-                  </Link>
-                </styled.li>
-                <styled.li>
-                  <Link
-                    to="/react-redux-graphql-part-time-course"
-                  >
-                    Part-time course
+                    GraphQL Curriculum
                   </Link>
                 </styled.li>
                 <styled.li>
@@ -63,25 +63,6 @@ exports[`<Footer /> should render component 1`] = `
                     to="/blog"
                   >
                     Blog
-                  </Link>
-                </styled.li>
-                <styled.li>
-                  <Link
-                    to="/react-redux-graphql-training"
-                  >
-                    Training list
-                  </Link>
-                </styled.li>
-                <styled.li>
-                  <Link
-                    style={
-                      Object {
-                        "fontSize": "16px",
-                      }
-                    }
-                    to="mailto:hello@reactjs.academy"
-                  >
-                    hello@reactjs.academy
                   </Link>
                 </styled.li>
               </Styled(styled.ul)>
@@ -126,9 +107,15 @@ exports[`<Footer /> should render component 1`] = `
                   </Link>
                 </styled.li>
               </Styled(styled.ul)>
-              <styled.p>
+            </Styled(Col)>
+          </Row>
+          <Row>
+            <Styled(Col)
+              md={12}
+            >
+              <styled.span>
                 Follow us...
-              </styled.p>
+              </styled.span>
               <Styled(styled.ul)
                 inline={true}
                 unstyled={true}
@@ -165,17 +152,15 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
               </Styled(styled.ul)>
             </Styled(Col)>
-          </Row>
-          <Row>
             <Styled(Col)
-              md={6}
+              md={12}
             >
               <styled.p
                 sm={true}
               >
                 Copyright © 
                 2017 - 2019
-                , ReactJS Academy is a
+                , React GraphQL Academy is a
                  
                 <Link
                   to="https://leanjs.com"
@@ -186,7 +171,7 @@ exports[`<Footer /> should render component 1`] = `
               </styled.p>
             </Styled(Col)>
             <Styled(Col)
-              md={6}
+              md={12}
             >
               <RJSALogo />
             </Styled(Col)>

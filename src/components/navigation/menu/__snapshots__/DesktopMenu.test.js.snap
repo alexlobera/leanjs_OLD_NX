@@ -9,51 +9,63 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
     inline={true}
   >
     <DesktopMenuItem
-      key="/curriculum"
-      text="Curriculum"
-      to="/curriculum"
-    />
-    <DesktopMenuItem
-      key="/react-redux-graphql-bootcamp"
+      key="/react"
       submenuItems={
         Array [
           Object {
-            "text": "React Bootcamp",
-            "to": "/react-redux-graphql-bootcamp",
+            "text": "React Courses",
+            "to": "/react/training",
           },
           Object {
-            "text": "Corporate Team Training",
-            "to": "/corporate-team-training",
+            "hideOnMobile": true,
+            "text": "React Corporate Training",
+            "to": "/react/training/corporate",
           },
           Object {
-            "text": "Advanced React ",
-            "to": "/advanced-react-redux-graphql-bootcamp",
+            "hideOnMobile": true,
+            "text": "React Workshops",
+            "to": "/react/training/workshops",
           },
           Object {
-            "text": "Part-time Course",
-            "to": "/react-redux-graphql-part-time-course",
-          },
-          Object {
-            "text": "GraphQL Bootcamp",
-            "to": "/graphql-bootcamp",
-          },
-          Object {
-            "text": "React Native",
-            "to": "/react-native-bootcamp",
-          },
-          Object {
-            "text": "1-day Workshops",
-            "to": "/react-workshops",
+            "text": "React Curriculum",
+            "to": "/react/curriculum",
           },
         ]
       }
-      text="Training"
-      to="/react-redux-graphql-bootcamp"
+      text="React"
+      to="/react"
     />
     <DesktopMenuItem
-      key="/community"
-      text="Community"
-      to="/community"
+      key="/graphql"
+      submenuItems={
+        Array [
+          Object {
+            "text": "GraphQL Courses",
+            "to": "/graphql/training",
+          },
+          Object {
+            "hideOnMobile": true,
+            "text": "GraphQL Corporate Training",
+            "to": "/graphql/training/corporate",
+          },
+          Object {
+            "hideOnMobile": true,
+            "text": "GraphQL Workshops",
+            "to": "/graphql/training/workshops",
+          },
+          Object {
+            "text": "GraphQL Curriculum",
+            "to": "/graphql/curriculum",
+          },
+        ]
+      }
+      text="GraphQL"
+      to="/graphql"
+    />
+    <DesktopMenuItem
+      key="/blog"
+      text="Blog"
+      to="/blog"
     />
     <DesktopMenuItem
       key="/about-us"
@@ -61,9 +73,9 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/about-us"
     />
     <DesktopMenuItem
-      key="/blog"
-      text="Blog"
-      to="/blog"
+      key="/community"
+      text="Community"
+      to="/community"
     />
     <DesktopMenuItem
       key="#contact-us"

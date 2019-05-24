@@ -2,7 +2,6 @@ import React from 'react'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
 import { ONE_DAY_WORKSHOP } from '../../config/data'
 import { H2Ref } from '../text'
 import selectCurriculumCorpLayout, {
@@ -14,7 +13,7 @@ const CurriculumOneDayStyling = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/curriculum?tab=${ONE_DAY_WORKSHOP}`,
+  toggleNavigateTo = `/react/curriculum?tab=${ONE_DAY_WORKSHOP}`,
   marketingCard = null,
   showLinkToCurriculum = false,
 }) => {
@@ -67,7 +66,7 @@ const CurriculumOneDayStyling = ({
         <Row>
           <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
-              Design Systems & styling in React{' '}
+              Design Systems & Styling in React{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>

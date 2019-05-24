@@ -12,7 +12,7 @@ const CurriculumCorpReact = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/curriculum?tab=${REACT_BOOTCAMP}`,
+  toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = false,
 }) => {

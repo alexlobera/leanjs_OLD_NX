@@ -199,11 +199,7 @@ class PaymentSection extends React.Component {
             ) : null}
             {priceGoesUpOn > Date.now() ? (
               <React.Fragment>
-                <P>
-                  This EARLY BIRD price available for a{' '}
-                  <strong>limited time</strong>. Get this discount now before
-                  it's too late! Prices go up in...
-                </P>
+                <P>This price is only available for...</P>
                 <Countdown date={priceGoesUpOn} />
               </React.Fragment>
             ) : null}

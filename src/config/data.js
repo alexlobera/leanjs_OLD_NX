@@ -101,7 +101,7 @@ const upcomingBootCamps = [
     type: GRAPHQL_BOOTCAMP,
     cityShortName: 'London',
     location: 'Publicis.Sapient - Eden House, 8 Spital Square',
-    pathUrl: '/graphql-bootcamp-london/',
+    pathUrl: '/graphql/training/bootcamp-london/',
     trainingInstanceId: '5c6ca2dfef523c695ce4aaa4',
     price: 1800,
     currency: 'gbp',
@@ -116,7 +116,7 @@ const upcomingBootCamps = [
     type: REACT_BOOTCAMP,
     cityShortName: 'London',
     location: 'TBD',
-    pathUrl: '/react-redux-graphql-bootcamp-london/2',
+    pathUrl: '/react/training/bootcamp-london/2',
     trainingInstanceId: '5c9a0675dc3c0e1978c0fbb2',
     price: 1800,
     discountPrice: 1450,
@@ -133,7 +133,7 @@ const upcomingBootCamps = [
     type: REACT_BOOTCAMP,
     cityShortName: 'London',
     location: 'Publicis.Sapient - Eden House, 8 Spital Square',
-    pathUrl: '/react-redux-graphql-bootcamp-london/',
+    pathUrl: '/react/training/bootcamp-london/',
     trainingInstanceId: '5cacbaec80c1577e379810df',
     priceGoesUpOn: new Date('April 15, 2019'),
     price: 1800,
@@ -185,7 +185,7 @@ const meetups = [
     cityShortName: 'London',
     country: 'UK',
     url: 'https://www.meetup.com/JavaScript-London/events/260824278/',
-    title: 'GraphQL deep dive with Vladimir Novick & ReactJS Academy',
+    title: 'GraphQL deep dive with Vladimir Novick & React GraphQL Academy',
     imgUrl: LONDON_MEETUP,
   },
   {
@@ -335,7 +335,7 @@ export const instagramPictures = [
 ]
 
 export const CONVINCE_THE_BOSS_PDF =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media'
+  'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media&'
 
 export const selectMeetups = () =>
   meetups

@@ -27,7 +27,7 @@ const Blog = ({ data }) => {
           />
           <Header
             titleLines={['Blog']}
-            subtitle="Insights into the world of ReactJS Academy"
+            subtitle="Insights into the world of React GraphQL Academy"
             fullHeight={false}
             paddingBottom={170}
           />
@@ -70,7 +70,7 @@ const Blog = ({ data }) => {
 export const query = graphql`
   query blogQuery {
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/blog/" } } }
+      filter: { fields: { slug: { regex: "/(/blog/|/react/|/graphql/)/" } } }
       sort: { fields: [frontmatter___order], order: DESC }
     ) {
       edges {

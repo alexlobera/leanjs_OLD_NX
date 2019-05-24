@@ -347,9 +347,7 @@ class CheckoutForm extends React.Component {
                       it will NOT be applied ON TOP of an already reduced
                       'Discount/Early Bird Price'. Only <strong>one </strong>of
                       any discount will apply. Any questions?{' '}
-                      <Link small to="#contact-us">
-                        Contact us
-                      </Link>
+                      <Link to="#contact-us">Contact us</Link>
                     </P>
                     <ValidateVoucherButton
                       block
@@ -461,8 +459,8 @@ class CheckoutForm extends React.Component {
                       There was an error processing your credit card. Please
                       check your credit card with your bank. If the problem
                       persists contact{' '}
-                      <Link to="mailto:hello@reactjs.academy">
-                        hello@reactjs.academy
+                      <Link to="mailto:hello@reactgraphql.academy">
+                        hello@reactgraphql.academy
                       </Link>
                     </Alert>
                   ) : null}

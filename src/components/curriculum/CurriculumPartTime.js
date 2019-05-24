@@ -36,7 +36,7 @@ const CurriculumPartTime = ({
   showTitle = true,
   isOpen,
   enableToggle,
-  toggleNavigateTo = `/curriculum?tab=${PART_TIME}`,
+  toggleNavigateTo = `/react/curriculum?tab=${PART_TIME}`,
   showCallToActionBottom = false,
   marketingCard = null,
   layout,
@@ -127,7 +127,7 @@ const CurriculumPartTime = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton to={`/curriculum?tab=${PART_TIME}`}>
+          <LinkButton to={`/react/curriculum?tab=${PART_TIME}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>
@@ -168,7 +168,7 @@ const CurriculumPartTime = ({
                   bootcamp has it all...
                 </Col>
                 <Col lg={6} center>
-                  <LinkButton to="/react-redux-graphql-bootcamp">
+                  <LinkButton to="/react/training/bootcamp">
                     1 week bootcamp
                   </LinkButton>
                 </Col>

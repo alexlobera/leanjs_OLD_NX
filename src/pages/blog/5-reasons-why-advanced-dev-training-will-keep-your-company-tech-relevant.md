@@ -35,7 +35,7 @@ But advanced dev training helps you standardise knowledge across your team. Not 
 
 Your team can evolve and develop together, helping each other (as well as the company) to stay tech-relevant.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql-bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
 
 ## 3. You’ll empower your team
 
@@ -71,7 +71,7 @@ Advanced dev training is how you make that happen. When your dev team knows how 
 
 Most importantly, when your processes are faster, you can set aside more time to develop your team, making them more efficient and more tech-relevant.
 
-It’s clear that advanced dev training has a lot of benefits, and that’s why we do what we do. At ReactJS Academy, we work alongside your team to deliver effective, tailored ReactJS training courses. Our [Corporate Team Training](/corporate-team-training/) course was a hit with Eber and his team at [Xing](https://www.xing.com/), so what are you waiting for? Contact us today to keep your team and company tech-relevant with our ReactJS training courses.
+It’s clear that advanced dev training has a lot of benefits, and that’s why we do what we do. At React GraphQL Academy, we work alongside your team to deliver effective, tailored ReactJS training courses. Our [Corporate Team Training](/react/training/corporate/) course was a hit with Eber and his team at [Xing](https://www.xing.com/), so what are you waiting for? Contact us today to keep your team and company tech-relevant with our ReactJS training courses.
 
 You can reach Eber Herrera on [Twitter](https://twitter.com/eberhm), [LinkedIn](https://www.linkedin.com/in/eberhm/) and [Xing](https://www.xing.com/profile/Eber_Herrera/cv)
 

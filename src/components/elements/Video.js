@@ -14,15 +14,14 @@ const IframeWrapper = styled.div`
   }
 `
 
-const Video = ({ youtubeId, time, description = '' }) => (
+const Video = ({ youtubeId, time, description }) => (
   <IframeWrapper>
     <iframe
-      title="ReactJS Academy video"
+      title={description}
       width="100%"
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen
-      title={description}
       src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&showinfo=0&wmode=opaque${
         time ? `&start=${time}` : ''
       }`}

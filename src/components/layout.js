@@ -12,7 +12,6 @@ import { graphql, StaticQuery } from 'gatsby'
 
 import './reset.css'
 import './layout.css'
-// import LayoutStyle from './layout.style'
 import { UPMENTORING_API_URL, SENTRY_DSN } from '../config/apps'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
@@ -71,67 +70,74 @@ const preconnectUrls = [
   crossorigin: 'crossorigin',
 }))
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            description
-            keywords
+const Layout = ({ children }) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+              description
+              keywords
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <React.Fragment>
-        <ThemeProvider theme={theme}>
-          <ApolloProvider client={graphqlClient}>
-            <React.Fragment>
-              <Helmet
-                title={data && data.site && data.site.siteMetadata.title}
-                meta={[
-                  {
-                    name: 'description',
-                    content:
-                      data && data.site && data.site.siteMetadata.description,
-                  },
-                  {
-                    name: 'keywords',
-                    content:
-                      data && data.site && data.site.siteMetadata.keywords,
-                  },
-                ]}
-                link={[
-                  ...preloadUrls,
-                  ...preconnectUrls,
-                  ...prefetchDnsUrls,
-                  { rel: 'icon', type: 'image/x-icon', href: `${favicon}` },
-                ]}
-                script={[
-                  {
-                    type: 'text/javascript',
-                    src:
-                      'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
-                    async: true,
-                  },
-                ]}
-              />
-              <Menu />
-              {typeof children === 'function' ? (
-                <UpcomingTrainings>{children}</UpcomingTrainings>
-              ) : (
-                children
-              )}
-              <Footer />
-              <AcceptCookies />
-            </React.Fragment>
-          </ApolloProvider>
-        </ThemeProvider>
-      </React.Fragment>
-    )}
-  />
-)
+      `}
+      render={data => (
+        <React.Fragment>
+          <ThemeProvider theme={theme}>
+            <ApolloProvider client={graphqlClient}>
+              <React.Fragment>
+                <Helmet
+                  title={data && data.site && data.site.siteMetadata.title}
+                  meta={[
+                    {
+                      name: 'description',
+                      content:
+                        data && data.site && data.site.siteMetadata.description,
+                    },
+                    {
+                      name: 'keywords',
+                      content:
+                        data && data.site && data.site.siteMetadata.keywords,
+                    },
+                  ]}
+                  link={[
+                    ...preloadUrls,
+                    ...preconnectUrls,
+                    ...prefetchDnsUrls,
+                    {
+                      rel: 'icon',
+                      type: 'image/x-icon',
+                      href: `${favicon}`,
+                    },
+                  ]}
+                  script={[
+                    {
+                      type: 'text/javascript',
+                      src:
+                        'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+                      async: true,
+                    },
+                  ]}
+                />
+                <Menu />
+                {typeof children === 'function' ? (
+                  <UpcomingTrainings>{children}</UpcomingTrainings>
+                ) : (
+                  children
+                )}
+
+                <Footer />
+                <AcceptCookies />
+              </React.Fragment>
+            </ApolloProvider>
+          </ThemeProvider>
+        </React.Fragment>
+      )}
+    />
+  )
+}
 
 export default Layout

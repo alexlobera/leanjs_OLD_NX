@@ -1,62 +1,67 @@
 [
   {
-    "to": "/curriculum",
-    "text": "Curriculum",
-    "onlyOn": null
-  },
-  {
-    "to": "/react-redux-graphql-bootcamp",
-    "text": "Training",
-    "onlyOn": null,
+    "to": "/react",
+    "text": "React",
     "children": [
       {
-        "to": "/react-redux-graphql-bootcamp",
-        "text": "React Bootcamp"
+        "to": "/react/training",
+        "text": "React Courses"
       },
       {
-        "to": "/corporate-team-training",
-        "text": "Corporate Team Training"
+        "to": "/react/training/corporate",
+        "text": "React Corporate Training",
+        "hideOnMobile": true
       },
       {
-        "to": "/advanced-react-redux-graphql-bootcamp",
-        "text": "Advanced React "
+        "to": "/react/training/workshops",
+        "text": "React Workshops",
+        "hideOnMobile": true
       },
       {
-        "to": "/react-redux-graphql-part-time-course",
-        "text": "Part-time Course"
-      },
-      {
-        "to": "/graphql-bootcamp",
-        "text": "GraphQL Bootcamp"
-      },
-      {
-        "to": "/react-native-bootcamp",
-        "text": "React Native"
-      },
-      {
-        "to": "/react-workshops",
-        "text": "1-day Workshops"
+        "to": "/react/curriculum",
+        "text": "React Curriculum"
       }
     ]
   },
   {
-    "to": "/community",
-    "text": "Community",
-    "onlyOn": null
-  },
-  {
-    "to": "/about-us",
-    "text": "About us",
-    "onlyOn": null
+    "to": "/graphql",
+    "text": "GraphQL",
+    "children": [
+      {
+        "to": "/graphql/training",
+        "text": "GraphQL Courses"
+      },
+      {
+        "to": "/graphql/training/corporate",
+        "text": "GraphQL Corporate Training",
+        "hideOnMobile": true
+      },
+      {
+        "to": "/graphql/training/workshops",
+        "text": "GraphQL Workshops",
+        "hideOnMobile": true
+      },
+      {
+        "to": "/graphql/curriculum",
+        "text": "GraphQL Curriculum"
+      }
+    ]
   },
   {
     "to": "/blog",
-    "text": "Blog",
-    "onlyOn": null
+    "text": "Blog"
+  },
+  {
+    "to": "/about-us",
+    "text": "About us"
+  },
+  {
+    "to": "/community",
+    "text": "Community",
+    "hideOnMobile": true
   },
   {
     "to": "#contact-us",
-    "text": "Contact",
-    "onlyOn": null
+    "text": "Contact"
   }
 ]

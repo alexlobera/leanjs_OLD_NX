@@ -27,74 +27,32 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
 >
   <RJSALogo />
   <PhoneMenuItem
-    key="/curriculum"
+    key="/react/training"
     onClick={[Function]}
-    to="/curriculum"
+    to="/react/training"
   >
-    Curriculum
+    React Courses
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/react-redux-graphql-bootcamp"
+    key="/react/curriculum"
     onClick={[Function]}
-    to="/react-redux-graphql-bootcamp"
+    to="/react/curriculum"
   >
-    React Bootcamp
+    React Curriculum
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/corporate-team-training"
+    key="/graphql/training"
     onClick={[Function]}
-    to="/corporate-team-training"
+    to="/graphql/training"
   >
-    Corporate Team Training
+    GraphQL Courses
   </PhoneMenuItem>
   <PhoneMenuItem
-    key="/advanced-react-redux-graphql-bootcamp"
+    key="/graphql/curriculum"
     onClick={[Function]}
-    to="/advanced-react-redux-graphql-bootcamp"
+    to="/graphql/curriculum"
   >
-    Advanced React 
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/react-redux-graphql-part-time-course"
-    onClick={[Function]}
-    to="/react-redux-graphql-part-time-course"
-  >
-    Part-time Course
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/graphql-bootcamp"
-    onClick={[Function]}
-    to="/graphql-bootcamp"
-  >
-    GraphQL Bootcamp
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/react-native-bootcamp"
-    onClick={[Function]}
-    to="/react-native-bootcamp"
-  >
-    React Native
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/react-workshops"
-    onClick={[Function]}
-    to="/react-workshops"
-  >
-    1-day Workshops
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/community"
-    onClick={[Function]}
-    to="/community"
-  >
-    Community
-  </PhoneMenuItem>
-  <PhoneMenuItem
-    key="/about-us"
-    onClick={[Function]}
-    to="/about-us"
-  >
-    About us
+    GraphQL Curriculum
   </PhoneMenuItem>
   <PhoneMenuItem
     key="/blog"
@@ -102,6 +60,13 @@ exports[`<PhoneMenu /> should render the list of menu items 1`] = `
     to="/blog"
   >
     Blog
+  </PhoneMenuItem>
+  <PhoneMenuItem
+    key="/about-us"
+    onClick={[Function]}
+    to="/about-us"
+  >
+    About us
   </PhoneMenuItem>
   <PhoneMenuItem
     key="#contact-us"

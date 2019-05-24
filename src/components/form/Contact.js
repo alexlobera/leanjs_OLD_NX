@@ -54,7 +54,9 @@ const ContactForm = props => {
           </H3>
           <P>
             The best way to contact us is by emailing us at{' '}
-            <Link to="mailto:hello@reactjs.academy">hello@reactjs.academy</Link>
+            <Link to="mailto:hello@reactgrahql.academy">
+              hello@reactgraphql.academy
+            </Link>
             .{' '}
           </P>
           <P>You can call us during working hours on: +44 20 8123 8184</P>
@@ -74,14 +76,10 @@ const ContactForm = props => {
       <a name="newsletter" />
       <H3>Free learning resources</H3>
       <P>
-        We share our learning resources{' '}
-        <strong>
-          directly from our{' '}
-          <Link to="/curriculum">
-            <strong>curriculum</strong>
-          </Link>
-        </strong>{' '}
-        and we'd love for you to enjoy and learn from them!{' '}
+        We share our resources directly from our{' '}
+        <Link to="/react/curriculum">React</Link> and{' '}
+        <Link to="/graphql/curriculum">GraphQL</Link> curriculums and we'd love
+        for you to enjoy and learn from them!{' '}
       </P>
       <P>
         Signup and learn about cutting-edge React thinking plus the latest news

@@ -26,6 +26,6 @@ describe('<DesktopMenu />', () => {
         .first()
         .props()
         .to.toLowerCase()
-    ).toMatch(/curriculum/)
+    ).toMatch(/react/)
   })
 })

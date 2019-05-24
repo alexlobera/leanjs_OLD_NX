@@ -91,7 +91,7 @@ const AboutUs = () => (
                     Our coaches - professional developers who love to teach
                   </H2>
                   <H3 style={{ paddingTop: 0 }}>
-                    The ReactJS Academy coach values:{' '}
+                    The React GraphQL Academy coach values:{' '}
                   </H3>
                   <Row>
                     <Col xs={6} sm={6} md={4}>
@@ -116,7 +116,7 @@ const AboutUs = () => (
                       <Col xs={12} sm={12} md={4}>
                         <Image
                           src={ABOUT_VALUES}
-                          alt="ReactJS Academy coach Richard, in a classroom presenting to a group of students during a bootcamp"
+                          alt="React GraphQL Academy coach Richard, in a classroom presenting to a group of students during a bootcamp"
                         />
                       </Col>
                     </HideComponentsUsingCss>
@@ -260,7 +260,7 @@ const AboutUs = () => (
                     <Link to="https://www.meetup.com/JavaScript-Lisbon/">
                       JavaScript Lisbon Meetup{' '}
                     </Link>
-                    and ReactJS Academy bootcamps.
+                    and React GraphQL Academy bootcamps.
                   </Li>
                 </Ul>
                 <Blockquote bg="primary" triangle="right">
@@ -274,7 +274,7 @@ const AboutUs = () => (
                 <Image
                   src={RICHARD}
                   width="100%"
-                  alt="ReactJS Academy coach Richard Moss, looking pretty happy with a beach in the background"
+                  alt="React GraphQL Academy coach Richard Moss, looking pretty happy with a beach in the background"
                 />
               </Col>
             </Row>
@@ -287,7 +287,7 @@ const AboutUs = () => (
                 <Image
                   src={HORACIO}
                   width="100%"
-                  alt="ReactJS Academy coach Horacio Herrera, smiling with sunglasses on."
+                  alt="React GraphQL Academy coach Horacio Herrera, smiling with sunglasses on."
                 />
               </Col>
               <Col xs={12} md={4} mdOffset={1} smOrder={1}>
@@ -366,7 +366,9 @@ const AboutUs = () => (
                 </CoachTitle>
                 <Ul inline>
                   <Li>
-                    <SocialLink to="github.com/evandyou ">GitHub</SocialLink>
+                    <SocialLink to="https://github.com/evandyou">
+                      GitHub
+                    </SocialLink>
                   </Li>
                   <Li>|</Li>
                   <Li>
@@ -406,7 +408,7 @@ const AboutUs = () => (
                 <Image
                   src={EVA}
                   width="100%"
-                  alt="ReactJS Academy coach Eva Hoffmann, smiling "
+                  alt="React GraphQL Academy coach Eva Hoffmann, smiling "
                 />
               </Col>
             </Row>
@@ -419,7 +421,7 @@ const AboutUs = () => (
                 <Image
                   src={WILL}
                   width="100%"
-                  alt="ReactJS Academy coach Will Voelcker, smiling with coach Alex in the background"
+                  alt="React GraphQL Academy coach Will Voelcker, smiling with coach Alex in the background"
                 />
               </Col>
               <Col xs={12} md={4} mdOffset={1} smOrder={1}>
@@ -524,7 +526,7 @@ const AboutUs = () => (
                 <Image
                   src={ADAM}
                   width="100%"
-                  alt="ReactJS Academy coach Adam Lancaster, on top of a tall building as a cityscape is in the background fading out to the horizon"
+                  alt="React GraphQL Academy coach Adam Lancaster, on top of a tall building as a cityscape is in the background fading out to the horizon"
                 />
               </Col>
             </Row>
@@ -595,7 +597,7 @@ const AboutUs = () => (
                 <Image
                   src={ROY}
                   width="100%"
-                  alt="ReactJS Academy coach Roy Derks, speaking at a developer conference with microphone"
+                  alt="React GraphQL Academy coach Roy Derks, speaking at a developer conference with microphone"
                 />
               </Col>
             </Row>
@@ -608,7 +610,7 @@ const AboutUs = () => (
                 <Image
                   src={DAVID}
                   width="100%"
-                  alt="ReactJS Academy coach David Leuliette, jumping on the Brooklyn Bridge"
+                  alt="React GraphQL Academy coach David Leuliette, jumping on the Brooklyn Bridge"
                 />
               </Col>
               <Col xs={12} md={4} mdOffset={1} smOrder={1}>
@@ -724,7 +726,7 @@ const AboutUs = () => (
                 <Image
                   src={FRANCISCO}
                   width="100%"
-                  alt="ReactJS Academy coach Francisco Gomes, smiling with sunglasses on"
+                  alt="React GraphQL Academy coach Francisco Gomes, smiling with sunglasses on"
                 />
               </Col>
             </Row>
@@ -747,7 +749,7 @@ const AboutUs = () => (
                   </Link>
                 </H2Ref>
                 <P>
-                  ReactJS Academy is made up of a{' '}
+                  React GraphQL Academy is made up of a{' '}
                   <strong>group of developers & coaches</strong> that
                   continuously strive improve their teaching skills and training
                   material
@@ -771,7 +773,7 @@ const AboutUs = () => (
                 <BecomeACoachWrapper>
                   <LinkButton
                     target="_self"
-                    to="mailto:hello@reactjs.academy?subject=Become a coach"
+                    to="mailto:hello@reactgraphql.academy?subject=Become a coach"
                   >
                     Become a coach
                   </LinkButton>
@@ -785,7 +787,7 @@ const AboutUs = () => (
             <Row>
               <Col md={10} mdOffset={1}>
                 <H2Ref>
-                  The ReactJS Academy coach manifesto
+                  The React GraphQL Academy coach manifesto
                   <Link to="#manifesto" name="manifesto">
                     #
                   </Link>

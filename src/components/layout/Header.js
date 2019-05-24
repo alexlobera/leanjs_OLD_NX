@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-
 import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
@@ -55,7 +54,11 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
 const HeaderSection = styled(Section)`
   ${({ bgColor }) =>
     `background-color: ${
-      bgColor === 'blue' ? reactBlue(0.4) : 'rgba(196,196,196,0.4)'
+      bgColor === 'blue'
+        ? reactBlue(0.4)
+        : bgColor === 'grey'
+        ? 'rgba(196,196,196,0.4)'
+        : ''
     };`} position: relative;
 
   &:before {
@@ -83,6 +86,9 @@ const HeaderSection = styled(Section)`
   }
 `
 HeaderSection.displayName = 'HeaderSection'
+HeaderSection.defaultProps = {
+  bgColor: 'grey',
+}
 
 const H2Header = styled(BaseH2)`
   padding: 0 !important;
@@ -197,6 +203,7 @@ const Header = ({
   subtitle,
   links = [],
   bgImageName,
+  bgImgUrl,
   bgColor,
   fullHeight,
   paddingBottom,
@@ -227,7 +234,7 @@ const Header = ({
       }
     `}
     render={data => {
-      const bgImage = getBackgroundImageSrc(data, bgImageName)
+      const bgImage = bgImgUrl || getBackgroundImageSrc(data, bgImageName)
       const startDate =
         training &&
         training.startDate &&
@@ -302,7 +309,7 @@ const Header = ({
                         <Image
                           src={training.image || SMALL_CLASSROOM}
                           width="100%"
-                          alt="ReactJS Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                          alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
                         />
                       </Link>
 
@@ -367,6 +374,7 @@ Header.propTypes = {
   height: PropTypes.number,
   bgImg: PropTypes.string,
   training: PropTypes.object,
+  bgImgUrl: PropTypes.string,
 }
 
 export default Header

@@ -36,13 +36,13 @@ const CorpTrainingFacts = () => (
     </P>
     <P>
       For pricing information, it's best to{' '}
-      <Link to="mailto:hello@reactjs.academy">email us</Link> to get a tailored
-      quote but our <strong>Key Facts PDF</strong> has information regarding
-      pricing too.
+      <Link to="mailto:hello@reactgraphql.academy">email us</Link> to get a
+      tailored quote but our <strong>Key Facts PDF</strong> has information
+      regarding pricing too.
     </P>
     <LinkButton
       primary
-      to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FCorporate%20Team%20Training%20with%20ReactJS%20Academy.pdf?alt=media&"
+      to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
     >
       Team Training - Key Facts (PDF)
     </LinkButton>

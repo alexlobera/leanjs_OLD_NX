@@ -103,6 +103,10 @@ const BlogPost = ({ data }) => {
   const { slug } = data.markdownRemark.fields
   const allPosts = data.allMarkdownRemark.edges
   const relatedPosts = allPosts.filter(post => post.node.fields.slug !== slug)
+  const postTypePath = slug.replace(/^\/([^\/]*).*$/, '$1')
+  const postTypeLabel = `${postTypePath
+    .charAt(0)
+    .toUpperCase()}${postTypePath.slice(1)}`
   return (
     <Layout>
       {({ trainings }) => (
@@ -116,7 +120,10 @@ const BlogPost = ({ data }) => {
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: `/blog`, label: `Blog` },
+              {
+                to: `/${postTypePath}`,
+                label: postTypeLabel,
+              },
               { to: slug, label: title },
             ]}
           />
@@ -124,7 +131,8 @@ const BlogPost = ({ data }) => {
             titleLines={title.split('<br />')}
             fullHeight={false}
             paddingBottom={80}
-            bgImg={imageUrl}
+            bgImgUrl={imageUrl}
+            bgColor={null}
           >
             <PostMeta date={date} author={author} timeToRead={timeToRead} />
           </Header>

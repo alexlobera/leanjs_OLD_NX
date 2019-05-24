@@ -8,59 +8,7 @@
   },
   "hosting": {
     "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "headers": [
-      {
-        "source": "**/*.@(jpg|jpeg|gif|png|woff|woff2|eot|ttf)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "max-age=31536000"
-          }
-        ]
-      },
-      {
-        "source": "**/*.@(js)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "max-age=31536000"
-          }
-        ]
-      }
-    ],
-    "redirects": [
-      {
-        "source": "/react-redux-training-usa",
-        "destination": "/react-redux-graphql-bootcamp-nyc/",
-        "type": 301
-      },
-      {
-        "source": "/become-a-coach",
-        "destination": "/about-us/",
-        "type": 301
-      },
-      {
-        "source": "/thanks-for-opting-in",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/why-training",
-        "destination": "/about-us/",
-        "type": 301
-      },
-      {
-        "source": "/graphql{,/}",
-        "destination": "/graphql-bootcamp/",
-        "type": 301
-      },
-      {
-        "source": "/corporate-training{,/}",
-        "destination": "/corporate-team-training/",
-        "type": 301
-      }
-    ]
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   },
   "storage": {
     "rules": "storage.rules"

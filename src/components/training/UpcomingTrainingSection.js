@@ -63,7 +63,8 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
   <React.Fragment>
     {curriculum ? (
       <React.Fragment>
-        <H3 style={{ marginTop: '1em' }}>Upcoming courses</H3>
+        <Link to="#upcoming-courses" name="upcoming-courses" />
+        <H3 style={{ marginTop: '1em' }}>Upcoming dates:</H3>
         <UpcomingTrainings
           type={type}
           curriculum={curriculum}
@@ -71,13 +72,15 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
         />
         <Link to="#upcoming">See all upcoming courses</Link>
         <Row>
+          <Link to="#free-learning-resources" name="free-learning-resources" />
           <Col md={10}>
             <Newsletter />
           </Col>
         </Row>
         <Row>
+          <Link to="#corporate-training" name="corporate-training" />
           <Col md={10}>
-            <CorporateTrainingCard />
+            <CorporateTrainingCard type={type} />
           </Col>
         </Row>
       </React.Fragment>
@@ -87,7 +90,7 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
           <Row>
             <Col md={10} mdOffset={1}>
               <H2Ref>
-                Upcoming Training
+                Upcoming - All Courses
                 <Link to="#upcoming" name="upcoming">
                   #
                 </Link>
@@ -106,7 +109,7 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
                   <P>
                     <strong>Corporate team training</strong>
                   </P>
-                  <Link to="/corporate-team-training/">Find out more</Link>
+                  <Link to="/react/training/corporate/">Find out more</Link>
                 </CorporateCrossSell>
               </TrainingList>
             </Col>

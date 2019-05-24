@@ -18,7 +18,7 @@ const CurriculumAdvancedReact = ({
   showTitle = true,
   isOpen,
   enableToggle,
-  toggleNavigateTo = `/curriculum?tab=${ADVANCED_REACT}`,
+  toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT}`,
   marketingCard = null,
   showLinkToCurriculum = true,
   layout,
@@ -43,7 +43,6 @@ const CurriculumAdvancedReact = ({
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns I" />
         <GraphQLSession title="GraphQL and Apollo client" />
       </Section>
-      {marketingCard}
       <Section
         {...commonProps}
         title="Advanced React Day 2"
@@ -74,11 +73,12 @@ const CurriculumAdvancedReact = ({
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
-          <LinkButton to={`/curriculum?tab=${ADVANCED_REACT}`}>
+          <LinkButton to={`/react/curriculum?tab=${ADVANCED_REACT}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>
       )}
+      {marketingCard}
     </React.Fragment>
   )
 

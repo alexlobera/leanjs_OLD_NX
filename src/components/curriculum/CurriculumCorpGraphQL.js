@@ -12,7 +12,7 @@ const CurriculumCorpGraphQL = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
+  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
   marketingCard = null,
   showLinkToCurriculum = false,
 }) => {
