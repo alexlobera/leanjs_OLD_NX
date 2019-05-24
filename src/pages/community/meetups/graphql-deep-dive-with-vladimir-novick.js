@@ -4,26 +4,16 @@ import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, H5, P } from 'src/components/text'
-import { Card, Video } from 'src/components/elements'
+import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
   selectUpcomingTrainings,
 } from 'src/components/training'
-import {
-  BulletIcon,
-  NotBegginerIcon,
-  CodeIcon,
-  ReactIcon,
-  CollabsIcon,
-} from 'src/components/icons'
-import { Image } from 'src/components/elements'
-import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { MEETUP, BERLIN } from 'src/config/data'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const graphqlDeepDiveBerlin = () => (
   <Layout>
@@ -96,11 +86,11 @@ const graphqlDeepDiveBerlin = () => (
                       be 1 or 2 lightning talks at the beginning.
                     </P>
                     <H5>Meetup Group:</H5>
-                    <Link to="#">JavaScript Berlin</Link>
-                    {/* <Video youtubeId="yvROXLQ1jHg" />
-                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} /> */}
+                    <Link to="https://www.meetup.com/JavaScript-Berlin/">
+                      JavaScript Berlin
+                    </Link>
                   </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                  <Col xs={12} md={6} lg={5}>
                     <PaymentSection
                       training={training}
                       trainingError={trainingError}
