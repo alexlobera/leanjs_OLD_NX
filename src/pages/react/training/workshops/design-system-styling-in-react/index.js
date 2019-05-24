@@ -66,20 +66,18 @@ const StylingDesignSystemWorkshop = () => (
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
             training={training}
-            showInfoBox={false}
           />
           <TopSection top>
             <Grid>
-              {/* <CallToActionRow left>
+              <CallToActionRow left>
                 <Col xs={12} mdOffset={1} md={4}>
                   <LinkButton
                     variant="primary"
-                    to="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2FCorporate%20Team%20Training%20with%20ReactJS%20Academy.pdf?alt=media&"
-                    children="Team Training - Key Facts (PDF)"
+                    to="/react/training/workshops/design-system-styling-in-react/london"
+                    children="Next workshop: 15 July, London"
                   />
                 </Col>
-                <Col xs={12} mdOffset={1} md={6} />
-              </CallToActionRow> */}
+              </CallToActionRow>
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
