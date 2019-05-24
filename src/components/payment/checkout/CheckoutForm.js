@@ -347,9 +347,7 @@ class CheckoutForm extends React.Component {
                       it will NOT be applied ON TOP of an already reduced
                       'Discount/Early Bird Price'. Only <strong>one </strong>of
                       any discount will apply. Any questions?{' '}
-                      <Link small to="#contact-us">
-                        Contact us
-                      </Link>
+                      <Link to="#contact-us">Contact us</Link>
                     </P>
                     <ValidateVoucherButton
                       block
