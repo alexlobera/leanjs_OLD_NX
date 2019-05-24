@@ -164,12 +164,11 @@ class PaymentSection extends React.Component {
       isVoucherValidationInProgress,
     } = this.state
     const priceQuantity = price * quantity
-    const currentPriceQuantity =
-      netPrice !== null
-        ? netPrice
-        : discountPrice
-        ? discountPrice * quantity
-        : priceQuantity
+    const currentPriceQuantity = netPrice
+      ? netPrice
+      : discountPrice
+      ? discountPrice * quantity
+      : priceQuantity
 
     const meetup = trainingType === MEETUP
 
