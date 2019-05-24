@@ -387,7 +387,7 @@ class CheckoutForm extends React.Component {
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>
-                    <Span>Ticket:</Span>
+                    <Span>Full ticket price:</Span>
                   </Col>
                   <Col xs={7}>
                     <Span>{formatPrice(currency, priceQuantity, 0)}</Span>
