@@ -33,7 +33,7 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const StylingDesignSystemWorkshop = () => (
   <Layout>
-    {({ trainings, trainingLoading, trainingError }) => {
+    {({ trainings }) => {
       const bootCampTrainings = selectUpcomingTrainings({
         trainings,
         type: ONE_DAY_WORKSHOP,
