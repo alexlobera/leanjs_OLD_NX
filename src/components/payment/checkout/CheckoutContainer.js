@@ -164,8 +164,8 @@ export class CheckoutContainer extends React.Component {
   render() {
     const {
       quantity,
-      priceXQuantity,
-      currentPriceXQuantity,
+      priceQuantity,
+      currentPriceQuantity,
       currency,
       vatRate,
       resetVoucher,
@@ -193,8 +193,8 @@ export class CheckoutContainer extends React.Component {
         removeCourse={this.removeCourse}
         addCourse={this.addCourse}
         currency={currency}
-        priceXQuantity={priceXQuantity}
-        currentPriceXQuantity={currentPriceXQuantity}
+        priceQuantity={priceQuantity}
+        currentPriceQuantity={currentPriceQuantity}
         vatRate={vatRate}
         isPaymentInProgress={isPaymentInProgress}
         paymentErrorMessage={paymentErrorMessage}
@@ -222,8 +222,8 @@ CheckoutContainer.propTypes = {
   client: PropTypes.object.isRequired,
   updateVatRate: PropTypes.func.isRequired,
   quantity: PropTypes.number.isRequired,
-  currentPriceXQuantity: PropTypes.number.isRequired,
-  priceXQuantity: PropTypes.number.isRequired,
+  currentPriceQuantity: PropTypes.number.isRequired,
+  priceQuantity: PropTypes.number.isRequired,
   trainingInstanceId: PropTypes.string.isRequired,
   trackUserBehaviour: PropTypes.func.isRequired,
   resetVoucher: PropTypes.func.isRequired,

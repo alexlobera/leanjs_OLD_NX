@@ -1,13 +1,14 @@
 query validateVoucher(
-    $trainingInstanceId: ID!
-    $quantity: Int!
-    $voucherCode: String!
+  $trainingInstanceId: ID!
+  $quantity: Int!
+  $voucherCode: String!
+) {
+  redeemVoucher(
+    trainingInstanceId: $trainingInstanceId
+    quantity: $quantity
+    voucherCode: $voucherCode
   ) {
-    voucherGetNetPriceWithDiscount(
-      trainingInstanceId: $trainingInstanceId
-      quantity: $quantity
-      voucherCode: $voucherCode
-    ) {
-      amount
-    }
+    netPrice
+    totalDiscount
   }
+}
