@@ -27,7 +27,8 @@ import {
 } from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
-import { Link, Breadcrumb, LinkButton } from 'src/components/navigation'
+import { Link, Breadcrumb } from 'src/components/navigation'
+import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
