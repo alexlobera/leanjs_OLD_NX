@@ -15,7 +15,7 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { MEETUP, BERLIN } from 'src/config/data'
 
-const graphqlDeepDiveBerlin = () => (
+const MeetUpPage = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const workshops = selectUpcomingTrainings({
@@ -110,4 +110,4 @@ const graphqlDeepDiveBerlin = () => (
   </Layout>
 )
 
-export default graphqlDeepDiveBerlin
+export default MeetUpPage
