@@ -47,6 +47,7 @@ const graphqlDeepDiveBerlin = () => (
             }
             training={training}
             showInfoBox={true}
+            type={MEETUP}
           />
           <TopSection xsBgDark>
             <Grid>

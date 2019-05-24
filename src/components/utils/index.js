@@ -8,6 +8,7 @@ import {
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   ONE_DAY_WORKSHOP,
+  MEETUP,
 } from '../../config/data'
 import {
   GREY2,
@@ -15,6 +16,7 @@ import {
   GRAPHQL_PINK,
   REACT_BLUE_DARK,
   REACT_NATIVE_GREEN,
+  MEETUP_RED,
 } from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
@@ -45,6 +47,8 @@ export const selectTypeColor = type => {
       return GRAPHQL_PINK
     case ONE_DAY_WORKSHOP:
       return REACT_NATIVE_GREEN
+    case MEETUP:
+      return MEETUP_RED
     default:
       return REACT_BLUE_DARK
   }
