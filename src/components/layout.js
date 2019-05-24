@@ -97,11 +97,6 @@ const Layout = ({ children }) => {
                       content:
                         data && data.site && data.site.siteMetadata.description,
                     },
-                    {
-                      name: 'keywords',
-                      content:
-                        data && data.site && data.site.siteMetadata.keywords,
-                    },
                   ]}
                   link={[
                     ...preloadUrls,
