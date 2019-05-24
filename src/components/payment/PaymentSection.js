@@ -25,7 +25,7 @@ class PaymentSection extends React.Component {
     isVoucherValid: null,
     isVoucherValidationInProgress: false,
     voucher: '',
-    voucherPriceXQuantity: null,
+    netPrice: null,
     vatRate: DEFAULT_VAT_RATE,
   }
 
@@ -64,11 +64,11 @@ class PaymentSection extends React.Component {
         },
       })
       .then(({ data = {} }) => {
-        const { amount = null } = data.voucherGetNetPriceWithDiscount || {}
+        const { netPrice, totalDiscount } = data.redeemVoucher || {}
         this.setVoucherInProgress(false)
         this.setState({
-          isVoucherValid: !!amount,
-          voucherPriceXQuantity: amount,
+          isVoucherValid: !!netPrice,
+          netPrice,
         })
       })
       .catch(error => {
@@ -84,7 +84,7 @@ class PaymentSection extends React.Component {
     this.setState({
       isVoucherValid: null,
       voucher,
-      voucherPriceXQuantity: null,
+      netPrice: null,
     })
   }
 
@@ -155,18 +155,18 @@ class PaymentSection extends React.Component {
     const {
       quantity,
       vatRate,
-      voucherPriceXQuantity,
+      netPrice,
       voucher,
       isVoucherValid,
       isVoucherValidationInProgress,
     } = this.state
-    const priceXQuantity = price * quantity
-    const currentPriceXQuantity =
-      voucherPriceXQuantity !== null
-        ? voucherPriceXQuantity
+    const priceQuantity = price * quantity
+    const currentPriceQuantity =
+      netPrice !== null
+        ? netPrice
         : discountPrice
         ? discountPrice * quantity
-        : priceXQuantity
+        : priceQuantity
 
     return (
       <React.Fragment>
@@ -191,7 +191,7 @@ class PaymentSection extends React.Component {
                   SAVE{' '}
                   {formatPrice(
                     currency,
-                    priceXQuantity - currentPriceXQuantity,
+                    priceQuantity - currentPriceQuantity,
                     vatRate
                   )}
                 </strong>
@@ -215,8 +215,8 @@ class PaymentSection extends React.Component {
                 quantity={this.state.quantity}
                 removeCourse={this.removeCourse}
                 addCourse={this.addCourse}
-                priceXQuantity={priceXQuantity}
-                currentPriceXQuantity={currentPriceXQuantity}
+                priceQuantity={priceQuantity}
+                currentPriceQuantity={currentPriceQuantity}
                 validateVoucher={this.validateVoucher}
                 resetVoucher={this.resetVoucher}
                 voucher={voucher}

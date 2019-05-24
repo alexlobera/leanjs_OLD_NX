@@ -146,8 +146,8 @@ class CheckoutForm extends React.Component {
       quantity,
       removeCourse,
       addCourse,
-      priceXQuantity,
-      currentPriceXQuantity,
+      priceQuantity,
+      currentPriceQuantity,
       currency,
       vatRate,
       pay,
@@ -161,10 +161,10 @@ class CheckoutForm extends React.Component {
       paymentErrorMessage,
     } = this.props
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
-    const discount = priceXQuantity - currentPriceXQuantity
+    const discount = priceQuantity - currentPriceQuantity
     const ticketVat = !vatRate
       ? 0
-      : currentPriceXQuantity - currentPriceXQuantity * vatRate
+      : currentPriceQuantity - currentPriceQuantity * vatRate
 
     return (
       <Fragment>
@@ -200,13 +200,13 @@ class CheckoutForm extends React.Component {
             <TotalPrice>Price</TotalPrice>
             <P>
               <Price marginRight={8}>
-                {formatPrice(currency, currentPriceXQuantity, vatRate)}
+                {formatPrice(currency, currentPriceQuantity, vatRate)}
               </Price>
               <br />
               (Full price:
-              {currentPriceXQuantity < priceXQuantity ? (
+              {currentPriceQuantity < priceQuantity ? (
                 <Span lineThrough>
-                  {formatPrice(currency, priceXQuantity, vatRate)}
+                  {formatPrice(currency, priceQuantity, vatRate)}
                 </Span>
               ) : null}
               )
@@ -342,26 +342,22 @@ class CheckoutForm extends React.Component {
                             : null,
                       }}
                     />
-                    <P small>
-                      <strong>Please Note:</strong> If you have a discount code,
-                      it will NOT be applied ON TOP of an already reduced
-                      'Discount/Early Bird Price'. Only <strong>one </strong>of
-                      any discount will apply. Any questions?{' '}
-                      <Link to="#contact-us">Contact us</Link>
-                    </P>
-                    <ValidateVoucherButton
-                      block
-                      disabled={isVoucherValid || isVoucherValidationInProgress}
-                      onClick={() => validateVoucher(voucher)}
-                      variant="secondary"
-                    >
-                      {isVoucherValidationInProgress
-                        ? '...'
-                        : isVoucherValid
-                        ? 'Valid Voucher'
-                        : 'Validate voucher'}
-                    </ValidateVoucherButton>
-                    <P />
+                    <FormGroup>
+                      <ValidateVoucherButton
+                        block
+                        disabled={
+                          isVoucherValid || isVoucherValidationInProgress
+                        }
+                        onClick={() => validateVoucher(voucher)}
+                        variant="secondary"
+                      >
+                        {isVoucherValidationInProgress
+                          ? '...'
+                          : isVoucherValid
+                          ? 'Valid Voucher'
+                          : 'Validate voucher'}
+                      </ValidateVoucherButton>
+                    </FormGroup>
                   </Fragment>
                 ) : (
                   <FormGroup>
@@ -374,13 +370,13 @@ class CheckoutForm extends React.Component {
                 )}
                 <RibbonBottomContainer>
                   <CheckoutH4>Pricing breakdown</CheckoutH4>
-                  {currentPriceXQuantity &&
-                  priceXQuantity - currentPriceXQuantity > 0 ? (
+                  {currentPriceQuantity &&
+                  priceQuantity - currentPriceQuantity > 0 ? (
                     <Ribbon top={'-5'}>
                       You save{' '}
                       {formatPrice(
                         currency,
-                        priceXQuantity - currentPriceXQuantity,
+                        priceQuantity - currentPriceQuantity,
                         vatRate
                       )}
                       !
@@ -391,33 +387,23 @@ class CheckoutForm extends React.Component {
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>
-                    <Span>Ticket (ex.VAT):</Span>
+                    <Span>Ticket:</Span>
                   </Col>
                   <Col xs={7}>
-                    <Span>{formatPrice(currency, priceXQuantity, 0)}</Span>
+                    <Span>{formatPrice(currency, priceQuantity, 0)}</Span>
                   </Col>
                 </Row>
-                {discount ? (
-                  <React.Fragment>
-                    <Row>
-                      <Col xs={5}>
-                        <Span>Discounts:</Span>
-                      </Col>
-                      <Col xs={7}>
-                        <Span>-{formatPrice(currency, discount, 0)}</Span>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col xs={5}>
-                        <Span>Your ticket price:</Span>
-                      </Col>
-                      <Col xs={7}>
-                        <Span>
-                          {formatPrice(currency, currentPriceXQuantity, 0)}
-                        </Span>
-                      </Col>
-                    </Row>
-                  </React.Fragment>
+                {priceQuantity !== currentPriceQuantity ? (
+                  <Row>
+                    <Col xs={5}>
+                      <Span>Your ticket price:</Span>
+                    </Col>
+                    <Col xs={7}>
+                      <Span>
+                        {formatPrice(currency, currentPriceQuantity, 0)}
+                      </Span>
+                    </Col>
+                  </Row>
                 ) : null}
                 <Row>
                   <Col xs={5}>
@@ -429,13 +415,25 @@ class CheckoutForm extends React.Component {
                     </Span>
                   </Col>
                 </Row>
+                {discount ? (
+                  <React.Fragment>
+                    <Row>
+                      <Col xs={5}>
+                        <Span>Discounts:</Span>
+                      </Col>
+                      <Col xs={7}>
+                        <Span>-{formatPrice(currency, discount, vatRate)}</Span>
+                      </Col>
+                    </Row>
+                  </React.Fragment>
+                ) : null}
                 <Row>
                   <Col xs={5} end>
                     <Span>Total payable:</Span>
                   </Col>
                   <Col xs={7}>
                     <TotalPayablePrice>
-                      {formatPrice(currency, currentPriceXQuantity, vatRate)}
+                      {formatPrice(currency, currentPriceQuantity, vatRate)}
                     </TotalPayablePrice>
                   </Col>
                 </Row>

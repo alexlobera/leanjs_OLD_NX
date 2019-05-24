@@ -50,8 +50,8 @@ class Checkout extends React.Component {
       quantity,
       removeCourse,
       addCourse,
-      priceXQuantity,
-      currentPriceXQuantity,
+      priceQuantity,
+      currentPriceQuantity,
       vatRate,
       updateVatRate,
       resetVoucher,
@@ -71,24 +71,24 @@ class Checkout extends React.Component {
         {!isOpen ? (
           <PurchaseWrapper className="gtm-purchase-box">
             <Fragment>
-              {currentPriceXQuantity ? (
+              {currentPriceQuantity ? (
                 <PriceAndDiscount>
                   <Price>
                     &nbsp;
-                    {formatPrice(currency, currentPriceXQuantity, vatRate)}
+                    {formatPrice(currency, currentPriceQuantity, vatRate)}
                   </Price>
                   <P>
                     (Full price:{' '}
-                    {priceXQuantity !== currentPriceXQuantity ? (
+                    {priceQuantity !== currentPriceQuantity ? (
                       <Span lineThrough>
-                        {formatPrice(currency, priceXQuantity, vatRate)}
+                        {formatPrice(currency, priceQuantity, vatRate)}
                       </Span>
                     ) : null}
                     )
                   </P>
                 </PriceAndDiscount>
               ) : (
-                <Price>{formatPrice(currency, priceXQuantity, vatRate)}</Price>
+                <Price>{formatPrice(currency, priceQuantity, vatRate)}</Price>
               )}
               <BuyButton
                 onClick={this.toggleIsOpen}
@@ -108,8 +108,8 @@ class Checkout extends React.Component {
             price={price}
             discountPrice={discountPrice}
             quantity={quantity}
-            priceXQuantity={priceXQuantity}
-            currentPriceXQuantity={currentPriceXQuantity}
+            priceQuantity={priceQuantity}
+            currentPriceQuantity={currentPriceQuantity}
             removeCourse={removeCourse}
             addCourse={addCourse}
             resetVoucher={resetVoucher}
@@ -139,8 +139,8 @@ Checkout.propTypes = {
   price: PropTypes.number.isRequired,
   discountPrice: PropTypes.number,
   quantity: PropTypes.number.isRequired,
-  priceXQuantity: PropTypes.number,
-  currentPriceXQuantity: PropTypes.number.isRequired,
+  priceQuantity: PropTypes.number,
+  currentPriceQuantity: PropTypes.number.isRequired,
   removeCourse: PropTypes.func.isRequired,
   addCourse: PropTypes.func.isRequired,
   resetVoucher: PropTypes.func.isRequired,
