@@ -26,7 +26,6 @@ import {
   CollabsIcon,
 } from 'src/components/icons'
 import { Image } from 'src/components/elements'
-import header from 'src/components/layout/Header.json'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
