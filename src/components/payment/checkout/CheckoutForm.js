@@ -84,12 +84,6 @@ const Quantity = styled.span`
 
 const TotalPrice = styled(Span)`
   display: inline-block;
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-bottom: 25px;
-  }
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    padding-bottom: 14px;
-  }
 `
 
 const RowNumTickets = styled.div`
@@ -185,19 +179,6 @@ class CheckoutForm extends React.Component {
         />
         <Row>
           <Col xs={6}>
-            <TotalPrice>Total price:</TotalPrice>
-            <P>
-              <Price marginRight={8}>
-                {formatPrice(currency, currentPriceXQuantity, vatRate)}
-              </Price>
-              {currentPriceXQuantity < priceXQuantity ? (
-                <Span lineThrough>
-                  {formatPrice(currency, priceXQuantity, vatRate)}
-                </Span>
-              ) : null}
-            </P>
-          </Col>
-          <Col xs={6}>
             <Span>Number of tickets:</Span>
             <RowNumTickets>
               <QuantityActions>
@@ -214,6 +195,22 @@ class CheckoutForm extends React.Component {
                 />
               </QuantityActions>
             </RowNumTickets>
+          </Col>
+          <Col xs={6}>
+            <TotalPrice>Price</TotalPrice>
+            <P>
+              <Price marginRight={8}>
+                {formatPrice(currency, currentPriceXQuantity, vatRate)}
+              </Price>
+              <br />
+              (Full price:
+              {currentPriceXQuantity < priceXQuantity ? (
+                <Span lineThrough>
+                  {formatPrice(currency, priceXQuantity, vatRate)}
+                </Span>
+              ) : null}
+              )
+            </P>
           </Col>
         </Row>
         <Form
@@ -345,10 +342,20 @@ class CheckoutForm extends React.Component {
                             : null,
                       }}
                     />
+                    <P small>
+                      <strong>Please Note:</strong> If you have a discount code,
+                      it will NOT be applied ON TOP of an already reduced
+                      'Discount/Early Bird Price'. Only <strong>one </strong>of
+                      any discount will apply. Any questions?{' '}
+                      <Link small to="#contact-us">
+                        Contact us
+                      </Link>
+                    </P>
                     <ValidateVoucherButton
                       block
                       disabled={isVoucherValid || isVoucherValidationInProgress}
                       onClick={() => validateVoucher(voucher)}
+                      variant="secondary"
                     >
                       {isVoucherValidationInProgress
                         ? '...'
@@ -356,6 +363,7 @@ class CheckoutForm extends React.Component {
                         ? 'Valid Voucher'
                         : 'Validate voucher'}
                     </ValidateVoucherButton>
+                    <P />
                   </Fragment>
                 ) : (
                   <FormGroup>
@@ -367,16 +375,17 @@ class CheckoutForm extends React.Component {
                   </FormGroup>
                 )}
                 <RibbonBottomContainer>
-                  <CheckoutH4>Pricing</CheckoutH4>
+                  <CheckoutH4>Pricing breakdown</CheckoutH4>
                   {currentPriceXQuantity &&
                   priceXQuantity - currentPriceXQuantity > 0 ? (
                     <Ribbon top={'-5'}>
-                      Save{' '}
+                      You save{' '}
                       {formatPrice(
                         currency,
                         priceXQuantity - currentPriceXQuantity,
                         vatRate
                       )}
+                      !
                     </Ribbon>
                   ) : (
                     ''
@@ -384,7 +393,7 @@ class CheckoutForm extends React.Component {
                 </RibbonBottomContainer>
                 <Row>
                   <Col xs={5}>
-                    <Span>Price:</Span>
+                    <Span>Ticket (ex.VAT):</Span>
                   </Col>
                   <Col xs={7}>
                     <Span>{formatPrice(currency, priceXQuantity, 0)}</Span>
@@ -394,7 +403,7 @@ class CheckoutForm extends React.Component {
                   <React.Fragment>
                     <Row>
                       <Col xs={5}>
-                        <Span>Discount:</Span>
+                        <Span>Discounts:</Span>
                       </Col>
                       <Col xs={7}>
                         <Span>-{formatPrice(currency, discount, 0)}</Span>
@@ -402,7 +411,7 @@ class CheckoutForm extends React.Component {
                     </Row>
                     <Row>
                       <Col xs={5}>
-                        <Span>Discount price:</Span>
+                        <Span>Your ticket price:</Span>
                       </Col>
                       <Col xs={7}>
                         <Span>
@@ -414,7 +423,7 @@ class CheckoutForm extends React.Component {
                 ) : null}
                 <Row>
                   <Col xs={5}>
-                    <Span>VAT:</Span>
+                    <Span>VAT (20%):</Span>
                   </Col>
                   <Col xs={7}>
                     <Span>

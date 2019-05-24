@@ -9,6 +9,10 @@ const CountdownNumbers = styled(Span)`
   text-align: center;
 `
 
+const CountdownWrapper = styled.div`
+  margin-bottom: 1.5rem;
+`
+
 class Countdown extends Component {
   constructor(props) {
     super(props)
@@ -90,34 +94,36 @@ class Countdown extends Component {
 
     return (
       <React.Fragment>
-        <Row>
-          <Col xs={2}>
-            <React.Fragment>
+        <CountdownWrapper>
+          <Row>
+            <Col xs={2}>
+              <React.Fragment>
+                <CountdownNumbers>
+                  {this.addLeadingZeros(countDown.days)}
+                </CountdownNumbers>{' '}
+                <Span>{countDown.days === 1 ? 'Day' : 'Days'} </Span>
+              </React.Fragment>
+            </Col>
+            <Col xs={2}>
               <CountdownNumbers>
-                {this.addLeadingZeros(countDown.days)}
+                {this.addLeadingZeros(countDown.hours)}
               </CountdownNumbers>{' '}
-              <Span>{countDown.days === 1 ? 'Day' : 'Days'} </Span>
-            </React.Fragment>
-          </Col>
-          <Col xs={2}>
-            <CountdownNumbers>
-              {this.addLeadingZeros(countDown.hours)}
-            </CountdownNumbers>{' '}
-            <Span>Hours</Span>{' '}
-          </Col>
-          <Col xs={2}>
-            <CountdownNumbers>
-              {this.addLeadingZeros(countDown.min)}
-            </CountdownNumbers>{' '}
-            <Span>Min</Span>{' '}
-          </Col>
-          <Col xs={2}>
-            <CountdownNumbers>
-              {this.addLeadingZeros(countDown.sec)}
-            </CountdownNumbers>{' '}
-            <Span>Sec</Span>
-          </Col>
-        </Row>
+              <Span>Hours</Span>{' '}
+            </Col>
+            <Col xs={2}>
+              <CountdownNumbers>
+                {this.addLeadingZeros(countDown.min)}
+              </CountdownNumbers>{' '}
+              <Span>Min</Span>{' '}
+            </Col>
+            <Col xs={2}>
+              <CountdownNumbers>
+                {this.addLeadingZeros(countDown.sec)}
+              </CountdownNumbers>{' '}
+              <Span>Sec</Span>
+            </Col>
+          </Row>
+        </CountdownWrapper>
       </React.Fragment>
     )
   }
