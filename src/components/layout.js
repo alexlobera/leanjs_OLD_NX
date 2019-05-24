@@ -22,7 +22,6 @@ import { UpcomingTrainings } from '../components/training'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
 import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-500.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
-import AuthNav from '../DELETEME/AuthNav'
 
 raven.config(SENTRY_DSN).install()
 
@@ -123,17 +122,15 @@ const Layout = ({ children }) => {
                     },
                   ]}
                 />
-                <AuthNav>
-                  <Menu />
-                  {typeof children === 'function' ? (
-                    <UpcomingTrainings>{children}</UpcomingTrainings>
-                  ) : (
-                    children
-                  )}
+                <Menu />
+                {typeof children === 'function' ? (
+                  <UpcomingTrainings>{children}</UpcomingTrainings>
+                ) : (
+                  children
+                )}
 
-                  <Footer />
-                  <AcceptCookies />
-                </AuthNav>
+                <Footer />
+                <AcceptCookies />
               </React.Fragment>
             </ApolloProvider>
           </ThemeProvider>
