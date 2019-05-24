@@ -17,6 +17,7 @@ import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../utils/trackUserBehaviour'
+import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
 class PaymentSection extends React.Component {
@@ -120,7 +121,8 @@ class PaymentSection extends React.Component {
       currency,
       title,
       priceGoesUpOn,
-      discountPrice
+      discountPrice,
+      trainingType
 
     if (trainingError || autoVoucherData.error) {
       title = 'There was an error'
@@ -133,6 +135,7 @@ class PaymentSection extends React.Component {
       trainingInstanceId = training.id
       price = training.price
       currency = training.currency || 'gbp'
+      trainingType = training.training.type
 
       const discount =
         autoVoucherData.trainingInstance &&
@@ -168,6 +171,8 @@ class PaymentSection extends React.Component {
         ? discountPrice * quantity
         : priceQuantity
 
+    const meetup = trainingType === MEETUP
+
     return (
       <React.Fragment>
         <React.Fragment>
@@ -177,10 +182,24 @@ class PaymentSection extends React.Component {
               #
             </Link>
           </H2Ref>
-          <P>
-            Please be aware that the ticket only covers the cost of the
-            training, it does not include travel expenses.
-          </P>
+          {meetup ? (
+            <React.Fragment>
+              <P>Why do we charge a nominal fee?</P>
+              <P>
+                We charge a nominal fee for community events in order to confirm
+                attendance to ensure we have an accurate RSVP list. Our meetups
+                are always over-subscribed so when people don't show it stops
+                somone else attending. The payment confirmation email is your
+                ticket. If you can't attend simply let us know and we'll be
+                happy to refund you.
+              </P>
+            </React.Fragment>
+          ) : (
+            <P>
+              Please be aware that the ticket only covers the cost of the
+              training, it does not include travel expenses.
+            </P>
+          )}
           <Card small style={{ position: 'relative' }}>
             <H3>
               <strong>{title}</strong>

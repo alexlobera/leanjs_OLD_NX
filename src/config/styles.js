@@ -31,6 +31,8 @@ export const CALLTOACTIONRED = '#be6045'
 export const BOX_SHADOW =
   'box-shadow: 0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);'
 
+export const MEETUP_RED = '#F64060'
+
 export const TEXT_SIZE = ({ sm = false, lg = false }) => {
   if (sm) return `font-size: 12px;`
   if (lg) return `font-size: 18px;`

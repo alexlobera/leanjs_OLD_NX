@@ -17,11 +17,7 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { LinkButton } from 'src/components/buttons'
-import {
-  REACT_BOOTCAMP,
-  selectMeetups,
-  instagramPictures,
-} from 'src/config/data'
+import { MEETUP, selectMeetups, instagramPictures } from 'src/config/data'
 import { MENTORSHIP_IMG } from 'src/config/images'
 
 const CallToAction = styled(LinkButton)`
@@ -85,7 +81,7 @@ const Community = () => (
     {({ trainings }) => {
       const upcomingBootcamps = selectUpcomingTrainings({
         trainings,
-        type: REACT_BOOTCAMP,
+        type: MEETUP,
       })
       const nextBootcamp =
         selectNthTraining({ trainings: upcomingBootcamps }) || {}
@@ -121,7 +117,7 @@ const Community = () => (
                       <CallToAction
                         variant="primary"
                         to={nextBootcamp && nextBootcamp.toPath}
-                        children={`Next Bootcamp: ${nextBootcampStartDate}, ${nextBootcamp &&
+                        children={`Next Meetup: ${nextBootcampStartDate}, ${nextBootcamp &&
                           nextBootcamp.city} `}
                       />
                       <TwitterWidgetsOnlyOnClientSide />

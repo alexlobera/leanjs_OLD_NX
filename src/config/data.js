@@ -14,6 +14,7 @@ export const LONDON = 'London'
 export const LISBON = 'Lisbon'
 export const BARCELONA = 'Barcelona'
 export const AMSTERDAM = 'Amsterdam'
+export const BERLIN = 'Berlin'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React Bootcamp'
@@ -21,6 +22,7 @@ export const ADVANCED_REACT = 'Advanced React'
 export const GRAPHQL_BOOTCAMP = 'GraphQL Bootcamp'
 export const ONE_DAY_WORKSHOP = '1-Day Workshop'
 export const REACT_CORPORATE = 'React - 5 Days'
+export const MEETUP = 'Meetup'
 
 /*
 Boocamp prices:
