@@ -67,10 +67,6 @@ const PhoneMenu = ({ width, defaultIsOpen = false }) => {
     }
   }, [])
 
-  function closeMenu() {
-    setIsOpen(false)
-  }
-
   function toggleMenu() {
     setIsOpen(!isOpen)
   }
@@ -82,7 +78,7 @@ const PhoneMenu = ({ width, defaultIsOpen = false }) => {
       <MenuContent width={width} isOpen={isOpen}>
         <RJSALogo />
         {items.map(item => (
-          <PhoneMenuItem onClick={closeMenu} key={item.to} to={item.to}>
+          <PhoneMenuItem onClick={toggleMenu} key={item.to} to={item.to}>
             {item.text}
           </PhoneMenuItem>
         ))}

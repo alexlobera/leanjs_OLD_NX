@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { WHITE } from '../../../../config/styles'
+
 const ToggleButton = ({ toggleMenu, className, isOpen }) => (
   <div className={className}>
     <input type="checkbox" checked={isOpen} onClick={toggleMenu} />
@@ -15,8 +17,8 @@ const StyledToggleButton = styled(ToggleButton)`
   position: fixed;
   width: 36px;
   height: 30px;
-  right: 20px;
-  top: 20px;
+  right: 30px;
+  top: 40px;
   z-index: 9991;
 
   input {
@@ -42,7 +44,7 @@ const StyledToggleButton = styled(ToggleButton)`
     margin-bottom: 5px;
     position: relative;
 
-    background: #cdcdcd;
+    background: ${WHITE};
     border-radius: 3px;
 
     z-index: 1;
