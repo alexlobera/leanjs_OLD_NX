@@ -6,17 +6,19 @@ import { WHITE } from '../../../../config/styles'
 
 const ToggleButton = ({ toggleMenu, className, isOpen }) => (
   <div className={className}>
-    <label for="main-menu-button">Menu button</label>
     <input
       type="checkbox"
       name="main-menu-button"
       id="main-menu-button"
       checked={isOpen}
       onClick={toggleMenu}
+      role="button"
+      aria-pressed={isOpen.toString()}
     />
     <span />
     <span />
     <span />
+    <label for="main-menu-button">Menu button</label>
   </div>
 )
 
@@ -29,7 +31,8 @@ const StyledToggleButton = styled(ToggleButton)`
   z-index: 9991;
 
   label {
-    display: none;
+    font-size: 1px;
+    color: transparent;
   }
 
   input {
@@ -69,26 +72,26 @@ const StyledToggleButton = styled(ToggleButton)`
   span:first-child {
     transform-origin: 0% 0%;
   }
-  span:nth-last-child(1) {
+  span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
   input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
   }
-  input:checked ~ span:nth-last-child(2) {
+  input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
-  input:checked ~ span:nth-last-child(1) {
+  input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
   }
 `
 
 StyledToggleButton.propTypes = {
   toggleMenu: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
   className: PropTypes.string,
-  checked: PropTypes.bool,
 }
 
 export default StyledToggleButton
