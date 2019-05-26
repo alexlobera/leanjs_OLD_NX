@@ -6,7 +6,14 @@ import { WHITE } from '../../../../config/styles'
 
 const ToggleButton = ({ toggleMenu, className, isOpen }) => (
   <div className={className}>
-    <input type="checkbox" checked={isOpen} onClick={toggleMenu} />
+    <label for="main-menu-button">Menu button</label>
+    <input
+      type="checkbox"
+      name="main-menu-button"
+      id="main-menu-button"
+      checked={isOpen}
+      onClick={toggleMenu}
+    />
     <span />
     <span />
     <span />
@@ -20,6 +27,10 @@ const StyledToggleButton = styled(ToggleButton)`
   right: 30px;
   top: 40px;
   z-index: 9991;
+
+  label {
+    display: none;
+  }
 
   input {
     display: block;

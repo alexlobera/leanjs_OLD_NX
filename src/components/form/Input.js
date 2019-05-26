@@ -60,15 +60,17 @@ const Input = ({
     <FormGroup>
       {label && input.name ? (
         <React.Fragment>
-          <Label htmlFor={name}>{label}</Label>
-          <InputForm
-            {...props}
-            {...input}
-            onChange={onChange}
-            type={type}
-            name={name}
-            checked={checked}
-          />
+          <Label>
+            {label}
+            <InputForm
+              {...props}
+              {...input}
+              onChange={onChange}
+              type={type}
+              name={name}
+              checked={checked}
+            />
+          </Label>
         </React.Fragment>
       ) : (
         <InputForm {...props} {...input} onChange={onChange} type={type} />

@@ -100,17 +100,26 @@ const Footer = () => (
                 <Span>Follow us...</Span>
                 <SocialMenu unstyled inline>
                   <Li>
-                    <SocialLink to="https://twitter.com/reactgqlacademy">
+                    <SocialLink
+                      title="React GraphQL Academy Twitter"
+                      to="https://twitter.com/reactgqlacademy"
+                    >
                       <BulletIcon social icon={TwitterIcon} />
                     </SocialLink>
                   </Li>
                   <Li>
-                    <SocialLink to="https://www.instagram.com/reactgraphqlacademy/">
+                    <SocialLink
+                      title="React GraphQL Academy Instagram"
+                      to="https://www.instagram.com/reactgraphqlacademy/"
+                    >
                       <BulletIcon social icon={InstagramIcon} />
                     </SocialLink>
                   </Li>
                   <Li>
-                    <SocialLink to="https://www.facebook.com/reactgraphqlacademy/">
+                    <SocialLink
+                      title="React GraphQL Academy Facebook"
+                      to="https://www.facebook.com/reactgraphqlacademy/"
+                    >
                       <BulletIcon social icon={FacebookIcon} />
                     </SocialLink>
                   </Li>

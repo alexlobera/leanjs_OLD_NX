@@ -90,6 +90,9 @@ const Layout = ({ children }) => {
             <ApolloProvider client={graphqlClient}>
               <React.Fragment>
                 <Helmet
+                  htmlAttributes={{
+                    lang: 'en',
+                  }}
                   title={data && data.site && data.site.siteMetadata.title}
                   meta={[
                     {
