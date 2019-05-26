@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
-import DesktopMenu, { DesktopMenuItem } from './DesktopMenu'
+import DesktopMenu, { DesktopMenuItem } from './index'
 
 describe('<DesktopMenu />', () => {
   it('should render the list of menu items', () => {

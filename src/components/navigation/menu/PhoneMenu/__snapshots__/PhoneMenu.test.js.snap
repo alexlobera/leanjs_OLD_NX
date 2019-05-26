@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhoneMenu /> should render a menu with less than 7 items in the first navigation level 1`] = `
+<Fragment>
+  <Styled(ToggleButton)
+    isOpen={false}
+    toggleMenu={[Function]}
+  />
+  <styled.div
+    isOpen={false}
+    width={300}
+  >
+    <RJSALogo />
+    <PhoneMenuItem
+      key="/react/training"
+      onClick={[Function]}
+      to="/react/training"
+    >
+      React Courses
+    </PhoneMenuItem>
+    <PhoneMenuItem
+      key="/react/curriculum"
+      onClick={[Function]}
+      to="/react/curriculum"
+    >
+      React Curriculum
+    </PhoneMenuItem>
+    <PhoneMenuItem
+      key="/graphql/training"
+      onClick={[Function]}
+      to="/graphql/training"
+    >
+      GraphQL Courses
+    </PhoneMenuItem>
+    <PhoneMenuItem
+      key="/graphql/curriculum"
+      onClick={[Function]}
+      to="/graphql/curriculum"
+    >
+      GraphQL Curriculum
+    </PhoneMenuItem>
+    <PhoneMenuItem
+      key="/blog"
+      onClick={[Function]}
+      to="/blog"
+    >
+      Blog
+    </PhoneMenuItem>
+    <PhoneMenuItem
+      key="/about-us"
+      onClick={[Function]}
+      to="/about-us"
+    >
+      About us
+    </PhoneMenuItem>
+    <PhoneMenuItem
+      key="#contact-us"
+      onClick={[Function]}
+      to="#contact-us"
+    >
+      Contact
+    </PhoneMenuItem>
+  </styled.div>
+</Fragment>
+`;
