@@ -14,11 +14,14 @@ const ToggleButton = ({ toggleMenu, className, isOpen }) => (
       onClick={toggleMenu}
       role="button"
       aria-pressed={isOpen.toString()}
+      aria-labelledby="main-menu-button-label"
     />
     <span />
     <span />
     <span />
-    <label for="main-menu-button">Menu</label>
+    <label id="main-menu-button-label" for="main-menu-button">
+      Menu
+    </label>
   </div>
 )
 
