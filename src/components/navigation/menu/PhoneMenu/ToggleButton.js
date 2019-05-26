@@ -38,7 +38,7 @@ const StyledToggleButton = styled(ToggleButton)`
   input {
     display: block;
     width: 40px;
-    height: 32px;
+    height: 60px;
     position: absolute;
     top: -7px;
     left: -5px;
