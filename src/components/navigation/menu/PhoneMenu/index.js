@@ -43,7 +43,7 @@ export const MenuContent = styled.div`
   height: 100%;
   transition: all 0.5s ease 0s;
   background: ${blue1()};
-  padding: 2.5em 1.5em 0;
+  padding: 1.3em 1.5em 0;
   box-sizing: border-box;
   overflow: auto;
 `
@@ -93,7 +93,7 @@ PhoneMenu.propTypes = {
 }
 
 PhoneMenu.defaultProps = {
-  width: 300,
+  width: 275,
 }
 
 export default PhoneMenu

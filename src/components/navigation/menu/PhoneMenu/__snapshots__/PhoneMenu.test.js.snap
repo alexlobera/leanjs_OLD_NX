@@ -8,7 +8,7 @@ exports[`<PhoneMenu /> should render a menu with less than 7 items in the first 
   />
   <styled.div
     isOpen={false}
-    width={300}
+    width={275}
   >
     <RJSALogo />
     <PhoneMenuItem
