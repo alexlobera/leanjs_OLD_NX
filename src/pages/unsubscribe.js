@@ -69,6 +69,7 @@ export class Unsubscribe extends React.Component {
                           label="Your email address:"
                           name="email"
                           placeholder="eg. steve@jobs.com"
+                          label="Your email address:"
                         />
                         <Button
                           variant="primary"

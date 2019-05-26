@@ -122,6 +122,7 @@ exports[`<Footer /> should render component 1`] = `
               >
                 <styled.li>
                   <Styled(Link)
+                    title="React GraphQL Academy Twitter"
                     to="https://twitter.com/reactgqlacademy"
                   >
                     <BulletIcon
@@ -132,6 +133,7 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Styled(Link)
+                    title="React GraphQL Academy Instagram"
                     to="https://www.instagram.com/reactgraphqlacademy/"
                   >
                     <BulletIcon
@@ -142,6 +144,7 @@ exports[`<Footer /> should render component 1`] = `
                 </styled.li>
                 <styled.li>
                   <Styled(Link)
+                    title="React GraphQL Academy Facebook"
                     to="https://www.facebook.com/reactgraphqlacademy/"
                   >
                     <BulletIcon

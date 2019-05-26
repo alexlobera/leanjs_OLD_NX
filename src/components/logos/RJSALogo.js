@@ -38,8 +38,8 @@ const LinkLogo = styled(Link)`
   }
 `
 
-export const RJSALogo = ({ position }) => (
-  <LinkLogo to="/">
+export const RJSALogo = () => (
+  <LinkLogo to="/" title="React GraphQL Academy">
     <SvgLogo />
   </LinkLogo>
 )
