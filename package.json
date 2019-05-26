@@ -23,7 +23,6 @@
     "raven-js": "^3.26.4",
     "react": "^16.8.6",
     "react-apollo": "^2.1.9",
-    "react-burger-menu": "^2.5.2",
     "react-dom": "^16.8.6",
     "react-final-form": "^4.1.0",
     "react-helmet": "^5.2.0",
