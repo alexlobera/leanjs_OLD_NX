@@ -18,7 +18,7 @@ const ToggleButton = ({ toggleMenu, className, isOpen }) => (
     <span />
     <span />
     <span />
-    <label for="main-menu-button">Menu button</label>
+    <label for="main-menu-button">Menu</label>
   </div>
 )
 
@@ -27,12 +27,12 @@ const StyledToggleButton = styled(ToggleButton)`
   width: 36px;
   height: 30px;
   right: 30px;
-  top: 40px;
+  top: 30px;
   z-index: 9991;
 
   label {
-    font-size: 1px;
-    color: transparent;
+    font-size: 12px;
+    color: ${WHITE};
   }
 
   input {
@@ -77,14 +77,14 @@ const StyledToggleButton = styled(ToggleButton)`
   }
   input:checked ~ span {
     opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
+    transform: rotate(45deg) translate(5px, -5px);
   }
   input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
   input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
+    transform: rotate(-45deg) translate(3px, 5px);
   }
 `
 
