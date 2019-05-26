@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Link from '../../Link'
-import { blue1 } from '../../../../config/styles'
+import { blue1, WHITE } from '../../../../config/styles'
 import MenuData from '../Menu.json'
 import { RJSALogo } from '../../../logos/RJSALogo'
 import ToggleButton from './ToggleButton'
@@ -14,7 +14,7 @@ export const PhoneMenuItem = styled(Item)`
   display: block;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: white;
+  color: ${WHITE};
 `
 PhoneMenuItem.displayName = 'PhoneMenuItem'
 
