@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import { Span, P, H4 } from '../../text'
 import { Button, LinkButton } from '../../buttons'
-import { FormGroup, InputField, Form } from '../../form'
+import { FormGroup, InputField, Form, CheckboxField } from '../../form'
 import {
   composeValidators,
   mustBeEuVat,
@@ -159,6 +159,7 @@ class CheckoutForm extends React.Component {
       companyVat,
       isPaymentInProgress,
       paymentErrorMessage,
+      meetup,
     } = this.props
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
     const discount = priceQuantity - currentPriceQuantity
@@ -236,6 +237,19 @@ class CheckoutForm extends React.Component {
                   name="email"
                   placeholder="eg. steve@jobs.com"
                 />
+                {meetup && (
+                  <Fragment>
+                    <P>
+                      Sign me up to learn about cutting-edge React thinking plus
+                      the latest news on our courses. We won't spam you, as per
+                      our <Link to="/privacy-policy">Privacy Policy</Link>.
+                    </P>
+                    <CheckboxField
+                      name="meetupSubscribe"
+                      label="Subscribe me!"
+                    />
+                  </Fragment>
+                )}
                 {isCompanyDetailsDisplayed ? (
                   <Fragment>
                     <FormGroup>

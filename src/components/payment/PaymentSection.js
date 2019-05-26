@@ -241,6 +241,7 @@ class PaymentSection extends React.Component {
                 isVoucherValid={isVoucherValid}
                 isVoucherValidationInProgress={isVoucherValidationInProgress}
                 paymentApi={paymentApi}
+                meetup={meetup}
               />
             )}
           </Card>
