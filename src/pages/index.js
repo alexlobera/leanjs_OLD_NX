@@ -45,7 +45,7 @@ const SectionButtonRow = styled(Row)`
 `
 
 const IndexPage = () => (
-  <Layout>
+  <Layout loadAutopilot={true}>
     {({ trainings }) => (
       <React.Fragment>
         <Header

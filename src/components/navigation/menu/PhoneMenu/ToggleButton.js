@@ -19,7 +19,7 @@ const ToggleButton = ({ toggleMenu, className, isOpen }) => (
     <span />
     <span />
     <span />
-    <label id="main-menu-button-label" for="main-menu-button">
+    <label id="main-menu-button-label" htmlFor="main-menu-button">
       Menu
     </label>
   </div>
