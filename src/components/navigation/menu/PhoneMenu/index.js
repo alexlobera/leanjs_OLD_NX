@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Link from '../../Link'
+import { blue1 } from '../../../../config/styles'
 import MenuData from '../Menu.json'
 import { RJSALogo } from '../../../logos/RJSALogo'
 import ToggleButton from './ToggleButton'
@@ -41,11 +42,10 @@ export const MenuContent = styled.div`
   margin-left: ${({ isOpen, width }) => (isOpen ? 0 : `-${width}px`)};
   height: 100%;
   transition: all 0.5s ease 0s;
-  background: #373a47;
+  background: ${blue1()};
   padding: 2.5em 1.5em 0;
   box-sizing: border-box;
   overflow: auto;
-  color: #b8b7ad;
 `
 MenuContent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
