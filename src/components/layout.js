@@ -51,10 +51,6 @@ const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.
   })
 )
 
-let prefetchDnsUrls = []
-let preconnectUrls = ['https://api.upmentoring.com']
-let scriptUrls = []
-
 function renderAutopilotScript() {
   const scriptId = 'plugin-autopilot-13n95s'
   let runScript
@@ -79,6 +75,10 @@ const Layout = ({
   loadAutopilot = true,
   loadGoogleTagManager = true,
 }) => {
+  let prefetchDnsUrls = []
+  let preconnectUrls = ['https://api.upmentoring.com']
+  let scriptUrls = []
+
   if (loadAutopilot) {
     preconnectUrls = [...preconnectUrls, 'https://api.autopilothq.com']
     prefetchDnsUrls = [...prefetchDnsUrls, 'https://apenterprise.io']
@@ -87,6 +87,7 @@ const Layout = ({
       'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js',
     ]
   }
+
   if (loadGoogleTagManager) {
     prefetchDnsUrls = [
       ...prefetchDnsUrls,
@@ -95,7 +96,7 @@ const Layout = ({
     ]
     scriptUrls = [
       ...scriptUrls,
-      'https://www.googletagmanager.com/gtag/js?id=AW-877316317',
+      'https://www.googletagmanager.com/gtag/js?id=GTM-MVK4HZS',
     ]
   }
   const prefetchDnsLinks = prefetchDnsUrls.map(href => ({
