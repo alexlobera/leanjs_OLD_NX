@@ -2,7 +2,7 @@
 
 exports[`<PrivacyPolicy /> should render component 1`] = `
 <Layout>
-  <Header
+  <WithWidth
     titleLines={
       Array [
         "Privacy Policy",

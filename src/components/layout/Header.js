@@ -16,6 +16,7 @@ import {
   FONT_FAMILY,
   TEXT_SIZE,
 } from '../../config/styles'
+import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
 import { SMALL_CLASSROOM } from '../../config/images'
@@ -70,8 +71,11 @@ const HeaderSection = styled(Section)`
     height: 100%;
     z-index: ${Z_INDEX_BG};
     ${({ bgImage }) =>
-      `background-image: url(${bgImage});`} background-repeat: no-repeat;
-    background-size: cover;
+      `background-image: ${
+        bgImage
+          ? `url(${bgImage}); background-repeat: no-repeat; background-size: cover;`
+          : `linear-gradient(to bottom right, #920E68, #61dafb);`
+      }`}
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : '')};
@@ -82,7 +86,7 @@ const HeaderSection = styled(Section)`
     padding-top: 200px !important;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-top: 150px;
+    padding-top: 200px;
   }
 `
 HeaderSection.displayName = 'HeaderSection'
@@ -210,6 +214,7 @@ const Header = ({
   children,
   linkToGallery,
   downloadVenuePDF,
+  width,
 }) => (
   <StaticQuery
     query={graphql`
@@ -234,7 +239,10 @@ const Header = ({
       }
     `}
     render={data => {
-      const bgImage = bgImgUrl || getBackgroundImageSrc(data, bgImageName)
+      const bgImage =
+        width > SMALL
+          ? bgImgUrl || getBackgroundImageSrc(data, bgImageName)
+          : null
       const startDate =
         training &&
         training.startDate &&
@@ -377,4 +385,4 @@ Header.propTypes = {
   bgImgUrl: PropTypes.string,
 }
 
-export default Header
+export default withWidth()(Header)
