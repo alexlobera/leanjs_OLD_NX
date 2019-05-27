@@ -81,11 +81,7 @@ const Layout = ({
 }) => {
   if (loadAutopilot) {
     preconnectUrls = [...preconnectUrls, 'https://api.autopilothq.com']
-    prefetchDnsUrls = [
-      ...prefetchDnsUrls,
-      'https://apenterprise.io',
-      'https://unpkg.com',
-    ]
+    prefetchDnsUrls = [...prefetchDnsUrls, 'https://apenterprise.io']
     scriptUrls = [
       ...scriptUrls,
       'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js',
