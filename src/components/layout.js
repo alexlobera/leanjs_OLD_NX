@@ -58,11 +58,12 @@ let scriptUrls = []
 function renderAutopilotScript() {
   const scriptId = 'plugin-autopilot-13n95s'
   let runScript
-  if (typeof window === undefined) {
+  if (typeof window === 'undefined') {
     runScript =
       'if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}'
   } else if (!window.document.getElementById(scriptId)) {
-    runScript = 'y()'
+    runScript =
+      'if(typeof jQuery!=="undefined") { y();} else {setTimeout(1000,y);}'
   }
 
   return runScript ? (
