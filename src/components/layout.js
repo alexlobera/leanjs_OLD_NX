@@ -62,7 +62,7 @@ function renderAutopilotScript() {
     runScript =
       'if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}'
   } else if (!window.document.getElementById(scriptId)) {
-    runScript = 'if(typeof jQuery!=="undefined"){y();}else{setTimeout(1000,y);}'
+    runScript = 'if(typeof jQuery!=="undefined"){y();}else{setTimeout(y,1000);}'
   }
 
   return runScript ? (
