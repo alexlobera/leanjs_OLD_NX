@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import withWidth, { MEDIUM } from '../utils/WithWidth'
 import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import { RJSALogo } from '../logos/RJSALogo'
@@ -43,7 +44,7 @@ const SocialMenu = styled(Ul)`
 const SocialLink = styled(Link)`
   text-decoration: none;
 `
-const Footer = () => (
+const Footer = ({ width }) => (
   <StyledFooter>
     <Grid>
       <footer>
@@ -52,49 +53,51 @@ const Footer = () => (
             <ContactForm addContactUsLink={true} />
           </Col>
           <Col md={4} mdOffset={1}>
-            <Row>
-              <Col md={12}>
-                <H3>Site links</H3>
-              </Col>
-              <Col md={6}>
-                <LinkList>
-                  <Li>
-                    <Link to="/react/training">React Courses</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/react/curriculum">React Curriculum</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/graphql/training">GraphQL Courses</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/graphql/curriculum">GraphQL Curriculum</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/blog">Blog</Link>
-                  </Li>
-                </LinkList>
-              </Col>
-              <Col md={6}>
-                <LinkList>
-                  <Li>
-                    <Link to="/about-us">About us</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/community">Community</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/terms-of-service">Terms of service</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/code-of-conduct">Code of conduct</Link>
-                  </Li>
-                </LinkList>
-              </Col>
-            </Row>
+            {width > MEDIUM && (
+              <Row>
+                <Col md={12}>
+                  <H3>Site links</H3>
+                </Col>
+                <Col md={6}>
+                  <LinkList>
+                    <Li>
+                      <Link to="/react/training">React Courses</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/react/curriculum">React Curriculum</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/graphql/training">GraphQL Courses</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/graphql/curriculum">GraphQL Curriculum</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/blog">Blog</Link>
+                    </Li>
+                  </LinkList>
+                </Col>
+                <Col md={6}>
+                  <LinkList>
+                    <Li>
+                      <Link to="/about-us">About us</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/community">Community</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/privacy-policy">Privacy Policy</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/terms-of-service">Terms of service</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/code-of-conduct">Code of conduct</Link>
+                    </Li>
+                  </LinkList>
+                </Col>
+              </Row>
+            )}
             <Row>
               <Col md={12}>
                 <Span>Follow us...</Span>
@@ -143,4 +146,4 @@ const Footer = () => (
   </StyledFooter>
 )
 
-export default Footer
+export default withWidth()(Footer)
