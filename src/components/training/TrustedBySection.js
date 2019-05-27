@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import withWidth, { MEDIUM } from '../utils/WithWidth'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import { Video, Card } from '../elements'
@@ -70,7 +72,7 @@ export const TrustedByLogoList = () => (
   </CompanyList>
 )
 
-const TrustedBySection = () => (
+const TrustedBySection = ({ width }) => (
   <Section xsBgDark>
     <Grid>
       <Card bg="dark">
@@ -83,13 +85,15 @@ const TrustedBySection = () => (
           <Col md={6} lg={5} lgOffset={1}>
             <TrustedByLogoList />
           </Col>
-          <Col md={6} lg={5}>
-            <Video youtubeId="yvROXLQ1jHg" />
-          </Col>
+          {width > MEDIUM && (
+            <Col md={6} lg={5}>
+              <Video youtubeId="yvROXLQ1jHg" />
+            </Col>
+          )}
         </Row>
       </Card>
     </Grid>
   </Section>
 )
 
-export default TrustedBySection
+export default withWidth()(TrustedBySection)
