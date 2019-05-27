@@ -35,6 +35,7 @@ const aliasInput = getComponentAliaser(InputField)
 const aliasLinkButton = getComponentAliaser(LinkButton)
 const aliasPrice = getComponentAliaser(Price)
 const aliasButton = getComponentAliaser(Button)
+const aliasCheckbox = getComponentAliaser(CheckboxField)
 export const AddCompanyDetailsButton = aliasLink()
 export const EUVATNumberField = aliasInput()
 export const ValidateViesButton = aliasLinkButton()
@@ -44,6 +45,7 @@ export const TotalPayablePrice = aliasPrice()
 export const VoucherInput = aliasInput()
 export const NameInput = aliasInput()
 export const EmailInput = aliasInput()
+export const MeetupCheckbox = aliasCheckbox()
 export const CCNameInput = aliasInput()
 export const CCNumberInput = aliasInput()
 export const CCExpiryInput = aliasInput()
@@ -244,7 +246,7 @@ class CheckoutForm extends React.Component {
                       the latest news on our courses. We won't spam you, as per
                       our <Link to="/privacy-policy">Privacy Policy</Link>.
                     </P>
-                    <CheckboxField
+                    <MeetupCheckbox
                       name="meetupSubscribe"
                       label="Subscribe me"
                     />

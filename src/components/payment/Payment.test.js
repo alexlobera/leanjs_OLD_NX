@@ -124,11 +124,10 @@ describe('<PaymentSection />', () => {
   }
 
   describe('Making payments', () => {
-    const fillPaymentForm = async wrapper => {
+    const fillPaymentForm = async (wrapper, { meetup } = {}) => {
       await waitForExpect(() => {
         wrapper.update()
         expect(wrapper.find(BuyButton).length).toBe(1)
-
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
@@ -139,6 +138,9 @@ describe('<PaymentSection />', () => {
             .simulate('change', { target: { value: newValue } })
         change(NameInput, 'Joe Bloggs')
         change(EmailInput, 'test@example.com')
+        if (meetup) {
+          change(MeetupCheckbox, true)
+        }
         change(CCNameInput, 'Mr J Bloggs')
         change(CCNumberInput, '4242424242424242')
         change(CCExpiryInput, '12/99')
@@ -168,6 +170,31 @@ describe('<PaymentSection />', () => {
           email: 'test@example.com',
           makePayment: result.data.makePayment,
           trainingInstanceId: request.variables.trainingInstanceId,
+        })
+      })
+    })
+
+    it('should trigger an email subscribe if meetup', async () => {
+      const meetupSubscribe = jest.fn(() => {})
+
+      let wrapper = mountPaymentSection({
+        paymentMutation: { request, result },
+        meetupSubscribe,
+      })
+      wrapper = await fillPaymentForm(wrapper, { meetup: true })
+
+      // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
+      // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
+      // on the button works as well, but that seems hackish so this method was used instead.
+      wrapper
+        .find(SubmitPaymentFormButton)
+        .closest('form')
+        .simulate('submit')
+
+      await waitForExpect(() => {
+        expect(meetupSubscribe).toHaveBeenCalledWith({
+          email: 'test@example.com',
+          pathname: 'checkout',
         })
       })
     })
