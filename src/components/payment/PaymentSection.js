@@ -123,7 +123,6 @@ class PaymentSection extends React.Component {
       priceGoesUpOn,
       discountPrice,
       trainingType
-
     if (trainingError || autoVoucherData.error) {
       title = 'There was an error'
     } else if (trainingLoading || autoVoucherData.loading) {

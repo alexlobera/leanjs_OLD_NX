@@ -72,10 +72,12 @@ const defaultAutoVoucherQuery = {
 }
 
 const mountPaymentSection = ({
+  trainingData = defaultTrainingData,
   paymentMutation,
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
   validateVatQuery,
+  meetup = false,
   navigate = () => {},
   triggerSubscribe = () => {},
 }) => {
@@ -89,10 +91,11 @@ const mountPaymentSection = ({
   return mount(
     <Root graphQlMocks={mocks}>
       <PaymentSection
-        {...defaultTrainingData}
+        {...trainingData}
         navigate={navigate}
         paymentApi={paymentApi}
         triggerSubscribe={triggerSubscribe}
+        meetup={meetup}
       />
     </Root>
   )
@@ -131,16 +134,16 @@ describe('<PaymentSection />', () => {
         expect(wrapper.find(BuyButton).length).toBe(1)
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
-        const change = (Component, newValue, simulatedAction = 'change') =>
+
+        const change = (Component, newValue) =>
           wrapper
             .find(Component)
             .find('input')
-            .simulate(simulatedAction, { target: { value: newValue } })
-
+            .simulate('change', { target: { value: newValue } })
         change(NameInput, 'Joe Bloggs')
         change(EmailInput, 'test@example.com')
         if (meetup) {
-          change(MeetupCheckbox, 'click')
+          change(MeetupCheckbox, true)
         }
         change(CCNameInput, 'Mr J Bloggs')
         change(CCNumberInput, '4242424242424242')
@@ -175,12 +178,27 @@ describe('<PaymentSection />', () => {
       })
     })
 
-    xit('should trigger an email subscribe if meetup', async () => {
+    it('should trigger an email subscribe if meetup', async () => {
       const meetupSubscribe = jest.fn(() => {})
 
       let wrapper = mountPaymentSection({
         paymentMutation: { request, result },
         meetupSubscribe,
+        trainingData: {
+          training: {
+            address: 'Publicis Sapient - Eden House, 8 Spital Square',
+            city: 'London',
+            country: 'UK',
+            endDate: '2019-05-23T20:00:00.000Z',
+            id: '5aa2acda7dcc782348ea1234',
+            mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
+            price: 995,
+            startDate: '2019-04-23T17:00:00.000Z',
+            training: { type: 'Meetup' },
+          },
+          trainingLoading: false,
+          trainingError: false,
+        },
       })
       wrapper = await fillPaymentForm(wrapper, { meetup: true })
 
