@@ -19,8 +19,8 @@ const TrainingCard = styled.div`
 `
 
 export const TrainingCardList = ({ data = [] }) =>
-  data.map(training => (
-    <TrainingCard>
+  data.map((training, i) => (
+    <TrainingCard key={`${training.to}${i}`}>
       <Link to={training.to}>
         <H4>{training.title}</H4>
       </Link>

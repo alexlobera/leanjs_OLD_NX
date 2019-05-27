@@ -108,7 +108,7 @@ const BlogPost = ({ data }) => {
     .charAt(0)
     .toUpperCase()}${postTypePath.slice(1)}`
   return (
-    <Layout>
+    <Layout loadAutopilot={false}>
       {({ trainings }) => (
         <RunkitProvider>
           <Helmet>
