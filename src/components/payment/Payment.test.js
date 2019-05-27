@@ -76,6 +76,7 @@ const mountPaymentSection = ({
   validateVoucherQuery,
   validateVatQuery,
   navigate = () => {},
+  triggerSubscribe = () => {},
 }) => {
   const mocks = [
     paymentMutation,
@@ -90,6 +91,7 @@ const mountPaymentSection = ({
         {...defaultTrainingData}
         navigate={navigate}
         paymentApi={paymentApi}
+        triggerSubscribe={triggerSubscribe}
       />
     </Root>
   )

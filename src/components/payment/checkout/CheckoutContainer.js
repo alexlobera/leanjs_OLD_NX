@@ -102,7 +102,7 @@ export class CheckoutContainer extends React.Component {
     } = values
 
     if (meetupSubscribe) {
-      triggerSubscribe({ email, pathname: 'checkout' })
+      this.props.triggerSubscribe({ email, pathname: 'checkout' })
     }
 
     const {
@@ -145,8 +145,8 @@ export class CheckoutContainer extends React.Component {
           companyName,
           vatNumber,
           vatCountry,
-          meetupSubscribe,
         }
+
         return pay({
           variables,
         })
@@ -221,6 +221,7 @@ export class CheckoutContainer extends React.Component {
 
 CheckoutContainer.defaultProps = {
   trackUserBehaviour,
+  triggerSubscribe,
 }
 
 CheckoutContainer.propTypes = {

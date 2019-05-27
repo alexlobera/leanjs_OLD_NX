@@ -246,7 +246,7 @@ class CheckoutForm extends React.Component {
                     </P>
                     <CheckboxField
                       name="meetupSubscribe"
-                      label="Subscribe me!"
+                      label="Subscribe me"
                     />
                   </Fragment>
                 )}
