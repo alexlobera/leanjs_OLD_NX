@@ -55,6 +55,25 @@ let prefetchDnsUrls = []
 let preconnectUrls = ['https://api.upmentoring.com']
 let scriptUrls = []
 
+function renderAutopilotScript() {
+  const scriptId = 'plugin-autopilot-13n95s'
+  let runScript
+  if (typeof window === undefined) {
+    runScript =
+      'if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}'
+  } else if (!window.document.getElementById(scriptId)) {
+    runScript = 'y()'
+  }
+
+  return runScript ? (
+    <script key={scriptId}>
+      {`
+          (function(o){var b="https://api.autopilothq.com/anywhere/",t="ec24be3b2c6348a48c647a446b08bb8402fda7caa24b43d3950598d3fef58486",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};${runScript}})({"app":true});
+      `}
+    </script>
+  ) : null
+}
+
 const Layout = ({
   children,
   loadAutopilot = true,
@@ -88,14 +107,14 @@ const Layout = ({
     href,
   }))
   const preconnectLinks = preconnectUrls.map(href => ({
+    crossorigin: 'crossorigin',
     rel: 'preconnect',
     href,
-    crossorigin: 'crossorigin',
   }))
   const scriptTags = scriptUrls.map(src => ({
     type: 'text/javascript',
-    src,
     async: true,
+    src,
   }))
 
   return (
@@ -138,18 +157,11 @@ const Layout = ({
                       href: `${favicon}`,
                     },
                   ]}
-                  // script={[...scriptTags]}
                 >
                   {scriptTags.map(props => (
                     <script {...props} />
                   ))}
-                  {loadAutopilot && (
-                    <script key="plugin-autopilot">
-                      {`
-          (function(o){var b="https://api.autopilothq.com/anywhere/",t="ec24be3b2c6348a48c647a446b08bb8402fda7caa24b43d3950598d3fef58486",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({"app":true});
-        `}
-                    </script>
-                  )}
+                  {loadAutopilot && renderAutopilotScript()}
                 </Helmet>
                 <Menu />
                 {typeof children === 'function' ? (
@@ -157,7 +169,6 @@ const Layout = ({
                 ) : (
                   children
                 )}
-
                 <Footer />
                 <AcceptCookies />
               </React.Fragment>
