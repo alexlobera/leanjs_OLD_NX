@@ -107,11 +107,9 @@ const Layout = ({
     rel: 'preconnect',
     href,
   }))
-  const scriptTags = scriptUrls.map(src => ({
-    type: 'text/javascript',
-    async: true,
-    src,
-  }))
+  const scriptTags = scriptUrls.map(src => (
+    <script type="text/javascript" async="true" src={src} />
+  ))
 
   return (
     <StaticQuery
@@ -154,9 +152,7 @@ const Layout = ({
                     },
                   ]}
                 >
-                  {scriptTags.map(props => (
-                    <script {...props} />
-                  ))}
+                  {scriptTags}
                   {loadAutopilot && renderAutopilotScript()}
                 </Helmet>
                 <Menu />
