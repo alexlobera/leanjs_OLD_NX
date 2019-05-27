@@ -166,6 +166,9 @@ const TitleCol = styled(Col)`
     @media (min-width: ${SCREEN_SM_MIN}) {
       margin-left: 9px;
     }
+    @media (max-width: ${SCREEN_SM_MAX}) {
+      border-left: solid 10px ${selectTypeColor(type)};
+    }
     margin-bottom: 1em;
   `};
 `
