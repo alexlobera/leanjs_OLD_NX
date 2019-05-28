@@ -84,7 +84,6 @@ const Li = styled.li`
       background: ${selectTypeColor(props.name)};
     `
       : ''};
-   }
 `
 const A = styled.a`
   ${props => `border-bottom: 3px solid ${selectTypeColor(props.name)}`};
