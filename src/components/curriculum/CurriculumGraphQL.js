@@ -3,11 +3,10 @@ import Link from '../navigation/Link'
 import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
-import GraphQLDayOneSessions from './sessions/GraphQLDayOneSessions'
-import GraphQLDayTwoSessions from './sessions/GraphQLDayTwoSessions'
-import GraphQLDayThreeSessions from './sessions/GraphQLDayThreeSessions'
-import GraphQLDayFourSessions from './sessions/GraphQLDayFourSessions'
-import GraphQLDayFiveSessions from './sessions/GraphQLDayFiveSessions'
+import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
+import NodejsSession from './sessions/NodejsSession'
+import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
+import GraphQLApolloClientDaySessions from './sessions/GraphQLApolloClientDaySessions'
 
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
@@ -36,27 +35,19 @@ const CurriculumGraphQL = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Day 1: GraphQL API Fundamentals"
+        title="Evening pre-training: Nodejs fundamentals (optional)"
+        name="day0"
+        subTitle="Nodejs Fundamentals"
+      >
+        <NodejsSession />
+      </Section>
+      <Section
+        {...commonProps}
+        title="Day 1: GraphQL Foundation"
         name="day1"
-        subTitle="Nodejs and GraphQL fundamentals"
+        subTitle="From Rest to GraphQL, data sources, and security"
       >
-        <GraphQLDayOneSessions />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Day 2: Advanced GraphQL API"
-        name="day2"
-        subTitle="Implement a GraphQL API, Advanced Schema, Performance"
-      >
-        <GraphQLDayTwoSessions />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Day 3: Real-world GraphQL API"
-        name="day3"
-        subTitle="Data sources and GraphQL in production considerations"
-      >
-        <GraphQLDayThreeSessions />
+        <GraphQLServerDayOneSessions />
       </Section>
     </React.Fragment>
   )
@@ -64,19 +55,19 @@ const CurriculumGraphQL = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Day 4: Production-ready GraphQL & React"
-        name="day4"
-        subTitle="Testing GraphQL, replacing redux with GraphQL and production tooling"
+        title="Day 2: Advanced GraphQL API"
+        name="day2"
+        subTitle="Advanced Schema, Performance, and recap project"
       >
-        <GraphQLDayFiveSessions />
+        <GraphQLServerDayTwoSessions />
       </Section>
       <Section
         {...commonProps}
-        title="Day 5: GraphQL & React"
-        name="day5"
-        subTitle="Apollo Client, Advanced Queries and mutations"
+        title="Day 3: GraphQL in React with Apollo Client"
+        name="day3"
+        subTitle="Apollo Client fundamentals, performance, testing, and tooling"
       >
-        <GraphQLDayFourSessions />
+        <GraphQLApolloClientDaySessions />
       </Section>
       {showLinkToCurriculum ? (
         <SectionCTA>

@@ -166,7 +166,7 @@ class GraphQLCurriculum extends React.Component {
                                   marketingCard={
                                     <MarketingCard
                                       heading="Next GraphQL Bootcamp"
-                                      text={`In just 5 days, learn the secrets of effecient apps with GraphQL`}
+                                      text={`In just 3 days, learn the secrets of effecient apps with GraphQL`}
                                       to={graphql && graphql.toPath}
                                       buttonText={`${graphql &&
                                         graphql.city} GraphQL Bootcamp, ${formatUTC(

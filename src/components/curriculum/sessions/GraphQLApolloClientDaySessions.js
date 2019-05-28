@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const DayFourSessions = ({ title }) => (
+const GraphQLApolloClientDaySessions = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>
@@ -17,7 +17,6 @@ const DayFourSessions = ({ title }) => (
         <Ul>
           <Li>Query co-location</Li>
           <Li>Fragment composition</Li>
-          <Li>Extending the Schema on the client</Li>
         </Ul>
       </Li>
       <Li>
@@ -35,8 +34,16 @@ const DayFourSessions = ({ title }) => (
           <Li>Query batching</Li>
         </Ul>
       </Li>
+      <Li>
+        Testing GraphQL queries and mutations:
+        <Ul>
+          <Li>Integration tests</Li>
+          <Li>Mocking</Li>
+        </Ul>
+      </Li>
+      <Li>GraphQL Tooling to speed up front-end development</Li>
     </Ul>
   </Session>
 )
 
-export default DayFourSessions
+export default GraphQLApolloClientDaySessions

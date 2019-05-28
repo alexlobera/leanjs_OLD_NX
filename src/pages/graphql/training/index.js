@@ -72,7 +72,7 @@ const TrainingPage = props => (
                   <LinkButton
                     variant="primary"
                     to="/graphql/training/bootcamp"
-                    children="1-week Bootcamp"
+                    children="GraphQL Bootcamp"
                   />
                 </Col>
                 <Col xs={12} sm={3}>
