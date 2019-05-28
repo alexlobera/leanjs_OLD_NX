@@ -20,7 +20,7 @@ import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
 import { UpcomingTrainings } from '../components/training'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
-import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-500.woff2'
+// import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-500.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 
 raven.config(SENTRY_DSN).install()
@@ -38,7 +38,7 @@ const graphqlClient = new ApolloClient({
 
 const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_400_LATIN_EXT_WOFF2,
-  FONT_BARLOW_500_LATIN_EXT_WOFF2,
+  // FONT_BARLOW_500_LATIN_EXT_WOFF2,
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
 ]
 const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(

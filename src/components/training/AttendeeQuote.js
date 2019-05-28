@@ -35,12 +35,13 @@ const Text = styled.div`
   flex-direction: column;
   padding: 30px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   font-style: italic;
   font-stretch: normal;
   line-height: 2.3;
   letter-spacing: 0.9px;
   color: ${GREY2};
+  text-shadow: 0px 0px 1px ${GREY2};
 `
 const Profile = styled.div`
   padding: 5px;
