@@ -15,7 +15,9 @@ const fontColor = css`
     const { color } = props.theme.buttons[variant]
 
     return `
-    color: ${color} !important;
+    
+  color:${color};
+  text-shadow: 0px 0px 1px ${color};
     &:link {
       color: ${color} !important;
     }

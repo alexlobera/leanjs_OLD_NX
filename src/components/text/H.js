@@ -50,7 +50,7 @@ export const H2Ref = styled(H2)`
 export const H3_STYLE = `
   ${FONT_FAMILY} 
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400; 
   padding-top: 1.5rem;
   :first-child {
     padding-top: 0;

@@ -15,10 +15,11 @@ export const ANCHOR_STYLE = `
     color: blue;
     text-decoration: underline;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
     line-height: 1.5;
     color: ${GREY2};
+    text-shadow: 0px 0px 1px ${GREY2};
     ${FONT_FAMILY}
 `
 const BasicLink = styled.a`
