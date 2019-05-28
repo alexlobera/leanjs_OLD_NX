@@ -1,6 +1,7 @@
 export const FONT_FAMILY = `font-family: 'Barlow', sans-serif;`
 
-export const reactBlue = (opacity = 1) => `rgba(111, 207, 240, ${opacity})` // #6FCFF0
+// export const reactBlue = (opacity = 1) => `rgba(111, 207, 240, ${opacity})` // #6FCFF0
+export const reactBlue = (opacity = 1) => `rgba(97, 218, 251, ${opacity})` // #6FCFF0
 
 export const blue1 = (opacity = 1) => `rgba(0,41,56, ${opacity})` // #002938
 
