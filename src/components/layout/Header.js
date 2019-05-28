@@ -326,7 +326,7 @@ const Header = ({
 
                       <Ul unstyled>
                         <Li>
-                          <strong>Date</strong>:{startDate ? startDate : 'TBD'}
+                          <strong>Date</strong>: {startDate ? startDate : 'TBD'}
                           {startDate === endDate ? '' : ` - ${endDate}`}
                         </Li>
                         <Li>
