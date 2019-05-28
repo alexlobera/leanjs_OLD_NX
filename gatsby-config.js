@@ -33,8 +33,8 @@ module.exports = {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
         analyzerPort: 3333,
-        production: true,
-        disable: false,
+        production: false,
+        disable: true,
       },
     },
   ],
