@@ -7,13 +7,6 @@ import { Link } from '../navigation'
 import { H3, H2Ref, P } from '../text'
 import { HideComponentsUsingCss } from '../utils'
 import { PART_TIME as PART_TIME_IMG } from '../../config/images'
-import {
-  BulletIcon,
-  NotBegginerIcon,
-  CodeIcon,
-  ReactIcon,
-  CollabsIcon,
-} from '../icons'
 
 const TargetAudienceSection = () => (
   <Section>
@@ -35,24 +28,18 @@ const TargetAudienceSection = () => (
               #
             </Link>
           </H2Ref>
-          <Ul unstyled>
+          <Ul>
+            <Li>A developer with ~1 year of development under your belt?</Li>
             <Li>
-              <BulletIcon icon={NotBegginerIcon} />A developer with ~1 year of
-              development under your belt?
-            </Li>
-            <Li>
-              <BulletIcon icon={CodeIcon} />
               Familiar with front-end technologies like JavaScript, CSS, and
               HTML?
             </Li>
             <Li>
-              <BulletIcon icon={ReactIcon} />
               Taking a step forward to become a React JS specialist, able to
               make critical decisions in the architecture of a React
               application.
             </Li>
             <Li>
-              <BulletIcon icon={CollabsIcon} />
               Not satisfied with online learning and it's lack of 1-on-1
               mentoring?
             </Li>

@@ -17,14 +17,6 @@ import {
   selectNthTraining,
 } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
-import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  BulletIcon,
-  PeopleNetWorkIcon,
-} from '../components/icons'
 import { Link } from '../components/navigation'
 import Ul, { Li } from '../components/layout/Ul'
 import { LinkButton } from '../components/buttons'
@@ -108,28 +100,21 @@ const Landing = ({ data }) => {
                   </Col>
                   <Col md={5} mdOffset={1}>
                     <H2>Is this React training right for me?</H2>
-                    <Ul unstyled>
+                    <Ul>
+                      <Li>Extremely rapid, intense learning</Li>
                       <Li>
-                        <BulletIcon icon={RunFastIcon} />
-                        Extremely rapid, intense learning
-                      </Li>
-                      <Li>
-                        <BulletIcon icon={NotBegginersIcon} />
                         Ideal for experienced programmers familiar with good
                         practices. Not for beginners!
                       </Li>
                       <Li>
-                        <BulletIcon icon={TickBadgeIcon} />
                         Small classes with expert developer coaches - roughly
                         one for every four students
                       </Li>
                       <Li>
-                        <BulletIcon icon={TargetIcon} />
                         Hands-on project-based training - most of the time
                         you'll be coding.
                       </Li>
                       <Li>
-                        <BulletIcon icon={PeopleNetWorkIcon} />
                         Join a growing network of alumni for advice, knowledge
                         and social fun!
                       </Li>

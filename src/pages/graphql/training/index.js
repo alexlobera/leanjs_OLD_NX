@@ -16,15 +16,6 @@ import {
 } from 'src/components/training'
 import { Card, Image } from 'src/components/elements'
 
-import {
-  CodeIcon,
-  CollabsIcon,
-  ProductionReadyIcon,
-  StarIcon,
-  TrainerIcon,
-  BulletIcon,
-} from 'src/components/icons'
-
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
 
@@ -109,25 +100,20 @@ const TrainingPage = props => (
                 <Col md={5} mdOffset={1}>
                   <Link to="#student-outcomes" name="student-outcomes" />
                   <H2>What students get from a our training</H2>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={ProductionReadyIcon} />
                       <strong>Build production ready</strong> apps.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Discuss <strong>real-world projects</strong>.
                     </Li>
                     <Li>
-                      <BulletIcon icon={StarIcon} />
                       Learn <strong>best practices</strong>.
                     </Li>
                     <Li>
-                      <BulletIcon icon={TrainerIcon} />
                       <strong>Mentoring</strong> by our expert coaches.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CodeIcon} />
                       <strong>Stay tech-relevent</strong> in modern development.
                     </Li>
                   </Ul>

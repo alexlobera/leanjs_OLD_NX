@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { PINK, FONT_FAMILY } from '../../config/styles'
 import Link from '../navigation/Link'
-import { QuestionMarkIcon } from '../icons'
 
 const StyledFeedback = styled.div`
   ${FONT_FAMILY};
@@ -18,7 +17,6 @@ const StyledFeedback = styled.div`
 `
 const Feedback = () => (
   <StyledFeedback>
-    <QuestionMarkIcon />
     Any questions? <Link to="#contact-us">Contact us</Link>
   </StyledFeedback>
 )

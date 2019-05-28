@@ -22,12 +22,6 @@ import {
   RICHARD_MOSS,
   WILL_VOELCKER,
 } from 'src/components/training'
-import {
-  BulletIcon,
-  NotBegginerIcon,
-  ReactIcon,
-  CollabsIcon,
-} from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
@@ -119,23 +113,21 @@ const BootcampLondon = () => (
                       #
                     </Link>
                   </H2Ref>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={NotBegginerIcon} />A{' '}
+                      A{' '}
                       <strong>
                         React developer with 1+ year of development
                       </strong>{' '}
                       under your belt using React?
                     </Li>
                     <Li>
-                      <BulletIcon icon={ReactIcon} />
                       Taking a step forward to become a{' '}
                       <strong>Senior React developer</strong> able to make
                       critical decisions about the architecture of a React
                       application.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Not satisfied with the pace of online learning and it's
                       lack of 1-on-1 mentoring?
                     </Li>
