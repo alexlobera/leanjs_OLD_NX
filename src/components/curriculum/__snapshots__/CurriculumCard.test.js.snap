@@ -12,7 +12,7 @@ exports[`<CurriculumCard /> should render component 1`] = `
         "rules": Array [
           "
   background-color: ",
-          "#be6045",
+          "#C0392B",
           ";
   padding: 2em;
   color: #ffffff;
