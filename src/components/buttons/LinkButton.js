@@ -20,8 +20,8 @@ const fontColor = css`
     const color = getColorFromProps(props)
 
     return `
-    color:${color};
-    text-shadow: 0px 0px 1px ${color};
+    color:${color} !important;
+    text-shadow: 0px 0px 1px ${color} !important;
     &:link {
       color: ${color} !important;
     }
