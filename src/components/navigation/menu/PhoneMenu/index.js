@@ -46,6 +46,9 @@ export const MenuContent = styled.div`
   padding: 1.3em 1.5em 0;
   box-sizing: border-box;
   overflow: auto;
+  a:first-child {
+    margin-bottom: 15px;
+  }
 `
 MenuContent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
