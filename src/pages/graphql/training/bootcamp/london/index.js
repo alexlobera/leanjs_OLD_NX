@@ -15,8 +15,6 @@ import {
   UpcomingTrainingSection,
   AttendeeQuote,
   TrainingDetails,
-  HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
   selectUpcomingTrainings,
   selectNthTraining,
@@ -50,8 +48,8 @@ const BootcampLondon = () => (
             ]}
           />
           <Header
-            titleLines={['React GraphQL Bootcamp', `London`]}
-            subtitle="Take your dev career to the next level by mastering<br />React and GraphQL - in just 1 week!"
+            titleLines={['GraphQL Bootcamp', `London`]}
+            subtitle="Take your dev career to the next level by mastering<br />GraphQL server-side & client-side - in just 3 days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={GRAPHQL_BOOTCAMP}
@@ -71,9 +69,7 @@ const BootcampLondon = () => (
                   </Col>
                   <Col xs={12} md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="2-IPT7Plsfc" />
-                    <TrainingDetails
-                      coaches={[ALEX_LOBERA, WILL_VOELCKER, HORACIO_HERRERA]}
-                    />
+                    <TrainingDetails coaches={[ALEX_LOBERA]} />
                   </Col>
                 </Row>
               </Card>
