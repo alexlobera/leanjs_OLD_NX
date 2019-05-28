@@ -13,12 +13,14 @@ import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
+} from 'src/components/navigation'
+import {
   Tabs,
   TabList,
   TabItem,
   TabContent,
   ContentItem,
-} from 'src/components/navigation'
+} from 'src/components/layout/Tabs'
 import {
   CurriculumReactNative,
   CurriculumBootcamp,

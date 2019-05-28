@@ -19,8 +19,9 @@ import React from 'react'
 // import ReactIcon from './ReactIcon'
 // import PeopleNetWorkIcon from './PeopleNetWorkIcon'
 // import WorldIcon from './WorldIcon'
-// import Tick from './Tick'
+//
 // import QuestionMarkIcon from './QuestionMarkIcon'
+import Tick from './Tick'
 import FacebookIcon from './FacebookIcon'
 import ExternalLinkIcon from './ExternalLinkIcon'
 import TwitterIcon from './TwitterIcon'
@@ -71,4 +72,5 @@ export {
   PdfDownload,
   GitHubIcon,
   BulletIcon,
+  Tick,
 }

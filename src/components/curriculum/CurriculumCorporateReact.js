@@ -2,7 +2,7 @@ import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H2Ref } from '../text'
 import Link from '../navigation/Link'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
+import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import { CurriculumCorpReact } from './index'
 import { REACT_BOOTCAMP } from '../../config/data'
 

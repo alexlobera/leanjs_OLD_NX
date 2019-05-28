@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { reactBlue, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
-import { REACT_BOOTCAMP, PART_TIME, GRAPHQL_BOOTCAMP } from '../../config/data'
-import { Col, Row } from '../layout/Grid'
+import { PART_TIME, GRAPHQL_BOOTCAMP } from '../../config/data'
+import { Col, Row } from './Grid'
 
 const Ul = styled.ul`
   margin: 0 0 32px 0;
@@ -90,9 +90,7 @@ const A = styled.a`
   ${props => {
     if (
       props.isActive &&
-      (props.name === PART_TIME ||
-        props.name === REACT_BOOTCAMP ||
-        props.name === GRAPHQL_BOOTCAMP)
+      (props.name === PART_TIME || props.name === GRAPHQL_BOOTCAMP)
     ) {
       return `color: white !important`
     }
@@ -137,7 +135,7 @@ export const ContentItem = ({ isActive, children }) =>
 
 ContentItem.displayName = 'ContentItem'
 
-class Tabs extends React.Component {
+export class Tabs extends React.Component {
   constructor(props) {
     super(props)
 
