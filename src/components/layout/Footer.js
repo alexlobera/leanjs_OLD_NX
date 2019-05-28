@@ -10,7 +10,13 @@ import Link, { styleChildLinkColor } from '../navigation/Link'
 import { blue1, WHITE } from '../../config/styles'
 import { SCREEN_SM_MAX } from '../utils'
 import { P, H3, Span } from '../text'
-import { BulletIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons'
+import {
+  BulletIcon,
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon,
+  GitHubIcon,
+} from '../icons'
 
 const StyledFooter = styled.div`
   footer {
@@ -124,6 +130,14 @@ const Footer = ({ width }) => (
                       to="https://www.facebook.com/reactgraphqlacademy/"
                     >
                       <BulletIcon social icon={FacebookIcon} />
+                    </SocialLink>
+                  </Li>
+                  <Li>
+                    <SocialLink
+                      title="React GraphQL Academy GitHub"
+                      to="https://www.github.com/reactgraphqlacademy/"
+                    >
+                      <BulletIcon social icon={GitHubIcon} />
                     </SocialLink>
                   </Li>
                 </SocialMenu>

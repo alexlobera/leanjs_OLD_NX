@@ -19,15 +19,6 @@ import { Card, Video } from 'src/components/elements'
 import { CurriculumPartTime } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import {
-  CollabsIcon,
-  NotBegginerIcon,
-  NotBegginersIcon,
-  SpannerIcon,
-  TrainerIcon,
-  BulletIcon,
-  DiscussIcon,
-} from 'src/components/icons'
 import { STEFANO } from 'src/config/images'
 import { PART_TIME } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -84,31 +75,15 @@ const PartTime = ({ trainings }) => (
                 <Col md={5} mdOffset={1}>
                   <Link to="#target-audience" name="target-audience" />
                   <H2>Is this React part-time course right for me?</H2>
-                  <Ul unstyled>
+                  <Ul>
+                    <Li>Meaningful, collaborative learning</Li>
+                    <Li>Personal mentoring rather than online learning</Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
-                      Meaningful, collaborative learning
-                    </Li>
-                    <Li>
-                      <BulletIcon icon={TrainerIcon} />
-                      Personal mentoring rather than online learning
-                    </Li>
-                    <Li>
-                      <BulletIcon icon={SpannerIcon} />
                       Don't miss work days or projects - only 2 evenings a week
                     </Li>
-                    <Li>
-                      <BulletIcon icon={NotBegginersIcon} />
-                      Not for beginners!
-                    </Li>
-                    <Li>
-                      <BulletIcon icon={DiscussIcon} />
-                      Discuss real-world projects to learn best practices
-                    </Li>
-                    <Li>
-                      <BulletIcon icon={NotBegginerIcon} />
-                      Expert coaches with extensive React experience
-                    </Li>
+                    <Li>Not for beginners!</Li>
+                    <Li>Discuss real-world projects to learn best practices</Li>
+                    <Li>Expert coaches with extensive React experience</Li>
                   </Ul>
                   {nextTraining && (
                     <LinkButton cta to={nextTraining.toPath}>

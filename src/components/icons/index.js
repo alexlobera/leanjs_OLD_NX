@@ -1,30 +1,31 @@
 import React from 'react'
-import BussinessIcon from './BussinessIcon'
-import CalendarIcon from './CalendarIcon'
-import CodeIcon from './CodeIcon'
-import CollabsIcon from './CollabsIcon'
-import DiscussIcon from './DiscussIcon'
-import EnterMindIcon from './EnterMindIcon'
+// import BussinessIcon from './BussinessIcon'
+// import CalendarIcon from './CalendarIcon'
+// import CodeIcon from './CodeIcon'
+// import CollabsIcon from './CollabsIcon'
+// import DiscussIcon from './DiscussIcon'
+// import EnterMindIcon from './EnterMindIcon'
+// import HeartIcon from './HeartIcon'
+// import NotBegginerIcon from './NotBegginerIcon'
+// import NotBegginersIcon from './NotBegginersIcon'
+// import ProductionReadyIcon from './ProductionReadyIcon'
+// import RunFastIcon from './RunFastIcon'
+// import SpannerIcon from './SpannerIcon'
+// import StarIcon from './StarIcon'
+// import TargetIcon from './TargetIcon'
+// import TickBadgeIcon from './TickBadgeIcon'
+// import TimeIcon from './TimeIcon'
+// import TrainerIcon from './TrainerIcon'
+// import ReactIcon from './ReactIcon'
+// import PeopleNetWorkIcon from './PeopleNetWorkIcon'
+// import WorldIcon from './WorldIcon'
+// import Tick from './Tick'
+// import QuestionMarkIcon from './QuestionMarkIcon'
 import FacebookIcon from './FacebookIcon'
-import HeartIcon from './HeartIcon'
-import InstagramIcon from './InstagramIcon'
-import NotBegginerIcon from './NotBegginerIcon'
-import NotBegginersIcon from './NotBegginersIcon'
-import ProductionReadyIcon from './ProductionReadyIcon'
-import RunFastIcon from './RunFastIcon'
-import SpannerIcon from './SpannerIcon'
-import StarIcon from './StarIcon'
-import TargetIcon from './TargetIcon'
-import TickBadgeIcon from './TickBadgeIcon'
-import TimeIcon from './TimeIcon'
-import TwitterIcon from './TwitterIcon'
-import TrainerIcon from './TrainerIcon'
-import ReactIcon from './ReactIcon'
-import PeopleNetWorkIcon from './PeopleNetWorkIcon'
-import WorldIcon from './WorldIcon'
 import ExternalLinkIcon from './ExternalLinkIcon'
-import Tick from './Tick'
-import QuestionMarkIcon from './QuestionMarkIcon'
+import TwitterIcon from './TwitterIcon'
+import GitHubIcon from './GitHubIcon'
+import InstagramIcon from './InstagramIcon'
 import PdfDownload from './PdfDownload'
 
 import PropTypes from 'prop-types'
@@ -63,32 +64,11 @@ BulletIcon.propTypes = {
 }
 
 export {
-  BussinessIcon,
-  CalendarIcon,
-  CodeIcon,
-  CollabsIcon,
-  EnterMindIcon,
-  HeartIcon,
-  NotBegginerIcon,
-  NotBegginersIcon,
-  ProductionReadyIcon,
-  RunFastIcon,
-  SpannerIcon,
-  StarIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  TimeIcon,
-  TrainerIcon,
+  ExternalLinkIcon,
   TwitterIcon,
-  ReactIcon,
-  WorldIcon,
-  PeopleNetWorkIcon,
-  BulletIcon,
-  DiscussIcon,
   FacebookIcon,
   InstagramIcon,
-  ExternalLinkIcon,
-  Tick,
-  QuestionMarkIcon,
   PdfDownload,
+  GitHubIcon,
+  BulletIcon,
 }

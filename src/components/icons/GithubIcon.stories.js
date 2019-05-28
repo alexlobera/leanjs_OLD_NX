@@ -1,5 +1,5 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import GithubIcon from './GithubIcon'
+import GitHubIcon from './GitHubIcon'
 
-storiesOf('Icons', module).add('Github Icon', () => <GithubIcon fill="#000" />)
+storiesOf('Icons', module).add('GitHub Icon', () => <GitHubIcon fill="#000" />)

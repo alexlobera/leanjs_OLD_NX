@@ -21,12 +21,6 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import {
-  BulletIcon,
-  CodeIcon,
-  CollabsIcon,
-  SpannerIcon,
-} from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
@@ -100,20 +94,17 @@ const BootcampLondon = () => (
                       #
                     </Link>
                   </H2Ref>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={CodeIcon} />
                       Familiar with front-end technologies like JavaScript, CSS,
                       and HTML?
                     </Li>
                     <Li>
-                      <BulletIcon icon={SpannerIcon} />
                       Taking a step forward to become a GraphQL Specialist able
                       to make critical decisions about the architecture of a
                       Production-ready GraphQL & React application
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Not satisfied with the pace of online learning and it's
                       lack of 1-on-1 mentoring?
                     </Li>

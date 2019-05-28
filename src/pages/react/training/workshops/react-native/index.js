@@ -20,14 +20,6 @@ import { Card } from 'src/components/elements'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import { Video } from 'src/components/elements'
 import { POLINA } from 'src/config/images'
-import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  BulletIcon,
-  PeopleNetWorkIcon,
-} from 'src/components/icons'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_NATIVE } from 'src/config/data'
@@ -99,28 +91,21 @@ const ReactNativeBoocamp = () => (
                 <Col md={5} mdOffset={1}>
                   <Link to="#target-audience" name="target-audience" />
                   <H2>Is this React Native training right for me?</H2>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={NotBegginersIcon} />
                       Ideal for React developers who want to expand their skills
                       into React Native. Not for React beginners!
                     </Li>
+                    <Li>Extremely rapid, intense learning</Li>
                     <Li>
-                      <BulletIcon icon={RunFastIcon} />
-                      Extremely rapid, intense learning
-                    </Li>
-                    <Li>
-                      <BulletIcon icon={TickBadgeIcon} />
                       Small classes with expert developer coaches - roughly one
                       for every four students
                     </Li>
                     <Li>
-                      <BulletIcon icon={TargetIcon} />
                       Hands-on project-based training - most of the time you'll
                       be coding.
                     </Li>
                     <Li>
-                      <BulletIcon icon={PeopleNetWorkIcon} />
                       Join a growing network of alumni for advice, knowledge and
                       social fun!
                     </Li>
