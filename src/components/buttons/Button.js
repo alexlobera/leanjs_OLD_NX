@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { FONT_FAMILY, GREY2 } from '../../config/styles'
 import { variant } from 'styled-system'
 
-export const defaultButtonStyle = css`
+export const defaultButtonStyle = color => css`
   ${FONT_FAMILY}
   font-size: 1rem;
   font-weight: 400; 
@@ -26,12 +26,10 @@ export const defaultButtonStyle = css`
       cursor: not-allowed;
     }
   `}
-
+  color: ${color};
   ${variant({ key: 'buttons' })};
 `
 
 export default styled.button`
-  ${defaultButtonStyle};
-  color: ${GREY2};
-  text-shadow: 0px 0px 1px ${GREY2};
+  ${defaultButtonStyle(GREY2)};
 `

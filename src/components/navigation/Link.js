@@ -28,6 +28,7 @@ const BasicLink = styled.a`
 export const styleChildLinkColor = color => `
   a {
     color: ${color};
+    text-shadow: 0px 0px 1px ${color};
   }
   a:link {
     color: ${color};

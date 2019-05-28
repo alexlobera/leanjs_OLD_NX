@@ -6,18 +6,22 @@ import { defaultButtonStyle } from './Button'
 import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
+function getColorFromProps(props) {
+  const { variant, theme } = props
+  if (!theme || !theme.buttons) {
+    return
+  }
+  const { color } = props.theme.buttons[variant]
+  return color
+}
+
 const fontColor = css`
   ${props => {
-    const { variant, theme } = props
-    if (!theme || !theme.buttons) {
-      return
-    }
-    const { color } = props.theme.buttons[variant]
+    const color = getColorFromProps(props)
 
     return `
-    
-  color:${color};
-  text-shadow: 0px 0px 1px ${color};
+    color:${color};
+    text-shadow: 0px 0px 1px ${color};
     &:link {
       color: ${color} !important;
     }
@@ -35,7 +39,7 @@ const fontColor = css`
 
 const StyledLinkButton = styled(Link)`
   text-decoration: none;
-  ${defaultButtonStyle}
+  ${props => defaultButtonStyle(getColorFromProps(props))}
   ${fontColor}
   ${props => props.external && 'justify-content: space-evenly;'};
   ${props => props.margin && 'margin-top: 2rem'} 
