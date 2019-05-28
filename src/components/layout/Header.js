@@ -71,10 +71,13 @@ const HeaderSection = styled(Section)`
     height: 100%;
     z-index: ${Z_INDEX_BG};
     ${({ bgImage }) =>
-      `background-image: ${
-        bgImage
-          ? `url(${bgImage}); background-repeat: no-repeat; background-size: cover;`
-          : `linear-gradient(to bottom right, #920E68, #61dafb);`
+      `
+      @media (min-width: ${SCREEN_SM_MIN}) {
+        background-image: url(${bgImage}); background-repeat: no-repeat; background-size: cover;
+      }
+        
+      @media (max-width: ${SCREEN_XS_MAX}) {
+        background-image: linear-gradient(to bottom right, #920E68, #61dafb);
       }`}
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
@@ -242,10 +245,7 @@ const Header = ({
       }
     `}
     render={data => {
-      const bgImage =
-        width > SMALL
-          ? bgImgUrl || getBackgroundImageSrc(data, bgImageName)
-          : null
+      const bgImage = bgImgUrl || getBackgroundImageSrc(data, bgImageName)
       const startDate =
         training &&
         training.startDate &&
@@ -256,7 +256,7 @@ const Header = ({
         formatUTC(training.endDate, training.utcOffset, 'D MMM')
       return (
         <React.Fragment>
-          {bgImage && (
+          {bgImage && width > SMALL && (
             <Helmet
               link={[
                 {
