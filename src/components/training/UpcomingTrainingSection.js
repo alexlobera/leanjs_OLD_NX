@@ -59,7 +59,12 @@ const UpcomingTrainings = ({ curriculum, type, trainings }) => {
   }
 }
 
-const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
+const UpcomingTrainingSection = ({
+  curriculum,
+  type,
+  trainings,
+  removeAdditionalCTAs = false,
+}) => (
   <React.Fragment>
     {curriculum ? (
       <React.Fragment>
@@ -71,18 +76,25 @@ const UpcomingTrainingSection = ({ curriculum, type, trainings }) => (
           trainings={trainings}
         />
         <Link to="#upcoming">See all upcoming courses</Link>
-        <Row>
-          <Link to="#free-learning-resources" name="free-learning-resources" />
-          <Col md={10}>
-            <Newsletter />
-          </Col>
-        </Row>
-        <Row>
-          <Link to="#corporate-training" name="corporate-training" />
-          <Col md={10}>
-            <CorporateTrainingCard type={type} />
-          </Col>
-        </Row>
+        {!removeAdditionalCTAs && (
+          <React.Fragment>
+            <Row>
+              <Link
+                to="#free-learning-resources"
+                name="free-learning-resources"
+              />
+              <Col md={10}>
+                <Newsletter />
+              </Col>
+            </Row>
+            <Row>
+              <Link to="#corporate-training" name="corporate-training" />
+              <Col md={10}>
+                <CorporateTrainingCard type={type} />
+              </Col>
+            </Row>
+          </React.Fragment>
+        )}
       </React.Fragment>
     ) : (
       <Section>

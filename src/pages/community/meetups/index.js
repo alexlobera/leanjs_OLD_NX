@@ -115,6 +115,11 @@ const Community = () => (
                       nextMeetup.city} `}
                   />
                   <H2>Our upcoming meetups</H2>
+                  <UpcomingTrainingSection
+                    curriculum
+                    removeAdditionalCTAs
+                    trainings={upcomingBootcamps}
+                  />
                   <H3>Our groups</H3>
                   <Row>
                     <Col xs={6}>
