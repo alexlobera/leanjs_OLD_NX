@@ -22,6 +22,8 @@ import trackUserBehaviour, {
   CHECKOUT_PAYMENT_REQUEST,
 } from '../../utils/trackUserBehaviour'
 
+import { triggerSubscribe } from '../../../api'
+
 export class CheckoutContainer extends React.Component {
   state = {
     isPaymentInProgress: false,
@@ -88,7 +90,6 @@ export class CheckoutContainer extends React.Component {
       return
     }
     this.setState({ paymentErrorMessage: false, isPaymentInProgress: true })
-
     const {
       CCnumber,
       CCexpiry,
@@ -97,7 +98,12 @@ export class CheckoutContainer extends React.Component {
       name,
       companyName,
       companyVat,
+      meetupSubscribe,
     } = values
+
+    if (meetupSubscribe) {
+      this.props.triggerSubscribe({ email, pathname: 'checkout' })
+    }
 
     const {
       quantity,
@@ -140,6 +146,7 @@ export class CheckoutContainer extends React.Component {
           vatNumber,
           vatCountry,
         }
+
         return pay({
           variables,
         })
@@ -173,6 +180,7 @@ export class CheckoutContainer extends React.Component {
       voucher,
       isVoucherValid,
       isVoucherValidationInProgress,
+      showSubscribeToNewsletter,
     } = this.props
     const {
       isViesValidationInProgress,
@@ -205,6 +213,7 @@ export class CheckoutContainer extends React.Component {
         voucher={voucher}
         resetVoucher={resetVoucher}
         companyVat={companyVat}
+        showSubscribeToNewsletter={showSubscribeToNewsletter}
       />
     )
   }
@@ -212,6 +221,7 @@ export class CheckoutContainer extends React.Component {
 
 CheckoutContainer.defaultProps = {
   trackUserBehaviour,
+  triggerSubscribe,
 }
 
 CheckoutContainer.propTypes = {

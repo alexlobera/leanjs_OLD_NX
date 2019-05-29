@@ -123,7 +123,6 @@ class PaymentSection extends React.Component {
       priceGoesUpOn,
       discountPrice,
       trainingType
-
     if (trainingError || autoVoucherData.error) {
       title = 'There was an error'
     } else if (trainingLoading || autoVoucherData.loading) {
@@ -170,7 +169,7 @@ class PaymentSection extends React.Component {
       ? discountPrice * quantity
       : priceQuantity
 
-    const meetup = trainingType === MEETUP
+    const showSubscribeToNewsletter = trainingType === MEETUP
 
     return (
       <React.Fragment>
@@ -181,7 +180,7 @@ class PaymentSection extends React.Component {
               #
             </Link>
           </H2Ref>
-          {meetup ? (
+          {trainingType === MEETUP ? (
             <React.Fragment>
               <P>Why do we charge a nominal fee?</P>
               <P>
@@ -241,6 +240,8 @@ class PaymentSection extends React.Component {
                 isVoucherValid={isVoucherValid}
                 isVoucherValidationInProgress={isVoucherValidationInProgress}
                 paymentApi={paymentApi}
+                showSubscribeToNewsletter={showSubscribeToNewsletter}
+                {...this.props}
               />
             )}
           </Card>
