@@ -26,18 +26,18 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       md={6}
     >
       <CurriculumSection
-        name="day1"
+        name="day0"
         subTitle="React 101 and JS fundamentals"
-        title="React Bootcamp Day 1 (half day)"
+        title="Evening pre-training: React JS 101 (optional)"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
         <ReactJS101Session />
       </CurriculumSection>
       <CurriculumSection
-        name="day2"
+        name="dayq"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
-        title="React Bootcamp Day 2"
+        title="React Bootcamp Day 1"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
@@ -52,9 +52,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         />
       </CurriculumSection>
       <CurriculumSection
-        name="day3"
+        name="day2"
         subTitle="Forms, Authentication, Styling in React"
-        title="React Bootcamp Day 3"
+        title="React Bootcamp Day 2"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
@@ -69,9 +69,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         />
       </CurriculumSection>
       <CurriculumSection
-        name="day4"
+        name="day3"
         subTitle="Redux, and Testing Principles"
-        title="React Bootcamp Day 4"
+        title="React Bootcamp Day 3"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
@@ -83,9 +83,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         />
       </CurriculumSection>
       <CurriculumSection
-        name="day5"
+        name="day4"
         subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
-        title="React Bootcamp Day 5"
+        title="React Bootcamp Day 4"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
@@ -97,9 +97,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         />
       </CurriculumSection>
       <CurriculumSection
-        name="day6"
+        name="day5"
         subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
-        title="React Bootcamp Day 6"
+        title="React Bootcamp Day 5"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
@@ -111,17 +111,6 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         />
         <ServerSideRenderingSession
           title="Server Side Rendering (SSR)"
-        />
-      </CurriculumSection>
-      <CurriculumSection
-        name="day7"
-        subTitle="Real-world Project"
-        title="React Bootcamp Day 7"
-        toggleNavigateTo={[Function]}
-        type="React Bootcamp"
-      >
-        <Hackathon
-          title="Last day real-world React challenge. We'll implement an app in teams from scratch"
         />
       </CurriculumSection>
       <styled.div>

@@ -164,12 +164,12 @@ const CurriculumPartTime = ({
             <CurriculumCard>
               <Row>
                 <Col lg={5} lgOffset={1}>
-                  Looking for the most complete React curriculum? Our 1-week
+                  Looking for the most complete React curriculum? Our React
                   bootcamp has it all...
                 </Col>
                 <Col lg={6} center>
                   <LinkButton to="/react/training/bootcamp">
-                    1 week bootcamp
+                    React Bootcamp
                   </LinkButton>
                 </Col>
               </Row>

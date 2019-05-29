@@ -22,7 +22,7 @@ import LearningResources from 'src/components/blog/LearningResources'
 
 const trainingList = [
   {
-    title: '7-day Bootcamp',
+    title: 'React Bootcamp',
     text: ` Rapid learning with a deep-dive into the whole React
     Ecosystem`,
     to: '/react/training/bootcamp/',

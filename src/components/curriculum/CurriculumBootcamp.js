@@ -17,7 +17,6 @@ import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
 import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
 import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
-import Hackathon from './sessions/Hackathon'
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
@@ -45,16 +44,16 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 1 (half day)"
-        name="day1"
+        title="Evening pre-training: React JS 101 (optional)"
+        name="day0"
         subTitle="React 101 and JS fundamentals"
       >
         <ReactJS101Session />
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 2"
-        name="day2"
+        title="React Bootcamp Day 1"
+        name="dayq"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
       >
         <ES6Session title="Modern JavaScript" />
@@ -63,8 +62,8 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 3"
-        name="day3"
+        title="React Bootcamp Day 2"
+        name="day2"
         subTitle="Forms, Authentication, Styling in React"
       >
         <FormsAndAuthSession title="Forms and Authentication" />
@@ -76,8 +75,8 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 4"
-        name="day4"
+        title="React Bootcamp Day 3"
+        name="day3"
         subTitle="Redux, and Testing Principles"
       >
         <IntroReduxSession title="Introduction to Redux" />
@@ -90,8 +89,8 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 5"
-        name="day5"
+        title="React Bootcamp Day 4"
+        name="day4"
         subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns I" />
@@ -99,8 +98,8 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 6"
-        name="day6"
+        title="React Bootcamp Day 5"
+        name="day5"
         subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
       >
         <TestingInReactSession title="Testing in React" />
@@ -109,17 +108,6 @@ const CurriculumBootcamp = ({
           UIs"
         />
         <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="React Bootcamp Day 7"
-        name="day7"
-        subTitle="Real-world Project"
-      >
-        <Hackathon
-          title="Last day real-world React challenge. We'll implement an app
-          in teams from scratch"
-        />
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>
