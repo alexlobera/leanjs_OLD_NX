@@ -45,7 +45,7 @@ export const TotalPayablePrice = aliasPrice()
 export const VoucherInput = aliasInput()
 export const NameInput = aliasInput()
 export const EmailInput = aliasInput()
-export const MeetupCheckbox = aliasCheckbox()
+export const NewsletterCheckbox = aliasCheckbox()
 export const CCNameInput = aliasInput()
 export const CCNumberInput = aliasInput()
 export const CCExpiryInput = aliasInput()
@@ -161,7 +161,7 @@ class CheckoutForm extends React.Component {
       companyVat,
       isPaymentInProgress,
       paymentErrorMessage,
-      meetup,
+      showSubscribeToNewsletter,
     } = this.props
 
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
@@ -240,14 +240,14 @@ class CheckoutForm extends React.Component {
                   name="email"
                   placeholder="eg. steve@jobs.com"
                 />
-                {meetup && (
+                {showSubscribeToNewsletter && (
                   <Fragment>
                     <P>
                       Sign me up to learn about cutting-edge React thinking plus
                       the latest news on our courses. We won't spam you, as per
                       our <Link to="/privacy-policy">Privacy Policy</Link>.
                     </P>
-                    <MeetupCheckbox
+                    <NewsletterCheckbox
                       name="meetupSubscribe"
                       label="Subscribe me"
                     />

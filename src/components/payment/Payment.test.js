@@ -24,7 +24,7 @@ import {
   CCExpiryInput,
   CCCVCInput,
   SubmitPaymentFormButton,
-  MeetupCheckbox,
+  NewsletterCheckbox,
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
 import { Alert } from '../elements'
@@ -77,7 +77,7 @@ const mountPaymentSection = ({
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
   validateVatQuery,
-  meetup = false,
+  showSubscribeToNewsletter = false,
   navigate = () => {},
   triggerSubscribe = () => {},
 }) => {
@@ -95,7 +95,7 @@ const mountPaymentSection = ({
         navigate={navigate}
         paymentApi={paymentApi}
         triggerSubscribe={triggerSubscribe}
-        meetup={meetup}
+        showSubscribeToNewsletter={showSubscribeToNewsletter}
       />
     </Root>
   )
@@ -128,7 +128,10 @@ describe('<PaymentSection />', () => {
   }
 
   describe('Making payments', () => {
-    const fillPaymentForm = async (wrapper, { meetup } = {}) => {
+    const fillPaymentForm = async (
+      wrapper,
+      { showSubscribeToNewsletter } = {}
+    ) => {
       await waitForExpect(() => {
         wrapper.update()
         expect(wrapper.find(BuyButton).length).toBe(1)
@@ -142,8 +145,8 @@ describe('<PaymentSection />', () => {
             .simulate('change', { target: { value: newValue } })
         change(NameInput, 'Joe Bloggs')
         change(EmailInput, 'test@example.com')
-        if (meetup) {
-          change(MeetupCheckbox, true)
+        if (showSubscribeToNewsletter) {
+          change(NewsletterCheckbox, true)
         }
         change(CCNameInput, 'Mr J Bloggs')
         change(CCNumberInput, '4242424242424242')
@@ -178,13 +181,13 @@ describe('<PaymentSection />', () => {
       })
     })
 
-    it('should trigger an email subscribe if meetup', async () => {
+    it('should trigger an email subscribe if meetup is true and the subscribe to newsletter checkbox is checked', async () => {
       const triggerSubscribe = jest.fn(() => {})
 
       let wrapper = mountPaymentSection({
         paymentMutation: { request, result },
         triggerSubscribe,
-        meetup: true,
+        showSubscribeToNewsletter: true,
         trainingData: {
           training: {
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
@@ -201,7 +204,9 @@ describe('<PaymentSection />', () => {
           trainingError: false,
         },
       })
-      wrapper = await fillPaymentForm(wrapper, { meetup: true })
+      wrapper = await fillPaymentForm(wrapper, {
+        showSubscribeToNewsletter: true,
+      })
 
       wrapper
         .find(SubmitPaymentFormButton)
