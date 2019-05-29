@@ -148,3 +148,6 @@ export const BARCELONA_LOCATION =
 
 export const AMSTERDAM_LOCATION =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_amsterdam.jpg?alt=media'
+
+export const MEETUP_DEFAULT =
+  'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2FmeetupImages%2Fmeetup_default.jpg?alt=media'

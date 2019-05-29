@@ -17,6 +17,7 @@ import {
   BARCELONA_LOCATION,
   AMSTERDAM_LOCATION,
   SMALL_CLASSROOM,
+  MEETUP_DEFAULT,
 } from '../../config/images'
 
 import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
@@ -43,7 +44,7 @@ const createTrainingPath = ({ type, city = '', index }) => {
   }
 }
 
-const selectLocationImage = ({ city = '' }) => {
+const selectLocationImage = ({ city = '', type = '' }) => {
   switch (city) {
     case 'London':
       return LONDON_LOCATION
@@ -54,7 +55,7 @@ const selectLocationImage = ({ city = '' }) => {
     case 'Barcelona':
       return BARCELONA_LOCATION
     default:
-      return SMALL_CLASSROOM
+      type === MEETUP ? MEETUP_DEFAULT : SMALL_CLASSROOM
   }
 }
 
@@ -98,7 +99,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
             city,
             index: cityIndex[key],
           }),
-          image: selectLocationImage({ city }),
+          image: selectLocationImage({ city, type }),
         }
       }
 
