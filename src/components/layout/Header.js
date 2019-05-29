@@ -318,7 +318,7 @@ const Header = ({
                     <InfoBox type={type}>
                       {training.image && (
                         <Image
-                          src={training.image || SMALL_CLASSROOM}
+                          src={training.image}
                           width="100%"
                           alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
                         />
