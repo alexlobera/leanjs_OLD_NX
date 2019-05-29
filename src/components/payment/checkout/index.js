@@ -120,6 +120,7 @@ class Checkout extends React.Component {
             isVoucherValidationInProgress={isVoucherValidationInProgress}
             paymentApi={paymentApi}
             meetup={meetup}
+            {...this.props}
           />
         )}
       </Fragment>

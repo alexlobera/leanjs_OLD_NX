@@ -179,11 +179,12 @@ describe('<PaymentSection />', () => {
     })
 
     it('should trigger an email subscribe if meetup', async () => {
-      const meetupSubscribe = jest.fn(() => {})
+      const triggerSubscribe = jest.fn(() => {})
 
       let wrapper = mountPaymentSection({
         paymentMutation: { request, result },
-        meetupSubscribe,
+        triggerSubscribe,
+        meetup: true,
         trainingData: {
           training: {
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
@@ -202,20 +203,17 @@ describe('<PaymentSection />', () => {
       })
       wrapper = await fillPaymentForm(wrapper, { meetup: true })
 
-      // NB if you simulate 'click' it does not reliably trigger a 'submit' event in the parent form
-      // So select the form and explicitly simulate a 'submit'.  For some reason simulating a 'submit'
-      // on the button works as well, but that seems hackish so this method was used instead.
-      // wrapper
-      //   .find(SubmitPaymentFormButton)
-      //   .closest('form')
-      //   .simulate('submit')
+      wrapper
+        .find(SubmitPaymentFormButton)
+        .closest('form')
+        .simulate('submit')
 
-      // await waitForExpect(() => {
-      //   expect(meetupSubscribe).toHaveBeenCalledWith({
-      //     email: 'test@example.com',
-      //     pathname: 'checkout',
-      //   })
-      // })
+      await waitForExpect(() => {
+        expect(triggerSubscribe).toHaveBeenCalledWith({
+          email: 'test@example.com',
+          pathname: 'checkout',
+        })
+      })
     })
 
     it('should reflect payment errors in the UI', async () => {
