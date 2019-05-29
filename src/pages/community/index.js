@@ -6,10 +6,9 @@ import Layout from '../../components/layout'
 import { formatUTC } from '../../components/utils'
 import Section, { TopSection } from '../../components/layout/Section'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import { Li } from '../../components/layout/Ul'
 import { H2, H3, P } from '../../components/text'
 import { Link } from '../../components/navigation'
-import { Card, Image, Newsletter } from '../../components/elements'
+import { Card, Image } from '../../components/elements'
 import Header from '../../components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -21,26 +20,8 @@ import { MEETUP, selectMeetups, instagramPictures } from '../../config/data'
 import { MENTORSHIP_IMG } from '../../config/images'
 import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
 
-const CallToAction = styled(LinkButton)`
-  position: absolute;
-  top: -25px;
-`
 const SecondaryCard = styled(Card)`
   margin-top: 36px;
-`
-
-const EventList = styled.ul`
-  list-style: none;
-  margin-left: 0;
-  h3 {
-    padding-top: 0;
-  }
-  li {
-    margin-top: 18px;
-  }
-  > li:first-child {
-    margin-top: 0;
-  }
 `
 
 const MeetupLink = styled(Link)`

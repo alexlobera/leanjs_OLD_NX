@@ -6,10 +6,9 @@ import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { Li } from 'src/components/layout/Ul'
 import { H2, H3, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
-import { Card, Image, Newsletter } from 'src/components/elements'
+import { Card, Image } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -17,7 +16,7 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { LinkButton } from 'src/components/buttons'
-import { MEETUP, selectMeetups, instagramPictures } from 'src/config/data'
+import { MEETUP, selectMeetups } from 'src/config/data'
 import { MENTORSHIP_IMG } from 'src/config/images'
 
 const CallToAction = styled(LinkButton)`
