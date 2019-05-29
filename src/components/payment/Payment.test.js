@@ -24,6 +24,7 @@ import {
   CCExpiryInput,
   CCCVCInput,
   SubmitPaymentFormButton,
+  NewsletterCheckbox,
 } from './checkout/CheckoutForm'
 import { CheckoutContainer } from './checkout/CheckoutContainer'
 import { Alert } from '../elements'
@@ -71,11 +72,14 @@ const defaultAutoVoucherQuery = {
 }
 
 const mountPaymentSection = ({
+  trainingData = defaultTrainingData,
   paymentMutation,
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
   validateVatQuery,
+  showSubscribeToNewsletter = false,
   navigate = () => {},
+  triggerSubscribe = () => {},
 }) => {
   const mocks = [
     paymentMutation,
@@ -87,9 +91,11 @@ const mountPaymentSection = ({
   return mount(
     <Root graphQlMocks={mocks}>
       <PaymentSection
-        {...defaultTrainingData}
+        {...trainingData}
         navigate={navigate}
         paymentApi={paymentApi}
+        triggerSubscribe={triggerSubscribe}
+        showSubscribeToNewsletter={showSubscribeToNewsletter}
       />
     </Root>
   )
@@ -122,11 +128,13 @@ describe('<PaymentSection />', () => {
   }
 
   describe('Making payments', () => {
-    const fillPaymentForm = async wrapper => {
+    const fillPaymentForm = async (
+      wrapper,
+      { showSubscribeToNewsletter } = {}
+    ) => {
       await waitForExpect(() => {
         wrapper.update()
         expect(wrapper.find(BuyButton).length).toBe(1)
-
         wrapper.find(BuyButton).simulate('click')
         wrapper.update()
 
@@ -137,6 +145,9 @@ describe('<PaymentSection />', () => {
             .simulate('change', { target: { value: newValue } })
         change(NameInput, 'Joe Bloggs')
         change(EmailInput, 'test@example.com')
+        if (showSubscribeToNewsletter) {
+          change(NewsletterCheckbox, true)
+        }
         change(CCNameInput, 'Mr J Bloggs')
         change(CCNumberInput, '4242424242424242')
         change(CCExpiryInput, '12/99')
@@ -166,6 +177,46 @@ describe('<PaymentSection />', () => {
           email: 'test@example.com',
           makePayment: result.data.makePayment,
           trainingInstanceId: request.variables.trainingInstanceId,
+        })
+      })
+    })
+
+    it('should trigger an email subscribe if meetup is true and the subscribe to newsletter checkbox is checked', async () => {
+      const triggerSubscribe = jest.fn(() => {})
+
+      let wrapper = mountPaymentSection({
+        paymentMutation: { request, result },
+        triggerSubscribe,
+        showSubscribeToNewsletter: true,
+        trainingData: {
+          training: {
+            address: 'Publicis Sapient - Eden House, 8 Spital Square',
+            city: 'London',
+            country: 'UK',
+            endDate: '2019-05-23T20:00:00.000Z',
+            id: '5aa2acda7dcc782348ea1234',
+            mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
+            price: 995,
+            startDate: '2019-04-23T17:00:00.000Z',
+            training: { type: 'Meetup' },
+          },
+          trainingLoading: false,
+          trainingError: false,
+        },
+      })
+      wrapper = await fillPaymentForm(wrapper, {
+        showSubscribeToNewsletter: true,
+      })
+
+      wrapper
+        .find(SubmitPaymentFormButton)
+        .closest('form')
+        .simulate('submit')
+
+      await waitForExpect(() => {
+        expect(triggerSubscribe).toHaveBeenCalledWith({
+          email: 'test@example.com',
+          pathname: 'checkout',
         })
       })
     })

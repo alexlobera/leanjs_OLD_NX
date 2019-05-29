@@ -10,7 +10,7 @@ const ToggleButton = ({ toggleMenu, className, isOpen }) => (
       type="checkbox"
       name="main-menu-button"
       id="main-menu-button"
-      checked={isOpen}
+      defaultChecked={isOpen}
       onClick={toggleMenu}
       role="button"
       aria-pressed={isOpen.toString()}
@@ -78,15 +78,15 @@ const StyledToggleButton = styled(ToggleButton)`
   span:nth-last-child(2) {
     transform-origin: 0% 100%;
   }
-  input:checked ~ span {
+  input:defaultchecked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(3px, -4px);
   }
-  input:checked ~ span:nth-last-child(3) {
+  input:defaultchecked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
-  input:checked ~ span:nth-last-child(2) {
+  input:defaultchecked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(3px, 4px);
   }
 `

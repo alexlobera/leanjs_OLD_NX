@@ -41,10 +41,10 @@ const MeetUpPage = () => (
           />
           <Header
             titleLines={['GraphQL deep dive with Vladimir Novick']}
-            links={
-              ({ text: 'Meetup Details', to: '#curriculum' },
-              { text: 'Buy tickets', to: '#target-audience' })
-            }
+            links={[
+              { text: 'Meetup Details', to: '#curriculum' },
+              { text: 'Buy tickets', to: '#target-audience' },
+            ]}
             training={training}
             showInfoBox={true}
             type={MEETUP}

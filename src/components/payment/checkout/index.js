@@ -61,6 +61,7 @@ class Checkout extends React.Component {
       isVoucherValidationInProgress,
       paymentApi,
       navigate,
+      showSubscribeToNewsletter,
     } = this.props
     const { isOpen } = this.state
     // The class `gtm-purchase-box` is needed for Tracking purposes,
@@ -78,13 +79,13 @@ class Checkout extends React.Component {
                     {formatPrice(currency, currentPriceQuantity, vatRate)}
                   </Price>
                   <P>
-                    (Full price:{' '}
+                    {' '}
                     {priceQuantity !== currentPriceQuantity ? (
                       <Span lineThrough>
-                        {formatPrice(currency, priceQuantity, vatRate)}
+                        (Full price:{' '}
+                        {formatPrice(currency, priceQuantity, vatRate)})
                       </Span>
                     ) : null}
-                    )
                   </P>
                 </PriceAndDiscount>
               ) : (
@@ -118,6 +119,8 @@ class Checkout extends React.Component {
             isVoucherValid={isVoucherValid}
             isVoucherValidationInProgress={isVoucherValidationInProgress}
             paymentApi={paymentApi}
+            showSubscribeToNewsletter={showSubscribeToNewsletter}
+            {...this.props}
           />
         )}
       </Fragment>

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import { Span, P, H4 } from '../../text'
 import { Button, LinkButton } from '../../buttons'
-import { FormGroup, InputField, Form } from '../../form'
+import { FormGroup, InputField, Form, CheckboxField } from '../../form'
 import {
   composeValidators,
   mustBeEuVat,
@@ -35,6 +35,7 @@ const aliasInput = getComponentAliaser(InputField)
 const aliasLinkButton = getComponentAliaser(LinkButton)
 const aliasPrice = getComponentAliaser(Price)
 const aliasButton = getComponentAliaser(Button)
+const aliasCheckbox = getComponentAliaser(CheckboxField)
 export const AddCompanyDetailsButton = aliasLink()
 export const EUVATNumberField = aliasInput()
 export const ValidateViesButton = aliasLinkButton()
@@ -44,6 +45,7 @@ export const TotalPayablePrice = aliasPrice()
 export const VoucherInput = aliasInput()
 export const NameInput = aliasInput()
 export const EmailInput = aliasInput()
+export const NewsletterCheckbox = aliasCheckbox()
 export const CCNameInput = aliasInput()
 export const CCNumberInput = aliasInput()
 export const CCExpiryInput = aliasInput()
@@ -159,7 +161,9 @@ class CheckoutForm extends React.Component {
       companyVat,
       isPaymentInProgress,
       paymentErrorMessage,
+      showSubscribeToNewsletter,
     } = this.props
+
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
     const discount = priceQuantity - currentPriceQuantity
     const ticketVat = !vatRate
@@ -203,13 +207,12 @@ class CheckoutForm extends React.Component {
                 {formatPrice(currency, currentPriceQuantity, vatRate)}
               </Price>
               <br />
-              (Full price:
+
               {currentPriceQuantity < priceQuantity ? (
                 <Span lineThrough>
-                  {formatPrice(currency, priceQuantity, vatRate)}
+                  (Full price: {formatPrice(currency, priceQuantity, vatRate)})
                 </Span>
               ) : null}
-              )
             </P>
           </Col>
         </Row>
@@ -237,6 +240,19 @@ class CheckoutForm extends React.Component {
                   name="email"
                   placeholder="eg. steve@jobs.com"
                 />
+                {showSubscribeToNewsletter && (
+                  <Fragment>
+                    <P>
+                      Sign me up to learn about cutting-edge React thinking plus
+                      the latest news on our courses. We won't spam you, as per
+                      our <Link to="/privacy-policy">Privacy Policy</Link>.
+                    </P>
+                    <NewsletterCheckbox
+                      name="meetupSubscribe"
+                      label="Subscribe me"
+                    />
+                  </Fragment>
+                )}
                 {isCompanyDetailsDisplayed ? (
                   <Fragment>
                     <FormGroup>
