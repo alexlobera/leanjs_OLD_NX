@@ -120,96 +120,52 @@ const Community = () => (
               <Row>
                 <Col md={6}>
                   <Card border="shadow">
-                    <H2>
-                      Meetups? Yes! <a name="meetups" />
-                    </H2>
-                    <P>
-                      We run and help support meetups all over the world
-                      covering both React and GraphQL.{' '}
-                    </P>
-                    <LinkButton to="/community/meetups">
-                      See All MeetUps
-                    </LinkButton>
-                    {meetups.length ? (
-                      <React.Fragment>
-                        <EventList>
-                          <Li>
-                            <H3>Events</H3>
-                          </Li>
-                          {meetups.map(
-                            ({
-                              cityShortName,
-                              country,
-                              dateStartsOn,
-                              utcOffset,
-                              url,
-                              title,
-                              imgUrl,
-                            }) => (
-                              <Li key={url}>
-                                <Row>
-                                  <Col sm={6}>
-                                    <Image src={imgUrl} />
-                                  </Col>
-                                  <Col sm={6}>
-                                    <div>
-                                      <P>
-                                        <strong>{title}</strong>
-                                        <br />
-                                        {formatUTC(
-                                          dateStartsOn,
-                                          utcOffset,
-                                          'D MMM'
-                                        )}{' '}
-                                        - {cityShortName}, {country}
-                                      </P>
-                                      <LinkButton
-                                        variant="secondary"
-                                        to={url}
-                                        children={'Read more'}
-                                      />
-                                    </div>
-                                  </Col>
-                                </Row>
-                              </Li>
-                            )
-                          )}
-                        </EventList>
-                      </React.Fragment>
-                    ) : null}
-                    <H3>Our groups</H3>
-                    <Row>
-                      <Col xs={6}>
-                        <MeetupLink to="http://meetup.com/JavaScript-London">
-                          JavaScript London
-                        </MeetupLink>
-                      </Col>
-                      <Col xs={6}>
-                        <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                          JavaScript Lisbon
-                        </MeetupLink>
-                      </Col>
-                      <Col xs={6}>
-                        <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                          JavaScript Barcelona
-                        </MeetupLink>
-                      </Col>
-                      <Col xs={6}>
-                        <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                          JavaScript Amsterdam
-                        </MeetupLink>
-                      </Col>
-                      <Col xs={6}>
-                        <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                          JavaScript Paris
-                        </MeetupLink>
-                      </Col>
-                      <Col xs={6}>
-                        <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                          JavaScript Berlin
-                        </MeetupLink>
-                      </Col>
-                    </Row>
+                    <Col md={8} mdOffset={2}>
+                      <H2>
+                        Meetups? Yes! <a name="meetups" />
+                      </H2>
+                      <P>
+                        We run and help support meetups all over the world
+                        covering both React and GraphQL.{' '}
+                      </P>
+                      <LinkButton to="/community/meetups">
+                        See All MeetUps
+                      </LinkButton>
+
+                      <H3>Our groups</H3>
+                      <Row>
+                        <Col xs={6}>
+                          <MeetupLink to="http://meetup.com/JavaScript-London">
+                            JavaScript London
+                          </MeetupLink>
+                        </Col>
+                        <Col xs={6}>
+                          <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
+                            JavaScript Lisbon
+                          </MeetupLink>
+                        </Col>
+                        <Col xs={6}>
+                          <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
+                            JavaScript Barcelona
+                          </MeetupLink>
+                        </Col>
+                        <Col xs={6}>
+                          <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
+                            JavaScript Amsterdam
+                          </MeetupLink>
+                        </Col>
+                        <Col xs={6}>
+                          <MeetupLink to="http://meetup.com/JavaScript-Paris">
+                            JavaScript Paris
+                          </MeetupLink>
+                        </Col>
+                        <Col xs={6}>
+                          <MeetupLink to="http://meetup.com/JavaScript-Berlin">
+                            JavaScript Berlin
+                          </MeetupLink>
+                        </Col>
+                      </Row>
+                    </Col>
                   </Card>
                   <SecondaryCard border="shadow">
                     <Col md={8} mdOffset={2}>
