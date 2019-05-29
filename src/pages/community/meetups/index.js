@@ -218,30 +218,6 @@ const Community = () => (
                       </Row>
                     </Col>
                   </Card>
-                  <SecondaryCard border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>
-                        Instagram - boom! <a name="instagram" />
-                      </H2>
-                      <p>
-                        <Link to="https://www.instagram.com/reactgraphqlacademy/">
-                          @reactgraphqlacademy
-                        </Link>
-                      </p>
-                      <Row>
-                        {instagramPictures.map(({ imageUrl, pageUrl }) => (
-                          <Col xs={4} key={pageUrl}>
-                            <Link to={pageUrl}>
-                              <Image
-                                src={imageUrl}
-                                alt="React GraphQL Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
-                              />
-                            </Link>
-                          </Col>
-                        ))}
-                      </Row>
-                    </Col>
-                  </SecondaryCard>
                 </Col>
               </Row>
             </Grid>
