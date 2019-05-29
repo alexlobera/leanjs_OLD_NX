@@ -316,13 +316,13 @@ const Header = ({
                 {showInfoBox && (
                   <Col md={3} mdOffset={1}>
                     <InfoBox type={type}>
-                      <Link to={`#${linkToGallery}`}>
+                      {training.image && (
                         <Image
                           src={training.image || SMALL_CLASSROOM}
                           width="100%"
                           alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
                         />
-                      </Link>
+                      )}
 
                       <Ul unstyled>
                         <Li>
