@@ -20,12 +20,6 @@ import {
   HORACIO_HERRERA,
   ALEX_LOBERA,
 } from 'src/components/training'
-import {
-  BulletIcon,
-  NotBegginersIcon,
-  ReactIcon,
-  CollabsIcon,
-} from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
@@ -103,22 +97,19 @@ const ReactNativeBoocampBarcelona = () => (
                     <Link to="#target-audience" name="target-audience" />
                     Is this React Native training right for me? Are you...{' '}
                   </H2Ref>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={NotBegginersIcon} />
                       You have at least a few months of experience using React
                       on the web. If you don't know React, we recommend you
                       first to attend our{' '}
                       <Link to="/react/training/bootcamp">React Bootcamp</Link>
                     </Li>
                     <Li>
-                      <BulletIcon icon={ReactIcon} />
                       Taking a step forward to become a React Native Specialist
                       able to make critical decisions about the architecture of
                       a React Native application.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Not satisfied with the pace of online learning and it's
                       lack of 1-on-1 mentoring?
                     </Li>

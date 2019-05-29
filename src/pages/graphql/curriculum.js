@@ -13,10 +13,9 @@ import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
-  Tabs,
-  TabContent,
-  ContentItem,
 } from 'src/components/navigation'
+import { Tabs, TabContent, ContentItem } from 'src/components/layout/Tabs'
+
 import { CurriculumGraphQL, MarketingCard } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
@@ -167,7 +166,7 @@ class GraphQLCurriculum extends React.Component {
                                   marketingCard={
                                     <MarketingCard
                                       heading="Next GraphQL Bootcamp"
-                                      text={`In just 5 days, learn the secrets of effecient apps with GraphQL`}
+                                      text={`In just 3 days, learn the secrets of effecient apps with GraphQL`}
                                       to={graphql && graphql.toPath}
                                       buttonText={`${graphql &&
                                         graphql.city} GraphQL Bootcamp, ${formatUTC(

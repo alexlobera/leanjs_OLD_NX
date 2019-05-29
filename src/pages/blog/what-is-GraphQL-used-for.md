@@ -39,7 +39,7 @@ GraphQL makes this way simpler. It stays between the client and the server at al
 
 This modern syntax is used for making efficient data requests to servers. Its greatest feature is the fact that it allows you to only ask for the data you need. Because you get to decide how much data is returned from the server, your app can run more efficiently than with other query languages.
 
-There are myriad companies using GraphQL right now. Some have been using it since 2012, like Facebook. Other users include Github, PayPal, Twitter, Sky and Hudl. All are making their apps more efficient by refining their data use.
+There are myriad companies using GraphQL right now. Some have been using it since 2012, like Facebook. Other users include GitHub, PayPal, Twitter, Sky and Hudl. All are making their apps more efficient by refining their data use.
 
 ## In summary
 

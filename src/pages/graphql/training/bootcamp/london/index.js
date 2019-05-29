@@ -15,18 +15,10 @@ import {
   UpcomingTrainingSection,
   AttendeeQuote,
   TrainingDetails,
-  HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import {
-  BulletIcon,
-  CodeIcon,
-  CollabsIcon,
-  SpannerIcon,
-} from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
@@ -56,8 +48,8 @@ const BootcampLondon = () => (
             ]}
           />
           <Header
-            titleLines={['React GraphQL Bootcamp', `London`]}
-            subtitle="Take your dev career to the next level by mastering<br />React and GraphQL - in just 1 week!"
+            titleLines={['GraphQL Bootcamp', `London`]}
+            subtitle="Take your dev career to the next level by mastering<br />GraphQL server-side & client-side - in just 3 days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={GRAPHQL_BOOTCAMP}
@@ -77,9 +69,7 @@ const BootcampLondon = () => (
                   </Col>
                   <Col xs={12} md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="2-IPT7Plsfc" />
-                    <TrainingDetails
-                      coaches={[ALEX_LOBERA, WILL_VOELCKER, HORACIO_HERRERA]}
-                    />
+                    <TrainingDetails coaches={[ALEX_LOBERA]} />
                   </Col>
                 </Row>
               </Card>
@@ -100,20 +90,17 @@ const BootcampLondon = () => (
                       #
                     </Link>
                   </H2Ref>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={CodeIcon} />
                       Familiar with front-end technologies like JavaScript, CSS,
                       and HTML?
                     </Li>
                     <Li>
-                      <BulletIcon icon={SpannerIcon} />
                       Taking a step forward to become a GraphQL Specialist able
                       to make critical decisions about the architecture of a
                       Production-ready GraphQL & React application
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Not satisfied with the pace of online learning and it's
                       lack of 1-on-1 mentoring?
                     </Li>

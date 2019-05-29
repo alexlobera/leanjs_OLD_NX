@@ -24,13 +24,6 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
 } from 'src/components/training'
-import {
-  BulletIcon,
-  NotBegginerIcon,
-  CodeIcon,
-  ReactIcon,
-  CollabsIcon,
-} from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
@@ -182,7 +175,7 @@ const BootcampLisbon = () => (
           />
           <Header
             titleLines={['React Redux GraphQL Bootcamp - Lisbon']}
-            subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just 1 week!"
+            subtitle="Take your dev career to the next level by mastering<br />React, Redux, and GraphQL - in just a few days!"
             links={[
               ...header.landingTraining.links,
               {
@@ -261,24 +254,21 @@ const BootcampLisbon = () => (
                       #
                     </Link>
                   </H2Ref>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={NotBegginerIcon} />A developer with 1+
-                      year of development under your belt using JavaScript?
+                      A developer with 1+ year of development under your belt
+                      using JavaScript?
                     </Li>
                     <Li>
-                      <BulletIcon icon={CodeIcon} />
                       Familiar with front-end technologies like JavaScript, CSS,
                       and HTML?
                     </Li>
                     <Li>
-                      <BulletIcon icon={ReactIcon} />
                       Taking a step forward to become a React JS Specialist able
                       to make critical decisions about the architecture of a
                       React application.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Not satisfied with the pace of online learning and it's
                       lack of 1-on-1 mentoring?
                     </Li>

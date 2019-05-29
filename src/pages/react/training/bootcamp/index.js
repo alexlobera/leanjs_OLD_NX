@@ -21,14 +21,6 @@ import {
 import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { DAVIAN } from 'src/config/images'
-import {
-  NotBegginersIcon,
-  RunFastIcon,
-  TargetIcon,
-  TickBadgeIcon,
-  BulletIcon,
-  PeopleNetWorkIcon,
-} from 'src/components/icons'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -57,8 +49,8 @@ const Bootcamps = props => (
             ]}
           />
           <Header
-            titleLines={['1-week full-time React, Redux,', 'GraphQL Bootcamp']}
-            subtitle="For a week, expert coaches and mentors will work alongside you <br/> to master the React ecosystem so you return to work as a React specialist"
+            titleLines={['React, Redux,', 'GraphQL Bootcamp']}
+            subtitle="For a few days, expert coaches and mentors will work alongside you <br/> to master the React ecosystem so you return to work as a React specialist"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
             type={REACT_BOOTCAMP}
@@ -83,28 +75,21 @@ const Bootcamps = props => (
                     <Link to="#target-audience" name="target-audience" />
                     Is this React bootcamp right for me?
                   </H2>
-                  <Ul unstyled>
+                  <Ul>
+                    <Li>Extremely rapid, intense learning</Li>
                     <Li>
-                      <BulletIcon icon={RunFastIcon} />
-                      Extremely rapid, intense learning
-                    </Li>
-                    <Li>
-                      <BulletIcon icon={NotBegginersIcon} />
                       Ideal for experienced programmers familiar with good
                       practices. Not for beginners!
                     </Li>
                     <Li>
-                      <BulletIcon icon={TickBadgeIcon} />
                       Small classes with expert developer coaches - roughly one
                       for every four students
                     </Li>
                     <Li>
-                      <BulletIcon icon={TargetIcon} />
                       Hands-on project-based training - most of the time you'll
                       be coding.
                     </Li>
                     <Li>
-                      <BulletIcon icon={PeopleNetWorkIcon} />
                       Join a growing network of alumni for advice, knowledge and
                       social fun!
                     </Li>

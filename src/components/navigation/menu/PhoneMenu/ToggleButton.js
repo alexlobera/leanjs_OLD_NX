@@ -19,7 +19,7 @@ const ToggleButton = ({ toggleMenu, className, isOpen }) => (
     <span />
     <span />
     <span />
-    <label id="main-menu-button-label" for="main-menu-button">
+    <label id="main-menu-button-label" htmlFor="main-menu-button">
       Menu
     </label>
   </div>
@@ -80,14 +80,14 @@ const StyledToggleButton = styled(ToggleButton)`
   }
   input:checked ~ span {
     opacity: 1;
-    transform: rotate(45deg) translate(5px, -5px);
+    transform: rotate(45deg) translate(3px, -4px);
   }
   input:checked ~ span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
   input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(3px, 5px);
+    transform: rotate(-45deg) translate(3px, 4px);
   }
 `
 

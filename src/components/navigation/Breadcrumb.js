@@ -17,18 +17,22 @@ const BreadcrumbContainer = styled.nav`
     background-color: ${blue2(0.9)};
     padding-left: 16px;
     li {
-      padding-left: 0px;
-      padding-right: 4px;
+      padding-left: 0px !important;
+      padding-right: 4px !important;
       ${styleChildLinkColor(WHITE)} a {
         font-size: 0.9rem;
         text-shadow: 1px -1px 17px #367088;
       }
     }
-    li + li:before {
-      padding-right: 4px;
-      padding-left: 0;
+    li:after {
+      padding-left: 4px;
+      padding-right: 0;
       color: ${WHITE};
       content: '>';
+    }
+
+    li:last-child:after {
+      content: '';
     }
 
     @media (max-width: ${SCREEN_XS_MAX}) {

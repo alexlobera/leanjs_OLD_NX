@@ -16,6 +16,7 @@ import {
   FONT_FAMILY,
   TEXT_SIZE,
 } from '../../config/styles'
+import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
 import { SMALL_CLASSROOM } from '../../config/images'
@@ -70,8 +71,14 @@ const HeaderSection = styled(Section)`
     height: 100%;
     z-index: ${Z_INDEX_BG};
     ${({ bgImage }) =>
-      `background-image: url(${bgImage});`} background-repeat: no-repeat;
-    background-size: cover;
+      `
+      @media (min-width: ${SCREEN_SM_MIN}) {
+        background-image: url(${bgImage}); background-repeat: no-repeat; background-size: cover;
+      }
+        
+      @media (max-width: ${SCREEN_XS_MAX}) {
+        background-image: linear-gradient(to bottom right, #920E68, #61dafb);
+      }`}
   }
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : '')};
@@ -82,7 +89,7 @@ const HeaderSection = styled(Section)`
     padding-top: 200px !important;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-top: 150px;
+    padding-top: 200px;
   }
 `
 HeaderSection.displayName = 'HeaderSection'
@@ -162,6 +169,9 @@ const TitleCol = styled(Col)`
     @media (min-width: ${SCREEN_SM_MIN}) {
       margin-left: 9px;
     }
+    @media (max-width: ${SCREEN_SM_MAX}) {
+      border-left: solid 10px ${selectTypeColor(type)};
+    }
     margin-bottom: 1em;
   `};
 `
@@ -210,6 +220,7 @@ const Header = ({
   children,
   linkToGallery,
   downloadVenuePDF,
+  width,
 }) => (
   <StaticQuery
     query={graphql`
@@ -245,7 +256,7 @@ const Header = ({
         formatUTC(training.endDate, training.utcOffset, 'D MMM')
       return (
         <React.Fragment>
-          {bgImage && (
+          {bgImage && width > SMALL && (
             <Helmet
               link={[
                 {
@@ -315,7 +326,7 @@ const Header = ({
 
                       <Ul unstyled>
                         <Li>
-                          <strong>Date</strong>:{startDate ? startDate : 'TBD'}
+                          <strong>Date</strong>: {startDate ? startDate : 'TBD'}
                           {startDate === endDate ? '' : ` - ${endDate}`}
                         </Li>
                         <Li>
@@ -335,10 +346,13 @@ const Header = ({
                             '6:30pm'}`}
                         </Li>
                         <Li>
-                          <strong>Venue</strong>: {training.address || 'TBD'} -{' '}
-                          {training.mapUrl && (
-                            <Link to={training.mapUrl}> map</Link>
-                          )}
+                          <strong>Venue</strong>: {training.address || 'TBD'}
+                          {training.mapUrl ? (
+                            <React.Fragment>
+                              {` - `}
+                              <Link to={training.mapUrl}> map</Link>
+                            </React.Fragment>
+                          ) : null}
                         </Li>
                         {linkToGallery && (
                           <Li>
@@ -377,4 +391,4 @@ Header.propTypes = {
   bgImgUrl: PropTypes.string,
 }
 
-export default Header
+export default withWidth()(Header)

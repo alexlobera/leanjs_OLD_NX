@@ -13,12 +13,14 @@ import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
+} from 'src/components/navigation'
+import {
   Tabs,
   TabList,
   TabItem,
   TabContent,
   ContentItem,
-} from 'src/components/navigation'
+} from 'src/components/layout/Tabs'
 import {
   CurriculumReactNative,
   CurriculumBootcamp,
@@ -234,7 +236,7 @@ class ReactCurriculum extends React.Component {
                                   variant="secondary"
                                   to="/react/training/bootcamp"
                                 >
-                                  7-Day Bootcamp
+                                  React Bootcamp
                                 </LinkButton>
                               </Td>
                               <Td>
@@ -372,7 +374,7 @@ class ReactCurriculum extends React.Component {
                                     marketingCard={
                                       <MarketingCard
                                         heading="Next React Bootcamp"
-                                        text={`Take your career to the next level and master React in just 1 week!`}
+                                        text={`Take your career to the next level and master React in just a few days!`}
                                         to={trainingBootcamp.toPath}
                                         buttonText={`${
                                           trainingBootcamp.city

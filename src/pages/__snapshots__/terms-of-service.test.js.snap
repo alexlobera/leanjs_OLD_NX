@@ -2,7 +2,7 @@
 
 exports[`<TermsOfService /> should render component 1`] = `
 <Layout>
-  <Header
+  <WithWidth
     titleLines={
       Array [
         "Terms of service",

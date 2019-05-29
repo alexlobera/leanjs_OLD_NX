@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../navigation'
+import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
   CurriculumBootcamp,
   CurriculumPartTime,

@@ -150,11 +150,11 @@ const PrivacyPolicy = () => (
               events/trainings/services that you may not have indicated to us
               that you are interested in but we feel will enrich your experience
               with us. You are able to unsubscribe to these marketing emails by
-              contactin us at{' '}
+              contacting us at{' '}
               <Link to="mailto:hello@reactgraphql.academy">
                 hello@reactgraphql.academy
-              </Link>
-              .
+              </Link>{' '}
+              or using the <Link to="/unsubscribe/">unsubscribe</Link> page .
             </P>
             <H2>
               <Link name="6" />

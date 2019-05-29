@@ -41,13 +41,13 @@ Hudl is a platform for helping coaches and athletes analyse their performance us
 
 GraphQL helps to generate more effective API documentation so its developers don’t have to spend resource time creating documentation. Now, Hudl has managed to make sure its front-end can interact with all data sources using just one language. The code is way easier to maintain and performance has improved dramatically.
 
-## Github <a name="github"></a>
+## GitHub <a name="github"></a>
 
-No list of GraphQL users would be complete without mentioning Github. The go-to developer platform started using GraphQL because there was just no flexibility with older REST APIs.
+No list of GraphQL users would be complete without mentioning GitHub. The go-to developer platform started using GraphQL because there was just no flexibility with older REST APIs.
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fwho-uses-graphql%2Fimage_5.jpg?alt=media&)
 
-They always received too much irrelevant data, but GraphQL has fixed that. Github now uses GraphQL on both its front- and back-end.
+They always received too much irrelevant data, but GraphQL has fixed that. GitHub now uses GraphQL on both its front- and back-end.
 
 ## In summary, these platforms use GraphQL…
 
@@ -59,7 +59,7 @@ They always received too much irrelevant data, but GraphQL has fixed that. Githu
 
 - [Hudl](#hudl)
 
-- [Github](#github)
+- [GitHub](#github)
 
 ## Learn GraphQL with React GraphQL Academy
 

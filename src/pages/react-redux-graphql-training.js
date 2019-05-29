@@ -89,11 +89,6 @@ const BootcampList = () => (
                         </Link>
                       </Li>
                       <Li>
-                        <Link to="/full-stack-js-react-graphql-node-mongo-bootcamp">
-                          1-Week Full-stack JS Bootcamp
-                        </Link>
-                      </Li>
-                      <Li>
                         <Link to="/community">Community</Link>
                       </Li>
                     </Ul>

@@ -18,17 +18,6 @@ import {
 import { Card } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { WHY_GQLU_ACADEMY, SMALL_CLASSROOM } from 'src/config/images.js'
-import {
-  CodeIcon,
-  CollabsIcon,
-  HeartIcon,
-  NotBegginerIcon,
-  ProductionReadyIcon,
-  SpannerIcon,
-  StarIcon,
-  TrainerIcon,
-  BulletIcon,
-} from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
@@ -88,18 +77,15 @@ const GraphQL = () => (
                       #
                     </Link>
                   </H2Ref>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={NotBegginerIcon} />
                       For working developers -{' '}
                       <strong>not for beginners!</strong>
                     </Li>
                     <Li>
-                      <BulletIcon icon={SpannerIcon} />
                       <strong>Hands-on project-based</strong> training.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />A{' '}
                       <strong>collaborative</strong> learning environment.
                     </Li>
                   </Ul>
@@ -130,31 +116,25 @@ const GraphQL = () => (
                 </Col>
                 <Col md={5} mdOffset={1}>
                   <H2>Why our GraphQL course is great for your developers</H2>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={ProductionReadyIcon} />
                       <strong>Build production ready</strong> apps leverging
                       GraphQL.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Discuss <strong>real-world projects</strong> with
                       experienced developers.
                     </Li>
                     <Li>
-                      <BulletIcon icon={StarIcon} />
                       Learn <strong>best practices</strong>.
                     </Li>
                     <Li>
-                      <BulletIcon icon={TrainerIcon} />
                       <strong>Mentoring</strong> by our expert coaches.
                     </Li>
                     <Li>
-                      <BulletIcon icon={HeartIcon} />
                       Alumni <strong>community</strong>.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CodeIcon} />
                       <strong>Stay ahead</strong> in modern development.
                     </Li>
                   </Ul>

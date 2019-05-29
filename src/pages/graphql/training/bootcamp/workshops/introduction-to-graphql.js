@@ -20,13 +20,6 @@ import {
   selectNthTraining,
   selectUpcomingTrainings,
 } from 'src/components/training'
-import {
-  BulletIcon,
-  NotBegginerIcon,
-  CodeIcon,
-  ReactIcon,
-  CollabsIcon,
-} from 'src/components/icons'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
@@ -113,24 +106,21 @@ const StylingDesignSystemWorkshop = () => (
                       #
                     </Link>
                   </H2Ref>
-                  <Ul unstyled>
+                  <Ul>
                     <Li>
-                      <BulletIcon icon={NotBegginerIcon} />A developer with some
-                      experience developing React applications?
+                      A developer with some experience developing React
+                      applications?
                     </Li>
                     <Li>
-                      <BulletIcon icon={CodeIcon} />
                       Familiar with front-end technologies like JavaScript, CSS,
                       and HTML?
                     </Li>
                     <Li>
-                      <BulletIcon icon={ReactIcon} />
                       Taking a step forward to become a React JS Specialist able
                       to make critical decisions about the architecture of a
                       React application.
                     </Li>
                     <Li>
-                      <BulletIcon icon={CollabsIcon} />
                       Not satisfied with the pace of online learning and it's
                       lack of 1-on-1 mentoring?
                     </Li>

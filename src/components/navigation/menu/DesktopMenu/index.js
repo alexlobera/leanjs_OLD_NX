@@ -14,6 +14,9 @@ const Ul = styled(DefaultUl)`
     padding-right: 12px;
     color: ${WHITE};
     ${styleChildLinkColor(WHITE)};
+    a {
+      text-shadow: 0px 0px 1px ${WHITE};
+    }
   }
 `
 

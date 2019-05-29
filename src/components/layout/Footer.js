@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import withWidth, { MEDIUM } from '../utils/WithWidth'
 import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import { RJSALogo } from '../logos/RJSALogo'
@@ -9,7 +10,13 @@ import Link, { styleChildLinkColor } from '../navigation/Link'
 import { blue1, WHITE } from '../../config/styles'
 import { SCREEN_SM_MAX } from '../utils'
 import { P, H3, Span } from '../text'
-import { BulletIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons'
+import {
+  BulletIcon,
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon,
+  GitHubIcon,
+} from '../icons'
 
 const StyledFooter = styled.div`
   footer {
@@ -43,7 +50,7 @@ const SocialMenu = styled(Ul)`
 const SocialLink = styled(Link)`
   text-decoration: none;
 `
-const Footer = () => (
+const Footer = ({ width }) => (
   <StyledFooter>
     <Grid>
       <footer>
@@ -52,49 +59,51 @@ const Footer = () => (
             <ContactForm addContactUsLink={true} />
           </Col>
           <Col md={4} mdOffset={1}>
-            <Row>
-              <Col md={12}>
-                <H3>Site links</H3>
-              </Col>
-              <Col md={6}>
-                <LinkList>
-                  <Li>
-                    <Link to="/react/training">React Courses</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/react/curriculum">React Curriculum</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/graphql/training">GraphQL Courses</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/graphql/curriculum">GraphQL Curriculum</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/blog">Blog</Link>
-                  </Li>
-                </LinkList>
-              </Col>
-              <Col md={6}>
-                <LinkList>
-                  <Li>
-                    <Link to="/about-us">About us</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/community">Community</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/terms-of-service">Terms of service</Link>
-                  </Li>
-                  <Li>
-                    <Link to="/code-of-conduct">Code of conduct</Link>
-                  </Li>
-                </LinkList>
-              </Col>
-            </Row>
+            {width > MEDIUM && (
+              <Row>
+                <Col md={12}>
+                  <H3>Site links</H3>
+                </Col>
+                <Col md={6}>
+                  <LinkList>
+                    <Li>
+                      <Link to="/react/training">React Courses</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/react/curriculum">React Curriculum</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/graphql/training">GraphQL Courses</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/graphql/curriculum">GraphQL Curriculum</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/blog">Blog</Link>
+                    </Li>
+                  </LinkList>
+                </Col>
+                <Col md={6}>
+                  <LinkList>
+                    <Li>
+                      <Link to="/about-us">About us</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/community">Community</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/privacy-policy">Privacy Policy</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/terms-of-service">Terms of service</Link>
+                    </Li>
+                    <Li>
+                      <Link to="/code-of-conduct">Code of conduct</Link>
+                    </Li>
+                  </LinkList>
+                </Col>
+              </Row>
+            )}
             <Row>
               <Col md={12}>
                 <Span>Follow us...</Span>
@@ -123,6 +132,14 @@ const Footer = () => (
                       <BulletIcon social icon={FacebookIcon} />
                     </SocialLink>
                   </Li>
+                  <Li>
+                    <SocialLink
+                      title="React GraphQL Academy GitHub"
+                      to="https://www.github.com/reactgraphqlacademy/"
+                    >
+                      <BulletIcon social icon={GitHubIcon} />
+                    </SocialLink>
+                  </Li>
                 </SocialMenu>
               </Col>
               <Col md={12}>
@@ -143,4 +160,4 @@ const Footer = () => (
   </StyledFooter>
 )
 
-export default Footer
+export default withWidth()(Footer)

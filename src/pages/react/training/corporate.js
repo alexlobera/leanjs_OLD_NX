@@ -17,14 +17,6 @@ import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings
 import { Card, Video } from 'src/components/elements'
 import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
 import { EBER } from 'src/config/images'
-import {
-  BussinessIcon,
-  CollabsIcon,
-  HeartIcon,
-  ReactIcon,
-  WorldIcon,
-  BulletIcon,
-} from 'src/components/icons'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
 
@@ -121,28 +113,23 @@ const CorporateReactTraining = () => (
               </Col>
               <Col md={5} mdOffset={1}>
                 <H2>Why React GraphQL Academy is great for your dev team</H2>
-                <Ul unstyled>
+                <Ul>
                   <Li>
-                    <BulletIcon icon={BussinessIcon} />
                     <strong>Avoid delays & business losses</strong> with more
                     reliable and consistent code
                   </Li>
                   <Li>
-                    <BulletIcon icon={HeartIcon} />
                     <strong>Increase employee retention</strong>, motivation,
                     and productivity
                   </Li>
                   <Li>
-                    <BulletIcon icon={CollabsIcon} />
                     Great for <strong>team building</strong>, and a safe
                     environment for devs to learn.
                   </Li>
                   <Li>
-                    <BulletIcon icon={ReactIcon} />
                     <strong>Minimise the risk</strong> of onboarding React
                   </Li>
                   <Li>
-                    <BulletIcon icon={WorldIcon} />
                     <strong>Delivered wherever you need</strong> - worldwide!
                   </Li>
                 </Ul>

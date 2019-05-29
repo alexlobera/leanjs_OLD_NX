@@ -1,6 +1,7 @@
 export const FONT_FAMILY = `font-family: 'Barlow', sans-serif;`
 
-export const reactBlue = (opacity = 1) => `rgba(111, 207, 240, ${opacity})` // #6FCFF0
+// export const reactBlue = (opacity = 1) => `rgba(111, 207, 240, ${opacity})` // #6FCFF0
+export const reactBlue = (opacity = 1) => `rgba(97, 218, 251, ${opacity})` // #6FCFF0
 
 export const blue1 = (opacity = 1) => `rgba(0,41,56, ${opacity})` // #002938
 
@@ -26,7 +27,7 @@ export const GRAPHQL_PINK = '#DF0098'
 
 export const REACT_NATIVE_GREEN = '#80da8d'
 
-export const CALLTOACTIONRED = '#be6045'
+export const CALLTOACTIONRED = '#C0392B'
 
 export const BOX_SHADOW =
   'box-shadow: 0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);'

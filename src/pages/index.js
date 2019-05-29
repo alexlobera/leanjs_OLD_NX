@@ -18,19 +18,6 @@ import { Card, Image, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import { CallToActionRow } from '../components/layout/CallToActionNextTrainings'
 import { UpcomingTrainingSection } from '../components/training'
-import {
-  BussinessIcon,
-  CalendarIcon,
-  CollabsIcon,
-  EnterMindIcon,
-  HeartIcon,
-  NotBegginerIcon,
-  SpannerIcon,
-  TickBadgeIcon,
-  TimeIcon,
-  ReactIcon,
-  BulletIcon,
-} from '../components/icons'
 import { WHY_REACTJS_ACADEMY, NASSAR } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 
@@ -45,7 +32,7 @@ const SectionButtonRow = styled(Row)`
 `
 
 const IndexPage = () => (
-  <Layout>
+  <Layout loadAutopilot={false} loadGoogleTagManager={true}>
     {({ trainings }) => (
       <React.Fragment>
         <Header
@@ -86,26 +73,21 @@ const IndexPage = () => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <H2>Is this training right for me?</H2>
-                <Ul unstyled>
+                <Ul>
                   <Li>
-                    <BulletIcon icon={NotBegginerIcon} />
                     For working developers - <strong>not for beginners!</strong>
                   </Li>
                   <Li>
-                    <BulletIcon icon={SpannerIcon} />
                     <strong>Hands-on project-based</strong> training.
                   </Li>
                   <Li>
-                    <BulletIcon icon={CollabsIcon} />A{' '}
                     <strong>collaborative</strong> learning environment.
                   </Li>
                   <Li>
-                    <BulletIcon icon={TimeIcon} />
                     <Link to="/react/training/bootcamp">Bootcamps</Link> for
                     accelerated learning.
                   </Li>
                   <Li>
-                    <BulletIcon icon={CalendarIcon} />
                     <Link to="/react/training/part-time-course/">
                       Part-time courses
                     </Link>{' '}
@@ -149,27 +131,12 @@ const IndexPage = () => (
               </Col>
               <Col md={5} mdOffset={1}>
                 <H2>React GraphQL Academy - great for your whole team</H2>
-                <Ul unstyled>
-                  <Li>
-                    <BulletIcon icon={TickBadgeIcon} />
-                    Avoid delays and business losses
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={ReactIcon} />
-                    Minimize risk of onboarding React & GraphQL
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={EnterMindIcon} />
-                    Safe environment for developers to learn
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={HeartIcon} />
-                    Increase employee retention and productivity
-                  </Li>
-                  <Li>
-                    <BulletIcon icon={BussinessIcon} />
-                    Offer more services to internal and external clients
-                  </Li>
+                <Ul>
+                  <Li>Avoid delays and business losses</Li>
+                  <Li>Minimize risk of onboarding React & GraphQL</Li>
+                  <Li>Safe environment for developers to learn</Li>
+                  <Li>Increase employee retention and productivity</Li>
+                  <Li>Offer more services to internal and external clients</Li>
                 </Ul>
                 <SectionButtonRow>
                   <Col sm={7}>
