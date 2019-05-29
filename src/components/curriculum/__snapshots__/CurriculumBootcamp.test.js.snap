@@ -35,7 +35,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         <ReactJS101Session />
       </CurriculumSection>
       <CurriculumSection
-        name="dayq"
+        name="day1"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
         title="React Bootcamp Day 1"
         toggleNavigateTo={[Function]}

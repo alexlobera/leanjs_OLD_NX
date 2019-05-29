@@ -53,7 +53,7 @@ const CurriculumBootcamp = ({
       <Section
         {...commonProps}
         title="React Bootcamp Day 1"
-        name="dayq"
+        name="day1"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
       >
         <ES6Session title="Modern JavaScript" />
