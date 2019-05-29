@@ -236,7 +236,7 @@ class ReactCurriculum extends React.Component {
                                   variant="secondary"
                                   to="/react/training/bootcamp"
                                 >
-                                  7-Day Bootcamp
+                                  React Bootcamp
                                 </LinkButton>
                               </Td>
                               <Td>
@@ -374,7 +374,7 @@ class ReactCurriculum extends React.Component {
                                     marketingCard={
                                       <MarketingCard
                                         heading="Next React Bootcamp"
-                                        text={`Take your career to the next level and master React in just 1 week!`}
+                                        text={`Take your career to the next level and master React in just a few days!`}
                                         to={trainingBootcamp.toPath}
                                         buttonText={`${
                                           trainingBootcamp.city

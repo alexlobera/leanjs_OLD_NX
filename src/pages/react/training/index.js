@@ -72,7 +72,7 @@ const TrainingPage = () => (
                   <LinkButton
                     variant="primary"
                     to="/react/training/bootcamp"
-                    children="1-Week Bootcamp"
+                    children="React Bootcamp"
                   />
                 </Col>
                 <Col xs={12} sm={4}>
