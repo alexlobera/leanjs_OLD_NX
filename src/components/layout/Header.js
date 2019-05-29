@@ -19,7 +19,6 @@ import {
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import { SMALL_CLASSROOM } from '../../config/images'
 import { Z_INDEX_BG } from '../../config/styles'
 import { selectTypeColor } from '../utils/index.js'
 import { Image } from '../elements'
@@ -346,7 +345,8 @@ const Header = ({
                             '6:30pm'}`}
                         </Li>
                         <Li>
-                          <strong>Venue</strong>: {training.address || 'TBD'}
+                          <strong>Venue</strong>:{' '}
+                          {training.address || 'To be confirmed'}
                           {training.mapUrl ? (
                             <React.Fragment>
                               {` - `}
@@ -354,6 +354,13 @@ const Header = ({
                             </React.Fragment>
                           ) : null}
                         </Li>
+                        {(!training.address ||
+                          training.address === 'To be confirmed') && (
+                          <Li>
+                            <strong>Location</strong>:{' '}
+                            {training.city || 'To be confirmed'}
+                          </Li>
+                        )}
                         {linkToGallery && (
                           <Li>
                             <Link to={`#${linkToGallery}`}>

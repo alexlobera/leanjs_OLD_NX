@@ -16,7 +16,8 @@ import {
   LONDON_LOCATION,
   BARCELONA_LOCATION,
   AMSTERDAM_LOCATION,
-  SMALL_CLASSROOM,
+  BERLIN_LOCATION,
+  DEFAULT_INFOBOX,
 } from '../../config/images'
 
 import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
@@ -53,8 +54,10 @@ const selectLocationImage = ({ city = '' }) => {
       return LISBON_LOCATION
     case 'Barcelona':
       return BARCELONA_LOCATION
+    case 'Berlin':
+      return BERLIN_LOCATION
     default:
-      return SMALL_CLASSROOM
+      return DEFAULT_INFOBOX
   }
 }
 
