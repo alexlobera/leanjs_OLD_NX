@@ -17,7 +17,7 @@ import {
 } from 'src/components/training'
 import { LinkButton } from 'src/components/buttons'
 import { MEETUP, selectMeetups } from 'src/config/data'
-import { MENTORSHIP_IMG } from 'src/config/images'
+import { BOOTCAMP_RIGHT } from 'src/config/images'
 
 const CallToAction = styled(LinkButton)`
   position: absolute;
@@ -161,38 +161,33 @@ const Community = () => (
               <Row>
                 <Col xs={12} md={6}>
                   <Image
-                    src={MENTORSHIP_IMG}
-                    alt="A group of React GraphQL Academy coaches and mentors, looking very happy indeed"
+                    src={BOOTCAMP_RIGHT}
+                    alt="React GraphQL Academy meetup"
                   />
                 </Col>
                 <Col xs={12} md={5} mdOffset={1}>
                   <H2>
-                    Our mentor community <a name="mentor-community" />
+                    Our meetup community <a name="mentor-community" />
                   </H2>
                   <P>
-                    React GraphQL Academy is devoted to helping developers grow
-                    in their professional career. Our dedication stands beyond
-                    making them awesome React developers. We want them to make
-                    an impact in the organizations and people they choose to
-                    work with.
+                    React GraphQL Academy is devoted to helping developers
+                    expand their knowledge of the React ecosystem and beyond. We
+                    organize and run free workshops and events for the
+                    JavaScript developer community across several European
+                    cities.
                   </P>
                   <P>
-                    Our experience tells us that the best way to master a skill
-                    is by teaching it. We believe sharing knowledge also
-                    contributes to creating collaborative workplaces &
-                    communities.
+                    Community meetups are a great way to both learn something
+                    new and connect with other motivated developers in your city
+                    :-)
                   </P>
+                  <H3>Would your company like to host a JavaScript meetup?</H3>
                   <P>
-                    The React GraphQL Academy mentorship program enables those
-                    experienced developers in our community to take a step
-                    farther and become a mentor in our community events and
-                    workshops. This way they can build the experience required
-                    to become not only a great developer but also a great coach,
-                    speaker, and team player.
+                    We love to bringing the community to interesting companies
+                    in the tech industry. If you're company has a great space,
+                    we'd love to hear from you!
                   </P>
-                  <P>
-                    <Link to="#contact-us">Contact us</Link>
-                  </P>
+                  <Link to="#contact-us">Contact us</Link>
                 </Col>
               </Row>
             </Grid>
