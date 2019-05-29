@@ -83,11 +83,11 @@ const Community = () => (
         trainings,
         type: MEETUP,
       })
-      const nextBootcamp =
+      const nextMeetup =
         selectNthTraining({ trainings: upcomingBootcamps }) || {}
-      const nextBootcampStartDate =
-        nextBootcamp &&
-        formatUTC(nextBootcamp.startDate, nextBootcamp.utcOffset, 'D MMM')
+      const nextMeetupStartDate =
+        nextMeetup &&
+        formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
       const meetups = selectMeetups()
 
       return (
@@ -102,124 +102,54 @@ const Community = () => (
               { text: 'Mentor community', to: '#mentor-community' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
-            training={nextBootcamp}
+            training={nextMeetup}
           />
           <TopSection>
             <Grid>
-              <Row>
-                <Col xs={12} md={6}>
-                  <Card border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>
-                        Twitter? Sure.
-                        <a name="twitter" />
-                      </H2>
-                      <CallToAction
-                        variant="primary"
-                        to={nextBootcamp && nextBootcamp.toPath}
-                        children={`Next Meetup: ${nextBootcampStartDate}, ${nextBootcamp &&
-                          nextBootcamp.city} `}
-                      />
-                      <TwitterWidgetsOnlyOnClientSide />
+              <Card border="shadow">
+                <Col lg={11} lgOffset={1}>
+                  <CallToAction
+                    variant="primary"
+                    to={nextMeetup && nextMeetup.toPath}
+                    children={`Next Meetup: ${nextMeetupStartDate}, ${nextMeetup &&
+                      nextMeetup.city} `}
+                  />
+                  <H2>Our upcoming meetups</H2>
+                  <H3>Our groups</H3>
+                  <Row>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-London">
+                        JavaScript London
+                      </MeetupLink>
                     </Col>
-                  </Card>
-                  <SecondaryCard border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>Keep informed...</H2>
-                      <Newsletter />
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
+                        JavaScript Lisbon
+                      </MeetupLink>
                     </Col>
-                  </SecondaryCard>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
+                        JavaScript Barcelona
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
+                        JavaScript Amsterdam
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Paris">
+                        JavaScript Paris
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Berlin">
+                        JavaScript Berlin
+                      </MeetupLink>
+                    </Col>
+                  </Row>
                 </Col>
-                <Col xs={12} md={6}>
-                  <Card border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>
-                        Meetups? Absolutely! <a name="meetups" />
-                      </H2>
-                      {meetups.length ? (
-                        <React.Fragment>
-                          <EventList>
-                            <Li>
-                              <H3>Events</H3>
-                            </Li>
-                            {meetups.map(
-                              ({
-                                cityShortName,
-                                country,
-                                dateStartsOn,
-                                utcOffset,
-                                url,
-                                title,
-                                imgUrl,
-                              }) => (
-                                <Li key={url}>
-                                  <Row>
-                                    <Col sm={6}>
-                                      <Image src={imgUrl} />
-                                    </Col>
-                                    <Col sm={6}>
-                                      <div>
-                                        <P>
-                                          <strong>{title}</strong>
-                                          <br />
-                                          {formatUTC(
-                                            dateStartsOn,
-                                            utcOffset,
-                                            'D MMM'
-                                          )}{' '}
-                                          - {cityShortName}, {country}
-                                        </P>
-                                        <LinkButton
-                                          variant="secondary"
-                                          to={url}
-                                          children={'Read more'}
-                                        />
-                                      </div>
-                                    </Col>
-                                  </Row>
-                                </Li>
-                              )
-                            )}
-                          </EventList>
-                        </React.Fragment>
-                      ) : null}
-                      <H3>Our groups</H3>
-                      <Row>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-London">
-                            JavaScript London
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                            JavaScript Lisbon
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                            JavaScript Barcelona
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                            JavaScript Amsterdam
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                            JavaScript Paris
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                            JavaScript Berlin
-                          </MeetupLink>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Card>
-                </Col>
-              </Row>
+              </Card>
             </Grid>
           </TopSection>
           <Section>
