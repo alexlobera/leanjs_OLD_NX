@@ -108,8 +108,8 @@ const Layout = ({
     rel: 'preconnect',
     href,
   }))
-  const scriptTags = scriptUrls.map(src => (
-    <script type="text/javascript" async="true" src={src} />
+  const scriptTags = scriptUrls.map((src, i) => (
+    <script type="text/javascript" async="true" src={src} key={i} />
   ))
 
   return (
