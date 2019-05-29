@@ -44,7 +44,7 @@ const createTrainingPath = ({ type, city = '', index }) => {
   }
 }
 
-const selectLocationImage = ({ city = '', type = '' }) => {
+const selectLocationImage = ({ city = '' }) => {
   switch (city) {
     case 'London':
       return LONDON_LOCATION
@@ -55,7 +55,7 @@ const selectLocationImage = ({ city = '', type = '' }) => {
     case 'Barcelona':
       return BARCELONA_LOCATION
     default:
-      type === MEETUP ? MEETUP_DEFAULT : SMALL_CLASSROOM
+      return MEETUP_DEFAULT
   }
 }
 
@@ -99,7 +99,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
             city,
             index: cityIndex[key],
           }),
-          image: selectLocationImage({ city, type }),
+          image: selectLocationImage({ city }),
         }
       }
 

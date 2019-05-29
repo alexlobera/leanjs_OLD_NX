@@ -346,7 +346,8 @@ const Header = ({
                             '6:30pm'}`}
                         </Li>
                         <Li>
-                          <strong>Venue</strong>: {training.address || 'TBD'}
+                          <strong>Venue</strong>:{' '}
+                          {training.address || 'To be confirmed'}
                           {training.mapUrl ? (
                             <React.Fragment>
                               {` - `}
@@ -354,6 +355,13 @@ const Header = ({
                             </React.Fragment>
                           ) : null}
                         </Li>
+                        {(!training.address ||
+                          training.address === 'To be confirmed') && (
+                          <Li>
+                            <strong>Location</strong>:{' '}
+                            {training.city || 'To be confirmed'}
+                          </Li>
+                        )}
                         {linkToGallery && (
                           <Li>
                             <Link to={`#${linkToGallery}`}>
