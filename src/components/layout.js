@@ -109,7 +109,7 @@ const Layout = ({
     href,
   }))
   const scriptTags = scriptUrls.map(src => (
-    <script type="text/javascript" async="true" src={src} />
+    <script type="text/javascript" async="true" src={src} key={src} />
   ))
 
   return (
