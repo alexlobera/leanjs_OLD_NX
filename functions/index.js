@@ -77,6 +77,16 @@ async function sessionSubscribe(request, response) {
       Email: email,
       LeadSource: '1-day workshops form',
       _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
+      /* 
+      TODO: refactor the sessions into an array of strings e.g.:
+      const {
+        name,
+        email,
+        sessions  // ["Fundamentals", "Styling", etc]
+      } = data
+      */
+
+      // TODO: custom = sessions.map(session => `boolean--${session}--Session`)
       custom: {
         'boolean--Fundamentals--Session': fundamentals,
         'boolean--Styling--Session': styling,
