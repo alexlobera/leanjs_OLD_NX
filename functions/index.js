@@ -1,18 +1,27 @@
 const functions = require('firebase-functions')
 const fetch = require('node-fetch')
+const express = require('express')
 
-exports.unsubscribe = functions.https.onRequest((request, response) => {
+const app = express()
+app.use(setOptions)
+app.use()
+
+function setOptions(request, response, next) {
   response.set('Access-Control-Allow-Origin', '*')
 
   if (request.method === 'OPTIONS') {
-    // Send response to OPTIONS requests
-    response.set('Access-Control-Allow-Methods', 'POST')
-    response.set('Access-Control-Allow-Headers', 'Content-Type')
-    response.set('Access-Control-Max-Age', '3600')
-    response.status(204).send('')
+  response.set('Access-Control-Allow-Methods', 'POST')
+  response.set('Access-Control-Allow-Headers', 'Content-Type')
+  response.set('Access-Control-Max-Age', '3600')
+  response.status(204).send('')
   } else {
-    // Set CORS headers for the main request
-    response.set('Access-Control-Allow-Origin', '*')
+    next(request, response)
+  }
+}
+
+exports.unsubscribe = functions.https.onRequest(setOptions(request, response, (request, response) => {
+  
+  
 
     const AUTOPILOT_UNSUBSCRIBE_TRIGGER_ID = '0008'
     const email = request && request.body && request.body.email
@@ -43,10 +52,7 @@ exports.sessionSubscribe = functions.https.onRequest((request, response) => {
 
   if (request.method === 'OPTIONS') {
     // Send response to OPTIONS requests
-    response.set('Access-Control-Allow-Methods', 'POST')
-    response.set('Access-Control-Allow-Headers', 'Content-Type')
-    response.set('Access-Control-Max-Age', '3600')
-    response.status(204).send('')
+    setOptionsResponse()
   } else {
     // Set CORS headers for the main request
     response.set('Access-Control-Allow-Origin', '*')
@@ -106,10 +112,7 @@ exports.subscribe = functions.https.onRequest((request, response) => {
 
   if (request.method === 'OPTIONS') {
     // Send response to OPTIONS requests
-    response.set('Access-Control-Allow-Methods', 'POST')
-    response.set('Access-Control-Allow-Headers', 'Content-Type')
-    response.set('Access-Control-Max-Age', '3600')
-    response.status(204).send('')
+    setOptionsResponse()
   } else {
     // Set CORS headers for the main request
     response.set('Access-Control-Allow-Origin', '*')
