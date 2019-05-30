@@ -39,6 +39,7 @@ const UpcomingTrainings = ({ curriculum, type, trainings }) => {
         training.utcOffset,
         'D MMM'
       )
+      console.log('training', training)
       const dayMonth = formatedDate ? formatedDate.split(' ') : ['', '']
       const trainingInstance = (
         <TrainingItem

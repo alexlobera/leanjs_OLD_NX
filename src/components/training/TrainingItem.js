@@ -26,7 +26,14 @@ const Calendar = styled(Link)`
   line-height: normal;
 `
 
-const TrainingItem = ({ type, cityCountry, startDay, startMonth, path }) => (
+const TrainingItem = ({
+  title = '',
+  type,
+  cityCountry,
+  startDay,
+  startMonth,
+  path,
+}) => (
   <React.Fragment>
     <TrainingRow>
       <TrainingItemCol xs={5} md={3}>
@@ -38,7 +45,7 @@ const TrainingItem = ({ type, cityCountry, startDay, startMonth, path }) => (
       </TrainingItemCol>
       <TrainingItemCol xs={7} md={7}>
         <P>
-          {type}
+          {title ? title : type}
           <br />
           {cityCountry}
           <br />

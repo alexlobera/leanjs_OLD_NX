@@ -16,6 +16,7 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
         city
         cityCountry
         address
+        venueName
         mapUrl
         price
         currency
