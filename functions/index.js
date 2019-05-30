@@ -2,14 +2,14 @@ const functions = require('firebase-functions')
 const fetch = require('node-fetch')
 const express = require('express')
 
-const app = express()
+const api = express()
 
-app.use(optionsMiddleware)
-app.post('/unsubscribe', unsubscribe)
-app.post('/sessionSubscribe', sessionSubscribe)
-app.post('/subscribe', subscribe)
+api.use(optionsMiddleware)
+api.post('/unsubscribe', unsubscribe)
+api.post('/sessionSubscribe', sessionSubscribe)
+api.post('/subscribe', subscribe)
 
-exports.api = functions.https.onRequest(app)
+exports.api = functions.https.onRequest(api)
 
 function optionsMiddleware(request, response, next) {
   response.set('Access-Control-Allow-Origin', '*')
