@@ -8,7 +8,6 @@ import Curriculum1DayAdvancedReactRedux from './Curriculum1DayAdvancedReactRedux
 import CurriculumCorpReact from './CurriculumCorpReact'
 import CurriculumCorpRNative from './CurriculumCorpRNative'
 import CurriculumGraphQL from './CurriculumGraphQL'
-import CurriculumOneDayStyling from './CurriculumOneDayStyling'
 import FullCurriculumsReact from './FullCurriculumsReact'
 import CurriculumCorporateReact from './CurriculumCorporateReact'
 import CurriculumCorpGraphQL from './CurriculumCorpGraphQL'
@@ -24,7 +23,6 @@ export {
   Curriculum1DayAdvancedReactRedux,
   CurriculumGraphQL,
   CurriculumCorpRNative,
-  CurriculumOneDayStyling,
   FullCurriculumsReact,
   CurriculumCorpReact,
   CurriculumCorporateReact,

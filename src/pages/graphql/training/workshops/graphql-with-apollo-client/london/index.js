@@ -6,7 +6,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
+import { CurriculumGraphqlApollo } from 'src/components/curriculum/workshops/'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -43,25 +43,23 @@ const StylingDesignSystemWorkshop = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training/', label: 'Training' },
+              { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Design Systems and Styling in React',
+                to: '/graphql/training/workshops/graphql-with-apollo-client',
+                label: 'GraphQL with Apollo Client',
               },
               {
                 to:
-                  '/react/training/workshops/design-system-styling-in-react/london',
+                  '/graphql/training/workshops/graphql-with-apollo-client/london',
                 label: 'London',
               },
             ]}
           />
           <Header
-            titleLines={[
-              'Styling in React and Design Systems Workshop - London',
-            ]}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={['GraphQL with Apollo Client Workshop - London']}
+            subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
@@ -104,17 +102,13 @@ const StylingDesignSystemWorkshop = () => (
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer with some experience developing React
-                      applications?
+                      Familiar with front-end technologies like React,
+                      JavaScript, CSS, and HTML?
                     </Li>
                     <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a React JS Specialist able
-                      to make critical decisions about the architecture of a
-                      React application.
+                      Taking a step forward to become a GraphQL Specialist able
+                      to make critical decisions about the architecture of an
+                      application.
                     </Li>
                     <Li>
                       Not satisfied with the pace of online learning and it's
@@ -126,14 +120,6 @@ const StylingDesignSystemWorkshop = () => (
                     you!
                   </P>
                   <H3>Not for beginner devs!</H3>
-                  <P>
-                    This is not a learn-to-code course. If you want to learn to
-                    code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code camps
-                    </Link>
-                    .
-                  </P>
                   <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
@@ -143,10 +129,28 @@ const StylingDesignSystemWorkshop = () => (
           </Section>
           <Section top>
             <Grid>
+              <Card bg="dark">
+                <Row>
+                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                    <PaymentSection
+                      training={training}
+                      trainingError={trainingError}
+                      trainingLoading={trainingLoading}
+                    />
+                  </Col>
+                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                    <Video youtubeId="yvROXLQ1jHg" />
+                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+
+            <Grid>
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                    <CurriculumGraphqlApollo layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>

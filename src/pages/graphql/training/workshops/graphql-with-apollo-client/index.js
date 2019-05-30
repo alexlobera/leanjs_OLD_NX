@@ -6,30 +6,27 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
-import { Card, Video } from 'src/components/elements'
+import { CurriculumGraphqlApollo } from 'src/components/curriculum/workshops/'
+import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  TrainingDetails,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
-import header from 'src/components/layout/Header.json'
-import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
+import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const StylingDesignSystemWorkshop = () => (
+const graphqlApolloWorkshop = () => (
   <Layout>
-    {({ trainings, trainingLoading, trainingError }) => {
+    {({ trainings }) => {
       const bootCampTrainings = selectUpcomingTrainings({
         trainings,
         type: ONE_DAY_WORKSHOP,
@@ -43,50 +40,47 @@ const StylingDesignSystemWorkshop = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training/', label: 'Training' },
+              { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Design Systems and Styling in React',
-              },
-              {
-                to:
-                  '/react/training/workshops/design-system-styling-in-react/london',
-                label: 'London',
+                to: '/graphql/training/workshops/graphql-with-apollo-client',
+                label: 'GraphQL with Apollo Client',
               },
             ]}
           />
           <Header
-            titleLines={[
-              'Styling in React and Design Systems Workshop - London',
+            titleLines={['GraphQL with Apollo Client']}
+            subtitle="Create production-ready React applications with the most community-driven GraphQL client"
+            links={[
+              { text: 'Workshop Agenda', to: '#curriculum' },
+              { text: 'Is this right for me?', to: '#target-audience' },
             ]}
-            subtitle="See how React can look gorgeous and encourage design consistency"
-            links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
             training={training}
-            showInfoBox={true}
           />
-          <TopSection xsBgDark>
+          <TopSection top>
             <Grid>
-              <Card bg="dark">
+              <CallToActionRow left>
+                <Col xs={12} mdOffset={1} md={4}>
+                  <LinkButton
+                    variant="primary"
+                    to="/graphql/training/workshops/graphql-with-apollo-client/london"
+                    children="Next workshop: 29 July, London"
+                  />
+                </Col>
+              </CallToActionRow>
+              <Card border="shadow">
                 <Row>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="yvROXLQ1jHg" />
-                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumGraphqlApollo layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
             </Grid>
           </TopSection>
+
           <Section>
             <Grid>
               <Row>
@@ -108,13 +102,13 @@ const StylingDesignSystemWorkshop = () => (
                       applications?
                     </Li>
                     <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
+                      Familiar with front-end technologies like React,
+                      JavaScript, CSS, and HTML?
                     </Li>
                     <Li>
-                      Taking a step forward to become a React JS Specialist able
-                      to make critical decisions about the architecture of a
-                      React application.
+                      Taking a step forward to become a GraphQL Specialist able
+                      to make critical decisions about the architecture of an
+                      application.
                     </Li>
                     <Li>
                       Not satisfied with the pace of online learning and it's
@@ -126,14 +120,7 @@ const StylingDesignSystemWorkshop = () => (
                     you!
                   </P>
                   <H3>Not for beginner devs!</H3>
-                  <P>
-                    This is not a learn-to-code course. If you want to learn to
-                    code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code camps
-                    </Link>
-                    .
-                  </P>
+                  <P>This is not a learn-to-code workshop!</P>
                   <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
@@ -141,18 +128,6 @@ const StylingDesignSystemWorkshop = () => (
               </Row>
             </Grid>
           </Section>
-          <Section top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
-
           <Section>
             <Grid>
               <Row>
@@ -176,4 +151,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default graphqlApolloWorkshop
