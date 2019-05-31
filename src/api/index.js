@@ -13,7 +13,7 @@ export const triggerSessionSubscribe = ({
   native,
 }) =>
   fetch(
-    `https://us-central1-reactgraphqlacademy.cloudfunctions.net/sessionSubscribe`,
+    `https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/sessionSubscribe`,
     {
       method: 'POST',
       headers: {
@@ -40,7 +40,7 @@ export const triggerSessionSubscribe = ({
 
 export const triggerUnsubscribe = ({ email }) =>
   fetch(
-    `https://us-central1-reactgraphqlacademy.cloudfunctions.net/unsubscribe`,
+    `https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/unsubscribe`,
     {
       method: 'POST',
       headers: {
@@ -58,7 +58,7 @@ export const triggerUnsubscribe = ({ email }) =>
 
 export const triggerSubscribe = ({ email, pathname = 'footer' }) =>
   fetch(
-    `https://us-central1-reactgraphqlacademy.cloudfunctions.net/subscribe`,
+    `https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/subscribe`,
     {
       method: 'POST',
       headers: {
