@@ -22,6 +22,9 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
         currency
         training {
           type
+          description {
+            title
+          }
         }
       }
     }
