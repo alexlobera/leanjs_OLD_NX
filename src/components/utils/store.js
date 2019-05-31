@@ -1,6 +1,6 @@
 import { getURLParameter } from './url'
 
-const setCookie = (name, value, days = 100, path = '/') => {
+export const setCookie = (name, value, days = 100, path = '/') => {
   if (typeof window === 'undefined') {
     return
   }
@@ -15,7 +15,7 @@ const setCookie = (name, value, days = 100, path = '/') => {
     path
 }
 
-function getCookie(name) {
+export function getCookie(name) {
   if (typeof window === 'undefined') {
     return
   }
