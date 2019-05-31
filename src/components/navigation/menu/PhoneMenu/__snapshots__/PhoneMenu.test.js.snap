@@ -10,7 +10,7 @@ exports[`<PhoneMenu /> should render a menu with less than 7 items in the first 
     isOpen={false}
     width={275}
   >
-    <RJSALogo />
+    <RGALogo />
     <PhoneMenuItem
       key="/react/training"
       onClick={[Function]}
