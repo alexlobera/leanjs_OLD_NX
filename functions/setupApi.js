@@ -10,7 +10,6 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   api.post('/sessionSubscribe', requireBodyEmail, sessionSubscribe)
   api.post('/subscribe', requireBodyEmail, subscribe)
   function requireBodyEmail(request, response, next) {
-    console.log('2***********', JSON.stringify(request.body))
     const email = request && request.body && request.body.email
     if (email) {
       next()
