@@ -1,14 +1,16 @@
 const fetch = require('node-fetch')
 const express = require('express')
 
-const setupApi = ({ autopilotapikey }) => {
+const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   const api = express()
+  middlewares.map(middleware => api.use(middleware))
 
   api.use(setOptions)
   api.post('/unsubscribe', requireBodyEmail, unsubscribe)
   api.post('/sessionSubscribe', requireBodyEmail, sessionSubscribe)
   api.post('/subscribe', requireBodyEmail, subscribe)
   function requireBodyEmail(request, response, next) {
+    console.log('2***********', JSON.stringify(request.body))
     const email = request && request.body && request.body.email
     if (email) {
       next()
@@ -25,7 +27,7 @@ const setupApi = ({ autopilotapikey }) => {
       },
       body: jsonBody ? JSON.stringify(jsonBody) : undefined,
     })
-    await res.json()
+    const json = await res.json()
     console.log(JSON.stringify(json))
 
     return json
@@ -40,8 +42,7 @@ const setupApi = ({ autopilotapikey }) => {
       response.set('Access-Control-Max-Age', '3600')
       response.status(204).send('')
     } else {
-      console.log('2***********')
-      next(request, response)
+      next()
     }
   }
 
