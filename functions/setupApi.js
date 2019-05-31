@@ -9,6 +9,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   api.post('/unsubscribe', requireBodyEmail, unsubscribe)
   api.post('/sessionSubscribe', requireBodyEmail, sessionSubscribe)
   api.post('/subscribe', requireBodyEmail, subscribe)
+
   function requireBodyEmail(request, response, next) {
     const email = request && request.body && request.body.email
     if (email) {
