@@ -1,4 +1,4 @@
-const setupApi = require('./setupApi')
+const { setupApi } = require('./setupApi')
 const config = require('config')
 const autopilotapikey = config.get('autopilotapikey')
 
