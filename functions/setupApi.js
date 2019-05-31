@@ -13,7 +13,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   function requireBodyEmail(request, response, next) {
     const email = request && request.body && request.body.email
     if (email) {
-      next()
+      return next()
     } else {
       response.status(401).send('no email')
     }
@@ -42,7 +42,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
       response.set('Access-Control-Max-Age', '3600')
       response.status(204).send('')
     } else {
-      next()
+      return next()
     }
   }
 
