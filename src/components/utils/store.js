@@ -1,8 +1,29 @@
-import store from 'store'
-import expirePlugin from 'store/plugins/expire'
 import { getURLParameter } from './url'
 
-store.addPlugin(expirePlugin)
+const setCookie = (name, value, days = 100, path = '/') => {
+  if (typeof window === 'undefined') {
+    return
+  }
+  const expires = new Date(Date.now() + days * 864e5).toUTCString()
+  window.document.cookie =
+    name +
+    '=' +
+    encodeURIComponent(value) +
+    '; expires=' +
+    expires +
+    '; path=' +
+    path
+}
+
+function getCookie(name) {
+  if (typeof window === 'undefined') {
+    return
+  }
+  const found = document.cookie.match(
+    '(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)'
+  )
+  return found ? found.pop() : ''
+}
 
 export const getVoucherByPathname = () => {
   if (typeof window === 'undefined') {
@@ -14,9 +35,9 @@ export const getVoucherByPathname = () => {
   const pathNameNoTrailingSlash = pathname.replace(/\/$/, '')
   if (voucher) {
     const expiresInSevenDays = new Date().getTime() + 604800000
-    store.set(pathNameNoTrailingSlash, voucher, expiresInSevenDays)
+    setCookie(pathNameNoTrailingSlash, voucher, expiresInSevenDays)
     return voucher
   } else {
-    return store.get(pathNameNoTrailingSlash)
+    return getCookie(pathNameNoTrailingSlash)
   }
 }

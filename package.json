@@ -37,7 +37,6 @@
     "react-super-responsive-table": "^4.3.11",
     "react-twitter-embed": "^2.0.8",
     "rehype-react": "^3.0.3",
-    "store": "^2.0.12",
     "styled-components": "^4.2.0",
     "styled-system": "^4.1.0"
   },
