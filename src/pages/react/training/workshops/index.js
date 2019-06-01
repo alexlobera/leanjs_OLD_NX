@@ -20,7 +20,7 @@ const PROVISIONAL_WORKSHOP_PRICE = '£360 Inc VAT'
 
 const workshops = [
   {
-    title: 'Styling in React and Design Systems',
+    title: 'Styling in React using design systems',
     description:
       'See how React can look gorgeous and encourage design consistency',
     sell: true,
