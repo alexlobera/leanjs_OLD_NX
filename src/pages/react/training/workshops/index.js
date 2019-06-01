@@ -25,7 +25,7 @@ const workshops = [
     title: 'Styling in React using design systems',
     description:
       'See how React can look gorgeous and encourage design consistency',
-    sell: true,
+    to: '/react/training/workshops/design-system-styling-in-react',
   },
   {
     title: 'React Fundamentals & Modern JavaScript',
@@ -84,35 +84,33 @@ const Workshops = () => (
                   <Col md={10} mdOffset={1}>
                     <H2>Which 1-day React training are you looking for?</H2>
                     <Row>
-                      {workshops.map(workshop => (
-                        <Col xs={12} sm={6} md={4}>
-                          <Card small border="black" bottom={32}>
-                            <Link
-                              underline={false}
-                              to="/react/training/workshops/design-system-styling-in-react"
-                            >
-                              <BorderLeftH4>{workshop.title}</BorderLeftH4>
-                            </Link>
-                            <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                            <P>{workshop.description}</P>
-                            {workshop.sell ? (
-                              <LinkButton
-                                variant="primary"
-                                to="/react/training/workshops/design-system-styling-in-react"
-                              >
-                                Find out more
+                      {workshops.map(workshop => {
+                        let to, text, variant
+                        if (workshop.to) {
+                          to = workshop.to
+                          text = 'Find out more'
+                          variant = 'primary'
+                        } else {
+                          to = '/react/training/workshops/interest-form'
+                          text = 'Join Waitlist'
+                          variant = 'secondary'
+                        }
+
+                        return (
+                          <Col xs={12} sm={6} md={4}>
+                            <Card small border="black" bottom={32}>
+                              <Link underline={false} to={to}>
+                                <BorderLeftH4>{workshop.title}</BorderLeftH4>
+                              </Link>
+                              <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
+                              <P>{workshop.description}</P>
+                              <LinkButton variant={variant} to={to}>
+                                {text}
                               </LinkButton>
-                            ) : (
-                              <LinkButton
-                                variant="secondary"
-                                to="/react/training/workshops/interest-form"
-                              >
-                                Join Waitlist
-                              </LinkButton>
-                            )}
-                          </Card>
-                        </Col>
-                      ))}
+                            </Card>
+                          </Col>
+                        )
+                      })}
                     </Row>
                   </Col>
                   <Col md={10} mdOffset={1}>
