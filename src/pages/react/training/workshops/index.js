@@ -35,12 +35,9 @@ const workshops = [
     description: 'Learn 2 of the newest and most exciting features in React',
   },
   {
-    title: 'Performance & FP in React',
-    description: 'Discover best practice for permonant React apps',
-  },
-  {
-    title: 'React with GraphQL client',
-    description: 'Consume GraphQL APIs in any React application',
+    title: 'Adv React Patterns, FP, and performance',
+    description:
+      'Advanced React Patterns and Functional Programming for performant React apps',
   },
   {
     title: 'Testing in React',
@@ -48,7 +45,7 @@ const workshops = [
   },
   {
     title: 'React Native',
-    description: 'Build upon your React knowledge and create great apps',
+    description: 'Build upon your React knowledge and create great native apps',
   },
 ]
 
