@@ -4,11 +4,11 @@ import { LinkButton } from '../buttons'
 import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
-import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
-import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
 import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
-import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
+import TestingIntroSession from './sessions/TestingIntroSession'
+import E2ESession from './sessions/E2ESession'
+import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
 import { ADVANCED_REACT } from '../../config/data'
@@ -38,23 +38,20 @@ const CurriculumAdvancedReact = ({
         {...commonProps}
         title="Advanced React Day 1"
         name="day1"
-        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
+        subTitle="Advanced React patterns, Hooks, and performance"
       >
-        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns I" />
-        <GraphQLSession title="GraphQL and Apollo client" />
+        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
+        <ReactPerformanceSession title="Performance" />
       </Section>
       <Section
         {...commonProps}
         title="Advanced React Day 2"
         name="day2"
-        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
+        subTitle="Real-world Testing in React"
       >
+        <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
-        <CompoundCompAndContextSession
-          title="Advanced React patterns to create even more reusable
-          UIs"
-        />
-        <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
+        <E2ESession title="End-to-End Testing" />
       </Section>
     </React.Fragment>
   )
@@ -64,12 +61,9 @@ const CurriculumAdvancedReact = ({
         {...commonProps}
         title="Advanced React Day 3"
         name="day3"
-        subTitle="Real-world Project"
+        subTitle="GraphQL and Hackathon"
       >
-        <Hackathon
-          title="Last day real-world React challenge. We'll implement an app
-            in teams from scratch"
-        />
+        <Hackathon />
       </Section>
       {showLinkToCurriculum && (
         <SectionCTA>

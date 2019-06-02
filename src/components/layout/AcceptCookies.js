@@ -1,5 +1,4 @@
 import React from 'react'
-import store from 'store'
 import styled from 'styled-components'
 import {
   WHITE,
@@ -9,6 +8,7 @@ import {
   Z_INDEX_TOP,
 } from '../../config/styles'
 import { Link } from '../navigation'
+import { getCookie, setCookie } from '../utils/store'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'
 
@@ -47,11 +47,11 @@ const CookiesNotificationWrapper = styled.div`
 
 class AcceptCookies extends React.Component {
   state = {
-    hideAcceptCookies: !!store.get(HIDE_ACCEPT_COOKIES),
+    hideAcceptCookies: !!getCookie(HIDE_ACCEPT_COOKIES),
   }
 
   handleClick = () => {
-    store.set(HIDE_ACCEPT_COOKIES, true)
+    setCookie(HIDE_ACCEPT_COOKIES, true)
     this.setState({ hideAcceptCookies: true })
   }
 

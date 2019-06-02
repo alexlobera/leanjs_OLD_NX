@@ -9,14 +9,16 @@ import ThinkingInReactSession from './sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
-import StylingInReactSession from './sessions/StylingInReactSession'
+import StylingInReactSession from './sessions/design/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
-import GraphQLSession from './sessions/GraphQLSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
+import E2ESession from './sessions/E2ESession'
 import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
-import CompoundCompAndContextSession from './sessions/CompoundCompAndContextSession'
-import ServerSideRenderingSession from './sessions/ServerSideRenderingSession'
+import ReactPerformanceSession from './sessions/ReactPerformanceSession'
+import Hackathon from './sessions/Hackathon'
+import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
@@ -31,6 +33,7 @@ const CurriculumBootcamp = ({
   marketingCard = null,
   showLinkToCurriculum = true,
   trainings,
+  showHackathon = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
@@ -44,7 +47,7 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Evening pre-training: React JS 101 (optional)"
+        title="Evening pre-bootcamp (optional)"
         name="day0"
         subTitle="React 101 and JS fundamentals"
       >
@@ -73,43 +76,57 @@ const CurriculumBootcamp = ({
         />
         <StylingInReactSession title="Styling in React" />
       </Section>
-      <Section
-        {...commonProps}
-        title="React Bootcamp Day 3"
-        name="day3"
-        subTitle="Redux, and Testing Principles"
-      >
-        <IntroReduxSession title="Introduction to Redux" />
-        <TestingIntroSession title="Testing Principales" />
-      </Section>
       {marketingCard}
+      {showLinkToCurriculum && showHackathon && (
+        <SectionCTA>
+          <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
+            Full curriculum
+          </LinkButton>
+        </SectionCTA>
+      )}
     </React.Fragment>
   )
   const secondHalf = (
     <React.Fragment>
       <Section
         {...commonProps}
+        title="React Bootcamp Day 3"
+        name="day3"
+        subTitle="Redux Fundamentals, Advanced Redux, and FP"
+      >
+        <IntroReduxSession title="Redux Fundamentals" />
+        <AdvancedReduxSession title="Advanced Redux" />
+      </Section>
+      <Section
+        {...commonProps}
         title="React Bootcamp Day 4"
         name="day4"
-        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
+        subTitle="Advanced React patterns, Hooks, and performance"
       >
-        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns I" />
-        <GraphQLSession title="GraphQL and Apollo client" />
+        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
+        <ReactPerformanceSession title="Performance" />
       </Section>
       <Section
         {...commonProps}
         title="React Bootcamp Day 5"
         name="day5"
-        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
+        subTitle="Real-world Testing in React"
       >
+        <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
-        <CompoundCompAndContextSession
-          title="Advanced React patterns to create even more reusable
-          UIs"
-        />
-        <ServerSideRenderingSession title="Server Side Rendering (SSR)" />
+        <E2ESession title="End-to-End Testing" />
       </Section>
-      {showLinkToCurriculum && (
+      {showHackathon ? (
+        <Section
+          type={type}
+          enableToggle={true}
+          title="React Bootcamp Day 6 (optional)"
+          name="day6"
+          subTitle="GraphQL and final project"
+        >
+          <Hackathon />
+        </Section>
+      ) : (
         <SectionCTA>
           <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
             Full curriculum

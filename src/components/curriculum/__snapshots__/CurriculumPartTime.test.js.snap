@@ -91,15 +91,15 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="session9"
-        title="Session 9 - Introduction to GraphQL"
+        title="Session 9 - Advanced Redux"
         toggleNavigateTo={[Function]}
         type="Part-time"
       >
-        <GraphQLIntroSession />
+        <AdvancedReduxSession />
       </CurriculumSection>
       <CurriculumSection
         name="session10"
-        title="Session 10 - React Redux/ GraphQL Real-world Project"
+        title="Session 10 - React Redux Real-world Project"
         toggleNavigateTo={[Function]}
         type="Part-time"
       >

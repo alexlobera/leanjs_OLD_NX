@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import withWidth, { MEDIUM } from '../utils/WithWidth'
 import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
-import { RJSALogo } from '../logos/RJSALogo'
+import { RGALogo } from '../logos/RGALogo'
 import Ul, { Li } from './Ul'
 import Link, { styleChildLinkColor } from '../navigation/Link'
 import { blue1, WHITE } from '../../config/styles'
@@ -150,7 +150,7 @@ const Footer = ({ width }) => (
                 </P>
               </Col>
               <Col md={12}>
-                <RJSALogo />
+                <RGALogo />
               </Col>
             </Row>
           </Col>

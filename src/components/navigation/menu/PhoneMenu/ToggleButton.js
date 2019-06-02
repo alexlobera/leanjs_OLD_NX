@@ -30,7 +30,7 @@ const StyledToggleButton = styled(ToggleButton)`
   width: 36px;
   height: 30px;
   right: 30px;
-  top: 30px;
+  top: 18px;
   z-index: 9991;
 
   label {

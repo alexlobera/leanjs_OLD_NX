@@ -53,7 +53,7 @@ const StylingDesignSystemWorkshop = () => (
               {
                 to:
                   '/react/training/workshops/design-system-styling-in-react/london',
-                label: 'London  ',
+                label: 'London',
               },
             ]}
           />
@@ -102,21 +102,20 @@ const StylingDesignSystemWorkshop = () => (
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer with some experience developing React
-                      applications?
+                      A developer or designer with experience building React
+                      components and using CSS?
                     </Li>
                     <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
+                      A developer or designer interested in building scalable
+                      and reusable UIs for big React projects?
                     </Li>
                     <Li>
-                      Taking a step forward to become a React JS Specialist able
-                      to make critical decisions about the architecture of a
-                      React application.
+                      Not satisfied with the Designer/Developer handover in
+                      real-world React projects?
                     </Li>
                     <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
+                      A designer that builds React components and interacts with
+                      developers.
                     </Li>
                   </Ul>
                   <P>
