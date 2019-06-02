@@ -191,7 +191,9 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
-                              <Td />
+                              <Td>
+                                <Tick type={ADVANCED_REACT} />
+                              </Td>
                               <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
@@ -207,19 +209,7 @@ class ReactCurriculum extends React.Component {
                               <Td />
                             </Tr>
                             <Tr>
-                              <Td>GraphQL client</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td>
-                                <Tick type={ADVANCED_REACT} />
-                              </Td>
-                              <Td>
-                                <Tick type={PART_TIME} />
-                              </Td>
-                            </Tr>
-                            <Tr>
-                              <Td>Advanced React</Td>
+                              <Td>React Patterns and Perf</Td>
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
@@ -228,7 +218,6 @@ class ReactCurriculum extends React.Component {
                               </Td>
                               <Td />
                             </Tr>
-
                             <Tr>
                               <Td />
                               <Td>
@@ -242,7 +231,7 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <LinkButton
                                   variant="secondary"
-                                  to="/advanced-react-redux-graphql-bootcamp"
+                                  to="/react/training/advanced"
                                 >
                                   Advanced React
                                 </LinkButton>
@@ -329,7 +318,7 @@ class ReactCurriculum extends React.Component {
                                 <code>
                                   react, react-router, styled-components,
                                   styled-system, storybook, redux, react-redux,
-                                  graphql, react-apollo, TypeScript
+                                  react-apollo, TypeScript
                                 </code>
                               </Li>
                               <Li>
@@ -342,13 +331,8 @@ class ReactCurriculum extends React.Component {
                               </Li>
                               <Li>
                                 Understand the best practices and patterns for
-                                building real-world production-ready React
+                                building real-world performant React
                                 applications
-                              </Li>
-                              <Li>
-                                Understand how to use GraphQL on the client-side
-                                to improve your React apps development and
-                                performance
                               </Li>
                               <Li>
                                 Not sure if our trainings are right for you?
@@ -394,7 +378,7 @@ class ReactCurriculum extends React.Component {
                           <ContentItem name={ADVANCED_REACT}>
                             <P>
                               <strong>
-                                On completion of the Advanced React Bootcamp
+                                On completion of the Advanced React Training
                                 each student will:
                               </strong>
                             </P>
@@ -409,13 +393,8 @@ class ReactCurriculum extends React.Component {
                               </Li>
                               <Li>
                                 Understand the best practices and patterns for
-                                building real-world production-ready React
+                                building real-world performant React
                                 applications
-                              </Li>
-                              <Li>
-                                Understand how to use GraphQL on the client-side
-                                to improve your React apps development and
-                                performance
                               </Li>
                               <Li>
                                 Not sure if our trainings are right for you?
@@ -440,7 +419,7 @@ class ReactCurriculum extends React.Component {
                                     marketingCard={
                                       <MarketingCard
                                         heading="Next React Advanced Training"
-                                        text={`You can master Advanced React, Redux, and GraphQL - in just 3 days!`}
+                                        text={`You can master Advanced React - in just 3 days!`}
                                         to={trainingAdvanced.toPath}
                                         buttonText={`${
                                           trainingAdvanced.city
@@ -475,8 +454,8 @@ class ReactCurriculum extends React.Component {
                               </Li>
                               <Li>
                                 Understand the best practices and patterns for
-                                building real-world production-ready React
-                                Native applications
+                                building real-world performant React Native
+                                applications
                               </Li>
                             </Ul>
                             <H4>Full course curriculum:</H4>
@@ -514,7 +493,7 @@ class ReactCurriculum extends React.Component {
                               </Li>
                               <Li>
                                 Learn some of the best practices for building
-                                real-world production-ready React applications
+                                real-world performant React applications
                               </Li>
                               <Li>
                                 Not sure if our trainings are right for you?
