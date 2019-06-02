@@ -47,7 +47,9 @@ const UpcomingTrainings = ({ curriculum, type, trainings }) => {
           startDay={dayMonth[0]}
           startMonth={dayMonth[1]}
           type={training.training && training.training.type}
+          description={training.training && training.training.description}
           path={training.toPath}
+          venueName={training.venueName}
         />
       )
       return (

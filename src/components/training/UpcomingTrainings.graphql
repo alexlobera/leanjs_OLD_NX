@@ -16,11 +16,15 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
         city
         cityCountry
         address
+        venueName
         mapUrl
         price
         currency
         training {
           type
+          description {
+            title
+          }
         }
       }
     }
