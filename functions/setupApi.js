@@ -57,44 +57,18 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
 
   async function sessionSubscribe(request, response) {
     const data = request && request.body
-    const {
-      name,
-      email,
-      fundamentals,
-      styling,
-      hooks,
-      perf,
-      gqlclient,
-      testing,
-      resources,
-      native,
-    } = data
+    const { name, email, subscriptions } = data
+    const custom = subscriptions.reduce((acc, subscription) => {
+      acc[`boolean--${subscription}--Session`] = true
+      return acc
+    }, {})
     await postToAutopilot(`/contact`, {
       contact: {
         FirstName: name,
         Email: email,
         LeadSource: '1-day workshops form',
         _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
-        /* 
-        TODO: refactor the sessions into an array of strings e.g.:
-        const {
-          name,
-          email,
-          sessions  // ["Fundamentals", "Styling", etc]
-        } = data
-        */
-
-        // TODO: custom = sessions.map(session => `boolean--${session}--Session`)
-        custom: {
-          'boolean--Fundamentals--Session': fundamentals,
-          'boolean--Styling--Session': styling,
-          'boolean--Hooks--Session': hooks,
-          'boolean--Perf--Session': perf,
-          'boolean--GQLclient--Session': gqlclient,
-          'boolean--Testing--Session': testing,
-          'boolean--Resources--Signup': resources,
-          'boolean--Native--Signup': native,
-        },
+        custom,
       },
     })
     response.status(200).send('it worked')

@@ -30,32 +30,14 @@ import { Breadcrumb } from 'src/components/navigation'
 
 const NameInput = aliasComponent(InputField)
 
-const SessionInterest = ({ trainings }) => (
+const SessionInterest = () => (
   <Layout>
     {({ trainings }) => {
-      const handleFormSubmit = ({
-        name,
-        email,
-        fundamentals = false,
-        styling = false,
-        hooks = false,
-        perf = false,
-        gqlclient = false,
-        testing = false,
-        resources = false,
-        native = false,
-      }) => {
+      const handleFormSubmit = ({ name, email, subscriptions }) => {
         triggerSessionSubscribe({
           name,
           email,
-          fundamentals,
-          styling,
-          hooks,
-          perf,
-          gqlclient,
-          testing,
-          resources,
-          native,
+          subscriptions: Object.keys(subscriptions),
         })
         navigate('/thanks-for-signing-up-for-sessions')
       }
@@ -127,30 +109,30 @@ const SessionInterest = ({ trainings }) => (
                               </Col>
                               <Col xs={12} md={6}>
                                 <CheckboxField
-                                  name="fundamentals"
+                                  name="subscriptions.fundamentals"
                                   label="Modern JS and React Fundamentals"
                                 />
                                 <CheckboxField
-                                  name="styling"
+                                  name="subscriptions.styling"
                                   label="Styling in React and Design Systems"
                                 />
                                 <CheckboxField
-                                  name="hooks"
+                                  name="subscriptions.hooks"
                                   label="React Hooks & Suspense"
+                                />
+                                <CheckboxField
+                                  name="subscriptions.perf"
+                                  label="Performance & FP in React"
                                 />
                               </Col>
                               <Col xs={12} md={6}>
                                 <React.Fragment>
                                   <CheckboxField
-                                    name="perf"
-                                    label="Adv React patterns, FP, and performance"
-                                  />
-                                  <CheckboxField
-                                    name="testing"
+                                    name="subscriptions.testing"
                                     label="Testing in React"
                                   />
                                   <CheckboxField
-                                    name="native"
+                                    name="subscriptions.native"
                                     label="React Native"
                                   />
                                 </React.Fragment>
@@ -171,7 +153,7 @@ const SessionInterest = ({ trainings }) => (
                                   them!{' '}
                                 </P>
                                 <CheckboxField
-                                  name="resources"
+                                  name="subscriptions.resources"
                                   label="I want free learning resources!"
                                 />
                               </Col>
