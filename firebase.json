@@ -31,8 +31,8 @@
     ],
     "redirects": [
       {
-        "source": "/blog/what-is-GraphQL-used-for",
-        "destination": "/graphql/what-is-GraphQL-used-for",
+        "source": "/blog/what-is-GraphQL-used-for{,/}",
+        "destination": "/graphql/what-is-GraphQL-used-for/",
         "type": 301
       }
     ]
