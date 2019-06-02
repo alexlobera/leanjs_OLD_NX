@@ -361,7 +361,7 @@ class ReactCurriculum extends React.Component {
                               </Li>
                             </Ul>
 
-                            <H3>Full course curriculum:</H3>
+                            <H4>Full course curriculum:</H4>
                             <Row>
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
