@@ -27,45 +27,43 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
     >
       <CurriculumSection
         name="day1"
-        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
+        subTitle="Advanced React patterns, Hooks, and performance"
         title="Advanced React Day 1"
         toggleNavigateTo={[Function]}
         type="Advanced React"
       >
         <HoCsRenderPropsStateReducerSession
-          title="Functional Programming & Advanced React patterns I"
+          title="Functional Programming & Advanced React patterns"
         />
-        <GraphQLSession
-          title="GraphQL and Apollo client"
+        <ReactPerformanceSession
+          title="Performance"
         />
       </CurriculumSection>
       <CurriculumSection
         name="day2"
-        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
+        subTitle="Real-world Testing in React"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
         type="Advanced React"
       >
+        <TestingIntroSession
+          title="Testing Foundation in JS"
+        />
         <TestingInReactSession
           title="Testing in React"
         />
-        <CompoundCompAndContextSession
-          title="Advanced React patterns to create even more reusable UIs"
-        />
-        <ServerSideRenderingSession
-          title="Server Side Rendering (SSR)"
+        <E2ESession
+          title="End-to-End Testing"
         />
       </CurriculumSection>
       <CurriculumSection
         name="day3"
-        subTitle="Real-world Project"
+        subTitle="GraphQL and Hackathon"
         title="Advanced React Day 3"
         toggleNavigateTo={[Function]}
         type="Advanced React"
       >
-        <Hackathon
-          title="Last day real-world React challenge. We'll implement an app in teams from scratch"
-        />
+        <Hackathon />
       </CurriculumSection>
       <styled.div>
         <LinkButton
