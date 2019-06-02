@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
 import { GREY2 } from '../../config/styles'
@@ -10,17 +10,18 @@ import { GREY2 } from '../../config/styles'
 export const DEFAULT_SCROLL_OFFSET = -125
 export const DEFAULT_SCROLL_DURATION = 500
 
-export const ANCHOR_STYLE = `
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.5;
-    color: ${GREY2};
-    text-shadow: 0px 0px 1px ${GREY2};
-    ${FONT_FAMILY}
+export const ANCHOR_STYLE = css`
+  cursor: pointer;
+  color: blue;
+  text-decoration: ${({ underline = true }) =>
+    underline ? 'underline' : 'none'};
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  color: ${GREY2};
+  text-shadow: 0px 0px 1px ${GREY2};
+  ${FONT_FAMILY}
 `
 const BasicLink = styled.a`
   ${ANCHOR_STYLE};

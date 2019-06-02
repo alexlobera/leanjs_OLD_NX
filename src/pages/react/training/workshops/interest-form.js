@@ -138,16 +138,12 @@ const SessionInterest = ({ trainings }) => (
                                   name="hooks"
                                   label="React Hooks & Suspense"
                                 />
-                                <CheckboxField
-                                  name="perf"
-                                  label="Performance & FP in React"
-                                />
                               </Col>
                               <Col xs={12} md={6}>
                                 <React.Fragment>
                                   <CheckboxField
-                                    name="gqlclient"
-                                    label="React with GraphQL client"
+                                    name="perf"
+                                    label="Adv React patterns, FP, and performance"
                                   />
                                   <CheckboxField
                                     name="testing"

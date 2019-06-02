@@ -105,7 +105,7 @@ const CurriculumSection = props => {
       {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
       <SubTitleSection>
         {subTitle ? subTitle : ''}
-        {showLinkToCurriculum ? subsection : ''}
+        {showLinkToCurriculum || enableToggle ? subsection : ''}
       </SubTitleSection>
     </Section>
   )
