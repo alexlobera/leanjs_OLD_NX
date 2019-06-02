@@ -23,10 +23,6 @@ const AdvancedReduxSession = ({ title }) => (
             indicators using thunks
           </Li>
           <Li>Using selectors to write more robust and performant code.</Li>
-          {/* <Li>
-            Sagas Vs thunks. Exercise, reimplement the previous thunk loading
-            indicator with <code>redux-saga</code>
-          </Li> */}
         </Ul>
       </Li>
       <Li>Time travel in Redux using Redux DevTools</Li>

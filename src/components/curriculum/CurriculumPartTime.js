@@ -13,7 +13,7 @@ import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/design/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
-import GraphQLIntroSession from './sessions/GraphQLIntroSession'
+import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
 import SectionCTA from './SectionCTA'
@@ -22,8 +22,8 @@ import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 const PartTimeFinalProject = () => (
   <Ul>
     <Li>
-      Consolidate your new React skills by adding Redux or GraphQL to the
-      application you built on session 5
+      Consolidate your new React skills by adding Styled-Components and Redux to
+      the application you built on session 5
     </Li>
     <Li>Discussion about architecture, features and tools</Li>
     <Li>
@@ -113,14 +113,14 @@ const CurriculumPartTime = ({
       </Section>
       <Section
         {...commonProps}
-        title="Session 9 - Introduction to GraphQL"
+        title="Session 9 - Advanced Redux"
         name="session9"
       >
-        <GraphQLIntroSession />
+        <AdvancedReduxSession />
       </Section>
       <Section
         {...commonProps}
-        title="Session 10 - React Redux/ GraphQL Real-world Project"
+        title="Session 10 - React Redux Real-world Project"
         name="session10"
       >
         <PartTimeFinalProject />
