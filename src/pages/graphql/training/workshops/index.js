@@ -19,6 +19,7 @@ const workshops = [
     title: 'GraphQL Apollo Client',
     description:
       'Create production-ready React applications with the most community-driven GraphQL client',
+    // To: Temporarily disabled until we fix how to identify workshops in Up Mentoring
     // to: '/graphql/training/workshops/graphql-apollo-client/london/',
   },
   {
