@@ -24,7 +24,7 @@ import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const graphqlApolloWorkshop = () => (
+const GraphQLApolloClientWorkshop = () => (
   <Layout>
     {({ trainings }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -153,4 +153,4 @@ const graphqlApolloWorkshop = () => (
   </Layout>
 )
 
-export default graphqlApolloWorkshop
+export default GraphQLApolloClientWorkshop

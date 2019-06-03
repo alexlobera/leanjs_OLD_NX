@@ -34,7 +34,7 @@ const workshops = [
   },
 ]
 
-const GraphqlWorkshops = () => (
+const GraphQLWorkshops = () => (
   <Layout>
     {({ trainings }) => {
       return (
@@ -110,4 +110,4 @@ const GraphqlWorkshops = () => (
   </Layout>
 )
 
-export default GraphqlWorkshops
+export default GraphQLWorkshops

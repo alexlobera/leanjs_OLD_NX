@@ -25,7 +25,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const StylingDesignSystemWorkshop = () => (
+const GraphQLApolloClientWorkshopLondon = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       // Temporarily disabled until we fix how to identify workshops in Up Mentoring
@@ -176,4 +176,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default GraphQLApolloClientWorkshopLondon
