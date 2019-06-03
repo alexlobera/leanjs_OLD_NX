@@ -79,12 +79,6 @@ export const H4_STYLE = `
 
 export const H4 = styled.h4`
   ${H4_STYLE};
-  ${({ borderLeft }) =>
-    borderLeft &&
-    `
-    border-left: 0.4rem solid ${GREY2};
-    padding-left: 1rem;
-  `}
 `
 
 export const H4Ref = styled(H4)`
