@@ -12,7 +12,6 @@ export { TrustedByLogoList } from './TrustedBySection'
 export { default as TargetAudienceSection } from './TargetAudienceSection'
 export {
   default as TrainingDetails,
-  ADAM_LANCASTER,
   HORACIO_HERRERA,
   WILL_VOELCKER,
   ALEX_LOBERA,

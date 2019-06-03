@@ -18,7 +18,6 @@ import {
   RICHARD,
   HORACIO,
   WILL,
-  ADAM,
   EVA,
   ROY,
   DAVID,
@@ -466,68 +465,6 @@ const AboutUs = () => (
                   skills, stretch their brains, further their understanding, and
                   advance their career.
                 </Blockquote>
-              </Col>
-            </Row>
-          </Grid>
-        </Section>
-        <Section>
-          <Grid>
-            <Row>
-              <Col xs={12} md={4} mdOffset={1}>
-                <H2Ref>
-                  Adam Lancaster
-                  <Link name="adam-lancaster" to="#adam-lancaster">
-                    #
-                  </Link>
-                </H2Ref>
-                <CoachTitle>
-                  Software Engineer at{' '}
-                  <Link to="https://nested.com">Nested</Link>
-                </CoachTitle>
-                <Ul inline>
-                  <Li>
-                    <SocialLink to="https://github.com/Adzz">GitHub</SocialLink>
-                  </Li>
-
-                  <Li>|</Li>
-                  <Li>
-                    <SocialLink to="https://www.linkedin.com/in/adam-lancaster-9845a23a/">
-                      LinkedIn
-                    </SocialLink>
-                  </Li>
-                  <Li>|</Li>
-                  <Li>
-                    <SocialLink to="https://twitter.com/ItizAdz/">
-                      Twitter
-                    </SocialLink>
-                  </Li>
-                </Ul>
-                <Ul>
-                  <Li>
-                    <strong>Full stack software engineer</strong> currently
-                    playing with Elixir and React.
-                  </Li>
-                  <Li>
-                    Started working in startups and no one has told him to leave
-                    yet, which he takes as encouragement.
-                  </Li>
-                  <Li>
-                    Always looking for new ways to procrastinate things to
-                    learn.
-                  </Li>
-                </Ul>
-                <Blockquote bg="primary" triangle="right">
-                  Teaching is always rewarding, but it is one of the most
-                  undervalued skills in our industry. I always enjoy the chance
-                  to practice it.
-                </Blockquote>
-              </Col>
-              <Col xs={12} md={5} mdOffset={1}>
-                <Image
-                  src={ADAM}
-                  width="100%"
-                  alt="React GraphQL Academy coach Adam Lancaster, on top of a tall building as a cityscape is in the background fading out to the horizon"
-                />
               </Col>
             </Row>
           </Grid>
