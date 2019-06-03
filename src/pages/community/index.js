@@ -92,8 +92,8 @@ const Community = () => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow>
-                <Col xs={12} sm={4}>
+              <CallToActionRow left>
+                <Col xs={12} sm={4} xs={12} sm={5} lgOffset={1}>
                   <LinkButton
                     variant="primary"
                     to={nextBootcamp && nextBootcamp.toPath}
