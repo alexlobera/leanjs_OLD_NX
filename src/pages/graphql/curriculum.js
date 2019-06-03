@@ -14,7 +14,13 @@ import {
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
 } from 'src/components/navigation'
-import { Tabs, TabContent, ContentItem } from 'src/components/layout/Tabs'
+import {
+  Tabs,
+  TabList,
+  TabItem,
+  TabContent,
+  ContentItem,
+} from 'src/components/layout/Tabs'
 
 import { CurriculumGraphQL, MarketingCard } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
