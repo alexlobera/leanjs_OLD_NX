@@ -20,6 +20,7 @@ import { MEETUP, selectMeetups, instagramPictures } from '../../config/data'
 import { MENTORSHIP_IMG } from '../../config/images'
 import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
 import Ul, { Li } from 'src/components/layout/Ul'
+import { Breadcrumb } from 'src/components/navigation'
 
 const SecondaryCard = styled(Card)`
   margin-top: 36px;
@@ -78,6 +79,12 @@ const Community = () => (
 
       return (
         <React.Fragment>
+          <Breadcrumb
+            path={[
+              { to: '/', label: 'Home' },
+              { to: '/community', label: 'Community' },
+            ]}
+          />
           <Header
             titleLines={['The React GraphQL', 'Academy community']}
             subtitle="We are not a group of people - but a movement!"

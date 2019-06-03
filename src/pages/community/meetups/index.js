@@ -20,6 +20,7 @@ import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import Ul, { Li } from 'src/components/layout/Ul'
+import { Breadcrumb } from 'src/components/navigation'
 
 const Community = () => (
   <Layout>
@@ -36,6 +37,13 @@ const Community = () => (
 
       return (
         <React.Fragment>
+          <Breadcrumb
+            path={[
+              { to: '/', label: 'Home' },
+              { to: '/community', label: 'Community' },
+              { to: '/community/meetups/', label: 'Meetups' },
+            ]}
+          />
           <Header
             titleLines={['The React GraphQL', 'Academy community']}
             subtitle="We are not a group of people - but a movement!"
@@ -144,7 +152,7 @@ const Community = () => (
                     in the tech industry. If you're company has a great space,
                     we'd love to hear from you!
                   </P>
-                  <Link to="#contact-us">Contact us</Link>
+                  <LinkButton to="#contact-us">Contact us</LinkButton>
                 </Col>
               </Row>
             </Grid>
