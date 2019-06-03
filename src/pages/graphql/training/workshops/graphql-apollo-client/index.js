@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LONDON_BOOTCAMP } from 'src/../images/covers/londonBootcamp.jpg'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
@@ -65,7 +65,7 @@ const graphqlApolloWorkshop = () => (
               {/* 
               Temporarily disabled until we fix how to identify workshops in Up Mentoring
               <CallToActionRow left>
-                <Col xs={12} mdOffset={1} md={4}>
+                <Col  mdOffset={1} md={4}>
                   <LinkButton
                     variant="primary"
                     to="/graphql/training/workshops/graphql-apollo-client/london"

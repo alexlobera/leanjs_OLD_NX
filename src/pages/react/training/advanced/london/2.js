@@ -70,14 +70,14 @@ const BootcampLondon = () => (
             <Grid>
               <Card bg="dark">
                 <Row>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                  <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
                       trainingLoading={trainingLoading}
                       trainingError={trainingError}
                     />
                   </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                  <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="yvROXLQ1jHg" />
                     <TrainingDetails
                       foodIncluded={false}

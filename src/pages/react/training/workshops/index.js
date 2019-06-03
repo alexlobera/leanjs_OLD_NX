@@ -91,7 +91,7 @@ const Workshops = () => (
                         }
 
                         return (
-                          <Col xs={12} sm={6} md={4}>
+                          <Col sm={6} md={4}>
                             <TrainingCard borderColor={REACT_BLUE_DARK}>
                               <Link underline={false} to={to}>
                                 <H4>{workshop.title}</H4>

@@ -7,7 +7,6 @@ exports[`<FullCurriculum /> should render component 1`] = `
       lg={10}
       lgOffset={1}
       md={12}
-      xs={12}
     >
       <Styled(styled.h2)>
         Choose a course...
@@ -25,7 +24,6 @@ exports[`<FullCurriculum /> should render component 1`] = `
     <Styled(Col)
       lg={11}
       md={12}
-      xs={12}
     >
       <Tabs
         active="React Bootcamp"
@@ -92,7 +90,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
           <ContentItem
             name="GraphQL Bootcamp"
           >
-            <CurriculumGraphQL
+            <CurriculumGraphQLBootcamp
               showTitle={false}
             />
           </ContentItem>

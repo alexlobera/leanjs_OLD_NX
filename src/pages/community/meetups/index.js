@@ -56,7 +56,7 @@ const Community = () => (
           <TopSection>
             <Grid>
               <CallToActionRow left>
-                <Col xs={12} sm={5} lgOffset={1}>
+                <Col sm={5} lgOffset={1}>
                   <LinkButton
                     variant="primary"
                     to={nextMeetup && nextMeetup.toPath}
@@ -124,13 +124,13 @@ const Community = () => (
           <Section>
             <Grid>
               <Row>
-                <Col xs={12} md={6}>
+                <Col md={6}>
                   <Image
                     src={BOOTCAMP_RIGHT}
                     alt="React GraphQL Academy meetup"
                   />
                 </Col>
-                <Col xs={12} md={5} mdOffset={1}>
+                <Col md={5} mdOffset={1}>
                   <H2>
                     Our meetup community <a name="mentor-community" />
                   </H2>

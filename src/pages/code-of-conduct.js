@@ -111,7 +111,7 @@ const CodeOfConduct = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={10} mdOffset={1}>
+              <Col md={10} mdOffset={1}>
                 <H2Ref>
                   More detail
                   <Link to="#more-detail" name="more-detail">
@@ -121,7 +121,7 @@ const CodeOfConduct = () => (
               </Col>
             </Row>
             <Row>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <P>
                   Harassment includes offensive verbal comments related to
                   gender, gender identity and expression, age, sexual
@@ -169,7 +169,7 @@ const CodeOfConduct = () => (
                   and training-related social events.
                 </P>
               </Col>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <Image src={CODE_OF_CONDUCT_MORE_DETAIL} />
               </Col>
             </Row>

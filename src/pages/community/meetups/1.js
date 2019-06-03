@@ -53,7 +53,7 @@ const MeetUpPage = () => (
             <Grid>
               <Card bg="dark">
                 <Row>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                  <Col md={6} lg={4} lgOffset={1}>
                     <H2>Meetup details</H2>
                     <P>We are very excited to announce our next meetup!</P>
                     <P>
@@ -91,7 +91,7 @@ const MeetUpPage = () => (
                       JavaScript Berlin
                     </Link>
                   </Col>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                  <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
                       trainingError={trainingError}

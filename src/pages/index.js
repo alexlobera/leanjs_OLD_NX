@@ -48,14 +48,14 @@ const IndexPage = () => (
         <TopSection>
           <Grid>
             <CallToActionRow>
-              <Col xs={12} sm={4}>
+              <Col sm={4}>
                 <LinkButton
                   variant="primary"
                   to="/react/training"
                   children="React Courses >>"
                 />
               </Col>
-              <Col xs={12} sm={3}>
+              <Col sm={3}>
                 <LinkButton
                   to="/graphql/training"
                   children="GraphQL Courses >>"

@@ -19,8 +19,8 @@ import { LinkButton } from '../../components/buttons'
 import { MEETUP, instagramPictures } from '../../config/data'
 import { MENTORSHIP_IMG } from '../../config/images'
 import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
-import Ul, { Li } from 'src/components/layout/Ul'
-import { Breadcrumb } from 'src/components/navigation'
+import Ul, { Li } from '../../components/layout/Ul'
+import { Breadcrumb } from '../../components/navigation'
 
 const SecondaryCard = styled(Card)`
   margin-top: 36px;
@@ -192,7 +192,7 @@ const Community = () => (
                     </Col>
                   </SecondaryCard>
                 </Col>
-                <Col xs={12} md={6}>
+                <Col md={6}>
                   <Card border="shadow">
                     <Col md={8} mdOffset={2}>
                       <H2>
@@ -203,20 +203,20 @@ const Community = () => (
                     </Col>
                   </Card>
                 </Col>
-                <Col xs={12} md={6} />
+                <Col md={6} />
               </Row>
             </Grid>
           </TopSection>
           <Section>
             <Grid>
               <Row>
-                <Col xs={12} md={6}>
+                <Col md={6}>
                   <Image
                     src={MENTORSHIP_IMG}
                     alt="A group of React GraphQL Academy coaches and mentors, looking very happy indeed"
                   />
                 </Col>
-                <Col xs={12} md={5} mdOffset={1}>
+                <Col md={5} mdOffset={1}>
                   <H2>
                     Our mentor community <a name="mentor-community" />
                   </H2>

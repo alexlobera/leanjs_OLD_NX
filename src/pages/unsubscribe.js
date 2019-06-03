@@ -49,7 +49,7 @@ export class Unsubscribe extends React.Component {
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={6}>
+              <Col md={6}>
                 <P>
                   Fill the form to receive an email to unsubscribe from our
                   mailing list.

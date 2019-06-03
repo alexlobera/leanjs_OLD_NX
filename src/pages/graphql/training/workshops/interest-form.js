@@ -96,14 +96,14 @@ const SessionInterestGraphQL = () => (
                               Tell us what GraphQL workshops you'd like to see
                             </H2>
                             <Row>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <NameInput
                                   label="Your name"
                                   name="name"
                                   placeholder="eg. Steve Jobs"
                                 />
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <EmailInput
                                   validate={composeValidators(
                                     required,
@@ -120,13 +120,13 @@ const SessionInterestGraphQL = () => (
                               <Col>
                                 <H4>Which subjects are you interested in?</H4>
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <CheckboxField
                                   name="subscriptions.apolloclient"
                                   label="GraphQL Relay Modern"
                                 />
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <CheckboxField
                                   name="subscriptions.prismabackend"
                                   label="GraphQL with Prisma"

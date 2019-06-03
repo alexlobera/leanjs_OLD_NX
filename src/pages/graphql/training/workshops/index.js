@@ -80,7 +80,7 @@ const GraphqlWorkshops = () => (
                         }
 
                         return (
-                          <Col xs={12} sm={6} md={4}>
+                          <Col sm={6} md={4}>
                             <TrainingCard borderColor={GRAPHQL_PINK}>
                               <Link underline={false} to={to}>
                                 <H4>{workshop.title}</H4>

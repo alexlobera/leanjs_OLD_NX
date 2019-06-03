@@ -63,7 +63,7 @@ const StylingDesignSystemWorkshop = () => (
           <TopSection top>
             <Grid>
               <CallToActionRow left>
-                <Col xs={12} mdOffset={1} md={4}>
+                <Col mdOffset={1} md={4}>
                   <LinkButton
                     variant="primary"
                     to="/react/training/workshops/design-system-styling-in-react/london"
