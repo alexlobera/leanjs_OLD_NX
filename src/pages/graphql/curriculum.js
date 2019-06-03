@@ -256,9 +256,22 @@ class GraphQLCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>TODO</Li>
-                              <Li>TODO</Li>
-                              <Li>TODO</Li>
+                              <Li>
+                                Learn how to build data-driven React apps
+                                efficiently and rapidly using GraphQL{' '}
+                              </Li>
+                              <Li>
+                                Learn how to connect GraphQL to different data
+                                sources in a secure way
+                              </Li>
+                              <Li>
+                                Learn the best practices to model a business
+                                domain using GraphQL schemas
+                              </Li>
+                              <Li>
+                                Comprehend how to effectively run a GraphQL API
+                                in production
+                              </Li>
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -274,32 +287,30 @@ class GraphQLCurriculum extends React.Component {
                             <Row>
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
-                                {trainingBootcamp && (
-                                  <CurriculumGraphQLBootcamp
-                                    enableToggle={true}
-                                    showTitle={false}
-                                    layout={LIST_LAYOUT}
-                                    marketingCard={
-                                      trainingBootcamp && (
-                                        <MarketingCard
-                                          heading="Next GraphQL Bootcamp"
-                                          text={`In just 3 days, learn the secrets of effecient apps with GraphQL`}
-                                          to={
-                                            trainingBootcamp &&
-                                            trainingBootcamp.toPath
-                                          }
-                                          buttonText={`${
-                                            trainingBootcamp.city
-                                          } GraphQL Bootcamp, ${formatUTC(
-                                            trainingBootcamp.startDate,
-                                            trainingBootcamp.utcOffset,
-                                            'D MMM'
-                                          )}  `}
-                                        />
-                                      )
-                                    }
-                                  />
-                                )}
+                                <CurriculumGraphQLBootcamp
+                                  enableToggle={true}
+                                  showTitle={false}
+                                  layout={LIST_LAYOUT}
+                                  marketingCard={
+                                    trainingBootcamp && (
+                                      <MarketingCard
+                                        heading="Next GraphQL Bootcamp"
+                                        text={`In just 3 days, learn the secrets of effecient apps with GraphQL`}
+                                        to={
+                                          trainingBootcamp &&
+                                          trainingBootcamp.toPath
+                                        }
+                                        buttonText={`${
+                                          trainingBootcamp.city
+                                        } GraphQL Bootcamp, ${formatUTC(
+                                          trainingBootcamp.startDate,
+                                          trainingBootcamp.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    )
+                                  }
+                                />
                               </Col>
                             </Row>
                           </ContentItem>
@@ -311,9 +322,18 @@ class GraphQLCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>TODO</Li>
-                              <Li>TODO</Li>
-                              <Li>TODO</Li>
+                              <Li>
+                                Learn how to connect GraphQL to different data
+                                sources in a secure way
+                              </Li>
+                              <Li>
+                                Learn the best practices to model a business
+                                domain using GraphQL schemas
+                              </Li>
+                              <Li>
+                                Comprehend how to effectively run a GraphQL API
+                                in production
+                              </Li>
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -329,29 +349,27 @@ class GraphQLCurriculum extends React.Component {
                             <Row>
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
-                                {trainingApi && (
-                                  <CurriculumGraphQLAPI
-                                    enableToggle={true}
-                                    showTitle={false}
-                                    layout={LIST_LAYOUT}
-                                    marketingCard={
-                                      trainingApi && (
-                                        <MarketingCard
-                                          heading="Next GraphQL API Training"
-                                          text={`In just 2 days, learn the secrets of efficient GraphQL APIs`}
-                                          to={trainingApi && trainingApi.toPath}
-                                          buttonText={`${
-                                            trainingApi.city
-                                          } GraphQL Bootcamp, ${formatUTC(
-                                            trainingApi.startDate,
-                                            trainingApi.utcOffset,
-                                            'D MMM'
-                                          )}  `}
-                                        />
-                                      )
-                                    }
-                                  />
-                                )}
+                                <CurriculumGraphQLAPI
+                                  enableToggle={true}
+                                  showTitle={false}
+                                  layout={LIST_LAYOUT}
+                                  marketingCard={
+                                    trainingApi && (
+                                      <MarketingCard
+                                        heading="Next GraphQL API Training"
+                                        text={`In just 2 days, learn the secrets of efficient GraphQL APIs`}
+                                        to={trainingApi && trainingApi.toPath}
+                                        buttonText={`${
+                                          trainingApi.city
+                                        } GraphQL Bootcamp, ${formatUTC(
+                                          trainingApi.startDate,
+                                          trainingApi.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    )
+                                  }
+                                />
                               </Col>
                             </Row>
                           </ContentItem>
