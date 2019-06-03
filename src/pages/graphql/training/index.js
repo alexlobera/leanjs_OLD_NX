@@ -1,5 +1,5 @@
 import React from 'react'
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
@@ -67,15 +67,15 @@ const TrainingPage = props => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow left>
-                <Col sm={3} smOffset={1}>
+              <CallToActionRow>
+                <Col sm={4}>
                   <LinkButton
                     variant="primary"
                     to="/graphql/training/bootcamp"
                     children="GraphQL Bootcamp"
                   />
                 </Col>
-                <Col sm={3}>
+                <Col sm={4}>
                   <LinkButton
                     to="/graphql/training/corporate"
                     children="Corporate Team Training"

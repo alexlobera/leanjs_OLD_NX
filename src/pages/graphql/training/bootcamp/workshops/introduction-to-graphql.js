@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'

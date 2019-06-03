@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { HOME_PAGE } from '../../images/imageNames.js'
+import { HOME_PAGE } from '../../images/imageNames'
 import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'

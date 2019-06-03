@@ -1,7 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import Section, { TopSection } from 'src/components/layout/Section'

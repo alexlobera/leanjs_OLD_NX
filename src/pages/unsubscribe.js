@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { BOOTCAMP } from '../../images/imageNames.js'
+import { BOOTCAMP } from '../../images/imageNames'
 import Layout from '../components/layout'
 import { triggerUnsubscribe } from '../api'
 import Section from '../components/layout/Section'
