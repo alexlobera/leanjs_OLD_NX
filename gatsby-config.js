@@ -14,6 +14,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark',
     {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: 'GTM-MVK4HZS',
+        includeInDevelopment: false,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
