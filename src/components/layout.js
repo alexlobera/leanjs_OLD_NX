@@ -96,7 +96,7 @@ const Layout = ({
     ]
     scriptUrls = [
       ...scriptUrls,
-      'https://www.googletagmanager.com/gtag/js?id=GTM-MVK4HZS',
+      // 'https://www.googletagmanager.com/gtag/js?id=GTM-MVK4HZS',
     ]
   }
   const prefetchDnsLinks = prefetchDnsUrls.map(href => ({
