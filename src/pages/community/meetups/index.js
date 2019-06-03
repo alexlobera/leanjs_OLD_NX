@@ -48,10 +48,8 @@ const Community = () => (
             titleLines={['The React GraphQL', 'Academy community']}
             subtitle="We are not a group of people - but a movement!"
             links={[
-              { text: 'Twitter ', to: '#twitter' },
-              { text: 'Meetups', to: '#meetups' },
-              { text: 'Instagram', to: '#instagram' },
-              { text: 'Mentor community', to: '#mentor-community' },
+              { text: 'Upcoming Meetups ', to: '#upcoming-meetups' },
+              { text: 'Meetup community', to: '#mentor-community' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
             training={nextMeetup}
@@ -70,7 +68,10 @@ const Community = () => (
               </CallToActionRow>
               <Card border="shadow">
                 <Col lg={11} lgOffset={1}>
-                  <H2>Our upcoming meetups</H2>
+                  <H2>
+                    Our upcoming meetups
+                    <a name="upcoming-meetups" />
+                  </H2>
                   <UpcomingTrainingSection
                     curriculum
                     removeAdditionalCTAs
