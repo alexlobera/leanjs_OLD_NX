@@ -47,18 +47,17 @@ const StylingDesignSystemWorkshop = () => (
               { to: '/graphql/training/', label: 'Training' },
               { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/graphql/training/workshops/graphql-with-apollo-client',
-                label: 'GraphQL with Apollo Client',
+                to: '/graphql/training/workshops/graphql-apollo-client',
+                label: 'GraphQL Apollo Client',
               },
               {
-                to:
-                  '/graphql/training/workshops/graphql-with-apollo-client/london',
+                to: '/graphql/training/workshops/graphql-apollo-client/london',
                 label: 'London',
               },
             ]}
           />
           <Header
-            titleLines={['GraphQL with Apollo Client Workshop - London']}
+            titleLines={['GraphQL Apollo Client Workshop - London']}
             subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}

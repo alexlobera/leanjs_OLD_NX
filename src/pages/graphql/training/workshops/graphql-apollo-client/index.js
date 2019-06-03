@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
+import { LONDON_BOOTCAMP } from 'src/../images/covers/londonBootcamp.jpg'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
@@ -44,13 +44,13 @@ const graphqlApolloWorkshop = () => (
               { to: '/graphql/training/', label: 'Training' },
               { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/graphql/training/workshops/graphql-with-apollo-client',
-                label: 'GraphQL with Apollo Client',
+                to: '/graphql/training/workshops/graphql-apollo-client',
+                label: 'GraphQL Apollo Client',
               },
             ]}
           />
           <Header
-            titleLines={['GraphQL with Apollo Client']}
+            titleLines={['GraphQL  Apollo Client']}
             subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
@@ -66,7 +66,7 @@ const graphqlApolloWorkshop = () => (
                 <Col xs={12} mdOffset={1} md={4}>
                   <LinkButton
                     variant="primary"
-                    to="/graphql/training/workshops/graphql-with-apollo-client/london"
+                    to="/graphql/training/workshops/graphql-apollo-client/london"
                     children="Next workshop: 29 July, London"
                   />
                 </Col>

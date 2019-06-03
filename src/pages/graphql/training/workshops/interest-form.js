@@ -122,45 +122,15 @@ const SessionInterestGraphQL = ({ trainings }) => (
                               </Col>
                               <Col xs={12} md={6}>
                                 <CheckboxField
-                                  name="nodejs"
-                                  label="Nodejs and GraphQL"
-                                />
-                                <CheckboxField
-                                  name="advAPI"
-                                  label="Advanced GraphQL API"
-                                />
-                                <CheckboxField
-                                  name="advschema"
-                                  label="Advanced Schema"
-                                />
-                                <CheckboxField
-                                  name="perf"
-                                  label="Performance in GraphQL"
-                                />
-                                <CheckboxField
-                                  name="datasources"
-                                  label="Data sources and GraphQL in production"
+                                  name="subscriptions.apolloclient"
+                                  label="GraphQL Relay Modern"
                                 />
                               </Col>
                               <Col xs={12} md={6}>
-                                <React.Fragment>
-                                  <CheckboxField
-                                    name="testing"
-                                    label="Testing GraphQL"
-                                  />
-                                  <CheckboxField
-                                    name="replacingRedux"
-                                    label="Replacing Redux with GraphQL"
-                                  />
-                                  <CheckboxField
-                                    name="apollo"
-                                    label="Apollo Client"
-                                  />
-                                  <CheckboxField
-                                    name="advQueries"
-                                    label="Advanced Queries and Mutation"
-                                  />
-                                </React.Fragment>
+                                <CheckboxField
+                                  name="subscriptions.prismabackend"
+                                  label="GraphQL with Prisma"
+                                />
                               </Col>
                             </Row>
                             <Row style={{ marginTop: '2em' }}>

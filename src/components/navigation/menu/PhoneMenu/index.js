@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Link from '../../Link'
 import { blue1, WHITE } from '../../../../config/styles'
 import MenuData from '../Menu.json'
-import { RJSALogo } from '../../../logos/RJSALogo'
+import { RGALogo } from '../../../logos/RGALogo'
 import ToggleButton from './ToggleButton'
 
 const Item = ({ children, ...props }) => <Link {...props}>{children}</Link>
@@ -79,7 +79,7 @@ const PhoneMenu = ({ width, defaultIsOpen = false }) => {
       <ToggleButton toggleMenu={toggleMenu} isOpen={isOpen} />
       {isOpen && <Overlay onClick={toggleMenu} />}
       <MenuContent width={width} isOpen={isOpen}>
-        <RJSALogo />
+        <RGALogo />
         {items.map(item => (
           <PhoneMenuItem onClick={toggleMenu} key={item.to} to={item.to}>
             {item.text}

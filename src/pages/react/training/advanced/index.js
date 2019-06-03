@@ -48,7 +48,7 @@ const AdvancedTraining = () => (
             ]}
           />
           <Header
-            titleLines={['Advanced React, Redux,', 'GraphQL Bootcamp']}
+            titleLines={['Advanced React Training']}
             subtitle="For 3 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
             bgImageName={BOOTCAMP}
             type={ADVANCED_REACT}
@@ -80,7 +80,7 @@ const AdvancedTraining = () => (
                   </Link>
                 </Col>
                 <Col md={5} mdOffset={1}>
-                  <H2>Is this advanced React bootcamp right for me?</H2>
+                  <H2>Is this advanced React training right for me?</H2>
                   <Ul>
                     <Li>Extremely rapid, intense learning</Li>
                     <Li>

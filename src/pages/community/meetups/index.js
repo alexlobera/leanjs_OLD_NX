@@ -6,10 +6,9 @@ import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { Li } from 'src/components/layout/Ul'
 import { H2, H3, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
-import { Card, Image, Newsletter } from 'src/components/elements'
+import { Card, Image } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -17,8 +16,8 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { LinkButton } from 'src/components/buttons'
-import { MEETUP, selectMeetups, instagramPictures } from 'src/config/data'
-import { MENTORSHIP_IMG } from 'src/config/images'
+import { MEETUP, selectMeetups } from 'src/config/data'
+import { BOOTCAMP_RIGHT } from 'src/config/images'
 
 const CallToAction = styled(LinkButton)`
   position: absolute;
@@ -83,11 +82,11 @@ const Community = () => (
         trainings,
         type: MEETUP,
       })
-      const nextBootcamp =
+      const nextMeetup =
         selectNthTraining({ trainings: upcomingBootcamps }) || {}
-      const nextBootcampStartDate =
-        nextBootcamp &&
-        formatUTC(nextBootcamp.startDate, nextBootcamp.utcOffset, 'D MMM')
+      const nextMeetupStartDate =
+        nextMeetup &&
+        formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
       const meetups = selectMeetups()
 
       return (
@@ -102,148 +101,59 @@ const Community = () => (
               { text: 'Mentor community', to: '#mentor-community' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
-            training={nextBootcamp}
+            training={nextMeetup}
           />
           <TopSection>
             <Grid>
-              <Row>
-                <Col xs={12} md={6}>
-                  <Card border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>
-                        Twitter? Sure.
-                        <a name="twitter" />
-                      </H2>
-                      <CallToAction
-                        variant="primary"
-                        to={nextBootcamp && nextBootcamp.toPath}
-                        children={`Next Meetup: ${nextBootcampStartDate}, ${nextBootcamp &&
-                          nextBootcamp.city} `}
-                      />
-                      <TwitterWidgetsOnlyOnClientSide />
+              <Card border="shadow">
+                <Col lg={11} lgOffset={1}>
+                  <CallToAction
+                    variant="primary"
+                    to={nextMeetup && nextMeetup.toPath}
+                    children={`Next Meetup: ${nextMeetupStartDate}, ${nextMeetup &&
+                      nextMeetup.city} `}
+                  />
+                  <H2>Our upcoming meetups</H2>
+                  <UpcomingTrainingSection
+                    curriculum
+                    removeAdditionalCTAs
+                    trainings={upcomingBootcamps}
+                  />
+                  <H3>Our groups</H3>
+                  <Row>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-London">
+                        JavaScript London
+                      </MeetupLink>
                     </Col>
-                  </Card>
-                  <SecondaryCard border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>Keep informed...</H2>
-                      <Newsletter />
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
+                        JavaScript Lisbon
+                      </MeetupLink>
                     </Col>
-                  </SecondaryCard>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
+                        JavaScript Barcelona
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
+                        JavaScript Amsterdam
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Paris">
+                        JavaScript Paris
+                      </MeetupLink>
+                    </Col>
+                    <Col xs={6}>
+                      <MeetupLink to="http://meetup.com/JavaScript-Berlin">
+                        JavaScript Berlin
+                      </MeetupLink>
+                    </Col>
+                  </Row>
                 </Col>
-                <Col xs={12} md={6}>
-                  <Card border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>
-                        Meetups? Absolutely! <a name="meetups" />
-                      </H2>
-                      {meetups.length ? (
-                        <React.Fragment>
-                          <EventList>
-                            <Li>
-                              <H3>Events</H3>
-                            </Li>
-                            {meetups.map(
-                              ({
-                                cityShortName,
-                                country,
-                                dateStartsOn,
-                                utcOffset,
-                                url,
-                                title,
-                                imgUrl,
-                              }) => (
-                                <Li key={url}>
-                                  <Row>
-                                    <Col sm={6}>
-                                      <Image src={imgUrl} />
-                                    </Col>
-                                    <Col sm={6}>
-                                      <div>
-                                        <P>
-                                          <strong>{title}</strong>
-                                          <br />
-                                          {formatUTC(
-                                            dateStartsOn,
-                                            utcOffset,
-                                            'D MMM'
-                                          )}{' '}
-                                          - {cityShortName}, {country}
-                                        </P>
-                                        <LinkButton
-                                          variant="secondary"
-                                          to={url}
-                                          children={'Read more'}
-                                        />
-                                      </div>
-                                    </Col>
-                                  </Row>
-                                </Li>
-                              )
-                            )}
-                          </EventList>
-                        </React.Fragment>
-                      ) : null}
-                      <H3>Our groups</H3>
-                      <Row>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-London">
-                            JavaScript London
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                            JavaScript Lisbon
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                            JavaScript Barcelona
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                            JavaScript Amsterdam
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                            JavaScript Paris
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                            JavaScript Berlin
-                          </MeetupLink>
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Card>
-                  <SecondaryCard border="shadow">
-                    <Col md={8} mdOffset={2}>
-                      <H2>
-                        Instagram - boom! <a name="instagram" />
-                      </H2>
-                      <p>
-                        <Link to="https://www.instagram.com/reactgraphqlacademy/">
-                          @reactgraphqlacademy
-                        </Link>
-                      </p>
-                      <Row>
-                        {instagramPictures.map(({ imageUrl, pageUrl }) => (
-                          <Col xs={4} key={pageUrl}>
-                            <Link to={pageUrl}>
-                              <Image
-                                src={imageUrl}
-                                alt="React GraphQL Academy Instagram images. We were unable to bring the descriptive text from Instagram, apologies."
-                              />
-                            </Link>
-                          </Col>
-                        ))}
-                      </Row>
-                    </Col>
-                  </SecondaryCard>
-                </Col>
-              </Row>
+              </Card>
             </Grid>
           </TopSection>
           <Section>
@@ -251,38 +161,33 @@ const Community = () => (
               <Row>
                 <Col xs={12} md={6}>
                   <Image
-                    src={MENTORSHIP_IMG}
-                    alt="A group of React GraphQL Academy coaches and mentors, looking very happy indeed"
+                    src={BOOTCAMP_RIGHT}
+                    alt="React GraphQL Academy meetup"
                   />
                 </Col>
                 <Col xs={12} md={5} mdOffset={1}>
                   <H2>
-                    Our mentor community <a name="mentor-community" />
+                    Our meetup community <a name="mentor-community" />
                   </H2>
                   <P>
-                    React GraphQL Academy is devoted to helping developers grow
-                    in their professional career. Our dedication stands beyond
-                    making them awesome React developers. We want them to make
-                    an impact in the organizations and people they choose to
-                    work with.
+                    React GraphQL Academy is devoted to helping developers
+                    expand their knowledge of the React ecosystem and beyond. We
+                    organize and run free workshops and events for the
+                    JavaScript developer community across several European
+                    cities.
                   </P>
                   <P>
-                    Our experience tells us that the best way to master a skill
-                    is by teaching it. We believe sharing knowledge also
-                    contributes to creating collaborative workplaces &
-                    communities.
+                    Community meetups are a great way to both learn something
+                    new and connect with other motivated developers in your city
+                    :-)
                   </P>
+                  <H3>Would your company like to host a JavaScript meetup?</H3>
                   <P>
-                    The React GraphQL Academy mentorship program enables those
-                    experienced developers in our community to take a step
-                    farther and become a mentor in our community events and
-                    workshops. This way they can build the experience required
-                    to become not only a great developer but also a great coach,
-                    speaker, and team player.
+                    We love to bringing the community to interesting companies
+                    in the tech industry. If you're company has a great space,
+                    we'd love to hear from you!
                   </P>
-                  <P>
-                    <Link to="#contact-us">Contact us</Link>
-                  </P>
+                  <Link to="#contact-us">Contact us</Link>
                 </Col>
               </Row>
             </Grid>

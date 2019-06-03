@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { FONT_FAMILY } from '../../config/styles'
+import { FONT_FAMILY, GREY2 } from '../../config/styles'
 
 const REF = `
     :hover {
@@ -74,10 +74,17 @@ export const H4_STYLE = `
   font-size: 1.16rem;
   line-height: 1.3;
   font-weight: 600;
+  text-decoration: none;
 `
 
 export const H4 = styled.h4`
   ${H4_STYLE};
+  ${({ borderLeft }) =>
+    borderLeft &&
+    `
+    border-left: 0.4rem solid ${GREY2};
+    padding-left: 1rem;
+  `}
 `
 
 export const H4Ref = styled(H4)`

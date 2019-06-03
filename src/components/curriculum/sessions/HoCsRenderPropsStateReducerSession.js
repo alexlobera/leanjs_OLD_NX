@@ -8,8 +8,8 @@ const HoCsRenderPropsStateReducerSession = ({ title }) => (
       <Li>
         Functional programming (FP)
         <Ul>
-          <Li>Function composition in JavaScript</Li>
-          <Li>Composing React components</Li>
+          <Li>Closures</Li>
+          <Li>Composition</Li>
         </Ul>
       </Li>
       <Li>

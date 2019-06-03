@@ -7,11 +7,15 @@ import { H2Ref, H3 } from '../../text'
 import selectCurriculumCorpLayout, {
   LIST_TWO_COL,
 } from '../selectCurriculumCorpLayout'
+import DesignThinkingSession from '../sessions/design/DesignThinkingSession'
+import DesignSystemSession from '../sessions/design/DesignSystemSession'
+import StylingInReactSession from '../sessions/design/StylingInReactSession'
+import ReusableComponentsSession from '../sessions/design/ReusableComponentsSession'
 
 const CurriculumOneDayStyling = ({
   showTitle = true,
   layout,
-  enableToggle,
+  enableToggle = true,
   isOpen,
   toggleNavigateTo = `/react/curriculum?tab=${ONE_DAY_WORKSHOP}`,
   marketingCard = null,
@@ -30,33 +34,36 @@ const CurriculumOneDayStyling = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Thinking in design systems"
-        name="day1"
-        subTitle="Atomic Design, Design Tokens & Designer developer hand over"
-      />
+        title="Design-Thinking in the real world"
+        subTitle="UX, Atomic Design & Designer/Developer handover"
+      >
+        <DesignThinkingSession />
+      </Section>
       <Section
         {...commonProps}
         title="Styling in React"
-        name="day2"
-        subTitle="Component based CSS with styled-components
-        & Storybook"
-      />
+        subTitle="Component based CSS with styled-components & Storybook"
+      >
+        <StylingInReactSession />
+      </Section>
     </React.Fragment>
   )
   const secondHalf = (
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Design System Fundamentals"
-        name="day3"
-        subTitle="Themeing & Variants, using styled-components and styled-system"
-      />
+        title="Design System fundamentals"
+        subTitle="Theming & Variants, using styled-components and styled-system"
+      >
+        <DesignSystemSession />
+      </Section>
       <Section
         {...commonProps}
-        title="Advanced UI patterns"
-        name="day3"
-        subTitle="Compound components and React Context, to increase re-usability and dev experience"
-      />
+        title="Resuable component libraries"
+        subTitle="Compound components, context, and component surface area"
+      >
+        <ReusableComponentsSession />
+      </Section>
     </React.Fragment>
   )
 
@@ -66,7 +73,7 @@ const CurriculumOneDayStyling = ({
         <Row>
           <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
-              Design Systems & Styling in React{' '}
+              Styling in React using Design Systems{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>

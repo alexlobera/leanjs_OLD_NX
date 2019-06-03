@@ -28,7 +28,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day0"
         subTitle="React 101 and JS fundamentals"
-        title="Evening pre-training: React JS 101 (optional)"
+        title="Evening pre-bootcamp (optional)"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
@@ -70,47 +70,47 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="day3"
-        subTitle="Redux, and Testing Principles"
+        subTitle="Redux Fundamentals, Advanced Redux, and FP"
         title="React Bootcamp Day 3"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
         <IntroReduxSession
-          title="Introduction to Redux"
+          title="Redux Fundamentals"
         />
-        <TestingIntroSession
-          title="Testing Principales"
+        <AdvancedReduxSession
+          title="Advanced Redux"
         />
       </CurriculumSection>
       <CurriculumSection
         name="day4"
-        subTitle="Functional Programming, Advanced React patterns I, and GraphQL"
+        subTitle="Advanced React patterns, Hooks, and performance"
         title="React Bootcamp Day 4"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
         <HoCsRenderPropsStateReducerSession
-          title="Functional Programming & Advanced React patterns I"
+          title="Functional Programming & Advanced React patterns"
         />
-        <GraphQLSession
-          title="GraphQL and Apollo client"
+        <ReactPerformanceSession
+          title="Performance"
         />
       </CurriculumSection>
       <CurriculumSection
         name="day5"
-        subTitle="Real-world Testing in React, Advanced React Patterns II, and SSR"
+        subTitle="Real-world Testing in React"
         title="React Bootcamp Day 5"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
       >
+        <TestingIntroSession
+          title="Testing Foundation in JS"
+        />
         <TestingInReactSession
           title="Testing in React"
         />
-        <CompoundCompAndContextSession
-          title="Advanced React patterns to create even more reusable UIs"
-        />
-        <ServerSideRenderingSession
-          title="Server Side Rendering (SSR)"
+        <E2ESession
+          title="End-to-End Testing"
         />
       </CurriculumSection>
       <styled.div>

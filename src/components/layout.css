@@ -12,19 +12,6 @@
       format('truetype'); /* Safari, Android, iOS */
 }
 
-/* 
-@font-face {
-  font-family: 'Barlow';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/barlow-v3-latin_latin-ext-500.eot');
-  src: local('Barlow Medium'), local('Barlow-Medium'),
-    url('../fonts/barlow-v3-latin_latin-ext-500.woff2') format('woff2'),
-    url('../fonts/barlow-v3-latin_latin-ext-500.woff') format('woff'),
-    url('../fonts/barlow-v3-latin_latin-ext-500.ttf') format('truetype');
-} */
-
 @font-face {
   font-family: 'Barlow';
   font-style: normal;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import withWidth, { MEDIUM } from '../../utils/WithWidth'
-import { RJSALogo } from '../../logos/RJSALogo'
+import { RGALogo } from '../../logos/RGALogo'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'
@@ -40,7 +40,7 @@ export const Menu = ({ width }) => {
     <Navbar>
       <Grid>
         <MenuContainer>
-          <RJSALogo />
+          <RGALogo />
           {canIGuessTheScreenSizeUsingJS && width <= MEDIUM ? (
             <PhoneMenu />
           ) : (

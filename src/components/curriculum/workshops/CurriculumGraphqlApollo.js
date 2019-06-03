@@ -74,7 +74,7 @@ const CurriculumGraphqlApollo = ({
         <Row>
           <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
-              GraphQL with Apollo Client{' '}
+              GraphQL Apollo Client{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>

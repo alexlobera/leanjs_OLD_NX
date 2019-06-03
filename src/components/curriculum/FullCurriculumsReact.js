@@ -42,7 +42,7 @@ class FullCurriculumsReact extends React.Component {
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-                <TabItem name={ADVANCED_REACT}>Advanced React Bootcamp</TabItem>
+                <TabItem name={ADVANCED_REACT}>Advanced React Training</TabItem>
                 <TabItem name={PART_TIME}>Part-time Course</TabItem>
                 <TabItem name={ONE_DAY_WORKSHOP}>1-Day Workshops</TabItem>
               </TabList>

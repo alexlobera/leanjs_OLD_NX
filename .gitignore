@@ -9,6 +9,9 @@ firebase-debug.log
 package.lock
 package-lock.json
 
+# functions 
+functions/config
+
 # Build directory
 /public
 .DS_Store

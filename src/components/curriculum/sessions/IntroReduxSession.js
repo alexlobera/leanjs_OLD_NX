@@ -6,7 +6,7 @@ const IntroReduxSession = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>
-        Introduction to functional programming
+        Introduction to Functional Programming (FP)
         <Ul>
           <Li>Data and behaviour</Li>
           <Li>Data in, data out</Li>

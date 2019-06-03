@@ -9,7 +9,7 @@ import { SCREEN_XS_MAX } from '../utils'
 
 const BreadcrumbContainer = styled.nav`
   position: absolute;
-  top: 102px;
+  top: 84px;
   left: 0;
   width: 100%;
   z-index: ${Z_INDEX_MEDIUM};
