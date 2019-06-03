@@ -8,6 +8,7 @@ import {
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   ONE_DAY_WORKSHOP,
+  GRAPHQL_API,
   MEETUP,
 } from '../../config/data'
 
@@ -35,6 +36,8 @@ const createTrainingPath = ({ type, city = '', index }) => {
       return `/react/training/advanced/${city.toLowerCase()}/${i}`
     case GRAPHQL_BOOTCAMP:
       return `/graphql/training/bootcamp/${city.toLowerCase()}/${i}`
+    case GRAPHQL_API:
+      return `/graphql/training/api/${city.toLowerCase()}/${i}`
     case MEETUP:
       return `/community/meetups/${index}`
     case ONE_DAY_WORKSHOP:
