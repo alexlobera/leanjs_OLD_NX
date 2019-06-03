@@ -1,17 +1,6 @@
 import trackUserBehaviour from '../components/utils/trackUserBehaviour'
 
-export const triggerSessionSubscribe = ({
-  name,
-  email,
-  fundamentals,
-  styling,
-  hooks,
-  perf,
-  gqlclient,
-  testing,
-  resources,
-  native,
-}) =>
+export const triggerSessionSubscribe = ({ name, email, subscriptions }) =>
   fetch(
     `https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/sessionSubscribe`,
     {
@@ -22,14 +11,7 @@ export const triggerSessionSubscribe = ({
       body: JSON.stringify({
         name,
         email,
-        fundamentals,
-        styling,
-        hooks,
-        perf,
-        gqlclient,
-        testing,
-        resources,
-        native,
+        subscriptions,
       }),
     }
   ).then(() => {
