@@ -61,7 +61,7 @@ const Footer = ({ width }) => (
           <Col md={4} mdOffset={1}>
             {width > MEDIUM && (
               <Row>
-                <Col md={12}>
+                <Col>
                   <H3>Site links</H3>
                 </Col>
                 <Col md={6}>
@@ -105,7 +105,7 @@ const Footer = ({ width }) => (
               </Row>
             )}
             <Row>
-              <Col md={12}>
+              <Col>
                 <Span>Follow us...</Span>
                 <SocialMenu unstyled inline>
                   <Li>
@@ -142,14 +142,14 @@ const Footer = ({ width }) => (
                   </Li>
                 </SocialMenu>
               </Col>
-              <Col md={12}>
+              <Col>
                 <P sm>
                   Copyright &copy; {`2017 - ${new Date().getFullYear()}`}, React
                   GraphQL Academy is a{' '}
                   <Link to="https://leanjs.com">LeanJS</Link> product
                 </P>
               </Col>
-              <Col md={12}>
+              <Col>
                 <RGALogo />
               </Col>
             </Row>

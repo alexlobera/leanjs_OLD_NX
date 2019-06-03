@@ -33,12 +33,12 @@ class FullCurriculumsReact extends React.Component {
     return (
       <React.Fragment>
         <Row>
-          <Col md={12} lg={10} lgOffset={1}>
+          <Col lg={10} lgOffset={1}>
             <H4>Select React Curriculum:</H4>
           </Col>
         </Row>
         <Row>
-          <Col md={12} lg={11}>
+          <Col lg={11}>
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>

@@ -235,7 +235,7 @@ class ReactCurriculum extends React.Component {
                           </Tbody>
                         </Table>
                         <Row>
-                          <Col md={12}>
+                          <Col>
                             <H5>Also available...</H5>
                           </Col>
                           <Col md={6}>

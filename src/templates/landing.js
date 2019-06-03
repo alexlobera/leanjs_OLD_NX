@@ -139,7 +139,7 @@ const Landing = ({ data }) => {
               <Grid>
                 <Card>
                   <Row>
-                    <Col lg={12}>
+                    <Col>
                       <H2>Trusted by industry leaders</H2>
                       <TrustedByLogoList />
                     </Col>

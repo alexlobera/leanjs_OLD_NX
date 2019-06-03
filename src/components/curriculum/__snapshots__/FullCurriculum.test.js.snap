@@ -6,7 +6,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
     <Styled(Col)
       lg={10}
       lgOffset={1}
-      md={12}
+      
     >
       <Styled(styled.h2)>
         Choose a course...
@@ -23,7 +23,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
   <Row>
     <Styled(Col)
       lg={11}
-      md={12}
+      
     >
       <Tabs
         active="React Bootcamp"

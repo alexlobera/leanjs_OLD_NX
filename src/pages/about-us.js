@@ -112,7 +112,7 @@ const AboutUs = () => (
                       </Ul>
                     </Col>
                     <HideComponentsUsingCss xs>
-                      <Col sm={12} md={4}>
+                      <Col md={4}>
                         <Image
                           src={ABOUT_VALUES}
                           alt="React GraphQL Academy coach Richard, in a classroom presenting to a group of students during a bootcamp"
