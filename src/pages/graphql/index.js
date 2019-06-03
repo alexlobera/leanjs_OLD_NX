@@ -19,6 +19,7 @@ import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
+import { GRAPHQL_PINK } from 'src/config/styles'
 
 const trainingList = [
   {
@@ -84,7 +85,10 @@ const GraphQLPage = ({ data }) => {
                   />
                   <Col md={4} mdOffset={1}>
                     <H3>Our GraphQL training</H3>
-                    <TrainingCardList data={trainingList} />
+                    <TrainingCardList
+                      data={trainingList}
+                      borderColor={GRAPHQL_PINK}
+                    />
                   </Col>
                 </Row>
               </Card>

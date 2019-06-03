@@ -31,9 +31,9 @@ TrainingCard.defaultProps = {
   mb: 6,
 }
 
-export const TrainingCardList = ({ data = [] }) =>
+export const TrainingCardList = ({ data = [], borderColor }) =>
   data.map((training, i) => (
-    <TrainingCard key={`${training.to}${i}`}>
+    <TrainingCard key={`${training.to}${i}`} borderColor={borderColor}>
       <Link to={training.to}>
         <H4>{training.title}</H4>
       </Link>
