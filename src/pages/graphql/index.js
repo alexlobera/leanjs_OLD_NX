@@ -24,9 +24,13 @@ import { GRAPHQL_PINK } from 'src/config/styles'
 const trainingList = [
   {
     title: 'Bootcamp',
-    text: `Rapid learning with a deep-dive into GraphQL in it's
-    entirity`,
+    text: `Master GraphQL server-side and client-side`,
     to: '/graphql/training/bootcamp/',
+  },
+  {
+    title: 'APIs',
+    text: `Rapid learning with a deep-dive into GraphQL APIs`,
+    to: '/graphql/training/api/',
   },
   {
     title: 'Corporate Team Training',
