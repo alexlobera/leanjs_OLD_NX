@@ -19,7 +19,7 @@ const workshops = [
     title: 'GraphQL Apollo Client',
     description:
       'Create production-ready React applications with the most community-driven GraphQL client',
-    to: '/graphql/training/workshops/graphql-apollo-client/london/',
+    // to: '/graphql/training/workshops/graphql-apollo-client/london/',
   },
   {
     title: 'GraphQL Relay Modern',

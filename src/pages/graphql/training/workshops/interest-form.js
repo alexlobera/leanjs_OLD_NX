@@ -29,7 +29,7 @@ import { Breadcrumb } from 'src/components/navigation'
 
 const NameInput = aliasComponent(InputField)
 
-const SessionInterestGraphQL = ({ trainings }) => (
+const SessionInterestGraphQL = () => (
   <Layout>
     {({ trainings }) => {
       const handleFormSubmit = ({

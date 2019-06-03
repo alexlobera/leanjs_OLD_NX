@@ -17,8 +17,6 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  selectNthTraining,
-  selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
@@ -30,14 +28,13 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 const StylingDesignSystemWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
-        trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
-      })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
-      })
+      // Temporarily disabled until we fix how to identify workshops in Up Mentoring
+      // const bootCampTrainings = selectUpcomingTrainings({
+      //   trainings,
+      //   type: ONE_DAY_WORKSHOP,
+      //   city: LONDON,
+      // })
+      const training = undefined
       return (
         <React.Fragment>
           <Breadcrumb

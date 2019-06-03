@@ -62,6 +62,8 @@ const graphqlApolloWorkshop = () => (
           />
           <TopSection top>
             <Grid>
+              {/* 
+              Temporarily disabled until we fix how to identify workshops in Up Mentoring
               <CallToActionRow left>
                 <Col xs={12} mdOffset={1} md={4}>
                   <LinkButton
@@ -70,7 +72,7 @@ const graphqlApolloWorkshop = () => (
                     children="Next workshop: 29 July, London"
                   />
                 </Col>
-              </CallToActionRow>
+              </CallToActionRow> */}
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
