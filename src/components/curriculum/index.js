@@ -7,7 +7,8 @@ import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 import Curriculum1DayAdvancedReactRedux from './Curriculum1DayAdvancedReactRedux'
 import CurriculumCorpReact from './CurriculumCorpReact'
 import CurriculumCorpRNative from './CurriculumCorpRNative'
-import CurriculumGraphQL from './CurriculumGraphQL'
+import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
+import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 import FullCurriculumsReact from './FullCurriculumsReact'
 import CurriculumCorporateReact from './CurriculumCorporateReact'
 import CurriculumCorpGraphQL from './CurriculumCorpGraphQL'
@@ -21,7 +22,8 @@ export {
   MarketingCard,
   CurriculumAdvancedReact,
   Curriculum1DayAdvancedReactRedux,
-  CurriculumGraphQL,
+  CurriculumGraphQLBootcamp,
+  CurriculumGraphQLAPI,
   CurriculumCorpRNative,
   FullCurriculumsReact,
   CurriculumCorpReact,
