@@ -361,7 +361,7 @@ class GraphQLCurriculum extends React.Component {
                                         to={trainingApi && trainingApi.toPath}
                                         buttonText={`${
                                           trainingApi.city
-                                        } GraphQL Bootcamp, ${formatUTC(
+                                        } GraphQL API training, ${formatUTC(
                                           trainingApi.startDate,
                                           trainingApi.utcOffset,
                                           'D MMM'
