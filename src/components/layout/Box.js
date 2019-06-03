@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { space, typography, color } from 'styled-system'
+import { space, color } from 'styled-system'
 
 const Box = styled.div`
   ${space}
-  ${typography}
   ${color}
 `
 

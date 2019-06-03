@@ -65,7 +65,7 @@ class PaymentSection extends React.Component {
         },
       })
       .then(({ data = {} }) => {
-        const { netPrice, totalDiscount } = data.redeemVoucher || {}
+        const { netPrice } = data.redeemVoucher || {}
         this.setVoucherInProgress(false)
         this.setState({
           isVoucherValid: !!netPrice,

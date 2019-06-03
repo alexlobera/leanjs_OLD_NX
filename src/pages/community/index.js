@@ -16,7 +16,7 @@ import {
   selectNthTraining,
 } from '../../components/training'
 import { LinkButton } from '../../components/buttons'
-import { MEETUP, selectMeetups, instagramPictures } from '../../config/data'
+import { MEETUP, instagramPictures } from '../../config/data'
 import { MENTORSHIP_IMG } from '../../config/images'
 import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
 import Ul, { Li } from 'src/components/layout/Ul'
@@ -100,7 +100,7 @@ const Community = () => (
           <TopSection>
             <Grid>
               <CallToActionRow left>
-                <Col xs={12} sm={4} xs={12} sm={5} lgOffset={1}>
+                <Col sm={4} lgOffset={1}>
                   <LinkButton
                     variant="primary"
                     to={nextBootcamp && nextBootcamp.toPath}

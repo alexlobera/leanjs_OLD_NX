@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { FONT_FAMILY, GREY2 } from '../../config/styles'
+import { FONT_FAMILY } from '../../config/styles'
 
 const REF = `
     :hover {
