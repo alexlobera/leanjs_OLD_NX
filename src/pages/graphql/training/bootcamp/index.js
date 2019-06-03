@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H2Ref } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumGraphQL } from 'src/components/curriculum'
+import { CurriculumGraphQLBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import {
@@ -58,7 +58,7 @@ const GraphQL = () => (
               />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumGraphQL
+                <CurriculumGraphQLBootcamp
                   trainings={upcomingGraphQLTrainings}
                   enableToggle
                   isOpen={false}

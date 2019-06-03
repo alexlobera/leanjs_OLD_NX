@@ -19,13 +19,18 @@ import { LinkButton } from '../../components/buttons'
 import { MEETUP, selectMeetups, instagramPictures } from '../../config/data'
 import { MENTORSHIP_IMG } from '../../config/images'
 import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
+import Ul, { Li } from 'src/components/layout/Ul'
 
 const SecondaryCard = styled(Card)`
   margin-top: 36px;
 `
 
-const MeetupLink = styled(Link)`
-  font-size: 0.9rem;
+const MeetupList = styled(Ul)`
+  li {
+    a {
+      font-size: 16px;
+    }
+  }
 `
 
 const TwitterWidgetsOnlyOnClientSide = () => {
@@ -70,7 +75,6 @@ const Community = () => (
       const nextBootcampStartDate =
         nextBootcamp &&
         formatUTC(nextBootcamp.startDate, nextBootcamp.utcOffset, 'D MMM')
-      const meetups = selectMeetups()
 
       return (
         <React.Fragment>
@@ -115,35 +119,43 @@ const Community = () => (
 
                       <H3>Our groups</H3>
                       <Row>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-London">
-                            JavaScript London
-                          </MeetupLink>
+                        <Col sm={6}>
+                          <MeetupList unstyled>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-London">
+                                JavaScript London
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Barcelona">
+                                JavaScript Barcelona
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Paris">
+                                JavaScript Paris
+                              </Link>
+                            </Li>
+                          </MeetupList>
                         </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                            JavaScript Lisbon
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                            JavaScript Barcelona
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                            JavaScript Amsterdam
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                            JavaScript Paris
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                            JavaScript Berlin
-                          </MeetupLink>
+                        <Col sm={6}>
+                          <MeetupList unstyled>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Lisbon">
+                                JavaScript Lisbon
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Amsterdam">
+                                JavaScript Amsterdam
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Berlin">
+                                JavaScript Berlin
+                              </Link>
+                            </Li>
+                          </MeetupList>
                         </Col>
                       </Row>
                     </Col>

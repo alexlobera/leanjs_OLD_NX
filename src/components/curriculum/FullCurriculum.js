@@ -7,7 +7,7 @@ import {
   CurriculumBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
-  CurriculumGraphQL,
+  CurriculumGraphQLBootcamp,
   CurriculumOneDayWorkshops,
 } from './index'
 import {
@@ -70,7 +70,7 @@ class FullCurriculum extends React.Component {
                   <CurriculumOneDayWorkshops {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
-                  <CurriculumGraphQL {...commonCurriculumProps} />
+                  <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
                 </ContentItem>
               </TabContent>
             </Tabs>

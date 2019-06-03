@@ -16,64 +16,10 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { LinkButton } from 'src/components/buttons'
-import { MEETUP, selectMeetups } from 'src/config/data'
+import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'
-
-const CallToAction = styled(LinkButton)`
-  position: absolute;
-  top: -25px;
-`
-const SecondaryCard = styled(Card)`
-  margin-top: 36px;
-`
-
-const EventList = styled.ul`
-  list-style: none;
-  margin-left: 0;
-  h3 {
-    padding-top: 0;
-  }
-  li {
-    margin-top: 18px;
-  }
-  > li:first-child {
-    margin-top: 0;
-  }
-`
-
-const MeetupLink = styled(Link)`
-  font-size: 0.9rem;
-`
-
-const TwitterWidgetsOnlyOnClientSide = () => {
-  if (typeof window !== 'undefined') {
-    // package react-twitter-embed does not work on SSR, therefore it breaks the Gatsby build
-    const {
-      TwitterTimelineEmbed,
-      TwitterFollowButton,
-    } = require('react-twitter-embed')
-
-    return (
-      <React.Fragment>
-        <TwitterFollowButton
-          screenName="reactgqlacademy"
-          options={{ size: 'large' }}
-        />
-        <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName="reactgqlacademy"
-          options={{ height: 800 }}
-        />
-        <TwitterFollowButton
-          screenName="reactgqlacademy"
-          options={{ size: 'large' }}
-        />
-      </React.Fragment>
-    )
-  } else {
-    return null
-  }
-}
+import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
+import Ul, { Li } from 'src/components/layout/Ul'
 
 const Community = () => (
   <Layout>
@@ -87,7 +33,6 @@ const Community = () => (
       const nextMeetupStartDate =
         nextMeetup &&
         formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
-      const meetups = selectMeetups()
 
       return (
         <React.Fragment>
@@ -105,14 +50,18 @@ const Community = () => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
-                <Col lg={11} lgOffset={1}>
-                  <CallToAction
+              <CallToActionRow left>
+                <Col xs={12} sm={5} lgOffset={1}>
+                  <LinkButton
                     variant="primary"
                     to={nextMeetup && nextMeetup.toPath}
                     children={`Next Meetup: ${nextMeetupStartDate}, ${nextMeetup &&
                       nextMeetup.city} `}
                   />
+                </Col>
+              </CallToActionRow>
+              <Card border="shadow">
+                <Col lg={11} lgOffset={1}>
                   <H2>Our upcoming meetups</H2>
                   <UpcomingTrainingSection
                     curriculum
@@ -121,35 +70,43 @@ const Community = () => (
                   />
                   <H3>Our groups</H3>
                   <Row>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-London">
-                        JavaScript London
-                      </MeetupLink>
+                    <Col sm={6}>
+                      <Ul unstyled>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-London">
+                            JavaScript London
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Barcelona">
+                            JavaScript Barcelona
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Paris">
+                            JavaScript Paris
+                          </Link>
+                        </Li>
+                      </Ul>
                     </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                        JavaScript Lisbon
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                        JavaScript Barcelona
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                        JavaScript Amsterdam
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                        JavaScript Paris
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                        JavaScript Berlin
-                      </MeetupLink>
+                    <Col sm={6}>
+                      <Ul unstyled>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Lisbon">
+                            JavaScript Lisbon
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Amsterdam">
+                            JavaScript Amsterdam
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Berlin">
+                            JavaScript Berlin
+                          </Link>
+                        </Li>
+                      </Ul>
                     </Col>
                   </Row>
                 </Col>

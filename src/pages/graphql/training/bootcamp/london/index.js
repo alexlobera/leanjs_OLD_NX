@@ -6,7 +6,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumGraphQL } from 'src/components/curriculum'
+import { CurriculumGraphQLBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -134,7 +134,7 @@ const BootcampLondon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphQL
+                    <CurriculumGraphQLBootcamp
                       enableToggle={true}
                       layout={LIST_TWO_COL}
                     />

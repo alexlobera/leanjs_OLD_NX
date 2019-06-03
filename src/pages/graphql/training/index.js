@@ -8,7 +8,7 @@ import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CallToActionRow } from '../../../components/layout/CallToActionNextTrainings'
-import { CurriculumGraphQL } from '../../../components/curriculum'
+import { CurriculumGraphQLBootcamp } from '../../../components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
@@ -84,7 +84,7 @@ const TrainingPage = props => (
                 </Col>
               </CallToActionRow>
               <Card border="shadow">
-                <CurriculumGraphQL trainings={trainings} />
+                <CurriculumGraphQLBootcamp trainings={trainings} />
               </Card>
             </Grid>
           </TopSection>

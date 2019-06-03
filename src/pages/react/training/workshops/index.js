@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
