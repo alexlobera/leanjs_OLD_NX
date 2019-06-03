@@ -67,15 +67,15 @@ const TrainingPage = props => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow>
-                <Col xs={12} sm={4}>
+              <CallToActionRow left>
+                <Col sm={3} smOffset={1}>
                   <LinkButton
                     variant="primary"
                     to="/graphql/training/bootcamp"
                     children="GraphQL Bootcamp"
                   />
                 </Col>
-                <Col xs={12} sm={3}>
+                <Col sm={3}>
                   <LinkButton
                     to="/graphql/training/corporate"
                     children="Corporate Team Training"
