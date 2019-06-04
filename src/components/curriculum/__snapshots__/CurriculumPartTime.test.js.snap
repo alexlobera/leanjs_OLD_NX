@@ -119,12 +119,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       lg={5}
       lgOffset={1}
       md={6}
-    >
-      <UpcomingTrainingSection
-        curriculum={true}
-        type="Part-time"
-      />
-    </Styled(Col)>
+    />
   </Row>
 </Fragment>
 `;

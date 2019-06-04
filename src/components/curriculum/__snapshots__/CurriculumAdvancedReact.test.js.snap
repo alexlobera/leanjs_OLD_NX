@@ -79,12 +79,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       lg={5}
       lgOffset={1}
       md={6}
-    >
-      <UpcomingTrainingSection
-        curriculum={true}
-        type="Advanced React"
-      />
-    </Styled(Col)>
+    />
   </Row>
 </Fragment>
 `;

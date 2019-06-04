@@ -127,12 +127,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       lg={5}
       lgOffset={1}
       md={6}
-    >
-      <UpcomingTrainingSection
-        curriculum={true}
-        type="React Bootcamp"
-      />
-    </Styled(Col)>
+    />
   </Row>
 </Fragment>
 `;
