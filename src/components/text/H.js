@@ -74,6 +74,7 @@ export const H4_STYLE = `
   font-size: 1.16rem;
   line-height: 1.3;
   font-weight: 600;
+  text-decoration: none;
 `
 
 export const H4 = styled.h4`

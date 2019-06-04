@@ -106,7 +106,6 @@ const Card = styled.div`
     padding-left: 18px;
     padding-right: 18px;
   }
-
 `
 
 Card.displayName = 'Card'

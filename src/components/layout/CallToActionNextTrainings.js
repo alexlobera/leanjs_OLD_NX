@@ -33,7 +33,7 @@ const CallToActionNextTrainings = ({ trainings = [] }) => {
         ) => {
           const startDate = formatUTC(sDate, utcOffset, 'D MMM')
           return index === 0 ? (
-            <Col key={index} xs={12} mdOffset={1} md={5}>
+            <Col key={index} mdOffset={1} md={5}>
               <LinkButton
                 variant="primary"
                 to={toPath}
@@ -41,7 +41,7 @@ const CallToActionNextTrainings = ({ trainings = [] }) => {
               />
             </Col>
           ) : (
-            <Col key={index} xs={12} md={3} center={index === 1}>
+            <Col key={index} md={3} center={index === 1}>
               <LinkButton to={toPath} children={`${startDate}, ${city}`} />
             </Col>
           )

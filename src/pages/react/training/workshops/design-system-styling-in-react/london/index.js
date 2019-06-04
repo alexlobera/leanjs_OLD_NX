@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum'
+import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -58,7 +58,9 @@ const StylingDesignSystemWorkshop = () => (
             ]}
           />
           <Header
-            titleLines={['Styling in React and Design Systems - London']}
+            titleLines={[
+              'Styling in React and Design Systems Workshop - London',
+            ]}
             subtitle="See how React can look gorgeous and encourage design consistency"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
@@ -70,14 +72,14 @@ const StylingDesignSystemWorkshop = () => (
             <Grid>
               <Card bg="dark">
                 <Row>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                  <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
                     />
                   </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                  <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="yvROXLQ1jHg" />
                     <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>

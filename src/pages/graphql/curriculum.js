@@ -1,33 +1,46 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
 import Layout from 'src/components/layout'
+import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { H3, H4 } from 'src/components/text'
-import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
+import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
+import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
+import { Tick } from 'src/components/icons'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
 } from 'src/components/navigation'
-import { Tabs, TabContent, ContentItem } from 'src/components/layout/Tabs'
+import {
+  Tabs,
+  TabList,
+  TabItem,
+  TabContent,
+  ContentItem,
+} from 'src/components/layout/Tabs'
 
-import { CurriculumGraphQL, MarketingCard } from 'src/components/curriculum'
+import {
+  CurriculumGraphQLBootcamp,
+  CurriculumGraphQLAPI,
+  MarketingCard,
+} from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
+  TrainingCard,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
 import { getURLParameter } from 'src/components/utils/url'
-import { GRAPHQL_BOOTCAMP } from 'src/config/data'
+import { GRAPHQL_BOOTCAMP, GRAPHQL_API } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
 import { formatUTC } from 'src/components/utils'
+import { GRAPHQL_PINK } from '../../config/styles'
 
 class GraphQLCurriculum extends React.Component {
   state = {
@@ -59,9 +72,13 @@ class GraphQLCurriculum extends React.Component {
     return (
       <Layout>
         {({ trainings }) => {
-          const graphql = selectNthTraining({
+          const trainingBootcamp = selectNthTraining({
             trainings,
             type: GRAPHQL_BOOTCAMP,
+          })
+          const trainingApi = selectNthTraining({
+            trainings,
+            type: GRAPHQL_API,
           })
           return (
             <React.Fragment>
@@ -81,63 +98,131 @@ class GraphQLCurriculum extends React.Component {
               <Header
                 titleLines={['GraphQL curriculum']}
                 subtitle="We're proud to say that our curriculum is the most<br /> up-to-date on the market - there really is<br />nowhere better to learn GraphQL."
-                bgImageName={BOOTCAMP}
               />
               <TopSection>
                 <Grid>
-                  <CallToActionRow>
-                    <Col xs={12} sm={5}>
-                      <LinkButton
-                        variant="primary"
-                        to="/graphql/training/bootcamp/london"
-                        children="GraphQL Bootcamp London"
-                      />
-                    </Col>
-                  </CallToActionRow>
+                  <CallToActionNextTrainings
+                    left
+                    trainings={trainingBootcamp ? [trainingBootcamp] : []}
+                  />
                   <Card border="shadow">
                     <Row>
-                      <Col md={1} />
-                      <Col md={10}>
-                        <H4>
-                          On completion of the GraphQL Bootcamp each student
-                          will:
-                        </H4>
-                        <Ul>
-                          <Li>
-                            Understand how to build a production-ready GraphQL
-                            API using Nodejs
-                          </Li>
-                          <Li>
-                            Learn how to wrap an existent REST API with GraphQL
-                          </Li>
-                          <Li>
-                            Comprehend how to connect GraphQL to different data
-                            sources like MongoDB
-                          </Li>
-                          <Li>
-                            Understand the best practices to leverage GraphQL in
-                            React in real-world production-ready complex
-                            applications
-                          </Li>
-                          <Li>
-                            Not sure if our trainings are right for you? Read
-                            our blog{' '}
-                            <Link to="/blog/are-you-the-perfect-react-graphql-student/">
-                              <strong>
-                                Are YOU the Perfect React GraphQL Student?
-                              </strong>
-                            </Link>
-                          </Li>
-                        </Ul>
+                      <Col lg={10} lgOffset={1}>
+                        <H2Ref>
+                          Our courses - what are the differences?{' '}
+                          <Link to="#differences" name="differences">
+                            #
+                          </Link>
+                        </H2Ref>
                       </Col>
-
-                      <Col md={10} lgOffset={1}>
-                        <MarketingCard
-                          heading="Looking for training for your whole team?"
-                          text="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
-                          to="/graphql/training/corporate/"
-                          buttonText="Corporate Team Training"
-                        />
+                    </Row>
+                    <Row>
+                      <Col lg={10} lgOffset={1}>
+                        <Table>
+                          <Thead>
+                            <Tr>
+                              <Th />
+                              <Th type={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</Th>
+                              <Th type={GRAPHQL_API}>GraphQL API</Th>
+                            </Tr>
+                          </Thead>
+                          <Tbody>
+                            <Tr>
+                              <Td>Schema Design</Td>
+                              <Td>
+                                <Tick type={GRAPHQL_BOOTCAMP} />
+                              </Td>
+                              <Td>
+                                <Tick type={GRAPHQL_API} />
+                              </Td>
+                            </Tr>
+                            <Tr>
+                              <Td>Security Design</Td>
+                              <Td>
+                                <Tick type={GRAPHQL_BOOTCAMP} />
+                              </Td>
+                              <Td>
+                                <Tick type={GRAPHQL_API} />
+                              </Td>
+                            </Tr>
+                            <Tr>
+                              <Td>Server-side caching</Td>
+                              <Td>
+                                <Tick type={GRAPHQL_BOOTCAMP} />
+                              </Td>
+                              <Td>
+                                <Tick type={GRAPHQL_API} />
+                              </Td>
+                            </Tr>
+                            <Tr>
+                              <Td>Client-side caching</Td>
+                              <Td>
+                                <Tick type={GRAPHQL_BOOTCAMP} />
+                              </Td>
+                              <Td />
+                            </Tr>
+                            <Tr>
+                              <Td>Testing</Td>
+                              <Td>
+                                <Tick type={GRAPHQL_BOOTCAMP} />
+                              </Td>
+                              <Td>
+                                <Td />
+                              </Td>
+                            </Tr>
+                            <Tr>
+                              <Td />
+                              <Td>
+                                <LinkButton
+                                  variant="secondary"
+                                  to="/graphql/training/bootcamp"
+                                >
+                                  GraphQL Bootcamp
+                                </LinkButton>
+                              </Td>
+                              <Td>
+                                <LinkButton
+                                  variant="secondary"
+                                  to="/graphql/training/api"
+                                >
+                                  GraphQL API
+                                </LinkButton>
+                              </Td>
+                            </Tr>
+                          </Tbody>
+                        </Table>
+                        <Row>
+                          <Col>
+                            <H5>Also available...</H5>
+                          </Col>
+                          <Col md={6}>
+                            <TrainingCard borderColor={GRAPHQL_PINK}>
+                              <H4>Corporate training</H4>
+                              <P>
+                                Private team training, located in your offices
+                                anywhere in the world.
+                              </P>
+                              <Link to="/graphql/training/corporate">
+                                Find Out More
+                              </Link>
+                            </TrainingCard>
+                          </Col>
+                          <Col md={6}>
+                            <TrainingCard borderColor={GRAPHQL_PINK}>
+                              <H4>1 Day Workshops</H4>
+                              <P>
+                                Instense training focussing on specific parts of
+                                our GraphQL curriculum.
+                              </P>
+                              <Link
+                                variant="secondary"
+                                to="/graphql/training/workshops"
+                              >
+                                Find Out More
+                              </Link>
+                            </TrainingCard>
+                          </Col>
+                        </Row>
                       </Col>
                     </Row>
                   </Card>
@@ -149,32 +234,140 @@ class GraphQLCurriculum extends React.Component {
                   <Row>
                     <Col lg={10} lgOffset={1}>
                       <Element name="curriculum" />
+                      <H2>Choose a curriculum:</H2>
                       <Tabs
                         onChange={this.setActive}
                         active={this.state.active}
                       >
+                        <TabList>
+                          <TabItem name={GRAPHQL_BOOTCAMP}>
+                            GraphQL Bootcamp
+                          </TabItem>
+                          <TabItem name={GRAPHQL_API}>
+                            GraphQL API training
+                          </TabItem>
+                        </TabList>
                         <TabContent>
                           <ContentItem name={GRAPHQL_BOOTCAMP}>
-                            <H3>Full GraphQL curriculum:</H3>
+                            <P>
+                              <strong>
+                                On completion of the GraphQL Bootcamp each
+                                student will:
+                              </strong>
+                            </P>
+                            <Ul>
+                              <Li>
+                                Learn how to build data-driven React apps
+                                efficiently and rapidly using GraphQL{' '}
+                              </Li>
+                              <Li>
+                                Learn how to connect GraphQL to different data
+                                sources in a secure way
+                              </Li>
+                              <Li>
+                                Learn the best practices to model a business
+                                domain using GraphQL schemas
+                              </Li>
+                              <Li>
+                                Comprehend how to effectively run a GraphQL API
+                                in production
+                              </Li>
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                  <strong>
+                                    Are YOU the Perfect GraphQL GraphQL Student?
+                                  </strong>
+                                </Link>
+                              </Li>
+                            </Ul>
+
+                            <H4>GraphQL Bootcamp Curriculum:</H4>
                             <Row>
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
-                                <CurriculumGraphQL
+                                <CurriculumGraphQLBootcamp
                                   enableToggle={true}
                                   showTitle={false}
                                   layout={LIST_LAYOUT}
                                   marketingCard={
-                                    <MarketingCard
-                                      heading="Next GraphQL Bootcamp"
-                                      text={`In just 3 days, learn the secrets of effecient apps with GraphQL`}
-                                      to={graphql && graphql.toPath}
-                                      buttonText={`${graphql &&
-                                        graphql.city} GraphQL Bootcamp, ${formatUTC(
-                                        graphql && graphql.startDate,
-                                        graphql && graphql.utcOffset,
-                                        'D MMM'
-                                      )}  `}
-                                    />
+                                    trainingBootcamp && (
+                                      <MarketingCard
+                                        heading="Next GraphQL Bootcamp"
+                                        text={`In just 3 days, learn the secrets of effecient apps with GraphQL`}
+                                        to={
+                                          trainingBootcamp &&
+                                          trainingBootcamp.toPath
+                                        }
+                                        buttonText={`${
+                                          trainingBootcamp.city
+                                        } GraphQL Bootcamp, ${formatUTC(
+                                          trainingBootcamp.startDate,
+                                          trainingBootcamp.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    )
+                                  }
+                                />
+                              </Col>
+                            </Row>
+                          </ContentItem>
+                          <ContentItem name={GRAPHQL_API}>
+                            <P>
+                              <strong>
+                                On completion of the GraphQL API training each
+                                student will:
+                              </strong>
+                            </P>
+                            <Ul>
+                              <Li>
+                                Learn how to connect GraphQL to different data
+                                sources in a secure way
+                              </Li>
+                              <Li>
+                                Learn the best practices to model a business
+                                domain using GraphQL schemas
+                              </Li>
+                              <Li>
+                                Comprehend how to effectively run a GraphQL API
+                                in production
+                              </Li>
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                  <strong>
+                                    Are YOU the Perfect GraphQL GraphQL Student?
+                                  </strong>
+                                </Link>
+                              </Li>
+                            </Ul>
+
+                            <H4>GraphQL API Curriculum:</H4>
+                            <Row>
+                              <Col lg={1} lgOffset={1} />
+                              <Col lg={9}>
+                                <CurriculumGraphQLAPI
+                                  enableToggle={true}
+                                  showTitle={false}
+                                  layout={LIST_LAYOUT}
+                                  marketingCard={
+                                    trainingApi && (
+                                      <MarketingCard
+                                        heading="Next GraphQL API Training"
+                                        text={`In just 2 days, learn the secrets of efficient GraphQL APIs`}
+                                        to={trainingApi && trainingApi.toPath}
+                                        buttonText={`${
+                                          trainingApi.city
+                                        } GraphQL API training, ${formatUTC(
+                                          trainingApi.startDate,
+                                          trainingApi.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    )
                                   }
                                 />
                               </Col>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BOOTCAMP } from '../../images/imageNames.js'
+import { BOOTCAMP } from '../../images/imageNames'
 import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
@@ -26,7 +26,7 @@ const BootcampList = () => (
             <Grid>
               <Card border="shadow">
                 <Row>
-                  <Col xs={12} lg={10} lgOffset={1}>
+                  <Col lg={10} lgOffset={1}>
                     <H2>We've trained developers from a range of companies</H2>
                     <TrustedByLogoList />
                   </Col>
@@ -38,10 +38,10 @@ const BootcampList = () => (
             <Grid>
               <Card bg="dark">
                 <Row>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                  <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="yvROXLQ1jHg" />
                   </Col>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                  <Col md={6} lg={5} lgOffset={1}>
                     <Ul>
                       <Li>
                         <Link to="/react-redux-graphql-bootcamp-austin">

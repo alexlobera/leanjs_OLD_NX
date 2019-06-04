@@ -1,11 +1,11 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H3, H4, P } from 'src/components/text'
+import { H2, H3, H4, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
 import { Card } from 'src/components/elements'
 import { Button } from 'src/components/buttons'
@@ -15,7 +15,6 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-
 import { REACT_BOOTCAMP } from 'src/config/data'
 import { InputField, Form, CheckboxField } from 'src/components/form'
 import {
@@ -30,7 +29,7 @@ import { Breadcrumb } from 'src/components/navigation'
 
 const NameInput = aliasComponent(InputField)
 
-const SessionInterest = ({ trainings }) => (
+const SessionInterestGraphQL = () => (
   <Layout>
     {({ trainings }) => {
       const handleFormSubmit = ({
@@ -72,16 +71,12 @@ const SessionInterest = ({ trainings }) => (
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training/', label: 'Training' },
               { to: '/graphql/training/workshops', label: 'Workshops' },
-              {
-                to: '/graphql/training/workshops/interest-form',
-                label: 'Interest Form',
-              },
             ]}
           />
           <Header
             titleLines={['GraphQL Workshops']}
             subtitle={[
-              'Join the wait and be the first to know about our upcoming 1-day workshops',
+              'Your opportunity tell us what GraphQL workshops you want to see!',
             ]}
             bgImageName={BOOTCAMP}
             training={nextBootcamp}
@@ -97,16 +92,18 @@ const SessionInterest = ({ trainings }) => (
                       render={({ handleSubmit, valid }) => {
                         return (
                           <form onSubmit={handleSubmit}>
-                            <H4>What are your details?</H4>
+                            <H2>
+                              Tell us what GraphQL workshops you'd like to see
+                            </H2>
                             <Row>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <NameInput
                                   label="Your name"
                                   name="name"
                                   placeholder="eg. Steve Jobs"
                                 />
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <EmailInput
                                   validate={composeValidators(
                                     required,
@@ -121,15 +118,20 @@ const SessionInterest = ({ trainings }) => (
 
                             <Row>
                               <Col>
-                                <H4>Which Workshops are you interested in?</H4>
+                                <H4>Which subjects are you interested in?</H4>
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <CheckboxField
-                                  name="intro-graphql"
-                                  label="Introduction to GraphQL"
+                                  name="subscriptions.apolloclient"
+                                  label="GraphQL Relay Modern"
                                 />
                               </Col>
-                              <Col xs={12} md={6} />
+                              <Col md={6}>
+                                <CheckboxField
+                                  name="subscriptions.prismabackend"
+                                  label="GraphQL with Prisma"
+                                />
+                              </Col>
                             </Row>
                             <Row style={{ marginTop: '2em' }}>
                               <Col>
@@ -138,7 +140,7 @@ const SessionInterest = ({ trainings }) => (
                                   We share our learning resources{' '}
                                   <strong>
                                     directly from our{' '}
-                                    <Link to="/graphql/curriculum">
+                                    <Link to="/react/curriculum">
                                       <strong>curriculum</strong>
                                     </Link>
                                   </strong>{' '}
@@ -189,4 +191,4 @@ const SessionInterest = ({ trainings }) => (
   </Layout>
 )
 
-export default SessionInterest
+export default SessionInterestGraphQL

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CORP_TRAINING } from 'src/../images/imageNames.js'
+import { CORP_TRAINING } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -53,14 +53,14 @@ const CorporateReactTraining = () => (
         <TopSection>
           <Grid>
             <CallToActionRow left>
-              <Col xs={12} mdOffset={1} md={4}>
+              <Col mdOffset={1} md={4}>
                 <LinkButton
                   variant="primary"
                   to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
                   children="Team Training - Key Facts (PDF)"
                 />
               </Col>
-              <Col xs={12} mdOffset={1} md={6} />
+              <Col mdOffset={1} md={6} />
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">

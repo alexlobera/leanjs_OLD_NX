@@ -6,7 +6,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
+import { CurriculumGraphqlApollo } from 'src/components/curriculum/workshops/'
 import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -24,7 +24,7 @@ import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const StylingDesignSystemWorkshop = () => (
+const GraphQLApolloClientWorkshop = () => (
   <Layout>
     {({ trainings }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -40,18 +40,18 @@ const StylingDesignSystemWorkshop = () => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training/', label: 'Training' },
+              { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Styling in React using design systems',
+                to: '/graphql/training/workshops/graphql-apollo-client',
+                label: 'GraphQL Apollo Client',
               },
             ]}
           />
           <Header
-            titleLines={['Styling in React using design systems']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={['GraphQL  Apollo Client']}
+            subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
@@ -62,19 +62,21 @@ const StylingDesignSystemWorkshop = () => (
           />
           <TopSection top>
             <Grid>
+              {/* 
+              Temporarily disabled until we fix how to identify workshops in Up Mentoring
               <CallToActionRow left>
-                <Col mdOffset={1} md={4}>
+                <Col  mdOffset={1} md={4}>
                   <LinkButton
                     variant="primary"
-                    to="/react/training/workshops/design-system-styling-in-react/london"
-                    children="Next workshop: 15 July, London"
+                    to="/graphql/training/workshops/graphql-apollo-client/london"
+                    children="Next workshop: 29 July, London"
                   />
                 </Col>
-              </CallToActionRow>
+              </CallToActionRow> */}
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                    <CurriculumGraphqlApollo layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
@@ -98,35 +100,29 @@ const StylingDesignSystemWorkshop = () => (
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer or designer with experience building React
-                      components and using CSS?
+                      A developer with some experience developing React
+                      applications?
                     </Li>
                     <Li>
-                      A developer or designer interested in building scalable
-                      and reusable UIs for big React projects?
+                      Familiar with front-end technologies like React,
+                      JavaScript, CSS, and HTML?
                     </Li>
                     <Li>
-                      Not satisfied with the Designer/Developer handover in
-                      real-world React projects?
+                      Taking a step forward to become a GraphQL Specialist able
+                      to make critical decisions about the architecture of an
+                      application.
                     </Li>
                     <Li>
-                      A designer that builds React components and interacts with
-                      developers.
+                      Not satisfied with the pace of online learning and it's
+                      lack of 1-on-1 mentoring?
                     </Li>
                   </Ul>
                   <P>
                     If you've said 'yes' to these, this workshop could be for
                     you!
                   </P>
-                  <H3>Not for React beginners!</H3>
-                  <P>
-                    This is not a learn-to-code workshop. If you want to learn
-                    to code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code Camp
-                    </Link>
-                    .
-                  </P>
+                  <H3>Not for beginner devs!</H3>
+                  <P>This is not a learn-to-code workshop!</P>
                   <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
@@ -157,4 +153,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default GraphQLApolloClientWorkshop

@@ -12,15 +12,15 @@ const LeanJSsprints = () => (
   <StyledLeanJSsprints>
     <Card bg="darkGrey" border="shadow">
       <Row>
-        <Col xs={12} md={4} mdOffset={1}>
+        <Col md={4} mdOffset={1}>
           <Image
             src={CODEVELOP}
             width="100%"
             alt="LeanJS UX designer Paul Woodley, sorting post-it notes into different columns "
           />
         </Col>
-        <Col xs={12} md={1} />
-        <Col xs={12} md={5}>
+        <Col md={1} />
+        <Col md={5}>
           <H2Ref>
             <Link to="#development" name="development" />
             Need specialised training using your codebase?

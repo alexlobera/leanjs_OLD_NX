@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { HOME_PAGE } from '../../images/imageNames.js'
+import { HOME_PAGE } from '../../images/imageNames'
 import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
@@ -48,14 +48,14 @@ const IndexPage = () => (
         <TopSection>
           <Grid>
             <CallToActionRow>
-              <Col xs={12} sm={4}>
+              <Col sm={4}>
                 <LinkButton
                   variant="primary"
                   to="/react/training"
                   children="React Courses >>"
                 />
               </Col>
-              <Col xs={12} sm={3}>
+              <Col sm={3}>
                 <LinkButton
                   to="/graphql/training"
                   children="GraphQL Courses >>"

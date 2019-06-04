@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
@@ -83,14 +83,14 @@ const SessionInterest = () => (
                           <form onSubmit={handleSubmit}>
                             <H4>What are your details?</H4>
                             <Row>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <NameInput
                                   label="Your name"
                                   name="name"
                                   placeholder="eg. Steve Jobs"
                                 />
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <EmailInput
                                   validate={composeValidators(
                                     required,
@@ -107,7 +107,7 @@ const SessionInterest = () => (
                               <Col>
                                 <H4>Which Workshops are you interested in?</H4>
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <CheckboxField
                                   name="subscriptions.fundamentals"
                                   label="Modern JS and React Fundamentals"
@@ -125,7 +125,7 @@ const SessionInterest = () => (
                                   label="Performance & FP in React"
                                 />
                               </Col>
-                              <Col xs={12} md={6}>
+                              <Col md={6}>
                                 <React.Fragment>
                                   <CheckboxField
                                     name="subscriptions.testing"

@@ -83,4 +83,15 @@ export const theme = {
       lg: 64, // rem
     },
   },
+  // design system:
+  space: [
+    '0rem',
+    '0.625rem',
+    '0.9rem',
+    '1rem',
+    '1.5rem',
+    '2rem',
+    '3rem',
+    '4rem',
+  ],
 }

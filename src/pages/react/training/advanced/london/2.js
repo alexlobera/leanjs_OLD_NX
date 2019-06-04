@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
@@ -70,14 +70,14 @@ const BootcampLondon = () => (
             <Grid>
               <Card bg="dark">
                 <Row>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                  <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
                       trainingLoading={trainingLoading}
                       trainingError={trainingError}
                     />
                   </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                  <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="yvROXLQ1jHg" />
                     <TrainingDetails
                       foodIncluded={false}

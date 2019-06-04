@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'

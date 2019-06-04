@@ -1,16 +1,16 @@
 import React from 'react'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
-import Link from '../navigation/Link'
-import { ONE_DAY_WORKSHOP } from '../../config/data'
-import { H2Ref } from '../text'
+import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
+import { Col, Row } from '../../layout/Grid'
+import Link from '../../navigation/Link'
+import { ONE_DAY_WORKSHOP } from '../../../config/data'
+import { H2Ref, H3 } from '../../text'
 import selectCurriculumCorpLayout, {
   LIST_TWO_COL,
-} from './selectCurriculumCorpLayout'
-import DesignThinkingSession from './sessions/design/DesignThinkingSession'
-import DesignSystemSession from './sessions/design/DesignSystemSession'
-import StylingInReactSession from './sessions/design/StylingInReactSession'
-import ReusableComponentsSession from './sessions/design/ReusableComponentsSession'
+} from '../selectCurriculumCorpLayout'
+import DesignThinkingSession from '../sessions/design/DesignThinkingSession'
+import DesignSystemSession from '../sessions/design/DesignSystemSession'
+import StylingInReactSession from '../sessions/design/StylingInReactSession'
+import ReusableComponentsSession from '../sessions/design/ReusableComponentsSession'
 
 const CurriculumOneDayStyling = ({
   showTitle = true,
@@ -77,6 +77,7 @@ const CurriculumOneDayStyling = ({
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>
+              <H3>1 day workshop</H3>
             </H2Ref>
           </Col>
         </Row>

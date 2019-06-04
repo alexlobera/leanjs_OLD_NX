@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { LONDON_BOOTCAMP } from '../../../images/imageNames.js'
+import { LONDON_BOOTCAMP } from '../../../images/imageNames'
 import Layout from '../../components/layout'
 import { formatUTC } from '../../components/utils'
 import Section, { TopSection } from '../../components/layout/Section'
@@ -16,16 +16,22 @@ import {
   selectNthTraining,
 } from '../../components/training'
 import { LinkButton } from '../../components/buttons'
-import { MEETUP, selectMeetups, instagramPictures } from '../../config/data'
+import { MEETUP, instagramPictures } from '../../config/data'
 import { MENTORSHIP_IMG } from '../../config/images'
 import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
+import Ul, { Li } from '../../components/layout/Ul'
+import { Breadcrumb } from '../../components/navigation'
 
 const SecondaryCard = styled(Card)`
   margin-top: 36px;
 `
 
-const MeetupLink = styled(Link)`
-  font-size: 0.9rem;
+const MeetupList = styled(Ul)`
+  li {
+    a {
+      font-size: 16px;
+    }
+  }
 `
 
 const TwitterWidgetsOnlyOnClientSide = () => {
@@ -70,10 +76,15 @@ const Community = () => (
       const nextBootcampStartDate =
         nextBootcamp &&
         formatUTC(nextBootcamp.startDate, nextBootcamp.utcOffset, 'D MMM')
-      const meetups = selectMeetups()
 
       return (
         <React.Fragment>
+          <Breadcrumb
+            path={[
+              { to: '/', label: 'Home' },
+              { to: '/community', label: 'Community' },
+            ]}
+          />
           <Header
             titleLines={['The React GraphQL', 'Academy community']}
             subtitle="We are not a group of people - but a movement!"
@@ -88,8 +99,8 @@ const Community = () => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow>
-                <Col xs={12} sm={4}>
+              <CallToActionRow left>
+                <Col sm={4} lgOffset={1}>
                   <LinkButton
                     variant="primary"
                     to={nextBootcamp && nextBootcamp.toPath}
@@ -115,35 +126,43 @@ const Community = () => (
 
                       <H3>Our groups</H3>
                       <Row>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-London">
-                            JavaScript London
-                          </MeetupLink>
+                        <Col sm={6}>
+                          <MeetupList unstyled>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-London">
+                                JavaScript London
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Barcelona">
+                                JavaScript Barcelona
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Paris">
+                                JavaScript Paris
+                              </Link>
+                            </Li>
+                          </MeetupList>
                         </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                            JavaScript Lisbon
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                            JavaScript Barcelona
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                            JavaScript Amsterdam
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                            JavaScript Paris
-                          </MeetupLink>
-                        </Col>
-                        <Col xs={6}>
-                          <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                            JavaScript Berlin
-                          </MeetupLink>
+                        <Col sm={6}>
+                          <MeetupList unstyled>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Lisbon">
+                                JavaScript Lisbon
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Amsterdam">
+                                JavaScript Amsterdam
+                              </Link>
+                            </Li>
+                            <Li>
+                              <Link to="http://meetup.com/JavaScript-Berlin">
+                                JavaScript Berlin
+                              </Link>
+                            </Li>
+                          </MeetupList>
                         </Col>
                       </Row>
                     </Col>
@@ -173,7 +192,7 @@ const Community = () => (
                     </Col>
                   </SecondaryCard>
                 </Col>
-                <Col xs={12} md={6}>
+                <Col md={6}>
                   <Card border="shadow">
                     <Col md={8} mdOffset={2}>
                       <H2>
@@ -184,20 +203,20 @@ const Community = () => (
                     </Col>
                   </Card>
                 </Col>
-                <Col xs={12} md={6} />
+                <Col md={6} />
               </Row>
             </Grid>
           </TopSection>
           <Section>
             <Grid>
               <Row>
-                <Col xs={12} md={6}>
+                <Col md={6}>
                   <Image
                     src={MENTORSHIP_IMG}
                     alt="A group of React GraphQL Academy coaches and mentors, looking very happy indeed"
                   />
                 </Col>
-                <Col xs={12} md={5} mdOffset={1}>
+                <Col md={5} mdOffset={1}>
                   <H2>
                     Our mentor community <a name="mentor-community" />
                   </H2>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
@@ -68,14 +68,14 @@ const TrainingPage = () => (
           <TopSection>
             <Grid>
               <CallToActionRow>
-                <Col xs={12} sm={4}>
+                <Col sm={4}>
                   <LinkButton
                     variant="primary"
                     to="/react/training/bootcamp"
                     children="React Bootcamp"
                   />
                 </Col>
-                <Col xs={12} sm={4}>
+                <Col sm={4}>
                   <LinkButton
                     to="/react/training/workshops"
                     children="1-Day Workshops"
@@ -83,7 +83,7 @@ const TrainingPage = () => (
                   />
                 </Col>
 
-                <Col xs={12} sm={4}>
+                <Col sm={4}>
                   <LinkButton
                     variant="secondary"
                     to="/react/training/corporate"

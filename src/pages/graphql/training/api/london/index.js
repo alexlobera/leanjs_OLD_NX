@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P } from 'src/components/text'
+import { H2Ref, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum'
+import { CurriculumGraphQLAPI } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -16,81 +16,65 @@ import {
   AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
-  RICHARD_MOSS,
-  selectNthTraining,
   selectUpcomingTrainings,
+  selectNthTraining,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
+import { GRAPHQL_API, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const StylingDesignSystemWorkshop = () => (
+const BootcampLondon = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const upcomingGqlTrainings = selectUpcomingTrainings({
         trainings,
-        type: ONE_DAY_WORKSHOP,
+        type: GRAPHQL_API,
         city: LONDON,
       })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
-      })
+      const training =
+        selectNthTraining({ trainings: upcomingGqlTrainings }) || {}
       return (
         <React.Fragment>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
-              {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Design Systems and Styling in React',
-              },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training', label: 'Training' },
+              { to: '/graphql/training/api', label: 'API' },
+              { to: '/graphql/training/api/london', label: 'London' },
             ]}
           />
           <Header
-            titleLines={['Styling in React and Design Systems - London']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={['Build GraphQL APIs', `with experts in London`]}
+            subtitle="Take your dev career to the next level by learning how to build real-world GraphQL APIs"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
+            bgImageName={BOOTCAMP}
+            type={GRAPHQL_API}
             training={training}
             showInfoBox={true}
           />
-          <TopSection top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section xsBgDark>
+          <TopSection xsBgDark>
             <Grid>
               <Card bg="dark">
                 <Row>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                  <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
                     />
                   </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="yvROXLQ1jHg" />
-                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                  <Col md={6} lg={4} lgOffset={1}>
+                    <Video youtubeId="2-IPT7Plsfc" />
+                    <TrainingDetails coaches={[ALEX_LOBERA]} />
                   </Col>
                 </Row>
               </Card>
             </Grid>
-          </Section>
+          </TopSection>
           <Section>
             <Grid>
               <Row>
@@ -101,46 +85,28 @@ const StylingDesignSystemWorkshop = () => (
                 </HideComponentsUsingCss>
                 <Col md={6} lg={5} lgOffset={1}>
                   <H2Ref>
-                    Is this one day workshop right for me? Are you...{' '}
+                    Is this GraphQL API training right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer with some experience developing React
-                      applications?
+                      A developer with 1+ year experience building backends and
+                      REST APIs?
                     </Li>
                     <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a React JS Specialist able
-                      to make critical decisions about the architecture of a
-                      React application.
+                      Do you have some experience with JavaScript and npm?
                     </Li>
                     <Li>
                       Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
+                      lack of 1-on-1 mentoring and real-world examples?
                     </Li>
                   </Ul>
                   <P>
-                    If you've said 'yes' to these, this workshop could be for
+                    If you've said 'yes' to these, our training could be for
                     you!
                   </P>
-                  <H3>Not for beginner devs!</H3>
-                  <P>
-                    This is not a learn-to-code course. If you want to learn to
-                    code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code camps
-                    </Link>
-                    .
-                  </P>
-                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
                 </Col>
               </Row>
             </Grid>
@@ -161,11 +127,21 @@ const StylingDesignSystemWorkshop = () => (
             </Grid>
           </Section>
 
+          <Section>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumGraphQLAPI layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
     }}
   </Layout>
 )
-
-export default StylingDesignSystemWorkshop
+export default BootcampLondon

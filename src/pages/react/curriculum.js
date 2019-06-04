@@ -1,13 +1,12 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
-import styled from 'styled-components'
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { H2Ref, H2, H3, P, H4, H5 } from 'src/components/text'
+import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
   Link,
@@ -32,6 +31,7 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
+  TrainingCard,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
@@ -46,20 +46,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-
 import { REACT_BLUE_DARK } from '../../config/styles'
-
-const TrainingType = styled.div`
-  border-left: 5px solid;
-  border-color: ${REACT_BLUE_DARK};
-  padding: 1rem 1rem 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 2rem 1rem 0;
-  button {
-    display: inline-block;
-  }
-`
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -248,11 +235,11 @@ class ReactCurriculum extends React.Component {
                           </Tbody>
                         </Table>
                         <Row>
-                          <Col md={12}>
+                          <Col>
                             <H5>Also available...</H5>
                           </Col>
                           <Col md={6}>
-                            <TrainingType>
+                            <TrainingCard borderColor={REACT_BLUE_DARK}>
                               <H4>Corporate training</H4>
                               <P>
                                 Private team training, located in your offices
@@ -261,10 +248,10 @@ class ReactCurriculum extends React.Component {
                               <Link to="/react/training/corporate">
                                 Find Out More
                               </Link>
-                            </TrainingType>
+                            </TrainingCard>
                           </Col>
                           <Col md={6}>
-                            <TrainingType>
+                            <TrainingCard borderColor={REACT_BLUE_DARK}>
                               <H4>1 Day Workshops</H4>
                               <P>
                                 Instense training focussing on specific parts of
@@ -276,7 +263,7 @@ class ReactCurriculum extends React.Component {
                               >
                                 Find Out More
                               </Link>
-                            </TrainingType>
+                            </TrainingCard>
                           </Col>
                         </Row>
                       </Col>

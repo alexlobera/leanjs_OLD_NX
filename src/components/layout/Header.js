@@ -246,11 +246,9 @@ const Header = ({
     render={data => {
       const bgImage = bgImgUrl || getBackgroundImageSrc(data, bgImageName)
       const startDate =
-        training &&
         training.startDate &&
         formatUTC(training.startDate, training.utcOffset, 'D MMM')
       const endDate =
-        training &&
         training.endDate &&
         formatUTC(training.endDate, training.utcOffset, 'D MMM')
       return (

@@ -112,7 +112,7 @@ const AboutUs = () => (
                       </Ul>
                     </Col>
                     <HideComponentsUsingCss xs>
-                      <Col xs={12} sm={12} md={4}>
+                      <Col md={4}>
                         <Image
                           src={ABOUT_VALUES}
                           alt="React GraphQL Academy coach Richard, in a classroom presenting to a group of students during a bootcamp"
@@ -131,7 +131,7 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={5} smOrder={2}>
+              <Col md={5} smOrder={2}>
                 <Video
                   youtubeId="QiR8iNq3tCQ"
                   description={
@@ -141,7 +141,7 @@ const AboutUs = () => (
                   }
                 />
               </Col>
-              <Col xs={12} md={4} mdOffset={1} smOrder={1}>
+              <Col md={4} mdOffset={1} smOrder={1}>
                 <H2Ref>
                   Alex Lobera{' '}
                   <Link name="alex-lobera" to="#alex-lobera">
@@ -213,7 +213,7 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={4} mdOffset={1}>
+              <Col md={4} mdOffset={1}>
                 <H2Ref>
                   Richard Moss
                   <Link name="richard-moss" to="#richard-moss">
@@ -269,7 +269,7 @@ const AboutUs = () => (
                   I learn a lot too!
                 </Blockquote>
               </Col>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <Image
                   src={RICHARD}
                   width="100%"
@@ -282,14 +282,14 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={5} smOrder={2}>
+              <Col md={5} smOrder={2}>
                 <Image
                   src={HORACIO}
                   width="100%"
                   alt="React GraphQL Academy coach Horacio Herrera, smiling with sunglasses on."
                 />
               </Col>
-              <Col xs={12} md={4} mdOffset={1} smOrder={1}>
+              <Col md={4} mdOffset={1} smOrder={1}>
                 <H2Ref>
                   Horacio Herrera
                   <Link name="horacio-herrera" to="#horacio-herrera">
@@ -352,7 +352,7 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={4} mdOffset={1}>
+              <Col md={4} mdOffset={1}>
                 <H2Ref>
                   Eva Hoffmann
                   <Link name="eva-hoffmann" to="#eva-hoffmann">
@@ -403,7 +403,7 @@ const AboutUs = () => (
                   about diversity in tech.
                 </Blockquote>
               </Col>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <Image
                   src={EVA}
                   width="100%"
@@ -416,14 +416,14 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={5} smOrder={2}>
+              <Col md={5} smOrder={2}>
                 <Image
                   src={WILL}
                   width="100%"
                   alt="React GraphQL Academy coach Will Voelcker, smiling with coach Alex in the background"
                 />
               </Col>
-              <Col xs={12} md={4} mdOffset={1} smOrder={1}>
+              <Col md={4} mdOffset={1} smOrder={1}>
                 <H2Ref>
                   Will Voelcker
                   <Link name="will-voelcker" to="#will-voelcker">
@@ -472,7 +472,7 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={4} mdOffset={1}>
+              <Col md={4} mdOffset={1}>
                 <H2Ref>
                   Roy Derks
                   <Link name="roy-derks" to="#roy-derks">
@@ -530,7 +530,7 @@ const AboutUs = () => (
                   When in doubt, start coding.
                 </Blockquote>
               </Col>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <Image
                   src={ROY}
                   width="100%"
@@ -543,14 +543,14 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={5} smOrder={2}>
+              <Col md={5} smOrder={2}>
                 <Image
                   src={DAVID}
                   width="100%"
                   alt="React GraphQL Academy coach David Leuliette, jumping on the Brooklyn Bridge"
                 />
               </Col>
-              <Col xs={12} md={4} mdOffset={1} smOrder={1}>
+              <Col md={4} mdOffset={1} smOrder={1}>
                 <H2Ref>
                   David Leuliette
                   <Link name="david-leuliette" to="#david-leuliette">
@@ -611,7 +611,7 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={4} mdOffset={1}>
+              <Col md={4} mdOffset={1}>
                 <H2Ref>
                   Francisco Gomes
                   <Link name="francisco-gomes" to="#francisco-gomes">
@@ -659,7 +659,7 @@ const AboutUs = () => (
                   It's the passion and commitment.
                 </Blockquote>
               </Col>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <Image
                   src={FRANCISCO}
                   width="100%"
@@ -672,10 +672,10 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col xs={12} md={5} smOrder={2}>
+              <Col md={5} smOrder={2}>
                 <Video youtubeId="Rx2v_6I7PMM" />
               </Col>
-              <Col xs={12} md={6} mdOffset={1} smOrder={1}>
+              <Col md={6} mdOffset={1} smOrder={1}>
                 <H2Ref>
                   How we continuously improve{' '}
                   <Link
@@ -730,7 +730,7 @@ const AboutUs = () => (
                   </Link>
                 </H2Ref>
               </Col>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <H3>Coaches are curious</H3>
                 <P>
                   We know technology changes constantly, we embrace change and
@@ -779,7 +779,7 @@ const AboutUs = () => (
                   depending on the case.
                 </P>
               </Col>
-              <Col xs={12} md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1}>
                 <H3>Coaches are proactive and self-managed</H3>
                 <P>
                   Coaches don’t join to be told what to do. Coaches communicate,

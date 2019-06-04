@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
@@ -19,6 +19,7 @@ import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
+import { REACT_BLUE_DARK } from 'src/config/styles'
 
 const trainingList = [
   {
@@ -106,7 +107,10 @@ const ReactPage = ({ data }) => {
                   <Link to="#our-react-training" name="our-react-training" />
                   <Col md={4} mdOffset={1}>
                     <H3>Our React training</H3>
-                    <TrainingCardList data={trainingList} />
+                    <TrainingCardList
+                      data={trainingList}
+                      borderColor={REACT_BLUE_DARK}
+                    />
                   </Col>
                 </Row>
               </Card>

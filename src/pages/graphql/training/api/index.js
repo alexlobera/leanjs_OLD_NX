@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H2Ref } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumGraphQLBootcamp } from 'src/components/curriculum'
+import { CurriculumGraphQLAPI } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import {
@@ -20,7 +20,7 @@ import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTra
 import { WHY_GQLU_ACADEMY, SMALL_CLASSROOM } from 'src/config/images.js'
 import { Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_BOOTCAMP } from 'src/config/data'
+import { GRAPHQL_API } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 
 const GraphQL = () => (
@@ -28,7 +28,7 @@ const GraphQL = () => (
     {({ trainings }) => {
       const upcomingGraphQLTrainings = selectUpcomingTrainings({
         trainings,
-        type: GRAPHQL_BOOTCAMP,
+        type: GRAPHQL_API,
       })
       return (
         <React.Fragment>
@@ -37,18 +37,15 @@ const GraphQL = () => (
               { to: '/', label: 'Home' },
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training', label: 'Training' },
-              { to: '/graphql/training/bootcamp', label: 'Bootcamp' },
+              { to: '/graphql/training/api', label: 'API' },
             ]}
           />
           <Header
-            titleLines={[
-              'Take your dev career further',
-              'by mastering GraphQL',
-            ]}
-            subtitle="In-person development training from industry experts"
+            titleLines={['Build real-world', `GraphQL APIs`]}
+            subtitle="In-person GraphQL API training from industry experts"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
-            type={GRAPHQL_BOOTCAMP}
+            type={GRAPHQL_API}
           />
           <TopSection>
             <Grid>
@@ -58,7 +55,7 @@ const GraphQL = () => (
               />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumGraphQLBootcamp
+                <CurriculumGraphQLAPI
                   trainings={upcomingGraphQLTrainings}
                   enableToggle
                   isOpen={false}
@@ -72,21 +69,25 @@ const GraphQL = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <H2Ref>
-                    Is React GraphQL Academy's GraphQL course right for me?
+                    Is this GraphQL API training right for me? Are you...
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
                   </H2Ref>
                   <Ul>
                     <Li>
+                      A developer with 1+ year building backends and REST APIs?
+                    </Li>
+                    <Li>
+                      Do you have some experience with JavaScript and npm?
+                    </Li>
+                    <Li>
+                      Not satisfied with the pace of online learning and it's
+                      lack of 1-on-1 mentoring?
+                    </Li>
+                    <Li>
                       For working developers -{' '}
                       <strong>not for beginners!</strong>
-                    </Li>
-                    <Li>
-                      <strong>Hands-on project-based</strong> training.
-                    </Li>
-                    <Li>
-                      <strong>collaborative</strong> learning environment.
                     </Li>
                   </Ul>
                   <P />

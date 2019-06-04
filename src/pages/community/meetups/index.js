@@ -1,7 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames.js'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -16,64 +15,11 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { LinkButton } from 'src/components/buttons'
-import { MEETUP, selectMeetups } from 'src/config/data'
+import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'
-
-const CallToAction = styled(LinkButton)`
-  position: absolute;
-  top: -25px;
-`
-const SecondaryCard = styled(Card)`
-  margin-top: 36px;
-`
-
-const EventList = styled.ul`
-  list-style: none;
-  margin-left: 0;
-  h3 {
-    padding-top: 0;
-  }
-  li {
-    margin-top: 18px;
-  }
-  > li:first-child {
-    margin-top: 0;
-  }
-`
-
-const MeetupLink = styled(Link)`
-  font-size: 0.9rem;
-`
-
-const TwitterWidgetsOnlyOnClientSide = () => {
-  if (typeof window !== 'undefined') {
-    // package react-twitter-embed does not work on SSR, therefore it breaks the Gatsby build
-    const {
-      TwitterTimelineEmbed,
-      TwitterFollowButton,
-    } = require('react-twitter-embed')
-
-    return (
-      <React.Fragment>
-        <TwitterFollowButton
-          screenName="reactgqlacademy"
-          options={{ size: 'large' }}
-        />
-        <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName="reactgqlacademy"
-          options={{ height: 800 }}
-        />
-        <TwitterFollowButton
-          screenName="reactgqlacademy"
-          options={{ size: 'large' }}
-        />
-      </React.Fragment>
-    )
-  } else {
-    return null
-  }
-}
+import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
+import Ul, { Li } from 'src/components/layout/Ul'
+import { Breadcrumb } from 'src/components/navigation'
 
 const Community = () => (
   <Layout>
@@ -87,33 +33,44 @@ const Community = () => (
       const nextMeetupStartDate =
         nextMeetup &&
         formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
-      const meetups = selectMeetups()
 
       return (
         <React.Fragment>
+          <Breadcrumb
+            path={[
+              { to: '/', label: 'Home' },
+              { to: '/community', label: 'Community' },
+              { to: '/community/meetups/', label: 'Meetups' },
+            ]}
+          />
           <Header
             titleLines={['The React GraphQL', 'Academy community']}
             subtitle="We are not a group of people - but a movement!"
             links={[
-              { text: 'Twitter ', to: '#twitter' },
-              { text: 'Meetups', to: '#meetups' },
-              { text: 'Instagram', to: '#instagram' },
-              { text: 'Mentor community', to: '#mentor-community' },
+              { text: 'Upcoming Meetups ', to: '#upcoming-meetups' },
+              { text: 'Meetup community', to: '#mentor-community' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
             training={nextMeetup}
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
-                <Col lg={11} lgOffset={1}>
-                  <CallToAction
+              <CallToActionRow left>
+                <Col sm={5} lgOffset={1}>
+                  <LinkButton
                     variant="primary"
                     to={nextMeetup && nextMeetup.toPath}
                     children={`Next Meetup: ${nextMeetupStartDate}, ${nextMeetup &&
                       nextMeetup.city} `}
                   />
-                  <H2>Our upcoming meetups</H2>
+                </Col>
+              </CallToActionRow>
+              <Card border="shadow">
+                <Col lg={11} lgOffset={1}>
+                  <H2>
+                    Our upcoming meetups
+                    <a name="upcoming-meetups" />
+                  </H2>
                   <UpcomingTrainingSection
                     curriculum
                     removeAdditionalCTAs
@@ -121,35 +78,43 @@ const Community = () => (
                   />
                   <H3>Our groups</H3>
                   <Row>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-London">
-                        JavaScript London
-                      </MeetupLink>
+                    <Col sm={6}>
+                      <Ul unstyled>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-London">
+                            JavaScript London
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Barcelona">
+                            JavaScript Barcelona
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Paris">
+                            JavaScript Paris
+                          </Link>
+                        </Li>
+                      </Ul>
                     </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Lisbon">
-                        JavaScript Lisbon
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Barcelona">
-                        JavaScript Barcelona
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Amsterdam">
-                        JavaScript Amsterdam
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Paris">
-                        JavaScript Paris
-                      </MeetupLink>
-                    </Col>
-                    <Col xs={6}>
-                      <MeetupLink to="http://meetup.com/JavaScript-Berlin">
-                        JavaScript Berlin
-                      </MeetupLink>
+                    <Col sm={6}>
+                      <Ul unstyled>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Lisbon">
+                            JavaScript Lisbon
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Amsterdam">
+                            JavaScript Amsterdam
+                          </Link>
+                        </Li>
+                        <Li>
+                          <Link to="http://meetup.com/JavaScript-Berlin">
+                            JavaScript Berlin
+                          </Link>
+                        </Li>
+                      </Ul>
                     </Col>
                   </Row>
                 </Col>
@@ -159,13 +124,13 @@ const Community = () => (
           <Section>
             <Grid>
               <Row>
-                <Col xs={12} md={6}>
+                <Col md={6}>
                   <Image
                     src={BOOTCAMP_RIGHT}
                     alt="React GraphQL Academy meetup"
                   />
                 </Col>
-                <Col xs={12} md={5} mdOffset={1}>
+                <Col md={5} mdOffset={1}>
                   <H2>
                     Our meetup community <a name="mentor-community" />
                   </H2>
@@ -187,7 +152,7 @@ const Community = () => (
                     in the tech industry. If you're company has a great space,
                     we'd love to hear from you!
                   </P>
-                  <Link to="#contact-us">Contact us</Link>
+                  <LinkButton to="#contact-us">Contact us</LinkButton>
                 </Col>
               </Row>
             </Grid>

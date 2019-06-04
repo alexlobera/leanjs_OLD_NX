@@ -13,7 +13,7 @@ import SectionCTA from './SectionCTA'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
-const CurriculumGraphQL = ({
+const CurriculumGraphQLBootcamp = ({
   showTitle = true,
   layout,
   enableToggle,
@@ -45,7 +45,7 @@ const CurriculumGraphQL = ({
         {...commonProps}
         title="Day 1: GraphQL Foundation"
         name="day1"
-        subTitle="From Rest to GraphQL, data sources, and security"
+        subTitle="From REST to GraphQL, data sources, and security"
       >
         <GraphQLServerDayOneSessions />
       </Section>
@@ -105,4 +105,4 @@ const CurriculumGraphQL = ({
   )
 }
 
-export default CurriculumGraphQL
+export default CurriculumGraphQLBootcamp

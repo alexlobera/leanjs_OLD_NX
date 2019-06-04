@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
@@ -19,13 +19,18 @@ import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
+import { GRAPHQL_PINK } from 'src/config/styles'
 
 const trainingList = [
   {
     title: 'Bootcamp',
-    text: `Rapid learning with a deep-dive into GraphQL in it's
-    entirity`,
+    text: `Master GraphQL server-side and client-side`,
     to: '/graphql/training/bootcamp/',
+  },
+  {
+    title: 'APIs',
+    text: `Rapid learning with a deep-dive into GraphQL APIs`,
+    to: '/graphql/training/api/',
   },
   {
     title: 'Corporate Team Training',
@@ -84,7 +89,10 @@ const GraphQLPage = ({ data }) => {
                   />
                   <Col md={4} mdOffset={1}>
                     <H3>Our GraphQL training</H3>
-                    <TrainingCardList data={trainingList} />
+                    <TrainingCardList
+                      data={trainingList}
+                      borderColor={GRAPHQL_PINK}
+                    />
                   </Col>
                 </Row>
               </Card>

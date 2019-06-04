@@ -1,92 +1,81 @@
 import React from 'react'
 
-import { BOOTCAMP } from 'src/../images/imageNames'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
+import { CurriculumGraphqlApollo } from 'src/components/curriculum/workshops/'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
-import { CurriculumAdvancedReact } from 'src/components/curriculum'
 import {
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
-  selectNthTraining,
   AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
-  HORACIO_HERRERA,
   RICHARD_MOSS,
-  WILL_VOELCKER,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ADVANCED_REACT, LONDON } from 'src/config/data'
+import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const BootcampLondon = () => (
+const GraphQLApolloClientWorkshopLondon = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const upcomingAdvancedTrainings = selectUpcomingTrainings({
-        trainings,
-        type: ADVANCED_REACT,
-        city: LONDON,
-      })
-      const training =
-        selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
+      // Temporarily disabled until we fix how to identify workshops in Up Mentoring
+      // const bootCampTrainings = selectUpcomingTrainings({
+      //   trainings,
+      //   type: ONE_DAY_WORKSHOP,
+      //   city: LONDON,
+      // })
+      const training = undefined
       return (
         <React.Fragment>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training/', label: 'Training' },
+              { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/advanced',
-                label: 'Advanced',
+                to: '/graphql/training/workshops/graphql-apollo-client',
+                label: 'GraphQL Apollo Client',
               },
               {
-                to: '/react/training/advanced/london',
+                to: '/graphql/training/workshops/graphql-apollo-client/london',
                 label: 'London',
               },
             ]}
           />
           <Header
-            titleLines={['Advanced React Training - London']}
-            subtitle="Take your React career to the next level by mastering advanced React - in just 3 days!"
+            titleLines={['GraphQL Apollo Client Workshop - London']}
+            subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={header.landingTraining.links}
-            bgImageName={BOOTCAMP}
-            type={ADVANCED_REACT}
+            bgImageName={LONDON_BOOTCAMP}
+            type={ONE_DAY_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
-          <TopSection xsBgDark top>
+          <TopSection xsBgDark>
             <Grid>
               <Card bg="dark">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
-                      trainingLoading={trainingLoading}
                       trainingError={trainingError}
+                      trainingLoading={trainingLoading}
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="yvROXLQ1jHg" />
-                    <TrainingDetails
-                      foodIncluded={false}
-                      coaches={[
-                        ALEX_LOBERA,
-                        HORACIO_HERRERA,
-                        RICHARD_MOSS,
-                        WILL_VOELCKER,
-                      ]}
-                    />
+                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>
                 </Row>
               </Card>
@@ -97,33 +86,24 @@ const BootcampLondon = () => (
               <Row>
                 <HideComponentsUsingCss xs sm>
                   <Col md={6} lg={5}>
-                    <Image
-                      src={BOOTCAMP_COLLAB}
-                      width="100%"
-                      alt="React GraphQL Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
-                    />
+                    <Image src={BOOTCAMP_COLLAB} width="100%" />
                   </Col>
                 </HideComponentsUsingCss>
                 <Col md={6} lg={5} lgOffset={1}>
                   <H2Ref>
-                    Is this 1-day Advanced React training right for me? Are
-                    you...{' '}
+                    Is this one day workshop right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A{' '}
-                      <strong>
-                        React developer with 1+ year of development
-                      </strong>{' '}
-                      under your belt using React?
+                      Familiar with front-end technologies like React,
+                      JavaScript, CSS, and HTML?
                     </Li>
                     <Li>
-                      Taking a step forward to become a{' '}
-                      <strong>Senior React developer</strong> able to make
-                      critical decisions about the architecture of a React
+                      Taking a step forward to become a GraphQL Specialist able
+                      to make critical decisions about the architecture of an
                       application.
                     </Li>
                     <Li>
@@ -132,21 +112,47 @@ const BootcampLondon = () => (
                     </Li>
                   </Ul>
                   <P>
-                    If you've said 'yes' to these, our{' '}
-                    <strong>1-day advanced React training</strong> could be for
+                    If you've said 'yes' to these, this workshop could be for
                     you!
                   </P>
                   <H3>Not for beginner devs!</H3>
-                  <P>
-                    This is a bootcamp for React developers that are experienced
-                    with React. If you don't have 1+ year of experience using
-                    React we recommend you to attend our{' '}
-                    <Link to="/react/training/bootcamp">React Bootcamp</Link>.
-                  </P>
+                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                    Blog: Are YOU the Perfect React Student?
+                  </Link>
                 </Col>
               </Row>
             </Grid>
           </Section>
+          <Section top>
+            <Grid>
+              <Card bg="dark">
+                <Row>
+                  <Col md={6} lg={5} lgOffset={1}>
+                    <PaymentSection
+                      training={training}
+                      trainingError={trainingError}
+                      trainingLoading={trainingLoading}
+                    />
+                  </Col>
+                  <Col md={6} lg={4} lgOffset={1}>
+                    <Video youtubeId="yvROXLQ1jHg" />
+                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumGraphqlApollo layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
           <Section>
             <Grid>
               <Row>
@@ -163,17 +169,6 @@ const BootcampLondon = () => (
             </Grid>
           </Section>
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumAdvancedReact layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -181,4 +176,4 @@ const BootcampLondon = () => (
   </Layout>
 )
 
-export default BootcampLondon
+export default GraphQLApolloClientWorkshopLondon

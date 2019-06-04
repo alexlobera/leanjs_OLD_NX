@@ -1,7 +1,7 @@
 /* eslint no-undef: 0 */
 import React from 'react'
 
-import { BOOTCAMP } from '../../images/imageNames.js'
+import { BOOTCAMP } from '../../images/imageNames'
 import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'

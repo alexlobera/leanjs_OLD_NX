@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BOOTCAMP } from 'src/../images/imageNames.js'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
@@ -195,14 +195,14 @@ const BootcampLisbon = () => (
             <Grid>
               <Card bg="dark">
                 <Row>
-                  <Col xs={12} md={6} lg={5} lgOffset={1}>
+                  <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
                     />
                   </Col>
-                  <Col xs={12} md={6} lg={4} lgOffset={1}>
+                  <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="bMD_b7w7r-g" />
                     <TrainingDetails
                       coaches={[
@@ -220,7 +220,7 @@ const BootcampLisbon = () => (
           <Section>
             <Grid>
               <Row>
-                <Col lg={10} xs={12} lgOffset={1}>
+                <Col lg={10} lgOffset={1}>
                   <H2Ref>
                     Our Venue
                     <Link to="#venue" name="venue">
