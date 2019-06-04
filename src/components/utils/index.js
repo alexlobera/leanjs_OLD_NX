@@ -8,6 +8,7 @@ import {
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
+  GRAPHQL_CLIENT,
   ONE_DAY_WORKSHOP,
   MEETUP,
 } from '../../config/data'
@@ -48,6 +49,7 @@ export const selectTypeColor = type => {
       return GRAPHQL_PINK
     case GRAPHQL_API:
       return YELLOW
+    case GRAPHQL_CLIENT:
     case ONE_DAY_WORKSHOP:
       return REACT_NATIVE_GREEN
     case MEETUP:

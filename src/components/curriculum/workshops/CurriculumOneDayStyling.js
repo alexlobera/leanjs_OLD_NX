@@ -4,9 +4,7 @@ import { Col, Row } from '../../layout/Grid'
 import Link from '../../navigation/Link'
 import { ONE_DAY_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
-import selectCurriculumCorpLayout, {
-  LIST_TWO_COL,
-} from '../selectCurriculumCorpLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from '../selectCurriculumLayout'
 import DesignThinkingSession from '../sessions/design/DesignThinkingSession'
 import DesignSystemSession from '../sessions/design/DesignSystemSession'
 import StylingInReactSession from '../sessions/design/StylingInReactSession'
@@ -84,7 +82,13 @@ const CurriculumOneDayStyling = ({
       ) : (
         ''
       )}
-      {selectCurriculumCorpLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        corpTrainingFacts: true,
+      })}
     </React.Fragment>
   )
 }

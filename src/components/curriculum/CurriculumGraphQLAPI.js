@@ -52,6 +52,8 @@ const CurriculumGraphQLAPI = ({
   )
   const secondHalf = (
     <React.Fragment>
+      {/* 
+      Temporarily disabled
       <Section
         {...commonProps}
         title="Day 2: Advanced GraphQL API"
@@ -59,7 +61,7 @@ const CurriculumGraphQLAPI = ({
         subTitle="Advanced Schema, Performance, and recap project"
       >
         <GraphQLServerDayTwoSessions />
-      </Section>
+      </Section> */}
       {showLinkToCurriculum ? (
         <SectionCTA>
           <LinkButton to={`/graphql/curriculum?tab=${GRAPHQL_API}`}>

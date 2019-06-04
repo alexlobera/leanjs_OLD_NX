@@ -43,7 +43,7 @@ const CurriculumGraphQLBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="Day 1: GraphQL Foundation"
+        title="Day 1: GraphQL API"
         name="day1"
         subTitle="From REST to GraphQL, data sources, and security"
       >
@@ -53,18 +53,18 @@ const CurriculumGraphQLBootcamp = ({
   )
   const secondHalf = (
     <React.Fragment>
-      <Section
+      {/* <Section
         {...commonProps}
         title="Day 2: Advanced GraphQL API"
         name="day2"
         subTitle="Advanced Schema, Performance, and recap project"
       >
         <GraphQLServerDayTwoSessions />
-      </Section>
+      </Section> */}
       <Section
         {...commonProps}
-        title="Day 3: GraphQL in React with Apollo Client"
-        name="day3"
+        title="Day 2: GraphQL in React with Apollo Client"
+        name="day2"
         subTitle="Apollo Client fundamentals, performance, testing, and tooling"
       >
         <GraphQLApolloClientDaySessions />

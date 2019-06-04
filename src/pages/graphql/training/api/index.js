@@ -57,7 +57,6 @@ const GraphQL = () => (
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumGraphQLAPI
                   trainings={upcomingGraphQLTrainings}
-                  enableToggle
                   isOpen={false}
                 />
               </Card>

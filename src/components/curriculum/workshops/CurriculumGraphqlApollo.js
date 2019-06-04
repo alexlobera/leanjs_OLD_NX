@@ -4,15 +4,14 @@ import { Col, Row } from '../../layout/Grid'
 import Link from '../../navigation/Link'
 import { ONE_DAY_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
-import selectCurriculumCorpLayout, {
-  LIST_TWO_COL,
-} from '../selectCurriculumCorpLayout'
+import GraphQLApolloClientDaySessions from '../sessions/GraphQLApolloClientDaySessions'
+import selectCurriculumLayout, { LIST_TWO_COL } from '../selectCurriculumLayout'
 
 const CurriculumGraphqlApollo = ({
   showTitle = true,
   layout,
-  enableToggle,
-  isOpen,
+  enableToggle = true,
+  isOpen = true,
   toggleNavigateTo = `/react/curriculum?tab=${ONE_DAY_WORKSHOP}`,
   marketingCard = null,
   showLinkToCurriculum = false,
@@ -26,47 +25,13 @@ const CurriculumGraphqlApollo = ({
     type,
     isOpen,
   }
+
   const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Apollo Client fundamentals"
-        subTitle="Apollo Client, Query and Mutation principles"
-      />
-      <Section
-        {...commonProps}
-        title="Advanced GraphQL Queries"
-        subTitle="Query co-location, Fragment composition"
-      />
-      <Section
-        {...commonProps}
-        title="Advanced Mutations"
-        subTitle="Error handling, 
-        Optimistic UI, 
-        Updating cached queries"
-      />
-    </React.Fragment>
+    <Section {...commonProps} title="GraphQL React Apollo Client">
+      <GraphQLApolloClientDaySessions />
+    </Section>
   )
-  const secondHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Performance"
-        subTitle="Prefetching data,
-        Query batching"
-      />
-      <Section
-        {...commonProps}
-        title="Testing queries and mutations"
-        subTitle="Integration tests,
-        Mocking"
-      />
-      <Section
-        {...commonProps}
-        title="GraphQL Tooling to speed up front-end development"
-      />
-    </React.Fragment>
-  )
+  const secondHalf = null
 
   return (
     <React.Fragment>
@@ -78,14 +43,14 @@ const CurriculumGraphqlApollo = ({
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>
-              <H3>1 day workshop</H3>
+              <H3>1-day workshop</H3>
             </H2Ref>
           </Col>
         </Row>
       ) : (
         ''
       )}
-      {selectCurriculumCorpLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({ firstHalf, secondHalf, layout, type })}
     </React.Fragment>
   )
 }

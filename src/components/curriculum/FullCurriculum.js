@@ -8,8 +8,9 @@ import {
   CurriculumPartTime,
   CurriculumAdvancedReact,
   CurriculumGraphQLBootcamp,
-  CurriculumOneDayWorkshops,
 } from './index'
+
+import CurriculumOneDayWorkshops from './CurriculumOneDayWorkshops'
 import {
   REACT_NATIVE,
   REACT_BOOTCAMP,

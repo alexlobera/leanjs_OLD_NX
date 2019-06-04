@@ -1,6 +1,5 @@
 import CurriculumBootcamp from './CurriculumBootcamp'
 import CurriculumPartTime from './CurriculumPartTime'
-import FullCurriculum from './FullCurriculum'
 import CurriculumReactNative from './CurriculumReactNative'
 import MarketingCard from './MarketingCard'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
@@ -12,13 +11,12 @@ import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 import FullCurriculumsReact from './FullCurriculumsReact'
 import CurriculumCorporateReact from './CurriculumCorporateReact'
 import CurriculumCorpGraphQL from './CurriculumCorpGraphQL'
-import CurriculumOneDayWorkshops from './CurriculumOneDayWorkshops'
+import FullCurriculum from './FullCurriculum'
 
 export {
   CurriculumBootcamp,
   CurriculumPartTime,
   CurriculumReactNative,
-  FullCurriculum,
   MarketingCard,
   CurriculumAdvancedReact,
   Curriculum1DayAdvancedReactRedux,
@@ -29,5 +27,5 @@ export {
   CurriculumCorpReact,
   CurriculumCorporateReact,
   CurriculumCorpGraphQL,
-  CurriculumOneDayWorkshops,
+  FullCurriculum,
 }

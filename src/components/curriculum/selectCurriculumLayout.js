@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { List } from './CurriculumSection'
 import { UpcomingTrainingSection } from '../training'
+import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
@@ -12,6 +13,7 @@ const selectCurriculumLayout = ({
   layout,
   type = '',
   trainings,
+  corpTrainingFacts,
 }) => {
   if (layout === LIST_LAYOUT) {
     return (
@@ -46,11 +48,15 @@ const selectCurriculumLayout = ({
             {secondHalf}
           </Col>
           <Col md={6} lg={5} lgOffset={1}>
-            <UpcomingTrainingSection
-              trainings={trainings}
-              curriculum
-              type={type}
-            />
+            {trainings ? (
+              <UpcomingTrainingSection
+                trainings={trainings}
+                curriculum
+                type={type}
+              />
+            ) : corpTrainingFacts ? (
+              <CorpTrainingFacts />
+            ) : null}
           </Col>
         </Row>
       </React.Fragment>

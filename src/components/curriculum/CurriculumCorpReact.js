@@ -3,9 +3,7 @@ import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import { REACT_BOOTCAMP } from '../../config/data'
-import selectCurriculumCorpLayout, {
-  LIST_TWO_COL,
-} from './selectCurriculumCorpLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const CurriculumCorpReact = ({
   showTitle = true,
@@ -75,7 +73,13 @@ const CurriculumCorpReact = ({
       ) : (
         ''
       )}
-      {selectCurriculumCorpLayout({ firstHalf, secondHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        corpTrainingFacts: true,
+      })}
     </React.Fragment>
   )
 }

@@ -82,6 +82,13 @@ const TrainingPage = props => (
                     variant="secondary"
                   />
                 </Col>
+                <Col sm={4}>
+                  <LinkButton
+                    to="/graphql/training/api"
+                    children="GraphQL API training"
+                    variant="secondary"
+                  />
+                </Col>
               </CallToActionRow>
               <Card border="shadow">
                 <CurriculumGraphQLBootcamp trainings={trainings} />

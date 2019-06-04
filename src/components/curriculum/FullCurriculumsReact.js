@@ -6,8 +6,8 @@ import {
   CurriculumBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
-  CurriculumOneDayWorkshops,
 } from './index'
+import CurriculumOneDayWorkshops from './CurriculumOneDayWorkshops'
 import {
   REACT_BOOTCAMP,
   PART_TIME,

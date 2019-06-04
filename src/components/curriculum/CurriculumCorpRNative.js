@@ -2,9 +2,7 @@ import React from 'react'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import { REACT_NATIVE } from '../../config/data'
-import selectCurriculumCorpLayout, {
-  LIST_TWO_COL,
-} from './selectCurriculumCorpLayout'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const CurriculumCorpRNative = ({
   showTitle = true,
@@ -56,7 +54,12 @@ const CurriculumCorpRNative = ({
       ) : (
         ''
       )}
-      {selectCurriculumCorpLayout({ firstHalf, layout, type })}
+      {selectCurriculumLayout({
+        firstHalf,
+        layout,
+        type,
+        corpTrainingFacts: true,
+      })}
     </React.Fragment>
   )
 }

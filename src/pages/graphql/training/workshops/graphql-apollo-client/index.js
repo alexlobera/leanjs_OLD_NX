@@ -6,12 +6,12 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumGraphqlApollo } from 'src/components/curriculum/workshops/'
+import CurriculumGraphqlApollo from 'src/components/curriculum/workshops/CurriculumGraphqlApollo'
 import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
+import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -20,20 +20,20 @@ import {
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import LinkButton from 'src/components/buttons/LinkButton'
-import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
+// import LinkButton from 'src/components/buttons/LinkButton'
+import { GRAPHQL_CLIENT, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const GraphQLApolloClientWorkshop = () => (
   <Layout>
     {({ trainings }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const workshops = selectUpcomingTrainings({
         trainings,
-        type: ONE_DAY_WORKSHOP,
+        type: GRAPHQL_CLIENT,
         city: LONDON,
       })
       const training = selectNthTraining({
-        trainings: bootCampTrainings,
+        trainings: workshops,
       })
       return (
         <React.Fragment>
@@ -50,22 +50,21 @@ const GraphQLApolloClientWorkshop = () => (
             ]}
           />
           <Header
-            titleLines={['GraphQL  Apollo Client']}
+            titleLines={['GraphQL Apollo Client']}
             subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
+            type={GRAPHQL_CLIENT}
             training={training}
           />
           <TopSection top>
             <Grid>
-              {/* 
-              Temporarily disabled until we fix how to identify workshops in Up Mentoring
-              <CallToActionRow left>
-                <Col  mdOffset={1} md={4}>
+              <CallToActionNextTrainings left trainings={workshops} />
+              {/* <CallToActionRow left>
+                <Col mdOffset={1} md={4}>
                   <LinkButton
                     variant="primary"
                     to="/graphql/training/workshops/graphql-apollo-client/london"

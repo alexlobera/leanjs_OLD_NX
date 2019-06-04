@@ -58,9 +58,7 @@ const StylingDesignSystemWorkshop = () => (
             ]}
           />
           <Header
-            titleLines={[
-              'Styling in React and Design Systems Workshop - London',
-            ]}
+            titleLines={['Design Systems and Styling in React - London']}
             subtitle="See how React can look gorgeous and encourage design consistency"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
