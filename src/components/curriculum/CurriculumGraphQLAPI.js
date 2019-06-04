@@ -44,7 +44,7 @@ const CurriculumGraphQLAPI = ({
         {...commonProps}
         title="Day 1: GraphQL Foundation"
         name="day1"
-        subTitle="From Rest to GraphQL, data sources, and security"
+        subTitle="From REST to GraphQL, data sources, and security"
       >
         <GraphQLServerDayOneSessions />
       </Section>

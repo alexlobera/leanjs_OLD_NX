@@ -8,9 +8,9 @@ const ES6Session = ({ title }) => (
       <Li>Modern JavaScript for React - ES6 and beyond</Li>
       <Li>Arrow Functions, Class syntax, Template strings</Li>
       <Li>Destructuring</Li>
-      <Li>Default parameters, Rest operator, Spread operator</Li>
+      <Li>Default parameters, REST operator, Spread operator</Li>
       <Li>Let and Const vs Var</Li>
-      <Li>Rest + Spread properties</Li>
+      <Li>REST + Spread properties</Li>
       <Li>Iterators and functional programming in JS</Li>
       <Li>Modules</Li>
       <Li>Promises</Li>
