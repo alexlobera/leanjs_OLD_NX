@@ -17,6 +17,7 @@ const Flex = styled(Box)(
   justifyContent
 )
 
+// Alex, refactor the previous code to use this https://styled-system.com/api/#flexbox
 // const Flex = styled(Box)`
 //  ${flexbox}
 // `

@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Section from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
-
 import PostCard from 'src/components/blog/PostCard'
 
 const BlogSection = ({ tags = [] }) => (
