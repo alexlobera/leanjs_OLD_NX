@@ -6,6 +6,14 @@ import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
 import PostCard from 'src/components/blog/PostCard'
 
+const postsThatMatchAllTags = tags => ({
+  node: {
+    frontmatter: { tags: postTags },
+  },
+}) =>
+  tags &&
+  tags.every(constraint => postTags && postTags.some(tag => tag === constraint))
+
 const BlogSection = ({ tags = [] }) => (
   <StaticQuery
     query={graphql`
@@ -35,17 +43,7 @@ const BlogSection = ({ tags = [] }) => (
     `}
     render={data => {
       const posts = data.allMarkdownRemark.edges
-        .filter(
-          ({
-            node: {
-              frontmatter: { tags: postTags },
-            },
-          }) =>
-            tags &&
-            tags.every(
-              constraint => postTags && postTags.some(tag => tag === constraint)
-            )
-        )
+        .filter(postsThatMatchAllTags(tags))
         .slice(0, 3)
 
       if (!posts || !posts.length) {
