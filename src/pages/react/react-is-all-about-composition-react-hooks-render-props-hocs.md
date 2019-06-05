@@ -6,6 +6,7 @@ author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fkid-lego-2-min.jpeg?alt=media
 authorTwitter: alex_lobera
 order: 15
+tags: ['react', 'advanced']
 ---
 
 Software development is, in essence, the process of breaking a problem down into smaller problems, implementing solutions for those smaller problems, and then **composing** those solutions to form partial solutions, and so on, until eventually completing the whole solution.

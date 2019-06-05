@@ -6,6 +6,7 @@ author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fthink-outside-box.jpeg?alt=media
 authorTwitter: alex_lobera
 order: 1
+tags: ['react', 'beginner']
 ---
 
 In this post we are going focus on the declarative part of React.

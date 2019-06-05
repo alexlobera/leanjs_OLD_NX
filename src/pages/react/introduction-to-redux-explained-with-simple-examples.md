@@ -5,6 +5,7 @@ subtitle: From Redux for dummies to building Redux from scratch
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fredux%2Fone-way-min.jpeg?alt=media
 order: 6
+tags: ['redux', 'beginner']
 ---
 
 There is a fundamental question you should know how to respond before learning Redux, the question is: What is the state of an app?

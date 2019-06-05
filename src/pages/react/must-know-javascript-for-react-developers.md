@@ -5,6 +5,7 @@ subtitle: Understanding ES6 key features for React is crucial to rapidly learnin
 author: richard
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Freact_code_laptop.jpg?alt=media
 order: 7
+tags: ['beginner', 'javascript']
 ---
 
 React is written in JavaScript (JS), and not just any JS, modern JS.
