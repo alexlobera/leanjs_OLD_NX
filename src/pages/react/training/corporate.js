@@ -26,11 +26,11 @@ const CorporateReactTraining = () => (
     {({ trainings }) => (
       <React.Fragment>
         <Helmet
-          title="React Corporate Trainig"
+          title="React Corporate Training"
           meta={[
             {
               name: 'description',
-              content: 'Expert React Corporate Trainig delivered worldwide.',
+              content: 'Expert React Corporate Training delivered worldwide.',
             },
           ]}
         />

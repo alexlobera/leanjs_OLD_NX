@@ -27,7 +27,7 @@ const TrainingPage = props => (
       return (
         <React.Fragment>
           <Helmet
-            title="GraphQL Trainig in Europe"
+            title="GraphQL Training in Europe"
             meta={[
               {
                 name: 'description',

@@ -27,7 +27,7 @@ const TrainingPage = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Trainig in Europe"
+            title="React Training in Europe"
             meta={[
               {
                 name: 'description',

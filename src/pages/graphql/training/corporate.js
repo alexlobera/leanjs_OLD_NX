@@ -26,11 +26,11 @@ const CorporateGraphQLTraining = () => (
     {({ trainings }) => (
       <React.Fragment>
         <Helmet
-          title="GraphQL Corporate Trainig"
+          title="GraphQL Corporate Training"
           meta={[
             {
               name: 'description',
-              content: 'Expert GraphQL Corporate Trainig delivered worldwide.',
+              content: 'Expert GraphQL Corporate Training delivered worldwide.',
             },
           ]}
         />
