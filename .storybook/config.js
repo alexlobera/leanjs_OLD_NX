@@ -1,17 +1,16 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
-import { Provider } from 'rebass'
-import { injectGlobal } from 'styled-components'
-import theme, { globalStyles } from '../src/layouts/rebass-theme'
-import backgroundColor from 'react-storybook-decorator-background'
-import 'normalize.css'
-import '../src/layouts/index.css'
+import { action } from '@storybook/addon-actions'
+import { ThemeProvider } from 'styled-components'
+// import { injectGlobal } from 'styled-components'
+// import 'normalize.css'
+// import '../src/components/layout.css'
+import { theme } from '../src/config/styles'
 
-// Inject global styles required by Rebass
-injectGlobal(globalStyles)
-
-// Add Rebass to storybook
-const ThemeDecorator = storyFn => <Provider theme={theme}>{storyFn()}</Provider>
+// Add ThemeProvider to storybook
+const ThemeDecorator = storyFn => (
+  <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
+)
 addDecorator(ThemeDecorator)
 
 // Load stories dynamically
@@ -20,4 +19,16 @@ function loadStories() {
   req.keys().forEach(filename => req(filename))
 }
 
+// Gatsby's Link overrides:
+// Gatsby defines a global called ___loader to prevent its method calls from creating console errors you override it here
+global.___loader = {
+  enqueue: () => {},
+  hovering: () => {},
+}
+// Gatsby internal mocking to prevent unnecessary errors in storybook testing environment
+global.__PATH_PREFIX__ = ''
+// This is to utilized to override the window.___navigate method Gatsby defines and uses to report what path a Link would be taking us to if it wasn't inside a storybook
+window.___navigate = pathname => {
+  action('NavigateTo:')(pathname)
+}
 configure(loadStories, module)
