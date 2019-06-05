@@ -52,6 +52,7 @@ const BlogSection = ({ tags = [] }) => (
         return null
       }
 
+      // TODO Paul style it
       return (
         <Section>
           <Grid>
