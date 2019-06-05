@@ -54,7 +54,7 @@ const GraphQL = () => (
           <Header
             titleLines={[
               'Take your dev career further',
-              'with our GraphQL Bootamp',
+              'with our GraphQL Bootcamp',
             ]}
             subtitle="In-person GraphQL bootcamp from industry experts"
             bgImageName={BOOTCAMP}
