@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -46,6 +47,16 @@ const GraphQLPage = ({ data }) => {
     <Layout>
       {({ trainings }) => (
         <React.Fragment>
+          <Helmet
+            title="Learn GraphQL with us - best way to learn GraphQL!"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'Learn GraphQL with us - the best way to learn GraphQL!',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

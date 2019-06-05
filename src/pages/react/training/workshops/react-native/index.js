@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -34,17 +35,30 @@ const ReactNativeBoocamp = () => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            title="React Native Workshops"
+            meta={[
+              {
+                name: 'description',
+                content: '1-day React Native Workshops from industry experts.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/react-native', label: 'React Native' },
+              { to: '/react/training/workshops', label: 'Workshops' },
+              {
+                to: '/react/training/workshops/react-native',
+                label: 'React Native',
+              },
             ]}
           />
           <Header
-            titleLines={['React Native Training']}
-            subtitle="Intense hands-on React Native training, <br /> return to work as a React Native specialist"
+            titleLines={['React Native Workshops']}
+            subtitle="Intense hands-on React Native workshops, <br /> return to work as a React Native specialist"
             bgImageName={BOOTCAMP}
             type={REACT_NATIVE}
             links={header.landingPageLinks.links}

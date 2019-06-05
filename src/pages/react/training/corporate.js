@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { CORP_TRAINING } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -24,6 +25,15 @@ const CorporateReactTraining = () => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
+        <Helmet
+          title="React Corporate Trainig"
+          meta={[
+            {
+              name: 'description',
+              content: 'Expert React Corporate Trainig delivered worldwide.',
+            },
+          ]}
+        />
         <Breadcrumb
           path={[
             { to: '/', label: 'Home' },

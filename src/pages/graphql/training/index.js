@@ -1,4 +1,6 @@
 import React from 'react'
+import Helmet from 'react-helmet'
+
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -24,6 +26,16 @@ const TrainingPage = props => (
     {({ trainings }) => {
       return (
         <React.Fragment>
+          <Helmet
+            title="GraphQL Trainig in Europe"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'We were the first ones running GraphQL training in Europe.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -38,8 +50,8 @@ const TrainingPage = props => (
             ]}
           />
           <Header
-            titleLines={['GraphQL Training Courses']}
-            subtitle="Take your development career to the next level and learn how to use GraphQL effectively"
+            titleLines={['GraphQL Training']}
+            subtitle="Take your development career to the next level with our GraphQL training"
             bgImageName={BOOTCAMP}
             links={[
               {
