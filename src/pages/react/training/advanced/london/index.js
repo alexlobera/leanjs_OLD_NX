@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -41,6 +42,16 @@ const BootcampLondon = () => (
         selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
       return (
         <React.Fragment>
+          <Helmet
+            title="Advanced React Training London"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'Advanced React Training - master advanced React in a few days in London',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

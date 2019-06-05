@@ -1,4 +1,6 @@
 import React from 'react'
+import Helmet from 'react-helmet'
+
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -24,6 +26,16 @@ const TrainingPage = () => (
     {({ trainings }) => {
       return (
         <React.Fragment>
+          <Helmet
+            title="React Training in Europe"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'We were the first ones running React training in Europe.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -38,8 +50,8 @@ const TrainingPage = () => (
             ]}
           />
           <Header
-            titleLines={['React Training Courses']}
-            subtitle="Take your development career to the next level and move into the React ecosystem"
+            titleLines={['React Training']}
+            subtitle="Take your development career to the next level with our React training"
             bgImageName={BOOTCAMP}
             links={[
               {
@@ -102,7 +114,7 @@ const TrainingPage = () => (
                 <Col md={5}>
                   <AttendeeQuote
                     small
-                    quote="I'd been self-teaching myself, but I needed something more concrete so taking this course was the best thing I could do."
+                    quote="I'd been self-teaching myself, but I needed something more concrete so taking this React training was the best thing I could do."
                     fullname="Bogdan Stanciu"
                     job="Lead Front End Developer"
                     company="Kaizen"

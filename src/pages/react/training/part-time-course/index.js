@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -35,6 +36,15 @@ const PartTime = ({ trainings }) => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            title="Part-time React Course"
+            meta={[
+              {
+                name: 'description',
+                content: 'Part-time React Courses.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
