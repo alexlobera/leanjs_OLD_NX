@@ -26,7 +26,6 @@ exports[`<CurriculumCard /> should render component 1`] = `
       "displayName": "styled.div",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "self": [Circular],
       "styledComponentId": "sc-bdVaJa",
       "target": "div",
       "toString": [Function],
