@@ -44,7 +44,7 @@ const MeetUpPage = () => (
             ]}
           />
           <Header
-            titleLines={['Thinking in React - Introduction to ReactJS']}
+            titleLines={[(training && training.venueName) || '...loading']}
             links={[
               { text: 'Meetup Details', to: '#curriculum' },
               { text: 'Buy tickets', to: '#target-audience' },
