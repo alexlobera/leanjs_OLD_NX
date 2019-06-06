@@ -42,6 +42,7 @@ const MeetUpPage = ({ data }) => {
           trainings: workshops,
           id: instanceID,
         })
+        const meetupTitle = training && training.venueName
         return (
           <React.Fragment>
             <Breadcrumb
@@ -51,12 +52,12 @@ const MeetUpPage = ({ data }) => {
                 { to: '/community/meetups/', label: 'Meetups' },
                 {
                   to: `/community/meetups/${instanceID}`,
-                  label: 'GraphQL deep dive with Vladimir Novick',
+                  label: `${meetupTitle}`,
                 },
               ]}
             />
             <Header
-              titleLines={[(training && training.venueName) || '...loading']}
+              titleLines={[meetupTitle || '...loading']}
               links={[
                 { text: 'Meetup Details', to: '#curriculum' },
                 { text: 'Buy tickets', to: '#target-audience' },
@@ -90,7 +91,6 @@ const MeetUpPage = ({ data }) => {
                 </Card>
               </Grid>
             </TopSection>
-
             <UpcomingTrainingSection trainings={trainings} />
           </React.Fragment>
         )
