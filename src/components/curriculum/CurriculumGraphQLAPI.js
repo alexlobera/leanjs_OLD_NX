@@ -5,7 +5,7 @@ import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
 import NodejsSession from './sessions/NodejsSession'
-import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
+// import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
 
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'

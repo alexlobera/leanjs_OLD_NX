@@ -67,15 +67,14 @@ const TwitterWidgetsOnlyOnClientSide = () => {
 const Community = () => (
   <Layout>
     {({ trainings }) => {
-      const upcomingBootcamps = selectUpcomingTrainings({
+      const upcomingMeetups = selectUpcomingTrainings({
         trainings,
         type: MEETUP,
       })
-      const nextBootcamp =
-        selectNthTraining({ trainings: upcomingBootcamps }) || {}
-      const nextBootcampStartDate =
-        nextBootcamp &&
-        formatUTC(nextBootcamp.startDate, nextBootcamp.utcOffset, 'D MMM')
+      const nextMeetup = selectNthTraining({ trainings: upcomingMeetups }) || {}
+      const nextMeetupStartDate =
+        nextMeetup &&
+        formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
 
       return (
         <React.Fragment>
@@ -95,7 +94,7 @@ const Community = () => (
               { text: 'Mentor community', to: '#mentor-community' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
-            training={nextBootcamp}
+            training={nextMeetup}
           />
           <TopSection>
             <Grid>
@@ -103,9 +102,9 @@ const Community = () => (
                 <Col sm={4} lgOffset={1}>
                   <LinkButton
                     variant="primary"
-                    to={nextBootcamp && nextBootcamp.toPath}
-                    children={`Next Meetup: ${nextBootcampStartDate}, ${nextBootcamp &&
-                      nextBootcamp.city}`}
+                    to={nextMeetup && nextMeetup.toPath}
+                    children={`Next Meetup: ${nextMeetupStartDate}, ${nextMeetup &&
+                      nextMeetup.city}`}
                   />
                 </Col>
               </CallToActionRow>

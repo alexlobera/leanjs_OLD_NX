@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -37,6 +38,15 @@ const Bootcamps = props => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            title="React Bootcamp"
+            meta={[
+              {
+                name: 'description',
+                content: 'React Bootcamp - master React in a few days',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

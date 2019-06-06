@@ -22,6 +22,7 @@ import {
   ROY,
   DAVID,
   FRANCISCO,
+  PAUL,
   ABOUT_VALUES,
 } from '../config/images'
 import { HideComponentsUsingCss } from '../components/utils'
@@ -618,9 +619,7 @@ const AboutUs = () => (
                     #
                   </Link>
                 </H2Ref>
-                <CoachTitle>
-                  Developer at <Link to="https://leanjs.com">LeanJS</Link>
-                </CoachTitle>
+                <CoachTitle>Developer at Sainsburys</CoachTitle>
                 <Ul inline>
                   <Li>
                     <SocialLink to="https://github.com/franciscomcg">
@@ -665,6 +664,71 @@ const AboutUs = () => (
                   width="100%"
                   alt="React GraphQL Academy coach Francisco Gomes, smiling with sunglasses on"
                 />
+              </Col>
+            </Row>
+          </Grid>
+        </Section>
+        <Section>
+          <Grid>
+            <Row>
+              <Col md={5}>
+                <Image
+                  src={PAUL}
+                  width="100%"
+                  alt="React GraphQL Academy coach Francisco Gomes, smiling with sunglasses on"
+                />
+              </Col>
+              <Col md={4} mdOffset={1}>
+                <H2Ref>
+                  Paul Woodley
+                  <Link name="paul-woodley" to="#paul-woodley">
+                    #
+                  </Link>
+                </H2Ref>
+                <CoachTitle>
+                  Head of UX / Product Design at{' '}
+                  <Link to="https://leanjs.com">LeanJS</Link>
+                </CoachTitle>
+                <Ul inline>
+                  <Li>
+                    <SocialLink to="https://twitter.com/paulw_design">
+                      Twitter
+                    </SocialLink>
+                  </Li>
+                  <Li>|</Li>
+                  <Li>
+                    <SocialLink to="https://www.linkedin.com/in/paulwoodleydesign/">
+                      LinkedIn
+                    </SocialLink>
+                  </Li>
+                  <Li>|</Li>
+                  <Li>
+                    <SocialLink to="https://medium.com/@paulw_design">
+                      Medium
+                    </SocialLink>
+                  </Li>
+                </Ul>
+
+                <Ul>
+                  <Li>
+                    A designer with over 15 years experience in User Experience
+                    and UI design.
+                  </Li>
+                  <Li>
+                    Lead UX on projects for <strong>Bank of England</strong>,{' '}
+                    <strong>Thomas Cook</strong> and{' '}
+                    <strong>Boston University</strong>.
+                  </Li>
+                  <Li>
+                    Loves the design/dev crossover and finding ways bring those
+                    worlds together.
+                  </Li>
+                </Ul>
+                <Blockquote bg="primary" triangle="left">
+                  I'm not a developer, but code is what is used to bring design
+                  to life so it's important everyone involved understands
+                  eachother!
+                </Blockquote>
               </Col>
             </Row>
           </Grid>

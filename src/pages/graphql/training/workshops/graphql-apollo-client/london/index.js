@@ -6,7 +6,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumGraphqlApollo } from 'src/components/curriculum/workshops/'
+import { CurriculumGraphQLApollo } from 'src/components/curriculum/workshops/'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -129,7 +129,7 @@ const GraphQLApolloClientWorkshopLondon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphqlApollo layout={LIST_TWO_COL} />
+                    <CurriculumGraphQLApollo layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
