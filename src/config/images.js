@@ -71,6 +71,8 @@ export const DAVID =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fdavid.jpg?alt=media'
 export const FRANCISCO =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/coach_profile_images%2FFrancisco-photo%20(1).jpg?alt=media'
+export const PAUL =
+  'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media'
 
 // Tesimonials
 

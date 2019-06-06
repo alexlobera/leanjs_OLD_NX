@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -39,6 +40,15 @@ const GraphQLWorkshops = () => (
     {({ trainings }) => {
       return (
         <React.Fragment>
+          <Helmet
+            title="GraphQL Workshops"
+            meta={[
+              {
+                name: 'description',
+                content: '1-day GraphQL Workshops from industry experts.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -58,7 +68,7 @@ const GraphQLWorkshops = () => (
           />
           <Header
             titleLines={['GraphQL Workshops']}
-            subtitle="Specialist workshops focussing on one specific part of GraphQL - all delivered by industry experts and that lasting a maximum of 1 day."
+            subtitle="Specialist GraphQL workshops focussing on one specific part of GraphQL - all delivered by industry experts and that lasting a maximum of 1 day."
           />
           <TopSection marginTop={`-250`}>
             <Grid>

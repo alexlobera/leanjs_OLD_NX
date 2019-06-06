@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -60,6 +61,16 @@ const ReactPage = ({ data }) => {
     <Layout>
       {({ trainings }) => (
         <React.Fragment>
+          <Helmet
+            title="Learn React with us - best way to learn React JS!"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'Learn React with us - the best way to learn React JS / ReactJS / React.js!',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -153,7 +164,7 @@ const ReactPage = ({ data }) => {
                   <Video youtubeId="6hmKu1-vW-8" />
                   <P>
                     Polina Stoyanova, a software engineer from tray.io, explains
-                    her experiences of learning React on our 7-day Bootcamp
+                    her experiences of learning React on our React Bootcamp
                   </P>
                   <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?

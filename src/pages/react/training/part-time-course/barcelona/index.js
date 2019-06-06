@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -35,6 +36,15 @@ const PartTimeBarcelona = () => (
         selectNthTraining({ trainings: upcomingPartTimeTrainings }) || {}
       return (
         <React.Fragment>
+          <Helmet
+            title="Part-time React Course in Barcelona"
+            meta={[
+              {
+                name: 'description',
+                content: 'Part-time React Courses in Barcelona.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

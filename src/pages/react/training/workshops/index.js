@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -50,6 +51,15 @@ const Workshops = () => (
     {({ trainings }) => {
       return (
         <React.Fragment>
+          <Helmet
+            title="React Workshops"
+            meta={[
+              {
+                name: 'description',
+                content: '1-day React Workshops from industry experts.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

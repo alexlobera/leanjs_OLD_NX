@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -39,21 +40,35 @@ const ReactNativeBoocampLondon = () => (
         selectNthTraining({ trainings: upcomingNativeTrainings }) || {}
       return (
         <React.Fragment>
+          <Helmet
+            title="React Native Workshops London"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  '1-day React Native Workshops in London from industry experts.',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/react-native', label: 'React Native' },
+              { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/react-native/london',
+                to: '/react/training/workshops/react-native',
+                label: 'React Native',
+              },
+              {
+                to: '/react/training/workshops/react-native/london',
                 label: 'London',
               },
             ]}
           />
           <Header
-            titleLines={[`React Native Training - London`]}
-            subtitle="Take your React developer career to the next level by<br />learning React Native, in only one day. "
+            titleLines={[`1-day React Native Workshop - London`]}
+            subtitle="Take your React developer career to the next level by<br />learning React Native in London, in only one day. "
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={REACT_NATIVE}

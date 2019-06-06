@@ -1,4 +1,4 @@
 import CurriculumOneDayStyling from './CurriculumOneDayStyling'
-import CurriculumGraphqlApollo from './CurriculumGraphqlApollo'
+import CurriculumGraphQLApollo from './CurriculumGraphQLApollo'
 
-export { CurriculumOneDayStyling, CurriculumGraphqlApollo }
+export { CurriculumOneDayStyling, CurriculumGraphQLApollo }
