@@ -8,12 +8,15 @@ import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
-  selectNthTraining,
+  selectTrainingById,
   selectUpcomingTrainings,
 } from 'src/components/training'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { MEETUP, BERLIN } from 'src/config/data'
+import { MEETUP, LONDON } from 'src/config/data'
+
+// TODO create this page programatically and get the id from file name
+const TRAINING_ID = '5cf8b0ce0445b114d036fd4d'
 
 const MeetUpPage = () => (
   <Layout>
@@ -21,10 +24,11 @@ const MeetUpPage = () => (
       const workshops = selectUpcomingTrainings({
         type: MEETUP,
         trainings,
-        city: BERLIN,
+        city: LONDON,
       })
-      const training = selectNthTraining({
+      const training = selectTrainingById({
         trainings: workshops,
+        id: TRAINING_ID,
       })
       return (
         <React.Fragment>
@@ -34,13 +38,13 @@ const MeetUpPage = () => (
               { to: '/community', label: 'Community' },
               { to: '/community/meetups/', label: 'Meetups' },
               {
-                to: '/community/meetups/graphql-deep-dive-with-vladimir-novick',
-                label: 'GraphQL deep dive with Vladimir Novick',
+                to: `/community/meetups/${TRAINING_ID}`,
+                label: 'Design Systems in the Real World with React',
               },
             ]}
           />
           <Header
-            titleLines={['GraphQL deep dive with Vladimir Novick']}
+            titleLines={['Design Systems in the Real World with React']}
             links={[
               { text: 'Meetup Details', to: '#curriculum' },
               { text: 'Buy tickets', to: '#target-audience' },
@@ -55,40 +59,30 @@ const MeetUpPage = () => (
                 <Row>
                   <Col md={6} lg={4} lgOffset={1}>
                     <H2>Meetup details</H2>
-                    <P>We are very excited to announce our next meetup!</P>
                     <P>
-                      This time a deep-dive into GraphQL and serverless with
-                      Hasura.io, free and open source engine lead by Vladimir
-                      Novick.
+                      We are bringing you something different this time. We have
+                      two talks to talk about Design & React. Note this time is
+                      not a workshop, so no need to bring your laptop.
+                    </P>
+
+                    <P>Agenda:</P>
+                    <P>
+                      18:30 - Doors open: time for networking, drinks, and
+                      snacks
                     </P>
                     <P>
-                      We will learn not only how to create our own GraphQL API
-                      and consume it in our Frontend apps, but also how to
-                      create serverless business logic and even combine various
-                      GraphQL servers together.
+                      19:15 - 1st talk "Design-Thinking in the Real World" by{' '}
+                      <Link to="/about-us/#paul-woodley">Paul Woodley</Link>
                     </P>
                     <P>
-                      Vladimir is Developer Advocate at Hasura.io, Google
-                      Developer Expert, consultant, worldwide speaker, published
-                      author, host of the 3factorRadio podcast, and OSS
-                      contributor.
+                      20:00 - 2nd Talk: "design systems in React" by{' '}
+                      <Link to="/about-us/#alex-lobera">Alex Lobera</Link>
                     </P>
-                    <P>
-                      Vladimir brings years of experience with the JavaScript
-                      ecosystem and has been coding through the rise of the web.
-                      Currently, Vladimir works with Web, Mobile, VR, AR, and
-                      IoT technologies and advocates the use of GraphQL and
-                      serverless architectures as well as functional languages
-                      such as ReasonML.
-                    </P>
-                    <P>
-                      The format will be around 2.5 hours of talk and live
-                      coding with half an hour break in between. There'll also
-                      be 1 or 2 lightning talks at the beginning.
-                    </P>
+                    <P>20:30 - Networking and drinks</P>
+                    <P>21:00 - Time to go home :)</P>
                     <H5>Meetup Group:</H5>
-                    <Link to="https://www.meetup.com/JavaScript-Berlin/">
-                      JavaScript Berlin
+                    <Link to="https://www.meetup.com/JavaScript-London/">
+                      JavaScript London
                     </Link>
                   </Col>
                   <Col md={6} lg={5} lgOffset={1}>

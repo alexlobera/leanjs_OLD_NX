@@ -2,6 +2,7 @@ export {
   default as UpcomingTrainings,
   selectUpcomingTrainings,
   selectNthTraining,
+  selectTrainingById,
 } from './UpcomingTrainings'
 export { default as AttendeeQuote } from './AttendeeQuote'
 export { default as TrainingItem } from './TrainingItem'
