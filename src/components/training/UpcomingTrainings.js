@@ -24,7 +24,7 @@ import {
 
 import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 
-const createTrainingPath = ({ type, city = '', index }) => {
+const createTrainingPath = ({ type, city = '', index, id }) => {
   const i = index > 1 ? index : ''
   switch (type) {
     case PART_TIME:
@@ -42,7 +42,7 @@ const createTrainingPath = ({ type, city = '', index }) => {
     case GRAPHQL_CLIENT:
       return `/graphql/training/workshops/graphql-apollo-client/${city.toLowerCase()}/${i}`
     case MEETUP:
-      return `/community/meetups/${index}`
+      return `/community/meetups/${id}`
     case ONE_DAY_WORKSHOP:
       return `/react/training/workshops/design-system-styling-in-react/`
     default:
@@ -75,7 +75,11 @@ export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
 }
 const trainingByType = type => training =>
   !type || training.training.type === type
+
 const trainingByCity = city => training => !city || training.city === city
+
+export const selectTrainingById = ({ trainings, id }) =>
+  trainings.find(training => training.id == id)
 
 export const selectUpcomingTrainings = ({
   type,
@@ -96,7 +100,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
       const cityIndex = {}
       const formatTraining = ({ node }) => {
         const { type } = node.training
-        const { city } = node
+        const { city, id } = node
         const key = `${city}${type}`
         cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
@@ -106,6 +110,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
             type,
             city,
             index: cityIndex[key],
+            id,
           }),
           image: selectLocationImage({ city }),
         }
