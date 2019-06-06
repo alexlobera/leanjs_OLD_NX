@@ -15,6 +15,7 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { MEETUP, BERLIN } from 'src/config/data'
 
+// TODO create this page programatically and get the id from file name
 const TRAINING_ID = '5ce811c728bf226ebe872d74'
 
 const MeetUpPage = () => (
@@ -27,7 +28,6 @@ const MeetUpPage = () => (
       })
       const training = selectTrainingById({
         trainings: workshops,
-        // TODO create this page programatically and get the id from file name
         id: TRAINING_ID,
       })
       return (
