@@ -25,6 +25,7 @@ import { DAVIAN } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
+import BlogSection from 'src/components/blog/BlogSection'
 
 const Bootcamps = props => (
   <Layout>
@@ -148,6 +149,7 @@ const Bootcamps = props => (
             </Grid>
           </Section>
           <TrustedBySection />
+          <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

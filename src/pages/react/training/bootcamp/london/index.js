@@ -29,6 +29,7 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import BlogSection from 'src/components/blog/BlogSection'
 
 const BootcampLondon = () => (
   <Layout>
@@ -180,6 +181,7 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </Section>
+          <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
