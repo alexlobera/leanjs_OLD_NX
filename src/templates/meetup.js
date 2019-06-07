@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import rehypeReact from 'rehype-react'
+import path from 'path'
 
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
@@ -28,8 +29,12 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const MeetUpPage = ({ data }) => {
-  const { city, instanceID } = data.markdownRemark.frontmatter
-  const { htmlAst } = data.markdownRemark
+  const { city } = data.markdownRemark.frontmatter
+  const { htmlAst, fileAbsolutePath } = data.markdownRemark
+  const instanceID = path.basename(
+    fileAbsolutePath,
+    path.extname(fileAbsolutePath)
+  )
   return (
     <Layout>
       {({ trainings, trainingLoading, trainingError }) => {
@@ -108,6 +113,7 @@ export const query = graphql`
         paragraphs
       }
       htmlAst
+      fileAbsolutePath
     }
   }
 `
