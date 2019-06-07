@@ -5,6 +5,7 @@ subtitle: Styling apps is an important and sometimes underestimated task. Let's 
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fstyling%2Fstyled-components-make-up-min.jpeg?alt=media
 order: 5
+tags: ['react', 'beginner', 'style']
 ---
 
 Let’s start by questioning some design principles that have dominated the way we’ve styled websites for the last few decades.

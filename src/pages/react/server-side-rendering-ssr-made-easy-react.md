@@ -5,6 +5,7 @@ subtitle: Server-side rendering (SSR) can significantly improve the user experie
 author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fssr%2Fssr-clouds-min.jpeg?alt=media
 order: 9
+tags: ['react', 'advanced']
 ---
 
 Server-side rendering refers to the technique in which a web server returns dynamic HTML on the HTTP response. By dynamic I mean the HTML on the response varies depending on some variable on the request. Typically the variable is the URL.
