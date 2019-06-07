@@ -2,11 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import rehypeReact from 'rehype-react'
 import path from 'path'
+import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, H3, H5, P } from 'src/components/text'
+import { H2, H2Ref, H3, H5, P } from 'src/components/text'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -29,7 +30,7 @@ const renderAst = new rehypeReact({
 
 const MeetUpPage = ({ data }) => {
   const { city } = data.markdownRemark.frontmatter
-  const { htmlAst, fileAbsolutePath } = data.markdownRemark
+  const { htmlAst, fileAbsolutePath, excerpt } = data.markdownRemark
   const instanceID = path.basename(
     fileAbsolutePath,
     path.extname(fileAbsolutePath)
@@ -44,6 +45,19 @@ const MeetUpPage = ({ data }) => {
         const meetupTitle = training && training.venueName
         return (
           <React.Fragment>
+            <Helmet
+              title={meetupTitle}
+              meta={[
+                {
+                  name: 'description',
+                  content: excerpt,
+                },
+              ]}
+            >
+              <meta property="og:title" content={meetupTitle} />
+              <meta property="og:description" content={excerpt} />
+              <meta property="og:type" content="article" />
+            </Helmet>
             <Breadcrumb
               path={[
                 { to: '/', label: 'Home' },
@@ -58,8 +72,8 @@ const MeetUpPage = ({ data }) => {
             <Header
               titleLines={[meetupTitle || '...loading']}
               links={[
-                { text: 'Meetup Details', to: '#curriculum' },
-                { text: 'Buy tickets', to: '#target-audience' },
+                { text: 'Meetup Details', to: '#details' },
+                { text: 'Buy tickets', to: '#pricing' },
               ]}
               training={training}
               showInfoBox={true}
@@ -70,7 +84,12 @@ const MeetUpPage = ({ data }) => {
                 <Card bg="dark">
                   <Row>
                     <Col md={6} lg={4} lgOffset={1}>
-                      <H2>Meetup details</H2>
+                      <H2Ref>
+                        Meetup details
+                        <Link to="#details" name="details">
+                          #
+                        </Link>
+                      </H2Ref>
                       <P>We are very excited to announce our next meetup!</P>
                       {renderAst(htmlAst)}
                       <br />
@@ -105,6 +124,7 @@ export const query = graphql`
         city
         paragraphs
       }
+      excerpt
       htmlAst
       fileAbsolutePath
     }
