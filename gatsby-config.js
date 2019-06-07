@@ -14,6 +14,14 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark',
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://reactgraphql.academy/',
+        sitemap: 'https://reactgraphql.academy/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: 'GTM-MVK4HZS',

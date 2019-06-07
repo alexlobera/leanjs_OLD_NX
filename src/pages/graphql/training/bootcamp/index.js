@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -33,6 +34,16 @@ const GraphQL = () => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            title="GraphQL Bootcamp"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'Become a full-stack GraphQL developer with our GraphQL Bootcamp',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -44,9 +55,9 @@ const GraphQL = () => (
           <Header
             titleLines={[
               'Take your dev career further',
-              'by mastering GraphQL',
+              'with our GraphQL Bootcamp',
             ]}
-            subtitle="In-person development training from industry experts"
+            subtitle="In-person GraphQL bootcamp from industry experts"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
             type={GRAPHQL_BOOTCAMP}
@@ -73,7 +84,7 @@ const GraphQL = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <H2Ref>
-                    Is React GraphQL Academy's GraphQL course right for me?
+                    Is this GraphQL bootcamp right for me?
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>

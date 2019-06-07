@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -32,6 +33,15 @@ const GraphQL = () => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            title="GraphQL API training"
+            meta={[
+              {
+                name: 'description',
+                content: 'Master GraphQL APIs with our GraphQL API Training',
+              },
+            ]}
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

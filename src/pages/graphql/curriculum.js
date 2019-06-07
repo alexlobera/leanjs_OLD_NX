@@ -28,7 +28,7 @@ import {
   CurriculumGraphQLAPI,
   MarketingCard,
 } from 'src/components/curriculum'
-import CurriculumGraphqlApollo from 'src/components/curriculum/workshops/CurriculumGraphqlApollo'
+import CurriculumGraphQLApollo from 'src/components/curriculum/workshops/CurriculumGraphQLApollo'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -426,7 +426,7 @@ class GraphQLCurriculum extends React.Component {
                             <Row>
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
-                                <CurriculumGraphqlApollo
+                                <CurriculumGraphQLApollo
                                   enableToggle={true}
                                   showTitle={false}
                                   layout={LIST_LAYOUT}

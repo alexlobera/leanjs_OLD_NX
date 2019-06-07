@@ -152,6 +152,16 @@ const BootcampLisbon = () => (
       return (
         <React.Fragment>
           <Helmet
+            title="React Bootcamp in Lisbon"
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'React Bootcamp - master React in a few days in Lisbon',
+              },
+            ]}
+          />
+          <Helmet
             link={[
               {
                 rel: 'canonical',

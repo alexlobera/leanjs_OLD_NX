@@ -8,12 +8,15 @@ import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
-  selectNthTraining,
+  selectTrainingById,
   selectUpcomingTrainings,
 } from 'src/components/training'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { MEETUP, BERLIN } from 'src/config/data'
+
+// TODO create this page programatically and get the id from file name
+const TRAINING_ID = '5ce811c728bf226ebe872d74'
 
 const MeetUpPage = () => (
   <Layout>
@@ -23,8 +26,9 @@ const MeetUpPage = () => (
         trainings,
         city: BERLIN,
       })
-      const training = selectNthTraining({
+      const training = selectTrainingById({
         trainings: workshops,
+        id: TRAINING_ID,
       })
       return (
         <React.Fragment>
@@ -34,7 +38,7 @@ const MeetUpPage = () => (
               { to: '/community', label: 'Community' },
               { to: '/community/meetups/', label: 'Meetups' },
               {
-                to: '/community/meetups/graphql-deep-dive-with-vladimir-novick',
+                to: `/community/meetups/${TRAINING_ID}`,
                 label: 'GraphQL deep dive with Vladimir Novick',
               },
             ]}
