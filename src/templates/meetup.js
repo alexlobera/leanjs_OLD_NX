@@ -12,7 +12,6 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectTrainingById,
-  selectUpcomingTrainings,
 } from 'src/components/training'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -38,13 +37,8 @@ const MeetUpPage = ({ data }) => {
   return (
     <Layout>
       {({ trainings, trainingLoading, trainingError }) => {
-        const workshops = selectUpcomingTrainings({
-          type: MEETUP,
-          trainings,
-          city,
-        })
         const training = selectTrainingById({
-          trainings: workshops,
+          trainings,
           id: instanceID,
         })
         const meetupTitle = training && training.venueName
@@ -108,7 +102,6 @@ export const query = graphql`
   query MeetupQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
-        instanceID
         city
         paragraphs
       }
