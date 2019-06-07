@@ -39,11 +39,20 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(result => {
       const blogPaths = /(\/blog\/|\/react\/|\/graphql\/)/g
+      const meetupPath = /meetup/
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         if (node.fields.slug.match(blogPaths)) {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/blog-post.js`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        } else if (node.fields.slug.match(meetupPath)) {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/meetup.js`),
             context: {
               slug: node.fields.slug,
             },
