@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import rehypeReact from 'rehype-react'
 import path from 'path'
+import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
@@ -29,7 +30,7 @@ const renderAst = new rehypeReact({
 
 const MeetUpPage = ({ data }) => {
   const { city } = data.markdownRemark.frontmatter
-  const { htmlAst, fileAbsolutePath } = data.markdownRemark
+  const { htmlAst, fileAbsolutePath, excerpt } = data.markdownRemark
   const instanceID = path.basename(
     fileAbsolutePath,
     path.extname(fileAbsolutePath)
@@ -44,6 +45,19 @@ const MeetUpPage = ({ data }) => {
         const meetupTitle = training && training.venueName
         return (
           <React.Fragment>
+            <Helmet
+              title={meetupTitle}
+              meta={[
+                {
+                  name: 'description',
+                  content: excerpt,
+                },
+              ]}
+            >
+              <meta property="og:title" content={meetupTitle} />
+              <meta property="og:description" content={excerpt} />
+              <meta property="og:type" content="article" />
+            </Helmet>
             <Breadcrumb
               path={[
                 { to: '/', label: 'Home' },
@@ -105,6 +119,7 @@ export const query = graphql`
         city
         paragraphs
       }
+      excerpt
       htmlAst
       fileAbsolutePath
     }
