@@ -7,7 +7,7 @@ import Helmet from 'react-helmet'
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, H3, H5, P } from 'src/components/text'
+import { H2, H2Ref, H3, H5, P } from 'src/components/text'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -72,8 +72,8 @@ const MeetUpPage = ({ data }) => {
             <Header
               titleLines={[meetupTitle || '...loading']}
               links={[
-                { text: 'Meetup Details', to: '#curriculum' },
-                { text: 'Buy tickets', to: '#target-audience' },
+                { text: 'Meetup Details', to: '#details' },
+                { text: 'Buy tickets', to: '#pricing' },
               ]}
               training={training}
               showInfoBox={true}
@@ -84,7 +84,12 @@ const MeetUpPage = ({ data }) => {
                 <Card bg="dark">
                   <Row>
                     <Col md={6} lg={4} lgOffset={1}>
-                      <H2>Meetup details</H2>
+                      <H2Ref>
+                        Meetup details
+                        <Link to="#details" name="details">
+                          #
+                        </Link>
+                      </H2Ref>
                       <P>We are very excited to announce our next meetup!</P>
                       {renderAst(htmlAst)}
                       <br />
