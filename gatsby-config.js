@@ -52,5 +52,9 @@ module.exports = {
         disable: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/community/meetups/*`] },
+    },
   ],
 }
