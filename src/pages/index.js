@@ -33,7 +33,7 @@ const SectionButtonRow = styled(Row)`
 `
 
 const IndexPage = () => (
-  <Layout loadAutopilot={false} loadGoogleTagManager={true}>
+  <Layout>
     {({ trainings }) => (
       <React.Fragment>
         <Helmet
