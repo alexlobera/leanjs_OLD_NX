@@ -7,7 +7,7 @@ export const blue1 = (opacity = 1) => `rgba(0,41,56, ${opacity})` // #002938
 
 export const blue2 = (opacity = 1) => `rgba(87,178,212,${opacity})`
 
-export const REACT_BLUE_DARK = '#57B2D4'
+export const DARK_BLUE = '#57B2D4'
 
 export const YELLOW = '#D6D100'
 
@@ -15,24 +15,22 @@ export const BROWN = '#979797'
 
 export const GREY = '#c4c4c4'
 
-export const GREY2 = '#4a4a4a'
+export const DARK_GREY = '#4a4a4a'
 
 export const WHITE = '#fff'
-
-export const RED = 'red'
 
 export const PINK = '#f388a2'
 
 export const GRAPHQL_PINK = '#DF0098'
 
-export const REACT_NATIVE_GREEN = '#80da8d'
+export const GREEN = '#80da8d'
 
-export const CALLTOACTIONRED = '#C0392B'
+export const MEETUP_RED = '#F64060'
+
+export const RED = '#C0392B'
 
 export const BOX_SHADOW =
   'box-shadow: 0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);'
-
-export const MEETUP_RED = '#F64060'
 
 export const TEXT_SIZE = ({ sm = false, lg = false }) => {
   if (sm) return `font-size: 12px;`
@@ -50,7 +48,7 @@ export const theme = {
   buttons: {
     primary: {
       color: WHITE,
-      backgroundColor: CALLTOACTIONRED,
+      backgroundColor: RED,
       fontWeight: 800,
     },
     secondary: {
@@ -58,7 +56,7 @@ export const theme = {
       backgroundColor: blue1(),
     },
     default: {
-      color: GREY2,
+      color: DARK_GREY,
       backgroundColor: WHITE,
       boxShadow:
         '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
@@ -114,5 +112,18 @@ export const theme = {
   fontWeights: {
     normal: '400',
     bold: '800',
+  },
+  colors: {
+    darkBlue: '#57B2D4', // DARK_BLUE
+    yellow: '#D6D100', // YELLOW
+    brown: '#979797', // BROWN
+    grey: '#c4c4c4', // GREY
+    darkGrey: '#4a4a4a', // DARK_GREY
+    white: '#fff', // WHITE
+    pink: '#f388a2', // PINK
+    graphQLPink: '#DF0098', // GRAPHQL_PINK
+    green: '#80da8d', // GREEN
+    meetupRed: '#F64060', // MEETUP_RED
+    red: '#C0392B', // RED
   },
 }

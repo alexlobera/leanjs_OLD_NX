@@ -101,7 +101,7 @@ const H2Header = styled(BaseH2)`
 `
 
 H2Header.defaultProps = {
-  color: WHITE,
+  color: 'white',
   padding: 0,
   margin: 0,
   fontSize: 3,

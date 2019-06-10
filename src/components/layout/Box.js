@@ -25,6 +25,7 @@ Box.displayName = 'Box'
 Box.defaultProps = {
   fontFamily: 'barlow',
   fontWeight: 'normal',
+  color: 'darkGrey',
 }
 
 export default Box

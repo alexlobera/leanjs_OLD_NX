@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { GREY2, FONT_FAMILY } from '../../config/styles'
+import { DARK_GREY, FONT_FAMILY } from '../../config/styles'
 
 export const Price = styled.span`
   ${FONT_FAMILY} font-size: 2.05rem;
@@ -8,7 +8,7 @@ export const Price = styled.span`
   font-stretch: normal;
   line-height: 1.1;
   letter-spacing: normal;
-  color: ${GREY2};
+  color: ${DARK_GREY};
   display: inline-block;
   ${props =>
     props.marginRight ? `margin-right: ${props.marginRight}px;` : null};

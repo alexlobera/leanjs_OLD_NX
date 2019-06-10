@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Col, Row } from '../layout/Grid'
 import { Span, H4 } from '../text'
-import { CALLTOACTIONRED } from '../../config/styles'
+import { RED } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 import { LinkButton } from '../buttons'
 
@@ -10,7 +10,7 @@ const Card = styled.div`
   margin-top: 36px;
   margin-bottom: 6px;
   padding: 36px;
-  border: solid 4px ${CALLTOACTIONRED};
+  border: solid 4px ${RED};
   div {
     align-items: center;
   }

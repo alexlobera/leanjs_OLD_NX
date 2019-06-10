@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { SCREEN_SM_MIN, SCREEN_XS_MAX } from '../utils'
-import { blue1, GREY2 } from '../../config/styles'
+import { blue1, DARK_GREY } from '../../config/styles'
 
 const Section = styled.section`
   padding-top: ${props => (props.top ? '50px' : '30px')};
@@ -20,7 +20,7 @@ const Section = styled.section`
     } else if (props.xsBgDarkGrey) {
       return css`
         @media (max-width: ${SCREEN_XS_MAX}) {
-          background-color: ${GREY2};
+          background-color: ${DARK_GREY};
         }
       `
     }
