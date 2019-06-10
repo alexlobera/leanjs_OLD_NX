@@ -114,16 +114,16 @@ export const theme = {
     bold: '800',
   },
   colors: {
-    darkBlue: '#57B2D4', // DARK_BLUE
-    yellow: '#D6D100', // YELLOW
-    brown: '#979797', // BROWN
-    grey: '#c4c4c4', // GREY
-    darkGrey: '#4a4a4a', // DARK_GREY
-    white: '#fff', // WHITE
-    pink: '#f388a2', // PINK
-    graphQLPink: '#DF0098', // GRAPHQL_PINK
-    green: '#80da8d', // GREEN
-    meetupRed: '#F64060', // MEETUP_RED
-    red: '#C0392B', // RED
+    darkBlue: DARK_BLUE,
+    yellow: YELLOW,
+    brown: BROWN,
+    grey: GREY,
+    darkGrey: DARK_GREY,
+    white: WHITE,
+    pink: PINK,
+    graphQLPink: GRAPHQL_PINK,
+    green: GREEN,
+    meetupRed: MEETUP_RED,
+    red: RED,
   },
 }
