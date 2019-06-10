@@ -1,20 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import Layout from '../../components/layout'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import { H3, P } from '../../components/text'
 import Header from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
-import { Card, Image } from '../../components/elements'
 import { TopSection } from '../../components/layout/Section'
-import { formatPostTitle } from '../../templates/blog-post'
-
-const CardText = styled.div`
-  padding: 18px;
-`
+import PostCard from '../../components/blog/PostCard'
 
 const Blog = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -33,31 +26,13 @@ const Blog = ({ data }) => {
           />
           <TopSection>
             <Grid>
-              <React.Fragment>
-                <Row>
-                  {posts.map(({ node: post }) => (
-                    <Col lg={4} key={post.fields.slug}>
-                      <Card border="shadow" padding={false} bottom={36}>
-                        <Link to={`${post.fields.slug}`}>
-                          <Image
-                            src={post.frontmatter.imageUrl}
-                            alt={formatPostTitle(post.frontmatter.title)}
-                          />
-                        </Link>
-                        <CardText>
-                          <Link to={`${post.fields.slug}`}>
-                            <H3>{formatPostTitle(post.frontmatter.title)}</H3>
-                          </Link>
-                          <P>{post.excerpt}</P>
-                          <P>
-                            <Link to={`${post.fields.slug}`}>Read more</Link>
-                          </P>
-                        </CardText>
-                      </Card>
-                    </Col>
-                  ))}
-                </Row>
-              </React.Fragment>
+              <Row>
+                {posts.map(({ node: post }) => (
+                  <Col lg={4} key={post.fields.slug}>
+                    <PostCard post={post} />
+                  </Col>
+                ))}
+              </Row>
             </Grid>
           </TopSection>
           <UpcomingTrainingSection trainings={trainings} />

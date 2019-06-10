@@ -23,6 +23,7 @@ import { Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
+import BlogSection from 'src/components/blog/BlogSection'
 
 const GraphQL = () => (
   <Layout>
@@ -153,8 +154,8 @@ const GraphQL = () => (
               </Row>
             </Grid>
           </Section>
-
           <TrustedBySection />
+          <BlogSection tags={['graphql', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

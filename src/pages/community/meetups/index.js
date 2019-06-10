@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -33,9 +34,25 @@ const Community = () => (
       const nextMeetupStartDate =
         nextMeetup &&
         formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
-
+      const metaTitle = 'React GraphQL Academy community events and meetups'
+      const metaDescription =
+        'React GraphQL Academy organizes hands-on meetups for the developer community across Europe'
       return (
         <React.Fragment>
+          <Helmet
+            title={metaTitle}
+            meta={[
+              {
+                name: 'description',
+                content: metaDescription,
+              },
+            ]}
+          >
+            <meta property="og:title" content={metaTitle} />
+            <meta property="og:image" content={BOOTCAMP_RIGHT} />
+            <meta property="og:description" content={metaDescription} />
+            <meta property="og:type" content="article" />
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
