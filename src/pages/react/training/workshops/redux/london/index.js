@@ -18,7 +18,7 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  selectNthTraining,
+  getNextTrainingByTrainingID,
   selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
@@ -31,14 +31,15 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 const StylingDesignSystemWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const training = getNextTrainingByTrainingID({
         trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
+        trainingID: '5cffb4e806051b7d3bcb0cee',
       })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
-      })
+      const trainingTitle =
+        training &&
+        training.training &&
+        training.training.description &&
+        training.training.description.title
       return (
         <React.Fragment>
           <Helmet
@@ -67,7 +68,7 @@ const StylingDesignSystemWorkshop = () => (
             ]}
           />
           <Header
-            titleLines={['Design Systems and Styling in React - London']}
+            titleLines={[`${trainingTitle || '...loading'} - London`]}
             subtitle="See how React can look gorgeous and encourage design consistency"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
