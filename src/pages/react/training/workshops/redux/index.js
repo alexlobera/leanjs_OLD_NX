@@ -30,8 +30,9 @@ const StylingDesignSystemWorkshop = () => (
     {({ trainings }) => {
       const training = getNextTrainingByTrainingID({
         trainings,
-        trainingID: '5cd2c86daa5e8f0a07b924fb',
+        trainingID: '5cffb4e806051b7d3bcb0cee',
       })
+      console.log('training', training)
       return (
         <React.Fragment>
           <Helmet

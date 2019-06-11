@@ -8,6 +8,7 @@ import {
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   ONE_DAY_WORKSHOP,
+  REACT_WORKSHOP,
   GRAPHQL_CLIENT,
   GRAPHQL_API,
   MEETUP,
@@ -45,6 +46,8 @@ const createTrainingPath = ({ type, city = '', index, id }) => {
       return `/community/meetups/${id}`
     case ONE_DAY_WORKSHOP:
       return `/react/training/workshops/design-system-styling-in-react/`
+    case REACT_WORKSHOP:
+      return `/react/training/workshops/${city.toLowerCase()}/${i}`
     default:
       return '/'
   }
