@@ -4,6 +4,7 @@ export {
   selectNthTraining,
   selectTrainingById,
   getNextTrainingByTrainingID,
+  getUpcomingTrainingsByType,
 } from './UpcomingTrainings'
 export { default as AttendeeQuote } from './AttendeeQuote'
 export { default as TrainingItem } from './TrainingItem'

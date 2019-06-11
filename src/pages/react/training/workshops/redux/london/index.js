@@ -19,7 +19,6 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   getNextTrainingByTrainingID,
-  selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'

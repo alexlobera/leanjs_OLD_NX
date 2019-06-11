@@ -84,6 +84,13 @@ const trainingByCity = city => training => !city || training.city === city
 export const getNextTrainingByTrainingID = ({ trainings, trainingID }) =>
   trainings.find(training => training.training.id === trainingID)
 
+export const getUpcomingTrainingsByType = ({ trainings, types = [] }) => {
+  const filteredTrainings = types.map(type =>
+    trainings.filter(trainingByType(type))
+  )
+  return filteredTrainings.flat()
+}
+
 export const selectTrainingById = ({ trainings, id }) =>
   trainings.find(training => training.id === id)
 
