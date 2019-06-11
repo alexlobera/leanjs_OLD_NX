@@ -8,6 +8,7 @@ import {
   HORACIO,
   LONDON_LOCATION,
   AMSTERDAM_LOCATION,
+  PAUL,
 } from './images'
 
 export const LONDON = 'London'
@@ -242,6 +243,11 @@ export const blogAuthors = {
     imgSrc: HORACIO,
     fullname: 'Horacio Herrera',
     path: 'horacio-herrera',
+  },
+  paul: {
+    imgSrc: PAUL,
+    fullname: 'Paul Woodley',
+    path: 'paul-woodley',
   },
 }
 
