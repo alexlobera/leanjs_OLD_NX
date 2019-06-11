@@ -16,8 +16,8 @@ import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  selectNthTraining,
   selectUpcomingTrainings,
+  getNextTrainingByTrainingID,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -28,13 +28,9 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 const StylingDesignSystemWorkshop = () => (
   <Layout>
     {({ trainings }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const training = getNextTrainingByTrainingID({
         trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
-      })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
+        trainingID: '5cd2c86daa5e8f0a07b924fb',
       })
       return (
         <React.Fragment>
