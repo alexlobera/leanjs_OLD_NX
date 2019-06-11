@@ -74,7 +74,6 @@ const ReactFundamentals = props => (
             <Grid>
               <CallToActionNextTrainings
                 left
-                trainings={upcomingBootCampTrainings}
                 // trainings={upcomingFundamentalsTrainings}
               />
               <Card border="shadow">
