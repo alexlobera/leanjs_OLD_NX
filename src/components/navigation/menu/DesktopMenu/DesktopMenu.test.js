@@ -11,10 +11,10 @@ describe('<DesktopMenu />', () => {
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
-  it('should have less than 7 links at the top level', () => {
+  it('should have less than 8 links at the top level', () => {
     const wrapper = shallow(<DesktopMenu />)
 
-    expect(wrapper.find(DesktopMenuItem).length).toBeLessThan(7)
+    expect(wrapper.find(DesktopMenuItem).length).toBeLessThan(8)
   })
 
   it('should render curriculum as the first item on the menu', () => {
