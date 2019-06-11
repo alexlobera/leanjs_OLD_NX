@@ -3,8 +3,9 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Section from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2 } from 'src/components/text'
+import { H2, P } from 'src/components/text'
 import PostCard from 'src/components/blog/PostCard'
+import { Link } from 'src/components/navigation'
 
 const postsThatMatchAllTags = tags => ({
   node: {
@@ -55,8 +56,12 @@ const BlogSection = ({ tags = [] }) => (
         <Section>
           <Grid>
             <Row>
-              <Col>
-                <H2>Related posts</H2>
+              <Col md={10}>
+                <H2>Related blogs</H2>
+              </Col>
+              <Col md={2}>
+                <br />
+                <Link to="/blog">See all blogs</Link>
               </Col>
             </Row>
             <Row>
