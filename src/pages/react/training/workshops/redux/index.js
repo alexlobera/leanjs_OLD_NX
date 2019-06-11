@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
+import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
 import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -84,7 +84,7 @@ const StylingDesignSystemWorkshop = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>

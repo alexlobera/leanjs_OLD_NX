@@ -5,12 +5,10 @@ import Link from '../../navigation/Link'
 import { ONE_DAY_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from '../selectCurriculumLayout'
-import DesignThinkingSession from '../sessions/design/DesignThinkingSession'
-import DesignSystemSession from '../sessions/design/DesignSystemSession'
-import StylingInReactSession from '../sessions/design/StylingInReactSession'
-import ReusableComponentsSession from '../sessions/design/ReusableComponentsSession'
+import IntroReduxSessions from '../sessions/IntroReduxSession'
+import AdvancedReduxSession from '../sessions/AdvancedReduxSession'
 
-const CurriculumOneDayStyling = ({
+const CurriculumOneDayRedux = ({
   showTitle = true,
   layout,
   enableToggle = true,
@@ -35,14 +33,7 @@ const CurriculumOneDayStyling = ({
         title="Redux Fundamentals"
         subTitle="Redux from the ground up"
       >
-        {/* <DesignThinkingSession /> */}
-      </Section>
-      <Section
-        {...commonProps}
-        title="Advanced Redux"
-        subTitle="Advanced concepts including FP and middlewares"
-      >
-        {/* <StylingInReactSession /> */}
+        <IntroReduxSessions />
       </Section>
     </React.Fragment>
   )
@@ -50,17 +41,10 @@ const CurriculumOneDayStyling = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Design System fundamentals"
-        subTitle="Theming & Variants, using styled-components and styled-system"
+        title="Advanced Redux"
+        subTitle="Advanced concepts including FP and middlewares"
       >
-        <DesignSystemSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Resuable component libraries"
-        subTitle="Compound components, context, and component surface area"
-      >
-        <ReusableComponentsSession />
+        <AdvancedReduxSession />
       </Section>
     </React.Fragment>
   )
@@ -71,7 +55,7 @@ const CurriculumOneDayStyling = ({
         <Row>
           <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
-              Styling in React using Design Systems{' '}
+              Redux{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>
@@ -93,4 +77,4 @@ const CurriculumOneDayStyling = ({
   )
 }
 
-export default CurriculumOneDayStyling
+export default CurriculumOneDayRedux

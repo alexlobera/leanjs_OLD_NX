@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
+import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -42,7 +42,7 @@ const StylingDesignSystemWorkshop = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Design Systems in React Workshop in London"
+            title="Redux"
             meta={[
               {
                 name: 'description',
@@ -57,12 +57,11 @@ const StylingDesignSystemWorkshop = () => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Design Systems and Styling in React',
+                to: '/react/training/workshops/redux',
+                label: 'Redux',
               },
               {
-                to:
-                  '/react/training/workshops/design-system-styling-in-react/london',
+                to: '/react/training/workshops/redux/london',
                 label: 'London',
               },
             ]}
@@ -153,7 +152,7 @@ const StylingDesignSystemWorkshop = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
