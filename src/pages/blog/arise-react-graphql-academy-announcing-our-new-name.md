@@ -1,11 +1,12 @@
 ---
-title: Arise React GraphQL Academy - Announcing our new name!
+title: Arise React GraphQL Academy - Announcing Our New Name
 date: 2019-06-11
 subtitle: We’ve changed our name to React GraphQL Academy and here’s why…
 author: paul
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_ariseRGA-rebranding%2Fheader.jpg?alt=media&
 order: 111
 ---
+
 <a name="name-change"></a>
 We’ve been teaching the React Ecosystem for many years now and if there’s one thing we’ve learnt is that being adaptable is key.
 
@@ -23,7 +24,6 @@ Instead of making multiple calls to an API and slowing down the whole applicatio
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_ariseRGA-rebranding%2Fimage_0.jpg?alt=media)
 
-
 This makes apps faster and more stable as it does away with the traditional REST approach, which wastefully repeats similar calls and therefore makes complex development architectures slow and heavy.
 
 Find out a lot more on our blog ["_What is GraphQL used for?_"](https://reactgraphql.academy/blog/what-is-GraphQL-used-for/)
@@ -36,7 +36,7 @@ We’ve been teaching GraphQL as part of our [React Bootcamp](https://reactgraph
 
 Our Senior Coach, [Richard Moss](https://reactgraphql.academy/about-us/#richard-moss) says:
 
->"React is a declarative UI library that fits very well into the GraphQL declarative data fetching model. In combination, they enable fast and reusable component-based data-driven applications that deliver faster software at scale."<br><br>It helps that React and GraphQL were created by the same people - Facebook - and they’ve been using the two in harmony since 2012. It’s not _always_ the case that technologies created by the same teams work great together, but in this case, they work great!
+> "React is a declarative UI library that fits very well into the GraphQL declarative data fetching model. In combination, they enable fast and reusable component-based data-driven applications that deliver faster software at scale."<br><br>It helps that React and GraphQL were created by the same people - Facebook - and they’ve been using the two in harmony since 2012. It’s not _always_ the case that technologies created by the same teams work great together, but in this case, they work great!
 
 See who else uses GraphQL on our blog ["_Who Uses GraphQL anyway?_"](https://reactgraphql.academy/graphql/who-uses-graphql/)
 
