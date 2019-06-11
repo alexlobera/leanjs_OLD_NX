@@ -29,7 +29,7 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const MeetUpPage = ({ data }) => {
-  const { city } = data.markdownRemark.frontmatter
+  const { title, city } = data.markdownRemark.frontmatter
   const { htmlAst, fileAbsolutePath, excerpt } = data.markdownRemark
   const instanceID = path.basename(
     fileAbsolutePath,
@@ -46,7 +46,7 @@ const MeetUpPage = ({ data }) => {
         return (
           <React.Fragment>
             <Helmet
-              title={meetupTitle}
+              title={title}
               meta={[
                 {
                   name: 'description',
@@ -54,7 +54,7 @@ const MeetUpPage = ({ data }) => {
                 },
               ]}
             >
-              <meta property="og:title" content={meetupTitle} />
+              <meta property="og:title" content={title} />
               <meta property="og:description" content={excerpt} />
               <meta property="og:type" content="article" />
             </Helmet>
@@ -121,6 +121,7 @@ export const query = graphql`
   query MeetupQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
+        title
         city
         paragraphs
       }
