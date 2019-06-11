@@ -112,20 +112,21 @@ const StylingDesignSystemWorkshop = () => (
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer or designer with experience building React
-                      components and using CSS?
+                      A developer with experience in JavaScript and with an
+                      understanding of React?
                     </Li>
                     <Li>
-                      A developer or designer interested in building scalable
-                      and reusable UIs for big React projects?
+                      Interested in understanding Redux from top to bottom
+                      including redux middle-wares and tooling
                     </Li>
                     <Li>
-                      Not satisfied with the Designer/Developer handover in
-                      real-world React projects?
+                      Looking to gain an in-depth understanding that will allow
+                      you to apply Redux to a large scale React appliaction or
+                      build upon an existing one.
                     </Li>
                     <Li>
-                      A designer that builds React components and interacts with
-                      developers.
+                      Interedted in going deeper into functional programming
+                      principles and how they apply to Redux
                     </Li>
                   </Ul>
                   <P>
