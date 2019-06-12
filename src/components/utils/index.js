@@ -13,10 +13,10 @@ import {
   MEETUP,
 } from '../../config/data'
 import {
-  GREY2,
+  DARK_GREY,
   YELLOW,
   GRAPHQL_PINK,
-  REACT_NATIVE_GREEN,
+  GREEN,
   MEETUP_RED,
   reactBlue,
 } from '../../config/styles'
@@ -40,9 +40,9 @@ export const selectTypeColor = type => {
     case REACT_BOOTCAMP:
       return reactBlue()
     case PART_TIME:
-      return GREY2
+      return DARK_GREY
     case REACT_NATIVE:
-      return REACT_NATIVE_GREEN
+      return GREEN
     case ADVANCED_REACT:
       return YELLOW
     case GRAPHQL_BOOTCAMP:
@@ -51,7 +51,7 @@ export const selectTypeColor = type => {
       return YELLOW
     case GRAPHQL_CLIENT:
     case ONE_DAY_WORKSHOP:
-      return REACT_NATIVE_GREEN
+      return GREEN
     case MEETUP:
       return MEETUP_RED
     default:

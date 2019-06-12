@@ -5,7 +5,7 @@ import {
   blue1,
   BROWN,
   WHITE,
-  GREY2,
+  DARK_GREY,
   BOX_SHADOW,
   reactBlue,
 } from '../../config/styles'
@@ -64,18 +64,18 @@ const Card = styled.div`
   `
       case 'darkGrey':
         return `
-    background-color: ${GREY2};
+    background-color: ${DARK_GREY};
     ${fontColor(WHITE)}
   `
       case 'reactBlue':
         return `
       background-color: ${reactBlue()};
-      ${fontColor(GREY2)}
+      ${fontColor(DARK_GREY)}
       `
       default:
         return `
     background-color: ${WHITE};
-    ${fontColor(GREY2)}
+    ${fontColor(DARK_GREY)}
   `
     }
   }}
