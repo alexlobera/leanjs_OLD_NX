@@ -63,6 +63,11 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/graphql"
     />
     <DesktopMenuItem
+      key="/community/meetups"
+      text="MeetUps"
+      to="/community/meetups"
+    />
+    <DesktopMenuItem
       key="/blog"
       text="Blog"
       to="/blog"

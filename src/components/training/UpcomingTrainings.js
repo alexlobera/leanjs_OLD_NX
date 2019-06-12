@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import {
   PART_TIME,
   REACT_BOOTCAMP,
+  REACT_FUNDAMENTALS,
   REACT_NATIVE,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
@@ -32,6 +33,8 @@ const createTrainingPath = ({ type, city = '', index, id, slug }) => {
       return `/react/training/part-time-course/${city.toLowerCase()}/${i}`
     case REACT_BOOTCAMP:
       return `/react/training/bootcamp/${city.toLowerCase()}/${i}`
+    case REACT_FUNDAMENTALS:
+      return `/react/training/react-fundamentals/${city.toLowerCase()}/${i}`
     case REACT_NATIVE:
       return `/react/training/react-native/${city.toLowerCase()}/${i}`
     case ADVANCED_REACT:
@@ -45,9 +48,9 @@ const createTrainingPath = ({ type, city = '', index, id, slug }) => {
     case MEETUP:
       return `/community/meetups/${id}`
     case ONE_DAY_WORKSHOP:
-      return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}`
     case REACT_WORKSHOP:
-      return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}`
     default:
       return '/'
   }
