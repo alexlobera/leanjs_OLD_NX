@@ -42,7 +42,7 @@ const CorporateGraphQLTraining = () => (
               label: 'GraphQL',
             },
             {
-              to: '/graphql/corporate',
+              to: '/graphql/training/corporate',
               label: 'Corporate',
             },
           ]}
