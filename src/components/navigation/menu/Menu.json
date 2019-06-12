@@ -48,6 +48,10 @@
     ]
   },
   {
+    "to": "/community/meetups",
+    "text": "MeetUps"
+  },
+  {
     "to": "/blog",
     "text": "Blog"
   },
