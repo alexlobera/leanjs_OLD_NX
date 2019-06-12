@@ -27,19 +27,19 @@ import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP, LONDON } from 'src/config/data'
+import { REACT_FUNDAMENTALS, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 
 const ReactFundamentalsLondon = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const fundamentalsTrainings = selectUpcomingTrainings({
         trainings,
-        type: REACT_BOOTCAMP,
+        type: REACT_FUNDAMENTALS,
         city: LONDON,
       })
-      const training = selectNthTraining({ trainings: bootCampTrainings })
+      const training = selectNthTraining({ trainings: fundamentalsTrainings })
       return (
         <React.Fragment>
           <Helmet
@@ -72,8 +72,7 @@ const ReactFundamentalsLondon = () => (
             subtitle="In 3 days, we can teach you how to code in React to give you a solid foundation to take your dev career further."
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
-            type={REACT_BOOTCAMP}
-            //type={REACT_FUNDAMENTALS}
+            type={REACT_FUNDAMENTALS}
             training={training}
             showInfoBox={true}
           />

@@ -23,21 +23,19 @@ import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { DAVIAN } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP } from 'src/config/data'
+import { REACT_FUNDAMENTALS } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 
 const ReactFundamentals = props => (
   <Layout>
     {({ trainings }) => {
-      const upcomingBootCampTrainings = selectUpcomingTrainings({
-        type: REACT_BOOTCAMP,
-        // type: REACT_FUNDAMENTALS,
+      const upcomingFundamentalsTrainings = selectUpcomingTrainings({
+        type: REACT_FUNDAMENTALS,
         trainings,
       })
       const nextTraining = selectNthTraining({
-        trainings: upcomingBootCampTrainings,
-        // trainings: upcomingFundamentalsTrainings
+        trainings: upcomingFundamentalsTrainings,
       })
       return (
         <React.Fragment>
@@ -67,20 +65,18 @@ const ReactFundamentals = props => (
             subtitle="In 3 days, our coaches will work with you and help you use React ecosystem giving you a solid foundation for your career in React."
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
-            type={REACT_BOOTCAMP}
-            //type={REACT_FUNDAMENTALS}
+            type={REACT_FUNDAMENTALS}
           />
           <TopSection>
             <Grid>
               <CallToActionNextTrainings
                 left
-                // trainings={upcomingFundamentalsTrainings}
+                trainings={upcomingFundamentalsTrainings}
               />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumReactFundamentals
-                  trainings={upcomingBootCampTrainings}
-                  // trainings={upcomingFundamentalsTrainings}
+                  trainings={upcomingFundamentalsTrainings}
                 />
               </Card>
             </Grid>
