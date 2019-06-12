@@ -16,6 +16,7 @@ import {
   InstagramIcon,
   TwitterIcon,
   GitHubIcon,
+  LinkedinIcon,
 } from '../icons'
 
 const StyledFooter = styled.div`
@@ -130,6 +131,14 @@ const Footer = ({ width }) => (
                       to="https://www.facebook.com/reactgraphqlacademy/"
                     >
                       <BulletIcon social icon={FacebookIcon} />
+                    </SocialLink>
+                  </Li>
+                  <Li>
+                    <SocialLink
+                      title="React GraphQL Academy LinkedIn"
+                      to="https://www.linkedin.com/company/17933576/"
+                    >
+                      <BulletIcon social icon={LinkedinIcon} />
                     </SocialLink>
                   </Li>
                   <Li>

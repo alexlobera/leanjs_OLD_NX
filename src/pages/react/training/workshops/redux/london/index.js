@@ -18,7 +18,7 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  getNextTrainingByTrainingID,
+  getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
@@ -27,12 +27,12 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const StylingDesignSystemWorkshop = () => (
+const ReduxWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = getNextTrainingByTrainingID({
+      const training = getNextTrainingByTrainingId({
         trainings,
-        trainingID: '5cffb4e806051b7d3bcb0cee',
+        trainingId: '5cffb4e806051b7d3bcb0cee',
       })
       const trainingTitle =
         training &&
@@ -42,11 +42,11 @@ const StylingDesignSystemWorkshop = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Redux"
+            title="Redux workshop london"
             meta={[
               {
                 name: 'description',
-                content: '1-day Design Systems in React Workshops in London',
+                content: '1-day Redux Workshop in London',
               },
             ]}
           />
@@ -68,7 +68,7 @@ const StylingDesignSystemWorkshop = () => (
           />
           <Header
             titleLines={[`${trainingTitle || '...loading'} - London`]}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux Middlewares"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
@@ -116,7 +116,7 @@ const StylingDesignSystemWorkshop = () => (
                     </Li>
                     <Li>
                       Interested in understanding Redux from top to bottom
-                      including redux middle-wares and tooling
+                      including Redux Middlewares and tooling
                     </Li>
                     <Li>
                       Looking to gain an in-depth understanding that will allow
@@ -124,7 +124,7 @@ const StylingDesignSystemWorkshop = () => (
                       build upon an existing one.
                     </Li>
                     <Li>
-                      Interedted in going deeper into functional programming
+                      Interested in going deeper into functional programming
                       principles and how they apply to Redux
                     </Li>
                   </Ul>
@@ -183,4 +183,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default ReduxWorkshop

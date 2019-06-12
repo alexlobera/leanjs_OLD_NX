@@ -20,7 +20,7 @@ import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
-import { REACT_BLUE_DARK } from 'src/config/styles'
+import { DARK_BLUE } from 'src/config/styles'
 
 const trainingList = [
   {
@@ -120,7 +120,7 @@ const ReactPage = ({ data }) => {
                     <H3>Our React training</H3>
                     <TrainingCardList
                       data={trainingList}
-                      borderColor={REACT_BLUE_DARK}
+                      borderColor={DARK_BLUE}
                     />
                   </Col>
                 </Row>

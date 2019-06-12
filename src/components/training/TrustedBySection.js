@@ -14,7 +14,7 @@ import Xing from '../logos/Xing'
 import IBM from '../logos/IBM'
 import IKEA from '../logos/IKEA'
 import Microsoft from '../logos/Microsoft'
-import { REACT_BLUE_DARK } from '../../config/styles'
+import { DARK_BLUE } from '../../config/styles'
 import { SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 
 // TODO THIS IS NOT WORKING, THE IMAGE IS TOO BIG ON MOBILE
@@ -40,34 +40,30 @@ const CompanyList = styled(Ul)`
 export const TrustedByLogoList = () => (
   <CompanyList inline>
     <Li>
-      <Capgemini
-        colour={REACT_BLUE_DARK}
-        secColour={REACT_BLUE_DARK}
-        height={47}
-      />
+      <Capgemini colour={DARK_BLUE} secColour={DARK_BLUE} height={47} />
     </Li>
     <Li>
-      <FinancialTimes colour={REACT_BLUE_DARK} height={30} />
+      <FinancialTimes colour={DARK_BLUE} height={30} />
     </Li>
     <Li>
-      <IBM colour={REACT_BLUE_DARK} height={50} width={100} />
+      <IBM colour={DARK_BLUE} height={50} width={100} />
     </Li>
     <Li>
-      <Microsoft colour={REACT_BLUE_DARK} height={50} width={250} />
+      <Microsoft colour={DARK_BLUE} height={50} width={250} />
     </Li>
     <Li>
-      <IKEA colour={REACT_BLUE_DARK} height={50} />
+      <IKEA colour={DARK_BLUE} height={50} />
     </Li>
     <Li>
       <Tesco
-        colour={REACT_BLUE_DARK}
-        secColour={REACT_BLUE_DARK}
-        stroke={REACT_BLUE_DARK}
+        colour={DARK_BLUE}
+        secColour={DARK_BLUE}
+        stroke={DARK_BLUE}
         height={40}
       />
     </Li>
     <Li>
-      <Xing colour={REACT_BLUE_DARK} height={48} y={20} />
+      <Xing colour={DARK_BLUE} height={48} y={20} />
     </Li>
   </CompanyList>
 )

@@ -1,99 +1,85 @@
 import styled from 'styled-components'
-import { FONT_FAMILY } from '../../config/styles'
+import { fontSize } from 'styled-system'
+
+import Box from '../layout/Box'
 
 const REF = `
-    :hover {
-        a {
-            visibility: visible;
-            cursor: pointer;
-        }
-    }
+  :hover {
     a {
-        visibility: hidden;
+      visibility: visible;
+      cursor: pointer;
+    }
+  }
+  a {
+    visibility: hidden;
+  }
+`
+
+export const H1 = styled(Box)``
+H1.defaultProps = {
+  fontWeight: 'bold',
+  fontSize: 7,
+  box: 'h1',
 }
-`
-export const H1 = styled.h1`
-  font-size: 2.77rem;
-  ${FONT_FAMILY};
-`
 
 export const H1Ref = styled(H1)`
   ${REF};
 `
 
-export const H2_STYLE = `
-  ${FONT_FAMILY};
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  margin-bottom: 1.5rem;
-  font-size: 2.05rem;
-  padding-top: 2rem;
+export const H2 = styled(Box)`
   :first-child {
     padding-top: 0;
   }
   a {
-    font-size: 2.05rem;
+    ${fontSize({ fontSize: 5 })}
+  }
+`
+H2.defaultProps = {
+  fontWeight: 'bold',
+  lineHeight: 6,
+  fontSize: 5,
+  mb: 5,
+  pt: 5,
+  box: 'h2',
 }
-`
-
-export const H2 = styled.h2`
-  ${H2_STYLE};
-`
 
 export const H2Ref = styled(H2)`
   ${REF};
 `
 
-export const H3_STYLE = `
-  ${FONT_FAMILY} 
-  line-height: 1.5;
-  font-weight: 400; 
-  padding-top: 1.5rem;
+export const H3 = styled(Box)`
+  a {
+    ${fontSize({ fontSize: 4 })}
+  }
   :first-child {
     padding-top: 0;
   }
-  font-size: 1.55rem;
-  a {
-    font-size: 1.55rem;
-  }
 `
-
-export const H3 = styled.h3`
-  ${H3_STYLE};
-`
+H3.defaultProps = {
+  fontSize: 4,
+  pt: 4,
+  box: 'h3',
+}
 
 export const H3Ref = styled(H3)`
   ${REF};
 `
 
-export const H4_STYLE = `
-  ${FONT_FAMILY} 
-  font-size: 1.16rem;
-  line-height: 1.3;
-  font-weight: 600;
-  text-decoration: none;
-`
-
-export const H4 = styled.h4`
-  ${H4_STYLE};
-`
+export const H4 = styled(Box)``
+H4.defaultProps = {
+  fontSize: 3,
+  lineHeight: 3,
+}
 
 export const H4Ref = styled(H4)`
   ${REF};
 `
 
-export const H5_STYLE = `
-  ${FONT_FAMILY} 
-  font-size: 1rem;
-  line-height: 1.2;
-  font-weight: 700;
-`
-export const H5 = styled.h5`
-  ${H5_STYLE};
-`
+export const H5 = styled(Box)``
+H4.defaultProps = {
+  fontSize: 2,
+  lineHeight: 1,
+}
 
 export const H5Ref = styled(H5)`
   ${REF};

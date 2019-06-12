@@ -32,7 +32,6 @@ const selectTitle = ({ type, description, venueName }) => {
     case MEETUP:
       return venueName
     case ONE_DAY_WORKSHOP:
-      return description.title
     case REACT_WORKSHOP:
       return description.title
     default:

@@ -5,7 +5,7 @@ import { Link as GatsbyLink } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
-import { GREY2 } from '../../config/styles'
+import { DARK_GREY } from '../../config/styles'
 
 export const DEFAULT_SCROLL_OFFSET = -125
 export const DEFAULT_SCROLL_DURATION = 500
@@ -19,8 +19,8 @@ export const ANCHOR_STYLE = css`
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
-  color: ${GREY2};
-  text-shadow: 0px 0px 1px ${GREY2};
+  color: ${DARK_GREY};
+  text-shadow: 0px 0px 1px ${DARK_GREY};
   ${FONT_FAMILY}
 `
 const BasicLink = styled.a`

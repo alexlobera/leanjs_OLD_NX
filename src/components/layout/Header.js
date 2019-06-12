@@ -97,13 +97,17 @@ HeaderSection.defaultProps = {
 }
 
 const H2Header = styled(BaseH2)`
-  padding: 0 !important;
-  margin: 0 !important;
-  font-size: 1.16rem !important;
-  color: ${WHITE};
-  font-weight: normal;
   text-shadow: 1px -1px 17px ${reactBlue(0.4)};
 `
+
+H2Header.defaultProps = {
+  color: 'white',
+  padding: 0,
+  margin: 0,
+  fontSize: 3,
+  lineHeight: 3,
+  fontWeight: 'normal',
+}
 
 const TITLE_BACKGROUND = `
   background-color: ${blue1(0.75)};
