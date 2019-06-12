@@ -18,7 +18,6 @@ const fontColor = css`
     const color = props.color
 
     return `
-    // color:${color} !important;
     text-shadow: 0px 0px 1px ${color} !important;
     &:link {
       color: ${color} !important;
