@@ -7,7 +7,10 @@ import Grid, { Col, Row } from '../layout/Grid'
 import { H2Ref, H3, P } from '../text'
 import { TrainingItem, TrainingList } from './'
 import Link from '../navigation/Link'
-import { selectUpcomingTrainings } from './UpcomingTrainings'
+import {
+  selectUpcomingTrainings,
+  getUpcomingTrainingsByType,
+} from './UpcomingTrainings'
 import Newsletter from '../elements/Newsletter'
 import { GREY } from '../../config/styles'
 import {
@@ -16,13 +19,21 @@ import {
   TabItem,
   TabContent,
   ContentItem,
-} from 'src/components/layout/Tabs'
+} from '../../components/layout/Tabs'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
   REACT_NATIVE,
-} from 'src/config/data'
+  REACT_WORKSHOP,
+  ONE_DAY_WORKSHOP,
+  REACT_FUNDAMENTALS,
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_WORKSHOP,
+  MEETUP,
+} from '../../config/data'
 import CorporateTrainingCard from '../elements/CorporateTrainingCard'
 
 const CorporateCrossSell = styled.div`
@@ -80,7 +91,28 @@ const UpcomingTrainingSection = ({
   removeAdditionalCTAs = false,
 }) => {
   const [activeTab, setActiveTab] = useState(REACT_BOOTCAMP)
-
+  const reactTrainings = getUpcomingTrainingsByType({
+    trainings,
+    types: [
+      REACT_BOOTCAMP,
+      ADVANCED_REACT,
+      PART_TIME,
+      REACT_NATIVE,
+      REACT_WORKSHOP,
+      REACT_FUNDAMENTALS,
+      ONE_DAY_WORKSHOP,
+    ],
+  })
+  const graphqlTrainings = getUpcomingTrainingsByType({
+    trainings,
+    types: [GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_CLIENT],
+  })
+  const meetups = getUpcomingTrainingsByType({
+    trainings,
+    types: [MEETUP],
+  })
+  console.log('react trainings', reactTrainings)
+  console.log('graphql trainings', graphqlTrainings)
   return (
     <React.Fragment>
       {curriculum ? (
@@ -131,30 +163,46 @@ const UpcomingTrainingSection = ({
                 <TrainingList>
                   <Tabs active={activeTab} onChange={setActiveTab}>
                     <TabList>
-                      <TabItem name={REACT_BOOTCAMP}>React</TabItem>
-                      <TabItem name={ADVANCED_REACT}>GraphQL</TabItem>
-                      <TabItem name={PART_TIME}>Meetups</TabItem>
+                      <TabItem name={REACT_BOOTCAMP}>React Trainings</TabItem>
+                      <TabItem name={GRAPHQL_BOOTCAMP}>
+                        GraphQL Training
+                      </TabItem>
+                      <TabItem name={MEETUP}>Community Meetups</TabItem>
                     </TabList>
                     <TabContent>
                       <ContentItem name={REACT_BOOTCAMP}>
-                        <UpcomingTrainings
-                          type={type}
-                          curriculum={curriculum}
-                          trainings={trainings}
-                        />
-                        <CorporateCrossSell>
-                          <P>
-                            <strong>Corporate team training</strong>
-                          </P>
-                          <Link to="/react/training/corporate/">
-                            Find out more
-                          </Link>
-                        </CorporateCrossSell>
+                        <Row>
+                          <UpcomingTrainings trainings={reactTrainings} />
+                          <CorporateCrossSell>
+                            <P>
+                              <strong>Corporate team training</strong>
+                            </P>
+                            <Link to="/react/training/corporate/">
+                              Find out more
+                            </Link>
+                          </CorporateCrossSell>
+                        </Row>
                       </ContentItem>
 
-                      <ContentItem name={ADVANCED_REACT}>something</ContentItem>
+                      <ContentItem name={GRAPHQL_BOOTCAMP}>
+                        <Row>
+                          <UpcomingTrainings trainings={graphqlTrainings} />
+                          <CorporateCrossSell>
+                            <P>
+                              <strong>Corporate team training</strong>
+                            </P>
+                            <Link to="/react/training/corporate/">
+                              Find out more
+                            </Link>
+                          </CorporateCrossSell>
+                        </Row>
+                      </ContentItem>
 
-                      <ContentItem name={PART_TIME}>something</ContentItem>
+                      <ContentItem name={MEETUP}>
+                        <Row>
+                          <UpcomingTrainings trainings={meetups} />
+                        </Row>
+                      </ContentItem>
                     </TabContent>
                   </Tabs>
                 </TrainingList>
