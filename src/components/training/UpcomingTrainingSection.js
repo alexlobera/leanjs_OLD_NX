@@ -5,7 +5,7 @@ import { formatUTC } from '../utils'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import { H2Ref, H3, P } from '../text'
-import { TrainingItem, TrainingList } from './'
+import { TrainingItem } from './'
 import Link from '../navigation/Link'
 import {
   selectUpcomingTrainings,
@@ -160,52 +160,48 @@ const UpcomingTrainingSection = ({
             </Row>
             <Row>
               <Col md={11} mdOffset={1}>
-                <TrainingList>
-                  <Tabs active={activeTab} onChange={setActiveTab}>
-                    <TabList>
-                      <TabItem name={REACT_BOOTCAMP}>React Trainings</TabItem>
-                      <TabItem name={GRAPHQL_BOOTCAMP}>
-                        GraphQL Training
-                      </TabItem>
-                      <TabItem name={MEETUP}>Community Meetups</TabItem>
-                    </TabList>
-                    <TabContent>
-                      <ContentItem name={REACT_BOOTCAMP}>
-                        <Row>
-                          <UpcomingTrainings trainings={reactTrainings} />
-                          <CorporateCrossSell>
-                            <P>
-                              <strong>Corporate team training</strong>
-                            </P>
-                            <Link to="/react/training/corporate/">
-                              Find out more
-                            </Link>
-                          </CorporateCrossSell>
-                        </Row>
-                      </ContentItem>
+                <Tabs active={activeTab} onChange={setActiveTab}>
+                  <TabList>
+                    <TabItem name={REACT_BOOTCAMP}>React Trainings</TabItem>
+                    <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Training</TabItem>
+                    <TabItem name={MEETUP}>Community Meetups</TabItem>
+                  </TabList>
+                  <TabContent>
+                    <ContentItem name={REACT_BOOTCAMP}>
+                      <Row>
+                        <UpcomingTrainings trainings={reactTrainings} />
+                        <CorporateCrossSell>
+                          <P>
+                            <strong>Corporate team training</strong>
+                          </P>
+                          <Link to="/react/training/corporate/">
+                            Find out more
+                          </Link>
+                        </CorporateCrossSell>
+                      </Row>
+                    </ContentItem>
 
-                      <ContentItem name={GRAPHQL_BOOTCAMP}>
-                        <Row>
-                          <UpcomingTrainings trainings={graphqlTrainings} />
-                          <CorporateCrossSell>
-                            <P>
-                              <strong>Corporate team training</strong>
-                            </P>
-                            <Link to="/react/training/corporate/">
-                              Find out more
-                            </Link>
-                          </CorporateCrossSell>
-                        </Row>
-                      </ContentItem>
+                    <ContentItem name={GRAPHQL_BOOTCAMP}>
+                      <Row>
+                        <UpcomingTrainings trainings={graphqlTrainings} />
+                        <CorporateCrossSell>
+                          <P>
+                            <strong>Corporate team training</strong>
+                          </P>
+                          <Link to="/graphql/training/corporate/">
+                            Find out more
+                          </Link>
+                        </CorporateCrossSell>
+                      </Row>
+                    </ContentItem>
 
-                      <ContentItem name={MEETUP}>
-                        <Row>
-                          <UpcomingTrainings trainings={meetups} />
-                        </Row>
-                      </ContentItem>
-                    </TabContent>
-                  </Tabs>
-                </TrainingList>
+                    <ContentItem name={MEETUP}>
+                      <Row>
+                        <UpcomingTrainings trainings={meetups} />
+                      </Row>
+                    </ContentItem>
+                  </TabContent>
+                </Tabs>
               </Col>
             </Row>
           </Grid>
