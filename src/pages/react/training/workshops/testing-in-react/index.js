@@ -23,6 +23,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { formatUTC } from 'src/components/utils'
 
 const AdvancedReactWorkshop = () => (
   <Layout>
@@ -32,6 +33,7 @@ const AdvancedReactWorkshop = () => (
         trainingID: '5cffb4e806051b7d3bcb0cee',
         // traingingID: 'NUMBER'
       })
+      console.log(training)
       return (
         <React.Fragment>
           <Helmet

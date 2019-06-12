@@ -24,6 +24,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { formatUTC } from 'src/components/utils'
 
 const AdvancedReactWorkshop = () => (
   <Layout>
