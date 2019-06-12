@@ -19,7 +19,6 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   getNextTrainingByTrainingId,
-  selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
@@ -34,7 +33,6 @@ const AdvancedReactWorkshopLondon = () => (
       const training = getNextTrainingByTrainingId({
         trainings,
         trainingID: '5cffb4e806051b7d3bcb0cee',
-        // trainingID: 'NUMBER'
       })
       const trainingTitle =
         training &&

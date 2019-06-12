@@ -74,11 +74,17 @@ const AdvancedReactWorkshop = () => (
             <Grid>
               <CallToActionRow left>
                 <Col mdOffset={1} md={4}>
-                  <LinkButton
-                    variant="primary"
-                    to="/react/training/workshops/advanced-react-patterns-fp-performance/london"
-                    children="Next workshop: 11 July, London"
-                  />
+                  {training && (
+                    <LinkButton variant="primary" to={training.toPath}>
+                      Next workshop:{' '}
+                      {formatUTC(
+                        training.startDate,
+                        training.utcOffset,
+                        'D MMM'
+                      )}
+                      , {training.city}
+                    </LinkButton>
+                  )}
                 </Col>
               </CallToActionRow>
               <Card border="shadow">
