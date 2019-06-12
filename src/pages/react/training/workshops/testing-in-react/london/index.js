@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
+import { CurriculumTestingInReact } from 'src/components/curriculum/workshops'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -32,7 +32,7 @@ const AdvancedReactWorkshopLondon = () => (
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
         trainings,
-        trainingId: '5cffb4e806051b7d3bcb0cee',
+        trainingId: '5d01096406051b7d3bcb0cf5',
       })
       const trainingTitle =
         training &&
@@ -147,7 +147,7 @@ const AdvancedReactWorkshopLondon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
+                    <CurriculumTestingInReact layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>

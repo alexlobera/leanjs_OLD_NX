@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
+import { CurriculumAdvReactPatterns } from 'src/components/curriculum/workshops'
 import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -16,7 +16,6 @@ import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  selectUpcomingTrainings,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
@@ -91,7 +90,7 @@ const AdvancedReactWorkshop = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
+                    <CurriculumAdvReactPatterns layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>

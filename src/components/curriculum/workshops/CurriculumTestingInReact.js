@@ -4,7 +4,10 @@ import { Col, Row } from '../../layout/Grid'
 import Link from '../../navigation/Link'
 import { ONE_DAY_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
-import GraphQLApolloClientDaySessions from '../sessions/GraphQLApolloClientDaySessions'
+import TestingIntroSession from '../sessions/TestingIntroSession'
+import TestingInReactSession from '../sessions/TestingInReactSession'
+import E2ESession from '../sessions/E2ESession'
+
 import selectCurriculumLayout, { LIST_TWO_COL } from '../selectCurriculumLayout'
 
 const CurriculumTestingInReact = ({

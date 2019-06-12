@@ -4,7 +4,8 @@ import { Col, Row } from '../../layout/Grid'
 import Link from '../../navigation/Link'
 import { ONE_DAY_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
-import GraphQLApolloClientDaySessions from '../sessions/GraphQLApolloClientDaySessions'
+import HoCsRenderPropsStateReducerSession from '../sessions/HoCsRenderPropsStateReducerSession'
+import ReactPerformanceSession from '../sessions/ReactPerformanceSession'
 import selectCurriculumLayout, { LIST_TWO_COL } from '../selectCurriculumLayout'
 
 const CurriculumAdvReactPatterns = ({
