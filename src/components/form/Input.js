@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {
   WHITE,
   BROWN,
-  GREY2,
+  DARK_GREY,
   FONT_FAMILY,
   blue1,
   PINK,
@@ -20,7 +20,7 @@ const InputForm = styled.input`
   padding: 11px 10px;
   font-size: 1rem;
   line-height: 1.5;
-  color: ${GREY2};
+  color: ${DARK_GREY};
   background-clip: padding-box;
   border: 1px solid ${BROWN};
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;

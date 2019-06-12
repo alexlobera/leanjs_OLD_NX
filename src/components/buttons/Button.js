@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { FONT_FAMILY, GREY2 } from '../../config/styles'
+import { FONT_FAMILY, DARK_GREY } from '../../config/styles'
 import { variant } from 'styled-system'
 
 export const defaultButtonStyle = color => css`
@@ -31,5 +31,5 @@ export const defaultButtonStyle = color => css`
 `
 
 export default styled.button`
-  ${defaultButtonStyle(GREY2)};
+  ${defaultButtonStyle(DARK_GREY)};
 `
