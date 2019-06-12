@@ -30,10 +30,8 @@ const AdvancedReactWorkshop = () => (
     {({ trainings }) => {
       const training = getNextTrainingByTrainingId({
         trainings,
-        trainingId: '5cffb4e806051b7d3bcb0cee',
-        // traingingID: 'NUMBER'
+        trainingId: '5d0112d806051b7d3bcb0cf7',
       })
-      console.log('training', training)
       return (
         <React.Fragment>
           <Helmet
