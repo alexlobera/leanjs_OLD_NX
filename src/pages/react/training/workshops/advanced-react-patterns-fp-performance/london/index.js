@@ -33,7 +33,7 @@ const AdvancedReactWorkshopLondon = () => (
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
         trainings,
-        trainingID: '5cffb4e806051b7d3bcb0cee',
+        trainingId: '5cffb4e806051b7d3bcb0cee',
       })
       const trainingTitle =
         training &&

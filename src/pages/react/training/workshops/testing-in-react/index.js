@@ -30,8 +30,7 @@ const AdvancedReactWorkshop = () => (
     {({ trainings }) => {
       const training = getNextTrainingByTrainingId({
         trainings,
-        trainingID: '5cffb4e806051b7d3bcb0cee',
-        // traingingID: 'NUMBER'
+        trainingId: '5d01096406051b7d3bcb0cf5',
       })
       console.log(training)
       return (
