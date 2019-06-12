@@ -108,7 +108,7 @@ const ReactFundamentals = props => (
                   <P>
                     {nextTraining && (
                       <LinkButton variant="primary" to={nextTraining.toPath}>
-                        Next bootcamp:{' '}
+                        Next training:{' '}
                         {formatUTC(
                           nextTraining.startDate,
                           nextTraining.utcOffset,
