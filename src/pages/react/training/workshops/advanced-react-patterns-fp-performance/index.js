@@ -1,31 +1,29 @@
-import React from './node_modules/react'
-import Helmet from './node_modules/react-helmet'
+import React from 'react'
+import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from './node_modules/images/imageNames'
-import Layout from './node_modules/src/components/layout'
-import Section, {
-  TopSection,
-} from './node_modules/src/components/layout/Section'
-import Grid, { Col, Row } from './node_modules/src/components/layout/Grid'
-import { H2Ref, H3, P } from './node_modules/src/components/text'
-import Ul, { Li } from './node_modules/src/components/layout/Ul'
-import { CurriculumOneDayRedux } from './node_modules/src/components/curriculum/workshops'
-import { Card } from './node_modules/src/components/elements'
-import { HideComponentsUsingCss } from './node_modules/src/components/utils'
-import Header from './node_modules/src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from './node_modules/src/config/images'
-import { CallToActionRow } from './node_modules/src/components/layout/CallToActionNextTrainings'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import Layout from 'src/components/layout'
+import Section, { TopSection } from 'src/components/layout/Section'
+import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { H2Ref, H3, P } from 'src/components/text'
+import Ul, { Li } from 'src/components/layout/Ul'
+import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
+import { Card } from 'src/components/elements'
+import { HideComponentsUsingCss } from 'src/components/utils'
+import Header from 'src/components/layout/Header'
+import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
   selectUpcomingTrainings,
   getNextTrainingByTrainingID,
-} from './node_modules/src/components/training'
-import { Image } from './node_modules/src/components/elements'
-import { Link, Breadcrumb } from './node_modules/src/components/navigation'
-import LinkButton from './node_modules/src/components/buttons/LinkButton'
-import { ONE_DAY_WORKSHOP, LONDON } from './node_modules/src/config/data'
-import { LIST_TWO_COL } from './node_modules/src/components/curriculum/selectCurriculumLayout'
+} from 'src/components/training'
+import { Image } from 'src/components/elements'
+import { Link, Breadcrumb } from 'src/components/navigation'
+import LinkButton from 'src/components/buttons/LinkButton'
+import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
+import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const AdvancedReactWorkshop = () => (
   <Layout>
