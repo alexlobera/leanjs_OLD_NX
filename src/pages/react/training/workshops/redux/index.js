@@ -25,7 +25,7 @@ import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
 
-const StylingDesignSystemWorkshop = () => (
+const ReduxWorkshopLanding = () => (
   <Layout>
     {({ trainings }) => {
       const training = getNextTrainingByTrainingId({
@@ -123,10 +123,6 @@ const StylingDesignSystemWorkshop = () => (
                       you to apply Redux to a large scale React appliaction or
                       build upon an existing one.
                     </Li>
-                    <Li>
-                      Not satisfied with the Designer/Developer handover in
-                      real-world React projects?
-                    </Li>
                   </Ul>
                   <P>
                     If you've said 'yes' to these, this workshop could be for
@@ -171,4 +167,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default ReduxWorkshopLanding

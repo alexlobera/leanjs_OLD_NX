@@ -42,11 +42,11 @@ const ReduxWorkshop = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Redux"
+            title="Redux workshop london"
             meta={[
               {
                 name: 'description',
-                content: '1-day Design Systems in React Workshops in London',
+                content: '1-day Redux Workshop in London',
               },
             ]}
           />
@@ -68,7 +68,7 @@ const ReduxWorkshop = () => (
           />
           <Header
             titleLines={[`${trainingTitle || '...loading'} - London`]}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux Middlewares"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
@@ -116,7 +116,7 @@ const ReduxWorkshop = () => (
                     </Li>
                     <Li>
                       Interested in understanding Redux from top to bottom
-                      including redux middle-wares and tooling
+                      including Redux Middlewares and tooling
                     </Li>
                     <Li>
                       Looking to gain an in-depth understanding that will allow
@@ -124,7 +124,7 @@ const ReduxWorkshop = () => (
                       build upon an existing one.
                     </Li>
                     <Li>
-                      Interedted in going deeper into functional programming
+                      Interested in going deeper into functional programming
                       principles and how they apply to Redux
                     </Li>
                   </Ul>
