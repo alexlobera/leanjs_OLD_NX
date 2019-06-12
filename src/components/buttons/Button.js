@@ -27,9 +27,70 @@ export const defaultButtonStyle = color => css`
     }
   `}
   color: ${color};
-  ${variant({ key: 'buttons' })};
+  /* ${variant({ key: 'buttons' })}; */
 `
 
-export default styled.button`
+export const buttonDefaultProps = {
+  py: 1,
+  px: 3,
+  borderRadius: 1,
+  border: 0,
+  variant: 'default',
+  box: 'button',
+}
+
+const buttonVariantProps = {
+  primary: {
+    color: color.WHITE,
+    backgroundColor: color.GREEN_DARK,
+    fontSize: '2',
+    lineHeight: '2',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    boxShadow$: 'light',
+  },
+  secondary: {
+    color: color.WHITE,
+    backgroundColor: color.TEAL_DARK,
+    fontSize: '1rem',
+    lineHeight: '1.5rem',
+    fontStyle: 'normal',
+    fontWeight: 'light',
+    boxShadow$: 'light',
+  },
+  tertiary: {
+    color: color.GREY_DARK,
+    backgroundColor: color.WHITE,
+    fontSize: '1rem',
+    lineHeight: '1.5rem',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    boxShadow$: 'light',
+  },
+}
+
+const StyledButton = styled(Box)`
   ${defaultButtonStyle(DARK_GREY)};
 `
+
+const Button = ({ children, loading, onClick, variant, ...rest }) => {
+  const props = {
+    ...rest,
+    onClick: rest.disabled ? undefined : onClick,
+  }
+
+  return (
+    <StyledButton
+      {...buttonDefaultProps}
+      type="button"
+      {...(variant ? buttonVariantProps[variant] : {})}
+      {...props}
+    >
+      {loading ? 'Loading ...' : children}
+    </StyledButton>
+  )
+}
+
+Button.displayName = 'Button'
+
+export default Button
