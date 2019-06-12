@@ -15,7 +15,7 @@ import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
-import { REACT_BOOTCAMP } from '../../config/data'
+import { REACT_FUNDAMENTALS } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
 const CurriculumReactFundamentals = ({
@@ -23,14 +23,14 @@ const CurriculumReactFundamentals = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
+  toggleNavigateTo = `/react/curriculum?tab=${REACT_FUNDAMENTALS}`,
   marketingCard = null,
   showLinkToCurriculum = true,
   trainings,
   showHackathon = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = REACT_BOOTCAMP
+  const type = REACT_FUNDAMENTALS
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
@@ -73,7 +73,7 @@ const CurriculumReactFundamentals = ({
       {marketingCard}
       {showLinkToCurriculum && showHackathon && (
         <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
+          <LinkButton to={`/react/curriculum?tab=${REACT_FUNDAMENTALS}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>
@@ -92,7 +92,7 @@ const CurriculumReactFundamentals = ({
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
       <SectionCTA>
-        <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
+        <LinkButton to={`/react/curriculum?tab=${REACT_FUNDAMENTALS}`}>
           Full curriculum
         </LinkButton>
       </SectionCTA>
