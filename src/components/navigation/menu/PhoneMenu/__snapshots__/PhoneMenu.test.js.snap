@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PhoneMenu /> should render a menu with less than 7 items in the first navigation level 1`] = `
+exports[`<PhoneMenu /> should render a menu with less than 8 items in the first navigation level 1`] = `
 <Fragment>
   <Styled(ToggleButton)
     isOpen={false}
@@ -38,6 +38,13 @@ exports[`<PhoneMenu /> should render a menu with less than 7 items in the first 
       to="/graphql/curriculum"
     >
       GraphQL Curriculum
+    </PhoneMenuItem>
+    <PhoneMenuItem
+      key="/community/meetups"
+      onClick={[Function]}
+      to="/community/meetups"
+    >
+      MeetUps
     </PhoneMenuItem>
     <PhoneMenuItem
       key="/blog"
