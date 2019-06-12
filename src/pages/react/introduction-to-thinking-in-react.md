@@ -48,7 +48,7 @@ It’s a tree. We think of UIs as hierarchical structures, it’s a very natural
 I always find it very useful to think of my React apps as simply trees, not as a set of pages or views, as I did at the beginning when I moved from MVC frameworks to React (that might be your case). If you are just getting started with React, I recommend you draw out on paper (or any other fancy tool) the component tree of your app, just like the image above.
 
 <img placeholder-height="241px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fintro-thinking-in-react%2Fcomponent-tree-comparison.png?alt=media" alt="Component tree comparison"></img>
-_Components can “contain” other components. Intentionally avoided the word “compose” at this point. [We explain composition in another post](/blog/react-is-all-about-composition-react-hooks-render-props-hocs)</a>_
+_Components can “contain” other components. Intentionally avoided the word “compose” at this point. [We explain composition in another post](/react/react-is-all-about-composition-react-hooks-render-props-hocs)</a>_
 
 ## State
 
@@ -113,7 +113,7 @@ Components are reusable UIs that encapsulate implementation details like behavio
 
 ## Components everywhere
 
-Everything on the UI can be a component (including the metas in the head! when we say everything it means everything :). You can learn more about using [components everywhere in this article](/blog/styling-in-react/#components-everywhere).
+Everything on the UI can be a component (including the metas in the head! when we say everything it means everything :). You can learn more about using [components everywhere in this article](/react/styling-in-react/#components-everywhere).
 
 ## Let's practice
 

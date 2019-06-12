@@ -151,7 +151,7 @@ const ReactPage = ({ data }) => {
                     </Li>
                   </Ul>
                   <P>
-                    <LinkButton to="/blog/top-10-reasons-to-learn-react/">
+                    <LinkButton to="/react/top-10-reasons-to-learn-react/">
                       Blog: Why You Should Learn React Right Now
                     </LinkButton>
                   </P>

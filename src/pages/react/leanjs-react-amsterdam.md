@@ -59,6 +59,6 @@ See what our alumni thought of our training below:
 
 <video youtube-id="E_4eQQHjc7A"></video>
 
-Want to get involved in our part-time React courses in Amsterdam? [Find out more and sign up today!](/react-redux-training-amsterdam/)
+Want to get involved in our part-time React courses in Amsterdam? [Find out more and sign up today!](/react/training/part-time-course/)
 
 If you’re interested in attending React Amsterdam, better hurry: tickets are selling fast. [Reserve yours now](https://www.eventbrite.com/e/react-amsterdam-conference-2019-tickets-51631771017)!
