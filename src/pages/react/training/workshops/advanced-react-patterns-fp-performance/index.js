@@ -59,7 +59,7 @@ const AdvancedReactWorkshop = () => (
           />
           <Header
             titleLines={['Advanced React Patterns, FP and Performance']}
-            subtitle="Blurb"
+            subtitle="Understand how to use and apply React patterns including, HOC, render props and perpendicular composition with hooks"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },

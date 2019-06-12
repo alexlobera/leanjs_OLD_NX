@@ -58,7 +58,7 @@ const AdvancedReactWorkshop = () => (
           />
           <Header
             titleLines={['Testing in React']}
-            subtitle="Blurb"
+            subtitle="Learn how to build fully tested scalable React applications"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
