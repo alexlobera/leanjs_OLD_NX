@@ -48,9 +48,9 @@ const createTrainingPath = ({ type, city = '', index, id, slug }) => {
     case MEETUP:
       return `/community/meetups/${id}`
     case ONE_DAY_WORKSHOP:
-      return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}`
     case REACT_WORKSHOP:
-      return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}`
     default:
       return '/'
   }
