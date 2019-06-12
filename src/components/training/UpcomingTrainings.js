@@ -81,8 +81,8 @@ const trainingByType = type => training =>
 
 const trainingByCity = city => training => !city || training.city === city
 
-export const getNextTrainingByTrainingID = ({ trainings, trainingID }) =>
-  trainings.find(training => training.training.id === trainingID)
+export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
+  trainings.find(training => training.training.id === trainingId)
 
 export const selectTrainingById = ({ trainings, id }) =>
   trainings.find(training => training.id === id)

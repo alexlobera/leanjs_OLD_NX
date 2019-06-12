@@ -18,7 +18,7 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  getNextTrainingByTrainingID,
+  getNextTrainingByTrainingId,
   selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
@@ -31,9 +31,9 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 const StylingDesignSystemWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = getNextTrainingByTrainingID({
+      const training = getNextTrainingByTrainingId({
         trainings,
-        trainingID: '5cffb4e806051b7d3bcb0cee',
+        trainingId: '5cffb4e806051b7d3bcb0cee',
       })
       const trainingTitle =
         training &&

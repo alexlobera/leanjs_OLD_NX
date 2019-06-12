@@ -17,7 +17,7 @@ import {
   UpcomingTrainingSection,
   AttendeeQuote,
   selectUpcomingTrainings,
-  getNextTrainingByTrainingID,
+  getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -28,9 +28,9 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 const StylingDesignSystemWorkshop = () => (
   <Layout>
     {({ trainings }) => {
-      const training = getNextTrainingByTrainingID({
+      const training = getNextTrainingByTrainingId({
         trainings,
-        trainingID: '5cffb4e806051b7d3bcb0cee',
+        trainingId: '5cffb4e806051b7d3bcb0cee',
       })
       console.log('training', training)
       return (
