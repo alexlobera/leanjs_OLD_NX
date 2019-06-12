@@ -24,9 +24,7 @@ export const ANCHOR_STYLE = css`
   text-shadow: 0px 0px 1px ${DARK_GREY};
   ${FONT_FAMILY}
 `
-// const BasicLink = styled(Box)`
-//   ${ANCHOR_STYLE};
-// `
+
 const StyledLink = styled(Box)`
   ${ANCHOR_STYLE};
 `
@@ -50,36 +48,12 @@ export const styleChildLinkColor = color => `
   }
 `
 
-// const RouterLink = styled(Box)`
-//   ${ANCHOR_STYLE};
-// `
-// export const LinkScroll = styled(Box)`
-//   ${ANCHOR_STYLE};
-// `
-
 DefaultLinkScroll.defaultProps = {
   smooth: true,
   duration: DEFAULT_SCROLL_DURATION,
   offset: DEFAULT_SCROLL_OFFSET,
   box: DefaultLinkScroll,
 }
-
-// export const LinkScroll = styled(({ to, ...rest }) => (
-//   <DefaultLinkScroll
-//     smooth
-//     duration={DEFAULT_SCROLL_DURATION}
-//     offset={DEFAULT_SCROLL_OFFSET}
-//     to={to && to.slice(1, to.length)}
-//     {...rest}
-//   />
-// ))`
-//   ${ANCHOR_STYLE};
-// `
-
-export const LinkScroll = styled(Box)`
-  ${ANCHOR_STYLE};
-`
-LinkScroll.displayName = 'LinkScroll'
 
 class Link extends React.Component {
   componentDidMount() {
