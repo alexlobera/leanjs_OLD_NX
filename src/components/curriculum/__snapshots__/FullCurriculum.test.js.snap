@@ -7,7 +7,14 @@ exports[`<FullCurriculum /> should render component 1`] = `
       lg={10}
       lgOffset={1}
     >
-      <Styled(styled.h2)>
+      <Styled(Styled(Box))
+        box="h2"
+        fontSize={5}
+        fontWeight="bold"
+        lineHeight={6}
+        mb={5}
+        pt={5}
+      >
         Choose a course...
          
         <Link
@@ -16,7 +23,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
         >
           #
         </Link>
-      </Styled(styled.h2)>
+      </Styled(Styled(Box))>
     </Styled(Col)>
   </Row>
   <Row>
