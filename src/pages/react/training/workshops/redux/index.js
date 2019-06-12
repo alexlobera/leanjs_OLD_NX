@@ -16,7 +16,6 @@ import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  selectUpcomingTrainings,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
@@ -24,6 +23,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { formatUTC } from 'src/components/utils'
 
 const StylingDesignSystemWorkshop = () => (
   <Layout>
@@ -32,7 +32,6 @@ const StylingDesignSystemWorkshop = () => (
         trainings,
         trainingId: '5cffb4e806051b7d3bcb0cee',
       })
-      console.log('training', training)
       return (
         <React.Fragment>
           <Helmet
@@ -71,11 +70,17 @@ const StylingDesignSystemWorkshop = () => (
             <Grid>
               <CallToActionRow left>
                 <Col mdOffset={1} md={4}>
-                  <LinkButton
-                    variant="primary"
-                    to="/react/training/workshops/redux/london"
-                    children="Next workshop: 10 July, London"
-                  />
+                  {training && (
+                    <LinkButton variant="primary" to={training.toPath}>
+                      Next workshop:{' '}
+                      {formatUTC(
+                        training.startDate,
+                        training.utcOffset,
+                        'D MMM'
+                      )}
+                      , {training.city}
+                    </LinkButton>
+                  )}
                 </Col>
               </CallToActionRow>
               <Card border="shadow">

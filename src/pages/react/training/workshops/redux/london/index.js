@@ -19,7 +19,6 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   getNextTrainingByTrainingId,
-  selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
@@ -28,7 +27,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const StylingDesignSystemWorkshop = () => (
+const ReduxWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
@@ -184,4 +183,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default ReduxWorkshop
