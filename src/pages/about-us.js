@@ -619,7 +619,7 @@ const AboutUs = () => (
                     #
                   </Link>
                 </H2Ref>
-                <CoachTitle>Developer at Sainsburys</CoachTitle>
+                <CoachTitle>Software Engineer at Sainsbury's</CoachTitle>
                 <Ul inline>
                   <Li>
                     <SocialLink to="https://github.com/franciscomcg">
