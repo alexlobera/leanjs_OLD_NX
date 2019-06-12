@@ -7,7 +7,7 @@ import Grid, { Col, Row } from './Grid'
 import { RGALogo } from '../logos/RGALogo'
 import Ul, { Li } from './Ul'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import { blue1, WHITE } from '../../config/styles'
+import { DARK_BLUE, WHITE } from '../../config/styles'
 import { SCREEN_SM_MAX } from '../utils'
 import { P, H3, Span } from '../text'
 import {
@@ -20,9 +20,10 @@ import {
 
 const StyledFooter = styled.div`
   footer {
-    background-color: ${blue1()};
+    background-color: ${DARK_BLUE};
     padding: 50px 0 40px 0;
     color: ${WHITE};
+    h3,
     h2 {
       color: ${WHITE};
     }
@@ -30,7 +31,7 @@ const StyledFooter = styled.div`
   }
 
   @media (max-width: ${SCREEN_SM_MAX}) {
-    background-color: ${blue1()};
+    background-color: ${DARK_BLUE};
   }
 `
 

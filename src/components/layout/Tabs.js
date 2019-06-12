@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { reactBlue, FONT_FAMILY } from '../../config/styles'
+import { BLUE, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
 import { PART_TIME, GRAPHQL_BOOTCAMP } from '../../config/data'
 import { Col, Row } from './Grid'
@@ -79,7 +79,7 @@ const Li = styled.li`
         text-align:center;
       }
       @media (max-width: ${SCREEN_XS_MAX}) {
-        border: 1px solid ${reactBlue()};
+        border: 1px solid ${BLUE};
       }
       background: ${selectTypeColor(props.name)};
     `

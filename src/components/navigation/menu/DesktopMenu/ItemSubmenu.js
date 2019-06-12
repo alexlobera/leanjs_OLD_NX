@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import React from 'react'
 import Link from '../../Link'
 import DefaultUl from '../../../layout/Ul'
-import { WHITE, blue1 } from '../../../../config/styles'
+import { WHITE, DARK_BLUE_075 } from '../../../../config/styles'
 import { DesktopMenuItem } from '.'
 
 export const Ul = styled(DefaultUl)`
-  background-color: ${blue1(0.75)};
+  background-color: ${DARK_BLUE_075};
   position: absolute;
   list-style: none;
   margin: 29px 0 0 -18px !important;

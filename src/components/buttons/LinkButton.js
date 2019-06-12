@@ -1,26 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Link from '../navigation/Link'
-import { defaultButtonStyle } from './Button'
-import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
-import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
+import { typography, shadow } from 'styled-system'
 
-function getColorFromProps(props) {
-  const { variant, theme } = props
-  if (!theme || !theme.buttons) {
-    return
-  }
-  const { color } = props.theme.buttons[variant]
-  return color
-}
+import Link from '../navigation/Link'
+import {
+  defaultButtonStyle,
+  buttonVariantProps,
+  buttonDefaultProps,
+} from './Button'
+// Richard are we using this trackUserBehaviourProp on Google Analytics or Google Tag Manager?
+// import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
+import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
 const fontColor = css`
   ${props => {
-    const color = getColorFromProps(props)
+    const color = props.color
 
     return `
-    color:${color} !important;
+    // color:${color} !important;
     text-shadow: 0px 0px 1px ${color} !important;
     &:link {
       color: ${color} !important;
@@ -39,7 +37,7 @@ const fontColor = css`
 
 const StyledLinkButton = styled(Link)`
   text-decoration: none;
-  ${props => defaultButtonStyle(getColorFromProps(props))}
+  ${defaultButtonStyle}
   ${fontColor}
   ${props => props.external && 'justify-content: space-evenly;'};
   ${props => props.margin && 'margin-top: 2rem'} 
@@ -53,6 +51,8 @@ const StyledLinkButton = styled(Link)`
     justify-content: space-evenly;
     align-items: center;
     `}
+  ${typography}
+  ${shadow}
 `
 
 StyledLinkButton.displayName = 'StyledLinkButton'
@@ -60,21 +60,24 @@ StyledLinkButton.displayName = 'StyledLinkButton'
 const LinkButton = ({
   trackUserBehaviour: trackUserBehaviourProp,
   children,
+  variant,
   ...props
 }) => (
   <StyledLinkButton
     {...props}
-    onClick={e => {
-      if (props.variant === 'primary') {
-        trackUserBehaviourProp({
-          event: CLICK_ON_CTA,
-          payload: {
-            to: props.to || 'Not Provided',
-          },
-        })
-      }
-      props.onClick && props.onClick(e)
-    }}
+    {...(variant ? buttonVariantProps[variant] : {})}
+    // Richard are we using this trackUserBehaviourProp on Google Analytics or Google Tag Manager?
+    // onClick={e => {
+    //   if (props.variant === 'primary') {
+    //     trackUserBehaviourProp({
+    //       event: CLICK_ON_CTA,
+    //       payload: {
+    //         to: props.to || 'Not Provided',
+    //       },
+    //     })
+    //   }
+    //   props.onClick && props.onClick(e)
+    // }}
   >
     {props.pdf ? <PdfDownload /> : null}
     {props.external ? (
@@ -85,13 +88,13 @@ const LinkButton = ({
 )
 
 LinkButton.propTypes = {
-  trackUserBehaviour: PropTypes.func,
   variant: PropTypes.string,
 }
 
 LinkButton.defaultProps = {
-  trackUserBehaviour,
-  variant: 'default',
+  // Richard are we using this trackUserBehaviourProp on Google Analytics or Google Tag Manager?
+  // trackUserBehaviour,
+  ...buttonDefaultProps,
 }
 
 export default LinkButton

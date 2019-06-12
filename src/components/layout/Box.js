@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { space, color, typography } from 'styled-system'
+import { space, color, typography, border, shadow } from 'styled-system'
+import { DARK_GREY } from '../../config/styles'
 
 export const StyledBox = styled.div`
   ${space}
   ${color}
   ${typography}
+  ${border}
+  ${shadow}
 `
 
 const Box = React.forwardRef(({ children, ...rest }, ref) => {
@@ -25,7 +28,7 @@ Box.displayName = 'Box'
 Box.defaultProps = {
   fontFamily: 'barlow',
   fontWeight: 'normal',
-  color: 'darkGrey',
+  color: DARK_GREY,
 }
 
 export default Box

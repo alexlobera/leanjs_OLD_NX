@@ -9,17 +9,17 @@ import Grid, { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
 import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
 import {
-  blue1,
-  blue2,
+  DARK_BLUE_075,
+  LIGHT_BLUE,
   WHITE,
-  reactBlue,
+  BLUE_04,
   FONT_FAMILY,
   TEXT_SIZE,
+  Z_INDEX_BG,
 } from '../../config/styles'
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import { Z_INDEX_BG } from '../../config/styles'
 import { selectTypeColor } from '../utils/index.js'
 import { Image } from '../elements'
 
@@ -31,7 +31,7 @@ const H1 = styled(BaseH1)`
   line-height: 1.5;
   letter-spacing: normal;
   color: ${WHITE};
-  text-shadow: 1px -1px 17px ${reactBlue(0.4)};
+  text-shadow: 1px -1px 17px ${BLUE_04};
   @media (max-width: ${SCREEN_SM_MAX}) {
     font-size: 2.77rem;
   }
@@ -55,7 +55,7 @@ const HeaderSection = styled(Section)`
   ${({ bgColor }) =>
     `background-color: ${
       bgColor === 'blue'
-        ? reactBlue(0.4)
+        ? BLUE_04
         : bgColor === 'grey'
         ? 'rgba(196,196,196,0.4)'
         : ''
@@ -97,11 +97,11 @@ HeaderSection.defaultProps = {
 }
 
 const H2Header = styled(BaseH2)`
-  text-shadow: 1px -1px 17px ${reactBlue(0.4)};
+  text-shadow: 1px -1px 17px ${BLUE_04};
 `
 
 H2Header.defaultProps = {
-  color: 'white',
+  color: WHITE,
   padding: 0,
   margin: 0,
   fontSize: 3,
@@ -110,7 +110,7 @@ H2Header.defaultProps = {
 }
 
 const TITLE_BACKGROUND = `
-  background-color: ${blue1(0.75)};
+  background-color: ${DARK_BLUE_075};
   display: table;
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
@@ -140,7 +140,7 @@ const Nav = styled.div`
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
-  background-color: ${props => (props.quickLinks ? blue1(0.75) : blue2(0.9))};
+  background-color: ${props => (props.quickLinks ? DARK_BLUE_075 : LIGHT_BLUE)};
   color: ${WHITE};
   ${styleChildLinkColor(WHITE)}
   padding-top: 8px;

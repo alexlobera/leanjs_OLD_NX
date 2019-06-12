@@ -46,7 +46,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-import { DARK_BLUE } from '../../config/styles'
+import { LIGHT_BLUE } from '../../config/styles'
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -239,7 +239,7 @@ class ReactCurriculum extends React.Component {
                             <H5>Also available...</H5>
                           </Col>
                           <Col md={6}>
-                            <TrainingCard borderColor={DARK_BLUE}>
+                            <TrainingCard borderColor={LIGHT_BLUE}>
                               <H4>Corporate training</H4>
                               <P>
                                 Private team training, located in your offices
@@ -251,7 +251,7 @@ class ReactCurriculum extends React.Component {
                             </TrainingCard>
                           </Col>
                           <Col md={6}>
-                            <TrainingCard borderColor={DARK_BLUE}>
+                            <TrainingCard borderColor={LIGHT_BLUE}>
                               <H4>1 Day Workshops</H4>
                               <P>
                                 Instense training focussing on specific parts of

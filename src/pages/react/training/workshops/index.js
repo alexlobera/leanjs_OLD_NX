@@ -11,7 +11,7 @@ import { UpcomingTrainingSection, TrainingCard } from 'src/components/training'
 import Header from 'src/components/layout/Header'
 import { Card, Newsletter } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import { DARK_BLUE } from '../../../../config/styles'
+import { LIGHT_BLUE } from '../../../../config/styles'
 
 const PROVISIONAL_WORKSHOP_PRICE = '£360 Inc VAT'
 
@@ -102,7 +102,7 @@ const Workshops = () => (
 
                         return (
                           <Col sm={6} md={4}>
-                            <TrainingCard borderColor={DARK_BLUE}>
+                            <TrainingCard borderColor={LIGHT_BLUE}>
                               <Link underline={false} to={to}>
                                 <H4>{workshop.title}</H4>
                               </Link>
