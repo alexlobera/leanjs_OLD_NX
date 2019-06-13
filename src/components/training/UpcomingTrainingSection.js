@@ -53,7 +53,7 @@ const CorporateCrossSell = styled.div`
 
 export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
   const filteredTrainings = selectUpcomingTrainings({ type, trainings })
-  if (!filteredTrainings.length) {
+  if (!filteredTrainings.length || !filteredTrainings[0].id) {
     return <P>Sorry! There are no {type} dates confirmed.</P>
   } else {
     return filteredTrainings.map(training => {

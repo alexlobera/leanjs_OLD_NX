@@ -87,11 +87,15 @@ const trainingByCity = city => training => !city || training.city === city
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
   trainings.find(training => training.training.id === trainingId)
 
-export const getUpcomingTrainingsByType = ({ trainings, types = [] }) => {
-  const filteredTrainings = types.map(type =>
-    trainings.filter(trainingByType(type))
-  )
-  return filteredTrainings.flat()
+export const getUpcomingTrainingsByType = ({
+  trainings,
+  types = [],
+  first,
+}) => {
+  const filteredTrainings = types
+    .map(type => trainings.filter(trainingByType(type)))
+    .flat()
+  return first ? filteredTrainings.slice(0, first) : filteredTrainings
 }
 
 export const selectTrainingById = ({ trainings, id }) =>

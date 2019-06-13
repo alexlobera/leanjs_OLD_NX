@@ -53,11 +53,8 @@ const Bootcamps = props => (
           ONE_DAY_WORKSHOP,
           PART_TIME,
         ],
+        first: 3,
       })
-      const displayCourses =
-        reactTrainings.length && reactTrainings[0].id !== undefined
-          ? reactTrainings.slice(0, 3)
-          : []
 
       return (
         <React.Fragment>
@@ -159,7 +156,7 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={displayCourses} />
+                  <AlternativeTrainings trainings={reactTrainings} />
                 </Col>
               </Row>
             </Grid>
