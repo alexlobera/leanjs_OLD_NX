@@ -88,6 +88,8 @@ const Card = styled.div`
         return BOX_SHADOW
       case 'black':
         return `border: 1px solid ${BROWN};`
+      case 'blue':
+        return `border: 3px solid ${reactBlue()};`
       default:
         return ``
     }
