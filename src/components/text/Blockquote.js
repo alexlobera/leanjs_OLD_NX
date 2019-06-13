@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FONT_FAMILY, reactBlue } from '../../config/styles'
+import { FONT_FAMILY, BLUE } from '../../config/styles'
 import { SCREEN_MD_MIN, SCREEN_SM_MAX } from '../utils'
 
 const HORIZONTAL_TRIANGLE = `
@@ -25,7 +25,7 @@ const VERTICAL_TRIANGLE = `
   pointer-events: none;
   border-color: rgba(136, 183, 213, 0);
   border-width: 18px;
-  border-top-color:${reactBlue()};
+  border-top-color:${BLUE};
   top: 100%;
   margin-top: -1px;
 `
@@ -45,7 +45,7 @@ const StyledBlockquote = styled(Blockquote)`
           :after {
           ${HORIZONTAL_TRIANGLE}
           right: 100%;
-          border-right-color: ${reactBlue()};
+          border-right-color: ${BLUE};
         }
       }
       @media (max-width: ${SCREEN_SM_MAX}) {
@@ -62,7 +62,7 @@ const StyledBlockquote = styled(Blockquote)`
         :after {
           ${HORIZONTAL_TRIANGLE}
           left: 100%;
-          border-left-color: ${reactBlue()};
+          border-left-color: ${BLUE};
         }
       }
       @media (max-width: ${SCREEN_SM_MAX}) {
@@ -78,7 +78,7 @@ const StyledBlockquote = styled(Blockquote)`
     if (props.bg === 'primary') {
       return `
         padding: 24px;
-        background-color: ${reactBlue()};
+        background-color: ${BLUE};
         font-size: 0.9rem;
         font-style: italic;
       `

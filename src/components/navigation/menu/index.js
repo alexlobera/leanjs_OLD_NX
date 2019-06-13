@@ -7,7 +7,11 @@ import { RGALogo } from '../../logos/RGALogo'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'
-import { blue1, Z_INDEX_SMALL, Z_INDEX_TOP } from '../../../config/styles'
+import {
+  DARK_BLUE_075,
+  Z_INDEX_SMALL,
+  Z_INDEX_TOP,
+} from '../../../config/styles'
 
 export { DesktopMenu, PhoneMenu }
 
@@ -19,7 +23,7 @@ const MenuContainer = styled.div`
   padding: 20px;
   position: relative;
   z-index: ${Z_INDEX_SMALL};
-  background-color: ${blue1(0.75)};
+  background-color: ${DARK_BLUE_075};
   display: flex;
   align-items: center;
   justify-content: space-between;

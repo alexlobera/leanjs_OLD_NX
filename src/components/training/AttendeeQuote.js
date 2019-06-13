@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Blockquote } from '../text'
 import { Image, Video } from '../elements'
-import { reactBlue, DARK_GREY, FONT_FAMILY } from '../../config/styles'
+import { BLUE, DARK_GREY, FONT_FAMILY } from '../../config/styles'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX } from '../utils'
 import { LinkButton } from '../buttons'
 
 const Card = styled.div`
   border: 3px solid;
-  border-color: ${reactBlue()};
+  border-color: ${BLUE};
   padding: 1rem;
   display: flex;
   padding-top: ${props => (props.small ? '1rem' : null)};

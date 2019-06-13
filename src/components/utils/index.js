@@ -18,7 +18,7 @@ import {
   GRAPHQL_PINK,
   GREEN,
   MEETUP_RED,
-  reactBlue,
+  BLUE,
 } from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
@@ -38,7 +38,7 @@ const Components = ({ children, ...props }) =>
 export const selectTypeColor = type => {
   switch (type) {
     case REACT_BOOTCAMP:
-      return reactBlue()
+      return BLUE
     case PART_TIME:
       return DARK_GREY
     case REACT_NATIVE:
@@ -55,7 +55,7 @@ export const selectTypeColor = type => {
     case MEETUP:
       return MEETUP_RED
     default:
-      return reactBlue()
+      return BLUE
   }
 }
 

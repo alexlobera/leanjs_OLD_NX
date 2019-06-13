@@ -69,6 +69,8 @@ export const H4 = styled(Box)``
 H4.defaultProps = {
   fontSize: 3,
   lineHeight: 3,
+  fontWeight: 'bold',
+  box: 'h4',
 }
 
 export const H4Ref = styled(H4)`
@@ -76,9 +78,11 @@ export const H4Ref = styled(H4)`
 `
 
 export const H5 = styled(Box)``
-H4.defaultProps = {
+H5.defaultProps = {
   fontSize: 2,
   lineHeight: 1,
+  fontWeight: 'bold',
+  box: 'h5',
 }
 
 export const H5Ref = styled(H5)`
