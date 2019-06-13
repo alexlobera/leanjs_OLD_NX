@@ -151,7 +151,7 @@ const UpcomingTrainingSection = ({
             <Row>
               <Col md={10} mdOffset={1}>
                 <H2Ref>
-                  Upcoming - All Courses
+                  Upcoming - All Events
                   <Link to="#upcoming" name="upcoming">
                     #
                   </Link>
@@ -162,9 +162,9 @@ const UpcomingTrainingSection = ({
               <Col md={11} mdOffset={1}>
                 <Tabs active={activeTab} onChange={setActiveTab}>
                   <TabList>
-                    <TabItem name={REACT_BOOTCAMP}>React Trainings</TabItem>
-                    <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Training</TabItem>
-                    <TabItem name={MEETUP}>Community Meetups</TabItem>
+                    <TabItem name={REACT_BOOTCAMP}>React Courses</TabItem>
+                    <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Courses</TabItem>
+                    <TabItem name={MEETUP}>Meetups</TabItem>
                   </TabList>
                   <TabContent>
                     <ContentItem name={REACT_BOOTCAMP}>
