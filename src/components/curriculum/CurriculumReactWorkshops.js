@@ -3,10 +3,10 @@ import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
 import { ONE_DAY_WORKSHOP } from '../../config/data'
-import { H2Ref } from '../text'
+import { H2Ref, H4 } from '../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
-const CurriculumOneDayWorkshops = ({
+const CurriculumReactWorkshops = ({
   showTitle = true,
   layout,
   enableToggle,
@@ -26,6 +26,7 @@ const CurriculumOneDayWorkshops = ({
   }
   const firstHalf = (
     <React.Fragment>
+      <H4>Workshops currently available:</H4>
       <Section
         {...commonProps}
         title="Styling in React and Design Systems"
@@ -110,4 +111,4 @@ const CurriculumOneDayWorkshops = ({
   )
 }
 
-export default CurriculumOneDayWorkshops
+export default CurriculumReactWorkshops

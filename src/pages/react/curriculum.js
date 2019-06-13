@@ -42,7 +42,7 @@ import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
-  REACT_NATIVE,
+  REACT_FUNDAMENTALS,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
@@ -81,6 +81,10 @@ class ReactCurriculum extends React.Component {
           const trainingBootcamp = selectNthTraining({
             trainings,
             type: REACT_BOOTCAMP,
+          })
+          const trainingFundamentals = selectNthTraining({
+            trainings,
+            type: REACT_FUNDAMENTALS,
           })
           const trainingPartTime = selectNthTraining({
             trainings,
@@ -285,6 +289,9 @@ class ReactCurriculum extends React.Component {
                           <TabItem name={REACT_BOOTCAMP}>
                             React Bootcamp
                           </TabItem>
+                          <TabItem name={REACT_FUNDAMENTALS}>
+                            React Fundamentals
+                          </TabItem>
                           <TabItem name={ADVANCED_REACT}>
                             Advanced React
                           </TabItem>
@@ -361,7 +368,76 @@ class ReactCurriculum extends React.Component {
                               </Col>
                             </Row>
                           </ContentItem>
+                        </TabContent>
+                        <TabContent>
+                          <ContentItem name={REACT_FUNDAMENTALS}>
+                            <P>
+                              <strong>
+                                On completion of the React Fundamentals each
+                                student will:
+                              </strong>
+                            </P>
+                            <Ul>
+                              <Li>
+                                Understand the core principles and libraries to
+                                build production-ready React applications using:{' '}
+                                <code>
+                                  react, react-router, styled-components,
+                                  styled-system, storybook, redux, react-redux,
+                                  react-apollo, TypeScript
+                                </code>
+                              </Li>
+                              <Li>
+                                Comprehend modern front-end JavaScript:{' '}
+                                <code>Functional Programming, Webpack</code>
+                              </Li>
+                              <Li>
+                                Understand the best practices and patterns for
+                                building real-world performant React
+                                applications
+                              </Li>
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                  <strong>
+                                    Are YOU the Perfect React GraphQL Student?
+                                  </strong>
+                                </Link>
+                              </Li>
+                            </Ul>
 
+                            <H4>Full course curriculum:</H4>
+                            <Row>
+                              <Col lg={1} lgOffset={1} />
+                              <Col lg={9}>
+                                {trainingFundamentals && (
+                                  <CurriculumBootcamp
+                                    layout={LIST_LAYOUT}
+                                    enableToggle={true}
+                                    showTitle={false}
+                                    showLinkToCurriculum={false}
+                                    marketingCard={
+                                      <MarketingCard
+                                        heading="Next React Fundamentals"
+                                        text={`Take your career by learning a solid foundation React in just 3 days!`}
+                                        to={trainingFundamentals.toPath}
+                                        buttonText={`${
+                                          trainingFundamentals.city
+                                        } React Fundamentals, ${formatUTC(
+                                          trainingFundamentals.startDate,
+                                          trainingFundamentals.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    }
+                                  />
+                                )}
+                              </Col>
+                            </Row>
+                          </ContentItem>
+                        </TabContent>
+                        <TabContent>
                           <ContentItem name={ADVANCED_REACT}>
                             <P>
                               <strong>
@@ -419,41 +495,6 @@ class ReactCurriculum extends React.Component {
                                     }
                                   />
                                 )}
-                              </Col>
-                            </Row>
-                          </ContentItem>
-
-                          <ContentItem name={REACT_NATIVE}>
-                            <P>
-                              <strong>
-                                On completion of the React Native training each
-                                student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <Li>
-                                Understand the core user interactions in React
-                                Native
-                              </Li>
-                              <Li>
-                                Be able to create reusable and maintanable React
-                                Native UI
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React Native
-                                applications
-                              </Li>
-                            </Ul>
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                <CurriculumReactNative
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
-                                />
                               </Col>
                             </Row>
                           </ContentItem>
