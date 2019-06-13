@@ -8,7 +8,7 @@ import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, P, H3 } from 'src/components/text'
+import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
@@ -19,7 +19,7 @@ import {
   selectNthTraining,
   getUpcomingTrainingsByType,
 } from 'src/components/training'
-import { UpcomingTrainings } from 'src/components/training/UpcomingTrainingSection'
+import AlternativeTrainings from 'src/components/training/AlternativeTrainings'
 import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Breadcrumb } from 'src/components/navigation'
@@ -27,7 +27,6 @@ import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
-  REACT_NATIVE,
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
   ONE_DAY_WORKSHOP,
@@ -60,7 +59,6 @@ const Bootcamps = props => (
           ? [reactTrainings[0], reactTrainings[1], reactTrainings[2]]
           : []
 
-      console.log('displayCourses', displayCourses)
       return (
         <React.Fragment>
           <Helmet
@@ -161,13 +159,7 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <Card border="black">
-                    <H3>Alternatives to the React Bootcamp</H3>
-                    <UpcomingTrainings trainings={displayCourses} />
-                    <LinkButton to="#upcoming">
-                      See all React Courses
-                    </LinkButton>
-                  </Card>
+                  <AlternativeTrainings trainings={displayCourses} />
                 </Col>
               </Row>
             </Grid>
