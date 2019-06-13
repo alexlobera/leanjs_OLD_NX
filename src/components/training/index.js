@@ -10,10 +10,8 @@ export { default as AttendeeQuote } from './AttendeeQuote'
 export { default as TrainingItem } from './TrainingItem'
 export { default as TrainingList } from './TrainingList'
 export { default as TrustedBySection } from './TrustedBySection'
-export {
-  default as UpcomingTrainingSection,
-  UpcomingTrainingsComponent,
-} from './UpcomingTrainingSection'
+export { default as UpcomingTrainingSection } from './UpcomingTrainingSection'
+export { default as AlternativeTrainings } from './AlternativeTrainings'
 export { TrustedByLogoList } from './TrustedBySection'
 export { default as TargetAudienceSection } from './TargetAudienceSection'
 export {

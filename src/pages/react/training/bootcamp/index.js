@@ -18,8 +18,8 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
   getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
-import AlternativeTrainings from 'src/components/training/AlternativeTrainings'
 import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Breadcrumb } from 'src/components/navigation'
@@ -56,7 +56,7 @@ const Bootcamps = props => (
       })
       const displayCourses =
         reactTrainings.length && reactTrainings[0].id !== undefined
-          ? [reactTrainings[0], reactTrainings[1], reactTrainings[2]]
+          ? reactTrainings.slice(0, 3)
           : []
 
       return (
