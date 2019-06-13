@@ -47,11 +47,11 @@ const Bootcamps = props => (
       const reactTrainings = getUpcomingTrainingsByType({
         trainings,
         types: [
-          ADVANCED_REACT,
-          PART_TIME,
-          REACT_WORKSHOP,
           REACT_FUNDAMENTALS,
+          REACT_WORKSHOP,
+          ADVANCED_REACT,
           ONE_DAY_WORKSHOP,
+          PART_TIME,
         ],
       })
       const displayCourses =
