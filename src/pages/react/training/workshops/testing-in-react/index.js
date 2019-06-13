@@ -17,6 +17,7 @@ import {
   UpcomingTrainingSection,
   AttendeeQuote,
   getNextTrainingByTrainingId,
+  UpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'

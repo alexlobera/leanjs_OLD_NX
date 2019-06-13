@@ -8,22 +8,30 @@ import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, P } from 'src/components/text'
+import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
+  getUpcomingTrainingsByType,
 } from 'src/components/training'
+import { UpcomingTrainings } from 'src/components/training/UpcomingTrainingSection'
 import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { DAVIAN } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP } from 'src/config/data'
+import {
+  REACT_BOOTCAMP,
+  ADVANCED_REACT,
+  PART_TIME,
+  REACT_NATIVE,
+  REACT_WORKSHOP,
+  REACT_FUNDAMENTALS,
+  ONE_DAY_WORKSHOP,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 
@@ -37,6 +45,22 @@ const Bootcamps = props => (
       const nextTraining = selectNthTraining({
         trainings: upcomingBootCampTrainings,
       })
+      const reactTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [
+          ADVANCED_REACT,
+          PART_TIME,
+          REACT_WORKSHOP,
+          REACT_FUNDAMENTALS,
+          ONE_DAY_WORKSHOP,
+        ],
+      })
+      const displayCourses =
+        reactTrainings.length && reactTrainings[0].id !== undefined
+          ? [reactTrainings[0], reactTrainings[1], reactTrainings[2]]
+          : []
+
+      console.log('displayCourses', displayCourses)
       return (
         <React.Fragment>
           <Helmet
@@ -137,13 +161,13 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="After the bootcamp, I felt very very confident. You understand how to use React, how to build components from scratch and then into complex applications. Don’t be afraid - book as quickly as possible!"
-                    fullname="Davian Robinson"
-                    job="Senior Software Engineer"
-                    company="ETZ Payments"
-                    profilePicUrl={DAVIAN}
-                  />
+                  <Card border="black">
+                    <H3>Alternatives to the React Bootcamp</H3>
+                    <UpcomingTrainings trainings={displayCourses} />
+                    <LinkButton to="#upcoming">
+                      See all React Courses
+                    </LinkButton>
+                  </Card>
                 </Col>
               </Row>
             </Grid>

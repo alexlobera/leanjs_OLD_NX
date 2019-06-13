@@ -51,7 +51,7 @@ const CorporateCrossSell = styled.div`
   }
 `
 
-const UpcomingTrainings = ({ curriculum, type, trainings }) => {
+export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
   const filteredTrainings = selectUpcomingTrainings({ type, trainings })
   if (!filteredTrainings.length) {
     return <P>Sorry! There are no {type} dates confirmed.</P>
@@ -111,8 +111,7 @@ const UpcomingTrainingSection = ({
     trainings,
     types: [MEETUP],
   })
-  console.log('react trainings', reactTrainings)
-  console.log('graphql trainings', graphqlTrainings)
+
   return (
     <React.Fragment>
       {curriculum ? (
