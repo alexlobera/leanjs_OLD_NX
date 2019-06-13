@@ -8,6 +8,7 @@ import {
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   ONE_DAY_WORKSHOP,
+  REACT_WORKSHOP,
   GRAPHQL_CLIENT,
   GRAPHQL_API,
   MEETUP,
@@ -24,7 +25,7 @@ import {
 
 import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 
-const createTrainingPath = ({ type, city = '', index, id }) => {
+const createTrainingPath = ({ type, city = '', index, id, slug }) => {
   const i = index > 1 ? index : ''
   switch (type) {
     case PART_TIME:
@@ -44,7 +45,9 @@ const createTrainingPath = ({ type, city = '', index, id }) => {
     case MEETUP:
       return `/community/meetups/${id}`
     case ONE_DAY_WORKSHOP:
-      return `/react/training/workshops/design-system-styling-in-react/`
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
+    case REACT_WORKSHOP:
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
     default:
       return '/'
   }
@@ -78,6 +81,9 @@ const trainingByType = type => training =>
 
 const trainingByCity = city => training => !city || training.city === city
 
+export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
+  trainings.find(training => training.training.id === trainingId)
+
 export const selectTrainingById = ({ trainings, id }) =>
   trainings.find(training => training.id === id)
 
@@ -99,7 +105,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
     {({ loading, error, data }) => {
       const cityIndex = {}
       const formatTraining = ({ node }) => {
-        const { type } = node.training
+        const { type, slug } = node.training
         const { city, id } = node
         const key = `${city}${type}`
         cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
@@ -111,6 +117,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
             city,
             index: cityIndex[key],
             id,
+            slug,
           }),
           image: selectLocationImage({ city }),
         }

@@ -4,7 +4,7 @@ import { P } from '../text'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
 import { selectTypeColor } from '../utils'
-import { MEETUP, ONE_DAY_WORKSHOP } from '../../config/data'
+import { MEETUP, ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
 
 const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
@@ -32,6 +32,7 @@ const selectTitle = ({ type, description, venueName }) => {
     case MEETUP:
       return venueName
     case ONE_DAY_WORKSHOP:
+    case REACT_WORKSHOP:
       return description.title
     default:
       return type

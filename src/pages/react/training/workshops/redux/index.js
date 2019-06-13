@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
+import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
 import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -16,8 +16,7 @@ import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  selectNthTraining,
-  selectUpcomingTrainings,
+  getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -26,25 +25,21 @@ import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
 
-const StylingDesignSystemWorkshop = () => (
+const ReduxWorkshopLanding = () => (
   <Layout>
     {({ trainings }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const training = getNextTrainingByTrainingId({
         trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
-      })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
+        trainingId: '5cffb4e806051b7d3bcb0cee',
       })
       return (
         <React.Fragment>
           <Helmet
-            title="Design Systems in React Workshop"
+            title="Redux Workshop"
             meta={[
               {
                 name: 'description',
-                content: '1-day Design Systems in React Workshops.',
+                content: '1-day React-Redux Workshops.',
               },
             ]}
           />
@@ -55,14 +50,14 @@ const StylingDesignSystemWorkshop = () => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Styling in React using design systems',
+                to: '/react/training/workshops/redux',
+                label: 'Redux',
               },
             ]}
           />
           <Header
-            titleLines={['Styling in React using design systems']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={['Redux']}
+            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux middlewares"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
@@ -91,7 +86,7 @@ const StylingDesignSystemWorkshop = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
@@ -115,20 +110,18 @@ const StylingDesignSystemWorkshop = () => (
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer or designer with experience building React
-                      components and using CSS?
+                      A developer with experience in JS and with an
+                      understanding of React?
                     </Li>
                     <Li>
-                      A developer or designer interested in building scalable
-                      and reusable UIs for big React projects?
+                      Interested in understanding how Redux solves state
+                      management issues in React and best practice
+                      implementations and patterns?
                     </Li>
                     <Li>
-                      Not satisfied with the Designer/Developer handover in
-                      real-world React projects?
-                    </Li>
-                    <Li>
-                      A designer that builds React components and interacts with
-                      developers.
+                      Looking to gain an in-depth understanding that will allow
+                      you to apply Redux to a large scale React appliaction or
+                      build upon an existing one.
                     </Li>
                   </Ul>
                   <P>
@@ -174,4 +167,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default ReduxWorkshopLanding

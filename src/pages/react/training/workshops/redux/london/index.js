@@ -7,44 +7,46 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
-import { Card } from 'src/components/elements'
+import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
+import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  selectNthTraining,
-  selectUpcomingTrainings,
+  TrainingDetails,
+  ALEX_LOBERA,
+  RICHARD_MOSS,
+  getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
+import header from 'src/components/layout/Header.json'
+import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { formatUTC } from 'src/components/utils'
 
-const StylingDesignSystemWorkshop = () => (
+const ReduxWorkshop = () => (
   <Layout>
-    {({ trainings }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+    {({ trainings, trainingLoading, trainingError }) => {
+      const training = getNextTrainingByTrainingId({
         trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
+        trainingId: '5cffb4e806051b7d3bcb0cee',
       })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
-      })
+      const trainingTitle =
+        training &&
+        training.training &&
+        training.training.description &&
+        training.training.description.title
       return (
         <React.Fragment>
           <Helmet
-            title="Design Systems in React Workshop"
+            title="Redux workshop london"
             meta={[
               {
                 name: 'description',
-                content: '1-day Design Systems in React Workshops.',
+                content: '1-day Redux Workshop in London',
               },
             ]}
           />
@@ -55,49 +57,43 @@ const StylingDesignSystemWorkshop = () => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Styling in React using design systems',
+                to: '/react/training/workshops/redux',
+                label: 'Redux',
+              },
+              {
+                to: '/react/training/workshops/redux/london',
+                label: 'London',
               },
             ]}
           />
           <Header
-            titleLines={['Styling in React using design systems']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
-            links={[
-              { text: 'Workshop Agenda', to: '#curriculum' },
-              { text: 'Is this right for me?', to: '#target-audience' },
-            ]}
+            titleLines={[`${trainingTitle || '...loading'} - London`]}
+            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux Middlewares"
+            links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
             type={ONE_DAY_WORKSHOP}
             training={training}
+            showInfoBox={true}
           />
-          <TopSection top>
+          <TopSection xsBgDark>
             <Grid>
-              <CallToActionRow left>
-                <Col mdOffset={1} md={4}>
-                  {training && (
-                    <LinkButton variant="primary" to={training.toPath}>
-                      Next workshop:{' '}
-                      {formatUTC(
-                        training.startDate,
-                        training.utcOffset,
-                        'D MMM'
-                      )}
-                      , {training.city}
-                    </LinkButton>
-                  )}
-                </Col>
-              </CallToActionRow>
-              <Card border="shadow">
+              <Card bg="dark">
                 <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                  <Col md={6} lg={5} lgOffset={1}>
+                    <PaymentSection
+                      training={training}
+                      trainingError={trainingError}
+                      trainingLoading={trainingLoading}
+                    />
+                  </Col>
+                  <Col md={6} lg={4} lgOffset={1}>
+                    <Video youtubeId="yvROXLQ1jHg" />
+                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>
                 </Row>
               </Card>
             </Grid>
           </TopSection>
-
           <Section>
             <Grid>
               <Row>
@@ -115,32 +111,33 @@ const StylingDesignSystemWorkshop = () => (
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer or designer with experience building React
-                      components and using CSS?
+                      A developer with experience in JavaScript and with an
+                      understanding of React?
                     </Li>
                     <Li>
-                      A developer or designer interested in building scalable
-                      and reusable UIs for big React projects?
+                      Interested in understanding Redux from top to bottom
+                      including Redux Middlewares and tooling
                     </Li>
                     <Li>
-                      Not satisfied with the Designer/Developer handover in
-                      real-world React projects?
+                      Looking to gain an in-depth understanding that will allow
+                      you to apply Redux to a large scale React appliaction or
+                      build upon an existing one.
                     </Li>
                     <Li>
-                      A designer that builds React components and interacts with
-                      developers.
+                      Interested in going deeper into functional programming
+                      principles and how they apply to Redux
                     </Li>
                   </Ul>
                   <P>
                     If you've said 'yes' to these, this workshop could be for
                     you!
                   </P>
-                  <H3>Not for React beginners!</H3>
+                  <H3>Not for beginner devs!</H3>
                   <P>
-                    This is not a learn-to-code workshop. If you want to learn
-                    to code, we recommend checking out{' '}
+                    This is not a learn-to-code course. If you want to learn to
+                    code, we recommend checking out{' '}
                     <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code Camp
+                      Free Code camps
                     </Link>
                     .
                   </P>
@@ -151,6 +148,18 @@ const StylingDesignSystemWorkshop = () => (
               </Row>
             </Grid>
           </Section>
+          <Section top>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
           <Section>
             <Grid>
               <Row>
@@ -174,4 +183,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default ReduxWorkshop

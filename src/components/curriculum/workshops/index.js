@@ -1,4 +1,8 @@
 import CurriculumOneDayStyling from './CurriculumOneDayStyling'
 import CurriculumGraphQLApollo from './CurriculumGraphQLApollo'
-
-export { CurriculumOneDayStyling, CurriculumGraphQLApollo }
+import CurriculumOneDayRedux from './CurriculumOneDayRedux'
+export {
+  CurriculumOneDayStyling,
+  CurriculumGraphQLApollo,
+  CurriculumOneDayRedux,
+}
