@@ -1,5 +1,5 @@
 import React from 'react'
-import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
+import Section from '../CurriculumSection'
 import { Col, Row } from '../../layout/Grid'
 import Link from '../../navigation/Link'
 import { REACT_WORKSHOP } from '../../../config/data'

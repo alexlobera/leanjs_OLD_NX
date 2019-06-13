@@ -19,13 +19,12 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   getNextTrainingByTrainingId,
-  selectUpcomingTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
+import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const AdvancedReactWorkshopLondon = () => (
@@ -75,7 +74,7 @@ const AdvancedReactWorkshopLondon = () => (
             subtitle="Supercharge your existing React skills by learning how Advanced Patterns, Functional Programming and Performance can benefit your apps"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
+            type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
