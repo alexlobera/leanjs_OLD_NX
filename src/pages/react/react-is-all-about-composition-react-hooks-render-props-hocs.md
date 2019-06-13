@@ -17,7 +17,7 @@ What do React components do? Components break down the UI into smaller independe
 
 **Composition is the act of combining parts or elements to form a whole**.
 
-Components are the UI building blocks in React applications, like [pure functions](/blog/unit-testing-fundamentals-explained-using-javascript#pure-functions) are the building blocks of function composition.
+Components are the UI building blocks in React applications, like [pure functions](/react/unit-testing-fundamentals-explained-using-javascript#pure-functions) are the building blocks of function composition.
 
 ## Function composition <a name="function-composition"></a>
 
@@ -355,7 +355,7 @@ If you are excited about React Hooks (you probably should) and you want to learn
 
 The principles behind composition and inheritance in React don’t differ from composition and inheritance in general software development terms. That being said, there are some small considerations in React, for instance the bundle size which would not matter much in a server-side environment.
 
-Inheritance is a rigid, [tightly-coupled](/blog/unit-testing-fundamentals-explained-using-javascript#coupling) approach. Every ancestor in the hierarchy adds a coupling layer.
+Inheritance is a rigid, [tightly-coupled](/react/unit-testing-fundamentals-explained-using-javascript#coupling) approach. Every ancestor in the hierarchy adds a coupling layer.
 
 When we reuse a use case of a given class by inheriting from it, we also bring all the implicit code from the ancestors, even the code from the use cases we don’t use. In JavaScript that means more code to bundle. This extra code is also more difficult to optimize and reduce the size by for instance reducing the number of characters of method names or class properties.
 
@@ -363,13 +363,13 @@ Due to tight coupling, changes to the base class could potentially break any of 
 
 ## Recap
 
-- [Pure functions](/blog/unit-testing-fundamentals-explained-using-javascript#pure-functions) are the building block of [function composition](#function-composition). Components are the building block of the UI composition model in React.
+- [Pure functions](/react/unit-testing-fundamentals-explained-using-javascript#pure-functions) are the building block of [function composition](#function-composition). Components are the building block of the UI composition model in React.
 
 - Components can be composed with one or many other components.
 
 - Components never know who are their parents.
 
-- In the [React composition model](#react-composition-model) some components don't know who are their children ahead of time (we could also say at implementation time). The children prop enhances the [React declarative approach](/blog/introduction-to-thinking-in-react/).
+- In the [React composition model](#react-composition-model) some components don't know who are their children ahead of time (we could also say at implementation time). The children prop enhances the [React declarative approach](/react/introduction-to-thinking-in-react/).
 
 - Composition in React is everywhere, not only when we "compose" [higher-order components](#composition-via-hocs).
 

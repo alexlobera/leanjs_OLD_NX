@@ -42,7 +42,7 @@ const CorporateReactTraining = () => (
               label: 'React',
             },
             {
-              to: '/react/corporate',
+              to: '/react/training/corporate',
               label: 'Corporate',
             },
           ]}

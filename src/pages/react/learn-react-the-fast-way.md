@@ -49,12 +49,12 @@ Start right at the beginning and build up, probably the best place to start is [
 
 Next, use the [create-react-app](https://github.com/facebook/create-react-app) to spin up your own react app and play with what you learned. Create React App is a great way to start a new project without initially worrying about configuration, for this stage of your React journey (and beyond), it’s the perfect way to get up and running fast and reduce time to coding 😎
 
-### Step 2: Lean how to <a href="/blog/introduction-to-thinking-in-react/">think in React</a> <a name="think-in-react"></a>
+### Step 2: Lean how to <a href="/react/introduction-to-thinking-in-react/">think in React</a> <a name="think-in-react"></a>
 
 This is a crucial step as React is a paradigm shift in the way you write your front-end code, you’ll need to understand the difference between the _declarative_ and _imperative_ style of coding and then understand the concept of state and the reasons of why a component based
 architecture is a great solution.
 
-I would highly recommend starting with [this article](/blog/introduction-to-thinking-in-react/).
+I would highly recommend starting with [this article](/react/introduction-to-thinking-in-react/).
 
 With that covered, I recommend starting by refactoring some code in an already existing codebase to re-enforce this. Here is the one we do in our workshops ;-) Just follow the README! [https://github.com/reactgraphqlacademy/thinking-in-react](https://github.com/reactgraphqlacademy/thinking-in-react)
 
@@ -66,9 +66,9 @@ You’ll probably want the ability for users to move between different pages in 
 
 ### Step 4: Learn forms, authentication and data fetching <a name="forms-auth"></a>
 
-It’s very important to understand how forms work in React and in particular the difference between [controlled and uncontrolled components](/blog/react-forms-controlled-and-uncontrolled-components/). This is something that will come up again and again in your React journey and it’s important to take the time to understand the concept properly. I recommend starting by reading the docs (above) and then moving swiftly into code, either by setting up and playing with your own forms or have a play with this [sandbox](https://codesandbox.io/s/rj58p6v6n4).
+It’s very important to understand how forms work in React and in particular the difference between [controlled and uncontrolled components](/react/react-forms-controlled-and-uncontrolled-components/). This is something that will come up again and again in your React journey and it’s important to take the time to understand the concept properly. I recommend starting by reading the docs (above) and then moving swiftly into code, either by setting up and playing with your own forms or have a play with this [sandbox](https://codesandbox.io/s/rj58p6v6n4).
 
-For [authentication](/blog/secure-react-apps-using-JWT-and-react-router#authentication-vs-authorization), we recommend starting with [JWT](/blog/secure-react-apps-using-JWT-and-react-router#jwt) as it’s a standard and it’s stateless :-)
+For [authentication](/react/secure-react-apps-using-JWT-and-react-router#authentication-vs-authorization), we recommend starting with [JWT](/blog/secure-react-apps-using-JWT-and-react-router#jwt) as it’s a standard and it’s stateless :-)
 
 To do data fetching in React, you can now use the well supported [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) directly. You’ll want to do your data fetching inside your componentDidMount() [lifecycle method](https://reactjs.org/docs/state-and-lifecycle.html).
 

@@ -26,7 +26,7 @@ Instead of making multiple calls to an API and slowing down the whole applicatio
 
 This makes apps faster and more stable as it does away with the traditional REST approach, which wastefully repeats similar calls and therefore makes complex development architectures slow and heavy.
 
-Find out a lot more on our blog ["_What is GraphQL used for?_"](https://reactgraphql.academy/blog/what-is-GraphQL-used-for/)
+Find out a lot more on our blog ["_What is GraphQL used for?_"](https://reactgraphql.academy/graphql/what-is-GraphQL-used-for/)
 
 ## How does GraphQL relate to React?<a name="react-and-graphql"></a>
 
