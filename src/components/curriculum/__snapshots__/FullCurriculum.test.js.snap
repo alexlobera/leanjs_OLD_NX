@@ -88,7 +88,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
           <ContentItem
             name="React Native"
           >
-            <CurriculumOneDayWorkshops
+            <CurriculumReactWorkshops
               showTitle={false}
             />
           </ContentItem>

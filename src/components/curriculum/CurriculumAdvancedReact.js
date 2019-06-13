@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
-import { H2Ref } from '../text'
+import { H2Ref, H4 } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import TestingInReactSession from './sessions/TestingInReactSession'
@@ -34,6 +34,8 @@ const CurriculumAdvancedReact = ({
   }
   const firstHalf = (
     <React.Fragment>
+      <H4>Course outline:</H4>
+
       <Section
         {...commonProps}
         title="Advanced React Day 1"

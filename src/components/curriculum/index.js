@@ -13,6 +13,7 @@ import CurriculumCorporateReact from './CurriculumCorporateReact'
 import CurriculumCorpGraphQL from './CurriculumCorpGraphQL'
 import FullCurriculum from './FullCurriculum'
 import CurriculumReactFundamentals from './CurriculumReactFundamentals'
+import CurriculumGraphQLWorkshops from './CurriculumGraphQLWorkshops'
 
 export {
   CurriculumBootcamp,
@@ -30,4 +31,5 @@ export {
   CurriculumCorpGraphQL,
   FullCurriculum,
   CurriculumReactFundamentals,
+  CurriculumGraphQLWorkshops,
 }
