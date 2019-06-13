@@ -118,9 +118,9 @@ const ReactFundamentalsLondon = () => (
                       and HTML?
                     </Li>
                     <Li>
-                      Taking a step forward to become a React JS Specialist able
-                      to make critical decisions about the architecture of a
-                      React application.
+                      Taking a step forward to become a confident React
+                      developer, able to quickly get orientated and add value to
+                      a React application.
                     </Li>
                     <Li>
                       Not satisfied with the pace of online learning and it's

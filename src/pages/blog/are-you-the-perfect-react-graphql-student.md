@@ -23,15 +23,15 @@ They're deep dives into both technologies and feature our complete curriculums..
 
 - Modern JS
 
-- [Forms](/blog/react-forms-controlled-and-uncontrolled-components/)
+- [Forms](/react/react-forms-controlled-and-uncontrolled-components/)
 
-- [Authentication](/blog/secure-react-apps-using-JWT-and-react-router/)
+- [Authentication](/react/secure-react-apps-using-JWT-and-react-router/)
 
-- [Styling](/blog/styling-in-react/)
+- [Styling](/react/styling-in-react/)
 
-- [Redux](/blog/introduction-to-redux-explained-with-simple-examples/)
+- [Redux](/react/introduction-to-redux-explained-with-simple-examples/)
 
-- [Testing principles](/blog/unit-testing-fundamentals-explained-using-javascript/) and testing in React.
+- [Testing principles](/react/unit-testing-fundamentals-explained-using-javascript/) and testing in React.
 
 - [Functional programming](https://advanced-react-patterns.reactjs.academy/composition)
 

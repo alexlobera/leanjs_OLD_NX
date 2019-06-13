@@ -23,7 +23,7 @@ It might be obvious to you, or it might not, but I always find very useful to ma
 
 To answer the two previous questions, imagine that when a user runs the app shown above, by default the selected tab is “Day”. When the user selects “month” then the app requests the data for a given month to an API and displays the new chart. Now if we tell the user that if she/ he switches to another app, and when she/ he comes back the app will be in the same “state”, what do you think the user expects to see? The answer is tab selected equals month and the corresponding chart. So the answer to the original question is both, tab and chart, are part of the state.
 
-Traditionally, in front-end, we would store the selected tab using metadata in the UI (example an “active” CSS class, or a “data-” attribute), and the data from the API in a JavaScript variable. That’s problematic because we are storing the state in two very different places, HTML for the active item and JS for the data of the items. That’s a bad idea in a declarative paradigm like the one React embraces (check [this link to learn more about React and the declarative paradigm](/blog/introduction-to-thinking-in-react/)).
+Traditionally, in front-end, we would store the selected tab using metadata in the UI (example an “active” CSS class, or a “data-” attribute), and the data from the API in a JavaScript variable. That’s problematic because we are storing the state in two very different places, HTML for the active item and JS for the data of the items. That’s a bad idea in a declarative paradigm like the one React embraces (check [this link to learn more about React and the declarative paradigm](/react/introduction-to-thinking-in-react/)).
 
 <img placeholder-height="px" alt="State stored on the UI" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fredux%2Fui-state-min.png?alt=media"></img>
 
@@ -175,7 +175,7 @@ Redux can manage the state of any application, not just React. You can see this 
 
 ## Common misconceptions about React and Redux
 
-- Both React and Redux are one-way data flow. Check this link to [learn more about React and the one-way-data-flow](/blog/introduction-to-thinking-in-react/).
+- Both React and Redux are one-way data flow. Check this link to [learn more about React and the one-way-data-flow](/react/introduction-to-thinking-in-react/).
 - Both React and Redux should have a “unique source of truth”. “Unique source of truth” doesn’t mean having all the state in a single store, it means there is only one place/ variable that stores a value. A mistake I’ve seen few times is to store some data that is in the URL (e.g. an ID, username, etc) into the state of a React component or in Redux, by doing so you’ll end up with two sources of truth — that’s also a big source of bugs. Another example, Redux doesn’t stop you from storing the same value in two different reducers, for instance, a “user” reducer could have state.cart = […] and a checkout reducer state.cart = […]. Which cart is the one?
 - Mutations. Not mutating the state is very useful, but those ideas also exist in React, and it’s explained in the [official React documentation](https://facebook.github.io/react/docs/optimizing-performance.html#the-power-of-not-mutating-data).
 

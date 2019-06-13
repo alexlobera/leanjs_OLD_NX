@@ -140,7 +140,7 @@ const GraphQLPage = ({ data }) => {
                       fantastic!
                     </Li>
                   </Ul>
-                  <LinkButton to="/blog/what-is-graphql-used-for/">
+                  <LinkButton to="/graphql/what-is-graphql-used-for/">
                     Blog: What is GraphQL and What Is It Used For?
                   </LinkButton>
                 </Col>

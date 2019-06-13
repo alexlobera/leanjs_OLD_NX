@@ -573,7 +573,7 @@ const AboutUs = () => (
                   </Li>
                   <Li>|</Li>
                   <Li>
-                    <SocialLink to="https://twitter.com/_flexbox">
+                    <SocialLink to="https://twitter.com/flexbox_">
                       Twitter
                     </SocialLink>
                   </Li>
