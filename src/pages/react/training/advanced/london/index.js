@@ -10,7 +10,7 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import { CurriculumAdvancedReact } from 'src/components/curriculum'
 import {
   UpcomingTrainingSection,
