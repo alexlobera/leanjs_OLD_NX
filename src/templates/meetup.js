@@ -100,6 +100,7 @@ const MeetUpPage = ({ data }) => {
                     </Col>
                     <Col md={6} lg={5} lgOffset={1}>
                       <PaymentSection
+                        city={city}
                         training={training}
                         trainingError={trainingError}
                         trainingLoading={trainingLoading}
