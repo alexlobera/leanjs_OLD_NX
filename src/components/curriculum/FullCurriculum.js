@@ -10,6 +10,7 @@ import {
   CurriculumGraphQLBootcamp,
   CurriculumReactFundamentals,
   CurriculumGraphQLWorkshops,
+  CurriculumGraphQLAPI,
 } from './index'
 
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
@@ -21,6 +22,7 @@ import {
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_WORKSHOP,
+  GRAPHQL_API,
 } from '../../config/data'
 
 class FullCurriculum extends React.Component {
@@ -64,6 +66,8 @@ class FullCurriculum extends React.Component {
               <TabList offset>
                 {/* <H4>GraphQL</H4> */}
                 <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
+                <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
+
                 <TabItem name={GRAPHQL_WORKSHOP}>GraphQL Workshops</TabItem>
               </TabList>
 
@@ -85,6 +89,9 @@ class FullCurriculum extends React.Component {
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
                   <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
+                </ContentItem>
+                <ContentItem name={GRAPHQL_API}>
+                  <CurriculumGraphQLAPI {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_WORKSHOP}>
                   <CurriculumGraphQLWorkshops {...commonCurriculumProps} />
