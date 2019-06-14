@@ -16,7 +16,8 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  AttendeeQuote,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
   TrainingDetails,
   ALEX_LOBERA,
   HORACIO_HERRERA,
@@ -27,8 +28,17 @@ import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ADVANCED_REACT, LONDON } from 'src/config/data'
+import {
+  ADVANCED_REACT,
+  REACT_WORKSHOP,
+  ONE_DAY_WORKSHOP,
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_BOOTCAMP,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+// import { GRAPHQL_API, GRAPHQL_CLIENT } from '../../../../../config/data'
 
 const BootcampLondon = () => (
   <Layout>
@@ -40,6 +50,15 @@ const BootcampLondon = () => (
       })
       const training =
         selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [
+          ONE_DAY_WORKSHOP,
+          GRAPHQL_API,
+          GRAPHQL_CLIENT,
+          GRAPHQL_BOOTCAMP,
+        ],
+      })
       return (
         <React.Fragment>
           <Helmet
@@ -162,13 +181,7 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
+                  <AlternativeTrainings trainings={crossSellTrainings} />
                 </Col>
               </Row>
             </Grid>
