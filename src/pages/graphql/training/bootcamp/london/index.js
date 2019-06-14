@@ -88,6 +88,21 @@ const BootcampLondon = () => (
           </TopSection>
           <Section>
             <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumGraphQLBootcamp
+                      enableToggle={true}
+                      layout={LIST_TWO_COL}
+                    />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
+          <Section>
+            <Grid>
               <Row>
                 <HideComponentsUsingCss xs sm>
                   <Col md={6} lg={5}>
@@ -140,20 +155,6 @@ const BootcampLondon = () => (
             </Grid>
           </Section>
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphQLBootcamp
-                      enableToggle={true}
-                      layout={LIST_TWO_COL}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
