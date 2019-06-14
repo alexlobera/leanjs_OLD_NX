@@ -84,9 +84,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
         LeadSource: 'Footer contact form',
         custom: {
           'string--From--Path': pathname,
-        },
-        city: {
-          'string--From--Path': city,
+          'string--From--City': city,
         },
       },
     })
