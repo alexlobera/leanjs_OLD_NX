@@ -91,10 +91,12 @@ export const getUpcomingTrainingsByType = ({
   trainings,
   types = [],
   first,
+  exclude,
 }) => {
   const filteredTrainings = types
     .map(type => trainings.filter(trainingByType(type)))
     .flat()
+    .filter(training => training.training.id !== exclude)
   return first ? filteredTrainings.slice(0, first) : filteredTrainings
 }
 
