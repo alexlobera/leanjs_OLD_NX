@@ -30,7 +30,6 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
   ADVANCED_REACT,
-  REACT_WORKSHOP,
   ONE_DAY_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_CLIENT,
@@ -38,7 +37,6 @@ import {
   LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-// import { GRAPHQL_API, GRAPHQL_CLIENT } from '../../../../../config/data'
 
 const BootcampLondon = () => (
   <Layout>
