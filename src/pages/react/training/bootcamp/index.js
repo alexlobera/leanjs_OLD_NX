@@ -156,7 +156,10 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={reactTrainings} />
+                  <AlternativeTrainings
+                    trainings={reactTrainings}
+                    titleText="Alternatives to the React Bootcamp"
+                  />
                 </Col>
               </Row>
             </Grid>

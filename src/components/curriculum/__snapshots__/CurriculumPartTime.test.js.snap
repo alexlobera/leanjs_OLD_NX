@@ -32,6 +32,12 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
+      <Styled(Box)
+        fontSize={2}
+        lineHeight={1}
+      >
+        Course outline:
+      </Styled(Box)>
       <CurriculumSection
         name="session1"
         title="Session 1 - Modern JavaScript"

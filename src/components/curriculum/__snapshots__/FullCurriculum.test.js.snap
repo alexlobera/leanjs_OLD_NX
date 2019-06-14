@@ -43,6 +43,11 @@ exports[`<FullCurriculum /> should render component 1`] = `
             React Bootcamp
           </TabItem>
           <TabItem
+            name="React Fundamentals"
+          >
+            React Fundamentals
+          </TabItem>
+          <TabItem
             name="Advanced React"
           >
             Advanced React
@@ -50,17 +55,26 @@ exports[`<FullCurriculum /> should render component 1`] = `
           <TabItem
             name="Part-time"
           >
-            Part-time React
+            Part-time Course
           </TabItem>
           <TabItem
             name="React Native"
           >
-            1-Day Workshops
+            React Workshops
           </TabItem>
+        </TabList>
+        <TabList
+          offset={true}
+        >
           <TabItem
             name="GraphQL Bootcamp"
           >
             GraphQL Bootcamp
+          </TabItem>
+          <TabItem
+            name="GraphQL Worskhop"
+          >
+            GraphQL Workshops
           </TabItem>
         </TabList>
         <TabContent>
@@ -68,6 +82,13 @@ exports[`<FullCurriculum /> should render component 1`] = `
             name="React Bootcamp"
           >
             <CurriculumBootcamp
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="React Fundamentals"
+          >
+            <CurriculumReactFundamentals
               showTitle={false}
             />
           </ContentItem>
@@ -96,6 +117,13 @@ exports[`<FullCurriculum /> should render component 1`] = `
             name="GraphQL Bootcamp"
           >
             <CurriculumGraphQLBootcamp
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="GraphQL Worskhop"
+          >
+            <CurriculumGraphQLWorkshops
               showTitle={false}
             />
           </ContentItem>

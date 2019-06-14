@@ -6,11 +6,14 @@ import { UpcomingTrainings } from '../training/UpcomingTrainingSection'
 import { LinkButton } from '../buttons'
 import { Col, Row } from '../layout/Grid'
 
-const AlternativeTrainings = ({ trainings }) => (
+const AlternativeTrainings = ({
+  trainings,
+  titleText = 'You may also be interested in',
+}) => (
   <Card border="blue">
     <Row>
       <Col md={11} mdOffset={1}>
-        <H3>Alternatives to the React Bootcamp</H3>
+        <H3>{titleText}</H3>
         <Row>
           <UpcomingTrainings trainings={trainings} />
         </Row>
