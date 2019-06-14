@@ -38,7 +38,7 @@ export const triggerUnsubscribe = ({ email }) =>
     })
   })
 
-export const triggerSubscribe = ({ email, pathname = 'footer' }) =>
+export const triggerSubscribe = ({ email, pathname = 'footer', city }) =>
   fetch(
     `https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/subscribe`,
     {
@@ -49,6 +49,7 @@ export const triggerSubscribe = ({ email, pathname = 'footer' }) =>
       body: JSON.stringify({
         email,
         pathname,
+        city
       }),
     }
   ).then(() => {

@@ -115,6 +115,7 @@ class PaymentSection extends React.Component {
       training = {},
       navigate,
       data: autoVoucherData = {},
+      city,
     } = this.props
     let trainingInstanceId,
       price = 0,
@@ -222,6 +223,7 @@ class PaymentSection extends React.Component {
             ) : null}
             {parseInt(price, 10) > 0 && (
               <Checkout
+                city={city}
                 navigate={navigate}
                 trainingInstanceId={trainingInstanceId}
                 vatRate={vatRate}
@@ -265,6 +267,7 @@ PaymentSection.propTypes = {
   training: PropTypes.object,
   data: PropTypes.object,
   paymentApi: PropTypes.object,
+  city: PropTypes.string,
   navigate: PropTypes.func,
 }
 
