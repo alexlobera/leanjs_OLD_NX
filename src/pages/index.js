@@ -51,8 +51,8 @@ const IndexPage = () => (
             'Take your dev career further',
             'with React GraphQL Academy',
           ]}
-          subtitle="In-person training from experts who were the first in
-        Europe to teach React. React GraphQL Academy formerly React Academy."
+          subtitle="In-person courses, workshops and meetups from experts who were the first in
+        Europe to teach React. "
           bgColor="blue"
           bgImageName={HOME_PAGE}
         />
