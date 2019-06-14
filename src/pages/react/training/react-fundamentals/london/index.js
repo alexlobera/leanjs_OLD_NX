@@ -11,21 +11,31 @@ import { CurriculumReactFundamentals } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
-  AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_FUNDAMENTALS, LONDON } from 'src/config/data'
+import {
+  REACT_BOOTCAMP,
+  REACT_FUNDAMENTALS,
+  REACT_WORKSHOP,
+  ONE_DAY_WORKSHOP,
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_BOOTCAMP,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 
@@ -38,6 +48,17 @@ const ReactFundamentalsLondon = () => (
         city: LONDON,
       })
       const training = selectNthTraining({ trainings: fundamentalsTrainings })
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [
+          REACT_BOOTCAMP,
+          REACT_WORKSHOP,
+          ONE_DAY_WORKSHOP,
+          GRAPHQL_API,
+          GRAPHQL_CLIENT,
+          GRAPHQL_BOOTCAMP,
+        ],
+      })
       return (
         <React.Fragment>
           <Helmet
@@ -143,13 +164,7 @@ const ReactFundamentalsLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
+                  <AlternativeTrainings trainings={crossSellTrainings} />
                 </Col>
               </Row>
             </Grid>
