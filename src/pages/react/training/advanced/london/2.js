@@ -36,6 +36,7 @@ import {
   LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import BlogSection from 'src/components/blog/BlogSection'
 
 const BootcampLondon = () => (
   <Layout>
@@ -112,6 +113,18 @@ const BootcampLondon = () => (
           </TopSection>
           <Section>
             <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumAdvancedReact layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
+          <Section>
+            <Grid>
               <Row>
                 <HideComponentsUsingCss xs sm>
                   <Col md={6} lg={5}>
@@ -174,18 +187,8 @@ const BootcampLondon = () => (
               </Row>
             </Grid>
           </Section>
+          <BlogSection tags={['react', 'advanced']} />
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumAdvancedReact layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

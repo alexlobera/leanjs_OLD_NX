@@ -116,6 +116,18 @@ const ReactFundamentalsLondon = () => (
           </TopSection>
           <Section>
             <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumReactFundamentals layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
+          <Section>
+            <Grid>
               <Row>
                 <HideComponentsUsingCss xs sm>
                   <Col md={6} lg={5}>
@@ -170,17 +182,6 @@ const ReactFundamentalsLondon = () => (
             </Grid>
           </Section>
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumReactFundamentals layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
