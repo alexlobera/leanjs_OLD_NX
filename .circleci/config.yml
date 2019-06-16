@@ -32,7 +32,7 @@ jobs:
       - run: envsubst < ".env.ci" > ".env.production"
       # - run: yarn build
       - persist_to_workspace:
-          root: ./
+          root: /tmp
           paths:
             - public
   deploy-prod:
@@ -42,8 +42,8 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: .
-      - run: ls -l public
+          at: /tmp/public
+      - run: ls -l
       - run:
           name: Install Firebase locally
           command: npm install --save-dev firebase-tools
