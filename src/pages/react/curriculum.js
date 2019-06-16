@@ -21,7 +21,7 @@ import {
   ContentItem,
 } from 'src/components/layout/Tabs'
 import {
-  CurriculumReactNative,
+  CurriculumReactFundamentals,
   CurriculumBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
@@ -383,8 +383,7 @@ class ReactCurriculum extends React.Component {
                                 build production-ready React applications using:{' '}
                                 <code>
                                   react, react-router, styled-components,
-                                  styled-system, storybook, redux, react-redux,
-                                  react-apollo, TypeScript
+                                  storybook, redux, react-redux,
                                 </code>
                               </Li>
                               <Li>
@@ -412,7 +411,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 {trainingFundamentals && (
-                                  <CurriculumBootcamp
+                                  <CurriculumReactFundamentals
                                     layout={LIST_LAYOUT}
                                     enableToggle={true}
                                     showTitle={false}
