@@ -77,12 +77,13 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   async function subscribe(request, response) {
     const email = request && request.body && request.body.email
     const pathname = request && request.body && request.body.pathname
+    const city = request && request.body && request.body.city
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
-        LeadSource: 'Footer contact form',
+        LeadSource: pathname,
         custom: {
-          'string--From--Path': pathname,
+          'string--From--City': city,
         },
       },
     })

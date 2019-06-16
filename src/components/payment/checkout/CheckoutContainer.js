@@ -89,6 +89,17 @@ export class CheckoutContainer extends React.Component {
     if (this.state.isPaymentInProgress) {
       return
     }
+    const {
+      quantity,
+      trackUserBehaviour,
+      pay,
+      trainingInstanceId,
+      paymentApi = Stripe,
+      voucher,
+      navigate,
+      city,
+    } = this.props
+
     this.setState({ paymentErrorMessage: false, isPaymentInProgress: true })
     const {
       CCnumber,
@@ -101,19 +112,11 @@ export class CheckoutContainer extends React.Component {
       meetupSubscribe,
     } = values
 
+
     if (meetupSubscribe) {
-      this.props.triggerSubscribe({ email, pathname: 'checkout' })
+      this.props.triggerSubscribe({ email, pathname: 'checkout', city })
     }
 
-    const {
-      quantity,
-      trackUserBehaviour,
-      pay,
-      trainingInstanceId,
-      paymentApi = Stripe,
-      voucher,
-      navigate,
-    } = this.props
     const number = formatCreditCardNumber(CCnumber)
     const cvc = formatCVC(CCcvc)
     const formatedCCexpiry = formatExpirationDate(CCexpiry)

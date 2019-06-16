@@ -3,7 +3,7 @@ import { P, H3 } from '../text'
 import Card from '../elements/Card'
 
 const ScholarshipsCard = () => (
-  <Card top={36} bottom={36} bg="reactBlue" small>
+  <Card top={36} bottom={36} bg="BLUE" small>
     <H3>Scholarship available!</H3>
     <P>
       Looking to code React full time? We've partnered with Trade Ledger to

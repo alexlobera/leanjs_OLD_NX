@@ -1,13 +1,14 @@
 export const FONT_FAMILY = `font-family: 'Barlow', sans-serif;`
 
-// export const reactBlue = (opacity = 1) => `rgba(111, 207, 240, ${opacity})` // #6FCFF0
-export const reactBlue = (opacity = 1) => `rgba(97, 218, 251, ${opacity})` // #6FCFF0
+export const BLUE = `rgba(97, 218, 251, 1)` // #6FCFF0
 
-export const blue1 = (opacity = 1) => `rgba(0,41,56, ${opacity})` // #002938
+export const BLUE_04 = `rgba(97, 218, 251, 0.4)` // #6FCFF0
 
-export const blue2 = (opacity = 1) => `rgba(87,178,212,${opacity})`
+export const DARK_BLUE = `rgba(0,41,56, 1)` // #002938
 
-export const DARK_BLUE = '#57B2D4'
+export const DARK_BLUE_075 = `rgba(0,41,56, 0.75)`
+
+export const LIGHT_BLUE = `rgba(87,178,212,0.9)` // '#57B2D4'
 
 export const YELLOW = '#D6D100'
 
@@ -45,24 +46,6 @@ export const Z_INDEX_SMALL = 1
 export const Z_INDEX_BG = -2
 
 export const theme = {
-  buttons: {
-    primary: {
-      color: WHITE,
-      backgroundColor: RED,
-      fontWeight: 800,
-    },
-    secondary: {
-      color: WHITE,
-      backgroundColor: blue1(),
-    },
-    default: {
-      color: DARK_GREY,
-      backgroundColor: WHITE,
-      boxShadow:
-        '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
-      border: `solid 1px ${blue1()}`,
-    },
-  },
   flexboxgrid: {
     gutterWidth: 1,
     outerMargin: 0.5,
@@ -85,6 +68,9 @@ export const theme = {
   ],
   fonts: {
     barlow: `'Barlow', sans-serif`,
+  },
+  fontShadows: {
+    light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
   },
   fontSizes: [
     '0.8rem', // 0
@@ -113,17 +99,9 @@ export const theme = {
     normal: '400',
     bold: '800',
   },
-  colors: {
-    darkBlue: DARK_BLUE,
-    yellow: YELLOW,
-    brown: BROWN,
-    grey: GREY,
-    darkGrey: DARK_GREY,
-    white: WHITE,
-    pink: PINK,
-    graphQLPink: GRAPHQL_PINK,
-    green: GREEN,
-    meetupRed: MEETUP_RED,
-    red: RED,
+  shadows: {
+    thin: '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
+    light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
+    bold: 'rgb(74, 74, 74) 0px 0px 1px',
   },
 }

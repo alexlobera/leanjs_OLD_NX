@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Link from '../../Link'
-import { blue1, WHITE } from '../../../../config/styles'
+import { DARK_BLUE, WHITE } from '../../../../config/styles'
 import MenuData from '../Menu.json'
 import { RGALogo } from '../../../logos/RGALogo'
 import ToggleButton from './ToggleButton'
@@ -42,7 +42,7 @@ export const MenuContent = styled.div`
   margin-left: ${({ isOpen, width }) => (isOpen ? 0 : `-${width}px`)};
   height: 100%;
   transition: all 0.5s ease 0s;
-  background: ${blue1()};
+  background: ${DARK_BLUE};
   padding: 1.3em 1.5em 0;
   box-sizing: border-box;
   overflow: auto;

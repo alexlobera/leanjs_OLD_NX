@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {
   WHITE,
   TEXT_SIZE,
-  blue1,
+  DARK_BLUE_075,
   FONT_FAMILY,
   Z_INDEX_TOP,
 } from '../../config/styles'
@@ -21,7 +21,7 @@ const StyledCookiesNotification = styled.div`
   padding: 0.5rem;
   color: ${WHITE};
   max-width: 20rem;
-  background-color: ${blue1(0.75)};
+  background-color: ${DARK_BLUE_075};
   ${FONT_FAMILY} a {
     color: ${WHITE};
     ${TEXT_SIZE({ sm: true })};
