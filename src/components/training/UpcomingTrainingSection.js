@@ -117,7 +117,7 @@ const UpcomingTrainingSection = ({
       {curriculum ? (
         <React.Fragment>
           <Link to="#upcoming-courses" name="upcoming-courses" />
-          <H3 style={{ marginTop: '1em' }}>Upcoming dates:</H3>
+          <H3 mt={3}>Upcoming dates:</H3>
           <UpcomingTrainings
             type={type}
             curriculum={curriculum}
