@@ -41,7 +41,6 @@ const PartTimeAmsterdam = () => (
         city: AMSTERDAM,
       })
       const training = selectNthTraining({ trainings: partTimeTrainings })
-      console.log(training)
       const crossSellTrainings = getUpcomingTrainingsByType({
         trainings,
         types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
