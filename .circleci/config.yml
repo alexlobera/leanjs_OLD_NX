@@ -30,7 +30,7 @@ jobs:
       #       echo 'Package: *\nPin: origin "archive.debian.org"\nPin-Priority: 500' | sudo tee -a /etc/apt/preferences.d/10-archive-pin
       #       sudo apt-get update && sudo apt-get install -y gettext-base
       - run: envsubst < ".env.ci" > ".env.production"
-      # - run: yarn build
+      - run: yarn build
       - persist_to_workspace:
           root: .
           paths:
