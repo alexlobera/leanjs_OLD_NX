@@ -89,7 +89,7 @@ const Card = styled.div`
       case 'black':
         return `border: 1px solid ${BROWN};`
       case 'blue':
-        return `border: 3px solid ${reactBlue()};`
+        return `border: 3px solid ${BLUE};`
       default:
         return ``
     }

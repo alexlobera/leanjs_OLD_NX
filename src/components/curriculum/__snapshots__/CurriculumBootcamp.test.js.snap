@@ -33,8 +33,10 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       md={6}
     >
       <Styled(Box)
-        fontSize={2}
-        lineHeight={1}
+        box="h4"
+        fontSize={3}
+        fontWeight="bold"
+        lineHeight={3}
       >
         Course outline:
       </Styled(Box)>
