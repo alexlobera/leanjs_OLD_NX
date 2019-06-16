@@ -57,7 +57,7 @@ const ReduxWorkshop = () => (
           GRAPHQL_CLIENT,
           GRAPHQL_BOOTCAMP,
         ],
-        exclude: '5cffb4e806051b7d3bcb0cee',
+        excludeTrainingId: '5cffb4e806051b7d3bcb0cee',
       })
       return (
         <React.Fragment>

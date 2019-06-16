@@ -57,7 +57,7 @@ const AdvancedReactWorkshopLondon = () => (
           GRAPHQL_CLIENT,
           GRAPHQL_BOOTCAMP,
         ],
-        exclude: '5d01096406051b7d3bcb0cf5',
+        excludeTrainingId: '5d01096406051b7d3bcb0cf5',
       })
       return (
         <React.Fragment>
