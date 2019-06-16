@@ -99,7 +99,7 @@ export const getUpcomingTrainingsByType = ({
   return first ? filteredTrainings.slice(0, first) : filteredTrainings
 }
 
-export const selectTrainingById = ({ trainings, id }) =>
+export const selectTrainingByInstanceId = ({ trainings, id }) =>
   trainings.find(training => training.id === id)
 
 export const selectUpcomingTrainings = ({

@@ -2,7 +2,7 @@ export {
   default as UpcomingTrainings,
   selectUpcomingTrainings,
   selectNthTraining,
-  selectTrainingById,
+  selectTrainingByInstanceId,
   getNextTrainingByTrainingId,
   getUpcomingTrainingsByType,
 } from './UpcomingTrainings'
