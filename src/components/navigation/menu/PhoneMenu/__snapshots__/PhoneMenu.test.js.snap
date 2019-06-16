@@ -44,7 +44,7 @@ exports[`<PhoneMenu /> should render a menu with less than 8 items in the first 
       onClick={[Function]}
       to="/community/meetups"
     >
-      MeetUps
+      Meetups
     </PhoneMenuItem>
     <PhoneMenuItem
       key="/blog"
@@ -58,7 +58,7 @@ exports[`<PhoneMenu /> should render a menu with less than 8 items in the first 
       onClick={[Function]}
       to="/about-us"
     >
-      About us
+      About our coaches
     </PhoneMenuItem>
     <PhoneMenuItem
       key="#contact-us"
