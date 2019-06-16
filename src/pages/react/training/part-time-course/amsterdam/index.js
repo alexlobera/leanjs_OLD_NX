@@ -93,7 +93,7 @@ const PartTimeAmsterdam = () => (
                   <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="E_4eQQHjc7A" />
                     <TrainingDetails
-                      date={training.dates}
+                      date={training && training.dates}
                       timing="9am - 6pm Friday's"
                       location={
                         <React.Fragment>{training.city}</React.Fragment>
