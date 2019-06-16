@@ -94,10 +94,12 @@ const BootcampLondon = () => (
                   <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="E_4eQQHjc7A" />
                     <TrainingDetails
-                      date={training.dates}
+                      date={training && training.dates}
                       timing="6pm - 9pm Tuesday's & Thursday's"
                       location={
-                        <React.Fragment>{training.city}</React.Fragment>
+                        <React.Fragment>
+                          {training && training.city}
+                        </React.Fragment>
                       }
                       coaches={[
                         EVA_HOFFMANN,

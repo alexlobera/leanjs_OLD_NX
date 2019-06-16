@@ -112,7 +112,6 @@ export class CheckoutContainer extends React.Component {
       meetupSubscribe,
     } = values
 
-
     if (meetupSubscribe) {
       this.props.triggerSubscribe({ email, pathname: 'checkout', city })
     }

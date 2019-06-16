@@ -49,7 +49,7 @@ export const triggerSubscribe = ({ email, pathname = 'footer', city }) =>
       body: JSON.stringify({
         email,
         pathname,
-        city
+        city,
       }),
     }
   ).then(() => {
