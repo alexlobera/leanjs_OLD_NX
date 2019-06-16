@@ -12,7 +12,7 @@ import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
-  selectTrainingById,
+  selectTrainingByInstanceId,
 } from 'src/components/training'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -38,7 +38,7 @@ const MeetUpPage = ({ data }) => {
   return (
     <Layout>
       {({ trainings, trainingLoading, trainingError }) => {
-        const training = selectTrainingById({
+        const training = selectTrainingByInstanceId({
           trainings,
           id: instanceID,
         })

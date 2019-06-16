@@ -21,7 +21,7 @@ import {
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
-import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
+import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
 
@@ -65,7 +65,7 @@ const AdvancedReactWorkshop = () => (
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
+            type={REACT_WORKSHOP}
             training={training}
           />
           <TopSection top>

@@ -50,7 +50,7 @@ const TrainingItem = ({
 }) => (
   <React.Fragment>
     <TrainingRow>
-      <TrainingItemCol xs={5} md={3}>
+      <TrainingItemCol xs={5} md={4}>
         <Calendar type={type} to={path}>
           {startDay}
           <br />

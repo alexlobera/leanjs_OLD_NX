@@ -14,16 +14,23 @@ import { CurriculumBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
 import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { DAVIAN } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP } from 'src/config/data'
+import {
+  REACT_BOOTCAMP,
+  ADVANCED_REACT,
+  PART_TIME,
+  REACT_WORKSHOP,
+  REACT_FUNDAMENTALS,
+  ONE_DAY_WORKSHOP,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 
@@ -37,6 +44,18 @@ const Bootcamps = props => (
       const nextTraining = selectNthTraining({
         trainings: upcomingBootCampTrainings,
       })
+      const reactTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [
+          REACT_FUNDAMENTALS,
+          REACT_WORKSHOP,
+          ADVANCED_REACT,
+          ONE_DAY_WORKSHOP,
+          PART_TIME,
+        ],
+        first: 3,
+      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -137,12 +156,9 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="After the bootcamp, I felt very very confident. You understand how to use React, how to build components from scratch and then into complex applications. Don’t be afraid - book as quickly as possible!"
-                    fullname="Davian Robinson"
-                    job="Senior Software Engineer"
-                    company="ETZ Payments"
-                    profilePicUrl={DAVIAN}
+                  <AlternativeTrainings
+                    trainings={reactTrainings}
+                    titleText="Alternatives to the React Bootcamp"
                   />
                 </Col>
               </Row>
