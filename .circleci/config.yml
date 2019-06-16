@@ -18,17 +18,17 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
-      # - run: sudo apt-get update && sudo apt-get install -y gettext-base
+      - run: sudo apt-get update && sudo apt-get install -y gettext-base
       # fix https://discuss.circleci.com/t/failed-to-fetch-debian/29258/3
-      - run:
-          name: update fix for debian /etc/apt/sources.list
-          command: |
-            sudo rm /etc/apt/sources.list
-            echo "deb http://archive.debian.org/debian/ jessie-backports main" | sudo tee -a /etc/apt/sources.list
-            echo "deb-src http://archive.debian.org/debian/ jessie-backports main" | sudo tee -a /etc/apt/sources.list
-            echo "Acquire::Check-Valid-Until false;" | sudo tee -a /etc/apt/apt.conf.d/10-nocheckvalid
-            echo 'Package: *\nPin: origin "archive.debian.org"\nPin-Priority: 500' | sudo tee -a /etc/apt/preferences.d/10-archive-pin
-            sudo apt-get update && sudo apt-get install -y gettext-base
+      # - run:
+      #     name: update fix for debian /etc/apt/sources.list
+      #     command: |
+      #       sudo rm /etc/apt/sources.list
+      #       echo "deb http://archive.debian.org/debian/ jessie-backports main" | sudo tee -a /etc/apt/sources.list
+      #       echo "deb-src http://archive.debian.org/debian/ jessie-backports main" | sudo tee -a /etc/apt/sources.list
+      #       echo "Acquire::Check-Valid-Until false;" | sudo tee -a /etc/apt/apt.conf.d/10-nocheckvalid
+      #       echo 'Package: *\nPin: origin "archive.debian.org"\nPin-Priority: 500' | sudo tee -a /etc/apt/preferences.d/10-archive-pin
+      #       sudo apt-get update && sudo apt-get install -y gettext-base
       - run: envsubst < ".env.ci" > ".env.production"
       - run: yarn build
       - persist_to_workspace:
