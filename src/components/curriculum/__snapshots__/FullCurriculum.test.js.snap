@@ -72,6 +72,11 @@ exports[`<FullCurriculum /> should render component 1`] = `
             GraphQL Bootcamp
           </TabItem>
           <TabItem
+            name="GraphQL API"
+          >
+            GraphQL API
+          </TabItem>
+          <TabItem
             name="GraphQL Worskhop"
           >
             GraphQL Workshops
@@ -117,6 +122,13 @@ exports[`<FullCurriculum /> should render component 1`] = `
             name="GraphQL Bootcamp"
           >
             <CurriculumGraphQLBootcamp
+              showTitle={false}
+            />
+          </ContentItem>
+          <ContentItem
+            name="GraphQL API"
+          >
+            <CurriculumGraphQLAPI
               showTitle={false}
             />
           </ContentItem>

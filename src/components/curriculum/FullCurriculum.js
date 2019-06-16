@@ -56,7 +56,6 @@ class FullCurriculum extends React.Component {
           <Col lg={11}>
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
-                {/* <H4>React</H4> */}
                 <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
                 <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
                 <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
@@ -64,7 +63,6 @@ class FullCurriculum extends React.Component {
                 <TabItem name={REACT_NATIVE}>React Workshops</TabItem>
               </TabList>
               <TabList offset>
-                {/* <H4>GraphQL</H4> */}
                 <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
                 <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
 
