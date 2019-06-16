@@ -41,6 +41,7 @@ const PartTimeAmsterdam = () => (
         city: AMSTERDAM,
       })
       const training = selectNthTraining({ trainings: partTimeTrainings })
+      console.log(training)
       const crossSellTrainings = getUpcomingTrainingsByType({
         trainings,
         types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
@@ -96,7 +97,9 @@ const PartTimeAmsterdam = () => (
                       date={training && training.dates}
                       timing="9am - 6pm Friday's"
                       location={
-                        <React.Fragment>{training.city}</React.Fragment>
+                        <React.Fragment>
+                          {training && training.city}
+                        </React.Fragment>
                       }
                       coaches={[ROY_DERKS, ALEX_LOBERA]}
                     />
