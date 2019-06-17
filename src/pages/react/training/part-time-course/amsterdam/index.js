@@ -7,7 +7,6 @@ import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { CurriculumPartTime } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import {
-  AttendeeQuote,
   UpcomingTrainingSection,
   TrainingDetails,
   TargetAudienceSection,
@@ -19,7 +18,6 @@ import {
   AlternativeTrainings,
 } from 'src/components/training'
 import Header from 'src/components/layout/Header'
-import { CATALIN } from 'src/config/images'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Breadcrumb } from 'src/components/navigation'
