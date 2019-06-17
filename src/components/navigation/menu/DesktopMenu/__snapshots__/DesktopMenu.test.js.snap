@@ -64,7 +64,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
     />
     <DesktopMenuItem
       key="/community/meetups"
-      text="MeetUps"
+      text="Meetups"
       to="/community/meetups"
     />
     <DesktopMenuItem
@@ -74,13 +74,21 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
     />
     <DesktopMenuItem
       key="/about-us"
+      submenuItems={
+        Array [
+          Object {
+            "text": "About our coaches",
+            "to": "/about-us",
+          },
+          Object {
+            "hideOnMobile": true,
+            "text": "Community",
+            "to": "/community",
+          },
+        ]
+      }
       text="About us"
       to="/about-us"
-    />
-    <DesktopMenuItem
-      key="/community"
-      text="Community"
-      to="/community"
     />
     <DesktopMenuItem
       key="#contact-us"
