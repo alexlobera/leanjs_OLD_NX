@@ -2,7 +2,7 @@ import React from 'react'
 import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
-import { ONE_DAY_WORKSHOP } from '../../config/data'
+import { ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
 import { H2Ref, H4 } from '../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
@@ -15,7 +15,7 @@ const CurriculumReactWorkshops = ({
   showLinkToCurriculum = false,
   trainings,
 }) => {
-  const type = ONE_DAY_WORKSHOP
+  const type = [ONE_DAY_WORKSHOP, REACT_WORKSHOP]
   const commonProps = {
     showLinkToCurriculum,
     enableToggle,
