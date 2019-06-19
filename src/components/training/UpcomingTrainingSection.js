@@ -7,10 +7,7 @@ import Grid, { Col, Row } from '../layout/Grid'
 import { H2Ref, H3, P } from '../text'
 import { TrainingItem } from './'
 import Link from '../navigation/Link'
-import {
-  selectUpcomingTrainings,
-  getUpcomingTrainingsByType,
-} from './UpcomingTrainings'
+import { getUpcomingTrainingsByType } from './UpcomingTrainings'
 import Newsletter from '../elements/Newsletter'
 import { GREY } from '../../config/styles'
 import {
@@ -31,7 +28,6 @@ import {
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
   GRAPHQL_CLIENT,
-  GRAPHQL_WORKSHOP,
   MEETUP,
 } from '../../config/data'
 import CorporateTrainingCard from '../elements/CorporateTrainingCard'
@@ -52,7 +48,10 @@ const CorporateCrossSell = styled.div`
 `
 
 export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
-  const filteredTrainings = selectUpcomingTrainings({ type, trainings })
+  const filteredTrainings = getUpcomingTrainingsByType({
+    types: [...type],
+    trainings,
+  })
   if (!filteredTrainings.length || !filteredTrainings[0].id) {
     return <P>Sorry! There are no {type} dates confirmed.</P>
   } else {

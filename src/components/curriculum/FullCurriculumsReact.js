@@ -9,12 +9,14 @@ import {
   CurriculumAdvancedReact,
 } from './index'
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
+import { getUpcomingTrainingsByType } from '../training/UpcomingTrainings'
 import {
   REACT_BOOTCAMP,
   PART_TIME,
   ADVANCED_REACT,
   ONE_DAY_WORKSHOP,
   REACT_FUNDAMENTALS,
+  REACT_WORKSHOP,
 } from '../../config/data'
 
 class FullCurriculumsReact extends React.Component {
@@ -28,6 +30,11 @@ class FullCurriculumsReact extends React.Component {
 
   render() {
     const { trainings } = this.props
+    const allReactWorkshops = getUpcomingTrainingsByType({
+      trainings,
+      types: [ONE_DAY_WORKSHOP, REACT_WORKSHOP],
+    })
+
     const commonCurriculumProps = {
       trainings,
       showTitle: false,
@@ -64,7 +71,10 @@ class FullCurriculumsReact extends React.Component {
                   <CurriculumPartTime {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={ONE_DAY_WORKSHOP}>
-                  <CurriculumReactWorkshops {...commonCurriculumProps} />
+                  <CurriculumReactWorkshops
+                    trainings={allReactWorkshops}
+                    showTitle={false}
+                  />
                 </ContentItem>
               </TabContent>
             </Tabs>
