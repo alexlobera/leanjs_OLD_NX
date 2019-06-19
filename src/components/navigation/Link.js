@@ -84,14 +84,13 @@ class Link extends React.Component {
       )
     } else if (toHref && toHref[0] === '#') {
       const { onClick, ...restLinkScrollProps } = rest
-
       return (
         <StyledLink
           {...restLinkScrollProps}
           onClick={e => {
             onClick && onClick()
           }}
-          to={toHref}
+          to={toHref.substr(1)}
           box={DefaultLinkScroll}
         >
           {children}
