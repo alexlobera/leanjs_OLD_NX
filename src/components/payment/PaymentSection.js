@@ -272,6 +272,7 @@ PaymentSection.propTypes = {
   paymentApi: PropTypes.object,
   city: PropTypes.string,
   navigate: PropTypes.func,
+  financeAvailable: PropTypes.bool,
 }
 
 const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {
