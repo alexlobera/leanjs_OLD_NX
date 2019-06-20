@@ -55,10 +55,6 @@ const TrainingPage = () => (
             bgImageName={BOOTCAMP}
             links={[
               {
-                text: 'Curriculum',
-                to: '#curriculum',
-              },
-              {
                 text: 'Upcoming Courses',
                 to: '#upcoming-courses',
               },
