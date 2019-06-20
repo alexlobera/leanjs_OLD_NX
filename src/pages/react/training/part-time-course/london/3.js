@@ -79,6 +79,7 @@ const BootcampLondon = () => (
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
+                      financeAvailable
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>

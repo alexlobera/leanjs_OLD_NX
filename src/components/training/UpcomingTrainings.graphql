@@ -26,6 +26,7 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
           slug
           description {
             title
+            objectives
           }
         }
       }
