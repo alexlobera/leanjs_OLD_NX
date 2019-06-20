@@ -13,7 +13,7 @@ import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import { HideComponentsUsingCss } from '../components/utils'
 import { FullCurriculum } from '../components/curriculum'
-import { SCREEN_XS_MAX } from '../components/utils'
+import { SCREEN_XS_MAX, createSocialMetas } from '../components/utils'
 import Header from '../components/layout/Header'
 import { Card, Image, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
@@ -31,21 +31,29 @@ const SectionButtonRow = styled(Row)`
     }
   }
 `
+const metas = {
+  title: 'React & GraphQL Expert Training | React GraphQL Academy',
+  description:
+    'Looking for React and GraphQL training courses? React GrpahQL Academy offers unique in-person training by our experts. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const IndexPage = () => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
         <Helmet
-          title="React GraphQL Academy (formerly React Academy) - expert training for professional developers"
+          title={metas.title}
           meta={[
             {
               name: 'description',
-              content:
-                'React GraphQL Academy (formerly React Academy) is the leading React training organization in EU',
+              content: metas.description,
             },
           ]}
-        />
+        >
+          {createSocialMetas(metas)}
+        </Helmet>
         <Header
           titleLines={[
             'Take your dev career further',
