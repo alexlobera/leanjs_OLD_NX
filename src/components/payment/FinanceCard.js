@@ -6,7 +6,7 @@ import { Row } from '../layout/Grid'
 import ExternalLinkIcon from '../icons/ExternalLinkIcon'
 import { Link } from '../navigation'
 
-const ScholarshipsCard = () => (
+const FinanceCard = () => (
   <Card top={36} bottom={36} small>
     <H3>Financial Support</H3>
     <P>
@@ -27,4 +27,4 @@ const ScholarshipsCard = () => (
   </Card>
 )
 
-export default ScholarshipsCard
+export default FinanceCard

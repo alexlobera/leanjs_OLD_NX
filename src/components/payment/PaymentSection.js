@@ -19,7 +19,7 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
-import { ScholarshipsCard } from './'
+import { FinanceCard } from './'
 
 class PaymentSection extends React.Component {
   state = {
@@ -250,7 +250,7 @@ class PaymentSection extends React.Component {
             )}
           </Card>
         </React.Fragment>
-        {financeAvailable && <ScholarshipsCard />}
+        {financeAvailable && <FinanceCard />}
         <Card small bg="dark" top={20}>
           <ContactForm simplified />
         </Card>
