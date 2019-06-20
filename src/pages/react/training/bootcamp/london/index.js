@@ -12,7 +12,6 @@ import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
-import { ScholarshipsCard } from 'src/components/payment'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
@@ -103,10 +102,10 @@ const BootcampLondon = () => (
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
+                      financeAvailable
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <ScholarshipsCard />
                     <Video youtubeId="yvROXLQ1jHg" />
                     <TrainingDetails
                       coaches={[

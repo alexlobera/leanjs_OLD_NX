@@ -19,6 +19,7 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
+import { ScholarshipsCard } from './'
 
 class PaymentSection extends React.Component {
   state = {
@@ -116,6 +117,7 @@ class PaymentSection extends React.Component {
       navigate,
       data: autoVoucherData = {},
       city,
+      financeAvailable,
     } = this.props
     let trainingInstanceId,
       price = 0,
@@ -248,6 +250,7 @@ class PaymentSection extends React.Component {
             )}
           </Card>
         </React.Fragment>
+        {financeAvailable && <ScholarshipsCard />}
         <Card small bg="dark" top={20}>
           <ContactForm simplified />
         </Card>
