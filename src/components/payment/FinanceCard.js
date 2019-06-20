@@ -11,11 +11,11 @@ const FinanceCard = () => (
     <H3>Financial Support</H3>
     <P>
       Looking for a way to spread the cost of training? We've partnered with
-      CourseBud to offer an easy way to obtain a suitable loan loan for this
+      Coursebud to offer an easy way to obtain a suitable loan loan for this
       training.
     </P>
     <P>
-      Just click the link, and apply directly on the CourseBud site... that's
+      Just click the link, and apply directly on the Coursebud site... that's
       it!
     </P>
     <Link to="https://www.coursebud.com/search">
