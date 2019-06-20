@@ -124,6 +124,12 @@ const BlogPost = ({ data }) => {
             <meta property="og:image" content={imageUrl} />
             <meta property="og:description" content={subtitle} />
             <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@reactgqlacademy" />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={subtitle} />
+            <meta name="twitter:creator" content={`@${authorTwitter}`} />
+            <meta name="twitter:image" content={imageUrl} />
           </Helmet>
           <Breadcrumb
             path={[
