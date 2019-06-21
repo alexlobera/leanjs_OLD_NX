@@ -23,6 +23,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { TrainingDateByDay } from '../utils'
 
 const CurriculumBootcamp = ({
   showTitle = true,
@@ -34,15 +35,21 @@ const CurriculumBootcamp = ({
   showLinkToCurriculum = true,
   trainings,
   showHackathon = false,
+  training = {},
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
   const commonProps = {
+    training,
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type,
     isOpen,
   }
+
+  const meetupTime = '16:30 - 18:30'
+  const trainingTime = '09:00 - 18:30'
+
   const firstHalf = (
     <React.Fragment>
       <H4>Course outline:</H4>
@@ -50,7 +57,9 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="Evening pre-bootcamp (optional)"
         name="day0"
-        subTitle="React 101 and JS fundamentals"
+        subTitle={`React 101 and JS fundamentals (${TrainingDateByDay({
+          training,
+        })}  ${meetupTime})`}
       >
         <ReactJS101Session />
       </Section>
@@ -58,7 +67,9 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 1"
         name="day1"
-        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+        subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching (${TrainingDateByDay(
+          { training, day: 1 }
+        )} ${trainingTime})`}
       >
         <ES6Session title="Modern JavaScript" />
         <ThinkingInReactSession title="Thinking in React" />
@@ -68,7 +79,9 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 2"
         name="day2"
-        subTitle="Forms, Authentication, Styling in React"
+        subTitle={`Forms, Authentication, Styling in React (${TrainingDateByDay(
+          { training, day: 2 }
+        )} ${trainingTime})`}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
         <ReactFundamentalsRecapSession
@@ -93,7 +106,9 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 3"
         name="day3"
-        subTitle="Redux Fundamentals, Advanced Redux, and FP"
+        subTitle={`Redux Fundamentals, Advanced Redux, and FP (${TrainingDateByDay(
+          { training, day: 3 }
+        )} ${trainingTime})`}
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
@@ -102,7 +117,9 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 4"
         name="day4"
-        subTitle="Advanced React patterns, Hooks, and performance"
+        subTitle={`Advanced React patterns, Hooks, and performance (${TrainingDateByDay(
+          { training, day: 4 }
+        )} ${trainingTime})`}
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
         <ReactPerformanceSession title="Performance" />
@@ -111,7 +128,10 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 5"
         name="day5"
-        subTitle="Real-world Testing in React"
+        subTitle={`Real-world Testing in React (${TrainingDateByDay({
+          training,
+          day: 5,
+        })} ${trainingTime})`}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
@@ -123,7 +143,10 @@ const CurriculumBootcamp = ({
           enableToggle={true}
           title="React Bootcamp Day 6 (optional)"
           name="day6"
-          subTitle="GraphQL and final project"
+          subTitle={`GraphQL and final project (${TrainingDateByDay({
+            training,
+            day: 6,
+          })} ${trainingTime})`}
         >
           <Hackathon />
         </Section>

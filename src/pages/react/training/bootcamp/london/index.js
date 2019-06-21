@@ -57,6 +57,7 @@ const BootcampLondon = () => (
           GRAPHQL_BOOTCAMP,
         ],
       })
+      console.log(training)
       return (
         <React.Fragment>
           <Helmet
@@ -128,6 +129,7 @@ const BootcampLondon = () => (
                     <CurriculumBootcamp
                       showHackathon={true}
                       layout={LIST_TWO_COL}
+                      training={training}
                     />
                   </Col>
                 </Row>
