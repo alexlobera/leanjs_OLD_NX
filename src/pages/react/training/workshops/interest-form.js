@@ -33,11 +33,13 @@ const NameInput = aliasComponent(InputField)
 const SessionInterest = () => (
   <Layout>
     {({ trainings }) => {
-      const handleFormSubmit = ({ name, email, subscriptions }) => {
+      const handleFormSubmit = ({ name, email, subscriptions, resources }) => {
         triggerSessionSubscribe({
           name,
           email,
           subscriptions: Object.keys(subscriptions),
+          resources,
+          pathname: 'React 1 day workshops form',
         })
         navigate('/thanks-for-signing-up-for-sessions')
       }
@@ -153,7 +155,7 @@ const SessionInterest = () => (
                                   them!{' '}
                                 </P>
                                 <CheckboxField
-                                  name="subscriptions.resources"
+                                  name="resources"
                                   label="I want free learning resources!"
                                 />
                               </Col>

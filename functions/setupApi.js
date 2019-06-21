@@ -57,7 +57,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
 
   async function sessionSubscribe(request, response) {
     const data = request && request.body
-    const { name, email, subscriptions } = data
+    const { name, email, subscriptions, resources, pathname } = data
     const custom = subscriptions.reduce((acc, subscription) => {
       acc[`boolean--${subscription}--Session`] = true
       return acc
@@ -66,24 +66,25 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
       contact: {
         FirstName: name,
         Email: email,
-        LeadSource: '1-day workshops form',
+        LeadSource: pathname,
         _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
         custom,
+        'boolean--Resources-SingedUp': resources,
       },
     })
     response.status(200).send('it worked')
   }
 
   async function subscribe(request, response) {
-    const email = request && request.body && request.body.email
-    const pathname = request && request.body && request.body.pathname
-    const city = request && request.body && request.body.city
+    const data = request && request.body
+    const { email, pathname, city, resources } = data
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
         LeadSource: pathname,
         custom: {
           'string--From--City': city,
+          'boolean--Resources-SingedUp': resources,
         },
       },
     })
