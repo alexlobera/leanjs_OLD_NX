@@ -57,7 +57,6 @@ const BootcampLondon = () => (
           GRAPHQL_BOOTCAMP,
         ],
       })
-      console.log(training)
       return (
         <React.Fragment>
           <Helmet
