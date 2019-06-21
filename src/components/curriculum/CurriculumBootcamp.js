@@ -40,7 +40,6 @@ const CurriculumBootcamp = ({
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
   const commonProps = {
-    training,
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type,
