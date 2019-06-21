@@ -179,8 +179,9 @@ export const formatUTC = (
 }
 
 export const TrainingDateByDay = ({ training = {}, day = 0 }) =>
-  training.startDate &&
-  formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
+  training.startDate
+    ? formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
+    : ''
 
 function twoDigits(number) {
   return ('0' + number).slice(-2)
