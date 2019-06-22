@@ -452,8 +452,8 @@ class ReactCurriculum extends React.Component {
                           <ContentItem name={PART_TIME}>
                             <P>
                               <strong>
-                                On completion of the React Bootcamp each student
-                                will:
+                                On completion of the React part-time course each
+                                student will:
                               </strong>
                             </P>
                             <Ul>
