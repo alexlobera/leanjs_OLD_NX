@@ -132,8 +132,8 @@ export const TargetAudienceList = () => (
 const LearningObjectives = () => (
   <React.Fragment>
     <Li>
-      Be able to develop and test complex and reliable React applications:{' '}
-      <code>enzyme, jest</code>
+      Be able to test complex React applications writing tests that promote code
+      quality and best programming practices.
     </Li>
     <Li>Comprehend modern front-end JavaScript using Functional Programming</Li>
     <Li>
