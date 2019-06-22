@@ -22,7 +22,7 @@ import {
 } from 'src/components/layout/Tabs'
 import {
   CurriculumReactFundamentals,
-  CurriculumBootcamp,
+  CurriculumReactBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
   MarketingCard,
@@ -306,7 +306,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
+                              {/* <Li>
                                 Understand the core principles and libraries to
                                 build production-ready React applications using:{' '}
                                 <code>
@@ -327,7 +327,7 @@ class ReactCurriculum extends React.Component {
                                 Understand the best practices and patterns for
                                 building real-world performant React
                                 applications
-                              </Li>
+                              </Li> */}
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -344,7 +344,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 {trainingBootcamp && (
-                                  <CurriculumBootcamp
+                                  <CurriculumReactBootcamp
                                     layout={LIST_LAYOUT}
                                     enableToggle={true}
                                     showTitle={false}

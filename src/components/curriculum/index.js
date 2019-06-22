@@ -1,4 +1,4 @@
-import CurriculumBootcamp from './CurriculumBootcamp'
+import CurriculumReactBootcamp from './CurriculumReactBootcamp'
 import CurriculumPartTime from './CurriculumPartTime'
 import CurriculumReactNative from './CurriculumReactNative'
 import MarketingCard from './MarketingCard'
@@ -17,7 +17,7 @@ import CurriculumGraphQLWorkshops from './CurriculumGraphQLWorkshops'
 import FullCurriculumsGraphQL from './FullCurriculumsGraphQL'
 
 export {
-  CurriculumBootcamp,
+  CurriculumReactBootcamp,
   CurriculumPartTime,
   CurriculumReactNative,
   MarketingCard,

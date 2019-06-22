@@ -18,13 +18,14 @@ import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateR
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import Hackathon from './sessions/Hackathon'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+import { Li } from '../layout/Ul'
 
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
-const CurriculumBootcamp = ({
+const CurriculumReactBootcamp = ({
   showTitle = true,
   layout,
   enableToggle,
@@ -164,4 +165,38 @@ const CurriculumBootcamp = ({
   )
 }
 
-export default CurriculumBootcamp
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li></Li>
+  </React.Fragment>
+)
+
+export const LearningObjectives = () => (
+  <React.Fragment>
+    <Li>
+      Understand the core principles and libraries to build production-ready
+      React applications using:{' '}
+      <code>
+        react, react-router, styled-components, styled-system, storybook, redux,
+        react-redux
+      </code>
+    </Li>
+    <Li>
+      Be able to develop and test complex and reliable React applications:{' '}
+      <code>enzyme, jest</code>
+    </Li>
+    <Li>
+      Comprehend modern front-end JavaScript:{' '}
+      <code>Functional Programming, Webpack</code>
+    </Li>
+    <Li>
+      Understand the best practices and patterns for building real-world
+      performant React applications
+    </Li>
+  </React.Fragment>
+)
+
+CurriculumReactBootcamp.LearningObjectives = LearningObjectives
+CurriculumReactBootcamp.TargetAudienceList = TargetAudienceList
+
+export default CurriculumReactBootcamp
