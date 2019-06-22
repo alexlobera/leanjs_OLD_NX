@@ -20,6 +20,12 @@ const fontColor = color => `
   h3 {
     color: ${color};
   }
+  h4 {
+    color: ${color};
+  }
+  h5 {
+    color: ${color};
+  }
   p {
     color: ${color};
   }
