@@ -148,7 +148,7 @@ export const LearningObjectivesList = () => (
       Create a solid foundation to leverage the React principles when tackling
       complex React problems.
     </Li>
-    <Li>Learn JavaScript testing principles</Li>
+    <Li>Learn JavaScript testing principles.</Li>
     <Li>Learn how to style React applications in an idiomatic way.</Li>
     <Li>
       Understand different state management approaches in the React ecosystem.
