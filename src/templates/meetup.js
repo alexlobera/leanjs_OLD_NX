@@ -7,7 +7,9 @@ import Helmet from 'react-helmet'
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, H2Ref, H3, H5, P } from 'src/components/text'
+import { H2, H2Ref, H3, H4, H5, P, Span } from 'src/components/text'
+import Ul, { Li } from '../components/layout/Ul'
+
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -21,10 +23,15 @@ import { MEETUP } from 'src/config/data'
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
+    a: Link,
     p: P,
     h2: H2,
     h3: H3,
+    h4: H4,
     h5: H5,
+    ul: Ul,
+    li: Li,
+    span: Span,
   },
 }).Compiler
 

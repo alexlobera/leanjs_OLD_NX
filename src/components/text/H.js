@@ -58,6 +58,7 @@ export const H3 = styled(Box)`
 H3.defaultProps = {
   fontSize: 4,
   pt: 4,
+  lineHeight: 4,
   box: 'h3',
 }
 

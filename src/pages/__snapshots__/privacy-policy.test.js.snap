@@ -266,6 +266,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           <Styled(Box)
             box="h3"
             fontSize={4}
+            lineHeight={4}
             pt={4}
           >
             Third party training providers
@@ -283,6 +284,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           <Styled(Box)
             box="h3"
             fontSize={4}
+            lineHeight={4}
             pt={4}
           >
             Our hosting providers
@@ -413,6 +415,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           <Styled(Box)
             box="h3"
             fontSize={4}
+            lineHeight={4}
             pt={4}
           >
             Google Analytics
@@ -431,6 +434,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           <Styled(Box)
             box="h3"
             fontSize={4}
+            lineHeight={4}
             pt={4}
           >
             Stripe
