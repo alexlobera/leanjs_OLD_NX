@@ -138,36 +138,14 @@ const BootcampLondon = () => (
                 </HideComponentsUsingCss>
                 <Col md={6} lg={5} lgOffset={1}>
                   <H2Ref>
-                    Is this 1-day Advanced React training right for me? Are
-                    you...{' '}
+                    Is this Advanced React training right for me?{' '}
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
                   </H2Ref>
                   <Ul>
-                    <Li>
-                      A{' '}
-                      <strong>
-                        React developer with 1+ year of development
-                      </strong>{' '}
-                      under your belt using React?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a{' '}
-                      <strong>Senior React developer</strong> able to make
-                      critical decisions about the architecture of a React
-                      application.
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
+                    <CurriculumAdvancedReact.TargetAudienceList />
                   </Ul>
-                  <P>
-                    If you've said 'yes' to these, our{' '}
-                    <strong>1-day advanced React training</strong> could be for
-                    you!
-                  </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
                     This is a bootcamp for React developers that are experienced
