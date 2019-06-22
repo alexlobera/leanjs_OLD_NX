@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '../navigation/Link'
+import { Li } from '../layout/Ul'
 import { H2Ref, H4 } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -127,5 +128,35 @@ const CurriculumReactFundamentals = ({
     </React.Fragment>
   )
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li></Li>
+  </React.Fragment>
+)
+
+export const LearningObjectives = () => (
+  <React.Fragment>
+    <Li>
+      Understand the core principles and libraries to build React applications
+      using:{' '}
+      <code>
+        react, react-router, styled-components, storybook, redux, react-redux
+      </code>
+    </Li>
+    <Li>
+      Create a solid foundation to leverage the React principles when tackling
+      complex React problems.
+    </Li>
+    <Li>Learn JavaScript testing principles</Li>
+    <Li>Learn how to style React applications in an idiomatic way.</Li>
+    <Li>
+      Understand different state management approaches in the React ecosystem.
+    </Li>
+  </React.Fragment>
+)
+
+CurriculumReactFundamentals.LearningObjectives = LearningObjectives
+CurriculumReactFundamentals.TargetAudienceList = TargetAudienceList
 
 export default CurriculumReactFundamentals

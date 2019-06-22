@@ -18,6 +18,10 @@ import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
 import SectionCTA from './SectionCTA'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import {
+  LearningObjectives,
+  TargetAudienceList,
+} from './CurriculumReactFundamentals'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -184,5 +188,8 @@ const CurriculumPartTime = ({
     </React.Fragment>
   )
 }
+
+CurriculumPartTime.LearningObjectives = LearningObjectives
+CurriculumPartTime.TargetAudienceList = TargetAudienceList
 
 export default CurriculumPartTime

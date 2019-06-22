@@ -306,28 +306,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              {/* <Li>
-                                Understand the core principles and libraries to
-                                build production-ready React applications using:{' '}
-                                <code>
-                                  react, react-router, styled-components,
-                                  styled-system, storybook, redux, react-redux,
-                                  react-apollo, TypeScript
-                                </code>
-                              </Li>
-                              <Li>
-                                Be able to develop and test complex and reliable
-                                React applications: <code>enzyme, jest</code>
-                              </Li>
-                              <Li>
-                                Comprehend modern front-end JavaScript:{' '}
-                                <code>Functional Programming, Webpack</code>
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React
-                                applications
-                              </Li> */}
+                              <CurriculumReactBootcamp.LearningObjectives />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -506,22 +485,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Understand the core principles and libraries of
-                                the React ecosystem{' '}
-                                <code>
-                                  react, react-router, redux, react-redux,
-                                  storybook, styled-components, jest
-                                </code>
-                              </Li>
-                              <Li>
-                                Understand the fundamentals of unit testing and
-                                how to apply it to JavaScript
-                              </Li>
-                              <Li>
-                                Learn some of the best practices for building
-                                real-world performant React applications
-                              </Li>
+                              <CurriculumPartTime.LearningObjectives />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}

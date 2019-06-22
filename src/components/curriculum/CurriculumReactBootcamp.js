@@ -181,17 +181,24 @@ export const LearningObjectives = () => (
         react-redux
       </code>
     </Li>
+    <Li>Learn how to style React applications in an idiomatic way.</Li>
     <Li>
-      Be able to develop and test complex and reliable React applications:{' '}
-      <code>enzyme, jest</code>
+      Understand different state management approaches in the React ecosystem.
     </Li>
     <Li>
-      Comprehend modern front-end JavaScript:{' '}
-      <code>Functional Programming, Webpack</code>
+      Create a solid foundation to leverage the React principles when tackling
+      complex problems using advanced React.
+    </Li>
+    <Li>
+      Be able to test complex React applications writing tests that promote code
+      quality and best programming practices.
+    </Li>
+    <Li>
+      Comprehend modern front-end JavaScript using Functional Programming (FP)
     </Li>
     <Li>
       Understand the best practices and patterns for building real-world
-      performant React applications
+      performant applications using advanced React.
     </Li>
   </React.Fragment>
 )
