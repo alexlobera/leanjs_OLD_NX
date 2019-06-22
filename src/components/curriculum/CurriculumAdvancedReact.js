@@ -135,10 +135,7 @@ const LearningObjectives = () => (
       Be able to develop and test complex and reliable React applications:{' '}
       <code>enzyme, jest</code>
     </Li>
-    <Li>
-      Comprehend modern front-end JavaScript:{' '}
-      <code>Functional Programming, Webpack</code>
-    </Li>
+    <Li>Comprehend modern front-end JavaScript using Functional Programming</Li>
     <Li>
       Understand the best practices and patterns for building real-world
       performant React applications
