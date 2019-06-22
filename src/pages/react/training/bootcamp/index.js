@@ -79,7 +79,7 @@ const Bootcamps = props => (
             ]}
           />
           <Header
-            titleLines={['React, Redux,', 'GraphQL Bootcamp']}
+            titleLines={['React & Redux Bootcamp']}
             subtitle="For a few days, expert coaches and mentors will work alongside you <br/> to master the React ecosystem so you return to work as a React specialist"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
