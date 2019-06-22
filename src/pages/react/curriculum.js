@@ -424,19 +424,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Be able to develop and test complex and reliable
-                                React applications: <code>enzyme, jest</code>
-                              </Li>
-                              <Li>
-                                Comprehend modern front-end JavaScript:{' '}
-                                <code>Functional Programming, Webpack</code>
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React
-                                applications
-                              </Li>
+                              <CurriculumAdvancedReact.LearningObjectives />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}

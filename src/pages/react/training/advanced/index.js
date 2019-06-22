@@ -93,22 +93,7 @@ const AdvancedTraining = () => (
                 <Col md={5} mdOffset={1}>
                   <H2>Is this advanced React training right for me?</H2>
                   <Ul>
-                    <Li>Extremely rapid, intense learning</Li>
-                    <Li>
-                      Ideal for{' '}
-                      <strong>
-                        React developers with 1+ year of profesional experience
-                      </strong>
-                      . Not for React beginners!
-                    </Li>
-                    <Li>
-                      Small classes with expert developer coaches - roughly one
-                      for every four students
-                    </Li>
-                    <Li>
-                      Hands-on project-based training - most of the time you'll
-                      be coding.
-                    </Li>
+                    <CurriculumAdvancedReact.TargetAudienceList />
                     <Li>
                       Join a growing network of alumni for advice, knowledge and
                       social fun!
