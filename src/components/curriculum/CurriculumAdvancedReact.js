@@ -13,6 +13,7 @@ import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
 import { ADVANCED_REACT } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { Li } from '../layout/Ul'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
@@ -104,5 +105,48 @@ const CurriculumAdvancedReact = ({
     </React.Fragment>
   )
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>
+      Ideal for{' '}
+      <strong>React developers with 1+ year of profesional experience</strong>.
+      Not for React beginners!
+    </Li>
+    <Li>
+      Get advice to address your complex React challenges with our expert
+      coaches.
+    </Li>
+    <Li>
+      Discuss real-world problems with other advanced React developers from
+      different companies and countries.
+    </Li>
+    <Li>
+      Take a step forward to become a{' '}
+      <strong>Senior React Developer/ Architect</strong> able to make critical
+      decisions about the architecture of advanced React applications.
+    </Li>
+  </React.Fragment>
+)
+
+const LearningObjectives = () => (
+  <React.Fragment>
+    <Li>
+      Be able to develop and test complex and reliable React applications:{' '}
+      <code>enzyme, jest</code>
+    </Li>
+    <Li>
+      Comprehend modern front-end JavaScript:{' '}
+      <code>Functional Programming, Webpack</code>
+    </Li>
+    <Li>
+      Understand the best practices and patterns for building real-world
+      performant React applications
+    </Li>
+  </React.Fragment>
+)
+
+CurriculumAdvancedReact.LearningObjectives = LearningObjectives
+CurriculumAdvancedReact.TargetAudienceList = TargetAudienceList
 
 export default CurriculumAdvancedReact
