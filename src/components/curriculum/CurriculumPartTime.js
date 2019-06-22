@@ -19,7 +19,7 @@ import { PART_TIME } from '../../config/data'
 import SectionCTA from './SectionCTA'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import {
-  LearningObjectives,
+  LearningObjectivesList,
   TargetAudienceList,
 } from './CurriculumReactFundamentals'
 
@@ -189,7 +189,7 @@ const CurriculumPartTime = ({
   )
 }
 
-CurriculumPartTime.LearningObjectives = LearningObjectives
+CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
 CurriculumPartTime.TargetAudienceList = TargetAudienceList
 
 export default CurriculumPartTime

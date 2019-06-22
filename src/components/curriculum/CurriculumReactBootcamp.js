@@ -24,6 +24,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 
 const CurriculumReactBootcamp = ({
   showTitle = true,
@@ -171,7 +172,7 @@ export const TargetAudienceList = () => (
   </React.Fragment>
 )
 
-export const LearningObjectives = () => (
+export const LearningObjectivesList = () => (
   <React.Fragment>
     <Li>
       Understand the core principles and libraries to build production-ready
@@ -189,21 +190,11 @@ export const LearningObjectives = () => (
       Create a solid foundation to leverage the React principles when tackling
       complex problems using advanced React.
     </Li>
-    <Li>
-      Be able to test complex React applications writing tests that promote code
-      quality and best programming practices.
-    </Li>
-    <Li>
-      Comprehend modern front-end JavaScript using Functional Programming (FP)
-    </Li>
-    <Li>
-      Understand the best practices and patterns for building real-world
-      performant applications using advanced React.
-    </Li>
+    <CurriculumAdvancedReact.LearningObjectivesList />
   </React.Fragment>
 )
 
-CurriculumReactBootcamp.LearningObjectives = LearningObjectives
+CurriculumReactBootcamp.LearningObjectivesList = LearningObjectivesList
 CurriculumReactBootcamp.TargetAudienceList = TargetAudienceList
 
 export default CurriculumReactBootcamp

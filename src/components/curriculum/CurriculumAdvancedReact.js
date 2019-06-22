@@ -129,21 +129,23 @@ export const TargetAudienceList = () => (
   </React.Fragment>
 )
 
-const LearningObjectives = () => (
+const LearningObjectivesList = () => (
   <React.Fragment>
     <Li>
       Be able to test complex React applications writing tests that promote code
       quality and best programming practices.
     </Li>
-    <Li>Comprehend modern front-end JavaScript using Functional Programming</Li>
+    <Li>
+      Comprehend modern front-end JavaScript using Functional Programming (FP)
+    </Li>
     <Li>
       Understand the best practices and patterns for building real-world
-      performant React applications
+      performant applications using advanced React.
     </Li>
   </React.Fragment>
 )
 
-CurriculumAdvancedReact.LearningObjectives = LearningObjectives
+CurriculumAdvancedReact.LearningObjectivesList = LearningObjectivesList
 CurriculumAdvancedReact.TargetAudienceList = TargetAudienceList
 
 export default CurriculumAdvancedReact

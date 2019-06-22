@@ -306,7 +306,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <CurriculumReactBootcamp.LearningObjectives />
+                              <CurriculumReactBootcamp.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -357,23 +357,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Understand the core principles and libraries to
-                                build production-ready React applications using:{' '}
-                                <code>
-                                  react, react-router, styled-components,
-                                  storybook, redux, react-redux,
-                                </code>
-                              </Li>
-                              <Li>
-                                Comprehend modern front-end JavaScript:{' '}
-                                <code>Functional Programming, Webpack</code>
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React
-                                applications
-                              </Li>
+                              <CurriculumReactFundamentals.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -424,7 +408,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <CurriculumAdvancedReact.LearningObjectives />
+                              <CurriculumAdvancedReact.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -473,7 +457,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <CurriculumPartTime.LearningObjectives />
+                              <CurriculumPartTime.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}

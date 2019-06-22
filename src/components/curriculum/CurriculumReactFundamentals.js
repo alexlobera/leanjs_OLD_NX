@@ -135,7 +135,7 @@ export const TargetAudienceList = () => (
   </React.Fragment>
 )
 
-export const LearningObjectives = () => (
+export const LearningObjectivesList = () => (
   <React.Fragment>
     <Li>
       Understand the core principles and libraries to build React applications
@@ -156,7 +156,7 @@ export const LearningObjectives = () => (
   </React.Fragment>
 )
 
-CurriculumReactFundamentals.LearningObjectives = LearningObjectives
+CurriculumReactFundamentals.LearningObjectivesList = LearningObjectivesList
 CurriculumReactFundamentals.TargetAudienceList = TargetAudienceList
 
 export default CurriculumReactFundamentals
