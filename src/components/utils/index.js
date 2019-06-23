@@ -134,14 +134,15 @@ export const formatUTC = (
   utcDate,
   utcOffset = 60,
   format = "D MMM 'YYYY",
-  day = 0
+  offsetDays = 0
 ) => {
   const targetTime = new Date(utcDate),
     now = new Date(),
-    minutesToMilliseconds = 60000
+    minutesToMilliseconds = 60000,
+    minutesToDays = 1440
   const localOffsetInMs = now.getTimezoneOffset() * minutesToMilliseconds
   const utcOffsetInMs = utcOffset * minutesToMilliseconds
-  const dayOffset = day * 1440 * minutesToMilliseconds
+  const dayOffset = offsetDays * minutesToDays * minutesToMilliseconds
   const offsetDate = new Date(
     targetTime.getTime() + dayOffset + localOffsetInMs + utcOffsetInMs
   )
@@ -178,7 +179,7 @@ export const formatUTC = (
   }
 }
 
-export const TrainingDateByDay = ({ training = {}, day = 0 }) =>
+export const trainingDateByDay = ({ training = {}, day = 0 }) =>
   training.startDate
     ? formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
     : ''

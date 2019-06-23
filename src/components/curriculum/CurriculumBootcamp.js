@@ -23,7 +23,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
-import { TrainingDateByDay } from '../utils'
+import { trainingDateByDay } from '../utils'
 
 const CurriculumBootcamp = ({
   showTitle = true,
@@ -56,7 +56,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="Evening pre-bootcamp (optional)"
         name="day0"
-        subTitle={`React 101 and JS fundamentals (${TrainingDateByDay({
+        subTitle={`React 101 and JS fundamentals (${trainingDateByDay({
           training,
         })}  ${meetupTime})`}
       >
@@ -66,7 +66,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 1"
         name="day1"
-        subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching (${TrainingDateByDay(
+        subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching (${trainingDateByDay(
           { training, day: 1 }
         )} ${trainingTime})`}
       >
@@ -78,7 +78,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 2"
         name="day2"
-        subTitle={`Forms, Authentication, Styling in React (${TrainingDateByDay(
+        subTitle={`Forms, Authentication, Styling in React (${trainingDateByDay(
           { training, day: 2 }
         )} ${trainingTime})`}
       >
@@ -105,7 +105,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 3"
         name="day3"
-        subTitle={`Redux Fundamentals, Advanced Redux, and FP (${TrainingDateByDay(
+        subTitle={`Redux Fundamentals, Advanced Redux, and FP (${trainingDateByDay(
           { training, day: 3 }
         )} ${trainingTime})`}
       >
@@ -116,7 +116,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 4"
         name="day4"
-        subTitle={`Advanced React patterns, Hooks, and performance (${TrainingDateByDay(
+        subTitle={`Advanced React patterns, Hooks, and performance (${trainingDateByDay(
           { training, day: 4 }
         )} ${trainingTime})`}
       >
@@ -127,7 +127,7 @@ const CurriculumBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 5"
         name="day5"
-        subTitle={`Real-world Testing in React (${TrainingDateByDay({
+        subTitle={`Real-world Testing in React (${trainingDateByDay({
           training,
           day: 5,
         })} ${trainingTime})`}
@@ -142,7 +142,7 @@ const CurriculumBootcamp = ({
           enableToggle={true}
           title="React Bootcamp Day 6 (optional)"
           name="day6"
-          subTitle={`GraphQL and final project (${TrainingDateByDay({
+          subTitle={`GraphQL and final project (${trainingDateByDay({
             training,
             day: 6,
           })} ${trainingTime})`}
