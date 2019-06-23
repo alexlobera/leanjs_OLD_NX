@@ -3,6 +3,7 @@ const express = require('express')
 
 const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   const api = express()
+  const RESOURCES_SINGED_UP = 'boolean--Resources-SingedUp'
   middlewares.map(middleware => api.use(middleware))
 
   api.use(setOptions)
@@ -69,7 +70,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
         LeadSource: pathname,
         _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
         custom,
-        'boolean--Resources-SingedUp': resources,
+        [RESOURCES_SINGED_UP]: resources,
       },
     })
     response.status(200).send('it worked')
@@ -84,7 +85,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
         LeadSource: pathname,
         custom: {
           'string--From--City': city,
-          'boolean--Resources-SingedUp': resources,
+          [RESOURCES_SINGED_UP]: resources,
         },
       },
     })
