@@ -45,10 +45,11 @@ const CurriculumBootcamp = ({
     type,
     isOpen,
   }
-
-  const meetupTime = '16:30 - 18:30'
   const trainingTime = '09:00 - 18:30'
-
+  // TODO remove this DEPRECATED_ logic after July 2019
+  const DEPRECATED_IS_JULY2019 =
+    training.startDate && training.startDate === '2019-07-07T08:00:00.000Z'
+  const meetupTime = DEPRECATED_IS_JULY2019 ? '16:30 - 18:30' : '18:30 - 21:00'
   const firstHalf = (
     <React.Fragment>
       <H4>Course outline:</H4>

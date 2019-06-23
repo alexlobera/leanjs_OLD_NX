@@ -42,7 +42,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       </Styled(Box)>
       <CurriculumSection
         name="day0"
-        subTitle="React 101 and JS fundamentals (  16:30 - 18:30)"
+        subTitle="React 101 and JS fundamentals (  18:30 - 21:00)"
         title="Evening pre-bootcamp (optional)"
         toggleNavigateTo={[Function]}
         type="React Bootcamp"
