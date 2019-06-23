@@ -33,6 +33,15 @@ import {
   LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'GraphQL API Training in London | React GraphQL Academy',
+  description:
+    'Looking for a GraphQL API training in London? Learn how to build GraphQL APIs with our experts in London. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -51,15 +60,16 @@ const BootcampLondon = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="GraphQL API training in London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Master GraphQL APIs with our GraphQL API Training in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

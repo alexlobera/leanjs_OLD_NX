@@ -23,6 +23,15 @@ import { Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_API } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'GraphQL API Training | React GraphQL Academy',
+  description:
+    'Looking for a GraphQL API training? Build real-world GraphQL APIs. In-person GraphQL API training from industry experts Contact us now!',
+  image: WHY_GQLU_ACADEMY,
+  type: 'website',
+}
 
 const GraphQL = () => (
   <Layout>
@@ -34,14 +43,16 @@ const GraphQL = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="GraphQL API training"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: 'Master GraphQL APIs with our GraphQL API Training',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -20,9 +21,17 @@ import {
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
-// import LinkButton from 'src/components/buttons/LinkButton'
 import { GRAPHQL_CLIENT, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'GraphQL Apollo Client Training | React GraphQL Academy',
+  description:
+    'Looking for a GraphQL Client training? Consume real-world GraphQL APIs. In-person GraphQL Apollo Client training from industry experts Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const GraphQLApolloClientWorkshop = () => (
   <Layout>
@@ -37,6 +46,17 @@ const GraphQLApolloClientWorkshop = () => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            title={metas.title}
+            meta={[
+              {
+                name: 'description',
+                content: metas.description,
+              },
+            ]}
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
