@@ -16,7 +16,7 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import { Card, Video } from 'src/components/elements'
-import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL.js'
+import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL'
 import { EBER } from 'src/config/images'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
@@ -86,7 +86,11 @@ const CorporateGraphQLTraining = () => (
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">
-              <CurriculumCorporateGraphQL />
+              <Row>
+                <Col md={11}>
+                  <CurriculumCorporateGraphQL />
+                </Col>
+              </Row>
             </Card>
           </Grid>
         </TopSection>
