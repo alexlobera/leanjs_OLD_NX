@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurriculumReactBootcamp /> should render component 1`] = `
+<Fragment>
+  <Row>
+    <Styled(Col)
+      lg={10}
+      lgOffset={1}
+    >
+      <Styled(Styled(Box))
+        box="h2"
+        fontSize={5}
+        fontWeight="bold"
+        lineHeight={6}
+        mb={5}
+        pt={5}
+      >
+        React Bootcamp Curriculum
+         
+        <Link
+          name="curriculum"
+          to="#curriculum"
+        >
+          #
+        </Link>
+      </Styled(Styled(Box))>
+    </Styled(Col)>
+  </Row>
+  <Row>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    >
+      <Styled(Box)
+        box="h4"
+        fontSize={3}
+        fontWeight="bold"
+        lineHeight={3}
+      >
+        Course outline:
+      </Styled(Box)>
+      <CurriculumSection
+        name="day0"
+        subTitle="React 101 and JS fundamentals (  18:30 - 21:00)"
+        title="Evening pre-bootcamp (optional)"
+        toggleNavigateTo={[Function]}
+        type="React Bootcamp"
+      >
+        <ReactJS101Session />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day1"
+        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching ( 09:00 - 18:30)"
+        title="React Bootcamp Day 1"
+        toggleNavigateTo={[Function]}
+        type="React Bootcamp"
+      >
+        <ES6Session
+          title="Modern JavaScript"
+        />
+        <ThinkingInReactSession
+          title="Thinking in React"
+        />
+        <RoutingAndDataFetchingSession
+          title="Routing and Data Fetching"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day2"
+        subTitle="Forms, Authentication, Styling in React ( 09:00 - 18:30)"
+        title="React Bootcamp Day 2"
+        toggleNavigateTo={[Function]}
+        type="React Bootcamp"
+      >
+        <FormsAndAuthSession
+          title="Forms and Authentication"
+        />
+        <ReactFundamentalsRecapSession
+          title="React Fundamentals recap, build a React app from scratch on your own to consolidate:"
+        />
+        <StylingInReactSession
+          title="Styling in React"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day3"
+        subTitle="Redux Fundamentals, Advanced Redux, and FP ( 09:00 - 18:30)"
+        title="React Bootcamp Day 3"
+        toggleNavigateTo={[Function]}
+        type="React Bootcamp"
+      >
+        <IntroReduxSession
+          title="Redux Fundamentals"
+        />
+        <AdvancedReduxSession
+          title="Advanced Redux"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day4"
+        subTitle="Advanced React patterns, Hooks, and performance ( 09:00 - 18:30)"
+        title="React Bootcamp Day 4"
+        toggleNavigateTo={[Function]}
+        type="React Bootcamp"
+      >
+        <HoCsRenderPropsStateReducerSession
+          title="Functional Programming & Advanced React patterns"
+        />
+        <ReactPerformanceSession
+          title="Performance"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day5"
+        subTitle="Real-world Testing in React ( 09:00 - 18:30)"
+        title="React Bootcamp Day 5"
+        toggleNavigateTo={[Function]}
+        type="React Bootcamp"
+      >
+        <TestingIntroSession
+          title="Testing Foundation in JS"
+        />
+        <TestingInReactSession
+          title="Testing in React"
+        />
+        <E2ESession
+          title="End-to-End Testing"
+        />
+      </CurriculumSection>
+      <styled.div>
+        <LinkButton
+          border={0}
+          borderRadius={2}
+          box="button"
+          boxShadow="light"
+          fontSize={2}
+          letterSpacing=" 0.6px"
+          px={4}
+          py={1}
+          textAlign="center"
+          to="/react/curriculum?tab=React Bootcamp"
+          variant="default"
+        >
+          Full curriculum
+        </LinkButton>
+      </styled.div>
+    </Styled(Col)>
+    <Styled(Col)
+      lg={5}
+      lgOffset={1}
+      md={6}
+    />
+  </Row>
+</Fragment>
+`;
