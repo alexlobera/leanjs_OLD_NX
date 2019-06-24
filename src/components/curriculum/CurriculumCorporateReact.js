@@ -1,54 +1,87 @@
 import React from 'react'
+import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
-import { H2Ref } from '../text'
-import Link from '../navigation/Link'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
-import { CurriculumCorpReact } from './index'
+import { LinkButton } from '../buttons'
 import { REACT_BOOTCAMP } from '../../config/data'
+import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
-class CurriculumCorporateReact extends React.Component {
-  state = {
-    active: REACT_BOOTCAMP,
+const CurriculumCorporateReact = ({
+  showTitle = true,
+  layout,
+  enableToggle,
+  isOpen,
+  toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
+  marketingCard = null,
+  showLinkToCurriculum = false,
+}) => {
+  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const type = REACT_BOOTCAMP
+  const commonProps = {
+    showLinkToCurriculum,
+    enableToggle,
+    toggleNavigateTo: toggleNavigateToSection,
+    type,
+    isOpen,
   }
+  const firstHalf = (
+    <React.Fragment>
+      <Section
+        {...commonProps}
+        title="Day 1 - React 101 and JS fundamentals"
+        name="day1"
+        subTitle="React 101 and JS fundamentals"
+      />
+      <Section
+        {...commonProps}
+        title="Day 2 - Thinking in React"
+        name="day2"
+        subTitle="Modern JavaScript, Routing & Data Fetching"
+      />
+      <Section
+        {...commonProps}
+        title="Day 3 - Forms and Styling in React"
+        name="day3"
+        subTitle="Forms, Authentication, Consolidation, Styling in React"
+      />
+      <Section
+        {...commonProps}
+        title="Day 4 - Redux and Testing"
+        name="day4"
+        subTitle="Redux and Testing Principles"
+      />
+      {marketingCard}
+    </React.Fragment>
+  )
+  const secondHalf = (
+    <React.Fragment>
+      <Section
+        {...commonProps}
+        title="Day 5 - Functional Programming"
+        name="day5"
+        subTitle="Advanced React patterns and GraphQL"
+      />
+      <LinkButton margin to="#contact-us" children="Contact Us" />
+    </React.Fragment>
+  )
 
-  setActive = active => {
-    this.setState({ active })
-  }
-
-  render() {
-    return (
-      <React.Fragment>
+  return (
+    <React.Fragment>
+      {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={1}>
-            <H2Ref>
-              What your team training could look like...{' '}
-              <Link to="#schedule" name="schedule">
-                #
-              </Link>
-            </H2Ref>
-          </Col>
+          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0} />
         </Row>
-
-        <Row>
-          <Col lg={11}>
-            <Tabs onChange={this.setActive} active={this.state.active}>
-              <TabList offset>
-                <TabItem name={REACT_BOOTCAMP}>
-                  Format: 5 Days, Full-Time
-                </TabItem>
-              </TabList>
-
-              <TabContent>
-                <ContentItem name={REACT_BOOTCAMP}>
-                  <CurriculumCorpReact enableToggle={false} />
-                </ContentItem>
-              </TabContent>
-            </Tabs>
-          </Col>
-        </Row>
-      </React.Fragment>
-    )
-  }
+      ) : (
+        ''
+      )}
+      {selectCurriculumLayout({
+        firstHalf,
+        secondHalf,
+        layout,
+        type,
+        corpTrainingFacts: true,
+      })}
+    </React.Fragment>
+  )
 }
 
 export default CurriculumCorporateReact
