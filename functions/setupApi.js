@@ -29,7 +29,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
       body: jsonBody ? JSON.stringify(jsonBody) : undefined,
     })
     const json = await res.json()
-    console.log(JSON.stringify(json))
+    console.log('response:', JSON.stringify(json))
 
     return json
   }
@@ -79,7 +79,6 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   async function subscribe(request, response) {
     const data = request && request.body
     const { email, pathname, city, resources } = data
-    console.log('data: ', data)
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
