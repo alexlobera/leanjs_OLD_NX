@@ -49,7 +49,7 @@ export const triggerUnsubscribe = ({ email }) =>
 export const triggerSubscribe = ({
   email,
   pathname = 'footer',
-  city,
+  city = 'unknown',
   resources = true,
 }) =>
   fetch(

@@ -79,6 +79,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   async function subscribe(request, response) {
     const data = request && request.body
     const { email, pathname, city, resources } = data
+    console.log('data: ', data)
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
