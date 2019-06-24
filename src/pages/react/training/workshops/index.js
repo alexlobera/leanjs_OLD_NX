@@ -6,7 +6,7 @@ import { LinkButton } from 'src/components/buttons'
 import Link from 'src/components/navigation/Link'
 import { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, P, H4, H5 } from 'src/components/text'
+import { H2, P, H4, H5, Span } from 'src/components/text'
 import {
   UpcomingTrainingSection,
   TrainingCard,
@@ -20,7 +20,6 @@ import { REACT_WORKSHOP, ONE_DAY_WORKSHOP } from '../../../../config/data'
 import { DEFAULT_VAT_RATE } from '../../../../config'
 import formatPrice from 'src/components/utils/currency'
 
-const PROVISIONAL_WORKSHOP_PRICE = 360
 const waitListURL = '/react/training/workshops/interest-form/'
 const waitlistWorkshops = [
   {
@@ -103,9 +102,7 @@ const Workshops = () => (
                             workshop.training.description &&
                             workshop.training.description.objectives
 
-                          price =
-                            (workshop && workshop.price) ||
-                            PROVISIONAL_WORKSHOP_PRICE
+                          price = workshop && workshop.price
 
                           currency = workshop && workshop.currency
 
@@ -115,7 +112,6 @@ const Workshops = () => (
                         } else {
                           title = workshop.title
                           description = workshop.description
-                          price = PROVISIONAL_WORKSHOP_PRICE
                           currency = 'gdp'
                           to = workshop.to
                           buttonText = 'Join Waitlist'
@@ -129,8 +125,18 @@ const Workshops = () => (
                                 <H4>{title}</H4>
                               </Link>
                               <H5>
-                                {formatPrice(currency, price, DEFAULT_VAT_RATE)}{' '}
-                                INC VAT
+                                {price ? (
+                                  <Span>
+                                    {formatPrice(
+                                      currency,
+                                      price,
+                                      DEFAULT_VAT_RATE
+                                    )}{' '}
+                                    Incl VAT
+                                  </Span>
+                                ) : (
+                                  'Coming soon'
+                                )}
                               </H5>
                               <P>{description}</P>
                               <LinkButton variant={variant} to={to}>

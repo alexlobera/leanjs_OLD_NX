@@ -2,7 +2,7 @@ import React from 'react'
 import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
-import { GRAPHQL_WORKSHOP } from '../../config/data'
+import { GRAPHQL_WORKSHOP, GRAPHQL_CLIENT } from '../../config/data'
 import { H2Ref, H4 } from '../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
@@ -15,7 +15,7 @@ const CurriculumGraphQLWorkshops = ({
   showLinkToCurriculum = false,
   trainings,
 }) => {
-  const type = GRAPHQL_WORKSHOP
+  const type = [GRAPHQL_WORKSHOP, GRAPHQL_CLIENT]
   const commonProps = {
     showLinkToCurriculum,
     enableToggle,

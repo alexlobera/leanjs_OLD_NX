@@ -24,6 +24,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { trainingDateByDay } from '../utils'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 
 const CurriculumReactBootcamp = ({
@@ -36,6 +37,7 @@ const CurriculumReactBootcamp = ({
   showLinkToCurriculum = true,
   trainings,
   showHackathon = false,
+  training = {},
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
@@ -45,6 +47,11 @@ const CurriculumReactBootcamp = ({
     type,
     isOpen,
   }
+  const trainingTime = '09:00 - 18:30'
+  // TODO remove this DEPRECATED_ logic after July 2019
+  const DEPRECATED_IS_JULY2019 =
+    training.startDate && training.startDate === '2019-07-07T08:00:00.000Z'
+  const meetupTime = DEPRECATED_IS_JULY2019 ? '16:30 - 18:30' : '18:30 - 21:00'
   const firstHalf = (
     <React.Fragment>
       <H4>Course outline:</H4>
@@ -52,7 +59,9 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title="Evening pre-bootcamp (optional)"
         name="day0"
-        subTitle="React 101 and JS fundamentals"
+        subTitle={`React 101 and JS fundamentals (${trainingDateByDay({
+          training,
+        })}  ${meetupTime})`}
       >
         <ReactJS101Session />
       </Section>
@@ -60,7 +69,9 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 1"
         name="day1"
-        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+        subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching (${trainingDateByDay(
+          { training, day: 1 }
+        )} ${trainingTime})`}
       >
         <ES6Session title="Modern JavaScript" />
         <ThinkingInReactSession title="Thinking in React" />
@@ -70,7 +81,9 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 2"
         name="day2"
-        subTitle="Forms, Authentication, Styling in React"
+        subTitle={`Forms, Authentication, Styling in React (${trainingDateByDay(
+          { training, day: 2 }
+        )} ${trainingTime})`}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
         <ReactFundamentalsRecapSession
@@ -95,7 +108,9 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 3"
         name="day3"
-        subTitle="Redux Fundamentals, Advanced Redux, and FP"
+        subTitle={`Redux Fundamentals, Advanced Redux, and FP (${trainingDateByDay(
+          { training, day: 3 }
+        )} ${trainingTime})`}
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
@@ -104,7 +119,9 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 4"
         name="day4"
-        subTitle="Advanced React patterns, Hooks, and performance"
+        subTitle={`Advanced React patterns, Hooks, and performance (${trainingDateByDay(
+          { training, day: 4 }
+        )} ${trainingTime})`}
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
         <ReactPerformanceSession title="Performance" />
@@ -113,7 +130,10 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title="React Bootcamp Day 5"
         name="day5"
-        subTitle="Real-world Testing in React"
+        subTitle={`Real-world Testing in React (${trainingDateByDay({
+          training,
+          day: 5,
+        })} ${trainingTime})`}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
@@ -125,7 +145,10 @@ const CurriculumReactBootcamp = ({
           enableToggle={true}
           title="React Bootcamp Day 6 (optional)"
           name="day6"
-          subTitle="GraphQL and final project"
+          subTitle={`GraphQL and final project (${trainingDateByDay({
+            training,
+            day: 6,
+          })} ${trainingTime})`}
         >
           <Hackathon />
         </Section>

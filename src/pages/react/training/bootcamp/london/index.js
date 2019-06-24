@@ -128,6 +128,7 @@ const BootcampLondon = () => (
                     <CurriculumReactBootcamp
                       showHackathon={true}
                       layout={LIST_TWO_COL}
+                      training={training}
                     />
                   </Col>
                 </Row>

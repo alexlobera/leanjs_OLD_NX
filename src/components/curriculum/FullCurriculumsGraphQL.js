@@ -7,10 +7,12 @@ import {
   CurriculumGraphQLWorkshops,
   CurriculumGraphQLAPI,
 } from './index'
+import { getUpcomingTrainingsByType } from '../training/UpcomingTrainings'
 import {
   GRAPHQL_BOOTCAMP,
   GRAPHQL_WORKSHOP,
   GRAPHQL_API,
+  GRAPHQL_CLIENT,
 } from '../../config/data'
 
 class FullCurriculumsGraphQL extends React.Component {
@@ -28,6 +30,10 @@ class FullCurriculumsGraphQL extends React.Component {
       trainings,
       showTitle: false,
     }
+    const allGraphQLWorkshops = getUpcomingTrainingsByType({
+      trainings,
+      types: [GRAPHQL_CLIENT, GRAPHQL_WORKSHOP],
+    })
     return (
       <React.Fragment>
         <Row>
@@ -54,7 +60,10 @@ class FullCurriculumsGraphQL extends React.Component {
                   <CurriculumGraphQLAPI {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_WORKSHOP}>
-                  <CurriculumGraphQLWorkshops {...commonCurriculumProps} />
+                  <CurriculumGraphQLWorkshops
+                    trainings={allGraphQLWorkshops}
+                    showTitle={false}
+                  />
                 </ContentItem>
               </TabContent>
             </Tabs>
