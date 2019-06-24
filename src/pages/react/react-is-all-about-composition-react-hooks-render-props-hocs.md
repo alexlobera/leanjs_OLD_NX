@@ -279,7 +279,7 @@ From a composition perspective both cases are the same since all the HoCs’ inp
 
 If you are interested in checking the material we use to teach HoCs click on this [link](https://advanced-react-patterns.reactjs.academy/higher-order-components). We cover these and similar cases in more detail in any of the in-person React training we run, such as the [React bootcamp](/react/training/bootcamp/), [advanced React training](/react/training/advanced/), [part-time React course](/react/training/part-time-course/), and of course the [on-site corporate React training](/react/training/corporate/).
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/" button-text="Learn GraphQL"></marketingcard>
 
 ## Composition via Render Props <a name="composition-via-render-props"></a>
 

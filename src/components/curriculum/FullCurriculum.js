@@ -4,7 +4,7 @@ import { H2Ref, H4 } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
-  CurriculumBootcamp,
+  CurriculumReactBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
   CurriculumGraphQLBootcamp,
@@ -71,7 +71,7 @@ class FullCurriculum extends React.Component {
 
               <TabContent>
                 <ContentItem name={REACT_BOOTCAMP}>
-                  <CurriculumBootcamp {...commonCurriculumProps} />
+                  <CurriculumReactBootcamp {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={REACT_FUNDAMENTALS}>
                   <CurriculumReactFundamentals {...commonCurriculumProps} />

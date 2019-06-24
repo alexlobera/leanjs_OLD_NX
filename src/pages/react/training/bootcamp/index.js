@@ -10,7 +10,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumBootcamp } from 'src/components/curriculum'
+import { CurriculumReactBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
@@ -79,7 +79,7 @@ const Bootcamps = props => (
             ]}
           />
           <Header
-            titleLines={['React, Redux,', 'GraphQL Bootcamp']}
+            titleLines={['React & Redux Bootcamp']}
             subtitle="For a few days, expert coaches and mentors will work alongside you <br/> to master the React ecosystem so you return to work as a React specialist"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
@@ -93,7 +93,9 @@ const Bootcamps = props => (
               />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumBootcamp trainings={upcomingBootCampTrainings} />
+                <CurriculumReactBootcamp
+                  trainings={upcomingBootCampTrainings}
+                />
               </Card>
             </Grid>
           </TopSection>

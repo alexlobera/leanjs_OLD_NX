@@ -82,7 +82,7 @@ In a **declarative UI (like React)**, when a user clicks on the buy button we ha
 
 Notice two things in the example. i) In the imperative UI we had to do more things, ii) in the declarative UI we didn’t use the word “then”. Why didn’t we use “then”? Because the state is a snapshot at **a given point in time**. Events can produce new state, but they are not the state of the app itself.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/" button-text="Learn GraphQL"></marketingcard>
 
 ## Components
 

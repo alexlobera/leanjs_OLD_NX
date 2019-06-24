@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumBootcamp } from 'src/components/curriculum'
+import { CurriculumReactBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import Gallery from 'src/components/elements/Gallery'
 import { HideComponentsUsingCss } from 'src/components/utils'
@@ -314,7 +314,7 @@ const BootcampLisbon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumBootcamp layout={LIST_TWO_COL} />
+                    <CurriculumReactBootcamp layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>

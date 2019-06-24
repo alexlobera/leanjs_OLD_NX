@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CurriculumBootcamp /> should render component 1`] = `
+exports[`<CurriculumReactBootcamp /> should render component 1`] = `
 <Fragment>
   <Row>
     <Styled(Col)

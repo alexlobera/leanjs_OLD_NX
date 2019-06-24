@@ -12,6 +12,8 @@ import Header from 'src/components/layout/Header'
 import { Card, Newsletter } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_PINK } from '../../../../config/styles'
+import { createSocialMetas } from 'src/components/utils'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 
 const PROVISIONAL_WORKSHOP_PRICE = '£360 Inc VAT'
 
@@ -35,20 +37,30 @@ const workshops = [
   },
 ]
 
+const metas = {
+  title: 'GraphQL Workshops | React GraphQL Academy',
+  description:
+    'Interested in GraphQL workshops? React GraphQL Academy offers specialist GraphQL workshops, focussing on one specific part of GraphQL. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
+
 const GraphQLWorkshops = () => (
   <Layout>
     {({ trainings }) => {
       return (
         <React.Fragment>
           <Helmet
-            title="GraphQL Workshops"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: '1-day GraphQL Workshops from industry experts.',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

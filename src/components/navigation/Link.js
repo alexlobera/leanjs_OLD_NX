@@ -84,6 +84,7 @@ class Link extends React.Component {
       )
     } else if (toHref && toHref[0] === '#') {
       const { onClick, ...restLinkScrollProps } = rest
+
       return (
         <StyledLink
           {...restLinkScrollProps}
@@ -96,7 +97,7 @@ class Link extends React.Component {
           {children}
         </StyledLink>
       )
-    } else if (!to) {
+    } else if (!toHref) {
       return (
         <StyledLink {...rest} box="a">
           {children}
@@ -109,9 +110,11 @@ class Link extends React.Component {
 
       // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
       const dest =
-        to.slice(-1) === '/' || to.indexOf('?') > -1 || to.indexOf('#') > -1
-          ? to
-          : to + '/'
+        toHref.slice(-1) === '/' ||
+        toHref.indexOf('?') > -1 ||
+        toHref.indexOf('#') > -1
+          ? toHref
+          : toHref + '/'
 
       return (
         <StyledLink {...rest} to={dest} box={GatsbyLink}>

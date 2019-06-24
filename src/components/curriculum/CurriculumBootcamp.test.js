@@ -2,11 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 
-import CurriculumBootcamp from './CurriculumBootcamp'
+import CurriculumReactBootcamp from './CurriculumReactBootcamp'
 
-describe('<CurriculumBootcamp />', () => {
+describe('<CurriculumReactBootcamp />', () => {
   it('should render component', () => {
-    const wrapper = shallow(<CurriculumBootcamp />)
+    const wrapper = shallow(<CurriculumReactBootcamp />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
