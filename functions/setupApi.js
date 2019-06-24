@@ -21,6 +21,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   }
 
   async function postToAutopilot(endpoint, jsonBody) {
+    console.log('jsonBody', jsonBody)
     const res = await fetch(`https://api2.autopilothq.com/v1/${endpoint}`, {
       method: 'POST',
       headers: {
@@ -63,6 +64,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
       acc[`boolean--${subscription}--Session`] = true
       return acc
     }, {})
+    custom[RESOURCES_SINGED_UP] = resources
     await postToAutopilot(`/contact`, {
       contact: {
         FirstName: name,
@@ -70,7 +72,6 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
         LeadSource: pathname,
         _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
         custom,
-        [RESOURCES_SINGED_UP]: resources,
       },
     })
     response.status(200).send('it worked')

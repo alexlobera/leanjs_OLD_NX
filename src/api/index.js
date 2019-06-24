@@ -4,7 +4,7 @@ export const triggerSessionSubscribe = ({
   name,
   email,
   subscriptions,
-  resources,
+  resources = false,
   pathname = '1-day workshops form',
 }) =>
   fetch(
