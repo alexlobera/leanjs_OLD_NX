@@ -38,6 +38,15 @@ import {
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'Advanced React Training in London | React GraphQL Academy',
+  description:
+    'Looking for a Advanced React training in London? Learn Advanced React patterns and concepts with our experts in London. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -61,15 +70,16 @@ const BootcampLondon = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Advanced React Training London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Advanced React Training - master advanced React in a few days in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

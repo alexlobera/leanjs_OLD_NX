@@ -30,6 +30,15 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP, LISBON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'React Bootcamp in Lisbon | React GraphQL Academy',
+  description:
+    'Interested in a React Lisbon bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp Lisbon.',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const photos = [
   {
@@ -151,13 +160,22 @@ const BootcampLisbon = () => (
       return (
         <React.Fragment>
           <Helmet
+            title={metas.title}
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactgraphql.academy/react/training/bootcamp/lisbon`,
+                href: `https://reactgraphql.academy/react/training/bootcamp-lisbon`,
               },
             ]}
-          />
+            meta={[
+              {
+                name: 'description',
+                content: metas.description,
+              },
+            ]}
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

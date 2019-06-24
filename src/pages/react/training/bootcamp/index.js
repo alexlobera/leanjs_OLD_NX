@@ -33,6 +33,16 @@ import {
 } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'React Bootcamp | React GraphQL Academy',
+  description:
+    'Interested in a React bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp.',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const Bootcamps = props => (
   <Layout>
@@ -59,14 +69,16 @@ const Bootcamps = props => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Bootcamp"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: 'React Bootcamp - master React in a few days',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
