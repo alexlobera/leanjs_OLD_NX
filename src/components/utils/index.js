@@ -59,6 +59,17 @@ export const selectTypeColor = type => {
   }
 }
 
+export const createSocialMetas = metas => [
+  <meta property="og:title" content={metas.title} />,
+  <meta property="og:description" content={metas.description} />,
+  <meta property="og:type" content="article" />,
+  <meta property="og:image" content={metas.image} />,
+  <meta name="twitter:site" content="@reactgqlacademy" />,
+  <meta name="twitter:title" content={metas.title} />,
+  <meta name="twitter:description" content={metas.description} />,
+  <meta name="twitter:creator" content="@reactgqlacademy" />,
+]
+
 export const HideComponentsUsingCss = styled(Components)`
     ${props =>
       props.xs

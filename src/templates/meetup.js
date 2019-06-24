@@ -64,6 +64,11 @@ const MeetUpPage = ({ data }) => {
               <meta property="og:title" content={title} />
               <meta property="og:description" content={excerpt} />
               <meta property="og:type" content="article" />
+              <meta name="twitter:card" content="summary" />
+              <meta name="twitter:site" content="@reactgqlacademy" />
+              <meta name="twitter:title" content={title} />
+              <meta name="twitter:description" content={excerpt} />
+              <meta name="twitter:creator" content="@reactgqlacademy" />
             </Helmet>
             <Breadcrumb
               path={[

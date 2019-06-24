@@ -24,6 +24,15 @@ import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'GraphQL Bootcamp | React GraphQL Academy',
+  description:
+    'Interested in GraphQL bootcamp? React GraphQL Academy offers in-person GraphQL bootcamp from industry experts. Contact us now!',
+  image: WHY_GQLU_ACADEMY,
+  type: 'website',
+}
 
 const GraphQL = () => (
   <Layout>
@@ -35,15 +44,16 @@ const GraphQL = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="GraphQL Bootcamp"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Become a full-stack GraphQL developer with our GraphQL Bootcamp',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
