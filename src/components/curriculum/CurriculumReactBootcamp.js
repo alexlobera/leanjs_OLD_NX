@@ -18,13 +18,15 @@ import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateR
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import Hackathon from './sessions/Hackathon'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+import { Li } from '../layout/Ul'
 
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 
-const CurriculumBootcamp = ({
+const CurriculumReactBootcamp = ({
   showTitle = true,
   layout,
   enableToggle,
@@ -164,4 +166,35 @@ const CurriculumBootcamp = ({
   )
 }
 
-export default CurriculumBootcamp
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li></Li>
+  </React.Fragment>
+)
+
+export const LearningObjectivesList = () => (
+  <React.Fragment>
+    <Li>
+      Understand the core principles and libraries to build production-ready
+      React applications using:{' '}
+      <code>
+        react, react-router, styled-components, styled-system, storybook, redux,
+        react-redux
+      </code>
+    </Li>
+    <Li>Learn how to style React applications in an idiomatic way.</Li>
+    <Li>
+      Understand different state management approaches in the React ecosystem.
+    </Li>
+    <Li>
+      Create a solid foundation to leverage the React principles when tackling
+      complex problems using advanced React.
+    </Li>
+    <CurriculumAdvancedReact.LearningObjectivesList />
+  </React.Fragment>
+)
+
+CurriculumReactBootcamp.LearningObjectivesList = LearningObjectivesList
+CurriculumReactBootcamp.TargetAudienceList = TargetAudienceList
+
+export default CurriculumReactBootcamp

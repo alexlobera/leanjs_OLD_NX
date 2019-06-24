@@ -86,7 +86,7 @@ exports[`<FullCurriculum /> should render component 1`] = `
           <ContentItem
             name="React Bootcamp"
           >
-            <CurriculumBootcamp
+            <CurriculumReactBootcamp
               showTitle={false}
             />
           </ContentItem>

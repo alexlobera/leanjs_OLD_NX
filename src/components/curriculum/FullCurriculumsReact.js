@@ -3,7 +3,7 @@ import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
-  CurriculumBootcamp,
+  CurriculumReactBootcamp,
   CurriculumReactFundamentals,
   CurriculumPartTime,
   CurriculumAdvancedReact,
@@ -59,7 +59,7 @@ class FullCurriculumsReact extends React.Component {
 
               <TabContent>
                 <ContentItem name={REACT_BOOTCAMP}>
-                  <CurriculumBootcamp {...commonCurriculumProps} />
+                  <CurriculumReactBootcamp {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={REACT_FUNDAMENTALS}>
                   <CurriculumReactFundamentals {...commonCurriculumProps} />

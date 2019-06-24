@@ -22,7 +22,7 @@ import {
 } from 'src/components/layout/Tabs'
 import {
   CurriculumReactFundamentals,
-  CurriculumBootcamp,
+  CurriculumReactBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
   MarketingCard,
@@ -306,28 +306,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Understand the core principles and libraries to
-                                build production-ready React applications using:{' '}
-                                <code>
-                                  react, react-router, styled-components,
-                                  styled-system, storybook, redux, react-redux,
-                                  react-apollo, TypeScript
-                                </code>
-                              </Li>
-                              <Li>
-                                Be able to develop and test complex and reliable
-                                React applications: <code>enzyme, jest</code>
-                              </Li>
-                              <Li>
-                                Comprehend modern front-end JavaScript:{' '}
-                                <code>Functional Programming, Webpack</code>
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React
-                                applications
-                              </Li>
+                              <CurriculumReactBootcamp.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -344,7 +323,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 {trainingBootcamp && (
-                                  <CurriculumBootcamp
+                                  <CurriculumReactBootcamp
                                     layout={LIST_LAYOUT}
                                     enableToggle={true}
                                     showTitle={false}
@@ -378,23 +357,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Understand the core principles and libraries to
-                                build production-ready React applications using:{' '}
-                                <code>
-                                  react, react-router, styled-components,
-                                  storybook, redux, react-redux,
-                                </code>
-                              </Li>
-                              <Li>
-                                Comprehend modern front-end JavaScript:{' '}
-                                <code>Functional Programming, Webpack</code>
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React
-                                applications
-                              </Li>
+                              <CurriculumReactFundamentals.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -445,7 +408,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <CurriculumAdvancedReact.LearningObjectives />
+                              <CurriculumAdvancedReact.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -489,27 +452,12 @@ class ReactCurriculum extends React.Component {
                           <ContentItem name={PART_TIME}>
                             <P>
                               <strong>
-                                On completion of the React Bootcamp each student
-                                will:
+                                On completion of the React Part-time course each
+                                student will:
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Understand the core principles and libraries of
-                                the React ecosystem{' '}
-                                <code>
-                                  react, react-router, redux, react-redux,
-                                  storybook, styled-components, jest
-                                </code>
-                              </Li>
-                              <Li>
-                                Understand the fundamentals of unit testing and
-                                how to apply it to JavaScript
-                              </Li>
-                              <Li>
-                                Learn some of the best practices for building
-                                real-world performant React applications
-                              </Li>
+                              <CurriculumPartTime.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
