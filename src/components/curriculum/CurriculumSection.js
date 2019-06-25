@@ -15,10 +15,13 @@ export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
 const Section = styled.div`
-  ${props =>
-    `border-left: 3px ${selectBorderStyle(props.type)} ${selectTypeColor(
-      props.type
-    )};`} margin-top: 2em;
+  ${({ type }) => {
+    const triningType = type.length ? type[0] : type
+    return `border-left: 3px ${selectBorderStyle(
+      triningType
+    )} ${selectTypeColor(triningType)};`
+  }}
+  margin-top: 2em;
   padding-left: 20px;
 `
 
