@@ -15,12 +15,8 @@ export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
 const Section = styled.div`
-  ${({ type }) => {
-    const triningType = type.length ? type[0] : type
-    return `border-left: 3px ${selectBorderStyle(
-      triningType
-    )} ${selectTypeColor(triningType)};`
-  }}
+  ${({ type }) =>
+    `border-left: 3px ${selectBorderStyle(type)} ${selectTypeColor(type)};`}
   margin-top: 2em;
   padding-left: 20px;
 `
@@ -78,6 +74,8 @@ const CurriculumSection = props => {
     toggleNavigateTo,
     showLinkToCurriculum = true,
   } = props
+  // TODO: Remove traingType once all upcoming workshops have type REACT_WORKSHOP or GRAPHQL_WORKSHOP as it should only be a string
+  const trainingType = type.length < 5 ? type[0] : type
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
       ? {
@@ -105,7 +103,7 @@ const CurriculumSection = props => {
   )
 
   return (
-    <Section type={type}>
+    <Section type={trainingType}>
       <Element name={name || title} />
       {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
       <SubTitleSection>
