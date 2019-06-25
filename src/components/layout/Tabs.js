@@ -7,7 +7,12 @@ import {
   selectTypeColor,
   selectBorderStyle,
 } from '../utils'
-import { PART_TIME, GRAPHQL_BOOTCAMP } from '../../config/data'
+import {
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_WORKSHOP,
+  GRAPHQL_BOOTCAMP,
+} from '../../config/data'
 import { Col, Row } from './Grid'
 
 const Ul = styled.ul`
@@ -96,10 +101,7 @@ const A = styled.a`
       props.name
     )}`};
   ${props => {
-    if (
-      props.isActive &&
-      (props.name === PART_TIME || props.name === GRAPHQL_BOOTCAMP)
-    ) {
+    if (props.isActive && props.name === GRAPHQL_BOOTCAMP) {
       return `color: white !important`
     }
   }};
