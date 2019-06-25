@@ -57,17 +57,20 @@ const CurriculumReactBootcamp = ({
       <H4>Course outline:</H4>
       <Section
         {...commonProps}
-        title="Evening pre-bootcamp (optional)"
-        name="day0"
-        subTitle={`React 101 and JS fundamentals (${trainingDateByDay({
+        title={`Evening pre-bootcamp (optional) ${trainingDateByDay({
           training,
-        })}  ${meetupTime})`}
+        })}  ${meetupTime}`}
+        name="day0"
+        subTitle={`React 101 and JS fundamentals`}
       >
         <ReactJS101Session />
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 1"
+        title={`Day 1 (${trainingDateByDay({
+          training,
+          day: 1,
+        })} ${trainingTime})`}
         name="day1"
         subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching (${trainingDateByDay(
           { training, day: 1 }
@@ -79,11 +82,12 @@ const CurriculumReactBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 2"
+        title={`Day 2 (${trainingDateByDay({
+          training,
+          day: 2,
+        })} ${trainingTime})`}
         name="day2"
-        subTitle={`Forms, Authentication, Styling in React (${trainingDateByDay(
-          { training, day: 2 }
-        )} ${trainingTime})`}
+        subTitle={`Forms, Authentication, Styling in React`}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
         <ReactFundamentalsRecapSession
@@ -106,34 +110,36 @@ const CurriculumReactBootcamp = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 3"
+        title={`Day 3 (${trainingDateByDay({
+          training,
+          day: 3,
+        })} ${trainingTime})`}
         name="day3"
-        subTitle={`Redux Fundamentals, Advanced Redux, and FP (${trainingDateByDay(
-          { training, day: 3 }
-        )} ${trainingTime})`}
+        subTitle={`Redux Fundamentals, Advanced Redux, and FP`}
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 4"
+        title={`Day 4 (${trainingDateByDay({
+          training,
+          day: 4,
+        })} ${trainingTime})`}
         name="day4"
-        subTitle={`Advanced React patterns, Hooks, and performance (${trainingDateByDay(
-          { training, day: 4 }
-        )} ${trainingTime})`}
+        subTitle={`Advanced React patterns, Hooks, and performance`}
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
         <ReactPerformanceSession title="Performance" />
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 5"
-        name="day5"
-        subTitle={`Real-world Testing in React (${trainingDateByDay({
+        title={`Day 5 (${trainingDateByDay({
           training,
           day: 5,
         })} ${trainingTime})`}
+        name="day5"
+        subTitle={`Real-world Testing in React`}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
@@ -143,12 +149,12 @@ const CurriculumReactBootcamp = ({
         <Section
           type={type}
           enableToggle={true}
-          title="React Bootcamp Day 6 (optional)"
-          name="day6"
-          subTitle={`GraphQL and final project (${trainingDateByDay({
+          title={`Day 6 (optional) ${trainingDateByDay({
             training,
             day: 6,
-          })} ${trainingTime})`}
+          })} ${trainingTime}`}
+          name="day6"
+          subTitle={`GraphQL and final project`}
         >
           <Hackathon />
         </Section>
