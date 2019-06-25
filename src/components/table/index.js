@@ -1,7 +1,7 @@
 import * as responsiveTable from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import styled from 'styled-components'
-import { selectTypeColor } from '../utils'
+import { selectTypeColor, selectBorderStyle } from '../utils'
 import { FONT_FAMILY } from '../../config/styles'
 
 const Table = styled(responsiveTable.Table)`
@@ -16,7 +16,9 @@ const Th = styled(responsiveTable.Th)`
   text-align: center;
   ${props =>
     props.type
-      ? `border-bottom 3px solid ${selectTypeColor(props.type)}`
+      ? `border-bottom 3px ${selectBorderStyle(props.type)} ${selectTypeColor(
+          props.type
+        )}`
       : 'border: none;'};
 `
 const Td = styled(responsiveTable.Td)`

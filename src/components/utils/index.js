@@ -2,24 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {
-  REACT_NATIVE,
   REACT_BOOTCAMP,
   PART_TIME,
   ADVANCED_REACT,
+  REACT_WORKSHOP,
+  REACT_FUNDAMENTALS,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
   GRAPHQL_CLIENT,
+  GRAPHQL_WORKSHOP,
   ONE_DAY_WORKSHOP,
   MEETUP,
 } from '../../config/data'
-import {
-  DARK_GREY,
-  YELLOW,
-  GRAPHQL_PINK,
-  GREEN,
-  MEETUP_RED,
-  BLUE,
-} from '../../config/styles'
+import { GRAPHQL_PINK, MEETUP_RED, BLUE } from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
 export const SCREEN_SM_MIN = '768px'
@@ -38,24 +33,43 @@ const Components = ({ children, ...props }) =>
 export const selectTypeColor = type => {
   switch (type) {
     case REACT_BOOTCAMP:
-      return BLUE
     case PART_TIME:
-      return DARK_GREY
-    case REACT_NATIVE:
-      return GREEN
     case ADVANCED_REACT:
-      return YELLOW
-    case GRAPHQL_BOOTCAMP:
-      return GRAPHQL_PINK
-    case GRAPHQL_API:
-      return YELLOW
-    case GRAPHQL_CLIENT:
+    case REACT_WORKSHOP:
     case ONE_DAY_WORKSHOP:
-      return GREEN
+    case REACT_FUNDAMENTALS:
+      return BLUE
+    case GRAPHQL_BOOTCAMP:
+    case GRAPHQL_API:
+    case GRAPHQL_CLIENT:
+    case GRAPHQL_WORKSHOP:
+      return GRAPHQL_PINK
     case MEETUP:
       return MEETUP_RED
     default:
       return BLUE
+  }
+}
+
+export const selectBorderStyle = type => {
+  switch (type) {
+    case REACT_BOOTCAMP:
+    case GRAPHQL_BOOTCAMP:
+      return 'solid'
+    case PART_TIME:
+      return 'double'
+    case ADVANCED_REACT:
+      return 'dashed'
+    case REACT_FUNDAMENTALS:
+      return 'dotted'
+    case REACT_WORKSHOP:
+    case ONE_DAY_WORKSHOP:
+    case GRAPHQL_API:
+    case GRAPHQL_WORKSHOP:
+    case GRAPHQL_CLIENT:
+      return 'double'
+    default:
+      return 'solid'
   }
 }
 

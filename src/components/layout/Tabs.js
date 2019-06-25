@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BLUE, FONT_FAMILY } from '../../config/styles'
-import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
+import {
+  SCREEN_XS_MAX,
+  SCREEN_SM_MIN,
+  selectTypeColor,
+  selectBorderStyle,
+} from '../utils'
 import { PART_TIME, GRAPHQL_BOOTCAMP } from '../../config/data'
 import { Col, Row } from './Grid'
 
@@ -86,7 +91,10 @@ const Li = styled.li`
       : ''};
 `
 const A = styled.a`
-  ${props => `border-bottom: 3px solid ${selectTypeColor(props.name)}`};
+  ${props =>
+    `border-bottom: 3px ${selectBorderStyle(props.name)} ${selectTypeColor(
+      props.name
+    )}`};
   ${props => {
     if (
       props.isActive &&

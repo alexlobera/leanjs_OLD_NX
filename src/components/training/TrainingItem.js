@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { P } from '../text'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
-import { selectTypeColor } from '../utils'
+import { selectTypeColor, selectBorderStyle } from '../utils'
 import { MEETUP, ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
 
 const TrainingItemCol = styled(Col)`
@@ -15,7 +15,10 @@ const TrainingRow = styled(Row)`
 `
 
 const Calendar = styled(Link)`
-  border: 3px solid ${props => selectTypeColor(props.type)};
+  ${props =>
+    `border: 3px ${selectBorderStyle(props.type)} ${selectTypeColor(
+      props.type
+    )};`}
   padding: 10px;
   font-family: barlow;
   display: flex;

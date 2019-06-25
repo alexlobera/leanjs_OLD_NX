@@ -15,7 +15,7 @@ const CurriculumGraphQLWorkshops = ({
   showLinkToCurriculum = false,
   trainings,
 }) => {
-  const type = [GRAPHQL_WORKSHOP, GRAPHQL_CLIENT]
+  const type = [GRAPHQL_CLIENT, GRAPHQL_WORKSHOP]
   const commonProps = {
     showLinkToCurriculum,
     enableToggle,

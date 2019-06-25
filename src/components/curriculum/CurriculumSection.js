@@ -7,7 +7,7 @@ import { Link } from '../navigation'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
-import { selectTypeColor } from '../utils'
+import { selectTypeColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
 import Feedback from '../elements/Feedback'
 
@@ -16,7 +16,9 @@ export const curriedToggleNavigateTo = to => section =>
 
 const Section = styled.div`
   ${props =>
-    `border-left: 3px solid ${selectTypeColor(props.type)};`} margin-top: 2em;
+    `border-left: 3px ${selectBorderStyle(props.type)} ${selectTypeColor(
+      props.type
+    )};`} margin-top: 2em;
   padding-left: 20px;
 `
 
