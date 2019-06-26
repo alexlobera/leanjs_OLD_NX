@@ -59,6 +59,7 @@ export const selectBorderStyle = type => {
     case PART_TIME:
       return 'double'
     case ADVANCED_REACT:
+    case GRAPHQL_CLIENT:
       return 'dashed'
     case REACT_FUNDAMENTALS:
       return 'dotted'
@@ -66,7 +67,6 @@ export const selectBorderStyle = type => {
     case ONE_DAY_WORKSHOP:
     case GRAPHQL_API:
     case GRAPHQL_WORKSHOP:
-    case GRAPHQL_CLIENT:
       return 'double'
     default:
       return 'solid'
@@ -208,6 +208,13 @@ export const trainingDateByDay = ({ training = {}, day = 0 }) =>
   training.startDate
     ? formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
     : ''
+
+export const trainingTimings = ({ training = {} }) =>
+  `${(training.startDate &&
+    formatUTC(training.startDate, training.utcOffset, 'HH:mm')) ||
+    '9am'} - ${(training.endDate &&
+    formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
+    '6:30pm'}`
 
 function twoDigits(number) {
   return ('0' + number).slice(-2)

@@ -69,6 +69,7 @@ const CurriculumSection = props => {
     name,
     type,
     subTitle,
+    trainingTime = '',
     children,
     enableToggle = false,
     toggleNavigateTo,
@@ -105,7 +106,13 @@ const CurriculumSection = props => {
   return (
     <Section type={trainingType}>
       <Element name={name || title} />
-      {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
+      {title ? (
+        <CurriculumItemTitle>
+          {title} <small>{`(${trainingTime.trim()})`}</small>
+        </CurriculumItemTitle>
+      ) : (
+        ''
+      )}
       <SubTitleSection>
         {subTitle ? subTitle : ''}
         {showLinkToCurriculum || enableToggle ? subsection : ''}
