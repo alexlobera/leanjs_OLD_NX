@@ -24,7 +24,6 @@ import {
   DAVID,
   FRANCISCO,
   PAUL,
-  ABOUT_VALUES,
 } from '../config/images'
 import { HideComponentsUsingCss } from '../components/utils'
 import trackUserBehaviour, {
@@ -32,9 +31,8 @@ import trackUserBehaviour, {
 } from '../components/utils/trackUserBehaviour'
 import { SCREEN_SM_MAX } from '../components/utils'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
-import { cpus } from 'os'
 import Box from '../components/layout/Box'
-import { GREY } from 'src/config/styles.js'
+import { GREY } from '../config/styles.js'
 
 const CoachProfiles = styled(Box)`
   h5 {
