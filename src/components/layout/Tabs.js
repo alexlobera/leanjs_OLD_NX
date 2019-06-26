@@ -101,7 +101,13 @@ const A = styled.a`
       props.name
     )}`};
   ${props => {
-    if (props.isActive && props.name === GRAPHQL_BOOTCAMP) {
+    if (
+      props.isActive &&
+      (props.name === GRAPHQL_BOOTCAMP ||
+        props.name === GRAPHQL_API ||
+        props.name === GRAPHQL_CLIENT ||
+        props.name === GRAPHQL_WORKSHOP)
+    ) {
       return `color: white !important`
     }
   }};
