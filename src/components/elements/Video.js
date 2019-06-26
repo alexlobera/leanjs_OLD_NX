@@ -6,7 +6,7 @@ import withLazyLoad from './withLazyLoad'
 const IframeWrapper = styled.div`
   > iframe {
     border: 0;
-    height: ${props => `${props.height}`}px;
+    ${props => `height: ${props.height}`}px;
   }
   > div {
     margin-top: -15px;
@@ -15,7 +15,7 @@ const IframeWrapper = styled.div`
 `
 
 const Video = ({ youtubeId, time, description, height = '390' }) => (
-  <IframeWrapper height>
+  <IframeWrapper height={height}>
     <iframe
       title={description}
       width="100%"
