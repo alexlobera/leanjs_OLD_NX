@@ -94,7 +94,7 @@ const AboutUs = () => (
                     The React GraphQL Academy coach values:{' '}
                   </H3>
                   <Row>
-                    <Col xs={6} sm={6} md={4}>
+                    <Col xs={5} sm={5} md={3}>
                       <Ul>
                         <Li>Passion</Li>
                         <Li>Empathy</Li>
@@ -103,7 +103,7 @@ const AboutUs = () => (
                         <Li>Continuous learning</Li>
                       </Ul>
                     </Col>
-                    <Col xs={6} sm={6} md={4}>
+                    <Col xs={5} sm={5} md={3}>
                       <Ul>
                         <Li>Forward thinking</Li>
                         <Li>Determination</Li>
@@ -113,17 +113,12 @@ const AboutUs = () => (
                       </Ul>
                     </Col>
                     <HideComponentsUsingCss xs>
-                      <Col md={4}>
-                        <Image
-                          src={ABOUT_VALUES}
-                          alt="React GraphQL Academy coach Richard, in a classroom presenting to a group of students during a bootcamp"
-                        />
+                      <Col md={1} />
+                      <Col md={5}>
+                        <Video height="200" youtubeId="Rx2v_6I7PMM" />
                       </Col>
                     </HideComponentsUsingCss>
                   </Row>
-                </Col>
-                <Col md={10} mdOffset={1}>
-                  <Newsletter />
                 </Col>
               </Row>
             </Card>
