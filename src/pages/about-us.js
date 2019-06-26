@@ -7,14 +7,15 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P } from '../components/text'
+import { H2, H2Ref, H3, P, H5 } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Card, Video, Image, Newsletter } from '../components/elements'
-import { Blockquote } from '../components/text'
+import { Span } from '../components/text'
 import {
+  ALEX,
   RICHARD,
   HORACIO,
   WILL,
@@ -31,6 +32,22 @@ import trackUserBehaviour, {
 } from '../components/utils/trackUserBehaviour'
 import { SCREEN_SM_MAX } from '../components/utils'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
+import { cpus } from 'os'
+import Box from '../components/layout/Box'
+import { GREY } from 'src/config/styles.js'
+
+const CoachProfiles = styled(Box)`
+  h5 {
+    margin-bottom: 0.5rem;
+  }
+`
+
+const CoachQuote = styled(Box)`
+  border-left: 7px solid ${GREY};
+  font-style: italic;
+`
+
+const CoachName = styled(Box)``
 
 const CoachTitle = styled(H3)`
   & {
@@ -126,6 +143,225 @@ const AboutUs = () => (
         </TopSection>
         <Section>
           <Grid>
+            <H2>Our coaches</H2>
+            <Row>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={ALEX} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <CoachName>
+                        <H5>Alex Lobera</H5>
+                        <P>
+                          Tech Lead at{' '}
+                          <Link to="https://leanjs.com">LeanJS</Link>
+                        </P>
+                      </CoachName>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "Teaching other developers is very rewarding. I love
+                      sharing what I've learned in my career to help others
+                      grow..."
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={RICHARD} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>Richard Moss</H5>
+                      <P>
+                        Senior Engineer at{' '}
+                        <Link to="https://leanjs.com">LeanJS</Link>
+                      </P>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "Collaboratively working with developers to help them take
+                      their skills to the next level - I learn a lot...
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={HORACIO} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>Horacio Herrera</H5>
+                      <Span>Freelance Developer</Span>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "I love teaching and seeing other developers grow..."
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={EVA} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>Eva Hoffmann</H5>
+                      <P>
+                        Software Engineer at{' '}
+                        <Link to="https://engineering.dazn.com/">DAZN</Link>
+                      </P>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "I enjoy supporting others to learn and expand their skill
+                      set. I am particularly passionate about diversity in
+                      tech..."
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={WILL} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>Will Voelcker</H5>
+                      <P>Coder/Teacher</P>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "I love working with developers to help them improve their
+                      skills, stretch their brains and advance their career.
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={ROY} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>Roy Derks</H5>
+                      <P>
+                        Senior Developer at{' '}
+                        <Link to="https://data.amsterdam.nl">
+                          City of Amsterdam
+                        </Link>
+                        , CTO at{' '}
+                        <Link to="https://switchbay.com">SwitchBay</Link>
+                      </P>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "When in doubt, start coding..."
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={DAVID} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>David Leuliette</H5>
+                      <P>Senior Front-end Engineer</P>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "When you work 8 hours a day with a tool, every second
+                      matters..."
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={FRANCISCO} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>Francisco Gomes</H5>
+                      <P>Software Engineer at Sainsbury's</P>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "While teaching, the technology itself is not
+                      life-changing. It's the passion and commitment...""
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+              <Col md={4}>
+                <CoachProfiles mr={5} mb={5} pb={5}>
+                  <Row>
+                    <Col md={4}>
+                      <Image circle src={PAUL} width="100%" />
+                    </Col>
+                    <Col md={8}>
+                      <H5>Paul Woodley</H5>
+                      <P>
+                        Design Lead at{' '}
+                        <Link to="https://leanjs.com">LeanJS</Link>
+                      </P>
+                    </Col>
+                  </Row>
+                  <CoachQuote mt={3} pl={3}>
+                    <P>
+                      "I'm not a developer, but code is what is used to bring
+                      design to life..."
+                      <br />
+                      <Link>Full profile</Link>
+                    </P>
+                  </CoachQuote>
+                </CoachProfiles>
+              </Col>
+            </Row>
+          </Grid>
+          {/* <Grid>
             <Row>
               <Col md={5} smOrder={2}>
                 <Video
@@ -204,7 +440,7 @@ const AboutUs = () => (
                 </Blockquote>
               </Col>
             </Row>
-          </Grid>
+          </Grid> 
         </Section>
         <Section>
           <Grid>
@@ -726,7 +962,7 @@ const AboutUs = () => (
                 </Blockquote>
               </Col>
             </Row>
-          </Grid>
+          </Grid>*/}
         </Section>
         <Section>
           <Grid>
@@ -781,9 +1017,9 @@ const AboutUs = () => (
         <Section>
           <Grid>
             <Row>
-              <Col md={10} mdOffset={1}>
+              <Col>
                 <H2Ref>
-                  The React GraphQL Academy coach manifesto
+                  Our coach manifesto
                   <Link to="#manifesto" name="manifesto">
                     #
                   </Link>
