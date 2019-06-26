@@ -60,13 +60,13 @@ export const selectBorderStyle = type => {
       return 'double'
     case ADVANCED_REACT:
     case GRAPHQL_CLIENT:
+    case GRAPHQL_WORKSHOP:
       return 'dashed'
     case REACT_FUNDAMENTALS:
       return 'dotted'
     case REACT_WORKSHOP:
     case ONE_DAY_WORKSHOP:
     case GRAPHQL_API:
-    case GRAPHQL_WORKSHOP:
       return 'double'
     default:
       return 'solid'
