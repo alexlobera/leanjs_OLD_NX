@@ -1,6 +1,8 @@
 ---
 name: Richard Moss
-title: Senior React Engineer at LeanJS
+title: Senior React Engineer
+companyName: LeanJS
+companyLink: https://leanjs.com
 gitHub: https://github.com/ric9176
 medium: https://medium.com/@richard_13764
 twitter: https://twitter.com/ric9176
@@ -11,8 +13,6 @@ blockquote:
 imageDescription: React GraphQL Academy coach Richard Moss, looking pretty happy with a beach in the background
 imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.jpg?alt=media
 tags: ['beginner']
-youtubeVideoId: ''
-videoDescription: ''
 ---
 
 <ul>

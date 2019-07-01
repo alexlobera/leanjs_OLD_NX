@@ -1,6 +1,8 @@
 ---
 name: Alex Lobera
-title: Tech Lead at LeanJS
+title: Tech Lead
+companyName: LeanJS
+companyLink: https://leanjs.com
 gitHub: https://github.com/alexlbr
 medium: https://medium.com/@alex_lobera
 twitter: https://twitter.com/alex_Lobera
@@ -9,8 +11,6 @@ blockquote: Teaching other developers is very rewarding. I love sharing what I'v
 youtubeVideoId: QiR8iNq3tCQ
 videoDescription: Alex talking about advanced testing at Facebook London HQ
 tags: ['advanced']
-imageDescription: ''
-imageSrc: ''
 ---
 
 <ul>

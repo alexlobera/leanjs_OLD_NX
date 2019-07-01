@@ -33,6 +33,8 @@ const Coach = ({ data }) => {
   const {
     name,
     title,
+    companyName,
+    companyLink,
     gitHub,
     medium,
     twitter,
@@ -61,16 +63,22 @@ const Coach = ({ data }) => {
                       #
                     </Link>
                   </H2Ref>
-                  <CoachTitle>{title}</CoachTitle>
+                  <CoachTitle>
+                    {title} at <Link to={companyLink}>{companyName}</Link>
+                  </CoachTitle>
                   <Ul inline>
                     <Li>
                       <Link to={gitHub}>GitHub</Link>
                     </Li>
                     <Li>|</Li>
-                    <Li>
-                      <Link to={medium}>Medium</Link>
-                    </Li>
-                    <Li>|</Li>
+                    {medium && (
+                      <React.Fragment>
+                        <Li>
+                          <Link to={medium}>Medium</Link>
+                        </Li>
+                        <Li>|</Li>
+                      </React.Fragment>
+                    )}
                     <Li>
                       <Link to={twitter}>Twitter</Link>
                     </Li>
@@ -111,6 +119,8 @@ export const query = graphql`
       frontmatter {
         name
         title
+        companyName
+        companyLink
         gitHub
         medium
         twitter
