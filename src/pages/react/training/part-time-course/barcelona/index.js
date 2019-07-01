@@ -23,6 +23,16 @@ import { PaymentSection } from 'src/components/payment'
 import { Breadcrumb } from 'src/components/navigation'
 import { PART_TIME, BARCELONA } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'React Course Barcelona| React GraphQL Academy',
+  description:
+    'Interested in a React course in Barcelona? Learn the fundamentas of the React ecosystem and become a confident React developer with our React part time course Barcelona.',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const PartTimeBarcelona = () => (
   <Layout>
@@ -37,14 +47,16 @@ const PartTimeBarcelona = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Part-time React Course in Barcelona"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: 'Part-time React Courses in Barcelona.',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
