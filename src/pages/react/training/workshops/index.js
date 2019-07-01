@@ -19,6 +19,16 @@ import { LIGHT_BLUE } from '../../../../config/styles'
 import { REACT_WORKSHOP, ONE_DAY_WORKSHOP } from '../../../../config/data'
 import { DEFAULT_VAT_RATE } from '../../../../config'
 import formatPrice from 'src/components/utils/currency'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'React Workshops | React GraphQL Academy',
+  description:
+    'Interested in React workshops? React GraphQL Academy offers specialist React workshops, focussing on one specific part of the React ecosystm. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const waitListURL = '/react/training/workshops/interest-form/'
 const waitlistWorkshops = [
@@ -45,14 +55,16 @@ const Workshops = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Workshops"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: '1-day React Workshops from industry experts.',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
