@@ -20,20 +20,32 @@ import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorpor
 import { EBER } from 'src/config/images'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'React Corporte Training | React GraphQL Academy',
+  description:
+    'Interested in React corporate training? We offer corporate React team training, located in your offices anywhere in the world. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const CorporateReactTraining = () => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
         <Helmet
-          title="React Corporate Training"
+          title={metas.title}
           meta={[
             {
               name: 'description',
-              content: 'Expert React Corporate Training delivered worldwide.',
+              content: metas.description,
             },
           ]}
-        />
+        >
+          {createSocialMetas(metas)}
+        </Helmet>
         <Breadcrumb
           path={[
             { to: '/', label: 'Home' },

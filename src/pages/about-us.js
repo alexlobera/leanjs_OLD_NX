@@ -8,15 +8,14 @@ import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import { H2, H2Ref, H3, P, H5 } from '../components/text'
+import { H2, H2Ref, H3, P } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Card, Video, Image, Newsletter } from '../components/elements'
-import { Span } from '../components/text'
+import { Blockquote } from '../components/text'
 import {
-  ALEX,
   RICHARD,
   HORACIO,
   WILL,
@@ -25,6 +24,7 @@ import {
   DAVID,
   FRANCISCO,
   PAUL,
+  ABOUT_VALUES,
 } from '../config/images'
 import { HideComponentsUsingCss } from '../components/utils'
 import trackUserBehaviour, {
@@ -32,21 +32,6 @@ import trackUserBehaviour, {
 } from '../components/utils/trackUserBehaviour'
 import { SCREEN_SM_MAX } from '../components/utils'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
-import Box from '../components/layout/Box'
-import { GREY } from '../config/styles.js'
-
-const CoachProfiles = styled(Box)`
-  h5 {
-    margin-bottom: 0.5rem;
-  }
-`
-
-const CoachQuote = styled(Box)`
-  border-left: 7px solid ${GREY};
-  font-style: italic;
-`
-
-const CoachName = styled(Box)``
 
 const CoachTitle = styled(H3)`
   & {
@@ -243,6 +228,9 @@ const AboutUs = ({ data }) => {
                       Become a coach
                     </LinkButton>
                   </BecomeACoachWrapper>
+                </Col>
+                <Col md={10} mdOffset={1}>
+                  <Newsletter />
                 </Col>
               </Row>
             </Grid>

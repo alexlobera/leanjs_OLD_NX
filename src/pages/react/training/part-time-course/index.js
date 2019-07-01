@@ -23,6 +23,16 @@ import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTra
 import { STEFANO } from 'src/config/images'
 import { PART_TIME } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'React Part Time Course | React GraphQL Academy',
+  description:
+    'Interested in a React course? Learn the fundamentas of the React ecosystem and become a confident React developer with our React part time course.',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const PartTime = ({ trainings }) => (
   <Layout>
@@ -37,14 +47,16 @@ const PartTime = ({ trainings }) => (
       return (
         <React.Fragment>
           <Helmet
-            title="Part-time React Course"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: 'Part-time React Courses.',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

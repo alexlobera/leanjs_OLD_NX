@@ -94,6 +94,7 @@ export class CheckoutContainer extends React.Component {
       trackUserBehaviour,
       pay,
       trainingInstanceId,
+      eventId,
       paymentApi = Stripe,
       voucher,
       navigate,
@@ -124,7 +125,7 @@ export class CheckoutContainer extends React.Component {
 
     trackUserBehaviour({
       event: CHECKOUT_PAYMENT_REQUEST,
-      payload: { email, trainingInstanceId },
+      payload: { email, trainingInstanceId, eventId },
     })
 
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY)
@@ -137,10 +138,13 @@ export class CheckoutContainer extends React.Component {
           vatNumber = companyVat.substring(2, companyVat.length)
           vatCountry = companyVat.substring(0, 2)
         }
+        const itemType = trainingInstanceId ? 'training' : 'event'
+        const itemId = trainingInstanceId || eventId
         const variables = {
           voucherCode: voucher,
           quantity,
-          trainingInstanceId,
+          itemId,
+          itemType,
           email,
           name,
           token: response.id,
@@ -236,7 +240,8 @@ CheckoutContainer.propTypes = {
   quantity: PropTypes.number.isRequired,
   currentPriceQuantity: PropTypes.number.isRequired,
   priceQuantity: PropTypes.number.isRequired,
-  trainingInstanceId: PropTypes.string.isRequired,
+  trainingInstanceId: PropTypes.string,
+  eventId: PropTypes.string,
   trackUserBehaviour: PropTypes.func.isRequired,
   resetVoucher: PropTypes.func.isRequired,
   validateVoucher: PropTypes.func.isRequired,
