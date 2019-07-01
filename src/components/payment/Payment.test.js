@@ -107,7 +107,8 @@ describe('<PaymentSection />', () => {
     variables: {
       voucherCode: '',
       quantity: 1,
-      trainingInstanceId: '5aa2acda7dcc782348ea1234',
+      itemId: '5aa2acda7dcc782348ea1234',
+      itemType: 'training',
       email: 'test@example.com',
       name: 'Joe Bloggs',
       token: 2,
@@ -176,7 +177,7 @@ describe('<PaymentSection />', () => {
         expect(navigate).toHaveBeenCalledWith('/payment-confirmation', {
           email: 'test@example.com',
           makePayment: result.data.makePayment,
-          trainingInstanceId: request.variables.trainingInstanceId,
+          trainingInstanceId: request.variables.itemId,
         })
       })
     })
