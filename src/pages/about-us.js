@@ -82,7 +82,6 @@ const SocialLink = ({ to, children, onClick }) => (
 
 const AboutUs = ({ data }) => {
   const coaches = data.allMarkdownRemark.nodes
-  console.log('coaches', coaches)
   return (
     <Layout>
       {({ trainings }) => (
