@@ -24,9 +24,9 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
 
 const metas = {
-  title: 'Learn React | React GraphQL Academy',
+  title: 'React Training | React GraphQL Academy',
   description:
-    'Interested in learning React? Learn React with us and supercharge your development skillset with the latest curriculum in React. Contact us now!',
+    'Looking for a React training? Look no more - take your development career to the next level with our React training. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }

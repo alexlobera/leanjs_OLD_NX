@@ -58,9 +58,9 @@ const trainingList = [
 ]
 
 const metas = {
-  title: 'React Training | React GraphQL Academy',
+  title: 'Learn React | React GraphQL Academy',
   description:
-    'Looking for a React training? Look no more - take your development career to the next level with our React training. Contact us now!',
+    'Interested in learning React? Learn React with us and supercharge your development skillset with the latest curriculum in React. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
