@@ -79,10 +79,14 @@ const Coach = ({ data }) => {
                         <Li>|</Li>
                       </React.Fragment>
                     )}
-                    <Li>
-                      <Link to={twitter}>Twitter</Link>
-                    </Li>
-                    <Li>|</Li>
+                    {twitter && (
+                      <React.Fragment>
+                        <Li>
+                          <Link to={twitter}>Twitter</Link>
+                        </Li>
+                        <Li>|</Li>
+                      </React.Fragment>
+                    )}
                     <Li>
                       <Link to={linkedIn}>LinkedIn</Link>
                     </Li>

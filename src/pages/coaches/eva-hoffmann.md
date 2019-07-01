@@ -17,16 +17,16 @@ tags: []
 ---
 
 <ul>
-                  <li>
-                    Currently, a <strong>front-end engineer</strong> working
-                    with <strong>React/Mobx</strong>.
-                  </li>
-                  <li>
-                    Holds a degree in
-                    <strong>computer science and social sciences</strong>,
-                    interested in the social impact of technologies.
-                  </li>
-                  <li>
-                    Always curious to learn new things and share it with others.
-                  </li>
-                </ul>
+    <li>
+    Currently, a <strong>front-end engineer</strong> working
+    with <strong>React/Mobx</strong>.
+    </li>
+    <li>
+    Holds a degree in
+    <strong>computer science and social sciences</strong>,
+    interested in the social impact of technologies.
+    </li>
+    <li>
+    Always curious to learn new things and share it with others.
+    </li>
+</ul>

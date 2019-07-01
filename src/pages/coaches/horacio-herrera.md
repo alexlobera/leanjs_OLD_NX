@@ -10,6 +10,7 @@ linkedIn: https://uk.linkedin.com/in/rhoracioherrera
 blockquote: I love teaching and seeing other developers grow...
 imageDescription: React GraphQL Academy coach Horacio Herrera, smiling with sunglasses on.
 imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio.jpg?alt=media
+tags: []
 ---
 
 <ul>
