@@ -2,7 +2,7 @@
 name: Will Voelcker
 title: Senior Full-stack JavaScript Engineer
 companyName: LeanJS
-companyLink: https://leanjs.com
+companylink: https://leanjs.com
 gitHub: https://github.com/wvoelcker
 linkedIn: https://uk.linkedin.com/in/willv
 blockquote: I love working with developers to help them improve their skills, stretch their brains, further their understanding, and advance their career.
@@ -13,15 +13,14 @@ tags: []
 
 <ul>
     <li>
-    Currently, a <strong>front-end engineer</strong> working
-    with <strong>React/Mobx</strong>.
+    Professional web <strong>developer since 2005</strong>.
     </li>
     <li>
-    Holds a degree in
-    <strong>computer science and social sciences</strong>,
-    interested in the social impact of technologies.
+    <strong>Qualified teacher</strong>, experienced teaching in
+    a variety of settings.
     </li>
     <li>
-    Always curious to learn new things and share it with others.
+    Experience working for start-ups and international
+    corporations.
     </li>
 </ul>
