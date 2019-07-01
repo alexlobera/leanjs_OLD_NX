@@ -1,8 +1,8 @@
 ---
 name: David Leuliette
 title: Senior Front-end Engineer
-companyName: Lille
-companylink: /
+companyName: Empire fast
+companyLink: https://davidl.fr
 gitHub: https://github.com/flexbox
 medium: https://medium.com/@flexbox
 twitter: https://twitter.com/flexbox_

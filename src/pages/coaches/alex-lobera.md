@@ -8,6 +8,8 @@ medium: https://medium.com/@alex_lobera
 twitter: https://twitter.com/alex_Lobera
 linkedIn: https://uk.linkedin.com/in/alexlobera
 blockquote: Teaching other developers is very rewarding. I love sharing what I've learned in my career to help others grow and give back. I think this is what really makes our industry move forward.
+imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Falex.jpg?alt=media
+imageDescription: React GraphQL Academy coach Alex Lobera, looking happy with mountains in the background
 youtubeVideoId: QiR8iNq3tCQ
 videoDescription: Alex talking about advanced testing at Facebook London HQ
 tags: ['advanced']

@@ -2,7 +2,7 @@
 name: Paul Woodley
 title: Head of UX / Product Design
 companyName: LeanJS
-companylink: https://www.leanjs.com
+companyLink: https://www.leanjs.com/
 gitHub: https://github.com/shakersinthedark
 medium: https://medium.com/@paulw_design
 twitter: https://twitter.com/paulw_design

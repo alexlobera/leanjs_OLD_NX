@@ -2,7 +2,7 @@
 name: Francisco Gomes
 title: Software Engineer
 companyName: Sainsbury's
-companylink: https://www.sainsburys.co.uk/
+companyLink: https://www.sainsburys.co.uk/
 gitHub: https://github.com/franciscomcg
 twitter: https://twitter.com/francisgomes83
 linkedIn: https://uk.linkedin.com/in/francisco-gomes-webdev
