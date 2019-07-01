@@ -708,7 +708,6 @@ const AboutUs = () => (
                     </SocialLink>
                   </Li>
                 </Ul>
-
                 <Ul>
                   <Li>
                     A designer with over 15 years experience in User Experience
@@ -897,5 +896,4 @@ const AboutUs = () => (
     )}
   </Layout>
 )
-
 export default AboutUs

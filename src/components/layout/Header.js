@@ -20,7 +20,7 @@ import {
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import { selectTypeColor } from '../utils/index.js'
+import { selectTypeColor, selectBorderStyle } from '../utils/index.js'
 import { Image } from '../elements'
 
 const H1 = styled(BaseH1)`
@@ -167,13 +167,13 @@ const TitleCol = styled(Col)`
     type &&
     `
     height: 100%;
-    border-left: solid 27px ${selectTypeColor(type)};
+    border-left: ${selectBorderStyle(type)} 27px ${selectTypeColor(type)};
     box-shadow: #373a477d -12px 0px 9px -13px;
     @media (min-width: ${SCREEN_SM_MIN}) {
       margin-left: 9px;
     }
     @media (max-width: ${SCREEN_SM_MAX}) {
-      border-left: solid 10px ${selectTypeColor(type)};
+      border-left: ${selectBorderStyle(type)} 10px ${selectTypeColor(type)};
     }
     margin-bottom: 1em;
   `};
@@ -192,7 +192,8 @@ const InfoBox = styled.div`
   }
   font-size: 0.9rem;
   padding: 10px 10px 0 10px;
-  border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
+  border: ${({ type }) =>
+    `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
 `
 
 const getBackgroundImageSrc = (data, fileName) => {
