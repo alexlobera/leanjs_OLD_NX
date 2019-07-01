@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumBootcamp } from 'src/components/curriculum'
+import { CurriculumReactBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import Gallery from 'src/components/elements/Gallery'
 import { HideComponentsUsingCss } from 'src/components/utils'
@@ -30,6 +30,15 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP, LISBON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'React Bootcamp in Lisbon | React GraphQL Academy',
+  description:
+    'Interested in a React Lisbon bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp Lisbon.',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const photos = [
   {
@@ -152,23 +161,22 @@ const BootcampLisbon = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Bootcamp in Lisbon"
-            meta={[
-              {
-                name: 'description',
-                content:
-                  'React Bootcamp - master React in a few days in Lisbon',
-              },
-            ]}
-          />
-          <Helmet
+            title={metas.title}
             link={[
               {
                 rel: 'canonical',
                 href: `https://reactgraphql.academy/react/training/bootcamp-lisbon`,
               },
             ]}
-          />
+            meta={[
+              {
+                name: 'description',
+                content: metas.description,
+              },
+            ]}
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -325,7 +333,7 @@ const BootcampLisbon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumBootcamp layout={LIST_TWO_COL} />
+                    <CurriculumReactBootcamp layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>

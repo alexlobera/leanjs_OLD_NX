@@ -4,10 +4,12 @@ import { Query } from 'react-apollo'
 import {
   PART_TIME,
   REACT_BOOTCAMP,
+  REACT_FUNDAMENTALS,
   REACT_NATIVE,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   ONE_DAY_WORKSHOP,
+  REACT_WORKSHOP,
   GRAPHQL_CLIENT,
   GRAPHQL_API,
   MEETUP,
@@ -24,13 +26,15 @@ import {
 
 import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 
-const createTrainingPath = ({ type, city = '', index, id }) => {
+const createTrainingPath = ({ type, city = '', index, id, slug }) => {
   const i = index > 1 ? index : ''
   switch (type) {
     case PART_TIME:
       return `/react/training/part-time-course/${city.toLowerCase()}/${i}`
     case REACT_BOOTCAMP:
       return `/react/training/bootcamp/${city.toLowerCase()}/${i}`
+    case REACT_FUNDAMENTALS:
+      return `/react/training/react-fundamentals/${city.toLowerCase()}/${i}`
     case REACT_NATIVE:
       return `/react/training/react-native/${city.toLowerCase()}/${i}`
     case ADVANCED_REACT:
@@ -44,7 +48,9 @@ const createTrainingPath = ({ type, city = '', index, id }) => {
     case MEETUP:
       return `/community/meetups/${id}`
     case ONE_DAY_WORKSHOP:
-      return `/react/training/workshops/design-system-styling-in-react/`
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}`
+    case REACT_WORKSHOP:
+      return `/react/training/workshops/${slug}/${city.toLowerCase()}`
     default:
       return '/'
   }
@@ -78,8 +84,23 @@ const trainingByType = type => training =>
 
 const trainingByCity = city => training => !city || training.city === city
 
-export const selectTrainingById = ({ trainings, id }) =>
-  trainings.find(training => training.id == id)
+export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
+  trainings.find(training => training.training.id === trainingId)
+
+export const getUpcomingTrainingsByType = ({
+  trainings,
+  types = [],
+  first,
+  excludeTrainingId,
+}) => {
+  const filteredTrainings = types
+    .flatMap(type => trainings.filter(trainingByType(type)))
+    .filter(training => training.training.id !== excludeTrainingId)
+  return first ? filteredTrainings.slice(0, first) : filteredTrainings
+}
+
+export const selectTrainingByInstanceId = ({ trainings, id }) =>
+  trainings.find(training => training.id === id)
 
 export const selectUpcomingTrainings = ({
   type,
@@ -99,7 +120,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
     {({ loading, error, data }) => {
       const cityIndex = {}
       const formatTraining = ({ node }) => {
-        const { type } = node.training
+        const { type, slug } = node.training
         const { city, id } = node
         const key = `${city}${type}`
         cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
@@ -111,6 +132,7 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
             city,
             index: cityIndex[key],
             id,
+            slug,
           }),
           image: selectLocationImage({ city }),
         }

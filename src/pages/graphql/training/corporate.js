@@ -16,24 +16,36 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import { Card, Video } from 'src/components/elements'
-import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL.js'
+import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL'
 import { EBER } from 'src/config/images'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
+import { createSocialMetas } from 'src/components/utils'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
+
+const metas = {
+  title: 'GraphQL Corporte Training | React GraphQL Academy',
+  description:
+    'Interested in GraphQL corporate training? We offer corporate GraphQL team training, located in your offices anywhere in the world. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const CorporateGraphQLTraining = () => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
         <Helmet
-          title="GraphQL Corporate Training"
+          title={metas.title}
           meta={[
             {
               name: 'description',
-              content: 'Expert GraphQL Corporate Training delivered worldwide.',
+              content: metas.description,
             },
           ]}
-        />
+        >
+          {createSocialMetas(metas)}
+        </Helmet>
         <Breadcrumb
           path={[
             { to: '/', label: 'Home' },
@@ -42,7 +54,7 @@ const CorporateGraphQLTraining = () => (
               label: 'GraphQL',
             },
             {
-              to: '/graphql/corporate',
+              to: '/graphql/training/corporate',
               label: 'Corporate',
             },
           ]}
@@ -74,7 +86,11 @@ const CorporateGraphQLTraining = () => (
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">
-              <CurriculumCorporateGraphQL />
+              <Row>
+                <Col md={11}>
+                  <CurriculumCorporateGraphQL />
+                </Col>
+              </Row>
             </Card>
           </Grid>
         </TopSection>

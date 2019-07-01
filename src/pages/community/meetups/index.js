@@ -72,8 +72,8 @@ const Meetups = () => (
             ]}
           />
           <Header
-            titleLines={['The React GraphQL', 'Academy community']}
-            subtitle="We are not a group of people - but a movement!"
+            titleLines={['The React GraphQL', 'Academy Meetups']}
+            subtitle={metaDescription}
             links={[
               { text: 'Upcoming Meetups ', to: '#upcoming-meetups' },
               { text: 'Meetup community', to: '#mentor-community' },

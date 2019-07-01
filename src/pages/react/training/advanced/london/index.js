@@ -10,13 +10,14 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import { CurriculumAdvancedReact } from 'src/components/curriculum'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  AttendeeQuote,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
   TrainingDetails,
   ALEX_LOBERA,
   HORACIO_HERRERA,
@@ -27,8 +28,25 @@ import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ADVANCED_REACT, LONDON } from 'src/config/data'
+import {
+  ADVANCED_REACT,
+  ONE_DAY_WORKSHOP,
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_BOOTCAMP,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'Advanced React Training in London | React GraphQL Academy',
+  description:
+    'Looking for a Advanced React training in London? Learn Advanced React patterns and concepts with our experts in London. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -40,18 +58,28 @@ const BootcampLondon = () => (
       })
       const training =
         selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [
+          ONE_DAY_WORKSHOP,
+          GRAPHQL_API,
+          GRAPHQL_CLIENT,
+          GRAPHQL_BOOTCAMP,
+        ],
+      })
       return (
         <React.Fragment>
           <Helmet
-            title="Advanced React Training London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Advanced React Training - master advanced React in a few days in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -85,6 +113,7 @@ const BootcampLondon = () => (
                       training={training}
                       trainingLoading={trainingLoading}
                       trainingError={trainingError}
+                      financeAvailable
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
@@ -105,6 +134,17 @@ const BootcampLondon = () => (
           </TopSection>
           <Section>
             <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumAdvancedReact layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+          <Section>
+            <Grid>
               <Row>
                 <HideComponentsUsingCss xs sm>
                   <Col md={6} lg={5}>
@@ -117,36 +157,14 @@ const BootcampLondon = () => (
                 </HideComponentsUsingCss>
                 <Col md={6} lg={5} lgOffset={1}>
                   <H2Ref>
-                    Is this 1-day Advanced React training right for me? Are
-                    you...{' '}
+                    Is this Advanced React training right for me?{' '}
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
                   </H2Ref>
                   <Ul>
-                    <Li>
-                      A{' '}
-                      <strong>
-                        React developer with 1+ year of development
-                      </strong>{' '}
-                      under your belt using React?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a{' '}
-                      <strong>Senior React developer</strong> able to make
-                      critical decisions about the architecture of a React
-                      application.
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
+                    <CurriculumAdvancedReact.TargetAudienceList />
                   </Ul>
-                  <P>
-                    If you've said 'yes' to these, our{' '}
-                    <strong>1-day advanced React training</strong> could be for
-                    you!
-                  </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
                     This is a bootcamp for React developers that are experienced
@@ -162,29 +180,13 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
+                  <AlternativeTrainings trainings={crossSellTrainings} />
                 </Col>
               </Row>
             </Grid>
           </Section>
+          <BlogSection tags={['react', 'advanced']} />
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumAdvancedReact layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

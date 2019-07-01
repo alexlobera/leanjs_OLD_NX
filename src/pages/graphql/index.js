@@ -21,6 +21,8 @@ import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 import { GRAPHQL_PINK } from 'src/config/styles'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
 const trainingList = [
   {
@@ -41,6 +43,14 @@ const trainingList = [
   },
 ]
 
+const metas = {
+  title: 'Learn GraphQL | React GraphQL Academy',
+  description:
+    'Interested in learning GraphQL? Learn GrapQL with us. Supercharge your development skill set with the latest curriculum in GraphQL. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
+
 const GraphQLPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
@@ -48,15 +58,16 @@ const GraphQLPage = ({ data }) => {
       {({ trainings }) => (
         <React.Fragment>
           <Helmet
-            title="Learn GraphQL with us - best way to learn GraphQL!"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Learn GraphQL with us - the best way to learn GraphQL!',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -140,7 +151,7 @@ const GraphQLPage = ({ data }) => {
                       fantastic!
                     </Li>
                   </Ul>
-                  <LinkButton to="/blog/what-is-graphql-used-for/">
+                  <LinkButton to="/graphql/what-is-graphql-used-for/">
                     Blog: What is GraphQL and What Is It Used For?
                   </LinkButton>
                 </Col>

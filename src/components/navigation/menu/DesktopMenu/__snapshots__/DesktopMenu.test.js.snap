@@ -63,19 +63,32 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/graphql"
     />
     <DesktopMenuItem
+      key="/community/meetups"
+      text="Meetups"
+      to="/community/meetups"
+    />
+    <DesktopMenuItem
       key="/blog"
       text="Blog"
       to="/blog"
     />
     <DesktopMenuItem
       key="/about-us"
+      submenuItems={
+        Array [
+          Object {
+            "text": "About our coaches",
+            "to": "/about-us",
+          },
+          Object {
+            "hideOnMobile": true,
+            "text": "Community",
+            "to": "/community",
+          },
+        ]
+      }
       text="About us"
       to="/about-us"
-    />
-    <DesktopMenuItem
-      key="/community"
-      text="Community"
-      to="/community"
     />
     <DesktopMenuItem
       key="#contact-us"

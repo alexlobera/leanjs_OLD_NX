@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -10,21 +11,38 @@ import { CurriculumGraphQLApollo } from 'src/components/curriculum/workshops/'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_CLIENT, LONDON } from 'src/config/data'
+import {
+  GRAPHQL_CLIENT,
+  GRAPHQL_API,
+  GRAPHQL_BOOTCAMP,
+  ADVANCED_REACT,
+  REACT_WORKSHOP,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'GraphQL Apollo Client Training in London | React GraphQL Academy',
+  description:
+    'Looking for a GraphQL Apollo Client training in London? Learn how to consume GraphQL APIs with our experts in London. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const GraphQLApolloClientWorkshopLondon = () => (
   <Layout>
@@ -35,9 +53,23 @@ const GraphQLApolloClientWorkshopLondon = () => (
         city: LONDON,
       })
       const training = selectNthTraining({ trainings: workshops }) || {}
-
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [GRAPHQL_API, GRAPHQL_BOOTCAMP, ADVANCED_REACT, REACT_WORKSHOP],
+      })
       return (
         <React.Fragment>
+          <Helmet
+            title={metas.title}
+            meta={[
+              {
+                name: 'description',
+                content: metas.description,
+              },
+            ]}
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -140,13 +172,7 @@ const GraphQLApolloClientWorkshopLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
+                  <AlternativeTrainings trainings={crossSellTrainings} />
                 </Col>
               </Row>
             </Grid>

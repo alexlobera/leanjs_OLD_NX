@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { H2Ref } from '../text'
+import { Li } from '../layout/Ul'
+import { H2Ref, H4 } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -11,32 +12,26 @@ import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSess
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/design/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
-import TestingIntroSession from './sessions/TestingIntroSession'
-import TestingInReactSession from './sessions/TestingInReactSession'
-import E2ESession from './sessions/E2ESession'
-import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
-import ReactPerformanceSession from './sessions/ReactPerformanceSession'
-import Hackathon from './sessions/Hackathon'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 
 import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
-import { REACT_BOOTCAMP } from '../../config/data'
+import { REACT_FUNDAMENTALS } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 
-const CurriculumBootcamp = ({
+const CurriculumReactFundamentals = ({
   showTitle = true,
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
+  toggleNavigateTo = `/react/curriculum?tab=${REACT_FUNDAMENTALS}`,
   marketingCard = null,
   showLinkToCurriculum = true,
   trainings,
   showHackathon = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = REACT_BOOTCAMP
+  const type = REACT_FUNDAMENTALS
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
@@ -45,9 +40,11 @@ const CurriculumBootcamp = ({
   }
   const firstHalf = (
     <React.Fragment>
+      <H4>Course outline:</H4>
+
       <Section
         {...commonProps}
-        title="Evening pre-bootcamp (optional)"
+        title="Evening pre-course"
         name="day0"
         subTitle="React 101 and JS fundamentals"
       >
@@ -55,7 +52,7 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 1"
+        title="Day 1"
         name="day1"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
       >
@@ -65,7 +62,7 @@ const CurriculumBootcamp = ({
       </Section>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 2"
+        title="Day 2"
         name="day2"
         subTitle="Forms, Authentication, Styling in React"
       >
@@ -79,7 +76,7 @@ const CurriculumBootcamp = ({
       {marketingCard}
       {showLinkToCurriculum && showHackathon && (
         <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
+          <LinkButton to={`/react/curriculum?tab=${REACT_FUNDAMENTALS}`}>
             Full curriculum
           </LinkButton>
         </SectionCTA>
@@ -90,49 +87,18 @@ const CurriculumBootcamp = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="React Bootcamp Day 3"
+        title="Day 3"
         name="day3"
         subTitle="Redux Fundamentals, Advanced Redux, and FP"
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
-      <Section
-        {...commonProps}
-        title="React Bootcamp Day 4"
-        name="day4"
-        subTitle="Advanced React patterns, Hooks, and performance"
-      >
-        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
-        <ReactPerformanceSession title="Performance" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="React Bootcamp Day 5"
-        name="day5"
-        subTitle="Real-world Testing in React"
-      >
-        <TestingIntroSession title="Testing Foundation in JS" />
-        <TestingInReactSession title="Testing in React" />
-        <E2ESession title="End-to-End Testing" />
-      </Section>
-      {showHackathon ? (
-        <Section
-          type={type}
-          enableToggle={true}
-          title="React Bootcamp Day 6 (optional)"
-          name="day6"
-          subTitle="GraphQL and final project"
-        >
-          <Hackathon />
-        </Section>
-      ) : (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
+      <SectionCTA>
+        <LinkButton to={`/react/curriculum?tab=${REACT_FUNDAMENTALS}`}>
+          Full curriculum
+        </LinkButton>
+      </SectionCTA>
     </React.Fragment>
   )
 
@@ -142,7 +108,7 @@ const CurriculumBootcamp = ({
         <Row>
           <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
             <H2Ref>
-              React Bootcamp Curriculum{' '}
+              React Fundamentals Curriculum{' '}
               <Link to="#curriculum" name="curriculum">
                 #
               </Link>
@@ -163,4 +129,33 @@ const CurriculumBootcamp = ({
   )
 }
 
-export default CurriculumBootcamp
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li></Li>
+  </React.Fragment>
+)
+
+export const LearningObjectivesList = () => (
+  <React.Fragment>
+    <Li>
+      Understand the core principles and libraries to build React applications
+      using:{' '}
+      <code>
+        react, react-router, styled-components, storybook, redux, react-redux
+      </code>
+    </Li>
+    <Li>
+      Create a solid foundation to leverage the React principles when tackling
+      complex React problems.
+    </Li>
+    <Li>Learn how to style React applications in an idiomatic way.</Li>
+    <Li>
+      Understand different state management approaches in the React ecosystem.
+    </Li>
+  </React.Fragment>
+)
+
+CurriculumReactFundamentals.LearningObjectivesList = LearningObjectivesList
+CurriculumReactFundamentals.TargetAudienceList = TargetAudienceList
+
+export default CurriculumReactFundamentals

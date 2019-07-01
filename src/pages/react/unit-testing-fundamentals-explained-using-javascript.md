@@ -6,7 +6,7 @@ author: alex
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effects-min.png?alt=media
 authorTwitter: alex_lobera
 order: 8
-tags: ['react', 'beginner', 'testing', 'javascript']
+tags: ['react', 'advanced', 'testing', 'javascript']
 ---
 
 This article is meant to show you two things:
@@ -102,7 +102,7 @@ This is a fundamental problem in unit tests, if you test how the code is impleme
 
 That being said, sometimes testing the right way is not easy. In order to write black-box tests we need to make sure that the code we want to test is written in a way that it always produces the same output given the same input. To test that type of code we don’t need to know any implementation detail to assert the code to be tested does **what** it is supposed to do. We only need to set the input parameters, run the code, and assert that the output parameters are the expected ones. We need pure functions.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/" button-text="Learn GraphQL"></marketingcard>
 
 ## Pure functions <a name="pure-functions"></a>
 

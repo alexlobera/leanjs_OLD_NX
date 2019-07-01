@@ -19,9 +19,16 @@ exports[`<TermsOfService /> should render component 1`] = `
             md={10}
             mdOffset={1}
           >
-            <styled.h2>
+            <Styled(Box)
+              box="h2"
+              fontSize={5}
+              fontWeight="bold"
+              lineHeight={6}
+              mb={5}
+              pt={5}
+            >
               By registering for our workshops, courses or bootcamps, you agree to the following terms and conditions.
-            </styled.h2>
+            </Styled(Box)>
           </Styled(Col)>
         </Row>
       </Card>
@@ -35,9 +42,16 @@ exports[`<TermsOfService /> should render component 1`] = `
           mdOffset={1}
         >
           <Section>
-            <styled.h2>
+            <Styled(Box)
+              box="h2"
+              fontSize={5}
+              fontWeight="bold"
+              lineHeight={6}
+              mb={5}
+              pt={5}
+            >
               Transferring your place
-            </styled.h2>
+            </Styled(Box)>
             <styled.p>
               We’ll happily transfer your place to a lucky colleague if you need to. Please let us know as soon as possible – email
                
@@ -53,9 +67,16 @@ exports[`<TermsOfService /> should render component 1`] = `
             </styled.p>
           </Section>
           <Section>
-            <styled.h2>
+            <Styled(Box)
+              box="h2"
+              fontSize={5}
+              fontWeight="bold"
+              lineHeight={6}
+              mb={5}
+              pt={5}
+            >
               Payment terms & re-sale
-            </styled.h2>
+            </Styled(Box)>
             <styled.p>
               All tickets must be paid for within 14 days of an order being placed or by the date of the event, whichever is sooner.
             </styled.p>
@@ -64,9 +85,16 @@ exports[`<TermsOfService /> should render component 1`] = `
             </styled.p>
           </Section>
           <Section>
-            <styled.h2>
+            <Styled(Box)
+              box="h2"
+              fontSize={5}
+              fontWeight="bold"
+              lineHeight={6}
+              mb={5}
+              pt={5}
+            >
               Cancelation and refunds
-            </styled.h2>
+            </Styled(Box)>
             <styled.p>
               You need to let us know no later than 15 days before the date of the event or workshop that you want to cancel your ticket in order to get a full refund.
             </styled.p>
@@ -75,25 +103,46 @@ exports[`<TermsOfService /> should render component 1`] = `
             </styled.p>
           </Section>
           <Section>
-            <styled.h2>
+            <Styled(Box)
+              box="h2"
+              fontSize={5}
+              fontWeight="bold"
+              lineHeight={6}
+              mb={5}
+              pt={5}
+            >
               Photos & footage
-            </styled.h2>
+            </Styled(Box)>
             <styled.p>
               We occasionally photograph our training workshops, and by registering you give us permission to use any images or footage taken of you on the day. We also reserve the right to reproduce quotes and feedback which will be fully credited.
             </styled.p>
           </Section>
           <Section>
-            <styled.h2>
+            <Styled(Box)
+              box="h2"
+              fontSize={5}
+              fontWeight="bold"
+              lineHeight={6}
+              mb={5}
+              pt={5}
+            >
               Accessibility
-            </styled.h2>
+            </Styled(Box)>
             <styled.p>
               We aim to choose venues that are fully accessible. If you have any accessibility requirements you think we should be aware of, please let us know at the point of registering so that we can ensure we meet your needs and have someone on hand to assist you if required.
             </styled.p>
           </Section>
           <Section>
-            <styled.h2>
+            <Styled(Box)
+              box="h2"
+              fontSize={5}
+              fontWeight="bold"
+              lineHeight={6}
+              mb={5}
+              pt={5}
+            >
               Company information
-            </styled.h2>
+            </Styled(Box)>
             <styled.p>
               Registered in England and Wales No. 09797580
               <br />

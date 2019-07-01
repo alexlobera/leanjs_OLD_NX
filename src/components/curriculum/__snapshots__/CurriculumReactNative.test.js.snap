@@ -7,7 +7,14 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
       lg={10}
       lgOffset={1}
     >
-      <Styled(styled.h2)>
+      <Styled(Styled(Box))
+        box="h2"
+        fontSize={5}
+        fontWeight="bold"
+        lineHeight={6}
+        mb={5}
+        pt={5}
+      >
         React Native Curriculum
         <Link
           name="curriculum"
@@ -15,7 +22,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         >
           #
         </Link>
-      </Styled(styled.h2)>
+      </Styled(Styled(Box))>
     </Styled(Col)>
   </Row>
   <Row>
@@ -77,8 +84,16 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
       </CurriculumSection>
       <styled.div>
         <LinkButton
+          border={0}
+          borderRadius={2}
+          box="button"
+          boxShadow="light"
+          fontSize={2}
+          letterSpacing=" 0.6px"
+          px={4}
+          py={1}
+          textAlign="center"
           to="/react/curriculum?tab=React Native"
-          trackUserBehaviour={[Function]}
           variant="default"
         >
           Full curriculum

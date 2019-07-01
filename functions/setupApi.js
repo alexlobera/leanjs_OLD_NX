@@ -3,6 +3,7 @@ const express = require('express')
 
 const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   const api = express()
+  const RESOURCES_SINGED_UP = 'boolean--Resources-SingedUp'
   middlewares.map(middleware => api.use(middleware))
 
   api.use(setOptions)
@@ -20,6 +21,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   }
 
   async function postToAutopilot(endpoint, jsonBody) {
+    console.log('jsonBody', jsonBody)
     const res = await fetch(`https://api2.autopilothq.com/v1/${endpoint}`, {
       method: 'POST',
       headers: {
@@ -28,7 +30,7 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
       body: jsonBody ? JSON.stringify(jsonBody) : undefined,
     })
     const json = await res.json()
-    console.log(JSON.stringify(json))
+    console.log('response:', JSON.stringify(json))
 
     return json
   }
@@ -57,16 +59,17 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
 
   async function sessionSubscribe(request, response) {
     const data = request && request.body
-    const { name, email, subscriptions } = data
+    const { name, email, subscriptions, resources, pathname } = data
     const custom = subscriptions.reduce((acc, subscription) => {
       acc[`boolean--${subscription}--Session`] = true
       return acc
     }, {})
+    custom[RESOURCES_SINGED_UP] = resources
     await postToAutopilot(`/contact`, {
       contact: {
         FirstName: name,
         Email: email,
-        LeadSource: '1-day workshops form',
+        LeadSource: pathname,
         _autopilot_list: 'contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C',
         custom,
       },
@@ -75,14 +78,15 @@ const setupApi = ({ autopilotapikey, middlewares = [] }) => {
   }
 
   async function subscribe(request, response) {
-    const email = request && request.body && request.body.email
-    const pathname = request && request.body && request.body.pathname
+    const data = request && request.body
+    const { email, pathname, city, resources } = data
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
-        LeadSource: 'Footer contact form',
+        LeadSource: pathname,
         custom: {
-          'string--From--Path': pathname,
+          'string--From--City': city,
+          [RESOURCES_SINGED_UP]: resources,
         },
       },
     })

@@ -9,18 +9,18 @@ import Grid, { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
 import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
 import {
-  blue1,
-  blue2,
+  DARK_BLUE_075,
+  LIGHT_BLUE,
   WHITE,
-  reactBlue,
+  BLUE_04,
   FONT_FAMILY,
   TEXT_SIZE,
+  Z_INDEX_BG,
 } from '../../config/styles'
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import { Z_INDEX_BG } from '../../config/styles'
-import { selectTypeColor } from '../utils/index.js'
+import { selectTypeColor, selectBorderStyle } from '../utils/index.js'
 import { Image } from '../elements'
 
 const H1 = styled(BaseH1)`
@@ -31,7 +31,7 @@ const H1 = styled(BaseH1)`
   line-height: 1.5;
   letter-spacing: normal;
   color: ${WHITE};
-  text-shadow: 1px -1px 17px ${reactBlue(0.4)};
+  text-shadow: 1px -1px 17px ${BLUE_04};
   @media (max-width: ${SCREEN_SM_MAX}) {
     font-size: 2.77rem;
   }
@@ -55,7 +55,7 @@ const HeaderSection = styled(Section)`
   ${({ bgColor }) =>
     `background-color: ${
       bgColor === 'blue'
-        ? reactBlue(0.4)
+        ? BLUE_04
         : bgColor === 'grey'
         ? 'rgba(196,196,196,0.4)'
         : ''
@@ -97,16 +97,20 @@ HeaderSection.defaultProps = {
 }
 
 const H2Header = styled(BaseH2)`
-  padding: 0 !important;
-  margin: 0 !important;
-  font-size: 1.16rem !important;
-  color: ${WHITE};
-  font-weight: normal;
-  text-shadow: 1px -1px 17px ${reactBlue(0.4)};
+  text-shadow: 1px -1px 17px ${BLUE_04};
 `
 
+H2Header.defaultProps = {
+  color: WHITE,
+  padding: 0,
+  margin: 0,
+  fontSize: 3,
+  lineHeight: 3,
+  fontWeight: 'normal',
+}
+
 const TITLE_BACKGROUND = `
-  background-color: ${blue1(0.75)};
+  background-color: ${DARK_BLUE_075};
   display: table;
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
@@ -136,7 +140,7 @@ const Nav = styled.div`
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
-  background-color: ${props => (props.quickLinks ? blue1(0.75) : blue2(0.9))};
+  background-color: ${props => (props.quickLinks ? DARK_BLUE_075 : LIGHT_BLUE)};
   color: ${WHITE};
   ${styleChildLinkColor(WHITE)}
   padding-top: 8px;
@@ -163,13 +167,13 @@ const TitleCol = styled(Col)`
     type &&
     `
     height: 100%;
-    border-left: solid 27px ${selectTypeColor(type)};
+    border-left: ${selectBorderStyle(type)} 27px ${selectTypeColor(type)};
     box-shadow: #373a477d -12px 0px 9px -13px;
     @media (min-width: ${SCREEN_SM_MIN}) {
       margin-left: 9px;
     }
     @media (max-width: ${SCREEN_SM_MAX}) {
-      border-left: solid 10px ${selectTypeColor(type)};
+      border-left: ${selectBorderStyle(type)} 10px ${selectTypeColor(type)};
     }
     margin-bottom: 1em;
   `};
@@ -188,7 +192,8 @@ const InfoBox = styled.div`
   }
   font-size: 0.9rem;
   padding: 10px 10px 0 10px;
-  border: ${({ type }) => `solid 5px ${selectTypeColor(type)}`};
+  border: ${({ type }) =>
+    `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
 `
 
 const getBackgroundImageSrc = (data, fileName) => {

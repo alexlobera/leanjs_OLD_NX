@@ -64,14 +64,15 @@ class PaymentConfirmation extends React.Component {
                 <Col md={5} mdOffset={1}>
                   <H2>What happens now?</H2>
                   <P>
-                    You should shortly recieve an order confirmation and receipt
-                    and further details about the training you’ve signed up to.
-                    Just check your inbox soon (be sure to check your spam
-                    folder if you can’t see it).
+                    You should shortly receive an order confirmation and receipt
+                    in your email. Your ticket along with further details about
+                    the training you’ve signed up to will be sent within 24
+                    hours. Just check your inbox soon (be sure to check your
+                    spam folder if you can’t see it).
                   </P>
                   <P>
-                    If you have any questions, please don’t hesitate in
-                    contacting us. You can email us:{' '}
+                    If you have any questions, please don’t hesitate to contact
+                    us. You can email us:{' '}
                     <Link to="mailto:hello@reactgraphql.academy">
                       hello@reactgraphql.academy
                     </Link>{' '}

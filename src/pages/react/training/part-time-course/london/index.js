@@ -7,7 +7,6 @@ import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { CurriculumPartTime } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import {
-  AttendeeQuote,
   UpcomingTrainingSection,
   TargetAudienceSection,
   TrainingDetails,
@@ -18,14 +17,31 @@ import {
   FRANCISCO_GOMES,
   selectNthTraining,
   selectUpcomingTrainings,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
 import Header from 'src/components/layout/Header'
-import { CATALIN } from 'src/config/images'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Breadcrumb } from 'src/components/navigation'
-import { PART_TIME, LONDON } from 'src/config/data'
+import {
+  PART_TIME,
+  LONDON,
+  ONE_DAY_WORKSHOP,
+  REACT_BOOTCAMP,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'React Course London | React GraphQL Academy',
+  description:
+    'Interested in a React course in London? Learn the fundamentas of the React ecosystem and become a confident React developer with our React part time course London.',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -35,18 +51,24 @@ const BootcampLondon = () => (
         type: PART_TIME,
         city: LONDON,
       })
-      const training = selectNthTraining({ trainings: partTimeTrainings }) || {}
+      const training = selectNthTraining({ trainings: partTimeTrainings })
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
+      })
       return (
         <React.Fragment>
           <Helmet
-            title="Part-time React Course in London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: 'Part-time React Courses in London.',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -79,15 +101,18 @@ const BootcampLondon = () => (
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
+                      financeAvailable
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="E_4eQQHjc7A" />
                     <TrainingDetails
-                      date={training.dates}
+                      date={training && training.dates}
                       timing="6pm - 9pm Tuesday's & Thursday's"
                       location={
-                        <React.Fragment>{training.city}</React.Fragment>
+                        <React.Fragment>
+                          {training && training.city}
+                        </React.Fragment>
                       }
                       coaches={[
                         EVA_HOFFMANN,
@@ -102,22 +127,6 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </TopSection>
-          <TargetAudienceSection />
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
           <Section>
             <Grid>
               <Card border="shadow">
@@ -132,6 +141,20 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </Section>
+
+          <TargetAudienceSection />
+          <Section>
+            <Grid>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <AlternativeTrainings trainings={crossSellTrainings} />
+                </Col>
+              </Row>
+            </Grid>
+          </Section>
+
+          <BlogSection tags={['react', 'beginner']} />
+
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

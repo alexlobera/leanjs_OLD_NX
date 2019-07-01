@@ -26,6 +26,16 @@ import { PaymentSection } from 'src/components/payment'
 import { Breadcrumb } from 'src/components/navigation'
 import { PART_TIME, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'React Course London | React GraphQL Academy',
+  description:
+    'Interested in a React course in London? Learn the fundamentas of the React ecosystem and become a confident React developer with our React part time course London.',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -40,13 +50,16 @@ const BootcampLondon = () => (
       return (
         <React.Fragment>
           <Helmet
-            link={[
+            title={metas.title}
+            meta={[
               {
-                rel: 'canonical',
-                href: `https://reactgraphql.academy/react/training/part-time-course/london`,
+                name: 'description',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -79,6 +92,7 @@ const BootcampLondon = () => (
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
+                      financeAvailable
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>

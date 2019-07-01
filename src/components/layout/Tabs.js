@@ -1,8 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { reactBlue, FONT_FAMILY } from '../../config/styles'
-import { SCREEN_XS_MAX, SCREEN_SM_MIN, selectTypeColor } from '../utils'
-import { PART_TIME, GRAPHQL_BOOTCAMP } from '../../config/data'
+import { BLUE, FONT_FAMILY } from '../../config/styles'
+import {
+  SCREEN_XS_MAX,
+  SCREEN_SM_MIN,
+  selectTypeColor,
+  selectBorderStyle,
+} from '../utils'
+import {
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_WORKSHOP,
+  GRAPHQL_BOOTCAMP,
+} from '../../config/data'
 import { Col, Row } from './Grid'
 
 const Ul = styled.ul`
@@ -79,18 +89,24 @@ const Li = styled.li`
         text-align:center;
       }
       @media (max-width: ${SCREEN_XS_MAX}) {
-        border: 1px solid ${reactBlue()};
+        border: 1px solid ${BLUE};
       }
       background: ${selectTypeColor(props.name)};
     `
       : ''};
 `
 const A = styled.a`
-  ${props => `border-bottom: 3px solid ${selectTypeColor(props.name)}`};
+  ${props =>
+    `border-bottom: 3px ${selectBorderStyle(props.name)} ${selectTypeColor(
+      props.name
+    )}`};
   ${props => {
     if (
       props.isActive &&
-      (props.name === PART_TIME || props.name === GRAPHQL_BOOTCAMP)
+      (props.name === GRAPHQL_BOOTCAMP ||
+        props.name === GRAPHQL_API ||
+        props.name === GRAPHQL_CLIENT ||
+        props.name === GRAPHQL_WORKSHOP)
     ) {
       return `color: white !important`
     }

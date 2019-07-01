@@ -20,7 +20,9 @@ import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
-import { REACT_BLUE_DARK } from 'src/config/styles'
+import { LIGHT_BLUE } from 'src/config/styles'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { createSocialMetas } from 'src/components/utils'
 
 const trainingList = [
   {
@@ -55,6 +57,14 @@ const trainingList = [
   },
 ]
 
+const metas = {
+  title: 'Learn React | React GraphQL Academy',
+  description:
+    'Interested in learning React? Learn React with us and supercharge your development skillset with the latest curriculum in React. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
+
 const ReactPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
@@ -62,15 +72,16 @@ const ReactPage = ({ data }) => {
       {({ trainings }) => (
         <React.Fragment>
           <Helmet
-            title="Learn React with us - best way to learn React JS!"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Learn React with us - the best way to learn React JS / ReactJS / React.js!',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -120,7 +131,7 @@ const ReactPage = ({ data }) => {
                     <H3>Our React training</H3>
                     <TrainingCardList
                       data={trainingList}
-                      borderColor={REACT_BLUE_DARK}
+                      borderColor={LIGHT_BLUE}
                     />
                   </Col>
                 </Row>
@@ -151,7 +162,7 @@ const ReactPage = ({ data }) => {
                     </Li>
                   </Ul>
                   <P>
-                    <LinkButton to="/blog/top-10-reasons-to-learn-react/">
+                    <LinkButton to="/react/top-10-reasons-to-learn-react/">
                       Blog: Why You Should Learn React Right Now
                     </LinkButton>
                   </P>

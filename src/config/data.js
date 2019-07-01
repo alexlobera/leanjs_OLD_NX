@@ -8,6 +8,7 @@ import {
   HORACIO,
   LONDON_LOCATION,
   AMSTERDAM_LOCATION,
+  PAUL,
 } from './images'
 
 export const LONDON = 'London'
@@ -18,11 +19,14 @@ export const BERLIN = 'Berlin'
 export const REACT_NATIVE = 'React Native'
 export const PART_TIME = 'Part-time'
 export const REACT_BOOTCAMP = 'React Bootcamp'
+export const REACT_FUNDAMENTALS = 'React Fundamentals'
 export const ADVANCED_REACT = 'Advanced React'
 export const GRAPHQL_BOOTCAMP = 'GraphQL Bootcamp'
 export const GRAPHQL_API = 'GraphQL API'
 export const GRAPHQL_CLIENT = 'GraphQL Client'
+export const GRAPHQL_WORKSHOP = 'GraphQL Worskhop'
 export const ONE_DAY_WORKSHOP = '1-Day Workshop'
+export const REACT_WORKSHOP = 'React Worskhop'
 export const REACT_CORPORATE = 'React - 5 Days'
 export const MEETUP = 'Meetup'
 
@@ -242,6 +246,11 @@ export const blogAuthors = {
     imgSrc: HORACIO,
     fullname: 'Horacio Herrera',
     path: 'horacio-herrera',
+  },
+  paul: {
+    imgSrc: PAUL,
+    fullname: 'Paul Woodley',
+    path: 'paul-woodley',
   },
 }
 

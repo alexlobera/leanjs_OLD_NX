@@ -121,7 +121,7 @@ render(
 
 You can edit the previous code by removing 'primary' from the last button. Try it! The style will react and change the color.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/" button-text="Learn GraphQL"></marketingcard>
 
 ### CSS optimization <a name="css-optimization"></a>
 
@@ -145,7 +145,7 @@ That being said, I often see that many developers new to React are used to the "
 
 - They want font colours and sizes in SASS or LESS variables. If you use component based styles those colours, fonts, etc become [simple JavaScript variables](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/config/styles.js).
 - Styling "default/ generic" h1, h2, h3, h4, h5, h6, p…. No problem, they can also be [components](https://github.com/reactgraphqlacademy/reactgraphqlacademy/tree/master/src/components/text).
-- Default paddings and margins. You can elegantly solve it by using [theming](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/layouts/index.js#L24).
+- Default paddings and margins. You can elegantly solve it by using [theming](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/components/layout.js#L20).
 
 As you can see, in all those cases we can use a component, and so you can co-locate the style in that component. I know, it might not seem that obvious at the beginning, especially if you are very used to SASS, LESS, or “classic” CSS.
 
@@ -169,7 +169,7 @@ Reactstrap current version (v7) uses one global CSS :(
 
 SemanticUI current version (2.4) uses LESS, therefore no access to props in that style to use the powerful [conditional rendering](#conditional-rendering) that we explained before :(
 
-There is an important consideration when choosing a component library: how easy it's going to be in the future to replace it with something else. One of the libraries that provides a lot of ([highly-coupled](/blog/unit-testing-fundamentals-explained-using-javascript/#coupling)) functionality is Antd - at least the current version (3.12). For instance, the behavior of the form is highly-coupled to how form field components look. In this case, a good alternative is to use Rebass in combination with [final-form](/blog/react-forms-controlled-and-uncontrolled-components/#form-library) to decouple the behavior of the form and how the form fields look.
+There is an important consideration when choosing a component library: how easy it's going to be in the future to replace it with something else. One of the libraries that provides a lot of ([highly-coupled](/react/unit-testing-fundamentals-explained-using-javascript/#coupling)) functionality is Antd - at least the current version (3.12). For instance, the behavior of the form is highly-coupled to how form field components look. In this case, a good alternative is to use Rebass in combination with [final-form](/react/react-forms-controlled-and-uncontrolled-components/#form-library) to decouple the behavior of the form and how the form fields look.
 
 ### Abstract components <a name="abstract-components"></a>
 

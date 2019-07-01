@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {
-  blue1,
+  DARK_BLUE,
   BROWN,
   WHITE,
-  GREY2,
+  DARK_GREY,
   BOX_SHADOW,
-  reactBlue,
+  BLUE,
 } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_MD_MAX, SCREEN_SM_MIN } from '../utils'
 import { styleChildLinkColor } from '../navigation/Link'
@@ -18,6 +18,12 @@ const fontColor = color => `
     color: ${color};
   }
   h3 {
+    color: ${color};
+  }
+  h4 {
+    color: ${color};
+  }
+  h5 {
     color: ${color};
   }
   p {
@@ -58,24 +64,24 @@ const Card = styled.div`
     switch (props.bg) {
       case 'dark':
         return `
-    background-color: ${blue1()};
+    background-color: ${DARK_BLUE};
     border: solid 1px ${BROWN};
     ${fontColor(WHITE)}
   `
       case 'darkGrey':
         return `
-    background-color: ${GREY2};
+    background-color: ${DARK_GREY};
     ${fontColor(WHITE)}
   `
-      case 'reactBlue':
+      case 'BLUE':
         return `
-      background-color: ${reactBlue()};
-      ${fontColor(GREY2)}
+      background-color: ${BLUE};
+      ${fontColor(DARK_GREY)}
       `
       default:
         return `
     background-color: ${WHITE};
-    ${fontColor(GREY2)}
+    ${fontColor(DARK_GREY)}
   `
     }
   }}
@@ -88,6 +94,8 @@ const Card = styled.div`
         return BOX_SHADOW
       case 'black':
         return `border: 1px solid ${BROWN};`
+      case 'blue':
+        return `border: 3px solid ${BLUE};`
       default:
         return ``
     }

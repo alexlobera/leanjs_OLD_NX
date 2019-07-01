@@ -7,7 +7,7 @@ import { formatUTC } from '../components/utils'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
-import { CurriculumBootcamp } from '../components/curriculum'
+import { CurriculumReactBootcamp } from '../components/curriculum'
 import { Card, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
@@ -150,7 +150,7 @@ const Landing = ({ data }) => {
             <Section>
               <Grid>
                 <Card white border="shadow">
-                  <CurriculumBootcamp listTwoCol />
+                  <CurriculumReactBootcamp listTwoCol />
                 </Card>
               </Grid>
             </Section>

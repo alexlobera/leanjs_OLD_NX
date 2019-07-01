@@ -573,7 +573,7 @@ const AboutUs = () => (
                   </Li>
                   <Li>|</Li>
                   <Li>
-                    <SocialLink to="https://twitter.com/_flexbox">
+                    <SocialLink to="https://twitter.com/flexbox_">
                       Twitter
                     </SocialLink>
                   </Li>
@@ -619,7 +619,7 @@ const AboutUs = () => (
                     #
                   </Link>
                 </H2Ref>
-                <CoachTitle>Developer at Sainsburys</CoachTitle>
+                <CoachTitle>Software Engineer at Sainsbury's</CoachTitle>
                 <Ul inline>
                   <Li>
                     <SocialLink to="https://github.com/franciscomcg">
@@ -708,7 +708,6 @@ const AboutUs = () => (
                     </SocialLink>
                   </Li>
                 </Ul>
-
                 <Ul>
                   <Li>
                     A designer with over 15 years experience in User Experience
@@ -897,5 +896,4 @@ const AboutUs = () => (
     )}
   </Layout>
 )
-
 export default AboutUs

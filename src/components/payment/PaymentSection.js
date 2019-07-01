@@ -19,6 +19,7 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
+import { FinanceCard } from './'
 
 class PaymentSection extends React.Component {
   state = {
@@ -115,6 +116,8 @@ class PaymentSection extends React.Component {
       training = {},
       navigate,
       data: autoVoucherData = {},
+      city,
+      financeAvailable,
     } = this.props
     let trainingInstanceId,
       price = 0,
@@ -222,6 +225,7 @@ class PaymentSection extends React.Component {
             ) : null}
             {parseInt(price, 10) > 0 && (
               <Checkout
+                city={city}
                 navigate={navigate}
                 trainingInstanceId={trainingInstanceId}
                 vatRate={vatRate}
@@ -246,6 +250,7 @@ class PaymentSection extends React.Component {
             )}
           </Card>
         </React.Fragment>
+        {financeAvailable && <FinanceCard />}
         <Card small bg="dark" top={20}>
           <ContactForm simplified />
         </Card>
@@ -265,7 +270,9 @@ PaymentSection.propTypes = {
   training: PropTypes.object,
   data: PropTypes.object,
   paymentApi: PropTypes.object,
+  city: PropTypes.string,
   navigate: PropTypes.func,
+  financeAvailable: PropTypes.bool,
 }
 
 const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {

@@ -7,7 +7,7 @@ import { Link } from '../navigation'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
-import { selectTypeColor } from '../utils'
+import { selectTypeColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
 import Feedback from '../elements/Feedback'
 
@@ -15,8 +15,9 @@ export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
 const Section = styled.div`
-  ${props =>
-    `border-left: 3px solid ${selectTypeColor(props.type)};`} margin-top: 2em;
+  ${({ type }) =>
+    `border-left: 3px ${selectBorderStyle(type)} ${selectTypeColor(type)};`}
+  margin-top: 2em;
   padding-left: 20px;
 `
 
@@ -68,11 +69,14 @@ const CurriculumSection = props => {
     name,
     type,
     subTitle,
+    trainingTime = '',
     children,
     enableToggle = false,
     toggleNavigateTo,
     showLinkToCurriculum = true,
   } = props
+  // TODO: Remove traingType once all upcoming workshops have type REACT_WORKSHOP or GRAPHQL_WORKSHOP as it should only be a string
+  const trainingType = type.length < 5 ? type[0] : type
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
       ? {
@@ -100,9 +104,15 @@ const CurriculumSection = props => {
   )
 
   return (
-    <Section type={type}>
+    <Section type={trainingType}>
       <Element name={name || title} />
-      {title ? <CurriculumItemTitle>{title}</CurriculumItemTitle> : ''}
+      {title ? (
+        <CurriculumItemTitle>
+          {title} <small>{`(${trainingTime.trim()})`}</small>
+        </CurriculumItemTitle>
+      ) : (
+        ''
+      )}
       <SubTitleSection>
         {subTitle ? subTitle : ''}
         {showLinkToCurriculum || enableToggle ? subsection : ''}

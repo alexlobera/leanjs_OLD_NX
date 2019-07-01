@@ -302,7 +302,7 @@ class GraphQLCurriculum extends React.Component {
                                 Read our blog{' '}
                                 <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                                   <strong>
-                                    Are YOU the Perfect GraphQL GraphQL Student?
+                                    Are YOU the Perfect GraphQL Student?
                                   </strong>
                                 </Link>
                               </Li>
@@ -364,7 +364,7 @@ class GraphQLCurriculum extends React.Component {
                                 Read our blog{' '}
                                 <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                                   <strong>
-                                    Are YOU the Perfect GraphQL GraphQL Student?
+                                    Are YOU the Perfect GraphQL Student?
                                   </strong>
                                 </Link>
                               </Li>
@@ -416,7 +416,7 @@ class GraphQLCurriculum extends React.Component {
                                 Read our blog{' '}
                                 <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                                   <strong>
-                                    Are YOU the Perfect GraphQL GraphQL Student?
+                                    Are YOU the Perfect GraphQL Student?
                                   </strong>
                                 </Link>
                               </Li>
