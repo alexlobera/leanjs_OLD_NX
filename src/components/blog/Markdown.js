@@ -3,10 +3,14 @@ import { EmbedRunkit } from './Runkit'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
+const StyledEditor = styled(LiveEditor)`
+  background-color: #000;
+`
+
 function getEditor({ noInline, code }) {
   return (
     <LiveProvider code={code} scope={{ styled }} noInline={noInline}>
-      <LiveEditor tabIndex="-1" />
+      <StyledEditor tabIndex="-1" />
       <LiveError />
       <LivePreview />
     </LiveProvider>
