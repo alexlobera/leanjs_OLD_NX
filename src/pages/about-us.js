@@ -13,19 +13,7 @@ import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
-import { Card, Video, Image, Newsletter } from '../components/elements'
-import { Span } from '../components/text'
-import {
-  ALEX,
-  RICHARD,
-  HORACIO,
-  WILL,
-  EVA,
-  ROY,
-  DAVID,
-  FRANCISCO,
-  PAUL,
-} from '../config/images'
+import { Card, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import trackUserBehaviour, {
   SOCIAL_NETWORK_LINK_CLICK,
@@ -48,37 +36,12 @@ const CoachQuote = styled(Box)`
 
 const CoachName = styled(Box)``
 
-const CoachTitle = styled(H3)`
-  & {
-    padding-top: 0;
-  }
-`
-
 const BecomeACoachWrapper = styled.div`
   @media (max-width: ${SCREEN_SM_MAX}) {
     text-align: center;
     padding-bottom: 18px;
   }
 `
-
-const SocialLink = ({ to, children, onClick }) => (
-  <Link
-    to={to}
-    onClick={() => {
-      trackUserBehaviour({
-        event: SOCIAL_NETWORK_LINK_CLICK,
-        payload: {
-          network: children,
-          to,
-        },
-      })
-      onClick && onClick(e)
-    }}
-    target="_blank"
-  >
-    {children}
-  </Link>
-)
 
 const AboutUs = ({ data }) => {
   const coaches = data.allMarkdownRemark.nodes
