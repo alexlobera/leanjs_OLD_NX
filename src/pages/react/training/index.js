@@ -20,6 +20,16 @@ import {
 import { Card } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'React Training | React GraphQL Academy',
+  description:
+    'Looking for a React training? Look no more - take your development career to the next level with our React training. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const TrainingPage = () => (
   <Layout>
@@ -27,15 +37,16 @@ const TrainingPage = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Training in Europe"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'We were the first ones running React training in Europe.',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

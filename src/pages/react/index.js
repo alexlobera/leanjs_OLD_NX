@@ -21,6 +21,8 @@ import { REACT_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 import { LIGHT_BLUE } from 'src/config/styles'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { createSocialMetas } from 'src/components/utils'
 
 const trainingList = [
   {
@@ -55,6 +57,14 @@ const trainingList = [
   },
 ]
 
+const metas = {
+  title: 'Learn React | React GraphQL Academy',
+  description:
+    'Interested in learning React? Learn React with us and supercharge your development skillset with the latest curriculum in React. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
+
 const ReactPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
@@ -62,15 +72,16 @@ const ReactPage = ({ data }) => {
       {({ trainings }) => (
         <React.Fragment>
           <Helmet
-            title="Learn React with us - best way to learn React JS!"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Learn React with us - the best way to learn React JS / ReactJS / React.js!',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

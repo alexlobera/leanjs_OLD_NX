@@ -33,6 +33,16 @@ import {
   LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'Design System Workshop London | React GraphQL Academy',
+  description:
+    'Interested in Design Systems? React GraphQL Academy offers London Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const StylingDesignSystemWorkshop = () => (
   <Layout>
@@ -52,14 +62,16 @@ const StylingDesignSystemWorkshop = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Design Systems in React Workshop in London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: '1-day Design Systems in React Workshops in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },

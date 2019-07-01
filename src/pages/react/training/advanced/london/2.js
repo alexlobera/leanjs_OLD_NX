@@ -1,11 +1,12 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
+import Ul from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
@@ -37,6 +38,15 @@ import {
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'Advanced React Training in London | React GraphQL Academy',
+  description:
+    'Looking for a Advanced React training in London? Learn Advanced React patterns and concepts with our experts in London. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -60,6 +70,17 @@ const BootcampLondon = () => (
       })
       return (
         <React.Fragment>
+          <Helmet
+            title={metas.title}
+            meta={[
+              {
+                name: 'description',
+                content: metas.description,
+              },
+            ]}
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
