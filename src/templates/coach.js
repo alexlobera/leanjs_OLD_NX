@@ -10,7 +10,6 @@ import Section from 'src/components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2Ref, H3, P } from '../components/text'
 import Header from '../components/layout/Header'
-
 import Ul, { Li } from '../components/layout/Ul'
 import { Video, Image } from '../components/elements'
 import { UpcomingTrainingSection } from '../components/training'
@@ -43,6 +42,7 @@ const Coach = ({ data }) => {
     videoDescription,
     imageDescription,
     imageSrc,
+    tags,
   } = data.markdownRemark.frontmatter
   const { htmlAst } = data.markdownRemark
   const linkName = name.toLowerCase().replace(' ', '-')
@@ -97,7 +97,7 @@ const Coach = ({ data }) => {
               </Row>
             </Grid>
           </Section>
-          <BlogSection />
+          <BlogSection tags={tags} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )}
@@ -120,6 +120,7 @@ export const query = graphql`
         videoDescription
         imageDescription
         imageSrc
+        tags
       }
       htmlAst
     }

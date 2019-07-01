@@ -8,6 +8,7 @@ linkedIn: https://uk.linkedin.com/in/alexlobera
 blockquote: Teaching other developers is very rewarding. I love sharing what I've learned in my career to help others grow and give back. I think this is what really makes our industry move forward.
 youtubeVideoId: QiR8iNq3tCQ
 videoDescription: Alex talking about advanced testing at Facebook London HQ
+tags: ['advanced']
 imageDescription: ''
 imageSrc: ''
 ---
