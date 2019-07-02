@@ -19,10 +19,20 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             md={10}
             mdOffset={1}
           >
-            <styled.p>
+            <Styled(Box)
+              box="p"
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               Here at ReactGraphQL.Academy, we take your privacy seriously and are always aiming to ensure your personal information is kept safe. We aim to instill trust in everything that we do and give you the best quality experience with us.
-            </styled.p>
-            <styled.p>
+            </Styled(Box)>
+            <Styled(Box)
+              box="p"
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               ReactGraphQL.Academy is part of the LeanJS family. LeanJS is a digital design, development and training company who produces digital products, trainings and associated services based in London, UK. For more information, please check out
                
               <Link
@@ -40,7 +50,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
                 hello@reactgraphql.academy
               </Link>
               .
-            </styled.p>
+            </Styled(Box)>
           </Styled(Col)>
         </Row>
       </Card>
@@ -148,9 +158,14 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             What information of mine is being collected?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             As a base level of information, we might collect your email address but only when you give it to us.
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -164,7 +179,12 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             Who is collecting my information?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             React GraphQL Academy will be collecting information. As mentioned previously, React GraphQL Academy is part of the LeanJS family. Find out more about LeanJS at
              
             <Link
@@ -174,7 +194,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               LeanJS.com/
             </Link>
              
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -188,10 +208,15 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             How are my details collected?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Aside from when you sign up to a training, ReactGraphQL.Academy is collecting your email through a newsletter sign-up form.
              
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -205,9 +230,14 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             Why is it collected?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Apart from sending you details about any purchases with us, your email address is used to send you newsletters about React GraphQL Academy news and offers.
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -221,13 +251,28 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             How is my information used?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Using your email as the primary way of setting up the account means that, whatever happens - issues with your account, important notifications about our service etc - we have a means of contacting you.
-          </styled.p>
-          <styled.p>
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Another key reason for collecting your email is to confirm your attendance at one of the trainings you have shown interest in attending. These communications will not be unsolicited and only initiated if you have indicated you’d like to receive them. These communications could be, but not excluded to, the following: Confirmation of event/training ticket purchase Reminder of upcoming events/training
-          </styled.p>
-          <styled.p>
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Lastly, if you have opted-in to the email newsletter, you will receive emails of a marketing nature that will feature events/trainings/services that you may not have indicated to us that you are interested in but we feel will enrich your experience with us. You are able to unsubscribe to these marketing emails by contacting us at
              
             <Link
@@ -243,7 +288,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               unsubscribe
             </Link>
              page .
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -257,12 +302,22 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             Who will my information be shared with?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Your information security is very important to us so we will never share your personal details with third parties without your consent.
-          </styled.p>
-          <styled.p>
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             The key parties we share information with will be:
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h3"
             fontSize={4}
@@ -271,16 +326,31 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           >
             Third party training providers
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             When you sign up to a training/event/service, we will send third party providers your information to ensure that you are able to attend and get the best customer service possible. This is the information that you will provide to us when you sign up to the training/event/service.
              
-          </styled.p>
-          <styled.p>
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             For example, we hold many training events at third party venues and to ensure you are allowed to enter the building, your details will be sent to them to create a vistors list.
-          </styled.p>
-          <styled.p>
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             ReactGraphQL.Academy promises not to share your information with third parties that aren't connected to a training/event/service that you've signed up for without expressed consent from you.
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h3"
             fontSize={4}
@@ -289,7 +359,12 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           >
             Our hosting providers
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             All our information is stored on servers owned by
              
             <Link
@@ -308,7 +383,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               here
             </Link>
             .
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -322,9 +397,14 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             How long will my details be kept for?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             ReactGraphQL.Academy promises that we will not keep your details on file for more than 10 years and we will be in contact then to ask whether you would like us to keep your information on file.
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -338,9 +418,14 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             What will be the effect of GDPR regulations to me?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             There shouldn’t be any difference in the way that you have experienced ReactGraphQL.Academy previously. However, due to the way that the GDPR regulations have been introduced in May 2018, you will have to make sure you opt-in to email newsletters again from ReactGraphQL.Academy or any other LeanJS-related parties.
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -354,7 +439,12 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             How do I remove my details from your servers?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Easily! Just email us at
              
             <Link
@@ -364,7 +454,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             </Link>
              
             and let us know and we’ll remove all your details (forever).
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -378,7 +468,12 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             />
             What are cookies and what do they do with my information?
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             In addition to personal information that you give us, there is anonymous data that is collected through ‘Cookies’. Cookies is a small text file that our site may place on your computer that helps us understand how people use ReactGraphQL.Academy - this in turn helps us improve our service. For more information about cookies, click
              
             <Link
@@ -388,10 +483,15 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               here
             </Link>
             .
-          </styled.p>
-          <styled.p>
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             The information that is collected from cookies can include (but not excluded to):
-          </styled.p>
+          </Styled(Box)>
           <styled.ul>
             <styled.li>
               Browser type
@@ -406,12 +506,22 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               How you’ve travelled through the site
             </styled.li>
           </styled.ul>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             You may refuse the use of these cookies by selecting the appropriate settings on your browser, but please be aware that doing so may affect the functionality of ReactGraphQL.Academy.
-          </styled.p>
-          <styled.p>
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             We use two systems that employ cookies on ReactGraphQL.Academy. These are:
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h3"
             fontSize={4}
@@ -420,7 +530,12 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           >
             Google Analytics
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             ReactGraphQL.Academy utilises the Google Analytics platform - which transmits website data to their servers in the United States of America. Google Analytics does not identify individual users to your IP addresses or any other data that Google holds. For more information, please check out
              
             <Link
@@ -430,7 +545,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               Google Analytics’ terms of use
             </Link>
             .
-          </styled.p>
+          </Styled(Box)>
           <Styled(Box)
             box="h3"
             fontSize={4}
@@ -439,7 +554,12 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           >
             Stripe
           </Styled(Box)>
-          <styled.p>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
             Our payment system is Stripe which also employs cookies to help improve our services. For more information about Stripe and its use of cookies, please click
              
             <Link
@@ -449,7 +569,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               here
             </Link>
             .
-          </styled.p>
+          </Styled(Box)>
         </Styled(Col)>
       </Row>
     </Grid>

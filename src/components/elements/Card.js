@@ -100,9 +100,7 @@ const Card = styled.div`
         return ``
     }
   }}
-  h3 {
-    padding-top: 10px;
-  }
+  
   @media (max-width: ${SCREEN_XS_MAX}) {
     border: 0;
     box-shadow: none;
