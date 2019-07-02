@@ -13,18 +13,10 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspo
 tags: []
 ---
 
- <ul>
-    <li>
-    A designer with over 15 years experience in User Experience
-    and UI design.
-    </li>
-    <li>
-    Lead UX on projects for <strong>Bank of England</strong>,
-    <strong>Thomas Cook</strong> and
-    <strong>Boston University</strong>.
-    </li>
-    <li>
-    Loves the design/dev crossover and finding ways bring those
-    worlds together.
-    </li>
-</ul>
+- A designer with over 15 years experience in User Experience
+  and UI design.
+- Lead UX on projects for **Bank of England**,
+  **Thomas Cook** and
+  **Boston University**.
+- Loves the design/dev crossover and finding ways bring those
+  worlds together.

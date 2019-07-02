@@ -15,22 +15,10 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 tags: ['beginner']
 ---
 
-<ul>
-    <li>
-    Focused on delivering cutting-edge
-    <strong>React, Redux, </strong> and <strong>GraphQL</strong>
-    projects <strong> for top companies</strong> like Boston
-    University.
-    </li>
-    <li>
-    Serial entrepreneur passionate about teaching. Founded an
-    online school in 2012, and hasn’t stopped.
-    </li>
-    <li>
-    Organizer of the
-    <a href="https://www.meetup.com/JavaScript-lisbon/">
-        JavaScript lisbon Meetup
-    </a>
-    and React GraphQL Academy bootcamps.
-    </li>
-</ul>
+- Focused on delivering cutting-edge
+  **React, Redux, ** and **GraphQL**
+  projects ** for top companies** like Boston
+  University.
+- Serial entrepreneur passionate about teaching. Founded an
+  online school in 2012, and hasn’t stopped.
+- Organizer of the [JavaScript lisbon Meetup](https://www.meetup.com/JavaScript-lisbon/) and React GraphQL Academy bootcamps.

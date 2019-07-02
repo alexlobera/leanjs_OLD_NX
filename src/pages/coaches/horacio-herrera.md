@@ -13,20 +13,8 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 tags: []
 ---
 
-<ul>
-    <li>
-    Holds a <strong>Digital Design degree</strong>,
-    <strong>self-taught developer</strong>, and
-    <strong>open source contributor</strong>.
-    </li>
-    <li>
-    Working with cross-functional product teams since 2010.
-    </li>
-    <li>
-    Organizer of the
-    <a href="https://www.meetup.com/JavaScript-Barcelona/">
-        JavaScript Barcelona Meetup
-    </a>
-    .
-    </li>
-</ul>
+- Holds a **Digital Design degree**,
+  **self-taught developer**, and
+  **open source contributor**.
+- Working with cross-functional product teams since 2010.
+- Organizer of the [JavaScript Barcelona Meetup](https://www.meetup.com/JavaScript-Barcelona/).

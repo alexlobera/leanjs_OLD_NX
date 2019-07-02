@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import Box from 'src/components/layout/Box'
+
+import Box from '../layout/Box'
 
 const P = styled(Box)`
   text-align: ${props => props.align || 'left'};

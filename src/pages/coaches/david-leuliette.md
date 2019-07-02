@@ -13,21 +13,9 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 tags: []
 ---
 
- <ul>
-    <li>
-    Focused on building <strong>memorable UX</strong> and
-    <strong>scalable User Interface</strong>.
-    </li>
-    <li>
-    Used to <strong>teach collaboration</strong> with GitHub,
-    <strong>bootstrapping web products</strong> and Growth
-    Hacking at University.
-    </li>
-    <li>
-    Organizer of the
-    <a href="https://www.meetup.com/FranceJS/">
-        ChtiJS Meetup
-    </a>
-    in France.
-    </li>
-</ul>
+- Focused on building **memorable UX** and
+  **scalable User Interface**.
+- Used to **teach collaboration** with GitHub,
+  **bootstrapping web products** and Growth
+  Hacking at University.
+- Organizer of the [ChtiJS Meetup](https://www.meetup.com/FranceJS/) in France.

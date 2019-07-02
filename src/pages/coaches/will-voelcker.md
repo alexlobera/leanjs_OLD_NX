@@ -11,16 +11,8 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 tags: []
 ---
 
-<ul>
-    <li>
-    Professional web <strong>developer since 2005</strong>.
-    </li>
-    <li>
-    <strong>Qualified teacher</strong>, experienced teaching in
-    a variety of settings.
-    </li>
-    <li>
-    Experience working for start-ups and international
-    corporations.
-    </li>
-</ul>
+- Professional web **developer since 2005**.
+- **Qualified teacher**, experienced teaching in
+  a variety of settings.
+- Experience working for start-ups and international
+  corporations.

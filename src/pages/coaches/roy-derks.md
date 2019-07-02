@@ -13,20 +13,12 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 tags: []
 ---
 
-<ul>
-    <li>
-    Develops products with <strong>React</strong>,
-    <strong>React Native</strong>, and <strong>GraphQL</strong>
-    for startups and non-profits.
-    </li>
-    <li>
-    Regularely talks on conferences about JavaScript and related
-    technologies such as <strong>ReasonML</strong>. Founded
-    multiple startups since the age of 16, hasn't stopped
-    working ever since.
-    </li>
-    <li>
-    Always looking at what's on the horizon and curious about
-    new technologies.
-    </li>
-</ul>
+- Develops products with **React**,
+  **React Native**, and **GraphQL**
+  for startups and non-profits.
+- Regularely talks on conferences about JavaScript and related
+  technologies such as **ReasonML**. Founded
+  multiple startups since the age of 16, hasn't stopped
+  working ever since.
+- Always looking at what's on the horizon and curious about
+  new technologies.

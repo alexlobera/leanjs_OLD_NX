@@ -16,17 +16,9 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 tags: []
 ---
 
-<ul>
-    <li>
-    Currently, a <strong>front-end engineer</strong> working
-    with <strong>React/Mobx</strong>.
-    </li>
-    <li>
-    Holds a degree in
-    <strong>computer science and social sciences</strong>,
-    interested in the social impact of technologies.
-    </li>
-    <li>
-    Always curious to learn new things and share it with others.
-    </li>
-</ul>
+- Currently, a **front-end engineer** working
+  with **React/Mobx**.
+- Holds a degree in
+  **computer science and social sciences**,
+  interested in the social impact of technologies.
+- Always curious to learn new things and share it with others.

@@ -12,17 +12,9 @@ imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appsp
 tags: []
 ---
 
- <ul>
-    <li>
-    Builds products with <strong>React</strong> and{' '}
-    <strong>GraphQL</strong>.
-    </li>
-    <li>
-    Currently finishing his degree in{' '}
-    <strong>Business and Information Systems</strong>.
-    </li>
-    <li>
-    Crazy about <strong>innovation</strong> and{' '}
-    <strong>structured solutions</strong>.
-    </li>
-</ul>
+- Builds products with **React** and
+  **GraphQL**.
+- Currently finishing his degree in
+  **Business and Information Systems**.
+- Crazy about **innovation** and
+  **structured solutions**.
