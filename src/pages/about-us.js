@@ -61,7 +61,7 @@ const AboutUs = ({ data }) => {
                     <H2>
                       Our coaches - professional developers who love to teach
                     </H2>
-                    <H3 pt={3}>The React GraphQL Academy coach values: </H3>
+                    <H3 pt={0}>The React GraphQL Academy coach values: </H3>
                     <Row>
                       <Col xs={5} sm={5} md={3}>
                         <Ul>
