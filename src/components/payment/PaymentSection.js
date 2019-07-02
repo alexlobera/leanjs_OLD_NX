@@ -126,7 +126,8 @@ class PaymentSection extends React.Component {
       title,
       priceGoesUpOn,
       discountPrice,
-      trainingType
+      trainingType,
+      notSoldOut = true
 
     if (trainingError || autoVoucherData.error) {
       title = 'There was an error'
@@ -140,6 +141,8 @@ class PaymentSection extends React.Component {
 
       if (trainingType === MEETUP) {
         eventId = training.id
+        const { ticketsLeft } = training
+        notSoldOut = !(ticketsLeft && parseInt(ticketsLeft) <= 0)
       } else {
         trainingInstanceId = training.id
       }
@@ -210,51 +213,57 @@ class PaymentSection extends React.Component {
           )}
           <Card small style={{ position: 'relative' }}>
             <H3>
-              <strong>{title}</strong>
+              <strong>{notSoldOut ? title : 'Sold out!'}</strong>
             </H3>
-            {discountPrice ? (
-              <Ribbon>
-                <strong>
-                  SAVE{' '}
-                  {formatPrice(
-                    currency,
-                    priceQuantity - currentPriceQuantity,
-                    vatRate
-                  )}
-                </strong>
-              </Ribbon>
-            ) : null}
-            {priceGoesUpOn > Date.now() ? (
+            {notSoldOut && (
               <React.Fragment>
-                <P>This price is only available for...</P>
-                <Countdown date={priceGoesUpOn} />
+                {discountPrice ? (
+                  <Ribbon>
+                    <strong>
+                      SAVE{' '}
+                      {formatPrice(
+                        currency,
+                        priceQuantity - currentPriceQuantity,
+                        vatRate
+                      )}
+                    </strong>
+                  </Ribbon>
+                ) : null}
+                {priceGoesUpOn > Date.now() ? (
+                  <React.Fragment>
+                    <P>This price is only available for...</P>
+                    <Countdown date={priceGoesUpOn} />
+                  </React.Fragment>
+                ) : null}
+                {parseInt(price, 10) > 0 && (
+                  <Checkout
+                    city={city}
+                    navigate={navigate}
+                    trainingInstanceId={trainingInstanceId}
+                    eventId={eventId}
+                    vatRate={vatRate}
+                    updateVatRate={this.updateVatRate}
+                    price={price}
+                    discountPrice={discountPrice}
+                    currency={currency}
+                    quantity={this.state.quantity}
+                    removeCourse={this.removeCourse}
+                    addCourse={this.addCourse}
+                    priceQuantity={priceQuantity}
+                    currentPriceQuantity={currentPriceQuantity}
+                    validateVoucher={this.validateVoucher}
+                    resetVoucher={this.resetVoucher}
+                    voucher={voucher}
+                    isVoucherValid={isVoucherValid}
+                    isVoucherValidationInProgress={
+                      isVoucherValidationInProgress
+                    }
+                    paymentApi={paymentApi}
+                    showSubscribeToNewsletter={showSubscribeToNewsletter}
+                    {...this.props}
+                  />
+                )}
               </React.Fragment>
-            ) : null}
-            {parseInt(price, 10) > 0 && (
-              <Checkout
-                city={city}
-                navigate={navigate}
-                trainingInstanceId={trainingInstanceId}
-                eventId={eventId}
-                vatRate={vatRate}
-                updateVatRate={this.updateVatRate}
-                price={price}
-                discountPrice={discountPrice}
-                currency={currency}
-                quantity={this.state.quantity}
-                removeCourse={this.removeCourse}
-                addCourse={this.addCourse}
-                priceQuantity={priceQuantity}
-                currentPriceQuantity={currentPriceQuantity}
-                validateVoucher={this.validateVoucher}
-                resetVoucher={this.resetVoucher}
-                voucher={voucher}
-                isVoucherValid={isVoucherValid}
-                isVoucherValidationInProgress={isVoucherValidationInProgress}
-                paymentApi={paymentApi}
-                showSubscribeToNewsletter={showSubscribeToNewsletter}
-                {...this.props}
-              />
             )}
           </Card>
         </React.Fragment>

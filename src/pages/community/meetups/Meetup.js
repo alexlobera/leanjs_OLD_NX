@@ -163,6 +163,7 @@ const MEETUP_QUERY = gql`
       utcOffset
       startDate
       endDate
+      ticketsLeft
     }
   }
 `
