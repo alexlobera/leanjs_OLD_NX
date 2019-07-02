@@ -52,7 +52,11 @@ exports[`<TermsOfService /> should render component 1`] = `
             >
               Transferring your place
             </Styled(Box)>
-            <styled.p>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               We’ll happily transfer your place to a lucky colleague if you need to. Please let us know as soon as possible – email
                
               <Link
@@ -61,10 +65,14 @@ exports[`<TermsOfService /> should render component 1`] = `
                 hello@reactgraphql.academy
               </Link>
               .
-            </styled.p>
-            <styled.p>
+            </Styled(Box)>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               If for any reason you can’t attend at all, you’ll need to let us know no later than 15 days before the date of the event or workshop. Refunds will not be made after this date.
-            </styled.p>
+            </Styled(Box)>
           </Section>
           <Section>
             <Styled(Box)
@@ -77,12 +85,20 @@ exports[`<TermsOfService /> should render component 1`] = `
             >
               Payment terms & re-sale
             </Styled(Box)>
-            <styled.p>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               All tickets must be paid for within 14 days of an order being placed or by the date of the event, whichever is sooner.
-            </styled.p>
-            <styled.p>
+            </Styled(Box)>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               Re-sale of tickets is not permitted.
-            </styled.p>
+            </Styled(Box)>
           </Section>
           <Section>
             <Styled(Box)
@@ -95,12 +111,20 @@ exports[`<TermsOfService /> should render component 1`] = `
             >
               Cancelation and refunds
             </Styled(Box)>
-            <styled.p>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               You need to let us know no later than 15 days before the date of the event or workshop that you want to cancel your ticket in order to get a full refund.
-            </styled.p>
-            <styled.p>
+            </Styled(Box)>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               We can cancel any event or workshop 15 days before the date of the event or workshop. We will notify you by email to the address that you have provided us during the registration process.
-            </styled.p>
+            </Styled(Box)>
           </Section>
           <Section>
             <Styled(Box)
@@ -113,9 +137,13 @@ exports[`<TermsOfService /> should render component 1`] = `
             >
               Photos & footage
             </Styled(Box)>
-            <styled.p>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               We occasionally photograph our training workshops, and by registering you give us permission to use any images or footage taken of you on the day. We also reserve the right to reproduce quotes and feedback which will be fully credited.
-            </styled.p>
+            </Styled(Box)>
           </Section>
           <Section>
             <Styled(Box)
@@ -128,9 +156,13 @@ exports[`<TermsOfService /> should render component 1`] = `
             >
               Accessibility
             </Styled(Box)>
-            <styled.p>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               We aim to choose venues that are fully accessible. If you have any accessibility requirements you think we should be aware of, please let us know at the point of registering so that we can ensure we meet your needs and have someone on hand to assist you if required.
-            </styled.p>
+            </Styled(Box)>
           </Section>
           <Section>
             <Styled(Box)
@@ -143,11 +175,15 @@ exports[`<TermsOfService /> should render component 1`] = `
             >
               Company information
             </Styled(Box)>
-            <styled.p>
+            <Styled(Box)
+              lineHeight={2}
+              m={0}
+              pb={3}
+            >
               Registered in England and Wales No. 09797580
               <br />
               Registered VAT number: 256 5475 77
-            </styled.p>
+            </Styled(Box)>
           </Section>
         </Styled(Col)>
       </Row>
