@@ -1,4 +1,5 @@
 import React from 'react'
+import { Match } from '@reach/router'
 import Helmet from 'react-helmet'
 
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
@@ -21,16 +22,26 @@ import { BOOTCAMP_RIGHT } from 'src/config/images'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { Breadcrumb } from 'src/components/navigation'
+import Meetup from './Meetup'
 
-const Community = () => (
+export const MEETUP_PATH = '/community/meetups/:id'
+
+const IndexPage = () => (
+  <Match path={MEETUP_PATH}>
+    {({ match }) =>
+      match && match.id ? <Meetup instanceId={match.id} /> : <Meetups />
+    }
+  </Match>
+)
+
+const Meetups = () => (
   <Layout>
     {({ trainings }) => {
-      const upcomingBootcamps = selectUpcomingTrainings({
+      const upcomingMeetups = selectUpcomingTrainings({
         trainings,
         type: MEETUP,
       })
-      const nextMeetup =
-        selectNthTraining({ trainings: upcomingBootcamps }) || {}
+      const nextMeetup = selectNthTraining({ trainings: upcomingMeetups }) || {}
       const nextMeetupStartDate =
         nextMeetup &&
         formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
@@ -91,7 +102,7 @@ const Community = () => (
                   <UpcomingTrainingSection
                     curriculum
                     removeAdditionalCTAs
-                    trainings={upcomingBootcamps}
+                    trainings={upcomingMeetups}
                   />
                   <H3>Our groups</H3>
                   <Row>
@@ -182,4 +193,4 @@ const Community = () => (
   </Layout>
 )
 
-export default Community
+export default IndexPage

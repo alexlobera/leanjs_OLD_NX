@@ -40,6 +40,12 @@
         "destination": "https://reactgraphql.academy/community/meetups/5ce811c728bf226ebe872d74/",
         "type": 301
       }
+    ],
+    "rewrites": [
+      {
+        "source": "/community/meetups/**",
+        "destination": "/community/meetups/Meetup/index.html"
+      }
     ]
   },
   "storage": {

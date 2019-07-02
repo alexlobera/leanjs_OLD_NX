@@ -4,7 +4,6 @@ import { P } from '../text'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
 import { selectTypeColor, selectBorderStyle } from '../utils'
-import { MEETUP, ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
 
 const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
@@ -30,26 +29,13 @@ const Calendar = styled(Link)`
   line-height: normal;
 `
 
-const selectTitle = ({ type, description, venueName }) => {
-  switch (type) {
-    case MEETUP:
-      return venueName
-    case ONE_DAY_WORKSHOP:
-    case REACT_WORKSHOP:
-      return description.title
-    default:
-      return type
-  }
-}
-
 const TrainingItem = ({
   type,
-  description,
+  title,
   cityCountry,
   startDay,
   startMonth,
   path,
-  venueName = '',
 }) => (
   <React.Fragment>
     <TrainingRow>
@@ -62,7 +48,7 @@ const TrainingItem = ({
       </TrainingItemCol>
       <TrainingItemCol xs={7} md={7}>
         <P>
-          {selectTitle({ type, description, venueName })}
+          {title}
           <br />
           {cityCountry}
           <br />

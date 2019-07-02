@@ -45,8 +45,6 @@ const createTrainingPath = ({ type, city = '', index, id, slug }) => {
       return `/graphql/training/api/${city.toLowerCase()}/${i}`
     case GRAPHQL_CLIENT:
       return `/graphql/training/workshops/graphql-apollo-client/${city.toLowerCase()}/${i}`
-    case MEETUP:
-      return `/community/meetups/${id}`
     case ONE_DAY_WORKSHOP:
       return `/react/training/workshops/${slug}/${city.toLowerCase()}`
     case REACT_WORKSHOP:
@@ -79,8 +77,7 @@ export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
     : trainings
   return typeTrainings.length ? typeTrainings[nth - 1] : undefined
 }
-const trainingByType = type => training =>
-  !type || training.training.type === type
+const trainingByType = type => training => !type || training.type === type
 
 const trainingByCity = city => training => !city || training.city === city
 
@@ -95,7 +92,9 @@ export const getUpcomingTrainingsByType = ({
 }) => {
   const filteredTrainings = types
     .flatMap(type => trainings.filter(trainingByType(type)))
-    .filter(training => training.training.id !== excludeTrainingId)
+    .filter(
+      ({ training = {} }) => !training.id || training.id !== excludeTrainingId
+    )
   return first ? filteredTrainings.slice(0, first) : filteredTrainings
 }
 
@@ -115,18 +114,30 @@ export const selectUpcomingTrainings = ({
   return filteredTrainings
 }
 
+function formatMeetup({ node }) {
+  return {
+    ...node,
+    type: MEETUP,
+    toPath: `/community/meetups/${node.id}`,
+    image: selectLocationImage({ city: node.city }),
+  }
+}
+
 const UpcomingTrainings = ({ type, city, limit, children }) => (
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
       const formatTraining = ({ node }) => {
-        const { type, slug } = node.training
-        const { city, id } = node
+        const { type, slug, description } = node.training || {}
+        const { title = '' } = description || {}
+        const { city = '', id } = node
         const key = `${city}${type}`
         cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
         return {
           ...node,
+          title,
+          type,
           toPath: createTrainingPath({
             type,
             city,
@@ -143,9 +154,14 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
           ? data.trainingInstancesConnection.edges.map(formatTraining)
           : []
 
+      const meetups =
+        !error && !loading && data.eventsConnection
+          ? data.eventsConnection.edges.map(formatMeetup)
+          : []
+
       return children({
         trainings: selectUpcomingTrainings({
-          trainings,
+          trainings: [...trainings, ...meetups],
           type,
           city,
           limit,
