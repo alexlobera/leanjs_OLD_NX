@@ -20,6 +20,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             mdOffset={1}
           >
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -27,6 +28,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
               Here at ReactGraphQL.Academy, we take your privacy seriously and are always aiming to ensure your personal information is kept safe. We aim to instill trust in everything that we do and give you the best quality experience with us.
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -157,6 +159,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             What information of mine is being collected?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -177,6 +180,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Who is collecting my information?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -205,6 +209,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             How are my details collected?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -226,6 +231,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Why is it collected?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -246,6 +252,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             How is my information used?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -253,6 +260,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Using your email as the primary way of setting up the account means that, whatever happens - issues with your account, important notifications about our service etc - we have a means of contacting you.
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -260,6 +268,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Another key reason for collecting your email is to confirm your attendance at one of the trainings you have shown interest in attending. These communications will not be unsolicited and only initiated if you have indicated you’d like to receive them. These communications could be, but not excluded to, the following: Confirmation of event/training ticket purchase Reminder of upcoming events/training
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -294,6 +303,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Who will my information be shared with?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -301,6 +311,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Your information security is very important to us so we will never share your personal details with third parties without your consent.
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -316,6 +327,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Third party training providers
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -324,6 +336,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
              
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -331,6 +344,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             For example, we hold many training events at third party venues and to ensure you are allowed to enter the building, your details will be sent to them to create a vistors list.
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -346,6 +360,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Our hosting providers
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -383,6 +398,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             How long will my details be kept for?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -403,6 +419,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             What will be the effect of GDPR regulations to me?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -423,6 +440,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             How do I remove my details from your servers?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -451,6 +469,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             What are cookies and what do they do with my information?
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -466,6 +485,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             .
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -487,6 +507,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             </styled.li>
           </styled.ul>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -494,6 +515,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             You may refuse the use of these cookies by selecting the appropriate settings on your browser, but please be aware that doing so may affect the functionality of ReactGraphQL.Academy.
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -509,6 +531,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Google Analytics
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}
@@ -532,6 +555,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             Stripe
           </Styled(Box)>
           <Styled(Box)
+            box="p"
             lineHeight={2}
             m={0}
             pb={3}

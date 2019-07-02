@@ -53,6 +53,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               Transferring your place
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -67,6 +68,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               .
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -86,6 +88,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               Payment terms & re-sale
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -93,6 +96,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               All tickets must be paid for within 14 days of an order being placed or by the date of the event, whichever is sooner.
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -112,6 +116,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               Cancelation and refunds
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -119,6 +124,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               You need to let us know no later than 15 days before the date of the event or workshop that you want to cancel your ticket in order to get a full refund.
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -138,6 +144,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               Photos & footage
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -157,6 +164,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               Accessibility
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}
@@ -176,6 +184,7 @@ exports[`<TermsOfService /> should render component 1`] = `
               Company information
             </Styled(Box)>
             <Styled(Box)
+              box="p"
               lineHeight={2}
               m={0}
               pb={3}

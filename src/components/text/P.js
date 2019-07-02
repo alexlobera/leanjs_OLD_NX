@@ -13,5 +13,7 @@ P.defaultProps = {
   m: 0,
   lineHeight: 2,
   pb: 3,
+  box: 'p',
 }
+
 export default P
