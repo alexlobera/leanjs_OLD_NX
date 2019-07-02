@@ -120,12 +120,14 @@ class PaymentSection extends React.Component {
       financeAvailable,
     } = this.props
     let trainingInstanceId,
+      eventId,
       price = 0,
       currency,
       title,
       priceGoesUpOn,
       discountPrice,
       trainingType
+
     if (trainingError || autoVoucherData.error) {
       title = 'There was an error'
     } else if (trainingLoading || autoVoucherData.loading) {
@@ -134,10 +136,15 @@ class PaymentSection extends React.Component {
       title = 'There is no training scheduled'
     } else {
       title = 'Standard priced ticket'
-      trainingInstanceId = training.id
+      trainingType = training.type
+
+      if (trainingType === MEETUP) {
+        eventId = training.id
+      } else {
+        trainingInstanceId = training.id
+      }
       price = training.price
       currency = training.currency || 'gbp'
-      trainingType = training.training.type
 
       const discount =
         autoVoucherData.trainingInstance &&
@@ -228,6 +235,7 @@ class PaymentSection extends React.Component {
                 city={city}
                 navigate={navigate}
                 trainingInstanceId={trainingInstanceId}
+                eventId={eventId}
                 vatRate={vatRate}
                 updateVatRate={this.updateVatRate}
                 price={price}
@@ -279,7 +287,7 @@ const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {
   options: ({ training }) => ({
     variables: { trainingInstanceId: training.id },
   }),
-  skip: ({ training }) => !training || !training.id,
+  skip: ({ training }) => !training || !training.id || training.type === MEETUP,
 })
 
 export default compose(

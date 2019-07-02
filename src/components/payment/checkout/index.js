@@ -44,6 +44,7 @@ class Checkout extends React.Component {
   render() {
     const {
       trainingInstanceId,
+      eventId,
       price,
       discountPrice,
       currency,
@@ -105,6 +106,7 @@ class Checkout extends React.Component {
             city={city}
             navigate={navigate}
             trainingInstanceId={trainingInstanceId}
+            eventId={eventId}
             vatRate={vatRate}
             updateVatRate={updateVatRate}
             currency={currency}
@@ -137,7 +139,8 @@ Checkout.defaultProps = {
 
 Checkout.propTypes = {
   navigate: PropTypes.func.isRequired,
-  trainingInstanceId: PropTypes.string.isRequired,
+  trainingInstanceId: PropTypes.string,
+  eventId: PropTypes.string,
   vatRate: PropTypes.number.isRequired,
   updateVatRate: PropTypes.func.isRequired,
   currency: PropTypes.string.isRequired,

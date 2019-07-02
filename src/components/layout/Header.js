@@ -256,6 +256,7 @@ const Header = ({
       const endDate =
         training.endDate &&
         formatUTC(training.endDate, training.utcOffset, 'D MMM')
+      console.log('adsfasdfasdfasdf', training)
       return (
         <React.Fragment>
           {bgImage && width > SMALL && (

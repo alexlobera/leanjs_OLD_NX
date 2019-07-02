@@ -4,6 +4,8 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
+import { space, border, shadow } from 'styled-system'
+
 import { FONT_FAMILY } from '../../config/styles'
 import { DARK_GREY } from '../../config/styles'
 import Box from '../layout/Box'
@@ -27,6 +29,9 @@ export const ANCHOR_STYLE = css`
 
 const StyledLink = styled(Box)`
   ${ANCHOR_STYLE};
+  ${space}
+  ${border}
+  ${shadow}
 `
 
 export const styleChildLinkColor = color => `

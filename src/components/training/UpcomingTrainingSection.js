@@ -68,10 +68,9 @@ export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
           cityCountry={training.cityCountry}
           startDay={dayMonth[0]}
           startMonth={dayMonth[1]}
-          type={training.training && training.training.type}
-          description={training.training && training.training.description}
+          type={training.type}
+          title={training.title}
           path={training.toPath}
-          venueName={training.venueName}
         />
       )
       return (

@@ -9,8 +9,6 @@ import {
   buttonVariantProps,
   buttonDefaultProps,
 } from './Button'
-// Richard are we using this trackUserBehaviourProp on Google Analytics or Google Tag Manager?
-// import trackUserBehaviour, { CLICK_ON_CTA } from '../utils/trackUserBehaviour'
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
 const fontColor = css`
@@ -18,7 +16,7 @@ const fontColor = css`
     const color = props.color
 
     return `
-    text-shadow: 0px 0px 1px ${color} !important;
+    color: ${color};
     &:link {
       color: ${color} !important;
     }
@@ -65,18 +63,6 @@ const LinkButton = ({
   <StyledLinkButton
     {...props}
     {...(variant ? buttonVariantProps[variant] : {})}
-    // Richard are we using this trackUserBehaviourProp on Google Analytics or Google Tag Manager?
-    // onClick={e => {
-    //   if (props.variant === 'primary') {
-    //     trackUserBehaviourProp({
-    //       event: CLICK_ON_CTA,
-    //       payload: {
-    //         to: props.to || 'Not Provided',
-    //       },
-    //     })
-    //   }
-    //   props.onClick && props.onClick(e)
-    // }}
   >
     {props.pdf ? <PdfDownload /> : null}
     {props.external ? (
@@ -91,8 +77,6 @@ LinkButton.propTypes = {
 }
 
 LinkButton.defaultProps = {
-  // Richard are we using this trackUserBehaviourProp on Google Analytics or Google Tag Manager?
-  // trackUserBehaviour,
   ...buttonDefaultProps,
 }
 
