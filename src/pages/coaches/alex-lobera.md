@@ -15,14 +15,6 @@ videoDescription: Alex talking about advanced testing at Facebook London HQ
 tags: ['advanced']
 ---
 
-<ul>
-    <li>
-      Full-stack JavaScript Developer passionate about <strong>teaching React since <a href="https:/www.meetup.com/JavaScript-London/events/230287691/">May, 2016</a></strong>.
-   </li>
-   <li>
-     Alex holds a <strong>computer science degree</strong> and he is also a <strong>certified teacher</strong> in Spanish language.
-  </li>
-  <li>
-     Organizer of the <a href="https://www.meetup.com/JavaScript-london/">JavaScript London Meetup</a> and other popular meetups in the EU.
-   </li>
-</ul>
+- Full-stack JavaScript Developer passionate about <strong>teaching React since <a href="https:/www.meetup.com/JavaScript-London/events/230287691/">May, 2016</a></strong>.
+- Alex holds a <strong>computer science degree</strong> and he is also a <strong>certified teacher</strong> in Spanish language.
+- Organizer of the <a href="https://www.meetup.com/JavaScript-london/">JavaScript London Meetup</a> and other popular meetups in the EU.

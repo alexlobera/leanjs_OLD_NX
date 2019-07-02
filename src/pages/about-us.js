@@ -1,6 +1,7 @@
 /* eslint no-undef: 0 */
 import React from 'react'
 import { graphql } from 'gatsby'
+import { typography } from 'styled-system'
 
 import Layout from '../components/layout'
 import styled from 'styled-components'
@@ -23,15 +24,9 @@ import LeanJSsprints from '../components/elements/LeanJSsprints'
 import Box from '../components/layout/Box'
 import { GREY } from '../config/styles.js'
 
-const CoachProfiles = styled(Box)`
-  h5 {
-    margin-bottom: 0.5rem;
-  }
-`
-
 const CoachQuote = styled(Box)`
   border-left: 7px solid ${GREY};
-  font-style: italic;
+  ${typography}
 `
 
 const CoachName = styled(Box)``
@@ -124,7 +119,7 @@ const AboutUs = ({ data }) => {
                   }) => (
                     <React.Fragment>
                       <Col md={4}>
-                        <CoachProfiles mr={5} mb={5} pb={5}>
+                        <Box mr={5} mb={5} pb={5}>
                           <Row>
                             <Col md={4}>
                               <Image
@@ -136,7 +131,7 @@ const AboutUs = ({ data }) => {
                             </Col>
                             <Col md={8}>
                               <CoachName>
-                                <H5>{name}</H5>
+                                <H5 mb={1}>{name}</H5>
                                 <P>
                                   {title} at{' '}
                                   <Link to={companyLink}>{companyName}</Link>
@@ -145,13 +140,13 @@ const AboutUs = ({ data }) => {
                             </Col>
                           </Row>
                           <CoachQuote mt={3} pl={3}>
-                            <P>
+                            <P fontStyle="italic">
                               {blockquote}
                               <br />
                               <Link to={slug}>Full profile</Link>
                             </P>
                           </CoachQuote>
-                        </CoachProfiles>
+                        </Box>
                       </Col>
                     </React.Fragment>
                   )
