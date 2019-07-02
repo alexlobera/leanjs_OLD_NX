@@ -16,9 +16,6 @@ import Header from '../components/layout/Header'
 import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Card, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
-import trackUserBehaviour, {
-  SOCIAL_NETWORK_LINK_CLICK,
-} from '../components/utils/trackUserBehaviour'
 import { SCREEN_SM_MAX } from '../components/utils'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
 import Box from '../components/layout/Box'
@@ -28,8 +25,6 @@ const CoachQuote = styled(Box)`
   border-left: 7px solid ${GREY};
   ${typography}
 `
-
-const CoachName = styled(Box)``
 
 const BecomeACoachWrapper = styled.div`
   @media (max-width: ${SCREEN_SM_MAX}) {
@@ -66,9 +61,7 @@ const AboutUs = ({ data }) => {
                     <H2>
                       Our coaches - professional developers who love to teach
                     </H2>
-                    <H3 style={{ paddingTop: 0 }}>
-                      The React GraphQL Academy coach values:{' '}
-                    </H3>
+                    <H3 pt={3}>The React GraphQL Academy coach values: </H3>
                     <Row>
                       <Col xs={5} sm={5} md={3}>
                         <Ul>
@@ -130,13 +123,13 @@ const AboutUs = ({ data }) => {
                               />
                             </Col>
                             <Col md={8}>
-                              <CoachName>
+                              <Box>
                                 <H5 mb={1}>{name}</H5>
                                 <P>
                                   {title} at{' '}
                                   <Link to={companyLink}>{companyName}</Link>
                                 </P>
-                              </CoachName>
+                              </Box>
                             </Col>
                           </Row>
                           <CoachQuote mt={3} pl={3}>
