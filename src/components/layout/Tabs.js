@@ -138,23 +138,12 @@ export const TabItem = ({
 }
 TabItem.displayName = 'TabItem'
 
-export const TabContent = ({
-  active,
-  children,
-  // wrapperComponent: WrapperComponent,
-  // ...rest
-}) => {
-  return React.Children.map(children, child =>
+export const TabContent = ({ active, children }) =>
+  React.Children.map(children, child =>
     React.cloneElement(child, {
       isActive: child.props.name === active,
     })
   )
-  // if (WrapperComponent) {
-  //   return <WrapperComponent {...rest}>{newChildren}</WrapperComponent>
-  // } else {
-  //   return newChildren
-  // }
-}
 
 TabContent.displayName = 'TabContent'
 

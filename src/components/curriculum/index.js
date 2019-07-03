@@ -8,7 +8,6 @@ import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
 import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 import FullCurriculumsReact from './FullCurriculumsReact'
 import CurriculumCorporateReact from './CurriculumCorporateReact'
-// import FullCurriculum fro./DEPRECATED_FullCurriculumlum'
 import CurriculumReactFundamentals from './CurriculumReactFundamentals'
 import CurriculumGraphQLWorkshops from './CurriculumGraphQLWorkshops'
 import FullCurriculumsGraphQL from './FullCurriculumsGraphQL'
@@ -24,7 +23,6 @@ export {
   CurriculumCorpRNative,
   FullCurriculumsReact,
   CurriculumCorporateReact,
-  // FullCurriculum,
   CurriculumReactFundamentals,
   CurriculumGraphQLWorkshops,
   FullCurriculumsGraphQL,
