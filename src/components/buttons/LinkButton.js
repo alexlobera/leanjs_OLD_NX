@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { typography, shadow } from 'styled-system'
 
 import Link from '../navigation/Link'
 import {
@@ -35,9 +34,8 @@ const fontColor = css`
 const StyledLinkButton = styled(Link)`
   text-decoration: none;
   ${defaultButtonStyle}
-  ${fontColor}
   ${props => props.external && 'justify-content: space-evenly;'};
-  ${props => props.margin && 'margin-top: 2rem'} 
+  ${props => props.margin && 'margin-top: 2rem'}
   ${props =>
     props.pdf &&
     `
@@ -48,8 +46,7 @@ const StyledLinkButton = styled(Link)`
     justify-content: space-evenly;
     align-items: center;
     `}
-  ${typography}
-  ${shadow}
+    ${fontColor}
 `
 
 StyledLinkButton.displayName = 'StyledLinkButton'
@@ -61,6 +58,7 @@ const LinkButton = ({
   ...props
 }) => (
   <StyledLinkButton
+    role="button"
     {...props}
     {...(variant ? buttonVariantProps[variant] : {})}
   >

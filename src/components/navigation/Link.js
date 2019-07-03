@@ -13,16 +13,9 @@ export const DEFAULT_SCROLL_DURATION = 500
 
 export const ANCHOR_STYLE = css`
   cursor: pointer;
-  color: blue;
   text-decoration: ${({ underline = true }) =>
     underline ? 'underline' : 'none'};
-  font-size: 1rem;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.5;
-  color: ${DARK_GREY};
   text-shadow: 0px 0px 1px ${DARK_GREY};
-  ${FONT_FAMILY}
 `
 
 const StyledLink = styled(Box)`
@@ -30,7 +23,7 @@ const StyledLink = styled(Box)`
 `
 
 export const styleChildLinkColor = color => `
-  a {
+  a:not([role='button']) {
     color: ${color};
     text-shadow: 0px 0px 1px ${color};
   }

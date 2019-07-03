@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { space } from 'styled-system'
+
 import { BLUE, FONT_FAMILY } from '../../config/styles'
 import {
   SCREEN_XS_MAX,
@@ -14,10 +16,9 @@ import {
   GRAPHQL_BOOTCAMP,
 } from '../../config/data'
 import { Col, Row } from './Grid'
+import Box from './Box'
 
-const Ul = styled.ul`
-  margin: 0 0 32px 0;
-  padding: 0;
+const Ul = styled(Box)`
   a {
     cursor: pointer;
   }
@@ -27,14 +28,13 @@ const Ul = styled.ul`
     span,
     a {
       display: block;
-      padding: 8px;
-      ${FONT_FAMILY};
+      ${space({ p: 2 })}
     }
   }
 
   @media (min-width: ${SCREEN_SM_MIN}) {
     li {
-      margin: 0 8px;
+      ${space({ mx: 2 })}
       :last-child {
         margin-right: 0;
       }
@@ -50,8 +50,14 @@ const Ul = styled.ul`
     }
   }
 `
+Ul.defaultProps = {
+  box: 'ul',
+  p: 0,
+  m: 0,
+  mb: 4,
+}
 
-export const TabList = ({ active, setActive, onChange, children, offset }) => {
+export const TabList = ({ active, setActive, onChange, children, ...rest }) => {
   const compound = React.Children.map(children, child =>
     React.cloneElement(child, {
       isActive: child.props.name === active,
@@ -64,23 +70,17 @@ export const TabList = ({ active, setActive, onChange, children, offset }) => {
     })
   )
   return (
-    <React.Fragment>
-      {offset ? (
-        <Row>
-          <Col lgOffset={1}>
-            <Ul>{compound}</Ul>
-          </Col>
-        </Row>
-      ) : (
-        <Ul>{compound}</Ul>
-      )}
-    </React.Fragment>
+    <Row>
+      <Col {...rest}>
+        <Ul {...rest}>{compound}</Ul>
+      </Col>
+    </Row>
   )
 }
 
 TabList.displayName = 'TabList'
 
-const Li = styled.li`
+const A = styled.a`
   ${props =>
     props.isActive
       ? `
@@ -94,8 +94,6 @@ const Li = styled.li`
       background: ${selectTypeColor(props.name)};
     `
       : ''};
-`
-const A = styled.a`
   ${props =>
     `border-bottom: 3px ${selectBorderStyle(props.name)} ${selectTypeColor(
       props.name
@@ -113,36 +111,50 @@ const A = styled.a`
   }};
 `
 
-export const TabItem = ({ children, isActive, onClick, name, ...props }) => (
-  <Li isActive={isActive} name={name}>
-    <A
-      isActive={isActive}
-      name={name}
-      {...props}
-      onClick={e => {
-        e.preventDefault()
-        onClick && onClick()
-      }}
-    >
-      {children}
-    </A>
-  </Li>
-)
+export const TabItem = ({
+  children,
+  isActive,
+  onClick,
+  name,
+  component,
+  ...props
+}) => {
+  const Component = component || A
+  return (
+    <li name={name}>
+      <Component
+        isActive={isActive}
+        name={name}
+        {...props}
+        onClick={e => {
+          e.preventDefault()
+          onClick && onClick()
+        }}
+      >
+        {children}
+      </Component>
+    </li>
+  )
+}
 TabItem.displayName = 'TabItem'
 
-export const TabLabel = ({ isActive, children, ...props }) => (
-  <Li>
-    <span {...props}>{children}</span>
-  </Li>
-)
-TabLabel.displayName = 'TabLabel'
-
-export const TabContent = ({ active, children }) =>
-  React.Children.map(children, child =>
+export const TabContent = ({
+  active,
+  children,
+  // wrapperComponent: WrapperComponent,
+  // ...rest
+}) => {
+  return React.Children.map(children, child =>
     React.cloneElement(child, {
       isActive: child.props.name === active,
     })
   )
+  // if (WrapperComponent) {
+  //   return <WrapperComponent {...rest}>{newChildren}</WrapperComponent>
+  // } else {
+  //   return newChildren
+  // }
+}
 
 TabContent.displayName = 'TabContent'
 
@@ -156,7 +168,7 @@ export class Tabs extends React.Component {
     super(props)
 
     this.state = {
-      active: props.active,
+      active: props.defaultValue || props.active,
     }
   }
 
@@ -168,12 +180,11 @@ export class Tabs extends React.Component {
     const { active } = this.state
     const { setActive } = this
     const { onChange, active: activeProp } = this.props
-
     return React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
         active: activeProp || active,
         setActive,
-        onChange,
+        onChange: onChange || this.setActive,
       })
     )
   }
