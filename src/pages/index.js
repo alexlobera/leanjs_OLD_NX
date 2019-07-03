@@ -53,7 +53,7 @@ const StyledTabItem = styled(Link)`
     box-shadow: 5px -5px 15px -5px rgba(0, 0, 0, 0.26);
   }
   position: relative;
-  z-index: 99;
+  z-index: 1;
   border-bottom: none;
   text-decoration: none;
 `
