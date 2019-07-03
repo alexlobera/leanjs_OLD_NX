@@ -7,14 +7,13 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumBootcamp } from 'src/components/curriculum'
+import { CurriculumReactBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
-  AttendeeQuote,
   TrainingDetails,
   HORACIO_HERRERA,
   WILL_VOELCKER,
@@ -22,13 +21,32 @@ import {
   RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP, LONDON } from 'src/config/data'
+import {
+  REACT_BOOTCAMP,
+  ONE_DAY_WORKSHOP,
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_BOOTCAMP,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'React Bootcamp in London | React GraphQL Academy',
+  description:
+    'Interested in a React London bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp London.',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -42,16 +60,34 @@ const BootcampLondon = () => (
         trainings: bootCampTrainings,
         nth: 3,
       })
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [
+          ONE_DAY_WORKSHOP,
+          GRAPHQL_API,
+          GRAPHQL_CLIENT,
+          GRAPHQL_BOOTCAMP,
+        ],
+      })
       return (
         <React.Fragment>
           <Helmet
+            title={metas.title}
             link={[
               {
                 rel: 'canonical',
                 href: `https://reactgraphql.academy/react/training/bootcamp/london`,
               },
             ]}
-          />
+            meta={[
+              {
+                name: 'description',
+                content: metas.description,
+              },
+            ]}
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -85,6 +121,7 @@ const BootcampLondon = () => (
                       training={training}
                       trainingError={trainingError}
                       trainingLoading={trainingLoading}
+                      financeAvailable
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
@@ -102,6 +139,18 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </TopSection>
+          <Section>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumReactBootcamp layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
           <Section>
             <Grid>
               <Row>
@@ -155,29 +204,13 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
+                  <AlternativeTrainings trainings={crossSellTrainings} />
                 </Col>
               </Row>
             </Grid>
           </Section>
+          <BlogSection tags={['react', 'beginner']} />
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumBootcamp layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

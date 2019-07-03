@@ -24,6 +24,16 @@ import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTra
 import { OLU } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
 import { ADVANCED_REACT } from 'src/config/data'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'Advanced React Training | React GraphQL Academy',
+  description:
+    'Interested in advanced React? Learn advanced React patterns and supercharge your dev skillset with the latest in advanced React trianing. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const AdvancedTraining = () => (
   <Layout>
@@ -38,15 +48,16 @@ const AdvancedTraining = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Advanced React Training"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Advanced React Training - master advanced React in a few days',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -93,22 +104,7 @@ const AdvancedTraining = () => (
                 <Col md={5} mdOffset={1}>
                   <H2>Is this advanced React training right for me?</H2>
                   <Ul>
-                    <Li>Extremely rapid, intense learning</Li>
-                    <Li>
-                      Ideal for{' '}
-                      <strong>
-                        React developers with 1+ year of profesional experience
-                      </strong>
-                      . Not for React beginners!
-                    </Li>
-                    <Li>
-                      Small classes with expert developer coaches - roughly one
-                      for every four students
-                    </Li>
-                    <Li>
-                      Hands-on project-based training - most of the time you'll
-                      be coding.
-                    </Li>
+                    <CurriculumAdvancedReact.TargetAudienceList />
                     <Li>
                       Join a growing network of alumni for advice, knowledge and
                       social fun!

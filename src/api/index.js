@@ -1,6 +1,12 @@
 import trackUserBehaviour from '../components/utils/trackUserBehaviour'
 
-export const triggerSessionSubscribe = ({ name, email, subscriptions }) =>
+export const triggerSessionSubscribe = ({
+  name,
+  email,
+  subscriptions,
+  resources = false,
+  pathname = '1-day workshops form',
+}) =>
   fetch(
     `https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/sessionSubscribe`,
     {
@@ -12,6 +18,8 @@ export const triggerSessionSubscribe = ({ name, email, subscriptions }) =>
         name,
         email,
         subscriptions,
+        resources,
+        pathname,
       }),
     }
   ).then(() => {
@@ -38,7 +46,12 @@ export const triggerUnsubscribe = ({ email }) =>
     })
   })
 
-export const triggerSubscribe = ({ email, pathname = 'footer' }) =>
+export const triggerSubscribe = ({
+  email,
+  pathname = 'footer',
+  city = 'unknown',
+  resources = true,
+}) =>
   fetch(
     `https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/subscribe`,
     {
@@ -49,6 +62,8 @@ export const triggerSubscribe = ({ email, pathname = 'footer' }) =>
       body: JSON.stringify({
         email,
         pathname,
+        city,
+        resources,
       }),
     }
   ).then(() => {

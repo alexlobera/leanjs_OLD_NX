@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { P } from '../text'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
-import { selectTypeColor } from '../utils'
-import { MEETUP, ONE_DAY_WORKSHOP } from '../../config/data'
+import { selectTypeColor, selectBorderStyle } from '../utils'
 
 const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
@@ -15,7 +14,10 @@ const TrainingRow = styled(Row)`
 `
 
 const Calendar = styled(Link)`
-  border: 3px solid ${props => selectTypeColor(props.type)};
+  ${props =>
+    `border: 3px ${selectBorderStyle(props.type)} ${selectTypeColor(
+      props.type
+    )};`}
   padding: 10px;
   font-family: barlow;
   display: flex;
@@ -27,29 +29,17 @@ const Calendar = styled(Link)`
   line-height: normal;
 `
 
-const selectTitle = ({ type, description, venueName }) => {
-  switch (type) {
-    case MEETUP:
-      return venueName
-    case ONE_DAY_WORKSHOP:
-      return description.title
-    default:
-      return type
-  }
-}
-
 const TrainingItem = ({
   type,
-  description,
+  title,
   cityCountry,
   startDay,
   startMonth,
   path,
-  venueName = '',
 }) => (
   <React.Fragment>
     <TrainingRow>
-      <TrainingItemCol xs={5} md={3}>
+      <TrainingItemCol xs={5} md={4}>
         <Calendar type={type} to={path}>
           {startDay}
           <br />
@@ -58,7 +48,7 @@ const TrainingItem = ({
       </TrainingItemCol>
       <TrainingItemCol xs={7} md={7}>
         <P>
-          {selectTitle({ type, description, venueName })}
+          {title}
           <br />
           {cityCountry}
           <br />

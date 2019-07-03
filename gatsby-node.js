@@ -40,6 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       const blogPaths = /(\/blog\/|\/react\/|\/graphql\/)/g
       const meetupPath = /meetup/
+      const coachPath = /coaches/
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         if (node.fields.slug.match(blogPaths)) {
           createPage({
@@ -53,6 +54,14 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/meetup.js`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        } else if (node.fields.slug.match(coachPath)) {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/coach.js`),
             context: {
               slug: node.fields.slug,
             },

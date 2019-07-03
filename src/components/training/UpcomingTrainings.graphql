@@ -1,4 +1,21 @@
 query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
+  eventsConnection(
+    filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
+    orderBy: { sort: startDate, direction: ASC }
+  ) {
+    edges {
+      node {
+        id
+        title
+        startDate
+        utcOffset
+        endDate
+        city
+        cityCountry
+      }
+    }
+  }
+
   trainingInstancesConnection(
     filter: {
       ownerId: "5aaa9b07f146e5cfafad189e"
@@ -21,9 +38,12 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
         price
         currency
         training {
+          id
           type
+          slug
           description {
             title
+            objectives
           }
         }
       }

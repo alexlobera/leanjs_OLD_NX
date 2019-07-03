@@ -10,22 +10,39 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumBootcamp } from 'src/components/curriculum'
+import { CurriculumReactBootcamp } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
-  AttendeeQuote,
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
 import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { DAVIAN } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP } from 'src/config/data'
+import {
+  REACT_BOOTCAMP,
+  ADVANCED_REACT,
+  PART_TIME,
+  REACT_WORKSHOP,
+  REACT_FUNDAMENTALS,
+  ONE_DAY_WORKSHOP,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'React Bootcamp | React GraphQL Academy',
+  description:
+    'Interested in a React bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp.',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const Bootcamps = props => (
   <Layout>
@@ -37,17 +54,31 @@ const Bootcamps = props => (
       const nextTraining = selectNthTraining({
         trainings: upcomingBootCampTrainings,
       })
+      const reactTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [
+          REACT_FUNDAMENTALS,
+          REACT_WORKSHOP,
+          ADVANCED_REACT,
+          ONE_DAY_WORKSHOP,
+          PART_TIME,
+        ],
+        first: 3,
+      })
+
       return (
         <React.Fragment>
           <Helmet
-            title="React Bootcamp"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: 'React Bootcamp - master React in a few days',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -60,7 +91,7 @@ const Bootcamps = props => (
             ]}
           />
           <Header
-            titleLines={['React, Redux,', 'GraphQL Bootcamp']}
+            titleLines={['React & Redux Bootcamp']}
             subtitle="For a few days, expert coaches and mentors will work alongside you <br/> to master the React ecosystem so you return to work as a React specialist"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
@@ -74,7 +105,9 @@ const Bootcamps = props => (
               />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumBootcamp trainings={upcomingBootCampTrainings} />
+                <CurriculumReactBootcamp
+                  trainings={upcomingBootCampTrainings}
+                />
               </Card>
             </Grid>
           </TopSection>
@@ -137,12 +170,9 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="After the bootcamp, I felt very very confident. You understand how to use React, how to build components from scratch and then into complex applications. Don’t be afraid - book as quickly as possible!"
-                    fullname="Davian Robinson"
-                    job="Senior Software Engineer"
-                    company="ETZ Payments"
-                    profilePicUrl={DAVIAN}
+                  <AlternativeTrainings
+                    trainings={reactTrainings}
+                    titleText="Alternatives to the React Bootcamp"
                   />
                 </Col>
               </Row>

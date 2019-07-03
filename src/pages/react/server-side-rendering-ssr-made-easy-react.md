@@ -90,7 +90,7 @@ The time it takes for # 8 to complete depends on the client device.
 
 Long story short, looking at the previous sequence, in a SPA the user needs to complete # 5 to see the UI and to complete # 8 to see the UI populated with data. In SSR the user can see the UI populated with data at the end of # 2
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/?utm_medium=direct&utm_source=blog&utm_campaign=graphql_exp" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/" button-text="Learn GraphQL"></marketingcard>
 
 ## Implementing SSR in React <a name="implementing-ssr-in-react"></a>
 
@@ -188,7 +188,7 @@ Deploying a CRA is straightforward because the app is made up of **static assets
 
 If you, like most people, use Create React App to create a React app and now you want to add SSR support to it, you'll have to make some significant changes. I see two paths to make those changes. One is to [eject](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-run-eject) your app (which is a one-way, not recommended operation), and replace WebpackDevServer by a production-ready server that can handle dev and production. The other path I see is not to eject your app and instead to add another "box" to the picture that you can easily remove at any point.
 
-I think good software is such that it's designed in a way so we can make decisions in the now and easily change our minds in the future. In other words, good software is [composable software](/blog/react-is-all-about-composition-react-hooks-render-props-hocs).
+I think good software is such that it's designed in a way so we can make decisions in the now and easily change our minds in the future. In other words, good software is [composable software](/react/react-is-all-about-composition-react-hooks-render-props-hocs).
 
 ### The server <a name="the-server"></a>
 

@@ -1,5 +1,4 @@
 import Link, {
-  LinkScroll,
   DEFAULT_SCROLL_OFFSET,
   ANCHOR_STYLE,
   DEFAULT_SCROLL_DURATION,
@@ -9,7 +8,6 @@ import Menu from './menu'
 
 export {
   Link,
-  LinkScroll,
   ANCHOR_STYLE,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,

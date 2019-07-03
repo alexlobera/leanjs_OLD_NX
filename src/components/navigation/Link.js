@@ -5,7 +5,8 @@ import { Link as GatsbyLink } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { FONT_FAMILY } from '../../config/styles'
-import { GREY2 } from '../../config/styles'
+import { DARK_GREY } from '../../config/styles'
+import Box from '../layout/Box'
 
 export const DEFAULT_SCROLL_OFFSET = -125
 export const DEFAULT_SCROLL_DURATION = 500
@@ -19,13 +20,15 @@ export const ANCHOR_STYLE = css`
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
-  color: ${GREY2};
-  text-shadow: 0px 0px 1px ${GREY2};
+  color: ${DARK_GREY};
+  text-shadow: 0px 0px 1px ${DARK_GREY};
   ${FONT_FAMILY}
 `
-const BasicLink = styled.a`
+
+const StyledLink = styled(Box)`
   ${ANCHOR_STYLE};
 `
+
 export const styleChildLinkColor = color => `
   a {
     color: ${color};
@@ -45,22 +48,12 @@ export const styleChildLinkColor = color => `
   }
 `
 
-const RouterLink = styled(GatsbyLink)`
-  ${ANCHOR_STYLE};
-`
-
-export const LinkScroll = styled(({ to, ...rest }) => (
-  <DefaultLinkScroll
-    smooth
-    duration={DEFAULT_SCROLL_DURATION}
-    offset={DEFAULT_SCROLL_OFFSET}
-    to={to && to.slice(1, to.length)}
-    {...rest}
-  />
-))`
-  ${ANCHOR_STYLE};
-`
-LinkScroll.displayName = 'LinkScroll'
+DefaultLinkScroll.defaultProps = {
+  smooth: true,
+  duration: DEFAULT_SCROLL_DURATION,
+  offset: DEFAULT_SCROLL_OFFSET,
+  box: DefaultLinkScroll,
+}
 
 class Link extends React.Component {
   componentDidMount() {
@@ -85,26 +78,31 @@ class Link extends React.Component {
       const { target = '_blank' } = rest
       rest.rel = target === '_blank' ? 'noopener' : undefined
       return (
-        <BasicLink {...rest} target={target} href={toHref}>
+        <StyledLink {...rest} box="a" target={target} href={toHref}>
           {children}
-        </BasicLink>
+        </StyledLink>
       )
     } else if (toHref && toHref[0] === '#') {
       const { onClick, ...restLinkScrollProps } = rest
 
       return (
-        <LinkScroll
+        <StyledLink
           {...restLinkScrollProps}
           onClick={e => {
             onClick && onClick()
           }}
-          to={toHref}
+          to={toHref.substr(1)}
+          box={DefaultLinkScroll}
         >
           {children}
-        </LinkScroll>
+        </StyledLink>
       )
-    } else if (!to) {
-      return <BasicLink {...rest}>{children}</BasicLink>
+    } else if (!toHref) {
+      return (
+        <StyledLink {...rest} box="a">
+          {children}
+        </StyledLink>
+      )
     } else {
       // this two attrs where causing an anoying error while developing...
       // GatsbyLink does not support strange props
@@ -112,14 +110,16 @@ class Link extends React.Component {
 
       // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
       const dest =
-        to.slice(-1) === '/' || to.indexOf('?') > -1 || to.indexOf('#') > -1
-          ? to
-          : to + '/'
+        toHref.slice(-1) === '/' ||
+        toHref.indexOf('?') > -1 ||
+        toHref.indexOf('#') > -1
+          ? toHref
+          : toHref + '/'
 
       return (
-        <RouterLink {...rest} to={dest}>
+        <StyledLink {...rest} to={dest} box={GatsbyLink}>
           {children}
-        </RouterLink>
+        </StyledLink>
       )
     }
   }

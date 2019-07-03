@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import {
   WHITE,
   BROWN,
-  GREY2,
+  DARK_GREY,
   FONT_FAMILY,
-  blue1,
+  DARK_BLUE,
   PINK,
 } from '../../config/styles'
 
@@ -20,7 +20,7 @@ const InputForm = styled.input`
   padding: 11px 10px;
   font-size: 1rem;
   line-height: 1.5;
-  color: ${GREY2};
+  color: ${DARK_GREY};
   background-clip: padding-box;
   border: 1px solid ${BROWN};
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -29,7 +29,7 @@ const InputForm = styled.input`
 export const ErrorMessage = styled.p`
   font-size: 0.77rem;
   padding: 0 8px;
-  color: ${blue1()};
+  color: ${DARK_BLUE};
   background-color: ${PINK};
   ${FONT_FAMILY};
   font-weight: bold;

@@ -48,17 +48,27 @@
     ]
   },
   {
+    "to": "/community/meetups",
+    "text": "Meetups"
+  },
+  {
     "to": "/blog",
     "text": "Blog"
   },
   {
     "to": "/about-us",
-    "text": "About us"
-  },
-  {
-    "to": "/community",
-    "text": "Community",
-    "hideOnMobile": true
+    "text": "About us",
+    "children": [
+      {
+        "to": "/about-us",
+        "text": "About our coaches"
+      },
+      {
+        "to": "/community",
+        "text": "Community",
+        "hideOnMobile": true
+      }
+    ]
   },
   {
     "to": "#contact-us",

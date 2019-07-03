@@ -1,22 +1,28 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
-import { H2Ref } from '../text'
+import { H2Ref, H4 } from '../text'
 import Link from '../navigation/Link'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
-  CurriculumBootcamp,
+  CurriculumReactBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
   CurriculumGraphQLBootcamp,
+  CurriculumReactFundamentals,
+  CurriculumGraphQLWorkshops,
+  CurriculumGraphQLAPI,
 } from './index'
 
-import CurriculumOneDayWorkshops from './CurriculumOneDayWorkshops'
+import CurriculumReactWorkshops from './CurriculumReactWorkshops'
 import {
   REACT_NATIVE,
   REACT_BOOTCAMP,
+  REACT_FUNDAMENTALS,
   PART_TIME,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
+  GRAPHQL_WORKSHOP,
+  GRAPHQL_API,
 } from '../../config/data'
 
 class FullCurriculum extends React.Component {
@@ -51,15 +57,24 @@ class FullCurriculum extends React.Component {
             <Tabs onChange={this.setActive} active={this.state.active}>
               <TabList offset>
                 <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
+                <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
                 <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
-                <TabItem name={PART_TIME}>Part-time React</TabItem>
-                <TabItem name={REACT_NATIVE}>1-Day Workshops</TabItem>
+                <TabItem name={PART_TIME}>Part-time Course</TabItem>
+                <TabItem name={REACT_NATIVE}>React Workshops</TabItem>
+              </TabList>
+              <TabList offset>
                 <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
+                <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
+
+                <TabItem name={GRAPHQL_WORKSHOP}>GraphQL Workshops</TabItem>
               </TabList>
 
               <TabContent>
                 <ContentItem name={REACT_BOOTCAMP}>
-                  <CurriculumBootcamp {...commonCurriculumProps} />
+                  <CurriculumReactBootcamp {...commonCurriculumProps} />
+                </ContentItem>
+                <ContentItem name={REACT_FUNDAMENTALS}>
+                  <CurriculumReactFundamentals {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={ADVANCED_REACT}>
                   <CurriculumAdvancedReact {...commonCurriculumProps} />
@@ -68,10 +83,16 @@ class FullCurriculum extends React.Component {
                   <CurriculumPartTime {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={REACT_NATIVE}>
-                  <CurriculumOneDayWorkshops {...commonCurriculumProps} />
+                  <CurriculumReactWorkshops {...commonCurriculumProps} />
                 </ContentItem>
                 <ContentItem name={GRAPHQL_BOOTCAMP}>
                   <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
+                </ContentItem>
+                <ContentItem name={GRAPHQL_API}>
+                  <CurriculumGraphQLAPI {...commonCurriculumProps} />
+                </ContentItem>
+                <ContentItem name={GRAPHQL_WORKSHOP}>
+                  <CurriculumGraphQLWorkshops {...commonCurriculumProps} />
                 </ContentItem>
               </TabContent>
             </Tabs>

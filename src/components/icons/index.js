@@ -6,6 +6,7 @@ import TwitterIcon from './TwitterIcon'
 import GitHubIcon from './GitHubIcon'
 import InstagramIcon from './InstagramIcon'
 import PdfDownload from './PdfDownload'
+import LinkedinIcon from './LinkedinIcon'
 
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -51,4 +52,5 @@ export {
   GitHubIcon,
   BulletIcon,
   Tick,
+  LinkedinIcon,
 }

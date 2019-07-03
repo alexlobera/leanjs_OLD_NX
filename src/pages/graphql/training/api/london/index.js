@@ -11,21 +11,37 @@ import { CurriculumGraphQLAPI } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
-  AttendeeQuote,
   TrainingDetails,
   ALEX_LOBERA,
   selectUpcomingTrainings,
   selectNthTraining,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_API, LONDON } from 'src/config/data'
+import {
+  GRAPHQL_API,
+  GRAPHQL_CLIENT,
+  GRAPHQL_BOOTCAMP,
+  REACT_FUNDAMENTALS,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'GraphQL API Training in London | React GraphQL Academy',
+  description:
+    'Looking for a GraphQL API training in London? Learn how to build GraphQL APIs with our experts in London. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
@@ -37,18 +53,23 @@ const BootcampLondon = () => (
       })
       const training =
         selectNthTraining({ trainings: upcomingGqlTrainings }) || {}
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [GRAPHQL_BOOTCAMP, GRAPHQL_CLIENT, REACT_FUNDAMENTALS],
+      })
       return (
         <React.Fragment>
           <Helmet
-            title="GraphQL API training in London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Master GraphQL APIs with our GraphQL API Training in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -86,6 +107,18 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </TopSection>
+          <Section>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumGraphQLAPI layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
           <Section>
             <Grid>
               <Row>
@@ -126,29 +159,12 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
+                  <AlternativeTrainings trainings={crossSellTrainings} />
                 </Col>
               </Row>
             </Grid>
           </Section>
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphQLAPI layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

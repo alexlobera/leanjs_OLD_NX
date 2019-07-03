@@ -35,24 +35,15 @@ const SessionInterestGraphQL = () => (
       const handleFormSubmit = ({
         name,
         email,
-        fundamentals = false,
-        styling = false,
-        hooks = false,
-        perf = false,
-        gqlclient = false,
-        testing = false,
+        subscriptions,
         resources = false,
       }) => {
         triggerSessionSubscribe({
           name,
           email,
-          fundamentals,
-          styling,
-          hooks,
-          perf,
-          gqlclient,
-          testing,
+          subscriptions: Object.keys(subscriptions),
           resources,
+          pathname: 'React 1 day workshops form',
         })
         navigate('/thanks-for-signing-up-for-sessions')
       }

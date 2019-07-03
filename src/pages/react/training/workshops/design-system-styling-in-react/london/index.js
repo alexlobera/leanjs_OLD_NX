@@ -11,11 +11,12 @@ import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
 import { Card, Video } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
-  AttendeeQuote,
   TrainingDetails,
+  getUpcomingTrainingsByType,
+  AlternativeTrainings,
   ALEX_LOBERA,
   RICHARD_MOSS,
   selectNthTraining,
@@ -25,8 +26,23 @@ import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
+import {
+  ONE_DAY_WORKSHOP,
+  GRAPHQL_CLIENT,
+  REACT_FUNDAMENTALS,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'Design System Workshop London | React GraphQL Academy',
+  description:
+    'Interested in Design Systems? React GraphQL Academy offers London Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const StylingDesignSystemWorkshop = () => (
   <Layout>
@@ -39,17 +55,23 @@ const StylingDesignSystemWorkshop = () => (
       const training = selectNthTraining({
         trainings: bootCampTrainings,
       })
+      const crossSellTrainings = getUpcomingTrainingsByType({
+        trainings,
+        types: [REACT_FUNDAMENTALS, GRAPHQL_CLIENT],
+      })
       return (
         <React.Fragment>
           <Helmet
-            title="Design Systems in React Workshop in London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: '1-day Design Systems in React Workshops in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -132,6 +154,13 @@ const StylingDesignSystemWorkshop = () => (
                     If you've said 'yes' to these, this workshop could be for
                     you!
                   </P>
+                  <P>
+                    If you're a developer who's not yet familar with React, we
+                    recommend first attending the{' '}
+                    <Link to="/react/training/react-fundamentals/">
+                      React Fundamentals Course.
+                    </Link>
+                  </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
                     This is not a learn-to-code course. If you want to learn to
@@ -164,13 +193,7 @@ const StylingDesignSystemWorkshop = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
+                  <AlternativeTrainings trainings={crossSellTrainings} />
                 </Col>
               </Row>
             </Grid>

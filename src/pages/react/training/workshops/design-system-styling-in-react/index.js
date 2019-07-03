@@ -24,6 +24,17 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { formatUTC } from 'src/components/utils'
+import { createSocialMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+
+const metas = {
+  title: 'Design System Workshop | React GraphQL Academy',
+  description:
+    'Interested in Design Systems? React GraphQL Academy offers Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
+  type: 'website',
+}
 
 const StylingDesignSystemWorkshop = () => (
   <Layout>
@@ -39,14 +50,16 @@ const StylingDesignSystemWorkshop = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="Design Systems in React Workshop"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content: '1-day Design Systems in React Workshops.',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -74,11 +87,17 @@ const StylingDesignSystemWorkshop = () => (
             <Grid>
               <CallToActionRow left>
                 <Col mdOffset={1} md={4}>
-                  <LinkButton
-                    variant="primary"
-                    to="/react/training/workshops/design-system-styling-in-react/london"
-                    children="Next workshop: 15 July, London"
-                  />
+                  {training && (
+                    <LinkButton variant="primary" to={training.toPath}>
+                      Next workshop:{' '}
+                      {formatUTC(
+                        training.startDate,
+                        training.utcOffset,
+                        'D MMM'
+                      )}
+                      , {training.city}
+                    </LinkButton>
+                  )}
                 </Col>
               </CallToActionRow>
               <Card border="shadow">

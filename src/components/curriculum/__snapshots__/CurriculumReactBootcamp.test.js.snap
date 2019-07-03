@@ -1,13 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CurriculumBootcamp /> should render component 1`] = `
+exports[`<CurriculumReactBootcamp /> should render component 1`] = `
 <Fragment>
   <Row>
     <Styled(Col)
       lg={10}
       lgOffset={1}
     >
-      <Styled(styled.h2)>
+      <Styled(Styled(Box))
+        box="h2"
+        fontSize={5}
+        fontWeight="bold"
+        lineHeight={6}
+        mb={5}
+        pt={5}
+      >
         React Bootcamp Curriculum
          
         <Link
@@ -16,7 +23,7 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
         >
           #
         </Link>
-      </Styled(styled.h2)>
+      </Styled(Styled(Box))>
     </Styled(Col)>
   </Row>
   <Row>
@@ -25,11 +32,20 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
+      <Styled(Box)
+        box="h4"
+        fontSize={3}
+        fontWeight="bold"
+        lineHeight={3}
+      >
+        Course outline:
+      </Styled(Box)>
       <CurriculumSection
         name="day0"
         subTitle="React 101 and JS fundamentals"
-        title="Evening pre-bootcamp (optional)"
+        title="Evening pre-bootcamp"
         toggleNavigateTo={[Function]}
+        trainingTime=" 18:30 - 21:00"
         type="React Bootcamp"
       >
         <ReactJS101Session />
@@ -37,8 +53,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day1"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
-        title="React Bootcamp Day 1"
+        title="Day 1"
         toggleNavigateTo={[Function]}
+        trainingTime=" 9am - 6:30pm"
         type="React Bootcamp"
       >
         <ES6Session
@@ -54,8 +71,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day2"
         subTitle="Forms, Authentication, Styling in React"
-        title="React Bootcamp Day 2"
+        title="Day 2"
         toggleNavigateTo={[Function]}
+        trainingTime=" 9am - 6:30pm"
         type="React Bootcamp"
       >
         <FormsAndAuthSession
@@ -71,8 +89,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day3"
         subTitle="Redux Fundamentals, Advanced Redux, and FP"
-        title="React Bootcamp Day 3"
+        title="Day 3"
         toggleNavigateTo={[Function]}
+        trainingTime=" 9am - 6:30pm"
         type="React Bootcamp"
       >
         <IntroReduxSession
@@ -85,8 +104,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day4"
         subTitle="Advanced React patterns, Hooks, and performance"
-        title="React Bootcamp Day 4"
+        title="Day 4"
         toggleNavigateTo={[Function]}
+        trainingTime=" 9am - 6:30pm"
         type="React Bootcamp"
       >
         <HoCsRenderPropsStateReducerSession
@@ -99,8 +119,9 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day5"
         subTitle="Real-world Testing in React"
-        title="React Bootcamp Day 5"
+        title="Day 5"
         toggleNavigateTo={[Function]}
+        trainingTime=" 9am - 6:30pm"
         type="React Bootcamp"
       >
         <TestingIntroSession
@@ -115,8 +136,16 @@ exports[`<CurriculumBootcamp /> should render component 1`] = `
       </CurriculumSection>
       <styled.div>
         <LinkButton
+          border={0}
+          borderRadius={2}
+          box="button"
+          boxShadow="light"
+          fontSize={2}
+          letterSpacing=" 0.6px"
+          px={4}
+          py={1}
+          textAlign="center"
           to="/react/curriculum?tab=React Bootcamp"
-          trackUserBehaviour={[Function]}
           variant="default"
         >
           Full curriculum

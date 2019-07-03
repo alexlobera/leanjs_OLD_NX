@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { WHITE } from '../../../../config/styles'
+import { WHITE, FONT_FAMILY } from '../../../../config/styles'
 
 const ToggleButton = ({ toggleMenu, className, isOpen }) => (
   <div className={className}>
@@ -32,9 +32,9 @@ const StyledToggleButton = styled(ToggleButton)`
   right: 30px;
   top: 18px;
   z-index: 9991;
-
+  ${FONT_FAMILY}
   label {
-    font-size: 12px;
+    font-size: 15px;
     color: ${WHITE};
   }
 

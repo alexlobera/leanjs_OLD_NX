@@ -93,7 +93,7 @@ const Gallery = ({ photos = [], downloadVenuePDF }) => {
       <Row>
         {hasMorePictures() && (
           <Col md={3}>
-            <P align="left" top="20">
+            <P align="left" mt={2}>
               <Button onClick={loadMore} primary>
                 Load more pictures
               </Button>
@@ -102,7 +102,7 @@ const Gallery = ({ photos = [], downloadVenuePDF }) => {
         )}
         {downloadVenuePDF && (
           <Col md={9}>
-            <P align="left" top="30">
+            <P align="left" mt={4}>
               <Link to={downloadVenuePDF}>Download more info PDF</Link>
             </P>
           </Col>

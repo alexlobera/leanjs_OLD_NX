@@ -1,6 +1,6 @@
 import React from 'react'
 import { LinkButton } from '../buttons'
-import { H2Ref } from '../text'
+import { H2Ref, H4 } from '../text'
 import Link from '../navigation/Link'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -18,6 +18,10 @@ import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
 import SectionCTA from './SectionCTA'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import {
+  LearningObjectivesList,
+  TargetAudienceList,
+} from './CurriculumReactFundamentals'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -46,6 +50,7 @@ const CurriculumPartTime = ({
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = PART_TIME
   const commonProps = {
+    type,
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type,
@@ -53,6 +58,8 @@ const CurriculumPartTime = ({
   }
   const firstHalf = (
     <React.Fragment>
+      <H4>Course outline:</H4>
+
       <Section
         {...commonProps}
         title="Session 1 - Modern JavaScript"
@@ -182,5 +189,8 @@ const CurriculumPartTime = ({
     </React.Fragment>
   )
 }
+
+CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
+CurriculumPartTime.TargetAudienceList = TargetAudienceList
 
 export default CurriculumPartTime

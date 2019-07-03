@@ -26,13 +26,22 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { createSocialMetas } from 'src/components/utils'
+
+const metas = {
+  title: 'GraphQL Bootcamp in London | React GraphQL Academy',
+  description:
+    'Interested in GraphQL bootcamp in London? Take your career to the next level by mastering GraphQL server-side & client-side - in just 3 days.Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
 
 const BootcampLondon = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingGqlTrainings = selectUpcomingTrainings({
         trainings,
-        type: GRAPHQL_BOOTCAMP,
+        type: BOOTCAMP_COLLAB,
         city: LONDON,
       })
       const training =
@@ -40,15 +49,16 @@ const BootcampLondon = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="GraphQL Bootcamp London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'Become a full-stack GraphQL developer with our GraphQL Bootcamp in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -86,6 +96,21 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </TopSection>
+          <Section>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumGraphQLBootcamp
+                      enableToggle={true}
+                      layout={LIST_TWO_COL}
+                    />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
           <Section>
             <Grid>
               <Row>
@@ -140,20 +165,6 @@ const BootcampLondon = () => (
             </Grid>
           </Section>
 
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphQLBootcamp
-                      enableToggle={true}
-                      layout={LIST_TWO_COL}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

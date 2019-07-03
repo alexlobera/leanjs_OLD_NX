@@ -21,8 +21,8 @@ import {
   ContentItem,
 } from 'src/components/layout/Tabs'
 import {
-  CurriculumReactNative,
-  CurriculumBootcamp,
+  CurriculumReactFundamentals,
+  CurriculumReactBootcamp,
   CurriculumPartTime,
   CurriculumAdvancedReact,
   MarketingCard,
@@ -42,11 +42,11 @@ import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
-  REACT_NATIVE,
+  REACT_FUNDAMENTALS,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BLUE_DARK } from '../../config/styles'
+import { LIGHT_BLUE } from '../../config/styles'
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -81,6 +81,10 @@ class ReactCurriculum extends React.Component {
           const trainingBootcamp = selectNthTraining({
             trainings,
             type: REACT_BOOTCAMP,
+          })
+          const trainingFundamentals = selectNthTraining({
+            trainings,
+            type: REACT_FUNDAMENTALS,
           })
           const trainingPartTime = selectNthTraining({
             trainings,
@@ -239,7 +243,7 @@ class ReactCurriculum extends React.Component {
                             <H5>Also available...</H5>
                           </Col>
                           <Col md={6}>
-                            <TrainingCard borderColor={REACT_BLUE_DARK}>
+                            <TrainingCard borderColor={LIGHT_BLUE}>
                               <H4>Corporate training</H4>
                               <P>
                                 Private team training, located in your offices
@@ -251,7 +255,7 @@ class ReactCurriculum extends React.Component {
                             </TrainingCard>
                           </Col>
                           <Col md={6}>
-                            <TrainingCard borderColor={REACT_BLUE_DARK}>
+                            <TrainingCard borderColor={LIGHT_BLUE}>
                               <H4>1 Day Workshops</H4>
                               <P>
                                 Instense training focussing on specific parts of
@@ -285,6 +289,9 @@ class ReactCurriculum extends React.Component {
                           <TabItem name={REACT_BOOTCAMP}>
                             React Bootcamp
                           </TabItem>
+                          <TabItem name={REACT_FUNDAMENTALS}>
+                            React Fundamentals
+                          </TabItem>
                           <TabItem name={ADVANCED_REACT}>
                             Advanced React
                           </TabItem>
@@ -299,28 +306,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Understand the core principles and libraries to
-                                build production-ready React applications using:{' '}
-                                <code>
-                                  react, react-router, styled-components,
-                                  styled-system, storybook, redux, react-redux,
-                                  react-apollo, TypeScript
-                                </code>
-                              </Li>
-                              <Li>
-                                Be able to develop and test complex and reliable
-                                React applications: <code>enzyme, jest</code>
-                              </Li>
-                              <Li>
-                                Comprehend modern front-end JavaScript:{' '}
-                                <code>Functional Programming, Webpack</code>
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React
-                                applications
-                              </Li>
+                              <CurriculumReactBootcamp.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -337,7 +323,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 {trainingBootcamp && (
-                                  <CurriculumBootcamp
+                                  <CurriculumReactBootcamp
                                     layout={LIST_LAYOUT}
                                     enableToggle={true}
                                     showTitle={false}
@@ -361,7 +347,59 @@ class ReactCurriculum extends React.Component {
                               </Col>
                             </Row>
                           </ContentItem>
+                        </TabContent>
+                        <TabContent>
+                          <ContentItem name={REACT_FUNDAMENTALS}>
+                            <P>
+                              <strong>
+                                On completion of the React Fundamentals each
+                                student will:
+                              </strong>
+                            </P>
+                            <Ul>
+                              <CurriculumReactFundamentals.LearningObjectivesList />
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                  <strong>
+                                    Are YOU the Perfect React GraphQL Student?
+                                  </strong>
+                                </Link>
+                              </Li>
+                            </Ul>
 
+                            <H4>Full course curriculum:</H4>
+                            <Row>
+                              <Col lg={1} lgOffset={1} />
+                              <Col lg={9}>
+                                {trainingFundamentals && (
+                                  <CurriculumReactFundamentals
+                                    layout={LIST_LAYOUT}
+                                    enableToggle={true}
+                                    showTitle={false}
+                                    showLinkToCurriculum={false}
+                                    marketingCard={
+                                      <MarketingCard
+                                        heading="Next React Fundamentals"
+                                        text={`Take your career by learning a solid foundation React in just 3 days!`}
+                                        to={trainingFundamentals.toPath}
+                                        buttonText={`${
+                                          trainingFundamentals.city
+                                        } React Fundamentals, ${formatUTC(
+                                          trainingFundamentals.startDate,
+                                          trainingFundamentals.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    }
+                                  />
+                                )}
+                              </Col>
+                            </Row>
+                          </ContentItem>
+                        </TabContent>
+                        <TabContent>
                           <ContentItem name={ADVANCED_REACT}>
                             <P>
                               <strong>
@@ -370,19 +408,7 @@ class ReactCurriculum extends React.Component {
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Be able to develop and test complex and reliable
-                                React applications: <code>enzyme, jest</code>
-                              </Li>
-                              <Li>
-                                Comprehend modern front-end JavaScript:{' '}
-                                <code>Functional Programming, Webpack</code>
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React
-                                applications
-                              </Li>
+                              <CurriculumAdvancedReact.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
@@ -423,65 +449,15 @@ class ReactCurriculum extends React.Component {
                             </Row>
                           </ContentItem>
 
-                          <ContentItem name={REACT_NATIVE}>
+                          <ContentItem name={PART_TIME}>
                             <P>
                               <strong>
-                                On completion of the React Native training each
+                                On completion of the React Part-time course each
                                 student will:
                               </strong>
                             </P>
                             <Ul>
-                              <Li>
-                                Understand the core user interactions in React
-                                Native
-                              </Li>
-                              <Li>
-                                Be able to create reusable and maintanable React
-                                Native UI
-                              </Li>
-                              <Li>
-                                Understand the best practices and patterns for
-                                building real-world performant React Native
-                                applications
-                              </Li>
-                            </Ul>
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                <CurriculumReactNative
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
-                                />
-                              </Col>
-                            </Row>
-                          </ContentItem>
-
-                          <ContentItem name={PART_TIME}>
-                            <P>
-                              <strong>
-                                On completion of the React Bootcamp each student
-                                will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <Li>
-                                Understand the core principles and libraries of
-                                the React ecosystem{' '}
-                                <code>
-                                  react, react-router, redux, react-redux,
-                                  storybook, styled-components, jest
-                                </code>
-                              </Li>
-                              <Li>
-                                Understand the fundamentals of unit testing and
-                                how to apply it to JavaScript
-                              </Li>
-                              <Li>
-                                Learn some of the best practices for building
-                                real-world performant React applications
-                              </Li>
+                              <CurriculumPartTime.LearningObjectivesList />
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}

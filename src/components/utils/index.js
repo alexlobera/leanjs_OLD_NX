@@ -2,24 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {
-  REACT_NATIVE,
   REACT_BOOTCAMP,
   PART_TIME,
   ADVANCED_REACT,
+  REACT_WORKSHOP,
+  REACT_FUNDAMENTALS,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
   GRAPHQL_CLIENT,
+  GRAPHQL_WORKSHOP,
   ONE_DAY_WORKSHOP,
   MEETUP,
 } from '../../config/data'
-import {
-  GREY2,
-  YELLOW,
-  GRAPHQL_PINK,
-  REACT_NATIVE_GREEN,
-  MEETUP_RED,
-  reactBlue,
-} from '../../config/styles'
+import { GRAPHQL_PINK, MEETUP_RED, BLUE } from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
 export const SCREEN_SM_MIN = '768px'
@@ -38,26 +33,56 @@ const Components = ({ children, ...props }) =>
 export const selectTypeColor = type => {
   switch (type) {
     case REACT_BOOTCAMP:
-      return reactBlue()
     case PART_TIME:
-      return GREY2
-    case REACT_NATIVE:
-      return REACT_NATIVE_GREEN
     case ADVANCED_REACT:
-      return YELLOW
-    case GRAPHQL_BOOTCAMP:
-      return GRAPHQL_PINK
-    case GRAPHQL_API:
-      return YELLOW
-    case GRAPHQL_CLIENT:
+    case REACT_WORKSHOP:
     case ONE_DAY_WORKSHOP:
-      return REACT_NATIVE_GREEN
+    case REACT_FUNDAMENTALS:
+      return BLUE
+    case GRAPHQL_BOOTCAMP:
+    case GRAPHQL_API:
+    case GRAPHQL_CLIENT:
+    case GRAPHQL_WORKSHOP:
+      return GRAPHQL_PINK
     case MEETUP:
       return MEETUP_RED
     default:
-      return reactBlue()
+      return BLUE
   }
 }
+
+export const selectBorderStyle = type => {
+  switch (type) {
+    case REACT_BOOTCAMP:
+    case GRAPHQL_BOOTCAMP:
+      return 'solid'
+    case PART_TIME:
+      return 'double'
+    case ADVANCED_REACT:
+    case GRAPHQL_CLIENT:
+    case GRAPHQL_WORKSHOP:
+      return 'dashed'
+    case REACT_FUNDAMENTALS:
+      return 'dotted'
+    case REACT_WORKSHOP:
+    case ONE_DAY_WORKSHOP:
+    case GRAPHQL_API:
+      return 'double'
+    default:
+      return 'solid'
+  }
+}
+
+export const createSocialMetas = metas => [
+  <meta property="og:title" content={metas.title} />,
+  <meta property="og:description" content={metas.description} />,
+  <meta property="og:type" content="article" />,
+  <meta property="og:image" content={metas.image} />,
+  <meta name="twitter:site" content="@reactgqlacademy" />,
+  <meta name="twitter:title" content={metas.title} />,
+  <meta name="twitter:description" content={metas.description} />,
+  <meta name="twitter:creator" content="@reactgqlacademy" />,
+]
 
 export const HideComponentsUsingCss = styled(Components)`
     ${props =>
@@ -130,14 +155,21 @@ export const DisplayComponentsUsingCss = styled(Components)`
         : ''}
 `
 
-export const formatUTC = (utcDate, utcOffset = 60, format = "D MMM 'YYYY") => {
+export const formatUTC = (
+  utcDate,
+  utcOffset = 60,
+  format = "D MMM 'YYYY",
+  offsetDays = 0
+) => {
   const targetTime = new Date(utcDate),
     now = new Date(),
-    minutesToMilliseconds = 60000
+    minutesToMilliseconds = 60000,
+    minutesToDays = 1440
   const localOffsetInMs = now.getTimezoneOffset() * minutesToMilliseconds
   const utcOffsetInMs = utcOffset * minutesToMilliseconds
+  const dayOffset = offsetDays * minutesToDays * minutesToMilliseconds
   const offsetDate = new Date(
-    targetTime.getTime() + localOffsetInMs + utcOffsetInMs
+    targetTime.getTime() + dayOffset + localOffsetInMs + utcOffsetInMs
   )
   const months = [
       'Jan',
@@ -171,6 +203,18 @@ export const formatUTC = (utcDate, utcOffset = 60, format = "D MMM 'YYYY") => {
       return ''
   }
 }
+
+export const trainingDateByDay = ({ training = {}, day = 0 }) =>
+  training.startDate
+    ? formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
+    : ''
+
+export const trainingTimings = ({ training = {} }) =>
+  `${(training.startDate &&
+    formatUTC(training.startDate, training.utcOffset, 'HH:mm')) ||
+    '9am'} - ${(training.endDate &&
+    formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
+    '6:30pm'}`
 
 function twoDigits(number) {
   return ('0' + number).slice(-2)
