@@ -4,7 +4,6 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
-import { FONT_FAMILY } from '../../config/styles'
 import { DARK_GREY } from '../../config/styles'
 import Box from '../layout/Box'
 
@@ -26,19 +25,20 @@ export const styleChildLinkColor = color => `
   a:not([role='button']) {
     color: ${color};
     text-shadow: 0px 0px 1px ${color};
+    &:link {
+      color: ${color} !important;
+    }
+    &:visited {
+      color: ${color} !important;
+    }
+    &:hover {
+      color: ${color} !important;
+    }
+    &:active {
+      color: ${color} !important;
+    }
   }
-  a:link {
-    color: ${color};
-  }
-  a:visited {
-    color: ${color};
-  }
-  a:hover {
-    color: ${color};
-  }
-  a:active {
-    color: ${color};
-  }
+  
 `
 
 DefaultLinkScroll.defaultProps = {

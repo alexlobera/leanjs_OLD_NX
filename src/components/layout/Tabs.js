@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 
-import { BLUE, FONT_FAMILY } from '../../config/styles'
+import { BLUE } from '../../config/styles'
 import {
   SCREEN_XS_MAX,
   SCREEN_SM_MIN,
@@ -118,24 +118,22 @@ export const TabItem = ({
   name,
   component,
   ...props
-}) => {
-  const Component = component || A
-  return (
-    <li name={name}>
-      <Component
-        isActive={isActive}
-        name={name}
-        {...props}
-        onClick={e => {
-          e.preventDefault()
-          onClick && onClick()
-        }}
-      >
-        {children}
-      </Component>
-    </li>
-  )
-}
+}) => (
+  <li name={name}>
+    <A
+      role="button"
+      isActive={isActive}
+      name={name}
+      {...props}
+      onClick={e => {
+        e.preventDefault()
+        onClick && onClick()
+      }}
+    >
+      {children}
+    </A>
+  </li>
+)
 TabItem.displayName = 'TabItem'
 
 export const TabContent = ({ active, children }) =>
