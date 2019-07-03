@@ -82,7 +82,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
           title="Release to Production"
         />
       </CurriculumSection>
-      <styled.div>
+      <SectionCTA>
         <LinkButton
           border={0}
           borderRadius={2}
@@ -98,7 +98,7 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
         >
           Full curriculum
         </LinkButton>
-      </styled.div>
+      </SectionCTA>
     </Styled(Col)>
     <Styled(Col)
       lg={5}

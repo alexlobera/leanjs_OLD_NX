@@ -80,7 +80,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       >
         <Hackathon />
       </CurriculumSection>
-      <styled.div>
+      <SectionCTA>
         <LinkButton
           border={0}
           borderRadius={2}
@@ -96,7 +96,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         >
           Full curriculum
         </LinkButton>
-      </styled.div>
+      </SectionCTA>
     </Styled(Col)>
     <Styled(Col)
       lg={5}
