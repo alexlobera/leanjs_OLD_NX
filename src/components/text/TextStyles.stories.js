@@ -10,7 +10,6 @@ storiesOf('Atoms | Text | Headings', module)
   .add('P', () => <P>Standard Paragraph Style</P>)
   .add('Small', () => <P small>Small text</P>)
   .add('Link', () => <Link>Link to another page</Link>)
-  // ^ Link should probably reside in the text directory
   .add('H1', () => <H1>Heading 1</H1>)
   .add('H2', () => <H2>Heading 2</H2>)
   .add('H3', () => <H3>Heading 3</H3>)

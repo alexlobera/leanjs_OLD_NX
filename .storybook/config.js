@@ -2,9 +2,6 @@ import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { ThemeProvider } from 'styled-components'
-// import { injectGlobal } from 'styled-components'
-// import 'normalize.css'
-// import '../src/components/layout.css'
 import { theme } from '../src/config/styles'
 
 // Add ThemeProvider to storybook
