@@ -16,7 +16,7 @@ tags: ['beginner']
 ---
 
 - Focused on delivering cutting-edge
-  **React, Redux, ** and **GraphQL**
+  **React, Redux, and GraphQL**
   projects ** for top companies** like Boston
   University.
 - Serial entrepreneur passionate about teaching. Founded an
