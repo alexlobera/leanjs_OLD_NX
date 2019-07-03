@@ -46,7 +46,6 @@ const StyledLinkButton = styled(Link)`
     justify-content: space-evenly;
     align-items: center;
     `}
-    ${fontColor}
 `
 
 StyledLinkButton.displayName = 'StyledLinkButton'
