@@ -13,9 +13,11 @@ import { CallToActionRow } from '../../../components/layout/CallToActionNextTrai
 import { FullCurriculumsGraphQL } from '../../../components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
+  AttendeeQuote,
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
+
 import { Card, Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
@@ -120,10 +122,14 @@ const TrainingPage = props => (
           <Section>
             <Grid>
               <Row>
-                <Col md={5}>
-                  <Image
-                    src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media&"
-                    alt="GraphQL training student"
+                <Col md={6}>
+                  <AttendeeQuote
+                    small
+                    quote="I think whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="4NY7HCRPhWA"
                   />
                 </Col>
                 <Col md={5} mdOffset={1}>

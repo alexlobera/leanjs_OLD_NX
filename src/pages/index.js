@@ -12,7 +12,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Box from '../components/layout/Box'
 import { H2, P } from '../components/text'
-import AttendeeQuote from '../components/training/AttendeeQuote'
+import { AttendeeQuote } from 'src/components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import { HideComponentsUsingCss } from '../components/utils'
 import {
@@ -145,7 +145,17 @@ const IndexPage = () => {
           <Section>
             <Grid>
               <Row>
-                <Col md={5} mdOffset={1}>
+                {' '}
+                <Col md={6}>
+                  <AttendeeQuote
+                    small
+                    quote="As a freelance developer, I was tired of doing online courses. [The React GraphQL Academy course] was a fantastic experience - the teachers didn't leave a single question unanswered"
+                    fullname="Rafa Fraga"
+                    job="Software Engineer"
+                    videoUrl="hZZksRcqtkc"
+                  />
+                </Col>
+                <Col md={4} mdOffset={1}>
                   <H2>Is React GraphQL Academy right for me?</H2>
                   <Ul>
                     <Li>
@@ -174,15 +184,6 @@ const IndexPage = () => {
                     Blog: Are YOU the Perfect Bootcamp Student?
                   </LinkButton>
                 </Col>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={5} mdOffset={1}>
-                    <Image
-                      src={WHY_REACTJS_ACADEMY}
-                      width="100%"
-                      alt="Female React GraphQL Academy student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
-                    />
-                  </Col>
-                </HideComponentsUsingCss>
               </Row>
             </Grid>
           </Section>
@@ -234,21 +235,6 @@ const IndexPage = () => {
                       </LinkButton>
                     </Col>
                   </SectionButtonRow>
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col md={10} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="You get the real in-person learning experience - you actually see what’s happening. It’s better than just watching a video where you can’t ask questions."
-                    fullname="Nassar Kasirye"
-                    job="Web Developer"
-                    company=""
-                    profilePicUrl={NASSAR}
-                  />
                 </Col>
               </Row>
             </Grid>
