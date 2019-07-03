@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { typography, shadow } from 'styled-system'
+import { space } from 'styled-system'
 
 import Link from '../navigation/Link'
 import {
@@ -11,33 +11,11 @@ import {
 } from './Button'
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
-const fontColor = css`
-  ${props => {
-    const color = props.color
-
-    return `
-    color: ${color};
-    &:link {
-      color: ${color} !important;
-    }
-    &:visited {
-      color: ${color} !important;
-    } 
-    &:hover {
-      color: ${color} !important;
-    }
-    &:active {
-      color: ${color} !important;
-    }`
-  }}
-`
-
 const StyledLinkButton = styled(Link)`
   text-decoration: none;
   ${defaultButtonStyle}
-  ${fontColor}
   ${props => props.external && 'justify-content: space-evenly;'};
-  ${props => props.margin && 'margin-top: 2rem'} 
+  ${props => props.margin && space({ mt: 5 })}
   ${props =>
     props.pdf &&
     `
@@ -48,8 +26,6 @@ const StyledLinkButton = styled(Link)`
     justify-content: space-evenly;
     align-items: center;
     `}
-  ${typography}
-  ${shadow}
 `
 
 StyledLinkButton.displayName = 'StyledLinkButton'
@@ -61,6 +37,7 @@ const LinkButton = ({
   ...props
 }) => (
   <StyledLinkButton
+    role="button"
     {...props}
     {...(variant ? buttonVariantProps[variant] : {})}
   >

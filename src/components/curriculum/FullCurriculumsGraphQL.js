@@ -15,63 +15,50 @@ import {
   GRAPHQL_CLIENT,
 } from '../../config/data'
 
-class FullCurriculumsGraphQL extends React.Component {
-  state = {
-    active: GRAPHQL_BOOTCAMP,
+const FullCurriculumsGraphQL = ({ trainings }) => {
+  const commonCurriculumProps = {
+    trainings,
+    showTitle: false,
   }
+  const allGraphQLWorkshops = getUpcomingTrainingsByType({
+    trainings,
+    types: [GRAPHQL_CLIENT, GRAPHQL_WORKSHOP],
+  })
+  return (
+    <React.Fragment>
+      <Row>
+        <Col lg={10} lgOffset={1}>
+          <H4>Select GraphQL Curriculum:</H4>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={11}>
+          <Tabs defaultValue={GRAPHQL_BOOTCAMP}>
+            <TabList lgOffset={1}>
+              <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
+              <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
+              <TabItem name={GRAPHQL_WORKSHOP}>GraphQL 1-Day Workshops</TabItem>
+            </TabList>
 
-  setActive = active => {
-    this.setState({ active })
-  }
-
-  render() {
-    const { trainings } = this.props
-    const commonCurriculumProps = {
-      trainings,
-      showTitle: false,
-    }
-    const allGraphQLWorkshops = getUpcomingTrainingsByType({
-      trainings,
-      types: [GRAPHQL_CLIENT, GRAPHQL_WORKSHOP],
-    })
-    return (
-      <React.Fragment>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <H4>Select GraphQL Curriculum:</H4>
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={11}>
-            <Tabs onChange={this.setActive} active={this.state.active}>
-              <TabList offset>
-                <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
-                <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
-                <TabItem name={GRAPHQL_WORKSHOP}>
-                  GraphQL 1-Day Workshops
-                </TabItem>
-              </TabList>
-
-              <TabContent>
-                <ContentItem name={GRAPHQL_BOOTCAMP}>
-                  <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
-                </ContentItem>
-                <ContentItem name={GRAPHQL_API}>
-                  <CurriculumGraphQLAPI {...commonCurriculumProps} />
-                </ContentItem>
-                <ContentItem name={GRAPHQL_WORKSHOP}>
-                  <CurriculumGraphQLWorkshops
-                    trainings={allGraphQLWorkshops}
-                    showTitle={false}
-                  />
-                </ContentItem>
-              </TabContent>
-            </Tabs>
-          </Col>
-        </Row>
-      </React.Fragment>
-    )
-  }
+            <TabContent>
+              <ContentItem name={GRAPHQL_BOOTCAMP}>
+                <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
+              </ContentItem>
+              <ContentItem name={GRAPHQL_API}>
+                <CurriculumGraphQLAPI {...commonCurriculumProps} />
+              </ContentItem>
+              <ContentItem name={GRAPHQL_WORKSHOP}>
+                <CurriculumGraphQLWorkshops
+                  trainings={allGraphQLWorkshops}
+                  showTitle={false}
+                />
+              </ContentItem>
+            </TabContent>
+          </Tabs>
+        </Col>
+      </Row>
+    </React.Fragment>
+  )
 }
 
 export default FullCurriculumsGraphQL

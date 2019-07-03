@@ -5,7 +5,6 @@ import { WHITE, DARK_GREY, DARK_BLUE, RED } from '../../config/styles'
 import Box from '../layout/Box'
 
 export const defaultButtonStyle = css`
-  /* box-shadow: 0 18px 29px -2px rgba(0, 0, 0, 0.26); */
   font-style: normal;
   align-items: flex-start;
   cursor: pointer;

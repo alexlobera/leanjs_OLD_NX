@@ -1,6 +1,7 @@
 import React from 'react'
 import rehypeReact from 'rehype-react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 import styled from 'styled-components'
@@ -14,6 +15,7 @@ import Ul, { Li } from '../components/layout/Ul'
 import { Video, Image } from '../components/elements'
 import { UpcomingTrainingSection } from '../components/training'
 import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils/index'
 
 const CoachTitle = styled(H3)`
   & {
@@ -48,10 +50,28 @@ const Coach = ({ data }) => {
   } = data.markdownRemark.frontmatter
   const { htmlAst } = data.markdownRemark
   const linkName = name.toLowerCase().replace(' ', '-')
+  const pageTitle = `${name} - ${title} | React GraphQL Academy`
+  const metas = {
+    title: pageTitle,
+    description: blockquote,
+    image: imageSrc,
+    type: 'article',
+  }
   return (
     <Layout>
       {({ trainings }) => (
         <React.Fragment>
+          <Helmet
+            title={pageTitle}
+            meta={[
+              {
+                name: 'description',
+                content: blockquote,
+              },
+            ]}
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Header fullHeight={false} titleLines={[`${name}`]} />
           <Section>
             <Grid>
