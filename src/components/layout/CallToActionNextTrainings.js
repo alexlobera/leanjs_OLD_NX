@@ -6,7 +6,7 @@ import { SCREEN_SM_MIN, SCREEN_XS_MAX, formatUTC } from '../utils'
 import { Z_INDEX_MEDIUM } from '../../config/styles'
 import { Col, Row } from './Grid'
 
-const CallToActionRowStyles = styled(Row)`
+export const CallToActionRow = styled(Row)`
   text-align: ${props => (props.left ? 'left' : 'center')};
   z-index: ${Z_INDEX_MEDIUM};
   position: relative;
@@ -22,16 +22,10 @@ const CallToActionRowStyles = styled(Row)`
   }
 `
 
-export const CallToActionRow = ({ children }) => (
-  <div className="main-cta-buttons">
-    <CallToActionRowStyles>{children}</CallToActionRowStyles>
-  </div>
-)
-
 const CallToActionNextTrainings = ({ trainings = [] }) => {
   const filteredTrainings = trainings.filter((_, i) => i < 3)
   return (
-    <CallToActionRowStyles className="main-cta-buttons" left>
+    <CallToActionRow left>
       {filteredTrainings.map(
         (
           { startDate: sDate, city, toPath, utcOffset, training: { type } },
@@ -53,7 +47,7 @@ const CallToActionNextTrainings = ({ trainings = [] }) => {
           )
         }
       )}
-    </CallToActionRowStyles>
+    </CallToActionRow>
   )
 }
 
