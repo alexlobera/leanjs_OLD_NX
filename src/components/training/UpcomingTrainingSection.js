@@ -121,7 +121,9 @@ const UpcomingTrainingSection = ({
             curriculum={curriculum}
             trainings={trainings}
           />
-          <Link to="#upcoming">See all upcoming courses</Link>
+          <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
+            See all upcoming courses
+          </Link>
           {!removeAdditionalCTAs && (
             <React.Fragment>
               <Row>

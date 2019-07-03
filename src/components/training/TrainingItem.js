@@ -9,7 +9,9 @@ const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
 `
 
-const TrainingRow = styled(Row)`
+const TrainingRow = styled(Row).attrs({
+  className: 'upcoming-courses-upcoming-dates',
+})`
   margin-bottom: 1em;
 `
 
