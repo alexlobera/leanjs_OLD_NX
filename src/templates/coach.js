@@ -56,7 +56,17 @@ const Coach = ({ data }) => {
           <Section>
             <Grid>
               <Row>
-                <Col md={5} smOrder={2}>
+                <Col md={5}>
+                  {youtubeVideoId ? (
+                    <Video
+                      youtubeId={youtubeVideoId}
+                      description={<P>{videoDescription}</P>}
+                    />
+                  ) : (
+                    <Image src={imageSrc} width="100%" alt={imageDescription} />
+                  )}
+                </Col>
+                <Col md={5} mdOffset={1}>
                   <H2Ref>
                     {name}
                     <Link name={linkName} to={`#${linkName}`}>
@@ -92,19 +102,9 @@ const Coach = ({ data }) => {
                     </Li>
                   </Ul>
                   {renderAst(htmlAst)}
-                  <Blockquote bg="primary" triangle="right">
+                  <Blockquote bg="primary" triangle="left">
                     {blockquote}
                   </Blockquote>
-                </Col>
-                <Col md={5} mdOffset={1} smOrder={1}>
-                  {youtubeVideoId ? (
-                    <Video
-                      youtubeId={youtubeVideoId}
-                      description={<P>{videoDescription}</P>}
-                    />
-                  ) : (
-                    <Image src={imageSrc} width="100%" alt={imageDescription} />
-                  )}
                 </Col>
               </Row>
             </Grid>
