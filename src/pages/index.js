@@ -44,7 +44,7 @@ const metas = {
   type: 'website',
 }
 
-const StyledTabItem = styled(Box)`
+const StyledTabItem = styled(Link)`
   ${defaultButtonStyle}
   &:first-child {
     box-shadow: -5px -5px 15px -5px rgba(0, 0, 0, 0.26);
@@ -55,26 +55,21 @@ const StyledTabItem = styled(Box)`
   position: relative;
   z-index: 99;
   border-bottom: none;
-  cursor: pointer;
   text-decoration: none;
 `
 
-const PageTabItem = ({ variant, ...rest }) => (
-  <StyledTabItem
-    {...(variant ? pageTabItemVariantProps[variant] : {})}
-    {...rest}
-  />
+const TabItem = ({ variant, ...rest }) => (
+  <StyledTabItem {...(variant ? tabItemVariantProps[variant] : {})} {...rest} />
 )
 
-PageTabItem.defaultProps = {
+TabItem.defaultProps = {
   border: '1px solid',
-  box: Link,
   variant: 'default',
   p: 3,
   borderColor: DARK_BLUE,
 }
 
-export const pageTabItemVariantProps = {
+export const tabItemVariantProps = {
   default: {
     color: WHITE,
     backgroundColor: DARK_BLUE,
@@ -121,20 +116,20 @@ const IndexPage = () => {
             <Grid>
               <Row>
                 <Col lgOffset={1} lg={11}>
-                  <PageTabItem
+                  <TabItem
                     onClick={() => setTab(TAB_REACT)}
                     to="#tab-curriculum"
                     variant={selectedTab === TAB_REACT ? 'active' : undefined}
                   >
                     React
-                  </PageTabItem>
-                  <PageTabItem
+                  </TabItem>
+                  <TabItem
                     variant={selectedTab === TAB_GRAPHQL ? 'active' : undefined}
                     onClick={() => setTab(TAB_GRAPHQL)}
                     to="#tab-curriculum"
                   >
                     GraphQL
-                  </PageTabItem>
+                  </TabItem>
                   <a name="tab-curriculum" />
                 </Col>
               </Row>
