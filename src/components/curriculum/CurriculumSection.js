@@ -99,7 +99,9 @@ const CurriculumSection = props => {
   ) : (
     <React.Fragment>
       <Span> - </Span>
-      <Link {...toogleLinkProps}>Find out more</Link>
+      <Link className="curriculum" {...toogleLinkProps}>
+        Find out more
+      </Link>
     </React.Fragment>
   )
 
