@@ -115,53 +115,53 @@ const Footer = ({ width }) => (
               <Col>
                 <Span>Follow us...</Span>
                 <SocialMenu unstyled inline>
-                  <Li>
-                    <SocialLink
-                      title="React GraphQL Academy Twitter"
-                      to="https://twitter.com/reactgqlacademy"
-                    >
-                      <BulletIcon social icon={TwitterIcon} />
-                    </SocialLink>
-                  </Li>
-                  <Li>
-                    <SocialLink
-                      title="React GraphQL Academy Instagram"
-                      to="https://www.instagram.com/reactgraphqlacademy/"
-                    >
-                      <BulletIcon social icon={InstagramIcon} />
-                    </SocialLink>
-                  </Li>
-                  <Li>
-                    <SocialLink
-                      title="React GraphQL Academy Facebook"
-                      to="https://www.facebook.com/reactgraphqlacademy/"
-                    >
-                      <BulletIcon social icon={FacebookIcon} />
-                    </SocialLink>
-                  </Li>
-                  <Li>
-                    <SocialLink
-                      title="React GraphQL Academy LinkedIn"
-                      to="https://www.linkedin.com/company/17933576/"
-                    >
-                      <BulletIcon social icon={LinkedinIcon} />
-                    </SocialLink>
-                  </Li>
-                  <Li>
-                    <SocialLink
-                      title="React GraphQL Academy GitHub"
-                      to="https://www.github.com/reactgraphqlacademy/"
-                    >
-                      <BulletIcon social icon={GitHubIcon} />
-                    </SocialLink>
-                  </Li>
+                  {[
+                    {
+                      to: 'https://twitter.com/reactgqlacademy',
+                      title: 'React GraphQL Academy Twitter',
+                      icon: TwitterIcon,
+                    },
+                    {
+                      to: 'https://www.instagram.com/reactgraphqlacademy/',
+                      title: 'React GraphQL Academy Instagram',
+                      icon: InstagramIcon,
+                    },
+                    {
+                      to: 'https://www.facebook.com/reactgraphqlacademy/',
+                      title: 'React GraphQL Academy Facebook',
+                      icon: FacebookIcon,
+                    },
+                    {
+                      to: 'https://www.linkedin.com/company/17933576/',
+                      title: 'React GraphQL Academy LinkedIn',
+                      icon: LinkedinIcon,
+                    },
+                    {
+                      to: 'https://www.github.com/reactgraphqlacademy/',
+                      title: 'React GraphQL Academy GitHub',
+                      icon: GitHubIcon,
+                    },
+                  ].map(({ to, title, icon }) => (
+                    <Li>
+                      <SocialLink
+                        title={title}
+                        to={to}
+                        className="footer-follow-us"
+                      >
+                        <BulletIcon social icon={icon} />
+                      </SocialLink>
+                    </Li>
+                  ))}
                 </SocialMenu>
               </Col>
               <Col>
                 <P sm>
                   Copyright &copy; {`2017 - ${new Date().getFullYear()}`}, React
                   GraphQL Academy is a{' '}
-                  <Link to="https://leanjs.com">LeanJS</Link> product
+                  <Link className="footer-leanjs" to="https://leanjs.com">
+                    LeanJS
+                  </Link>{' '}
+                  product
                 </P>
               </Col>
               <Col>
