@@ -39,7 +39,7 @@ const SectionButtonRow = styled(Row)`
 const metas = {
   title: 'React & GraphQL Expert Training | React GraphQL Academy',
   description:
-    'Looking for React and GraphQL training courses? React GrpahQL Academy offers unique in-person training by our experts. Contact us now!',
+    'Looking for React and GraphQL expert training? React GraphQL Academy offers in-person real-world training by our experts. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
