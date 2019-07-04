@@ -159,18 +159,29 @@ const IndexPage = () => {
                       <strong>collaborative</strong> learning environment.
                     </Li>
                     <Li>
-                      <Link to="/react/training/bootcamp">Bootcamps</Link> for
-                      accelerated learning.
+                      <Link
+                        to="/react/training/bootcamp"
+                        className="is-it-for-me"
+                      >
+                        Bootcamps
+                      </Link>{' '}
+                      for accelerated learning.
                     </Li>
                     <Li>
-                      <Link to="/react/training/part-time-course/">
+                      <Link
+                        to="/react/training/part-time-course/"
+                        className="is-it-for-me"
+                      >
                         Part-time courses
                       </Link>{' '}
                       for accelerated learning.
                     </Li>
                   </Ul>
                   <P />
-                  <LinkButton to="/blog/are-you-the-perfect-react-graphql-student/">
+                  <LinkButton
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                    className="is-it-for-me-cta"
+                  >
                     Blog: Are YOU the Perfect Bootcamp Student?
                   </LinkButton>
                 </Col>
@@ -221,6 +232,7 @@ const IndexPage = () => {
                         variant="default"
                         pdf
                         to={CONVINCE_THE_BOSS_PDF}
+                        className="learn-with-us-pdf"
                       >
                         Why devs should learn with us
                       </LinkButton>
@@ -229,6 +241,7 @@ const IndexPage = () => {
                       <LinkButton
                         variant="secondary"
                         to="/react/training/corporate/"
+                        className="corporate-team-training-testimonials-cta"
                       >
                         Corporate team training
                       </LinkButton>
