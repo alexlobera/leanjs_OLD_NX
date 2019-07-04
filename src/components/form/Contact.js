@@ -54,7 +54,10 @@ const ContactForm = props => {
           </H3>
           <P>
             The best way to contact us is by emailing us at{' '}
-            <Link to="mailto:hello@reactgrahql.academy">
+            <Link
+              to="mailto:hello@reactgrahql.academy?subject=Course%20Query&body=Hi%20RGA%20team!"
+              className="footer-contact-us-mailto"
+            >
               hello@reactgraphql.academy
             </Link>
             .{' '}
@@ -62,16 +65,31 @@ const ContactForm = props => {
           <P>You can call us during working hours on: +44 20 8123 8184</P>
           <P>
             Otherwise, you can contact us socially on{' '}
-            <Link to="https://twitter.com/reactgqlacademy">Twitter</Link>,{' '}
-            <Link to="https://www.instagram.com/reactgraphqlacademy/">
+            <Link
+              to="https://twitter.com/reactgqlacademy"
+              className="footer-contact-us-links"
+            >
+              Twitter
+            </Link>
+            ,{' '}
+            <Link
+              to="https://www.instagram.com/reactgraphqlacademy/"
+              className="footer-contact-us-links"
+            >
               Instagram
             </Link>{' '}
             and{' '}
-            <Link to="https://www.facebook.com/reactgraphqlacademy/">
+            <Link
+              to="https://www.facebook.com/reactgraphqlacademy/"
+              className="footer-contact-us-links"
+            >
               Facebook
             </Link>{' '}
-            or visit our <Link to="/about-us">About Us page</Link> and directly
-            contact one of our coaches.{' '}
+            or visit our{' '}
+            <Link to="/about-us" className="footer-contact-us-links">
+              About Us page
+            </Link>{' '}
+            and directly contact one of our coaches.{' '}
           </P>
         </React.Fragment>
       )}
@@ -79,9 +97,17 @@ const ContactForm = props => {
       <H3>Free learning resources</H3>
       <P>
         We share our resources directly from our{' '}
-        <Link to="/react/curriculum">React</Link> and{' '}
-        <Link to="/graphql/curriculum">GraphQL</Link> curriculums and we'd love
-        for you to enjoy and learn from them!{' '}
+        <Link className="footer-free-learning-resources" to="/react/curriculum">
+          React
+        </Link>{' '}
+        and{' '}
+        <Link
+          className="footer-free-learning-resources"
+          to="/graphql/curriculum"
+        >
+          GraphQL
+        </Link>{' '}
+        curriculums and we'd love for you to enjoy and learn from them!{' '}
       </P>
       <P>
         Signup and learn about cutting-edge React thinking plus the latest news
@@ -125,7 +151,10 @@ const ContactForm = props => {
       ) : null}
 
       <Unsubscribe>
-        Looking to <Link to="/unsubscribe/">unsubscribe?</Link>
+        Looking to{' '}
+        <Link to="/unsubscribe/" className="footer-unsubscribe">
+          unsubscribe?
+        </Link>
       </Unsubscribe>
     </React.Fragment>
   )

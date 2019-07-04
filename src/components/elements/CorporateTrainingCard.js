@@ -25,6 +25,7 @@ const CorporateTrainingCard = ({ type }) => (
           ? `/graphql/training/corporate/`
           : '/react/training/corporate/'
       }
+      className="corporate-team-training-course-cta"
     >
       Corporate Team Training
     </LinkButton>

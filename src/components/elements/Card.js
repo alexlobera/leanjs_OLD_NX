@@ -10,30 +10,7 @@ import {
   BLUE,
 } from '../../config/styles'
 import { SCREEN_XS_MAX, SCREEN_MD_MAX, SCREEN_SM_MIN } from '../utils'
-import { styleChildLinkColor } from '../navigation/Link'
-
-const fontColor = color => `
-  color: ${color};
-  h2 {
-    color: ${color};
-  }
-  h3 {
-    color: ${color};
-  }
-  h4 {
-    color: ${color};
-  }
-  h5 {
-    color: ${color};
-  }
-  p {
-    color: ${color};
-  }
-  span {
-    color: ${color};
-  }
-  ${styleChildLinkColor(color)}
-`
+import { fontColor } from '../text'
 
 const Card = styled.div` 
   position: relative;

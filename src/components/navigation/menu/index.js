@@ -43,7 +43,7 @@ export const Menu = ({ width }) => {
   return (
     <Navbar>
       <Grid>
-        <MenuContainer>
+        <MenuContainer className="navigation">
           <RGALogo />
           {canIGuessTheScreenSizeUsingJS && width <= MEDIUM ? (
             <PhoneMenu />

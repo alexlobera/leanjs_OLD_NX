@@ -51,10 +51,10 @@ DefaultLinkScroll.defaultProps = {
 class Link extends React.Component {
   componentDidMount() {
     const hash = location.hash.substr(1)
-    if (hash && hash === this.props.name) {
+    if (hash && hash === this.props.name && typeof window !== 'undefined') {
       // adds smooth scrolling to anchor links
       setTimeout(() => {
-        window.scrollTo(0, 0)
+        window && window.scrollTo && window.scrollTo(0, 0)
         scroller.scrollTo(hash, {
           smooth: true,
           duration: DEFAULT_SCROLL_DURATION,

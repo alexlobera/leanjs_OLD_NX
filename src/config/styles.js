@@ -40,7 +40,7 @@ export const TEXT_SIZE = ({ sm = false, lg = false }) => {
   return `font-size: 16px;`
 }
 
-export const Z_INDEX_TOP = 1000
+export const Z_INDEX_TOP = 999
 export const Z_INDEX_MEDIUM = 5
 export const Z_INDEX_SMALL = 1
 export const Z_INDEX_BG = -2
