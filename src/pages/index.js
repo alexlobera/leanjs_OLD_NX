@@ -11,7 +11,7 @@ import { defaultButtonStyle } from '../components/buttons/Button'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Box from '../components/layout/Box'
-import { H2, P } from '../components/text'
+import { H2, P, Span } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import { HideComponentsUsingCss } from '../components/utils'
@@ -56,6 +56,9 @@ const StyledTabItem = styled(Link)`
   z-index: 1;
   border-bottom: none;
   text-decoration: none;
+`
+const StyledTabTitle = styled(Span)`
+  color: WHITE;
 `
 
 const TabItem = ({ variant, ...rest }) => (
@@ -116,6 +119,7 @@ const IndexPage = () => {
             <Grid>
               <Row>
                 <Col lgOffset={1} lg={11}>
+                  <StyledTabTitle>Select Technology: </StyledTabTitle>
                   <TabItem
                     onClick={() => setTab(TAB_REACT)}
                     to="#tab-curriculum"
