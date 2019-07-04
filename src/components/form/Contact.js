@@ -97,11 +97,14 @@ const ContactForm = props => {
       <H3>Free learning resources</H3>
       <P>
         We share our resources directly from our{' '}
-        <Link className="free-learning-resources" to="/react/curriculum">
+        <Link className="footer-free-learning-resources" to="/react/curriculum">
           React
         </Link>{' '}
         and{' '}
-        <Link className="free-learning-resources" to="/graphql/curriculum">
+        <Link
+          className="footer-free-learning-resources"
+          to="/graphql/curriculum"
+        >
           GraphQL
         </Link>{' '}
         curriculums and we'd love for you to enjoy and learn from them!{' '}
