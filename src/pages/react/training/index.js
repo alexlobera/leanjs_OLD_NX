@@ -64,6 +64,7 @@ const TrainingPage = () => (
             titleLines={['React Training']}
             subtitle="Take your development career to the next level with our React training"
             bgImageName={BOOTCAMP}
+            showCoursesCTA
             links={[
               {
                 text: 'Upcoming Courses',
@@ -84,32 +85,8 @@ const TrainingPage = () => (
             ]}
             type={REACT_BOOTCAMP}
           />
-          <TopSection>
+          <TopSection marginTop={'-150'}>
             <Grid>
-              <CallToActionRow>
-                <Col sm={4}>
-                  <LinkButton
-                    variant="primary"
-                    to="/react/training/bootcamp"
-                    children="React Bootcamp"
-                  />
-                </Col>
-                <Col sm={4}>
-                  <LinkButton
-                    to="/react/training/workshops"
-                    children="1-Day Workshops"
-                    variant="secondary"
-                  />
-                </Col>
-
-                <Col sm={4}>
-                  <LinkButton
-                    variant="secondary"
-                    to="/react/training/corporate"
-                    children="Corporate Training"
-                  />
-                </Col>
-              </CallToActionRow>
               <Card border="shadow">
                 <FullCurriculumsReact trainings={trainings} />
               </Card>

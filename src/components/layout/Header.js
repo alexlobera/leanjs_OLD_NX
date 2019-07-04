@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { LinkButton } from '../buttons'
 import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
-import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
+import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
 import {
   DARK_BLUE_075,
   LIGHT_BLUE,
@@ -211,6 +212,7 @@ const getBackgroundImageSrc = (data, fileName) => {
 const Header = ({
   training = {},
   showInfoBox = false,
+  showCoursesCTA = false,
   type = '',
   titleLines = [],
   subtitle,
@@ -278,7 +280,10 @@ const Header = ({
           >
             <Grid>
               <Row>
-                <TitleCol md={showInfoBox && training ? 7 : 12} type={type}>
+                <TitleCol
+                  md={(showInfoBox && training) || showCoursesCTA ? 7 : 12}
+                  type={type}
+                >
                   <H1>
                     {titleLines.map((line, i) => (
                       <TitleBackground key={i} children={line} />
@@ -315,6 +320,42 @@ const Header = ({
                     </Col>
                   </Row>
                 </TitleCol>
+                {showCoursesCTA && (
+                  <Col md={3} mdOffset={1}>
+                    <InfoBox>
+                      <P>Our courses:</P>
+                      {[
+                        {
+                          to: '/react/training/bootcamp',
+                          children: 'React Bootcamp',
+                        },
+                        {
+                          to: '/react/training/react-fundamentals/',
+                          children: 'React Fundamentals',
+                        },
+                        {
+                          to: '/react/training/advanced',
+                          children: 'Advanced React',
+                        },
+                        {
+                          to: '/react/training/part-time-course',
+                          children: 'Part time course',
+                        },
+                        {
+                          to: '/react/training/workshops',
+                          children: 'React Bootcamp',
+                        },
+                      ].map(({ to, children }) => (
+                        <LinkButton
+                          m={1}
+                          variant="primary"
+                          to={to}
+                          children={children}
+                        />
+                      ))}
+                    </InfoBox>
+                  </Col>
+                )}
                 {showInfoBox && (
                   <Col md={3} mdOffset={1}>
                     <InfoBox type={type}>

@@ -14,7 +14,7 @@ import {
   ONE_DAY_WORKSHOP,
   MEETUP,
 } from '../../config/data'
-import { GRAPHQL_PINK, MEETUP_RED, BLUE } from '../../config/styles'
+import { GRAPHQL_PINK, MEETUP_RED, BLUE, WHITE } from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
 export const SCREEN_SM_MIN = '768px'
@@ -47,7 +47,7 @@ export const selectTypeColor = type => {
     case MEETUP:
       return MEETUP_RED
     default:
-      return BLUE
+      return WHITE
   }
 }
 
