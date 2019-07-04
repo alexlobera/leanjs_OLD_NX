@@ -120,7 +120,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       >
         <PartTimeFinalProject />
       </CurriculumSection>
-      <SectionCTA>
+      <styled.div>
         <LinkButton
           border={0}
           borderRadius={2}
@@ -136,7 +136,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         >
           Full curriculum
         </LinkButton>
-      </SectionCTA>
+      </styled.div>
     </Styled(Col)>
     <Styled(Col)
       lg={5}

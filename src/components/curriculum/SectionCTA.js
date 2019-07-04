@@ -1,11 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const SectionCTA = ({ children }) => (
-  <SectionCTAstyles className="curriculum-cta">{children}</SectionCTAstyles>
-)
-
-const SectionCTAstyles = styled.div`
+const SectionCTA = styled.div.attrs({
+  className: 'curriculum-cta',
+})`
   padding-top: 50px;
   padding-bottom: 25px;
 `

@@ -47,7 +47,12 @@ const CorporateCrossSell = styled.div`
   }
 `
 
-export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
+export const UpcomingTrainings = ({
+  curriculum,
+  type,
+  trainings,
+  className,
+}) => {
   const filteredTrainings = getUpcomingTrainingsByType({
     types: [...type],
     trainings,
@@ -71,6 +76,7 @@ export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
           type={training.type}
           title={training.title}
           path={training.toPath}
+          className={className}
         />
       )
       return (
@@ -120,6 +126,7 @@ const UpcomingTrainingSection = ({
             type={type}
             curriculum={curriculum}
             trainings={trainings}
+            className="upcoming-courses-upcoming-dates"
           />
           <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
             See all upcoming courses
@@ -168,7 +175,10 @@ const UpcomingTrainingSection = ({
                   <TabContent>
                     <ContentItem name={REACT_BOOTCAMP}>
                       <Row>
-                        <UpcomingTrainings trainings={reactTrainings} />
+                        <UpcomingTrainings
+                          className="upcoming-courses-all-courses"
+                          trainings={reactTrainings}
+                        />
                         <CorporateCrossSell>
                           <P>
                             <strong>Corporate team training</strong>

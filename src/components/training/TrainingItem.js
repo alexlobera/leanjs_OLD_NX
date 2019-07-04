@@ -10,7 +10,7 @@ const TrainingItemCol = styled(Col)`
 `
 
 const TrainingRow = styled(Row).attrs({
-  className: 'upcoming-courses-upcoming-dates',
+  className: `${props => props.className}`,
 })`
   margin-bottom: 1em;
 `
@@ -38,9 +38,10 @@ const TrainingItem = ({
   startDay,
   startMonth,
   path,
+  className,
 }) => (
   <React.Fragment>
-    <TrainingRow>
+    <TrainingRow className={className}>
       <TrainingItemCol xs={5} md={4}>
         <Calendar type={type} to={path}>
           {startDay}
