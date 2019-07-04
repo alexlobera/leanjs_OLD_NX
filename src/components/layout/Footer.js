@@ -165,7 +165,7 @@ const Footer = ({ width }) => (
                 </P>
               </Col>
               <Col>
-                <RGALogo />
+                <RGALogo className="footer-rga-logo" />
               </Col>
             </Row>
           </Col>
