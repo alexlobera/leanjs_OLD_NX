@@ -65,16 +65,31 @@ const ContactForm = props => {
           <P>You can call us during working hours on: +44 20 8123 8184</P>
           <P>
             Otherwise, you can contact us socially on{' '}
-            <Link to="https://twitter.com/reactgqlacademy">Twitter</Link>,{' '}
-            <Link to="https://www.instagram.com/reactgraphqlacademy/">
+            <Link
+              to="https://twitter.com/reactgqlacademy"
+              className="footer-contact-us-links"
+            >
+              Twitter
+            </Link>
+            ,{' '}
+            <Link
+              to="https://www.instagram.com/reactgraphqlacademy/"
+              className="footer-contact-us-links"
+            >
               Instagram
             </Link>{' '}
             and{' '}
-            <Link to="https://www.facebook.com/reactgraphqlacademy/">
+            <Link
+              to="https://www.facebook.com/reactgraphqlacademy/"
+              className="footer-contact-us-links"
+            >
               Facebook
             </Link>{' '}
-            or visit our <Link to="/about-us">About Us page</Link> and directly
-            contact one of our coaches.{' '}
+            or visit our{' '}
+            <Link to="/about-us" className="footer-contact-us-links">
+              About Us page
+            </Link>{' '}
+            and directly contact one of our coaches.{' '}
           </P>
         </React.Fragment>
       )}
