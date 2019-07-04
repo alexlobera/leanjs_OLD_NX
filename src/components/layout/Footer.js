@@ -68,72 +68,36 @@ const Footer = ({ width }) => (
                 </Col>
                 <Col md={6}>
                   <LinkList>
-                    <Li>
-                      <Link to="/react/training" className="footer-site-links">
-                        React Courses
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/react/curriculum"
-                        className="footer-site-links"
-                      >
-                        React Curriculum
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/graphql/training"
-                        className="footer-site-links"
-                      >
-                        GraphQL Courses
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/graphql/curriculum"
-                        className="footer-site-links"
-                      >
-                        GraphQL Curriculum
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link to="/blog" className="footer-site-links">
-                        Blog
-                      </Link>
-                    </Li>
+                    {[
+                      { to: '/react/training', txt: 'React Courses' },
+                      { to: '/react/curriculum', txt: 'React Curriculum' },
+                      { to: '/graphql/training', txt: 'GraphQL Courses' },
+                      { to: '/graphql/curriculum', txt: 'GraphQL Curriculum' },
+                      { to: '/blog', txt: 'Blog' },
+                    ].map(({ txt, to }) => (
+                      <Li>
+                        <Link to={to} className="footer-site-links">
+                          {txt}
+                        </Link>
+                      </Li>
+                    ))}
                   </LinkList>
                 </Col>
                 <Col md={6}>
                   <LinkList>
-                    <Li>
-                      <Link to="/about-us" className="footer-site-links">
-                        About us
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link to="/community" className="footer-site-links">
-                        Community
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link to="/privacy-policy" className="footer-site-links">
-                        Privacy Policy
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/terms-of-service"
-                        className="footer-site-links"
-                      >
-                        Terms of service
-                      </Link>
-                    </Li>
-                    <Li>
-                      <Link to="/code-of-conduct" className="footer-site-links">
-                        Code of conduct
-                      </Link>
-                    </Li>
+                    {[
+                      { to: '/about-us', txt: 'About us' },
+                      { to: '/community', txt: 'Community' },
+                      { to: '/privacy-policy', txt: 'Privacy Policy' },
+                      { to: '/terms-of-service', txt: 'Terms of service' },
+                      { to: '/code-of-conduct', txt: 'Code of conduct' },
+                    ].map(({ txt, to }) => (
+                      <Li>
+                        <Link to={to} className="footer-site-links">
+                          {txt}
+                        </Link>
+                      </Li>
+                    ))}
                   </LinkList>
                 </Col>
               </Row>
