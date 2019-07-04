@@ -54,7 +54,10 @@ const ContactForm = props => {
           </H3>
           <P>
             The best way to contact us is by emailing us at{' '}
-            <Link to="mailto:hello@reactgrahql.academy">
+            <Link
+              to="mailto:hello@reactgrahql.academy"
+              className="footer-contact-us-mailto"
+            >
               hello@reactgraphql.academy
             </Link>
             .{' '}
