@@ -151,7 +151,10 @@ const ContactForm = props => {
       ) : null}
 
       <Unsubscribe>
-        Looking to <Link to="/unsubscribe/">unsubscribe?</Link>
+        Looking to{' '}
+        <Link to="/unsubscribe/" className="footer-unsubscribe">
+          unsubscribe?
+        </Link>
       </Unsubscribe>
     </React.Fragment>
   )

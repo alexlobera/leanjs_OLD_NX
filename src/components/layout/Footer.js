@@ -88,12 +88,21 @@ const Footer = ({ width }) => (
                     {[
                       { to: '/about-us', txt: 'About us' },
                       { to: '/community', txt: 'Community' },
-                      { to: '/privacy-policy', txt: 'Privacy Policy' },
+                      {
+                        to: '/privacy-policy',
+                        txt: 'Privacy Policy',
+                        extraClass: 'footer-privacy-policy',
+                      },
                       { to: '/terms-of-service', txt: 'Terms of service' },
                       { to: '/code-of-conduct', txt: 'Code of conduct' },
-                    ].map(({ txt, to }) => (
+                    ].map(({ txt, to, extraClass }) => (
                       <Li>
-                        <Link to={to} className="footer-site-links">
+                        <Link
+                          to={to}
+                          className={`footer-site-links ${
+                            extraClass ? extraClass : ''
+                          }`}
+                        >
                           {txt}
                         </Link>
                       </Li>
