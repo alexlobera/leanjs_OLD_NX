@@ -115,12 +115,14 @@ const AboutUs = ({ data }) => {
                         <Box mr={5} mb={5} pb={5}>
                           <Row>
                             <Col md={4}>
-                              <Image
-                                circle
-                                src={imageSrc}
-                                width="100%"
-                                alt={imageDescription}
-                              />
+                              <Link to={slug}>
+                                <Image
+                                  circle
+                                  src={imageSrc}
+                                  width="100%"
+                                  alt={imageDescription}
+                                />
+                              </Link>
                             </Col>
                             <Col md={8}>
                               <Box>
