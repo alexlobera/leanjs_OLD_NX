@@ -69,38 +69,70 @@ const Footer = ({ width }) => (
                 <Col md={6}>
                   <LinkList>
                     <Li>
-                      <Link to="/react/training">React Courses</Link>
+                      <Link to="/react/training" className="footer-site-links">
+                        React Courses
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/react/curriculum">React Curriculum</Link>
+                      <Link
+                        to="/react/curriculum"
+                        className="footer-site-links"
+                      >
+                        React Curriculum
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/graphql/training">GraphQL Courses</Link>
+                      <Link
+                        to="/graphql/training"
+                        className="footer-site-links"
+                      >
+                        GraphQL Courses
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/graphql/curriculum">GraphQL Curriculum</Link>
+                      <Link
+                        to="/graphql/curriculum"
+                        className="footer-site-links"
+                      >
+                        GraphQL Curriculum
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/blog">Blog</Link>
+                      <Link to="/blog" className="footer-site-links">
+                        Blog
+                      </Link>
                     </Li>
                   </LinkList>
                 </Col>
                 <Col md={6}>
                   <LinkList>
                     <Li>
-                      <Link to="/about-us">About us</Link>
+                      <Link to="/about-us" className="footer-site-links">
+                        About us
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/community">Community</Link>
+                      <Link to="/community" className="footer-site-links">
+                        Community
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/privacy-policy">Privacy Policy</Link>
+                      <Link to="/privacy-policy" className="footer-site-links">
+                        Privacy Policy
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/terms-of-service">Terms of service</Link>
+                      <Link
+                        to="/terms-of-service"
+                        className="footer-site-links"
+                      >
+                        Terms of service
+                      </Link>
                     </Li>
                     <Li>
-                      <Link to="/code-of-conduct">Code of conduct</Link>
+                      <Link to="/code-of-conduct" className="footer-site-links">
+                        Code of conduct
+                      </Link>
                     </Li>
                   </LinkList>
                 </Col>
