@@ -117,7 +117,10 @@ const Footer = ({ width }) => (
                       </Link>
                     </Li>
                     <Li>
-                      <Link to="/privacy-policy" className="footer-site-links">
+                      <Link
+                        to="/privacy-policy"
+                        className="footer-privacy-policy"
+                      >
                         Privacy Policy
                       </Link>
                     </Li>
