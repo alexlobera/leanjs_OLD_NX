@@ -43,7 +43,7 @@ const AboutUs = ({ data }) => {
             titleLines={['About us']}
             subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your ReactJS<br /> journey"
             links={[
-              { text: 'Coach profiles ', to: '#alex-lobera' },
+              { text: 'Coach profiles ', to: '#coaches' },
               {
                 text: 'How we improve   ',
                 to: '#continuous-coach-development',
@@ -96,6 +96,7 @@ const AboutUs = ({ data }) => {
           <Section>
             <Grid>
               <H2>Our coaches</H2>
+              <Link to="#coaches" name="coaches"></Link>
               <Row>
                 {coaches.map(
                   ({
