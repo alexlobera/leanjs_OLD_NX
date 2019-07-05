@@ -130,7 +130,12 @@ const AboutUs = ({ data }) => {
                                 <H5 mb={1}>{name}</H5>
                                 <P>
                                   {title} at{' '}
-                                  <Link to={companyLink}>{companyName}</Link>
+                                  <Link
+                                    to={companyLink}
+                                    className="coach-profiles"
+                                  >
+                                    {companyName}
+                                  </Link>
                                 </P>
                               </Box>
                             </Col>
