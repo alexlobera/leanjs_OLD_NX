@@ -33,6 +33,12 @@ const metas = {
 const waitListURL = '/react/training/workshops/interest-form/'
 const waitlistWorkshops = [
   {
+    title: 'Design Systems in React Workshop',
+    description:
+      'Learn how to build a Design System in React to simplify design and development while ensuring consistent brand experiences, at scale.',
+    to: waitListURL,
+  },
+  {
     title: 'React Hooks & Suspense',
     description: 'Learn 2 of the newest and most exciting features in React',
     to: waitListURL,
