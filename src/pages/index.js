@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import { space } from 'styled-system'
 
 import { WHITE, DARK_GREY, DARK_BLUE } from '../config/styles'
 import { HOME_PAGE } from '../../images/imageNames'
@@ -11,7 +12,7 @@ import { defaultButtonStyle } from '../components/buttons/Button'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import Box from '../components/layout/Box'
-import { H2, P, Span } from '../components/text'
+import { H2, P } from '../components/text'
 import AttendeeQuote from '../components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import { HideComponentsUsingCss } from '../components/utils'
@@ -57,8 +58,9 @@ const StyledTabItem = styled(Link)`
   border-bottom: none;
   text-decoration: none;
 `
-const StyledTabTitle = styled(Span)`
-  color: WHITE;
+const StyledTabTitle = styled(Box)`
+  color: ${WHITE};
+  ${space({ pb: 1 })}
 `
 
 const TabItem = ({ variant, ...rest }) => (

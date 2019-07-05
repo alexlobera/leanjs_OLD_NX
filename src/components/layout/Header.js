@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { space } from 'styled-system'
 import { LinkButton } from '../buttons'
 import { formatUTC } from '../utils'
 import Section from './Section'
@@ -23,6 +24,7 @@ import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
 import { selectTypeColor, selectBorderStyle } from '../utils/index.js'
 import { Image } from '../elements'
+import Box from '../layout/Box'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -178,7 +180,7 @@ const TitleCol = styled(Col)`
     margin-bottom: 1em;
   `};
 `
-const InfoBox = styled.div`
+const InfoBox = styled(Box)`
   background-color: ${WHITE};
   ul {
     padding: 5px 10px 10px 10px;
@@ -194,6 +196,10 @@ const InfoBox = styled.div`
   padding: 10px 10px 0 10px;
   border: ${({ type }) =>
     `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
+`
+const CtaBox = styled(Box)`
+  background-color: ${WHITE};
+  ${space({ p: 4 })}
 `
 
 const getBackgroundImageSrc = (data, fileName) => {
@@ -322,7 +328,7 @@ const Header = ({
                 </TitleCol>
                 {showCoursesCTA && (
                   <Col md={3} mdOffset={1}>
-                    <InfoBox>
+                    <CtaBox>
                       <P>Our courses:</P>
                       {[
                         {
@@ -344,18 +350,19 @@ const Header = ({
                         },
                         {
                           to: '/react/training/workshops',
-                          children: 'React Bootcamp',
+                          children: 'React workshops',
                         },
                       ].map(({ to, children, px = 4 }) => (
                         <LinkButton
-                          m={1}
+                          mb={1}
                           px={px}
                           variant="primary"
                           to={to}
                           children={children}
+                          className="main-cta-buttons"
                         />
                       ))}
-                    </InfoBox>
+                    </CtaBox>
                   </Col>
                 )}
                 {showInfoBox && (
