@@ -9,7 +9,6 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CallToActionRow } from '../../../components/layout/CallToActionNextTrainings'
 import { FullCurriculumsReact } from '../../../components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
