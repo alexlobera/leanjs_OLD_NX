@@ -332,6 +332,7 @@ const Header = ({
                         {
                           to: '/react/training/react-fundamentals/',
                           children: 'React Fundamentals',
+                          px: 1,
                         },
                         {
                           to: '/react/training/advanced',
@@ -345,9 +346,10 @@ const Header = ({
                           to: '/react/training/workshops',
                           children: 'React Bootcamp',
                         },
-                      ].map(({ to, children }) => (
+                      ].map(({ to, children, px = 4 }) => (
                         <LinkButton
                           m={1}
+                          px={px}
                           variant="primary"
                           to={to}
                           children={children}
