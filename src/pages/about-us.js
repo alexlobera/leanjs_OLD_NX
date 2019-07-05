@@ -197,6 +197,7 @@ const AboutUs = ({ data }) => {
                     <LinkButton
                       target="_self"
                       to="mailto:hello@reactgraphql.academy?subject=Become a coach"
+                      className="how-we-improve-become-a-coach"
                     >
                       Become a coach
                     </LinkButton>
