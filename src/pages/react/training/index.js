@@ -85,7 +85,7 @@ const TrainingPage = () => (
             ]}
             type={REACT_BOOTCAMP}
           />
-          <TopSection marginTop={'-150'}>
+          <TopSection>
             <Grid>
               <Card border="shadow">
                 <FullCurriculumsReact trainings={trainings} />

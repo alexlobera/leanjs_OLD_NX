@@ -88,7 +88,7 @@ const TrainingPage = props => (
             ]}
             type={GRAPHQL_BOOTCAMP}
           />
-          <TopSection marginTop={'-150'}>
+          <TopSection>
             <Grid>
               <Card border="shadow">
                 <FullCurriculumsGraphQL trainings={trainings} />
