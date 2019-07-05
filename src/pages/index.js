@@ -117,7 +117,7 @@ const IndexPage = () => {
             bgColor="blue"
             bgImageName={HOME_PAGE}
           />
-          <TopSection>
+          <TopSection marginTop="-258">
             <Grid>
               <Row>
                 <Col lgOffset={1} lg={11}>
