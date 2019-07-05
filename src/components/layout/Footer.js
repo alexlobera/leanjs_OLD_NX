@@ -6,7 +6,7 @@ import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import { RGALogo } from '../logos/RGALogo'
 import Ul, { Li } from './Ul'
-import Link, { styleChildLinkColor } from '../navigation/Link'
+import Link from '../navigation/Link'
 import { DARK_BLUE, WHITE } from '../../config/styles'
 import { SCREEN_SM_MAX } from '../utils'
 import { P, H3, Span } from '../text'
@@ -18,17 +18,13 @@ import {
   GitHubIcon,
   LinkedinIcon,
 } from '../icons'
+import { fontColor } from '../text'
 
 const StyledFooter = styled.div`
   footer {
     background-color: ${DARK_BLUE};
     padding: 50px 0 40px 0;
-    color: ${WHITE};
-    h3,
-    h2 {
-      color: ${WHITE};
-    }
-    ${styleChildLinkColor(WHITE)};
+    ${fontColor(WHITE)}
   }
 
   @media (max-width: ${SCREEN_SM_MAX}) {
