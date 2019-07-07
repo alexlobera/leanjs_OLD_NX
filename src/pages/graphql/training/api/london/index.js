@@ -5,11 +5,10 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, P } from 'src/components/text'
+import { H2Ref, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumGraphQLAPI } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
-import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
@@ -20,8 +19,8 @@ import {
   selectNthTraining,
   getUpcomingTrainingsByType,
   AlternativeTrainings,
+  AttendeeQuote,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -100,7 +99,8 @@ const BootcampLondon = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="2-IPT7Plsfc" />
+                    <H4>Rafa's student experience</H4>
+                    <Video youtubeId="I9n4gpTcZZY" />
                     <TrainingDetails coaches={[ALEX_LOBERA]} />
                   </Col>
                 </Row>
@@ -122,11 +122,17 @@ const BootcampLondon = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image src={BOOTCAMP_COLLAB} width="100%" />
-                  </Col>
-                </HideComponentsUsingCss>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="It's nice that the coaches almost don't hold your hand as there's a certain level of knowledge [students have] meaning you can learn quicker and get more done."
+                    fullname="Charlie Wilson"
+                    job="Software Engineer"
+                    company="tbc"
+                    // need to get the company name!
+                    videoUrl="zRa5-FyWbK8"
+                  />
+                </Col>
                 <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this GraphQL API training right for me? Are you...{' '}
