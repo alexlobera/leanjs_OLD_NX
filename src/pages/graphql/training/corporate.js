@@ -105,11 +105,11 @@ const CorporateGraphQLTraining = () => (
               <Col lg={6} mdOffset={1}>
                 <AttendeeQuote
                   small
-                  quote="If you asked me if I would put my team in for this sort of training instead of a conference, I would say yes. I think it’s way deeper, you learn a lot more and, in the end, your team gets back way more rewarded."
-                  fullname="Eber Herrera"
-                  job="Technical Director"
-                  company="Xing"
-                  profilePicUrl={EBER}
+                  quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
+                  fullname="Lara Ramey"
+                  job="Senior Developer"
+                  company="Meredith Corporation"
+                  videoUrl="IeZTDG7S6Dk"
                   ctaButton="How Training Keeps Xing 
               Tech-Relevant (Blog)"
                   ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"
