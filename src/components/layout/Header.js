@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { space } from 'styled-system'
 import { LinkButton } from '../buttons'
 import { formatUTC } from '../utils'
 import Section from './Section'
@@ -199,8 +198,10 @@ const InfoBox = styled(Box)`
 `
 const CtaBox = styled(Box)`
   background-color: ${WHITE};
-  ${space({ p: 4 })}
 `
+CtaBox.defaultProps = {
+  p: 4,
+}
 
 const getBackgroundImageSrc = (data, fileName) => {
   if (!data) {

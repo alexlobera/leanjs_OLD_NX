@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
-import { space } from 'styled-system'
 
 import { WHITE, DARK_GREY, DARK_BLUE } from '../config/styles'
 import { HOME_PAGE } from '../../images/imageNames'
@@ -60,8 +59,10 @@ const StyledTabItem = styled(Link)`
 `
 const StyledTabTitle = styled(Box)`
   color: ${WHITE};
-  ${space({ pb: 1 })}
 `
+StyledTabTitle.defaultProps = {
+  pb: 1,
+}
 
 const TabItem = ({ variant, ...rest }) => (
   <StyledTabItem {...(variant ? tabItemVariantProps[variant] : {})} {...rest} />
