@@ -32,20 +32,12 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
-      <Styled(Box)
-        box="h4"
-        fontSize={3}
-        fontWeight="bold"
-        lineHeight={3}
-      >
-        Course outline:
-      </Styled(Box)>
       <CurriculumSection
         name="day0"
         subTitle="React 101 and JS fundamentals"
         title="Evening pre-bootcamp"
         toggleNavigateTo={[Function]}
-        trainingTime=" 18:30 - 21:00"
+        trainingTime=" 6:30pm - 9pm"
         type="React Bootcamp"
       >
         <ReactJS101Session />
@@ -134,23 +126,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
           title="End-to-End Testing"
         />
       </CurriculumSection>
-      <styled.div>
-        <LinkButton
-          border={0}
-          borderRadius={2}
-          box="button"
-          boxShadow="light"
-          fontSize={2}
-          letterSpacing=" 0.6px"
-          px={4}
-          py={1}
-          textAlign="center"
-          to="/react/curriculum?tab=React Bootcamp"
-          variant="default"
-        >
-          Full curriculum
-        </LinkButton>
-      </styled.div>
     </Styled(Col)>
     <Styled(Col)
       lg={5}
@@ -158,5 +133,22 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       md={6}
     />
   </Row>
+  <styled.div>
+    <LinkButton
+      border={0}
+      borderRadius={2}
+      box="button"
+      boxShadow="light"
+      fontSize={2}
+      letterSpacing=" 0.6px"
+      px={4}
+      py={1}
+      textAlign="center"
+      to="/react/curriculum?tab=React Bootcamp"
+      variant="default"
+    >
+      Full curriculum
+    </LinkButton>
+  </styled.div>
 </Fragment>
 `;

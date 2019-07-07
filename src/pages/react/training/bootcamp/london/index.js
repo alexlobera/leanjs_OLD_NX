@@ -136,7 +136,6 @@ const BootcampLondon = () => (
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumReactBootcamp
-                      showHackathon={true}
                       layout={LIST_TWO_COL}
                       training={training}
                     />

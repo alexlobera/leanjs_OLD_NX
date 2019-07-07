@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -16,7 +16,6 @@ import TestingInReactSession from './sessions/TestingInReactSession'
 import E2ESession from './sessions/E2ESession'
 import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
-import Hackathon from './sessions/Hackathon'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import { Li } from '../layout/Ul'
 
@@ -24,7 +23,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
-import { trainingDateByDay, trainingTimings } from '../utils'
+import { trainingTime } from '../utils'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 
 const CurriculumReactBootcamp = ({
@@ -36,8 +35,7 @@ const CurriculumReactBootcamp = ({
   marketingCard = null,
   showLinkToCurriculum = true,
   trainings,
-  showHackathon = false,
-  training = {},
+  training,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
@@ -47,24 +45,15 @@ const CurriculumReactBootcamp = ({
     type,
     isOpen,
   }
-  // TODO remove this DEPRECATED_ logic after July 2019
-  const DEPRECATED_IS_JULY2019 =
-    training.startDate && training.startDate === '2019-07-07T08:00:00.000Z'
-  const meetupTime = DEPRECATED_IS_JULY2019 ? '16:30 - 18:30' : '18:30 - 21:00'
-  const trainingTime = ({ day }) =>
-    `${trainingDateByDay({ training, day })} ${
-      day !== 0 ? trainingTimings({ training }) : meetupTime
-    }`
 
   const firstHalf = (
     <React.Fragment>
-      <H4>Course outline:</H4>
       <Section
         {...commonProps}
         title={`Evening pre-bootcamp`}
         name="day0"
         subTitle={`React 101 and JS fundamentals`}
-        trainingTime={trainingTime({ day: 0 })}
+        trainingTime={trainingTime({ day: 0, training })}
       >
         <ReactJS101Session />
       </Section>
@@ -73,7 +62,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 1`}
         name="day1"
         subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching`}
-        trainingTime={trainingTime({ day: 1 })}
+        trainingTime={trainingTime({ training })}
       >
         <ES6Session title="Modern JavaScript" />
         <ThinkingInReactSession title="Thinking in React" />
@@ -84,7 +73,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 2`}
         name="day2"
         subTitle={`Forms, Authentication, Styling in React`}
-        trainingTime={trainingTime({ day: 2 })}
+        trainingTime={trainingTime({ training })}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
         <ReactFundamentalsRecapSession
@@ -94,13 +83,6 @@ const CurriculumReactBootcamp = ({
         <StylingInReactSession title="Styling in React" />
       </Section>
       {marketingCard}
-      {showLinkToCurriculum && showHackathon && (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
     </React.Fragment>
   )
   const secondHalf = (
@@ -110,7 +92,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 3`}
         name="day3"
         subTitle={`Redux Fundamentals, Advanced Redux, and FP`}
-        trainingTime={trainingTime({ day: 3 })}
+        trainingTime={trainingTime({ training })}
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
@@ -120,7 +102,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 4`}
         name="day4"
         subTitle={`Advanced React patterns, Hooks, and performance`}
-        trainingTime={trainingTime({ day: 4 })}
+        trainingTime={trainingTime({ training })}
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
         <ReactPerformanceSession title="Performance" />
@@ -130,30 +112,12 @@ const CurriculumReactBootcamp = ({
         title={`Day 5`}
         name="day5"
         subTitle={`Real-world Testing in React`}
-        trainingTime={trainingTime({ day: 5 })}
+        trainingTime={trainingTime({ training })}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
         <E2ESession title="End-to-End Testing" />
       </Section>
-      {showHackathon ? (
-        <Section
-          type={type}
-          enableToggle={true}
-          title={`Day 6 (optional)`}
-          name="day6"
-          subTitle={`GraphQL and final project`}
-          trainingTime={trainingTime({ day: 6 })}
-        >
-          <Hackathon />
-        </Section>
-      ) : (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
     </React.Fragment>
   )
 
@@ -180,6 +144,12 @@ const CurriculumReactBootcamp = ({
         type,
         trainings,
       })}
+
+      <SectionCTA>
+        <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
+          Full curriculum
+        </LinkButton>
+      </SectionCTA>
     </React.Fragment>
   )
 }

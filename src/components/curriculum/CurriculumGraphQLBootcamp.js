@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
@@ -33,8 +33,6 @@ const CurriculumGraphQLBootcamp = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Course outline:</H4>
-
       <Section
         {...commonProps}
         title="Evening pre-training: Nodejs fundamentals (optional)"

@@ -1,6 +1,6 @@
 import React from 'react'
 import { LinkButton } from '../buttons'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -58,8 +58,6 @@ const CurriculumPartTime = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Course outline:</H4>
-
       <Section
         {...commonProps}
         title="Session 1 - Modern JavaScript"
