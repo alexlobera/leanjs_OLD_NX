@@ -181,7 +181,12 @@ const Meetups = () => (
                     in the tech industry. If you're company has a great space,
                     we'd love to hear from you!
                   </P>
-                  <LinkButton to="#contact-us">Contact us</LinkButton>
+                  <LinkButton
+                    to="#contact-us"
+                    className="meetups-community-contact-us"
+                  >
+                    Contact us
+                  </LinkButton>
                 </Col>
               </Row>
             </Grid>
