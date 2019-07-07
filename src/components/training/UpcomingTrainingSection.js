@@ -93,6 +93,7 @@ const UpcomingTrainingSection = ({
   type,
   trainings,
   removeAdditionalCTAs = false,
+  className = 'upcoming-courses-upcoming-dates',
 }) => {
   const [activeTab, setActiveTab] = useState(REACT_BOOTCAMP)
   const reactTrainings = getUpcomingTrainingsByType({
@@ -126,7 +127,7 @@ const UpcomingTrainingSection = ({
             type={type}
             curriculum={curriculum}
             trainings={trainings}
-            className="upcoming-courses-upcoming-dates"
+            className={className}
           />
           <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
             See all upcoming courses

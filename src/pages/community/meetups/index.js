@@ -103,6 +103,7 @@ const Meetups = () => (
                     curriculum
                     removeAdditionalCTAs
                     trainings={upcomingMeetups}
+                    className="upcoming-meetups"
                   />
                   <H3>Our groups</H3>
                   <Row>
