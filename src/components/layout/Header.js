@@ -224,6 +224,7 @@ const Header = ({
   linkToGallery,
   downloadVenuePDF,
   width,
+  className = '',
 }) => (
   <StaticQuery
     query={graphql`
@@ -356,7 +357,10 @@ const Header = ({
                           {training.mapUrl ? (
                             <React.Fragment>
                               {` - `}
-                              <Link to={training.mapUrl}> map</Link>
+                              <Link to={training.mapUrl} className={className}>
+                                {' '}
+                                map
+                              </Link>
                             </React.Fragment>
                           ) : null}
                         </Li>

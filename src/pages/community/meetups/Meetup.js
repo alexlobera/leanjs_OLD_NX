@@ -89,6 +89,7 @@ const Meetup = () => (
                       training={training}
                       showInfoBox={true}
                       type={MEETUP}
+                      className="meetup-details-clicks"
                     />
                     <TopSection xsBgDark>
                       <Grid>
