@@ -35,6 +35,7 @@ const MarketingCard = ({ text, to, heading, ...rest }) => (
             to={to}
             variant="secondary"
             children={rest.buttonText || rest['button-text']}
+            className="blog-article"
           />
         </div>
       </Col>
