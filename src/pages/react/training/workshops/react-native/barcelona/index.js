@@ -5,13 +5,11 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P, H1Ref } from 'src/components/text'
+import { H2Ref, H3, P, H1Ref, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
@@ -21,7 +19,6 @@ import {
   HORACIO_HERRERA,
   ALEX_LOBERA,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { REACT_NATIVE, BARCELONA } from 'src/config/data'
@@ -89,7 +86,8 @@ const ReactNativeBoocampBarcelona = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="Z4s1gf09oeY" />
+                    <H4>Charlie's student experience</H4>
+                    <Video youtubeId="VhUMAqToJ4s" />
                     <TrainingDetails
                       foodIncluded
                       coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
@@ -102,12 +100,17 @@ const ReactNativeBoocampBarcelona = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image src={BOOTCAMP_COLLAB} width="100%" />
-                  </Col>
-                </HideComponentsUsingCss>
-                <Col md={6} lg={5} lgOffset={1}>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="[The coaches] are very important - they're able to explain things in a way we can understand."
+                    fullname="Jim Plimmer"
+                    job="Developer"
+                    company="Conversion.com"
+                    videoUrl="GU-IIi-84t8"
+                  />
+                </Col>
+                <Col md={4} lgOffset={1}>
                   <H2Ref>
                     <Link to="#target-audience" name="target-audience" />
                     Is this React Native training right for me? Are you...{' '}
@@ -139,21 +142,6 @@ const ReactNativeBoocampBarcelona = () => (
                     know React, we recommend you first to attend our{' '}
                     <Link to="/react/training/bootcamp">React Bootcamp</Link>.
                   </P>
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
                 </Col>
               </Row>
             </Grid>

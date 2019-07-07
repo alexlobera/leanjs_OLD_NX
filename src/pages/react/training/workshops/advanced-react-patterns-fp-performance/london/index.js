@@ -5,13 +5,11 @@ import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P } from 'src/components/text'
+import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumAdvReactPatterns } from 'src/components/curriculum/workshops'
 import { Card, Video } from 'src/components/elements'
-import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -20,7 +18,6 @@ import {
   RICHARD_MOSS,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -90,7 +87,8 @@ const AdvancedReactWorkshopLondon = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="yvROXLQ1jHg" />
+                    <H4>Charlie's student experience</H4>
+                    <Video youtubeId="yG3H27y9F08" />
                     <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>
                 </Row>
@@ -100,14 +98,19 @@ const AdvancedReactWorkshopLondon = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image src={BOOTCAMP_COLLAB} width="100%" />
-                  </Col>
-                </HideComponentsUsingCss>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="[The course] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
+                    fullname="Jim Plimmer"
+                    job="Developer"
+                    company="Conversion.com"
+                    videoUrl="gc4Hnb7zD5I"
+                  />
+                </Col>
                 <Col md={4} lgOffset={1}>
                   <H2Ref>
-                    Is this one day workshop right for me? Are you...{' '}
+                    Is this workshop right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
@@ -154,22 +157,6 @@ const AdvancedReactWorkshopLondon = () => (
                   </Col>
                 </Row>
               </Card>
-            </Grid>
-          </Section>
-
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
-                </Col>
-              </Row>
             </Grid>
           </Section>
 
