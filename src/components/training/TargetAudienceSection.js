@@ -5,7 +5,7 @@ import { Image } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { Link } from '../navigation'
 import { H3, H2Ref, P } from '../text'
-import { AttendeeQuote } from 'src/components/training'
+import { AttendeeQuote } from '../training'
 
 const TargetAudienceSection = () => (
   <Section>

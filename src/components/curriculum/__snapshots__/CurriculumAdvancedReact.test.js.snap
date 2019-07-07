@@ -5,7 +5,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
   <Row>
     <Styled(Col)
       lg={10}
-      lgOffset={1}
     >
       <Styled(Styled(Box))
         box="h2"
