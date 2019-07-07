@@ -83,7 +83,7 @@ const CurriculumAdvancedReact = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
+          <Col lg={10}>
             <H2Ref>
               Advanced React Curriculum{' '}
               <Link to="#curriculum" name="curriculum">

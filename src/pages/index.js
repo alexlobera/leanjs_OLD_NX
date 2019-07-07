@@ -145,11 +145,10 @@ const IndexPage = () => {
           <Section>
             <Grid>
               <Row>
-                {' '}
-                <Col md={6}>
+                <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="As a freelance developer, I was tired of doing online courses. [The React GraphQL Academy course] was a fantastic experience - the teachers didn't leave a single question unanswered"
+                    quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
                     videoUrl="hZZksRcqtkc"

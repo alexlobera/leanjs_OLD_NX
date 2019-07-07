@@ -105,7 +105,7 @@ const AdvancedReactWorkshopLondon = () => (
                     <Image src={BOOTCAMP_COLLAB} width="100%" />
                   </Col>
                 </HideComponentsUsingCss>
-                <Col md={6} lg={5} lgOffset={1}>
+                <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this one day workshop right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">

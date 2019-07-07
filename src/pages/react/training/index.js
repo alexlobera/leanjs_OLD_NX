@@ -118,7 +118,7 @@ const TrainingPage = () => (
           <Section>
             <Grid>
               <Row>
-                <Col md={6}>
+                <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
                     quote="I've been a developer for 4 years... [After the React course] my manager is in the works to getting me a promotion. I'm happy with how things have turned out!"

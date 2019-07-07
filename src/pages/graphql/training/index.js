@@ -122,7 +122,7 @@ const TrainingPage = props => (
           <Section>
             <Grid>
               <Row>
-                <Col md={6}>
+                <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
                     quote="I think whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"

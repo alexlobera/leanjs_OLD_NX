@@ -5,7 +5,7 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P } from 'src/components/text'
+import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumReactFundamentals } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
@@ -21,6 +21,7 @@ import {
   selectUpcomingTrainings,
   getUpcomingTrainingsByType,
   AlternativeTrainings,
+  AttendeeQuote,
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
@@ -107,7 +108,8 @@ const ReactFundamentalsLondon = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="yvROXLQ1jHg" />
+                    <H4>Charlie's student experience</H4>
+                    <Video youtubeId="VhUMAqToJ4s" />
                     <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>
                 </Row>
@@ -129,17 +131,20 @@ const ReactFundamentalsLondon = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image src={BOOTCAMP_COLLAB} width="100%" />
-                  </Col>
-                </HideComponentsUsingCss>
-                <Col md={6} lg={5} lgOffset={1}>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="Coaches to student ratio was amazing - basically 1 coach for every 2 students. Having that helped accelerate my learning"
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="EWL06LCD7Bk"
+                  />
+                </Col>
+                <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this React course right for you? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
+                    <Link to="#target-audience" name="target-audience"></Link>
                   </H2Ref>
                   <Ul>
                     <Li>

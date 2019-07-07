@@ -98,12 +98,17 @@ const AdvancedReactWorkshop = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image src={BOOTCAMP_COLLAB} width="100%" />
-                  </Col>
-                </HideComponentsUsingCss>
-                <Col md={6} lg={5} lgOffset={1}>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="blg40SCle7I"
+                  />
+                </Col>
+                <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this one day workshop right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">
@@ -143,22 +148,6 @@ const AdvancedReactWorkshop = () => (
               </Row>
             </Grid>
           </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

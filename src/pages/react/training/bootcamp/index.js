@@ -19,6 +19,7 @@ import {
   selectNthTraining,
   getUpcomingTrainingsByType,
   AlternativeTrainings,
+  AttendeeQuote,
 } from 'src/components/training'
 import { Card, Video } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
@@ -115,6 +116,17 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
+                    fullname="Charlie Wilson"
+                    job="Software Engineer"
+                    company="tbc"
+                    // need to get the company name!
+                    videoUrl="CP422OORbPA"
+                  />
+                </Col>
+                <Col md={4} mdOffset={1}>
                   <H2>
                     <Link to="#target-audience" name="target-audience" />
                     Is this React bootcamp right for me?
@@ -151,17 +163,6 @@ const Bootcamps = props => (
                       </LinkButton>
                     )}
                   </P>
-                </Col>
-                <Col md={5}>
-                  <Video youtubeId="6hmKu1-vW-8" />
-                  <P>
-                    Listen to Polina Stoyanova, a software engineer from tray.io
-                    who attended our last bootcamp, on her experience at the
-                    bootcamp.
-                  </P>
-                  <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">
-                    Watch further testimonials
-                  </Link>
                 </Col>
               </Row>
             </Grid>

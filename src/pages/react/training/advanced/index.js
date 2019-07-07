@@ -91,15 +91,16 @@ const AdvancedTraining = () => (
           <Section>
             <Grid>
               <Row>
-                <Col md={5}>
-                  <Video youtubeId="1TLeIEkyUE4" />
-                  <P>
-                    Listen to Ben Parish, a senior developer who attended our
-                    last bootcamp, on his experience at the bootcamp.
-                  </P>
-                  <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">
-                    Watch further testimonials
-                  </Link>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="Most of the software my company does is legacy, it's been there for a while. Coming from PHP, React seemed a good way to do that."
+                    fullname="Charlie Wilson"
+                    job="Software Engineer"
+                    company="tbc"
+                    // need to get the company name!
+                    videoUrl="yG3H27y9F08"
+                  />
                 </Col>
                 <Col md={5} mdOffset={1}>
                   <H2>Is this advanced React training right for me?</H2>
@@ -122,21 +123,6 @@ const AdvancedTraining = () => (
                       </LinkButton>
                     </P>
                   ) : null}
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Small numbers of students means you get the attention you need.  We programmed in pairs, feeding off other experienced students - something you don’t get in a lot of training. It’s a really good environment to learn"
-                    fullname="Olu Omoniyi"
-                    job="React & React Native Developer"
-                    company="S&P Global"
-                    profilePicUrl={OLU}
-                  />
                 </Col>
               </Row>
             </Grid>

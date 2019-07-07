@@ -91,8 +91,15 @@ const PartTime = ({ trainings }) => (
           <Section>
             <Grid>
               <Row>
-                <Col md={5}>
-                  <Video youtubeId="E_4eQQHjc7A" />
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="Whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="4NY7HCRPhWA"
+                  />
                 </Col>
                 <Col md={5} mdOffset={1}>
                   <Link to="#target-audience" name="target-audience" />
@@ -118,22 +125,6 @@ const PartTime = ({ trainings }) => (
                       , {nextTraining.city}
                     </LinkButton>
                   )}
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="I like the fact that you meet other students that are workers in the same professional conditions as you - you share those experiences. I really felt comfortable during the training."
-                    fullname="Stefano Mezza"
-                    job="Core Developer"
-                    company="SISLAB UniTN"
-                    profilePicUrl={STEFANO}
-                  />
                 </Col>
               </Row>
             </Grid>
