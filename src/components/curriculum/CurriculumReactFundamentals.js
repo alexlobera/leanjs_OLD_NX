@@ -19,6 +19,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { REACT_FUNDAMENTALS } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactFundamentals = ({
   showTitle = true,
@@ -151,6 +152,7 @@ export const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
+CurriculumReactFundamentals.propTypes = curriculumCommonPropTypes
 CurriculumReactFundamentals.LearningObjectivesList = LearningObjectivesList
 CurriculumReactFundamentals.TargetAudienceList = TargetAudienceList
 

@@ -17,6 +17,7 @@ import SectionCTA from './SectionCTA'
 
 import { REACT_NATIVE } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactNative = ({
   showTitle = true,
@@ -108,5 +109,7 @@ const CurriculumReactNative = ({
     </React.Fragment>
   )
 }
+
+CurriculumReactNative.propTypes = curriculumCommonPropTypes
 
 export default CurriculumReactNative

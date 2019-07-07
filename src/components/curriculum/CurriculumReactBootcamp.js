@@ -25,6 +25,7 @@ import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { trainingTime } from '../utils'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactBootcamp = ({
   showTitle = true,
@@ -182,6 +183,7 @@ export const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
+CurriculumReactBootcamp.propTypes = curriculumCommonPropTypes
 CurriculumReactBootcamp.LearningObjectivesList = LearningObjectivesList
 CurriculumReactBootcamp.TargetAudienceList = TargetAudienceList
 

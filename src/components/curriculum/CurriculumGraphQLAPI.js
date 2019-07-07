@@ -11,6 +11,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { GRAPHQL_API } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLAPI = ({
   showTitle = true,
@@ -99,5 +100,7 @@ const CurriculumGraphQLAPI = ({
     </React.Fragment>
   )
 }
+
+CurriculumGraphQLAPI.propTypes = curriculumCommonPropTypes
 
 export default CurriculumGraphQLAPI

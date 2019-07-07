@@ -12,6 +12,7 @@ import { LinkButton } from '../buttons'
 import SectionCTA from './SectionCTA'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLBootcamp = ({
   showTitle = true,
@@ -104,5 +105,7 @@ const CurriculumGraphQLBootcamp = ({
     </React.Fragment>
   )
 }
+
+CurriculumGraphQLBootcamp.propTypes = curriculumCommonPropTypes
 
 export default CurriculumGraphQLBootcamp

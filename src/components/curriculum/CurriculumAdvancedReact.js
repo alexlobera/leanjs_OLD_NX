@@ -14,14 +14,13 @@ import { ADVANCED_REACT } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { Li } from '../layout/Ul'
 import { trainingTime } from '../utils'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
   isOpen,
   enableToggle,
   toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT}`,
-  marketingCard = null,
-  showLinkToCurriculum = true,
   layout,
   trainings,
   training,
@@ -130,6 +129,7 @@ const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
+CurriculumAdvancedReact.propTypes = curriculumCommonPropTypes
 CurriculumAdvancedReact.LearningObjectivesList = LearningObjectivesList
 CurriculumAdvancedReact.TargetAudienceList = TargetAudienceList
 

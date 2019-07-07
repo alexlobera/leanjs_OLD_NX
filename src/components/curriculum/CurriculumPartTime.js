@@ -22,6 +22,7 @@ import {
   LearningObjectivesList,
   TargetAudienceList,
 } from './CurriculumReactFundamentals'
+import { curriculumCommonPropTypes } from './'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -188,6 +189,7 @@ const CurriculumPartTime = ({
   )
 }
 
+CurriculumPartTime.propTypes = curriculumCommonPropTypes
 CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
 CurriculumPartTime.TargetAudienceList = TargetAudienceList
 

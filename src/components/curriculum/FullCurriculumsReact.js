@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
@@ -72,6 +74,10 @@ const FullCurriculumsReact = ({ trainings }) => {
       </Row>
     </React.Fragment>
   )
+}
+
+FullCurriculumsReact.propTypes = {
+  trainings: PropTypes.array,
 }
 
 export default FullCurriculumsReact
