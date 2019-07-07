@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { H4, Span } from '../text'
 import { FONT_FAMILY } from '../../config/styles'
@@ -121,6 +122,18 @@ const CurriculumSection = props => {
       </SubTitleSection>
     </Section>
   )
+}
+
+CurriculumSection.propTypes = {
+  isOpen: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  subTitle: PropTypes.string,
+  trainingTime: PropTypes.string,
+  enableToggle: PropTypes.bool,
+  toggleNavigateTo: PropTypes.func,
+  showLinkToCurriculum: PropTypes.bool,
 }
 
 export default CurriculumSection
