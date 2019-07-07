@@ -119,7 +119,10 @@ const Community = () => (
                         We run and help support meetups all over the world
                         covering both React and GraphQL.{' '}
                       </P>
-                      <LinkButton to="/community/meetups">
+                      <LinkButton
+                        to="/community/meetups"
+                        className="meetups-clicks"
+                      >
                         See All MeetUps
                       </LinkButton>
 
@@ -127,40 +130,50 @@ const Community = () => (
                       <Row>
                         <Col sm={6}>
                           <MeetupList unstyled>
-                            <Li>
-                              <Link to="http://meetup.com/JavaScript-London">
-                                JavaScript London
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="http://meetup.com/JavaScript-Barcelona">
-                                JavaScript Barcelona
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="http://meetup.com/JavaScript-Paris">
-                                JavaScript Paris
-                              </Link>
-                            </Li>
+                            {[
+                              {
+                                to: 'http://meetup.com/JavaScript-London',
+                                txt: 'JavaScript London',
+                              },
+                              {
+                                to: 'http://meetup.com/JavaScript-Barcelona',
+                                txt: 'JavaScript Barcelona',
+                              },
+                              {
+                                to: 'http://meetup.com/JavaScript-Paris',
+                                txt: 'JavaScript Paris',
+                              },
+                            ].map(({ to, txt }) => (
+                              <Li>
+                                <Link to={to} className="meetups-clicks">
+                                  {txt}
+                                </Link>
+                              </Li>
+                            ))}
                           </MeetupList>
                         </Col>
                         <Col sm={6}>
                           <MeetupList unstyled>
-                            <Li>
-                              <Link to="http://meetup.com/JavaScript-Lisbon">
-                                JavaScript Lisbon
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="http://meetup.com/JavaScript-Amsterdam">
-                                JavaScript Amsterdam
-                              </Link>
-                            </Li>
-                            <Li>
-                              <Link to="http://meetup.com/JavaScript-Berlin">
-                                JavaScript Berlin
-                              </Link>
-                            </Li>
+                            {[
+                              {
+                                to: 'http://meetup.com/JavaScript-Lisbon',
+                                txt: 'JavaScript Lisbon',
+                              },
+                              {
+                                to: 'http://meetup.com/JavaScript-Amsterdam',
+                                txt: 'JavaScript Amsterdam',
+                              },
+                              {
+                                to: 'http://meetup.com/JavaScript-Berlin',
+                                txt: 'JavaScript Berlin',
+                              },
+                            ].map(({ to, txt }) => (
+                              <Li>
+                                <Link to={to} className="meetups-clicks">
+                                  {txt}
+                                </Link>
+                              </Li>
+                            ))}
                           </MeetupList>
                         </Col>
                       </Row>
