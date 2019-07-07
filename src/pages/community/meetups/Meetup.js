@@ -122,6 +122,7 @@ const Meetup = () => (
                               <hr />
                               <Link
                                 to={`https://www.meetup.com/JavaScript-${city}/`}
+                                className="meetup-details-clicks"
                               >
                                 JavaScript {city}
                               </Link>
