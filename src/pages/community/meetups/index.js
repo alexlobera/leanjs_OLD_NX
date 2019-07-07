@@ -19,7 +19,6 @@ import {
 import { LinkButton } from 'src/components/buttons'
 import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { Breadcrumb } from 'src/components/navigation'
 import Meetup from './Meetup'
@@ -83,16 +82,6 @@ const Meetups = () => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow left>
-                <Col sm={5} lgOffset={1}>
-                  <LinkButton
-                    variant="primary"
-                    to={nextMeetup && nextMeetup.toPath}
-                    children={`Next Meetup: ${nextMeetupStartDate}, ${nextMeetup &&
-                      nextMeetup.city} `}
-                  />
-                </Col>
-              </CallToActionRow>
               <Card border="shadow">
                 <Col lg={11} lgOffset={1}>
                   <H2>

@@ -9,7 +9,6 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CallToActionRow } from '../../../components/layout/CallToActionNextTrainings'
 import { FullCurriculumsReact } from '../../../components/curriculum'
 import Header from 'src/components/layout/Header'
 import {
@@ -64,6 +63,7 @@ const TrainingPage = () => (
             titleLines={['React Training']}
             subtitle="Take your development career to the next level with our React training"
             bgImageName={BOOTCAMP}
+            showCoursesCTA
             links={[
               {
                 text: 'Upcoming Courses',
@@ -86,30 +86,6 @@ const TrainingPage = () => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow>
-                <Col sm={4}>
-                  <LinkButton
-                    variant="primary"
-                    to="/react/training/bootcamp"
-                    children="React Bootcamp"
-                  />
-                </Col>
-                <Col sm={4}>
-                  <LinkButton
-                    to="/react/training/workshops"
-                    children="1-Day Workshops"
-                    variant="secondary"
-                  />
-                </Col>
-
-                <Col sm={4}>
-                  <LinkButton
-                    variant="secondary"
-                    to="/react/training/corporate"
-                    children="Corporate Training"
-                  />
-                </Col>
-              </CallToActionRow>
               <Card border="shadow">
                 <FullCurriculumsReact trainings={trainings} />
               </Card>
