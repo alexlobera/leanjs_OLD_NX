@@ -15,8 +15,6 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import { trainingTime } from '../utils'
 
-import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { REACT_FUNDAMENTALS } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
@@ -116,12 +114,8 @@ const CurriculumReactFundamentals = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
-      <SectionCTA>
-        <LinkButton to={`/react/curriculum?tab=${REACT_FUNDAMENTALS}`}>
-          Full curriculum
-        </LinkButton>
-      </SectionCTA>
     </React.Fragment>
   )
 }

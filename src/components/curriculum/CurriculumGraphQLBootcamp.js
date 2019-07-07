@@ -7,9 +7,6 @@ import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
 import NodejsSession from './sessions/NodejsSession'
 // import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
 import GraphQLApolloClientDaySessions from './sessions/GraphQLApolloClientDaySessions'
-
-import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
@@ -20,7 +17,7 @@ const CurriculumGraphQLBootcamp = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
-  showLinkToCurriculum = false,
+  showLinkToCurriculum = true,
   marketingCard,
   trainings,
 }) => {
@@ -70,11 +67,6 @@ const CurriculumGraphQLBootcamp = ({
       >
         <GraphQLApolloClientDaySessions />
       </Section>
-      {showLinkToCurriculum ? (
-        <SectionCTA>
-          <LinkButton to="/graphql/curriculum">Full curriculum</LinkButton>
-        </SectionCTA>
-      ) : null}
       {marketingCard}
     </React.Fragment>
   )
@@ -101,6 +93,7 @@ const CurriculumGraphQLBootcamp = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )

@@ -27,7 +27,6 @@ const CurriculumGraphQLWorkshops = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Workshops currently available:</H4>
       <Section
         {...commonProps}
         title="GraphQL Apollo Client"
@@ -74,6 +73,7 @@ const CurriculumGraphQLWorkshops = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )

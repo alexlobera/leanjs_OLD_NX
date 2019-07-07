@@ -16,7 +16,6 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
-import SectionCTA from './SectionCTA'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import {
   LearningObjectivesList,
@@ -131,13 +130,6 @@ const CurriculumPartTime = ({
       >
         <PartTimeFinalProject />
       </Section>
-      {showLinkToCurriculum && (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${PART_TIME}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
     </React.Fragment>
   )
 
@@ -163,6 +155,7 @@ const CurriculumPartTime = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
       {showCallToActionBottom ? (
         <Row>

@@ -82,23 +82,6 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
           title="Release to Production"
         />
       </CurriculumSection>
-      <styled.div>
-        <LinkButton
-          border={0}
-          borderRadius={2}
-          box="button"
-          boxShadow="light"
-          fontSize={2}
-          letterSpacing=" 0.6px"
-          px={4}
-          py={1}
-          textAlign="center"
-          to="/react/curriculum?tab=React Native"
-          variant="default"
-        >
-          Full curriculum
-        </LinkButton>
-      </styled.div>
     </Styled(Col)>
     <Styled(Col)
       lg={5}

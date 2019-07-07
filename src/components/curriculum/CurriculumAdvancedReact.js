@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
 import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -9,7 +8,6 @@ import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateR
 import TestingIntroSession from './sessions/TestingIntroSession'
 import E2ESession from './sessions/E2ESession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
-import SectionCTA from './SectionCTA'
 import { ADVANCED_REACT } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { Li } from '../layout/Ul'
@@ -21,6 +19,7 @@ const CurriculumAdvancedReact = ({
   isOpen,
   enableToggle,
   toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT}`,
+  showLinkToCurriculum = true,
   layout,
   trainings,
   training,
@@ -56,11 +55,6 @@ const CurriculumAdvancedReact = ({
         <TestingInReactSession title="Testing in React" />
         <E2ESession title="End-to-End Testing" />
       </Section>
-      <SectionCTA>
-        <LinkButton to={`/react/curriculum?tab=${ADVANCED_REACT}`}>
-          Full curriculum
-        </LinkButton>
-      </SectionCTA>
     </React.Fragment>
   )
 
@@ -85,6 +79,7 @@ const CurriculumAdvancedReact = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )

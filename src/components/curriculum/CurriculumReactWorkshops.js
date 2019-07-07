@@ -25,7 +25,6 @@ const CurriculumReactWorkshops = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Workshops currently available:</H4>
       <Section
         {...commonProps}
         title="Styling in React and Design Systems"

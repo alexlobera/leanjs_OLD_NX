@@ -19,8 +19,6 @@ import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import { Li } from '../layout/Ul'
 
-import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { trainingTime } from '../utils'
@@ -144,13 +142,8 @@ const CurriculumReactBootcamp = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
-
-      <SectionCTA>
-        <LinkButton to={`/react/curriculum?tab=${REACT_BOOTCAMP}`}>
-          Full curriculum
-        </LinkButton>
-      </SectionCTA>
     </React.Fragment>
   )
 }

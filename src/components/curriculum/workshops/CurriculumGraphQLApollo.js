@@ -12,7 +12,7 @@ const CurriculumGraphQLApollo = ({
   layout,
   enableToggle = true,
   isOpen = true,
-  toggleNavigateTo = `/react/curriculum?tab=${ONE_DAY_WORKSHOP}`,
+  toggleNavigateTo,
   marketingCard = null,
   showLinkToCurriculum = false,
 }) => {

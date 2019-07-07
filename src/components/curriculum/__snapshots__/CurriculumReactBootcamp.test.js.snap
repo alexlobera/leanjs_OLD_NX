@@ -126,6 +126,23 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
           title="End-to-End Testing"
         />
       </CurriculumSection>
+      <styled.div>
+        <LinkButton
+          border={0}
+          borderRadius={2}
+          box="button"
+          boxShadow="light"
+          fontSize={2}
+          letterSpacing=" 0.6px"
+          px={4}
+          py={1}
+          textAlign="center"
+          to="/react/curriculum?tab=React Bootcamp"
+          variant="default"
+        >
+          Full curriculum
+        </LinkButton>
+      </styled.div>
     </Styled(Col)>
     <Styled(Col)
       lg={5}
@@ -133,22 +150,5 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       md={6}
     />
   </Row>
-  <styled.div>
-    <LinkButton
-      border={0}
-      borderRadius={2}
-      box="button"
-      boxShadow="light"
-      fontSize={2}
-      letterSpacing=" 0.6px"
-      px={4}
-      py={1}
-      textAlign="center"
-      to="/react/curriculum?tab=React Bootcamp"
-      variant="default"
-    >
-      Full curriculum
-    </LinkButton>
-  </styled.div>
 </Fragment>
 `;
