@@ -114,6 +114,7 @@ const GraphQLPage = ({ data }) => {
                     <TrainingCardList
                       data={trainingList}
                       borderColor={GRAPHQL_PINK}
+                      className="course-training-clicks"
                     />
                   </Col>
                 </Row>
