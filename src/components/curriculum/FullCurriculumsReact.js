@@ -38,40 +38,36 @@ const FullCurriculumsReact = ({ trainings }) => {
           <H4>Select React Curriculum:</H4>
         </Col>
       </Row>
-      <Row>
-        <Col lg={11}>
-          <Tabs defaultValue={REACT_BOOTCAMP}>
-            <TabList lgOffset={1}>
-              <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-              <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
-              <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
-              <TabItem name={PART_TIME}>Part-time Course</TabItem>
-              <TabItem name={ONE_DAY_WORKSHOP}>1-Day Workshops</TabItem>
-            </TabList>
+      <Tabs defaultValue={REACT_BOOTCAMP}>
+        <TabList lgOffset={1}>
+          <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
+          <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
+          <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
+          <TabItem name={PART_TIME}>Part-time Course</TabItem>
+          <TabItem name={ONE_DAY_WORKSHOP}>1-Day Workshops</TabItem>
+        </TabList>
 
-            <TabContent>
-              <ContentItem name={REACT_BOOTCAMP}>
-                <CurriculumReactBootcamp {...commonCurriculumProps} />
-              </ContentItem>
-              <ContentItem name={REACT_FUNDAMENTALS}>
-                <CurriculumReactFundamentals {...commonCurriculumProps} />
-              </ContentItem>
-              <ContentItem name={ADVANCED_REACT}>
-                <CurriculumAdvancedReact {...commonCurriculumProps} />
-              </ContentItem>
-              <ContentItem name={PART_TIME}>
-                <CurriculumPartTime {...commonCurriculumProps} />
-              </ContentItem>
-              <ContentItem name={ONE_DAY_WORKSHOP}>
-                <CurriculumReactWorkshops
-                  trainings={allReactWorkshops}
-                  showTitle={false}
-                />
-              </ContentItem>
-            </TabContent>
-          </Tabs>
-        </Col>
-      </Row>
+        <TabContent>
+          <ContentItem name={REACT_BOOTCAMP}>
+            <CurriculumReactBootcamp {...commonCurriculumProps} />
+          </ContentItem>
+          <ContentItem name={REACT_FUNDAMENTALS}>
+            <CurriculumReactFundamentals {...commonCurriculumProps} />
+          </ContentItem>
+          <ContentItem name={ADVANCED_REACT}>
+            <CurriculumAdvancedReact {...commonCurriculumProps} />
+          </ContentItem>
+          <ContentItem name={PART_TIME}>
+            <CurriculumPartTime {...commonCurriculumProps} />
+          </ContentItem>
+          <ContentItem name={ONE_DAY_WORKSHOP}>
+            <CurriculumReactWorkshops
+              trainings={allReactWorkshops}
+              showTitle={false}
+            />
+          </ContentItem>
+        </TabContent>
+      </Tabs>
     </React.Fragment>
   )
 }

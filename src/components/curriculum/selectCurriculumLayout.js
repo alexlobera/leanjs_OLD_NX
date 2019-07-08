@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { H4 } from '../text'
+import { H3 } from '../text'
 import { LinkButton } from '../buttons'
 import { Col, Row } from '../layout/Grid'
 import { List } from './CurriculumSection'
@@ -64,12 +64,12 @@ const selectCurriculumLayout = ({
       <React.Fragment>
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
-            <H4>Course outline:</H4>
+            <H3>Course outline</H3>
             {firstHalf}
             {secondHalf}
             {curriculumTo && curriculumButtonSection}
           </Col>
-          <Col md={6} lg={5} lgOffset={1}>
+          <Col md={5} lg={4} mdOffset={1}>
             {trainings ? (
               <UpcomingTrainingSection
                 trainings={trainings}
