@@ -3,7 +3,7 @@ import Section from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
 import { GRAPHQL_WORKSHOP, GRAPHQL_CLIENT } from '../../config/data'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 

@@ -50,7 +50,6 @@ const CurriculumPartTime = ({
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = PART_TIME
   const commonProps = {
-    type,
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     type,

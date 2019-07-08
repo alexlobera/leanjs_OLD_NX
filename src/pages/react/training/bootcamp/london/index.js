@@ -95,7 +95,7 @@ const BootcampLondon = () => (
             ]}
           />
           <Header
-            titleLines={['React Redux GraphQL Bootcamp - London']}
+            titleLines={['React & Redux Bootcamp - London']}
             subtitle="Take your dev career to the next level by mastering<br />React and Redux - in just a few days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}

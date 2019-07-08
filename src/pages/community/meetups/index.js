@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
-import { formatUTC } from 'src/components/utils'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'
@@ -41,9 +40,6 @@ const Meetups = () => (
         type: MEETUP,
       })
       const nextMeetup = selectNthTraining({ trainings: upcomingMeetups }) || {}
-      const nextMeetupStartDate =
-        nextMeetup &&
-        formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
       const metaTitle = 'React GraphQL Academy community events and meetups'
       const metaDescription =
         'React GraphQL Academy organizes hands-on meetups for the developer community across Europe'

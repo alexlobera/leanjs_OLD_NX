@@ -19,10 +19,8 @@ import {
 } from 'src/components/training'
 import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import LinkButton from 'src/components/buttons/LinkButton'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { formatUTC } from 'src/components/utils'
 
 const AdvancedReactWorkshop = () => (
   <Layout>

@@ -54,7 +54,7 @@ const Landing = ({ data }) => {
               ]}
             />
             <Header
-              titleLines={['React Redux GraphQL', `training in ${city}`]}
+              titleLines={['React & Redux', `training in ${city}`]}
               subtitle={`Take your dev career to the next level in ${city}, ${country} - by mastering<br />React, Redux, and GraphQL`}
               bgImageName={BOOTCAMP}
             />
