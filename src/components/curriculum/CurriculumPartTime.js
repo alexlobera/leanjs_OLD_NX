@@ -52,7 +52,6 @@ const CurriculumPartTime = ({
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
-    type,
     isOpen,
   }
   const firstHalf = (

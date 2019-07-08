@@ -10,22 +10,21 @@ import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import Box from '../components/layout/Box'
 import { H2, P } from '../components/text'
-import AttendeeQuote from '../components/training/AttendeeQuote'
+import { AttendeeQuote } from 'src/components/training'
 import Ul, { Li } from '../components/layout/Ul'
-import { HideComponentsUsingCss } from '../components/utils'
 import {
   FullCurriculumsReact,
   FullCurriculumsGraphQL,
 } from '../components/curriculum'
 import { SCREEN_XS_MAX, createSocialMetas } from '../components/utils'
 import Header from '../components/layout/Header'
-import { Card, Image, Video } from '../components/elements'
+import { Card, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
-import { WHY_REACTJS_ACADEMY, NASSAR } from '../config/images.js'
+import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
+import Box from 'src/components/layout/Box'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
@@ -153,6 +152,15 @@ const IndexPage = () => {
             <Grid>
               <Row>
                 <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+                    fullname="Rafa Fraga"
+                    job="Software Engineer"
+                    videoUrl="hZZksRcqtkc"
+                  />
+                </Col>
+                <Col md={4} mdOffset={1}>
                   <H2>Is React GraphQL Academy right for me?</H2>
                   <Ul>
                     <Li>
@@ -192,15 +200,6 @@ const IndexPage = () => {
                     Blog: Are YOU the Perfect Bootcamp Student?
                   </LinkButton>
                 </Col>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={5} mdOffset={1}>
-                    <Image
-                      src={WHY_REACTJS_ACADEMY}
-                      width="100%"
-                      alt="Female React GraphQL Academy student wearing glasses concentrating whilst looking into the distance, surrounded by other students with a laptop in the near distance."
-                    />
-                  </Col>
-                </HideComponentsUsingCss>
               </Row>
             </Grid>
           </Section>
@@ -254,21 +253,6 @@ const IndexPage = () => {
                       </LinkButton>
                     </Col>
                   </SectionButtonRow>
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col md={10} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="You get the real in-person learning experience - you actually see what’s happening. It’s better than just watching a video where you can’t ask questions."
-                    fullname="Nassar Kasirye"
-                    job="Web Developer"
-                    company=""
-                    profilePicUrl={NASSAR}
-                  />
                 </Col>
               </Row>
             </Grid>

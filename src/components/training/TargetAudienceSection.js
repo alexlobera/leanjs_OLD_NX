@@ -1,27 +1,26 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { Image } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { Link } from '../navigation'
 import { H3, H2Ref, P } from '../text'
-import { HideComponentsUsingCss } from '../utils'
-import { PART_TIME as PART_TIME_IMG } from '../../config/images'
+import { AttendeeQuote } from '../training'
 
 const TargetAudienceSection = () => (
   <Section>
     <Grid>
       <Row>
-        <HideComponentsUsingCss xs sm>
-          <Col md={6} lg={5}>
-            <Image
-              src={PART_TIME_IMG}
-              width="100%"
-              alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-            />
-          </Col>
-        </HideComponentsUsingCss>
-        <Col md={6} lg={5} lgOffset={1}>
+        <Col md={5} mdOffset={1}>
+          <AttendeeQuote
+            small
+            quote="[The course] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
+            fullname="Jim Plimmer"
+            job="Developer"
+            company="Conversion.com"
+            videoUrl="gc4Hnb7zD5I"
+          />
+        </Col>
+        <Col md={4} lgOffset={1}>
           <H2Ref>
             Is this React part-time course right for me? Are you...{' '}
             <Link to="#target-audience" name="target-audience">

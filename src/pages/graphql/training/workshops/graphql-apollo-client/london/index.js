@@ -5,13 +5,12 @@ import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P } from 'src/components/text'
+import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumGraphQLApollo } from 'src/components/curriculum/workshops/'
 import { Card, Video } from 'src/components/elements'
-import { HideComponentsUsingCss } from 'src/components/utils'
-import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
+import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
@@ -20,8 +19,8 @@ import {
   ALEX_LOBERA,
   getUpcomingTrainingsByType,
   AlternativeTrainings,
+  AttendeeQuote,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -107,7 +106,8 @@ const GraphQLApolloClientWorkshopLondon = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="yvROXLQ1jHg" />
+                    <H4>Charlie's student experience</H4>
+                    <Video youtubeId="F_lx5iRTuaI" />
                     <TrainingDetails coaches={[ALEX_LOBERA]} />
                   </Col>
                 </Row>
@@ -117,12 +117,17 @@ const GraphQLApolloClientWorkshopLondon = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image src={BOOTCAMP_COLLAB} width="100%" />
-                  </Col>
-                </HideComponentsUsingCss>
-                <Col md={6} lg={5} lgOffset={1}>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="Syktu6ICNfw"
+                  />
+                </Col>
+                <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this one day workshop right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">

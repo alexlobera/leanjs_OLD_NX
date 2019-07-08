@@ -17,7 +17,6 @@ import Header from 'src/components/layout/Header'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import { Card, Video } from 'src/components/elements'
 import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
-import { EBER } from 'src/config/images'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
 import { createSocialMetas } from 'src/components/utils'
@@ -105,11 +104,11 @@ const CorporateReactTraining = () => (
               <Col lg={6} mdOffset={1}>
                 <AttendeeQuote
                   small
-                  quote="If you asked me if I would put my team in for this sort of training instead of a conference, I would say yes. I think it’s way deeper, you learn a lot more and, in the end, your team gets back way more rewarded."
+                  quote="It's really hard to find good advanced tech training. In house, you standardise the knowledge [in a team] and start doing things the right way."
                   fullname="Eber Herrera"
                   job="Technical Director"
                   company="Xing"
-                  profilePicUrl={EBER}
+                  videoUrl="TAtsPib9P9w"
                   ctaButton="How Training Keeps Xing 
               Tech-Relevant (Blog)"
                   ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"

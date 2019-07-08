@@ -5,14 +5,13 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P } from 'src/components/text'
+import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumReactBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import Gallery from 'src/components/elements/Gallery'
-import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
@@ -24,7 +23,6 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -220,7 +218,8 @@ const BootcampLisbon = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="bMD_b7w7r-g" />
+                    <H4>Lara's student experience</H4>
+                    <Video youtubeId="_8Xox79wE9Q" />
                     <TrainingDetails
                       coaches={[
                         HORACIO_HERRERA,
@@ -256,16 +255,16 @@ const BootcampLisbon = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image
-                      src={BOOTCAMP_COLLAB}
-                      width="100%"
-                      alt="React GraphQL Academy coach Tiago assisting two students, inspecting their laptop screens and ready to answer their questions"
-                    />
-                  </Col>
-                </HideComponentsUsingCss>
-                <Col md={6} lg={5} lgOffset={1}>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="At the end of course, you have a finished project. The networking also, [students] share jobs on the [alumni] Slack channel."
+                    fullname="Rafa Fraga"
+                    job="Software Engineer"
+                    videoUrl="pLl8uuLvKWA"
+                  />
+                </Col>
+                <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this React bootcamp right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">
@@ -307,21 +306,6 @@ const BootcampLisbon = () => (
                   <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
                 </Col>
               </Row>
             </Grid>

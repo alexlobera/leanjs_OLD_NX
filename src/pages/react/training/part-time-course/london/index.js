@@ -20,6 +20,7 @@ import {
   getUpcomingTrainingsByType,
   AlternativeTrainings,
 } from 'src/components/training'
+import { H4 } from 'src/components/text'
 import Header from 'src/components/layout/Header'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
@@ -105,7 +106,8 @@ const BootcampLondon = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="E_4eQQHjc7A" />
+                    <H4>Rafa's student experience</H4>
+                    <Video youtubeId="9QpAWAtZy6M" />
                     <TrainingDetails
                       date={training && training.dates}
                       timing="6pm - 9pm Tuesday's & Thursday's"

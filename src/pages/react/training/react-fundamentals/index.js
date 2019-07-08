@@ -19,8 +19,7 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { Card, Video } from 'src/components/elements'
-import { DAVIAN } from 'src/config/images'
+import { Card } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_FUNDAMENTALS } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -60,7 +59,7 @@ const ReactFundamentals = props => (
             ]}
           />
           <Header
-            titleLines={['React, Redux Fundamentals']}
+            titleLines={['React Redux Fundamentals']}
             subtitle="In 3 days, our coaches will work with you and help you use React ecosystem giving you a solid foundation for your career in React."
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
@@ -79,6 +78,17 @@ const ReactFundamentals = props => (
           <Section>
             <Grid>
               <Row>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="The most complicated thing in React is set up, I learnt that and now it's easy for me to create an app very quickly."
+                    fullname="Rafa Fraga"
+                    job="Software Engineer"
+                    // need to get the company name!
+                    videoUrl="-13ktI9oXIY"
+                  />
+                </Col>
+
                 <Col md={5} mdOffset={1}>
                   <H2>
                     <Link to="#target-audience" name="target-audience" />
@@ -113,32 +123,6 @@ const ReactFundamentals = props => (
                       </LinkButton>
                     )}
                   </P>
-                </Col>
-                <Col md={5}>
-                  <Video youtubeId="6hmKu1-vW-8" />
-                  <P>
-                    Listen to Polina Stoyanova, a software engineer from tray.io
-                    who attended our last bootcamp, on her experience at our
-                    React bootcamp.
-                  </P>
-                  <Link to="https://www.youtube.com/channel/UC8eG6zOgWqeIZlJ8KRgEbSQ/videos">
-                    Watch further testimonials
-                  </Link>
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="After the bootcamp, I felt very very confident. You understand how to use React, how to build components from scratch and then into complex applications. Don’t be afraid - book as quickly as possible!"
-                    fullname="Davian Robinson"
-                    job="Senior Software Engineer"
-                    company="ETZ Payments"
-                    profilePicUrl={DAVIAN}
-                  />
                 </Col>
               </Row>
             </Grid>

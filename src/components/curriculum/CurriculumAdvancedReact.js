@@ -9,7 +9,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import E2ESession from './sessions/E2ESession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import { ADVANCED_REACT } from '../../config/data'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { Li } from '../layout/Ul'
 import { trainingTime } from '../utils'
 import { curriculumCommonPropTypes } from './'
@@ -62,7 +62,7 @@ const CurriculumAdvancedReact = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
+          <Col lg={10}>
             <H2Ref>
               Advanced React Curriculum{' '}
               <Link to="#curriculum" name="curriculum">

@@ -5,13 +5,12 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, P } from 'src/components/text'
+import { H2Ref, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumGraphQLBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
-import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -20,7 +19,6 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -89,7 +87,9 @@ const BootcampLondon = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="2-IPT7Plsfc" />
+                    <H4>Jim's student experience</H4>
+
+                    <Video youtubeId="wbIame88UWU" />
                     <TrainingDetails coaches={[ALEX_LOBERA]} />
                   </Col>
                 </Row>
@@ -114,12 +114,17 @@ const BootcampLondon = () => (
           <Section>
             <Grid>
               <Row>
-                <HideComponentsUsingCss xs sm>
-                  <Col md={6} lg={5}>
-                    <Image src={BOOTCAMP_COLLAB} width="100%" />
-                  </Col>
-                </HideComponentsUsingCss>
-                <Col md={6} lg={5} lgOffset={1}>
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="The coaches are always available [on the Alumni Slack channel]... Now I'm not alone."
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="JIWdYuNzeOc"
+                  />
+                </Col>
+                <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this GraphQL bootcamp right for me? Are you...{' '}
                     <Link to="#target-audience" name="target-audience">
@@ -145,21 +150,6 @@ const BootcampLondon = () => (
                     If you've said 'yes' to these, our bootcamp could be for
                     you!
                   </P>
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AttendeeQuote
-                    quote="Technology nowadays changes very often and in future you may not be able to find a job with the things you know - you have to keep up. I like the fact that we got to write code rather than focus on theory."
-                    fullname="Catalin Cislariu"
-                    job="Senior Developer"
-                    company="KLEIDO LTD"
-                    profilePicUrl={CATALIN}
-                  />
                 </Col>
               </Row>
             </Grid>

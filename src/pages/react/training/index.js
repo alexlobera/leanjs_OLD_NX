@@ -94,19 +94,19 @@ const TrainingPage = () => (
           <Section>
             <Grid>
               <Row>
-                <Col md={5}>
+                <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="I'd been self-teaching myself, but I needed something more concrete so taking this React training was the best thing I could do."
-                    fullname="Bogdan Stanciu"
-                    job="Lead Front End Developer"
-                    company="Kaizen"
-                    videoUrl="E_4eQQHjc7A"
+                    quote="I've been a developer for 4 years... [After the React course] my manager is in the works to getting me a promotion. I'm happy with how things have turned out!"
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="er9ttTCS86U"
                   />
                 </Col>
                 <Col md={5} mdOffset={1}>
                   <Link to="#student-outcomes" name="student-outcomes" />
-                  <H2>What students get from a our training</H2>
+                  <H2>What developers get from our courses</H2>
                   <Ul>
                     <Li>
                       <strong>Build production ready</strong> React apps.
