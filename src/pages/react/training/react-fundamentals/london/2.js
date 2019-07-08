@@ -82,7 +82,7 @@ const ReactFundamentalsLondon = () => (
             ]}
           />
           <Header
-            titleLines={['React, Redux Fundamentals - London']}
+            titleLines={['React Redux Fundamentals - London']}
             subtitle="In 3 days, we can teach you how to code in React to give you a solid foundation to take your dev career further."
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}

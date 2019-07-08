@@ -59,7 +59,7 @@ const ReactFundamentals = props => (
             ]}
           />
           <Header
-            titleLines={['React, Redux Fundamentals']}
+            titleLines={['React Redux Fundamentals']}
             subtitle="In 3 days, our coaches will work with you and help you use React ecosystem giving you a solid foundation for your career in React."
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
