@@ -1,6 +1,6 @@
 import React from 'react'
 import { LinkButton } from '../buttons'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
@@ -16,12 +16,12 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
-import SectionCTA from './SectionCTA'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import {
   LearningObjectivesList,
   TargetAudienceList,
 } from './CurriculumReactFundamentals'
+import { curriculumCommonPropTypes } from './'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -57,8 +57,6 @@ const CurriculumPartTime = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Course outline:</H4>
-
       <Section
         {...commonProps}
         title="Session 1 - Modern JavaScript"
@@ -131,13 +129,6 @@ const CurriculumPartTime = ({
       >
         <PartTimeFinalProject />
       </Section>
-      {showLinkToCurriculum && (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${PART_TIME}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
     </React.Fragment>
   )
 
@@ -163,6 +154,7 @@ const CurriculumPartTime = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
       {showCallToActionBottom ? (
         <Row>
@@ -189,6 +181,7 @@ const CurriculumPartTime = ({
   )
 }
 
+CurriculumPartTime.propTypes = curriculumCommonPropTypes
 CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
 CurriculumPartTime.TargetAudienceList = TargetAudienceList
 

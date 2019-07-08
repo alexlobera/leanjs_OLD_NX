@@ -9,18 +9,19 @@ import { Col, Row } from '../layout/Grid'
 const AlternativeTrainings = ({
   trainings,
   titleText = 'You may also be interested in',
-}) => (
-  <Card border="blue">
-    <Row>
-      <Col md={11} mdOffset={1}>
-        <H3>{titleText}</H3>
-        <Row>
-          <UpcomingTrainings trainings={trainings} />
-        </Row>
-        <LinkButton to="#upcoming">See all Courses</LinkButton>
-      </Col>
-    </Row>
-  </Card>
-)
+}) =>
+  trainings && trainings.length ? (
+    <Card border="blue">
+      <Row>
+        <Col md={11} mdOffset={1}>
+          <H3>{titleText}</H3>
+          <Row>
+            <UpcomingTrainings trainings={trainings} />
+          </Row>
+          <LinkButton to="#upcoming">See all Courses</LinkButton>
+        </Col>
+      </Row>
+    </Card>
+  ) : null
 
 export default AlternativeTrainings

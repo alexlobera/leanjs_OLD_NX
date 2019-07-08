@@ -10,17 +10,14 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import LinkButton from 'src/components/buttons/LinkButton'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { formatUTC } from 'src/components/utils'
 
 const ReduxWorkshopLanding = () => (
   <Layout>
@@ -65,21 +62,6 @@ const ReduxWorkshopLanding = () => (
           />
           <TopSection top>
             <Grid>
-              <CallToActionRow left>
-                <Col mdOffset={1} md={4}>
-                  {training && (
-                    <LinkButton variant="primary" to={training.toPath}>
-                      Next workshop:{' '}
-                      {formatUTC(
-                        training.startDate,
-                        training.utcOffset,
-                        'D MMM'
-                      )}
-                      , {training.city}
-                    </LinkButton>
-                  )}
-                </Col>
-              </CallToActionRow>
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>

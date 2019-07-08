@@ -20,7 +20,6 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_FUNDAMENTALS } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -68,10 +67,6 @@ const ReactFundamentals = props => (
           />
           <TopSection>
             <Grid>
-              <CallToActionNextTrainings
-                left
-                trainings={upcomingFundamentalsTrainings}
-              />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumReactFundamentals

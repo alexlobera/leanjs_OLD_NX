@@ -37,7 +37,7 @@ const SectionButtonRow = styled(Row)`
 const metas = {
   title: 'React & GraphQL Expert Training | React GraphQL Academy',
   description:
-    'Looking for React and GraphQL training courses? React GrpahQL Academy offers unique in-person training by our experts. Contact us now!',
+    'Looking for React and GraphQL expert training? React GraphQL Academy offers in-person real-world training by our experts. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -51,10 +51,16 @@ const StyledTabItem = styled(Link)`
     box-shadow: 5px -5px 15px -5px rgba(0, 0, 0, 0.26);
   }
   position: relative;
-  z-index: 99;
+  z-index: 1;
   border-bottom: none;
   text-decoration: none;
 `
+const StyledTabTitle = styled(Box)`
+  color: ${WHITE};
+`
+StyledTabTitle.defaultProps = {
+  pb: 1,
+}
 
 const TabItem = ({ variant, ...rest }) => (
   <StyledTabItem {...(variant ? tabItemVariantProps[variant] : {})} {...rest} />
@@ -110,10 +116,11 @@ const IndexPage = () => {
             bgColor="blue"
             bgImageName={HOME_PAGE}
           />
-          <TopSection>
+          <TopSection marginTop="-258">
             <Grid>
               <Row>
                 <Col lgOffset={1} lg={11}>
+                  <StyledTabTitle>Select Technology: </StyledTabTitle>
                   <TabItem
                     onClick={() => setTab(TAB_REACT)}
                     to="#tab-curriculum"
@@ -166,18 +173,29 @@ const IndexPage = () => {
                       <strong>collaborative</strong> learning environment.
                     </Li>
                     <Li>
-                      <Link to="/react/training/bootcamp">Bootcamps</Link> for
-                      accelerated learning.
+                      <Link
+                        to="/react/training/bootcamp"
+                        className="is-it-for-me"
+                      >
+                        Bootcamps
+                      </Link>{' '}
+                      for accelerated learning.
                     </Li>
                     <Li>
-                      <Link to="/react/training/part-time-course/">
+                      <Link
+                        to="/react/training/part-time-course/"
+                        className="is-it-for-me"
+                      >
                         Part-time courses
                       </Link>{' '}
                       for accelerated learning.
                     </Li>
                   </Ul>
                   <P />
-                  <LinkButton to="/blog/are-you-the-perfect-react-graphql-student/">
+                  <LinkButton
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                    className="is-it-for-me-cta"
+                  >
                     Blog: Are YOU the Perfect Bootcamp Student?
                   </LinkButton>
                 </Col>
@@ -219,6 +237,7 @@ const IndexPage = () => {
                         variant="default"
                         pdf
                         to={CONVINCE_THE_BOSS_PDF}
+                        className="learn-with-us-pdf"
                       >
                         Why devs should learn with us
                       </LinkButton>
@@ -227,6 +246,7 @@ const IndexPage = () => {
                       <LinkButton
                         variant="secondary"
                         to="/react/training/corporate/"
+                        className="corporate-team-training-testimonials-cta"
                       >
                         Corporate team training
                       </LinkButton>

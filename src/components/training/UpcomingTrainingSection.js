@@ -47,7 +47,12 @@ const CorporateCrossSell = styled.div`
   }
 `
 
-export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
+export const UpcomingTrainings = ({
+  curriculum,
+  type,
+  trainings,
+  className,
+}) => {
   const filteredTrainings = getUpcomingTrainingsByType({
     types: [...type],
     trainings,
@@ -71,6 +76,7 @@ export const UpcomingTrainings = ({ curriculum, type, trainings }) => {
           type={training.type}
           title={training.title}
           path={training.toPath}
+          className={className}
         />
       )
       return (
@@ -115,30 +121,25 @@ const UpcomingTrainingSection = ({
       {curriculum ? (
         <React.Fragment>
           <Link to="#upcoming-courses" name="upcoming-courses" />
-          <H3 mt={3}>Upcoming dates:</H3>
+          <H3 pt={0}>Upcoming dates</H3>
           <UpcomingTrainings
             type={type}
             curriculum={curriculum}
             trainings={trainings}
+            className="upcoming-courses-upcoming-dates"
           />
-          <Link to="#upcoming">See all upcoming courses</Link>
+          <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
+            See all upcoming courses
+          </Link>
           {!removeAdditionalCTAs && (
             <React.Fragment>
-              <Row>
-                <Link
-                  to="#free-learning-resources"
-                  name="free-learning-resources"
-                />
-                <Col md={10}>
-                  <Newsletter />
-                </Col>
-              </Row>
-              <Row>
-                <Link to="#corporate-training" name="corporate-training" />
-                <Col md={10}>
-                  <CorporateTrainingCard type={type} />
-                </Col>
-              </Row>
+              <Link
+                to="#free-learning-resources"
+                name="free-learning-resources"
+              />
+              <Newsletter />
+              <Link to="#corporate-training" name="corporate-training" />
+              <CorporateTrainingCard type={type} />
             </React.Fragment>
           )}
         </React.Fragment>
@@ -146,17 +147,13 @@ const UpcomingTrainingSection = ({
         <Section>
           <Grid>
             <Row>
-              <Col md={10} mdOffset={1}>
+              <Col md={11} mdOffset={1}>
                 <H2Ref>
                   Upcoming - All Events
                   <Link to="#upcoming" name="upcoming">
                     #
                   </Link>
                 </H2Ref>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={11} mdOffset={1}>
                 <Tabs active={activeTab} onChange={setActiveTab}>
                   <TabList>
                     <TabItem name={REACT_BOOTCAMP}>React Courses</TabItem>
@@ -166,7 +163,10 @@ const UpcomingTrainingSection = ({
                   <TabContent>
                     <ContentItem name={REACT_BOOTCAMP}>
                       <Row>
-                        <UpcomingTrainings trainings={reactTrainings} />
+                        <UpcomingTrainings
+                          className="upcoming-courses-all-courses"
+                          trainings={reactTrainings}
+                        />
                         <CorporateCrossSell>
                           <P>
                             <strong>Corporate team training</strong>

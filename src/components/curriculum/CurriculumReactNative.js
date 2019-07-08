@@ -1,7 +1,6 @@
 import React from 'react'
 import { H2Ref } from '../text'
 import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
@@ -13,17 +12,17 @@ import ReactNativePushNotificationSession from './sessions/native/ReactNativePus
 import ReactNativeTestingSession from './sessions/native/ReactNativeTestingSession'
 import ReactNativeNativeModulesSession from './sessions/native/ReactNativeNativeModulesSession'
 import ReactNativeProductionSession from './sessions/native/ReactNativeProductionSession'
-import SectionCTA from './SectionCTA'
 
 import { REACT_NATIVE } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactNative = ({
   showTitle = true,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/curriculum?tab=${REACT_NATIVE}`,
-  showLinkToCurriculum = true,
+  toggleNavigateTo,
+  showLinkToCurriculum = false,
   layout,
   trainings,
 }) => {
@@ -72,13 +71,6 @@ const CurriculumReactNative = ({
         <ReactNativeNativeModulesSession title="Native Modules" />
         <ReactNativeProductionSession title="Release to Production" />
       </Section>
-      {showLinkToCurriculum && (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${REACT_NATIVE}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
     </React.Fragment>
   )
 
@@ -104,9 +96,12 @@ const CurriculumReactNative = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )
 }
+
+CurriculumReactNative.propTypes = curriculumCommonPropTypes
 
 export default CurriculumReactNative

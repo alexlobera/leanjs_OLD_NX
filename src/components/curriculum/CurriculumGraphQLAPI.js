@@ -1,16 +1,14 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
 import NodejsSession from './sessions/NodejsSession'
 // import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
-
-import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { GRAPHQL_API } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLAPI = ({
   showTitle = true,
@@ -18,7 +16,7 @@ const CurriculumGraphQLAPI = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_API}`,
-  showLinkToCurriculum = false,
+  showLinkToCurriculum = true,
   marketingCard,
   trainings,
 }) => {
@@ -32,8 +30,6 @@ const CurriculumGraphQLAPI = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Course outline:</H4>
-
       <Section
         {...commonProps}
         title="Evening pre-training: Nodejs fundamentals (optional)"
@@ -64,13 +60,6 @@ const CurriculumGraphQLAPI = ({
       >
         <GraphQLServerDayTwoSessions />
       </Section> */}
-      {showLinkToCurriculum ? (
-        <SectionCTA>
-          <LinkButton to={`/graphql/curriculum?tab=${GRAPHQL_API}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      ) : null}
       {marketingCard}
     </React.Fragment>
   )
@@ -97,9 +86,12 @@ const CurriculumGraphQLAPI = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )
 }
+
+CurriculumGraphQLAPI.propTypes = curriculumCommonPropTypes
 
 export default CurriculumGraphQLAPI

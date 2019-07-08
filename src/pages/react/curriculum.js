@@ -34,7 +34,6 @@ import {
   TrainingCard,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Tick } from 'src/components/icons'
 import { getURLParameter } from 'src/components/utils/url'
 import { formatUTC } from 'src/components/utils'
@@ -75,6 +74,13 @@ class ReactCurriculum extends React.Component {
   }
 
   render() {
+    const commonCurriculumProps = {
+      enableToggle: true,
+      showTitle: false,
+      layout: LIST_LAYOUT,
+      showLinkToCurriculum: false,
+    }
+
     return (
       <Layout>
         {({ trainings }) => {
@@ -120,10 +126,6 @@ class ReactCurriculum extends React.Component {
               />
               <TopSection>
                 <Grid>
-                  <CallToActionNextTrainings
-                    left
-                    trainings={trainingBootcamp ? [trainingBootcamp] : []}
-                  />
                   <Card border="shadow">
                     <Row>
                       <Col lg={10} lgOffset={1}>
@@ -324,10 +326,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={9}>
                                 {trainingBootcamp && (
                                   <CurriculumReactBootcamp
-                                    layout={LIST_LAYOUT}
-                                    enableToggle={true}
-                                    showTitle={false}
-                                    showLinkToCurriculum={false}
+                                    {...commonCurriculumProps}
                                     marketingCard={
                                       <MarketingCard
                                         heading="Next React Bootcamp"
@@ -375,10 +374,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={9}>
                                 {trainingFundamentals && (
                                   <CurriculumReactFundamentals
-                                    layout={LIST_LAYOUT}
-                                    enableToggle={true}
-                                    showTitle={false}
-                                    showLinkToCurriculum={false}
+                                    {...commonCurriculumProps}
                                     marketingCard={
                                       <MarketingCard
                                         heading="Next React Fundamentals"
@@ -425,10 +421,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={9}>
                                 {trainingAdvanced && (
                                   <CurriculumAdvancedReact
-                                    enableToggle={true}
-                                    showTitle={false}
-                                    layout={LIST_LAYOUT}
-                                    showLinkToCurriculum={false}
+                                    {...commonCurriculumProps}
                                     marketingCard={
                                       <MarketingCard
                                         heading="Next React Advanced Training"
@@ -474,9 +467,7 @@ class ReactCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 <CurriculumPartTime
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
+                                  {...commonCurriculumProps}
                                   marketingCard={
                                     trainingPartTime && (
                                       <MarketingCard

@@ -17,11 +17,18 @@ const Newsletter = () => (
     <H3>Free learning resources!</H3>
     <P>
       We share our resources directly from our{' '}
-      <Link to="/react/curriculum">React</Link> and{' '}
-      <Link to="/graphql/curriculum">GraphQL</Link> curriculums and we'd love
-      for you to enjoy and learn from them!{' '}
+      <Link className="free-learning-resources" to="/react/curriculum">
+        React
+      </Link>{' '}
+      and{' '}
+      <Link className="free-learning-resources" to="/graphql/curriculum">
+        GraphQL
+      </Link>{' '}
+      curriculums and we'd love for you to enjoy and learn from them!{' '}
     </P>
-    <LinkButton to="#newsletter">Sign up now</LinkButton>
+    <LinkButton className="free-learning-resources-cta" to="#newsletter">
+      Sign up now
+    </LinkButton>
   </StyledNewsletter>
 )
 

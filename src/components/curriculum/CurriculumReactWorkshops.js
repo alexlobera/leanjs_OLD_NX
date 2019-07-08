@@ -5,6 +5,7 @@ import Link from '../navigation/Link'
 import { ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
 import { H2Ref, H4 } from '../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactWorkshops = ({
   showTitle = true,
@@ -24,7 +25,6 @@ const CurriculumReactWorkshops = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Workshops currently available:</H4>
       <Section
         {...commonProps}
         title="Styling in React and Design Systems"
@@ -115,5 +115,7 @@ const CurriculumReactWorkshops = ({
     </React.Fragment>
   )
 }
+
+CurriculumReactWorkshops.propTypes = curriculumCommonPropTypes
 
 export default CurriculumReactWorkshops
