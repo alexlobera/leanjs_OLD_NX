@@ -24,6 +24,7 @@ import TrustedBySection from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
 import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
+import Box from 'src/components/layout/Box'
 
 const SectionButtonRow = styled(Row)`
   margin-top: 30px;
