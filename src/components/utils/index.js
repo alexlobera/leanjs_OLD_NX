@@ -219,3 +219,8 @@ export const trainingTimings = ({ training = {} }) =>
 function twoDigits(number) {
   return ('0' + number).slice(-2)
 }
+
+export const trainingTime = ({ day, training = {} }) =>
+  `${trainingDateByDay({ training, day })} ${
+    day !== 0 ? trainingTimings({ training }) : '6:30pm - 9pm'
+  }`

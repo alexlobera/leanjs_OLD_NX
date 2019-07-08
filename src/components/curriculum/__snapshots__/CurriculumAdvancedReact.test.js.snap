@@ -33,18 +33,19 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       md={6}
     >
       <Styled(Box)
-        box="h4"
-        fontSize={3}
-        fontWeight="bold"
-        lineHeight={3}
+        box="h3"
+        fontSize={4}
+        lineHeight={4}
+        pt={4}
       >
-        Course outline:
+        Course outline
       </Styled(Box)>
       <CurriculumSection
         name="day1"
         subTitle="Advanced React patterns, Hooks, and performance"
         title="Advanced React Day 1"
         toggleNavigateTo={[Function]}
+        trainingTime=" 9am - 6:30pm"
         type="Advanced React"
       >
         <HoCsRenderPropsStateReducerSession
@@ -59,6 +60,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Real-world Testing in React"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
+        trainingTime=" 9am - 6:30pm"
         type="Advanced React"
       >
         <TestingIntroSession
@@ -70,15 +72,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <E2ESession
           title="End-to-End Testing"
         />
-      </CurriculumSection>
-      <CurriculumSection
-        name="day3"
-        subTitle="GraphQL and Hackathon"
-        title="Advanced React Day 3"
-        toggleNavigateTo={[Function]}
-        type="Advanced React"
-      >
-        <Hackathon />
       </CurriculumSection>
       <styled.div>
         <LinkButton
@@ -99,9 +92,9 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       </styled.div>
     </Styled(Col)>
     <Styled(Col)
-      lg={5}
-      lgOffset={1}
-      md={6}
+      lg={4}
+      md={5}
+      mdOffset={1}
     />
   </Row>
 </Fragment>

@@ -31,6 +31,14 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
       lgOffset={1}
       md={6}
     >
+      <Styled(Box)
+        box="h3"
+        fontSize={4}
+        lineHeight={4}
+        pt={4}
+      >
+        Course outline
+      </Styled(Box)>
       <CurriculumSection
         name="day1"
         subTitle="Foundation, Navigation, and Animations"
@@ -82,28 +90,11 @@ exports[`<CurriculumReactNative /> should render component 1`] = `
           title="Release to Production"
         />
       </CurriculumSection>
-      <styled.div>
-        <LinkButton
-          border={0}
-          borderRadius={2}
-          box="button"
-          boxShadow="light"
-          fontSize={2}
-          letterSpacing=" 0.6px"
-          px={4}
-          py={1}
-          textAlign="center"
-          to="/react/curriculum?tab=React Native"
-          variant="default"
-        >
-          Full curriculum
-        </LinkButton>
-      </styled.div>
     </Styled(Col)>
     <Styled(Col)
-      lg={5}
-      lgOffset={1}
-      md={6}
+      lg={4}
+      md={5}
+      mdOffset={1}
     />
   </Row>
 </Fragment>

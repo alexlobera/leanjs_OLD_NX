@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import TestingInReactSession from './sessions/TestingInReactSession'
@@ -9,21 +8,21 @@ import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateR
 import TestingIntroSession from './sessions/TestingIntroSession'
 import E2ESession from './sessions/E2ESession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
-import Hackathon from './sessions/Hackathon'
-import SectionCTA from './SectionCTA'
 import { ADVANCED_REACT } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { Li } from '../layout/Ul'
+import { trainingTime } from '../utils'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
   isOpen,
   enableToggle,
   toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT}`,
-  marketingCard = null,
   showLinkToCurriculum = true,
   layout,
   trainings,
+  training,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = ADVANCED_REACT
@@ -35,13 +34,12 @@ const CurriculumAdvancedReact = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Course outline:</H4>
-
       <Section
         {...commonProps}
         title="Advanced React Day 1"
         name="day1"
         subTitle="Advanced React patterns, Hooks, and performance"
+        trainingTime={trainingTime({ training })}
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
         <ReactPerformanceSession title="Performance" />
@@ -51,31 +49,12 @@ const CurriculumAdvancedReact = ({
         title="Advanced React Day 2"
         name="day2"
         subTitle="Real-world Testing in React"
+        trainingTime={trainingTime({ training })}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
         <E2ESession title="End-to-End Testing" />
       </Section>
-    </React.Fragment>
-  )
-  const secondHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Advanced React Day 3"
-        name="day3"
-        subTitle="GraphQL and Hackathon"
-      >
-        <Hackathon />
-      </Section>
-      {showLinkToCurriculum && (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${ADVANCED_REACT}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
-      {marketingCard}
     </React.Fragment>
   )
 
@@ -97,10 +76,10 @@ const CurriculumAdvancedReact = ({
       )}
       {selectCurriculumLayout({
         firstHalf,
-        secondHalf,
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )
@@ -145,6 +124,7 @@ const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
+CurriculumAdvancedReact.propTypes = curriculumCommonPropTypes
 CurriculumAdvancedReact.LearningObjectivesList = LearningObjectivesList
 CurriculumAdvancedReact.TargetAudienceList = TargetAudienceList
 

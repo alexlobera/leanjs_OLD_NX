@@ -69,6 +69,13 @@ class GraphQLCurriculum extends React.Component {
   }
 
   render() {
+    const commonCurriculumProps = {
+      enableToggle: true,
+      showTitle: false,
+      layout: LIST_LAYOUT,
+      showLinkToCurriculum: false,
+    }
+
     return (
       <Layout>
         {({ trainings }) => {
@@ -308,9 +315,7 @@ class GraphQLCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 <CurriculumGraphQLBootcamp
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
+                                  {...commonCurriculumProps}
                                   marketingCard={
                                     trainingBootcamp && (
                                       <MarketingCard
@@ -370,9 +375,7 @@ class GraphQLCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 <CurriculumGraphQLAPI
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
+                                  {...commonCurriculumProps}
                                   marketingCard={
                                     trainingApi && (
                                       <MarketingCard
@@ -422,9 +425,7 @@ class GraphQLCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 <CurriculumGraphQLApollo
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
+                                  {...commonCurriculumProps}
                                   marketingCard={
                                     trainingClient && (
                                       <MarketingCard

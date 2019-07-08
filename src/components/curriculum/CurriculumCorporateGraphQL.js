@@ -4,6 +4,7 @@ import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumCorporateGraphQL = ({
   showTitle = true,
@@ -83,5 +84,7 @@ const CurriculumCorporateGraphQL = ({
     </React.Fragment>
   )
 }
+
+CurriculumCorporateGraphQL.propTypes = curriculumCommonPropTypes
 
 export default CurriculumCorporateGraphQL

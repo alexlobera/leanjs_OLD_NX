@@ -347,11 +347,11 @@ const Header = ({
                         },
                         {
                           to: '/react/training/part-time-course',
-                          children: 'Part time course',
+                          children: 'Part time Course',
                         },
                         {
                           to: '/react/training/workshops',
-                          children: 'React workshops',
+                          children: 'React Workshops',
                         },
                       ].map(({ to, children, px = 4 }) => (
                         <LinkButton

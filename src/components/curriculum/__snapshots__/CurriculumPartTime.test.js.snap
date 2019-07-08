@@ -33,12 +33,12 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       md={6}
     >
       <Styled(Box)
-        box="h4"
-        fontSize={3}
-        fontWeight="bold"
-        lineHeight={3}
+        box="h3"
+        fontSize={4}
+        lineHeight={4}
+        pt={4}
       >
-        Course outline:
+        Course outline
       </Styled(Box)>
       <CurriculumSection
         name="session1"
@@ -139,9 +139,9 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </styled.div>
     </Styled(Col)>
     <Styled(Col)
-      lg={5}
-      lgOffset={1}
-      md={6}
+      lg={4}
+      md={5}
+      mdOffset={1}
     />
   </Row>
 </Fragment>
