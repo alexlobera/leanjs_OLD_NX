@@ -7,7 +7,6 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Tick } from 'src/components/icons'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
@@ -113,10 +112,6 @@ class GraphQLCurriculum extends React.Component {
               />
               <TopSection>
                 <Grid>
-                  <CallToActionNextTrainings
-                    left
-                    trainings={trainingBootcamp ? [trainingBootcamp] : []}
-                  />
                   <Card border="shadow">
                     <Row>
                       <Col lg={10} lgOffset={1}>

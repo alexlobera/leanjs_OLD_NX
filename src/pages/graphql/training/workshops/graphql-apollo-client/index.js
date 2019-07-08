@@ -12,7 +12,6 @@ import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -82,16 +81,6 @@ const GraphQLApolloClientWorkshop = () => (
           />
           <TopSection top>
             <Grid>
-              <CallToActionNextTrainings left trainings={workshops} />
-              {/* <CallToActionRow left>
-                <Col mdOffset={1} md={4}>
-                  <LinkButton
-                    variant="primary"
-                    to="/graphql/training/workshops/graphql-apollo-client/london"
-                    children="Next workshop: 29 July, London"
-                  />
-                </Col>
-              </CallToActionRow> */}
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>

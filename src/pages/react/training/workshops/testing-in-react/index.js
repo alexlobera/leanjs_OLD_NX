@@ -12,7 +12,6 @@ import { Card } from 'src/components/elements'
 import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
@@ -68,21 +67,6 @@ const AdvancedReactWorkshop = () => (
           />
           <TopSection top>
             <Grid>
-              <CallToActionRow left>
-                <Col mdOffset={1} md={4}>
-                  {training && (
-                    <LinkButton variant="primary" to={training.toPath}>
-                      Next workshop:{' '}
-                      {formatUTC(
-                        training.startDate,
-                        training.utcOffset,
-                        'D MMM'
-                      )}
-                      , {training.city}
-                    </LinkButton>
-                  )}
-                </Col>
-              </CallToActionRow>
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
@@ -92,7 +76,6 @@ const AdvancedReactWorkshop = () => (
               </Card>
             </Grid>
           </TopSection>
-
           <Section>
             <Grid>
               <Row>

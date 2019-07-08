@@ -57,6 +57,12 @@ const StyledTabItem = styled(Link)`
   border-bottom: none;
   text-decoration: none;
 `
+const StyledTabTitle = styled(Box)`
+  color: ${WHITE};
+`
+StyledTabTitle.defaultProps = {
+  pb: 1,
+}
 
 const TabItem = ({ variant, ...rest }) => (
   <StyledTabItem {...(variant ? tabItemVariantProps[variant] : {})} {...rest} />
@@ -112,10 +118,11 @@ const IndexPage = () => {
             bgColor="blue"
             bgImageName={HOME_PAGE}
           />
-          <TopSection>
+          <TopSection marginTop="-258">
             <Grid>
               <Row>
                 <Col lgOffset={1} lg={11}>
+                  <StyledTabTitle>Select Technology: </StyledTabTitle>
                   <TabItem
                     onClick={() => setTab(TAB_REACT)}
                     to="#tab-curriculum"

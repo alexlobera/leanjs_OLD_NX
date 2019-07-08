@@ -13,7 +13,6 @@ import { H2, H2Ref, H3, P, H5 } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import Header from '../components/layout/Header'
-import CallToActionNextTrainings from '../components/layout/CallToActionNextTrainings'
 import { Card, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import { SCREEN_SM_MAX } from '../components/utils'
@@ -54,7 +53,6 @@ const AboutUs = ({ data }) => {
           />
           <TopSection>
             <Grid>
-              <CallToActionNextTrainings left trainings={trainings} />
               <Card border="shadow">
                 <Row>
                   <Col md={10} mdOffset={1}>

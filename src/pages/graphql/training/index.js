@@ -63,6 +63,7 @@ const TrainingPage = props => (
             titleLines={['GraphQL Training']}
             subtitle="Take your development career to the next level with our GraphQL training"
             bgImageName={BOOTCAMP}
+            showCoursesCTA
             links={[
               {
                 text: 'Curriculum',
@@ -89,29 +90,6 @@ const TrainingPage = props => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow>
-                <Col sm={4}>
-                  <LinkButton
-                    variant="primary"
-                    to="/graphql/training/bootcamp"
-                    children="GraphQL Bootcamp"
-                  />
-                </Col>
-                <Col sm={4}>
-                  <LinkButton
-                    to="/graphql/training/corporate"
-                    children="Corporate Team Training"
-                    variant="secondary"
-                  />
-                </Col>
-                <Col sm={4}>
-                  <LinkButton
-                    to="/graphql/training/api"
-                    children="GraphQL API training"
-                    variant="secondary"
-                  />
-                </Col>
-              </CallToActionRow>
               <Card border="shadow">
                 <FullCurriculumsGraphQL trainings={trainings} />
               </Card>

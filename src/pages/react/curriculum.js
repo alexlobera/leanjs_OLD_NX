@@ -34,7 +34,6 @@ import {
   TrainingCard,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Tick } from 'src/components/icons'
 import { getURLParameter } from 'src/components/utils/url'
 import { formatUTC } from 'src/components/utils'
@@ -127,10 +126,6 @@ class ReactCurriculum extends React.Component {
               />
               <TopSection>
                 <Grid>
-                  <CallToActionNextTrainings
-                    left
-                    trainings={trainingBootcamp ? [trainingBootcamp] : []}
-                  />
                   <Card border="shadow">
                     <Row>
                       <Col lg={10} lgOffset={1}>
