@@ -116,8 +116,7 @@ const Bootcamps = props => (
                     quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
                     fullname="Charlie Wilson"
                     job="Software Engineer"
-                    company="tbc"
-                    // need to get the company name!
+                    company="ESG PLC"
                     videoUrl="CP422OORbPA"
                   />
                 </Col>

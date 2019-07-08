@@ -128,8 +128,7 @@ const BootcampLondon = () => (
                     quote="It's nice that the coaches almost don't hold your hand as there's a certain level of knowledge [students have] meaning you can learn quicker and get more done."
                     fullname="Charlie Wilson"
                     job="Software Engineer"
-                    company="tbc"
-                    // need to get the company name!
+                    company="ESG PLC"
                     videoUrl="zRa5-FyWbK8"
                   />
                 </Col>

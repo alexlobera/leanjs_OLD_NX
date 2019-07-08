@@ -92,8 +92,7 @@ const GraphQL = () => (
                     quote="It's nice to have people there who know their stuff. I feel like [the course] has definitely improved my career trajectory"
                     fullname="Charlie Wilson"
                     job="Software Engineer"
-                    company="tbc"
-                    // need to get the company name!
+                    company="ESG PLC"
                     videoUrl="tYhT8F82-z8"
                   />
                 </Col>

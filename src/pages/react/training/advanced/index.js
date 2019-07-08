@@ -90,8 +90,7 @@ const AdvancedTraining = () => (
                     quote="Most of the software my company does is legacy, it's been there for a while. Coming from PHP, React seemed a good way to do that."
                     fullname="Charlie Wilson"
                     job="Software Engineer"
-                    company="tbc"
-                    // need to get the company name!
+                    company="ESG PLC"
                     videoUrl="yG3H27y9F08"
                   />
                 </Col>
