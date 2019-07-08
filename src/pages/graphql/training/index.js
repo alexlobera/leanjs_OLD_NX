@@ -18,7 +18,7 @@ import {
   UpcomingTrainingSection,
 } from 'src/components/training'
 
-import { Card, Image } from 'src/components/elements'
+import { Card } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
 import { createSocialMetas } from 'src/components/utils'

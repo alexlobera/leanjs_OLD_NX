@@ -1,7 +1,6 @@
 import React from 'react'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { Image } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { Link } from '../navigation'
 import { H3, H2Ref, P } from '../text'

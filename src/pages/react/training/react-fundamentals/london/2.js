@@ -128,11 +128,11 @@ const ReactFundamentalsLondon = () => (
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="Coaches to student ratio was amazing - basically 1 coach for every 2 students. Having that helped accelerate my learning"
+                    quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
                     fullname="Lara Ramey"
                     job="Software Developer"
                     company="Meredith Corporation"
-                    videoUrl="EWL06LCD7Bk"
+                    videoUrl="Syktu6ICNfw"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>

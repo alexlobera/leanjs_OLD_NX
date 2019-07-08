@@ -10,7 +10,7 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumGraphQLApollo from 'src/components/curriculum/workshops/CurriculumGraphQLApollo'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,

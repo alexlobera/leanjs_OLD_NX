@@ -5,7 +5,6 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
-import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
@@ -19,9 +18,8 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { Card, Video } from 'src/components/elements'
+import { Card } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { OLU } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
 import { ADVANCED_REACT } from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'

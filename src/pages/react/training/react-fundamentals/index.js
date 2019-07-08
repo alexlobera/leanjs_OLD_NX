@@ -19,9 +19,8 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { Card, Video } from 'src/components/elements'
+import { Card } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { DAVIAN } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_FUNDAMENTALS } from 'src/config/data'
 import header from 'src/components/layout/Header.json'

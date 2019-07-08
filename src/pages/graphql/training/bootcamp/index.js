@@ -18,7 +18,7 @@ import {
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { WHY_GQLU_ACADEMY, SMALL_CLASSROOM } from 'src/config/images.js'
+import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'

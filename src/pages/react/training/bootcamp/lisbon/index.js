@@ -11,7 +11,7 @@ import { CurriculumReactBootcamp } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import Gallery from 'src/components/elements/Gallery'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   selectNthTraining,

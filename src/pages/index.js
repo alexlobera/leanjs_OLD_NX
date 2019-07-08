@@ -10,21 +10,19 @@ import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
 import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
-import Box from '../components/layout/Box'
 import { H2, P } from '../components/text'
 import { AttendeeQuote } from 'src/components/training'
 import Ul, { Li } from '../components/layout/Ul'
-import { HideComponentsUsingCss } from '../components/utils'
 import {
   FullCurriculumsReact,
   FullCurriculumsGraphQL,
 } from '../components/curriculum'
 import { SCREEN_XS_MAX, createSocialMetas } from '../components/utils'
 import Header from '../components/layout/Header'
-import { Card, Image, Video } from '../components/elements'
+import { Card, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
-import { WHY_REACTJS_ACADEMY, NASSAR } from '../config/images.js'
+import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 
 const SectionButtonRow = styled(Row)`

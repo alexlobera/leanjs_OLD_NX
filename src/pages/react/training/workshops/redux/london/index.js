@@ -119,11 +119,11 @@ const ReduxWorkshop = () => (
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="Coaches to student ratio was amazing - basically 1 coach for every 2 students. Having that helped accelerate my learning"
+                    quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
                     fullname="Lara Ramey"
                     job="Software Developer"
                     company="Meredith Corporation"
-                    videoUrl="EWL06LCD7Bk"
+                    videoUrl="blg40SCle7I"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>

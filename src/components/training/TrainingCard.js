@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { space } from 'styled-system'
 
 import { DARK_GREY } from '../../config/styles'
 import { H4, P } from '../text'

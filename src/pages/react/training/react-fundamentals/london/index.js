@@ -9,9 +9,7 @@ import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumReactFundamentals } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
-import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
@@ -23,7 +21,6 @@ import {
   AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -131,16 +128,14 @@ const ReactFundamentalsLondon = () => (
           <Section>
             <Grid>
               <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="Coaches to student ratio was amazing - basically 1 coach for every 2 students. Having that helped accelerate my learning"
-                    fullname="Lara Ramey"
-                    job="Software Developer"
-                    company="Meredith Corporation"
-                    videoUrl="EWL06LCD7Bk"
-                  />
-                </Col>
+                <AttendeeQuote
+                  small
+                  quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  videoUrl="Syktu6ICNfw"
+                />
                 <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this React course right for you? Are you...{' '}

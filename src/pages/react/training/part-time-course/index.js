@@ -16,11 +16,10 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { formatUTC } from 'src/components/utils'
-import { Card, Video } from 'src/components/elements'
+import { Card } from 'src/components/elements'
 import { CurriculumPartTime } from 'src/components/curriculum'
 import Header from 'src/components/layout/Header'
 import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
-import { STEFANO } from 'src/config/images'
 import { PART_TIME } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createSocialMetas } from 'src/components/utils'

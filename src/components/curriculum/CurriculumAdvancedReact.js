@@ -12,7 +12,7 @@ import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import Hackathon from './sessions/Hackathon'
 import SectionCTA from './SectionCTA'
 import { ADVANCED_REACT } from '../../config/data'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { Li } from '../layout/Ul'
 
 const CurriculumAdvancedReact = ({

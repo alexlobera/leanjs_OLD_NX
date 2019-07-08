@@ -9,16 +9,13 @@ import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumAdvReactPatterns } from 'src/components/curriculum/workshops'
 import { Card } from 'src/components/elements'
-import { HideComponentsUsingCss } from 'src/components/utils'
 import Header from 'src/components/layout/Header'
-import { BOOTCAMP_COLLAB, CATALIN } from 'src/config/images'
 import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
 import { REACT_WORKSHOP } from 'src/config/data'

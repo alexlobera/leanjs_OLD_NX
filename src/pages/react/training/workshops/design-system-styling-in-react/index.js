@@ -17,7 +17,6 @@ import {
   selectNthTraining,
   selectUpcomingTrainings,
 } from 'src/components/training'
-import { Image } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import LinkButton from 'src/components/buttons/LinkButton'
 import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
@@ -114,7 +113,7 @@ const StylingDesignSystemWorkshop = () => (
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="With React, everything is inter-connected which can be difficult to understand. But i see it clearly now [after the course]."
+                    quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
                     videoUrl="9QpAWAtZy6M"

@@ -20,7 +20,7 @@ import {
   getUpcomingTrainingsByType,
   AlternativeTrainings,
 } from 'src/components/training'
-import { H2Ref, H3, P, H4 } from 'src/components/text'
+import { H4 } from 'src/components/text'
 import Header from 'src/components/layout/Header'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
