@@ -20,7 +20,6 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Card, Video } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { OLU } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
 import { ADVANCED_REACT } from 'src/config/data'
@@ -77,10 +76,6 @@ const AdvancedTraining = () => (
           />
           <TopSection>
             <Grid>
-              <CallToActionNextTrainings
-                left
-                trainings={upcomingAdvancedTrainings}
-              />
               <Card border="shadow">
                 <CurriculumAdvancedReact
                   trainings={upcomingAdvancedTrainings}

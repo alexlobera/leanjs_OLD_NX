@@ -7,7 +7,6 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Tick } from 'src/components/icons'
 import LinkButton from 'src/components/buttons/LinkButton'
 import {
@@ -70,6 +69,13 @@ class GraphQLCurriculum extends React.Component {
   }
 
   render() {
+    const commonCurriculumProps = {
+      enableToggle: true,
+      showTitle: false,
+      layout: LIST_LAYOUT,
+      showLinkToCurriculum: false,
+    }
+
     return (
       <Layout>
         {({ trainings }) => {
@@ -106,10 +112,6 @@ class GraphQLCurriculum extends React.Component {
               />
               <TopSection>
                 <Grid>
-                  <CallToActionNextTrainings
-                    left
-                    trainings={trainingBootcamp ? [trainingBootcamp] : []}
-                  />
                   <Card border="shadow">
                     <Row>
                       <Col lg={10} lgOffset={1}>
@@ -313,9 +315,7 @@ class GraphQLCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 <CurriculumGraphQLBootcamp
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
+                                  {...commonCurriculumProps}
                                   marketingCard={
                                     trainingBootcamp && (
                                       <MarketingCard
@@ -375,9 +375,7 @@ class GraphQLCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 <CurriculumGraphQLAPI
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
+                                  {...commonCurriculumProps}
                                   marketingCard={
                                     trainingApi && (
                                       <MarketingCard
@@ -427,9 +425,7 @@ class GraphQLCurriculum extends React.Component {
                               <Col lg={1} lgOffset={1} />
                               <Col lg={9}>
                                 <CurriculumGraphQLApollo
-                                  enableToggle={true}
-                                  showTitle={false}
-                                  layout={LIST_LAYOUT}
+                                  {...commonCurriculumProps}
                                   marketingCard={
                                     trainingClient && (
                                       <MarketingCard

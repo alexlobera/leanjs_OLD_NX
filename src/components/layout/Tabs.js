@@ -70,7 +70,7 @@ export const TabList = ({ active, setActive, onChange, children, ...rest }) => {
     })
   )
   return (
-    <Row>
+    <Row className="courses">
       <Col {...rest}>
         <Ul {...rest}>{compound}</Ul>
       </Col>

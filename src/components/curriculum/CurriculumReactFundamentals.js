@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
 import { Li } from '../layout/Ul'
-import { H2Ref, H4 } from '../text'
+import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
@@ -13,11 +13,11 @@ import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/design/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+import { trainingTime } from '../utils'
 
-import { LinkButton } from '../buttons'
-import SectionCTA from './SectionCTA'
 import { REACT_FUNDAMENTALS } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactFundamentals = ({
   showTitle = true,
@@ -28,7 +28,7 @@ const CurriculumReactFundamentals = ({
   marketingCard = null,
   showLinkToCurriculum = true,
   trainings,
-  showHackathon = false,
+  training,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_FUNDAMENTALS
@@ -40,13 +40,12 @@ const CurriculumReactFundamentals = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Course outline:</H4>
-
       <Section
         {...commonProps}
         title="Evening pre-course"
         name="day0"
         subTitle="React 101 and JS fundamentals"
+        trainingTime={trainingTime({ day: 0, training })}
       >
         <ReactJS101Session />
       </Section>
@@ -55,16 +54,23 @@ const CurriculumReactFundamentals = ({
         title="Day 1"
         name="day1"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+        trainingTime={trainingTime({ training })}
       >
         <ES6Session title="Modern JavaScript" />
         <ThinkingInReactSession title="Thinking in React" />
         <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
       </Section>
+      {marketingCard}
+    </React.Fragment>
+  )
+  const secondHalf = (
+    <React.Fragment>
       <Section
         {...commonProps}
         title="Day 2"
         name="day2"
         subTitle="Forms, Authentication, Styling in React"
+        trainingTime={trainingTime({ training })}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
         <ReactFundamentalsRecapSession
@@ -73,32 +79,16 @@ const CurriculumReactFundamentals = ({
         />
         <StylingInReactSession title="Styling in React" />
       </Section>
-      {marketingCard}
-      {showLinkToCurriculum && showHackathon && (
-        <SectionCTA>
-          <LinkButton to={`/react/curriculum?tab=${REACT_FUNDAMENTALS}`}>
-            Full curriculum
-          </LinkButton>
-        </SectionCTA>
-      )}
-    </React.Fragment>
-  )
-  const secondHalf = (
-    <React.Fragment>
       <Section
         {...commonProps}
         title="Day 3"
         name="day3"
         subTitle="Redux Fundamentals, Advanced Redux, and FP"
+        trainingTime={trainingTime({ training })}
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
-      <SectionCTA>
-        <LinkButton to={`/react/curriculum?tab=${REACT_FUNDAMENTALS}`}>
-          Full curriculum
-        </LinkButton>
-      </SectionCTA>
     </React.Fragment>
   )
 
@@ -124,6 +114,7 @@ const CurriculumReactFundamentals = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )
@@ -155,6 +146,7 @@ export const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
+CurriculumReactFundamentals.propTypes = curriculumCommonPropTypes
 CurriculumReactFundamentals.LearningObjectivesList = LearningObjectivesList
 CurriculumReactFundamentals.TargetAudienceList = TargetAudienceList
 

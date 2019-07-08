@@ -18,10 +18,8 @@ import {
   selectUpcomingTrainings,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
 import { Video } from 'src/components/elements'
 import { POLINA } from 'src/config/images'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_NATIVE } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -65,31 +63,6 @@ const ReactNativeBoocamp = () => (
           />
           <TopSection>
             <Grid>
-              {trainings.length ? (
-                <React.Fragment>
-                  <CallToActionNextTrainings
-                    left
-                    trainings={upcomingNativeTrainings}
-                  />
-                </React.Fragment>
-              ) : (
-                <CallToActionRow>
-                  <Col sm={6}>
-                    <LinkButton
-                      cta
-                      to="#contact-us"
-                      children="Signup to our newsletter for latest updates"
-                    />
-                  </Col>
-                  <Col sm={3}>
-                    <LinkButton
-                      variant="secondary"
-                      to=""
-                      children="Next course TBA"
-                    />
-                  </Col>
-                </CallToActionRow>
-              )}
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumReactNative />

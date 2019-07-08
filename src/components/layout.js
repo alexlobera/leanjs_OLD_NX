@@ -103,7 +103,6 @@ const Layout = ({ children, loadAutopilot = true }) => {
             siteMetadata {
               title
               description
-              keywords
             }
           }
         }

@@ -22,7 +22,6 @@ import {
   AttendeeQuote,
 } from 'src/components/training'
 import { Card, Video } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { Breadcrumb } from 'src/components/navigation'
 import {
   REACT_BOOTCAMP,
@@ -100,10 +99,6 @@ const Bootcamps = props => (
           />
           <TopSection>
             <Grid>
-              <CallToActionNextTrainings
-                left
-                trainings={upcomingBootCampTrainings}
-              />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumReactBootcamp

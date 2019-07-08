@@ -4,6 +4,7 @@ import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumCorporateReact = ({
   showTitle = true,
@@ -83,5 +84,7 @@ const CurriculumCorporateReact = ({
     </React.Fragment>
   )
 }
+
+CurriculumCorporateReact.propTypes = curriculumCommonPropTypes
 
 export default CurriculumCorporateReact

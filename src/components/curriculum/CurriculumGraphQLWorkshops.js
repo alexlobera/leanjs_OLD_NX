@@ -5,6 +5,7 @@ import Link from '../navigation/Link'
 import { GRAPHQL_WORKSHOP, GRAPHQL_CLIENT } from '../../config/data'
 import { H2Ref, H4 } from '../text'
 import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLWorkshops = ({
   showTitle = true,
@@ -26,7 +27,6 @@ const CurriculumGraphQLWorkshops = ({
   }
   const firstHalf = (
     <React.Fragment>
-      <H4>Workshops currently available:</H4>
       <Section
         {...commonProps}
         title="GraphQL Apollo Client"
@@ -73,9 +73,12 @@ const CurriculumGraphQLWorkshops = ({
         layout,
         type,
         trainings,
+        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
       })}
     </React.Fragment>
   )
 }
+
+CurriculumGraphQLWorkshops.propsTypes = curriculumCommonPropTypes
 
 export default CurriculumGraphQLWorkshops
