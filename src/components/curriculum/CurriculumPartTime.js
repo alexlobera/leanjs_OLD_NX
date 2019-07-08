@@ -53,6 +53,7 @@ const CurriculumPartTime = ({
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,
     isOpen,
+    type,
   }
   const firstHalf = (
     <React.Fragment>
