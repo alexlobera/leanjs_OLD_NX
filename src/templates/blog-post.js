@@ -66,11 +66,15 @@ const renderAst = new rehypeReact({
 
 const StyledAuthor = styled.div`
   display: flex;
-  color: ${WHITE};
   img {
     margin-right: 18px;
     width: 90px;
     height: 90px;
+  }
+  a,
+  p,
+  span {
+    color: ${WHITE};
   }
   a {
     display: block;
@@ -81,7 +85,10 @@ const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
   <StyledAuthor>
     <Image src={blogAuthors[author].imgSrc} circle />
     <P>
-      <Link to={`/about-us#${blogAuthors[author].path}`}>
+      <Link
+        to={`/about-us#${blogAuthors[author].path}`}
+        className="blog-article"
+      >
         By {blogAuthors[author].fullname}
       </Link>
       <Span>
@@ -165,7 +172,10 @@ const BlogPost = ({ data }) => {
                     <H4>Related articles</H4>
                     {relatedPosts.map((post, index) => (
                       <React.Fragment key={index}>
-                        <Link to={post.node.fields.slug}>
+                        <Link
+                          to={post.node.fields.slug}
+                          className="blog-article"
+                        >
                           {formatPostTitle(post.node.frontmatter.title)}
                         </Link>
                         <P>{formatUTC(post.node.frontmatter.date)}</P>
@@ -183,7 +193,10 @@ const BlogPost = ({ data }) => {
                 <P>
                   This website is built using Gatsbyjs. Curious about how this
                   blog is implemented? It's open source so you can{' '}
-                  <Link to="https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/templates/blog-post.js">
+                  <Link
+                    to="https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/templates/blog-post.js"
+                    className="blog-article"
+                  >
                     check the source code
                   </Link>
                 </P>
@@ -195,7 +208,10 @@ const BlogPost = ({ data }) => {
                 <Hr />
                 <P>
                   Comments? Shoot me a{' '}
-                  <Link to={`http://twitter.com/${authorTwitter}`}>
+                  <Link
+                    to={`http://twitter.com/${authorTwitter}`}
+                    className="blog-article"
+                  >
                     tweet {`@${authorTwitter}`}
                   </Link>{' '}
                   !

@@ -42,7 +42,7 @@ const AboutUs = ({ data }) => {
             titleLines={['About us']}
             subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your ReactJS<br /> journey"
             links={[
-              { text: 'Coach profiles ', to: '#alex-lobera' },
+              { text: 'Coach profiles ', to: '#coaches' },
               {
                 text: 'How we improve   ',
                 to: '#continuous-coach-development',
@@ -94,6 +94,7 @@ const AboutUs = ({ data }) => {
           <Section>
             <Grid>
               <H2>Our coaches</H2>
+              <Link to="#coaches" name="coaches"></Link>
               <Row>
                 {coaches.map(
                   ({
@@ -127,7 +128,12 @@ const AboutUs = ({ data }) => {
                                 <H5 mb={1}>{name}</H5>
                                 <P>
                                   {title} at{' '}
-                                  <Link to={companyLink}>{companyName}</Link>
+                                  <Link
+                                    to={companyLink}
+                                    className="coach-profiles"
+                                  >
+                                    {companyName}
+                                  </Link>
                                 </P>
                               </Box>
                             </Col>
@@ -189,6 +195,7 @@ const AboutUs = ({ data }) => {
                     <LinkButton
                       target="_self"
                       to="mailto:hello@reactgraphql.academy?subject=Become a coach"
+                      className="how-we-improve-become-a-coach"
                     >
                       Become a coach
                     </LinkButton>

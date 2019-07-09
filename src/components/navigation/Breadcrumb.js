@@ -55,7 +55,13 @@ const Breadcrumb = ({ path }) =>
 
                 return (
                   <Li key={to}>
-                    {to ? <Link to={to}>{formatedLabel}</Link> : formatedLabel}
+                    {to ? (
+                      <Link className="breadcrumb" to={to}>
+                        {formatedLabel}
+                      </Link>
+                    ) : (
+                      formatedLabel
+                    )}
                   </Li>
                 )
               })}
