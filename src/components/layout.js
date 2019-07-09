@@ -20,7 +20,6 @@ import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
 import { UpcomingTrainings } from '../components/training'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
-// import FONT_BARLOW_500_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-500.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 
 raven.config(SENTRY_DSN).install()
@@ -38,7 +37,6 @@ const graphqlClient = new ApolloClient({
 
 const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_400_LATIN_EXT_WOFF2,
-  // FONT_BARLOW_500_LATIN_EXT_WOFF2,
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
 ]
 const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
@@ -50,25 +48,6 @@ const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.
     crossorigin: 'crossorigin',
   })
 )
-
-function renderAutopilotScript() {
-  const scriptId = 'plugin-autopilot-13n95s'
-  let runScript
-  if (typeof window === 'undefined') {
-    runScript =
-      'if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}'
-  } else if (!window.document.getElementById(scriptId)) {
-    runScript = 'if(typeof jQuery!=="undefined"){y();}else{setTimeout(y,1000);}'
-  }
-
-  return runScript ? (
-    <script key={scriptId}>
-      {`
-          (function(o){var b="https://apenterprise.io/anywhere/",t="ec24be3b2c6348a48c647a446b08bb8402fda7caa24b43d3950598d3fef58486",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};${runScript}})({"app":true});
-      `}
-    </script>
-  ) : null
-}
 
 const Layout = ({ children, loadAutopilot = true }) => {
   let prefetchDnsUrls = [
@@ -136,7 +115,6 @@ const Layout = ({ children, loadAutopilot = true }) => {
                   ]}
                 >
                   {scriptTags}
-                  {loadAutopilot && renderAutopilotScript()}
                 </Helmet>
                 <Menu />
                 {typeof children === 'function' ? (
