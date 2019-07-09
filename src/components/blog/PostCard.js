@@ -15,12 +15,14 @@ const PostCard = ({ post }) => (
       />
     </Link>
     <Box p={3}>
-      <Link to={`${post.fields.slug}`}>
+      <Link to={`${post.fields.slug}`} className="articles-summary">
         <H3>{formatPostTitle(post.frontmatter.title)}</H3>
       </Link>
       <P>{post.excerpt}</P>
       <P>
-        <Link to={`${post.fields.slug}`}>Read more</Link>
+        <Link to={`${post.fields.slug}`} className="articles-summary">
+          Read more
+        </Link>
       </P>
     </Box>
   </Card>

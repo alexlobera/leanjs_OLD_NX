@@ -88,6 +88,7 @@ const Meetups = () => (
                     curriculum
                     removeAdditionalCTAs
                     trainings={upcomingMeetups}
+                    className="upcoming-meetups"
                   />
                   <H3>Our groups</H3>
                   <Row>
@@ -165,7 +166,12 @@ const Meetups = () => (
                     in the tech industry. If you're company has a great space,
                     we'd love to hear from you!
                   </P>
-                  <LinkButton to="#contact-us">Contact us</LinkButton>
+                  <LinkButton
+                    to="#contact-us"
+                    className="meetups-community-contact-us"
+                  >
+                    Contact us
+                  </LinkButton>
                 </Col>
               </Row>
             </Grid>

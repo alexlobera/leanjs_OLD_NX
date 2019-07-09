@@ -89,22 +89,33 @@ const Coach = ({ data }) => {
                 <Col md={5} mdOffset={1}>
                   <H2Ref>
                     {name}
-                    <Link name={linkName} to={`#${linkName}`}>
+                    <Link
+                      name={linkName}
+                      to={`#${linkName}`}
+                      className="coach-profiles"
+                    >
                       #
                     </Link>
                   </H2Ref>
                   <CoachTitle>
-                    {title} at <Link to={companyLink}>{companyName}</Link>
+                    {title} at{' '}
+                    <Link to={companyLink} className="coach-profiles">
+                      {companyName}
+                    </Link>
                   </CoachTitle>
                   <Ul inline>
                     <Li>
-                      <Link to={gitHub}>GitHub</Link>
+                      <Link to={gitHub} className="coach-profiles">
+                        GitHub
+                      </Link>
                     </Li>
                     <Li>|</Li>
                     {medium && (
                       <React.Fragment>
                         <Li>
-                          <Link to={medium}>Medium</Link>
+                          <Link to={medium} className="coach-profiles">
+                            Medium
+                          </Link>
                         </Li>
                         <Li>|</Li>
                       </React.Fragment>
@@ -112,13 +123,17 @@ const Coach = ({ data }) => {
                     {twitter && (
                       <React.Fragment>
                         <Li>
-                          <Link to={twitter}>Twitter</Link>
+                          <Link to={twitter} className="coach-profiles">
+                            Twitter
+                          </Link>
                         </Li>
                         <Li>|</Li>
                       </React.Fragment>
                     )}
                     <Li>
-                      <Link to={linkedIn}>LinkedIn</Link>
+                      <Link to={linkedIn} className="coach-profiles">
+                        LinkedIn
+                      </Link>
                     </Li>
                   </Ul>
                   {renderAst(htmlAst)}

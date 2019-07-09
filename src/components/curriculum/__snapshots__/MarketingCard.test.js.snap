@@ -19,6 +19,7 @@ exports[`<MarketingCard /> should render component 1`] = `
           borderRadius={2}
           box="button"
           boxShadow="light"
+          className="blog-article"
           fontSize={2}
           letterSpacing=" 0.6px"
           px={4}
