@@ -66,11 +66,15 @@ const renderAst = new rehypeReact({
 
 const StyledAuthor = styled.div`
   display: flex;
-  color: ${WHITE};
   img {
     margin-right: 18px;
     width: 90px;
     height: 90px;
+  }
+  a,
+  p,
+  span {
+    color: ${WHITE};
   }
   a {
     display: block;
