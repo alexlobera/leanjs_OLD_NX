@@ -11,26 +11,6 @@ exports.onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
     pluginOptions.includeInDevelopment
   ) {
     setHeadComponents([
-      // Does Autopilot need jQuery if we don't use the headsup message?
-      // <script
-      //   key="jquery"
-      //   dangerouslySetInnerHTML={{
-      //     __html: stripIndent`
-      //     ;(function() {
-      //       function downloadJSAtOnload() {
-      //         var element = document.createElement('script')
-      //         element.async = true
-      //         element.src = 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js'
-      //         document.body.appendChild(element)
-      //       }
-      //       if (window.addEventListener)
-      //         window.addEventListener('load', downloadJSAtOnload, false)
-      //       else if (window.attachEvent) window.attachEvent('onload', downloadJSAtOnload)
-      //       else window.onload = downloadJSAtOnload
-      //     })();
-      //   `,
-      //   }}
-      // />,
       <script
         key="plugin-autopilot"
         dangerouslySetInnerHTML={{
