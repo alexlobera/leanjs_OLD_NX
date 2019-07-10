@@ -12,7 +12,7 @@
     "firebase": "^6.0.2",
     "firebase-admin": "^5.12.1",
     "firebase-functions": "^1.1.0",
-    "gatsby": "^2.3.34",
+    "gatsby": "^2.13.12",
     "gatsby-plugin-create-client-paths": "^2.0.5",
     "gatsby-plugin-google-tagmanager": "^2.0.15",
     "gatsby-plugin-react-helmet": "^3.0.12",
