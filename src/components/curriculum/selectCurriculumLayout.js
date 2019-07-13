@@ -26,6 +26,7 @@ const selectCurriculumLayout = ({
   trainings,
   corpTrainingFacts,
   curriculumTo,
+  title,
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
@@ -36,6 +37,7 @@ const selectCurriculumLayout = ({
   if (layout === LIST_LAYOUT) {
     return (
       <React.Fragment>
+        {title}
         <List>
           {firstHalf}
           {secondHalf}
@@ -46,6 +48,7 @@ const selectCurriculumLayout = ({
   } else if (layout === LIST_TWO_COL) {
     return (
       <React.Fragment>
+        {title}
         <List>
           <Row>
             <Col md={6} lg={5}>
@@ -62,6 +65,13 @@ const selectCurriculumLayout = ({
   } else {
     return (
       <React.Fragment>
+        {title && (
+          <Row>
+            <Col lg={10} lgOffset={1}>
+              {title}
+            </Col>
+          </Row>
+        )}
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
             <H3>Course outline</H3>

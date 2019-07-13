@@ -5,7 +5,6 @@ import CurriculumPartTime from './CurriculumPartTime'
 import CurriculumReactNative from './CurriculumReactNative'
 import MarketingCard from './MarketingCard'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
-import CurriculumCorpRNative from './CurriculumCorpRNative'
 import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
 import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 import FullCurriculumsReact from './FullCurriculumsReact'
@@ -22,7 +21,6 @@ export {
   CurriculumAdvancedReact,
   CurriculumGraphQLBootcamp,
   CurriculumGraphQLAPI,
-  CurriculumCorpRNative,
   FullCurriculumsReact,
   CurriculumCorporateReact,
   CurriculumReactFundamentals,

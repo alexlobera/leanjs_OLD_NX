@@ -51,32 +51,16 @@ const CurriculumGraphQLWorkshops = ({
       />
     </React.Fragment>
   )
+  const title = showTitle ? null : null // TODO
 
-  return (
-    <React.Fragment>
-      {showTitle ? (
-        <Row>
-          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
-            <H2Ref>
-              Design Systems & styling in React{' '}
-              <Link to="#curriculum" name="curriculum">
-                #
-              </Link>
-            </H2Ref>
-          </Col>
-        </Row>
-      ) : (
-        ''
-      )}
-      {selectCurriculumLayout({
-        firstHalf,
-        layout,
-        type,
-        trainings,
-        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-      })}
-    </React.Fragment>
-  )
+  return selectCurriculumLayout({
+    firstHalf,
+    layout,
+    type,
+    title,
+    trainings,
+    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
+  })
 }
 
 CurriculumGraphQLWorkshops.propsTypes = curriculumCommonPropTypes

@@ -74,32 +74,24 @@ const CurriculumReactNative = ({
     </React.Fragment>
   )
 
-  return (
-    <React.Fragment>
-      {showTitle ? (
-        <Row>
-          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
-            <H2Ref>
-              React Native Curriculum
-              <Link to="#curriculum" name="curriculum">
-                #
-              </Link>
-            </H2Ref>
-          </Col>
-        </Row>
-      ) : (
-        ''
-      )}
-      {selectCurriculumLayout({
-        firstHalf,
-        secondHalf,
-        layout,
-        type,
-        trainings,
-        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-      })}
-    </React.Fragment>
-  )
+  const title = showTitle ? (
+    <H2Ref>
+      React Native Curriculum
+      <Link to="#curriculum" name="curriculum">
+        #
+      </Link>
+    </H2Ref>
+  ) : null
+
+  return selectCurriculumLayout({
+    firstHalf,
+    secondHalf,
+    layout,
+    type,
+    title,
+    trainings,
+    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
+  })
 }
 
 CurriculumReactNative.propTypes = curriculumCommonPropTypes

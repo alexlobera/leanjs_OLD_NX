@@ -16,6 +16,9 @@ export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
 const Section = styled.div`
+  &:first-child {
+    margin-top: 0;
+  }
   ${({ type }) =>
     `border-left: 3px ${selectBorderStyle(type)} ${selectTypeColor(type)};`}
   margin-top: 2em;

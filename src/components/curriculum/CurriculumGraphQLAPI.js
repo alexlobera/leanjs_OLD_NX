@@ -64,32 +64,24 @@ const CurriculumGraphQLAPI = ({
     </React.Fragment>
   )
 
-  return (
-    <React.Fragment>
-      {showTitle ? (
-        <Row>
-          <Col lgOffset={layout !== LIST_TWO_COL ? 1 : 0}>
-            <H2Ref>
-              GraphQL API Curriculum{' '}
-              <Link to="#curriculum" name="curriculum">
-                #
-              </Link>
-            </H2Ref>
-          </Col>
-        </Row>
-      ) : (
-        ''
-      )}
-      {selectCurriculumLayout({
-        firstHalf,
-        secondHalf,
-        layout,
-        type,
-        trainings,
-        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-      })}
-    </React.Fragment>
-  )
+  const title = showTitle ? (
+    <H2Ref>
+      GraphQL API Curriculum{' '}
+      <Link to="#curriculum" name="curriculum">
+        #
+      </Link>
+    </H2Ref>
+  ) : null
+
+  return selectCurriculumLayout({
+    firstHalf,
+    secondHalf,
+    layout,
+    title,
+    type,
+    trainings,
+    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
+  })
 }
 
 CurriculumGraphQLAPI.propTypes = curriculumCommonPropTypes

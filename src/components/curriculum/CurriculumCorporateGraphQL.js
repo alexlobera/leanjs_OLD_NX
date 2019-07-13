@@ -7,7 +7,6 @@ import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 
 const CurriculumCorporateGraphQL = ({
-  showTitle = true,
   layout,
   enableToggle,
   isOpen,
@@ -65,24 +64,13 @@ const CurriculumCorporateGraphQL = ({
     </React.Fragment>
   )
 
-  return (
-    <React.Fragment>
-      {showTitle ? (
-        <Row>
-          <Col lg={10} lgOffset={layout !== LIST_TWO_COL ? 1 : 0} />
-        </Row>
-      ) : (
-        ''
-      )}
-      {selectCurriculumLayout({
-        firstHalf,
-        secondHalf,
-        layout,
-        type,
-        corpTrainingFacts: true,
-      })}
-    </React.Fragment>
-  )
+  return selectCurriculumLayout({
+    firstHalf,
+    secondHalf,
+    layout,
+    type,
+    corpTrainingFacts: true,
+  })
 }
 
 CurriculumCorporateGraphQL.propTypes = curriculumCommonPropTypes
