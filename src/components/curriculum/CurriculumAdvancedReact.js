@@ -40,6 +40,7 @@ const CurriculumAdvancedReact = ({
         name="day1"
         subTitle="Advanced React patterns, Hooks, and performance"
         trainingTime={trainingTime({ training })}
+        buyPath="/react/training/workshops/advanced-react-patterns-fp-performance"
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
         <ReactPerformanceSession title="Performance" />
@@ -62,7 +63,7 @@ const CurriculumAdvancedReact = ({
     <React.Fragment>
       {showTitle ? (
         <Row>
-          <Col lg={10}>
+          <Col lg={10} lgOffset={1}>
             <H2Ref>
               Advanced React Curriculum{' '}
               <Link to="#curriculum" name="curriculum">

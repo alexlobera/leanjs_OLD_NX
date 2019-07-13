@@ -5,6 +5,7 @@ import { H4, Span } from '../text'
 import { FONT_FAMILY } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
+import { LinkButton } from 'src/components/buttons'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
@@ -20,6 +21,9 @@ const Section = styled.div`
     `border-left: 3px ${selectBorderStyle(type)} ${selectTypeColor(type)};`}
   margin-top: 2em;
   padding-left: 20px;
+  a {
+    display: inline-block;
+  }
 `
 
 export const CurriculumSubSection = styled.div`
@@ -92,14 +96,14 @@ const CurriculumSection = props => {
     <CurriculumSubSection>
       {children}
       <Feedback />
-      <Span> - </Span>
+      <Span>. </Span>
       <Link duration={200} to={`#${name || title}`} onClick={toggleSubSection}>
         Hide detail
       </Link>
     </CurriculumSubSection>
   ) : (
     <React.Fragment>
-      <Span> - </Span>
+      <Span>. </Span>
       <Link className="curriculum" {...toogleLinkProps}>
         Find out more
       </Link>
@@ -111,7 +115,7 @@ const CurriculumSection = props => {
       <Element name={name || title} />
       {title ? (
         <CurriculumItemTitle>
-          {title} {trainingTime && <small>{`(${trainingTime.trim()})`}</small>}
+          {title} {trainingTime && <small>{` (${trainingTime.trim()})`}</small>}
         </CurriculumItemTitle>
       ) : (
         ''

@@ -68,7 +68,7 @@ const AdvancedTraining = () => (
           />
           <Header
             titleLines={['Advanced React Training']}
-            subtitle="For 3 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
+            subtitle="For 2 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
             bgImageName={BOOTCAMP}
             type={ADVANCED_REACT}
           />

@@ -128,14 +128,16 @@ const ReactFundamentalsLondon = () => (
           <Section>
             <Grid>
               <Row>
-                <AttendeeQuote
-                  small
-                  quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
-                  fullname="Lara Ramey"
-                  job="Software Developer"
-                  company="Meredith Corporation"
-                  videoUrl="Syktu6ICNfw"
-                />
+                <Col md={5} mdOffset={1}>
+                  <AttendeeQuote
+                    small
+                    quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="Syktu6ICNfw"
+                  />
+                </Col>
                 <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this React course right for you? Are you...{' '}
