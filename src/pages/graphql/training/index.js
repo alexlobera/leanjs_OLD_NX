@@ -64,7 +64,35 @@ const TrainingPage = props => (
             titleLines={['GraphQL Training']}
             subtitle="Take your development career to the next level with our GraphQL training"
             bgImageName={BOOTCAMP}
-            showCoursesCTA
+            featuredSection={
+              <React.Fragment>
+                <P>Our courses:</P>
+                {[
+                  {
+                    to: '/graphql/training/bootcamp',
+                    children: 'GraphQL Bootcamp',
+                    px: 3,
+                  },
+                  {
+                    to: '/graphql/training/api/',
+                    children: 'GraphQL API',
+                  },
+                  {
+                    to: '/graphql/training/workshops/graphql-apollo-client/',
+                    children: 'GraphQL Client',
+                  },
+                ].map(({ to, children, px = 4 }) => (
+                  <LinkButton
+                    mb={1}
+                    px={px}
+                    variant="primary"
+                    to={to}
+                    children={children}
+                    className="main-cta-buttons"
+                  />
+                ))}
+              </React.Fragment>
+            }
             links={[
               {
                 text: 'Curriculum',
@@ -109,7 +137,7 @@ const TrainingPage = props => (
                     videoUrl="4NY7HCRPhWA"
                   />
                 </Col>
-                <Col md={5} mdOffset={1}>
+                <Col md={4} mdOffset={1}>
                   <Link to="#student-outcomes" name="student-outcomes" />
                   <H2>What students get from a our training</H2>
                   <Ul>

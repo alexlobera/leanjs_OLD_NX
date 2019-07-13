@@ -6,6 +6,7 @@ import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
 import PostCard from 'src/components/blog/PostCard'
 import { Link } from 'src/components/navigation'
+import Flex from 'src/components/layout/Flex'
 
 const postsThatMatchAllTags = tags => ({
   node: {
@@ -51,19 +52,15 @@ const BlogSection = ({ tags = [] }) => (
         return null
       }
 
-      // TODO Paul style it
       return (
         <Section>
           <Grid>
-            <Row>
-              <Col md={10}>
-                <H2>Related blogs</H2>
-              </Col>
-              <Col md={2}>
-                <br />
-                <Link to="/blog">See all blogs</Link>
-              </Col>
-            </Row>
+            <Flex>
+              <H2>Related blogs</H2>
+              <Link ml="auto" mt={3} to="/blog">
+                See all blogs
+              </Link>
+            </Flex>
             <Row>
               {posts.map(({ node: post }) => (
                 <Col md={4} key={post.fields.slug}>

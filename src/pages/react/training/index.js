@@ -63,7 +63,43 @@ const TrainingPage = () => (
             titleLines={['React Training']}
             subtitle="Take your development career to the next level with our React training"
             bgImageName={BOOTCAMP}
-            showCoursesCTA
+            featuredSection={
+              <React.Fragment>
+                <P>Our courses:</P>
+                {[
+                  {
+                    to: '/react/training/bootcamp',
+                    children: 'React Bootcamp',
+                  },
+                  {
+                    to: '/react/training/react-fundamentals/',
+                    children: 'React Fundamentals',
+                    px: 1,
+                  },
+                  {
+                    to: '/react/training/advanced',
+                    children: 'Advanced React',
+                  },
+                  {
+                    to: '/react/training/part-time-course',
+                    children: 'Part time Course',
+                  },
+                  {
+                    to: '/react/training/workshops',
+                    children: 'React Workshops',
+                  },
+                ].map(({ to, children, px = 4 }) => (
+                  <LinkButton
+                    mb={1}
+                    px={px}
+                    variant="primary"
+                    to={to}
+                    children={children}
+                    className="main-cta-buttons"
+                  />
+                ))}
+              </React.Fragment>
+            }
             links={[
               {
                 text: 'Upcoming Courses',
@@ -104,9 +140,9 @@ const TrainingPage = () => (
                     videoUrl="er9ttTCS86U"
                   />
                 </Col>
-                <Col md={5} mdOffset={1}>
+                <Col md={4} mdOffset={1}>
                   <Link to="#student-outcomes" name="student-outcomes" />
-                  <H2>What developers get from our courses</H2>
+                  <H2>What developers get from our training</H2>
                   <Ul>
                     <Li>
                       <strong>Build production ready</strong> React apps.

@@ -196,10 +196,10 @@ const InfoBox = styled(Box)`
   border: ${({ type }) =>
     `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
 `
-const CtaBox = styled(Box)`
+const FeaturedSection = styled(Box)`
   background-color: ${WHITE};
 `
-CtaBox.defaultProps = {
+FeaturedSection.defaultProps = {
   p: 4,
 }
 
@@ -219,7 +219,7 @@ const getBackgroundImageSrc = (data, fileName) => {
 const Header = ({
   training = {},
   showInfoBox = false,
-  showCoursesCTA = false,
+  featuredSection,
   type = '',
   titleLines = [],
   subtitle,
@@ -289,7 +289,7 @@ const Header = ({
             <Grid>
               <Row>
                 <TitleCol
-                  md={(showInfoBox && training) || showCoursesCTA ? 7 : 12}
+                  md={(showInfoBox && training) || featuredSection ? 7 : 12}
                   type={type}
                 >
                   <H1>
@@ -331,43 +331,9 @@ const Header = ({
                     </Col>
                   </Row>
                 </TitleCol>
-                {showCoursesCTA && (
+                {featuredSection && (
                   <Col md={3} mdOffset={1}>
-                    <CtaBox>
-                      <P>Our courses:</P>
-                      {[
-                        {
-                          to: '/react/training/bootcamp',
-                          children: 'React Bootcamp',
-                        },
-                        {
-                          to: '/react/training/react-fundamentals/',
-                          children: 'React Fundamentals',
-                          px: 1,
-                        },
-                        {
-                          to: '/react/training/advanced',
-                          children: 'Advanced React',
-                        },
-                        {
-                          to: '/react/training/part-time-course',
-                          children: 'Part time Course',
-                        },
-                        {
-                          to: '/react/training/workshops',
-                          children: 'React Workshops',
-                        },
-                      ].map(({ to, children, px = 4 }) => (
-                        <LinkButton
-                          mb={1}
-                          px={px}
-                          variant="primary"
-                          to={to}
-                          children={children}
-                          className="main-cta-buttons"
-                        />
-                      ))}
-                    </CtaBox>
+                    <FeaturedSection>{featuredSection}</FeaturedSection>
                   </Col>
                 )}
                 {showInfoBox && (

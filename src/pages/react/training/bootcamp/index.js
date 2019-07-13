@@ -131,10 +131,7 @@ const Bootcamps = props => (
                       Ideal for experienced programmers familiar with good
                       practices. Not for beginners!
                     </Li>
-                    <Li>
-                      Small classes with expert developer coaches - roughly one
-                      for every four students
-                    </Li>
+                    <Li>Small classes with expert developer coaches</Li>
                     <Li>
                       Hands-on project-based training - most of the time you'll
                       be coding.

@@ -89,7 +89,7 @@ const ReactFundamentals = props => (
                   />
                 </Col>
 
-                <Col md={5} mdOffset={1}>
+                <Col md={4} mdOffset={1}>
                   <H2>
                     <Link to="#target-audience" name="target-audience" />
                     Is the React Fundamentals course right for me?
@@ -101,10 +101,7 @@ const ReactFundamentals = props => (
                       JavaScript
                     </Li>
                     <Li>Extremely rapid, intense learning</Li>
-                    <Li>
-                      Small classes with expert devs - roughly one for every
-                      four students
-                    </Li>
+                    <Li>Small classes with expert devs</Li>
                     <Li>
                       Hands-on project-based training - most of the time you'll
                       be coding.

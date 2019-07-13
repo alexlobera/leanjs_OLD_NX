@@ -96,15 +96,13 @@ const PartTime = ({ trainings }) => (
                     videoUrl="4NY7HCRPhWA"
                   />
                 </Col>
-                <Col md={5} mdOffset={1}>
+                <Col md={4} mdOffset={1}>
                   <Link to="#target-audience" name="target-audience" />
                   <H2>Is this React part-time course right for me?</H2>
                   <Ul>
                     <Li>Meaningful, collaborative learning</Li>
                     <Li>Personal mentoring rather than online learning</Li>
-                    <Li>
-                      Don't miss work days or projects - only 2 evenings a week
-                    </Li>
+                    <Li>Don't miss work days or projects</Li>
                     <Li>Not for beginners!</Li>
                     <Li>Discuss real-world projects to learn best practices</Li>
                     <Li>Expert coaches with extensive React experience</Li>

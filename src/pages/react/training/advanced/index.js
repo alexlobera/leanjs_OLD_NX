@@ -94,7 +94,7 @@ const AdvancedTraining = () => (
                     videoUrl="yG3H27y9F08"
                   />
                 </Col>
-                <Col md={5} mdOffset={1}>
+                <Col md={4} mdOffset={1}>
                   <H2>Is this advanced React training right for me?</H2>
                   <Ul>
                     <CurriculumAdvancedReact.TargetAudienceList />
