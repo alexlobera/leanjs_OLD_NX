@@ -5,6 +5,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
   <Row>
     <Styled(Col)
       lg={10}
+      lgOffset={1}
     >
       <Styled(Styled(Box))
         box="h2"
@@ -40,6 +41,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         Course outline
       </Styled(Box)>
       <CurriculumSection
+        buyPath="/react/training/workshops/advanced-react-patterns-fp-performance"
         name="day1"
         subTitle="Advanced React patterns, Hooks, and performance"
         title="Advanced React Day 1"
