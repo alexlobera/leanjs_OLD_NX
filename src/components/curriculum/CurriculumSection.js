@@ -5,7 +5,6 @@ import { H4, Span } from '../text'
 import { FONT_FAMILY } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
-import { LinkButton } from 'src/components/buttons'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
