@@ -147,7 +147,9 @@ const Nav = styled.div`
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top:36px;
-
+  span {
+    color: ${WHITE};
+  }
   @media (min-width: ${SCREEN_SM_MIN}) {
     text-shadow: 1px -1px 17px #367088;
     
