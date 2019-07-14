@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { H3, P } from '../text'
 import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'

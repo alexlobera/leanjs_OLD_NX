@@ -1,10 +1,7 @@
 import React from 'react'
 import Section from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
-import Link from '../navigation/Link'
 import { GRAPHQL_WORKSHOP, GRAPHQL_CLIENT } from '../../config/data'
-import { H2Ref } from '../text'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLWorkshops = ({

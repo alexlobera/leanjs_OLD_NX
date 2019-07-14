@@ -6,16 +6,17 @@ import { Card, Image } from '../../components/elements'
 import Box from '../../components/layout/Box'
 import { formatPostTitle } from '../../templates/blog-post'
 
-const PostCard = ({ post }) => (
-  <Card border="shadow" py={0} mb={5}>
+const PostCard = ({ post, p, imageProps = {} }) => (
+  <Card border="shadow" py={0} mb={5} p={p}>
     <Link to={`${post.fields.slug}`}>
       <Image
+        {...imageProps}
         src={post.frontmatter.imageUrl}
         alt={formatPostTitle(post.frontmatter.title)}
         mb={0}
       />
     </Link>
-    <Box p={3}>
+    <Box p={p ? 0 : 3}>
       <Link to={`${post.fields.slug}`} className="articles-summary">
         <H3>{formatPostTitle(post.frontmatter.title)}</H3>
       </Link>

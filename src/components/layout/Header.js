@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { LinkButton } from '../buttons'
 import { formatUTC } from '../utils'
 import Section from './Section'
 import Grid, { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
-import { H1 as BaseH1, H2 as BaseH2, Span, P } from '../text'
+import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
 import {
   DARK_BLUE_075,
   LIGHT_BLUE,

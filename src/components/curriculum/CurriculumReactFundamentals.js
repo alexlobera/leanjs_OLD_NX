@@ -3,7 +3,6 @@ import Link from '../navigation/Link'
 import { Li } from '../layout/Ul'
 import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
 import ES6Session from './sessions/ES6Session'
 import ReactJS101Session from './sessions/ReactJS101Session'
 import ThinkingInReactSession from './sessions/ThinkingInReactSession'
@@ -16,7 +15,7 @@ import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import { trainingTime } from '../utils'
 
 import { REACT_FUNDAMENTALS } from '../../config/data'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactFundamentals = ({

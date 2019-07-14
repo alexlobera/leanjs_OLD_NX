@@ -123,12 +123,9 @@ const CurriculumSection = props => {
       </Link>
     </CurriculumSubSection>
   ) : (
-    <React.Fragment>
-      <Span>. </Span>
-      <Link className="curriculum" {...toogleLinkProps}>
-        Find out more
-      </Link>
-    </React.Fragment>
+    <Link className="curriculum" {...toogleLinkProps}>
+      Find out more
+    </Link>
   )
 
   return (

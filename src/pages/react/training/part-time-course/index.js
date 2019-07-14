@@ -76,10 +76,7 @@ const PartTime = ({ trainings }) => (
             <Grid>
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumPartTime
-                  trainings={upcomingPartTimeTrainings}
-                  showCallToActionBottom={true}
-                />
+                <CurriculumPartTime trainings={upcomingPartTimeTrainings} />
               </Card>
             </Grid>
           </TopSection>

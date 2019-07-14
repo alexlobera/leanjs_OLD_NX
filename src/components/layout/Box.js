@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { space, color, typography, border, shadow } from 'styled-system'
+import { space, color, typography, border, shadow, layout } from 'styled-system'
 import { DARK_GREY } from '../../config/styles'
 
 export const StyledBox = styled.div`
@@ -9,6 +9,7 @@ export const StyledBox = styled.div`
   ${typography}
   ${border}
   ${shadow}
+  ${layout}
 `
 
 const Box = React.forwardRef(({ children, ...rest }, ref) => {

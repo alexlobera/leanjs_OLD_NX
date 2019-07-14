@@ -1,9 +1,8 @@
 import React from 'react'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
 import { LinkButton } from '../buttons'
 import { REACT_BOOTCAMP } from '../../config/data'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 
 const CurriculumCorporateReact = ({

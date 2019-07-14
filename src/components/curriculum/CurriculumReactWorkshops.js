@@ -1,10 +1,9 @@
 import React from 'react'
 import Section from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
 import { ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
 import { H2Ref } from '../text'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactWorkshops = ({

@@ -1,9 +1,7 @@
 import React from 'react'
-import { LinkButton } from '../buttons'
 import { H2Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
 import Ul, { Li } from '../layout/Ul'
 import ES6Session from './sessions/ES6Session'
 import ThinkingInReactSession from './sessions/ThinkingInReactSession'
@@ -14,9 +12,8 @@ import StylingInReactSession from './sessions/design/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
-import CurriculumCard from './CurriculumCard'
 import { PART_TIME } from '../../config/data'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import {
   LearningObjectivesList,
   TargetAudienceList,
@@ -41,7 +38,6 @@ const CurriculumPartTime = ({
   isOpen,
   enableToggle,
   toggleNavigateTo = `/react/curriculum?tab=${PART_TIME}`,
-  showCallToActionBottom = false,
   marketingCard = null,
   layout,
   showLinkToCurriculum = true,
@@ -141,40 +137,15 @@ const CurriculumPartTime = ({
     </H2Ref>
   ) : null
 
-  return (
-    <React.Fragment>
-      {selectCurriculumLayout({
-        firstHalf,
-        secondHalf,
-        layout,
-        type,
-        title,
-        trainings,
-        curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-      })}
-      {showCallToActionBottom ? (
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <CurriculumCard>
-              <Row>
-                <Col lg={5} lgOffset={1}>
-                  Looking for the most complete React curriculum? Our React
-                  bootcamp has it all...
-                </Col>
-                <Col lg={6} center>
-                  <LinkButton to="/react/training/bootcamp">
-                    React Bootcamp
-                  </LinkButton>
-                </Col>
-              </Row>
-            </CurriculumCard>
-          </Col>
-        </Row>
-      ) : (
-        ''
-      )}
-    </React.Fragment>
-  )
+  return selectCurriculumLayout({
+    firstHalf,
+    secondHalf,
+    layout,
+    type,
+    title,
+    trainings,
+    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
+  })
 }
 
 CurriculumPartTime.propTypes = curriculumCommonPropTypes

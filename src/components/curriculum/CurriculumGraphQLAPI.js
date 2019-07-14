@@ -2,12 +2,11 @@ import React from 'react'
 import Link from '../navigation/Link'
 import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
 import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
 import NodejsSession from './sessions/NodejsSession'
 // import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
 import { GRAPHQL_API } from '../../config/data'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLAPI = ({
