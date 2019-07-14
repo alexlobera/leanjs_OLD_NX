@@ -1,7 +1,11 @@
 import styled from 'styled-components'
-import { FONT_FAMILY } from '../../config/styles'
+import Box from '../layout/Box'
 
-export default styled.label`
-  ${FONT_FAMILY}
+const Label = styled(Box)`
   ${props => props.flex && `display: flex;`}
 `
+Label.defaultProps = {
+  box: 'label',
+}
+
+export default Label

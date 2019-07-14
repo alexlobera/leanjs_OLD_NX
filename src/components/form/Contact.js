@@ -1,40 +1,23 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { navigate } from 'gatsby'
 
-import DefaultLink from '../navigation/Link'
-import { Button } from '../buttons'
-import { H3 as DefaultH3, P as DefaultP } from '../text'
-import { InputField, Form } from '../form'
-import { Col, Row } from '../layout/Grid'
 import { WHITE } from '../../config/styles'
+import Link from '../navigation/Link'
+import { Button } from '../buttons'
+import { H3, P } from '../text'
+import { InputField, Form } from '.'
+import { Col, Row } from '../layout/Grid'
 import { getComponentAliaser } from '../utils/aliasComponent'
-import { composeValidators, required, mustBeEmail } from '../form/validations'
+import { composeValidators, required, mustBeEmail } from './validations'
 import { triggerSubscribe } from '../../api'
 
 const aliasInput = getComponentAliaser(InputField)
+const aliasH3 = getComponentAliaser(H3)
+
 export const EmailInput = aliasInput()
+export const ThanksTitle = aliasH3()
 
-export const THANKS_MESSAGE = 'thanks for submitting!'
-
-const H3 = styled(DefaultH3)`
-  color: ${WHITE};
-`
-
-const P = styled(DefaultP)`
-  color: ${WHITE};
-`
-const Link = styled(DefaultLink)`
-  color: ${WHITE};
-`
-
-const Unsubscribe = styled(P)`
-  padding-top: 25px;
-`
-
-export const ThanksTitle = styled(H3)`
-  margin: 1em 0;
-`
+export const THANKS_MESSAGE = 'Thanks for submitting!'
 
 const ContactForm = props => {
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -128,6 +111,7 @@ const ContactForm = props => {
                     label="Your email address:"
                     name="email"
                     placeholder="eg. steve@jobs.com"
+                    color={WHITE}
                   />
                   <Button variant="primary" type="submit" disabled={!valid}>
                     Submit email
@@ -145,17 +129,17 @@ const ContactForm = props => {
       {formSubmitted ? (
         <Row>
           <Col>
-            <ThanksTitle>{THANKS_MESSAGE}</ThanksTitle>
+            <ThanksTitle my={3}>{THANKS_MESSAGE}</ThanksTitle>
           </Col>
         </Row>
       ) : null}
 
-      <Unsubscribe>
+      <P pt={3}>
         Looking to{' '}
         <Link to="/unsubscribe/" className="footer-unsubscribe">
           unsubscribe?
         </Link>
-      </Unsubscribe>
+      </P>
     </React.Fragment>
   )
 }

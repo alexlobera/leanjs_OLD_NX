@@ -1,45 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  WHITE,
-  BROWN,
-  DARK_GREY,
-  FONT_FAMILY,
-  DARK_BLUE,
-  PINK,
-} from '../../config/styles'
+import { WHITE, BROWN, DARK_GREY, DARK_BLUE, PINK } from '../../config/styles'
+import Box from '../layout/Box'
+import Label from '../text/Label'
 
-const Label = styled.label`
-  ${FONT_FAMILY};
-`
-const InputForm = styled.input`
-  ${FONT_FAMILY};
+const InputForm = styled(Box)`
   background-color: ${WHITE};
   display: block;
   width: 100%;
-  padding: 11px 10px;
-  font-size: 1rem;
-  line-height: 1.5;
   color: ${DARK_GREY};
   background-clip: padding-box;
   border: 1px solid ${BROWN};
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `
+InputForm.defaultProps = {
+  fontSize: 2,
+  lineHeight: 2,
+  box: 'input',
+  p: 1,
+}
 
-export const ErrorMessage = styled.p`
-  font-size: 0.77rem;
-  padding: 0 8px;
-  color: ${DARK_BLUE};
+export const ErrorMessage = styled(Box)`
   background-color: ${PINK};
-  ${FONT_FAMILY};
-  font-weight: bold;
-  margin-bottom: 0;
 `
+ErrorMessage.defaultProps = {
+  m: 0,
+  fontWeight: 'bold',
+  color: DARK_BLUE,
+  py: 0,
+  px: 1,
+  fontSize: 0,
+}
 
-export const FormGroup = styled.div`
-  padding: 8px 0;
+export const FormGroup = styled(Box)`
   display: block;
 `
+FormGroup.defaultProps = {
+  py: 1,
+}
 
 const Input = ({
   label,
@@ -47,6 +45,7 @@ const Input = ({
   checked = false,
   input = {},
   meta = {},
+  color,
   ...props
 }) => {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta
@@ -60,7 +59,7 @@ const Input = ({
     <FormGroup>
       {label && input.name ? (
         <React.Fragment>
-          <Label>
+          <Label color={color}>
             {label}
             <InputForm
               {...props}
