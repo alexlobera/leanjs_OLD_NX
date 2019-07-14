@@ -134,7 +134,9 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
           title="End-to-End Testing"
         />
       </CurriculumSection>
-      <styled.div>
+      <Styled(Box)
+        pt={5}
+      >
         <LinkButton
           border={0}
           borderRadius={2}
@@ -150,7 +152,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         >
           Full curriculum
         </LinkButton>
-      </styled.div>
+      </Styled(Box)>
     </Styled(Col)>
     <Styled(Col)
       lg={4}

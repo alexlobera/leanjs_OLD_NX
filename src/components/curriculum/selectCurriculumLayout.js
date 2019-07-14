@@ -8,15 +8,17 @@ import { Col, Row } from '../layout/Grid'
 import { UpcomingTrainingSection } from '../training'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
 import Flex from '../layout/Flex'
+import Box from '../layout/Box'
 
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
 
-const SectionCTA = styled.div.attrs({
+const SectionCTA = styled(Box).attrs({
   className: 'curriculum-cta',
-})`
-  ${space({ pt: 5 })}
-`
+})``
+SectionCTA.defaultProps = {
+  pt: 5,
+}
 
 const selectCurriculumLayout = ({
   firstHalf,
@@ -30,7 +32,7 @@ const selectCurriculumLayout = ({
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
-      <LinkButton to={curriculumTo}>sss Full curriculum</LinkButton>
+      <LinkButton to={curriculumTo}>Full curriculum</LinkButton>
     </SectionCTA>
   )
 
