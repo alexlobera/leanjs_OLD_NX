@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { space } from 'styled-system'
 
 import { H3 } from '../text'
 import { LinkButton } from '../buttons'
 import { Col, Row } from '../layout/Grid'
-import { List } from './CurriculumSection'
 import { UpcomingTrainingSection } from '../training'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
+import Flex from '../layout/Flex'
 
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
@@ -14,8 +15,7 @@ export const LIST_TWO_COL = 'listTwoCol'
 const SectionCTA = styled.div.attrs({
   className: 'curriculum-cta',
 })`
-  padding-top: 50px;
-  padding-bottom: 25px;
+  ${space({ pt: 5 })}
 `
 
 const selectCurriculumLayout = ({
@@ -30,7 +30,7 @@ const selectCurriculumLayout = ({
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
-      <LinkButton to={curriculumTo}>Full curriculum</LinkButton>
+      <LinkButton to={curriculumTo}>sss Full curriculum</LinkButton>
     </SectionCTA>
   )
 
@@ -38,18 +38,18 @@ const selectCurriculumLayout = ({
     return (
       <React.Fragment>
         {title}
-        <List>
+        <Flex flexDirection="column">
           {firstHalf}
           {secondHalf}
           {curriculumTo && curriculumButtonSection}
-        </List>
+        </Flex>
       </React.Fragment>
     )
   } else if (layout === LIST_TWO_COL) {
     return (
       <React.Fragment>
         {title}
-        <List>
+        <Flex flexDirection="column">
           <Row>
             <Col md={6} lg={5}>
               {firstHalf}
@@ -59,7 +59,7 @@ const selectCurriculumLayout = ({
               {secondHalf}
             </Col>
           </Row>
-        </List>
+        </Flex>
       </React.Fragment>
     )
   } else {

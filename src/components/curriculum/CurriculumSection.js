@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { H4, Span } from '../text'
-import { FONT_FAMILY, PINK } from '../../config/styles'
+import { H4 } from '../text'
+import { PINK } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
 import trackUserBehaviour, {
@@ -11,22 +11,25 @@ import trackUserBehaviour, {
 import { selectTypeColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
 import Flex from '../layout/Flex'
+import Box from '../layout/Box'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
-const Section = styled.div`
+const Section = styled(Box)`
   &:first-child {
     margin-top: 0;
   }
   ${({ type }) =>
     `border-left: 3px ${selectBorderStyle(type)} ${selectTypeColor(type)};`}
-  margin-top: 2em;
-  padding-left: 20px;
   a {
     display: inline-block;
   }
 `
+Section.defaultProps = {
+  mt: 5,
+  pl: 3,
+}
 
 const StyledFeedback = styled(Flex)`
   border: 2px dashed ${PINK};
@@ -46,24 +49,6 @@ const Feedback = () => (
     </Link>
   </StyledFeedback>
 )
-
-export const CurriculumSubSection = styled.div`
-  padding-top: 5px;
-`
-
-export const List = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const CurriculumItemTitle = styled(H4)`
-  margin-bottom: 0.5em;
-`
-const SubTitleSection = styled.div`
-  margin: 0;
-  padding-bottom: 18px;
-  line-height: 1.5;
-  ${FONT_FAMILY};
-`
 
 const CurriculumSection = props => {
   const isOpen =
@@ -114,14 +99,13 @@ const CurriculumSection = props => {
       : { onClick: toggleSubSection }
 
   const subsection = isTabOpen ? (
-    <CurriculumSubSection>
+    <Box pt={1}>
       {children}
       <Feedback />
-      <Span>- </Span>
       <Link duration={200} to={`#${name || title}`} onClick={toggleSubSection}>
         Hide detail
       </Link>
-    </CurriculumSubSection>
+    </Box>
   ) : (
     <Link className="curriculum" {...toogleLinkProps}>
       Find out more
@@ -132,19 +116,22 @@ const CurriculumSection = props => {
     <Section type={trainingType}>
       <Element name={name || title} />
       {title ? (
-        <CurriculumItemTitle>
+        <H4 mb={1}>
           {title} {trainingTime && <small>{` (${trainingTime.trim()})`}</small>}
-        </CurriculumItemTitle>
+        </H4>
       ) : (
         ''
       )}
-      <SubTitleSection>
-        {subTitle ? subTitle : ''}
+      <Box m={0} pb={3} lineHeight={2}>
+        {addFullStopAtTheEnd(subTitle)} {` `}
         {showLinkToCurriculum || enableToggle ? subsection : ''}
-      </SubTitleSection>
+      </Box>
     </Section>
   )
 }
+
+const addFullStopAtTheEnd = text =>
+  text && text.replace ? text.replace(/([^.])$/, '$1.') : ''
 
 CurriculumSection.propTypes = {
   isOpen: PropTypes.bool,

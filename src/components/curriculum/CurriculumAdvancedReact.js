@@ -75,32 +75,6 @@ const CurriculumAdvancedReact = ({
     trainings,
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
-  // return (
-  //   <React.Fragment>
-  //      {showTitle ? (
-  //       <Row>
-  //         <Col lg={10} lgOffset={1}>
-  //           <H2Ref>
-  //             Advanced React Curriculum{' '}
-  //             <Link to="#curriculum" name="curriculum">
-  //               #
-  //             </Link>
-  //           </H2Ref>
-  //         </Col>
-  //       </Row>
-  //     ) : (
-  //       ''
-  //     )}
-  //     {selectCurriculumLayout({
-  //       firstHalf,
-  //       title
-  //       layout,
-  //       type,
-  //       trainings,
-  //       curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-  //     })}
-  //   </React.Fragment>
-  // )
 }
 
 export const TargetAudienceList = () => (
