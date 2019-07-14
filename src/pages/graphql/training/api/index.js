@@ -17,7 +17,6 @@ import {
   selectUpcomingTrainings,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
-import CallToActionNextTrainings from 'src/components/layout/CallToActionNextTrainings'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_API } from 'src/config/data'
@@ -69,10 +68,6 @@ const GraphQL = () => (
           />
           <TopSection>
             <Grid>
-              <CallToActionNextTrainings
-                left
-                trainings={upcomingGraphQLTrainings}
-              />
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumGraphQLAPI
