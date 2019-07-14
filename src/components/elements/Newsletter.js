@@ -5,7 +5,7 @@ import Link from '../navigation/Link'
 
 const Newsletter = () => (
   <React.Fragment>
-    <H3 pt={0}>Free learning resources!</H3>
+    <H3>Free learning resources!</H3>
     <P>
       We share our resources directly from our{' '}
       <Link className="free-learning-resources" to="/react/curriculum">

@@ -2,7 +2,6 @@ import React from 'react'
 import { H2Ref } from '../text'
 import Link from '../navigation/Link'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import { Col, Row } from '../layout/Grid'
 import ReactNativeFoundationSession from './sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from './sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from './sessions/native/ReactNativeAnimationsSession'
@@ -14,7 +13,7 @@ import ReactNativeNativeModulesSession from './sessions/native/ReactNativeNative
 import ReactNativeProductionSession from './sessions/native/ReactNativeProductionSession'
 
 import { REACT_NATIVE } from '../../config/data'
-import selectCurriculumLayout, { LIST_TWO_COL } from './selectCurriculumLayout'
+import selectCurriculumLayout from './selectCurriculumLayout'
 import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactNative = ({

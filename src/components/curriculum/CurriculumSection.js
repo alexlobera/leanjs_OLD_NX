@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { H4, Span } from '../text'
-import { FONT_FAMILY } from '../../config/styles'
+import { FONT_FAMILY, PINK } from '../../config/styles'
 import { Element } from 'react-scroll'
 import { Link } from '../navigation'
 import trackUserBehaviour, {
@@ -10,7 +10,7 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { selectTypeColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
-import Feedback from '../elements/Feedback'
+import Flex from '../layout/Flex'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
@@ -27,6 +27,25 @@ const Section = styled.div`
     display: inline-block;
   }
 `
+
+const StyledFeedback = styled(Flex)`
+  border: 2px dashed ${PINK};
+  max-width: 320px;
+`
+StyledFeedback.defaultProps = {
+  p: 3,
+  my: 3,
+  jc: 'center',
+}
+
+const Feedback = () => (
+  <StyledFeedback>
+    Any questions?
+    <Link ml={1} to="#contact-us">
+      Contact us
+    </Link>
+  </StyledFeedback>
+)
 
 export const CurriculumSubSection = styled.div`
   padding-top: 5px;
@@ -98,7 +117,7 @@ const CurriculumSection = props => {
     <CurriculumSubSection>
       {children}
       <Feedback />
-      <Span>. </Span>
+      <Span>- </Span>
       <Link duration={200} to={`#${name || title}`} onClick={toggleSubSection}>
         Hide detail
       </Link>
