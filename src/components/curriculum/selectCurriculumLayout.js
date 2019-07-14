@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { space } from 'styled-system'
 
 import { H3 } from '../text'
 import { LinkButton } from '../buttons'

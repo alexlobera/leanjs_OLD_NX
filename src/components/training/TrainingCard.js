@@ -6,13 +6,11 @@ import { DARK_GREY } from '../../config/styles'
 import { H4, P } from '../text'
 import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
-import Box from '../layout/Box'
+import Flex from '../layout/Flex'
 
-const TrainingCard = styled(Box)`
+const TrainingCard = styled(Flex)`
   border-left: 5px solid;
   border-color: ${({ borderColor = DARK_GREY }) => borderColor};
-  display: flex;
-  flex-direction: column;
   button {
     display: inline-block;
   }
@@ -31,6 +29,7 @@ TrainingCard.defaultProps = {
   py: 3,
   pr: 3,
   pl: 5,
+  flexDirection: 'column',
 }
 
 export const TrainingCardList = ({ data = [], borderColor, className = '' }) =>

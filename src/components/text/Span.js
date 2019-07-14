@@ -1,9 +1,11 @@
 import styled from 'styled-components'
-import { FONT_FAMILY, TEXT_SIZE } from '../../config/styles'
+import Box from '../layout/Box'
 
-const Span = styled.span`
+const Span = styled(Box)`
   ${props => props.lineThrough && `text-decoration: line-through`};
-  ${FONT_FAMILY} ${TEXT_SIZE({ lg: true })};
 `
+Span.defaultProps = {
+  box: 'span',
+}
 
 export default Span

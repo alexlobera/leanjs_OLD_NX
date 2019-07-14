@@ -6,7 +6,9 @@ exports[`<MarketingCard /> should render component 1`] = `
     <Styled(Col)
       md={6}
     >
-      <styled.span />
+      <Styled(Box)
+        box="span"
+      />
     </Styled(Col)>
     <Styled(Col)
       center={true}

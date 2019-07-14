@@ -27,6 +27,7 @@ import {
   formatCVC,
 } from '../../utils/card'
 import { getComponentAliaser } from '../../utils/aliasComponent'
+import Flex from '../../layout/Flex'
 
 // These aliases enable the relevant elements to be selected by Enzyme for testing
 // Have caution when updating these names as you will then need to update the tests as well.
@@ -52,12 +53,13 @@ export const CCExpiryInput = aliasInput()
 export const CCCVCInput = aliasInput()
 export const SubmitPaymentFormButton = aliasButton()
 
-const QuantityActions = styled.div`
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  margin: 8px 0;
-`
+const QuantityActions = styled(Flex)``
+QuantityActions.defaultProps = {
+  textAlign: 'center',
+  mx: 0,
+  my: 1,
+}
+
 const QuantityButton = styled(Button)`
   font-size: 1.16rem !important;
   @media (max-width: ${SCREEN_XS_MAX}) {

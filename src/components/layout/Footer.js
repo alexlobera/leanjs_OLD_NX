@@ -71,7 +71,7 @@ const Footer = ({ width }) => (
                       { to: '/graphql/curriculum', txt: 'GraphQL Curriculum' },
                       { to: '/blog', txt: 'Blog' },
                     ].map(({ txt, to }) => (
-                      <Li>
+                      <Li key={to}>
                         <Link to={to} className="footer-site-links">
                           {txt}
                         </Link>
@@ -92,7 +92,7 @@ const Footer = ({ width }) => (
                       { to: '/terms-of-service', txt: 'Terms of service' },
                       { to: '/code-of-conduct', txt: 'Code of conduct' },
                     ].map(({ txt, to, extraClass }) => (
-                      <Li>
+                      <Li key={to}>
                         <Link
                           to={to}
                           className={`footer-site-links ${
@@ -138,7 +138,7 @@ const Footer = ({ width }) => (
                       icon: GitHubIcon,
                     },
                   ].map(({ to, title, icon }) => (
-                    <Li>
+                    <Li key={to}>
                       <SocialLink
                         title={title}
                         to={to}
