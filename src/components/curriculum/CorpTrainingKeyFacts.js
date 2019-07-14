@@ -4,16 +4,10 @@ import { H3, P } from '../text'
 import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
 
-const StyledCorpTrainingFacts = styled.div`
-  h3 {
-    margin-top: 0.5rem;
-  }
-`
-
 const CorpTrainingFacts = () => (
-  <StyledCorpTrainingFacts>
+  <React.Fragment>
     <a name="dev-level" />
-    <H3>Level expertise across your team</H3>
+    <H3 pt={0}>Level expertise across your team</H3>
     <P>
       If you're looking to change your tech stack, avoiding risk is key. So
       knowing developers are on the same skill level can really help.
@@ -46,7 +40,7 @@ const CorpTrainingFacts = () => (
     >
       Team Training - Key Facts (PDF)
     </LinkButton>
-  </StyledCorpTrainingFacts>
+  </React.Fragment>
 )
 
 export default CorpTrainingFacts
