@@ -14,7 +14,7 @@ const StyledCorporateTrainingCard = styled.div`
 `
 const CorporateTrainingCard = ({ type }) => (
   <StyledCorporateTrainingCard>
-    <H3>Corporate Team Training</H3>
+    <H3>Corporate Team Training 22</H3>
     <P>
       Private team training, located in your offices anywhere in the world,
       based on our proven curriculum for React and GraphQL{' '}

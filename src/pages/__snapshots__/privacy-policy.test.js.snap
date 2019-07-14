@@ -13,6 +13,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
     <Grid>
       <Card
         border="shadow"
+        py={7}
       >
         <Row>
           <Styled(Col)

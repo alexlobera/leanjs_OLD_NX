@@ -14,7 +14,6 @@ import {
 import { SCREEN_XS_MAX, SCREEN_MD_MAX, SCREEN_SM_MIN } from '../utils'
 import { fontColor } from '../text'
 
-// Card small -> p={5}
 const Card = ({ small, ...props }) => {
   let newProps = {}
   if (small) {
@@ -80,7 +79,7 @@ const StyledCard = styled(Box)`
 `
 
 Card.defaultProps = {
-  py: 6,
+  py: 7,
 }
 Card.displayName = 'Card'
 Card.propTypes = {
