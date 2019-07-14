@@ -26,7 +26,7 @@ const MarketingCard = ({ text, to, heading, ...rest }) => (
   <Card>
     <Row>
       <Col md={6}>
-        {heading && <H4>{heading}</H4>}
+        {heading && <H4 mb={1}>{heading}</H4>}
         <Span>{text}</Span>
       </Col>
       <Col md={5} lgOffset={1} center>
