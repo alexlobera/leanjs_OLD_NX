@@ -1,6 +1,8 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import Box from '../layout/Box'
 import {
   DARK_BLUE,
   BROWN,
@@ -12,31 +14,17 @@ import {
 import { SCREEN_XS_MAX, SCREEN_MD_MAX, SCREEN_SM_MIN } from '../utils'
 import { fontColor } from '../text'
 
-const Card = styled.div` 
+// Card small -> p={5}
+const Card = ({ small, ...props }) => {
+  let newProps = {}
+  if (small) {
+    newProps.p = 5
+  }
+  return <StyledCard {...props} {...newProps} />
+}
+
+const StyledCard = styled(Box)` 
   position: relative;
-  ${props =>
-    props.top
-      ? `
-      margin-top: ${props.top}px;
-    `
-      : null}
-  ${props =>
-    props.bottom
-      ? `
-      margin-bottom: ${props.bottom}px;
-    `
-      : null}
-  ${props =>
-    props.small
-      ? `
-      padding: 30px;
-    `
-      : props.padding !== false
-      ? `
-      padding-top: 60px;
-      padding-bottom:60px;
-  `
-      : ``}
   ${props => {
     switch (props.bg) {
       case 'dark':
@@ -91,6 +79,9 @@ const Card = styled.div`
   }
 `
 
+Card.defaultProps = {
+  py: 6,
+}
 Card.displayName = 'Card'
 Card.propTypes = {
   top: PropTypes.number,

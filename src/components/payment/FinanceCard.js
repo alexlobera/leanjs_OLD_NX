@@ -7,7 +7,7 @@ import ExternalLinkIcon from '../icons/ExternalLinkIcon'
 import { Link } from '../navigation'
 
 const FinanceCard = () => (
-  <Card top={36} bottom={36} small>
+  <Card my={5} small>
     <H3>Financial Support</H3>
     <P>
       Looking for a way to spread the cost of training? We've partnered with

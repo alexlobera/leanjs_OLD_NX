@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import withLazyLoad from './withLazyLoad'
 
-const Image = styled.img`
-  margin: 0;
+import withLazyLoad from './withLazyLoad'
+import Box from '../layout/Box'
+
+const Image = styled(Box)`
   ${({ circle }) => (circle ? `border-radius: 50%;` : null)};
 `
+Image.defaultProps = {
+  mt: 0,
+  box: 'img',
+}
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,

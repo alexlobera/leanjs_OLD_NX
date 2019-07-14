@@ -159,16 +159,16 @@ const BlogPost = ({ data }) => {
           </Header>
           <GridContent>
             <Row>
-              <Col md={6}>
+              <Col md={7}>
                 {subtitle ? <H2>{subtitle}</H2> : null}
                 {renderAst(htmlAst)}
               </Col>
               <Col md={4} mdOffset={1}>
-                <Card small bg="dark" top={20}>
+                <Card small bg="dark" mt={3}>
                   <ContactForm simplified />
                 </Card>
                 {relatedPosts.length ? (
-                  <Card border="shadow" small top={20}>
+                  <Card border="shadow" small mt={4}>
                     <H4>Related articles</H4>
                     {relatedPosts.map((post, index) => (
                       <React.Fragment key={index}>

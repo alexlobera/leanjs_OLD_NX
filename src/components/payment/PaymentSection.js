@@ -211,7 +211,7 @@ class PaymentSection extends React.Component {
               training, it does not include travel expenses.
             </P>
           )}
-          <Card small style={{ position: 'relative' }}>
+          <Card small>
             <H3>
               <strong>{notSoldOut ? title : 'Sold out!'}</strong>
             </H3>
@@ -268,7 +268,7 @@ class PaymentSection extends React.Component {
           </Card>
         </React.Fragment>
         {financeAvailable && <FinanceCard />}
-        <Card small bg="dark" top={20}>
+        <Card small bg="dark" mt={3}>
           <ContactForm simplified />
         </Card>
       </React.Fragment>

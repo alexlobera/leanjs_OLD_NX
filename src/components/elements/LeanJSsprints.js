@@ -4,7 +4,7 @@ import Link from '../navigation/Link'
 import { LinkButton } from '../buttons'
 import { Col, Row } from '../layout/Grid'
 import { H2Ref, P } from '../text'
-import { Card, Image } from '../elements'
+import { Card, Image } from '.'
 import { CODEVELOP } from '../../config/images'
 
 const StyledLeanJSsprints = styled.div``

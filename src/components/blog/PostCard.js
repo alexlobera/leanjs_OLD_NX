@@ -7,11 +7,12 @@ import Box from '../../components/layout/Box'
 import { formatPostTitle } from '../../templates/blog-post'
 
 const PostCard = ({ post }) => (
-  <Card border="shadow" padding={false} bottom={36}>
+  <Card border="shadow" py={0} mb={5}>
     <Link to={`${post.fields.slug}`}>
       <Image
         src={post.frontmatter.imageUrl}
         alt={formatPostTitle(post.frontmatter.title)}
+        mb={0}
       />
     </Link>
     <Box p={3}>

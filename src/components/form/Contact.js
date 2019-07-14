@@ -34,7 +34,7 @@ const Unsubscribe = styled(P)`
 
 export const ThanksTitle = styled(H3)`
   margin: 1em 0;
-` //TODO: animate this later
+`
 
 const ContactForm = props => {
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -94,7 +94,7 @@ const ContactForm = props => {
         </React.Fragment>
       )}
       <a name="newsletter" />
-      <H3>Free learning resources</H3>
+      <H3 pt={simplified ? 0 : undefined}>Free learning resources</H3>
       <P>
         We share our resources directly from our{' '}
         <Link className="footer-free-learning-resources" to="/react/curriculum">
