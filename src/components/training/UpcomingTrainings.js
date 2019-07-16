@@ -78,40 +78,57 @@ export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
   return typeTrainings.length ? typeTrainings[nth - 1] : undefined
 }
 const trainingByType = type => training => !type || training.type === type
+const trainingByTypes = types => training =>
+  !types || !types.length || types.find(type => type === training.type)
 
 const trainingByCity = city => training => !city || training.city === city
 
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
   trainings.find(training => training.training.id === trainingId)
 
-export const getUpcomingTrainingsByType = ({
-  trainings,
-  types = [],
-  first,
-  excludeTrainingId,
-}) => {
-  const filteredTrainings = types
-    .flatMap(type => trainings.filter(trainingByType(type)))
-    .filter(
-      ({ training = {} }) => !training.id || training.id !== excludeTrainingId
-    )
-  return first ? filteredTrainings.slice(0, first) : filteredTrainings
-}
+// export const getUpcomingTrainingsByType = ({
+//   trainings,
+//   types = [],
+//   first,
+//   excludeTrainingId,
+// }) => {
+//   const filteredTrainings = types
+//     .flatMap(type => trainings.filter(trainingByType(type)))
+//     .filter(
+//       ({ training = {} }) => !training.id || training.id !== excludeTrainingId
+//     )
+//   return first ? filteredTrainings.slice(0, first) : filteredTrainings
+// }
 
 export const selectTrainingByInstanceId = ({ trainings, id }) =>
   trainings.find(training => training.id === id)
 
+export const excludeByTrainingId = trainingId => ({ training = {} }) =>
+  !training.id || training.id !== trainingId
+
+// TODO ADD TYPES, FIRST AND EXCLUDE  TO THIS AND REMOVE getUpcomingTrainingsByType ??
 export const selectUpcomingTrainings = ({
-  type,
+  // type,
   city,
+  types,
+  type,
+  excludeTrainingId,
   trainings = [],
-  limit,
+  limit = 6,
 }) => {
-  const filteredTrainings = trainings
-    .filter(trainingByType(type))
+  // const filteredTrainings = types
+  //   .flatMap(type => trainings.filter(trainingByType(type)))
+  //   .filter(trainingByCity(city))
+  //   .filter(
+  //     ({ training = {} }) => !training.id || training.id !== excludeTrainingId
+  //   )
+
+  return trainings
+    .filter(trainingByTypes(types || [type]))
     .filter(trainingByCity(city))
+    .filter(excludeByTrainingId(excludeTrainingId))
     .slice(0, limit)
-  return filteredTrainings
+  // return filteredTrainings
 }
 
 function formatMeetup({ node }) {

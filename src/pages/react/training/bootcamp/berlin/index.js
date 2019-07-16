@@ -14,10 +14,7 @@ import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
-  RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
   getUpcomingTrainingsByType,

@@ -20,21 +20,13 @@ import {
   RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
-  getUpcomingTrainingsByType,
-  AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
+import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import {
-  REACT_BOOTCAMP,
-  ONE_DAY_WORKSHOP,
-  GRAPHQL_API,
-  GRAPHQL_CLIENT,
-  GRAPHQL_BOOTCAMP,
-  LONDON,
-} from 'src/config/data'
+import { REACT_BOOTCAMP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 import { createSocialMetas } from 'src/components/utils'
@@ -59,15 +51,7 @@ const BootcampLondon = () => (
         trainings: bootCampTrainings,
         nth: 2,
       })
-      const crossSellTrainings = getUpcomingTrainingsByType({
-        trainings,
-        types: [
-          ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
-        ],
-      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -211,7 +195,10 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
+                  <AlternativeBootcampTrainings
+                    city={LONDON}
+                    trainings={trainings}
+                  />
                 </Col>
               </Row>
             </Grid>

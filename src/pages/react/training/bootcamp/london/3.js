@@ -21,9 +21,9 @@ import {
   selectNthTraining,
   selectUpcomingTrainings,
   getUpcomingTrainingsByType,
-  AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
+import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -59,15 +59,7 @@ const BootcampLondon = () => (
         trainings: bootCampTrainings,
         nth: 3,
       })
-      const crossSellTrainings = getUpcomingTrainingsByType({
-        trainings,
-        types: [
-          ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
-        ],
-      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -208,7 +200,7 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
+                  <AlternativeBootcampTrainings trainings={trainings} />
                 </Col>
               </Row>
             </Grid>
