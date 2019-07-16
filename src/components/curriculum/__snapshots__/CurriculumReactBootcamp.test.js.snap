@@ -45,7 +45,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="React 101 and JS fundamentals"
         title="Evening pre-bootcamp"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 18:30 - 21:00"
         type="React Bootcamp"
       >
         <ReactJS101Session />

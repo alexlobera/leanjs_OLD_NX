@@ -220,9 +220,9 @@ function twoDigits(number) {
   return ('0' + number).slice(-2)
 }
 
-export const trainingTime = ({ day, training = {} }) =>
+export const trainingTime = ({ day, training = {}, type }) =>
   `${trainingDateByDay({ training, day })} ${
-    day === 0 && training.type === REACT_BOOTCAMP
+    day === 0 && type !== ADVANCED_REACT
       ? '18:30 - 21:00'
       : trainingTimings({ training })
   }`
