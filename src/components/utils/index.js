@@ -222,5 +222,7 @@ function twoDigits(number) {
 
 export const trainingTime = ({ day, training = {} }) =>
   `${trainingDateByDay({ training, day })} ${
-    day !== 0 ? trainingTimings({ training }) : '6:30pm - 9pm'
+    day === 0 && training.type === REACT_BOOTCAMP
+      ? '18:30 - 21:00'
+      : trainingTimings({ training })
   }`

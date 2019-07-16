@@ -118,7 +118,10 @@ const ReactFundamentalsLondon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumReactFundamentals layout={LIST_TWO_COL} />
+                    <CurriculumReactFundamentals
+                      training={training}
+                      layout={LIST_TWO_COL}
+                    />
                   </Col>
                 </Row>
               </Card>
