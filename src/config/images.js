@@ -1,27 +1,11 @@
-export const HOME_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_topPage.jpg?alt=media'
-export const PART_TIME_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/partTime_splash.jpg?alt=media'
-export const FULL_TIME_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamp_Splash.jpg?alt=media'
-export const TRAINING_EVENT_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/londonBootcamp_splash.jpg?alt=media'
-export const CURRICULUM_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/curriculum_splash.jpg?alt=media'
-export const COMMUNITY_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community_splash.jpg?alt=media'
 export const MENTORSHIP_IMG =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpg?alt=media'
 export const LONDON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/london.jpg?alt=media'
 export const LISBON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Flisbon.jpg?alt=media'
-export const COURSE_COLLAB =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/courseCollab.jpg?alt=media'
 export const WHY_REACTJS_ACADEMY =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media'
-export const COMPANY_PITCH =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/companyPitch.jpg?alt=media'
 
 export const BOOTCAMP_RIGHT =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamp_rightForMe.jpg?alt=media'
@@ -35,23 +19,8 @@ export const PART_TIME =
 export const CODEVELOP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/alex_leanJS.jpg?alt=media'
 
-export const ABOUT_CORPORATE =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutUS_corporateTraining.jpg?alt=media'
-
-export const ABOUT_VALUES =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/aboutus_values.jpg?alt=media'
-
-export const CURRICULUM_FULL_TRAINING_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/curriculum_parttimetulltime.jpg?alt=media'
-
-export const SMALL_CLASSROOM =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/classroom-small.jpg?alt=media'
-
 export const WHY_GQLU_ACADEMY =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media'
-
-export const HELLO_STUDENT =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community_coachCommunity.jpg?alt=media'
 
 // Team members
 
@@ -126,16 +95,7 @@ export const BERN_MEETUP =
 export const BRISTOL_MEETUP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_bristol.png?alt=media'
 
-// Header backgrounds
-export const CORP_TRAINING_HEADER_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/header-backgrounds%2Fcorp-training-bg.jpg?alt=media'
-
 // Training instance images
-
-export const HOUSE =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_1_small.jpg?alt=media'
-export const BEACH =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2FParede_2_small.jpg?alt=media'
 
 export const LISBON_LOCATION =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_lisbon-perede.jpg?alt=media'
