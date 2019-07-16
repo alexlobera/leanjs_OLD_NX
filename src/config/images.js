@@ -1,5 +1,3 @@
-export const MENTORSHIP_IMG =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2Fmentorship.jpg?alt=media'
 export const LONDON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/london.jpg?alt=media'
 export const LISBON =
