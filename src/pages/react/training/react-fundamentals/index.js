@@ -69,7 +69,10 @@ const ReactFundamentals = props => (
             <Grid>
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumReactFundamentals training={nextTraining} />
+                <CurriculumReactFundamentals
+                  training={nextTraining}
+                  trainings={upcomingFundamentalsTrainings}
+                />
               </Card>
             </Grid>
           </TopSection>
