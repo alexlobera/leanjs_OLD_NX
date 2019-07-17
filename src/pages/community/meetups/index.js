@@ -95,17 +95,26 @@ const Meetups = () => (
                     <Col sm={6}>
                       <Ul unstyled>
                         <Li>
-                          <Link to="http://meetup.com/JavaScript-London">
+                          <Link
+                            className="meetups-clicks"
+                            to="http://meetup.com/JavaScript-London"
+                          >
                             JavaScript London
                           </Link>
                         </Li>
                         <Li>
-                          <Link to="http://meetup.com/JavaScript-Barcelona">
+                          <Link
+                            className="meetups-clicks"
+                            to="http://meetup.com/JavaScript-Barcelona"
+                          >
                             JavaScript Barcelona
                           </Link>
                         </Li>
                         <Li>
-                          <Link to="http://meetup.com/JavaScript-Paris">
+                          <Link
+                            className="meetups-clicks"
+                            to="http://meetup.com/JavaScript-Paris"
+                          >
                             JavaScript Paris
                           </Link>
                         </Li>
@@ -114,17 +123,26 @@ const Meetups = () => (
                     <Col sm={6}>
                       <Ul unstyled>
                         <Li>
-                          <Link to="http://meetup.com/JavaScript-Lisbon">
+                          <Link
+                            className="meetups-clicks"
+                            to="http://meetup.com/JavaScript-Lisbon"
+                          >
                             JavaScript Lisbon
                           </Link>
                         </Li>
                         <Li>
-                          <Link to="http://meetup.com/JavaScript-Amsterdam">
+                          <Link
+                            className="meetups-clicks"
+                            to="http://meetup.com/JavaScript-Amsterdam"
+                          >
                             JavaScript Amsterdam
                           </Link>
                         </Li>
                         <Li>
-                          <Link to="http://meetup.com/JavaScript-Berlin">
+                          <Link
+                            className="meetups-clicks"
+                            to="http://meetup.com/JavaScript-Berlin"
+                          >
                             JavaScript Berlin
                           </Link>
                         </Li>
