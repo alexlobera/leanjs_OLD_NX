@@ -5,18 +5,12 @@ import { formatUTC } from '../utils'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
 import { H2Ref, H3, P } from '../text'
-import { TrainingItem } from './'
+import { TrainingItem } from '.'
 import Link from '../navigation/Link'
-import { getUpcomingTrainingsByType } from './UpcomingTrainings'
+import { selectUpcomingTrainings } from './UpcomingTrainings'
 import Newsletter from '../elements/Newsletter'
 import { GREY } from '../../config/styles'
-import {
-  Tabs,
-  TabList,
-  TabItem,
-  TabContent,
-  ContentItem,
-} from '../../components/layout/Tabs'
+import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
@@ -50,11 +44,15 @@ const CorporateCrossSell = styled.div`
 export const UpcomingTrainings = ({
   curriculum,
   type,
+  city,
+  limit,
   trainings,
   className,
 }) => {
-  const filteredTrainings = getUpcomingTrainingsByType({
-    types: [...type],
+  const filteredTrainings = selectUpcomingTrainings({
+    type,
+    limit,
+    city,
     trainings,
   })
   if (!filteredTrainings.length || !filteredTrainings[0].id) {
@@ -88,16 +86,43 @@ export const UpcomingTrainings = ({
   }
 }
 
-const UpcomingTrainingSection = ({
-  curriculum,
+export const UpcomingTrainingCurriculum = ({
   type,
   trainings,
   removeAdditionalCTAs = false,
   className = 'upcoming-courses-upcoming-dates',
 }) => {
+  return (
+    <React.Fragment>
+      <Link to="#upcoming-courses" name="upcoming-courses" />
+      <H3 pt={0}>Upcoming dates</H3>
+      <UpcomingTrainings
+        type={type}
+        limit={3}
+        curriculum
+        trainings={trainings}
+        className={className}
+      />
+      <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
+        See all upcoming courses
+      </Link>
+      {!removeAdditionalCTAs && (
+        <React.Fragment>
+          <Link to="#free-learning-resources" name="free-learning-resources" />
+          <Newsletter />
+          <Link to="#corporate-training" name="corporate-training" />
+          <CorporateTrainingCard type={type} />
+        </React.Fragment>
+      )}
+    </React.Fragment>
+  )
+}
+
+export const UpcomingTrainingSection = ({ trainings, limit = 15 }) => {
   const [activeTab, setActiveTab] = useState(REACT_BOOTCAMP)
-  const reactTrainings = getUpcomingTrainingsByType({
+  const reactTrainings = selectUpcomingTrainings({
     trainings,
+    limit,
     types: [
       REACT_BOOTCAMP,
       ADVANCED_REACT,
@@ -108,104 +133,75 @@ const UpcomingTrainingSection = ({
       ONE_DAY_WORKSHOP,
     ],
   })
-  const graphqlTrainings = getUpcomingTrainingsByType({
+  const graphqlTrainings = selectUpcomingTrainings({
     trainings,
+    limit,
     types: [GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_CLIENT],
   })
-  const meetups = getUpcomingTrainingsByType({
+  const meetups = selectUpcomingTrainings({
     trainings,
+    limit,
     types: [MEETUP],
   })
 
   return (
-    <React.Fragment>
-      {curriculum ? (
-        <React.Fragment>
-          <Link to="#upcoming-courses" name="upcoming-courses" />
-          <H3 pt={0}>Upcoming dates</H3>
-          <UpcomingTrainings
-            type={type}
-            curriculum={curriculum}
-            trainings={trainings}
-            className={className}
-          />
-          <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
-            See all upcoming courses
-          </Link>
-          {!removeAdditionalCTAs && (
-            <React.Fragment>
-              <Link
-                to="#free-learning-resources"
-                name="free-learning-resources"
-              />
-              <Newsletter />
-              <Link to="#corporate-training" name="corporate-training" />
-              <CorporateTrainingCard type={type} />
-            </React.Fragment>
-          )}
-        </React.Fragment>
-      ) : (
-        <Section>
-          <Grid>
-            <Row>
-              <Col md={11} mdOffset={1}>
-                <H2Ref>
-                  Upcoming - All Events
-                  <Link to="#upcoming" name="upcoming">
-                    #
-                  </Link>
-                </H2Ref>
-                <Tabs active={activeTab} onChange={setActiveTab}>
-                  <TabList>
-                    <TabItem name={REACT_BOOTCAMP}>React Courses</TabItem>
-                    <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Courses</TabItem>
-                    <TabItem name={MEETUP}>Meetups</TabItem>
-                  </TabList>
-                  <TabContent>
-                    <ContentItem name={REACT_BOOTCAMP}>
-                      <Row>
-                        <UpcomingTrainings
-                          className="upcoming-courses-all-courses"
-                          trainings={reactTrainings}
-                        />
-                        <CorporateCrossSell>
-                          <P>
-                            <strong>Corporate team training</strong>
-                          </P>
-                          <Link to="/react/training/corporate/">
-                            Find out more
-                          </Link>
-                        </CorporateCrossSell>
-                      </Row>
-                    </ContentItem>
+    <Section>
+      <Grid>
+        <Row>
+          <Col md={11} mdOffset={1}>
+            <H2Ref>
+              Upcoming - All Events
+              <Link to="#upcoming" name="upcoming">
+                #
+              </Link>
+            </H2Ref>
+            <Tabs active={activeTab} onChange={setActiveTab}>
+              <TabList>
+                <TabItem name={REACT_BOOTCAMP}>React Courses</TabItem>
+                <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Courses</TabItem>
+                <TabItem name={MEETUP}>Meetups</TabItem>
+              </TabList>
+              <TabContent>
+                <ContentItem name={REACT_BOOTCAMP}>
+                  <Row>
+                    <UpcomingTrainings
+                      className="upcoming-courses-all-courses"
+                      trainings={reactTrainings}
+                    />
+                    <CorporateCrossSell>
+                      <P>
+                        <strong>Corporate team training</strong>
+                      </P>
+                      <Link to="/react/training/corporate/">Find out more</Link>
+                    </CorporateCrossSell>
+                  </Row>
+                </ContentItem>
 
-                    <ContentItem name={GRAPHQL_BOOTCAMP}>
-                      <Row>
-                        <UpcomingTrainings trainings={graphqlTrainings} />
-                        <CorporateCrossSell>
-                          <P>
-                            <strong>Corporate team training</strong>
-                          </P>
-                          <Link to="/graphql/training/corporate/">
-                            Find out more
-                          </Link>
-                        </CorporateCrossSell>
-                      </Row>
-                    </ContentItem>
+                <ContentItem name={GRAPHQL_BOOTCAMP}>
+                  <Row>
+                    <UpcomingTrainings trainings={graphqlTrainings} />
+                    <CorporateCrossSell>
+                      <P>
+                        <strong>Corporate team training</strong>
+                      </P>
+                      <Link to="/graphql/training/corporate/">
+                        Find out more
+                      </Link>
+                    </CorporateCrossSell>
+                  </Row>
+                </ContentItem>
 
-                    <ContentItem name={MEETUP}>
-                      <Row>
-                        <UpcomingTrainings trainings={meetups} />
-                      </Row>
-                    </ContentItem>
-                  </TabContent>
-                </Tabs>
-              </Col>
-            </Row>
-          </Grid>
-        </Section>
-      )}
-    </React.Fragment>
+                <ContentItem name={MEETUP}>
+                  <Row>
+                    <UpcomingTrainings trainings={meetups} />
+                  </Row>
+                </ContentItem>
+              </TabContent>
+            </Tabs>
+          </Col>
+        </Row>
+      </Grid>
+    </Section>
   )
 }
 

@@ -15,7 +15,6 @@ import {
   UpcomingTrainingSection,
   TrainingDetails,
   HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
   RICHARD_MOSS,
   selectNthTraining,
@@ -78,7 +77,7 @@ const BootcampLondon = () => (
             ]}
           />
           <Header
-            titleLines={['React & Redux Bootcamp - London']}
+            titleLines={['React Redux Bootcamp London']}
             subtitle="Take your dev career to the next level by mastering<br />React and Redux - in just a few days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
@@ -102,12 +101,7 @@ const BootcampLondon = () => (
                     <H4>Lara's student experience</H4>
                     <Video youtubeId="_8Xox79wE9Q" />
                     <TrainingDetails
-                      coaches={[
-                        HORACIO_HERRERA,
-                        WILL_VOELCKER,
-                        ALEX_LOBERA,
-                        RICHARD_MOSS,
-                      ]}
+                      coaches={[HORACIO_HERRERA, ALEX_LOBERA, RICHARD_MOSS]}
                     />
                   </Col>
                 </Row>
@@ -142,12 +136,7 @@ const BootcampLondon = () => (
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this React bootcamp right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
+                  <H2Ref>Is this React bootcamp right for me? Are you...</H2Ref>
                   <Ul>
                     <Li>
                       A developer with 1+ year of development under your belt
@@ -186,7 +175,10 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeBootcampTrainings trainings={trainings} />
+                  <AlternativeBootcampTrainings
+                    city={LONDON}
+                    trainings={trainings}
+                  />
                 </Col>
               </Row>
             </Grid>

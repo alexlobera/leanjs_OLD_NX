@@ -16,7 +16,7 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   getNextTrainingByTrainingId,
-  getUpcomingTrainingsByType,
+  selectUpcomingTrainings,
   AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
@@ -45,7 +45,7 @@ const ReduxWorkshop = () => (
         training.training &&
         training.training.description &&
         training.training.description.title
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
           ADVANCED_REACT,

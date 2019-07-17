@@ -16,7 +16,7 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   selectTrainingByInstanceId,
-  getUpcomingTrainingsByType,
+  selectUpcomingTrainings,
   AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
@@ -27,15 +27,16 @@ import {
   ADVANCED_REACT,
   REACT_WORKSHOP,
   ONE_DAY_WORKSHOP,
-  GRAPHQL_API,
-  GRAPHQL_CLIENT,
-  GRAPHQL_BOOTCAMP,
+  BERLIN,
+  REACT_FUNDAMENTALS,
+  REACT_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const ReduxWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
+      // TODO replace this hardcoded instance id with more flexible approach
       const training = selectTrainingByInstanceId({
         trainings,
         id: '5d2dda5cb809c0500a3f33f0',
@@ -45,15 +46,15 @@ const ReduxWorkshop = () => (
         training.training &&
         training.training.description &&
         training.training.description.title
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
+        city: BERLIN,
         types: [
           ADVANCED_REACT,
           REACT_WORKSHOP,
           ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
+          REACT_FUNDAMENTALS,
+          REACT_BOOTCAMP,
         ],
         excludeTrainingId: '5cffb4e806051b7d3bcb0cee',
       })

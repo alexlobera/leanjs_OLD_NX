@@ -17,7 +17,6 @@ import {
   RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
-  getUpcomingTrainingsByType,
   AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
@@ -46,7 +45,7 @@ const ReactFundamentalsBerlin = () => (
         city: BERLIN,
       })
       const training = selectNthTraining({ trainings: fundamentalsTrainings })
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
           REACT_BOOTCAMP,

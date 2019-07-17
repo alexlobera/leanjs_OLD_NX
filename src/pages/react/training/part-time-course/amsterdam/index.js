@@ -14,7 +14,6 @@ import {
   ROY_DERKS,
   selectNthTraining,
   selectUpcomingTrainings,
-  getUpcomingTrainingsByType,
   AlternativeTrainings,
 } from 'src/components/training'
 import Header from 'src/components/layout/Header'
@@ -49,7 +48,7 @@ const PartTimeAmsterdam = () => (
         city: AMSTERDAM,
       })
       const training = selectNthTraining({ trainings: partTimeTrainings })
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
       })

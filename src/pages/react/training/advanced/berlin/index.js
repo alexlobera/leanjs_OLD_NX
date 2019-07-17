@@ -15,13 +15,11 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  getUpcomingTrainingsByType,
   AlternativeTrainings,
   TrainingDetails,
   ALEX_LOBERA,
   HORACIO_HERRERA,
   RICHARD_MOSS,
-  WILL_VOELCKER,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
@@ -57,7 +55,7 @@ const BootcampBerlin = () => (
       })
       const training =
         selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
           ONE_DAY_WORKSHOP,
@@ -119,12 +117,7 @@ const BootcampBerlin = () => (
                     <Video youtubeId="blg40SCle7I" />
                     <TrainingDetails
                       foodIncluded={false}
-                      coaches={[
-                        ALEX_LOBERA,
-                        HORACIO_HERRERA,
-                        RICHARD_MOSS,
-                        WILL_VOELCKER,
-                      ]}
+                      coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
                     />
                   </Col>
                 </Row>

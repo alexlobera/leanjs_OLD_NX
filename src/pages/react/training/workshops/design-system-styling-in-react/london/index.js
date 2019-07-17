@@ -13,7 +13,7 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  getUpcomingTrainingsByType,
+  // selectUpcomingTrainings,
   AlternativeTrainings,
   ALEX_LOBERA,
   RICHARD_MOSS,
@@ -53,7 +53,7 @@ const StylingDesignSystemWorkshop = () => (
       const training = selectNthTraining({
         trainings: bootCampTrainings,
       })
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [REACT_FUNDAMENTALS, GRAPHQL_CLIENT],
       })

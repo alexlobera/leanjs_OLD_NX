@@ -78,27 +78,14 @@ export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
   return typeTrainings.length ? typeTrainings[nth - 1] : undefined
 }
 const trainingByType = type => training => !type || training.type === type
+
 const trainingByTypes = types => training =>
-  !types || !types.length || types.find(type => type === training.type)
+  types && types.length ? types.find(type => type === training.type) : true
 
 const trainingByCity = city => training => !city || training.city === city
 
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
   trainings.find(training => training.training.id === trainingId)
-
-// export const getUpcomingTrainingsByType = ({
-//   trainings,
-//   types = [],
-//   first,
-//   excludeTrainingId,
-// }) => {
-//   const filteredTrainings = types
-//     .flatMap(type => trainings.filter(trainingByType(type)))
-//     .filter(
-//       ({ training = {} }) => !training.id || training.id !== excludeTrainingId
-//     )
-//   return first ? filteredTrainings.slice(0, first) : filteredTrainings
-// }
 
 export const selectTrainingByInstanceId = ({ trainings, id }) =>
   trainings.find(training => training.id === id)
@@ -106,29 +93,21 @@ export const selectTrainingByInstanceId = ({ trainings, id }) =>
 export const excludeByTrainingId = trainingId => ({ training = {} }) =>
   !training.id || training.id !== trainingId
 
-// TODO ADD TYPES, FIRST AND EXCLUDE  TO THIS AND REMOVE getUpcomingTrainingsByType ??
 export const selectUpcomingTrainings = ({
-  // type,
   city,
   types,
   type,
   excludeTrainingId,
   trainings = [],
-  limit = 6,
+  limit = 9999,
 }) => {
-  // const filteredTrainings = types
-  //   .flatMap(type => trainings.filter(trainingByType(type)))
-  //   .filter(trainingByCity(city))
-  //   .filter(
-  //     ({ training = {} }) => !training.id || training.id !== excludeTrainingId
-  //   )
+  const typesArray = types ? types : type ? [type] : []
 
   return trainings
-    .filter(trainingByTypes(types || [type]))
+    .filter(trainingByTypes(typesArray))
     .filter(trainingByCity(city))
     .filter(excludeByTrainingId(excludeTrainingId))
     .slice(0, limit)
-  // return filteredTrainings
 }
 
 function formatMeetup({ node }) {
@@ -140,7 +119,7 @@ function formatMeetup({ node }) {
   }
 }
 
-const UpcomingTrainings = ({ type, city, limit, children }) => (
+const QueryUpcomingTrainings = ({ type, city, limit, children }) => (
   <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
     {({ loading, error, data }) => {
       const cityIndex = {}
@@ -190,4 +169,4 @@ const UpcomingTrainings = ({ type, city, limit, children }) => (
   </Query>
 )
 
-export default UpcomingTrainings
+export default QueryUpcomingTrainings

@@ -18,7 +18,7 @@ import Footer from '../components/layout/Footer'
 import favicon from './favicon.ico'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
-import { UpcomingTrainings } from '../components/training'
+import { QueryUpcomingTrainings } from '../components/training'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 
@@ -118,7 +118,7 @@ const Layout = ({ children, loadAutopilot = true }) => {
                 </Helmet>
                 <Menu />
                 {typeof children === 'function' ? (
-                  <UpcomingTrainings>{children}</UpcomingTrainings>
+                  <QueryUpcomingTrainings>{children}</QueryUpcomingTrainings>
                 ) : (
                   children
                 )}
