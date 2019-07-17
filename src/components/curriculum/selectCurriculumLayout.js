@@ -12,9 +12,7 @@ import Box from '../layout/Box'
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
 
-const SectionCTA = styled(Box).attrs({
-  className: 'curriculum-cta',
-})``
+const SectionCTA = styled(Box)``
 SectionCTA.defaultProps = {
   pt: 5,
 }
@@ -31,7 +29,9 @@ const selectCurriculumLayout = ({
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
-      <LinkButton to={curriculumTo}>Full curriculum</LinkButton>
+      <LinkButton className="curriculum-cta" to={curriculumTo}>
+        Full curriculum
+      </LinkButton>
     </SectionCTA>
   )
 
