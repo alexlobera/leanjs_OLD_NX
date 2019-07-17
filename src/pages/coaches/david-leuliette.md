@@ -18,4 +18,4 @@ tags: []
 - Used to **teach collaboration** with GitHub,
   **bootstrapping web products** and Growth
   Hacking at University.
-- Organizer of the [ChtiJS Meetup](https://www.meetup.com/FranceJS/) in France.
+- Organizer of the <a href="https://www.meetup.com/FranceJS/" class="coach-profiles">ChtiJS Meetup</a>
