@@ -13,7 +13,6 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  // selectUpcomingTrainings,
   AlternativeTrainings,
   ALEX_LOBERA,
   RICHARD_MOSS,

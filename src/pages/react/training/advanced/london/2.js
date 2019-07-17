@@ -15,7 +15,6 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  // selectUpcomingTrainings,
   AlternativeTrainings,
   TrainingDetails,
   ALEX_LOBERA,

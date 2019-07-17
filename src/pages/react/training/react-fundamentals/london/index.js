@@ -16,7 +16,6 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   selectNthTraining,
-  // selectUpcomingTrainings,
   selectUpcomingTrainings,
   AlternativeTrainings,
   AttendeeQuote,
