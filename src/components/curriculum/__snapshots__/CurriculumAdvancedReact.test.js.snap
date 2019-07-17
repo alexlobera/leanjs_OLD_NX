@@ -46,7 +46,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Advanced React patterns, Hooks, and performance"
         title="Advanced React Day 1"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 09:00 - 18:30"
         type="Advanced React"
       >
         <HoCsRenderPropsStateReducerSession
@@ -61,7 +61,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Real-world Testing in React"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 09:00 - 18:30"
         type="Advanced React"
       >
         <TestingIntroSession
