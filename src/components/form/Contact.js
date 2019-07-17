@@ -122,7 +122,10 @@ const ContactForm = props => {
           />
           <P>
             We won't spam you as per our{' '}
-            <Link to="/privacy-policy">Privacy Policy</Link>.
+            <Link className="footer-privacy-policy" to="/privacy-policy">
+              Privacy Policy
+            </Link>
+            .
           </P>
         </Col>
       </Row>
