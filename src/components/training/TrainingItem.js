@@ -9,13 +9,13 @@ const TrainingItemCol = styled(Col)`
   padding-bottom: 16px;
 `
 
-const TrainingRow = styled(Row).attrs({
-  className: `${props => props.className}`,
-})`
+const TrainingRow = styled(Row)`
   margin-bottom: 1em;
 `
 
-const Calendar = styled(Link)`
+const Calendar = styled(Link).attrs({
+  className: props => props.className,
+})`
   ${props =>
     `border: 3px ${selectBorderStyle(props.type)} ${selectTypeColor(
       props.type
@@ -41,9 +41,9 @@ const TrainingItem = ({
   className,
 }) => (
   <React.Fragment>
-    <TrainingRow className={className}>
+    <TrainingRow>
       <TrainingItemCol xs={5} md={4}>
-        <Calendar type={type} to={path}>
+        <Calendar className={className} type={type} to={path}>
           {startDay}
           <br />
           {startMonth}
@@ -55,7 +55,9 @@ const TrainingItem = ({
           <br />
           {cityCountry}
           <br />
-          <Link to={path}>Find out more</Link>
+          <Link className={className} to={path}>
+            Find out more
+          </Link>
         </P>
       </TrainingItemCol>
     </TrainingRow>

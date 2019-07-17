@@ -157,9 +157,15 @@ export const UpcomingTrainingSection = ({ trainings, limit = 15 }) => {
             </H2Ref>
             <Tabs active={activeTab} onChange={setActiveTab}>
               <TabList>
-                <TabItem name={REACT_BOOTCAMP}>React Courses</TabItem>
-                <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Courses</TabItem>
-                <TabItem name={MEETUP}>Meetups</TabItem>
+                <TabItem className="upcoming-events" name={REACT_BOOTCAMP}>
+                  React Courses
+                </TabItem>
+                <TabItem className="upcoming-events" name={GRAPHQL_BOOTCAMP}>
+                  GraphQL Courses
+                </TabItem>
+                <TabItem className="upcoming-events" name={MEETUP}>
+                  Meetups
+                </TabItem>
               </TabList>
               <TabContent>
                 <ContentItem name={REACT_BOOTCAMP}>

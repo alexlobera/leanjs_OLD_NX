@@ -106,7 +106,10 @@ const MeetUpPage = ({ data }) => {
                       {renderAst(htmlAst)}
                       <br />
                       <H5>Meetup Group:</H5>
-                      <Link to={`https://www.meetup.com/JavaScript-${city}/`}>
+                      <Link
+                        className="meetup-details-clicks"
+                        to={`https://www.meetup.com/JavaScript-${city}/`}
+                      >
                         JavaScript {city}
                       </Link>
                     </Col>

@@ -57,7 +57,7 @@ const BlogSection = ({ tags = [] }) => (
           <Grid>
             <Flex>
               <H2>Related blogs</H2>
-              <Link ml="auto" mt={3} to="/blog">
+              <Link className="articles-summary" ml="auto" mt={3} to="/blog">
                 See all blogs
               </Link>
             </Flex>
