@@ -65,6 +65,7 @@ class Checkout extends React.Component {
       showSubscribeToNewsletter,
       city,
     } = this.props
+
     const { isOpen } = this.state
     // The class `gtm-purchase-box` is needed for Tracking purposes,
     // please DON'T DELETE IT!!
@@ -98,6 +99,7 @@ class Checkout extends React.Component {
                 right
                 children="Buy now"
                 variant="primary"
+                className={showSubscribeToNewsletter && `meetup-details-cta`}
               />
             </Fragment>
           </PurchaseWrapper>
