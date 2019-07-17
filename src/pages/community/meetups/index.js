@@ -12,6 +12,7 @@ import { Card, Image } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
+  UpcomingTrainings,
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
@@ -84,7 +85,7 @@ const Meetups = () => (
                     Our upcoming meetups
                     <a name="upcoming-meetups" />
                   </H2>
-                  <UpcomingTrainingSection
+                  <UpcomingTrainings
                     curriculum
                     removeAdditionalCTAs
                     trainings={upcomingMeetups}
