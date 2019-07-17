@@ -31,18 +31,20 @@ import {
   GRAPHQL_API,
   GRAPHQL_CLIENT,
   GRAPHQL_BOOTCAMP,
+  BERLIN,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 
-const ReactFundamentalsLondon = () => (
+const ReactFundamentalsBerlin = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = selectNthTraining({
+      const fundamentalsTrainings = selectUpcomingTrainings({
         trainings,
         type: REACT_FUNDAMENTALS,
-        nth: 2,
+        city: BERLIN,
       })
+      const training = selectNthTraining({ trainings: fundamentalsTrainings })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
@@ -57,12 +59,12 @@ const ReactFundamentalsLondon = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Fundamentals in London"
+            title="React Fundamentals in Berlin"
             meta={[
               {
                 name: 'description',
                 content:
-                  'React Fundamentals - learn a solid foundation in React in just 3 days in London',
+                  'React Fundamentals - learn a solid foundation in React in just 3 days in Berlin',
               },
             ]}
           />
@@ -76,13 +78,13 @@ const ReactFundamentalsLondon = () => (
                 label: 'React Fundamentals',
               },
               {
-                to: '/react/training/react-fundamentals/london',
-                label: 'London',
+                to: '/react/training/react-fundamentals/berlin',
+                label: 'Berlin',
               },
             ]}
           />
           <Header
-            titleLines={['React Redux Fundamentals - London']}
+            titleLines={['React Redux Fundamentals - Berlin']}
             subtitle="In 3 days, we can teach you how to code in React to give you a solid foundation to take your dev career further."
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
@@ -141,9 +143,7 @@ const ReactFundamentalsLondon = () => (
                 <Col md={4} lgOffset={1}>
                   <H2Ref>
                     Is this React course right for you? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
+                    <Link to="#target-audience" name="target-audience"></Link>
                   </H2Ref>
                   <Ul>
                     <Li>
@@ -194,4 +194,4 @@ const ReactFundamentalsLondon = () => (
   </Layout>
 )
 
-export default ReactFundamentalsLondon
+export default ReactFundamentalsBerlin

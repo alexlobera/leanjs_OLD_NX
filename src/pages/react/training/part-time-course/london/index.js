@@ -17,7 +17,6 @@ import {
   FRANCISCO_GOMES,
   selectNthTraining,
   selectUpcomingTrainings,
-  getUpcomingTrainingsByType,
   AlternativeTrainings,
 } from 'src/components/training'
 import { H4 } from 'src/components/text'
@@ -53,7 +52,7 @@ const BootcampLondon = () => (
         city: LONDON,
       })
       const training = selectNthTraining({ trainings: partTimeTrainings })
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
       })

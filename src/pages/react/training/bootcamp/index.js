@@ -17,20 +17,12 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  getUpcomingTrainingsByType,
-  AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
+import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import { Card } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import {
-  REACT_BOOTCAMP,
-  ADVANCED_REACT,
-  PART_TIME,
-  REACT_WORKSHOP,
-  REACT_FUNDAMENTALS,
-  ONE_DAY_WORKSHOP,
-} from 'src/config/data'
+import { REACT_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -44,7 +36,7 @@ const metas = {
   type: 'website',
 }
 
-const Bootcamps = props => (
+const Bootcamps = () => (
   <Layout>
     {({ trainings }) => {
       const upcomingBootCampTrainings = selectUpcomingTrainings({
@@ -53,17 +45,6 @@ const Bootcamps = props => (
       })
       const nextTraining = selectNthTraining({
         trainings: upcomingBootCampTrainings,
-      })
-      const reactTrainings = getUpcomingTrainingsByType({
-        trainings,
-        types: [
-          REACT_FUNDAMENTALS,
-          REACT_WORKSHOP,
-          ADVANCED_REACT,
-          ONE_DAY_WORKSHOP,
-          PART_TIME,
-        ],
-        first: 3,
       })
 
       return (
@@ -162,10 +143,7 @@ const Bootcamps = props => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings
-                    trainings={reactTrainings}
-                    titleText="Alternatives to the React Bootcamp"
-                  />
+                  <AlternativeBootcampTrainings trainings={trainings} />
                 </Col>
               </Row>
             </Grid>

@@ -15,7 +15,6 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  getUpcomingTrainingsByType,
   AlternativeTrainings,
   TrainingDetails,
   ALEX_LOBERA,
@@ -58,7 +57,7 @@ const BootcampLondon = () => (
       const training =
         selectNthTraining({ trainings: upcomingAdvancedTrainings, nth: 2 }) ||
         {}
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
           ONE_DAY_WORKSHOP,

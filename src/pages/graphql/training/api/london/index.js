@@ -17,7 +17,6 @@ import {
   ALEX_LOBERA,
   selectUpcomingTrainings,
   selectNthTraining,
-  getUpcomingTrainingsByType,
   AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
@@ -52,7 +51,7 @@ const BootcampLondon = () => (
       })
       const training =
         selectNthTraining({ trainings: upcomingGqlTrainings }) || {}
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [GRAPHQL_BOOTCAMP, GRAPHQL_CLIENT, REACT_FUNDAMENTALS],
       })

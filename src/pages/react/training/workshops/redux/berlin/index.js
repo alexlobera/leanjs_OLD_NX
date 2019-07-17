@@ -7,68 +7,68 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayStyling } from 'src/components/curriculum/workshops'
+import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  AlternativeTrainings,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  selectNthTraining,
+  selectTrainingByInstanceId,
   selectUpcomingTrainings,
+  AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
+  ADVANCED_REACT,
+  REACT_WORKSHOP,
   ONE_DAY_WORKSHOP,
-  GRAPHQL_CLIENT,
+  BERLIN,
   REACT_FUNDAMENTALS,
-  LONDON,
+  REACT_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { createSocialMetas } from 'src/components/utils'
-import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
-const metas = {
-  title: 'Design System Workshop London | React GraphQL Academy',
-  description:
-    'Interested in Design Systems? React GraphQL Academy offers London Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
-  image: WHY_REACTJS_ACADEMY,
-  type: 'website',
-}
-
-const StylingDesignSystemWorkshop = () => (
+const ReduxWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      // TODO replace this hardcoded instance id with more flexible approach
+      const training = selectTrainingByInstanceId({
         trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
+        id: '5d2dda5cb809c0500a3f33f0',
       })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
-      })
+      const trainingTitle =
+        training &&
+        training.training &&
+        training.training.description &&
+        training.training.description.title
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [REACT_FUNDAMENTALS, GRAPHQL_CLIENT],
+        city: BERLIN,
+        types: [
+          ADVANCED_REACT,
+          REACT_WORKSHOP,
+          ONE_DAY_WORKSHOP,
+          REACT_FUNDAMENTALS,
+          REACT_BOOTCAMP,
+        ],
+        excludeTrainingId: '5cffb4e806051b7d3bcb0cee',
       })
       return (
         <React.Fragment>
           <Helmet
-            title={metas.title}
+            title="Redux workshop Berlin"
             meta={[
               {
                 name: 'description',
-                content: metas.description,
+                content: '1-day Redux Workshop in Berlin',
               },
             ]}
-          >
-            {createSocialMetas(metas)}
-          </Helmet>
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -76,22 +76,21 @@ const StylingDesignSystemWorkshop = () => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Design Systems and Styling in React',
+                to: '/react/training/workshops/redux',
+                label: 'Redux',
               },
               {
-                to:
-                  '/react/training/workshops/design-system-styling-in-react/london',
-                label: 'London',
+                to: '/react/training/workshops/redux/berlin',
+                label: 'Berlin',
               },
             ]}
           />
           <Header
-            titleLines={['Design Systems and Styling in React - London']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={[`${trainingTitle || '...loading'} - Berlin`]}
+            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux Middlewares"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
+            type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
@@ -107,9 +106,8 @@ const StylingDesignSystemWorkshop = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Charlie's student experience</H4>
-
-                    <Video youtubeId="CP422OORbPA" />
+                    <H4>Rafa's student experience</H4>
+                    <Video youtubeId="hZZksRcqtkc" />
                     <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>
                 </Row>
@@ -122,11 +120,11 @@ const StylingDesignSystemWorkshop = () => (
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="This course has taught me not just the 'how' but WHY React is good..."
-                    fullname="Jim Plimmer"
-                    job="Developer"
-                    company="Conversion.com"
-                    videoUrl="nIK8ouQp17s"
+                    quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
+                    fullname="Lara Ramey"
+                    job="Software Developer"
+                    company="Meredith Corporation"
+                    videoUrl="blg40SCle7I"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>
@@ -138,32 +136,26 @@ const StylingDesignSystemWorkshop = () => (
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer or designer with experience building React
-                      components and using CSS?
+                      A developer with experience in JavaScript and with an
+                      understanding of React?
                     </Li>
                     <Li>
-                      A developer or designer interested in building scalable
-                      and reusable UIs for big React projects?
+                      Interested in understanding Redux from top to bottom
+                      including Redux Middlewares and tooling
                     </Li>
                     <Li>
-                      Not satisfied with the Designer/Developer handover in
-                      real-world React projects?
+                      Looking to gain an in-depth understanding that will allow
+                      you to apply Redux to a large scale React appliaction or
+                      build upon an existing one.
                     </Li>
                     <Li>
-                      A designer that builds React components and interacts with
-                      developers.
+                      Interested in going deeper into functional programming
+                      principles and how they apply to Redux
                     </Li>
                   </Ul>
                   <P>
                     If you've said 'yes' to these, this workshop could be for
                     you!
-                  </P>
-                  <P>
-                    If you're a developer who's not yet familar with React, we
-                    recommend first attending the{' '}
-                    <Link to="/react/training/react-fundamentals/">
-                      React Fundamentals Course.
-                    </Link>
                   </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
@@ -186,7 +178,7 @@ const StylingDesignSystemWorkshop = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayStyling layout={LIST_TWO_COL} />
+                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
                   </Col>
                 </Row>
               </Card>
@@ -210,4 +202,4 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default ReduxWorkshop

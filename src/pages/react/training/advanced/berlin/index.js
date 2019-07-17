@@ -6,48 +6,58 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumReactFundamentals } from 'src/components/curriculum'
+import Ul from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
+import { CurriculumAdvancedReact } from 'src/components/curriculum'
 import {
   UpcomingTrainingSection,
+  selectUpcomingTrainings,
+  selectNthTraining,
+  AlternativeTrainings,
   TrainingDetails,
   ALEX_LOBERA,
+  HORACIO_HERRERA,
   RICHARD_MOSS,
-  selectNthTraining,
-  selectUpcomingTrainings,
-  AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
-  REACT_BOOTCAMP,
-  REACT_FUNDAMENTALS,
-  REACT_WORKSHOP,
+  ADVANCED_REACT,
   ONE_DAY_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_CLIENT,
   GRAPHQL_BOOTCAMP,
+  BERLIN,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
+import { createSocialMetas } from 'src/components/utils'
 
-const ReactFundamentalsLondon = () => (
+const metas = {
+  title: 'Advanced React Training in Berlin | React GraphQL Academy',
+  description:
+    'Looking for a Advanced React training in Berlin? Learn Advanced React patterns and concepts with our experts in Berlin. Contact us now!',
+  image: BOOTCAMP_COLLAB,
+  type: 'website',
+}
+
+const BootcampBerlin = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = selectNthTraining({
+      const upcomingAdvancedTrainings = selectUpcomingTrainings({
         trainings,
-        type: REACT_FUNDAMENTALS,
-        nth: 2,
+        type: ADVANCED_REACT,
+        city: BERLIN,
       })
+      const training =
+        selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
-          REACT_BOOTCAMP,
-          REACT_WORKSHOP,
           ONE_DAY_WORKSHOP,
           GRAPHQL_API,
           GRAPHQL_CLIENT,
@@ -57,36 +67,37 @@ const ReactFundamentalsLondon = () => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Fundamentals in London"
+            title={metas.title}
             meta={[
               {
                 name: 'description',
-                content:
-                  'React Fundamentals - learn a solid foundation in React in just 3 days in London',
+                content: metas.description,
               },
             ]}
-          />
+          >
+            {createSocialMetas(metas)}
+          </Helmet>
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
               {
-                to: '/react/training/react-fundamentals',
-                label: 'React Fundamentals',
+                to: '/react/training/advanced',
+                label: 'Advanced',
               },
               {
-                to: '/react/training/react-fundamentals/london',
-                label: 'London',
+                to: '/react/training/advanced/berlin',
+                label: 'Berlin',
               },
             ]}
           />
           <Header
-            titleLines={['React Redux Fundamentals - London']}
-            subtitle="In 3 days, we can teach you how to code in React to give you a solid foundation to take your dev career further."
+            titleLines={['Advanced React Training - Berlin']}
+            subtitle="Take your React career to the next level by mastering advanced React - in just 3 days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
-            type={REACT_FUNDAMENTALS}
+            type={ADVANCED_REACT}
             training={training}
             showInfoBox={true}
           />
@@ -97,14 +108,17 @@ const ReactFundamentalsLondon = () => (
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
                       training={training}
-                      trainingError={trainingError}
                       trainingLoading={trainingLoading}
+                      trainingError={trainingError}
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Charlie's student experience</H4>
-                    <Video youtubeId="VhUMAqToJ4s" />
-                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                    <H4>Lara's student experience</H4>
+                    <Video youtubeId="blg40SCle7I" />
+                    <TrainingDetails
+                      foodIncluded={false}
+                      coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
+                    />
                   </Col>
                 </Row>
               </Card>
@@ -115,7 +129,7 @@ const ReactFundamentalsLondon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumReactFundamentals
+                    <CurriculumAdvancedReact
                       training={training}
                       layout={LIST_TWO_COL}
                     />
@@ -124,54 +138,36 @@ const ReactFundamentalsLondon = () => (
               </Card>
             </Grid>
           </Section>
-
           <Section>
             <Grid>
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
-                    fullname="Lara Ramey"
-                    job="Software Developer"
-                    company="Meredith Corporation"
-                    videoUrl="Syktu6ICNfw"
+                    quote="This course has taught me not just the 'how' but WHY React is good..."
+                    fullname="Jim Plimmer"
+                    job="Developer"
+                    company="Conversion.com"
+                    videoUrl="nIK8ouQp17s"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>
                   <H2Ref>
-                    Is this React course right for you? Are you...{' '}
+                    Is this Advanced React training right for me?{' '}
                     <Link to="#target-audience" name="target-audience">
                       #
                     </Link>
                   </H2Ref>
                   <Ul>
-                    <Li>
-                      A developer with 1+ year of development under your belt
-                      using JavaScript?
-                    </Li>
-                    <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a confident React
-                      developer, able to quickly get orientated and add value to
-                      a React application.
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
+                    <CurriculumAdvancedReact.TargetAudienceList />
                   </Ul>
-
                   <H3>Not for beginner devs!</H3>
                   <P>
-                    <strong>We do not run learn-to-code bootcamps</strong>.
+                    This is a bootcamp for React developers that are experienced
+                    with React. If you don't have 1+ year of experience using
+                    React we recommend you to attend our{' '}
+                    <Link to="/react/training/bootcamp">React Bootcamp</Link>.
                   </P>
-                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
                 </Col>
               </Row>
             </Grid>
@@ -185,8 +181,8 @@ const ReactFundamentalsLondon = () => (
               </Row>
             </Grid>
           </Section>
+          <BlogSection tags={['react', 'advanced']} />
 
-          <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -194,4 +190,4 @@ const ReactFundamentalsLondon = () => (
   </Layout>
 )
 
-export default ReactFundamentalsLondon
+export default BootcampBerlin

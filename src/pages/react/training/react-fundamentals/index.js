@@ -70,7 +70,6 @@ const ReactFundamentals = props => (
               <Card border="shadow">
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumReactFundamentals
-                  training={nextTraining}
                   trainings={upcomingFundamentalsTrainings}
                 />
               </Card>

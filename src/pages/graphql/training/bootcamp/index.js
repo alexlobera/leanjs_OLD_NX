@@ -13,8 +13,8 @@ import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
   AttendeeQuote,
+  selectUpcomingTrainings,
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
