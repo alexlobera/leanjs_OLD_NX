@@ -126,7 +126,7 @@ const CurriculumReactBootcamp = ({
       </Link>
     </H2Ref>
   ) : null
-  console.log('sssssss', trainings)
+
   return selectCurriculumLayout({
     firstHalf,
     secondHalf,

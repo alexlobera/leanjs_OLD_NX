@@ -13,7 +13,7 @@ import {
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
   ONE_DAY_WORKSHOP,
-} from 'src/config/data'
+} from '../../config/data'
 
 const AlternativeTrainings = ({
   trainings,
