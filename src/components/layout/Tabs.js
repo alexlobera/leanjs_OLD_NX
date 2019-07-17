@@ -70,7 +70,7 @@ export const TabList = ({ active, setActive, onChange, children, ...rest }) => {
     })
   )
   return (
-    <Row className="courses">
+    <Row>
       <Col {...rest}>
         <Ul {...rest}>{compound}</Ul>
       </Col>
@@ -80,7 +80,7 @@ export const TabList = ({ active, setActive, onChange, children, ...rest }) => {
 
 TabList.displayName = 'TabList'
 
-const A = styled.a`
+const A = styled.a.attrs({ className: 'courses' })`
   ${props =>
     props.isActive
       ? `
