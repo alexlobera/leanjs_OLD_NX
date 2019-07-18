@@ -71,7 +71,7 @@ export const TabList = ({ active, setActive, onChange, children, ...rest }) => {
   )
   return (
     <Row>
-      <Col {...rest}>
+      <Col {...rest} md={11}>
         <Ul {...rest}>{compound}</Ul>
       </Col>
     </Row>
