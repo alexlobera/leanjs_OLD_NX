@@ -56,7 +56,6 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
 
 const HeaderSection = styled(Section)`
   position: relative;
-    
   ${({ bgColors, bgColor }) =>
     ((bgColors && bgColors.length) || bgColor) &&
     `
@@ -69,8 +68,8 @@ const HeaderSection = styled(Section)`
       height: 100%;
       z-index: ${Z_INDEX_BG};
       ${
-        bgColors.length === 1 || bgColor
-          ? `background-color: ${bgColor || bgColors[0]}`
+        (bgColors && bgColors.length === 1) || bgColor
+          ? `background-color: ${bgColors[0] || bgColor}`
           : `background-image: linear-gradient(to bottom right,${bgColors.join()})`
       };
     }
