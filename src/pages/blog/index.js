@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../../components/layout'
 import Grid, { Col, Row } from '../../components/layout/Grid'
-import Header from '../../components/layout/Header'
+import { RootHeader as Header } from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'

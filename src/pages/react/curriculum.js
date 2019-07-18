@@ -45,7 +45,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-import { LIGHT_BLUE } from '../../config/styles'
+import { LIGHT_BLUE, BLUE } from '../../config/styles'
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -122,6 +122,7 @@ class ReactCurriculum extends React.Component {
                   { text: 'Differences in our courses ', to: '#differences' },
                   { text: 'Full curriculums', to: '#curriculum' },
                 ]}
+                bgColor={BLUE}
                 bgImageName={BOOTCAMP}
               />
               <TopSection>

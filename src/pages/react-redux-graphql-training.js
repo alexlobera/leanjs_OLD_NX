@@ -8,7 +8,7 @@ import { H2 } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { Card, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
-import Header from '../components/layout/Header'
+import { RootHeader as Header } from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
 

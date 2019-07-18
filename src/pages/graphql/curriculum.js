@@ -109,6 +109,7 @@ class GraphQLCurriculum extends React.Component {
               <Header
                 titleLines={['GraphQL curriculum']}
                 subtitle="We're proud to say that our curriculum is the most<br /> up-to-date on the market - there really is<br />nowhere better to learn GraphQL."
+                bgColor={GRAPHQL_PINK}
               />
               <TopSection>
                 <Grid>

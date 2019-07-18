@@ -16,6 +16,8 @@ import {
   FONT_FAMILY,
   TEXT_SIZE,
   Z_INDEX_BG,
+  GRAPHQL_PINK,
+  BLUE,
 } from '../../config/styles'
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
@@ -53,33 +55,44 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
 `
 
 const HeaderSection = styled(Section)`
-  ${({ bgColor }) =>
-    `background-color: ${
-      bgColor === 'blue'
-        ? BLUE_04
-        : bgColor === 'grey'
-        ? 'rgba(196,196,196,0.4)'
-        : ''
-    };`} position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: ${Z_INDEX_BG};
-    ${({ bgImage }) =>
-      `
-      @media (min-width: ${SCREEN_SM_MIN}) {
+  position: relative;
+    
+  ${({ bgColors, bgColor }) =>
+    ((bgColors && bgColors.length) || bgColor) &&
+    `
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: ${Z_INDEX_BG};
+      ${
+        bgColors.length === 1 || bgColor
+          ? `background-color: ${bgColor || bgColors[0]}`
+          : `background-image: linear-gradient(to bottom right,${bgColors.join()})`
+      };
+    }
+  `}
+  
+  ${({ bgImage, bgImageOpacity = '0.7' }) =>
+    `
+    @media (min-width: ${SCREEN_SM_MIN}) {
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: ${Z_INDEX_BG};
         background-image: url(${bgImage}); background-repeat: no-repeat; background-size: cover;
+        opacity: ${bgImageOpacity};
       }
-        
-      @media (max-width: ${SCREEN_XS_MAX}) {
-        background-image: linear-gradient(to bottom right, #920E68, #61dafb);
-      }`}
-  }
+    }
+  `}
+  
   @media (min-width: ${SCREEN_SM_MIN}) {
     height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : '')};
     min-height: ${({ fullHeight }) =>
@@ -94,7 +107,7 @@ const HeaderSection = styled(Section)`
 `
 HeaderSection.displayName = 'HeaderSection'
 HeaderSection.defaultProps = {
-  bgColor: 'grey',
+  bgColors: ['rgba(196,196,196,0.4)'],
 }
 
 const H2Header = styled(BaseH2)`
@@ -227,6 +240,7 @@ const Header = ({
   links = [],
   bgImageName,
   bgImgUrl,
+  bgColors,
   bgColor,
   fullHeight,
   paddingBottom,
@@ -234,6 +248,7 @@ const Header = ({
   linkToGallery,
   downloadVenuePDF,
   width,
+  bgImageOpacity,
   className = '',
 }) => (
   <StaticQuery
@@ -282,10 +297,12 @@ const Header = ({
           )}
           <HeaderSection
             top
+            bgColors={bgColors}
             bgColor={bgColor}
             bgImage={bgImage}
             fullHeight={fullHeight}
             paddingBottom={paddingBottom}
+            bgImageOpacity={bgImageOpacity}
           >
             <Grid>
               <Row>
@@ -414,6 +431,10 @@ const Header = ({
       )
     }}
   />
+)
+
+export const RootHeader = props => (
+  <Header bgColors={[GRAPHQL_PINK, BLUE]} bgImageOpacity={0.3} {...props} />
 )
 
 Header.propTypes = {
