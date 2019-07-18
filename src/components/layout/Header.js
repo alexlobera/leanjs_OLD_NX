@@ -56,9 +56,13 @@ const HEADER_SUBSECTION_PADDING_LEFT_RIGHT = `
 
 const HeaderSection = styled(Section)`
   position: relative;
-  ${({ bgColors, bgColor }) =>
-    ((bgColors && bgColors.length) || bgColor) &&
-    `
+  ${({ bgColors, bgColor }) => {
+    const bgc =
+      bgColors && bgColors.length ? bgColors : bgColor ? [bgColor] : []
+
+    return (
+      bgc.length &&
+      `
     &:before {
       content: '';
       position: absolute;
@@ -68,14 +72,18 @@ const HeaderSection = styled(Section)`
       height: 100%;
       z-index: ${Z_INDEX_BG};
       ${
-        (bgColors && bgColors.length === 1) || bgColor
-          ? `background-color: ${bgColors[0] || bgColor}`
-          : `background-image: linear-gradient(to bottom right,${bgColors.join()})`
+        bgc.length === 1
+          ? `background-color: ${bgc[0]}`
+          : bgc.length > 1
+          ? `background-image: linear-gradient(to bottom right,${bgc.join()})`
+          : ''
       };
     }
-  `}
+    `
+    )
+  }}
   
-  ${({ bgImage, bgImageOpacity = '0.7' }) =>
+  ${({ bgImage, bgImageOpacity = '0.5' }) =>
     `
     @media (min-width: ${SCREEN_SM_MIN}) {
       &:after {
@@ -106,7 +114,7 @@ const HeaderSection = styled(Section)`
 `
 HeaderSection.displayName = 'HeaderSection'
 HeaderSection.defaultProps = {
-  bgColors: ['rgba(196,196,196,0.4)'],
+  bgColor: 'rgba(196,196,196,0.6)',
 }
 
 const H2Header = styled(BaseH2)`
