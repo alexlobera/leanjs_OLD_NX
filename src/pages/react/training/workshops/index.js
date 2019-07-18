@@ -58,6 +58,7 @@ const Workshops = () => (
         types: [REACT_WORKSHOP, ONE_DAY_WORKSHOP],
       })
       const allWorkshops = [...reactWorkshops, ...waitlistWorkshops]
+      console.log(allWorkshops)
       return (
         <React.Fragment>
           <Helmet
@@ -106,7 +107,8 @@ const Workshops = () => (
                           title,
                           description,
                           price,
-                          currency
+                          currency,
+                          city
                         if (workshop.toPath) {
                           title =
                             workshop &&
@@ -123,7 +125,7 @@ const Workshops = () => (
                           price = workshop && workshop.price
 
                           currency = workshop && workshop.currency
-
+                          city = workshop && workshop.city
                           to = workshop.toPath
                           buttonText = 'Find out more'
                           variant = 'primary'
@@ -142,6 +144,7 @@ const Workshops = () => (
                               <Link underline={false} to={to}>
                                 <H4>{title}</H4>
                               </Link>
+                              <H5 mb={1}>{city}</H5>
                               <H5>
                                 {price ? (
                                   <Span>
