@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import {
   WHITE,
@@ -48,26 +48,24 @@ const CookiesNotificationWrapper = styled.div`
 const AcceptCookies = () => {
   const [hideAcceptCookies, setHideAcceptCookies] = useState(
     !!getCookie(HIDE_ACCEPT_COOKIES)
-  );
+  )
 
   const handleClick = () => {
-    setCookie(HIDE_ACCEPT_COOKIES, true);
-    setHideAcceptCookies(true);
-  };
-
-    return hideAcceptCookies ? null : (
-      <CookiesNotificationWrapper>
-        <StyledCookiesNotification>
-          <div>
-            Using our site means you consent to our use of cookies. Find out
-            more in our <Link to="/privacy-policy">privacy policy</Link>.
-          </div>
-          <button onClick={handleClick}>⨯</button>
-        </StyledCookiesNotification>
-      </CookiesNotificationWrapper>
-    );
+    setCookie(HIDE_ACCEPT_COOKIES, true)
+    setHideAcceptCookies(true)
   }
 
-};
+  return hideAcceptCookies ? null : (
+    <CookiesNotificationWrapper>
+      <StyledCookiesNotification>
+        <div>
+          Using our site means you consent to our use of cookies. Find out more
+          in our <Link to="/privacy-policy">privacy policy</Link>.
+        </div>
+        <button onClick={handleClick}>⨯</button>
+      </StyledCookiesNotification>
+    </CookiesNotificationWrapper>
+  )
+}
 
 export default AcceptCookies
