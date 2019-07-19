@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import {
   WHITE,
@@ -45,19 +45,15 @@ const CookiesNotificationWrapper = styled.div`
   z-index: ${Z_INDEX_TOP};
 `
 
-class AcceptCookies extends React.Component {
-  state = {
-    hideAcceptCookies: !!getCookie(HIDE_ACCEPT_COOKIES),
-  }
+const AcceptCookies = () => {
+  const [hideAcceptCookies, setHideAcceptCookies] = useState(
+    !!getCookie(HIDE_ACCEPT_COOKIES)
+  );
 
-  handleClick = () => {
-    setCookie(HIDE_ACCEPT_COOKIES, true)
-    this.setState({ hideAcceptCookies: true })
-  }
-
-  render() {
-    const { hideAcceptCookies } = this.state
-    const { handleClick } = this
+  const handleClick = () => {
+    setCookie(HIDE_ACCEPT_COOKIES, true);
+    setHideAcceptCookies(true);
+  };
 
     return hideAcceptCookies ? null : (
       <CookiesNotificationWrapper>
@@ -69,8 +65,9 @@ class AcceptCookies extends React.Component {
           <button onClick={handleClick}>⨯</button>
         </StyledCookiesNotification>
       </CookiesNotificationWrapper>
-    )
+    );
   }
-}
+
+};
 
 export default AcceptCookies
