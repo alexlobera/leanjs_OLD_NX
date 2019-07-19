@@ -26,9 +26,16 @@ const AlternativeTrainings = ({
         <Col md={11} mdOffset={1}>
           <H3>{titleText}</H3>
           <Row>
-            <UpcomingTrainings limit={3} city={city} trainings={trainings} />
+            <UpcomingTrainings
+              className="suggested-courses"
+              limit={3}
+              city={city}
+              trainings={trainings}
+            />
           </Row>
-          <LinkButton to="#upcoming">See all Courses</LinkButton>
+          <LinkButton className="suggested-courses" to="#upcoming">
+            See all Courses
+          </LinkButton>
         </Col>
       </Row>
     </Card>
