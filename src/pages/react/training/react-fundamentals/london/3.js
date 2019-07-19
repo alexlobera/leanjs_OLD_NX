@@ -47,7 +47,7 @@ const ReactFundamentalsLondon = () => (
       const training = selectNthTraining({
         trainings: fundamentalsTrainings,
         type: REACT_FUNDAMENTALS,
-        nth: 2,
+        nth: 3,
       })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
