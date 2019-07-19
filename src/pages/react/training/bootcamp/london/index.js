@@ -164,7 +164,10 @@ const BootcampLondon = () => (
                   <P>
                     <strong>We do not run learn-to-code bootcamps</strong>.
                   </P>
-                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                  <Link
+                    className="perfect-course-student"
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                  >
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

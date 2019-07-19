@@ -153,7 +153,10 @@ const GraphQLApolloClientWorkshopLondon = () => (
                     you!
                   </P>
                   <H3>Not for beginner devs!</H3>
-                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                  <Link
+                    className="perfect-course-student"
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                  >
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>
