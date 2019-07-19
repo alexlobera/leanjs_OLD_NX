@@ -242,7 +242,11 @@ const BootcampLisbon = () => (
               </Row>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <Gallery downloadVenuePDF={VENUE_PDF} photos={photos} />
+                  <Gallery
+                    className="course-details-our-venue"
+                    downloadVenuePDF={VENUE_PDF}
+                    photos={photos}
+                  />
                 </Col>
               </Row>
             </Grid>
