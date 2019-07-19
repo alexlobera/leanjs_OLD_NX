@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
+import { BLUE } from 'src/config/styles'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -95,6 +96,7 @@ const ReactPage = ({ data }) => {
             titleLines={['Learn React with us...']}
             subtitle="Move into the future of development with the React Ecosystem"
             bgImageName={BOOTCAMP}
+            bgColor={BLUE}
             links={[
               {
                 text: 'Latest React Blogs',

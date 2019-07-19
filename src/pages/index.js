@@ -18,7 +18,7 @@ import {
   FullCurriculumsGraphQL,
 } from '../components/curriculum'
 import { SCREEN_XS_MAX, createSocialMetas } from '../components/utils'
-import Header from '../components/layout/Header'
+import { RootHeader as Header } from '../components/layout/Header'
 import { Card, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
@@ -114,7 +114,6 @@ const IndexPage = () => {
             ]}
             subtitle="In-person courses, workshops and meetups from experts who were the first in
         Europe to teach React. "
-            bgColor="blue"
             bgImageName={HOME_PAGE}
           />
           <TopSection marginTop="-258">

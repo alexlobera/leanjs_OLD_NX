@@ -5,7 +5,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import Header from '../components/layout/Header'
+import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
 

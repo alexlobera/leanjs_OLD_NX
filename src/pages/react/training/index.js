@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { BLUE } from 'src/config/styles'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -63,6 +64,7 @@ const TrainingPage = () => (
             titleLines={['React Training']}
             subtitle="Take your development career to the next level with our React training"
             bgImageName={BOOTCAMP}
+            bgColor={BLUE}
             featuredSection={
               <React.Fragment>
                 <P>Our courses:</P>

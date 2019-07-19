@@ -153,7 +153,8 @@ const BlogPost = ({ data }) => {
             fullHeight={false}
             paddingBottom={80}
             bgImgUrl={imageUrl}
-            bgColor={null}
+            bgColor="transparent"
+            bgImageOpacity={1}
           >
             <PostMeta date={date} author={author} timeToRead={timeToRead} />
           </Header>

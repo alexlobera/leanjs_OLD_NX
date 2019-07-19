@@ -78,6 +78,7 @@ const GraphQLPage = ({ data }) => {
             titleLines={['Learn GraphQL with us...']}
             subtitle="Supercharge your development skill set with latest curriculum in GraphQL"
             bgImageName={BOOTCAMP}
+            bgColor={GRAPHQL_PINK}
             links={[
               {
                 text: 'Latest GraphQL Blogs',

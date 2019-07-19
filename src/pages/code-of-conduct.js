@@ -6,7 +6,7 @@ import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, P } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
-import Header from '../components/layout/Header'
+import { RootHeader as Header } from '../components/layout/Header'
 import { Card } from '../components/elements'
 import { Image } from '../components/elements'
 import {
