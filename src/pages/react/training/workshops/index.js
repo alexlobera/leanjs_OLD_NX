@@ -157,7 +157,11 @@ const Workshops = () => (
                                 )}
                               </H5>
                               <P>{description}</P>
-                              <LinkButton variant={variant} to={to}>
+                              <LinkButton
+                                className="workshop-cta"
+                                variant={variant}
+                                to={to}
+                              >
                                 {buttonText}
                               </LinkButton>
                             </TrainingCard>
