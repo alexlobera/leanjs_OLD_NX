@@ -31,6 +31,7 @@ import {
   GRAPHQL_API,
   GRAPHQL_CLIENT,
   GRAPHQL_BOOTCAMP,
+  LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
@@ -38,8 +39,13 @@ import BlogSection from 'src/components/blog/BlogSection'
 const ReactFundamentalsLondon = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = selectNthTraining({
+      const fundamentalsTrainings = selectUpcomingTrainings({
         trainings,
+        type: REACT_FUNDAMENTALS,
+        city: LONDON,
+      })
+      const training = selectNthTraining({
+        trainings: fundamentalsTrainings,
         type: REACT_FUNDAMENTALS,
         nth: 2,
       })
@@ -169,7 +175,10 @@ const ReactFundamentalsLondon = () => (
                   <P>
                     <strong>We do not run learn-to-code bootcamps</strong>.
                   </P>
-                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                  <Link
+                    className="perfect-course-student"
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                  >
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

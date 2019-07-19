@@ -99,7 +99,11 @@ class Checkout extends React.Component {
                 right
                 children="Buy now"
                 variant="primary"
-                className={showSubscribeToNewsletter && `meetup-details-cta`}
+                className={
+                  showSubscribeToNewsletter
+                    ? `meetup-details-cta`
+                    : `pricing-clicks`
+                }
               />
             </Fragment>
           </PurchaseWrapper>

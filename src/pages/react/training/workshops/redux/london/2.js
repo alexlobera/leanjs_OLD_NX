@@ -16,6 +16,7 @@ import {
   ALEX_LOBERA,
   RICHARD_MOSS,
   getNextTrainingByTrainingId,
+  selectTrainingByInstanceId,
   selectUpcomingTrainings,
   AlternativeTrainings,
   AttendeeQuote,
@@ -36,9 +37,9 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 const ReduxWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = getNextTrainingByTrainingId({
+      const training = selectTrainingByInstanceId({
         trainings,
-        trainingId: '5cffb4e806051b7d3bcb0cee',
+        id: '5d2de00bb809c0500a3f33f3',
       })
       const trainingTitle =
         training &&
@@ -165,10 +166,7 @@ const ReduxWorkshop = () => (
                     </Link>
                     .
                   </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
+                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

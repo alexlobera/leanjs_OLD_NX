@@ -256,7 +256,7 @@ const Header = ({
   downloadVenuePDF,
   width,
   bgImageOpacity,
-  className = '',
+  className = 'course-details-clicks',
 }) => (
   <StaticQuery
     query={graphql`

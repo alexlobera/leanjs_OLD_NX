@@ -109,7 +109,11 @@ const GraphQLWorkshops = () => (
                               </Link>
                               <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
                               <P>{workshop.description}</P>
-                              <LinkButton variant={variant} to={to}>
+                              <LinkButton
+                                className="workshop-cta"
+                                variant={variant}
+                                to={to}
+                              >
                                 {text}
                               </LinkButton>
                             </TrainingCard>

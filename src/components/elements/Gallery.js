@@ -9,7 +9,16 @@ import Button from '../buttons/Button'
 import P from '../text/P'
 import Link from '../navigation/Link'
 
-const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
+const Photo = ({
+  index,
+  onClick,
+  photo,
+  margin,
+  direction,
+  top,
+  left,
+  className = 'course-details-our-venue',
+}) => {
   const imgStyle = { margin: margin }
   const imgWithClick = { cursor: 'pointer' }
 
@@ -24,7 +33,7 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
   }
 
   const image = photo.href ? (
-    <Link href={photo.href} style={{ lineHeight: 0 }}>
+    <Link className={className} href={photo.href} style={{ lineHeight: 0 }}>
       <Image style={imgStyle} {...photo} />
     </Link>
   ) : (
@@ -40,7 +49,7 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left }) => {
 
 const NUMBER_OF_IMAGES_PER_PAGE = 6
 
-const Gallery = ({ photos = [], downloadVenuePDF }) => {
+const Gallery = ({ photos = [], downloadVenuePDF, className }) => {
   const [{ currentImage, lastImage }, setImageState] = useState({
     currentImage: 0,
     lastImage: NUMBER_OF_IMAGES_PER_PAGE,
@@ -94,7 +103,7 @@ const Gallery = ({ photos = [], downloadVenuePDF }) => {
         {hasMorePictures() && (
           <Col md={3}>
             <P align="left" mt={2}>
-              <Button onClick={loadMore} primary>
+              <Button className={className} onClick={loadMore} primary>
                 Load more pictures
               </Button>
             </P>
@@ -103,7 +112,9 @@ const Gallery = ({ photos = [], downloadVenuePDF }) => {
         {downloadVenuePDF && (
           <Col md={9}>
             <P align="left" mt={4}>
-              <Link to={downloadVenuePDF}>Download more info PDF</Link>
+              <Link className={className} to={downloadVenuePDF}>
+                Download more info PDF
+              </Link>
             </P>
           </Col>
         )}

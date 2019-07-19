@@ -19,7 +19,7 @@ import { LIGHT_BLUE } from '../../../../config/styles'
 import { REACT_WORKSHOP, ONE_DAY_WORKSHOP } from '../../../../config/data'
 import { DEFAULT_VAT_RATE } from '../../../../config'
 import formatPrice from 'src/components/utils/currency'
-import { createSocialMetas } from 'src/components/utils'
+import { createSocialMetas, formatUTC } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
 const metas = {
@@ -106,7 +106,10 @@ const Workshops = () => (
                           title,
                           description,
                           price,
-                          currency
+                          currency,
+                          city,
+                          startDate,
+                          utcOffset
                         if (workshop.toPath) {
                           title =
                             workshop &&
@@ -123,7 +126,9 @@ const Workshops = () => (
                           price = workshop && workshop.price
 
                           currency = workshop && workshop.currency
-
+                          city = workshop && workshop.city
+                          startDate = workshop && workshop.startDate
+                          utcOffset = workshop && workshop.utcOffset
                           to = workshop.toPath
                           buttonText = 'Find out more'
                           variant = 'primary'
@@ -142,6 +147,15 @@ const Workshops = () => (
                               <Link underline={false} to={to}>
                                 <H4>{title}</H4>
                               </Link>
+                              {startDate && (
+                                <H5 mb={1}>
+                                  {`${city} ${formatUTC(
+                                    startDate,
+                                    utcOffset,
+                                    'D MMM'
+                                  )}`}
+                                </H5>
+                              )}
                               <H5>
                                 {price ? (
                                   <Span>
@@ -157,7 +171,11 @@ const Workshops = () => (
                                 )}
                               </H5>
                               <P>{description}</P>
-                              <LinkButton variant={variant} to={to}>
+                              <LinkButton
+                                className="workshop-cta"
+                                variant={variant}
+                                to={to}
+                              >
                                 {buttonText}
                               </LinkButton>
                             </TrainingCard>

@@ -43,7 +43,7 @@ const metas = {
   type: 'website',
 }
 
-const StyledTabItem = styled(Link)`
+const StyledTabItem = styled(Link).attrs({ className: 'select-technology' })`
   ${defaultButtonStyle}
   &:first-child {
     box-shadow: -5px -5px 15px -5px rgba(0, 0, 0, 0.26);
