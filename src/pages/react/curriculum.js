@@ -312,7 +312,10 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -331,6 +334,7 @@ class ReactCurriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next React Bootcamp"
                                         text={`Take your career to the next level and master React in just a few days!`}
+                                        className="training-curriculum-next-training-cta"
                                         to={trainingBootcamp.toPath}
                                         buttonText={`${
                                           trainingBootcamp.city
@@ -360,7 +364,10 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -379,6 +386,7 @@ class ReactCurriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next React Fundamentals"
                                         text={`Take your career by learning a solid foundation React in just 3 days!`}
+                                        className="training-curriculum-next-training-cta"
                                         to={trainingFundamentals.toPath}
                                         buttonText={`${
                                           trainingFundamentals.city
@@ -408,7 +416,10 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -426,6 +437,7 @@ class ReactCurriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next React Advanced Training"
                                         text={`You can master Advanced React - in just 2 days!`}
+                                        className="training-curriculum-next-training-cta"
                                         to={trainingAdvanced.toPath}
                                         buttonText={`${
                                           trainingAdvanced.city
@@ -454,7 +466,10 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -477,6 +492,7 @@ class ReactCurriculum extends React.Component {
                                           trainingPartTime.utcOffset,
                                           'D MMM'
                                         )} in ${trainingPartTime.city}`}
+                                        className="training-curriculum-next-training-cta"
                                         to={trainingPartTime.toPath}
                                         buttonText={`${
                                           trainingPartTime.city

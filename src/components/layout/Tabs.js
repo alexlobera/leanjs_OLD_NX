@@ -117,25 +117,27 @@ export const TabItem = ({
   onClick,
   name,
   component,
-  className = 'courses',
+  className = 'courses training-curriculum-clicks',
   ...props
-}) => (
-  <li name={name}>
-    <A
-      role="button"
-      isActive={isActive}
-      name={name}
-      {...props}
-      onClick={e => {
-        e.preventDefault()
-        onClick && onClick()
-      }}
-      className={className}
-    >
-      {children}
-    </A>
-  </li>
-)
+}) => {
+  return (
+    <li name={name}>
+      <A
+        role="button"
+        isActive={isActive}
+        name={name}
+        {...props}
+        onClick={e => {
+          e.preventDefault()
+          onClick && onClick()
+        }}
+        className={className}
+      >
+        {children}
+      </A>
+    </li>
+  )
+}
 TabItem.displayName = 'TabItem'
 
 export const TabContent = ({ active, children }) =>
