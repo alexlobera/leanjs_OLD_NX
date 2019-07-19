@@ -324,6 +324,7 @@ class GraphQLCurriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next GraphQL Bootcamp"
                                         text={`Learn the secrets of efficient apps with GraphQL`}
+                                        className="training-curriculum-next-training-cta"
                                         to={
                                           trainingBootcamp &&
                                           trainingBootcamp.toPath
@@ -387,6 +388,7 @@ class GraphQLCurriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next GraphQL API Training"
                                         text={`Learn the secrets of efficient GraphQL APIs`}
+                                        className="training-curriculum-next-training-cta"
                                         to={trainingApi && trainingApi.toPath}
                                         buttonText={`${
                                           trainingApi.city
@@ -440,6 +442,7 @@ class GraphQLCurriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next GraphQL Client Training"
                                         text={`Learn how to build React data-driven apps with GraphQL`}
+                                        className="training-curriculum-next-training-cta"
                                         to={
                                           trainingClient &&
                                           trainingClient.toPath
