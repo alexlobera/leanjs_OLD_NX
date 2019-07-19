@@ -58,7 +58,6 @@ const Workshops = () => (
         types: [REACT_WORKSHOP, ONE_DAY_WORKSHOP],
       })
       const allWorkshops = [...reactWorkshops, ...waitlistWorkshops]
-      console.log(allWorkshops)
       return (
         <React.Fragment>
           <Helmet
