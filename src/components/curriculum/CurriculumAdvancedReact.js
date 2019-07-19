@@ -38,7 +38,7 @@ const CurriculumAdvancedReact = ({
         title="Advanced React Day 1"
         name="day1"
         subTitle="Advanced React patterns, Hooks, and performance"
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 0, training, type })}
         buyPath="/react/training/workshops/advanced-react-patterns-fp-performance"
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
@@ -49,7 +49,7 @@ const CurriculumAdvancedReact = ({
         title="Advanced React Day 2"
         name="day2"
         subTitle="Real-world Testing in React"
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 1, training })}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />

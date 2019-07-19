@@ -10,7 +10,7 @@ import { H2, P, H4, H5, Span } from 'src/components/text'
 import {
   UpcomingTrainingSection,
   TrainingCard,
-  getUpcomingTrainingsByType,
+  selectUpcomingTrainings,
 } from 'src/components/training'
 import Header from 'src/components/layout/Header'
 import { Card, Newsletter } from 'src/components/elements'
@@ -53,7 +53,7 @@ const waitlistWorkshops = [
 const Workshops = () => (
   <Layout>
     {({ trainings }) => {
-      const reactWorkshops = getUpcomingTrainingsByType({
+      const reactWorkshops = selectUpcomingTrainings({
         trainings,
         types: [REACT_WORKSHOP, ONE_DAY_WORKSHOP],
       })

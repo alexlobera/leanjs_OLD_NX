@@ -45,7 +45,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="React 101 and JS fundamentals"
         title="Evening pre-bootcamp"
         toggleNavigateTo={[Function]}
-        trainingTime=" 6:30pm - 9pm"
+        trainingTime=" 18:30 - 21:00"
         type="React Bootcamp"
       >
         <ReactJS101Session />
@@ -55,7 +55,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
         title="Day 1"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
         <ES6Session
@@ -73,7 +73,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Forms, Authentication, Styling in React"
         title="Day 2"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
         <FormsAndAuthSession
@@ -91,7 +91,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Redux Fundamentals, Advanced Redux, and FP"
         title="Day 3"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
         <IntroReduxSession
@@ -106,7 +106,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Advanced React patterns, Hooks, and performance"
         title="Day 4"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
         <HoCsRenderPropsStateReducerSession
@@ -121,7 +121,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Real-world Testing in React"
         title="Day 5"
         toggleNavigateTo={[Function]}
-        trainingTime=" 9am - 6:30pm"
+        trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
         <TestingIntroSession
@@ -142,6 +142,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
           borderRadius={2}
           box="button"
           boxShadow="light"
+          className="curriculum-cta"
           fontSize={2}
           letterSpacing=" 0.6px"
           px={4}

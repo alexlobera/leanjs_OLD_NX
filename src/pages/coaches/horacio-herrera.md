@@ -17,4 +17,4 @@ tags: []
   **self-taught developer**, and
   **open source contributor**.
 - Working with cross-functional product teams since 2010.
-- Organizer of the [JavaScript Barcelona Meetup](https://www.meetup.com/JavaScript-Barcelona/).
+- Organizer of the <a href="https://www.meetup.com/JavaScript-Barcelona/" class="coach-profiles">JavaScript Barcelona Meetup</a>

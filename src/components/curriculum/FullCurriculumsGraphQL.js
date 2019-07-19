@@ -8,7 +8,7 @@ import {
   CurriculumGraphQLWorkshops,
   CurriculumGraphQLAPI,
 } from './index'
-import { getUpcomingTrainingsByType } from '../training/UpcomingTrainings'
+import { selectUpcomingTrainings } from '../training/UpcomingTrainings'
 import {
   GRAPHQL_BOOTCAMP,
   GRAPHQL_WORKSHOP,
@@ -21,7 +21,7 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
     trainings,
     showTitle: false,
   }
-  const allGraphQLWorkshops = getUpcomingTrainingsByType({
+  const allGraphQLWorkshops = selectUpcomingTrainings({
     trainings,
     types: [GRAPHQL_CLIENT, GRAPHQL_WORKSHOP],
   })

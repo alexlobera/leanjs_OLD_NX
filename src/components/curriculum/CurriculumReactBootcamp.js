@@ -60,7 +60,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 1`}
         name="day1"
         subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching`}
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 1, training })}
       >
         <ES6Session title="Modern JavaScript" />
         <ThinkingInReactSession title="Thinking in React" />
@@ -71,7 +71,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 2`}
         name="day2"
         subTitle={`Forms, Authentication, Styling in React`}
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 2, training })}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
         <ReactFundamentalsRecapSession
@@ -90,7 +90,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 3`}
         name="day3"
         subTitle={`Redux Fundamentals, Advanced Redux, and FP`}
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 3, training })}
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
@@ -100,7 +100,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 4`}
         name="day4"
         subTitle={`Advanced React patterns, Hooks, and performance`}
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 6, training })}
       >
         <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
         <ReactPerformanceSession title="Performance" />
@@ -110,7 +110,7 @@ const CurriculumReactBootcamp = ({
         title={`Day 5`}
         name="day5"
         subTitle={`Real-world Testing in React`}
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 7, training })}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />

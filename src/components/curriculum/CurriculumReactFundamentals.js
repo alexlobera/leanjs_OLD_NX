@@ -53,7 +53,7 @@ const CurriculumReactFundamentals = ({
         title="Day 1"
         name="day1"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 1, training })}
       >
         <ES6Session title="Modern JavaScript" />
         <ThinkingInReactSession title="Thinking in React" />
@@ -69,7 +69,7 @@ const CurriculumReactFundamentals = ({
         title="Day 2"
         name="day2"
         subTitle="Forms, Authentication, Styling in React"
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 2, training })}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
         <ReactFundamentalsRecapSession
@@ -83,7 +83,7 @@ const CurriculumReactFundamentals = ({
         title="Day 3"
         name="day3"
         subTitle="Redux Fundamentals, Advanced Redux, and FP"
-        trainingTime={trainingTime({ training })}
+        trainingTime={trainingTime({ day: 3, training })}
       >
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />

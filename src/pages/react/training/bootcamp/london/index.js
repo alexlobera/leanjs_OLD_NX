@@ -15,26 +15,17 @@ import {
   UpcomingTrainingSection,
   TrainingDetails,
   HORACIO_HERRERA,
-  WILL_VOELCKER,
   ALEX_LOBERA,
   RICHARD_MOSS,
   selectNthTraining,
   selectUpcomingTrainings,
-  getUpcomingTrainingsByType,
-  AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
+import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import {
-  REACT_BOOTCAMP,
-  ONE_DAY_WORKSHOP,
-  GRAPHQL_API,
-  GRAPHQL_CLIENT,
-  GRAPHQL_BOOTCAMP,
-  LONDON,
-} from 'src/config/data'
+import { REACT_BOOTCAMP, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 import { createSocialMetas } from 'src/components/utils'
@@ -56,15 +47,7 @@ const BootcampLondon = () => (
         city: LONDON,
       })
       const training = selectNthTraining({ trainings: bootCampTrainings })
-      const crossSellTrainings = getUpcomingTrainingsByType({
-        trainings,
-        types: [
-          ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
-        ],
-      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -94,7 +77,7 @@ const BootcampLondon = () => (
             ]}
           />
           <Header
-            titleLines={['React & Redux Bootcamp - London']}
+            titleLines={['React Redux Bootcamp London']}
             subtitle="Take your dev career to the next level by mastering<br />React and Redux - in just a few days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
@@ -118,12 +101,7 @@ const BootcampLondon = () => (
                     <H4>Lara's student experience</H4>
                     <Video youtubeId="_8Xox79wE9Q" />
                     <TrainingDetails
-                      coaches={[
-                        HORACIO_HERRERA,
-                        WILL_VOELCKER,
-                        ALEX_LOBERA,
-                        RICHARD_MOSS,
-                      ]}
+                      coaches={[HORACIO_HERRERA, ALEX_LOBERA, RICHARD_MOSS]}
                     />
                   </Col>
                 </Row>
@@ -158,12 +136,7 @@ const BootcampLondon = () => (
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this React bootcamp right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
+                  <H2Ref>Is this React bootcamp right for me? Are you...</H2Ref>
                   <Ul>
                     <Li>
                       A developer with 1+ year of development under your belt
@@ -202,7 +175,10 @@ const BootcampLondon = () => (
             <Grid>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
+                  <AlternativeBootcampTrainings
+                    city={LONDON}
+                    trainings={trainings}
+                  />
                 </Col>
               </Row>
             </Grid>

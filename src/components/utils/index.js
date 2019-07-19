@@ -212,15 +212,17 @@ export const trainingDateByDay = ({ training = {}, day = 0 }) =>
 export const trainingTimings = ({ training = {} }) =>
   `${(training.startDate &&
     formatUTC(training.startDate, training.utcOffset, 'HH:mm')) ||
-    '9am'} - ${(training.endDate &&
+    '09:00'} - ${(training.endDate &&
     formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
-    '6:30pm'}`
+    '18:30'}`
 
 function twoDigits(number) {
   return ('0' + number).slice(-2)
 }
 
-export const trainingTime = ({ day, training = {} }) =>
+export const trainingTime = ({ day, training = {}, type }) =>
   `${trainingDateByDay({ training, day })} ${
-    day !== 0 ? trainingTimings({ training }) : '6:30pm - 9pm'
+    day === 0 && type !== ADVANCED_REACT
+      ? '18:30 - 21:00'
+      : trainingTimings({ training })
   }`

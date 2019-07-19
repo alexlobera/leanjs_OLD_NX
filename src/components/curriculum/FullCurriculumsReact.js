@@ -11,7 +11,7 @@ import {
   CurriculumAdvancedReact,
 } from './index'
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
-import { getUpcomingTrainingsByType } from '../training/UpcomingTrainings'
+import { selectUpcomingTrainings } from '../training/UpcomingTrainings'
 import {
   REACT_BOOTCAMP,
   PART_TIME,
@@ -22,7 +22,7 @@ import {
 } from '../../config/data'
 
 const FullCurriculumsReact = ({ trainings }) => {
-  const allReactWorkshops = getUpcomingTrainingsByType({
+  const allReactWorkshops = selectUpcomingTrainings({
     trainings,
     types: [ONE_DAY_WORKSHOP, REACT_WORKSHOP],
   })

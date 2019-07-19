@@ -21,4 +21,4 @@ tags: ['beginner']
   University.
 - Serial entrepreneur passionate about teaching. Founded an
   online school in 2012, and hasn’t stopped.
-- Organizer of the [JavaScript lisbon Meetup](https://www.meetup.com/JavaScript-lisbon/) and React GraphQL Academy bootcamps.
+- Organizer of the <a href="https://www.meetup.com/JavaScript-lisbon/" class="coach-profiles">JavaScript lisbon Meetup</a>

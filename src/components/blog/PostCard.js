@@ -8,7 +8,7 @@ import { formatPostTitle } from '../../templates/blog-post'
 
 const PostCard = ({ post, p, imageProps = {} }) => (
   <Card border="shadow" py={0} mb={5} p={p}>
-    <Link to={`${post.fields.slug}`}>
+    <Link to={`${post.fields.slug}`} className="articles-summary">
       <Image
         {...imageProps}
         src={post.frontmatter.imageUrl}

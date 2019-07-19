@@ -15,7 +15,6 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
-  getUpcomingTrainingsByType,
   AlternativeTrainings,
   TrainingDetails,
   ALEX_LOBERA,
@@ -57,7 +56,7 @@ const BootcampLondon = () => (
       })
       const training =
         selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
-      const crossSellTrainings = getUpcomingTrainingsByType({
+      const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
           ONE_DAY_WORKSHOP,
@@ -96,7 +95,7 @@ const BootcampLondon = () => (
           />
           <Header
             titleLines={['Advanced React Training - London']}
-            subtitle="Take your React career to the next level by mastering advanced React - in just 3 days!"
+            subtitle="Take your React career to the next level by mastering advanced React - in just 2 days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={ADVANCED_REACT}
@@ -137,7 +136,10 @@ const BootcampLondon = () => (
               <Card border="shadow">
                 <Row>
                   <Col lg={10} lgOffset={1}>
-                    <CurriculumAdvancedReact layout={LIST_TWO_COL} />
+                    <CurriculumAdvancedReact
+                      training={training}
+                      layout={LIST_TWO_COL}
+                    />
                   </Col>
                 </Row>
               </Card>
