@@ -34,10 +34,11 @@ const CorpTrainingFacts = () => (
       regarding pricing too.
     </P>
     <LinkButton
+      pdf
       primary
       to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
     >
-      Team Training - Key Facts (PDF)
+      Team Training - Key Facts
     </LinkButton>
   </React.Fragment>
 )
