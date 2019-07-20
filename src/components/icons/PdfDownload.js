@@ -1,11 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+import Box from '../layout/Box'
 
-const PdfDownload = () => (
+const PdfDownload = props => (
   <svg
     height="42"
     viewBox="0 0 37 42"
     width="37"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <g fillRule="evenodd">
       <path d="m6.313 1.313h21.267l8.107 8.121v31.254h-29.374v-3.567h-1.313v4.879h32v-33.111l-8.877-8.889h-23.123v17.161h1.313z" />
@@ -15,4 +18,9 @@ const PdfDownload = () => (
   </svg>
 )
 
-export default PdfDownload
+const StyledPdfDownload = styled(Box)``
+StyledPdfDownload.defaultProps = {
+  box: PdfDownload,
+}
+
+export default StyledPdfDownload

@@ -12,20 +12,10 @@ import {
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
 const StyledLinkButton = styled(Link)`
-  text-decoration: none;
   ${defaultButtonStyle}
-  ${props => props.external && 'justify-content: space-evenly;'};
-  ${props => props.margin && space({ mt: 5 })}
-  ${props =>
-    props.pdf &&
-    `
-    svg {
-      margin-right: 0.5rem
-    }
-    display: flex
-    justify-content: space-evenly;
-    align-items: center;
-    `}
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 `
 
 StyledLinkButton.displayName = 'StyledLinkButton'
@@ -42,9 +32,7 @@ const LinkButton = ({
     {...(variant ? buttonVariantProps[variant] : {})}
   >
     {props.pdf ? <PdfDownload /> : null}
-    {props.external ? (
-      <ExternalLinkIcon style={{ marginRight: '1.5rem' }} />
-    ) : null}
+    {props.external ? <ExternalLinkIcon mr={3} /> : null}
     {children}
   </StyledLinkButton>
 )
