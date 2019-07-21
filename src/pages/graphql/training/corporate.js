@@ -14,7 +14,7 @@ import {
 } from 'src/components/training'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Card, Video } from 'src/components/elements'
 import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'

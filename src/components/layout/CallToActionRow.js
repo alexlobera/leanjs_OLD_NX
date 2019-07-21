@@ -3,11 +3,9 @@ import styled from 'styled-components'
 import { SCREEN_XS_MAX } from '../utils'
 import { Z_INDEX_MEDIUM } from '../../config/styles'
 import { Row } from './Grid'
-import Box from '../layout/Box'
+import Box from './Box'
 
 export const CallToActionRow = styled(Box)`
-  z-index: ${Z_INDEX_MEDIUM};
-  position: relative;
   @media (max-width: ${SCREEN_XS_MAX}) {
     a {
       display: block;
@@ -16,6 +14,8 @@ export const CallToActionRow = styled(Box)`
   }
 `
 CallToActionRow.defaultProps = {
-  mb: [30, -25],
+  mb: [0, -25],
+  position: 'relative',
+  zIndex: Z_INDEX_MEDIUM,
   box: Row,
 }

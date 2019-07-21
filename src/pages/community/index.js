@@ -18,7 +18,7 @@ import {
 import { LinkButton } from '../../components/buttons'
 import { MEETUP, instagramPictures } from '../../config/data'
 import { MENTORSHIP_IMG } from '../../config/images'
-import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from '../../components/layout/CallToActionRow'
 import Ul, { Li } from '../../components/layout/Ul'
 import { Breadcrumb } from '../../components/navigation'
 
