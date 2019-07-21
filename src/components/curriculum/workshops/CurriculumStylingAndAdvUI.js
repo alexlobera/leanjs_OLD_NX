@@ -4,12 +4,11 @@ import Link from '../../navigation/Link'
 import { ONE_DAY_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
 import selectCurriculumLayout from '../selectCurriculumLayout'
-import DesignThinkingSession from '../sessions/design/DesignThinkingSession'
-import DesignSystemSession from '../sessions/design/DesignSystemSession'
-import StylingInReactSession from '../sessions/design/StylingInReactSession'
-import ReusableComponentsSession from '../sessions/design/ReusableComponentsSession'
+import DesignSystemSession from '../sessions/DesignSystemSession'
+import StylingInReactSession from '../sessions/StylingInReactSession'
+import AdvancedUIPatterns from '../sessions/AdvancedUIPatterns'
 
-const CurriculumOneDayStyling = ({
+const CurriculumStylingAndAdvUI = ({
   showTitle = true,
   layout,
   enableToggle = true,
@@ -30,15 +29,15 @@ const CurriculumOneDayStyling = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Design-Thinking in the real world"
-        subTitle="UX, Atomic Design & Designer/Developer handover"
+        title="Advanced UI Patterns"
+        subTitle="Themes, Variantes, compound components, context, and best practices"
       >
-        <DesignThinkingSession />
+        <AdvancedUIPatterns />
       </Section>
       <Section
         {...commonProps}
         title="Styling in React"
-        subTitle="Component based CSS with styled-components & Storybook"
+        subTitle="Component based style with styled-components & Storybook"
       >
         <StylingInReactSession />
       </Section>
@@ -48,17 +47,10 @@ const CurriculumOneDayStyling = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Design System fundamentals"
-        subTitle="Theming & Variants, using styled-components and styled-system"
+        title="Design Systems with Styled System"
+        subTitle="Constraint-based style props based on design system tokens"
       >
         <DesignSystemSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Resuable component libraries"
-        subTitle="Compound components, context, and component surface area"
-      >
-        <ReusableComponentsSession />
       </Section>
     </React.Fragment>
   )
@@ -83,4 +75,4 @@ const CurriculumOneDayStyling = ({
   })
 }
 
-export default CurriculumOneDayStyling
+export default CurriculumStylingAndAdvUI

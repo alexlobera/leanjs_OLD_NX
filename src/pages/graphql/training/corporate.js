@@ -73,7 +73,7 @@ const CorporateGraphQLTraining = () => (
         />
         <TopSection>
           <Grid>
-            <CallToActionRow left>
+            <CallToActionRow>
               <Col mdOffset={1} md={4}>
                 <LinkButton
                   variant="primary"

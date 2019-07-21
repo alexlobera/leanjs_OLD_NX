@@ -58,7 +58,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="day2"
-        subTitle="Real-world Testing in React"
+        subTitle="Real-World Testing in React"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
         trainingTime=" 09:00 - 18:30"
