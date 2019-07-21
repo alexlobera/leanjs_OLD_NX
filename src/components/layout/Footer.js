@@ -53,7 +53,7 @@ const Footer = ({ width }) => (
                   <H3>Site links</H3>
                 </Col>
                 <Col md={6}>
-                  <Ul unstyled>
+                  <Ul variant="unstyled" pt={0}>
                     {[
                       { to: '/react/training', txt: 'React Courses' },
                       { to: '/react/curriculum', txt: 'React Curriculum' },
@@ -70,7 +70,7 @@ const Footer = ({ width }) => (
                   </Ul>
                 </Col>
                 <Col md={6}>
-                  <Ul unstyled>
+                  <Ul variants={['unstyled', 'inline']} pt={0}>
                     {[
                       { to: '/about-us', txt: 'About us' },
                       { to: '/community', txt: 'Community' },
@@ -100,7 +100,7 @@ const Footer = ({ width }) => (
             <Row>
               <Col>
                 <Span>Follow us...</Span>
-                <Ul unstyled inline mt={1} mb={2}>
+                <Ul variants={['unstyled', 'inline']} mt={1} mb={2}>
                   {[
                     {
                       to: 'https://twitter.com/reactgqlacademy',

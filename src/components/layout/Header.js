@@ -336,7 +336,7 @@ const Header = ({
                     <Col>
                       {links.length ? (
                         <Nav quickLinks>
-                          <Ul inline>
+                          <Ul variant="inline">
                             <Li>
                               <Span>On this page:</Span>
                             </Li>

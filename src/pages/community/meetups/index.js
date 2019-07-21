@@ -7,7 +7,6 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'
-import { Link } from 'src/components/navigation'
 import { Card, Image } from 'src/components/elements'
 import { RootHeader as Header } from 'src/components/layout/Header'
 import {
@@ -19,7 +18,7 @@ import {
 import { LinkButton } from 'src/components/buttons'
 import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'
-import Ul, { Li } from 'src/components/layout/Ul'
+import { OurMeetupGroups } from '../index'
 import { Breadcrumb } from 'src/components/navigation'
 import Meetup from './Meetup'
 
@@ -91,65 +90,7 @@ const Meetups = () => (
                     trainings={upcomingMeetups}
                     className="upcoming-meetups"
                   />
-                  <H3>Our groups</H3>
-                  <Row>
-                    <Col sm={6}>
-                      <Ul unstyled>
-                        <Li>
-                          <Link
-                            className="meetups-clicks"
-                            to="http://meetup.com/JavaScript-London"
-                          >
-                            JavaScript London
-                          </Link>
-                        </Li>
-                        <Li>
-                          <Link
-                            className="meetups-clicks"
-                            to="http://meetup.com/JavaScript-Barcelona"
-                          >
-                            JavaScript Barcelona
-                          </Link>
-                        </Li>
-                        <Li>
-                          <Link
-                            className="meetups-clicks"
-                            to="http://meetup.com/JavaScript-Paris"
-                          >
-                            JavaScript Paris
-                          </Link>
-                        </Li>
-                      </Ul>
-                    </Col>
-                    <Col sm={6}>
-                      <Ul unstyled>
-                        <Li>
-                          <Link
-                            className="meetups-clicks"
-                            to="http://meetup.com/JavaScript-Lisbon"
-                          >
-                            JavaScript Lisbon
-                          </Link>
-                        </Li>
-                        <Li>
-                          <Link
-                            className="meetups-clicks"
-                            to="http://meetup.com/JavaScript-Amsterdam"
-                          >
-                            JavaScript Amsterdam
-                          </Link>
-                        </Li>
-                        <Li>
-                          <Link
-                            className="meetups-clicks"
-                            to="http://meetup.com/JavaScript-Berlin"
-                          >
-                            JavaScript Berlin
-                          </Link>
-                        </Li>
-                      </Ul>
-                    </Col>
-                  </Row>
+                  <OurMeetupGroups />
                 </Col>
               </Card>
             </Grid>

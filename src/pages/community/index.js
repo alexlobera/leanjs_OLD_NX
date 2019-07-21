@@ -22,16 +22,9 @@ import { CallToActionRow } from '../../components/layout/CallToActionRow'
 import Ul, { Li } from '../../components/layout/Ul'
 import { Breadcrumb } from '../../components/navigation'
 
+// TODO replace margin-top: 36px; with props from styled system once Card is refactored
 const SecondaryCard = styled(Card)`
   margin-top: 36px;
-`
-
-const MeetupList = styled(Ul)`
-  li {
-    a {
-      font-size: 16px;
-    }
-  }
 `
 
 const TwitterWidgetsOnlyOnClientSide = () => {
@@ -125,58 +118,7 @@ const Community = () => (
                       >
                         See All MeetUps
                       </LinkButton>
-
-                      <H3>Our groups</H3>
-                      <Row>
-                        <Col sm={6}>
-                          <MeetupList unstyled>
-                            {[
-                              {
-                                to: 'http://meetup.com/JavaScript-London',
-                                txt: 'JavaScript London',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Barcelona',
-                                txt: 'JavaScript Barcelona',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Paris',
-                                txt: 'JavaScript Paris',
-                              },
-                            ].map(({ to, txt }) => (
-                              <Li>
-                                <Link to={to} className="meetups-clicks">
-                                  {txt}
-                                </Link>
-                              </Li>
-                            ))}
-                          </MeetupList>
-                        </Col>
-                        <Col sm={6}>
-                          <MeetupList unstyled>
-                            {[
-                              {
-                                to: 'http://meetup.com/JavaScript-Lisbon',
-                                txt: 'JavaScript Lisbon',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Amsterdam',
-                                txt: 'JavaScript Amsterdam',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Berlin',
-                                txt: 'JavaScript Berlin',
-                              },
-                            ].map(({ to, txt }) => (
-                              <Li>
-                                <Link to={to} className="meetups-clicks">
-                                  {txt}
-                                </Link>
-                              </Li>
-                            ))}
-                          </MeetupList>
-                        </Col>
-                      </Row>
+                      <OurMeetupGroups />
                     </Col>
                   </Card>
                   <SecondaryCard border="shadow">
@@ -271,6 +213,62 @@ const Community = () => (
       )
     }}
   </Layout>
+)
+
+export const OurMeetupGroups = () => (
+  <React.Fragment>
+    <H3>Our groups</H3>
+    <Row>
+      <Col sm={6}>
+        <Ul variant="unstyled" mb={1}>
+          {[
+            {
+              to: 'http://meetup.com/JavaScript-London',
+              txt: 'JavaScript London',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Barcelona',
+              txt: 'JavaScript Barcelona',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Paris',
+              txt: 'JavaScript Paris',
+            },
+          ].map(({ to, txt }) => (
+            <Li>
+              <Link to={to} className="meetups-clicks">
+                {txt}
+              </Link>
+            </Li>
+          ))}
+        </Ul>
+      </Col>
+      <Col sm={6}>
+        <Ul variant="unstyled" mb={1}>
+          {[
+            {
+              to: 'http://meetup.com/JavaScript-Lisbon',
+              txt: 'JavaScript Lisbon',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Amsterdam',
+              txt: 'JavaScript Amsterdam',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Berlin',
+              txt: 'JavaScript Berlin',
+            },
+          ].map(({ to, txt }) => (
+            <Li>
+              <Link to={to} className="meetups-clicks">
+                {txt}
+              </Link>
+            </Li>
+          ))}
+        </Ul>
+      </Col>
+    </Row>
+  </React.Fragment>
 )
 
 export default Community
