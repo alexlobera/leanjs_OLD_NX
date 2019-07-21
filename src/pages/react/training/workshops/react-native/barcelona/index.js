@@ -74,7 +74,7 @@ const ReactNativeBoocampBarcelona = () => (
             type={REACT_NATIVE}
             showInfoBox={true}
           />
-          <TopSection xsBgDark>
+          <TopSection variant="dark">
             <Grid>
               <Card bg="dark">
                 <Row>

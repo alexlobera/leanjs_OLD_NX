@@ -91,7 +91,7 @@ const Meetup = () => (
                       type={MEETUP}
                       className="meetup-details-clicks"
                     />
-                    <TopSection xsBgDark>
+                    <TopSection variant="dark">
                       <Grid>
                         <Card bg="dark">
                           <Row>

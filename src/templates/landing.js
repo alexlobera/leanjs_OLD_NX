@@ -59,7 +59,7 @@ const Landing = ({ data }) => {
               bgImageName={BOOTCAMP}
             />
             <TopSection>
-              <Section xsBgDark>
+              <Section variant="dark">
                 <Grid>
                   <Card bg="dark">
                     <Row>

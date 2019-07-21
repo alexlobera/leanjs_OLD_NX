@@ -38,7 +38,7 @@ const CompanyList = styled(Ul)`
   }
 `
 export const TrustedByLogoList = () => (
-  <CompanyList inline>
+  <CompanyList variant="inline">
     <Li>
       <Capgemini colour={LIGHT_BLUE} secColour={LIGHT_BLUE} height={47} />
     </Li>
@@ -69,7 +69,7 @@ export const TrustedByLogoList = () => (
 )
 
 const TrustedBySection = ({ width }) => (
-  <Section xsBgDark>
+  <Section variant="dark">
     <Grid>
       <Card bg="dark">
         <Row>

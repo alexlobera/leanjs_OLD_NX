@@ -91,7 +91,7 @@ const MeetUpPage = ({ data }) => {
               showInfoBox={true}
               type={MEETUP}
             />
-            <TopSection xsBgDark>
+            <TopSection variant="dark">
               <Grid>
                 <Card bg="dark">
                   <Row>

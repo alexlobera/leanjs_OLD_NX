@@ -109,12 +109,15 @@ const HeaderSection = styled(Section)`
     padding-top: 200px !important;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-top: 200px;
+    padding-top: 160px;
   }
 `
 HeaderSection.displayName = 'HeaderSection'
 HeaderSection.defaultProps = {
   bgColor: 'rgba(196,196,196,0.6)',
+  mt: 0,
+  mb: 0,
+  pb: [5],
 }
 
 const H2Header = styled(BaseH2)`
@@ -303,7 +306,6 @@ const Header = ({
             />
           )}
           <HeaderSection
-            top
             bgColors={bgColors}
             bgColor={bgColor}
             bgImage={bgImage}
