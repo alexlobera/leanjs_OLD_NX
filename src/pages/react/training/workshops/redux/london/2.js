@@ -15,7 +15,6 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  getNextTrainingByTrainingId,
   selectTrainingByInstanceId,
   selectUpcomingTrainings,
   AlternativeTrainings,

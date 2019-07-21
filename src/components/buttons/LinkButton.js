@@ -30,7 +30,7 @@ const LinkButton = ({
     {...props}
     {...(variant ? buttonVariantProps[variant] : {})}
   >
-    {props.pdf ? <PdfDownload /> : null}
+    {props.pdf ? <PdfDownload mr={3} /> : null}
     {props.external ? <ExternalLinkIcon mr={3} /> : null}
     {children}
   </StyledLinkButton>

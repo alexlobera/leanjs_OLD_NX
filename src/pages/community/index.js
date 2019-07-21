@@ -98,7 +98,7 @@ const Community = () => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow left>
+              <CallToActionRow>
                 <Col sm={4} lgOffset={1}>
                   <LinkButton
                     variant="primary"

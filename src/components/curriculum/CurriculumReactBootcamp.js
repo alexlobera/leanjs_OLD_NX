@@ -8,7 +8,7 @@ import ThinkingInReactSession from './sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
-import StylingInReactSession from './sessions/design/StylingInReactSession'
+import StylingInReactSession from './sessions/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
@@ -16,6 +16,8 @@ import E2ESession from './sessions/E2ESession'
 import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+import AdvancedUIPatterns from './sessions/AdvancedUIPatterns'
+import DesignSystemSession from './sessions/DesignSystemSession'
 import { Li } from '../layout/Ul'
 
 import { REACT_BOOTCAMP } from '../../config/data'
@@ -109,13 +111,27 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title={`Day 5`}
         name="day5"
-        subTitle={`Real-world Testing in React`}
+        subTitle={`Real-World Testing in React`}
         trainingTime={trainingTime({ day: 7, training })}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
         <E2ESession title="End-to-End Testing" />
       </Section>
+
+      {/*
+      Waiting for Lena to confirm with the venue to show day 6 in the curriculum
+      <Section
+        {...commonProps}
+        title={`Day 6`}
+        name="day6"
+        subTitle={`Advanced UI Patterns & Styling in React`}
+        trainingTime={trainingTime({ day: 7, training })}
+      >
+        <AdvancedUIPatterns title="Advanced UI Patterns" />
+        <StylingInReactSession title="Styling in React" />
+        <DesignSystemSession title="Design Systems" />
+      </Section> */}
     </React.Fragment>
   )
   const title = showTitle ? (

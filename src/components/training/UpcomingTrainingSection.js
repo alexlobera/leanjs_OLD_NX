@@ -24,7 +24,7 @@ import {
   GRAPHQL_CLIENT,
   MEETUP,
 } from '../../config/data'
-import CorporateTrainingCard from '../elements/CorporateTrainingCard'
+import CorporateTrainingCard from './CorporateTrainingCard'
 
 const CorporateCrossSell = styled.div`
   border: 3px dotted ${GREY};

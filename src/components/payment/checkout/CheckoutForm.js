@@ -467,11 +467,11 @@ class CheckoutForm extends React.Component {
                     </Link>
                   </P>
                   {submitFailed && !valid ? (
-                    <Alert danger>Please fix the errors above</Alert>
+                    <Alert variant="danger">Please fix the errors above</Alert>
                   ) : null}
 
                   {paymentErrorMessage ? (
-                    <Alert danger>
+                    <Alert variant="danger">
                       There was an error processing your credit card. Please
                       check your credit card with your bank. If the problem
                       persists contact{' '}

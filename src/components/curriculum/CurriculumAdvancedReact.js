@@ -48,7 +48,7 @@ const CurriculumAdvancedReact = ({
         {...commonProps}
         title="Advanced React Day 2"
         name="day2"
-        subTitle="Real-world Testing in React"
+        subTitle="Real-World Testing in React"
         trainingTime={trainingTime({ day: 1, training })}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
