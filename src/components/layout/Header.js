@@ -372,7 +372,7 @@ const Header = ({
                         />
                       )}
 
-                      <Ul unstyled>
+                      <Ul variant="unstyled" pl={0}>
                         <Li>
                           <strong>Date</strong>: {startDate ? startDate : 'TBD'}
                           {startDate === endDate ? '' : ` - ${endDate}`}
