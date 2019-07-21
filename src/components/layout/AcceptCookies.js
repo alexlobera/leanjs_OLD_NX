@@ -1,49 +1,37 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import {
-  WHITE,
-  TEXT_SIZE,
-  DARK_BLUE_075,
-  FONT_FAMILY,
-  Z_INDEX_TOP,
-} from '../../config/styles'
+import { WHITE, DARK_BLUE_075, Z_INDEX_TOP } from '../../config/styles'
 import { Link } from '../navigation'
+import Button from '../buttons/Button'
 import { getCookie, setCookie } from '../utils/store'
+import Box from './Box'
+import Flex from './Flex'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'
 
-const StyledCookiesNotification = styled.div`
-  ${TEXT_SIZE({ sm: true })};
-  margin: 0 auto;
-  line-height: 1rem;
-  border: 1px dashed white;
-  display: flex;
-  padding: 0.5rem;
-  color: ${WHITE};
-  max-width: 20rem;
-  background-color: ${DARK_BLUE_075};
-  ${FONT_FAMILY} a {
-    color: ${WHITE};
-    ${TEXT_SIZE({ sm: true })};
-  }
-  button {
-    ${TEXT_SIZE({ lg: true })};
-    margin: 0;
-    padding: 10px;
-    background: none;
-    border: none;
-    color: ${WHITE};
-    cursor: pointer;
-  }
-`
+const StyledCookiesNotification = styled(Flex)``
+StyledCookiesNotification.defaultProps = {
+  my: 0,
+  mx: 'auto',
+  lineHeight: 1,
+  border: '1px dashed',
+  borderColor: WHITE,
+  px: 1,
+  py: 1,
+  maxWidth: '22rem',
+  backgroundColor: DARK_BLUE_075,
+  color: WHITE,
+  fontSize: 0,
+}
 
-const CookiesNotificationWrapper = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: ${Z_INDEX_TOP};
-`
+const CookiesNotificationWrapper = styled(Box)``
+CookiesNotificationWrapper.defaultProps = {
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  width: 1,
+  zIndex: Z_INDEX_TOP,
+}
 
 const AcceptCookies = () => {
   const [hideAcceptCookies, setHideAcceptCookies] = useState(
@@ -58,11 +46,23 @@ const AcceptCookies = () => {
   return hideAcceptCookies ? null : (
     <CookiesNotificationWrapper>
       <StyledCookiesNotification>
+        <Button
+          fontSize={0}
+          p={1}
+          mr={1}
+          variant="secondary"
+          onClick={handleClick}
+        >
+          Close
+        </Button>
         <div>
           Using our site means you consent to our use of cookies. Find out more
-          in our <Link to="/privacy-policy">privacy policy</Link>.
+          in our{' '}
+          <Link color={WHITE} to="/privacy-policy">
+            privacy policy
+          </Link>
+          .
         </div>
-        <button onClick={handleClick}>⨯</button>
       </StyledCookiesNotification>
     </CookiesNotificationWrapper>
   )
