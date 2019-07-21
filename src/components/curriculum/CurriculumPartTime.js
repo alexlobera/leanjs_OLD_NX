@@ -11,7 +11,7 @@ import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
-import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import {
@@ -111,16 +111,12 @@ const CurriculumPartTime = ({
       >
         <TestingIntroSession />
       </Section>
-      <Section
-        {...commonProps}
-        title="Session 9 - Advanced Redux"
-        name="session9"
-      >
-        <AdvancedReduxSession />
+      <Section {...commonProps} title="Session 9 - React Hooks" name="session9">
+        <HooksSession />
       </Section>
       <Section
         {...commonProps}
-        title="Session 10 - React Redux Real-world Project"
+        title="Session 10 - React Redux Real-world Final Project"
         name="session10"
       >
         <PartTimeFinalProject />
