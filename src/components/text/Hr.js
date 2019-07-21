@@ -7,3 +7,5 @@ Hr.defaultProps = {
   mb: 6,
   box: 'hr',
 }
+
+export default Hr
