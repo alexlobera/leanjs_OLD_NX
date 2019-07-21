@@ -21,11 +21,11 @@ const HoCsRenderPropsStateReducerSession = ({ title }) => (
             children)
           </Li>
           <Li>
-            State Reducer pattern - how and when to apply to React components
-          </Li>
-          <Li>
-            Hooks - Managing state and side effects with Hooks (The future of
-            React!)
+            Hooks (The future of React!)
+            <Ul>
+              <Li>Managing state and side effects with hooks</Li>
+              <Li>Custom hooks</Li>
+            </Ul>
           </Li>
         </Ul>
       </Li>

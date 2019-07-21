@@ -181,6 +181,18 @@ class ReactCurriculum extends React.Component {
                               </Td>
                             </Tr>
                             <Tr>
+                              <Td>Hooks</Td>
+                              <Td>
+                                <Tick type={REACT_BOOTCAMP} />
+                              </Td>
+                              <Td>
+                                <Tick type={ADVANCED_REACT} />
+                              </Td>
+                              <Td>
+                                <Tick type={PART_TIME} />
+                              </Td>
+                            </Tr>
+                            <Tr>
                               <Td>Testing</Td>
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
