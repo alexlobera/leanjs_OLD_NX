@@ -5,8 +5,8 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
   sm={true}
   xs={true}
 >
-  <Styled(styled.ul)
-    inline={true}
+  <Styled(Ul)
+    variant="inline"
   >
     <DesktopMenuItem
       key="/react"
@@ -95,6 +95,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       text="Contact"
       to="#contact-us"
     />
-  </Styled(styled.ul)>
+  </Styled(Ul)>
 </Styled(Components)>
 `;

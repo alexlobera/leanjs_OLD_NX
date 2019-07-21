@@ -74,78 +74,100 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           >
             What’s on this page:
           </Styled(Box)>
-          <styled.ul>
-            <styled.li>
+          <Ul
+            box="ul"
+          >
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#1"
               >
                 What information of mine is being collected?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#2"
               >
                 Who is collecting my information?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#3"
               >
                 How are my details collected?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#4"
               >
                 Why is it being collected?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#5"
               >
                 How is my information used?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#6"
               >
                 Who will my information be shared with?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#7"
               >
                 How long are my details kept for?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#8"
               >
                 What will be the effect of May 2018's GDPR regulations to me?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#9"
               >
                 How do I remove my details from your servers?
               </Link>
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               <Link
                 to="#10"
               >
                 What are cookies and what do they do with my details?
               </Link>
-            </styled.li>
-          </styled.ul>
+            </Styled(Box)>
+          </Ul>
           <Styled(Box)
             box="h2"
             fontSize={5}
@@ -493,20 +515,30 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           >
             The information that is collected from cookies can include (but not excluded to):
           </Styled(Box)>
-          <styled.ul>
-            <styled.li>
+          <Ul
+            box="ul"
+          >
+            <Styled(Box)
+              box="li"
+            >
               Browser type
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               Rough location (they can never determine exact locations)
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               Which sites you’ve come from
-            </styled.li>
-            <styled.li>
+            </Styled(Box)>
+            <Styled(Box)
+              box="li"
+            >
               How you’ve travelled through the site
-            </styled.li>
-          </styled.ul>
+            </Styled(Box)>
+          </Ul>
           <Styled(Box)
             box="p"
             lineHeight={2}
