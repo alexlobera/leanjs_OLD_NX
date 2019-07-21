@@ -25,10 +25,10 @@ const Section = ({ variant, ...rest }) => (
   />
 )
 Section.defaultProps = {
-  pt: [1, 6],
-  pb: 1,
-  mt: [5, 0],
-  mb: [5, 0],
+  pt: [1, 4],
+  pb: [1, 4],
+  mt: [3, 0],
+  mb: [3, 0],
   box: 'section',
 }
 Section.displayName = 'Section'

@@ -58,21 +58,26 @@ exports[`<TermsOfService /> should render component 1`] = `
     box="section"
     mb={
       Array [
-        5,
+        3,
         0,
       ]
     }
     mt={
       Array [
-        5,
+        3,
         0,
       ]
     }
-    pb={1}
+    pb={
+      Array [
+        1,
+        4,
+      ]
+    }
     pt={
       Array [
         1,
-        6,
+        4,
       ]
     }
   >
@@ -86,21 +91,26 @@ exports[`<TermsOfService /> should render component 1`] = `
             box="section"
             mb={
               Array [
-                5,
+                3,
                 0,
               ]
             }
             mt={
               Array [
-                5,
+                3,
                 0,
               ]
             }
-            pb={1}
+            pb={
+              Array [
+                1,
+                4,
+              ]
+            }
             pt={
               Array [
                 1,
-                6,
+                4,
               ]
             }
           >
@@ -142,21 +152,26 @@ exports[`<TermsOfService /> should render component 1`] = `
             box="section"
             mb={
               Array [
-                5,
+                3,
                 0,
               ]
             }
             mt={
               Array [
-                5,
+                3,
                 0,
               ]
             }
-            pb={1}
+            pb={
+              Array [
+                1,
+                4,
+              ]
+            }
             pt={
               Array [
                 1,
-                6,
+                4,
               ]
             }
           >
@@ -191,21 +206,26 @@ exports[`<TermsOfService /> should render component 1`] = `
             box="section"
             mb={
               Array [
-                5,
+                3,
                 0,
               ]
             }
             mt={
               Array [
-                5,
+                3,
                 0,
               ]
             }
-            pb={1}
+            pb={
+              Array [
+                1,
+                4,
+              ]
+            }
             pt={
               Array [
                 1,
-                6,
+                4,
               ]
             }
           >
@@ -240,21 +260,26 @@ exports[`<TermsOfService /> should render component 1`] = `
             box="section"
             mb={
               Array [
-                5,
+                3,
                 0,
               ]
             }
             mt={
               Array [
-                5,
+                3,
                 0,
               ]
             }
-            pb={1}
+            pb={
+              Array [
+                1,
+                4,
+              ]
+            }
             pt={
               Array [
                 1,
-                6,
+                4,
               ]
             }
           >
@@ -281,21 +306,26 @@ exports[`<TermsOfService /> should render component 1`] = `
             box="section"
             mb={
               Array [
-                5,
+                3,
                 0,
               ]
             }
             mt={
               Array [
-                5,
+                3,
                 0,
               ]
             }
-            pb={1}
+            pb={
+              Array [
+                1,
+                4,
+              ]
+            }
             pt={
               Array [
                 1,
-                6,
+                4,
               ]
             }
           >
@@ -322,21 +352,26 @@ exports[`<TermsOfService /> should render component 1`] = `
             box="section"
             mb={
               Array [
-                5,
+                3,
                 0,
               ]
             }
             mt={
               Array [
-                5,
+                3,
                 0,
               ]
             }
-            pb={1}
+            pb={
+              Array [
+                1,
+                4,
+              ]
+            }
             pt={
               Array [
                 1,
-                6,
+                4,
               ]
             }
           >

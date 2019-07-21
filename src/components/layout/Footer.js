@@ -32,6 +32,7 @@ StyledFooter.defaultProps = {
   backgroundColor: DARK_BLUE,
   pt: 6,
   pb: 5,
+  mt: 4,
   box: 'footer',
 }
 

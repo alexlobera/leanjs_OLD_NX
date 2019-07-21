@@ -1,5 +1,9 @@
 import styled from 'styled-components'
+import Box from '../layout/Box'
 
-export default styled.hr`
-  margin: 50px 0;
-`
+const Hr = styled(Box)``
+Hr.defaultProps = {
+  mt: 6,
+  mb: 6,
+  box: 'hr',
+}
