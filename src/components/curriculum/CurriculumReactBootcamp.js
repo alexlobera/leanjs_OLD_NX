@@ -119,7 +119,9 @@ const CurriculumReactBootcamp = ({
         <E2ESession title="End-to-End Testing" />
       </Section>
 
-      {/* <Section
+      {/*
+      Waiting for Lena to confirm with the venue to show day 6 in the curriculum
+      <Section
         {...commonProps}
         title={`Day 6`}
         name="day6"
