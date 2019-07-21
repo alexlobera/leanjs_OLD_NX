@@ -167,7 +167,7 @@ const CorporateGraphQLTraining = () => (
             </Row>
           </Grid>
         </Section>
-        <Section xsBgDarkGrey>
+        <Section variant="grey">
           <Grid>
             <a name="custom-training" />
             <LeanJSsprints />

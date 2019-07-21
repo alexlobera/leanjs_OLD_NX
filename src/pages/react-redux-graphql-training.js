@@ -34,7 +34,7 @@ const BootcampList = () => (
               </Card>
             </Grid>
           </TopSection>
-          <Section xsBgDark>
+          <Section variant="dark">
             <Grid>
               <Card bg="dark">
                 <Row>

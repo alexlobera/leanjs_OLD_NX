@@ -85,7 +85,7 @@ const BootcampLondon = () => (
             training={training}
             showInfoBox={true}
           />
-          <TopSection xsBgDark top>
+          <TopSection variant="dark" top>
             <Grid>
               <Card bg="dark">
                 <Row>

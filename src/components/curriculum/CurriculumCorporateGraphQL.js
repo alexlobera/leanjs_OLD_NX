@@ -59,7 +59,7 @@ const CurriculumCorporateGraphQL = ({
         name="day5"
         subTitle="Apollo Client, Advanced Queries and mutations"
       />
-      <LinkButton mt={2} to="#contact-us" children="Contact Us" />
+      <LinkButton mt={4} to="#contact-us" children="Contact Us" />
     </React.Fragment>
   )
 

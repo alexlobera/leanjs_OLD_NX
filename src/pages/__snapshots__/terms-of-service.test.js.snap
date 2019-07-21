@@ -9,11 +9,30 @@ exports[`<TermsOfService /> should render component 1`] = `
       ]
     }
   />
-  <TopSection>
+  <TopSection
+    mt={
+      Array [
+        0,
+        -150,
+      ]
+    }
+    position="relative"
+  >
     <Grid>
       <Card
         border="shadow"
-        py={7}
+        pb={
+          Array [
+            4,
+            7,
+          ]
+        }
+        pt={
+          Array [
+            4,
+            7,
+          ]
+        }
       >
         <Row>
           <Styled(Col)
@@ -35,14 +54,56 @@ exports[`<TermsOfService /> should render component 1`] = `
       </Card>
     </Grid>
   </TopSection>
-  <Section>
+  <Section
+    box="section"
+    mb={
+      Array [
+        5,
+        0,
+      ]
+    }
+    mt={
+      Array [
+        5,
+        0,
+      ]
+    }
+    pb={1}
+    pt={
+      Array [
+        1,
+        6,
+      ]
+    }
+  >
     <Grid>
       <Row>
         <Styled(Col)
           md={10}
           mdOffset={1}
         >
-          <Section>
+          <Section
+            box="section"
+            mb={
+              Array [
+                5,
+                0,
+              ]
+            }
+            mt={
+              Array [
+                5,
+                0,
+              ]
+            }
+            pb={1}
+            pt={
+              Array [
+                1,
+                6,
+              ]
+            }
+          >
             <Styled(Box)
               box="h2"
               fontSize={5}
@@ -77,7 +138,28 @@ exports[`<TermsOfService /> should render component 1`] = `
               If for any reason you can’t attend at all, you’ll need to let us know no later than 15 days before the date of the event or workshop. Refunds will not be made after this date.
             </Styled(Box)>
           </Section>
-          <Section>
+          <Section
+            box="section"
+            mb={
+              Array [
+                5,
+                0,
+              ]
+            }
+            mt={
+              Array [
+                5,
+                0,
+              ]
+            }
+            pb={1}
+            pt={
+              Array [
+                1,
+                6,
+              ]
+            }
+          >
             <Styled(Box)
               box="h2"
               fontSize={5}
@@ -105,7 +187,28 @@ exports[`<TermsOfService /> should render component 1`] = `
               Re-sale of tickets is not permitted.
             </Styled(Box)>
           </Section>
-          <Section>
+          <Section
+            box="section"
+            mb={
+              Array [
+                5,
+                0,
+              ]
+            }
+            mt={
+              Array [
+                5,
+                0,
+              ]
+            }
+            pb={1}
+            pt={
+              Array [
+                1,
+                6,
+              ]
+            }
+          >
             <Styled(Box)
               box="h2"
               fontSize={5}
@@ -133,7 +236,28 @@ exports[`<TermsOfService /> should render component 1`] = `
               We can cancel any event or workshop 15 days before the date of the event or workshop. We will notify you by email to the address that you have provided us during the registration process.
             </Styled(Box)>
           </Section>
-          <Section>
+          <Section
+            box="section"
+            mb={
+              Array [
+                5,
+                0,
+              ]
+            }
+            mt={
+              Array [
+                5,
+                0,
+              ]
+            }
+            pb={1}
+            pt={
+              Array [
+                1,
+                6,
+              ]
+            }
+          >
             <Styled(Box)
               box="h2"
               fontSize={5}
@@ -153,7 +277,28 @@ exports[`<TermsOfService /> should render component 1`] = `
               We occasionally photograph our training workshops, and by registering you give us permission to use any images or footage taken of you on the day. We also reserve the right to reproduce quotes and feedback which will be fully credited.
             </Styled(Box)>
           </Section>
-          <Section>
+          <Section
+            box="section"
+            mb={
+              Array [
+                5,
+                0,
+              ]
+            }
+            mt={
+              Array [
+                5,
+                0,
+              ]
+            }
+            pb={1}
+            pt={
+              Array [
+                1,
+                6,
+              ]
+            }
+          >
             <Styled(Box)
               box="h2"
               fontSize={5}
@@ -173,7 +318,28 @@ exports[`<TermsOfService /> should render component 1`] = `
               We aim to choose venues that are fully accessible. If you have any accessibility requirements you think we should be aware of, please let us know at the point of registering so that we can ensure we meet your needs and have someone on hand to assist you if required.
             </Styled(Box)>
           </Section>
-          <Section>
+          <Section
+            box="section"
+            mb={
+              Array [
+                5,
+                0,
+              ]
+            }
+            mt={
+              Array [
+                5,
+                0,
+              ]
+            }
+            pb={1}
+            pt={
+              Array [
+                1,
+                6,
+              ]
+            }
+          >
             <Styled(Box)
               box="h2"
               fontSize={5}

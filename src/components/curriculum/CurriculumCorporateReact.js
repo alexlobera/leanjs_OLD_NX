@@ -59,7 +59,7 @@ const CurriculumCorporateReact = ({
         name="day5"
         subTitle="Advanced React patterns and GraphQL"
       />
-      <LinkButton margin to="#contact-us" children="Contact Us" />
+      <LinkButton mt={4} to="#contact-us" children="Contact Us" />
     </React.Fragment>
   )
 

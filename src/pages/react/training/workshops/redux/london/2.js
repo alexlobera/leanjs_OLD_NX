@@ -93,7 +93,7 @@ const ReduxWorkshop = () => (
             training={training}
             showInfoBox={true}
           />
-          <TopSection xsBgDark>
+          <TopSection variant="dark">
             <Grid>
               <Card bg="dark">
                 <Row>

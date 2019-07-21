@@ -15,14 +15,14 @@ const FinanceCard = () => (
       training.
     </P>
     <P>
-      Just click the link, and apply directly on the Coursebud site... that's
-      it!
+      Just{' '}
+      <Link to="https://www.coursebud.com/search">
+        click the link, and apply
+      </Link>{' '}
+      directly on the Coursebud site... that's it!
     </P>
     <Link to="https://www.coursebud.com/search">
-      <Row>
-        <CourseBud height={50} />
-        <ExternalLinkIcon />
-      </Row>
+      <CourseBud height={50} />
     </Link>
   </Card>
 )

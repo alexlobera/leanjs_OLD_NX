@@ -79,7 +79,8 @@ const StyledCard = styled(Box)`
 `
 
 Card.defaultProps = {
-  py: 7,
+  pt: [4, 7],
+  pb: [4, 7],
 }
 Card.displayName = 'Card'
 Card.propTypes = {

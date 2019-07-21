@@ -9,11 +9,30 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
       ]
     }
   />
-  <TopSection>
+  <TopSection
+    mt={
+      Array [
+        0,
+        -150,
+      ]
+    }
+    position="relative"
+  >
     <Grid>
       <Card
         border="shadow"
-        py={7}
+        pb={
+          Array [
+            4,
+            7,
+          ]
+        }
+        pt={
+          Array [
+            4,
+            7,
+          ]
+        }
       >
         <Row>
           <Styled(Col)
@@ -57,7 +76,28 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
       </Card>
     </Grid>
   </TopSection>
-  <Section>
+  <Section
+    box="section"
+    mb={
+      Array [
+        5,
+        0,
+      ]
+    }
+    mt={
+      Array [
+        5,
+        0,
+      ]
+    }
+    pb={1}
+    pt={
+      Array [
+        1,
+        6,
+      ]
+    }
+  >
     <Grid>
       <Row>
         <Styled(Col)

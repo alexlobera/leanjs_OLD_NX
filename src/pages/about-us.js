@@ -309,7 +309,7 @@ const AboutUs = ({ data }) => {
               </Row>
             </Grid>
           </Section>
-          <Section xsBgDarkGrey>
+          <Section variant="grey">
             <Grid>
               <LeanJSsprints />
             </Grid>

@@ -54,12 +54,13 @@ const selectCurriculumLayout = ({
           <Row>
             <Col md={6} lg={5}>
               {firstHalf}
-              {curriculumTo && curriculumButtonSection}
             </Col>
             <Col md={6} lg={5} lgOffset={1}>
               {secondHalf}
             </Col>
           </Row>
+
+          {curriculumTo && curriculumButtonSection}
         </Flex>
       </React.Fragment>
     )

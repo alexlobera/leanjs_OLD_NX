@@ -127,7 +127,7 @@ class ReactCurriculum extends React.Component {
               />
               <TopSection>
                 <Grid>
-                  <Card border="shadow">
+                  <Card border="shadow" pb={[0, 4]}>
                     <Row>
                       <Col lg={10} lgOffset={1}>
                         <H2Ref>
@@ -270,7 +270,7 @@ class ReactCurriculum extends React.Component {
                             </TrainingCard>
                           </Col>
                           <Col md={6}>
-                            <TrainingCard borderColor={LIGHT_BLUE}>
+                            <TrainingCard mb={0} borderColor={LIGHT_BLUE}>
                               <H4>1 Day Workshops</H4>
                               <P>
                                 Instense training focussing on specific parts of
