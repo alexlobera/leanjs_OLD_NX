@@ -85,11 +85,7 @@ const CorporateReactTraining = () => (
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">
-              <Row>
-                <Col md={11}>
-                  <CurriculumCorporateReact />
-                </Col>
-              </Row>
+              <CurriculumCorporateReact />
             </Card>
           </Grid>
         </TopSection>

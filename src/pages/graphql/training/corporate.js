@@ -85,11 +85,7 @@ const CorporateGraphQLTraining = () => (
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">
-              <Row>
-                <Col md={11}>
-                  <CurriculumCorporateGraphQL />
-                </Col>
-              </Row>
+              <CurriculumCorporateGraphQL />
             </Card>
           </Grid>
         </TopSection>

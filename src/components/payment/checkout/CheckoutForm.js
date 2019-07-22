@@ -106,14 +106,15 @@ const CheckoutH4 = styled(H4)`
 
 const RibbonBottomContainer = styled('div')`
   position: relative;
-
   > div {
+    top: 0;
     @media (min-width: ${SCREEN_SM_MIN}) {
-      right: -35px !important;
+      right: -42px !important;
     }
     @media (max-width: ${SCREEN_XS_MAX}) {
+      top: -2px;
       right: -10px !important;
-    }
+º    }
   }
 `
 
@@ -204,8 +205,8 @@ class CheckoutForm extends React.Component {
           </Col>
           <Col xs={6}>
             <TotalPrice>Price</TotalPrice>
-            <P>
-              <Price marginRight={8}>
+            <P textAlign="center">
+              <Price mr={1} mt={1}>
                 {formatPrice(currency, currentPriceQuantity, vatRate)}
               </Price>
               <br />
@@ -390,7 +391,7 @@ class CheckoutForm extends React.Component {
                   <CheckoutH4>Pricing breakdown</CheckoutH4>
                   {currentPriceQuantity &&
                   priceQuantity - currentPriceQuantity > 0 ? (
-                    <Ribbon top={'-5'}>
+                    <Ribbon>
                       You save{' '}
                       {formatPrice(
                         currency,

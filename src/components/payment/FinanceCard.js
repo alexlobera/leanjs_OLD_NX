@@ -2,8 +2,6 @@ import React from 'react'
 import { P, H3 } from '../text'
 import Card from '../elements/Card'
 import CourseBud from '../logos/CourseBud'
-import { Row } from '../layout/Grid'
-import ExternalLinkIcon from '../icons/ExternalLinkIcon'
 import { Link } from '../navigation'
 
 const FinanceCard = () => (
