@@ -71,7 +71,7 @@ const Footer = ({ width }) => (
                   </Ul>
                 </Col>
                 <Col md={6}>
-                  <Ul variants={['unstyled', 'inline']} pt={0}>
+                  <Ul variant="unstyled" pt={0}>
                     {[
                       { to: '/about-us', txt: 'About us' },
                       { to: '/community', txt: 'Community' },
