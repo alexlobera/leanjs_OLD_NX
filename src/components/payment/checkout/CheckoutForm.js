@@ -114,7 +114,7 @@ const RibbonBottomContainer = styled('div')`
     @media (max-width: ${SCREEN_XS_MAX}) {
       top: -2px;
       right: -10px !important;
-º    }
+    }
   }
 `
 
