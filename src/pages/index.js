@@ -116,7 +116,7 @@ const IndexPage = () => {
         Europe to teach React. "
             bgImageName={HOME_PAGE}
           />
-          <TopSection mt={[0, -280]}>
+          <TopSection mt={[0, -250]}>
             <Grid>
               <Row>
                 <Col lgOffset={1} lg={11}>
