@@ -168,7 +168,10 @@ export const LearningObjectivesList = () => (
         react-redux
       </code>
     </Li>
-    <Li>Learn how to style React applications in an idiomatic way.</Li>
+    <Li>
+      Learn how to style React applications in an idiomatic way and encourage
+      design consistency using design systems.
+    </Li>
     <Li>
       Understand different state management approaches in the React ecosystem.
     </Li>

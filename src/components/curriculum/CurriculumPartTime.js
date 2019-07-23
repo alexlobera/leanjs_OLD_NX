@@ -14,10 +14,7 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import {
-  LearningObjectivesList,
-  TargetAudienceList,
-} from './CurriculumReactFundamentals'
+import { TargetAudienceList } from './CurriculumReactFundamentals'
 import { curriculumCommonPropTypes } from './'
 
 const PartTimeFinalProject = () => (
@@ -143,6 +140,32 @@ const CurriculumPartTime = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
+
+export const LearningObjectivesList = () => (
+  <React.Fragment>
+    <Li>
+      Master React principles, such as the React composition model and the
+      one-way explicit data flow, to leverage React's full potential.
+    </Li>
+    <Li>
+      Understand how the most popular libraries to build React applications work
+      under the hood:{' '}
+      <code>
+        react, react-dom, react-router, redux, react-redux, jest,
+        styled-components
+      </code>
+    </Li>
+    <Li>
+      Create a solid foundation so in future you can quickly learn advanced
+      patterns and techniques as you progress in your career as React developer.
+    </Li>
+    <Li>
+      Understand the different state management approaches in the React
+      ecosystem.
+    </Li>
+    <Li>Learn how to style React applications in an idiomatic way.</Li>
+  </React.Fragment>
+)
 
 CurriculumPartTime.propTypes = curriculumCommonPropTypes
 CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
