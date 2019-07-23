@@ -129,7 +129,7 @@ export const LearningObjectivesList = () => (
       <code>react, react-dom, react-router, redux, react-redux</code>
     </Li>
     <Li>
-      Create a solid foundation so in the future you can learn quickly advanced
+      Create a solid foundation so in future you can quickly learn advanced
       patterns and techniques as you progress in your career as React developer.
     </Li>
     <Li>
