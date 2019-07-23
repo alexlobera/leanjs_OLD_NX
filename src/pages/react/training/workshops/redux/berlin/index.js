@@ -33,7 +33,7 @@ import {
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const ReduxWorkshop = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       // TODO replace this hardcoded instance id with more flexible approach
@@ -211,8 +211,8 @@ const ReduxWorkshop = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   </Layout>
 )
 
-ReduxWorkshop.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default ReduxWorkshop
+export default InstancePage

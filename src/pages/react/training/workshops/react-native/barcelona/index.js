@@ -27,10 +27,7 @@ import ReactNativeNavigationSession from 'src/components/curriculum/sessions/nat
 import ReactNativeAnimationsSession from 'src/components/curriculum/sessions/native/ReactNativeAnimationsSession'
 import CurriculumSection from 'src/components/curriculum/CurriculumSection'
 
-const ReactNativeBoocampBarcelona = ({
-  path,
-  pageContext: { canonicalSlug, nth = 1 },
-}) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingNativeTrainings = selectUpcomingTrainings({
@@ -196,8 +193,8 @@ const ReactNativeBoocampBarcelona = ({
   </Layout>
 )
 
-ReactNativeBoocampBarcelona.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default ReactNativeBoocampBarcelona
+export default InstancePage

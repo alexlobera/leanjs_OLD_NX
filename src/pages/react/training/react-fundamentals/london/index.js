@@ -36,10 +36,7 @@ import {
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 
-const ReactFundamentalsLondon = ({
-  path,
-  pageContext: { canonicalSlug, nth = 1 },
-}) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const fundamentalsTrainings = selectUpcomingTrainings({
@@ -212,8 +209,8 @@ const ReactFundamentalsLondon = ({
   </Layout>
 )
 
-ReactFundamentalsLondon.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default ReactFundamentalsLondon
+export default InstancePage

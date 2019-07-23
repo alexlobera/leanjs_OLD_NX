@@ -24,10 +24,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const AdvancedReactWorkshopLondon = ({
-  path,
-  pageContext: { canonicalSlug, nth = 1 },
-}) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
@@ -178,8 +175,8 @@ const AdvancedReactWorkshopLondon = ({
   </Layout>
 )
 
-AdvancedReactWorkshopLondon.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default AdvancedReactWorkshopLondon
+export default InstancePage

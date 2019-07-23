@@ -25,10 +25,7 @@ import { PaymentSection } from 'src/components/payment'
 import { REACT_NATIVE, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const ReactNativeBoocampLondon = ({
-  path,
-  pageContext: { canonicalSlug, nth = 1 },
-}) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingNativeTrainings = selectUpcomingTrainings({
@@ -174,8 +171,8 @@ const ReactNativeBoocampLondon = ({
   </Layout>
 )
 
-ReactNativeBoocampLondon.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default ReactNativeBoocampLondon
+export default InstancePage

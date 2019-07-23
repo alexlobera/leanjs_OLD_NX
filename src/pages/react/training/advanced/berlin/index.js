@@ -45,7 +45,7 @@ const metas = {
   type: 'website',
 }
 
-const AdvancedBerlin = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const Page = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingAdvancedTrainings = selectUpcomingTrainings({
@@ -196,8 +196,8 @@ const AdvancedBerlin = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   </Layout>
 )
 
-AdvancedBerlin.defaultProps = {
+Page.defaultProps = {
   pageContext: {},
 }
 
-export default AdvancedBerlin
+export default Page

@@ -144,7 +144,7 @@ const metas = {
 const VENUE_PDF =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2Fparede.pdf?alt=media'
 
-const BootcampLisbon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingLisbonBootcamps = selectUpcomingTrainings({
@@ -326,8 +326,8 @@ const BootcampLisbon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   </Layout>
 )
 
-BootcampLisbon.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default BootcampLisbon
+export default InstancePage

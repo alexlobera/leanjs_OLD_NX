@@ -38,7 +38,7 @@ const metas = {
   type: 'website',
 }
 
-const BootcampLondon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -199,8 +199,8 @@ const BootcampLondon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   </Layout>
 )
 
-BootcampLondon.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default BootcampLondon
+export default InstancePage

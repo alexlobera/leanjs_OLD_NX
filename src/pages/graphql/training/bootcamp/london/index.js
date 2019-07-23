@@ -34,7 +34,7 @@ const metas = {
   type: 'website',
 }
 
-const Page = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingGqlTrainings = selectUpcomingTrainings({
@@ -168,8 +168,8 @@ const Page = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   </Layout>
 )
 
-Page.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default Page
+export default InstancePage

@@ -39,10 +39,7 @@ const metas = {
   type: 'website',
 }
 
-const PartTimeAmsterdam = ({
-  path,
-  pageContext: { canonicalSlug, nth = 1 },
-}) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const partTimeTrainings = selectUpcomingTrainings({
@@ -156,8 +153,8 @@ const PartTimeAmsterdam = ({
   </Layout>
 )
 
-PartTimeAmsterdam.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default PartTimeAmsterdam
+export default InstancePage

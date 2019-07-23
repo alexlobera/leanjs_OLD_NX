@@ -41,10 +41,7 @@ const metas = {
   type: 'website',
 }
 
-const StylingDesignSystemWorkshop = ({
-  path,
-  pageContext: { canonicalSlug, nth = 1 },
-}) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -222,8 +219,8 @@ const StylingDesignSystemWorkshop = ({
   </Layout>
 )
 
-StylingDesignSystemWorkshop.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default StylingDesignSystemWorkshop
+export default InstancePage

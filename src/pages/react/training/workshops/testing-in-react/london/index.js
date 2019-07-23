@@ -33,10 +33,7 @@ import {
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const TestingWorkshopLondon = ({
-  path,
-  pageContext: { canonicalSlug, nth = 1 },
-}) => (
+const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
@@ -208,8 +205,8 @@ const TestingWorkshopLondon = ({
   </Layout>
 )
 
-TestingWorkshopLondon.defaultProps = {
+InstancePage.defaultProps = {
   pageContext: {},
 }
 
-export default TestingWorkshopLondon
+export default InstancePage
