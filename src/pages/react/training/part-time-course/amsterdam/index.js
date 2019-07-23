@@ -39,7 +39,13 @@ const metas = {
   type: 'website',
 }
 
-const PartTimeAmsterdam = () => (
+const PartTimeAmsterdam = ({
+  pageContext: {
+    slug = '/react/training/part-time-course/amsterdam/',
+    canonicalSlug,
+    nth = 1,
+  },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const partTimeTrainings = selectUpcomingTrainings({

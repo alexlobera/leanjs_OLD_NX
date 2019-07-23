@@ -46,7 +46,13 @@ const metas = {
   type: 'website',
 }
 
-const BootcampLondon = () => (
+const BootcampLondon = ({
+  pageContext: {
+    slug = '/react/training/advanced/london/',
+    canonicalSlug,
+    nth = 1,
+  },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingAdvancedTrainings = selectUpcomingTrainings({
@@ -55,7 +61,7 @@ const BootcampLondon = () => (
         city: LONDON,
       })
       const training =
-        selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
+        selectNthTraining({ trainings: upcomingAdvancedTrainings, nth }) || {}
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
@@ -196,5 +202,9 @@ const BootcampLondon = () => (
     }}
   </Layout>
 )
+
+BootcampLondon.defaultProps = {
+  pageContext: {},
+}
 
 export default BootcampLondon

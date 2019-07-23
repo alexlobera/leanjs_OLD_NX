@@ -36,7 +36,13 @@ import {
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 
-const ReactFundamentalsBerlin = () => (
+const ReactFundamentalsBerlin = ({
+  pageContext: {
+    slug = '/react/training/react-fundamentals/amsterdam/',
+    canonicalSlug,
+    nth = 1,
+  },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const fundamentalsTrainings = selectUpcomingTrainings({

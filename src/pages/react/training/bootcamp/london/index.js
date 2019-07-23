@@ -38,7 +38,13 @@ const metas = {
   type: 'website',
 }
 
-const BootcampLondon = () => (
+const BootcampLondon = ({
+  pageContext: {
+    slug = '/react/training/bootcamp/london/',
+    canonicalSlug,
+    nth = 1,
+  },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -46,12 +52,18 @@ const BootcampLondon = () => (
         type: REACT_BOOTCAMP,
         city: LONDON,
       })
-      const training = selectNthTraining({ trainings: bootCampTrainings })
+      const training = selectNthTraining({ trainings: bootCampTrainings, nth })
 
       return (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: `https://reactgraphql.academy${canonicalSlug}`,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -71,7 +83,7 @@ const BootcampLondon = () => (
                 label: 'Bootcamp',
               },
               {
-                to: '/react/training/bootcamp/london',
+                to: slug,
                 label: 'London',
               },
             ]}
@@ -122,7 +134,6 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </Section>
-
           <Section>
             <Grid>
               <Row>
@@ -186,7 +197,6 @@ const BootcampLondon = () => (
               </Row>
             </Grid>
           </Section>
-
           <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
@@ -194,5 +204,22 @@ const BootcampLondon = () => (
     }}
   </Layout>
 )
+
+BootcampLondon.defaultProps = {
+  pageContext: {},
+  data: {
+    sitePage: {
+      path: '',
+    },
+  },
+}
+
+export const query = graphql`
+  query graphqlPage {
+    sitePage {
+      path
+    }
+  }
+`
 
 export default BootcampLondon

@@ -36,7 +36,13 @@ const metas = {
   type: 'website',
 }
 
-const BootcampBerlin = () => (
+const BootcampBerlin = ({
+  pageContext: {
+    slug = '/react/training/bootcamp/berlin/',
+    canonicalSlug,
+    nth = 1,
+  },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
