@@ -36,24 +36,26 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        getInstancePages: allFile(
+          filter: {
+            relativePath: {
+              regex: "/(react|graphql)/training/.*/(london|berlin|amsterdam|lisbon|barcelona)/index.js$/"
+            }
+          }
+        ) {
+          nodes {
+            relativePath
+          }
+        }
       }
     `).then(result => {
-      const blogPaths = /(\/blog\/|\/react\/|\/graphql\/)/g
-      const meetupPath = /meetup/
-      const coachPath = /coaches/
+      const blogPaths = /(^\/blog\/|^\/react\/|^\/graphql\/)/g
+      const coachPath = /^\/coaches/
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         if (node.fields.slug.match(blogPaths)) {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/blog-post.js`),
-            context: {
-              slug: node.fields.slug,
-            },
-          })
-        } else if (node.fields.slug.match(meetupPath)) {
-          createPage({
-            path: node.fields.slug,
-            component: path.resolve(`./src/templates/meetup.js`),
             context: {
               slug: node.fields.slug,
             },
@@ -76,14 +78,32 @@ exports.createPages = ({ graphql, actions }) => {
           })
         }
       })
+
+      result.data.getInstancePages.nodes.forEach(node => {
+        const { relativePath } = node
+        const component = path.resolve(`src/${relativePath}`)
+        const instanceBasePath = relativePath
+          .substring(0, relativePath.lastIndexOf('/') + 1)
+          .substring(relativePath.indexOf('/'))
+
+        const instancesToCreate = [2, 3, 4, 5, 6, 8, 9]
+        instancesToCreate.forEach(nth => {
+          const instancePath = `${instanceBasePath}${nth}/`
+          createPage({
+            path: instancePath,
+            component,
+            context: {
+              nth,
+              canonical: `https://reactgraphql.academy${instanceBasePath}`,
+            },
+          })
+        })
+      })
+
       resolve()
     })
   })
 }
-
-// Webpack config
-
-const Webpack = require('webpack')
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({

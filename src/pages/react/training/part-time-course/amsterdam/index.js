@@ -39,7 +39,7 @@ const metas = {
   type: 'website',
 }
 
-const PartTimeAmsterdam = () => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const partTimeTrainings = selectUpcomingTrainings({
@@ -47,7 +47,7 @@ const PartTimeAmsterdam = () => (
         type: PART_TIME,
         city: AMSTERDAM,
       })
-      const training = selectNthTraining({ trainings: partTimeTrainings })
+      const training = selectNthTraining({ trainings: partTimeTrainings, nth })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
@@ -56,6 +56,12 @@ const PartTimeAmsterdam = () => (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -75,7 +81,7 @@ const PartTimeAmsterdam = () => (
                 label: 'Part Time Course',
               },
               {
-                to: '/react/training/part-time-course/amsterdam',
+                to: path,
                 label: 'Amsterdam',
               },
             ]}
@@ -147,4 +153,8 @@ const PartTimeAmsterdam = () => (
   </Layout>
 )
 
-export default PartTimeAmsterdam
+InstancePage.defaultProps = {
+  pageContext: {},
+}
+
+export default InstancePage

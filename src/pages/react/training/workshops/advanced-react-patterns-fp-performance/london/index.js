@@ -24,7 +24,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const AdvancedReactWorkshopLondon = () => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
@@ -40,6 +40,12 @@ const AdvancedReactWorkshopLondon = () => (
         <React.Fragment>
           <Helmet
             title="Advanced React Patterns, FP and Performance Workshop"
+            link={[
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -60,8 +66,7 @@ const AdvancedReactWorkshopLondon = () => (
                 label: 'Advanced React Patterns, FP and Performance',
               },
               {
-                to:
-                  '/react/training/workshops/advanced-react-patterns-fp-performance/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -170,4 +175,8 @@ const AdvancedReactWorkshopLondon = () => (
   </Layout>
 )
 
-export default AdvancedReactWorkshopLondon
+InstancePage.defaultProps = {
+  pageContext: {},
+}
+
+export default InstancePage

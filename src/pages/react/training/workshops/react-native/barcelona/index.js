@@ -27,7 +27,7 @@ import ReactNativeNavigationSession from 'src/components/curriculum/sessions/nat
 import ReactNativeAnimationsSession from 'src/components/curriculum/sessions/native/ReactNativeAnimationsSession'
 import CurriculumSection from 'src/components/curriculum/CurriculumSection'
 
-const ReactNativeBoocampBarcelona = () => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingNativeTrainings = selectUpcomingTrainings({
@@ -36,11 +36,17 @@ const ReactNativeBoocampBarcelona = () => (
         city: BARCELONA,
       })
       const training =
-        selectNthTraining({ trainings: upcomingNativeTrainings }) || {}
+        selectNthTraining({ trainings: upcomingNativeTrainings, nth }) || {}
       return (
         <React.Fragment>
           <Helmet
             title="React Native Workshops Barcelona"
+            link={[
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -60,7 +66,7 @@ const ReactNativeBoocampBarcelona = () => (
                 label: 'React Native',
               },
               {
-                to: '/react/training/workshops/react-native/barcelona',
+                to: path,
                 label: 'Barcelona',
               },
             ]}
@@ -187,4 +193,8 @@ const ReactNativeBoocampBarcelona = () => (
   </Layout>
 )
 
-export default ReactNativeBoocampBarcelona
+InstancePage.defaultProps = {
+  pageContext: {},
+}
+
+export default InstancePage
