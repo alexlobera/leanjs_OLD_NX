@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BOOTCAMP } from 'src/../images/imageNames'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumReactFundamentals } from 'src/components/curriculum'
+import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -15,7 +15,7 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  selectNthTraining,
+  selectTrainingByInstanceId,
   selectUpcomingTrainings,
   AlternativeTrainings,
   AttendeeQuote,
@@ -24,47 +24,47 @@ import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
-  REACT_BOOTCAMP,
-  REACT_FUNDAMENTALS,
+  ADVANCED_REACT,
   REACT_WORKSHOP,
   ONE_DAY_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_CLIENT,
   GRAPHQL_BOOTCAMP,
-  BERLIN,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import BlogSection from 'src/components/blog/BlogSection'
 
-const ReactFundamentalsBerlin = () => (
+const ReduxWorkshop = () => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const fundamentalsTrainings = selectUpcomingTrainings({
+      const training = selectTrainingByInstanceId({
         trainings,
-        type: REACT_FUNDAMENTALS,
-        city: BERLIN,
+        id: '5d2de00bb809c0500a3f33f3',
       })
-      const training = selectNthTraining({ trainings: fundamentalsTrainings })
+      const trainingTitle =
+        training &&
+        training.training &&
+        training.training.description &&
+        training.training.description.title
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
-          REACT_BOOTCAMP,
+          ADVANCED_REACT,
           REACT_WORKSHOP,
           ONE_DAY_WORKSHOP,
           GRAPHQL_API,
           GRAPHQL_CLIENT,
           GRAPHQL_BOOTCAMP,
         ],
+        excludeTrainingId: '5cffb4e806051b7d3bcb0cee',
       })
       return (
         <React.Fragment>
           <Helmet
-            title="React Fundamentals in Berlin"
+            title="Redux workshop london"
             meta={[
               {
                 name: 'description',
-                content:
-                  'React Fundamentals - learn a solid foundation in React in just 3 days in Berlin',
+                content: '1-day Redux Workshop in London',
               },
             ]}
           />
@@ -73,26 +73,27 @@ const ReactFundamentalsBerlin = () => (
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
+              { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/react-fundamentals',
-                label: 'React Fundamentals',
+                to: '/react/training/workshops/redux',
+                label: 'Redux',
               },
               {
-                to: '/react/training/react-fundamentals/berlin',
-                label: 'Berlin',
+                to: '/react/training/workshops/redux/london',
+                label: 'London',
               },
             ]}
           />
           <Header
-            titleLines={['React Redux Fundamentals - Berlin']}
-            subtitle="In 3 days, we can teach you how to code in React to give you a solid foundation to take your dev career further."
+            titleLines={[`${trainingTitle || '...loading'} - London`]}
+            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux Middlewares"
             links={header.landingTraining.links}
-            bgImageName={BOOTCAMP}
-            type={REACT_FUNDAMENTALS}
+            bgImageName={LONDON_BOOTCAMP}
+            type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
-          <TopSection variant="dark" top>
+          <TopSection variant="dark">
             <Grid>
               <Card bg="dark">
                 <Row>
@@ -104,8 +105,8 @@ const ReactFundamentalsBerlin = () => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Charlie's student experience</H4>
-                    <Video youtubeId="VhUMAqToJ4s" />
+                    <H4>Rafa's student experience</H4>
+                    <Video youtubeId="hZZksRcqtkc" />
                     <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                   </Col>
                 </Row>
@@ -114,71 +115,75 @@ const ReactFundamentalsBerlin = () => (
           </TopSection>
           <Section>
             <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumReactFundamentals
-                      training={training}
-                      layout={LIST_TWO_COL}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
-
-          <Section>
-            <Grid>
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
                     small
-                    quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
+                    quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
                     fullname="Lara Ramey"
                     job="Software Developer"
                     company="Meredith Corporation"
-                    videoUrl="Syktu6ICNfw"
+                    videoUrl="blg40SCle7I"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>
                   <H2Ref>
-                    Is this React course right for you? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience"></Link>
+                    Is this one day workshop right for me? Are you...{' '}
+                    <Link to="#target-audience" name="target-audience">
+                      #
+                    </Link>
                   </H2Ref>
                   <Ul>
                     <Li>
-                      A developer with 1+ year of development under your belt
-                      using JavaScript?
+                      A developer with experience in JavaScript and with an
+                      understanding of React?
                     </Li>
                     <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
+                      Interested in understanding Redux from top to bottom
+                      including Redux Middlewares and tooling
                     </Li>
                     <Li>
-                      Taking a step forward to become a confident React
-                      developer, able to quickly get orientated and add value to
-                      a React application.
+                      Looking to gain an in-depth understanding that will allow
+                      you to apply Redux to a large scale React appliaction or
+                      build upon an existing one.
                     </Li>
                     <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
+                      Interested in going deeper into functional programming
+                      principles and how they apply to Redux
                     </Li>
                   </Ul>
-
+                  <P>
+                    If you've said 'yes' to these, this workshop could be for
+                    you!
+                  </P>
                   <H3>Not for beginner devs!</H3>
                   <P>
-                    <strong>We do not run learn-to-code bootcamps</strong>.
+                    This is not a learn-to-code course. If you want to learn to
+                    code, we recommend checking out{' '}
+                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                      Free Code camps
+                    </Link>
+                    .
                   </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
+                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>
               </Row>
             </Grid>
           </Section>
+          <Section top>
+            <Grid>
+              <Card border="shadow">
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
+                  </Col>
+                </Row>
+              </Card>
+            </Grid>
+          </Section>
+
           <Section>
             <Grid>
               <Row>
@@ -189,7 +194,6 @@ const ReactFundamentalsBerlin = () => (
             </Grid>
           </Section>
 
-          <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -197,4 +201,4 @@ const ReactFundamentalsBerlin = () => (
   </Layout>
 )
 
-export default ReactFundamentalsBerlin
+export default ReduxWorkshop

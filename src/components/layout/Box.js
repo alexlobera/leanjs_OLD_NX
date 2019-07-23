@@ -1,16 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import { space, color, typography, border, shadow, layout } from 'styled-system'
+import {
+  space,
+  color,
+  typography,
+  border,
+  shadow,
+  layout,
+  position,
+  compose,
+} from 'styled-system'
 import { DARK_GREY } from '../../config/styles'
 
-export const StyledBox = styled.div`
-  ${space}
-  ${color}
-  ${typography}
-  ${border}
-  ${shadow}
-  ${layout}
-`
+export const StyledBox = styled('div')(
+  compose(
+    space,
+    color,
+    typography,
+    border,
+    shadow,
+    layout,
+    position
+  )
+)
 
 const Box = React.forwardRef(({ children, ...rest }, ref) => {
   const props = {

@@ -24,7 +24,7 @@ import {
   GRAPHQL_CLIENT,
   MEETUP,
 } from '../../config/data'
-import CorporateTrainingCard from '../elements/CorporateTrainingCard'
+import CorporateTrainingCard from './CorporateTrainingCard'
 
 const CorporateCrossSell = styled.div`
   border: 3px dotted ${GREY};
@@ -95,7 +95,7 @@ export const UpcomingTrainingCurriculum = ({
   return (
     <React.Fragment>
       <Link to="#upcoming-courses" name="upcoming-courses" />
-      <H3 pt={0}>Upcoming dates</H3>
+      <H3 pt={[4, 0]}>Upcoming dates</H3>
       <UpcomingTrainings
         type={type}
         limit={3}

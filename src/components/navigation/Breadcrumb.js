@@ -49,7 +49,7 @@ const Breadcrumb = ({ path }) =>
       <Grid>
         <Row>
           <Col>
-            <Ul inline>
+            <Ul variant="inline">
               {path.map(({ to, label }) => {
                 const formatedLabel = label.replace(/(<([^>]+)>)/gi, ' ')
 

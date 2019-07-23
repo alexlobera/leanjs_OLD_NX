@@ -8,7 +8,6 @@ import { RGALogo } from '../logos/RGALogo'
 import Ul, { Li } from './Ul'
 import Link from '../navigation/Link'
 import { DARK_BLUE, WHITE } from '../../config/styles'
-import { SCREEN_SM_MAX } from '../utils'
 import { P, H3, Span } from '../text'
 import {
   BulletIcon,
@@ -19,39 +18,31 @@ import {
   LinkedinIcon,
 } from '../icons'
 import { fontColor } from '../text'
+import Box from './Box'
 
-const StyledFooter = styled.div`
-  footer {
-    background-color: ${DARK_BLUE};
-    padding: 50px 0 40px 0;
-    ${fontColor(WHITE)}
-  }
+const FooterWrapper = styled(Box)``
+FooterWrapper.defaultProps = {
+  backgroundColor: [DARK_BLUE, 'transparent'],
+}
 
-  @media (max-width: ${SCREEN_SM_MAX}) {
-    background-color: ${DARK_BLUE};
-  }
+const StyledFooter = styled(Box)`
+  ${fontColor(WHITE)}
 `
-
-const LinkList = styled(Ul)`
-  padding-left: 0;
-  list-style: none;
-  margin-left: 0;
-`
-
-const SocialMenu = styled(Ul)`
-  > li {
-    padding: 0;
-  }
-  margin: 1rem 0;
-`
+StyledFooter.defaultProps = {
+  backgroundColor: DARK_BLUE,
+  pt: 6,
+  pb: 5,
+  mt: 4,
+  box: 'footer',
+}
 
 const SocialLink = styled(Link)`
   text-decoration: none;
 `
 const Footer = ({ width }) => (
-  <StyledFooter>
+  <FooterWrapper>
     <Grid>
-      <footer>
+      <StyledFooter>
         <Row>
           <Col md={5} mdOffset={1}>
             <ContactForm addContactUsLink={true} />
@@ -63,7 +54,7 @@ const Footer = ({ width }) => (
                   <H3>Site links</H3>
                 </Col>
                 <Col md={6}>
-                  <LinkList>
+                  <Ul variant="unstyled" pt={0}>
                     {[
                       { to: '/react/training', txt: 'React Courses' },
                       { to: '/react/curriculum', txt: 'React Curriculum' },
@@ -77,10 +68,10 @@ const Footer = ({ width }) => (
                         </Link>
                       </Li>
                     ))}
-                  </LinkList>
+                  </Ul>
                 </Col>
                 <Col md={6}>
-                  <LinkList>
+                  <Ul variant="unstyled" pt={0}>
                     {[
                       { to: '/about-us', txt: 'About us' },
                       { to: '/community', txt: 'Community' },
@@ -103,14 +94,14 @@ const Footer = ({ width }) => (
                         </Link>
                       </Li>
                     ))}
-                  </LinkList>
+                  </Ul>
                 </Col>
               </Row>
             )}
             <Row>
               <Col>
                 <Span>Follow us...</Span>
-                <SocialMenu unstyled inline>
+                <Ul variants={['unstyled', 'inline']} mt={1} mb={2}>
                   {[
                     {
                       to: 'https://twitter.com/reactgqlacademy',
@@ -148,7 +139,7 @@ const Footer = ({ width }) => (
                       </SocialLink>
                     </Li>
                   ))}
-                </SocialMenu>
+                </Ul>
               </Col>
               <Col>
                 <P sm>
@@ -166,9 +157,9 @@ const Footer = ({ width }) => (
             </Row>
           </Col>
         </Row>
-      </footer>
+      </StyledFooter>
     </Grid>
-  </StyledFooter>
+  </FooterWrapper>
 )
 
 export default withWidth()(Footer)

@@ -45,7 +45,7 @@ DesktopMenuItem.displayName = 'DesktopMenuItem'
 
 const DesktopMenu = () => (
   <HideComponentsUsingCss xs sm>
-    <Ul inline>
+    <Ul variant="inline">
       {MenuData.map(item => (
         <DesktopMenuItem
           key={item.to}

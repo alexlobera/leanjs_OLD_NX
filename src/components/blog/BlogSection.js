@@ -55,12 +55,21 @@ const BlogSection = ({ tags = [] }) => (
       return (
         <Section>
           <Grid>
-            <Flex>
-              <H2>Related blogs</H2>
-              <Link className="articles-summary" ml="auto" mt={3} to="/blog">
-                See all blogs
-              </Link>
-            </Flex>
+            <Row>
+              <Col lg={11}>
+                <Flex>
+                  <H2>Related blogs</H2>
+                  <Link
+                    className="articles-summary"
+                    ml="auto"
+                    mt={3}
+                    to="/blog"
+                  >
+                    See all blogs
+                  </Link>
+                </Flex>
+              </Col>
+            </Row>
             <Row>
               {posts.map(({ node: post }) => (
                 <Col md={4} key={post.fields.slug}>

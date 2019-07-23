@@ -44,7 +44,7 @@ StyledFeedback.defaultProps = {
 const Feedback = () => (
   <StyledFeedback>
     Any questions?
-    <Link ml={1} to="#contact-us">
+    <Link className="training-curriculum-link-clicks" ml={1} to="#contact-us">
       Contact us
     </Link>
   </StyledFeedback>
@@ -67,7 +67,7 @@ const CurriculumSection = props => {
           trackUserBehaviour({
             event: CURRICULUM_MORE_DETAILS,
             payload: {
-              section: props.title,
+              courseOutline: props.title,
             },
           })
         }
@@ -102,12 +102,20 @@ const CurriculumSection = props => {
     <Box pt={1}>
       {children}
       <Feedback />
-      <Link duration={200} to={`#${name || title}`} onClick={toggleSubSection}>
+      <Link
+        className="training-curriculum-link-clicks"
+        duration={200}
+        to={`#${name || title}`}
+        onClick={toggleSubSection}
+      >
         Hide detail
       </Link>
     </Box>
   ) : (
-    <Link className="curriculum" {...toogleLinkProps}>
+    <Link
+      className="curriculum training-curriculum-link-clicks"
+      {...toogleLinkProps}
+    >
       Find out more
     </Link>
   )

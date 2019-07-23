@@ -103,7 +103,7 @@ const Coach = ({ data }) => {
                       {companyName}
                     </Link>
                   </CoachTitle>
-                  <Ul inline>
+                  <Ul variant="inline">
                     <Li>
                       <Link to={gitHub} className="coach-profiles">
                         GitHub

@@ -22,7 +22,13 @@ const Card = styled.div`
   }
 `
 
-const MarketingCard = ({ text, to, heading, ...rest }) => (
+const MarketingCard = ({
+  text,
+  to,
+  heading,
+  className = 'blog-article',
+  ...rest
+}) => (
   <Card>
     <Row>
       <Col md={6}>
@@ -35,7 +41,7 @@ const MarketingCard = ({ text, to, heading, ...rest }) => (
             to={to}
             variant="secondary"
             children={rest.buttonText || rest['button-text']}
-            className="blog-article"
+            className={className}
           />
         </div>
       </Col>

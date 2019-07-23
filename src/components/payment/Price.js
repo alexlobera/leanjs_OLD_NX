@@ -1,17 +1,14 @@
 import styled from 'styled-components'
-import { DARK_GREY, FONT_FAMILY } from '../../config/styles'
+import Box from '../layout/Box'
+import { DARK_GREY } from '../../config/styles'
 
-export const Price = styled.span`
-  ${FONT_FAMILY} font-size: 2.05rem;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.1;
-  letter-spacing: normal;
-  color: ${DARK_GREY};
-  display: inline-block;
-  ${props =>
-    props.marginRight ? `margin-right: ${props.marginRight}px;` : null};
-`
+export const Price = styled(Box)``
+Price.defaultProps = {
+  fontWeight: 'bold',
+  color: DARK_GREY,
+  display: 'inline-block',
+  fontSize: 5,
+  box: 'span',
+}
 
 export default Price

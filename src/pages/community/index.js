@@ -9,7 +9,7 @@ import Grid, { Col, Row } from '../../components/layout/Grid'
 import { H2, H3, P } from '../../components/text'
 import { Link } from '../../components/navigation'
 import { Card, Image } from '../../components/elements'
-import Header from '../../components/layout/Header'
+import { RootHeader as Header } from '../../components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
@@ -17,20 +17,13 @@ import {
 } from '../../components/training'
 import { LinkButton } from '../../components/buttons'
 import { MEETUP, instagramPictures } from '../../config/data'
-import { CallToActionRow } from '../../components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from '../../components/layout/CallToActionRow'
 import Ul, { Li } from '../../components/layout/Ul'
 import { Breadcrumb } from '../../components/navigation'
 
+// TODO replace margin-top: 36px; with props from styled system once Card is refactored
 const SecondaryCard = styled(Card)`
   margin-top: 36px;
-`
-
-const MeetupList = styled(Ul)`
-  li {
-    a {
-      font-size: 16px;
-    }
-  }
 `
 
 const TwitterWidgetsOnlyOnClientSide = () => {
@@ -98,7 +91,7 @@ const Community = ({ data }) => (
           />
           <TopSection>
             <Grid>
-              <CallToActionRow left>
+              <CallToActionRow>
                 <Col sm={4} lgOffset={1}>
                   <LinkButton
                     variant="primary"
@@ -125,58 +118,7 @@ const Community = ({ data }) => (
                       >
                         See All MeetUps
                       </LinkButton>
-
-                      <H3>Our groups</H3>
-                      <Row>
-                        <Col sm={6}>
-                          <MeetupList unstyled>
-                            {[
-                              {
-                                to: 'http://meetup.com/JavaScript-London',
-                                txt: 'JavaScript London',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Barcelona',
-                                txt: 'JavaScript Barcelona',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Paris',
-                                txt: 'JavaScript Paris',
-                              },
-                            ].map(({ to, txt }) => (
-                              <Li>
-                                <Link to={to} className="meetups-clicks">
-                                  {txt}
-                                </Link>
-                              </Li>
-                            ))}
-                          </MeetupList>
-                        </Col>
-                        <Col sm={6}>
-                          <MeetupList unstyled>
-                            {[
-                              {
-                                to: 'http://meetup.com/JavaScript-Lisbon',
-                                txt: 'JavaScript Lisbon',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Amsterdam',
-                                txt: 'JavaScript Amsterdam',
-                              },
-                              {
-                                to: 'http://meetup.com/JavaScript-Berlin',
-                                txt: 'JavaScript Berlin',
-                              },
-                            ].map(({ to, txt }) => (
-                              <Li>
-                                <Link to={to} className="meetups-clicks">
-                                  {txt}
-                                </Link>
-                              </Li>
-                            ))}
-                          </MeetupList>
-                        </Col>
-                      </Row>
+                      <OurMeetupGroups />
                     </Col>
                   </Card>
                   <SecondaryCard border="shadow">
@@ -284,5 +226,61 @@ export const query = graphql`
     }
   }
 `
+
+export const OurMeetupGroups = () => (
+  <React.Fragment>
+    <H3>Our groups</H3>
+    <Row>
+      <Col sm={6}>
+        <Ul variant="unstyled" mb={1}>
+          {[
+            {
+              to: 'http://meetup.com/JavaScript-London',
+              txt: 'JavaScript London',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Barcelona',
+              txt: 'JavaScript Barcelona',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Paris',
+              txt: 'JavaScript Paris',
+            },
+          ].map(({ to, txt }) => (
+            <Li>
+              <Link to={to} className="meetups-clicks">
+                {txt}
+              </Link>
+            </Li>
+          ))}
+        </Ul>
+      </Col>
+      <Col sm={6}>
+        <Ul variant="unstyled" mb={1}>
+          {[
+            {
+              to: 'http://meetup.com/JavaScript-Lisbon',
+              txt: 'JavaScript Lisbon',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Amsterdam',
+              txt: 'JavaScript Amsterdam',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Berlin',
+              txt: 'JavaScript Berlin',
+            },
+          ].map(({ to, txt }) => (
+            <Li>
+              <Link to={to} className="meetups-clicks">
+                {txt}
+              </Link>
+            </Li>
+          ))}
+        </Ul>
+      </Col>
+    </Row>
+  </React.Fragment>
+)
 
 export default Community

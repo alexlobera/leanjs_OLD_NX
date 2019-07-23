@@ -14,7 +14,7 @@ import {
 } from 'src/components/training'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
-import { CallToActionRow } from 'src/components/layout/CallToActionNextTrainings'
+import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Card, Video } from 'src/components/elements'
 import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
@@ -73,7 +73,7 @@ const CorporateGraphQLTraining = () => (
         />
         <TopSection>
           <Grid>
-            <CallToActionRow left>
+            <CallToActionRow>
               <Col mdOffset={1} md={4}>
                 <LinkButton
                   variant="primary"
@@ -85,11 +85,7 @@ const CorporateGraphQLTraining = () => (
             </CallToActionRow>
             <a name="schedule" />
             <Card border="shadow">
-              <Row>
-                <Col md={11}>
-                  <CurriculumCorporateGraphQL />
-                </Col>
-              </Row>
+              <CurriculumCorporateGraphQL />
             </Card>
           </Grid>
         </TopSection>
@@ -167,7 +163,7 @@ const CorporateGraphQLTraining = () => (
             </Row>
           </Grid>
         </Section>
-        <Section xsBgDarkGrey>
+        <Section variant="grey">
           <Grid>
             <a name="custom-training" />
             <LeanJSsprints />

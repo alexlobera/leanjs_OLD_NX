@@ -235,8 +235,9 @@ describe('<PaymentSection />', () => {
       wrapper = await fillPaymentForm(wrapper)
 
       const getNumWarnings = () =>
-        wrapper.find(Alert).filterWhere(element => element.props().danger)
-          .length
+        wrapper
+          .find(Alert)
+          .filterWhere(element => element.props().variant === 'danger').length
       expect(getNumWarnings()).toBe(0)
 
       wrapper

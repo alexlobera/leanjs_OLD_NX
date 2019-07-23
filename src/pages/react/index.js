@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
+import { BLUE } from 'src/config/styles'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
@@ -95,6 +96,7 @@ const ReactPage = ({ data }) => {
             titleLines={['Learn React with us...']}
             subtitle="Move into the future of development with the React Ecosystem"
             bgImageName={BOOTCAMP}
+            bgColor={BLUE}
             links={[
               {
                 text: 'Latest React Blogs',
@@ -177,7 +179,10 @@ const ReactPage = ({ data }) => {
                     Polina Stoyanova, a software engineer from tray.io, explains
                     her experiences of learning React on our React Bootcamp
                   </P>
-                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                  <Link
+                    className="perfect-course-student"
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                  >
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

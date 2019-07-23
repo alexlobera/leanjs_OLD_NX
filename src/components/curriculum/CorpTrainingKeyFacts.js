@@ -6,7 +6,7 @@ import { LinkButton } from '../buttons'
 const CorpTrainingFacts = () => (
   <React.Fragment>
     <a name="dev-level" />
-    <H3 pt={0}>Level expertise across your team</H3>
+    <H3 pt={[4, 0]}>Level expertise across your team</H3>
     <P>
       If you're looking to change your tech stack, avoiding risk is key. So
       knowing developers are on the same skill level can really help.
@@ -34,10 +34,11 @@ const CorpTrainingFacts = () => (
       regarding pricing too.
     </P>
     <LinkButton
+      pdf
       primary
       to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
     >
-      Team Training - Key Facts (PDF)
+      Team Training - Key Facts
     </LinkButton>
   </React.Fragment>
 )

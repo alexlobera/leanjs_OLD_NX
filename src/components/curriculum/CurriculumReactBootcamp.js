@@ -8,7 +8,8 @@ import ThinkingInReactSession from './sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
-import StylingInReactSession from './sessions/design/StylingInReactSession'
+import StylingInReactSession from './sessions/StylingInReactSession'
+import HooksSession from './sessions/HooksSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
@@ -16,6 +17,8 @@ import E2ESession from './sessions/E2ESession'
 import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
+import AdvancedUIPatterns from './sessions/AdvancedUIPatterns'
+import DesignSystemSession from './sessions/DesignSystemSession'
 import { Li } from '../layout/Ul'
 
 import { REACT_BOOTCAMP } from '../../config/data'
@@ -78,13 +81,8 @@ const CurriculumReactBootcamp = ({
           title="React Fundamentals recap, build a React app from scratch on your own to
           consolidate:"
         />
-        <StylingInReactSession title="Styling in React" />
+        <HooksSession title="React Hooks" />
       </Section>
-      {marketingCard}
-    </React.Fragment>
-  )
-  const secondHalf = (
-    <React.Fragment>
       <Section
         {...commonProps}
         title={`Day 3`}
@@ -95,6 +93,11 @@ const CurriculumReactBootcamp = ({
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
+      {marketingCard}
+    </React.Fragment>
+  )
+  const secondHalf = (
+    <React.Fragment>
       <Section
         {...commonProps}
         title={`Day 4`}
@@ -109,8 +112,19 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title={`Day 5`}
         name="day5"
-        subTitle={`Real-world Testing in React`}
+        subTitle={`Advanced UI Patterns & Styling in React`}
         trainingTime={trainingTime({ day: 7, training })}
+      >
+        <AdvancedUIPatterns title="Advanced UI Patterns" />
+        <StylingInReactSession title="Styling in React" />
+        <DesignSystemSession title="Design Systems" />
+      </Section>
+      <Section
+        {...commonProps}
+        title={`Day 6`}
+        name="day6"
+        subTitle={`Real-World Testing in React`}
+        trainingTime={trainingTime({ day: 8, training })}
       >
         <TestingIntroSession title="Testing Foundation in JS" />
         <TestingInReactSession title="Testing in React" />
@@ -154,7 +168,10 @@ export const LearningObjectivesList = () => (
         react-redux
       </code>
     </Li>
-    <Li>Learn how to style React applications in an idiomatic way.</Li>
+    <Li>
+      Learn how to style React applications in an idiomatic way and encourage
+      design consistency using design systems.
+    </Li>
     <Li>
       Understand different state management approaches in the React ecosystem.
     </Li>

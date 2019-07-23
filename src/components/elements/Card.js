@@ -17,7 +17,9 @@ import { fontColor } from '../text'
 const Card = ({ small, ...props }) => {
   let newProps = {}
   if (small) {
-    newProps.p = 5
+    newProps.pt = 5
+    newProps.pb = 5
+    newProps.px = 5
   }
   return <StyledCard {...props} {...newProps} />
 }
@@ -79,7 +81,8 @@ const StyledCard = styled(Box)`
 `
 
 Card.defaultProps = {
-  py: 7,
+  pt: [4, 7],
+  pb: [4, 7],
 }
 Card.displayName = 'Card'
 Card.propTypes = {

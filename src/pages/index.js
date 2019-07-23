@@ -18,7 +18,7 @@ import {
   FullCurriculumsGraphQL,
 } from '../components/curriculum'
 import { SCREEN_XS_MAX, createSocialMetas } from '../components/utils'
-import Header from '../components/layout/Header'
+import { RootHeader as Header } from '../components/layout/Header'
 import { Card, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
@@ -43,7 +43,7 @@ const metas = {
   type: 'website',
 }
 
-const StyledTabItem = styled(Link)`
+const StyledTabItem = styled(Link).attrs({ className: 'select-technology' })`
   ${defaultButtonStyle}
   &:first-child {
     box-shadow: -5px -5px 15px -5px rgba(0, 0, 0, 0.26);
@@ -114,10 +114,9 @@ const IndexPage = () => {
             ]}
             subtitle="In-person courses, workshops and meetups from experts who were the first in
         Europe to teach React. "
-            bgColor="blue"
             bgImageName={HOME_PAGE}
           />
-          <TopSection marginTop="-258">
+          <TopSection mt={[0, -250]}>
             <Grid>
               <Row>
                 <Col lgOffset={1} lg={11}>

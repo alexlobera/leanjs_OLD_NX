@@ -45,7 +45,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-import { LIGHT_BLUE } from '../../config/styles'
+import { LIGHT_BLUE, BLUE } from '../../config/styles'
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -122,11 +122,12 @@ class ReactCurriculum extends React.Component {
                   { text: 'Differences in our courses ', to: '#differences' },
                   { text: 'Full curriculums', to: '#curriculum' },
                 ]}
+                bgColor={BLUE}
                 bgImageName={BOOTCAMP}
               />
               <TopSection>
                 <Grid>
-                  <Card border="shadow">
+                  <Card border="shadow" pb={[0, 4]}>
                     <Row>
                       <Col lg={10} lgOffset={1}>
                         <H2Ref>
@@ -143,9 +144,10 @@ class ReactCurriculum extends React.Component {
                           <Thead>
                             <Tr>
                               <Th />
-                              <Th type={REACT_BOOTCAMP}>React Bootcamp</Th>
-                              <Th type={ADVANCED_REACT}>Advanced React</Th>
+                              <Th type={REACT_BOOTCAMP}>Bootcamp</Th>
                               <Th type={PART_TIME}>Part Time </Th>
+                              <Th type={ADVANCED_REACT}>Advanced</Th>
+                              <Th type={REACT_FUNDAMENTALS}>Fundamentals</Th>
                             </Tr>
                           </Thead>
                           <Tbody>
@@ -154,9 +156,12 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
-                              <Td />
                               <Td>
                                 <Tick type={PART_TIME} />
+                              </Td>
+                              <Td />
+                              <Td>
+                                <Tick type={REACT_FUNDAMENTALS} />
                               </Td>
                             </Tr>
                             <Tr>
@@ -164,9 +169,12 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
-                              <Td />
                               <Td>
                                 <Tick type={PART_TIME} />
+                              </Td>
+                              <Td />
+                              <Td>
+                                <Tick type={REACT_FUNDAMENTALS} />
                               </Td>
                             </Tr>
                             <Tr>
@@ -174,9 +182,27 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
-                              <Td />
                               <Td>
                                 <Tick type={PART_TIME} />
+                              </Td>
+                              <Td />
+                              <Td>
+                                <Tick type={REACT_FUNDAMENTALS} />
+                              </Td>
+                            </Tr>
+                            <Tr>
+                              <Td>Hooks</Td>
+                              <Td>
+                                <Tick type={REACT_BOOTCAMP} />
+                              </Td>
+                              <Td>
+                                <Tick type={PART_TIME} />
+                              </Td>
+                              <Td>
+                                <Tick type={ADVANCED_REACT} />
+                              </Td>
+                              <Td>
+                                <Tick type={REACT_FUNDAMENTALS} />
                               </Td>
                             </Tr>
                             <Tr>
@@ -185,17 +211,19 @@ class ReactCurriculum extends React.Component {
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
                               <Td>
-                                <Tick type={ADVANCED_REACT} />
-                              </Td>
-                              <Td>
                                 <Tick type={PART_TIME} />
                               </Td>
+                              <Td>
+                                <Tick type={ADVANCED_REACT} />
+                              </Td>
+                              <Td />
                             </Tr>
                             <Tr>
                               <Td>Advanced Testing</Td>
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
+                              <Td />
                               <Td>
                                 <Tick type={ADVANCED_REACT} />
                               </Td>
@@ -206,6 +234,18 @@ class ReactCurriculum extends React.Component {
                               <Td>
                                 <Tick type={REACT_BOOTCAMP} />
                               </Td>
+                              <Td />
+                              <Td>
+                                <Tick type={ADVANCED_REACT} />
+                              </Td>
+                              <Td />
+                            </Tr>
+                            <Tr>
+                              <Td>Design Systems</Td>
+                              <Td>
+                                <Tick type={REACT_BOOTCAMP} />
+                              </Td>
+                              <Td />
                               <Td>
                                 <Tick type={ADVANCED_REACT} />
                               </Td>
@@ -218,7 +258,7 @@ class ReactCurriculum extends React.Component {
                                   variant="secondary"
                                   to="/react/training/bootcamp"
                                 >
-                                  React Bootcamp
+                                  Bootcamp
                                 </LinkButton>
                               </Td>
                               <Td>
@@ -226,7 +266,7 @@ class ReactCurriculum extends React.Component {
                                   variant="secondary"
                                   to="/react/training/advanced"
                                 >
-                                  Advanced React
+                                  Advanced
                                 </LinkButton>
                               </Td>
                               <Td>
@@ -235,6 +275,14 @@ class ReactCurriculum extends React.Component {
                                   to="/react/training/part-time-course/"
                                 >
                                   Part Time
+                                </LinkButton>
+                              </Td>
+                              <Td>
+                                <LinkButton
+                                  variant="secondary"
+                                  to="/react/training/react-fundamentals/"
+                                >
+                                  Fundamentals
                                 </LinkButton>
                               </Td>
                             </Tr>
@@ -257,7 +305,7 @@ class ReactCurriculum extends React.Component {
                             </TrainingCard>
                           </Col>
                           <Col md={6}>
-                            <TrainingCard borderColor={LIGHT_BLUE}>
+                            <TrainingCard mb={0} borderColor={LIGHT_BLUE}>
                               <H4>1 Day Workshops</H4>
                               <P>
                                 Instense training focussing on specific parts of
@@ -291,13 +339,13 @@ class ReactCurriculum extends React.Component {
                           <TabItem name={REACT_BOOTCAMP}>
                             React Bootcamp
                           </TabItem>
-                          <TabItem name={REACT_FUNDAMENTALS}>
-                            React Fundamentals
-                          </TabItem>
+                          <TabItem name={PART_TIME}>Part-time Course</TabItem>
                           <TabItem name={ADVANCED_REACT}>
                             Advanced React
                           </TabItem>
-                          <TabItem name={PART_TIME}>Part-time Course</TabItem>
+                          <TabItem name={REACT_FUNDAMENTALS}>
+                            React Fundamentals
+                          </TabItem>
                         </TabList>
                         <TabContent>
                           <ContentItem name={REACT_BOOTCAMP}>
@@ -312,7 +360,10 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -331,107 +382,13 @@ class ReactCurriculum extends React.Component {
                                       <MarketingCard
                                         heading="Next React Bootcamp"
                                         text={`Take your career to the next level and master React in just a few days!`}
+                                        className="training-curriculum-next-training-cta"
                                         to={trainingBootcamp.toPath}
                                         buttonText={`${
                                           trainingBootcamp.city
                                         } React Bootcamp, ${formatUTC(
                                           trainingBootcamp.startDate,
                                           trainingBootcamp.utcOffset,
-                                          'D MMM'
-                                        )}  `}
-                                      />
-                                    }
-                                  />
-                                )}
-                              </Col>
-                            </Row>
-                          </ContentItem>
-                        </TabContent>
-                        <TabContent>
-                          <ContentItem name={REACT_FUNDAMENTALS}>
-                            <P>
-                              <strong>
-                                On completion of the React Fundamentals each
-                                student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <CurriculumReactFundamentals.LearningObjectivesList />
-                              <Li>
-                                Not sure if our trainings are right for you?
-                                Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
-                                  <strong>
-                                    Are YOU the Perfect React GraphQL Student?
-                                  </strong>
-                                </Link>
-                              </Li>
-                            </Ul>
-
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                {trainingFundamentals && (
-                                  <CurriculumReactFundamentals
-                                    {...commonCurriculumProps}
-                                    marketingCard={
-                                      <MarketingCard
-                                        heading="Next React Fundamentals"
-                                        text={`Take your career by learning a solid foundation React in just 3 days!`}
-                                        to={trainingFundamentals.toPath}
-                                        buttonText={`${
-                                          trainingFundamentals.city
-                                        } React Fundamentals, ${formatUTC(
-                                          trainingFundamentals.startDate,
-                                          trainingFundamentals.utcOffset,
-                                          'D MMM'
-                                        )}  `}
-                                      />
-                                    }
-                                  />
-                                )}
-                              </Col>
-                            </Row>
-                          </ContentItem>
-                        </TabContent>
-                        <TabContent>
-                          <ContentItem name={ADVANCED_REACT}>
-                            <P>
-                              <strong>
-                                On completion of the Advanced React Training
-                                each student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <CurriculumAdvancedReact.LearningObjectivesList />
-                              <Li>
-                                Not sure if our trainings are right for you?
-                                Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
-                                  <strong>
-                                    Are YOU the Perfect React GraphQL Student?
-                                  </strong>
-                                </Link>
-                              </Li>
-                            </Ul>
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                {trainingAdvanced && (
-                                  <CurriculumAdvancedReact
-                                    {...commonCurriculumProps}
-                                    marketingCard={
-                                      <MarketingCard
-                                        heading="Next React Advanced Training"
-                                        text={`You can master Advanced React - in just 2 days!`}
-                                        to={trainingAdvanced.toPath}
-                                        buttonText={`${
-                                          trainingAdvanced.city
-                                        } React Advanced, ${formatUTC(
-                                          trainingAdvanced.startDate,
-                                          trainingAdvanced.utcOffset,
                                           'D MMM'
                                         )}  `}
                                       />
@@ -454,7 +411,10 @@ class ReactCurriculum extends React.Component {
                               <Li>
                                 Not sure if our trainings are right for you?
                                 Read our blog{' '}
-                                <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
                                   <strong>
                                     Are YOU the Perfect React GraphQL Student?
                                   </strong>
@@ -477,6 +437,7 @@ class ReactCurriculum extends React.Component {
                                           trainingPartTime.utcOffset,
                                           'D MMM'
                                         )} in ${trainingPartTime.city}`}
+                                        className="training-curriculum-next-training-cta"
                                         to={trainingPartTime.toPath}
                                         buttonText={`${
                                           trainingPartTime.city
@@ -489,6 +450,105 @@ class ReactCurriculum extends React.Component {
                                     )
                                   }
                                 />
+                              </Col>
+                            </Row>
+                          </ContentItem>
+                          <ContentItem name={REACT_FUNDAMENTALS}>
+                            <P>
+                              <strong>
+                                On completion of the React Fundamentals each
+                                student will:
+                              </strong>
+                            </P>
+                            <Ul>
+                              <CurriculumReactFundamentals.LearningObjectivesList />
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
+                                  <strong>
+                                    Are YOU the Perfect React GraphQL Student?
+                                  </strong>
+                                </Link>
+                              </Li>
+                            </Ul>
+
+                            <H4>Full course curriculum:</H4>
+                            <Row>
+                              <Col lg={1} lgOffset={1} />
+                              <Col lg={9}>
+                                {trainingFundamentals && (
+                                  <CurriculumReactFundamentals
+                                    {...commonCurriculumProps}
+                                    marketingCard={
+                                      <MarketingCard
+                                        heading="Next React Fundamentals"
+                                        text={`Take your career by learning a solid foundation React in just 3 days!`}
+                                        className="training-curriculum-next-training-cta"
+                                        to={trainingFundamentals.toPath}
+                                        buttonText={`${
+                                          trainingFundamentals.city
+                                        } React Fundamentals, ${formatUTC(
+                                          trainingFundamentals.startDate,
+                                          trainingFundamentals.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    }
+                                  />
+                                )}
+                              </Col>
+                            </Row>
+                          </ContentItem>
+                          <ContentItem name={ADVANCED_REACT}>
+                            <P>
+                              <strong>
+                                On completion of the Advanced React Training
+                                each student will:
+                              </strong>
+                            </P>
+                            <Ul>
+                              <CurriculumAdvancedReact.LearningObjectivesList />
+                              <Li>
+                                Not sure if our trainings are right for you?
+                                Read our blog{' '}
+                                <Link
+                                  className="perfect-course-student"
+                                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                                >
+                                  <strong>
+                                    Are YOU the Perfect React GraphQL Student?
+                                  </strong>
+                                </Link>
+                              </Li>
+                            </Ul>
+                            <H4>Full course curriculum:</H4>
+                            <Row>
+                              <Col lg={1} lgOffset={1} />
+                              <Col lg={9}>
+                                {trainingAdvanced && (
+                                  <CurriculumAdvancedReact
+                                    {...commonCurriculumProps}
+                                    marketingCard={
+                                      <MarketingCard
+                                        heading="Next React Advanced Training"
+                                        text={`You can master Advanced React - in just 2 days!`}
+                                        className="training-curriculum-next-training-cta"
+                                        to={trainingAdvanced.toPath}
+                                        buttonText={`${
+                                          trainingAdvanced.city
+                                        } React Advanced, ${formatUTC(
+                                          trainingAdvanced.startDate,
+                                          trainingAdvanced.utcOffset,
+                                          'D MMM'
+                                        )}  `}
+                                      />
+                                    }
+                                  />
+                                )}
                               </Col>
                             </Row>
                           </ContentItem>

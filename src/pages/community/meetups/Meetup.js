@@ -9,7 +9,7 @@ import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import { Ul, Li } from 'src/components/layout/Ul'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
-import { H2, H2Ref, H3, H4, H5, P, Span } from 'src/components/text'
+import { H2, H2Ref, H3, H4, H5, P, Span, Hr } from 'src/components/text'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { UpcomingTrainingSection } from 'src/components/training'
@@ -91,7 +91,7 @@ const Meetup = () => (
                       type={MEETUP}
                       className="meetup-details-clicks"
                     />
-                    <TopSection xsBgDark>
+                    <TopSection variant="dark">
                       <Grid>
                         <Card bg="dark">
                           <Row>
@@ -119,7 +119,7 @@ const Meetup = () => (
                               >
                                 {description || ''}
                               </Markdown>
-                              <hr />
+                              <Hr />
                               <Link
                                 to={`https://www.meetup.com/JavaScript-${city}/`}
                                 className="meetup-details-clicks"

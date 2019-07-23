@@ -7,22 +7,7 @@ export { default as Span } from './Span'
 export { default as Hr } from './Hr'
 export const fontColor = color => `
   color: ${color};
-  h2 {
-    color: ${color};
-  }
-  h3 {
-    color: ${color};
-  }
-  h4 {
-    color: ${color};
-  }
-  h5 {
-    color: ${color};
-  }
-  p {
-    color: ${color};
-  }
-  span {
+  h2, h3, h4, h5, p, span, ul, li {
     color: ${color};
   }
   ${styleChildLinkColor(color)}

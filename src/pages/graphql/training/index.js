@@ -22,6 +22,7 @@ import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { GRAPHQL_PINK } from 'src/config/styles'
 
 const metas = {
   title: 'GraphQL Training (NEW) | React GraphQL Academy',
@@ -64,6 +65,7 @@ const TrainingPage = props => (
             titleLines={['GraphQL Training']}
             subtitle="Take your development career to the next level with our GraphQL training"
             bgImageName={BOOTCAMP}
+            bgColor={GRAPHQL_PINK}
             featuredSection={
               <React.Fragment>
                 <P>Our courses:</P>
@@ -169,7 +171,10 @@ const TrainingPage = props => (
                     </Link>
                     .
                   </P>
-                  <Link to="/blog/are-you-the-perfect-react-graphql-student/">
+                  <Link
+                    className="perfect-course-student"
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                  >
                     Blog: Are YOU the Perfect React Student?
                   </Link>
                 </Col>

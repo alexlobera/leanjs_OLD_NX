@@ -1,47 +1,65 @@
+import React from 'react'
 import styled from 'styled-components'
-import { FONT_FAMILY } from '../../config/styles'
+import Box from './Box'
 
-const Ul = styled.ul`
-  p {
-    padding-bottom: 5px;
-  }
-  ul {
-    margin-top: 0;
-  }
-  ${props =>
-    props.unstyled
-      ? `
-    margin-left: 0;
+const StyledUl = styled(Box)`
+  ${({ variant, variants = [] }) =>
+    (variant === 'unstyled' || variants.find(v => v === 'unstyled')) &&
+    `
     > li {
       list-style-type: none;
-      margin-bottom: 1.5em;
     }
-  `
-      : ''} ${props =>
-    props.inline
-      ? `
-          margin: 0;
-          padding: 0;
-          > li {
-            display: inline-block;
-            padding: 8px;
-            margin-bottom:0;
-            :first-child {
-              padding-left: 0;
-            }
-            :last-child {
-              padding-right: 0;
-            }
-          }
-        `
-      : `
-          padding-top: 10px;
-      `};
+  `}
+  ${({ variant, variants = [] }) =>
+    (variant === 'inline' || variants.find(v => v === 'inline')) &&
+    `
+    > li {
+      padding: 8px;
+      margin: 0;
+      display: inline-block;
+      :first-child {
+        padding-left: 0;
+      }
+      :last-child {
+        padding-right: 0;
+      }
+    }
+  `};
 `
 
-const Li = styled.li`
-  ${FONT_FAMILY};
-`
+const Ul = props => (
+  <StyledUl
+    {...(ulVariantProps[props.variant] || {})}
+    {...(props.variants && props.variants.reduce
+      ? props.variants.reduce(
+          (acc, variant) => ({
+            ...acc,
+            ...(ulVariantProps[variant] || {}),
+          }),
+          {}
+        )
+      : {})}
+    {...props}
+  />
+)
+Ul.defaultProps = {
+  box: 'ul',
+}
+
+const ulVariantProps = {
+  inline: {
+    m: 0,
+    p: 0,
+  },
+  unstyled: {
+    ml: 0,
+  },
+}
+
+const Li = styled(Box)``
+Li.defaultProps = {
+  box: 'li',
+}
 
 export { Ul, Li }
 export default Ul

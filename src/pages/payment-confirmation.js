@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
-import Header from '../components/layout/Header'
+import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
 import { Card } from '../components/elements'
 import trackUserBehaviour, {

@@ -59,7 +59,6 @@ const CurriculumOneDayRedux = ({
     secondHalf,
     title,
     layout,
-    title,
     type,
     corpTrainingFacts: true,
   })

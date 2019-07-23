@@ -6,7 +6,7 @@ import withLazyLoad from './withLazyLoad'
 const IframeWrapper = styled.div`
   > iframe {
     border: 0;
-    ${props => `height: ${props.height}`}px;
+    ${props => `height: ${props.height}px;`}
   }
   > div {
     margin-top: -15px;

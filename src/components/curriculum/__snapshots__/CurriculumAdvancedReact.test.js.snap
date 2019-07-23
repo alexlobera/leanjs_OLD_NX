@@ -58,8 +58,26 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="day2"
-        subTitle="Real-world Testing in React"
+        subTitle="Advanced UI Patterns & Styling in React"
         title="Advanced React Day 2"
+        toggleNavigateTo={[Function]}
+        trainingTime=" 09:00 - 18:30"
+        type="Advanced React"
+      >
+        <AdvancedUIPatterns
+          title="Advanced UI Patterns"
+        />
+        <AdvancedReduxSession
+          title="Styling in React"
+        />
+        <DesignSystemSession
+          title="Design Systems"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day3"
+        subTitle="Real-World Testing in React"
+        title="Advanced React Day 3"
         toggleNavigateTo={[Function]}
         trainingTime=" 09:00 - 18:30"
         type="Advanced React"
