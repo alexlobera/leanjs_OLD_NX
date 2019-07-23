@@ -82,8 +82,8 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         <ReactFundamentalsRecapSession
           title="React Fundamentals recap, build a React app from scratch on your own to consolidate:"
         />
-        <StylingInReactSession
-          title="Styling in React"
+        <HooksSession
+          title="React Hooks"
         />
       </CurriculumSection>
       <CurriculumSection
@@ -118,8 +118,26 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       </CurriculumSection>
       <CurriculumSection
         name="day5"
-        subTitle="Real-World Testing in React"
+        subTitle="Advanced UI Patterns & Styling in React"
         title="Day 5"
+        toggleNavigateTo={[Function]}
+        trainingTime=" 09:00 - 18:30"
+        type="React Bootcamp"
+      >
+        <AdvancedUIPatterns
+          title="Advanced UI Patterns"
+        />
+        <StylingInReactSession
+          title="Styling in React"
+        />
+        <DesignSystemSession
+          title="Design Systems"
+        />
+      </CurriculumSection>
+      <CurriculumSection
+        name="day6"
+        subTitle="Real-World Testing in React"
+        title="Day 6"
         toggleNavigateTo={[Function]}
         trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
