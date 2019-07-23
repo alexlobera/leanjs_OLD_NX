@@ -27,7 +27,7 @@ import ReactNativeNavigationSession from 'src/components/curriculum/sessions/nat
 import ReactNativeAnimationsSession from 'src/components/curriculum/sessions/native/ReactNativeAnimationsSession'
 import CurriculumSection from 'src/components/curriculum/CurriculumSection'
 
-const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingNativeTrainings = selectUpcomingTrainings({
@@ -44,7 +44,7 @@ const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactgraphql.academy${canonicalSlug}`,
+                href: canonical,
               },
             ]}
             meta={[

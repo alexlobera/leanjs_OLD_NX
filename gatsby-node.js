@@ -94,7 +94,7 @@ exports.createPages = ({ graphql, actions }) => {
             component,
             context: {
               nth,
-              canonicalSlug: instanceBasePath,
+              canonical: `https://reactgraphql.academy${instanceBasePath}`,
             },
           })
         })

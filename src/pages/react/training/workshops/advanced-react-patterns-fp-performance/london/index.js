@@ -24,7 +24,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
@@ -43,7 +43,7 @@ const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactgraphql.academy${canonicalSlug}`,
+                href: canonical,
               },
             ]}
             meta={[

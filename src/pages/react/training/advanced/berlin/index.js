@@ -45,7 +45,7 @@ const metas = {
   type: 'website',
 }
 
-const Page = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingAdvancedTrainings = selectUpcomingTrainings({
@@ -71,7 +71,7 @@ const Page = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactgraphql.academy${canonicalSlug}`,
+                href: canonical,
               },
             ]}
             meta={[

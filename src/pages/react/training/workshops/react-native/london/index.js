@@ -25,7 +25,7 @@ import { PaymentSection } from 'src/components/payment'
 import { REACT_NATIVE, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingNativeTrainings = selectUpcomingTrainings({
@@ -42,7 +42,7 @@ const InstancePage = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactgraphql.academy${canonicalSlug}`,
+                href: canonical,
               },
             ]}
             meta={[
