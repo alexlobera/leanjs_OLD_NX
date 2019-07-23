@@ -46,13 +46,7 @@ const metas = {
   type: 'website',
 }
 
-const BootcampLondon = ({
-  pageContext: {
-    slug = '/react/training/advanced/london/',
-    canonicalSlug,
-    nth = 1,
-  },
-}) => (
+const BootcampLondon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingAdvancedTrainings = selectUpcomingTrainings({
@@ -75,6 +69,12 @@ const BootcampLondon = ({
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',

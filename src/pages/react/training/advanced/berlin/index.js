@@ -45,13 +45,7 @@ const metas = {
   type: 'website',
 }
 
-const BootcampBerlin = ({
-  pageContext: {
-    slug = '/react/training/advanced/berlin/',
-    canonicalSlug,
-    nth = 1,
-  },
-}) => (
+const AdvancedBerlin = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingAdvancedTrainings = selectUpcomingTrainings({
@@ -60,7 +54,7 @@ const BootcampBerlin = ({
         city: BERLIN,
       })
       const training =
-        selectNthTraining({ trainings: upcomingAdvancedTrainings }) || {}
+        selectNthTraining({ trainings: upcomingAdvancedTrainings, nth }) || {}
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
@@ -74,6 +68,12 @@ const BootcampBerlin = ({
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -93,7 +93,7 @@ const BootcampBerlin = ({
                 label: 'Advanced',
               },
               {
-                to: '/react/training/advanced/berlin',
+                to: path,
                 label: 'Berlin',
               },
             ]}
@@ -196,4 +196,8 @@ const BootcampBerlin = ({
   </Layout>
 )
 
-export default BootcampBerlin
+AdvancedBerlin.defaultProps = {
+  pageContext: {},
+}
+
+export default AdvancedBerlin

@@ -36,13 +36,7 @@ const metas = {
   type: 'website',
 }
 
-const BootcampBerlin = ({
-  pageContext: {
-    slug = '/react/training/bootcamp/berlin/',
-    canonicalSlug,
-    nth = 1,
-  },
-}) => (
+const BootcampBerlin = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -50,12 +44,18 @@ const BootcampBerlin = ({
         type: REACT_BOOTCAMP,
         city: BERLIN,
       })
-      const training = selectNthTraining({ trainings: bootCampTrainings })
+      const training = selectNthTraining({ trainings: bootCampTrainings, nth })
 
       return (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -75,7 +75,7 @@ const BootcampBerlin = ({
                 label: 'Bootcamp',
               },
               {
-                to: '/react/training/bootcamp/berlin',
+                to: path,
                 label: 'Berlin',
               },
             ]}
@@ -197,5 +197,9 @@ const BootcampBerlin = ({
     }}
   </Layout>
 )
+
+BootcampBerlin.defaultProps = {
+  pageContext: {},
+}
 
 export default BootcampBerlin

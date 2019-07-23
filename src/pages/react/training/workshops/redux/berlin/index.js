@@ -33,7 +33,7 @@ import {
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const ReduxWorkshop = () => (
+const ReduxWorkshop = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       // TODO replace this hardcoded instance id with more flexible approach
@@ -62,6 +62,12 @@ const ReduxWorkshop = () => (
         <React.Fragment>
           <Helmet
             title="Redux workshop Berlin"
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -80,7 +86,7 @@ const ReduxWorkshop = () => (
                 label: 'Redux',
               },
               {
-                to: '/react/training/workshops/redux/berlin',
+                to: path,
                 label: 'Berlin',
               },
             ]}
@@ -204,5 +210,9 @@ const ReduxWorkshop = () => (
     }}
   </Layout>
 )
+
+ReduxWorkshop.defaultProps = {
+  pageContext: {},
+}
 
 export default ReduxWorkshop

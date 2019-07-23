@@ -38,13 +38,7 @@ const metas = {
   type: 'website',
 }
 
-const BootcampLondon = ({
-  pageContext: {
-    slug = '/react/training/bootcamp/london/',
-    canonicalSlug,
-    nth = 1,
-  },
-}) => (
+const BootcampLondon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -83,7 +77,7 @@ const BootcampLondon = ({
                 label: 'Bootcamp',
               },
               {
-                to: slug,
+                to: path,
                 label: 'London',
               },
             ]}
@@ -207,19 +201,6 @@ const BootcampLondon = ({
 
 BootcampLondon.defaultProps = {
   pageContext: {},
-  data: {
-    sitePage: {
-      path: '',
-    },
-  },
 }
-
-export const query = graphql`
-  query graphqlPage {
-    sitePage {
-      path
-    }
-  }
-`
 
 export default BootcampLondon

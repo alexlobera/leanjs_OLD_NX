@@ -33,11 +33,8 @@ const metas = {
 }
 
 const PartTimeBarcelona = ({
-  pageContext: {
-    slug = '/react/training/part-time-course/barcelona/',
-    canonicalSlug,
-    nth = 1,
-  },
+  path,
+  pageContext: { canonicalSlug, nth = 1 },
 }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
@@ -47,11 +44,17 @@ const PartTimeBarcelona = ({
         city: BARCELONA,
       })
       const training =
-        selectNthTraining({ trainings: upcomingPartTimeTrainings }) || {}
+        selectNthTraining({ trainings: upcomingPartTimeTrainings, nth }) || {}
       return (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -71,7 +74,7 @@ const PartTimeBarcelona = ({
                 label: 'Part Time Course',
               },
               {
-                to: '/react/training/part-time-course/barcelona',
+                to: path,
                 label: 'Barcelona',
               },
             ]}
@@ -121,5 +124,9 @@ const PartTimeBarcelona = ({
     }}
   </Layout>
 )
+
+PartTimeBarcelona.defaultProps = {
+  pageContext: {},
+}
 
 export default PartTimeBarcelona

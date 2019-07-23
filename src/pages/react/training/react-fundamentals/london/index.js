@@ -36,7 +36,10 @@ import {
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import BlogSection from 'src/components/blog/BlogSection'
 
-const ReactFundamentalsLondon = () => (
+const ReactFundamentalsLondon = ({
+  path,
+  pageContext: { canonicalSlug, nth = 1 },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const fundamentalsTrainings = selectUpcomingTrainings({
@@ -44,7 +47,10 @@ const ReactFundamentalsLondon = () => (
         type: REACT_FUNDAMENTALS,
         city: LONDON,
       })
-      const training = selectNthTraining({ trainings: fundamentalsTrainings })
+      const training = selectNthTraining({
+        trainings: fundamentalsTrainings,
+        nth,
+      })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [
@@ -60,6 +66,12 @@ const ReactFundamentalsLondon = () => (
         <React.Fragment>
           <Helmet
             title="React Fundamentals in London"
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -78,7 +90,7 @@ const ReactFundamentalsLondon = () => (
                 label: 'React Fundamentals',
               },
               {
-                to: '/react/training/react-fundamentals/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -199,5 +211,9 @@ const ReactFundamentalsLondon = () => (
     }}
   </Layout>
 )
+
+ReactFundamentalsLondon.defaultProps = {
+  pageContext: {},
+}
 
 export default ReactFundamentalsLondon

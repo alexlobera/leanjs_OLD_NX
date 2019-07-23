@@ -33,7 +33,10 @@ import {
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const AdvancedReactWorkshopLondon = () => (
+const TestingWorkshopLondon = ({
+  path,
+  pageContext: { canonicalSlug, nth = 1 },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const training = getNextTrainingByTrainingId({
@@ -61,6 +64,12 @@ const AdvancedReactWorkshopLondon = () => (
         <React.Fragment>
           <Helmet
             title="Testing in React"
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -79,7 +88,7 @@ const AdvancedReactWorkshopLondon = () => (
                 label: 'Testing in React',
               },
               {
-                to: '/react/training/workshops/testing-in-react/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -199,4 +208,8 @@ const AdvancedReactWorkshopLondon = () => (
   </Layout>
 )
 
-export default AdvancedReactWorkshopLondon
+TestingWorkshopLondon.defaultProps = {
+  pageContext: {},
+}
+
+export default TestingWorkshopLondon

@@ -144,13 +144,7 @@ const metas = {
 const VENUE_PDF =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/pdf%2Fparede.pdf?alt=media'
 
-const BootcampLisbon = ({
-  pageContext: {
-    slug = '/react/training/bootcamp/lisbon/',
-    canonicalSlug,
-    nth = 1,
-  },
-}) => (
+const BootcampLisbon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingLisbonBootcamps = selectUpcomingTrainings({
@@ -159,7 +153,7 @@ const BootcampLisbon = ({
         city: LISBON,
       })
       const training =
-        selectNthTraining({ trainings: upcomingLisbonBootcamps }) || {}
+        selectNthTraining({ trainings: upcomingLisbonBootcamps, nth }) || {}
 
       return (
         <React.Fragment>
@@ -168,7 +162,7 @@ const BootcampLisbon = ({
             link={[
               {
                 rel: 'canonical',
-                href: `https://reactgraphql.academy/react/training/bootcamp-lisbon`,
+                href: canonicalSlug,
               },
             ]}
             meta={[
@@ -190,7 +184,7 @@ const BootcampLisbon = ({
                 label: 'Bootcamp',
               },
               {
-                to: '/react/training/bootcamp/lison',
+                to: path,
                 label: 'Lisbon',
               },
             ]}

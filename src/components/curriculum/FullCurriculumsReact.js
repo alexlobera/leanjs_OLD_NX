@@ -41,9 +41,9 @@ const FullCurriculumsReact = ({ trainings }) => {
       <Tabs defaultValue={REACT_BOOTCAMP}>
         <TabList lgOffset={1}>
           <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-          <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
-          <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
           <TabItem name={PART_TIME}>Part-time Course</TabItem>
+          <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
+          <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
           <TabItem name={ONE_DAY_WORKSHOP}>1-Day Workshops</TabItem>
         </TabList>
 

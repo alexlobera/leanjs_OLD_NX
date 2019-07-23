@@ -40,11 +40,8 @@ const metas = {
 }
 
 const PartTimeAmsterdam = ({
-  pageContext: {
-    slug = '/react/training/part-time-course/amsterdam/',
-    canonicalSlug,
-    nth = 1,
-  },
+  path,
+  pageContext: { canonicalSlug, nth = 1 },
 }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
@@ -53,7 +50,7 @@ const PartTimeAmsterdam = ({
         type: PART_TIME,
         city: AMSTERDAM,
       })
-      const training = selectNthTraining({ trainings: partTimeTrainings })
+      const training = selectNthTraining({ trainings: partTimeTrainings, nth })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
@@ -62,6 +59,12 @@ const PartTimeAmsterdam = ({
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -81,7 +84,7 @@ const PartTimeAmsterdam = ({
                 label: 'Part Time Course',
               },
               {
-                to: '/react/training/part-time-course/amsterdam',
+                to: path,
                 label: 'Amsterdam',
               },
             ]}
@@ -152,5 +155,9 @@ const PartTimeAmsterdam = ({
     }}
   </Layout>
 )
+
+PartTimeAmsterdam.defaultProps = {
+  pageContext: {},
+}
 
 export default PartTimeAmsterdam

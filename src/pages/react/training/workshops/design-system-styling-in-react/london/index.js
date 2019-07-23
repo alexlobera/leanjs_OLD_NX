@@ -41,7 +41,10 @@ const metas = {
   type: 'website',
 }
 
-const StylingDesignSystemWorkshop = () => (
+const StylingDesignSystemWorkshop = ({
+  path,
+  pageContext: { canonicalSlug, nth = 1 },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -51,6 +54,7 @@ const StylingDesignSystemWorkshop = () => (
       })
       const training = selectNthTraining({
         trainings: bootCampTrainings,
+        nth,
       })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
@@ -60,6 +64,12 @@ const StylingDesignSystemWorkshop = () => (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -80,8 +90,7 @@ const StylingDesignSystemWorkshop = () => (
                 label: 'Design Systems and Styling in React',
               },
               {
-                to:
-                  '/react/training/workshops/design-system-styling-in-react/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -212,5 +221,9 @@ const StylingDesignSystemWorkshop = () => (
     }}
   </Layout>
 )
+
+StylingDesignSystemWorkshop.defaultProps = {
+  pageContext: {},
+}
 
 export default StylingDesignSystemWorkshop

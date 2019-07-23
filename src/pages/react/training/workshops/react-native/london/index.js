@@ -25,7 +25,10 @@ import { PaymentSection } from 'src/components/payment'
 import { REACT_NATIVE, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const ReactNativeBoocampLondon = () => (
+const ReactNativeBoocampLondon = ({
+  path,
+  pageContext: { canonicalSlug, nth = 1 },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingNativeTrainings = selectUpcomingTrainings({
@@ -34,11 +37,17 @@ const ReactNativeBoocampLondon = () => (
         city: LONDON,
       })
       const training =
-        selectNthTraining({ trainings: upcomingNativeTrainings }) || {}
+        selectNthTraining({ trainings: upcomingNativeTrainings, nth }) || {}
       return (
         <React.Fragment>
           <Helmet
             title="React Native Workshops London"
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -58,7 +67,7 @@ const ReactNativeBoocampLondon = () => (
                 label: 'React Native',
               },
               {
-                to: '/react/training/workshops/react-native/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -164,5 +173,9 @@ const ReactNativeBoocampLondon = () => (
     }}
   </Layout>
 )
+
+ReactNativeBoocampLondon.defaultProps = {
+  pageContext: {},
+}
 
 export default ReactNativeBoocampLondon
