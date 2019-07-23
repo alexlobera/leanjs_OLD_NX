@@ -94,7 +94,7 @@ const BootcampLondon = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
                 label: 'Advanced',
               },
               {
-                to: '/react/training/advanced/london',
+                to: path,
                 label: 'London',
               },
             ]}

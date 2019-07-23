@@ -34,7 +34,7 @@ const metas = {
   type: 'website',
 }
 
-const BootcampLondon = () => (
+const Page = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingGqlTrainings = selectUpcomingTrainings({
@@ -43,11 +43,17 @@ const BootcampLondon = () => (
         city: LONDON,
       })
       const training =
-        selectNthTraining({ trainings: upcomingGqlTrainings }) || {}
+        selectNthTraining({ trainings: upcomingGqlTrainings, nth }) || {}
       return (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -63,7 +69,7 @@ const BootcampLondon = () => (
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training', label: 'Training' },
               { to: '/graphql/training/bootcamp', label: 'Bootcamp' },
-              { to: '/graphql/training/bootcamp/london', label: 'London' },
+              { to: path, label: 'London' },
             ]}
           />
           <Header
@@ -161,4 +167,9 @@ const BootcampLondon = () => (
     }}
   </Layout>
 )
-export default BootcampLondon
+
+Page.defaultProps = {
+  pageContext: {},
+}
+
+export default Page

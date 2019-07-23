@@ -42,7 +42,7 @@ const metas = {
   type: 'website',
 }
 
-const GraphQLApolloClientWorkshopLondon = () => (
+const Page = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const workshops = selectUpcomingTrainings({
@@ -50,7 +50,7 @@ const GraphQLApolloClientWorkshopLondon = () => (
         type: GRAPHQL_CLIENT,
         city: LONDON,
       })
-      const training = selectNthTraining({ trainings: workshops }) || {}
+      const training = selectNthTraining({ trainings: workshops, nth }) || {}
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: [GRAPHQL_API, GRAPHQL_BOOTCAMP, ADVANCED_REACT, REACT_WORKSHOP],
@@ -59,6 +59,12 @@ const GraphQLApolloClientWorkshopLondon = () => (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonicalSlug,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -79,7 +85,7 @@ const GraphQLApolloClientWorkshopLondon = () => (
                 label: 'GraphQL Apollo Client',
               },
               {
-                to: '/graphql/training/workshops/graphql-apollo-client/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -192,4 +198,8 @@ const GraphQLApolloClientWorkshopLondon = () => (
   </Layout>
 )
 
-export default GraphQLApolloClientWorkshopLondon
+Page.defaultProps = {
+  pageContext: {},
+}
+
+export default Page

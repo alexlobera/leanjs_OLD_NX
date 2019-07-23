@@ -22,9 +22,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-// regex: "/(react|graphql)/training/.*/(london|berlin|amsterdam|lisbon|barcelona)/index.js$/"
-// regex: "/(react)/training/bootcamp.*/(london)/index.js$/"
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
@@ -42,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
         getInstancePages: allFile(
           filter: {
             relativePath: {
-              regex: "/(react)/training/bootcamp.*/(london)/index.js$/"
+              regex: "/(react|graphql)/training/.*/(london|berlin|amsterdam|lisbon|barcelona)/index.js$/"
             }
           }
         ) {
