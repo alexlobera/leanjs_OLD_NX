@@ -64,7 +64,7 @@ const ReduxWorkshop = ({ path, pageContext: { canonicalSlug, nth = 1 } }) => (
             link={[
               {
                 rel: 'canonical',
-                href: canonicalSlug,
+                href: `https://reactgraphql.academy${canonicalSlug}`,
               },
             ]}
             meta={[

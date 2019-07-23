@@ -62,7 +62,7 @@ const PartTimeAmsterdam = ({
             link={[
               {
                 rel: 'canonical',
-                href: canonicalSlug,
+                href: `https://reactgraphql.academy${canonicalSlug}`,
               },
             ]}
             meta={[

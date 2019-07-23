@@ -67,7 +67,7 @@ const TestingWorkshopLondon = ({
             link={[
               {
                 rel: 'canonical',
-                href: canonicalSlug,
+                href: `https://reactgraphql.academy${canonicalSlug}`,
               },
             ]}
             meta={[
