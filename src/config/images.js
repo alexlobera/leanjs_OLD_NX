@@ -60,14 +60,6 @@ export const POLINA =
 export const EBER =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/quote_images%2Feber_herrera.png?alt=media'
 
-// Code of conduct
-export const CODE_OF_CONDUCT_SPLASH =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeconduct_splash.jpg?alt=media'
-export const CODE_OF_CONDUCT_KEYPOINTS =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_keypoints.jpg?alt=media'
-export const CODE_OF_CONDUCT_MORE_DETAIL =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/codeofconduct_moredetail.jpg?alt=media'
-
 // Meetup
 export const LONDON_MEETUP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-London.png?alt=media'

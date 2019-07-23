@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import { LONDON_BOOTCAMP } from '../../../images/imageNames'
 import Layout from '../../components/layout'
@@ -68,7 +69,6 @@ const Community = ({ data }) => (
         nextMeetup &&
         formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
       const mentorshipImgSrc = data.file.childImageSharp.fluid.src
-      // console.log(mentorshipImg)
       return (
         <React.Fragment>
           <Breadcrumb
