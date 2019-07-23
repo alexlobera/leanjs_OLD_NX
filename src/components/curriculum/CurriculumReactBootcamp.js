@@ -9,6 +9,7 @@ import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSess
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import StylingInReactSession from './sessions/StylingInReactSession'
+import HooksSession from './sessions/HooksSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
@@ -80,13 +81,8 @@ const CurriculumReactBootcamp = ({
           title="React Fundamentals recap, build a React app from scratch on your own to
           consolidate:"
         />
-        <StylingInReactSession title="Styling in React" />
+        <HooksSession title="React Hooks" />
       </Section>
-      {marketingCard}
-    </React.Fragment>
-  )
-  const secondHalf = (
-    <React.Fragment>
       <Section
         {...commonProps}
         title={`Day 3`}
@@ -97,6 +93,11 @@ const CurriculumReactBootcamp = ({
         <IntroReduxSession title="Redux Fundamentals" />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
+      {marketingCard}
+    </React.Fragment>
+  )
+  const secondHalf = (
+    <React.Fragment>
       <Section
         {...commonProps}
         title={`Day 4`}
@@ -111,27 +112,24 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title={`Day 5`}
         name="day5"
-        subTitle={`Real-World Testing in React`}
-        trainingTime={trainingTime({ day: 7, training })}
-      >
-        <TestingIntroSession title="Testing Foundation in JS" />
-        <TestingInReactSession title="Testing in React" />
-        <E2ESession title="End-to-End Testing" />
-      </Section>
-
-      {/*
-      Waiting for Lena to confirm with the venue to show day 6 in the curriculum
-      <Section
-        {...commonProps}
-        title={`Day 6`}
-        name="day6"
         subTitle={`Advanced UI Patterns & Styling in React`}
         trainingTime={trainingTime({ day: 7, training })}
       >
         <AdvancedUIPatterns title="Advanced UI Patterns" />
         <StylingInReactSession title="Styling in React" />
         <DesignSystemSession title="Design Systems" />
-      </Section> */}
+      </Section>
+      <Section
+        {...commonProps}
+        title={`Day 6`}
+        name="day6"
+        subTitle={`Real-World Testing in React`}
+        trainingTime={trainingTime({ day: 8, training })}
+      >
+        <TestingIntroSession title="Testing Foundation in JS" />
+        <TestingInReactSession title="Testing in React" />
+        <E2ESession title="End-to-End Testing" />
+      </Section>
     </React.Fragment>
   )
   const title = showTitle ? (
