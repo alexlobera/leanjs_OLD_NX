@@ -125,6 +125,10 @@ const LearningObjectivesList = () => (
       quality and best programming practices.
     </Li>
     <Li>
+      Learn how to style React applications in an idiomatic way and encourage
+      design consistency using design systems.
+    </Li>
+    <Li>
       Comprehend modern front-end JavaScript using Functional Programming (FP)
     </Li>
     <Li>

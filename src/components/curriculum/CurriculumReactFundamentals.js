@@ -9,7 +9,7 @@ import ThinkingInReactSession from './sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
-import StylingInReactSession from './sessions/StylingInReactSession'
+import HooksSession from './sessions/HooksSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import { trainingTime } from '../utils'
@@ -68,7 +68,7 @@ const CurriculumReactFundamentals = ({
         {...commonProps}
         title="Day 2"
         name="day2"
-        subTitle="Forms, Authentication, Styling in React"
+        subTitle="Forms, Authentication, and Hooks"
         trainingTime={trainingTime({ day: 2, training })}
       >
         <FormsAndAuthSession title="Forms and Authentication" />
@@ -76,7 +76,7 @@ const CurriculumReactFundamentals = ({
           title="React Fundamentals recap, build a React app from scratch on your own to
           consolidate:"
         />
-        <StylingInReactSession title="Styling in React" />
+        <HooksSession title="React Hooks" />
       </Section>
       <Section
         {...commonProps}
@@ -120,19 +120,21 @@ export const TargetAudienceList = () => (
 export const LearningObjectivesList = () => (
   <React.Fragment>
     <Li>
-      Understand the core principles and libraries to build React applications
-      using:{' '}
-      <code>
-        react, react-router, styled-components, storybook, redux, react-redux
-      </code>
+      Master React principles, such as the React composition model and the
+      one-way explicit data flow, to leverage React's full potential.
     </Li>
     <Li>
-      Create a solid foundation to leverage the React principles when tackling
-      complex React problems.
+      Understand how the most popular libraries to build React applications work
+      under the hood:{' '}
+      <code>react, react-dom, react-router, redux, react-redux</code>
     </Li>
-    <Li>Learn how to style React applications in an idiomatic way.</Li>
     <Li>
-      Understand different state management approaches in the React ecosystem.
+      Create a solid foundation so in the future you can learn quickly advanced
+      patterns and techniques as you progress in your career as React developer.
+    </Li>
+    <Li>
+      Understand the different state management approaches in the React
+      ecosystem.
     </Li>
   </React.Fragment>
 )
