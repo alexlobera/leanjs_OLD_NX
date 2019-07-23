@@ -101,7 +101,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <Header
             titleLines={['Advanced React Training - London']}
-            subtitle="Take your React career to the next level by mastering advanced React - in just 2 days!"
+            subtitle="Take your React career to the next level by mastering advanced React - in just 3 days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={ADVANCED_REACT}
