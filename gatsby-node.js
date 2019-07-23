@@ -95,7 +95,6 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               nth,
               canonicalSlug: instanceBasePath,
-              slug: instancePath,
             },
           })
         })
