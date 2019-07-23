@@ -4,6 +4,9 @@ import { H2Ref } from '../text'
 import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import TestingInReactSession from './sessions/TestingInReactSession'
 import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
+import StylingInReactSession from './sessions/AdvancedReduxSession'
+import AdvancedUIPatterns from './sessions/AdvancedUIPatterns'
+import DesignSystemSession from './sessions/DesignSystemSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import E2ESession from './sessions/E2ESession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
@@ -46,16 +49,30 @@ const CurriculumAdvancedReact = ({
       </Section>
       <Section
         {...commonProps}
-        title="Advanced React Day 2"
+        title={`Advanced React Day 2`}
         name="day2"
-        subTitle="Real-World Testing in React"
+        subTitle={`Advanced UI Patterns & Styling in React`}
         trainingTime={trainingTime({ day: 1, training })}
       >
-        <TestingIntroSession title="Testing Foundation in JS" />
-        <TestingInReactSession title="Testing in React" />
-        <E2ESession title="End-to-End Testing" />
+        <AdvancedUIPatterns title="Advanced UI Patterns" />
+        <StylingInReactSession title="Styling in React" />
+        <DesignSystemSession title="Design Systems" />
       </Section>
     </React.Fragment>
+  )
+
+  const secondHalf = (
+    <Section
+      {...commonProps}
+      title="Advanced React Day 3"
+      name="day3"
+      subTitle="Real-World Testing in React"
+      trainingTime={trainingTime({ day: 2, training })}
+    >
+      <TestingIntroSession title="Testing Foundation in JS" />
+      <TestingInReactSession title="Testing in React" />
+      <E2ESession title="End-to-End Testing" />
+    </Section>
   )
 
   const title = showTitle ? (
@@ -69,6 +86,7 @@ const CurriculumAdvancedReact = ({
 
   return selectCurriculumLayout({
     firstHalf,
+    secondHalf,
     title,
     layout,
     type,
@@ -105,6 +123,10 @@ const LearningObjectivesList = () => (
     <Li>
       Be able to test complex React applications writing tests that promote code
       quality and best programming practices.
+    </Li>
+    <Li>
+      Learn how to style React applications in an idiomatic way and encourage
+      design consistency using design systems.
     </Li>
     <Li>
       Comprehend modern front-end JavaScript using Functional Programming (FP)
