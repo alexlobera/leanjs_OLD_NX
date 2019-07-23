@@ -2,6 +2,8 @@ export const LONDON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/london.jpg?alt=media'
 export const LISBON =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/locations%2Flisbon.jpg?alt=media'
+
+// WHY_REATJS_ACADEMY needs to remain in CDN as it's used for metas via React Helmet
 export const WHY_REACTJS_ACADEMY =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media'
 
