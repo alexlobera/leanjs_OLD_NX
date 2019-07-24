@@ -8,9 +8,6 @@ export const BOOTCAMP_RIGHT =
 export const BOOTCAMP_COLLAB =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamp-collab.jpg?alt=media'
 
-export const PART_TIME =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/partTime_rightForMe.jpg?alt=media'
-
 export const CODEVELOP =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/alex_leanJS.jpg?alt=media'
 
