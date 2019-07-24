@@ -17,7 +17,6 @@ import {
 } from 'src/components/training'
 import { Card } from 'src/components/elements'
 import { Video } from 'src/components/elements'
-import { POLINA } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_NATIVE } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -100,7 +99,7 @@ const ReactNativeBoocamp = () => (
                   fullname="Polina Stoyanova"
                   job="Front-end and UX developer"
                   company="tray.io"
-                  profilePicUrl={POLINA}
+                  videoUrl="6hmKu1-vW-8"
                 />
               </Col>
             </Row>

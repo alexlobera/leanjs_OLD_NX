@@ -1,6 +1,7 @@
 import React from 'react'
 import { Match } from '@reach/router'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import { MEETUPS } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
@@ -24,15 +25,19 @@ import Meetup from './Meetup'
 
 export const MEETUP_PATH = '/community/meetups/:id'
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Match path={MEETUP_PATH}>
     {({ match }) =>
-      match && match.id ? <Meetup instanceId={match.id} /> : <Meetups />
+      match && match.id ? (
+        <Meetup instanceId={match.id} />
+      ) : (
+        <Meetups data={data} />
+      )
     }
   </Match>
 )
 
-const Meetups = () => (
+const Meetups = ({ data }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingMeetups = selectUpcomingTrainings({
@@ -43,6 +48,8 @@ const Meetups = () => (
       const metaTitle = 'React GraphQL Academy community events and meetups'
       const metaDescription =
         'React GraphQL Academy organizes hands-on meetups for the developer community across Europe'
+      const bootcampRightImgSrc = data.file.childImageSharp.fluid.src
+
       return (
         <React.Fragment>
           <Helmet
@@ -100,7 +107,7 @@ const Meetups = () => (
               <Row>
                 <Col md={6}>
                   <Image
-                    src={BOOTCAMP_RIGHT}
+                    src={bootcampRightImgSrc}
                     alt="React GraphQL Academy meetup"
                   />
                 </Col>
@@ -143,5 +150,17 @@ const Meetups = () => (
     }}
   </Layout>
 )
+
+export const query = graphql`
+  query bootcampRightImg($imgMaxWidth: Int!) {
+    file(absolutePath: { regex: "/bootcamp_right/" }) {
+      childImageSharp {
+        fluid(maxWidth: $imgMaxWidth) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

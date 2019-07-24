@@ -105,6 +105,23 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
+// onCreatePage is used to access the variable "imgMaxWidth" in page queries, as per: https://www.gatsbyjs.org/docs/creating-and-modifying-pages/#pass-context-to-pages
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+  deletePage(page)
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      imgMaxWidth: 1000,
+    },
+  })
+}
+
+// Webpack config
+
+const Webpack = require('webpack')
+
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
     name: '@babel/plugin-transform-regenerator',
