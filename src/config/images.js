@@ -32,31 +32,6 @@ export const FRANCISCO =
 export const PAUL =
   'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media'
 
-// Meetup
-export const LONDON_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-London.png?alt=media'
-
-export const BCN_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-Barcelona.png?alt=media'
-
-export const LISBON_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup-Lisbon.png?alt=media'
-
-export const AMSTERDAM_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_amsterdam.png?alt=media'
-
-export const PARIS_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_paris.png?alt=media'
-
-export const BERLIN_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_berlin.png?alt=media'
-
-export const BERN_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_bern.png?alt=media'
-
-export const BRISTOL_MEETUP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/community%2FMeetup_bristol.png?alt=media'
-
 // Training instance images
 
 export const LISBON_LOCATION =
