@@ -38,7 +38,7 @@ const metas = {
   type: 'website',
 }
 
-const BootcampLondon = () => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -46,12 +46,18 @@ const BootcampLondon = () => (
         type: REACT_BOOTCAMP,
         city: LONDON,
       })
-      const training = selectNthTraining({ trainings: bootCampTrainings })
+      const training = selectNthTraining({ trainings: bootCampTrainings, nth })
 
       return (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -71,7 +77,7 @@ const BootcampLondon = () => (
                 label: 'Bootcamp',
               },
               {
-                to: '/react/training/bootcamp/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -122,7 +128,6 @@ const BootcampLondon = () => (
               </Card>
             </Grid>
           </Section>
-
           <Section>
             <Grid>
               <Row>
@@ -186,7 +191,6 @@ const BootcampLondon = () => (
               </Row>
             </Grid>
           </Section>
-
           <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
@@ -195,4 +199,8 @@ const BootcampLondon = () => (
   </Layout>
 )
 
-export default BootcampLondon
+InstancePage.defaultProps = {
+  pageContext: {},
+}
+
+export default InstancePage

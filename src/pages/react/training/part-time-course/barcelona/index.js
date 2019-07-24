@@ -32,7 +32,7 @@ const metas = {
   type: 'website',
 }
 
-const PartTimeBarcelona = () => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const upcomingPartTimeTrainings = selectUpcomingTrainings({
@@ -41,11 +41,17 @@ const PartTimeBarcelona = () => (
         city: BARCELONA,
       })
       const training =
-        selectNthTraining({ trainings: upcomingPartTimeTrainings }) || {}
+        selectNthTraining({ trainings: upcomingPartTimeTrainings, nth }) || {}
       return (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -65,7 +71,7 @@ const PartTimeBarcelona = () => (
                 label: 'Part Time Course',
               },
               {
-                to: '/react/training/part-time-course/barcelona',
+                to: path,
                 label: 'Barcelona',
               },
             ]}
@@ -116,4 +122,8 @@ const PartTimeBarcelona = () => (
   </Layout>
 )
 
-export default PartTimeBarcelona
+InstancePage.defaultProps = {
+  pageContext: {},
+}
+
+export default InstancePage

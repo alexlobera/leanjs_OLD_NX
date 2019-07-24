@@ -41,7 +41,7 @@ const metas = {
   type: 'website',
 }
 
-const StylingDesignSystemWorkshop = () => (
+const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -51,6 +51,7 @@ const StylingDesignSystemWorkshop = () => (
       })
       const training = selectNthTraining({
         trainings: bootCampTrainings,
+        nth,
       })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
@@ -60,6 +61,12 @@ const StylingDesignSystemWorkshop = () => (
         <React.Fragment>
           <Helmet
             title={metas.title}
+            link={[
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]}
             meta={[
               {
                 name: 'description',
@@ -80,8 +87,7 @@ const StylingDesignSystemWorkshop = () => (
                 label: 'Design Systems and Styling in React',
               },
               {
-                to:
-                  '/react/training/workshops/design-system-styling-in-react/london',
+                to: path,
                 label: 'London',
               },
             ]}
@@ -213,4 +219,8 @@ const StylingDesignSystemWorkshop = () => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+InstancePage.defaultProps = {
+  pageContext: {},
+}
+
+export default InstancePage

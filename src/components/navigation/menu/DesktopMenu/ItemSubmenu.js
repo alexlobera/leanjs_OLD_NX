@@ -73,12 +73,16 @@ class ItemSubmenu extends React.Component {
   }
 
   render() {
-    const { text, items, ...props } = this.props
+    const { text, items, className, ...props } = this.props
     const { isOpen } = this.state
 
     return (
       <div ref={this.wrapperRef}>
-        <Link {...props} onClick={this.onToggleSubmenuClicked}>
+        <Link
+          {...props}
+          className={className}
+          onClick={this.onToggleSubmenuClicked}
+        >
           {text}
           <SubmenuButton open={isOpen} />
         </Link>
