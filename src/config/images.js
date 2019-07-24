@@ -37,22 +37,8 @@ export const PAUL =
 
 // Tesimonials
 
-export const CATALIN =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FCatalinCislariu.png?alt=media'
-export const DAN =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FDanJones.png?alt=media'
-export const NASSAR =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FNassarKasirye.png?alt=media'
-export const OLU =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FOluOmoniyi.png?alt=media'
-export const STEFANO =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/testimonials%2FStefanoMezza.png?alt=media'
-export const DAVIAN =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/DavianRobinson.png?alt=media'
 export const POLINA =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/polinaStoyanova.png?alt=media'
-export const EBER =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/quote_images%2Feber_herrera.png?alt=media'
 
 // Meetup
 export const LONDON_MEETUP =
