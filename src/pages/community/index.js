@@ -216,10 +216,10 @@ const Community = ({ data }) => (
 )
 
 export const query = graphql`
-  query mentorshipImg {
+  query mentorshipImg($imgMaxWidth: Int!) {
     file(absolutePath: { regex: "/mentorship/" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: $imgMaxWidth) {
           ...GatsbyImageSharpFluid
         }
       }

@@ -185,17 +185,17 @@ const CodeOfConduct = ({ data }) => (
 )
 
 export const query = graphql`
-  query condeOfConductImgs {
+  query condeOfConductImgs($imgMaxWidth: Int!) {
     points: file(absolutePath: { regex: "/codeofconduct_keypoints/" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: $imgMaxWidth) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     detail: file(absolutePath: { regex: "/codeofconduct_moredetail/" }) {
       childImageSharp {
-        fluid {
+        fluid(maxWidth: $imgMaxWidth) {
           ...GatsbyImageSharpFluid
         }
       }
