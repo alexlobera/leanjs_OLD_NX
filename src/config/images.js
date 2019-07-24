@@ -8,9 +8,6 @@ export const BOOTCAMP_RIGHT =
 export const BOOTCAMP_COLLAB =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/bootcamp-collab.jpg?alt=media'
 
-export const CODEVELOP =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/alex_leanJS.jpg?alt=media'
-
 export const WHY_GQLU_ACADEMY =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media'
 
@@ -34,11 +31,6 @@ export const FRANCISCO =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/coach_profile_images%2FFrancisco-photo%20(1).jpg?alt=media'
 export const PAUL =
   'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media'
-
-// Tesimonials
-
-export const POLINA =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/polinaStoyanova.png?alt=media'
 
 // Meetup
 export const LONDON_MEETUP =
