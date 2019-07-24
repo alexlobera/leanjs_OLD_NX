@@ -1,4 +1,4 @@
-// WHY_REATJS_ACADEMY needs to remain in CDN as it's used for metas via React Helmet
+// The following images need to remain in CDN as they are used for metas via React Helmet
 export const WHY_REACTJS_ACADEMY =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/homepage_rightForMe.jpg?alt=media'
 
