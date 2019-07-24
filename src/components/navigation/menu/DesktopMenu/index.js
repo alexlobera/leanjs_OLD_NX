@@ -27,7 +27,12 @@ class Item extends React.Component {
     return (
       <Li>
         {submenuItems ? (
-          <ItemSubmenu items={submenuItems} text={text} to={props.to} />
+          <ItemSubmenu
+            className="navigation"
+            items={submenuItems}
+            text={text}
+            to={props.to}
+          />
         ) : (
           <Link {...props}>{text}</Link>
         )}
