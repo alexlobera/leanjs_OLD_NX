@@ -22,11 +22,6 @@ import { CallToActionRow } from '../../components/layout/CallToActionRow'
 import Ul, { Li } from '../../components/layout/Ul'
 import { Breadcrumb } from '../../components/navigation'
 
-// TODO replace margin-top: 36px; with props from styled system once Card is refactored
-const SecondaryCard = styled(Card)`
-  margin-top: 36px;
-`
-
 const TwitterWidgetsOnlyOnClientSide = () => {
   if (typeof window !== 'undefined') {
     // package react-twitter-embed does not work on SSR, therefore it breaks the Gatsby build
@@ -121,7 +116,7 @@ const Community = () => (
                       <OurMeetupGroups />
                     </Col>
                   </Card>
-                  <SecondaryCard border="shadow">
+                  <Card mt={5} border="shadow">
                     <Col md={8} mdOffset={2}>
                       <H2>
                         Instagram - boom! <a name="instagram" />
@@ -144,7 +139,7 @@ const Community = () => (
                         ))}
                       </Row>
                     </Col>
-                  </SecondaryCard>
+                  </Card>
                 </Col>
                 <Col md={6}>
                   <Card border="shadow">
