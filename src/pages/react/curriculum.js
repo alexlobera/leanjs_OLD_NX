@@ -257,6 +257,7 @@ class ReactCurriculum extends React.Component {
                                 <LinkButton
                                   variant="secondary"
                                   to="/react/training/bootcamp"
+                                  className="training-curriculum-clicks"
                                 >
                                   Bootcamp
                                 </LinkButton>
@@ -265,6 +266,7 @@ class ReactCurriculum extends React.Component {
                                 <LinkButton
                                   variant="secondary"
                                   to="/react/training/advanced"
+                                  className="training-curriculum-clicks"
                                 >
                                   Advanced
                                 </LinkButton>
@@ -273,6 +275,7 @@ class ReactCurriculum extends React.Component {
                                 <LinkButton
                                   variant="secondary"
                                   to="/react/training/part-time-course/"
+                                  className="training-curriculum-clicks"
                                 >
                                   Part Time
                                 </LinkButton>
@@ -281,6 +284,7 @@ class ReactCurriculum extends React.Component {
                                 <LinkButton
                                   variant="secondary"
                                   to="/react/training/react-fundamentals/"
+                                  className="training-curriculum-clicks"
                                 >
                                   Fundamentals
                                 </LinkButton>
@@ -299,7 +303,10 @@ class ReactCurriculum extends React.Component {
                                 Private team training, located in your offices
                                 anywhere in the world.
                               </P>
-                              <Link to="/react/training/corporate">
+                              <Link
+                                to="/react/training/corporate"
+                                className="training-curriculum-clicks"
+                              >
                                 Find Out More
                               </Link>
                             </TrainingCard>
@@ -314,6 +321,7 @@ class ReactCurriculum extends React.Component {
                               <Link
                                 variant="secondary"
                                 to="/react/training/workshops"
+                                className="training-curriculum-clicks"
                               >
                                 Find Out More
                               </Link>
