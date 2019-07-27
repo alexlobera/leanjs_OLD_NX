@@ -15,10 +15,9 @@ import Ul, { Li } from '../components/layout/Ul'
 import { RootHeader as Header } from '../components/layout/Header'
 import { Card, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
-import { SCREEN_SM_MAX } from '../components/utils'
 import Box from '../components/layout/Box'
 import { GREY } from '../config/styles.js'
-import { CODEVELOP } from '../config/images'
+import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 
 const CoachQuote = styled(Box)`
   border-left: 7px solid ${GREY};
@@ -302,40 +301,7 @@ const AboutUs = ({ data }) => {
           </Section>
           <Section variant="dark">
             <Grid>
-              <Card variant="primary">
-                <Row>
-                  <Col md={4} mdOffset={1}>
-                    <Image
-                      src={CODEVELOP}
-                      width="100%"
-                      alt="LeanJS UX designer Paul Woodley, sorting post-it notes into different columns "
-                    />
-                  </Col>
-                  <Col md={1} />
-                  <Col md={5}>
-                    <H2Ref>
-                      <Link to="#development" name="development" />
-                      Need specialised training using your codebase?
-                    </H2Ref>
-                    <P>
-                      Our parent company LeanJS runs flexible week-long Sprints
-                      teaching React, GraphQL or UX Design to help improve your
-                      codebase and development workflows.{' '}
-                    </P>
-                    <P>
-                      Working on a product/codebase that you help identify,
-                      these 5-day workshops bolster learnings from the React
-                      GraphQL Academy core curriculum to open up advanced Lean
-                      techniques skills to your team.
-                    </P>
-                    <P>
-                      <LinkButton to="https://leanjs.com">
-                        Find out more at LeanJS.com
-                      </LinkButton>
-                    </P>
-                  </Col>
-                </Row>
-              </Card>
+              <LeanJSsprints />
             </Grid>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
