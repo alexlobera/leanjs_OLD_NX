@@ -7,7 +7,7 @@ import Box from '../../components/layout/Box'
 import { formatPostTitle } from '../../templates/blog-post'
 
 const PostCard = ({ post, p, pt = 0, pb = 0, imageProps = {} }) => (
-  <Card border="shadow" py={0} mb={5} p={p} pt={pt} pb={pb}>
+  <Card py={0} mb={5} p={p} pt={pt} pb={pb}>
     <Link to={`${post.fields.slug}`} className="articles-summary">
       <Image
         {...imageProps}
