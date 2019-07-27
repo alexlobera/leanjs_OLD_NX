@@ -111,7 +111,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                     fullname="Jim Plimmer"
                     job="Developer"
                     company="Conversion.com"
-                    videoUrl="GU-IIi-84t8"
+                    youtubeId="GU-IIi-84t8"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>

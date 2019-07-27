@@ -139,7 +139,7 @@ const TrainingPage = () => (
                     fullname="Lara Ramey"
                     job="Software Developer"
                     company="Meredith Corporation"
-                    videoUrl="er9ttTCS86U"
+                    youtubeId="er9ttTCS86U"
                   />
                 </Col>
                 <Col md={4} mdOffset={1}>

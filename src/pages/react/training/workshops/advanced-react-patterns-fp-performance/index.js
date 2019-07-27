@@ -84,7 +84,7 @@ const AdvancedReactWorkshop = () => (
                     fullname="Lara Ramey"
                     job="Software Developer"
                     company="Meredith Corporation"
-                    videoUrl="blg40SCle7I"
+                    youtubeId="blg40SCle7I"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>

@@ -133,7 +133,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                     quote="At the end of course, you have a finished project. The networking also, [students] share jobs on the [alumni] Slack channel."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
-                    videoUrl="pLl8uuLvKWA"
+                    youtubeId="pLl8uuLvKWA"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>

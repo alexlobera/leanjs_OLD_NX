@@ -93,7 +93,7 @@ const GraphQL = () => (
                     fullname="Charlie Wilson"
                     job="Software Engineer"
                     company="ESG PLC"
-                    videoUrl="tYhT8F82-z8"
+                    youtubeId="tYhT8F82-z8"
                   />
                 </Col>
                 <Col md={4} mdOffset={1}>

@@ -161,7 +161,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
                     fullname="Jim Plimmer"
                     job="Developer"
                     company="Conversion.com"
-                    videoUrl="nIK8ouQp17s"
+                    youtubeId="nIK8ouQp17s"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>

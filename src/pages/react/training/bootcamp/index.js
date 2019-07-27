@@ -98,7 +98,7 @@ const Bootcamps = () => (
                     fullname="Charlie Wilson"
                     job="Software Engineer"
                     company="ESG PLC"
-                    videoUrl="CP422OORbPA"
+                    youtubeId="CP422OORbPA"
                   />
                 </Col>
                 <Col md={4} mdOffset={1}>

@@ -8,7 +8,10 @@ import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
-import Section, { TopSection } from '../components/layout/Section'
+import Section, {
+  TopSection,
+  MOB_SECTION_MARGIN_Y,
+} from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { AttendeeQuote } from 'src/components/training'
@@ -138,7 +141,7 @@ const IndexPage = () => {
                   <a name="tab-curriculum" />
                 </Col>
               </Row>
-              <Card border="shadow">
+              <Card>
                 {selectedTab === TAB_REACT ? (
                   <FullCurriculumsReact trainings={trainings} />
                 ) : (
@@ -152,15 +155,16 @@ const IndexPage = () => {
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
-                    videoUrl="hZZksRcqtkc"
+                    youtubeId="hZZksRcqtkc"
                   />
                 </Col>
                 <Col md={4} mdOffset={1}>
-                  <H2>Is React GraphQL Academy right for me?</H2>
+                  <H2 mt={[MOB_SECTION_MARGIN_Y, 0]}>
+                    Is React GraphQL Academy right for me?
+                  </H2>
                   <Ul>
                     <Li>
                       For working developers -{' '}

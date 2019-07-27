@@ -104,7 +104,7 @@ const CorporateGraphQLTraining = () => (
                   fullname="Lara Ramey"
                   job="Senior Developer"
                   company="Meredith Corporation"
-                  videoUrl="IeZTDG7S6Dk"
+                  youtubeId="IeZTDG7S6Dk"
                   ctaButton="How Training Keeps Xing 
               Tech-Relevant (Blog)"
                   ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"

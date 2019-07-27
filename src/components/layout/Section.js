@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { DARK_BLUE, DARK_GREY } from '../../config/styles'
 import Box from './Box'
 
+export const MOB_SECTION_MARGIN_Y = 5
+
 const sectionVariantProps = {
   dark: {
     backgroundColor: [DARK_BLUE, 'transparent'],
@@ -18,6 +20,7 @@ const StyledSection = styled(Box)`
     padding-bottom: 0;
   }
 `
+
 const Section = ({ variant, ...rest }) => (
   <StyledSection
     {...((variant && sectionVariantProps[variant]) || {})}
@@ -25,10 +28,11 @@ const Section = ({ variant, ...rest }) => (
   />
 )
 Section.defaultProps = {
-  pt: [1, 4],
-  pb: [1, 4],
-  mt: [3, 0],
-  mb: [3, 0],
+  pt: [4, 4],
+  pb: [4, 4],
+  mt: [2, 3],
+  mb: [2, 3],
+  display: ['inline-block', 'block'],
   box: 'section',
 }
 Section.displayName = 'Section'

@@ -3,7 +3,10 @@ import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
-import Section, { TopSection } from 'src/components/layout/Section'
+import Section, {
+  TopSection,
+  MOB_SECTION_MARGIN_Y,
+} from 'src/components/layout/Section'
 import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
@@ -104,7 +107,9 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                     />
                   </Col>
                   <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Lara's student experience</H4>
+                    <H4 mt={[MOB_SECTION_MARGIN_Y, 0]}>
+                      Lara's student experience
+                    </H4>
                     <Video youtubeId="_8Xox79wE9Q" />
                     <TrainingDetails
                       coaches={[HORACIO_HERRERA, ALEX_LOBERA, RICHARD_MOSS]}
@@ -133,15 +138,16 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="At the end of course, you have a finished project. The networking also, [students] share jobs on the [alumni] Slack channel."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
-                    videoUrl="pLl8uuLvKWA"
+                    youtubeId="pLl8uuLvKWA"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>
-                  <H2Ref>Is this React bootcamp right for me? Are you...</H2Ref>
+                  <H2Ref mt={[MOB_SECTION_MARGIN_Y, 0]}>
+                    Is this React bootcamp right for me? Are you...
+                  </H2Ref>
                   <Ul>
                     <Li>
                       A developer with 1+ year of development under your belt

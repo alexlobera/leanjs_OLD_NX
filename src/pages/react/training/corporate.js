@@ -104,7 +104,7 @@ const CorporateReactTraining = () => (
                   fullname="Eber Herrera"
                   job="Technical Director"
                   company="Xing"
-                  videoUrl="TAtsPib9P9w"
+                  youtubeId="TAtsPib9P9w"
                   ctaButton="How Training Keeps Xing 
               Tech-Relevant (Blog)"
                   ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"

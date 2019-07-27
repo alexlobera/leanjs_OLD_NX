@@ -90,7 +90,7 @@ const PartTime = ({ trainings }) => (
                     fullname="Lara Ramey"
                     job="Software Developer"
                     company="Meredith Corporation"
-                    videoUrl="4NY7HCRPhWA"
+                    youtubeId="4NY7HCRPhWA"
                   />
                 </Col>
                 <Col md={4} mdOffset={1}>

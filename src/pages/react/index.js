@@ -119,7 +119,7 @@ const ReactPage = ({ data }) => {
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Link
                     to="#free-react-resources"

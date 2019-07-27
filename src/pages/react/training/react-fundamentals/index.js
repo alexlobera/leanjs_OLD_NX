@@ -85,7 +85,7 @@ const ReactFundamentals = props => (
                     fullname="Rafa Fraga"
                     job="Software Engineer"
                     // need to get the company name!
-                    videoUrl="-13ktI9oXIY"
+                    youtubeId="-13ktI9oXIY"
                   />
                 </Col>
 

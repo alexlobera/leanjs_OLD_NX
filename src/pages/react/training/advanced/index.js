@@ -91,7 +91,7 @@ const AdvancedTraining = () => (
                     fullname="Charlie Wilson"
                     job="Software Engineer"
                     company="ESG PLC"
-                    videoUrl="yG3H27y9F08"
+                    youtubeId="yG3H27y9F08"
                   />
                 </Col>
                 <Col md={4} mdOffset={1}>

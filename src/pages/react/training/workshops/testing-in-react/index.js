@@ -80,7 +80,7 @@ const AdvancedReactWorkshop = () => (
                     quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
-                    videoUrl="hZZksRcqtkc"
+                    youtubeId="hZZksRcqtkc"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>

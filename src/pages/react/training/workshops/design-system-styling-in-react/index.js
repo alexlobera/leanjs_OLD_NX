@@ -98,7 +98,7 @@ const StylingDesignSystemWorkshop = () => (
                     quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
-                    videoUrl="9QpAWAtZy6M"
+                    youtubeId="9QpAWAtZy6M"
                   />
                 </Col>
                 <Col md={4} lgOffset={1}>
