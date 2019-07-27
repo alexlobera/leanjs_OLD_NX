@@ -12,7 +12,6 @@ const LearningResources = ({ resources = [], type = '' }) => (
       {resources.map(({ node }) => (
         <PostCard
           post={node}
-          p={4}
           imageProps={{ objectFit: 'cover', width: '100%', maxHeight: '8rem' }}
         />
       ))}
