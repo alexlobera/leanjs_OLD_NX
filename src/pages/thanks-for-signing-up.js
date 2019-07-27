@@ -16,9 +16,9 @@ const ThanksForSignUp = () => (
       subtitle="Every week for the next 5 weeks, you'll get a new email with juicy React goodness... You don't have to do a thing."
       bgImageName={BOOTCAMP}
     />
-    <TopSection marginTop="-250">
+    <TopSection>
       <Grid>
-        <Card border="shadow">
+        <Card>
           <Row>
             <Col md={5} mdOffset={1}>
               <H2>What happens now?</H2>

@@ -208,7 +208,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <TopSection variant="dark" top>
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
@@ -256,7 +256,6 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="At the end of course, you have a finished project. The networking also, [students] share jobs on the [alumni] Slack channel."
                     fullname="Rafa Fraga"
                     job="Software Engineer"
@@ -310,7 +309,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </Section>
           <Section>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumReactBootcamp layout={LIST_TWO_COL} />

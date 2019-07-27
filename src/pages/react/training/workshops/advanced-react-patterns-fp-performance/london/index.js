@@ -82,7 +82,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <TopSection variant="dark">
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
@@ -105,7 +105,6 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="[The course] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
                     fullname="Jim Plimmer"
                     job="Developer"
@@ -158,7 +157,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </Section>
           <Section top>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumAdvReactPatterns layout={LIST_TWO_COL} />

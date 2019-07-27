@@ -29,7 +29,7 @@ const CodeOfConduct = () => (
         />
         <TopSection>
           <Grid>
-            <Card border="shadow">
+            <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <Row>

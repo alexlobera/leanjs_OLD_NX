@@ -13,7 +13,7 @@ const TermsOfService = () => (
     <Header titleLines={['Terms of service']} />
     <TopSection>
       <Grid>
-        <Card border="shadow">
+        <Card>
           <Row>
             <Col md={10} mdOffset={1}>
               <H2>

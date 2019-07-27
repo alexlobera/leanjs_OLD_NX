@@ -79,7 +79,7 @@ const GraphQLApolloClientWorkshop = () => (
           />
           <TopSection top>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumGraphQLApollo layout={LIST_TWO_COL} />
@@ -94,7 +94,6 @@ const GraphQLApolloClientWorkshop = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
                     fullname="Rafa Fraga"
                     job="Software Engineer"

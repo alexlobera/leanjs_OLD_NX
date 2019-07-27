@@ -62,7 +62,7 @@ const ReduxWorkshopLanding = () => (
           />
           <TopSection top>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumOneDayRedux layout={LIST_TWO_COL} />
@@ -77,7 +77,6 @@ const ReduxWorkshopLanding = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="[The coaches] are very important - they're able to explain things in a way we can understand."
                     fullname="Jim Plimmer"
                     job="Developer"

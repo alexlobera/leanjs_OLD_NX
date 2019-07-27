@@ -84,7 +84,7 @@ const CorporateReactTraining = () => (
               <Col mdOffset={1} md={6} />
             </CallToActionRow>
             <a name="schedule" />
-            <Card border="shadow">
+            <Card>
               <CurriculumCorporateReact />
             </Card>
           </Grid>
@@ -99,7 +99,6 @@ const CorporateReactTraining = () => (
               </Col>
               <Col lg={6} mdOffset={1}>
                 <AttendeeQuote
-                  small
                   quote="It's really hard to find good advanced tech training. In house, you standardise the knowledge [in a team] and start doing things the right way."
                   fullname="Eber Herrera"
                   job="Technical Director"

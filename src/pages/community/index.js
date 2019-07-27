@@ -103,7 +103,7 @@ const Community = () => (
               </CallToActionRow>
               <Row>
                 <Col md={6}>
-                  <Card border="shadow">
+                  <Card>
                     <Col md={8} mdOffset={2}>
                       <H2>
                         Meetups? Yes! <a name="meetups" />
@@ -147,7 +147,7 @@ const Community = () => (
                   </SecondaryCard>
                 </Col>
                 <Col md={6}>
-                  <Card border="shadow">
+                  <Card>
                     <Col md={8} mdOffset={2}>
                       <H2>
                         Twitter? Sure.

@@ -72,7 +72,7 @@ const GraphQL = () => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumGraphQLBootcamp
                   trainings={upcomingGraphQLTrainings}
@@ -88,7 +88,6 @@ const GraphQL = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="It's nice to have people there who know their stuff. I feel like [the course] has definitely improved my career trajectory"
                     fullname="Charlie Wilson"
                     job="Software Engineer"

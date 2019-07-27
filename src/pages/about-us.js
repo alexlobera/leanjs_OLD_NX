@@ -16,20 +16,13 @@ import { RootHeader as Header } from '../components/layout/Header'
 import { Card, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import { SCREEN_SM_MAX } from '../components/utils'
-import LeanJSsprints from '../components/elements/LeanJSsprints'
 import Box from '../components/layout/Box'
 import { GREY } from '../config/styles.js'
+import { CODEVELOP } from '../config/images'
 
 const CoachQuote = styled(Box)`
   border-left: 7px solid ${GREY};
   ${typography}
-`
-
-const BecomeACoachWrapper = styled.div`
-  @media (max-width: ${SCREEN_SM_MAX}) {
-    text-align: center;
-    padding-bottom: 18px;
-  }
 `
 
 const AboutUs = ({ data }) => {
@@ -53,7 +46,7 @@ const AboutUs = ({ data }) => {
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col md={10} mdOffset={1}>
                     <H2>
@@ -91,7 +84,7 @@ const AboutUs = ({ data }) => {
               </Card>
             </Grid>
           </TopSection>
-          <Section>
+          <Section mb={0} pb={0}>
             <Grid>
               <H2>Our coaches</H2>
               <Link to="#coaches" name="coaches"></Link>
@@ -156,10 +149,10 @@ const AboutUs = ({ data }) => {
           <Section>
             <Grid>
               <Row>
-                <Col md={5} smOrder={2}>
+                <Col md={5}>
                   <Video youtubeId="Rx2v_6I7PMM" />
                 </Col>
-                <Col md={6} mdOffset={1} smOrder={1}>
+                <Col md={6} mdOffset={1}>
                   <H2Ref>
                     How we continuously improve{' '}
                     <Link
@@ -191,15 +184,13 @@ const AboutUs = ({ data }) => {
                       new tecnologies without being prescriptive.
                     </Li>
                   </Ul>
-                  <BecomeACoachWrapper>
-                    <LinkButton
-                      target="_self"
-                      to="mailto:hello@reactgraphql.academy?subject=Become a coach"
-                      className="how-we-improve-become-a-coach"
-                    >
-                      Become a coach
-                    </LinkButton>
-                  </BecomeACoachWrapper>
+                  <LinkButton
+                    target="_self"
+                    to="mailto:hello@reactgraphql.academy?subject=Become a coach"
+                    className="how-we-improve-become-a-coach"
+                  >
+                    Become a coach
+                  </LinkButton>
                 </Col>
               </Row>
             </Grid>
@@ -309,9 +300,42 @@ const AboutUs = ({ data }) => {
               </Row>
             </Grid>
           </Section>
-          <Section variant="grey">
+          <Section variant="dark">
             <Grid>
-              <LeanJSsprints />
+              <Card variant="primary">
+                <Row>
+                  <Col md={4} mdOffset={1}>
+                    <Image
+                      src={CODEVELOP}
+                      width="100%"
+                      alt="LeanJS UX designer Paul Woodley, sorting post-it notes into different columns "
+                    />
+                  </Col>
+                  <Col md={1} />
+                  <Col md={5}>
+                    <H2Ref>
+                      <Link to="#development" name="development" />
+                      Need specialised training using your codebase?
+                    </H2Ref>
+                    <P>
+                      Our parent company LeanJS runs flexible week-long Sprints
+                      teaching React, GraphQL or UX Design to help improve your
+                      codebase and development workflows.{' '}
+                    </P>
+                    <P>
+                      Working on a product/codebase that you help identify,
+                      these 5-day workshops bolster learnings from the React
+                      GraphQL Academy core curriculum to open up advanced Lean
+                      techniques skills to your team.
+                    </P>
+                    <P>
+                      <LinkButton to="https://leanjs.com">
+                        Find out more at LeanJS.com
+                      </LinkButton>
+                    </P>
+                  </Col>
+                </Row>
+              </Card>
             </Grid>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />

@@ -97,7 +97,7 @@ const GraphQLPage = ({ data }) => {
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Link
                     to="#free-graphql-resources"

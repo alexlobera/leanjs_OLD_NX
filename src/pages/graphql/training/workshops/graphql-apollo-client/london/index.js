@@ -101,7 +101,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <TopSection variant="dark">
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
@@ -124,7 +124,6 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
                     fullname="Lara Ramey"
                     job="Software Developer"
@@ -171,7 +170,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </Section>
           <Section>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumGraphQLApollo layout={LIST_TWO_COL} />

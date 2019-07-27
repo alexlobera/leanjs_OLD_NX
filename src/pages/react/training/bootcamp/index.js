@@ -80,7 +80,7 @@ const Bootcamps = () => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumReactBootcamp
                   trainings={upcomingBootCampTrainings}
@@ -93,7 +93,6 @@ const Bootcamps = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
                     fullname="Charlie Wilson"
                     job="Software Engineer"

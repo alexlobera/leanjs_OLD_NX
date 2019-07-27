@@ -94,7 +94,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <TopSection variant="dark">
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
@@ -114,7 +114,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </TopSection>
           <Section>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumGraphQLAPI layout={LIST_TWO_COL} />
@@ -129,7 +129,6 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="It's nice that the coaches almost don't hold your hand as there's a certain level of knowledge [students have] meaning you can learn quicker and get more done."
                     fullname="Charlie Wilson"
                     job="Software Engineer"

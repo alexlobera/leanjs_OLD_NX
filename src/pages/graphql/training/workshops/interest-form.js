@@ -75,7 +75,7 @@ const SessionInterestGraphQL = () => (
 
           <TopSection marginTop={`-250`}>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col md={10} mdOffset={1}>
                     <Form

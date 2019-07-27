@@ -101,7 +101,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <TopSection variant="dark">
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
@@ -124,7 +124,6 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
                     fullname="Lara Ramey"
                     job="Software Developer"
@@ -183,7 +182,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </Section>
           <Section top>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumOneDayRedux layout={LIST_TWO_COL} />

@@ -78,7 +78,7 @@ const Meetups = () => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Col lg={11} lgOffset={1}>
                   <H2>
                     Our upcoming meetups

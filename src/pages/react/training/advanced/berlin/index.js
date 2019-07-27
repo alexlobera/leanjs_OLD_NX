@@ -109,7 +109,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <TopSection variant="dark" top>
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
@@ -132,7 +132,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </TopSection>
           <Section>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumAdvancedReact
@@ -149,7 +149,6 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="This course has taught me not just the 'how' but WHY React is good..."
                     fullname="Jim Plimmer"
                     job="Developer"

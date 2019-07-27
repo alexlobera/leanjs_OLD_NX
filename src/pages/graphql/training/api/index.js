@@ -68,7 +68,7 @@ const GraphQL = () => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumGraphQLAPI
                   trainings={upcomingGraphQLTrainings}
@@ -83,7 +83,6 @@ const GraphQL = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="[The coaches] are very important - they're able to explain things in a way we can understand."
                     fullname="Jim Plimmer"
                     job="Developer"

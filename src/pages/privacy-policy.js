@@ -14,7 +14,7 @@ const PrivacyPolicy = () => (
     <Header titleLines={['Privacy Policy']} />
     <TopSection>
       <Grid>
-        <Card border="shadow">
+        <Card>
           <Row>
             <Col md={10} mdOffset={1}>
               <P>

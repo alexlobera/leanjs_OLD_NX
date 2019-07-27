@@ -55,7 +55,7 @@ const ReactNativeBoocamp = () => (
         />
         <TopSection>
           <Grid>
-            <Card border="shadow">
+            <Card>
               <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumReactNative />
             </Card>

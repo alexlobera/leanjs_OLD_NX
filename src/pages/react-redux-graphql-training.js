@@ -24,7 +24,7 @@ const BootcampList = () => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <H2>We've trained developers from a range of companies</H2>
@@ -36,7 +36,7 @@ const BootcampList = () => (
           </TopSection>
           <Section variant="dark">
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={4} lgOffset={1}>
                     <Video youtubeId="yvROXLQ1jHg" />

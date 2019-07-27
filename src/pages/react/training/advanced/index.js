@@ -74,7 +74,7 @@ const AdvancedTraining = () => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <CurriculumAdvancedReact
                   trainings={upcomingAdvancedTrainings}
                 />
@@ -86,7 +86,6 @@ const AdvancedTraining = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="Most of the software my company does is legacy, it's been there for a while. Coming from PHP, React seemed a good way to do that."
                     fullname="Charlie Wilson"
                     job="Software Engineer"

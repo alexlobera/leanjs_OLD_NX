@@ -121,7 +121,7 @@ const TrainingPage = props => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <FullCurriculumsGraphQL trainings={trainings} />
               </Card>
             </Grid>
@@ -131,7 +131,6 @@ const TrainingPage = props => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="I think whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
                     fullname="Lara Ramey"
                     job="Software Developer"

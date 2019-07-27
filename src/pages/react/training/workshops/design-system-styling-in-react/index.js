@@ -79,7 +79,7 @@ const StylingDesignSystemWorkshop = () => (
           />
           <TopSection top>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumStylingAndAdvUI layout={LIST_TWO_COL} />
@@ -94,7 +94,6 @@ const StylingDesignSystemWorkshop = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
                     fullname="Rafa Fraga"
                     job="Software Engineer"

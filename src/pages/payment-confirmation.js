@@ -59,7 +59,7 @@ class PaymentConfirmation extends React.Component {
         />
         <TopSection marginTop="-250">
           <Grid>
-            <Card border="shadow">
+            <Card>
               <Row>
                 <Col md={5} mdOffset={1}>
                   <H2>What happens now?</H2>

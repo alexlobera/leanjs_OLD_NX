@@ -74,7 +74,7 @@ const PartTime = ({ trainings }) => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumPartTime trainings={upcomingPartTimeTrainings} />
               </Card>
@@ -85,7 +85,6 @@ const PartTime = ({ trainings }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="Whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
                     fullname="Lara Ramey"
                     job="Software Developer"

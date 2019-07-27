@@ -27,6 +27,7 @@ const Section = ({ variant, ...rest }) => (
     {...rest}
   />
 )
+
 Section.defaultProps = {
   pt: [4, 4],
   pb: [4, 4],

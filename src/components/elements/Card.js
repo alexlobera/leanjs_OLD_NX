@@ -19,8 +19,8 @@ const StyledCard = styled(Box)`
 StyledCard.defaultProps = {
   pt: [0, 7],
   pb: [0, 7],
-  pl: [0, 3],
-  pr: [0, 3],
+  pl: 0,
+  pr: 0,
 }
 
 const Card = ({ small, ...rest }) => {
@@ -28,7 +28,8 @@ const Card = ({ small, ...rest }) => {
   if (small) {
     smallProps.pt = [0, 5]
     smallProps.pb = [0, 5]
-    smallProps.px = [1, 5]
+    smallProps.pl = [1, 5]
+    smallProps.pr = [1, 5]
   }
   return (
     <StyledCard
@@ -50,8 +51,8 @@ const cardVariantProps = {
     pt: [2, 6],
     pb: [2, 6],
     backgroundColor: DARK_BLUE,
+    border: [null, '1px solid'],
     borderColor: BROWN,
-    border: [null, 'solid 1px'],
   },
   secondary: {
     backgroundColor: WHITE,

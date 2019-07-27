@@ -268,7 +268,7 @@ class PaymentSection extends React.Component {
           </Card>
         </React.Fragment>
         {financeAvailable && <FinanceCard />}
-        <Card small bg="dark" mt={3}>
+        <Card small variant="primary" mt={3}>
           <ContactForm simplified />
         </Card>
       </React.Fragment>

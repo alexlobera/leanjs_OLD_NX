@@ -62,7 +62,7 @@ const AdvancedReactWorkshop = () => (
           />
           <TopSection top>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumTestingInReact layout={LIST_TWO_COL} />
@@ -76,7 +76,6 @@ const AdvancedReactWorkshop = () => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
                     fullname="Rafa Fraga"
                     job="Software Engineer"

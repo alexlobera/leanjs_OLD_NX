@@ -84,7 +84,7 @@ const GraphQLWorkshops = () => (
           />
           <TopSection marginTop={`-250`}>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col md={10} mdOffset={1}>
                     <H2>Which GraphQL workshop are you looking for?</H2>

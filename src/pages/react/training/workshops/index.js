@@ -94,7 +94,7 @@ const Workshops = () => (
           />
           <TopSection marginTop={`-250`}>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col md={10} mdOffset={1}>
                     <H2>Which 1-day React training are you looking for?</H2>

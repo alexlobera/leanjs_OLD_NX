@@ -127,7 +127,7 @@ class ReactCurriculum extends React.Component {
               />
               <TopSection>
                 <Grid>
-                  <Card border="shadow" pb={[0, 4]}>
+                  <Card>
                     <Row>
                       <Col lg={10} lgOffset={1}>
                         <H2Ref>

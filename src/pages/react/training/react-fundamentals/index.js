@@ -67,7 +67,7 @@ const ReactFundamentals = props => (
           />
           <TopSection>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Link to="#upcoming-courses" name="upcoming-courses" />
                 <CurriculumReactFundamentals
                   trainings={upcomingFundamentalsTrainings}
@@ -80,7 +80,6 @@ const ReactFundamentals = props => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="The most complicated thing in React is set up, I learnt that and now it's easy for me to create an app very quickly."
                     fullname="Rafa Fraga"
                     job="Software Engineer"

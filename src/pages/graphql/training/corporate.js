@@ -84,7 +84,7 @@ const CorporateGraphQLTraining = () => (
               <Col mdOffset={1} md={6} />
             </CallToActionRow>
             <a name="schedule" />
-            <Card border="shadow">
+            <Card>
               <CurriculumCorporateGraphQL />
             </Card>
           </Grid>
@@ -99,7 +99,6 @@ const CorporateGraphQLTraining = () => (
               </Col>
               <Col lg={6} mdOffset={1}>
                 <AttendeeQuote
-                  small
                   quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
                   fullname="Lara Ramey"
                   job="Senior Developer"

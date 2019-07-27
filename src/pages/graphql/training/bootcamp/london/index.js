@@ -83,7 +83,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <TopSection variant="dark">
             <Grid>
-              <Card bg="dark">
+              <Card variant="primary">
                 <Row>
                   <Col md={6} lg={5} lgOffset={1}>
                     <PaymentSection
@@ -104,7 +104,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </TopSection>
           <Section>
             <Grid>
-              <Card border="shadow">
+              <Card>
                 <Row>
                   <Col lg={10} lgOffset={1}>
                     <CurriculumGraphQLBootcamp
@@ -122,7 +122,6 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Row>
                 <Col md={5} mdOffset={1}>
                   <AttendeeQuote
-                    small
                     quote="The coaches are always available [on the Alumni Slack channel]... Now I'm not alone."
                     fullname="Lara Ramey"
                     job="Software Developer"
