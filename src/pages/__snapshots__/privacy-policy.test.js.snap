@@ -20,19 +20,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
   >
     <Grid>
       <Card
-        border="shadow"
-        pb={
-          Array [
-            4,
-            7,
-          ]
-        }
-        pt={
-          Array [
-            4,
-            7,
-          ]
-        }
+        variant="secondary"
       >
         <Row>
           <Styled(Col)
@@ -78,27 +66,33 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
   </TopSection>
   <Section
     box="section"
+    display={
+      Array [
+        "inline-block",
+        "block",
+      ]
+    }
     mb={
       Array [
+        2,
         3,
-        0,
       ]
     }
     mt={
       Array [
+        2,
         3,
-        0,
       ]
     }
     pb={
       Array [
-        1,
+        4,
         4,
       ]
     }
     pt={
       Array [
-        1,
+        4,
         4,
       ]
     }

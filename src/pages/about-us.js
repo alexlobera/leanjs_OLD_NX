@@ -17,7 +17,7 @@ import { Card, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Box from '../components/layout/Box'
 import { GREY } from '../config/styles.js'
-import LeanJSsprints from 'src/components/elements/LeanJSsprints'
+import LeanJSsprints from '../components/elements/LeanJSsprints'
 
 const CoachQuote = styled(Box)`
   border-left: 7px solid ${GREY};
