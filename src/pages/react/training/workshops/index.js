@@ -50,7 +50,7 @@ const waitlistWorkshops = [
   },
 ]
 
-const Workshops = () => (
+const Workshops = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const reactWorkshops = selectUpcomingTrainings({
@@ -83,7 +83,7 @@ const Workshops = () => (
                 label: 'Training',
               },
               {
-                to: '/react/training/workshops',
+                to: path,
                 label: 'Workshops',
               },
             ]}

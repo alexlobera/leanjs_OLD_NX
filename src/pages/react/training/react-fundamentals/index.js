@@ -25,7 +25,7 @@ import { REACT_FUNDAMENTALS } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 
-const ReactFundamentals = props => (
+const ReactFundamentals = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingFundamentalsTrainings = selectUpcomingTrainings({
@@ -53,7 +53,7 @@ const ReactFundamentals = props => (
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
               {
-                to: '/react/training/react-fundamentals',
+                to: path,
                 label: 'React Fundamentals',
               },
             ]}

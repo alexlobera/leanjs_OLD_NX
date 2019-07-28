@@ -74,6 +74,7 @@ class ReactCurriculum extends React.Component {
   }
 
   render() {
+    const { path } = this.props
     const commonCurriculumProps = {
       enableToggle: true,
       showTitle: false,
@@ -110,7 +111,7 @@ class ReactCurriculum extends React.Component {
                     label: 'React',
                   },
                   {
-                    to: '/react/curriculum',
+                    to: path,
                     label: 'Curriculum',
                   },
                 ]}

@@ -32,7 +32,7 @@ const metas = {
   type: 'website',
 }
 
-const TrainingPage = props => (
+const TrainingPage = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       return (
@@ -52,11 +52,11 @@ const TrainingPage = props => (
             path={[
               { to: '/', label: 'Home' },
               {
-                to: '/graphql',
+                to: '/graphql/',
                 label: 'GraphQL',
               },
               {
-                to: '/graphql/training',
+                to: path,
                 label: 'Training',
               },
             ]}

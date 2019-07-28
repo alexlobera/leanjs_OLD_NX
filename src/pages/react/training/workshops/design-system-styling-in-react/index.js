@@ -30,7 +30,7 @@ const metas = {
   type: 'website',
 }
 
-const StylingDesignSystemWorkshop = () => (
+const StylingDesignSystemWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const bootCampTrainings = selectUpcomingTrainings({
@@ -61,7 +61,7 @@ const StylingDesignSystemWorkshop = () => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
+                to: path,
                 label: 'Styling in React using design systems',
               },
             ]}

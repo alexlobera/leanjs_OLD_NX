@@ -69,6 +69,7 @@ class GraphQLCurriculum extends React.Component {
   }
 
   render() {
+    const { path } = this.props
     const commonCurriculumProps = {
       enableToggle: true,
       showTitle: false,
@@ -101,7 +102,7 @@ class GraphQLCurriculum extends React.Component {
                     label: 'GraphQL',
                   },
                   {
-                    to: '/graphql/curriculum',
+                    to: path,
                     label: 'Curriculum',
                   },
                 ]}

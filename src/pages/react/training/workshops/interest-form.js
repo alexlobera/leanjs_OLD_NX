@@ -33,7 +33,7 @@ import trackUserBehaviour, {
 
 const NameInput = aliasComponent(InputField)
 
-const SessionInterest = () => (
+const SessionInterest = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const handleFormSubmit = ({ name, email, subscriptions, resources }) => {
@@ -70,7 +70,7 @@ const SessionInterest = () => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/interest-form',
+                to: path,
                 label: 'Interest Form',
               },
             ]}

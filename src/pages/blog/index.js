@@ -9,14 +9,14 @@ import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
 
-const Blog = ({ data }) => {
+const Blog = ({ data, path }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
       {({ trainings }) => (
         <React.Fragment>
           <Breadcrumb
-            path={[{ to: '/', label: 'Home' }, { to: `/blog/`, label: `Blog` }]}
+            path={[{ to: '/', label: 'Home' }, { to: path, label: `Blog` }]}
           />
           <Header
             titleLines={['Blog']}
