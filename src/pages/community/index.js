@@ -51,7 +51,7 @@ const TwitterWidgetsOnlyOnClientSide = () => {
   }
 }
 
-const Community = ({ data }) => (
+const Community = ({ data, path }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingMeetups = selectUpcomingTrainings({
@@ -68,7 +68,7 @@ const Community = ({ data }) => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/community', label: 'Community' },
+              { to: path, label: 'Community' },
             ]}
           />
           <Header
