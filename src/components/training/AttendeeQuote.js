@@ -27,7 +27,9 @@ const AttendeeQuote = ({
       </P>
     </Box>
     {ctaButton && (
-      <LinkButton to={ctaUrl}>{ctaButton || 'Click here'}</LinkButton>
+      <LinkButton mt={2} to={ctaUrl}>
+        {ctaButton || 'Click here'}
+      </LinkButton>
     )}
   </Card>
 )

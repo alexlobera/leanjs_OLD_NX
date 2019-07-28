@@ -112,7 +112,7 @@ class GraphQLCurriculum extends React.Component {
                 bgColor={GRAPHQL_PINK}
               />
               <TopSection>
-                <Card border="shadow" pb={[0, 4]}>
+                <Card>
                   <Row>
                     <Col lg={10} lgOffset={1}>
                       <H2Ref>
@@ -192,6 +192,7 @@ class GraphQLCurriculum extends React.Component {
                               <LinkButton
                                 variant="secondary"
                                 to="/graphql/training/bootcamp"
+                                className="training-curriculum-clicks"
                               >
                                 GraphQL Bootcamp
                               </LinkButton>
@@ -200,6 +201,7 @@ class GraphQLCurriculum extends React.Component {
                               <LinkButton
                                 variant="secondary"
                                 to="/graphql/training/api"
+                                className="training-curriculum-clicks"
                               >
                                 GraphQL API
                               </LinkButton>
@@ -208,6 +210,7 @@ class GraphQLCurriculum extends React.Component {
                               <LinkButton
                                 variant="secondary"
                                 to="/graphql/training/workshops/graphql-apollo-client/"
+                                className="training-curriculum-clicks"
                               >
                                 GraphQL Client
                               </LinkButton>
@@ -226,7 +229,10 @@ class GraphQLCurriculum extends React.Component {
                               Private team training, located in your offices
                               anywhere in the world.
                             </P>
-                            <Link to="/graphql/training/corporate">
+                            <Link
+                              to="/graphql/training/corporate"
+                              className="training-curriculum-clicks"
+                            >
                               Find Out More
                             </Link>
                           </TrainingCard>
@@ -241,6 +247,7 @@ class GraphQLCurriculum extends React.Component {
                             <Link
                               variant="secondary"
                               to="/graphql/training/workshops"
+                              className="training-curriculum-clicks"
                             >
                               Find Out More
                             </Link>

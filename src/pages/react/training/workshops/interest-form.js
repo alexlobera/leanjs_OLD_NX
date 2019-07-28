@@ -27,6 +27,9 @@ import { aliasComponent } from 'src/components/utils/aliasComponent'
 import { EmailInput } from 'src/components/form/Contact'
 import { triggerSessionSubscribe } from 'src/api'
 import { Breadcrumb } from 'src/components/navigation'
+import trackUserBehaviour, {
+  FORM_SUBMIT,
+} from 'src/components/utils/trackUserBehaviour'
 
 const NameInput = aliasComponent(InputField)
 
@@ -40,6 +43,14 @@ const SessionInterest = () => (
           subscriptions: Object.keys(subscriptions),
           resources,
           pathname: 'React 1 day workshops form',
+        })
+        trackUserBehaviour({
+          event: FORM_SUBMIT,
+          payload: {
+            interestedInCourse: 'React',
+            formType: 'Interest form',
+            subject: Object.keys(subscriptions),
+          },
         })
         navigate('/thanks-for-signing-up-for-sessions')
       }

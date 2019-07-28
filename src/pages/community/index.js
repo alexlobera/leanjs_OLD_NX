@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
 import { LONDON_BOOTCAMP } from '../../../images/imageNames'
 import Layout from '../../components/layout'
@@ -17,7 +18,6 @@ import {
 } from '../../components/training'
 import { LinkButton } from '../../components/buttons'
 import { MEETUP, instagramPictures } from '../../config/data'
-import { MENTORSHIP_IMG } from '../../config/images'
 import { CallToActionRow } from '../../components/layout/CallToActionRow'
 import Ul, { Li } from '../../components/layout/Ul'
 import { Breadcrumb } from '../../components/navigation'
@@ -57,7 +57,7 @@ const TwitterWidgetsOnlyOnClientSide = () => {
   }
 }
 
-const Community = () => (
+const Community = ({ data }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingMeetups = selectUpcomingTrainings({
@@ -68,7 +68,7 @@ const Community = () => (
       const nextMeetupStartDate =
         nextMeetup &&
         formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
-
+      const mentorshipImgSrc = data.file.childImageSharp.fluid.src
       return (
         <React.Fragment>
           <Breadcrumb
@@ -163,7 +163,7 @@ const Community = () => (
             <Row>
               <Col md={6}>
                 <Image
-                  src={MENTORSHIP_IMG}
+                  src={mentorshipImgSrc}
                   alt="A group of React GraphQL Academy coaches and mentors, looking very happy indeed"
                 />
               </Col>
@@ -208,6 +208,18 @@ const Community = () => (
     }}
   </Layout>
 )
+
+export const query = graphql`
+  query mentorshipImg($imgMaxWidth: Int!) {
+    file(absolutePath: { regex: "/mentorship/" }) {
+      childImageSharp {
+        fluid(maxWidth: $imgMaxWidth) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export const OurMeetupGroups = () => (
   <React.Fragment>

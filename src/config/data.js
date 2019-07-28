@@ -1,8 +1,4 @@
 import {
-  LONDON_MEETUP,
-  LISBON_MEETUP,
-  BCN_MEETUP,
-  AMSTERDAM_MEETUP,
   RICHARD,
   ALEX,
   HORACIO,
@@ -187,50 +183,6 @@ export const trainings = [
   ...upcomingAdvanced,
 ]
 
-const meetups = [
-  {
-    dateStartsOn: new Date('9 May, 2019'),
-    cityShortName: 'London',
-    country: 'UK',
-    url: 'https://www.meetup.com/JavaScript-London/events/260824278/',
-    title: 'GraphQL deep dive with Vladimir Novick & React GraphQL Academy',
-    imgUrl: LONDON_MEETUP,
-  },
-  {
-    dateStartsOn: new Date('15 Jan, 2019'),
-    cityShortName: 'Barcelona',
-    country: 'ES',
-    url: 'https://www.meetup.com/JavaScript-Barcelona/events/257156744',
-    title: 'Meet the Gatsby team!',
-    imgUrl: BCN_MEETUP,
-  },
-  {
-    dateStartsOn: new Date('16 Jan, 2019'),
-    cityShortName: 'Lisbon',
-    country: 'PT',
-    url: 'https://www.meetup.com/JavaScript-Lisbon/events/257640193/',
-    title: 'Getting started with React Hooks ',
-    imgUrl: LISBON_MEETUP,
-  },
-  {
-    dateStartsOn: new Date('21 Feb, 2019'),
-    cityShortName: 'London',
-    country: 'UK',
-    url: 'https://www.meetup.com/JavaScript-London/events/257660896',
-    title: 'Functional programming in JavaScript',
-    imgUrl: LONDON_MEETUP,
-  },
-  {
-    dateStartsOn: new Date('18 Feb, 2019'),
-    cityShortName: 'Amsterdam',
-    country: 'NL',
-    url: 'https://www.meetup.com/JavaScript-Amsterdam/events/257709061/',
-    title:
-      'Learn JavaScript Testing Principles By Building Your Own Testing Library',
-    imgUrl: AMSTERDAM_MEETUP,
-  },
-]
-
 export const blogAuthors = {
   richard: {
     imgSrc: RICHARD,
@@ -349,8 +301,3 @@ export const instagramPictures = [
 
 export const CONVINCE_THE_BOSS_PDF =
   'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FConvince%20the%20boss%20-%20ReactJS%20Academy.pdf?alt=media&'
-
-export const selectMeetups = () =>
-  meetups
-    .filter(meetup => meetup.dateStartsOn > Date.now())
-    .sort((a, b) => a.dateStartsOn > b.dateStartsOn)

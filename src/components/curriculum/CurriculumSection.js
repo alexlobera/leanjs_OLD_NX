@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { H4 } from '../text'
@@ -59,21 +59,17 @@ const CurriculumSection = props => {
   const [isTabOpen, setIsOpen] = useState(isOpen)
 
   const toggleSubSection = () => {
-    setIsOpen(
-      prevState => !prevState,
-      () => {
-        if (isTabOpen) {
-          // send event to analytics
-          trackUserBehaviour({
-            event: CURRICULUM_MORE_DETAILS,
-            payload: {
-              courseOutline: props.title,
-            },
-          })
-        }
-      }
-    )
+    setIsOpen(prevState => !prevState)
   }
+
+  useEffect(() => {
+    trackUserBehaviour({
+      event: CURRICULUM_MORE_DETAILS,
+      payload: {
+        courseOutline: props.title,
+      },
+    })
+  }, [isTabOpen])
 
   const {
     title,
