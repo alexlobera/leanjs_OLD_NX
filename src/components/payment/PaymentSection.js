@@ -21,6 +21,11 @@ import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 import { FinanceCard } from './'
 
+const primaryCardPaddingTopBottomProps = {
+  pt: [2, 5],
+  pb: [2, 5],
+}
+
 class PaymentSection extends React.Component {
   state = {
     quantity: 1,
@@ -211,7 +216,7 @@ class PaymentSection extends React.Component {
               training, it does not include travel expenses.
             </P>
           )}
-          <Card small>
+          <Card small {...primaryCardPaddingTopBottomProps}>
             <H3>
               <strong>{notSoldOut ? title : 'Sold out!'}</strong>
             </H3>
@@ -267,7 +272,9 @@ class PaymentSection extends React.Component {
             )}
           </Card>
         </React.Fragment>
-        {financeAvailable && <FinanceCard />}
+        {financeAvailable && (
+          <FinanceCard {...primaryCardPaddingTopBottomProps} />
+        )}
         <Card small variant="primary" mt={3}>
           <ContactForm simplified />
         </Card>
