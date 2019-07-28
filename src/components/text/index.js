@@ -6,10 +6,14 @@ export { default as P } from './P'
 export { default as Span } from './Span'
 export { default as Hr } from './Hr'
 
-export const fontColor = (color, important = '') => `
-  color: ${color} ${important};
-  h2, h3, h4, h5, p, span, ul, li {
+export const fontColor = (color, isImportant) => {
+  const important = isImportant ? ' !important' : ''
+
+  return `
     color: ${color} ${important};
-  }
-  ${styleChildLinkColor(color, important)}
-`
+    h2, h3, h4, h5, p, span, ul, li {
+      color: ${color} ${important};
+    }
+    ${styleChildLinkColor(color, isImportant)}
+  `
+}
