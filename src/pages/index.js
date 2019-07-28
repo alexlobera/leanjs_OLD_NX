@@ -8,11 +8,7 @@ import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
-import Section, {
-  TopSection,
-  ColSection,
-  MOB_SECTION_MARGIN_Y,
-} from '../components/layout/Section'
+import { TopSection, ColSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { AttendeeQuote } from 'src/components/training'
@@ -30,15 +26,15 @@ import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 import Box from 'src/components/layout/Box'
 
-const SectionButtonRow = styled(Row)`
-  margin-top: 30px;
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    a {
-      margin-top: 5px;
-      display: block;
-    }
-  }
-`
+// const SectionButtonRow = styled(Row)`
+//   margin-top: 30px;
+//   @media (max-width: ${SCREEN_XS_MAX}) {
+//     a {
+//       margin-top: 5px;
+//       display: block;
+//     }
+//   }
+// `
 const metas = {
   title: 'React & GraphQL Expert Training | React GraphQL Academy',
   description:
@@ -227,10 +223,9 @@ const IndexPage = () => {
                   <Li>Increase employee retention and productivity</Li>
                   <Li>Offer more services to internal and external clients</Li>
                 </Ul>
-                <SectionButtonRow>
+                <Row>
                   <Col sm={7}>
                     <LinkButton
-                      variant="default"
                       pdf
                       to={CONVINCE_THE_BOSS_PDF}
                       className="learn-with-us-pdf"
@@ -240,6 +235,8 @@ const IndexPage = () => {
                   </Col>
                   <Col sm={5}>
                     <LinkButton
+                      mt={[4, 0]}
+                      display={'block'}
                       variant="secondary"
                       to="/react/training/corporate/"
                       className="corporate-team-training-testimonials-cta"
@@ -247,7 +244,7 @@ const IndexPage = () => {
                       Corporate team training
                     </LinkButton>
                   </Col>
-                </SectionButtonRow>
+                </Row>
               </React.Fragment>
             }
           ></ColSection>

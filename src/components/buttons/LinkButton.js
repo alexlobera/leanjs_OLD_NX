@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Link from '../navigation/Link'
@@ -13,35 +12,37 @@ import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 const StyledLinkButton = styled(Link)`
   ${defaultButtonStyle}
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
 `
-
 StyledLinkButton.displayName = 'StyledLinkButton'
+StyledLinkButton.defaultProps = {
+  ...buttonDefaultProps,
+  display: 'inline-flex',
+  alignItems: 'center',
+}
 
 const LinkButton = ({
   trackUserBehaviour: trackUserBehaviourProp,
   children,
   variant,
   ...props
-}) => (
-  <StyledLinkButton
-    role="button"
-    {...props}
-    {...(variant ? buttonVariantProps[variant] : {})}
-  >
-    {props.pdf ? <PdfDownload mr={3} /> : null}
-    {props.external ? <ExternalLinkIcon mr={3} /> : null}
-    {children}
-  </StyledLinkButton>
-)
-
-LinkButton.propTypes = {
-  variant: PropTypes.string,
+}) => {
+  console.log('2222  buttonVariantProps[variant]', buttonVariantProps[variant])
+  console.log('11111', props)
+  return (
+    <StyledLinkButton
+      role="button"
+      {...(variant ? buttonVariantProps[variant] : {})}
+      {...props}
+    >
+      {props.pdf ? <PdfDownload mr={3} /> : null}
+      {props.external ? <ExternalLinkIcon mr={3} /> : null}
+      {children}
+    </StyledLinkButton>
+  )
 }
 
 LinkButton.defaultProps = {
-  ...buttonDefaultProps,
+  variant: 'default',
 }
 
 export default LinkButton
