@@ -22,11 +22,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "to": "/react/training/corporate",
           },
           Object {
-            "hideOnMobile": true,
-            "text": "React Workshops",
-            "to": "/react/training/workshops",
-          },
-          Object {
             "text": "React Curriculum",
             "to": "/react/curriculum",
           },
@@ -47,11 +42,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "hideOnMobile": true,
             "text": "GraphQL Corporate Training",
             "to": "/graphql/training/corporate",
-          },
-          Object {
-            "hideOnMobile": true,
-            "text": "GraphQL Workshops",
-            "to": "/graphql/training/workshops",
           },
           Object {
             "text": "GraphQL Curriculum",
