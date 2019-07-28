@@ -22,7 +22,8 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
       variant="secondary"
     >
       <Row>
-        <Styled(Col)
+        <Styled(Box)
+          box={[Function]}
           md={10}
           mdOffset={1}
         >
@@ -58,7 +59,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
             </Link>
             .
           </Styled(Box)>
-        </Styled(Col)>
+        </Styled(Box)>
       </Row>
     </Card>
   </TopSection>
@@ -96,7 +97,8 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
     }
   >
     <Row>
-      <Styled(Col)
+      <Styled(Box)
+        box={[Function]}
         md={10}
         mdOffset={1}
       >
@@ -639,7 +641,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
           </Link>
           .
         </Styled(Box)>
-      </Styled(Col)>
+      </Styled(Box)>
     </Row>
   </Section>
 </Layout>

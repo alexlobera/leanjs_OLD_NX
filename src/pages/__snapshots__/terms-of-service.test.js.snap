@@ -22,7 +22,8 @@ exports[`<TermsOfService /> should render component 1`] = `
       variant="secondary"
     >
       <Row>
-        <Styled(Col)
+        <Styled(Box)
+          box={[Function]}
           md={10}
           mdOffset={1}
         >
@@ -36,7 +37,7 @@ exports[`<TermsOfService /> should render component 1`] = `
           >
             By registering for our workshops, courses or bootcamps, you agree to the following terms and conditions.
           </Styled(Box)>
-        </Styled(Col)>
+        </Styled(Box)>
       </Row>
     </Card>
   </TopSection>
@@ -74,7 +75,8 @@ exports[`<TermsOfService /> should render component 1`] = `
     }
   >
     <Row>
-      <Styled(Col)
+      <Styled(Box)
+        box={[Function]}
         md={10}
         mdOffset={1}
       >
@@ -249,7 +251,7 @@ exports[`<TermsOfService /> should render component 1`] = `
             Registered VAT number: 256 5475 77
           </Styled(Box)>
         </Styled(Box)>
-      </Styled(Col)>
+      </Styled(Box)>
     </Row>
   </Section>
 </Layout>
