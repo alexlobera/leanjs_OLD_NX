@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { DARK_BLUE, DARK_GREY } from '../../config/styles'
 import Box from './Box'
-import Grid from 'src/components/layout/Grid'
+import Grid from './Grid'
 
 export const MOB_SECTION_MARGIN_Y = 5
 

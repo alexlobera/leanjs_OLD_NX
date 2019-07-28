@@ -2,9 +2,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { typography } from 'styled-system'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import styled from 'styled-components'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'

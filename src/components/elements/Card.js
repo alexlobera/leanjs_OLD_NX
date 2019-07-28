@@ -48,6 +48,8 @@ const cardVariantProps = {
   info: {
     pl: [0, 6],
     pr: [0, 6],
+    pt: [0, 6],
+    pb: [0, 6],
     border: [null, '3px solid'],
     borderColor: [null, BLUE],
   },
@@ -55,7 +57,7 @@ const cardVariantProps = {
     pt: [2, 5],
     pb: [2, 5],
     backgroundColor: DARK_BLUE,
-    border: [null, '1px solid'],
+    border: [null, `1px solid ${BROWN}`],
     borderColor: BROWN,
   },
   secondary: {
