@@ -32,7 +32,7 @@ const metas = {
   type: 'website',
 }
 
-const PartTime = ({ trainings }) => (
+const PartTime = ({ trainings, path }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingPartTimeTrainings = selectUpcomingTrainings({
@@ -61,7 +61,7 @@ const PartTime = ({ trainings }) => (
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
               {
-                to: '/react/training/part-time-course',
+                to: path,
                 label: 'Part Time Course',
               },
             ]}

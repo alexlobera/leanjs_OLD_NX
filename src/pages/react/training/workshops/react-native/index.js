@@ -21,7 +21,7 @@ import { Breadcrumb } from 'src/components/navigation'
 import { REACT_NATIVE } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 
-const ReactNativeBoocamp = () => (
+const ReactNativeBoocamp = ({ path }) => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
@@ -41,7 +41,7 @@ const ReactNativeBoocamp = () => (
             { to: '/react/training/', label: 'Training' },
             { to: '/react/training/workshops', label: 'Workshops' },
             {
-              to: '/react/training/workshops/react-native',
+              to: path,
               label: 'React Native',
             },
           ]}

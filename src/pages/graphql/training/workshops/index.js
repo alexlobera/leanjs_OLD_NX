@@ -45,7 +45,7 @@ const metas = {
   type: 'website',
 }
 
-const GraphQLWorkshops = () => (
+const GraphQLWorkshops = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       return (
@@ -73,7 +73,7 @@ const GraphQLWorkshops = () => (
                 label: 'Training',
               },
               {
-                to: '/graphql/training/workshops',
+                to: path,
                 label: 'Workshops',
               },
             ]}

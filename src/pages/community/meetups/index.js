@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => (
   </Match>
 )
 
-const Meetups = ({ data }) => (
+const Meetups = ({ data, path }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingMeetups = selectUpcomingTrainings({
@@ -70,7 +70,7 @@ const Meetups = ({ data }) => (
             path={[
               { to: '/', label: 'Home' },
               { to: '/community', label: 'Community' },
-              { to: '/community/meetups/', label: 'Meetups' },
+              { to: path, label: 'Meetups' },
             ]}
           />
           <Header

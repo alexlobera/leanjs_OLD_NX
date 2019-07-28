@@ -32,7 +32,7 @@ import trackUserBehaviour, {
 
 const NameInput = aliasComponent(InputField)
 
-const SessionInterestGraphQL = () => (
+const SessionInterestGraphQL = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const handleFormSubmit = ({
@@ -72,7 +72,7 @@ const SessionInterestGraphQL = () => (
               { to: '/', label: 'Home' },
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training/', label: 'Training' },
-              { to: '/graphql/training/workshops', label: 'Workshops' },
+              { to: path, label: 'Workshops' },
             ]}
           />
           <Header

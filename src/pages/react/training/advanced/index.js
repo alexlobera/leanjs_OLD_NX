@@ -32,7 +32,7 @@ const metas = {
   type: 'website',
 }
 
-const AdvancedTraining = () => (
+const AdvancedTraining = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingAdvancedTrainings = selectUpcomingTrainings({
@@ -61,7 +61,7 @@ const AdvancedTraining = () => (
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
               {
-                to: '/react/training/advanced',
+                to: path,
                 label: 'Advanced',
               },
             ]}

@@ -19,7 +19,7 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
-const AdvancedReactWorkshop = () => (
+const AdvancedReactWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const training = getNextTrainingByTrainingId({
@@ -44,7 +44,7 @@ const AdvancedReactWorkshop = () => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/testing-in-react',
+                to: path,
                 label: 'Testing in React',
               },
             ]}

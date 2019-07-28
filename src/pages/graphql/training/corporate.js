@@ -30,7 +30,7 @@ const metas = {
   type: 'website',
 }
 
-const CorporateGraphQLTraining = () => (
+const CorporateGraphQLTraining = ({ path }) => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
@@ -49,11 +49,11 @@ const CorporateGraphQLTraining = () => (
           path={[
             { to: '/', label: 'Home' },
             {
-              to: '/graphql',
+              to: '/graphql/',
               label: 'GraphQL',
             },
             {
-              to: '/graphql/training/corporate',
+              to: path,
               label: 'Corporate',
             },
           ]}
