@@ -447,7 +447,7 @@ class CheckoutForm extends React.Component {
                   </React.Fragment>
                 ) : null}
                 <Row>
-                  <Col xs={5} end>
+                  <Col xs={5}>
                     <Span>Total payable:</Span>
                   </Col>
                   <Col xs={7}>

@@ -10,6 +10,7 @@ import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
 import Section, {
   TopSection,
+  ColSection,
   MOB_SECTION_MARGIN_Y,
 } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
@@ -148,20 +149,18 @@ const IndexPage = () => {
               )}
             </Card>
           </TopSection>
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1}>
-                <AttendeeQuote
-                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-                  fullname="Rafa Fraga"
-                  job="Software Engineer"
-                  youtubeId="hZZksRcqtkc"
-                />
-              </Col>
-              <Col md={4} mdOffset={1}>
-                <H2 mt={[MOB_SECTION_MARGIN_Y, 0]}>
-                  Is React GraphQL Academy right for me?
-                </H2>
+          <ColSection
+            col={
+              <AttendeeQuote
+                quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+                fullname="Rafa Fraga"
+                job="Software Engineer"
+                youtubeId="hZZksRcqtkc"
+              />
+            }
+            col2={
+              <React.Fragment>
+                <H2>Is React GraphQL Academy right for me?</H2>
                 <Ul>
                   <Li>
                     For working developers - <strong>not for beginners!</strong>
@@ -198,27 +197,28 @@ const IndexPage = () => {
                 >
                   Blog: Are YOU the Perfect Bootcamp Student?
                 </LinkButton>
-              </Col>
-            </Row>
-          </Section>
+              </React.Fragment>
+            }
+          />
           <TrustedBySection />
-          <Section>
-            <Row>
-              <Col md={5}>
-                <Video
-                  youtubeId="o6YwbHGfPOo"
-                  description={
-                    <P>
-                      <em>
-                        Andru Dunn, Senior Developer at{' '}
-                        <strong>John Lewis</strong> speaks how React GraphQL
-                        Academy training has improved his team.
-                      </em>
-                    </P>
-                  }
-                />
-              </Col>
-              <Col md={5} mdOffset={1}>
+          <ColSection
+            variant="thinLeft"
+            col={
+              <Video
+                youtubeId="o6YwbHGfPOo"
+                description={
+                  <P>
+                    <em>
+                      Andru Dunn, Senior Developer at{' '}
+                      <strong>John Lewis</strong> speaks how React GraphQL
+                      Academy training has improved his team.
+                    </em>
+                  </P>
+                }
+              />
+            }
+            col2={
+              <React.Fragment>
                 <H2>React GraphQL Academy - great for your whole team</H2>
                 <Ul>
                   <Li>Avoid delays and business losses</Li>
@@ -248,9 +248,9 @@ const IndexPage = () => {
                     </LinkButton>
                   </Col>
                 </SectionButtonRow>
-              </Col>
-            </Row>
-          </Section>
+              </React.Fragment>
+            }
+          ></ColSection>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )}

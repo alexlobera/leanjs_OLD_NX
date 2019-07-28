@@ -35,15 +35,13 @@ const MarketingCard = ({
         {heading && <H4 mb={1}>{heading}</H4>}
         <Span>{text}</Span>
       </Col>
-      <Col md={5} lgOffset={1} center>
-        <div>
-          <LinkButton
-            to={to}
-            variant="secondary"
-            children={rest.buttonText || rest['button-text']}
-            className={className}
-          />
-        </div>
+      <Col md={5} lgOffset={1}>
+        <LinkButton
+          to={to}
+          variant="secondary"
+          children={rest.buttonText || rest['button-text']}
+          className={className}
+        />
       </Col>
     </Row>
   </Card>
