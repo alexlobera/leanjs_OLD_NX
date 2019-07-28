@@ -71,25 +71,23 @@ export const TrustedByLogoList = () => (
 
 const TrustedBySection = ({ width }) => (
   <Section variant="dark">
-    <Grid>
-      <Card variant="primary">
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <H2>Trusted by industry leaders</H2>
+    <Card variant="primary">
+      <Row>
+        <Col lg={10} lgOffset={1}>
+          <H2>Trusted by industry leaders</H2>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6} lg={5} lgOffset={1}>
+          <TrustedByLogoList />
+        </Col>
+        {width > MEDIUM && (
+          <Col md={6} lg={5}>
+            <Video youtubeId="yvROXLQ1jHg" />
           </Col>
-        </Row>
-        <Row>
-          <Col md={6} lg={5} lgOffset={1}>
-            <TrustedByLogoList />
-          </Col>
-          {width > MEDIUM && (
-            <Col md={6} lg={5}>
-              <Video youtubeId="yvROXLQ1jHg" />
-            </Col>
-          )}
-        </Row>
-      </Card>
-    </Grid>
+        )}
+      </Row>
+    </Card>
   </Section>
 )
 

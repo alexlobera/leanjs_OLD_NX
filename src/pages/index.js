@@ -17,7 +17,7 @@ import {
   FullCurriculumsReact,
   FullCurriculumsGraphQL,
 } from '../components/curriculum'
-import { SCREEN_XS_MAX, createSocialMetas } from '../components/utils'
+import { createSocialMetas } from '../components/utils'
 import { RootHeader as Header } from '../components/layout/Header'
 import { Card, Video } from '../components/elements'
 import TrustedBySection from '../components/training/TrustedBySection'
@@ -26,15 +26,6 @@ import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 import Box from 'src/components/layout/Box'
 
-// const SectionButtonRow = styled(Row)`
-//   margin-top: 30px;
-//   @media (max-width: ${SCREEN_XS_MAX}) {
-//     a {
-//       margin-top: 5px;
-//       display: block;
-//     }
-//   }
-// `
 const metas = {
   title: 'React & GraphQL Expert Training | React GraphQL Academy',
   description:
@@ -190,7 +181,6 @@ const IndexPage = () => {
                     for accelerated learning.
                   </Li>
                 </Ul>
-                <P />
                 <LinkButton
                   to="/blog/are-you-the-perfect-react-graphql-student/"
                   className="is-it-for-me-cta"
