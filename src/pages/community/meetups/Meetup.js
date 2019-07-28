@@ -8,7 +8,7 @@ import Helmet from 'react-helmet'
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import { Ul, Li } from 'src/components/layout/Ul'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H2Ref, H3, H4, H5, P, Span, Hr } from 'src/components/text'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
@@ -92,51 +92,49 @@ const Meetup = () => (
                       className="meetup-details-clicks"
                     />
                     <TopSection variant="dark">
-                      <Grid>
-                        <Card variant="primary">
-                          <Row>
-                            <Col md={6} lg={4} lgOffset={1}>
-                              <H2Ref>
-                                Meetup details
-                                <Link to="#details" name="details">
-                                  #
-                                </Link>
-                              </H2Ref>
-                              <Markdown
-                                options={{
-                                  overrides: {
-                                    h2: H2,
-                                    h3: H3,
-                                    h4: H4,
-                                    h5: H5,
-                                    p: P,
-                                    a: Link,
-                                    ul: Ul,
-                                    li: Li,
-                                    span: Span,
-                                  },
-                                }}
-                              >
-                                {description || ''}
-                              </Markdown>
-                              <Hr />
-                              <Link
-                                to={`https://www.meetup.com/JavaScript-${city}/`}
-                                className="meetup-details-clicks"
-                              >
-                                JavaScript {city}
+                      <Card variant="primary">
+                        <Row>
+                          <Col md={6} lg={4} lgOffset={1}>
+                            <H2Ref>
+                              Meetup details
+                              <Link to="#details" name="details">
+                                #
                               </Link>
-                            </Col>
-                            <Col md={6} lg={5} lgOffset={1}>
-                              <PaymentSection
-                                training={training}
-                                trainingError={error}
-                                trainingLoading={loading}
-                              />
-                            </Col>
-                          </Row>
-                        </Card>
-                      </Grid>
+                            </H2Ref>
+                            <Markdown
+                              options={{
+                                overrides: {
+                                  h2: H2,
+                                  h3: H3,
+                                  h4: H4,
+                                  h5: H5,
+                                  p: P,
+                                  a: Link,
+                                  ul: Ul,
+                                  li: Li,
+                                  span: Span,
+                                },
+                              }}
+                            >
+                              {description || ''}
+                            </Markdown>
+                            <Hr />
+                            <Link
+                              to={`https://www.meetup.com/JavaScript-${city}/`}
+                              className="meetup-details-clicks"
+                            >
+                              JavaScript {city}
+                            </Link>
+                          </Col>
+                          <Col md={6} lg={5} lgOffset={1}>
+                            <PaymentSection
+                              training={training}
+                              trainingError={error}
+                              trainingLoading={loading}
+                            />
+                          </Col>
+                        </Row>
+                      </Card>
                     </TopSection>
                     <UpcomingTrainingSection trainings={trainings} />
                   </>

@@ -5,7 +5,7 @@ import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import Link from 'src/components/navigation/Link'
 import { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H4, H5, Span } from 'src/components/text'
 import {
   UpcomingTrainingSection,
@@ -93,103 +93,101 @@ const Workshops = () => (
             subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
           />
           <TopSection marginTop={`-250`}>
-            <Grid>
-              <Card>
-                <Row>
-                  <Col md={10} mdOffset={1}>
-                    <H2>Which 1-day React training are you looking for?</H2>
-                    <Row>
-                      {allWorkshops.map(workshop => {
-                        let to,
-                          buttonText,
-                          variant,
-                          title,
-                          description,
-                          price,
-                          currency,
-                          city,
-                          startDate,
-                          utcOffset
-                        if (workshop.toPath) {
-                          title =
-                            workshop &&
-                            workshop.training &&
-                            workshop.training.description &&
-                            workshop.training.description.title
+            <Card>
+              <Row>
+                <Col md={10} mdOffset={1}>
+                  <H2>Which 1-day React training are you looking for?</H2>
+                  <Row>
+                    {allWorkshops.map(workshop => {
+                      let to,
+                        buttonText,
+                        variant,
+                        title,
+                        description,
+                        price,
+                        currency,
+                        city,
+                        startDate,
+                        utcOffset
+                      if (workshop.toPath) {
+                        title =
+                          workshop &&
+                          workshop.training &&
+                          workshop.training.description &&
+                          workshop.training.description.title
 
-                          description =
-                            workshop &&
-                            workshop.training &&
-                            workshop.training.description &&
-                            workshop.training.description.objectives
+                        description =
+                          workshop &&
+                          workshop.training &&
+                          workshop.training.description &&
+                          workshop.training.description.objectives
 
-                          price = workshop && workshop.price
+                        price = workshop && workshop.price
 
-                          currency = workshop && workshop.currency
-                          city = workshop && workshop.city
-                          startDate = workshop && workshop.startDate
-                          utcOffset = workshop && workshop.utcOffset
-                          to = workshop.toPath
-                          buttonText = 'Find out more'
-                          variant = 'primary'
-                        } else {
-                          title = workshop.title
-                          description = workshop.description
-                          currency = 'gdp'
-                          to = workshop.to
-                          buttonText = 'Join Waitlist'
-                          variant = 'secondary'
-                        }
+                        currency = workshop && workshop.currency
+                        city = workshop && workshop.city
+                        startDate = workshop && workshop.startDate
+                        utcOffset = workshop && workshop.utcOffset
+                        to = workshop.toPath
+                        buttonText = 'Find out more'
+                        variant = 'primary'
+                      } else {
+                        title = workshop.title
+                        description = workshop.description
+                        currency = 'gdp'
+                        to = workshop.to
+                        buttonText = 'Join Waitlist'
+                        variant = 'secondary'
+                      }
 
-                        return (
-                          <Col sm={6} md={4}>
-                            <TrainingCard borderColor={LIGHT_BLUE}>
-                              <Link underline={false} to={to}>
-                                <H4>{title}</H4>
-                              </Link>
-                              {startDate && (
-                                <H5 mb={1}>
-                                  {`${city} ${formatUTC(
-                                    startDate,
-                                    utcOffset,
-                                    'D MMM'
-                                  )}`}
-                                </H5>
-                              )}
-                              <H5>
-                                {price ? (
-                                  <Span>
-                                    {formatPrice(
-                                      currency,
-                                      price,
-                                      DEFAULT_VAT_RATE
-                                    )}{' '}
-                                    Incl VAT
-                                  </Span>
-                                ) : (
-                                  'Coming soon'
-                                )}
+                      return (
+                        <Col sm={6} md={4}>
+                          <TrainingCard borderColor={LIGHT_BLUE}>
+                            <Link underline={false} to={to}>
+                              <H4>{title}</H4>
+                            </Link>
+                            {startDate && (
+                              <H5 mb={1}>
+                                {`${city} ${formatUTC(
+                                  startDate,
+                                  utcOffset,
+                                  'D MMM'
+                                )}`}
                               </H5>
-                              <P>{description}</P>
-                              <LinkButton
-                                className="workshop-cta"
-                                variant={variant}
-                                to={to}
-                              >
-                                {buttonText}
-                              </LinkButton>
-                            </TrainingCard>
-                          </Col>
-                        )
-                      })}
-                    </Row>
-                  </Col>
-                  <Col md={10} mdOffset={1}>
-                    <Newsletter />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+                            )}
+                            <H5>
+                              {price ? (
+                                <Span>
+                                  {formatPrice(
+                                    currency,
+                                    price,
+                                    DEFAULT_VAT_RATE
+                                  )}{' '}
+                                  Incl VAT
+                                </Span>
+                              ) : (
+                                'Coming soon'
+                              )}
+                            </H5>
+                            <P>{description}</P>
+                            <LinkButton
+                              className="workshop-cta"
+                              variant={variant}
+                              to={to}
+                            >
+                              {buttonText}
+                            </LinkButton>
+                          </TrainingCard>
+                        </Col>
+                      )
+                    })}
+                  </Row>
+                </Col>
+                <Col md={10} mdOffset={1}>
+                  <Newsletter />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

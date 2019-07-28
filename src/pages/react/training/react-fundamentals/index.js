@@ -7,7 +7,7 @@ import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumReactFundamentals } from 'src/components/curriculum'
@@ -66,62 +66,58 @@ const ReactFundamentals = props => (
             type={REACT_FUNDAMENTALS}
           />
           <TopSection>
-            <Grid>
-              <Card>
-                <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumReactFundamentals
-                  trainings={upcomingFundamentalsTrainings}
-                />
-              </Card>
-            </Grid>
+            <Card>
+              <Link to="#upcoming-courses" name="upcoming-courses" />
+              <CurriculumReactFundamentals
+                trainings={upcomingFundamentalsTrainings}
+              />
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="The most complicated thing in React is set up, I learnt that and now it's easy for me to create an app very quickly."
-                    fullname="Rafa Fraga"
-                    job="Software Engineer"
-                    // need to get the company name!
-                    youtubeId="-13ktI9oXIY"
-                  />
-                </Col>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="The most complicated thing in React is set up, I learnt that and now it's easy for me to create an app very quickly."
+                  fullname="Rafa Fraga"
+                  job="Software Engineer"
+                  // need to get the company name!
+                  youtubeId="-13ktI9oXIY"
+                />
+              </Col>
 
-                <Col md={4} mdOffset={1}>
-                  <H2>
-                    <Link to="#target-audience" name="target-audience" />
-                    Is the React Fundamentals course right for me?
-                  </H2>
-                  <Ul>
-                    <Li>
-                      <strong>Not for beginners!</strong> Ideal for experienced
-                      programmers with at least 1 year's experience with
-                      JavaScript
-                    </Li>
-                    <Li>Extremely rapid, intense learning</Li>
-                    <Li>Small classes with expert devs</Li>
-                    <Li>
-                      Hands-on project-based training - most of the time you'll
-                      be coding.
-                    </Li>
-                  </Ul>
-                  <P>
-                    {nextTraining && (
-                      <LinkButton variant="primary" to={nextTraining.toPath}>
-                        Next training:{' '}
-                        {formatUTC(
-                          nextTraining.startDate,
-                          nextTraining.utcOffset,
-                          'D MMM'
-                        )}
-                        , {nextTraining.city}
-                      </LinkButton>
-                    )}
-                  </P>
-                </Col>
-              </Row>
-            </Grid>
+              <Col md={4} mdOffset={1}>
+                <H2>
+                  <Link to="#target-audience" name="target-audience" />
+                  Is the React Fundamentals course right for me?
+                </H2>
+                <Ul>
+                  <Li>
+                    <strong>Not for beginners!</strong> Ideal for experienced
+                    programmers with at least 1 year's experience with
+                    JavaScript
+                  </Li>
+                  <Li>Extremely rapid, intense learning</Li>
+                  <Li>Small classes with expert devs</Li>
+                  <Li>
+                    Hands-on project-based training - most of the time you'll be
+                    coding.
+                  </Li>
+                </Ul>
+                <P>
+                  {nextTraining && (
+                    <LinkButton variant="primary" to={nextTraining.toPath}>
+                      Next training:{' '}
+                      {formatUTC(
+                        nextTraining.startDate,
+                        nextTraining.utcOffset,
+                        'D MMM'
+                      )}
+                      , {nextTraining.city}
+                    </LinkButton>
+                  )}
+                </P>
+              </Col>
+            </Row>
           </Section>
           <TrustedBySection />
           <BlogSection tags={['react', 'beginner']} />

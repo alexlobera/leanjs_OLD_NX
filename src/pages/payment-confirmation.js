@@ -4,7 +4,7 @@ import React from 'react'
 import { BOOTCAMP } from '../../images/imageNames'
 import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
+import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
@@ -58,31 +58,29 @@ class PaymentConfirmation extends React.Component {
           bgImageName={BOOTCAMP}
         />
         <TopSection marginTop="-250">
-          <Grid>
-            <Card>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <H2>What happens now?</H2>
-                  <P>
-                    You should shortly receive an order confirmation and receipt
-                    in your email. Your ticket along with further details about
-                    the training you’ve signed up to will be sent within 24
-                    hours. Just check your inbox soon (be sure to check your
-                    spam folder if you can’t see it).
-                  </P>
-                  <P>
-                    If you have any questions, please don’t hesitate to contact
-                    us. You can email us:{' '}
-                    <Link to="mailto:hello@reactgraphql.academy">
-                      hello@reactgraphql.academy
-                    </Link>{' '}
-                    or you can contact us on social media.
-                  </P>
-                </Col>
-                <Col md={4} mdOffset={1} />
-              </Row>
-            </Card>
-          </Grid>
+          <Card>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <H2>What happens now?</H2>
+                <P>
+                  You should shortly receive an order confirmation and receipt
+                  in your email. Your ticket along with further details about
+                  the training you’ve signed up to will be sent within 24 hours.
+                  Just check your inbox soon (be sure to check your spam folder
+                  if you can’t see it).
+                </P>
+                <P>
+                  If you have any questions, please don’t hesitate to contact
+                  us. You can email us:{' '}
+                  <Link to="mailto:hello@reactgraphql.academy">
+                    hello@reactgraphql.academy
+                  </Link>{' '}
+                  or you can contact us on social media.
+                </P>
+              </Col>
+              <Col md={4} mdOffset={1} />
+            </Row>
+          </Card>
         </TopSection>
       </Layout>
     )

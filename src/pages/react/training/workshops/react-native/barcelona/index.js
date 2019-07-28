@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H1Ref, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
@@ -81,109 +81,102 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark">
-            <Grid>
-              <Card variant="primary">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Charlie's student experience</H4>
-                    <Video youtubeId="VhUMAqToJ4s" />
-                    <TrainingDetails
-                      foodIncluded
-                      coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section>
-            <Grid>
+            <Card variant="primary">
               <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="[The coaches] are very important - they're able to explain things in a way we can understand."
-                    fullname="Jim Plimmer"
-                    job="Developer"
-                    company="Conversion.com"
-                    youtubeId="GU-IIi-84t8"
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingError={trainingError}
+                    trainingLoading={trainingLoading}
                   />
                 </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    <Link to="#target-audience" name="target-audience" />
-                    Is this React Native training right for me? Are you...{' '}
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      You have at least a few months of experience using React
-                      on the web. If you don't know React, we recommend you
-                      first to attend our{' '}
-                      <Link to="/react/training/bootcamp">React Bootcamp</Link>
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a React Native Specialist
-                      able to make critical decisions about the architecture of
-                      a React Native application.
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, our training could be for
-                    you!
-                  </P>
-                  <H3>Not for beginner devs!</H3>
-                  <P>
-                    This is not a training for React beginners. If you don't
-                    know React, we recommend you first to attend our{' '}
-                    <Link to="/react/training/bootcamp">React Bootcamp</Link>.
-                  </P>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <H4>Charlie's student experience</H4>
+                  <Video youtubeId="VhUMAqToJ4s" />
+                  <TrainingDetails
+                    foodIncluded
+                    coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
+                  />
                 </Col>
               </Row>
-            </Grid>
+            </Card>
+          </TopSection>
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="[The coaches] are very important - they're able to explain things in a way we can understand."
+                  fullname="Jim Plimmer"
+                  job="Developer"
+                  company="Conversion.com"
+                  youtubeId="GU-IIi-84t8"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  <Link to="#target-audience" name="target-audience" />
+                  Is this React Native training right for me? Are you...{' '}
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    You have at least a few months of experience using React on
+                    the web. If you don't know React, we recommend you first to
+                    attend our{' '}
+                    <Link to="/react/training/bootcamp">React Bootcamp</Link>
+                  </Li>
+                  <Li>
+                    Taking a step forward to become a React Native Specialist
+                    able to make critical decisions about the architecture of a
+                    React Native application.
+                  </Li>
+                  <Li>
+                    Not satisfied with the pace of online learning and it's lack
+                    of 1-on-1 mentoring?
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, our training could be for you!
+                </P>
+                <H3>Not for beginner devs!</H3>
+                <P>
+                  This is not a training for React beginners. If you don't know
+                  React, we recommend you first to attend our{' '}
+                  <Link to="/react/training/bootcamp">React Bootcamp</Link>.
+                </P>
+              </Col>
+            </Row>
           </Section>
 
           <Section>
-            <Grid>
-              <Card>
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <H1Ref>
-                      React Native Curriculum
-                      <Link to="#curriculum" name="curriculum">
-                        #
-                      </Link>
-                    </H1Ref>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumSection
-                      enableToggle={false}
-                      type={REACT_NATIVE}
-                      toggleNavigateTo={`/react/training/workshops/`}
-                      isOpen={true}
-                      title="React Native Day 1"
-                      name="day1"
-                      subTitle="Foundation, Navigation, and Animations"
-                    >
-                      <ReactNativeFoundationSession title="Foundation" />
-                      <ReactNativeNavigationSession title="Navigation" />
-                      <ReactNativeAnimationsSession title="Animations" />
-                    </CurriculumSection>
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <H1Ref>
+                    React Native Curriculum
+                    <Link to="#curriculum" name="curriculum">
+                      #
+                    </Link>
+                  </H1Ref>
+                </Col>
+              </Row>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumSection
+                    enableToggle={false}
+                    type={REACT_NATIVE}
+                    toggleNavigateTo={`/react/training/workshops/`}
+                    isOpen={true}
+                    title="React Native Day 1"
+                    name="day1"
+                    subTitle="Foundation, Navigation, and Animations"
+                  >
+                    <ReactNativeFoundationSession title="Foundation" />
+                    <ReactNativeNavigationSession title="Navigation" />
+                    <ReactNativeAnimationsSession title="Animations" />
+                  </CurriculumSection>
+                </Col>
+              </Row>
+            </Card>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

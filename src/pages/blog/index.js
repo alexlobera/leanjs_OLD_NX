@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../../components/layout'
-import Grid, { Col, Row } from '../../components/layout/Grid'
+import { Col, Row } from '../../components/layout/Grid'
 import { RootHeader as Header } from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb } from '../../components/navigation'
@@ -25,15 +25,13 @@ const Blog = ({ data }) => {
             paddingBottom={170}
           />
           <TopSection>
-            <Grid>
-              <Row>
-                {posts.map(({ node: post }) => (
-                  <Col lg={4} key={post.fields.slug}>
-                    <PostCard post={post} />
-                  </Col>
-                ))}
-              </Row>
-            </Grid>
+            <Row>
+              {posts.map(({ node: post }) => (
+                <Col lg={4} key={post.fields.slug}>
+                  <PostCard post={post} />
+                </Col>
+              ))}
+            </Row>
           </TopSection>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

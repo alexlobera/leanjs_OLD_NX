@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumGraphQLAPI } from 'src/components/curriculum'
@@ -93,85 +93,74 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark">
-            <Grid>
-              <Card variant="primary">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Rafa's student experience</H4>
-                    <Video youtubeId="I9n4gpTcZZY" />
-                    <TrainingDetails coaches={[ALEX_LOBERA]} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card variant="primary">
+              <Row>
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingError={trainingError}
+                    trainingLoading={trainingLoading}
+                  />
+                </Col>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <H4>Rafa's student experience</H4>
+                  <Video youtubeId="I9n4gpTcZZY" />
+                  <TrainingDetails coaches={[ALEX_LOBERA]} />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Card>
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphQLAPI layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumGraphQLAPI layout={LIST_TWO_COL} />
+                </Col>
+              </Row>
+            </Card>
           </Section>
 
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="It's nice that the coaches almost don't hold your hand as there's a certain level of knowledge [students have] meaning you can learn quicker and get more done."
-                    fullname="Charlie Wilson"
-                    job="Software Engineer"
-                    company="ESG PLC"
-                    youtubeId="zRa5-FyWbK8"
-                  />
-                </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this GraphQL API training right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      A developer with 1+ year experience building backends and
-                      REST APIs?
-                    </Li>
-                    <Li>
-                      Do you have some experience with JavaScript and npm?
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring and real-world examples?
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, our training could be for
-                    you!
-                  </P>
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="It's nice that the coaches almost don't hold your hand as there's a certain level of knowledge [students have] meaning you can learn quicker and get more done."
+                  fullname="Charlie Wilson"
+                  job="Software Engineer"
+                  company="ESG PLC"
+                  youtubeId="zRa5-FyWbK8"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this GraphQL API training right for me? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
+                  </Link>
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    A developer with 1+ year experience building backends and
+                    REST APIs?
+                  </Li>
+                  <Li>Do you have some experience with JavaScript and npm?</Li>
+                  <Li>
+                    Not satisfied with the pace of online learning and it's lack
+                    of 1-on-1 mentoring and real-world examples?
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, our training could be for you!
+                </P>
+              </Col>
+            </Row>
           </Section>
           <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeTrainings trainings={crossSellTrainings} />
+              </Col>
+            </Row>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

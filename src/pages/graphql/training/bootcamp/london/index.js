@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumGraphQLBootcamp } from 'src/components/curriculum'
@@ -82,82 +82,75 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark">
-            <Grid>
-              <Card variant="primary">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Jim's student experience</H4>
+            <Card variant="primary">
+              <Row>
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingError={trainingError}
+                    trainingLoading={trainingLoading}
+                  />
+                </Col>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <H4>Jim's student experience</H4>
 
-                    <Video youtubeId="wbIame88UWU" />
-                    <TrainingDetails coaches={[ALEX_LOBERA]} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+                  <Video youtubeId="wbIame88UWU" />
+                  <TrainingDetails coaches={[ALEX_LOBERA]} />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Card>
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphQLBootcamp
-                      enableToggle={true}
-                      layout={LIST_TWO_COL}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumGraphQLBootcamp
+                    enableToggle={true}
+                    layout={LIST_TWO_COL}
+                  />
+                </Col>
+              </Row>
+            </Card>
           </Section>
 
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="The coaches are always available [on the Alumni Slack channel]... Now I'm not alone."
-                    fullname="Lara Ramey"
-                    job="Software Developer"
-                    company="Meredith Corporation"
-                    youtubeId="JIWdYuNzeOc"
-                  />
-                </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this GraphQL bootcamp right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a GraphQL Specialist able
-                      to make critical decisions about the architecture of a
-                      Production-ready GraphQL & React application
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, our bootcamp could be for
-                    you!
-                  </P>
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="The coaches are always available [on the Alumni Slack channel]... Now I'm not alone."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="JIWdYuNzeOc"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this GraphQL bootcamp right for me? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
+                  </Link>
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    Familiar with front-end technologies like JavaScript, CSS,
+                    and HTML?
+                  </Li>
+                  <Li>
+                    Taking a step forward to become a GraphQL Specialist able to
+                    make critical decisions about the architecture of a
+                    Production-ready GraphQL & React application
+                  </Li>
+                  <Li>
+                    Not satisfied with the pace of online learning and it's lack
+                    of 1-on-1 mentoring?
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, our bootcamp could be for you!
+                </P>
+              </Col>
+            </Row>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import { MEETUPS } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'
 import { Card, Image } from 'src/components/elements'
 import { RootHeader as Header } from 'src/components/layout/Header'
@@ -77,64 +77,58 @@ const Meetups = () => (
             training={nextMeetup}
           />
           <TopSection>
-            <Grid>
-              <Card>
-                <Col lg={11} lgOffset={1}>
-                  <H2>
-                    Our upcoming meetups
-                    <a name="upcoming-meetups" />
-                  </H2>
-                  <UpcomingTrainings
-                    curriculum
-                    removeAdditionalCTAs
-                    trainings={upcomingMeetups}
-                    className="upcoming-meetups"
-                  />
-                  <OurMeetupGroups />
-                </Col>
-              </Card>
-            </Grid>
+            <Card>
+              <Col lg={11} lgOffset={1}>
+                <H2>
+                  Our upcoming meetups
+                  <a name="upcoming-meetups" />
+                </H2>
+                <UpcomingTrainings
+                  curriculum
+                  removeAdditionalCTAs
+                  trainings={upcomingMeetups}
+                  className="upcoming-meetups"
+                />
+                <OurMeetupGroups />
+              </Col>
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Row>
-                <Col md={6}>
-                  <Image
-                    src={BOOTCAMP_RIGHT}
-                    alt="React GraphQL Academy meetup"
-                  />
-                </Col>
-                <Col md={5} mdOffset={1}>
-                  <H2>
-                    Our meetup community <a name="mentor-community" />
-                  </H2>
-                  <P>
-                    React GraphQL Academy is devoted to helping developers
-                    expand their knowledge of the React ecosystem and beyond. We
-                    organize and run free workshops and events for the
-                    JavaScript developer community across several European
-                    cities.
-                  </P>
-                  <P>
-                    Community meetups are a great way to both learn something
-                    new and connect with other motivated developers in your city
-                    :-)
-                  </P>
-                  <H3>Would your company like to host a JavaScript meetup?</H3>
-                  <P>
-                    We love to bringing the community to interesting companies
-                    in the tech industry. If you're company has a great space,
-                    we'd love to hear from you!
-                  </P>
-                  <LinkButton
-                    to="#contact-us"
-                    className="meetups-community-contact-us"
-                  >
-                    Contact us
-                  </LinkButton>
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={6}>
+                <Image
+                  src={BOOTCAMP_RIGHT}
+                  alt="React GraphQL Academy meetup"
+                />
+              </Col>
+              <Col md={5} mdOffset={1}>
+                <H2>
+                  Our meetup community <a name="mentor-community" />
+                </H2>
+                <P>
+                  React GraphQL Academy is devoted to helping developers expand
+                  their knowledge of the React ecosystem and beyond. We organize
+                  and run free workshops and events for the JavaScript developer
+                  community across several European cities.
+                </P>
+                <P>
+                  Community meetups are a great way to both learn something new
+                  and connect with other motivated developers in your city :-)
+                </P>
+                <H3>Would your company like to host a JavaScript meetup?</H3>
+                <P>
+                  We love to bringing the community to interesting companies in
+                  the tech industry. If you're company has a great space, we'd
+                  love to hear from you!
+                </P>
+                <LinkButton
+                  to="#contact-us"
+                  className="meetups-community-contact-us"
+                >
+                  Contact us
+                </LinkButton>
+              </Col>
+            </Row>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

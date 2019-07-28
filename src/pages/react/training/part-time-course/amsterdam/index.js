@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { CurriculumPartTime } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import {
@@ -95,53 +95,47 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark" top>
-            <Grid>
-              <Card variant="primary">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingLoading={trainingLoading}
-                      trainingError={trainingError}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="E_4eQQHjc7A" />
-                    <TrainingDetails
-                      date={training && training.dates}
-                      timing="9am - 6pm Friday's"
-                      location={
-                        <React.Fragment>
-                          {training && training.city}
-                        </React.Fragment>
-                      }
-                      coaches={[ROY_DERKS, ALEX_LOBERA]}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card variant="primary">
+              <Row>
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingLoading={trainingLoading}
+                    trainingError={trainingError}
+                  />
+                </Col>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <Video youtubeId="E_4eQQHjc7A" />
+                  <TrainingDetails
+                    date={training && training.dates}
+                    timing="9am - 6pm Friday's"
+                    location={
+                      <React.Fragment>
+                        {training && training.city}
+                      </React.Fragment>
+                    }
+                    coaches={[ROY_DERKS, ALEX_LOBERA]}
+                  />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Card>
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumPartTime layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumPartTime layout={LIST_TWO_COL} />
+                </Col>
+              </Row>
+            </Card>
           </Section>
           <TargetAudienceSection />
           <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeTrainings trainings={crossSellTrainings} />
+              </Col>
+            </Row>
           </Section>
 
           <BlogSection tags={['react', 'beginner']} />

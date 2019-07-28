@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
@@ -108,83 +108,75 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark" top>
-            <Grid>
-              <Card variant="primary">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingLoading={trainingLoading}
-                      trainingError={trainingError}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Lara's student experience</H4>
-                    <Video youtubeId="blg40SCle7I" />
-                    <TrainingDetails
-                      foodIncluded={false}
-                      coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section>
-            <Grid>
-              <Card>
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumAdvancedReact
-                      training={training}
-                      layout={LIST_TWO_COL}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
-          <Section>
-            <Grid>
+            <Card variant="primary">
               <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="This course has taught me not just the 'how' but WHY React is good..."
-                    fullname="Jim Plimmer"
-                    job="Developer"
-                    company="Conversion.com"
-                    youtubeId="nIK8ouQp17s"
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingLoading={trainingLoading}
+                    trainingError={trainingError}
                   />
                 </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this Advanced React training right for me?{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
-                  <Ul>
-                    <CurriculumAdvancedReact.TargetAudienceList />
-                  </Ul>
-                  <H3>Not for beginner devs!</H3>
-                  <P>
-                    This is a bootcamp for React developers that are experienced
-                    with React. If you don't have 1+ year of experience using
-                    React we recommend you to attend our{' '}
-                    <Link to="/react/training/bootcamp">React Bootcamp</Link>.
-                  </P>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <H4>Lara's student experience</H4>
+                  <Video youtubeId="blg40SCle7I" />
+                  <TrainingDetails
+                    foodIncluded={false}
+                    coaches={[ALEX_LOBERA, HORACIO_HERRERA, RICHARD_MOSS]}
+                  />
                 </Col>
               </Row>
-            </Grid>
-          </Section>
+            </Card>
+          </TopSection>
           <Section>
-            <Grid>
+            <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
+                  <CurriculumAdvancedReact
+                    training={training}
+                    layout={LIST_TWO_COL}
+                  />
                 </Col>
               </Row>
-            </Grid>
+            </Card>
+          </Section>
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="This course has taught me not just the 'how' but WHY React is good..."
+                  fullname="Jim Plimmer"
+                  job="Developer"
+                  company="Conversion.com"
+                  youtubeId="nIK8ouQp17s"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this Advanced React training right for me?{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
+                  </Link>
+                </H2Ref>
+                <Ul>
+                  <CurriculumAdvancedReact.TargetAudienceList />
+                </Ul>
+                <H3>Not for beginner devs!</H3>
+                <P>
+                  This is a bootcamp for React developers that are experienced
+                  with React. If you don't have 1+ year of experience using
+                  React we recommend you to attend our{' '}
+                  <Link to="/react/training/bootcamp">React Bootcamp</Link>.
+                </P>
+              </Col>
+            </Row>
+          </Section>
+          <Section>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeTrainings trainings={crossSellTrainings} />
+              </Col>
+            </Row>
           </Section>
           <BlogSection tags={['react', 'advanced']} />
 

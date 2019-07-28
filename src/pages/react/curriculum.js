@@ -4,7 +4,7 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
 import LinkButton from 'src/components/buttons/LinkButton'
@@ -126,437 +126,426 @@ class ReactCurriculum extends React.Component {
                 bgImageName={BOOTCAMP}
               />
               <TopSection>
-                <Grid>
-                  <Card>
-                    <Row>
-                      <Col lg={10} lgOffset={1}>
-                        <H2Ref>
-                          Our courses - what are the differences?{' '}
-                          <Link to="#differences" name="differences">
-                            #
-                          </Link>
-                        </H2Ref>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={10} lgOffset={1}>
-                        <Table>
-                          <Thead>
-                            <Tr>
-                              <Th />
-                              <Th type={REACT_BOOTCAMP}>Bootcamp</Th>
-                              <Th type={PART_TIME}>Part Time </Th>
-                              <Th type={ADVANCED_REACT}>Advanced</Th>
-                              <Th type={REACT_FUNDAMENTALS}>Fundamentals</Th>
-                            </Tr>
-                          </Thead>
-                          <Tbody>
-                            <Tr>
-                              <Td>ES6</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td>
-                                <Tick type={PART_TIME} />
-                              </Td>
-                              <Td />
-                              <Td>
-                                <Tick type={REACT_FUNDAMENTALS} />
-                              </Td>
-                            </Tr>
-                            <Tr>
-                              <Td>Routing and Forms</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td>
-                                <Tick type={PART_TIME} />
-                              </Td>
-                              <Td />
-                              <Td>
-                                <Tick type={REACT_FUNDAMENTALS} />
-                              </Td>
-                            </Tr>
-                            <Tr>
-                              <Td>Redux</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td>
-                                <Tick type={PART_TIME} />
-                              </Td>
-                              <Td />
-                              <Td>
-                                <Tick type={REACT_FUNDAMENTALS} />
-                              </Td>
-                            </Tr>
-                            <Tr>
-                              <Td>Hooks</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td>
-                                <Tick type={PART_TIME} />
-                              </Td>
-                              <Td>
-                                <Tick type={ADVANCED_REACT} />
-                              </Td>
-                              <Td>
-                                <Tick type={REACT_FUNDAMENTALS} />
-                              </Td>
-                            </Tr>
-                            <Tr>
-                              <Td>Testing</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td>
-                                <Tick type={PART_TIME} />
-                              </Td>
-                              <Td>
-                                <Tick type={ADVANCED_REACT} />
-                              </Td>
-                              <Td />
-                            </Tr>
-                            <Tr>
-                              <Td>Advanced Testing</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td />
-                              <Td>
-                                <Tick type={ADVANCED_REACT} />
-                              </Td>
-                              <Td />
-                            </Tr>
-                            <Tr>
-                              <Td>React Patterns and Perf</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td />
-                              <Td>
-                                <Tick type={ADVANCED_REACT} />
-                              </Td>
-                              <Td />
-                            </Tr>
-                            <Tr>
-                              <Td>Design Systems</Td>
-                              <Td>
-                                <Tick type={REACT_BOOTCAMP} />
-                              </Td>
-                              <Td />
-                              <Td>
-                                <Tick type={ADVANCED_REACT} />
-                              </Td>
-                              <Td />
-                            </Tr>
-                            <Tr>
-                              <Td />
-                              <Td>
-                                <LinkButton
-                                  variant="secondary"
-                                  to="/react/training/bootcamp"
-                                >
-                                  Bootcamp
-                                </LinkButton>
-                              </Td>
-                              <Td>
-                                <LinkButton
-                                  variant="secondary"
-                                  to="/react/training/advanced"
-                                >
-                                  Advanced
-                                </LinkButton>
-                              </Td>
-                              <Td>
-                                <LinkButton
-                                  variant="secondary"
-                                  to="/react/training/part-time-course/"
-                                >
-                                  Part Time
-                                </LinkButton>
-                              </Td>
-                              <Td>
-                                <LinkButton
-                                  variant="secondary"
-                                  to="/react/training/react-fundamentals/"
-                                >
-                                  Fundamentals
-                                </LinkButton>
-                              </Td>
-                            </Tr>
-                          </Tbody>
-                        </Table>
-                        <Row>
-                          <Col>
-                            <H5>Also available...</H5>
-                          </Col>
-                          <Col md={6}>
-                            <TrainingCard borderColor={LIGHT_BLUE}>
-                              <H4>Corporate training</H4>
-                              <P>
-                                Private team training, located in your offices
-                                anywhere in the world.
-                              </P>
-                              <Link to="/react/training/corporate">
-                                Find Out More
-                              </Link>
-                            </TrainingCard>
-                          </Col>
-                          <Col md={6}>
-                            <TrainingCard mb={0} borderColor={LIGHT_BLUE}>
-                              <H4>1 Day Workshops</H4>
-                              <P>
-                                Instense training focussing on specific parts of
-                                our React curriculum.
-                              </P>
-                              <Link
-                                variant="secondary"
-                                to="/react/training/workshops"
-                              >
-                                Find Out More
-                              </Link>
-                            </TrainingCard>
-                          </Col>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Grid>
-              </TopSection>
-              <Section>
-                <Grid>
+                <Card>
                   <Row>
                     <Col lg={10} lgOffset={1}>
-                      <Element name="curriculum" />
-                      <H2>Choose a curriculum:</H2>
-                      <Tabs
-                        onChange={this.setActive}
-                        active={this.state.active}
-                      >
-                        <TabList>
-                          <TabItem name={REACT_BOOTCAMP}>
-                            React Bootcamp
-                          </TabItem>
-                          <TabItem name={PART_TIME}>Part-time Course</TabItem>
-                          <TabItem name={ADVANCED_REACT}>
-                            Advanced React
-                          </TabItem>
-                          <TabItem name={REACT_FUNDAMENTALS}>
-                            React Fundamentals
-                          </TabItem>
-                        </TabList>
-                        <TabContent>
-                          <ContentItem name={REACT_BOOTCAMP}>
-                            <P>
-                              <strong>
-                                On completion of the React Bootcamp each student
-                                will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <CurriculumReactBootcamp.LearningObjectivesList />
-                              <Li>
-                                Not sure if our trainings are right for you?
-                                Read our blog{' '}
-                                <Link
-                                  className="perfect-course-student"
-                                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                                >
-                                  <strong>
-                                    Are YOU the Perfect React GraphQL Student?
-                                  </strong>
-                                </Link>
-                              </Li>
-                            </Ul>
-
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                {trainingBootcamp && (
-                                  <CurriculumReactBootcamp
-                                    {...commonCurriculumProps}
-                                    marketingCard={
-                                      <MarketingCard
-                                        heading="Next React Bootcamp"
-                                        text={`Take your career to the next level and master React in just a few days!`}
-                                        className="training-curriculum-next-training-cta"
-                                        to={trainingBootcamp.toPath}
-                                        buttonText={`${
-                                          trainingBootcamp.city
-                                        } React Bootcamp, ${formatUTC(
-                                          trainingBootcamp.startDate,
-                                          trainingBootcamp.utcOffset,
-                                          'D MMM'
-                                        )}  `}
-                                      />
-                                    }
-                                  />
-                                )}
-                              </Col>
-                            </Row>
-                          </ContentItem>
-
-                          <ContentItem name={PART_TIME}>
-                            <P>
-                              <strong>
-                                On completion of the React Part-time course each
-                                student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <CurriculumPartTime.LearningObjectivesList />
-                              <Li>
-                                Not sure if our trainings are right for you?
-                                Read our blog{' '}
-                                <Link
-                                  className="perfect-course-student"
-                                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                                >
-                                  <strong>
-                                    Are YOU the Perfect React GraphQL Student?
-                                  </strong>
-                                </Link>
-                              </Li>
-                            </Ul>
-                            <H4>Full course curriculum:</H4>
-
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                <CurriculumPartTime
-                                  {...commonCurriculumProps}
-                                  marketingCard={
-                                    trainingPartTime && (
-                                      <MarketingCard
-                                        heading="Next React Part time Training"
-                                        text={`Next React part-time course starts on ${formatUTC(
-                                          trainingPartTime.startDate,
-                                          trainingPartTime.utcOffset,
-                                          'D MMM'
-                                        )} in ${trainingPartTime.city}`}
-                                        className="training-curriculum-next-training-cta"
-                                        to={trainingPartTime.toPath}
-                                        buttonText={`${
-                                          trainingPartTime.city
-                                        } React part-time ${formatUTC(
-                                          trainingPartTime.startDate,
-                                          trainingPartTime.utcOffset,
-                                          'D MMM'
-                                        )}  `}
-                                      />
-                                    )
-                                  }
-                                />
-                              </Col>
-                            </Row>
-                          </ContentItem>
-                          <ContentItem name={REACT_FUNDAMENTALS}>
-                            <P>
-                              <strong>
-                                On completion of the React Fundamentals each
-                                student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <CurriculumReactFundamentals.LearningObjectivesList />
-                              <Li>
-                                Not sure if our trainings are right for you?
-                                Read our blog{' '}
-                                <Link
-                                  className="perfect-course-student"
-                                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                                >
-                                  <strong>
-                                    Are YOU the Perfect React GraphQL Student?
-                                  </strong>
-                                </Link>
-                              </Li>
-                            </Ul>
-
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                {trainingFundamentals && (
-                                  <CurriculumReactFundamentals
-                                    {...commonCurriculumProps}
-                                    marketingCard={
-                                      <MarketingCard
-                                        heading="Next React Fundamentals"
-                                        text={`Take your career by learning a solid foundation React in just 3 days!`}
-                                        className="training-curriculum-next-training-cta"
-                                        to={trainingFundamentals.toPath}
-                                        buttonText={`${
-                                          trainingFundamentals.city
-                                        } React Fundamentals, ${formatUTC(
-                                          trainingFundamentals.startDate,
-                                          trainingFundamentals.utcOffset,
-                                          'D MMM'
-                                        )}  `}
-                                      />
-                                    }
-                                  />
-                                )}
-                              </Col>
-                            </Row>
-                          </ContentItem>
-                          <ContentItem name={ADVANCED_REACT}>
-                            <P>
-                              <strong>
-                                On completion of the Advanced React Training
-                                each student will:
-                              </strong>
-                            </P>
-                            <Ul>
-                              <CurriculumAdvancedReact.LearningObjectivesList />
-                              <Li>
-                                Not sure if our trainings are right for you?
-                                Read our blog{' '}
-                                <Link
-                                  className="perfect-course-student"
-                                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                                >
-                                  <strong>
-                                    Are YOU the Perfect React GraphQL Student?
-                                  </strong>
-                                </Link>
-                              </Li>
-                            </Ul>
-                            <H4>Full course curriculum:</H4>
-                            <Row>
-                              <Col lg={1} lgOffset={1} />
-                              <Col lg={9}>
-                                {trainingAdvanced && (
-                                  <CurriculumAdvancedReact
-                                    {...commonCurriculumProps}
-                                    marketingCard={
-                                      <MarketingCard
-                                        heading="Next React Advanced Training"
-                                        text={`You can master Advanced React - in just 2 days!`}
-                                        className="training-curriculum-next-training-cta"
-                                        to={trainingAdvanced.toPath}
-                                        buttonText={`${
-                                          trainingAdvanced.city
-                                        } React Advanced, ${formatUTC(
-                                          trainingAdvanced.startDate,
-                                          trainingAdvanced.utcOffset,
-                                          'D MMM'
-                                        )}  `}
-                                      />
-                                    }
-                                  />
-                                )}
-                              </Col>
-                            </Row>
-                          </ContentItem>
-                        </TabContent>
-                      </Tabs>
+                      <H2Ref>
+                        Our courses - what are the differences?{' '}
+                        <Link to="#differences" name="differences">
+                          #
+                        </Link>
+                      </H2Ref>
                     </Col>
                   </Row>
-                </Grid>
+                  <Row>
+                    <Col lg={10} lgOffset={1}>
+                      <Table>
+                        <Thead>
+                          <Tr>
+                            <Th />
+                            <Th type={REACT_BOOTCAMP}>Bootcamp</Th>
+                            <Th type={PART_TIME}>Part Time </Th>
+                            <Th type={ADVANCED_REACT}>Advanced</Th>
+                            <Th type={REACT_FUNDAMENTALS}>Fundamentals</Th>
+                          </Tr>
+                        </Thead>
+                        <Tbody>
+                          <Tr>
+                            <Td>ES6</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td>
+                              <Tick type={PART_TIME} />
+                            </Td>
+                            <Td />
+                            <Td>
+                              <Tick type={REACT_FUNDAMENTALS} />
+                            </Td>
+                          </Tr>
+                          <Tr>
+                            <Td>Routing and Forms</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td>
+                              <Tick type={PART_TIME} />
+                            </Td>
+                            <Td />
+                            <Td>
+                              <Tick type={REACT_FUNDAMENTALS} />
+                            </Td>
+                          </Tr>
+                          <Tr>
+                            <Td>Redux</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td>
+                              <Tick type={PART_TIME} />
+                            </Td>
+                            <Td />
+                            <Td>
+                              <Tick type={REACT_FUNDAMENTALS} />
+                            </Td>
+                          </Tr>
+                          <Tr>
+                            <Td>Hooks</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td>
+                              <Tick type={PART_TIME} />
+                            </Td>
+                            <Td>
+                              <Tick type={ADVANCED_REACT} />
+                            </Td>
+                            <Td>
+                              <Tick type={REACT_FUNDAMENTALS} />
+                            </Td>
+                          </Tr>
+                          <Tr>
+                            <Td>Testing</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td>
+                              <Tick type={PART_TIME} />
+                            </Td>
+                            <Td>
+                              <Tick type={ADVANCED_REACT} />
+                            </Td>
+                            <Td />
+                          </Tr>
+                          <Tr>
+                            <Td>Advanced Testing</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td />
+                            <Td>
+                              <Tick type={ADVANCED_REACT} />
+                            </Td>
+                            <Td />
+                          </Tr>
+                          <Tr>
+                            <Td>React Patterns and Perf</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td />
+                            <Td>
+                              <Tick type={ADVANCED_REACT} />
+                            </Td>
+                            <Td />
+                          </Tr>
+                          <Tr>
+                            <Td>Design Systems</Td>
+                            <Td>
+                              <Tick type={REACT_BOOTCAMP} />
+                            </Td>
+                            <Td />
+                            <Td>
+                              <Tick type={ADVANCED_REACT} />
+                            </Td>
+                            <Td />
+                          </Tr>
+                          <Tr>
+                            <Td />
+                            <Td>
+                              <LinkButton
+                                variant="secondary"
+                                to="/react/training/bootcamp"
+                              >
+                                Bootcamp
+                              </LinkButton>
+                            </Td>
+                            <Td>
+                              <LinkButton
+                                variant="secondary"
+                                to="/react/training/advanced"
+                              >
+                                Advanced
+                              </LinkButton>
+                            </Td>
+                            <Td>
+                              <LinkButton
+                                variant="secondary"
+                                to="/react/training/part-time-course/"
+                              >
+                                Part Time
+                              </LinkButton>
+                            </Td>
+                            <Td>
+                              <LinkButton
+                                variant="secondary"
+                                to="/react/training/react-fundamentals/"
+                              >
+                                Fundamentals
+                              </LinkButton>
+                            </Td>
+                          </Tr>
+                        </Tbody>
+                      </Table>
+                      <Row>
+                        <Col>
+                          <H5>Also available...</H5>
+                        </Col>
+                        <Col md={6}>
+                          <TrainingCard borderColor={LIGHT_BLUE}>
+                            <H4>Corporate training</H4>
+                            <P>
+                              Private team training, located in your offices
+                              anywhere in the world.
+                            </P>
+                            <Link to="/react/training/corporate">
+                              Find Out More
+                            </Link>
+                          </TrainingCard>
+                        </Col>
+                        <Col md={6}>
+                          <TrainingCard mb={0} borderColor={LIGHT_BLUE}>
+                            <H4>1 Day Workshops</H4>
+                            <P>
+                              Instense training focussing on specific parts of
+                              our React curriculum.
+                            </P>
+                            <Link
+                              variant="secondary"
+                              to="/react/training/workshops"
+                            >
+                              Find Out More
+                            </Link>
+                          </TrainingCard>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Card>
+              </TopSection>
+              <Section>
+                <Row>
+                  <Col lg={10} lgOffset={1}>
+                    <Element name="curriculum" />
+                    <H2>Choose a curriculum:</H2>
+                    <Tabs onChange={this.setActive} active={this.state.active}>
+                      <TabList>
+                        <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
+                        <TabItem name={PART_TIME}>Part-time Course</TabItem>
+                        <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
+                        <TabItem name={REACT_FUNDAMENTALS}>
+                          React Fundamentals
+                        </TabItem>
+                      </TabList>
+                      <TabContent>
+                        <ContentItem name={REACT_BOOTCAMP}>
+                          <P>
+                            <strong>
+                              On completion of the React Bootcamp each student
+                              will:
+                            </strong>
+                          </P>
+                          <Ul>
+                            <CurriculumReactBootcamp.LearningObjectivesList />
+                            <Li>
+                              Not sure if our trainings are right for you? Read
+                              our blog{' '}
+                              <Link
+                                className="perfect-course-student"
+                                to="/blog/are-you-the-perfect-react-graphql-student/"
+                              >
+                                <strong>
+                                  Are YOU the Perfect React GraphQL Student?
+                                </strong>
+                              </Link>
+                            </Li>
+                          </Ul>
+
+                          <H4>Full course curriculum:</H4>
+                          <Row>
+                            <Col lg={1} lgOffset={1} />
+                            <Col lg={9}>
+                              {trainingBootcamp && (
+                                <CurriculumReactBootcamp
+                                  {...commonCurriculumProps}
+                                  marketingCard={
+                                    <MarketingCard
+                                      heading="Next React Bootcamp"
+                                      text={`Take your career to the next level and master React in just a few days!`}
+                                      className="training-curriculum-next-training-cta"
+                                      to={trainingBootcamp.toPath}
+                                      buttonText={`${
+                                        trainingBootcamp.city
+                                      } React Bootcamp, ${formatUTC(
+                                        trainingBootcamp.startDate,
+                                        trainingBootcamp.utcOffset,
+                                        'D MMM'
+                                      )}  `}
+                                    />
+                                  }
+                                />
+                              )}
+                            </Col>
+                          </Row>
+                        </ContentItem>
+
+                        <ContentItem name={PART_TIME}>
+                          <P>
+                            <strong>
+                              On completion of the React Part-time course each
+                              student will:
+                            </strong>
+                          </P>
+                          <Ul>
+                            <CurriculumPartTime.LearningObjectivesList />
+                            <Li>
+                              Not sure if our trainings are right for you? Read
+                              our blog{' '}
+                              <Link
+                                className="perfect-course-student"
+                                to="/blog/are-you-the-perfect-react-graphql-student/"
+                              >
+                                <strong>
+                                  Are YOU the Perfect React GraphQL Student?
+                                </strong>
+                              </Link>
+                            </Li>
+                          </Ul>
+                          <H4>Full course curriculum:</H4>
+
+                          <Row>
+                            <Col lg={1} lgOffset={1} />
+                            <Col lg={9}>
+                              <CurriculumPartTime
+                                {...commonCurriculumProps}
+                                marketingCard={
+                                  trainingPartTime && (
+                                    <MarketingCard
+                                      heading="Next React Part time Training"
+                                      text={`Next React part-time course starts on ${formatUTC(
+                                        trainingPartTime.startDate,
+                                        trainingPartTime.utcOffset,
+                                        'D MMM'
+                                      )} in ${trainingPartTime.city}`}
+                                      className="training-curriculum-next-training-cta"
+                                      to={trainingPartTime.toPath}
+                                      buttonText={`${
+                                        trainingPartTime.city
+                                      } React part-time ${formatUTC(
+                                        trainingPartTime.startDate,
+                                        trainingPartTime.utcOffset,
+                                        'D MMM'
+                                      )}  `}
+                                    />
+                                  )
+                                }
+                              />
+                            </Col>
+                          </Row>
+                        </ContentItem>
+                        <ContentItem name={REACT_FUNDAMENTALS}>
+                          <P>
+                            <strong>
+                              On completion of the React Fundamentals each
+                              student will:
+                            </strong>
+                          </P>
+                          <Ul>
+                            <CurriculumReactFundamentals.LearningObjectivesList />
+                            <Li>
+                              Not sure if our trainings are right for you? Read
+                              our blog{' '}
+                              <Link
+                                className="perfect-course-student"
+                                to="/blog/are-you-the-perfect-react-graphql-student/"
+                              >
+                                <strong>
+                                  Are YOU the Perfect React GraphQL Student?
+                                </strong>
+                              </Link>
+                            </Li>
+                          </Ul>
+
+                          <H4>Full course curriculum:</H4>
+                          <Row>
+                            <Col lg={1} lgOffset={1} />
+                            <Col lg={9}>
+                              {trainingFundamentals && (
+                                <CurriculumReactFundamentals
+                                  {...commonCurriculumProps}
+                                  marketingCard={
+                                    <MarketingCard
+                                      heading="Next React Fundamentals"
+                                      text={`Take your career by learning a solid foundation React in just 3 days!`}
+                                      className="training-curriculum-next-training-cta"
+                                      to={trainingFundamentals.toPath}
+                                      buttonText={`${
+                                        trainingFundamentals.city
+                                      } React Fundamentals, ${formatUTC(
+                                        trainingFundamentals.startDate,
+                                        trainingFundamentals.utcOffset,
+                                        'D MMM'
+                                      )}  `}
+                                    />
+                                  }
+                                />
+                              )}
+                            </Col>
+                          </Row>
+                        </ContentItem>
+                        <ContentItem name={ADVANCED_REACT}>
+                          <P>
+                            <strong>
+                              On completion of the Advanced React Training each
+                              student will:
+                            </strong>
+                          </P>
+                          <Ul>
+                            <CurriculumAdvancedReact.LearningObjectivesList />
+                            <Li>
+                              Not sure if our trainings are right for you? Read
+                              our blog{' '}
+                              <Link
+                                className="perfect-course-student"
+                                to="/blog/are-you-the-perfect-react-graphql-student/"
+                              >
+                                <strong>
+                                  Are YOU the Perfect React GraphQL Student?
+                                </strong>
+                              </Link>
+                            </Li>
+                          </Ul>
+                          <H4>Full course curriculum:</H4>
+                          <Row>
+                            <Col lg={1} lgOffset={1} />
+                            <Col lg={9}>
+                              {trainingAdvanced && (
+                                <CurriculumAdvancedReact
+                                  {...commonCurriculumProps}
+                                  marketingCard={
+                                    <MarketingCard
+                                      heading="Next React Advanced Training"
+                                      text={`You can master Advanced React - in just 2 days!`}
+                                      className="training-curriculum-next-training-cta"
+                                      to={trainingAdvanced.toPath}
+                                      buttonText={`${
+                                        trainingAdvanced.city
+                                      } React Advanced, ${formatUTC(
+                                        trainingAdvanced.startDate,
+                                        trainingAdvanced.utcOffset,
+                                        'D MMM'
+                                      )}  `}
+                                    />
+                                  }
+                                />
+                              )}
+                            </Col>
+                          </Row>
+                        </ContentItem>
+                      </TabContent>
+                    </Tabs>
+                  </Col>
+                </Row>
               </Section>
               <UpcomingTrainingSection trainings={trainings} />
             </React.Fragment>

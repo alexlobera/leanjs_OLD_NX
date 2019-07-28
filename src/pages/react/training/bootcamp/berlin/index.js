@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumReactBootcamp } from 'src/components/curriculum'
@@ -90,103 +90,92 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark" top>
-            <Grid>
-              <Card variant="primary">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Lara's student experience</H4>
-                    <Video youtubeId="_8Xox79wE9Q" />
-                    <TrainingDetails coaches={[ALEX_LOBERA]} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card variant="primary">
+              <Row>
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingError={trainingError}
+                    trainingLoading={trainingLoading}
+                  />
+                </Col>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <H4>Lara's student experience</H4>
+                  <Video youtubeId="_8Xox79wE9Q" />
+                  <TrainingDetails coaches={[ALEX_LOBERA]} />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Card>
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumReactBootcamp
-                      layout={LIST_TWO_COL}
-                      training={training}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumReactBootcamp
+                    layout={LIST_TWO_COL}
+                    training={training}
+                  />
+                </Col>
+              </Row>
+            </Card>
           </Section>
 
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="At the end of course, you have a finished project. The networking also, [students] share jobs on the [alumni] Slack channel."
-                    fullname="Rafa Fraga"
-                    job="Software Engineer"
-                    youtubeId="pLl8uuLvKWA"
-                  />
-                </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this React bootcamp right for me? Are you...{' '}
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      A developer with 1+ year of development under your belt
-                      using JavaScript?
-                    </Li>
-                    <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a React JS Specialist able
-                      to make critical decisions about the architecture of a
-                      React application.
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, our bootcamp could be for
-                    you!
-                  </P>
-                  <H3>Not for beginner devs!</H3>
-                  <P>
-                    <strong>We do not run learn-to-code bootcamps</strong>.
-                  </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="At the end of course, you have a finished project. The networking also, [students] share jobs on the [alumni] Slack channel."
+                  fullname="Rafa Fraga"
+                  job="Software Engineer"
+                  youtubeId="pLl8uuLvKWA"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>Is this React bootcamp right for me? Are you... </H2Ref>
+                <Ul>
+                  <Li>
+                    A developer with 1+ year of development under your belt
+                    using JavaScript?
+                  </Li>
+                  <Li>
+                    Familiar with front-end technologies like JavaScript, CSS,
+                    and HTML?
+                  </Li>
+                  <Li>
+                    Taking a step forward to become a React JS Specialist able
+                    to make critical decisions about the architecture of a React
+                    application.
+                  </Li>
+                  <Li>
+                    Not satisfied with the pace of online learning and it's lack
+                    of 1-on-1 mentoring?
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, our bootcamp could be for you!
+                </P>
+                <H3>Not for beginner devs!</H3>
+                <P>
+                  <strong>We do not run learn-to-code bootcamps</strong>.
+                </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
           </Section>
           <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AlternativeBootcampTrainings
-                    city={BERLIN}
-                    trainings={trainings}
-                  />
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeBootcampTrainings
+                  city={BERLIN}
+                  trainings={trainings}
+                />
+              </Col>
+            </Row>
           </Section>
 
           <BlogSection tags={['react', 'beginner']} />

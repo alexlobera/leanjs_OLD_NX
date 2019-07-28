@@ -12,7 +12,7 @@ import Section, {
   TopSection,
   MOB_SECTION_MARGIN_Y,
 } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
+import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { AttendeeQuote } from 'src/components/training'
 import Ul, { Li } from '../components/layout/Ul'
@@ -120,145 +120,136 @@ const IndexPage = () => {
             bgImageName={HOME_PAGE}
           />
           <TopSection mt={[0, -250]}>
-            <Grid>
-              <Row>
-                <Col lgOffset={1} lg={11}>
-                  <StyledTabTitle>Select Technology: </StyledTabTitle>
-                  <TabItem
-                    onClick={() => setTab(TAB_REACT)}
-                    to="#tab-curriculum"
-                    variant={selectedTab === TAB_REACT ? 'active' : undefined}
-                  >
-                    React
-                  </TabItem>
-                  <TabItem
-                    variant={selectedTab === TAB_GRAPHQL ? 'active' : undefined}
-                    onClick={() => setTab(TAB_GRAPHQL)}
-                    to="#tab-curriculum"
-                  >
-                    GraphQL
-                  </TabItem>
-                  <a name="tab-curriculum" />
-                </Col>
-              </Row>
-              <Card>
-                {selectedTab === TAB_REACT ? (
-                  <FullCurriculumsReact trainings={trainings} />
-                ) : (
-                  <FullCurriculumsGraphQL trainings={trainings} />
-                )}
-              </Card>
-            </Grid>
+            <Row>
+              <Col lgOffset={1} lg={11}>
+                <StyledTabTitle>Select Technology: </StyledTabTitle>
+                <TabItem
+                  onClick={() => setTab(TAB_REACT)}
+                  to="#tab-curriculum"
+                  variant={selectedTab === TAB_REACT ? 'active' : undefined}
+                >
+                  React
+                </TabItem>
+                <TabItem
+                  variant={selectedTab === TAB_GRAPHQL ? 'active' : undefined}
+                  onClick={() => setTab(TAB_GRAPHQL)}
+                  to="#tab-curriculum"
+                >
+                  GraphQL
+                </TabItem>
+                <a name="tab-curriculum" />
+              </Col>
+            </Row>
+            <Card>
+              {selectedTab === TAB_REACT ? (
+                <FullCurriculumsReact trainings={trainings} />
+              ) : (
+                <FullCurriculumsGraphQL trainings={trainings} />
+              )}
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-                    fullname="Rafa Fraga"
-                    job="Software Engineer"
-                    youtubeId="hZZksRcqtkc"
-                  />
-                </Col>
-                <Col md={4} mdOffset={1}>
-                  <H2 mt={[MOB_SECTION_MARGIN_Y, 0]}>
-                    Is React GraphQL Academy right for me?
-                  </H2>
-                  <Ul>
-                    <Li>
-                      For working developers -{' '}
-                      <strong>not for beginners!</strong>
-                    </Li>
-                    <Li>
-                      <strong>Hands-on project-based</strong> training.
-                    </Li>
-                    <Li>
-                      <strong>collaborative</strong> learning environment.
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/react/training/bootcamp"
-                        className="is-it-for-me"
-                      >
-                        Bootcamps
-                      </Link>{' '}
-                      for accelerated learning.
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/react/training/part-time-course/"
-                        className="is-it-for-me"
-                      >
-                        Part-time courses
-                      </Link>{' '}
-                      for accelerated learning.
-                    </Li>
-                  </Ul>
-                  <P />
-                  <LinkButton
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                    className="is-it-for-me-cta"
-                  >
-                    Blog: Are YOU the Perfect Bootcamp Student?
-                  </LinkButton>
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+                  fullname="Rafa Fraga"
+                  job="Software Engineer"
+                  youtubeId="hZZksRcqtkc"
+                />
+              </Col>
+              <Col md={4} mdOffset={1}>
+                <H2 mt={[MOB_SECTION_MARGIN_Y, 0]}>
+                  Is React GraphQL Academy right for me?
+                </H2>
+                <Ul>
+                  <Li>
+                    For working developers - <strong>not for beginners!</strong>
+                  </Li>
+                  <Li>
+                    <strong>Hands-on project-based</strong> training.
+                  </Li>
+                  <Li>
+                    <strong>collaborative</strong> learning environment.
+                  </Li>
+                  <Li>
+                    <Link
+                      to="/react/training/bootcamp"
+                      className="is-it-for-me"
+                    >
+                      Bootcamps
+                    </Link>{' '}
+                    for accelerated learning.
+                  </Li>
+                  <Li>
+                    <Link
+                      to="/react/training/part-time-course/"
+                      className="is-it-for-me"
+                    >
+                      Part-time courses
+                    </Link>{' '}
+                    for accelerated learning.
+                  </Li>
+                </Ul>
+                <P />
+                <LinkButton
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                  className="is-it-for-me-cta"
+                >
+                  Blog: Are YOU the Perfect Bootcamp Student?
+                </LinkButton>
+              </Col>
+            </Row>
           </Section>
           <TrustedBySection />
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5}>
-                  <Video
-                    youtubeId="o6YwbHGfPOo"
-                    description={
-                      <P>
-                        <em>
-                          Andru Dunn, Senior Developer at{' '}
-                          <strong>John Lewis</strong> speaks how React GraphQL
-                          Academy training has improved his team.
-                        </em>
-                      </P>
-                    }
-                  />
-                </Col>
-                <Col md={5} mdOffset={1}>
-                  <H2>React GraphQL Academy - great for your whole team</H2>
-                  <Ul>
-                    <Li>Avoid delays and business losses</Li>
-                    <Li>Minimize risk of onboarding React & GraphQL</Li>
-                    <Li>Safe environment for developers to learn</Li>
-                    <Li>Increase employee retention and productivity</Li>
-                    <Li>
-                      Offer more services to internal and external clients
-                    </Li>
-                  </Ul>
-                  <SectionButtonRow>
-                    <Col sm={7}>
-                      <LinkButton
-                        variant="default"
-                        pdf
-                        to={CONVINCE_THE_BOSS_PDF}
-                        className="learn-with-us-pdf"
-                      >
-                        Why devs should learn with us
-                      </LinkButton>
-                    </Col>
-                    <Col sm={5}>
-                      <LinkButton
-                        variant="secondary"
-                        to="/react/training/corporate/"
-                        className="corporate-team-training-testimonials-cta"
-                      >
-                        Corporate team training
-                      </LinkButton>
-                    </Col>
-                  </SectionButtonRow>
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={5}>
+                <Video
+                  youtubeId="o6YwbHGfPOo"
+                  description={
+                    <P>
+                      <em>
+                        Andru Dunn, Senior Developer at{' '}
+                        <strong>John Lewis</strong> speaks how React GraphQL
+                        Academy training has improved his team.
+                      </em>
+                    </P>
+                  }
+                />
+              </Col>
+              <Col md={5} mdOffset={1}>
+                <H2>React GraphQL Academy - great for your whole team</H2>
+                <Ul>
+                  <Li>Avoid delays and business losses</Li>
+                  <Li>Minimize risk of onboarding React & GraphQL</Li>
+                  <Li>Safe environment for developers to learn</Li>
+                  <Li>Increase employee retention and productivity</Li>
+                  <Li>Offer more services to internal and external clients</Li>
+                </Ul>
+                <SectionButtonRow>
+                  <Col sm={7}>
+                    <LinkButton
+                      variant="default"
+                      pdf
+                      to={CONVINCE_THE_BOSS_PDF}
+                      className="learn-with-us-pdf"
+                    >
+                      Why devs should learn with us
+                    </LinkButton>
+                  </Col>
+                  <Col sm={5}>
+                    <LinkButton
+                      variant="secondary"
+                      to="/react/training/corporate/"
+                      className="corporate-team-training-testimonials-cta"
+                    >
+                      Corporate team training
+                    </LinkButton>
+                  </Col>
+                </SectionButtonRow>
+              </Col>
+            </Row>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
