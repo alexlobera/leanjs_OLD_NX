@@ -141,7 +141,7 @@ const IndexPage = () => {
                 <a name="tab-curriculum" />
               </Col>
             </Row>
-            <Card>
+            <Card pt={[4, 7]}>
               {selectedTab === TAB_REACT ? (
                 <FullCurriculumsReact trainings={trainings} />
               ) : (

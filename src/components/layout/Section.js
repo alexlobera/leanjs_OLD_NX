@@ -22,12 +22,12 @@ const StyledSection = styled(Box)`
   }
 `
 
-const Section = ({ removeGrid = false, variant, children, ...rest }) => (
+const Section = ({ variant, children, ...rest }) => (
   <StyledSection
     {...((variant && sectionVariantProps[variant]) || {})}
     {...rest}
   >
-    {removeGrid ? children : <Grid>{children}</Grid>}
+    <Grid>{children}</Grid>
   </StyledSection>
 )
 
