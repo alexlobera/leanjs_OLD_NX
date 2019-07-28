@@ -4,7 +4,7 @@ import { navigate } from 'gatsby'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H3, H4, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
 import { Card } from 'src/components/elements'
@@ -85,121 +85,117 @@ const SessionInterest = () => (
           />
 
           <TopSection marginTop={`-250`}>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col md={10} mdOffset={1}>
-                    <Form
-                      onSubmit={handleFormSubmit}
-                      render={({ handleSubmit, valid }) => {
-                        return (
-                          <form onSubmit={handleSubmit}>
-                            <H4>What are your details?</H4>
-                            <Row>
-                              <Col md={6}>
-                                <NameInput
-                                  label="Your name"
-                                  name="name"
-                                  placeholder="eg. Steve Jobs"
-                                />
-                              </Col>
-                              <Col md={6}>
-                                <EmailInput
-                                  validate={composeValidators(
-                                    required,
-                                    mustBeEmail
-                                  )}
-                                  label="Your best email address"
-                                  name="email"
-                                  placeholder="eg. steve@jobs.com"
-                                />
-                              </Col>
-                            </Row>
+            <Card>
+              <Row>
+                <Col md={10} mdOffset={1}>
+                  <Form
+                    onSubmit={handleFormSubmit}
+                    render={({ handleSubmit, valid }) => {
+                      return (
+                        <form onSubmit={handleSubmit}>
+                          <H4>What are your details?</H4>
+                          <Row>
+                            <Col md={6}>
+                              <NameInput
+                                label="Your name"
+                                name="name"
+                                placeholder="eg. Steve Jobs"
+                              />
+                            </Col>
+                            <Col md={6}>
+                              <EmailInput
+                                validate={composeValidators(
+                                  required,
+                                  mustBeEmail
+                                )}
+                                label="Your best email address"
+                                name="email"
+                                placeholder="eg. steve@jobs.com"
+                              />
+                            </Col>
+                          </Row>
 
-                            <Row>
-                              <Col>
-                                <H4>Which Workshops are you interested in?</H4>
-                              </Col>
-                              <Col md={6}>
+                          <Row>
+                            <Col>
+                              <H4>Which Workshops are you interested in?</H4>
+                            </Col>
+                            <Col md={6}>
+                              <CheckboxField
+                                name="subscriptions.fundamentals"
+                                label="Modern JS and React Fundamentals"
+                              />
+                              <CheckboxField
+                                name="subscriptions.styling"
+                                label="Styling in React and Design Systems"
+                              />
+                              <CheckboxField
+                                name="subscriptions.hooks"
+                                label="React Hooks & Suspense"
+                              />
+                              <CheckboxField
+                                name="subscriptions.perf"
+                                label="Performance & FP in React"
+                              />
+                            </Col>
+                            <Col md={6}>
+                              <React.Fragment>
                                 <CheckboxField
-                                  name="subscriptions.fundamentals"
-                                  label="Modern JS and React Fundamentals"
+                                  name="subscriptions.testing"
+                                  label="Testing in React"
                                 />
                                 <CheckboxField
-                                  name="subscriptions.styling"
-                                  label="Styling in React and Design Systems"
+                                  name="subscriptions.native"
+                                  label="React Native"
                                 />
-                                <CheckboxField
-                                  name="subscriptions.hooks"
-                                  label="React Hooks & Suspense"
-                                />
-                                <CheckboxField
-                                  name="subscriptions.perf"
-                                  label="Performance & FP in React"
-                                />
-                              </Col>
-                              <Col md={6}>
-                                <React.Fragment>
-                                  <CheckboxField
-                                    name="subscriptions.testing"
-                                    label="Testing in React"
-                                  />
-                                  <CheckboxField
-                                    name="subscriptions.native"
-                                    label="React Native"
-                                  />
-                                </React.Fragment>
-                              </Col>
-                            </Row>
-                            <Row style={{ marginTop: '2em' }}>
-                              <Col>
-                                <H3>Free learning resources</H3>
-                                <P>
-                                  We share our learning resources{' '}
-                                  <strong>
-                                    directly from our{' '}
-                                    <Link to="/react/curriculum">
-                                      <strong>curriculum</strong>
-                                    </Link>
-                                  </strong>{' '}
-                                  and we'd love for you to enjoy and learn from
-                                  them!{' '}
-                                </P>
-                                <CheckboxField
-                                  name="resources"
-                                  label="I want free learning resources!"
-                                />
-                              </Col>
-                            </Row>
-                            <Row style={{ marginTop: '2em' }}>
-                              <Col md={3}>
-                                <Button
-                                  block
-                                  variant="primary"
-                                  type="submit"
-                                  disabled={!valid}
-                                >
-                                  Submit
-                                </Button>
-                              </Col>
-                              <Col mdOffset={1} md={8}>
-                                <P>
-                                  We won't spam you as per our{' '}
-                                  <Link to="/privacy-policy">
-                                    Privacy Policy
+                              </React.Fragment>
+                            </Col>
+                          </Row>
+                          <Row style={{ marginTop: '2em' }}>
+                            <Col>
+                              <H3>Free learning resources</H3>
+                              <P>
+                                We share our learning resources{' '}
+                                <strong>
+                                  directly from our{' '}
+                                  <Link to="/react/curriculum">
+                                    <strong>curriculum</strong>
                                   </Link>
-                                  .
-                                </P>
-                              </Col>
-                            </Row>
-                          </form>
-                        )
-                      }}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+                                </strong>{' '}
+                                and we'd love for you to enjoy and learn from
+                                them!{' '}
+                              </P>
+                              <CheckboxField
+                                name="resources"
+                                label="I want free learning resources!"
+                              />
+                            </Col>
+                          </Row>
+                          <Row style={{ marginTop: '2em' }}>
+                            <Col md={3}>
+                              <Button
+                                block
+                                variant="primary"
+                                type="submit"
+                                disabled={!valid}
+                              >
+                                Submit
+                              </Button>
+                            </Col>
+                            <Col mdOffset={1} md={8}>
+                              <P>
+                                We won't spam you as per our{' '}
+                                <Link to="/privacy-policy">Privacy Policy</Link>
+                                .
+                              </P>
+                            </Col>
+                          </Row>
+                        </form>
+                      )
+                    }}
+                  />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
 
           <UpcomingTrainingSection trainings={trainings} />

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumReactFundamentals } from 'src/components/curriculum'
@@ -102,100 +102,91 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark" top>
-            <Grid>
-              <Card bg="dark">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Charlie's student experience</H4>
-                    <Video youtubeId="VhUMAqToJ4s" />
-                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumReactFundamentals
-                      training={training}
-                      layout={LIST_TWO_COL}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </Section>
-
-          <Section>
-            <Grid>
+            <Card variant="primary">
               <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
-                    fullname="Lara Ramey"
-                    job="Software Developer"
-                    company="Meredith Corporation"
-                    videoUrl="Syktu6ICNfw"
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingError={trainingError}
+                    trainingLoading={trainingLoading}
                   />
                 </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this React course right for you? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience"></Link>
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      A developer with 1+ year of development under your belt
-                      using JavaScript?
-                    </Li>
-                    <Li>
-                      Familiar with front-end technologies like JavaScript, CSS,
-                      and HTML?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a confident React
-                      developer, able to quickly get orientated and add value to
-                      a React application.
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
-                  </Ul>
-
-                  <H3>Not for beginner devs!</H3>
-                  <P>
-                    <strong>We do not run learn-to-code bootcamps</strong>.
-                  </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <H4>Charlie's student experience</H4>
+                  <Video youtubeId="VhUMAqToJ4s" />
+                  <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                 </Col>
               </Row>
-            </Grid>
-          </Section>
+            </Card>
+          </TopSection>
           <Section>
-            <Grid>
+            <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
+                  <CurriculumReactFundamentals
+                    training={training}
+                    layout={LIST_TWO_COL}
+                  />
                 </Col>
               </Row>
-            </Grid>
+            </Card>
+          </Section>
+
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="Syktu6ICNfw"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this React course right for you? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience"></Link>
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    A developer with 1+ year of development under your belt
+                    using JavaScript?
+                  </Li>
+                  <Li>
+                    Familiar with front-end technologies like JavaScript, CSS,
+                    and HTML?
+                  </Li>
+                  <Li>
+                    Taking a step forward to become a confident React developer,
+                    able to quickly get orientated and add value to a React
+                    application.
+                  </Li>
+                  <Li>
+                    Not satisfied with the pace of online learning and it's lack
+                    of 1-on-1 mentoring?
+                  </Li>
+                </Ul>
+
+                <H3>Not for beginner devs!</H3>
+                <P>
+                  <strong>We do not run learn-to-code bootcamps</strong>.
+                </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
+          </Section>
+          <Section>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeTrainings trainings={crossSellTrainings} />
+              </Col>
+            </Row>
           </Section>
 
           <BlogSection tags={['react', 'beginner']} />

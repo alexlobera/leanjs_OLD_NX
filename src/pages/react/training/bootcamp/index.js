@@ -7,7 +7,7 @@ import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumReactBootcamp } from 'src/components/curriculum'
@@ -79,74 +79,65 @@ const Bootcamps = () => (
             type={REACT_BOOTCAMP}
           />
           <TopSection>
-            <Grid>
-              <Card border="shadow">
-                <Link to="#upcoming-courses" name="upcoming-courses" />
-                <CurriculumReactBootcamp
-                  trainings={upcomingBootCampTrainings}
-                />
-              </Card>
-            </Grid>
+            <Card>
+              <Link to="#upcoming-courses" name="upcoming-courses" />
+              <CurriculumReactBootcamp trainings={upcomingBootCampTrainings} />
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
-                    fullname="Charlie Wilson"
-                    job="Software Engineer"
-                    company="ESG PLC"
-                    videoUrl="CP422OORbPA"
-                  />
-                </Col>
-                <Col md={4} mdOffset={1}>
-                  <H2>
-                    <Link to="#target-audience" name="target-audience" />
-                    Is this React bootcamp right for me?
-                  </H2>
-                  <Ul>
-                    <Li>Extremely rapid, intense learning</Li>
-                    <Li>
-                      Ideal for experienced programmers familiar with good
-                      practices. Not for beginners!
-                    </Li>
-                    <Li>Small classes with expert developer coaches</Li>
-                    <Li>
-                      Hands-on project-based training - most of the time you'll
-                      be coding.
-                    </Li>
-                    <Li>
-                      Join a growing network of alumni for advice, knowledge and
-                      social fun!
-                    </Li>
-                  </Ul>
-                  <P>
-                    {nextTraining && (
-                      <LinkButton variant="primary" to={nextTraining.toPath}>
-                        Next bootcamp:{' '}
-                        {formatUTC(
-                          nextTraining.startDate,
-                          nextTraining.utcOffset,
-                          'D MMM'
-                        )}
-                        , {nextTraining.city}
-                      </LinkButton>
-                    )}
-                  </P>
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
+                  fullname="Charlie Wilson"
+                  job="Software Engineer"
+                  company="ESG PLC"
+                  youtubeId="CP422OORbPA"
+                />
+              </Col>
+              <Col md={4} mdOffset={1}>
+                <H2>
+                  <Link to="#target-audience" name="target-audience" />
+                  Is this React bootcamp right for me?
+                </H2>
+                <Ul>
+                  <Li>Extremely rapid, intense learning</Li>
+                  <Li>
+                    Ideal for experienced programmers familiar with good
+                    practices. Not for beginners!
+                  </Li>
+                  <Li>Small classes with expert developer coaches</Li>
+                  <Li>
+                    Hands-on project-based training - most of the time you'll be
+                    coding.
+                  </Li>
+                  <Li>
+                    Join a growing network of alumni for advice, knowledge and
+                    social fun!
+                  </Li>
+                </Ul>
+                <P>
+                  {nextTraining && (
+                    <LinkButton variant="primary" to={nextTraining.toPath}>
+                      Next bootcamp:{' '}
+                      {formatUTC(
+                        nextTraining.startDate,
+                        nextTraining.utcOffset,
+                        'D MMM'
+                      )}
+                      , {nextTraining.city}
+                    </LinkButton>
+                  )}
+                </P>
+              </Col>
+            </Row>
           </Section>
           <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AlternativeBootcampTrainings trainings={trainings} />
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeBootcampTrainings trainings={trainings} />
+              </Col>
+            </Row>
           </Section>
           <TrustedBySection />
           <BlogSection tags={['react', 'beginner']} />

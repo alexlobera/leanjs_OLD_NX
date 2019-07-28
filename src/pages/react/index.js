@@ -8,7 +8,7 @@ import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
@@ -118,76 +118,65 @@ const ReactPage = ({ data }) => {
             type={REACT_BOOTCAMP}
           />
           <TopSection>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Link
-                    to="#free-react-resources"
-                    name="free-react-resources"
-                  />
-                  <Col md={5} mdOffset={1}>
-                    <LearningResources resources={posts} type="React" />
-                  </Col>
-                  <Link to="#our-react-training" name="our-react-training" />
-                  <Col md={4} mdOffset={1}>
-                    <H3>Our React training</H3>
-                    <TrainingCardList
-                      data={trainingList}
-                      borderColor={LIGHT_BLUE}
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section>
-            <Grid>
+            <Card>
               <Row>
+                <Link to="#free-react-resources" name="free-react-resources" />
                 <Col md={5} mdOffset={1}>
-                  <H2>
-                    <Link to="#what-is-react" name="what-is-react" />
-                    What is React?
-                  </H2>
-                  <P>
-                    Created by Facebook in 2015, React is a JavaScript library -
-                    not a framework - that creates user interfaces. Basically,
-                    it's a simpler and better way of developing apps because...
-                  </P>
-                  <Ul>
-                    <Li>React is declarative</Li>
-                    <Li>It's all about Reusable Components</Li>
-                    <Li>React is SEO friendly</Li>
-                    <Li>It fully embraces JavaScript</Li>
-                    <Li>
-                      It's growing at a fast pace and the community is
-                      fantastic!
-                    </Li>
-                  </Ul>
-                  <P>
-                    <LinkButton to="/react/top-10-reasons-to-learn-react/">
-                      Blog: Why You Should Learn React Right Now
-                    </LinkButton>
-                  </P>
+                  <LearningResources resources={posts} type="React" />
                 </Col>
-                <Col md={5} mdOffset={1}>
-                  <Link
-                    to="#should-i-learn-react"
-                    name="should-i-learn-react"
+                <Link to="#our-react-training" name="our-react-training" />
+                <Col md={4} mdOffset={1}>
+                  <H3>Our React training</H3>
+                  <TrainingCardList
+                    data={trainingList}
+                    borderColor={LIGHT_BLUE}
                   />
-                  <Video youtubeId="6hmKu1-vW-8" />
-                  <P>
-                    Polina Stoyanova, a software engineer from tray.io, explains
-                    her experiences of learning React on our React Bootcamp
-                  </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
                 </Col>
               </Row>
-            </Grid>
+            </Card>
+          </TopSection>
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <H2>
+                  <Link to="#what-is-react" name="what-is-react" />
+                  What is React?
+                </H2>
+                <P>
+                  Created by Facebook in 2015, React is a JavaScript library -
+                  not a framework - that creates user interfaces. Basically,
+                  it's a simpler and better way of developing apps because...
+                </P>
+                <Ul>
+                  <Li>React is declarative</Li>
+                  <Li>It's all about Reusable Components</Li>
+                  <Li>React is SEO friendly</Li>
+                  <Li>It fully embraces JavaScript</Li>
+                  <Li>
+                    It's growing at a fast pace and the community is fantastic!
+                  </Li>
+                </Ul>
+                <P>
+                  <LinkButton to="/react/top-10-reasons-to-learn-react/">
+                    Blog: Why You Should Learn React Right Now
+                  </LinkButton>
+                </P>
+              </Col>
+              <Col md={5} mdOffset={1}>
+                <Link to="#should-i-learn-react" name="should-i-learn-react" />
+                <Video youtubeId="6hmKu1-vW-8" />
+                <P>
+                  Polina Stoyanova, a software engineer from tray.io, explains
+                  her experiences of learning React on our React Bootcamp
+                </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
           </Section>
           <TrustedBySection />
 

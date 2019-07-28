@@ -5,7 +5,7 @@ import { BOOTCAMP } from '../../images/imageNames'
 import Layout from '../components/layout'
 import { triggerUnsubscribe } from '../api'
 import Section from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
+import { Col, Row } from '../components/layout/Grid'
 import { H3, P } from '../components/text'
 import { RootHeader as Header } from '../components/layout/Header'
 import { InputField, Form } from '../components/form'
@@ -47,50 +47,42 @@ export class Unsubscribe extends React.Component {
           bgImageName={BOOTCAMP}
         />
         <Section>
-          <Grid>
+          <Row>
+            <Col md={6}>
+              <P>
+                Fill the form to receive an email to unsubscribe from our
+                mailing list.
+              </P>
+              <Form
+                onSubmit={this.handleFormSubmit}
+                render={({ handleSubmit, valid }) => {
+                  return (
+                    <form
+                      onSubmit={handleSubmit}
+                      style={this.state.formSubmited ? { display: 'none' } : {}}
+                    >
+                      <EmailInput
+                        validate={composeValidators(required, mustBeEmail)}
+                        label="Your email address:"
+                        name="email"
+                        placeholder="eg. steve@jobs.com"
+                      />
+                      <Button variant="primary" type="submit" disabled={!valid}>
+                        Submit email
+                      </Button>
+                    </form>
+                  )
+                }}
+              />
+            </Col>
+          </Row>
+          {formSubmited ? (
             <Row>
-              <Col md={6}>
-                <P>
-                  Fill the form to receive an email to unsubscribe from our
-                  mailing list.
-                </P>
-                <Form
-                  onSubmit={this.handleFormSubmit}
-                  render={({ handleSubmit, valid }) => {
-                    return (
-                      <form
-                        onSubmit={handleSubmit}
-                        style={
-                          this.state.formSubmited ? { display: 'none' } : {}
-                        }
-                      >
-                        <EmailInput
-                          validate={composeValidators(required, mustBeEmail)}
-                          label="Your email address:"
-                          name="email"
-                          placeholder="eg. steve@jobs.com"
-                        />
-                        <Button
-                          variant="primary"
-                          type="submit"
-                          disabled={!valid}
-                        >
-                          Submit email
-                        </Button>
-                      </form>
-                    )
-                  }}
-                />
+              <Col>
+                <ThanksTitle>{THANKS_MESSAGE}</ThanksTitle>
               </Col>
             </Row>
-            {formSubmited ? (
-              <Row>
-                <Col>
-                  <ThanksTitle>{THANKS_MESSAGE}</ThanksTitle>
-                </Col>
-              </Row>
-            ) : null}
-          </Grid>
+          ) : null}
         </Section>
       </React.Fragment>
     )

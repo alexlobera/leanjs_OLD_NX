@@ -61,7 +61,7 @@ const Landing = ({ data }) => {
             <TopSection>
               <Section variant="dark">
                 <Grid>
-                  <Card bg="dark">
+                  <Card variant="primary">
                     <Row>
                       <Col md={6} lg={4} lgOffset={1}>
                         <Video youtubeId={youtubeId} />

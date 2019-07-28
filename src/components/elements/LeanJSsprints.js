@@ -22,7 +22,7 @@ const LeanJSsprints = () => {
   const alexLeanJSImgSrc = data.file.childImageSharp.fluid.src
 
   return (
-    <Card bg="darkGrey" border="shadow">
+    <Card variant="primary">
       <Row>
         <Col md={4} mdOffset={1}>
           <Image

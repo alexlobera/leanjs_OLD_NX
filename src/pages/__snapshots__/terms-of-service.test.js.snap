@@ -18,387 +18,239 @@ exports[`<TermsOfService /> should render component 1`] = `
     }
     position="relative"
   >
-    <Grid>
-      <Card
-        border="shadow"
-        pb={
-          Array [
-            4,
-            7,
-          ]
-        }
-        pt={
-          Array [
-            4,
-            7,
-          ]
-        }
-      >
-        <Row>
-          <Styled(Col)
-            md={10}
-            mdOffset={1}
-          >
-            <Styled(Box)
-              box="h2"
-              fontSize={5}
-              fontWeight="bold"
-              lineHeight={6}
-              mb={5}
-              pt={5}
-            >
-              By registering for our workshops, courses or bootcamps, you agree to the following terms and conditions.
-            </Styled(Box)>
-          </Styled(Col)>
-        </Row>
-      </Card>
-    </Grid>
-  </TopSection>
-  <Section
-    box="section"
-    mb={
-      Array [
-        3,
-        0,
-      ]
-    }
-    mt={
-      Array [
-        3,
-        0,
-      ]
-    }
-    pb={
-      Array [
-        1,
-        4,
-      ]
-    }
-    pt={
-      Array [
-        1,
-        4,
-      ]
-    }
-  >
-    <Grid>
+    <Card
+      variant="secondary"
+    >
       <Row>
         <Styled(Col)
           md={10}
           mdOffset={1}
         >
-          <Section
-            box="section"
-            mb={
-              Array [
-                3,
-                0,
-              ]
-            }
-            mt={
-              Array [
-                3,
-                0,
-              ]
-            }
-            pb={
-              Array [
-                1,
-                4,
-              ]
-            }
-            pt={
-              Array [
-                1,
-                4,
-              ]
-            }
+          <Styled(Box)
+            box="h2"
+            fontSize={5}
+            fontWeight="bold"
+            lineHeight={6}
+            mb={5}
+            pt={5}
           >
-            <Styled(Box)
-              box="h2"
-              fontSize={5}
-              fontWeight="bold"
-              lineHeight={6}
-              mb={5}
-              pt={5}
-            >
-              Transferring your place
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              We’ll happily transfer your place to a lucky colleague if you need to. Please let us know as soon as possible – email
-               
-              <Link
-                to="mailto:hello@reactgraphql.academy"
-              >
-                hello@reactgraphql.academy
-              </Link>
-              .
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              If for any reason you can’t attend at all, you’ll need to let us know no later than 15 days before the date of the event or workshop. Refunds will not be made after this date.
-            </Styled(Box)>
-          </Section>
-          <Section
-            box="section"
-            mb={
-              Array [
-                3,
-                0,
-              ]
-            }
-            mt={
-              Array [
-                3,
-                0,
-              ]
-            }
-            pb={
-              Array [
-                1,
-                4,
-              ]
-            }
-            pt={
-              Array [
-                1,
-                4,
-              ]
-            }
-          >
-            <Styled(Box)
-              box="h2"
-              fontSize={5}
-              fontWeight="bold"
-              lineHeight={6}
-              mb={5}
-              pt={5}
-            >
-              Payment terms & re-sale
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              All tickets must be paid for within 14 days of an order being placed or by the date of the event, whichever is sooner.
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              Re-sale of tickets is not permitted.
-            </Styled(Box)>
-          </Section>
-          <Section
-            box="section"
-            mb={
-              Array [
-                3,
-                0,
-              ]
-            }
-            mt={
-              Array [
-                3,
-                0,
-              ]
-            }
-            pb={
-              Array [
-                1,
-                4,
-              ]
-            }
-            pt={
-              Array [
-                1,
-                4,
-              ]
-            }
-          >
-            <Styled(Box)
-              box="h2"
-              fontSize={5}
-              fontWeight="bold"
-              lineHeight={6}
-              mb={5}
-              pt={5}
-            >
-              Cancelation and refunds
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              You need to let us know no later than 15 days before the date of the event or workshop that you want to cancel your ticket in order to get a full refund.
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              We can cancel any event or workshop 15 days before the date of the event or workshop. We will notify you by email to the address that you have provided us during the registration process.
-            </Styled(Box)>
-          </Section>
-          <Section
-            box="section"
-            mb={
-              Array [
-                3,
-                0,
-              ]
-            }
-            mt={
-              Array [
-                3,
-                0,
-              ]
-            }
-            pb={
-              Array [
-                1,
-                4,
-              ]
-            }
-            pt={
-              Array [
-                1,
-                4,
-              ]
-            }
-          >
-            <Styled(Box)
-              box="h2"
-              fontSize={5}
-              fontWeight="bold"
-              lineHeight={6}
-              mb={5}
-              pt={5}
-            >
-              Photos & footage
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              We occasionally photograph our training workshops, and by registering you give us permission to use any images or footage taken of you on the day. We also reserve the right to reproduce quotes and feedback which will be fully credited.
-            </Styled(Box)>
-          </Section>
-          <Section
-            box="section"
-            mb={
-              Array [
-                3,
-                0,
-              ]
-            }
-            mt={
-              Array [
-                3,
-                0,
-              ]
-            }
-            pb={
-              Array [
-                1,
-                4,
-              ]
-            }
-            pt={
-              Array [
-                1,
-                4,
-              ]
-            }
-          >
-            <Styled(Box)
-              box="h2"
-              fontSize={5}
-              fontWeight="bold"
-              lineHeight={6}
-              mb={5}
-              pt={5}
-            >
-              Accessibility
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              We aim to choose venues that are fully accessible. If you have any accessibility requirements you think we should be aware of, please let us know at the point of registering so that we can ensure we meet your needs and have someone on hand to assist you if required.
-            </Styled(Box)>
-          </Section>
-          <Section
-            box="section"
-            mb={
-              Array [
-                3,
-                0,
-              ]
-            }
-            mt={
-              Array [
-                3,
-                0,
-              ]
-            }
-            pb={
-              Array [
-                1,
-                4,
-              ]
-            }
-            pt={
-              Array [
-                1,
-                4,
-              ]
-            }
-          >
-            <Styled(Box)
-              box="h2"
-              fontSize={5}
-              fontWeight="bold"
-              lineHeight={6}
-              mb={5}
-              pt={5}
-            >
-              Company information
-            </Styled(Box)>
-            <Styled(Box)
-              box="p"
-              lineHeight={2}
-              m={0}
-              pb={3}
-            >
-              Registered in England and Wales No. 09797580
-              <br />
-              Registered VAT number: 256 5475 77
-            </Styled(Box)>
-          </Section>
+            By registering for our workshops, courses or bootcamps, you agree to the following terms and conditions.
+          </Styled(Box)>
         </Styled(Col)>
       </Row>
-    </Grid>
+    </Card>
+  </TopSection>
+  <Section
+    box="section"
+    display={
+      Array [
+        "inline-block",
+        "block",
+      ]
+    }
+    mb={
+      Array [
+        2,
+        3,
+      ]
+    }
+    mt={
+      Array [
+        2,
+        3,
+      ]
+    }
+    pb={
+      Array [
+        4,
+        4,
+      ]
+    }
+    pt={
+      Array [
+        4,
+        4,
+      ]
+    }
+  >
+    <Row>
+      <Styled(Col)
+        md={10}
+        mdOffset={1}
+      >
+        <Styled(Box)
+          box="section"
+          py={4}
+        >
+          <Styled(Box)
+            box="h2"
+            fontSize={5}
+            fontWeight="bold"
+            lineHeight={6}
+            mb={5}
+            pt={5}
+          >
+            Transferring your place
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            We’ll happily transfer your place to a lucky colleague if you need to. Please let us know as soon as possible – email
+             
+            <Link
+              to="mailto:hello@reactgraphql.academy"
+            >
+              hello@reactgraphql.academy
+            </Link>
+            .
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            If for any reason you can’t attend at all, you’ll need to let us know no later than 15 days before the date of the event or workshop. Refunds will not be made after this date.
+          </Styled(Box)>
+        </Styled(Box)>
+        <Styled(Box)
+          box="section"
+          py={4}
+        >
+          <Styled(Box)
+            box="h2"
+            fontSize={5}
+            fontWeight="bold"
+            lineHeight={6}
+            mb={5}
+            pt={5}
+          >
+            Payment terms & re-sale
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            All tickets must be paid for within 14 days of an order being placed or by the date of the event, whichever is sooner.
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            Re-sale of tickets is not permitted.
+          </Styled(Box)>
+        </Styled(Box)>
+        <Styled(Box)
+          box="section"
+          py={4}
+        >
+          <Styled(Box)
+            box="h2"
+            fontSize={5}
+            fontWeight="bold"
+            lineHeight={6}
+            mb={5}
+            pt={5}
+          >
+            Cancelation and refunds
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            You need to let us know no later than 15 days before the date of the event or workshop that you want to cancel your ticket in order to get a full refund.
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            We can cancel any event or workshop 15 days before the date of the event or workshop. We will notify you by email to the address that you have provided us during the registration process.
+          </Styled(Box)>
+        </Styled(Box)>
+        <Styled(Box)
+          box="section"
+          py={4}
+        >
+          <Styled(Box)
+            box="h2"
+            fontSize={5}
+            fontWeight="bold"
+            lineHeight={6}
+            mb={5}
+            pt={5}
+          >
+            Photos & footage
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            We occasionally photograph our training workshops, and by registering you give us permission to use any images or footage taken of you on the day. We also reserve the right to reproduce quotes and feedback which will be fully credited.
+          </Styled(Box)>
+        </Styled(Box)>
+        <Styled(Box)
+          box="section"
+          py={4}
+        >
+          <Styled(Box)
+            box="h2"
+            fontSize={5}
+            fontWeight="bold"
+            lineHeight={6}
+            mb={5}
+            pt={5}
+          >
+            Accessibility
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            We aim to choose venues that are fully accessible. If you have any accessibility requirements you think we should be aware of, please let us know at the point of registering so that we can ensure we meet your needs and have someone on hand to assist you if required.
+          </Styled(Box)>
+        </Styled(Box)>
+        <Styled(Box)
+          box="section"
+          py={4}
+        >
+          <Styled(Box)
+            box="h2"
+            fontSize={5}
+            fontWeight="bold"
+            lineHeight={6}
+            mb={5}
+            pt={5}
+          >
+            Company information
+          </Styled(Box)>
+          <Styled(Box)
+            box="p"
+            lineHeight={2}
+            m={0}
+            pb={3}
+          >
+            Registered in England and Wales No. 09797580
+            <br />
+            Registered VAT number: 256 5475 77
+          </Styled(Box)>
+        </Styled(Box)>
+      </Styled(Col)>
+    </Row>
   </Section>
 </Layout>
 `;
