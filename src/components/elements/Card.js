@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Box from '../layout/Box'
-import { DARK_BLUE, BROWN, WHITE, BLUE } from '../../config/styles'
+import { DARK_BLUE, BROWN, WHITE, BLUE, DARK_GREY } from '../../config/styles'
 import { fontColor } from '../text'
 
 const StyledCard = styled(Box)`
@@ -12,6 +12,10 @@ const StyledCard = styled(Box)`
       case 'primary':
         return `
           ${fontColor(WHITE)}
+        `
+      case 'secondary':
+        return `
+          ${fontColor(DARK_GREY)}
         `
     }
   }}
@@ -48,8 +52,8 @@ const cardVariantProps = {
     borderColor: [null, BLUE],
   },
   primary: {
-    pt: [2, 6],
-    pb: [2, 6],
+    pt: [2, 5],
+    pb: [2, 5],
     backgroundColor: DARK_BLUE,
     border: [null, '1px solid'],
     borderColor: BROWN,
