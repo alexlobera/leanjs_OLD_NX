@@ -21,10 +21,10 @@ const StyledLink = styled(Box)`
   ${ANCHOR_STYLE};
 `
 
-export const styleChildLinkColor = color => `
+export const styleChildLinkColor = (color, important) => `
   a:not([role='button']) {
-    color: ${color};
-    text-shadow: 0px 0px 1px ${color};
+    color: ${color} ${important};
+    text-shadow: 0px 0px 1px ${color} ${important};
     &:link {
       color: ${color} !important;
     }
@@ -38,7 +38,6 @@ export const styleChildLinkColor = color => `
       color: ${color} !important;
     }
   }
-  
 `
 
 DefaultLinkScroll.defaultProps = {
