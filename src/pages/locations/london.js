@@ -153,7 +153,7 @@ const GraphQL = ({ path }) => (
           />
           <Header
             titleLines={['React GraphQL Academy London']}
-            subtitle="The React and GraphQL hub in London for every developer"
+            subtitle="The React and GraphQL hub in London"
             bgImageName={BOOTCAMP}
             links={[
               {
