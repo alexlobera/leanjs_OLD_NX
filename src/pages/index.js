@@ -64,7 +64,11 @@ StyledTabTitle.defaultProps = {
 }
 
 const TabItem = ({ variant, ...rest }) => (
-  <StyledTabItem {...(variant ? tabItemVariantProps[variant] : {})} {...rest} />
+  <StyledTabItem
+    {...(variant ? tabItemVariantProps[variant] : {})}
+    {...rest}
+    display="inline-block"
+  />
 )
 
 TabItem.defaultProps = {
