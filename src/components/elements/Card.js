@@ -17,6 +17,8 @@ const StyledCard = styled(Box)`
         return `
           ${fontColor(DARK_GREY)}
         `
+      default:
+        ''
     }
   }}
 `
