@@ -31,7 +31,7 @@ const metas = {
   type: 'website',
 }
 
-const TrainingPage = () => (
+const TrainingPage = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       return (
@@ -55,7 +55,7 @@ const TrainingPage = () => (
                 label: 'React',
               },
               {
-                to: '/react/training',
+                to: path,
                 label: 'Training',
               },
             ]}

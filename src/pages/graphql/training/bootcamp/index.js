@@ -32,7 +32,7 @@ const metas = {
   type: 'website',
 }
 
-const GraphQL = () => (
+const GraphQL = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingGraphQLTrainings = selectUpcomingTrainings({
@@ -57,7 +57,7 @@ const GraphQL = () => (
               { to: '/', label: 'Home' },
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training', label: 'Training' },
-              { to: '/graphql/training/bootcamp', label: 'Bootcamp' },
+              { to: path, label: 'Bootcamp' },
             ]}
           />
           <Header

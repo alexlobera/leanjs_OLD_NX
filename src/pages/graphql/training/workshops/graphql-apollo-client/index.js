@@ -30,7 +30,7 @@ const metas = {
   type: 'website',
 }
 
-const GraphQLApolloClientWorkshop = () => (
+const GraphQLApolloClientWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const workshops = selectUpcomingTrainings({
@@ -61,7 +61,7 @@ const GraphQLApolloClientWorkshop = () => (
               { to: '/graphql/training/', label: 'Training' },
               { to: '/graphql/training/workshops', label: 'Workshops' },
               {
-                to: '/graphql/training/workshops/graphql-apollo-client',
+                to: path,
                 label: 'GraphQL Apollo Client',
               },
             ]}

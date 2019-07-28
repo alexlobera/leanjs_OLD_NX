@@ -66,7 +66,7 @@ const metas = {
   type: 'website',
 }
 
-const ReactPage = ({ data }) => {
+const ReactPage = ({ data, path }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
@@ -87,7 +87,7 @@ const ReactPage = ({ data }) => {
             path={[
               { to: '/', label: 'Home' },
               {
-                to: '/react',
+                to: path,
                 label: 'React',
               },
             ]}

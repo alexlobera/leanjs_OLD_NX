@@ -51,7 +51,7 @@ const metas = {
   type: 'website',
 }
 
-const GraphQLPage = ({ data }) => {
+const GraphQLPage = ({ data, path }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
@@ -69,10 +69,7 @@ const GraphQLPage = ({ data }) => {
             {createSocialMetas(metas)}
           </Helmet>
           <Breadcrumb
-            path={[
-              { to: '/', label: 'Home' },
-              { to: '/graphql', label: 'GraphQL' },
-            ]}
+            path={[{ to: '/', label: 'Home' }, { to: path, label: 'GraphQL' }]}
           />
           <Header
             titleLines={['Learn GraphQL with us...']}

@@ -30,7 +30,7 @@ const metas = {
   type: 'website',
 }
 
-const CorporateReactTraining = () => (
+const CorporateReactTraining = ({ path }) => (
   <Layout>
     {({ trainings }) => (
       <React.Fragment>
@@ -53,7 +53,7 @@ const CorporateReactTraining = () => (
               label: 'React',
             },
             {
-              to: '/react/training/corporate',
+              to: path,
               label: 'Corporate',
             },
           ]}
