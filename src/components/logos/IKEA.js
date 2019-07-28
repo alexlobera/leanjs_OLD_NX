@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 // -181 -110 1059 511
 const IKEA = ({ colour = '#231F20', width, height }) => (
   <svg
-    viewBox="0 0 1054 86"
+    viewBox="0 0 450 86"
     preserveAspectRatio="xMidYMid meet"
     width={width}
     height={height}

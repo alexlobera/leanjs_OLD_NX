@@ -21,7 +21,7 @@ const AlternativeTrainings = ({
   city,
 }) =>
   trainings && trainings.length ? (
-    <Card border="blue">
+    <Card variant="info">
       <Row>
         <Col md={11} mdOffset={1}>
           <H3>{titleText}</H3>

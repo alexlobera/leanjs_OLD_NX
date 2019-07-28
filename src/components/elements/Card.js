@@ -1,92 +1,79 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Box from '../layout/Box'
-import {
-  DARK_BLUE,
-  BROWN,
-  WHITE,
-  DARK_GREY,
-  BOX_SHADOW,
-  BLUE,
-} from '../../config/styles'
-import { SCREEN_XS_MAX, SCREEN_MD_MAX, SCREEN_SM_MIN } from '../utils'
+import { DARK_BLUE, BROWN, WHITE, BLUE, DARK_GREY } from '../../config/styles'
 import { fontColor } from '../text'
 
-const Card = ({ small, ...props }) => {
-  let newProps = {}
-  if (small) {
-    newProps.pt = 5
-    newProps.pb = 5
-    newProps.px = 5
-  }
-  return <StyledCard {...props} {...newProps} />
-}
-
-const StyledCard = styled(Box)` 
+const StyledCard = styled(Box)`
   position: relative;
-  ${props => {
-    switch (props.bg) {
-      case 'dark':
+  ${({ variant }) => {
+    switch (variant) {
+      case 'primary':
         return `
-    background-color: ${DARK_BLUE};
-    border: solid 1px ${BROWN};
-    ${fontColor(WHITE)}
-  `
-      case 'darkGrey':
+          ${fontColor(WHITE)}
+        `
+      case 'secondary':
         return `
-    background-color: ${DARK_GREY};
-    ${fontColor(WHITE)}
-  `
-      case 'BLUE':
-        return `
-      background-color: ${BLUE};
-      ${fontColor(DARK_GREY)}
-      `
+          ${fontColor(DARK_GREY)}
+        `
       default:
-        return `
-    background-color: ${WHITE};
-    ${fontColor(DARK_GREY)}
-  `
+        return ''
     }
   }}
-
-  ${props => {
-    switch (props.border) {
-      case 'white':
-        return 'border: solid 2px rgba(255, 255, 255, 0.9);'
-      case 'shadow':
-        return BOX_SHADOW
-      case 'black':
-        return `border: 1px solid ${BROWN};`
-      case 'blue':
-        return `border: 3px solid ${BLUE};`
-      default:
-        return ``
-    }
-  }}
-  
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    border: 0;
-    box-shadow: none;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-  @media (min-width: ${SCREEN_SM_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
 `
-
-Card.defaultProps = {
-  pt: [4, 7],
-  pb: [4, 7],
+StyledCard.defaultProps = {
+  pt: [0, 7],
+  pb: [0, 7],
+  pl: 0,
+  pr: 0,
 }
+
+const Card = ({ small, ...rest }) => {
+  let smallProps = {}
+  if (small) {
+    smallProps.pt = [0, 5]
+    smallProps.pb = [0, 5]
+    smallProps.pl = [1, 5]
+    smallProps.pr = [1, 5]
+  }
+  return (
+    <StyledCard
+      {...smallProps}
+      {...(cardVariantProps[rest.variant] || {})}
+      {...rest}
+    />
+  )
+}
+
+const cardVariantProps = {
+  info: {
+    pl: [0, 6],
+    pr: [0, 6],
+    pt: [0, 6],
+    pb: [0, 6],
+    border: [null, '3px solid'],
+    borderColor: [null, BLUE],
+  },
+  primary: {
+    pt: [2, 5],
+    pb: [2, 5],
+    backgroundColor: DARK_BLUE,
+    border: [null, `1px solid ${BROWN}`],
+    borderColor: BROWN,
+  },
+  secondary: {
+    backgroundColor: WHITE,
+    boxShadow: [
+      null,
+      '0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);',
+    ],
+  },
+}
+
 Card.displayName = 'Card'
-Card.propTypes = {
-  top: PropTypes.number,
+Card.defaultProps = {
+  variant: 'secondary',
 }
 
 export default Card

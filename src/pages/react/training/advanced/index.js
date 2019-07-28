@@ -6,7 +6,7 @@ import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumAdvancedReact } from 'src/components/curriculum'
@@ -73,51 +73,44 @@ const AdvancedTraining = () => (
             type={ADVANCED_REACT}
           />
           <TopSection>
-            <Grid>
-              <Card border="shadow">
-                <CurriculumAdvancedReact
-                  trainings={upcomingAdvancedTrainings}
-                />
-              </Card>
-            </Grid>
+            <Card>
+              <CurriculumAdvancedReact trainings={upcomingAdvancedTrainings} />
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="Most of the software my company does is legacy, it's been there for a while. Coming from PHP, React seemed a good way to do that."
-                    fullname="Charlie Wilson"
-                    job="Software Engineer"
-                    company="ESG PLC"
-                    videoUrl="yG3H27y9F08"
-                  />
-                </Col>
-                <Col md={4} mdOffset={1}>
-                  <H2>Is this advanced React training right for me?</H2>
-                  <Ul>
-                    <CurriculumAdvancedReact.TargetAudienceList />
-                    <Li>
-                      Join a growing network of alumni for advice, knowledge and
-                      social fun!
-                    </Li>
-                  </Ul>
-                  {nextTraining ? (
-                    <P>
-                      <LinkButton variant="primary" to={nextTraining.toPath}>
-                        Next one:{' '}
-                        {`${formatUTC(
-                          nextTraining.startDate,
-                          nextTraining.utcOffset,
-                          'D MMM'
-                        )}, ${nextTraining.city} >>`}
-                      </LinkButton>
-                    </P>
-                  ) : null}
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="Most of the software my company does is legacy, it's been there for a while. Coming from PHP, React seemed a good way to do that."
+                  fullname="Charlie Wilson"
+                  job="Software Engineer"
+                  company="ESG PLC"
+                  youtubeId="yG3H27y9F08"
+                />
+              </Col>
+              <Col md={4} mdOffset={1}>
+                <H2>Is this advanced React training right for me?</H2>
+                <Ul>
+                  <CurriculumAdvancedReact.TargetAudienceList />
+                  <Li>
+                    Join a growing network of alumni for advice, knowledge and
+                    social fun!
+                  </Li>
+                </Ul>
+                {nextTraining ? (
+                  <P>
+                    <LinkButton variant="primary" to={nextTraining.toPath}>
+                      Next one:{' '}
+                      {`${formatUTC(
+                        nextTraining.startDate,
+                        nextTraining.utcOffset,
+                        'D MMM'
+                      )}, ${nextTraining.city} >>`}
+                    </LinkButton>
+                  </P>
+                ) : null}
+              </Col>
+            </Row>
           </Section>
           <TrustedBySection />
           <UpcomingTrainingSection trainings={trainings} />

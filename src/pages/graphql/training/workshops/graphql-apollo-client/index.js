@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumGraphQLApollo from 'src/components/curriculum/workshops/CurriculumGraphQLApollo'
@@ -78,70 +78,64 @@ const GraphQLApolloClientWorkshop = () => (
             training={training}
           />
           <TopSection top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumGraphQLApollo layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumGraphQLApollo layout={LIST_TWO_COL} />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
 
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-                    fullname="Rafa Fraga"
-                    job="Software Engineer"
-                    videoUrl="hZZksRcqtkc"
-                  />
-                </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this one day workshop right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      A developer with some experience developing React
-                      applications?
-                    </Li>
-                    <Li>
-                      Familiar with front-end technologies like React,
-                      JavaScript, CSS, and HTML?
-                    </Li>
-                    <Li>
-                      Taking a step forward to become a GraphQL Specialist able
-                      to make critical decisions about the architecture of an
-                      application.
-                    </Li>
-                    <Li>
-                      Not satisfied with the pace of online learning and it's
-                      lack of 1-on-1 mentoring?
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, this workshop could be for
-                    you!
-                  </P>
-                  <H3>Not for beginner devs!</H3>
-                  <P>This is not a learn-to-code workshop!</P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+                  fullname="Rafa Fraga"
+                  job="Software Engineer"
+                  youtubeId="hZZksRcqtkc"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this one day workshop right for me? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
                   </Link>
-                </Col>
-              </Row>
-            </Grid>
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    A developer with some experience developing React
+                    applications?
+                  </Li>
+                  <Li>
+                    Familiar with front-end technologies like React, JavaScript,
+                    CSS, and HTML?
+                  </Li>
+                  <Li>
+                    Taking a step forward to become a GraphQL Specialist able to
+                    make critical decisions about the architecture of an
+                    application.
+                  </Li>
+                  <Li>
+                    Not satisfied with the pace of online learning and it's lack
+                    of 1-on-1 mentoring?
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, this workshop could be for you!
+                </P>
+                <H3>Not for beginner devs!</H3>
+                <P>This is not a learn-to-code workshop!</P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

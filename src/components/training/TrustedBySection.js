@@ -28,6 +28,7 @@ const CompanyList = styled(Ul)`
   overflow: hidden;
   li {
     margin-left: 0;
+    margin-right: 3px;
     padding: 0.5rem 1rem 1.5rem 0;
   }
   @media (max-width: ${SCREEN_XS_MAX}) {
@@ -43,16 +44,13 @@ export const TrustedByLogoList = () => (
       <Capgemini colour={LIGHT_BLUE} secColour={LIGHT_BLUE} height={47} />
     </Li>
     <Li>
-      <FinancialTimes colour={LIGHT_BLUE} height={30} />
-    </Li>
-    <Li>
       <IBM colour={LIGHT_BLUE} height={50} width={100} />
     </Li>
     <Li>
-      <Microsoft colour={LIGHT_BLUE} height={50} width={250} />
+      <FinancialTimes colour={LIGHT_BLUE} height={30} />
     </Li>
     <Li>
-      <IKEA colour={LIGHT_BLUE} height={50} />
+      <Microsoft colour={LIGHT_BLUE} height={50} width={250} />
     </Li>
     <Li>
       <Tesco
@@ -63,6 +61,9 @@ export const TrustedByLogoList = () => (
       />
     </Li>
     <Li>
+      <IKEA colour={LIGHT_BLUE} height={50} />
+    </Li>
+    <Li>
       <Xing colour={LIGHT_BLUE} height={48} y={20} />
     </Li>
   </CompanyList>
@@ -71,7 +72,7 @@ export const TrustedByLogoList = () => (
 const TrustedBySection = ({ width }) => (
   <Section variant="dark">
     <Grid>
-      <Card bg="dark">
+      <Card variant="primary">
         <Row>
           <Col lg={10} lgOffset={1}>
             <H2>Trusted by industry leaders</H2>

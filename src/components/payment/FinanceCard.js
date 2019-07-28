@@ -4,8 +4,8 @@ import Card from '../elements/Card'
 import CourseBud from '../logos/CourseBud'
 import { Link } from '../navigation'
 
-const FinanceCard = () => (
-  <Card my={5} small>
+const FinanceCard = props => (
+  <Card my={5} small {...props}>
     <H3>Financial Support</H3>
     <P>
       Looking for a way to spread the cost of training? We've partnered with

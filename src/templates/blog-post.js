@@ -165,7 +165,7 @@ const BlogPost = ({ data }) => {
                 {renderAst(htmlAst)}
               </Col>
               <Col md={4} mdOffset={1}>
-                <Card small bg="dark" mt={3}>
+                <Card small variant="primary" mt={3}>
                   <ContactForm simplified />
                 </Card>
                 {relatedPosts.length ? (

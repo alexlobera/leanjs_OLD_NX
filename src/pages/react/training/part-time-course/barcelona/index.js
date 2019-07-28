@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { CurriculumPartTime } from 'src/components/curriculum'
 import { Card, Video } from 'src/components/elements'
 import {
@@ -85,35 +85,31 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark" top>
-            <Grid>
-              <Card bg="dark">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <Video youtubeId="E_4eQQHjc7A" />
-                    <TrainingDetails coaches={[HORACIO_HERRERA, ALEX_LOBERA]} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card variant="primary">
+              <Row>
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingError={trainingError}
+                    trainingLoading={trainingLoading}
+                  />
+                </Col>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <Video youtubeId="E_4eQQHjc7A" />
+                  <TrainingDetails coaches={[HORACIO_HERRERA, ALEX_LOBERA]} />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
           <TargetAudienceSection />
           <Section>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumPartTime layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumPartTime layout={LIST_TWO_COL} />
+                </Col>
+              </Row>
+            </Card>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumTestingInReact } from 'src/components/curriculum/workshops'
@@ -61,70 +61,64 @@ const AdvancedReactWorkshop = () => (
             training={training}
           />
           <TopSection top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumTestingInReact layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section>
-            <Grid>
+            <Card>
               <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-                    fullname="Rafa Fraga"
-                    job="Software Engineer"
-                    videoUrl="hZZksRcqtkc"
-                  />
-                </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this one day workshop right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      A developer with previous experience building React apps?
-                    </Li>
-                    <Li>
-                      A developer who wants to upskill or specialise in advanced
-                      React skills?
-                    </Li>
-                    <Li>
-                      A developer who has heard of React Hooks but doesn't know
-                      what that entails?
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, this workshop could be for
-                    you!
-                  </P>
-                  <H3>Not for React beginners!</H3>
-                  <P>
-                    This is not a learn-to-code workshop. If you want to learn
-                    to code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code Camp
-                    </Link>
-                    .
-                  </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumTestingInReact layout={LIST_TWO_COL} />
                 </Col>
               </Row>
-            </Grid>
+            </Card>
+          </TopSection>
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+                  fullname="Rafa Fraga"
+                  job="Software Engineer"
+                  youtubeId="hZZksRcqtkc"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this one day workshop right for me? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
+                  </Link>
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    A developer with previous experience building React apps?
+                  </Li>
+                  <Li>
+                    A developer who wants to upskill or specialise in advanced
+                    React skills?
+                  </Li>
+                  <Li>
+                    A developer who has heard of React Hooks but doesn't know
+                    what that entails?
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, this workshop could be for you!
+                </P>
+                <H3>Not for React beginners!</H3>
+                <P>
+                  This is not a learn-to-code workshop. If you want to learn to
+                  code, we recommend checking out{' '}
+                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                    Free Code Camp
+                  </Link>
+                  .
+                </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

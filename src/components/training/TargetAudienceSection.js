@@ -12,12 +12,11 @@ const TargetAudienceSection = () => (
       <Row>
         <Col md={5} mdOffset={1}>
           <AttendeeQuote
-            small
             quote="[The course] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
             fullname="Jim Plimmer"
             job="Developer"
             company="Conversion.com"
-            videoUrl="gc4Hnb7zD5I"
+            youtubeId="gc4Hnb7zD5I"
           />
         </Col>
         <Col md={4} lgOffset={1}>

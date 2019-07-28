@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
@@ -100,107 +100,97 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="dark">
-            <Grid>
-              <Card bg="dark">
-                <Row>
-                  <Col md={6} lg={5} lgOffset={1}>
-                    <PaymentSection
-                      training={training}
-                      trainingError={trainingError}
-                      trainingLoading={trainingLoading}
-                    />
-                  </Col>
-                  <Col md={6} lg={4} lgOffset={1}>
-                    <H4>Rafa's student experience</H4>
-                    <Video youtubeId="hZZksRcqtkc" />
-                    <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
-          </TopSection>
-          <Section>
-            <Grid>
+            <Card variant="primary">
               <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
-                    fullname="Lara Ramey"
-                    job="Software Developer"
-                    company="Meredith Corporation"
-                    videoUrl="blg40SCle7I"
+                <Col md={6} lg={5} lgOffset={1}>
+                  <PaymentSection
+                    training={training}
+                    trainingError={trainingError}
+                    trainingLoading={trainingLoading}
                   />
                 </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this one day workshop right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      A developer with experience in JavaScript and with an
-                      understanding of React?
-                    </Li>
-                    <Li>
-                      Interested in understanding Redux from top to bottom
-                      including Redux Middlewares and tooling
-                    </Li>
-                    <Li>
-                      Looking to gain an in-depth understanding that will allow
-                      you to apply Redux to a large scale React appliaction or
-                      build upon an existing one.
-                    </Li>
-                    <Li>
-                      Interested in going deeper into functional programming
-                      principles and how they apply to Redux
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, this workshop could be for
-                    you!
-                  </P>
-                  <H3>Not for beginner devs!</H3>
-                  <P>
-                    This is not a learn-to-code course. If you want to learn to
-                    code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code camps
-                    </Link>
-                    .
-                  </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
+                <Col md={6} lg={4} lgOffset={1}>
+                  <H4>Rafa's student experience</H4>
+                  <Video youtubeId="hZZksRcqtkc" />
+                  <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                 </Col>
               </Row>
-            </Grid>
+            </Card>
+          </TopSection>
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="blg40SCle7I"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this one day workshop right for me? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
+                  </Link>
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    A developer with experience in JavaScript and with an
+                    understanding of React?
+                  </Li>
+                  <Li>
+                    Interested in understanding Redux from top to bottom
+                    including Redux Middlewares and tooling
+                  </Li>
+                  <Li>
+                    Looking to gain an in-depth understanding that will allow
+                    you to apply Redux to a large scale React appliaction or
+                    build upon an existing one.
+                  </Li>
+                  <Li>
+                    Interested in going deeper into functional programming
+                    principles and how they apply to Redux
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, this workshop could be for you!
+                </P>
+                <H3>Not for beginner devs!</H3>
+                <P>
+                  This is not a learn-to-code course. If you want to learn to
+                  code, we recommend checking out{' '}
+                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                    Free Code camps
+                  </Link>
+                  .
+                </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
           </Section>
           <Section top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumOneDayRedux layout={LIST_TWO_COL} />
+                </Col>
+              </Row>
+            </Card>
           </Section>
 
           <Section>
-            <Grid>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <AlternativeTrainings trainings={crossSellTrainings} />
-                </Col>
-              </Row>
-            </Grid>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeTrainings trainings={crossSellTrainings} />
+              </Col>
+            </Row>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

@@ -7,7 +7,7 @@ import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { FullCurriculumsReact } from '../../../components/curriculum'
@@ -123,66 +123,61 @@ const TrainingPage = () => (
             type={REACT_BOOTCAMP}
           />
           <TopSection>
-            <Grid>
-              <Card border="shadow">
-                <FullCurriculumsReact trainings={trainings} />
-              </Card>
-            </Grid>
+            <Card>
+              <FullCurriculumsReact trainings={trainings} />
+            </Card>
           </TopSection>
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="I've been a developer for 4 years... [After the React course] my manager is in the works to getting me a promotion. I'm happy with how things have turned out!"
-                    fullname="Lara Ramey"
-                    job="Software Developer"
-                    company="Meredith Corporation"
-                    videoUrl="er9ttTCS86U"
-                  />
-                </Col>
-                <Col md={4} mdOffset={1}>
-                  <Link to="#student-outcomes" name="student-outcomes" />
-                  <H2>What developers get from our training</H2>
-                  <Ul>
-                    <Li>
-                      <strong>Build production ready</strong> React apps.
-                    </Li>
-                    <Li>
-                      Discuss <strong>real-world projects</strong>.
-                    </Li>
-                    <Li>
-                      Learn <strong>best practices</strong>.
-                    </Li>
-                    <Li>
-                      <strong>Mentoring</strong> by our expert coaches.
-                    </Li>
-                    <Li>
-                      <strong>Stay tech-relevent</strong> in modern development.
-                    </Li>
-                  </Ul>
-                  <LinkButton pdf to={CONVINCE_THE_BOSS_PDF}>
-                    Download: Why Devs Should Learn With Us
-                  </LinkButton>
-                  <H3>Not for beginner devs!</H3>
-                  <P>
-                    <strong>We do not run learn-to-code bootcamps</strong>. If
-                    you want to learn to code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code camps
-                    </Link>
-                    .
-                  </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="I've been a developer for 4 years... [After the React course] my manager is in the works to getting me a promotion. I'm happy with how things have turned out!"
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="er9ttTCS86U"
+                />
+              </Col>
+              <Col md={4} mdOffset={1}>
+                <Link to="#student-outcomes" name="student-outcomes" />
+                <H2>What developers get from our training</H2>
+                <Ul>
+                  <Li>
+                    <strong>Build production ready</strong> React apps.
+                  </Li>
+                  <Li>
+                    Discuss <strong>real-world projects</strong>.
+                  </Li>
+                  <Li>
+                    Learn <strong>best practices</strong>.
+                  </Li>
+                  <Li>
+                    <strong>Mentoring</strong> by our expert coaches.
+                  </Li>
+                  <Li>
+                    <strong>Stay tech-relevent</strong> in modern development.
+                  </Li>
+                </Ul>
+                <LinkButton pdf to={CONVINCE_THE_BOSS_PDF}>
+                  Download: Why Devs Should Learn With Us
+                </LinkButton>
+                <H3>Not for beginner devs!</H3>
+                <P>
+                  <strong>We do not run learn-to-code bootcamps</strong>. If you
+                  want to learn to code, we recommend checking out{' '}
+                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                    Free Code camps
                   </Link>
-                </Col>
-              </Row>
-            </Grid>
+                  .
+                </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
           </Section>
           <TrustedBySection />
 

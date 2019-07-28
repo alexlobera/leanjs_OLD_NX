@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
@@ -61,75 +61,69 @@ const ReduxWorkshopLanding = () => (
             training={training}
           />
           <TopSection top>
-            <Grid>
-              <Card border="shadow">
-                <Row>
-                  <Col lg={10} lgOffset={1}>
-                    <CurriculumOneDayRedux layout={LIST_TWO_COL} />
-                  </Col>
-                </Row>
-              </Card>
-            </Grid>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumOneDayRedux layout={LIST_TWO_COL} />
+                </Col>
+              </Row>
+            </Card>
           </TopSection>
 
           <Section>
-            <Grid>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    small
-                    quote="[The coaches] are very important - they're able to explain things in a way we can understand."
-                    fullname="Jim Plimmer"
-                    job="Developer"
-                    company="Conversion.com"
-                    videoUrl="GU-IIi-84t8"
-                  />
-                </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2Ref>
-                    Is this one day workshop right for me? Are you...{' '}
-                    <Link to="#target-audience" name="target-audience">
-                      #
-                    </Link>
-                  </H2Ref>
-                  <Ul>
-                    <Li>
-                      A developer with experience in JS and with an
-                      understanding of React?
-                    </Li>
-                    <Li>
-                      Interested in understanding how Redux solves state
-                      management issues in React and best practice
-                      implementations and patterns?
-                    </Li>
-                    <Li>
-                      Looking to gain an in-depth understanding that will allow
-                      you to apply Redux to a large scale React appliaction or
-                      build upon an existing one.
-                    </Li>
-                  </Ul>
-                  <P>
-                    If you've said 'yes' to these, this workshop could be for
-                    you!
-                  </P>
-                  <H3>Not for React beginners!</H3>
-                  <P>
-                    This is not a learn-to-code workshop. If you want to learn
-                    to code, we recommend checking out{' '}
-                    <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                      Free Code Camp
-                    </Link>
-                    .
-                  </P>
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="[The coaches] are very important - they're able to explain things in a way we can understand."
+                  fullname="Jim Plimmer"
+                  job="Developer"
+                  company="Conversion.com"
+                  youtubeId="GU-IIi-84t8"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
+                <H2Ref>
+                  Is this one day workshop right for me? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
                   </Link>
-                </Col>
-              </Row>
-            </Grid>
+                </H2Ref>
+                <Ul>
+                  <Li>
+                    A developer with experience in JS and with an understanding
+                    of React?
+                  </Li>
+                  <Li>
+                    Interested in understanding how Redux solves state
+                    management issues in React and best practice implementations
+                    and patterns?
+                  </Li>
+                  <Li>
+                    Looking to gain an in-depth understanding that will allow
+                    you to apply Redux to a large scale React appliaction or
+                    build upon an existing one.
+                  </Li>
+                </Ul>
+                <P>
+                  If you've said 'yes' to these, this workshop could be for you!
+                </P>
+                <H3>Not for React beginners!</H3>
+                <P>
+                  This is not a learn-to-code workshop. If you want to learn to
+                  code, we recommend checking out{' '}
+                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                    Free Code Camp
+                  </Link>
+                  .
+                </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </Col>
+            </Row>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

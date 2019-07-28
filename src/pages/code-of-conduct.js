@@ -1,35 +1,34 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
-import Grid, { Col, Row } from '../components/layout/Grid'
+import { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, P } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import { RootHeader as Header } from '../components/layout/Header'
 import { Card } from '../components/elements'
 import { Image } from '../components/elements'
-import {
-  CODE_OF_CONDUCT_KEYPOINTS,
-  CODE_OF_CONDUCT_MORE_DETAIL,
-} from '../config/images'
 import Link from '../components/navigation/Link'
 
-const CodeOfConduct = () => (
+const CodeOfConduct = ({ data }) => (
   <Layout>
-    {({ trainings }) => (
-      <React.Fragment>
-        <Header
-          titleLines={['Our code of conduct']}
-          subtitle="All students, coaches, sponsors and volunteers at our trainings are<br /> required to agree with the following code of conduct.            "
-          links={[
-            { text: 'Key takeaways ', to: '#key-takeaways' },
-            { text: 'More detail', to: '#more-detail' },
-          ]}
-        />
-        <TopSection>
-          <Grid>
-            <Card border="shadow">
+    {({ trainings }) => {
+      const keyPointsImgSrc = data.points.childImageSharp.fluid.src
+      const moreDetailImgSrc = data.detail.childImageSharp.fluid.src
+      return (
+        <React.Fragment>
+          <Header
+            titleLines={['Our code of conduct']}
+            subtitle="All students, coaches, sponsors and volunteers at our trainings are<br /> required to agree with the following code of conduct.            "
+            links={[
+              { text: 'Key takeaways ', to: '#key-takeaways' },
+              { text: 'More detail', to: '#more-detail' },
+            ]}
+          />
+          <TopSection>
+            <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <Row>
@@ -55,7 +54,7 @@ const CodeOfConduct = () => (
                         </Li>
                         <Li>Basically, don’t be a dick.</Li>
                       </Ul>
-                      <Image src={CODE_OF_CONDUCT_KEYPOINTS} />
+                      <Image src={keyPointsImgSrc} />
                     </Col>
                     <Col md={6} mdOffset={1}>
                       <H2>Summary</H2>
@@ -106,10 +105,8 @@ const CodeOfConduct = () => (
                 </Col>
               </Row>
             </Card>
-          </Grid>
-        </TopSection>
-        <Section>
-          <Grid>
+          </TopSection>
+          <Section>
             <Row>
               <Col md={10} mdOffset={1}>
                 <H2Ref>
@@ -170,15 +167,34 @@ const CodeOfConduct = () => (
                 </P>
               </Col>
               <Col md={5} mdOffset={1}>
-                <Image src={CODE_OF_CONDUCT_MORE_DETAIL} />
+                <Image src={moreDetailImgSrc} />
               </Col>
             </Row>
-          </Grid>
-        </Section>
-        <UpcomingTrainingSection trainings={trainings} />
-      </React.Fragment>
-    )}
+          </Section>
+          <UpcomingTrainingSection trainings={trainings} />
+        </React.Fragment>
+      )
+    }}
   </Layout>
 )
+
+export const query = graphql`
+  query condeOfConductImgs($imgMaxWidth: Int!) {
+    points: file(absolutePath: { regex: "/codeofconduct_keypoints/" }) {
+      childImageSharp {
+        fluid(maxWidth: $imgMaxWidth) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    detail: file(absolutePath: { regex: "/codeofconduct_moredetail/" }) {
+      childImageSharp {
+        fluid(maxWidth: $imgMaxWidth) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default CodeOfConduct

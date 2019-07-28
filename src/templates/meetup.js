@@ -93,7 +93,7 @@ const MeetUpPage = ({ data }) => {
             />
             <TopSection variant="dark">
               <Grid>
-                <Card bg="dark">
+                <Card variant="primary">
                   <Row>
                     <Col md={6} lg={4} lgOffset={1}>
                       <H2Ref>
