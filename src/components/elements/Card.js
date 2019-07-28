@@ -7,15 +7,16 @@ import { fontColor } from '../text'
 
 const StyledCard = styled(Box)`
   position: relative;
-  ${({ variant }) => {
+  ${({ variant, small }) => {
+    const isImportant = !!small
     switch (variant) {
       case 'primary':
         return `
-          ${fontColor(WHITE)}
+          ${fontColor(WHITE, isImportant)}
         `
       case 'secondary':
         return `
-          ${fontColor(DARK_GREY)}
+          ${fontColor(DARK_GREY, isImportant)}
         `
       default:
         return ''
@@ -29,9 +30,9 @@ StyledCard.defaultProps = {
   pr: 0,
 }
 
-const Card = ({ small, ...rest }) => {
+const Card = props => {
   let smallProps = {}
-  if (small) {
+  if (props.small) {
     smallProps.pt = [0, 5]
     smallProps.pb = [0, 5]
     smallProps.pl = [1, 5]
@@ -40,8 +41,8 @@ const Card = ({ small, ...rest }) => {
   return (
     <StyledCard
       {...smallProps}
-      {...(cardVariantProps[rest.variant] || {})}
-      {...rest}
+      {...(cardVariantProps[props.variant] || {})}
+      {...props}
     />
   )
 }
