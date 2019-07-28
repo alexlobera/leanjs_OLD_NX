@@ -8,15 +8,15 @@ import { fontColor } from '../text'
 const StyledCard = styled(Box)`
   position: relative;
   ${({ variant, small }) => {
-    const isImportant = !!small
+    const important = small ? ' !important' : ''
     switch (variant) {
       case 'primary':
         return `
-          ${fontColor(WHITE, { isImportant })}
+          ${fontColor(WHITE, important)}
         `
       case 'secondary':
         return `
-          ${fontColor(DARK_GREY, { isImportant })}
+          ${fontColor(DARK_GREY, important)}
         `
       default:
         return ''
