@@ -168,13 +168,7 @@ export const query = graphql`
         youtubeVideoId
         videoDescription
         imageDescription
-        imageSrc {
-          childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        imageSrc
         tags
       }
       htmlAst
