@@ -66,6 +66,7 @@ exports.createPages = ({ graphql, actions }) => {
             component: path.resolve(`./src/templates/coach.js`),
             context: {
               slug: node.fields.slug,
+              imgMaxWidth: 1000,
             },
           })
         } else {

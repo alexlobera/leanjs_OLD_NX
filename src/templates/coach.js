@@ -158,7 +158,7 @@ const Coach = ({ data }) => {
 }
 
 export const query = graphql`
-  query CoachQuery($slug: String!) {
+  query CoachQuery($slug: String!, $imgMaxWidth: Int!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         name
@@ -175,7 +175,7 @@ export const query = graphql`
         imageDescription
         imageSrc {
           childImageSharp {
-            fluid(maxWidth: 1000) {
+            fluid(maxWidth: $imgMaxWidth) {
               ...GatsbyImageSharpFluid
             }
           }
