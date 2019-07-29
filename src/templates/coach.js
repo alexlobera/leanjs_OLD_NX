@@ -32,6 +32,7 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const Coach = ({ data }) => {
+  console.log(data)
   const {
     name,
     title,
@@ -54,7 +55,6 @@ const Coach = ({ data }) => {
   const metas = {
     title: pageTitle,
     description: blockquote,
-    image: imageSrc,
     type: 'article',
   }
   return (
@@ -168,7 +168,13 @@ export const query = graphql`
         youtubeVideoId
         videoDescription
         imageDescription
-        imageSrc
+        imageSrc {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         tags
       }
       htmlAst

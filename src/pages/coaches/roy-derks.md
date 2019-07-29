@@ -9,7 +9,7 @@ twitter: https://twitter.com/gethackteam
 linkedIn: https://uk.linkedin.com/in/royderks1
 blockquote: When in doubt, start coding.
 imageDescription: React GraphQL Academy coach Roy Derks, speaking at a developer conference with microphone.
-imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Froy.jpg?alt=media
+imageSrc: roy-derks.jpg
 tags: []
 ---
 
