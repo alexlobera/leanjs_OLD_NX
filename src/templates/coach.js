@@ -54,6 +54,7 @@ const Coach = ({ data }) => {
   const pageTitle = `${name} - ${title} | React GraphQL Academy`
   const metas = {
     title: pageTitle,
+    image: coachImgSrc,
     description: blockquote,
     type: 'article',
   }
