@@ -19,16 +19,6 @@ export const RICHARD =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.jpg?alt=media'
 export const HORACIO =
   'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio.jpg?alt=media'
-export const WILL =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fwill.jpg?alt=media'
-export const EVA =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Feva.jpg?alt=media'
-export const ROY =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Froy.jpg?alt=media'
-export const DAVID =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fdavid.jpg?alt=media'
-export const FRANCISCO =
-  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/coach_profile_images%2FFrancisco-photo%20(1).jpg?alt=media'
 export const PAUL =
   'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media'
 
