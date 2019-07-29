@@ -32,7 +32,6 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const Coach = ({ data }) => {
-  console.log(data)
   const {
     name,
     title,
@@ -49,6 +48,7 @@ const Coach = ({ data }) => {
     imageSrc,
     tags,
   } = data.markdownRemark.frontmatter
+  const coachImgSrc = imageSrc.childImageSharp.fluid.src
   const { htmlAst } = data.markdownRemark
   const linkName = name.toLowerCase().replace(' ', '-')
   const pageTitle = `${name} - ${title} | React GraphQL Academy`
@@ -83,7 +83,11 @@ const Coach = ({ data }) => {
                       description={<P>{videoDescription}</P>}
                     />
                   ) : (
-                    <Image src={imageSrc} width="100%" alt={imageDescription} />
+                    <Image
+                      src={coachImgSrc}
+                      width="100%"
+                      alt={imageDescription}
+                    />
                   )}
                 </Col>
                 <Col md={5} mdOffset={1}>
