@@ -26,8 +26,6 @@ const LinkButton = ({
   variant,
   ...props
 }) => {
-  console.log('2222  buttonVariantProps[variant]', buttonVariantProps[variant])
-  console.log('11111', props)
   return (
     <StyledLinkButton
       role="button"

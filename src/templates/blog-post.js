@@ -250,12 +250,9 @@ export const query = graphql`
     ) {
       edges {
         node {
+          htmlAst
           frontmatter {
-            title
-            date
-          }
-          fields {
-            slug
+            city
           }
         }
       }

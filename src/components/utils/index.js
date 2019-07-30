@@ -74,14 +74,26 @@ export const selectBorderStyle = type => {
 }
 
 export const createSocialMetas = metas => [
-  <meta property="og:title" content={metas.title} />,
-  <meta property="og:description" content={metas.description} />,
-  <meta property="og:type" content="article" />,
-  <meta property="og:image" content={metas.image} />,
-  <meta name="twitter:site" content="@reactgqlacademy" />,
-  <meta name="twitter:title" content={metas.title} />,
-  <meta name="twitter:description" content={metas.description} />,
-  <meta name="twitter:creator" content="@reactgqlacademy" />,
+  <meta key={'og:title'} property="og:title" content={metas.title} />,
+  <meta
+    key={'og:description'}
+    property="og:description"
+    content={metas.description}
+  />,
+  <meta key={'og:type'} property="og:type" content="article" />,
+  <meta key={'og:image'} property="og:image" content={metas.image} />,
+  <meta key={'twitter:site'} name="twitter:site" content="@reactgqlacademy" />,
+  <meta key={'twitter:title'} name="twitter:title" content={metas.title} />,
+  <meta
+    key={'twitter:description'}
+    name="twitter:description"
+    content={metas.description}
+  />,
+  <meta
+    key={'twitter:creator'}
+    name="twitter:creator"
+    content="@reactgqlacademy"
+  />,
 ]
 
 export const HideComponentsUsingCss = styled(Components)`
@@ -226,3 +238,11 @@ export const trainingTime = ({ day, training = {}, type }) =>
       ? '18:30 - 21:00'
       : trainingTimings({ training })
   }`
+
+export function titleCase(txt) {
+  return txt
+    ? txt.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+      })
+    : ''
+}

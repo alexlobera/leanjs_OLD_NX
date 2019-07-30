@@ -45,12 +45,15 @@ const Photo = ({
   return image
 }
 
-const NUMBER_OF_IMAGES_PER_PAGE = 4
-
-const Gallery = ({ photos = [], downloadVenuePDF, className }) => {
+const Gallery = ({
+  photos = [],
+  downloadVenuePDF,
+  className,
+  pageLimit = 4,
+}) => {
   const [{ currentImage, lastImage }, setImageState] = useState({
     currentImage: 0,
-    lastImage: NUMBER_OF_IMAGES_PER_PAGE,
+    lastImage: pageLimit,
   })
   const [lightboxIsOpen, setLightboxIsOpen] = useState()
   const paginatedPhotos = photos.slice(0, lastImage)
@@ -80,7 +83,7 @@ const Gallery = ({ photos = [], downloadVenuePDF, className }) => {
     if (hasMorePictures()) {
       setImageState(prevState => ({
         ...prevState,
-        lastImage: lastImage + NUMBER_OF_IMAGES_PER_PAGE,
+        lastImage: lastImage + pageLimit,
       }))
     }
   }

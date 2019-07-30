@@ -82,7 +82,8 @@ const trainingByType = type => training => !type || training.type === type
 const trainingByTypes = types => training =>
   types && types.length ? types.find(type => type === training.type) : true
 
-const trainingByCity = city => training => !city || training.city === city
+const trainingByCity = city => training =>
+  !city || (training.city && training.city.toLowerCase()) === city.toLowerCase()
 
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
   trainings.find(training => training.training.id === trainingId)

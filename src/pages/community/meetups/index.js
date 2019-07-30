@@ -70,7 +70,7 @@ const Meetups = ({ data, path }) => (
             path={[
               { to: '/', label: 'Home' },
               { to: '/community', label: 'Community' },
-              { to: path, label: 'Meetups' },
+              { to: '/community/meetups/', label: 'Meetups' },
             ]}
           />
           <Header
