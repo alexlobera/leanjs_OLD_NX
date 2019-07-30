@@ -21,25 +21,28 @@ const StyledLink = styled(Box)`
   ${ANCHOR_STYLE};
 `
 
-export const styleChildLinkColor = color => `
+export const styleChildLinkColor = (color, isImportant) => {
+  const important = isImportant ? ' !important' : ''
+
+  return `
   a:not([role='button']) {
-    color: ${color};
-    text-shadow: 0px 0px 1px ${color};
+    color: ${color} ${important};
+    text-shadow: 0px 0px 1px ${color} ${important};
     &:link {
-      color: ${color} !important;
+      color: ${color} ${important};
     }
     &:visited {
-      color: ${color} !important;
+      color: ${color} ${important};
     }
     &:hover {
-      color: ${color} !important;
+      color: ${color} ${important};
     }
     &:active {
-      color: ${color} !important;
+      color: ${color} ${important};
     }
   }
-  
 `
+}
 
 DefaultLinkScroll.defaultProps = {
   smooth: true,

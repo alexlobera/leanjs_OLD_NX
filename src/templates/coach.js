@@ -48,13 +48,14 @@ const Coach = ({ data }) => {
     imageSrc,
     tags,
   } = data.markdownRemark.frontmatter
+  const coachImgSrc = imageSrc.childImageSharp.fluid.src
   const { htmlAst } = data.markdownRemark
   const linkName = name.toLowerCase().replace(' ', '-')
   const pageTitle = `${name} - ${title} | React GraphQL Academy`
   const metas = {
     title: pageTitle,
+    image: coachImgSrc,
     description: blockquote,
-    image: imageSrc,
     type: 'article',
   }
   return (
@@ -83,7 +84,11 @@ const Coach = ({ data }) => {
                       description={<P>{videoDescription}</P>}
                     />
                   ) : (
-                    <Image src={imageSrc} width="100%" alt={imageDescription} />
+                    <Image
+                      src={coachImgSrc}
+                      width="100%"
+                      alt={imageDescription}
+                    />
                   )}
                 </Col>
                 <Col md={5} mdOffset={1}>
@@ -153,7 +158,7 @@ const Coach = ({ data }) => {
 }
 
 export const query = graphql`
-  query CoachQuery($slug: String!) {
+  query CoachQuery($slug: String!, $imgMaxWidth: Int!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         name
@@ -168,7 +173,13 @@ export const query = graphql`
         youtubeVideoId
         videoDescription
         imageDescription
-        imageSrc
+        imageSrc {
+          childImageSharp {
+            fluid(maxWidth: $imgMaxWidth) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         tags
       }
       htmlAst

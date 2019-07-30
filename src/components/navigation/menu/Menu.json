@@ -13,11 +13,6 @@
         "hideOnMobile": true
       },
       {
-        "to": "/react/training/workshops",
-        "text": "React Workshops",
-        "hideOnMobile": true
-      },
-      {
         "to": "/react/curriculum",
         "text": "React Curriculum"
       }
@@ -34,11 +29,6 @@
       {
         "to": "/graphql/training/corporate",
         "text": "GraphQL Corporate Training",
-        "hideOnMobile": true
-      },
-      {
-        "to": "/graphql/training/workshops",
-        "text": "GraphQL Workshops",
         "hideOnMobile": true
       },
       {

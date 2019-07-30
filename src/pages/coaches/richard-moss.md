@@ -11,7 +11,7 @@ blockquote:
   Collaboratively working with developers to help them understand concepts such as the functional programming
   paradigm helps them take their skills to the next level - and I learn a lot too!
 imageDescription: React GraphQL Academy coach Richard Moss, looking pretty happy with a beach in the background
-imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.jpg?alt=media
+imageSrc: richard-moss.jpg
 tags: ['beginner']
 ---
 
