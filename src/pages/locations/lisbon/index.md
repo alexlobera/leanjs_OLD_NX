@@ -11,8 +11,7 @@ galleryImagesSrc: [
     "./gallery_images/image6.jpg",
     "./gallery_images/image7.jpg",
     "./gallery_images/image8.jpg",
-    "./gallery_images/image9.jpg",
-    "./gallery_images/image10.jpg"
+    "./gallery_images/image9.jpg"
 ]
 ---
 
