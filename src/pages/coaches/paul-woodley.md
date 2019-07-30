@@ -9,7 +9,7 @@ twitter: https://twitter.com/paulw_design
 linkedIn: https://uk.linkedin.com/in/paulwoodleydesign
 blockquote: I'm not a developer, but code is what is used to bring design to life so it's important everyone involved understands each other!
 imageDescription: React GraphQL Academy coach Francisco Gomes, smiling with sunglasses on
-imageSrc: https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media
+imageSrc: paul-woodley.jpg
 tags: []
 ---
 

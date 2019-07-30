@@ -12,7 +12,7 @@ blockquote:
   such an important skill set and I am particularly passionate
   about diversity in tech.
 imageDescription: React GraphQL Academy coach Eva Hoffmann, smiling.
-imageSrc: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Feva.jpg?alt=media
+imageSrc: eva-hoffmann.jpg
 tags: []
 ---
 

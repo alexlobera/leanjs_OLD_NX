@@ -89,7 +89,11 @@ const AboutUs = ({ data }) => {
                 ({
                   frontmatter: {
                     name,
-                    imageSrc,
+                    imageSrc: {
+                      childImageSharp: {
+                        fluid: { src: imageSrc },
+                      },
+                    },
                     imageDescription,
                     title,
                     companyName,
@@ -300,11 +304,17 @@ const AboutUs = ({ data }) => {
   )
 }
 export const query = graphql`
-  query coaches {
+  query coaches($imgMaxWidth: Int!) {
     allMarkdownRemark(filter: { fields: { slug: { regex: "/coaches/" } } }) {
       nodes {
         frontmatter {
-          imageSrc
+          imageSrc {
+            childImageSharp {
+              fluid(maxWidth: $imgMaxWidth) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           imageDescription
           name
           title
