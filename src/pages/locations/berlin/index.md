@@ -11,9 +11,8 @@ galleryImagesSrc: [
 ]
 ---
 
-We partner with the best companies in London to deliver the best training in the best tech venues.
+We partner with companies across in Berlin to deliver great training in awesome locations.
 
-- The venues are well located in areas such as Farringdon, South Bank, London Bridge, Holborn and other places in Central London.
-- Some of our London venue partners' unique amenities include: cafe barista, chillout area with couches, ping pong, balconies with spectacular views of London.
-- [Join our part-time courses](/react/training/part-time-course/london) and learn to build React production-ready apps **without missing a day at work**.
-- Attend our [London Bootcamp](/react/training/bootcamp/london) for a hands-on accelerated learning.
+- The venues are well located central areas of the city, easily accessible by public transport.
+- Some of our Berlin venue partners' unique amenities include: cafe barista, chillout area with couches, ping pong, balconies with spectacular views of Berlin.
+- Attend our [Berlin Bootcamp](/react/training/bootcamp/berlin) for a hands-on accelerated learning.

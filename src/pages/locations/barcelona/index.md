@@ -12,9 +12,9 @@ galleryImagesSrc: [
 ]
 ---
 
-We partner with the best companies in London to deliver the best training in the best tech venues.
+We partner with tech companies in Barcelona to deliver the best training in the awesome venues.
 
-- The venues are well located in areas such as Farringdon, South Bank, London Bridge, Holborn and other places in Central London.
-- Some of our London venue partners' unique amenities include: cafe barista, chillout area with couches, ping pong, balconies with spectacular views of London.
-- [Join our part-time courses](/react/training/part-time-course/london) and learn to build React production-ready apps **without missing a day at work**.
-- Attend our [London Bootcamp](/react/training/bootcamp/london) for a hands-on accelerated learning.
+- The venues are in well located central areas of Barcelona, with easy access via the transport network.
+- Some of our Barcelona venue partners' unique amenities include: cafe barista, chillout area with couches, ping pong, balconies with spectacular views of Barcelona.
+- [Join our part-time courses](/react/training/part-time-course/barcelona) and learn to build React production-ready apps **without missing a day at work**.
+- We also run frequent meetups in Barcelona via [JavaScript Barcelona](https://www.meetup.com/JavaScript-Barcelona/) which you'll find listed above in the tabs under "Meetups" ;-)

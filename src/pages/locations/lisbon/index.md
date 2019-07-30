@@ -15,9 +15,9 @@ galleryImagesSrc: [
 ]
 ---
 
-We partner with the best companies in London to deliver the best training in the best tech venues.
+We partner with leading Portuguese tech companies in Lisbon and beyond to deliver trainings and community events.
 
-- The venues are well located in areas such as Farringdon, South Bank, London Bridge, Holborn and other places in Central London.
-- Some of our London venue partners' unique amenities include: cafe barista, chillout area with couches, ping pong, balconies with spectacular views of London.
-- [Join our part-time courses](/react/training/part-time-course/london) and learn to build React production-ready apps **without missing a day at work**.
-- Attend our [London Bootcamp](/react/training/bootcamp/london) for a hands-on accelerated learning.
+- The venues are spread across the tech hubs of the Lisbon area inluding locations such as Oriente (Near WebSummit), Cais do Sodre, and Oerias.
+- Some of our Lisbon venue partners' unique amenities include: cafe barista, chillout area with couches, ping pong, balconies and even bbq areas!
+- [Join our part-time courses](/react/training/part-time-course/lisbon) and learn to build React production-ready apps **without missing a day at work**.
+- We also run frequent meetups in Lisbon via [JavaScript Lisbon](https://www.meetup.com/JavaScript-Lisbon/) which you'll find listed above in the tabs under "Meetups" ;-)
