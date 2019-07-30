@@ -38,10 +38,6 @@
     ]
   },
   {
-    "to": "/community/meetups",
-    "text": "Meetups"
-  },
-  {
     "to": "/locations",
     "text": "Locations",
     "showOnMobile": true,
