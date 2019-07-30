@@ -13,7 +13,8 @@ import { Card, Image } from '../../components/elements'
 import Box from '../../components/layout/Box'
 
 const Blog = ({ data, path }) => {
-  const posts = data.allMarkdownRemark.edges
+  const locations = data.allMarkdownRemark.edges || []
+
   return (
     <Layout>
       {({ trainings }) => (
@@ -32,15 +33,15 @@ const Blog = ({ data, path }) => {
           />
           <TopSection>
             <Row>
-              {posts.map(({ node: location }) => (
+              {locations.map(({ node: location }) => (
                 <Col lg={4} key={location.fields.slug}>
-                  <Card py={0} mb={5}>
+                  <Card pt={0} pb={0} mb={5}>
                     <Link
                       to={`${location.fields.slug}`}
                       className="location-summary"
                     >
                       <Image
-                        src={location.frontmatter.imageUrl}
+                        src={location.frontmatter.listImageSrc.publicURL}
                         alt={location.frontmatter.city}
                         mb={0}
                       />
@@ -78,6 +79,9 @@ export const query = graphql`
           }
           frontmatter {
             city
+            listImageSrc {
+              publicURL
+            }
           }
         }
       }

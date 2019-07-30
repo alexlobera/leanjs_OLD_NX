@@ -43,7 +43,7 @@ const Location = ({ path, data }) => (
   <Layout>
     {({ trainings }) => {
       const { htmlAst, frontmatter } = data.markdownRemark
-      const { city } = frontmatter
+      const { city, galleryImagesSrc } = frontmatter
       const capitalCity = titleCase(city)
       const lowerCaseCity = city.toLowerCase()
       const metas = {
@@ -58,33 +58,21 @@ const Location = ({ path, data }) => (
         city,
       })
 
-      const galleryImages = data.allFile.edges
-        .filter(({ node }) => node.childImageSharp)
-        .map(
-          ({
-            node: {
-              childImageSharp: {
-                fluid: {
-                  src,
-                  presentationHeight,
-                  presentationWidth,
-                  originalName,
-                },
-              },
-            },
-          }) => {
-            const height = presentationHeight
-            const width = presentationWidth
-            return {
-              srcSmall: src,
-              srcLarge: src,
-              height,
-              width,
-              originalName,
-            }
+      const galleryImages = galleryImagesSrc.map(
+        ({
+          publicURL,
+          childImageSharp: {
+            original: { width, height },
+          },
+        }) => {
+          return {
+            srcSmall: publicURL,
+            srcLarge: publicURL,
+            height,
+            width,
           }
-        )
-        .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
+        }
+      )
 
       return (
         <React.Fragment>
@@ -171,7 +159,6 @@ export const query = graphql`
               src
               presentationHeight
               presentationWidth
-              originalName
             }
           }
         }
@@ -180,6 +167,15 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         city
+        galleryImagesSrc {
+          publicURL
+          childImageSharp {
+            original {
+              width
+              height
+            }
+          }
+        }
       }
       htmlAst
     }
