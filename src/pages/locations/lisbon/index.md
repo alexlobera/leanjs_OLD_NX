@@ -2,17 +2,18 @@
 city: Lisbon
 order: 5
 listImageSrc: lisbon.jpg
-galleryImagesSrc: [
-    "./gallery_images/image1.jpg",
-    "./gallery_images/image2.jpg",
-    "./gallery_images/image3.jpg",
-    "./gallery_images/image4.jpg",
-    "./gallery_images/image5.jpg",
-    "./gallery_images/image6.jpg",
-    "./gallery_images/image7.jpg",
-    "./gallery_images/image8.jpg",
-    "./gallery_images/image9.jpg"
-]
+# TODO use this when we know how to do it using different sizes from markdown images
+# galleryImagesSrc: [
+#     "./gallery_images/image1.jpg",
+#     "./gallery_images/image2.jpg",
+#     "./gallery_images/image3.jpg",
+#     "./gallery_images/image4.jpg",
+#     "./gallery_images/image5.jpg",
+#     "./gallery_images/image6.jpg",
+#     "./gallery_images/image7.jpg",
+#     "./gallery_images/image8.jpg",
+#     "./gallery_images/image9.jpg"
+# ]
 ---
 
 We partner with leading Portuguese tech companies in Lisbon and beyond to deliver trainings and community events.

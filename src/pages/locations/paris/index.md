@@ -2,7 +2,7 @@
 city: Paris
 order: 5
 listImageSrc: paris.jpg
-# TODO use this when we now how to do it using different sizes from markdown images
+# TODO use this when we know how to do it using different sizes from markdown images
 # galleryImagesSrc: [
 #     "./gallery_images/image1.jpg",
 #     "./gallery_images/image2.jpg",
