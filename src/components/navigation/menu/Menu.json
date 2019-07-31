@@ -53,13 +53,13 @@
         "hideOnMobile": true
       },
       {
-        "to": "/locations/barcelona",
-        "text": "Barcelona",
+        "to": "/locations/berlin",
+        "text": "Berlin",
         "hideOnMobile": true
       },
       {
-        "to": "/locations/berlin",
-        "text": "Berlin",
+        "to": "/locations/barcelona",
+        "text": "Barcelona",
         "hideOnMobile": true
       },
       {

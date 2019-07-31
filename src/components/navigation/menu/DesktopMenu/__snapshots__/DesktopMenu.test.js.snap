@@ -68,13 +68,13 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
           },
           Object {
             "hideOnMobile": true,
-            "text": "Barcelona",
-            "to": "/locations/barcelona",
+            "text": "Berlin",
+            "to": "/locations/berlin",
           },
           Object {
             "hideOnMobile": true,
-            "text": "Berlin",
-            "to": "/locations/berlin",
+            "text": "Barcelona",
+            "to": "/locations/barcelona",
           },
           Object {
             "hideOnMobile": true,

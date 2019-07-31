@@ -1,6 +1,6 @@
 ---
 city: Lisbon
-order: 5
+order: 6
 listImageSrc: lisbon.jpg
 # TODO use this when we know how to do it using different sizes from markdown images
 # galleryImagesSrc: [
