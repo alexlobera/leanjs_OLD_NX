@@ -10,7 +10,11 @@ exports[`<PhoneMenu /> should render a menu with less than 8 items in the first 
     isOpen={false}
     width={275}
   >
-    <RGALogo />
+    <Styled(Box)
+      box={[Function]}
+      display="inline-block"
+      mb={5}
+    />
     <PhoneMenuItem
       key="/react/training"
       onClick={[Function]}
@@ -40,11 +44,11 @@ exports[`<PhoneMenu /> should render a menu with less than 8 items in the first 
       GraphQL Curriculum
     </PhoneMenuItem>
     <PhoneMenuItem
-      key="/community/meetups"
+      key="/locations"
       onClick={[Function]}
-      to="/community/meetups"
+      to="/locations"
     >
-      Meetups
+      Locations
     </PhoneMenuItem>
     <PhoneMenuItem
       key="/blog"

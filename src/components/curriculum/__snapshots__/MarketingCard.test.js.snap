@@ -17,16 +17,7 @@ exports[`<MarketingCard /> should render component 1`] = `
       md={5}
     >
       <LinkButton
-        border={0}
-        borderRadius={2}
-        box="button"
-        boxShadow="light"
         className="blog-article"
-        fontSize={2}
-        letterSpacing=" 0.6px"
-        px={4}
-        py={1}
-        textAlign="center"
         variant="secondary"
       />
     </Styled(Box)>
