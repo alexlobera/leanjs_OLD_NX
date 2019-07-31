@@ -252,7 +252,11 @@ export const query = graphql`
         node {
           htmlAst
           frontmatter {
-            city
+            title
+            date
+          }
+          fields {
+            slug
           }
         }
       }
