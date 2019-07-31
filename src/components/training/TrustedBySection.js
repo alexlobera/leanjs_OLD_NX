@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import withWidth, { MEDIUM } from '../utils/WithWidth'
 import Section from '../layout/Section'
-import Grid, { Col, Row } from '../layout/Grid'
+import { Col, Row } from '../layout/Grid'
 import { Video, Card } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { H2 } from '../text'
