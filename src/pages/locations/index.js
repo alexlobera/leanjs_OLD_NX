@@ -30,6 +30,7 @@ const Blog = ({ data, path }) => {
             subtitle="Find out what events we run in each city"
             fullHeight={false}
             paddingBottom={170}
+            bgImageName={'locations'}
           />
           <TopSection>
             <Row>

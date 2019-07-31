@@ -2,11 +2,13 @@
 city: Paris
 order: 5
 listImageSrc: paris.jpg
-galleryImagesSrc: [
-    "./gallery_images/image1.jpg",
-    "./gallery_images/image2.jpg",
-    "./gallery_images/image3.jpg",
-]
+# TODO use this when we now how to do it using different sizes from markdown images
+# galleryImagesSrc: [
+#     "./gallery_images/image1.jpg",
+#     "./gallery_images/image2.jpg",
+#     "./gallery_images/image3.jpg",
+#     "./gallery_images/image4.jpg",
+# ]
 ---
 
 We partner with top companies in Paris to deliver the best training in the best tech venues.

@@ -80,7 +80,7 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               slug: node.fields.slug,
               imgMaxWidth: 1000,
-              regex: `/locations/${node.frontmatter.city.toLowerCase()}/.*/`,
+              regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,
             },
           })
         } else {

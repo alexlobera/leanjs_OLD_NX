@@ -39,13 +39,33 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
+const massageGalleryImages = images =>
+  images.edges
+    .filter(({ node }) => node.childImageSharp)
+    .map(
+      ({
+        node: {
+          childImageSharp: {
+            fluid: { src, presentationHeight, presentationWidth, originalName },
+          },
+        },
+      }) => ({
+        src,
+        presentationHeight,
+        presentationWidth,
+        originalName,
+      })
+    )
+    .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
+
 const Location = ({ path, data }) => (
   <Layout>
     {({ trainings }) => {
       const { htmlAst, frontmatter } = data.markdownRemark
-      const { city, galleryImagesSrc } = frontmatter
+      const { city } = frontmatter
       const capitalCity = titleCase(city)
       const lowerCaseCity = city.toLowerCase()
+
       const metas = {
         title: `${capitalCity} React GraphQL Academy`,
         description: `Learn React and GraphQL in ${capitalCity} | React GraphQL Academy`,
@@ -58,18 +78,20 @@ const Location = ({ path, data }) => (
         city,
       })
 
-      const galleryImages = galleryImagesSrc.map(
-        ({
-          publicURL,
-          childImageSharp: {
-            original: { width, height },
-          },
-        }) => {
+      const smallGalleryImages = massageGalleryImages(data.smallImages)
+      const largeGalleryImages = massageGalleryImages(data.largeImages)
+
+      const galleryImages = smallGalleryImages.map(
+        (
+          { src, presentationHeight, presentationWidth, originalName },
+          index
+        ) => {
           return {
-            srcSmall: publicURL,
-            srcLarge: publicURL,
-            height,
-            width,
+            srcSmall: src,
+            srcLarge: largeGalleryImages[index].src,
+            height: presentationHeight,
+            width: presentationWidth,
+            originalName,
           }
         }
       )
@@ -100,7 +122,7 @@ const Location = ({ path, data }) => (
             bgImageName={lowerCaseCity}
             links={[
               {
-                text: 'Upcoming',
+                text: 'Upcoming events',
                 to: '#upcoming',
               },
               {
@@ -134,7 +156,7 @@ const Location = ({ path, data }) => (
               <React.Fragment>
                 <H2>
                   <a name="venues" />
-                  {capitalCity} best tech venues
+                  {capitalCity} best tech venues and talent
                 </H2>
                 {renderAst(htmlAst)}
               </React.Fragment>
@@ -150,32 +172,49 @@ const Location = ({ path, data }) => (
 )
 
 export const query = graphql`
-  query location($imgMaxWidth: Int!, $slug: String!, $regex: String!) {
-    allFile(filter: { absolutePath: { regex: $regex } }) {
+  query location($slug: String!, $regex: String!) {
+    smallImages: allFile(filter: { absolutePath: { regex: $regex } }) {
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: $imgMaxWidth) {
+            fluid(maxWidth: 600) {
               src
               presentationHeight
               presentationWidth
+              originalName
             }
           }
         }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        city
-        galleryImagesSrc {
-          publicURL
+    largeImages: allFile(filter: { absolutePath: { regex: $regex } }) {
+      edges {
+        node {
           childImageSharp {
-            original {
-              width
-              height
+            fluid(maxWidth: 1200) {
+              src
+              presentationHeight
+              presentationWidth
+              originalName
             }
           }
         }
+      }
+    }
+
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        city
+        # TODO use this instead of the code above when we now how to do it using different sizes from markdown images
+        # galleryImagesSrc {
+        #   publicURL
+        #   childImageSharp {
+        #     original {
+        #       width
+        #       height
+        #     }
+        #   }
+        # }
       }
       htmlAst
     }
