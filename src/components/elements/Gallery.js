@@ -5,8 +5,6 @@ import Lightbox from 'react-images'
 import { Width, SMALL } from '../utils/WithWidth'
 import { Col, Row } from '../layout/Grid'
 import Image from './Image'
-import Button from '../buttons/Button'
-import P from '../text/P'
 import Link from '../navigation/Link'
 
 const Photo = ({
@@ -47,12 +45,15 @@ const Photo = ({
   return image
 }
 
-const NUMBER_OF_IMAGES_PER_PAGE = 6
-
-const Gallery = ({ photos = [], downloadVenuePDF, className }) => {
+const Gallery = ({
+  photos = [],
+  downloadVenuePDF,
+  className,
+  pageLimit = 4,
+}) => {
   const [{ currentImage, lastImage }, setImageState] = useState({
     currentImage: 0,
-    lastImage: NUMBER_OF_IMAGES_PER_PAGE,
+    lastImage: pageLimit,
   })
   const [lightboxIsOpen, setLightboxIsOpen] = useState()
   const paginatedPhotos = photos.slice(0, lastImage)
@@ -82,7 +83,7 @@ const Gallery = ({ photos = [], downloadVenuePDF, className }) => {
     if (hasMorePictures()) {
       setImageState(prevState => ({
         ...prevState,
-        lastImage: lastImage + NUMBER_OF_IMAGES_PER_PAGE,
+        lastImage: lastImage + pageLimit,
       }))
     }
   }
@@ -101,21 +102,27 @@ const Gallery = ({ photos = [], downloadVenuePDF, className }) => {
       />
       <Row>
         {hasMorePictures() && (
-          <Col md={3}>
-            <P align="left" mt={2}>
-              <Button className={className} onClick={loadMore} primary>
-                Load more pictures
-              </Button>
-            </P>
+          <Col md={6}>
+            <Link
+              display="inline-block"
+              pt={2}
+              className={className}
+              onClick={loadMore}
+            >
+              Load more pictures
+            </Link>
           </Col>
         )}
         {downloadVenuePDF && (
-          <Col md={9}>
-            <P align="left" mt={4}>
-              <Link className={className} to={downloadVenuePDF}>
-                Download more info PDF
-              </Link>
-            </P>
+          <Col md={6}>
+            <Link
+              display="inline-block"
+              pt={2}
+              className={className}
+              to={downloadVenuePDF}
+            >
+              Download more info PDF
+            </Link>
           </Col>
         )}
       </Row>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import withWidth, { MEDIUM } from '../../utils/WithWidth'
-import { RGALogo } from '../../logos/RGALogo'
+import RGALogo from '../../logos/RGALogo'
 import DesktopMenu from './DesktopMenu'
 import PhoneMenu from './PhoneMenu'
 import Grid from '../../layout/Grid'

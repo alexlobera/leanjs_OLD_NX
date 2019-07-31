@@ -5,11 +5,8 @@ import { WHITE, DARK_GREY, DARK_BLUE, RED } from '../../config/styles'
 import Box from '../layout/Box'
 
 export const defaultButtonStyle = css`
-  font-style: normal;
   align-items: flex-start;
   cursor: pointer;
-  ${props => (props.block ? 'width: 100%;' : 'display: inline-block;')}
-  ${props => (props.right ? `margin-left:auto;` : null)}
   ${props =>
     props.disabled &&
     `

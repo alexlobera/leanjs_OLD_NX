@@ -157,7 +157,7 @@ const SessionInterestGraphQL = ({ path }) => (
                           <Row style={{ marginTop: '2em' }}>
                             <Col md={3}>
                               <Button
-                                block
+                                width={1}
                                 variant="primary"
                                 type="submit"
                                 disabled={!valid}
@@ -166,7 +166,7 @@ const SessionInterestGraphQL = ({ path }) => (
                               </Button>
                             </Col>
                             <Col mdOffset={1} md={8}>
-                              <P>
+                              <P pt={1}>
                                 We won't spam you as per our{' '}
                                 <Link to="/privacy-policy">Privacy Policy</Link>
                                 .

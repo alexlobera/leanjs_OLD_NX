@@ -363,7 +363,7 @@ class CheckoutForm extends React.Component {
                     />
                     <FormGroup>
                       <ValidateVoucherButton
-                        block
+                        width={1}
                         disabled={
                           isVoucherValid || isVoucherValidationInProgress
                         }
@@ -484,7 +484,7 @@ class CheckoutForm extends React.Component {
                   <SubmitPaymentFormButton
                     type="submit"
                     variant="primary"
-                    block
+                    width={1}
                     onClick={this.onSubmitClicked}
                     disabled={submitting || isPaymentInProgress}
                   >

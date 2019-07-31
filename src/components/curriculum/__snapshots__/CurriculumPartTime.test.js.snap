@@ -126,16 +126,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         pt={5}
       >
         <LinkButton
-          border={0}
-          borderRadius={2}
-          box="button"
-          boxShadow="light"
           className="curriculum-cta"
-          fontSize={2}
-          letterSpacing=" 0.6px"
-          px={4}
-          py={1}
-          textAlign="center"
           to="/react/curriculum?tab=Part-time"
           variant="default"
         >

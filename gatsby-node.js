@@ -33,6 +33,9 @@ exports.createPages = ({ graphql, actions }) => {
               fields {
                 slug
               }
+              frontmatter {
+                city
+              }
             }
           }
         }
@@ -51,6 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       const blogPaths = /(^\/blog\/|^\/react\/|^\/graphql\/)/g
       const coachPath = /^\/coaches/
+      const locationPath = /^\/locations\//g
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         if (node.fields.slug.match(blogPaths)) {
           createPage({
@@ -67,6 +71,16 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               slug: node.fields.slug,
               imgMaxWidth: 1000,
+            },
+          })
+        } else if (node.fields.slug.match(locationPath)) {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/location.js`),
+            context: {
+              slug: node.fields.slug,
+              imgMaxWidth: 1000,
+              regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,
             },
           })
         } else {
@@ -118,10 +132,6 @@ exports.onCreatePage = ({ page, actions }) => {
     },
   })
 }
-
-// Webpack config
-
-const Webpack = require('webpack')
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({

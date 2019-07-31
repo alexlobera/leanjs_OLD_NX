@@ -95,7 +95,7 @@ class Checkout extends React.Component {
               )}
               <BuyButton
                 onClick={this.toggleIsOpen}
-                right
+                ml="auto"
                 children="Buy now"
                 variant="primary"
                 className={
