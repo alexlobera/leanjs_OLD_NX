@@ -8,7 +8,6 @@ import NodejsSession from './sessions/NodejsSession'
 import GraphQLApolloClientDaySessions from './sessions/GraphQLApolloClientDaySessions'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLBootcamp = ({
   showTitle = true,
@@ -89,7 +88,5 @@ const CurriculumGraphQLBootcamp = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
-
-CurriculumGraphQLBootcamp.propTypes = curriculumCommonPropTypes
 
 export default CurriculumGraphQLBootcamp

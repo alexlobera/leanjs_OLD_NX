@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 // -181 -110 1059 511
 const IKEA = ({ colour = '#231F20', width, height }) => (
   <svg
@@ -15,9 +15,5 @@ const IKEA = ({ colour = '#231F20', width, height }) => (
     />
   </svg>
 )
-IKEA.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
+
 export default IKEA

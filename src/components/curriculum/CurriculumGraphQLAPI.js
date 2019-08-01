@@ -7,7 +7,6 @@ import NodejsSession from './sessions/NodejsSession'
 // import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
 import { GRAPHQL_API } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLAPI = ({
   showTitle = true,
@@ -82,7 +81,5 @@ const CurriculumGraphQLAPI = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
-
-CurriculumGraphQLAPI.propTypes = curriculumCommonPropTypes
 
 export default CurriculumGraphQLAPI

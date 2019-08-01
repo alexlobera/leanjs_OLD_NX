@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const SainBurys = ({ colour = '#f47320', width, height }) => (
   <svg
@@ -14,11 +13,5 @@ const SainBurys = ({ colour = '#f47320', width, height }) => (
     />
   </svg>
 )
-
-SainBurys.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
 
 export default SainBurys

@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import Tick from './Tick'
 import FacebookIcon from './FacebookIcon'
 import ExternalLinkIcon from './ExternalLinkIcon'
@@ -7,9 +9,6 @@ import GitHubIcon from './GitHubIcon'
 import InstagramIcon from './InstagramIcon'
 import PdfDownload from './PdfDownload'
 import LinkedinIcon from './LinkedinIcon'
-
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 export const StyledIcon = styled.div`
   display: inline-block;
@@ -38,10 +37,6 @@ export const StyledIcon = styled.div`
 const BulletIcon = ({ icon, social, ...rest }) => (
   <StyledIcon social={social}>{React.createElement(icon, rest)}</StyledIcon>
 )
-
-BulletIcon.propTypes = {
-  icon: PropTypes.func.isRequired,
-}
 
 export {
   ExternalLinkIcon,

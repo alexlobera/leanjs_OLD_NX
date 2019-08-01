@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withLazyLoad from './withLazyLoad'
 
@@ -29,9 +28,5 @@ const Video = ({ youtubeId, time, description, height = '390' }) => (
     {description ? <div>{description}</div> : null}
   </IframeWrapper>
 )
-
-Video.propTypes = {
-  youtubeId: PropTypes.string.isRequired,
-}
 
 export default withLazyLoad()(Video)

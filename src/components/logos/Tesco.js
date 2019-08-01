@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const Tesco = ({
   colour = '#0054a4',
@@ -36,13 +35,5 @@ const Tesco = ({
     </g>
   </svg>
 )
-
-Tesco.propTypes = {
-  colour: PropTypes.string,
-  secColour: PropTypes.string,
-  stroke: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
 
 export default Tesco

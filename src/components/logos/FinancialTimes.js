@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const FinancialTimes = ({ colour = '#231F20', width, height, className }) => (
   <svg
@@ -16,9 +15,5 @@ const FinancialTimes = ({ colour = '#231F20', width, height, className }) => (
     />
   </svg>
 )
-FinancialTimes.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
+
 export default FinancialTimes

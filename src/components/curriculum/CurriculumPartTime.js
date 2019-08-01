@@ -15,7 +15,6 @@ import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import { TargetAudienceList } from './CurriculumReactFundamentals'
-import { curriculumCommonPropTypes } from './'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -167,7 +166,6 @@ export const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
-CurriculumPartTime.propTypes = curriculumCommonPropTypes
 CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
 CurriculumPartTime.TargetAudienceList = TargetAudienceList
 

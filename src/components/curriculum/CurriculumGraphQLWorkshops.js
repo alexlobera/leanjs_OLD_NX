@@ -2,7 +2,6 @@ import React from 'react'
 import Section from './CurriculumSection'
 import { GRAPHQL_WORKSHOP, GRAPHQL_CLIENT } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumGraphQLWorkshops = ({
   showTitle = true,
@@ -59,7 +58,5 @@ const CurriculumGraphQLWorkshops = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
-
-CurriculumGraphQLWorkshops.propsTypes = curriculumCommonPropTypes
 
 export default CurriculumGraphQLWorkshops

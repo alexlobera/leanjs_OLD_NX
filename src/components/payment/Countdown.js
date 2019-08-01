@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+
 import { Col, Row } from '../layout/Grid.js'
 import Span from '../text/Span.js'
 import styled from 'styled-components'
@@ -127,10 +127,6 @@ class Countdown extends Component {
       </React.Fragment>
     )
   }
-}
-
-Countdown.propTypes = {
-  date: PropTypes.object.isRequired,
 }
 
 Countdown.defaultProps = {

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const Microsoft = ({ colour = '#231F20', width, height }) => (
   <svg
@@ -55,9 +54,5 @@ const Microsoft = ({ colour = '#231F20', width, height }) => (
     />
   </svg>
 )
-Microsoft.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
+
 export default Microsoft

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+
 import styled from 'styled-components'
 import { Button } from '../../buttons'
 import { Span, P } from '../../text'
@@ -142,26 +142,4 @@ Checkout.defaultProps = {
   trackUserBehaviour,
 }
 
-Checkout.propTypes = {
-  navigate: PropTypes.func.isRequired,
-  trainingInstanceId: PropTypes.string,
-  eventId: PropTypes.string,
-  vatRate: PropTypes.number.isRequired,
-  updateVatRate: PropTypes.func.isRequired,
-  currency: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  discountPrice: PropTypes.number,
-  quantity: PropTypes.number.isRequired,
-  priceQuantity: PropTypes.number,
-  currentPriceQuantity: PropTypes.number.isRequired,
-  removeCourse: PropTypes.func.isRequired,
-  addCourse: PropTypes.func.isRequired,
-  resetVoucher: PropTypes.func.isRequired,
-  validateVoucher: PropTypes.func.isRequired,
-  voucher: PropTypes.string.isRequired,
-  isVoucherValid: PropTypes.bool,
-  isVoucherValidationInProgress: PropTypes.bool.isRequired,
-  paymentApi: PropTypes.object,
-  city: PropTypes.string,
-}
 export default Checkout

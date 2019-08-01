@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const Xing = ({ colour = '#00d5b5', width, height, y }) => (
   <svg
@@ -14,12 +13,5 @@ const Xing = ({ colour = '#00d5b5', width, height, y }) => (
     />
   </svg>
 )
-
-Xing.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  y: PropTypes.number,
-}
 
 export default Xing

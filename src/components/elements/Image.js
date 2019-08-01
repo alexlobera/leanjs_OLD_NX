@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import withLazyLoad from './withLazyLoad'
@@ -11,11 +10,6 @@ const Image = styled(Box)`
 Image.defaultProps = {
   mt: 0,
   box: 'img',
-}
-
-Image.propTypes = {
-  src: PropTypes.string.isRequired,
-  circle: PropTypes.bool,
 }
 
 export default withLazyLoad()(Image)

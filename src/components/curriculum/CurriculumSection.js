@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { H4 } from '../text'
 import { PINK } from '../../config/styles'
@@ -136,17 +135,5 @@ const CurriculumSection = props => {
 
 const addFullStopAtTheEnd = text =>
   text && text.replace ? text.replace(/([^.])$/, '$1.') : ''
-
-CurriculumSection.propTypes = {
-  isOpen: PropTypes.bool,
-  title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  subTitle: PropTypes.string,
-  trainingTime: PropTypes.string,
-  enableToggle: PropTypes.bool,
-  toggleNavigateTo: PropTypes.func,
-  showLinkToCurriculum: PropTypes.bool,
-}
 
 export default CurriculumSection
