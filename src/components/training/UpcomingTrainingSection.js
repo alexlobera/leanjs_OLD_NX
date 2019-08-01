@@ -26,20 +26,14 @@ import {
 } from '../../config/data'
 import CorporateTrainingCard from './CorporateTrainingCard'
 
-const CorporateCrossSell = styled.div`
-  border: 3px dotted ${GREY};
-  max-height: 78px;
-  max-width: 100%;
-  display: block;
-  margin-left: 0.5rem;
-  padding: 0.5rem 1rem;
-  a,
-  p {
-    line-height: 1.5rem;
-    margin: 0;
-    padding: 0;
-  }
-`
+const CorporateCrossSell = ({ to }) => (
+  <Link to={to} px={3} py={1} border={`3px dotted`} borderColor={GREY}>
+    <P>
+      <strong>Corporate team training</strong>
+    </P>
+    Find out more
+  </Link>
+)
 
 export const UpcomingTrainings = ({
   curriculum,
@@ -164,24 +158,14 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
               className="upcoming-courses-all-courses"
               trainings={reactTrainings}
             />
-            <CorporateCrossSell>
-              <P>
-                <strong>Corporate team training</strong>
-              </P>
-              <Link to="/react/training/corporate/">Find out more</Link>
-            </CorporateCrossSell>
+            <CorporateCrossSell to="/react/training/corporate/" />
           </Row>
         </ContentItem>
 
         <ContentItem name={GRAPHQL_BOOTCAMP}>
           <Row>
             <UpcomingTrainings trainings={graphqlTrainings} />
-            <CorporateCrossSell>
-              <P>
-                <strong>Corporate team training</strong>
-              </P>
-              <Link to="/graphql/training/corporate/">Find out more</Link>
-            </CorporateCrossSell>
+            <CorporateCrossSell to="/graphql/training/corporate/" />
           </Row>
         </ContentItem>
 
