@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 
+import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 import {
   PART_TIME,
   REACT_BOOTCAMP,
@@ -32,8 +33,6 @@ const BERLIN_LOCATION =
 
 const DEFAULT_INFOBOX =
   'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fdefault_infobox.jpg?alt=media'
-
-import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 
 const createTrainingPath = ({ type, city = '', index, id, slug }) => {
   const i = index > 1 ? index : ''
