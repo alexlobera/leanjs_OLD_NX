@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const ASOS = ({ colour = '#0B0B0A', width, height }) => (
   <svg
@@ -15,11 +14,5 @@ const ASOS = ({ colour = '#0B0B0A', width, height }) => (
     />
   </svg>
 )
-
-ASOS.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
 
 export default ASOS

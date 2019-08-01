@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const JohnLewis = ({ colour = '#003e24', width, height }) => (
   <svg
@@ -112,11 +111,5 @@ const JohnLewis = ({ colour = '#003e24', width, height }) => (
     </g>
   </svg>
 )
-
-JohnLewis.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
 
 export default JohnLewis

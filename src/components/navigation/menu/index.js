@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import withWidth, { MEDIUM } from '../../utils/WithWidth'
 import RGALogo from '../../logos/RGALogo'
@@ -54,10 +53,6 @@ export const Menu = ({ width }) => {
       </Grid>
     </Navbar>
   )
-}
-
-Menu.propTypes = {
-  width: PropTypes.number,
 }
 
 export default withWidth()(Menu)

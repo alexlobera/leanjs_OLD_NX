@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+
 import styled from 'styled-components'
 
 import Link from '../../Link'
@@ -50,10 +50,6 @@ export const MenuContent = styled.div`
     margin-bottom: 15px;
   }
 `
-MenuContent.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  width: PropTypes.number.isRequired,
-}
 
 const PhoneMenu = ({ width, defaultIsOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultIsOpen)
@@ -91,11 +87,6 @@ const PhoneMenu = ({ width, defaultIsOpen = false }) => {
       </MenuContent>
     </React.Fragment>
   )
-}
-
-PhoneMenu.propTypes = {
-  defaultIsOpen: PropTypes.bool,
-  width: PropTypes.number,
 }
 
 PhoneMenu.defaultProps = {

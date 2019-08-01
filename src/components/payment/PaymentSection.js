@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { withApollo } from 'react-apollo'
 import { graphql, compose } from 'react-apollo'
 import { navigate } from 'gatsby'
@@ -286,17 +286,6 @@ class PaymentSection extends React.Component {
 PaymentSection.defaultProps = {
   trackUserBehaviour,
   navigate,
-}
-
-PaymentSection.propTypes = {
-  trainingError: PropTypes.bool,
-  trainingLoading: PropTypes.bool,
-  training: PropTypes.object,
-  data: PropTypes.object,
-  paymentApi: PropTypes.object,
-  city: PropTypes.string,
-  navigate: PropTypes.func,
-  financeAvailable: PropTypes.bool,
 }
 
 const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {

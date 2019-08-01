@@ -14,7 +14,6 @@ import { ADVANCED_REACT } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import { Li } from '../layout/Ul'
 import { trainingTime } from '../utils'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumAdvancedReact = ({
   showTitle = true,
@@ -138,7 +137,6 @@ const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
-CurriculumAdvancedReact.propTypes = curriculumCommonPropTypes
 CurriculumAdvancedReact.LearningObjectivesList = LearningObjectivesList
 CurriculumAdvancedReact.TargetAudienceList = TargetAudienceList
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const Capgemini = ({
   colour = '#12ABDB',
@@ -25,12 +24,5 @@ const Capgemini = ({
     </g>
   </svg>
 )
-
-Capgemini.propTypes = {
-  colour: PropTypes.string,
-  secColour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
 
 export default Capgemini

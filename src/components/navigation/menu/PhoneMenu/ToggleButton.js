@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import styled from 'styled-components'
 
 import { WHITE, FONT_FAMILY } from '../../../../config/styles'
@@ -90,11 +90,5 @@ const StyledToggleButton = styled(ToggleButton)`
     transform: rotate(-45deg) translate(3px, 4px);
   }
 `
-
-StyledToggleButton.propTypes = {
-  toggleMenu: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  className: PropTypes.string,
-}
 
 export default StyledToggleButton

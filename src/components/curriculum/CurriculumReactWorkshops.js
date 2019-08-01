@@ -4,7 +4,6 @@ import Link from '../navigation/Link'
 import { ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
 import { H2Ref } from '../text'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactWorkshops = ({
   showTitle = true,
@@ -106,7 +105,5 @@ const CurriculumReactWorkshops = ({
     trainings,
   })
 }
-
-CurriculumReactWorkshops.propTypes = curriculumCommonPropTypes
 
 export default CurriculumReactWorkshops

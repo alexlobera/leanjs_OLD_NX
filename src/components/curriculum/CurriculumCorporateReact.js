@@ -3,7 +3,6 @@ import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { LinkButton } from '../buttons'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumCorporateReact = ({
   layout,
@@ -71,7 +70,5 @@ const CurriculumCorporateReact = ({
     corpTrainingFacts: true,
   })
 }
-
-CurriculumCorporateReact.propTypes = curriculumCommonPropTypes
 
 export default CurriculumCorporateReact

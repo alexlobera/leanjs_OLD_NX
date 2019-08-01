@@ -14,7 +14,6 @@ import ReactNativeProductionSession from './sessions/native/ReactNativeProductio
 
 import { REACT_NATIVE } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactNative = ({
   showTitle = true,
@@ -92,7 +91,5 @@ const CurriculumReactNative = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
-
-CurriculumReactNative.propTypes = curriculumCommonPropTypes
 
 export default CurriculumReactNative

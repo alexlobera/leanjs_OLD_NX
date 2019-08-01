@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const IBM = ({ colour = '#00d5b5', width, height }) => (
   <svg viewBox="0 0 1054 500" width={width} height={height}>
@@ -20,12 +19,5 @@ const IBM = ({ colour = '#00d5b5', width, height }) => (
     />
   </svg>
 )
-
-IBM.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  y: PropTypes.number,
-}
 
 export default IBM

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 export const EXTRA_LARGE = 4,
   LARGE = 3,
@@ -86,18 +85,6 @@ export class Width extends React.Component {
   }
 }
 
-Width.propTypes = {
-  extraLargeWidth: PropTypes.number,
-  largeWidth: PropTypes.number,
-  mediumWidth: PropTypes.number,
-  smallWidth: PropTypes.number,
-  resizeInterval: PropTypes.number,
-}
-
-Width.contextTypes = {
-  width: PropTypes.object,
-}
-
 const withWidth = (options = {}) => OuterComponent => {
   const {
     extraLargeWidth,
@@ -123,10 +110,6 @@ const withWidth = (options = {}) => OuterComponent => {
     render() {
       return <OuterComponent {...this.props} width={this.state.width} />
     }
-  }
-
-  WithWidth.contextTypes = {
-    width: PropTypes.object,
   }
 
   return WithWidth

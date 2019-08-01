@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
@@ -446,15 +445,5 @@ const Header = ({
 export const RootHeader = props => (
   <Header bgColors={[GRAPHQL_PINK, BLUE]} bgImageOpacity={0.3} {...props} />
 )
-
-Header.propTypes = {
-  titleLines: PropTypes.array.isRequired,
-  subtitle: PropTypes.string,
-  links: PropTypes.array,
-  height: PropTypes.number,
-  bgImg: PropTypes.string,
-  training: PropTypes.object,
-  bgImgUrl: PropTypes.string,
-}
 
 export default withWidth()(Header)

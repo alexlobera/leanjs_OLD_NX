@@ -3,7 +3,6 @@ import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { LinkButton } from '../buttons'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumCorporateGraphQL = ({
   layout,
@@ -71,7 +70,5 @@ const CurriculumCorporateGraphQL = ({
     corpTrainingFacts: true,
   })
 }
-
-CurriculumCorporateGraphQL.propTypes = curriculumCommonPropTypes
 
 export default CurriculumCorporateGraphQL

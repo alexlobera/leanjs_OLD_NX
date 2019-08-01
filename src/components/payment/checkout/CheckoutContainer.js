@@ -1,7 +1,7 @@
 /* eslint no-undef: 0 */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { graphql, withApollo } from 'react-apollo'
 
 import PAY from './Pay.graphql'
@@ -228,28 +228,6 @@ export class CheckoutContainer extends React.Component {
 CheckoutContainer.defaultProps = {
   trackUserBehaviour,
   triggerSubscribe,
-}
-
-CheckoutContainer.propTypes = {
-  pay: PropTypes.func.isRequired,
-  vatRate: PropTypes.number.isRequired,
-  addCourse: PropTypes.func.isRequired,
-  removeCourse: PropTypes.func.isRequired,
-  client: PropTypes.object.isRequired,
-  updateVatRate: PropTypes.func.isRequired,
-  quantity: PropTypes.number.isRequired,
-  currentPriceQuantity: PropTypes.number.isRequired,
-  priceQuantity: PropTypes.number.isRequired,
-  trainingInstanceId: PropTypes.string,
-  eventId: PropTypes.string,
-  trackUserBehaviour: PropTypes.func.isRequired,
-  resetVoucher: PropTypes.func.isRequired,
-  validateVoucher: PropTypes.func.isRequired,
-  voucher: PropTypes.string.isRequired,
-  isVoucherValid: PropTypes.bool,
-  isVoucherValidationInProgress: PropTypes.bool.isRequired,
-  paymentApi: PropTypes.object,
-  navigate: PropTypes.func.isRequired,
 }
 
 const withPay = graphql(PAY, {

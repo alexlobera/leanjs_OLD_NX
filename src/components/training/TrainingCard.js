@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import styled from 'styled-components'
 
 import { DARK_GREY } from '../../config/styles'
@@ -17,9 +17,6 @@ const TrainingCard = styled(Flex)`
 `
 
 TrainingCard.displayName = 'TrainingCard'
-TrainingCard.propTypes = {
-  color: PropTypes.string,
-}
 
 TrainingCard.defaultProps = {
   mt: 0,

@@ -16,7 +16,6 @@ import { trainingTime } from '../utils'
 
 import { REACT_FUNDAMENTALS } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { curriculumCommonPropTypes } from './'
 
 const CurriculumReactFundamentals = ({
   showTitle = true,
@@ -139,7 +138,6 @@ export const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
-CurriculumReactFundamentals.propTypes = curriculumCommonPropTypes
 CurriculumReactFundamentals.LearningObjectivesList = LearningObjectivesList
 CurriculumReactFundamentals.TargetAudienceList = TargetAudienceList
 

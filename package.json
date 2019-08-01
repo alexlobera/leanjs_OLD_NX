@@ -25,7 +25,6 @@
     "gatsby-transformer-remark": "^2.3.12",
     "markdown-to-jsx": "^6.10.2",
     "payment": "^2.3.0",
-    "prop-types": "^15.6.2",
     "raven-js": "^3.26.4",
     "react": "^16.8.6",
     "react-apollo": "^2.1.9",

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 const Telegraph = ({ colour = '#1d1d1b', width, height }) => (
   <svg
@@ -14,11 +13,5 @@ const Telegraph = ({ colour = '#1d1d1b', width, height }) => (
     />
   </svg>
 )
-
-Telegraph.propTypes = {
-  colour: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-}
 
 export default Telegraph
