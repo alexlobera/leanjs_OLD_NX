@@ -15,14 +15,23 @@ import {
   MEETUP,
 } from '../../config/data'
 
-import {
-  LISBON_LOCATION,
-  LONDON_LOCATION,
-  BARCELONA_LOCATION,
-  AMSTERDAM_LOCATION,
-  BERLIN_LOCATION,
-  DEFAULT_INFOBOX,
-} from '../../config/images'
+const LISBON_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_lisbon-perede.jpg?alt=media'
+
+const LONDON_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_london.jpg?alt=media'
+
+const BARCELONA_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_barcelona.jpg?alt=media'
+
+const AMSTERDAM_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/location_images%2Flocation_amsterdam.jpg?alt=media'
+
+const BERLIN_LOCATION =
+  'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Flocation_images%2Flocation_berlin.jpg?alt=media'
+
+const DEFAULT_INFOBOX =
+  'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fdefault_infobox.jpg?alt=media'
 
 import GET_UPCOMING_TRAINING from './UpcomingTrainings.graphql'
 
