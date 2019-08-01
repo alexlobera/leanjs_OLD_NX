@@ -3,12 +3,11 @@ import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
-import {
-  CurriculumReactBootcamp,
-  CurriculumReactFundamentals,
-  CurriculumPartTime,
-  CurriculumAdvancedReact,
-} from './index'
+import CurriculumReactBootcamp from './CurriculumReactBootcamp'
+import CurriculumReactFundamentals from './CurriculumReactFundamentals'
+import CurriculumPartTime from './CurriculumPartTime'
+import CurriculumAdvancedReact from './CurriculumAdvancedReact'
+
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
 import { selectUpcomingTrainings } from '../training/UpcomingTrainings'
 import {

@@ -2,11 +2,10 @@ import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
-import {
-  CurriculumGraphQLBootcamp,
-  CurriculumGraphQLWorkshops,
-  CurriculumGraphQLAPI,
-} from './index'
+import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
+import CurriculumGraphQLWorkshops from './CurriculumGraphQLWorkshops'
+import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
+
 import { selectUpcomingTrainings } from '../training/UpcomingTrainings'
 import {
   GRAPHQL_BOOTCAMP,

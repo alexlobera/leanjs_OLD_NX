@@ -10,7 +10,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H3 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { FullCurriculumsReact } from '../../../components/curriculum'
+import FullCurriculumsReact from '../../../components/curriculum/FullCurriculumsReact'
 import Header from 'src/components/layout/Header'
 import {
   AttendeeQuote,

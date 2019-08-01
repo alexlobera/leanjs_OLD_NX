@@ -8,7 +8,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { P, H2Ref } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumGraphQLAPI } from 'src/components/curriculum'
+import CurriculumGraphQLAPI from 'src/components/curriculum/CurriculumGraphQLAPI'
 import Header from 'src/components/layout/Header'
 import {
   AttendeeQuote,

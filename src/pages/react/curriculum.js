@@ -20,13 +20,11 @@ import {
   TabContent,
   ContentItem,
 } from 'src/components/layout/Tabs'
-import {
-  CurriculumReactFundamentals,
-  CurriculumReactBootcamp,
-  CurriculumPartTime,
-  CurriculumAdvancedReact,
-  MarketingCard,
-} from 'src/components/curriculum'
+import CurriculumReactFundamentals from 'src/components/curriculum/CurriculumReactFundamentals'
+import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
+import CurriculumPartTime from 'src/components/curriculum/CurriculumPartTime'
+import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
+import MarketingCard from 'src/components/curriculum/MarketingCard'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,

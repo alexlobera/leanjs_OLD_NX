@@ -10,7 +10,7 @@ import Ul from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
-import { CurriculumAdvancedReact } from 'src/components/curriculum'
+import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
 import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,

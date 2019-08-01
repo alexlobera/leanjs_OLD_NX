@@ -9,7 +9,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumAdvancedReact } from 'src/components/curriculum'
+import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,

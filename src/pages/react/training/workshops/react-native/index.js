@@ -8,7 +8,7 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
 import { Link } from 'src/components/navigation'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumReactNative } from 'src/components/curriculum'
+import CurriculumReactNative from 'src/components/curriculum/CurriculumReactNative'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,

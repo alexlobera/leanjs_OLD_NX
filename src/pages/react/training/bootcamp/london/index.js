@@ -10,7 +10,7 @@ import Section, {
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumReactBootcamp } from 'src/components/curriculum'
+import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'

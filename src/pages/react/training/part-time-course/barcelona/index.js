@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { CurriculumPartTime } from 'src/components/curriculum'
+import CurriculumPartTime from 'src/components/curriculum/CurriculumPartTime'
 import { Card, Video } from 'src/components/elements'
 import {
   UpcomingTrainingSection,

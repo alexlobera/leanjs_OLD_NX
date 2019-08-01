@@ -13,10 +13,8 @@ import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { AttendeeQuote } from 'src/components/training'
 import Ul, { Li } from '../components/layout/Ul'
-import {
-  FullCurriculumsReact,
-  FullCurriculumsGraphQL,
-} from '../components/curriculum'
+import FullCurriculumsReact from '../components/curriculum/FullCurriculumsReact'
+import FullCurriculumsGraphQL from '../components/curriculum/FullCurriculumsGraphQL'
 import { createSocialMetas } from '../components/utils'
 import { RootHeader as Header } from '../components/layout/Header'
 import { Card, Video } from '../components/elements'

@@ -21,7 +21,7 @@ import { blogAuthors } from '../config/data'
 import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
 import Tweet from '../components/blog/Tweet'
 import ShareButtons from '../components/blog/ShareButtons'
-import { MarketingCard } from '../components/curriculum'
+import MarketingCard from '../components/curriculum/MarketingCard'
 import { FONT_FAMILY } from '../config/styles'
 
 export const formatPostTitle = title => title.replace(/(<([^>]+)>)/gi, ' ')

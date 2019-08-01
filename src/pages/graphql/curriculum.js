@@ -21,12 +21,9 @@ import {
   TabContent,
   ContentItem,
 } from 'src/components/layout/Tabs'
-
-import {
-  CurriculumGraphQLBootcamp,
-  CurriculumGraphQLAPI,
-  MarketingCard,
-} from 'src/components/curriculum'
+import MarketingCard from 'src/components/curriculum/MarketingCard'
+import CurriculumGraphQLAPI from 'src/components/curriculum/CurriculumGraphQLAPI'
+import CurriculumGraphQLBootcamp from 'src/components/curriculum/CurriculumGraphQLBootcamp'
 import CurriculumGraphQLApollo from 'src/components/curriculum/workshops/CurriculumGraphQLApollo'
 import Header from 'src/components/layout/Header'
 import {
