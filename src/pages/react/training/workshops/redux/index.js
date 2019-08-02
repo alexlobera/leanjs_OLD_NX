@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
+import CurriculumOneDayRedux from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -50,13 +50,13 @@ const ReduxWorkshopLanding = ({ path }) => (
             ]}
           />
           <Header
-            titleLines={['Redux']}
+            titleLines={['1-Day Redux Workshop']}
             subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux middlewares"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
-            bgImageName={LONDON_BOOTCAMP}
+            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             training={training}
           />

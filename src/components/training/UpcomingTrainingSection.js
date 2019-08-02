@@ -17,7 +17,6 @@ import {
   PART_TIME,
   REACT_NATIVE,
   REACT_WORKSHOP,
-  ONE_DAY_WORKSHOP,
   REACT_FUNDAMENTALS,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
@@ -59,12 +58,29 @@ export const UpcomingTrainings = ({
         'D MMM'
       )
       const dayMonth = formatedDate ? formatedDate.split(' ') : ['', '']
+      const startDate = new Date(training.startDate)
+      const endDate = new Date(training.endDate)
+      const days = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1
+      const duration =
+        days <= 2
+          ? '1 day'
+          : days < 3
+          ? `2 days`
+          : days < 5
+          ? `3 days`
+          : days < 10
+          ? '1 week'
+          : days < 25
+          ? '1 month'
+          : ''
+
       const trainingInstance = (
         <TrainingItem
           key={training.id}
           cityCountry={training.cityCountry}
           startDay={dayMonth[0]}
           startMonth={dayMonth[1]}
+          duration={duration}
           type={training.type}
           title={training.title}
           path={training.toPath}
@@ -124,7 +140,6 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
       REACT_NATIVE,
       REACT_WORKSHOP,
       REACT_FUNDAMENTALS,
-      ONE_DAY_WORKSHOP,
     ],
   })
   const graphqlTrainings = selectUpcomingTrainings({

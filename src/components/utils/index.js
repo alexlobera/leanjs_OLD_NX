@@ -11,7 +11,6 @@ import {
   GRAPHQL_API,
   GRAPHQL_CLIENT,
   GRAPHQL_WORKSHOP,
-  ONE_DAY_WORKSHOP,
   MEETUP,
 } from '../../config/data'
 import { GRAPHQL_PINK, MEETUP_RED, BLUE } from '../../config/styles'
@@ -36,7 +35,6 @@ export const selectTypeColor = type => {
     case PART_TIME:
     case ADVANCED_REACT:
     case REACT_WORKSHOP:
-    case ONE_DAY_WORKSHOP:
     case REACT_FUNDAMENTALS:
       return BLUE
     case GRAPHQL_BOOTCAMP:
@@ -65,7 +63,6 @@ export const selectBorderStyle = type => {
     case REACT_FUNDAMENTALS:
       return 'dotted'
     case REACT_WORKSHOP:
-    case ONE_DAY_WORKSHOP:
     case GRAPHQL_API:
       return 'double'
     default:

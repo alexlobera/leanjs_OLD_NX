@@ -14,7 +14,6 @@ import {
   REACT_BOOTCAMP,
   PART_TIME,
   ADVANCED_REACT,
-  ONE_DAY_WORKSHOP,
   REACT_FUNDAMENTALS,
   REACT_WORKSHOP,
 } from '../../config/data'
@@ -22,7 +21,7 @@ import {
 const FullCurriculumsReact = ({ trainings }) => {
   const allReactWorkshops = selectUpcomingTrainings({
     trainings,
-    types: [ONE_DAY_WORKSHOP, REACT_WORKSHOP],
+    types: [REACT_WORKSHOP],
   })
 
   const commonCurriculumProps = {
@@ -42,7 +41,7 @@ const FullCurriculumsReact = ({ trainings }) => {
           <TabItem name={PART_TIME}>Part-time Course</TabItem>
           <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
           <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
-          <TabItem name={ONE_DAY_WORKSHOP}>1-Day Workshops</TabItem>
+          <TabItem name={REACT_WORKSHOP}>1-Day Workshops</TabItem>
         </TabList>
 
         <TabContent>
@@ -58,7 +57,7 @@ const FullCurriculumsReact = ({ trainings }) => {
           <ContentItem name={PART_TIME}>
             <CurriculumPartTime {...commonCurriculumProps} />
           </ContentItem>
-          <ContentItem name={ONE_DAY_WORKSHOP}>
+          <ContentItem name={REACT_WORKSHOP}>
             <CurriculumReactWorkshops
               trainings={allReactWorkshops}
               showTitle={false}

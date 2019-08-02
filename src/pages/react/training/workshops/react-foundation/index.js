@@ -5,9 +5,11 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import CurriculumStylingAndAdvUI from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
+import { H2Ref } from 'src/components/text'
+import Ul from 'src/components/layout/Ul'
+import CurriculumReactFoundation, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumReactFoundation'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -15,43 +17,32 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { createSocialMetas } from 'src/components/utils'
-import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
-const metas = {
-  title: 'Design System Workshop | React GraphQL Academy',
-  description:
-    'Interested in Design Systems? React GraphQL Academy offers Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
-  image: WHY_REACTJS_ACADEMY,
-  type: 'website',
-}
+export const WORKSHOP_TRAINING_ID = '5d44795ab809c0500a3f3455'
 
-export const STYLING_TRAINING_ID = '5cd2c86daa5e8f0a07b924fb'
-
-const StylingDesignSystemWorkshop = ({ path }) => (
+const Workshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: STYLING_TRAINING_ID,
+        trainingId: WORKSHOP_TRAINING_ID,
       })
+
       return (
         <React.Fragment>
           <Helmet
-            title={metas.title}
+            title="1-Day React Foundation Workshop"
             meta={[
               {
                 name: 'description',
-                content: metas.description,
+                content: '1-Day React Foundation Workshop',
               },
             ]}
-          >
-            {createSocialMetas(metas)}
-          </Helmet>
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -60,13 +51,13 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'Styling in React using design systems',
+                label: '1-Day React Foundation',
               },
             ]}
           />
           <Header
-            titleLines={['Styling in React using design systems']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={['1-Day React Foundation Workshop']}
+            subtitle="Get started with React by creating a solid foundation that will help you speed up your career as React developer "
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
@@ -78,7 +69,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <CurriculumStylingAndAdvUI layout={LIST_TWO_COL} />
+                  <CurriculumReactFoundation layout={LIST_TWO_COL} />
                 </Col>
               </Row>
             </Card>
@@ -88,10 +79,11 @@ const StylingDesignSystemWorkshop = ({ path }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
-                  fullname="Rafa Fraga"
-                  job="Software Engineer"
-                  youtubeId="9QpAWAtZy6M"
+                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="blg40SCle7I"
                 />
               </Col>
               <Col md={4} lgOffset={1}>
@@ -102,32 +94,12 @@ const StylingDesignSystemWorkshop = ({ path }) => (
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer or designer with experience building React
-                    components and using CSS?
-                  </Li>
-                  <Li>
-                    A developer or designer interested in building scalable and
-                    reusable UIs for big React projects?
-                  </Li>
-                  <Li>
-                    Not satisfied with the Designer/Developer handover in
-                    real-world React projects?
-                  </Li>
-                  <Li>
-                    A designer that builds React components and interacts with
-                    developers.
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
-                <P>
-                  If you've said 'yes' to these, this workshop could be for you!
-                </P>
-                <H3>Not for React beginners!</H3>
                 <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>
             </Row>
           </Section>
-
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -135,4 +107,4 @@ const StylingDesignSystemWorkshop = ({ path }) => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default Workshop

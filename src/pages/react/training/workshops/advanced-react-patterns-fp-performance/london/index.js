@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumAdvReactPatterns } from 'src/components/curriculum/workshops'
+import CurriculumAdvReactPatterns from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -75,7 +75,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             titleLines={[`${trainingTitle || '...loading'} - London`]}
             subtitle="Supercharge your existing React skills by learning how Advanced Patterns, Functional Programming and Performance can benefit your apps"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
+            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}

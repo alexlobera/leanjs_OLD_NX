@@ -27,7 +27,8 @@ import { Breadcrumb } from 'src/components/navigation'
 import {
   PART_TIME,
   LONDON,
-  ONE_DAY_WORKSHOP,
+  REACT_WORKSHOP,
+  REACT_FUNDAMENTALS,
   REACT_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
@@ -38,7 +39,7 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 const metas = {
   title: 'React Course London | React GraphQL Academy',
   description:
-    'Interested in a React course in London? Learn the fundamentas of the React ecosystem and become a confident React developer with our React part time course London.',
+    'Interested in a React course in London? Learn the main libraries of the React ecosystem and become a confident React developer with our React part time course London.',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -54,7 +55,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
       const training = selectNthTraining({ trainings: partTimeTrainings, nth })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [ONE_DAY_WORKSHOP, REACT_BOOTCAMP],
+        types: [REACT_WORKSHOP, REACT_FUNDAMENTALS, REACT_BOOTCAMP],
       })
       return (
         <React.Fragment>
@@ -92,7 +93,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <Header
             titleLines={['React Redux part-time course - London']}
-            subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
+            subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work in London!"
             links={header.landingTraining.links}
             type={PART_TIME}
             training={training}

@@ -27,10 +27,6 @@ import {
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   REACT_WORKSHOP,
-  ONE_DAY_WORKSHOP,
-  GRAPHQL_API,
-  GRAPHQL_CLIENT,
-  GRAPHQL_BOOTCAMP,
   LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
@@ -50,14 +46,8 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
       })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [
-          REACT_BOOTCAMP,
-          REACT_WORKSHOP,
-          ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
-        ],
+        types: [REACT_BOOTCAMP, REACT_WORKSHOP],
+        city: LONDON,
       })
       return (
         <React.Fragment>
@@ -73,7 +63,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               {
                 name: 'description',
                 content:
-                  'React Fundamentals - learn a solid foundation in React in just 3 days in London',
+                  'React Fundamentals - learn in London in 3 days the React fundamentals needed to develop React apps the right way',
               },
             ]}
           />
@@ -94,7 +84,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <Header
             titleLines={['React Redux Fundamentals - London']}
-            subtitle="In 3 days, we can teach you how to code in React to give you a solid foundation to take your dev career further."
+            subtitle="In 3 days, our coaches will work with you in London to help you learn the React fundamentals needed to develop React apps the right way"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={REACT_FUNDAMENTALS}

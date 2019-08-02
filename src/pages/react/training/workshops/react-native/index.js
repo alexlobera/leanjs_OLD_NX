@@ -26,11 +26,11 @@ const ReactNativeBoocamp = ({ path }) => (
     {({ trainings }) => (
       <React.Fragment>
         <Helmet
-          title="React Native Workshops"
+          title="1-Day React Native Workshop"
           meta={[
             {
               name: 'description',
-              content: '1-day React Native Workshops from industry experts.',
+              content: '1-day React Native Workshop from industry experts.',
             },
           ]}
         />
@@ -42,13 +42,13 @@ const ReactNativeBoocamp = ({ path }) => (
             { to: '/react/training/workshops', label: 'Workshops' },
             {
               to: path,
-              label: 'React Native',
+              label: '1-Day React Native',
             },
           ]}
         />
         <Header
-          titleLines={['React Native Workshops']}
-          subtitle="Intense hands-on React Native workshops, <br /> return to work as a React Native specialist"
+          titleLines={['1-Day React Native Workshop']}
+          subtitle="Intense hands-on React Native workshop, <br /> return to work as a React Native specialist"
           bgImageName={BOOTCAMP}
           type={REACT_NATIVE}
           links={header.landingPageLinks.links}

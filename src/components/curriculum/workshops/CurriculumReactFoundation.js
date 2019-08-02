@@ -1,0 +1,73 @@
+import React from 'react'
+import Section from '../CurriculumSection'
+import Curriculum from './Curriculum'
+import ES6Session, { titleSession as es6Title } from '../sessions/ES6Session'
+import ThinkingInReactSession, {
+  titleSession as thinkingTitle,
+} from '../sessions/ThinkingInReactSession'
+import RoutingAndDataFetchingSession, {
+  titleSession as routingTitle,
+} from '../sessions/RoutingAndDataFetchingSession'
+import { Li } from 'src/components/layout/Ul'
+import { REACT_WORKSHOP } from '../../../config/data'
+
+const CurriculumReactFoundation = ({ showTitle = true, layout, ...rest }) => (
+  <Curriculum
+    title={showTitle ? '1-Day React Foundation Curriculum' : ''}
+    layout={layout}
+    firstHalf={
+      <React.Fragment>
+        <Section
+          title={es6Title}
+          subTitle="Session 1"
+          type={REACT_WORKSHOP}
+          {...rest}
+        >
+          <ES6Session />
+        </Section>
+        <Section
+          title={thinkingTitle}
+          subTitle="Session 2"
+          type={REACT_WORKSHOP}
+          {...rest}
+        >
+          <ThinkingInReactSession />
+        </Section>
+        <Section
+          title={routingTitle}
+          subTitle="Session 3"
+          type={REACT_WORKSHOP}
+          {...rest}
+        >
+          <RoutingAndDataFetchingSession />
+        </Section>
+      </React.Fragment>
+    }
+  />
+)
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>
+      Ideal for <strong>React beginners</strong>.
+    </Li>
+    <Li>
+      You've done some online tutorials and can build very simple things with
+      React that work, but you are not sure how and why they work.
+    </Li>
+    <Li>
+      Want to build a single-page app in React with navigation between different
+      pages and you are not sure of the right approach.
+    </Li>
+    <Li>
+      Want to pull data from an API into a React app but you are confused with
+      the different approaches you find on the Internet.
+    </Li>
+    <Li>
+      Not satisfied with the pace of online learning and it's lack of 1-on-1
+      mentoring.
+    </Li>
+  </React.Fragment>
+)
+
+export default CurriculumReactFoundation

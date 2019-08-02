@@ -25,9 +25,9 @@ const CurriculumCorporateReact = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Day 1 - React 101 and JS fundamentals"
+        title="Day 1 - React JS 101"
         name="day1"
-        subTitle="React 101 and JS fundamentals"
+        subTitle="React JS 101"
       />
       <Section
         {...commonProps}

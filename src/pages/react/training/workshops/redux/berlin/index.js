@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
+import CurriculumOneDayRedux from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -61,7 +61,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
       return (
         <React.Fragment>
           <Helmet
-            title="Redux workshop Berlin"
+            title="1-Day Redux Workshop Berlin"
             link={[
               {
                 rel: 'canonical',
@@ -71,7 +71,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content: '1-day Redux Workshop in Berlin',
+                content: '1-Day Redux Workshop in Berlin',
               },
             ]}
           />
@@ -83,7 +83,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: '/react/training/workshops/redux',
-                label: 'Redux',
+                label: '1-Day Redux',
               },
               {
                 to: path,
@@ -92,10 +92,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={[`${trainingTitle || '...loading'} - Berlin`]}
-            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux Middlewares"
+            titleLines={[`1-Day Redux Workshop Berlin`]}
+            subtitle="Learn how Redux and React work together in practice in this 1-day workshop in Berlin, from Redux fundamentals and FP through to Redux Middlewares"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
+            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { P } from '../text'
+import { P, Span } from '../text'
 import { Col, Row } from '../layout/Grid'
 import Link from '../navigation/Link'
 import { selectTypeColor, selectBorderStyle } from '../utils'
@@ -36,6 +36,7 @@ const TrainingItem = ({
   title,
   cityCountry,
   startDay,
+  duration,
   startMonth,
   path,
   className,
@@ -47,6 +48,9 @@ const TrainingItem = ({
           {startDay}
           <br />
           {startMonth}
+          <Span fontSize={1} textAlign="center">
+            {duration}
+          </Span>
         </Calendar>
       </TrainingItemCol>
       <TrainingItemCol xs={7} md={7}>

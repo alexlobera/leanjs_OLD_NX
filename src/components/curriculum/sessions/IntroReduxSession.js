@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const IntroReduxSession = ({ title }) => (
+const IntroReduxSession = ({ title = 'Redux Fundamentals' }) => (
   <Session title={title}>
     <Ul>
       <Li>

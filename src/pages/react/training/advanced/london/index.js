@@ -28,7 +28,6 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
   ADVANCED_REACT,
-  ONE_DAY_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_CLIENT,
   GRAPHQL_BOOTCAMP,
@@ -58,12 +57,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
         selectNthTraining({ trainings: upcomingAdvancedTrainings, nth }) || {}
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [
-          ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
-        ],
+        types: [GRAPHQL_API, GRAPHQL_CLIENT, GRAPHQL_BOOTCAMP],
       })
       return (
         <React.Fragment>
@@ -100,7 +94,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['Advanced React Training - London']}
+            titleLines={['Advanced React Training London']}
             subtitle="Take your React career to the next level by mastering advanced React - in just 3 days!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}

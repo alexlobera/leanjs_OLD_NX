@@ -2,7 +2,9 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const ES6Session = ({ title }) => (
+export const titleSession = 'Modern JavaScript'
+
+const ES6Session = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>Modern JavaScript for React - ES6 and beyond</Li>

@@ -44,7 +44,7 @@ Section.displayName = 'Section'
 export const TopSection = styled(Section)``
 TopSection.defaultProps = {
   position: 'relative',
-  mt: [0, -150],
+  mt: [0, -125],
 }
 TopSection.displayName = 'TopSection'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const TestingIntroSession = ({ title }) => (
+const TestingIntroSession = ({ title = 'Testing Foundation in JS' }) => (
   <Session title={title}>
     <Ul>
       <Li>Build your own test framework in JavaScript</Li>

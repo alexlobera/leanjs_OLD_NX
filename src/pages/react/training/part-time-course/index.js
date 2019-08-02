@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { LinkButton } from 'src/components/buttons'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
@@ -27,7 +27,7 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 const metas = {
   title: 'React Part Time Course | React GraphQL Academy',
   description:
-    'Interested in a React course? Learn the fundamentas of the React ecosystem and become a confident React developer with our React part time course.',
+    'Interested in a React course? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time course.',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -67,8 +67,8 @@ const PartTime = ({ trainings, path }) => (
             ]}
           />
           <Header
-            titleLines={['5-week part-time', 'React Redux course']}
-            subtitle="Expert coaches work with you, 2 evenings a week, <br /> to master React without having to cut into valuable work-days"
+            titleLines={['1-month part-time', 'React Redux course']}
+            subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
             type={PART_TIME}
             links={header.landingPageLinks.links}
           />
@@ -100,17 +100,10 @@ const PartTime = ({ trainings, path }) => (
                   <Li>Discuss real-world projects to learn best practices</Li>
                   <Li>Expert coaches with extensive React experience</Li>
                 </Ul>
-                {nextTraining && (
-                  <LinkButton cta to={nextTraining.toPath}>
-                    Next bootcamp:{' '}
-                    {formatUTC(
-                      nextTraining.startDate,
-                      nextTraining.utcOffset,
-                      'D MMM'
-                    )}
-                    , {nextTraining.city}
-                  </LinkButton>
-                )}
+                <NextTrainingButton
+                  type="part-time course"
+                  training={nextTraining}
+                />
               </Col>
             </Row>
           </Section>

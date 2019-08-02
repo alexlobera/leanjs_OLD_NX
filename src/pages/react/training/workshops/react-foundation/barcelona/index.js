@@ -5,9 +5,11 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import CurriculumReactFundamentals from 'src/components/curriculum/CurriculumReactFundamentals'
+import { H2Ref, H4 } from 'src/components/text'
+import Ul from 'src/components/layout/Ul'
+import CurriculumReactFoundation, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumReactFoundation'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -24,34 +26,42 @@ import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
-  REACT_BOOTCAMP,
-  REACT_FUNDAMENTALS,
   REACT_WORKSHOP,
-  BERLIN,
+  REACT_FUNDAMENTALS,
+  REACT_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import BlogSection from 'src/components/blog/BlogSection'
+import { BARCELONA } from 'src/config/data'
+import { WORKSHOP_TRAINING_ID } from '../'
 
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const fundamentalsTrainings = selectUpcomingTrainings({
+      const workshops = selectUpcomingTrainings({
         trainings,
-        type: REACT_FUNDAMENTALS,
-        city: BERLIN,
+        trainingId: WORKSHOP_TRAINING_ID,
       })
+
       const training = selectNthTraining({
-        trainings: fundamentalsTrainings,
+        trainings: workshops,
         nth,
       })
+
+      const trainingTitle =
+        training &&
+        training.training &&
+        training.training.description &&
+        training.training.description.title
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [REACT_BOOTCAMP, REACT_WORKSHOP],
+        city: BARCELONA,
+        types: [REACT_WORKSHOP, REACT_FUNDAMENTALS, REACT_BOOTCAMP],
+        excludeTrainingId: WORKSHOP_TRAINING_ID,
       })
       return (
         <React.Fragment>
           <Helmet
-            title="React Fundamentals in Berlin"
+            title="1-Day React Foundation Workshop Barcelona"
             link={[
               {
                 rel: 'canonical',
@@ -61,8 +71,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content:
-                  'React Fundamentals - learn in Berlin in 3 days the React fundamentals needed to develop React apps the right way',
+                content: '1-Day React Foundation Workshop Barcelona',
               },
             ]}
           />
@@ -71,26 +80,27 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
+              { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/react-fundamentals',
-                label: 'React Fundamentals',
+                to: '/react/training/workshops/react-foundation',
+                label: '1-Day React Foundation',
               },
               {
                 to: path,
-                label: 'Berlin',
+                label: 'Barcelona',
               },
             ]}
           />
           <Header
-            titleLines={['React Redux Fundamentals - Berlin']}
-            subtitle="In 3 days, our coaches will work with you in Berlin to help you learn the React fundamentals needed to develop React apps the right way"
+            titleLines={[`1-Day React Foundation Workshop Barcelona`]}
+            subtitle="Get started with React in Barcelona by creating a solid foundation that will help you speed up your career as React developer "
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
-            type={REACT_FUNDAMENTALS}
+            type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
-          <TopSection variant="dark" top>
+          <TopSection variant="dark">
             <Card variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>
@@ -101,66 +111,34 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   />
                 </Col>
                 <Col md={6} lg={4} lgOffset={1}>
-                  <H4>Charlie's student experience</H4>
-                  <Video youtubeId="VhUMAqToJ4s" />
+                  <H4>Rafa's student experience</H4>
+                  <Video youtubeId="hZZksRcqtkc" />
                   <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                 </Col>
               </Row>
             </Card>
           </TopSection>
           <Section>
-            <Card>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumReactFundamentals
-                    training={training}
-                    layout={LIST_TWO_COL}
-                  />
-                </Col>
-              </Row>
-            </Card>
-          </Section>
-
-          <Section>
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="I enjoyed how the coaches interacted with us. They talked in a way that was super positive and really supportive."
+                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
                   fullname="Lara Ramey"
                   job="Software Developer"
                   company="Meredith Corporation"
-                  youtubeId="Syktu6ICNfw"
+                  youtubeId="blg40SCle7I"
                 />
               </Col>
               <Col md={4} lgOffset={1}>
                 <H2Ref>
-                  Is this React course right for you? Are you...{' '}
-                  <Link to="#target-audience" name="target-audience"></Link>
+                  Is this one day workshop right for me? Are you...{' '}
+                  <Link to="#target-audience" name="target-audience">
+                    #
+                  </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer with 1+ year of development under your belt
-                    using JavaScript?
-                  </Li>
-                  <Li>
-                    Familiar with front-end technologies like JavaScript, CSS,
-                    and HTML?
-                  </Li>
-                  <Li>
-                    Taking a step forward to become a confident React developer,
-                    able to quickly get orientated and add value to a React
-                    application.
-                  </Li>
-                  <Li>
-                    Not satisfied with the pace of online learning and it's lack
-                    of 1-on-1 mentoring?
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
-
-                <H3>Not for beginner devs!</H3>
-                <P>
-                  <strong>We do not run learn-to-code bootcamps</strong>.
-                </P>
                 <Link
                   className="perfect-course-student"
                   to="/blog/are-you-the-perfect-react-graphql-student/"
@@ -170,6 +148,16 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Col>
             </Row>
           </Section>
+          <Section top>
+            <Card>
+              <Row>
+                <Col lg={10} lgOffset={1}>
+                  <CurriculumReactFoundation layout={LIST_TWO_COL} />
+                </Col>
+              </Row>
+            </Card>
+          </Section>
+
           <Section>
             <Row>
               <Col lg={10} lgOffset={1}>
@@ -178,7 +166,6 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             </Row>
           </Section>
 
-          <BlogSection tags={['react', 'beginner']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

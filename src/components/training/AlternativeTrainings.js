@@ -12,7 +12,6 @@ import {
   PART_TIME,
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
-  ONE_DAY_WORKSHOP,
 } from '../../config/data'
 
 const AlternativeTrainings = ({
@@ -45,13 +44,7 @@ export const AlternativeBootcampTrainings = ({ trainings, city }) => {
   const reactTrainings = selectUpcomingTrainings({
     trainings,
     city,
-    types: [
-      REACT_FUNDAMENTALS,
-      REACT_WORKSHOP,
-      ADVANCED_REACT,
-      ONE_DAY_WORKSHOP,
-      PART_TIME,
-    ],
+    types: [REACT_FUNDAMENTALS, REACT_WORKSHOP, ADVANCED_REACT, PART_TIME],
     limit: 3,
   })
 

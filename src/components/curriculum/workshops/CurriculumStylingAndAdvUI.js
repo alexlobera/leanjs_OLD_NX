@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
 import Link from '../../navigation/Link'
-import { ONE_DAY_WORKSHOP } from '../../../config/data'
+import { REACT_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
 import selectCurriculumLayout from '../selectCurriculumLayout'
 import DesignSystemSession from '../sessions/DesignSystemSession'
@@ -17,7 +17,7 @@ const CurriculumStylingAndAdvUI = ({
   showLinkToCurriculum = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = ONE_DAY_WORKSHOP
+  const type = REACT_WORKSHOP
   const commonProps = {
     showLinkToCurriculum,
     enableToggle,

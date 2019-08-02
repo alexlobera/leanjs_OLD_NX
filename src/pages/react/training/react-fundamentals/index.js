@@ -43,7 +43,7 @@ const ReactFundamentals = ({ path }) => (
               {
                 name: 'description',
                 content:
-                  'React Fundamentals - learn the foundation in React you need to create great apps',
+                  'React Fundamentals - learn in 3 days the React fundamentals needed to develop React apps the right way',
               },
             ]}
           />
@@ -60,7 +60,7 @@ const ReactFundamentals = ({ path }) => (
           />
           <Header
             titleLines={['React Redux Fundamentals']}
-            subtitle="In 3 days, our coaches will work with you and help you use React ecosystem giving you a solid foundation for your career in React."
+            subtitle="In 3 days, our coaches will work with you to help you learn the React fundamentals needed to develop React apps the right way"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
             type={REACT_FUNDAMENTALS}

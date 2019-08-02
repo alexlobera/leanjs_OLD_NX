@@ -110,7 +110,7 @@ const IndexPage = () => {
         Europe to teach React. "
             bgImageName={HOME_PAGE}
           />
-          <TopSection mt={[0, -250]}>
+          <TopSection mt={[0, -225]}>
             <Row>
               <Col lgOffset={1} lg={11}>
                 <StyledTabTitle>Select Technology: </StyledTabTitle>

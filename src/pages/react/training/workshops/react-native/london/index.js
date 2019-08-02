@@ -38,7 +38,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
       return (
         <React.Fragment>
           <Helmet
-            title="React Native Workshops London"
+            title="1-Day React Native Workshop London"
             link={[
               {
                 rel: 'canonical',
@@ -49,7 +49,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               {
                 name: 'description',
                 content:
-                  '1-day React Native Workshops in London from industry experts.',
+                  '1-Day React Native Workshop in London from industry experts.',
               },
             ]}
           />
@@ -61,7 +61,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: '/react/training/workshops/react-native',
-                label: 'React Native',
+                label: '1-Day React Native',
               },
               {
                 to: path,
@@ -70,7 +70,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={[`1-day React Native Workshop - London`]}
+            titleLines={[`1-Day React Native Workshop London`]}
             subtitle="Take your React developer career to the next level by<br />learning React Native in London, in only one day. "
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}

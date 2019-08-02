@@ -1,7 +1,7 @@
 import React from 'react'
 import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
 import Link from '../../navigation/Link'
-import { ONE_DAY_WORKSHOP } from '../../../config/data'
+import { GRAPHQL_WORKSHOP } from '../../../config/data'
 import { H2Ref, H3 } from '../../text'
 import GraphQLApolloClientDaySessions from '../sessions/GraphQLApolloClientDaySessions'
 import selectCurriculumLayout from '../selectCurriculumLayout'
@@ -15,7 +15,7 @@ const CurriculumGraphQLApollo = ({
   showLinkToCurriculum = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = ONE_DAY_WORKSHOP
+  const type = GRAPHQL_WORKSHOP
   const commonProps = {
     showLinkToCurriculum,
     enableToggle,

@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumTestingInReact } from 'src/components/curriculum/workshops'
+import CurriculumTestingInReact from 'src/components/curriculum/workshops/CurriculumTestingInReact'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -94,7 +94,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             titleLines={[`${trainingTitle || '...loading'} - London`]}
             subtitle="Learn the advanced skills needed to use React Hooks and test your apps effectively"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
+            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}

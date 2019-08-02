@@ -82,7 +82,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           />
           <Header
             titleLines={['React Redux Bootcamp Berlin']}
-            subtitle="Take your dev career to the next level by mastering<br />React and Redux - in just a few days!"
+            subtitle="Take your dev career to the next level by mastering<br />React and Redux - in just 1 week!"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={REACT_BOOTCAMP}
