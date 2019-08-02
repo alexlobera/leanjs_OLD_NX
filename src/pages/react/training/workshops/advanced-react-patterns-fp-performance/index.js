@@ -18,23 +18,26 @@ import {
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
+
+export const title = ['1-Day Advanced Patterns, FP', 'and Performance Workshop']
+export const WORKSHOP_TRAINING_ID = '5d0112d806051b7d3bcb0cf7'
 
 const AdvancedReactWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
-      const training = getNextTrainingByTrainingId({
+      const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: '5d0112d806051b7d3bcb0cf7',
+        trainingId: WORKSHOP_TRAINING_ID,
       })
       return (
         <React.Fragment>
           <Helmet
-            title="Advanced React Patterns, FP and Performance Workshop"
+            title={title.join()}
             meta={[
               {
                 name: 'description',
-                content:
-                  '1-day Advanced React Patterns, FP and Performance Workshop',
+                content: title,
               },
             ]}
           />
@@ -46,12 +49,12 @@ const AdvancedReactWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'Advanced React Patterns, FP and Performance',
+                label: 'Advanced Patterns, FP and Performance',
               },
             ]}
           />
           <Header
-            titleLines={['Advanced React Patterns, FP and Performance']}
+            titleLines={title}
             subtitle="Understand how to use and apply React patterns including, HOC, render props and perpendicular composition with hooks"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
@@ -59,7 +62,6 @@ const AdvancedReactWorkshop = ({ path }) => (
             ]}
             bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
-            training={training}
           />
           <TopSection top>
             <Card>
@@ -106,20 +108,7 @@ const AdvancedReactWorkshop = ({ path }) => (
                   If you've said 'yes' to these, this workshop could be for you!
                 </P>
                 <H3>Not for React beginners!</H3>
-                <P>
-                  This is not a learn-to-code workshop. If you want to learn to
-                  code, we recommend checking out{' '}
-                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                    Free Code Camp
-                  </Link>
-                  .
-                </P>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
+                <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>
             </Row>
           </Section>

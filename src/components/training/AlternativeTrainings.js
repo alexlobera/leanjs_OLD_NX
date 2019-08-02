@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { Card } from '../elements'
 import { H3 } from '../text'
 import { UpcomingTrainings } from './UpcomingTrainingSection'
 import { selectUpcomingTrainings } from './UpcomingTrainings'
 import { LinkButton } from '../buttons'
-import { Col, Row } from '../layout/Grid'
+import { Row } from '../layout/Grid'
 
 import {
   ADVANCED_REACT,
@@ -18,26 +17,25 @@ const AlternativeTrainings = ({
   trainings,
   titleText = 'You may also be interested in',
   city,
+  hideAllBtn = false,
 }) =>
   trainings && trainings.length ? (
-    <Card variant="info">
+    <React.Fragment>
+      <H3>{titleText}</H3>
       <Row>
-        <Col md={11} mdOffset={1}>
-          <H3>{titleText}</H3>
-          <Row>
-            <UpcomingTrainings
-              className="suggested-courses"
-              limit={3}
-              city={city}
-              trainings={trainings}
-            />
-          </Row>
-          <LinkButton className="suggested-courses" to="#upcoming">
-            See all Courses
-          </LinkButton>
-        </Col>
+        <UpcomingTrainings
+          className="suggested-courses"
+          limit={3}
+          city={city}
+          trainings={trainings}
+        />
       </Row>
-    </Card>
+      {!hideAllBtn && (
+        <LinkButton className="suggested-courses" to="#upcoming">
+          See all Courses
+        </LinkButton>
+      )}
+    </React.Fragment>
   ) : null
 
 export const AlternativeBootcampTrainings = ({ trainings, city }) => {

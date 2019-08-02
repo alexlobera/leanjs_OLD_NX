@@ -18,22 +18,26 @@ import {
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
+
+export const title = '1-Day Testing In React Workshop'
+export const WORKSHOP_TRAINING_ID = '5d01096406051b7d3bcb0cf5'
 
 const AdvancedReactWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
-      const training = getNextTrainingByTrainingId({
+      const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: '5d01096406051b7d3bcb0cf5',
+        trainingId: WORKSHOP_TRAINING_ID,
       })
       return (
         <React.Fragment>
           <Helmet
-            title="Testing in React"
+            title={title}
             meta={[
               {
                 name: 'description',
-                content: '1-day Testing in React Workshop',
+                content: title,
               },
             ]}
           />
@@ -50,15 +54,14 @@ const AdvancedReactWorkshop = ({ path }) => (
             ]}
           />
           <Header
-            titleLines={['Testing in React']}
-            subtitle="Learn how to build fully tested scalable React applications"
+            titleLines={[title]}
+            subtitle="Learn how to write tests for real-world applications that are flexible and increase the quality"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
             bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
-            training={training}
           />
           <TopSection top>
             <Card>
@@ -103,20 +106,7 @@ const AdvancedReactWorkshop = ({ path }) => (
                   If you've said 'yes' to these, this workshop could be for you!
                 </P>
                 <H3>Not for React beginners!</H3>
-                <P>
-                  This is not a learn-to-code workshop. If you want to learn to
-                  code, we recommend checking out{' '}
-                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                    Free Code Camp
-                  </Link>
-                  .
-                </P>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
+                <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>
             </Row>
           </Section>

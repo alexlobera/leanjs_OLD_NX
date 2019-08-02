@@ -24,14 +24,15 @@ import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
-  ONE_DAY_WORKSHOP,
-  GRAPHQL_CLIENT,
-  REACT_FUNDAMENTALS,
+  REACT_WORKSHOP,
+  REACT_BOOTCAMP,
+  ADVANCED_REACT,
   LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { WORKSHOP_TRAINING_ID } from '../'
 
 const metas = {
   title: 'Design System Workshop London | React GraphQL Academy',
@@ -44,19 +45,22 @@ const metas = {
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const upcoming = selectUpcomingTrainings({
         trainings,
-        type: ONE_DAY_WORKSHOP,
+        trainingId: WORKSHOP_TRAINING_ID,
         city: LONDON,
       })
       const training = selectNthTraining({
-        trainings: bootCampTrainings,
+        trainings: upcoming,
         nth,
       })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [REACT_FUNDAMENTALS, GRAPHQL_CLIENT],
+        city: LONDON,
+        types: [REACT_BOOTCAMP, ADVANCED_REACT, REACT_WORKSHOP],
+        excludeTrainingId: WORKSHOP_TRAINING_ID,
       })
+
       return (
         <React.Fragment>
           <Helmet
@@ -97,7 +101,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             subtitle="See how React can look gorgeous and encourage design consistency"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
+            type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
@@ -197,7 +201,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           <Section>
             <Row>
               <Col lg={10} lgOffset={1}>
-                <AlternativeTrainings trainings={crossSellTrainings} />
+                <AlternativeTrainings
+                  hideAllBtn
+                  trainings={crossSellTrainings}
+                />
               </Col>
             </Row>
           </Section>

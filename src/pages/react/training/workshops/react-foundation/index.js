@@ -23,6 +23,7 @@ import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 export const WORKSHOP_TRAINING_ID = '5d44795ab809c0500a3f3455'
+const title = '1-Day React Foundation Workshop'
 
 const Workshop = ({ path }) => (
   <Layout>
@@ -35,11 +36,11 @@ const Workshop = ({ path }) => (
       return (
         <React.Fragment>
           <Helmet
-            title="1-Day React Foundation Workshop"
+            title={title}
             meta={[
               {
                 name: 'description',
-                content: '1-Day React Foundation Workshop',
+                content: title,
               },
             ]}
           />
@@ -56,7 +57,7 @@ const Workshop = ({ path }) => (
             ]}
           />
           <Header
-            titleLines={['1-Day React Foundation Workshop']}
+            titleLines={[title]}
             subtitle="Get started with React by creating a solid foundation that will help you speed up your career as React developer "
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },

@@ -138,7 +138,7 @@ const QueryUpcomingTrainings = ({ type, city, limit, children }) => (
         const { type, slug, description } = node.training || {}
         const { title = '' } = description || {}
         const { city = '', id } = node
-        const key = `${city}${type}`
+        const key = `${city}${type}${slug}`
         cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
         return {

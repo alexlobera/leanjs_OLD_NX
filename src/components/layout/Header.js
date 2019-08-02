@@ -393,7 +393,7 @@ const Header = ({
                               training.utcOffset,
                               'HH:mm'
                             )) ||
-                            '6:30pm'}`}
+                            '6:00pm'}`}
                         </Li>
                         <Li>
                           <strong>Venue</strong>:{' '}

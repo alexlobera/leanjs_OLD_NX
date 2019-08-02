@@ -15,8 +15,7 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
+  HORACIO_HERRERA,
   selectNthTraining,
   selectUpcomingTrainings,
   AlternativeTrainings,
@@ -34,34 +33,31 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { BARCELONA } from 'src/config/data'
 import { WORKSHOP_TRAINING_ID } from '../'
 
+const title = '1-Day React Foundation Workshop In Barcelona'
+
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
       const workshops = selectUpcomingTrainings({
         trainings,
         trainingId: WORKSHOP_TRAINING_ID,
+        city: BARCELONA,
       })
-
       const training = selectNthTraining({
         trainings: workshops,
         nth,
       })
-
-      const trainingTitle =
-        training &&
-        training.training &&
-        training.training.description &&
-        training.training.description.title
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         city: BARCELONA,
         types: [REACT_WORKSHOP, REACT_FUNDAMENTALS, REACT_BOOTCAMP],
         excludeTrainingId: WORKSHOP_TRAINING_ID,
       })
+
       return (
         <React.Fragment>
           <Helmet
-            title="1-Day React Foundation Workshop Barcelona"
+            title={title}
             link={[
               {
                 rel: 'canonical',
@@ -71,7 +67,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content: '1-Day React Foundation Workshop Barcelona',
+                content: title,
               },
             ]}
           />
@@ -92,7 +88,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={[`1-Day React Foundation Workshop Barcelona`]}
+            titleLines={[title]}
             subtitle="Get started with React in Barcelona by creating a solid foundation that will help you speed up your career as React developer "
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
@@ -113,7 +109,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                 <Col md={6} lg={4} lgOffset={1}>
                   <H4>Rafa's student experience</H4>
                   <Video youtubeId="hZZksRcqtkc" />
-                  <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                  <TrainingDetails coaches={[HORACIO_HERRERA]} />
                 </Col>
               </Row>
             </Card>
@@ -161,7 +157,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           <Section>
             <Row>
               <Col lg={10} lgOffset={1}>
-                <AlternativeTrainings trainings={crossSellTrainings} />
+                <AlternativeTrainings
+                  hideAllBtn
+                  trainings={crossSellTrainings}
+                />
               </Col>
             </Row>
           </Section>

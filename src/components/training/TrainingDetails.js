@@ -15,7 +15,7 @@ export const FRANCISCO_GOMES = 'francisco-gomes'
 
 const CoachItem = ({ path, name }) => (
   <Li>
-    <Link to={`/about-us#${path}`}>{name}</Link>
+    <Link to={`/coaches/${path}/`}>{name}</Link>
   </Li>
 )
 

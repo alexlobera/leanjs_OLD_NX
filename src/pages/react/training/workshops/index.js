@@ -16,7 +16,7 @@ import Header from 'src/components/layout/Header'
 import { Card, Newsletter } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { LIGHT_BLUE } from '../../../../config/styles'
-import { REACT_WORKSHOP, ONE_DAY_WORKSHOP } from '../../../../config/data'
+import { REACT_WORKSHOP } from '../../../../config/data'
 import { DEFAULT_VAT_RATE } from '../../../../config'
 import formatPrice from 'src/components/utils/currency'
 import { createSocialMetas, formatUTC } from 'src/components/utils'
@@ -55,7 +55,7 @@ const Workshops = ({ path }) => (
     {({ trainings }) => {
       const reactWorkshops = selectUpcomingTrainings({
         trainings,
-        types: [REACT_WORKSHOP, ONE_DAY_WORKSHOP],
+        types: [REACT_WORKSHOP],
       })
       const allWorkshops = [...reactWorkshops, ...waitlistWorkshops]
       return (

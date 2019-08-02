@@ -5,7 +5,7 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P, H1Ref, H4 } from 'src/components/text'
+import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
@@ -17,30 +17,45 @@ import {
   AttendeeQuote,
   TrainingDetails,
   HORACIO_HERRERA,
-  ALEX_LOBERA,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
-import { REACT_NATIVE, BARCELONA } from 'src/config/data'
-import ReactNativeFoundationSession from 'src/components/curriculum/sessions/native/ReactNativeFoundationSession'
-import ReactNativeNavigationSession from 'src/components/curriculum/sessions/native/ReactNativeNavigationSession'
-import ReactNativeAnimationsSession from 'src/components/curriculum/sessions/native/ReactNativeAnimationsSession'
-import CurriculumSection from 'src/components/curriculum/CurriculumSection'
+import {
+  REACT_NATIVE,
+  ADVANCED_REACT,
+  REACT_BOOTCAMP,
+  REACT_WORKSHOP,
+  BARCELONA,
+} from 'src/config/data'
+import CurriculumReactNative from 'src/components/curriculum/workshops/CurriculumReactNative'
+import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { WORKSHOP_TRAINING_ID, title } from '../'
+
+const instanceTitle = `${title} In Barcelona`
 
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const upcomingNativeTrainings = selectUpcomingTrainings({
+      const upcomingTrainings = selectUpcomingTrainings({
         trainings,
-        type: REACT_NATIVE,
+        trainingId: WORKSHOP_TRAINING_ID,
         city: BARCELONA,
       })
-      const training =
-        selectNthTraining({ trainings: upcomingNativeTrainings, nth }) || {}
+      const training = selectNthTraining({
+        trainings: upcomingTrainings,
+        nth,
+      })
+      const crossSellTrainings = selectUpcomingTrainings({
+        trainings,
+        types: [ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP],
+        excludeTrainingId: WORKSHOP_TRAINING_ID,
+        city: BARCELONA,
+      })
+
       return (
         <React.Fragment>
           <Helmet
-            title="React Native Workshop Barcelona"
+            title={instanceTitle}
             link={[
               {
                 rel: 'canonical',
@@ -72,7 +87,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['1-Day React Native Workshop Barcelona']}
+            titleLines={[instanceTitle]}
             links={header.landingTraining.links}
             subtitle="Take your React developer career to the next level by learning React Native in Barcelona, in only one day. "
             bgImageName={BOOTCAMP}
@@ -93,10 +108,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                 <Col md={6} lg={4} lgOffset={1}>
                   <H4>Charlie's student experience</H4>
                   <Video youtubeId="VhUMAqToJ4s" />
-                  <TrainingDetails
-                    foodIncluded
-                    coaches={[HORACIO_HERRERA, ALEX_LOBERA]}
-                  />
+                  <TrainingDetails foodIncluded coaches={[HORACIO_HERRERA]} />
                 </Col>
               </Row>
             </Card>
@@ -151,33 +163,12 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <H1Ref>
-                    React Native Curriculum
-                    <Link to="#curriculum" name="curriculum">
-                      #
-                    </Link>
-                  </H1Ref>
-                </Col>
-              </Row>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumSection
-                    enableToggle={false}
-                    type={REACT_NATIVE}
-                    toggleNavigateTo={`/react/training/workshops/`}
-                    isOpen={true}
-                    title="React Native Day 1"
-                    name="day1"
-                    subTitle="Foundation, Navigation, and Animations"
-                  >
-                    <ReactNativeFoundationSession title="Foundation" />
-                    <ReactNativeNavigationSession title="Navigation" />
-                    <ReactNativeAnimationsSession title="Animations" />
-                  </CurriculumSection>
+                  <CurriculumReactNative layout={LIST_TWO_COL} />
                 </Col>
               </Row>
             </Card>
           </Section>
+
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

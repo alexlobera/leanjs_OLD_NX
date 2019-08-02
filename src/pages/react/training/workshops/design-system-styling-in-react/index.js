@@ -30,15 +30,16 @@ const metas = {
   type: 'website',
 }
 
-export const STYLING_TRAINING_ID = '5cd2c86daa5e8f0a07b924fb'
+export const WORKSHOP_TRAINING_ID = '5cd2c86daa5e8f0a07b924fb'
 
 const StylingDesignSystemWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: STYLING_TRAINING_ID,
+        trainingId: WORKSHOP_TRAINING_ID,
       })
+      console.log('ddddd', nextTraining, trainings)
       return (
         <React.Fragment>
           <Helmet
