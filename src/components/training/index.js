@@ -14,7 +14,10 @@ export {
   UpcomingTrainings,
   UpcomingTrainingTabs,
 } from './UpcomingTrainingSection'
-export { default as AlternativeTrainings } from './AlternativeTrainings'
+export {
+  default as AlternativeTrainings,
+  AlternativeTrainingSection,
+} from './AlternativeTrainings'
 export { TrustedByLogoList } from './TrustedBySection'
 export { default as TargetAudienceSection } from './TargetAudienceSection'
 export {

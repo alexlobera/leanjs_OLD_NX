@@ -165,7 +165,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Col>
             </Row>
           </Section>
-          <Section top>
+          <Section>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>

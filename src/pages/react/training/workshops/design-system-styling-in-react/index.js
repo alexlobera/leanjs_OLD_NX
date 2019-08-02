@@ -39,7 +39,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
         trainings,
         trainingId: WORKSHOP_TRAINING_ID,
       })
-      console.log('ddddd', nextTraining, trainings)
+
       return (
         <React.Fragment>
           <Helmet

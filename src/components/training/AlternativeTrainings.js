@@ -4,7 +4,8 @@ import { H3 } from '../text'
 import { UpcomingTrainings } from './UpcomingTrainingSection'
 import { selectUpcomingTrainings } from './UpcomingTrainings'
 import { LinkButton } from '../buttons'
-import { Row } from '../layout/Grid'
+import { Row, Col } from '../layout/Grid'
+import Section from '../layout/Section'
 
 import {
   ADVANCED_REACT,
@@ -37,6 +38,19 @@ const AlternativeTrainings = ({
       )}
     </React.Fragment>
   ) : null
+
+export const AlternativeTrainingSection = ({
+  hideAllBtn = true,
+  trainings,
+}) => (
+  <Section>
+    <Row>
+      <Col lg={10} lgOffset={1}>
+        <AlternativeTrainings hideAllBtn={hideAllBtn} trainings={trainings} />
+      </Col>
+    </Row>
+  </Section>
+)
 
 export const AlternativeBootcampTrainings = ({ trainings, city }) => {
   const reactTrainings = selectUpcomingTrainings({

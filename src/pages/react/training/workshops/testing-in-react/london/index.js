@@ -19,7 +19,7 @@ import {
   getNextTrainingByTrainingId,
   selectUpcomingTrainings,
   selectNthTraining,
-  AlternativeTrainings,
+  AlternativeTrainingSection,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
@@ -168,7 +168,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Col>
             </Row>
           </Section>
-          <Section top>
+          <Section>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
@@ -178,16 +178,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             </Card>
           </Section>
 
-          <Section>
-            <Row>
-              <Col lg={10} lgOffset={1}>
-                <AlternativeTrainings
-                  hideAllBtn
-                  trainings={crossSellTrainings}
-                />
-              </Col>
-            </Row>
-          </Section>
+          <AlternativeTrainingSection trainings={crossSellTrainings} />
 
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
