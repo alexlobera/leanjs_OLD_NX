@@ -13,7 +13,7 @@ exports[`<TermsOfService /> should render component 1`] = `
     mt={
       Array [
         0,
-        -150,
+        -125,
       ]
     }
     position="relative"
