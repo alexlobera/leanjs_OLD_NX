@@ -41,7 +41,7 @@ const CurriculumReactWorkshops = ({
       />
       <Section
         {...commonProps}
-        title="Adv Patterns, Performance & FP in React"
+        title="Advanced Patterns, Performance & FP in React"
         name="perfAndFP"
         subTitle="Discover best patterns for reusable and performant React apps"
         showLinkToCurriculum
