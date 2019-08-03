@@ -6,6 +6,7 @@ import { H2Ref, H3 } from '../../text'
 import selectCurriculumLayout from '../selectCurriculumLayout'
 import IntroReduxSessions from '../sessions/IntroReduxSession'
 import AdvancedReduxSession from '../sessions/AdvancedReduxSession'
+import { Li } from '../../layout/Ul'
 
 const CurriculumOneDayRedux = ({
   showTitle = true,
@@ -63,5 +64,26 @@ const CurriculumOneDayRedux = ({
     corpTrainingFacts: true,
   })
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>
+      A developer with experience in JavaScript and with an understanding of
+      React?
+    </Li>
+    <Li>
+      Interested in understanding Redux from top to bottom including Redux
+      Middlewares and tooling
+    </Li>
+    <Li>
+      Looking to gain an in-depth understanding that will allow you to apply
+      Redux to a large scale React appliaction or build upon an existing one.
+    </Li>
+    <Li>
+      Interested in going deeper into functional programming principles and how
+      they apply to Redux
+    </Li>
+  </React.Fragment>
+)
 
 export default CurriculumOneDayRedux

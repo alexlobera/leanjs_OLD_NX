@@ -1,13 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumAdvReactPatterns } from 'src/components/curriculum/workshops'
+import CurriculumAdvReactPatterns from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -16,30 +16,46 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  getNextTrainingByTrainingId,
+  selectNthTraining,
+  selectUpcomingTrainings,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
+import {
+  ADVANCED_REACT,
+  REACT_BOOTCAMP,
+  REACT_WORKSHOP,
+  LONDON,
+} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { WORKSHOP_TRAINING_ID, title } from '../'
+
+const titleInstance = [title[0], `${title[1]} In London`]
 
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = getNextTrainingByTrainingId({
+      const upcomingTrainings = selectUpcomingTrainings({
         trainings,
-        trainingId: '5d0112d806051b7d3bcb0cf7',
+        trainingId: WORKSHOP_TRAINING_ID,
+        city: LONDON,
       })
-      const trainingTitle =
-        training &&
-        training.training &&
-        training.training.description &&
-        training.training.description.title
+      const training = selectNthTraining({
+        trainings: upcomingTrainings,
+        nth,
+      })
+      const crossSellTrainings = selectUpcomingTrainings({
+        trainings,
+        types: [ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP],
+        excludeTrainingId: WORKSHOP_TRAINING_ID,
+        city: LONDON,
+      })
+
       return (
         <React.Fragment>
           <Helmet
-            title="Advanced React Patterns, FP and Performance Workshop"
+            title={titleInstance.join()}
             link={[
               {
                 rel: 'canonical',
@@ -49,8 +65,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content:
-                  '1-day Advanced React Patterns, FP and Performance Workshop in London',
+                content: titleInstance.join(),
               },
             ]}
           />
@@ -72,10 +87,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={[`${trainingTitle || '...loading'} - London`]}
+            titleLines={[titleInstance.join()]}
             subtitle="Supercharge your existing React skills by learning how Advanced Patterns, Functional Programming and Performance can benefit your apps"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
+            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
@@ -150,7 +165,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Col>
             </Row>
           </Section>
-          <Section top>
+          <Section>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>

@@ -1,66 +1,63 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumStylingAndAdvUI } from 'src/components/curriculum/workshops'
+import Ul from 'src/components/layout/Ul'
+import CurriculumOneDayRedux, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  AlternativeTrainings,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
+  HORACIO_HERRERA,
   selectNthTraining,
   selectUpcomingTrainings,
+  AlternativeTrainingSection,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
-  ONE_DAY_WORKSHOP,
-  GRAPHQL_CLIENT,
-  REACT_FUNDAMENTALS,
-  LONDON,
+  ADVANCED_REACT,
+  REACT_WORKSHOP,
+  BARCELONA,
+  REACT_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { createSocialMetas } from 'src/components/utils'
-import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { WORKSHOP_TRAINING_ID, title } from '../'
 
-const metas = {
-  title: 'Design System Workshop London | React GraphQL Academy',
-  description:
-    'Interested in Design Systems? React GraphQL Academy offers London Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
-  image: WHY_REACTJS_ACADEMY,
-  type: 'website',
-}
+const instanceTitle = `${title} In Barcelona`
 
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const upcomingTrainings = selectUpcomingTrainings({
         trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
+        trainingId: WORKSHOP_TRAINING_ID,
+        city: BARCELONA,
       })
       const training = selectNthTraining({
-        trainings: bootCampTrainings,
+        trainings: upcomingTrainings,
         nth,
       })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [REACT_FUNDAMENTALS, GRAPHQL_CLIENT],
+        types: [ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP],
+        excludeTrainingId: WORKSHOP_TRAINING_ID,
+        city: BARCELONA,
       })
+
       return (
         <React.Fragment>
           <Helmet
-            title={metas.title}
+            title={instanceTitle}
             link={[
               {
                 rel: 'canonical',
@@ -70,12 +67,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content: metas.description,
+                content: instanceTitle,
               },
             ]}
-          >
-            {createSocialMetas(metas)}
-          </Helmet>
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
@@ -83,21 +78,21 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Design Systems and Styling in React',
+                to: '/react/training/workshops/redux',
+                label: '1-Day Redux',
               },
               {
                 to: path,
-                label: 'London',
+                label: 'Barcelona',
               },
             ]}
           />
           <Header
-            titleLines={['Design Systems and Styling in React - London']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={[instanceTitle]}
+            subtitle="Learn how Redux and React work together in practice in this 1-day workshop in Barcelona, from Redux fundamentals and FP through to Redux Middlewares"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
+            bgImageName={BOOTCAMP}
+            type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
           />
@@ -112,10 +107,9 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   />
                 </Col>
                 <Col md={6} lg={4} lgOffset={1}>
-                  <H4>Charlie's student experience</H4>
-
-                  <Video youtubeId="CP422OORbPA" />
-                  <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                  <H4>Rafa's student experience</H4>
+                  <Video youtubeId="hZZksRcqtkc" />
+                  <TrainingDetails coaches={[HORACIO_HERRERA]} />
                 </Col>
               </Row>
             </Card>
@@ -124,11 +118,11 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="This course has taught me not just the 'how' but WHY React is good..."
-                  fullname="Jim Plimmer"
-                  job="Developer"
-                  company="Conversion.com"
-                  youtubeId="nIK8ouQp17s"
+                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="blg40SCle7I"
                 />
               </Col>
               <Col md={4} lgOffset={1}>
@@ -139,32 +133,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer or designer with experience building React
-                    components and using CSS?
-                  </Li>
-                  <Li>
-                    A developer or designer interested in building scalable and
-                    reusable UIs for big React projects?
-                  </Li>
-                  <Li>
-                    Not satisfied with the Designer/Developer handover in
-                    real-world React projects?
-                  </Li>
-                  <Li>
-                    A designer that builds React components and interacts with
-                    developers.
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!
-                </P>
-                <P>
-                  If you're a developer who's not yet familar with React, we
-                  recommend first attending the{' '}
-                  <Link to="/react/training/react-fundamentals/">
-                    React Fundamentals Course.
-                  </Link>
                 </P>
                 <H3>Not for beginner devs!</H3>
                 <P>
@@ -184,24 +156,16 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Col>
             </Row>
           </Section>
-          <Section top>
+          <Section>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <CurriculumStylingAndAdvUI layout={LIST_TWO_COL} />
+                  <CurriculumOneDayRedux layout={LIST_TWO_COL} />
                 </Col>
               </Row>
             </Card>
           </Section>
-
-          <Section>
-            <Row>
-              <Col lg={10} lgOffset={1}>
-                <AlternativeTrainings trainings={crossSellTrainings} />
-              </Col>
-            </Row>
-          </Section>
-
+          <AlternativeTrainingSection trainings={crossSellTrainings} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

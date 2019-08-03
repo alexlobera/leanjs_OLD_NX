@@ -42,7 +42,7 @@ const CurriculumReactFundamentals = ({
         {...commonProps}
         title="Evening pre-course"
         name="day0"
-        subTitle="React 101 and JS fundamentals"
+        subTitle="React JS 101"
         trainingTime={trainingTime({ day: 0, training })}
       >
         <ReactJS101Session />
@@ -54,9 +54,9 @@ const CurriculumReactFundamentals = ({
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
         trainingTime={trainingTime({ day: 1, training })}
       >
-        <ES6Session title="Modern JavaScript" />
-        <ThinkingInReactSession title="Thinking in React" />
-        <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
+        <ES6Session />
+        <ThinkingInReactSession />
+        <RoutingAndDataFetchingSession />
       </Section>
       {marketingCard}
     </React.Fragment>
@@ -70,12 +70,12 @@ const CurriculumReactFundamentals = ({
         subTitle="Forms, Authentication, and Hooks"
         trainingTime={trainingTime({ day: 2, training })}
       >
-        <FormsAndAuthSession title="Forms and Authentication" />
+        <FormsAndAuthSession />
         <ReactFundamentalsRecapSession
           title="React Fundamentals recap, build a React app from scratch on your own to
           consolidate:"
         />
-        <HooksSession title="React Hooks" />
+        <HooksSession />
       </Section>
       <Section
         {...commonProps}
@@ -84,7 +84,7 @@ const CurriculumReactFundamentals = ({
         subTitle="Redux Fundamentals, Advanced Redux, and FP"
         trainingTime={trainingTime({ day: 3, training })}
       >
-        <IntroReduxSession title="Redux Fundamentals" />
+        <IntroReduxSession />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
     </React.Fragment>

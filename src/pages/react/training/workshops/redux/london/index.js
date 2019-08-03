@@ -1,13 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumOneDayRedux } from 'src/components/curriculum/workshops'
+import Ul from 'src/components/layout/Ul'
+import CurriculumOneDayRedux, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -15,9 +17,9 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  getNextTrainingByTrainingId,
   selectUpcomingTrainings,
-  AlternativeTrainings,
+  selectNthTraining,
+  AlternativeTrainingSection,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
@@ -26,41 +28,37 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import {
   ADVANCED_REACT,
   REACT_WORKSHOP,
-  ONE_DAY_WORKSHOP,
-  GRAPHQL_API,
-  GRAPHQL_CLIENT,
-  GRAPHQL_BOOTCAMP,
+  REACT_BOOTCAMP,
+  LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { WORKSHOP_TRAINING_ID, title } from '../'
+
+const instanceTitle = `${title} In London`
 
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = getNextTrainingByTrainingId({
+      const upcomingTrainings = selectUpcomingTrainings({
         trainings,
-        trainingId: '5cffb4e806051b7d3bcb0cee',
+        trainingId: WORKSHOP_TRAINING_ID,
+        city: LONDON,
       })
-      const trainingTitle =
-        training &&
-        training.training &&
-        training.training.description &&
-        training.training.description.title
+      const training = selectNthTraining({
+        trainings: upcomingTrainings,
+        nth,
+      })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [
-          ADVANCED_REACT,
-          REACT_WORKSHOP,
-          ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
-        ],
-        excludeTrainingId: '5cffb4e806051b7d3bcb0cee',
+        types: [ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP],
+        excludeTrainingId: WORKSHOP_TRAINING_ID,
+        city: LONDON,
       })
+
       return (
         <React.Fragment>
           <Helmet
-            title="Redux workshop london"
+            title={instanceTitle}
             link={[
               {
                 rel: 'canonical',
@@ -70,7 +68,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content: '1-day Redux Workshop in London',
+                content: instanceTitle,
               },
             ]}
           />
@@ -82,7 +80,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: '/react/training/workshops/redux',
-                label: 'Redux',
+                label: '1-Day Redux',
               },
               {
                 to: path,
@@ -91,10 +89,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={[`${trainingTitle || '...loading'} - London`]}
-            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux Middlewares"
+            titleLines={[instanceTitle]}
+            subtitle="Learn how Redux and React work together in practice in this 1-day workshop in London, from Redux fundamentals and FP through to Redux Middlewares"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
+            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
@@ -136,23 +134,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer with experience in JavaScript and with an
-                    understanding of React?
-                  </Li>
-                  <Li>
-                    Interested in understanding Redux from top to bottom
-                    including Redux Middlewares and tooling
-                  </Li>
-                  <Li>
-                    Looking to gain an in-depth understanding that will allow
-                    you to apply Redux to a large scale React appliaction or
-                    build upon an existing one.
-                  </Li>
-                  <Li>
-                    Interested in going deeper into functional programming
-                    principles and how they apply to Redux
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!
@@ -175,7 +157,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Col>
             </Row>
           </Section>
-          <Section top>
+          <Section>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
@@ -184,15 +166,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Row>
             </Card>
           </Section>
-
-          <Section>
-            <Row>
-              <Col lg={10} lgOffset={1}>
-                <AlternativeTrainings trainings={crossSellTrainings} />
-              </Col>
-            </Row>
-          </Section>
-
+          <AlternativeTrainingSection trainings={crossSellTrainings} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

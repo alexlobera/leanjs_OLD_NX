@@ -1,7 +1,7 @@
 import React from 'react'
 import Section from './CurriculumSection'
 import Link from '../navigation/Link'
-import { ONE_DAY_WORKSHOP, REACT_WORKSHOP } from '../../config/data'
+import { REACT_WORKSHOP } from '../../config/data'
 import { H2Ref } from '../text'
 import selectCurriculumLayout from './selectCurriculumLayout'
 
@@ -13,7 +13,7 @@ const CurriculumReactWorkshops = ({
   showLinkToCurriculum = false,
   trainings,
 }) => {
-  const type = [ONE_DAY_WORKSHOP, REACT_WORKSHOP]
+  const type = [REACT_WORKSHOP]
   const commonProps = {
     showLinkToCurriculum,
     enableToggle,
@@ -25,26 +25,25 @@ const CurriculumReactWorkshops = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Styling in React and Design Systems"
+        title="Testing in React"
+        name="testingReact"
+        subTitle="Ensure consistent, reliable code across the React ecosystem"
+        showLinkToCurriculum
+        toggleNavigateTo="/react/training/workshops/testing-in-react/london/"
+      />
+      <Section
+        {...commonProps}
+        title="Advanced React UIs & Styling With Design Systems"
         name="styling"
         subTitle="See how React can look gorgeous and encourage design consistency"
         showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/design-system-styling-in-react/london/"
-      />
-
-      <Section
-        {...commonProps}
-        title="React Fundamentals & Modern JavaScript"
-        name="fundamentals"
-        subTitle="Learn the basics of React and jumpstart your way into a new coding ecosystem"
-        showLinkToCurriculum
-        toggleNavigateTo="/react/training/react-fundamentals/london/"
+        toggleNavigateTo="/react/training/workshops/design-system-styling-in-react/"
       />
       <Section
         {...commonProps}
-        title="React Hooks & Suspense"
-        name="hooksAndSuspense"
-        subTitle="Learn 2 of the newest and most exciting features in React"
+        title="Advanced Patterns, Performance & FP in React"
+        name="perfAndFP"
+        subTitle="Discover best patterns for reusable and performant React apps"
         showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/"
       />
@@ -54,27 +53,19 @@ const CurriculumReactWorkshops = ({
     <React.Fragment>
       <Section
         {...commonProps}
-        title="Performance & FP in React"
-        name="perfAndFP"
-        subTitle="Discover best practice for permonant React apps"
+        title="React Foundation"
+        name="foundation"
+        subTitle="Learn the basics of React and jumpstart your way into a new coding ecosystem"
         showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/"
+        toggleNavigateTo="/react/training/workshops/react-foundation/"
       />
       <Section
         {...commonProps}
-        title="React with GraphQL client"
-        name="reactGraphqlClient"
-        subTitle="Consume GraphQL APIs in any React application"
+        title="React Hooks & Suspense"
+        name="hooksAndSuspense"
+        subTitle="Learn 2 of the newest and most exciting features in React"
         showLinkToCurriculum
-        toggleNavigateTo="/graphql/training/workshops/graphql-apollo-client/london/"
-      />
-      <Section
-        {...commonProps}
-        title="Testing in React"
-        name="testingReact"
-        subTitle="Ensure consistent, reliable code across the React ecosystem"
-        showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/testing-in-react/london/"
+        toggleNavigateTo="/react/training/workshops/interest-form#details"
       />
       <Section
         {...commonProps}
@@ -82,7 +73,7 @@ const CurriculumReactWorkshops = ({
         name="react-native"
         subTitle="Build upon your React knowledge and create great apps"
         showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/"
+        toggleNavigateTo="/react/training/workshops/interest-form#details"
       />
     </React.Fragment>
   )

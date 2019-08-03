@@ -5,11 +5,11 @@ import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P } from 'src/components/text'
+import { H2Ref } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumTestingInReact, {
+import CurriculumReactFoundation, {
   TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumTestingInReact'
+} from 'src/components/curriculum/workshops/CurriculumReactFoundation'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -17,21 +17,22 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
-export const title = '1-Day Testing In React Workshop'
-export const WORKSHOP_TRAINING_ID = '5d01096406051b7d3bcb0cf5'
+export const WORKSHOP_TRAINING_ID = '5d44795ab809c0500a3f3455'
+const title = '1-Day React Foundation Workshop'
 
-const AdvancedReactWorkshop = ({ path }) => (
+const Workshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
         trainings,
         trainingId: WORKSHOP_TRAINING_ID,
       })
+
       return (
         <React.Fragment>
           <Helmet
@@ -51,13 +52,13 @@ const AdvancedReactWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'Testing in React',
+                label: '1-Day React Foundation',
               },
             ]}
           />
           <Header
             titleLines={[title]}
-            subtitle="Learn how to write tests for real-world applications that are flexible and increase the quality"
+            subtitle="Get started with React by creating a solid foundation that will help you speed up your career as React developer "
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
@@ -69,19 +70,21 @@ const AdvancedReactWorkshop = ({ path }) => (
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <CurriculumTestingInReact layout={LIST_TWO_COL} />
+                  <CurriculumReactFoundation layout={LIST_TWO_COL} />
                 </Col>
               </Row>
             </Card>
           </TopSection>
+
           <Section>
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-                  fullname="Rafa Fraga"
-                  job="Software Engineer"
-                  youtubeId="hZZksRcqtkc"
+                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="blg40SCle7I"
                 />
               </Col>
               <Col md={4} lgOffset={1}>
@@ -94,15 +97,10 @@ const AdvancedReactWorkshop = ({ path }) => (
                 <Ul>
                   <TargetAudienceList />
                 </Ul>
-                <P>
-                  If you've said 'yes' to these, this workshop could be for you!
-                </P>
-                <H3>Not for React beginners!</H3>
                 <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>
             </Row>
           </Section>
-
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -110,4 +108,4 @@ const AdvancedReactWorkshop = ({ path }) => (
   </Layout>
 )
 
-export default AdvancedReactWorkshop
+export default Workshop

@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const StylingInReactSession = ({ title }) => (
+const StylingInReactSession = ({ title = 'Styling in React' }) => (
   <Session title={title}>
     <Ul>
       <Li>

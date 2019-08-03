@@ -52,7 +52,7 @@ const CurriculumReactBootcamp = ({
         {...commonProps}
         title={`Evening pre-bootcamp`}
         name="day0"
-        subTitle={`React 101 and JS fundamentals`}
+        subTitle={`React JS 101`}
         trainingTime={trainingTime({ day: 0, training })}
       >
         <ReactJS101Session />
@@ -64,23 +64,23 @@ const CurriculumReactBootcamp = ({
         subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching`}
         trainingTime={trainingTime({ day: 1, training })}
       >
-        <ES6Session title="Modern JavaScript" />
-        <ThinkingInReactSession title="Thinking in React" />
-        <RoutingAndDataFetchingSession title="Routing and Data Fetching" />
+        <ES6Session />
+        <ThinkingInReactSession />
+        <RoutingAndDataFetchingSession />
       </Section>
       <Section
         {...commonProps}
         title={`Day 2`}
         name="day2"
-        subTitle={`Forms, Authentication, Styling in React`}
+        subTitle={`Forms, Authentication, and Hooks`}
         trainingTime={trainingTime({ day: 2, training })}
       >
-        <FormsAndAuthSession title="Forms and Authentication" />
+        <FormsAndAuthSession />
         <ReactFundamentalsRecapSession
           title="React Fundamentals recap, build a React app from scratch on your own to
           consolidate:"
         />
-        <HooksSession title="React Hooks" />
+        <HooksSession />
       </Section>
       <Section
         {...commonProps}
@@ -89,7 +89,7 @@ const CurriculumReactBootcamp = ({
         subTitle={`Redux Fundamentals, Advanced Redux, and FP`}
         trainingTime={trainingTime({ day: 3, training })}
       >
-        <IntroReduxSession title="Redux Fundamentals" />
+        <IntroReduxSession />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
       {marketingCard}
@@ -115,7 +115,7 @@ const CurriculumReactBootcamp = ({
         trainingTime={trainingTime({ day: 7, training })}
       >
         <AdvancedUIPatterns title="Advanced UI Patterns" />
-        <StylingInReactSession title="Styling in React" />
+        <StylingInReactSession />
         <DesignSystemSession title="Design Systems" />
       </Section>
       <Section
@@ -125,8 +125,8 @@ const CurriculumReactBootcamp = ({
         subTitle={`Real-World Testing in React`}
         trainingTime={trainingTime({ day: 8, training })}
       >
-        <TestingIntroSession title="Testing Foundation in JS" />
-        <TestingInReactSession title="Testing in React" />
+        <TestingIntroSession />
+        <TestingInReactSession />
         <E2ESession title="End-to-End Testing" />
       </Section>
     </React.Fragment>

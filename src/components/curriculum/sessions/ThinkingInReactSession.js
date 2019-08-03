@@ -2,7 +2,9 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const ThinkingInReactSession = ({ title }) => (
+export const titleSession = 'Thinking in React'
+
+const ThinkingInReactSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>The Imperative to Declarative Shift</Li>

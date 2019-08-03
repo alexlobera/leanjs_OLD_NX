@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const FormsAndAuthSession = ({ title }) => (
+const FormsAndAuthSession = ({ title = 'Forms and Authentication' }) => (
   <Session title={title}>
     <Ul>
       <Li>

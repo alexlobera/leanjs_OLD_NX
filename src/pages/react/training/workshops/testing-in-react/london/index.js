@@ -1,13 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumTestingInReact } from 'src/components/curriculum/workshops'
+import Ul from 'src/components/layout/Ul'
+import CurriculumTestingInReact, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumTestingInReact'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -15,52 +17,48 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  getNextTrainingByTrainingId,
   selectUpcomingTrainings,
-  AlternativeTrainings,
+  selectNthTraining,
+  AlternativeTrainingSection,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import {
-  REACT_WORKSHOP,
   ADVANCED_REACT,
-  ONE_DAY_WORKSHOP,
-  GRAPHQL_API,
-  GRAPHQL_CLIENT,
-  GRAPHQL_BOOTCAMP,
+  REACT_BOOTCAMP,
+  REACT_WORKSHOP,
+  LONDON,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { WORKSHOP_TRAINING_ID, title } from '../'
+
+const titleInstance = `${title} In London`
 
 const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const training = getNextTrainingByTrainingId({
+      const upcomingTrainings = selectUpcomingTrainings({
         trainings,
-        trainingId: '5d01096406051b7d3bcb0cf5',
+        trainingId: WORKSHOP_TRAINING_ID,
+        city: LONDON,
       })
-      const trainingTitle =
-        training &&
-        training.training &&
-        training.training.description &&
-        training.training.description.title
+      const training = selectNthTraining({
+        trainings: upcomingTrainings,
+        nth,
+      })
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        types: [
-          ADVANCED_REACT,
-          REACT_WORKSHOP,
-          ONE_DAY_WORKSHOP,
-          GRAPHQL_API,
-          GRAPHQL_CLIENT,
-          GRAPHQL_BOOTCAMP,
-        ],
-        excludeTrainingId: '5d01096406051b7d3bcb0cf5',
+        types: [ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP],
+        excludeTrainingId: WORKSHOP_TRAINING_ID,
+        city: LONDON,
       })
+
       return (
         <React.Fragment>
           <Helmet
-            title="Testing in React"
+            title={titleInstance}
             link={[
               {
                 rel: 'canonical',
@@ -70,7 +68,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content: '1-day Testing in React Workshop in London',
+                content: titleInstance,
               },
             ]}
           />
@@ -91,10 +89,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={[`${trainingTitle || '...loading'} - London`]}
-            subtitle="Learn the advanced skills needed to use React Hooks and test your apps effectively"
+            titleLines={[titleInstance]}
+            subtitle="Learn in London how to write tests for real-world applications that are flexible and increase the quality"
             links={header.landingTraining.links}
-            bgImageName={LONDON_BOOTCAMP}
+            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             training={training}
             showInfoBox={true}
@@ -137,17 +135,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer with previous experience building React apps?
-                  </Li>
-                  <Li>
-                    A developer who wants to upskill or specialise in advanced
-                    React skills?
-                  </Li>
-                  <Li>
-                    A developer who has heard of React Hooks but doesn't know
-                    what that entails?
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!
@@ -170,7 +158,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               </Col>
             </Row>
           </Section>
-          <Section top>
+          <Section>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>
@@ -180,13 +168,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             </Card>
           </Section>
 
-          <Section>
-            <Row>
-              <Col lg={10} lgOffset={1}>
-                <AlternativeTrainings trainings={crossSellTrainings} />
-              </Col>
-            </Row>
-          </Section>
+          <AlternativeTrainingSection trainings={crossSellTrainings} />
 
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

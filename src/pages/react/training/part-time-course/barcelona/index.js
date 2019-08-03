@@ -27,7 +27,7 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 const metas = {
   title: 'React Course Barcelona| React GraphQL Academy',
   description:
-    'Interested in a React course in Barcelona? Learn the fundamentas of the React ecosystem and become a confident React developer with our React part time course Barcelona.',
+    'Interested in a React course in Barcelona? Learn the main libraries of the React ecosystem and become a confident React developer with our React part time course Barcelona.',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -77,8 +77,8 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['React Redux part-time course - Barcelona']}
-            subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work!"
+            titleLines={['React Redux Part-Time Course in Barcelona']}
+            subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work in Barcelona!"
             links={header.landingTraining.links}
             type={PART_TIME}
             training={training}

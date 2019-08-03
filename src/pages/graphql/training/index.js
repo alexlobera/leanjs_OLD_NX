@@ -83,12 +83,19 @@ const TrainingPage = ({ path }) => (
                     to: '/graphql/training/workshops/graphql-apollo-client/',
                     children: 'GraphQL Client',
                   },
-                ].map(({ to, children, px = 4 }) => (
+                  {
+                    to: '/graphql/training/corporate',
+                    children: 'Corporate Training',
+                    variant: 'secondary',
+                  },
+                ].map(({ to, variant = 'primary', children, px = 4 }) => (
                   <LinkButton
                     mb={1}
                     px={px}
-                    variant="primary"
+                    variant={variant}
                     to={to}
+                    display="block"
+                    textAlign="center"
                     children={children}
                     className="main-cta-buttons"
                   />

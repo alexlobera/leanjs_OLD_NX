@@ -54,7 +54,7 @@ const CurriculumAdvancedReact = ({
         trainingTime={trainingTime({ day: 1, training })}
       >
         <AdvancedUIPatterns title="Advanced UI Patterns" />
-        <StylingInReactSession title="Styling in React" />
+        <StylingInReactSession />
         <DesignSystemSession title="Design Systems" />
       </Section>
     </React.Fragment>
@@ -68,8 +68,8 @@ const CurriculumAdvancedReact = ({
       subTitle="Real-World Testing in React"
       trainingTime={trainingTime({ day: 2, training })}
     >
-      <TestingIntroSession title="Testing Foundation in JS" />
-      <TestingInReactSession title="Testing in React" />
+      <TestingIntroSession />
+      <TestingInReactSession />
       <E2ESession title="End-to-End Testing" />
     </Section>
   )

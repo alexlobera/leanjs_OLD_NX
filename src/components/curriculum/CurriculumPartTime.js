@@ -54,28 +54,28 @@ const CurriculumPartTime = ({
         title="Session 1 - Modern JavaScript"
         name="session1"
       >
-        <ES6Session />
+        <ES6Session title="" />
       </Section>
       <Section
         {...commonProps}
         title="Session 2 - Thinking in React"
         name="session2"
       >
-        <ThinkingInReactSession />
+        <ThinkingInReactSession title="" />
       </Section>
       <Section
         {...commonProps}
         title="Session 3 - Routing & Data Fetching"
         name="session3"
       >
-        <RoutingAndDataFetchingSession />
+        <RoutingAndDataFetchingSession title="" />
       </Section>
       <Section
         {...commonProps}
         title="Session 4 - Forms & Auth"
         name="session4"
       >
-        <FormsAndAuthSession />
+        <FormsAndAuthSession title="" />
       </Section>
       <Section
         {...commonProps}
@@ -95,20 +95,20 @@ const CurriculumPartTime = ({
         title="Session 6 - Styling in React"
         name="session6"
       >
-        <StylingInReactSession />
+        <StylingInReactSession title="" />
       </Section>
       <Section {...commonProps} title="Session 7 - Redux" name="session7">
-        <IntroReduxSession />
+        <IntroReduxSession title="" />
       </Section>
       <Section
         {...commonProps}
         title="Session 8 - Testing Fundamentals in JS"
         name="session8"
       >
-        <TestingIntroSession />
+        <TestingIntroSession title="" />
       </Section>
       <Section {...commonProps} title="Session 9 - React Hooks" name="session9">
-        <HooksSession />
+        <HooksSession title="" />
       </Section>
       <Section
         {...commonProps}

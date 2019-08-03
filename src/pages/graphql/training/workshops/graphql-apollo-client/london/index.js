@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumGraphQLApollo } from 'src/components/curriculum/workshops/'
+import CurriculumGraphQLApollo from 'src/components/curriculum/workshops/CurriculumGraphQLApollo'
 import { Card, Video } from 'src/components/elements'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import Header from 'src/components/layout/Header'
@@ -91,7 +91,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['GraphQL Apollo Client Workshop - London']}
+            titleLines={['GraphQL Apollo Client Workshop in London']}
             subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}

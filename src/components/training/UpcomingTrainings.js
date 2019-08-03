@@ -9,7 +9,6 @@ import {
   REACT_NATIVE,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
-  ONE_DAY_WORKSHOP,
   REACT_WORKSHOP,
   GRAPHQL_CLIENT,
   GRAPHQL_API,
@@ -53,8 +52,6 @@ const createTrainingPath = ({ type, city = '', index, id, slug }) => {
       return `/graphql/training/api/${city.toLowerCase()}/${i}`
     case GRAPHQL_CLIENT:
       return `/graphql/training/workshops/graphql-apollo-client/${city.toLowerCase()}/${i}`
-    case ONE_DAY_WORKSHOP:
-      return `/react/training/workshops/${slug}/${city.toLowerCase()}`
     case REACT_WORKSHOP:
       return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
     default:
@@ -94,7 +91,7 @@ const trainingByCity = city => training =>
   !city || (training.city && training.city.toLowerCase()) === city.toLowerCase()
 
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
-  trainings.find(training => training.training.id === trainingId)
+  trainings.find(({ training } = {}) => training && training.id === trainingId)
 
 export const selectTrainingByInstanceId = ({ trainings, id }) =>
   trainings.find(training => training.id === id)
@@ -102,10 +99,14 @@ export const selectTrainingByInstanceId = ({ trainings, id }) =>
 export const excludeByTrainingId = trainingId => ({ training = {} }) =>
   !training.id || training.id !== trainingId
 
+export const filterByTrainingId = trainingId => ({ training } = {}) =>
+  !trainingId || (training && training.id && training.id === trainingId)
+
 export const selectUpcomingTrainings = ({
   city,
   types,
   type,
+  trainingId,
   excludeTrainingId,
   trainings = [],
   limit = 9999,
@@ -114,6 +115,7 @@ export const selectUpcomingTrainings = ({
 
   return trainings
     .filter(trainingByTypes(typesArray))
+    .filter(filterByTrainingId(trainingId))
     .filter(trainingByCity(city))
     .filter(excludeByTrainingId(excludeTrainingId))
     .slice(0, limit)
@@ -136,7 +138,7 @@ const QueryUpcomingTrainings = ({ type, city, limit, children }) => (
         const { type, slug, description } = node.training || {}
         const { title = '' } = description || {}
         const { city = '', id } = node
-        const key = `${city}${type}`
+        const key = `${city}${type}${slug}`
         cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
         return {

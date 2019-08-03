@@ -44,7 +44,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       </Styled(Box)>
       <CurriculumSection
         name="day0"
-        subTitle="React 101 and JS fundamentals"
+        subTitle="React JS 101"
         title="Evening pre-bootcamp"
         toggleNavigateTo={[Function]}
         trainingTime=" 18:30 - 21:00"
@@ -60,33 +60,23 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
-        <ES6Session
-          title="Modern JavaScript"
-        />
-        <ThinkingInReactSession
-          title="Thinking in React"
-        />
-        <RoutingAndDataFetchingSession
-          title="Routing and Data Fetching"
-        />
+        <ES6Session />
+        <ThinkingInReactSession />
+        <RoutingAndDataFetchingSession />
       </CurriculumSection>
       <CurriculumSection
         name="day2"
-        subTitle="Forms, Authentication, Styling in React"
+        subTitle="Forms, Authentication, and Hooks"
         title="Day 2"
         toggleNavigateTo={[Function]}
         trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
-        <FormsAndAuthSession
-          title="Forms and Authentication"
-        />
+        <FormsAndAuthSession />
         <ReactFundamentalsRecapSession
           title="React Fundamentals recap, build a React app from scratch on your own to consolidate:"
         />
-        <HooksSession
-          title="React Hooks"
-        />
+        <HooksSession />
       </CurriculumSection>
       <CurriculumSection
         name="day3"
@@ -96,9 +86,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
-        <IntroReduxSession
-          title="Redux Fundamentals"
-        />
+        <IntroReduxSession />
         <AdvancedReduxSession
           title="Advanced Redux"
         />
@@ -129,9 +117,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         <AdvancedUIPatterns
           title="Advanced UI Patterns"
         />
-        <StylingInReactSession
-          title="Styling in React"
-        />
+        <StylingInReactSession />
         <DesignSystemSession
           title="Design Systems"
         />
@@ -144,12 +130,8 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         trainingTime=" 09:00 - 18:30"
         type="React Bootcamp"
       >
-        <TestingIntroSession
-          title="Testing Foundation in JS"
-        />
-        <TestingInReactSession
-          title="Testing in React"
-        />
+        <TestingIntroSession />
+        <TestingInReactSession />
         <E2ESession
           title="End-to-End Testing"
         />

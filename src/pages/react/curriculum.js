@@ -378,7 +378,7 @@ class ReactCurriculum extends React.Component {
                                   marketingCard={
                                     <MarketingCard
                                       heading="Next React Bootcamp"
-                                      text={`Take your career to the next level and master React in just a few days!`}
+                                      text={`Take your career to the next level and master React in just 1 week!`}
                                       className="training-curriculum-next-training-cta"
                                       to={trainingBootcamp.toPath}
                                       buttonText={`${

@@ -1,46 +1,47 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import { CurriculumStylingAndAdvUI } from 'src/components/curriculum/workshops'
+import Ul from 'src/components/layout/Ul'
+import CurriculumStylingAndAdvUI, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  selectNthTraining,
-  selectUpcomingTrainings,
+  getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { ONE_DAY_WORKSHOP, LONDON } from 'src/config/data'
+import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
-  title: 'Design System Workshop | React GraphQL Academy',
+  title: `Advanced React UIs & Styling With Design Systems Workshop | React GraphQL Academy`,
   description:
     'Interested in Design Systems? React GraphQL Academy offers Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
 
+export const WORKSHOP_TRAINING_ID = '5cd2c86daa5e8f0a07b924fb'
+
 const StylingDesignSystemWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
-      const bootCampTrainings = selectUpcomingTrainings({
+      const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        type: ONE_DAY_WORKSHOP,
-        city: LONDON,
+        trainingId: WORKSHOP_TRAINING_ID,
       })
-      const training = selectNthTraining({
-        trainings: bootCampTrainings,
-      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -62,20 +63,22 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'Styling in React using design systems',
+                label: 'Adv UIs and Design Systems',
               },
             ]}
           />
           <Header
-            titleLines={['Styling in React using design systems']}
+            titleLines={[
+              'Advanced React UIs & Styling',
+              'With Design Systems Workshop',
+            ]}
             subtitle="See how React can look gorgeous and encourage design consistency"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
-            bgImageName={LONDON_BOOTCAMP}
-            type={ONE_DAY_WORKSHOP}
-            training={training}
+            bgImageName={BOOTCAMP}
+            type={REACT_WORKSHOP}
           />
           <TopSection top>
             <Card>
@@ -105,45 +108,16 @@ const StylingDesignSystemWorkshop = ({ path }) => (
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer or designer with experience building React
-                    components and using CSS?
-                  </Li>
-                  <Li>
-                    A developer or designer interested in building scalable and
-                    reusable UIs for big React projects?
-                  </Li>
-                  <Li>
-                    Not satisfied with the Designer/Developer handover in
-                    real-world React projects?
-                  </Li>
-                  <Li>
-                    A designer that builds React components and interacts with
-                    developers.
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!
                 </P>
                 <H3>Not for React beginners!</H3>
-                <P>
-                  This is not a learn-to-code workshop. If you want to learn to
-                  code, we recommend checking out{' '}
-                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                    Free Code Camp
-                  </Link>
-                  .
-                </P>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
+                <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>
             </Row>
           </Section>
-
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

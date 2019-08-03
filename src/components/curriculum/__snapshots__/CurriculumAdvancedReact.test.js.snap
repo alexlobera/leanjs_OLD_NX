@@ -69,9 +69,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <AdvancedUIPatterns
           title="Advanced UI Patterns"
         />
-        <AdvancedReduxSession
-          title="Styling in React"
-        />
+        <AdvancedReduxSession />
         <DesignSystemSession
           title="Design Systems"
         />
@@ -84,12 +82,8 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         trainingTime=" 09:00 - 18:30"
         type="Advanced React"
       >
-        <TestingIntroSession
-          title="Testing Foundation in JS"
-        />
-        <TestingInReactSession
-          title="Testing in React"
-        />
+        <TestingIntroSession />
+        <TestingInReactSession />
         <E2ESession
           title="End-to-End Testing"
         />
