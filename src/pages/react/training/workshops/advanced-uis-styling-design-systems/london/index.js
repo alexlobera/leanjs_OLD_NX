@@ -37,7 +37,8 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { WORKSHOP_TRAINING_ID } from '../'
 
 const metas = {
-  title: 'Design System Workshop London | React GraphQL Academy',
+  title:
+    'Advanced React UIs & Styling With Design Systems Workshop London | React GraphQL Academy',
   description:
     'Interested in Design Systems? React GraphQL Academy offers London Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
@@ -90,7 +91,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: '/react/training/workshops/design-system-styling-in-react',
-                label: 'Design Systems and Styling in React',
+                label: 'Adv UIs and Design Systems',
               },
               {
                 to: path,
@@ -99,8 +100,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['Design Systems and Styling in React - London']}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={[
+              'Advanced React UIs & Styling With Design Systems in London',
+            ]}
+            subtitle="See in this workshop how React can look gorgeous and encourage design consistency"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}

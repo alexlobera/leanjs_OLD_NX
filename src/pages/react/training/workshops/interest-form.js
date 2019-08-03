@@ -93,7 +93,10 @@ const SessionInterest = ({ path }) => (
                     render={({ handleSubmit, valid }) => {
                       return (
                         <form onSubmit={handleSubmit}>
-                          <H4>What are your details?</H4>
+                          <H4>
+                            What are your details?
+                            <a name="details" />
+                          </H4>
                           <Row>
                             <Col md={6}>
                               <NameInput

@@ -25,7 +25,7 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
-  title: 'Design System Workshop | React GraphQL Academy',
+  title: `Advanced React UIs & Styling With Design Systems Workshop | React GraphQL Academy`,
   description:
     'Interested in Design Systems? React GraphQL Academy offers Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
@@ -63,12 +63,15 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'Styling in React using design systems',
+                label: 'Adv UIs and Design Systems',
               },
             ]}
           />
           <Header
-            titleLines={['Styling in React using design systems']}
+            titleLines={[
+              'Advanced React UIs & Styling',
+              'With Design Systems Workshop',
+            ]}
             subtitle="See how React can look gorgeous and encourage design consistency"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
@@ -115,7 +118,6 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               </Col>
             </Row>
           </Section>
-
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
