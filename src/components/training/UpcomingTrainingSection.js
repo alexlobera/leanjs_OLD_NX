@@ -70,7 +70,7 @@ export const UpcomingTrainings = ({
           ? `3 days`
           : days < 10
           ? '1 week'
-          : days < 25
+          : days < 40
           ? '1 month'
           : ''
 
