@@ -1,17 +1,11 @@
 import React from 'react'
 import { H2Ref } from '../../text'
 import Link from '../../navigation/Link'
+import { Li } from '../../layout/Ul'
 import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
 import ReactNativeFoundationSession from '../sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from '../sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from '../sessions/native/ReactNativeAnimationsSession'
-import ReactNativeGesturesSession from '../sessions/native/ReactNativeGesturesSession'
-import ReactNativeOfflineAndAssetCreationSession from '../sessions/native/ReactNativeOfflineAndAssetCreationSession'
-import ReactNativePushNotificationSession from '../sessions/native/ReactNativePushNotificationSession'
-import ReactNativeTestingSession from '../sessions/native/ReactNativeTestingSession'
-import ReactNativeNativeModulesSession from '../sessions/native/ReactNativeNativeModulesSession'
-import ReactNativeProductionSession from '../sessions/native/ReactNativeProductionSession'
-
 import { REACT_NATIVE } from '../../../config/data'
 import selectCurriculumLayout from '../selectCurriculumLayout'
 
@@ -68,5 +62,23 @@ const CurriculumReactNative = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>
+      You have at least a few months of experience using React on the web. If
+      you don't know React, we recommend you first to attend our{' '}
+      <Link to="/react/training/bootcamp">React Bootcamp</Link>
+    </Li>
+    <Li>
+      Taking a step forward to become a React Native Specialist able to make
+      critical decisions about the architecture of a React Native application.
+    </Li>
+    <Li>
+      Not satisfied with the pace of online learning and it's lack of 1-on-1
+      mentoring?
+    </Li>
+  </React.Fragment>
+)
 
 export default CurriculumReactNative

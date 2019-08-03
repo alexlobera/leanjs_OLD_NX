@@ -7,8 +7,10 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
 import { Link } from 'src/components/navigation'
-import Ul, { Li } from 'src/components/layout/Ul'
-import CurriculumReactNative from 'src/components/curriculum/workshops/CurriculumReactNative'
+import Ul from 'src/components/layout/Ul'
+import CurriculumReactNative, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumReactNative'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
@@ -78,20 +80,7 @@ const ReactNativeBoocamp = ({ path }) => (
                 <Link to="#target-audience" name="target-audience" />
                 <H2>Is this React Native training right for me?</H2>
                 <Ul>
-                  <Li>
-                    Ideal for React developers who want to expand their skills
-                    into React Native. <strong>Not for React beginners!</strong>
-                  </Li>
-                  <Li>Extremely rapid, intense learning</Li>
-                  <Li>Small classes with expert developer coaches</Li>
-                  <Li>
-                    Hands-on project-based training - most of the time you'll be
-                    coding.
-                  </Li>
-                  <Li>
-                    Join a growing network of alumni for advice, knowledge and
-                    social fun!
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>

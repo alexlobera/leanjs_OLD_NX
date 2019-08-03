@@ -69,7 +69,7 @@ const CurriculumAdvancedReact = ({
       trainingTime={trainingTime({ day: 2, training })}
     >
       <TestingIntroSession />
-      <TestingInReactSession title="Testing in React" />
+      <TestingInReactSession />
       <E2ESession title="End-to-End Testing" />
     </Section>
   )

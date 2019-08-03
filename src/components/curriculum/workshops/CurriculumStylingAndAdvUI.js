@@ -1,8 +1,10 @@
 import React from 'react'
-import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
+
 import Link from '../../navigation/Link'
 import { REACT_WORKSHOP } from '../../../config/data'
-import { H2Ref, H3 } from '../../text'
+import { H2Ref } from '../../text'
+import { Li } from '../../layout/Ul'
+import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
 import selectCurriculumLayout from '../selectCurriculumLayout'
 import DesignSystemSession from '../sessions/DesignSystemSession'
 import StylingInReactSession from '../sessions/StylingInReactSession'
@@ -61,7 +63,6 @@ const CurriculumStylingAndAdvUI = ({
       <Link to="#curriculum" name="curriculum">
         #
       </Link>
-      <H3>1 day workshop</H3>
     </H2Ref>
   ) : null
 
@@ -74,5 +75,25 @@ const CurriculumStylingAndAdvUI = ({
     corpTrainingFacts: true,
   })
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>
+      A developer or designer with experience building React components and
+      using CSS?
+    </Li>
+    <Li>
+      A developer or designer interested in building scalable and reusable UIs
+      for big React projects?
+    </Li>
+    <Li>
+      Not satisfied with the Designer/Developer handover in real-world React
+      projects?
+    </Li>
+    <Li>
+      A designer that builds React components and interacts with developers.
+    </Li>
+  </React.Fragment>
+)
 
 export default CurriculumStylingAndAdvUI

@@ -6,8 +6,10 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import CurriculumStylingAndAdvUI from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
+import Ul from 'src/components/layout/Ul'
+import CurriculumStylingAndAdvUI, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
 import { Card } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -103,22 +105,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer or designer with experience building React
-                    components and using CSS?
-                  </Li>
-                  <Li>
-                    A developer or designer interested in building scalable and
-                    reusable UIs for big React projects?
-                  </Li>
-                  <Li>
-                    Not satisfied with the Designer/Developer handover in
-                    real-world React projects?
-                  </Li>
-                  <Li>
-                    A designer that builds React components and interacts with
-                    developers.
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!

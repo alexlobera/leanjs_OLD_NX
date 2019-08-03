@@ -6,8 +6,10 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import CurriculumTestingInReact from 'src/components/curriculum/workshops/CurriculumTestingInReact'
+import Ul from 'src/components/layout/Ul'
+import CurriculumTestingInReact, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumTestingInReact'
 import { Card, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -15,8 +17,6 @@ import {
   TrainingDetails,
   ALEX_LOBERA,
   RICHARD_MOSS,
-  // TODO are we using getNextTrainingByTrainingId in any place at all?
-  getNextTrainingByTrainingId,
   selectUpcomingTrainings,
   selectNthTraining,
   AlternativeTrainingSection,
@@ -135,17 +135,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    A developer with previous experience building React apps?
-                  </Li>
-                  <Li>
-                    A developer who wants to upskill or specialise in advanced
-                    React skills?
-                  </Li>
-                  <Li>
-                    A developer who has heard of React Hooks but doesn't know
-                    what that entails?
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!

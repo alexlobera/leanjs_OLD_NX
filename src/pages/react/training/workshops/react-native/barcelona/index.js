@@ -6,7 +6,7 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
+import Ul from 'src/components/layout/Ul'
 import { Card, Video } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import Header from 'src/components/layout/Header'
@@ -27,7 +27,9 @@ import {
   REACT_WORKSHOP,
   BARCELONA,
 } from 'src/config/data'
-import CurriculumReactNative from 'src/components/curriculum/workshops/CurriculumReactNative'
+import CurriculumReactNative, {
+  TargetAudienceList,
+} from 'src/components/curriculum/workshops/CurriculumReactNative'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { WORKSHOP_TRAINING_ID, title } from '../'
 
@@ -130,21 +132,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   Is this React Native training right for me? Are you...{' '}
                 </H2Ref>
                 <Ul>
-                  <Li>
-                    You have at least a few months of experience using React on
-                    the web. If you don't know React, we recommend you first to
-                    attend our{' '}
-                    <Link to="/react/training/bootcamp">React Bootcamp</Link>
-                  </Li>
-                  <Li>
-                    Taking a step forward to become a React Native Specialist
-                    able to make critical decisions about the architecture of a
-                    React Native application.
-                  </Li>
-                  <Li>
-                    Not satisfied with the pace of online learning and it's lack
-                    of 1-on-1 mentoring?
-                  </Li>
+                  <TargetAudienceList />
                 </Ul>
                 <P>
                   If you've said 'yes' to these, our training could be for you!

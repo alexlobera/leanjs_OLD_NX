@@ -2,7 +2,9 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const TestingInReactSession = ({ title }) => (
+export const titleSession = 'Testing in React'
+
+const TestingInReactSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>Unit Testing, Integration Testing, and Snapshot Testing</Li>

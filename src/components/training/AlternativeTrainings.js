@@ -18,7 +18,7 @@ const AlternativeTrainings = ({
   trainings,
   titleText = 'You may also be interested in',
   city,
-  hideAllBtn = false,
+  hideAllBtn,
 }) =>
   trainings && trainings.length ? (
     <React.Fragment>

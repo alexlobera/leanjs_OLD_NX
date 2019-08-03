@@ -6,7 +6,7 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
+import Ul from 'src/components/layout/Ul'
 import CurriculumOneDayRedux, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumOneDayRedux'

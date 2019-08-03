@@ -126,7 +126,7 @@ const CurriculumReactBootcamp = ({
         trainingTime={trainingTime({ day: 8, training })}
       >
         <TestingIntroSession />
-        <TestingInReactSession title="Testing in React" />
+        <TestingInReactSession />
         <E2ESession title="End-to-End Testing" />
       </Section>
     </React.Fragment>
