@@ -15,7 +15,6 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { formatUTC } from 'src/components/utils'
 import { Card } from 'src/components/elements'
 import CurriculumPartTime from 'src/components/curriculum/CurriculumPartTime'
 import Header from 'src/components/layout/Header'
