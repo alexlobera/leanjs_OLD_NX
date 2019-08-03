@@ -92,7 +92,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['React Redux part-time course - London']}
+            titleLines={['React Redux Part-Time Course in London']}
             subtitle="Take your dev career to the next level by mastering<br />React and Redux - without missing a day at work in London!"
             links={header.landingTraining.links}
             type={PART_TIME}

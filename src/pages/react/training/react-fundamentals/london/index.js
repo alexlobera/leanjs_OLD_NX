@@ -83,7 +83,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['React Redux Fundamentals - London']}
+            titleLines={['React Redux Fundamentals London']}
             subtitle="In 3 days, our coaches will work with you in London to help you learn the React fundamentals needed to develop React apps the right way"
             links={header.landingTraining.links}
             bgImageName={BOOTCAMP}

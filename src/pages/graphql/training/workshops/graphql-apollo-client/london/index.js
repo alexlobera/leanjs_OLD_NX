@@ -91,7 +91,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             ]}
           />
           <Header
-            titleLines={['GraphQL Apollo Client Workshop - London']}
+            titleLines={['GraphQL Apollo Client Workshop in London']}
             subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={header.landingTraining.links}
             bgImageName={LONDON_BOOTCAMP}
