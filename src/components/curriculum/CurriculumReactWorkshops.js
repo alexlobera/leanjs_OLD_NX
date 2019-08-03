@@ -37,7 +37,7 @@ const CurriculumReactWorkshops = ({
         name="styling"
         subTitle="See how React can look gorgeous and encourage design consistency"
         showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/design-system-styling-in-react/"
+        toggleNavigateTo="/react/training/workshops/advanced-uis-styling-design-systems/"
       />
       <Section
         {...commonProps}

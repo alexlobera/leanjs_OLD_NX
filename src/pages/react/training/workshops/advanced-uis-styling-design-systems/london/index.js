@@ -90,7 +90,8 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
-                to: '/react/training/workshops/design-system-styling-in-react',
+                to:
+                  '/react/training/workshops/advanced-uis-styling-design-systems',
                 label: 'Adv UIs and Design Systems',
               },
               {
