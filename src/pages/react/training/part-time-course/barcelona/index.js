@@ -13,7 +13,6 @@ import {
   TargetAudienceSection,
   TrainingDetails,
   HORACIO_HERRERA,
-  ALEX_LOBERA,
 } from 'src/components/training'
 import Header from 'src/components/layout/Header'
 import header from 'src/components/layout/Header.json'
@@ -96,7 +95,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                 </Col>
                 <Col md={6} lg={4} lgOffset={1}>
                   <Video youtubeId="E_4eQQHjc7A" />
-                  <TrainingDetails coaches={[HORACIO_HERRERA, ALEX_LOBERA]} />
+                  <TrainingDetails coaches={[HORACIO_HERRERA]} />
                 </Col>
               </Row>
             </Card>
