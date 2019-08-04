@@ -1,21 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { DARK_BLUE } from '../../config/styles'
+import { getVariantProps } from '../utils'
 import Box from './Box'
 import Grid, { Col, Row } from './Grid'
 
 export const MOB_SECTION_MARGIN_Y = 5
-
-export const getVariantProps = (variants, variantProps) =>
-  variants && variants.reduce
-    ? variants.reduce(
-        (acc, variant) => ({
-          ...acc,
-          ...(variantProps[variant] || {}),
-        }),
-        {}
-      )
-    : variantProps[variants] || {}
 
 const sectionVariantProps = {
   dark: {

@@ -29,6 +29,17 @@ const Components = ({ children, ...props }) =>
     })
   )
 
+export const getVariantProps = (variants, variantProps) =>
+  variants && variants.reduce
+    ? variants.reduce(
+        (acc, variant) => ({
+          ...acc,
+          ...(variantProps[variant] || {}),
+        }),
+        {}
+      )
+    : variantProps[variants] || {}
+
 export const selectTypeColor = type => {
   switch (type) {
     case REACT_BOOTCAMP:
