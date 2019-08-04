@@ -92,28 +92,46 @@ const TrustedBySection = ({ type }) => (
             <Li>Delivered wherever you need - worldwide!</Li>
           </Ul>
           <Flex flexDirection={['column', 'row']}>
-            <LinkButton
-              variant="primary"
-              minWidth="150px"
-              to={
-                type === 'contact'
-                  ? '#contact-us'
-                  : '/react/training/corporate/'
-              }
-              className="corporate-team-training-testimonials-cta"
-            >
-              {type === 'contact' ? 'Contact us' : 'Corporate team training'}
-            </LinkButton>
+            {type === 'contact' ? (
+              <React.Fragment>
+                <LinkButton
+                  variant="primary"
+                  minWidth="150px"
+                  to="#contact-us"
+                  className="corporate-team-training-testimonials-cta"
+                >
+                  Contact us
+                </LinkButton>
 
-            <LinkButton
-              pdf
-              mt={[4, 0]}
-              ml={[0, 3]}
-              to={CONVINCE_THE_BOSS_PDF}
-              className="learn-with-us-pdf"
-            >
-              Why devs should learn with us
-            </LinkButton>
+                <LinkButton
+                  pdf
+                  mt={[4, 0]}
+                  ml={[0, 3]}
+                  to={CONVINCE_THE_BOSS_PDF}
+                  className="learn-with-us-pdf"
+                >
+                  Why devs should learn with us
+                </LinkButton>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <LinkButton
+                  to="/react/training/corporate"
+                  className="corporate-team-training-testimonials-cta-react"
+                >
+                  React team training
+                </LinkButton>
+
+                <LinkButton
+                  mt={[4, 0]}
+                  ml={[0, 3]}
+                  to="/graphql/training/corporate"
+                  className="corporate-team-training-testimonials-cta-graphql"
+                >
+                  GraphQL team training
+                </LinkButton>
+              </React.Fragment>
+            )}
           </Flex>
         </Col>
       </Row>
