@@ -19,7 +19,7 @@ import IKEA from '../logos/IKEA'
 import Microsoft from '../logos/Microsoft'
 import { LIGHT_BLUE } from '../../config/styles'
 
-export const CompanyList = styled(Ul)`
+const CompanyList = styled(Ul)`
   overflow: hidden;
   li {
     margin-left: 0;
