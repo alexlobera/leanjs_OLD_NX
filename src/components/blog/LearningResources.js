@@ -1,7 +1,6 @@
 import React from 'react'
-import { H2, H3, P } from 'src/components/text'
-import { Link } from 'src/components/navigation'
-import { LinkButton } from 'src/components/buttons'
+import { H2 } from 'src/components/text'
+import Newsletter from 'src/components/elements/Newsletter'
 import Box from '../layout/Box'
 import PostCard from './PostCard'
 
@@ -16,20 +15,7 @@ const LearningResources = ({ resources = [], type = '' }) => (
         />
       ))}
     </Box>
-    <H3>Get {type} learning resources</H3>
-    <P>
-      Over 5 weeks, we email you directly with free resources{' '}
-      <strong>
-        directly from our{' '}
-        <Link to={`/${type.toLowerCase()}/curriculum`}>
-          <strong>{type} Curriculum</strong>
-        </Link>
-      </strong>{' '}
-      . We'd love for you to enjoy and learn from them!{' '}
-    </P>
-    <LinkButton variant="primary" to="#newsletter">
-      Sign up now
-    </LinkButton>
+    <Newsletter />
   </React.Fragment>
 )
 

@@ -83,7 +83,6 @@ const CorporateReactTraining = ({ path }) => (
             <CurriculumCorporateReact />
           </Card>
         </TopSection>
-
         <Section>
           <Row>
             <Col md={5} mdOffset={1} order={[2, 1]}>

@@ -12,11 +12,8 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
-import {
-  TrustedBySection,
-  UpcomingTrainingSection,
-} from 'src/components/training'
-import { Card, Video } from 'src/components/elements'
+import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
+import { Card } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
@@ -103,16 +100,12 @@ const ReactPage = ({ data, path }) => {
                 to: '#free-react-resources',
               },
               {
-                text: 'Our React training',
+                text: 'Our React courses',
                 to: '#our-react-training',
               },
               {
                 text: 'What is React?',
                 to: '#what-is-react',
-              },
-              {
-                text: 'Should I learn React?',
-                to: '#should-i-learn-react',
               },
             ]}
             type={REACT_BOOTCAMP}
@@ -126,7 +119,7 @@ const ReactPage = ({ data, path }) => {
                 </Col>
                 <Link to="#our-react-training" name="our-react-training" />
                 <Col md={4} mdOffset={1}>
-                  <H3>Our React training</H3>
+                  <H3>Our React courses</H3>
                   <TrainingCardList
                     data={trainingList}
                     borderColor={LIGHT_BLUE}
@@ -135,9 +128,20 @@ const ReactPage = ({ data, path }) => {
               </Row>
             </Card>
           </TopSection>
+
           <Section>
             <Row>
-              <Col md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1} order={[2, 1]}>
+                <AttendeeQuote
+                  quote="I've found it [the course] fantastic, it was really tiring but it was all worth it... it taught me many things I didn't even know I don't know about React"
+                  fullname="Polina Stoyanova"
+                  job="Software Engineer & UX"
+                  company="tray.io"
+                  youtubeId="6hmKu1-vW-8"
+                  youtubeTime="35"
+                />
+              </Col>
+              <Col md={4} lgOffset={1} order={[1, 2]}>
                 <H2>
                   <Link to="#what-is-react" name="what-is-react" />
                   What is React?
@@ -162,23 +166,8 @@ const ReactPage = ({ data, path }) => {
                   </LinkButton>
                 </P>
               </Col>
-              <Col md={5} mdOffset={1}>
-                <Link to="#should-i-learn-react" name="should-i-learn-react" />
-                <Video youtubeId="6hmKu1-vW-8" />
-                <P>
-                  Polina Stoyanova, a software engineer from tray.io, explains
-                  her experiences of learning React on our React Bootcamp
-                </P>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
-              </Col>
             </Row>
           </Section>
-          <TrustedBySection showContent />
 
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
