@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { CONVINCE_THE_BOSS_PDF } from '../../config/data'
-import { LinkButton } from 'src/components/buttons'
+import { LinkButton } from '../buttons'
 import Section from '../layout/Section'
 import Flex from '../layout/Flex'
 import { Col, Row } from '../layout/Grid'
