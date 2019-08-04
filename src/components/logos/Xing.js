@@ -6,6 +6,7 @@ const Xing = ({ colour = '#00d5b5', width, height, y }) => (
     viewBox={`0 ${y} 413 163`}
     width={width}
     height={height}
+    style={{ marginBottom: '4px' }}
   >
     <path
       fill={colour}

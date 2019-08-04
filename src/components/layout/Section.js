@@ -8,10 +8,13 @@ export const MOB_SECTION_MARGIN_Y = 5
 
 const sectionVariantProps = {
   dark: {
-    backgroundColor: [DARK_BLUE, 'transparent'],
+    backgroundColor: DARK_BLUE,
   },
-  grey: {
-    backgroundColor: [DARK_GREY, 'transparent'],
+  // grey: {
+  //   backgroundColor: [DARK_GREY, 'transparent'],
+  // },
+  darkMob: {
+    backgroundColor: [DARK_BLUE, 'transparent'],
   },
 }
 

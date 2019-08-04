@@ -70,6 +70,11 @@ const cardVariantProps = {
       '0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);',
     ],
   },
+  transparent: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    shadow: null,
+  },
 }
 
 Card.displayName = 'Card'

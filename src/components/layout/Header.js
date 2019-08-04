@@ -313,128 +313,124 @@ const Header = ({
             paddingBottom={paddingBottom}
             bgImageOpacity={bgImageOpacity}
           >
-            <Grid>
-              <Row>
-                <TitleCol
-                  md={(showInfoBox && training) || featuredSection ? 7 : 12}
-                  type={type}
-                >
-                  <H1>
-                    {titleLines.map((line, i) => (
-                      <TitleBackground key={i} children={line} />
-                    ))}
-                  </H1>
-                  {subtitle ? (
-                    <SubTitleBackground>
-                      <H2Header
-                        dangerouslySetInnerHTML={{ __html: subtitle }}
-                      />
-                    </SubTitleBackground>
-                  ) : null}
-                  {children ? (
-                    <SubTitleBackground>{children}</SubTitleBackground>
-                  ) : null}
-                  <Row>
-                    <Col>
-                      {links.length ? (
-                        <Nav quickLinks>
-                          <Ul variant="inline">
-                            <Li>
-                              <Span>On this page:</Span>
-                            </Li>
-                            {links.map(({ to, text }, i) => (
-                              <Li key={i}>
-                                <Link
-                                  className="on-this-page"
-                                  to={to[0] !== '#' ? `#${to}` : to}
-                                >
-                                  {text}
-                                </Link>
-                              </Li>
-                            ))}
-                          </Ul>
-                        </Nav>
-                      ) : null}
-                    </Col>
-                  </Row>
-                </TitleCol>
-                {featuredSection && (
-                  <Col md={3} mdOffset={1}>
-                    <FeaturedSection>{featuredSection}</FeaturedSection>
-                  </Col>
-                )}
-                {showInfoBox && (
-                  <Col md={3} mdOffset={1}>
-                    <InfoBox type={type}>
-                      {training.image && (
-                        <Image
-                          src={training.image}
-                          width="100%"
-                          alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
-                        />
-                      )}
-
-                      <Ul variant="unstyled" pl={0}>
-                        <Li>
-                          <strong>Date</strong>: {startDate ? startDate : 'TBD'}
-                          {startDate === endDate ? '' : ` - ${endDate}`}
-                        </Li>
-                        <Li>
-                          <strong>Timings</strong>:{' '}
-                          {`${(training.startDate &&
-                            formatUTC(
-                              training.startDate,
-                              training.utcOffset,
-                              'HH:mm'
-                            )) ||
-                            '9am'} - ${(training.endDate &&
-                            formatUTC(
-                              training.endDate,
-                              training.utcOffset,
-                              'HH:mm'
-                            )) ||
-                            '6:00pm'}`}
-                        </Li>
-                        <Li>
-                          <strong>Venue</strong>:{' '}
-                          {training.address || 'To be confirmed'}
-                          {training.mapUrl ? (
-                            <React.Fragment>
-                              {` - `}
-                              <Link to={training.mapUrl} className={className}>
-                                {' '}
-                                map
+            <Row>
+              <TitleCol
+                md={(showInfoBox && training) || featuredSection ? 7 : 12}
+                type={type}
+              >
+                <H1>
+                  {titleLines.map((line, i) => (
+                    <TitleBackground key={i} children={line} />
+                  ))}
+                </H1>
+                {subtitle ? (
+                  <SubTitleBackground>
+                    <H2Header dangerouslySetInnerHTML={{ __html: subtitle }} />
+                  </SubTitleBackground>
+                ) : null}
+                {children ? (
+                  <SubTitleBackground>{children}</SubTitleBackground>
+                ) : null}
+                <Row>
+                  <Col>
+                    {links.length ? (
+                      <Nav quickLinks>
+                        <Ul variant="inline">
+                          <Li>
+                            <Span>On this page:</Span>
+                          </Li>
+                          {links.map(({ to, text }, i) => (
+                            <Li key={i}>
+                              <Link
+                                className="on-this-page"
+                                to={to[0] !== '#' ? `#${to}` : to}
+                              >
+                                {text}
                               </Link>
-                            </React.Fragment>
-                          ) : null}
-                        </Li>
-                        {(!training.address ||
-                          training.address === 'To be confirmed') && (
-                          <Li>
-                            <strong>Location</strong>:{' '}
-                            {training.city || 'To be confirmed'}
-                          </Li>
-                        )}
-                        {linkToGallery && (
-                          <Li>
-                            <Link to={`#${linkToGallery}`}>
-                              See venue pictures
-                            </Link>
-                          </Li>
-                        )}
-                        {downloadVenuePDF && (
-                          <Li>
-                            <Link to={downloadVenuePDF}>
-                              Download more info PDF
-                            </Link>
-                          </Li>
-                        )}
-                      </Ul>
-                    </InfoBox>
+                            </Li>
+                          ))}
+                        </Ul>
+                      </Nav>
+                    ) : null}
                   </Col>
-                )}
-              </Row>
-            </Grid>
+                </Row>
+              </TitleCol>
+              {featuredSection && (
+                <Col md={3} mdOffset={1}>
+                  <FeaturedSection>{featuredSection}</FeaturedSection>
+                </Col>
+              )}
+              {showInfoBox && (
+                <Col md={3} mdOffset={1}>
+                  <InfoBox type={type}>
+                    {training.image && (
+                      <Image
+                        src={training.image}
+                        width="100%"
+                        alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                      />
+                    )}
+
+                    <Ul variant="unstyled" pl={0}>
+                      <Li>
+                        <strong>Date</strong>: {startDate ? startDate : 'TBD'}
+                        {startDate === endDate ? '' : ` - ${endDate}`}
+                      </Li>
+                      <Li>
+                        <strong>Timings</strong>:{' '}
+                        {`${(training.startDate &&
+                          formatUTC(
+                            training.startDate,
+                            training.utcOffset,
+                            'HH:mm'
+                          )) ||
+                          '9am'} - ${(training.endDate &&
+                          formatUTC(
+                            training.endDate,
+                            training.utcOffset,
+                            'HH:mm'
+                          )) ||
+                          '6:00pm'}`}
+                      </Li>
+                      <Li>
+                        <strong>Venue</strong>:{' '}
+                        {training.address || 'To be confirmed'}
+                        {training.mapUrl ? (
+                          <React.Fragment>
+                            {` - `}
+                            <Link to={training.mapUrl} className={className}>
+                              {' '}
+                              map
+                            </Link>
+                          </React.Fragment>
+                        ) : null}
+                      </Li>
+                      {(!training.address ||
+                        training.address === 'To be confirmed') && (
+                        <Li>
+                          <strong>Location</strong>:{' '}
+                          {training.city || 'To be confirmed'}
+                        </Li>
+                      )}
+                      {linkToGallery && (
+                        <Li>
+                          <Link to={`#${linkToGallery}`}>
+                            See venue pictures
+                          </Link>
+                        </Li>
+                      )}
+                      {downloadVenuePDF && (
+                        <Li>
+                          <Link to={downloadVenuePDF}>
+                            Download more info PDF
+                          </Link>
+                        </Li>
+                      )}
+                    </Ul>
+                  </InfoBox>
+                </Col>
+              )}
+            </Row>
           </HeaderSection>
         </React.Fragment>
       )
