@@ -4,18 +4,15 @@ import Helmet from 'react-helmet'
 import { CORP_TRAINING } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
+import TrustedBySection from 'src/components/training/TrustedBySection'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2, P } from 'src/components/text'
-import {
-  UpcomingTrainingSection,
-  AttendeeQuote,
-  TrustedByLogoList,
-} from 'src/components/training'
-import Ul, { Li } from 'src/components/layout/Ul'
+import { H2 } from 'src/components/text'
+import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
+import TrustedByLogoList2 from 'src/components/training/TrustedByLogoList2'
 import Header from 'src/components/layout/Header'
 import { CallToActionRow } from 'src/components/layout/CallToActionRow'
-import { Card, Video } from 'src/components/elements'
+import { Card } from 'src/components/elements'
 import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
@@ -49,7 +46,7 @@ const CorporateGraphQLTraining = ({ path }) => (
           path={[
             { to: '/', label: 'Home' },
             {
-              to: '/graphql/',
+              to: '/graphql',
               label: 'GraphQL',
             },
             {
@@ -59,14 +56,13 @@ const CorporateGraphQLTraining = ({ path }) => (
           ]}
         />
         <Header
-          titleLines={['Corporate GraphQL team training']}
-          subtitle="Private team training, located in your offices anywhere in the world, based on our proven curriculum for React and GraphQL."
+          titleLines={['Corporate GraphQL Team Training']}
+          subtitle="Private team training, located in your offices anywhere in the world, based on our proven GraphQL curriculum."
           links={[
             { text: 'Training schedule', to: '#schedule' },
-            { text: 'Developer level', to: '#dev-level' },
+            { text: 'How tailored', to: '#how-tailored' },
             { text: 'Pricing', to: '#pricing' },
             { text: 'Previous clients', to: '#previous-clients' },
-            { text: 'Benefits to you', to: '#right-for-my-team' },
             { text: 'Custom training', to: '#custom-training' },
           ]}
           bgImageName={CORP_TRAINING}
@@ -87,14 +83,15 @@ const CorporateGraphQLTraining = ({ path }) => (
             <CurriculumCorporateGraphQL />
           </Card>
         </TopSection>
+
         <Section>
           <Row>
-            <a name="previous-clients" />
-            <Col lg={5}>
+            <Col md={4} lgOffset={1}>
               <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList />
+              <TrustedByLogoList2 />
             </Col>
-            <Col lg={6} mdOffset={1}>
+            <Col md={5} mdOffset={1}>
+              <a name="previous-clients" />
               <AttendeeQuote
                 quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
                 fullname="Lara Ramey"
@@ -108,55 +105,8 @@ const CorporateGraphQLTraining = ({ path }) => (
             </Col>
           </Row>
         </Section>
-
+        <TrustedBySection type="contact" />
         <Section>
-          <Row>
-            <a name="right-for-my-team" />
-            <Col md={5}>
-              <Video
-                youtubeId="o6YwbHGfPOo"
-                description={
-                  <P>
-                    <em>
-                      Andru Dunn, Senior Developer at{' '}
-                      <strong>John Lewis</strong> speaks how React GraphQL
-                      Academy training has improved his team.
-                    </em>
-                  </P>
-                }
-              />
-            </Col>
-            <Col md={5} mdOffset={1}>
-              <H2>Why React GraphQL Academy is great for your dev team</H2>
-              <Ul>
-                <Li>
-                  <strong>Avoid delays & business losses</strong> with more
-                  reliable and consistent code
-                </Li>
-                <Li>
-                  <strong>Increase employee retention</strong>, motivation, and
-                  productivity
-                </Li>
-                <Li>
-                  Great for <strong>team building</strong>, and a safe
-                  environment for devs to learn.
-                </Li>
-                <Li>
-                  <strong>Minimise the risk</strong> of onboarding React
-                </Li>
-                <Li>
-                  <strong>Delivered wherever you need</strong> - worldwide!
-                </Li>
-              </Ul>
-              <P>
-                <LinkButton variant="primary" to="#contact-us">
-                  Contact us to find out more
-                </LinkButton>
-              </P>
-            </Col>
-          </Row>
-        </Section>
-        <Section variant="dark">
           <a name="custom-training" />
           <LeanJSsprints />
         </Section>

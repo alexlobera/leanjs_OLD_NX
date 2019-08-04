@@ -26,6 +26,7 @@ const selectCurriculumLayout = ({
   corpTrainingFacts,
   curriculumTo,
   title,
+  curriculumTitle = 'Course outline',
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
@@ -76,7 +77,7 @@ const selectCurriculumLayout = ({
         )}
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
-            <H3>Course outline</H3>
+            <H3>{curriculumTitle}</H3>
             {firstHalf}
             {secondHalf}
             {curriculumTo && curriculumButtonSection}

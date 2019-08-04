@@ -91,7 +91,7 @@ const Meetup = () => (
                       type={MEETUP}
                       className="meetup-details-clicks"
                     />
-                    <TopSection variant="dark">
+                    <TopSection variant="darkMob">
                       <Card variant="primary">
                         <Row>
                           <Col md={6} lg={4} lgOffset={1}>

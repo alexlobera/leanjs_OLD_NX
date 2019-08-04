@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Box from './Box'
+import { getVariantProps } from '../utils'
 
 const StyledUl = styled(Box)`
   ${({ variant, variants = [] }) =>
@@ -29,16 +30,7 @@ const StyledUl = styled(Box)`
 
 const Ul = props => (
   <StyledUl
-    {...(ulVariantProps[props.variant] || {})}
-    {...(props.variants && props.variants.reduce
-      ? props.variants.reduce(
-          (acc, variant) => ({
-            ...acc,
-            ...(ulVariantProps[variant] || {}),
-          }),
-          {}
-        )
-      : {})}
+    {...getVariantProps(props.variant || props.variants, ulVariantProps)}
     {...props}
   />
 )

@@ -206,7 +206,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             downloadVenuePDF={VENUE_PDF}
             showInfoBox={true}
           />
-          <TopSection variant="dark" top>
+          <TopSection variant="darkMob">
             <Card variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>

@@ -77,7 +77,7 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
             type={GRAPHQL_CLIENT}
             training={training}
           />
-          <TopSection top>
+          <TopSection>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>

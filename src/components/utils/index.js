@@ -29,6 +29,17 @@ const Components = ({ children, ...props }) =>
     })
   )
 
+export const getVariantProps = (variants, variantProps) =>
+  variants && variants.reduce
+    ? variants.reduce(
+        (acc, variant) => ({
+          ...acc,
+          ...(variantProps[variant] || {}),
+        }),
+        {}
+      )
+    : variantProps[variants] || {}
+
 export const selectTypeColor = type => {
   switch (type) {
     case REACT_BOOTCAMP:
@@ -56,15 +67,14 @@ export const selectBorderStyle = type => {
       return 'solid'
     case PART_TIME:
       return 'double'
-    case ADVANCED_REACT:
-    case GRAPHQL_CLIENT:
-    case GRAPHQL_WORKSHOP:
-      return 'dashed'
     case REACT_FUNDAMENTALS:
-      return 'dotted'
-    case REACT_WORKSHOP:
+    case ADVANCED_REACT:
     case GRAPHQL_API:
-      return 'double'
+      return 'dashed'
+    case REACT_WORKSHOP:
+    case GRAPHQL_WORKSHOP:
+    case GRAPHQL_CLIENT:
+      return 'dotted'
     default:
       return 'solid'
   }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Trainline = ({ colour = '#00d5b5', width, height, y }) => (
+const Trainline = ({ colour = '#00d5b5', width, height, y = 0 }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
-    viewBox={`0 ${y} 400 115`}
+    viewBox={`20 ${y} 550 115`}
     width={width}
     height={height}
   >

@@ -94,7 +94,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             training={training}
             showInfoBox={true}
           />
-          <TopSection variant="dark" top>
+          <TopSection variant="darkMob">
             <Card variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>
@@ -142,6 +142,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
               <Col md={4} lgOffset={1}>
                 <H2Ref mt={[MOB_SECTION_MARGIN_Y, 0]}>
                   Is this React bootcamp right for me? Are you...
+                  <a name="target-audience" />
                 </H2Ref>
                 <Ul>
                   <Li>

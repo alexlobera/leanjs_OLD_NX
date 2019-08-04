@@ -32,7 +32,7 @@ const BootcampList = () => (
               </Row>
             </Card>
           </TopSection>
-          <Section variant="dark">
+          <Section variant="darkMob">
             <Card variant="primary">
               <Row>
                 <Col md={6} lg={4} lgOffset={1}>
