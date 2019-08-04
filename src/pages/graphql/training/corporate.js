@@ -86,11 +86,7 @@ const CorporateGraphQLTraining = ({ path }) => (
 
         <Section>
           <Row>
-            <Col md={4} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList2 />
-            </Col>
-            <Col md={5} mdOffset={1}>
+            <Col md={5} mdOffset={1} order={[2, 1]}>
               <a name="previous-clients" />
               <AttendeeQuote
                 quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
@@ -102,6 +98,10 @@ const CorporateGraphQLTraining = ({ path }) => (
               Tech-Relevant (Blog)"
                 ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"
               />
+            </Col>
+            <Col md={4} lgOffset={1} order={[1, 2]}>
+              <H2>Trusted by industry leaders</H2>
+              <TrustedByLogoList2 />
             </Col>
           </Row>
         </Section>

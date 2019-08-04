@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Grid, Row, Col as FlexboxCol } from 'react-styled-flexboxgrid'
-import Box from './Box'
+import Flex from './Flex'
 
 const Col = ({ xs, sm, md, lg, style = {}, ...rest }) => {
   const sizes = {
@@ -14,7 +14,7 @@ const Col = ({ xs, sm, md, lg, style = {}, ...rest }) => {
   return <FlexboxCol {...rest} {...sizes} style={style} />
 }
 
-const StyledCol = styled(Box)``
+const StyledCol = styled(Flex)``
 StyledCol.defaultProps = {
   box: Col,
 }

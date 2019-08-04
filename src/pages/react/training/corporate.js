@@ -86,11 +86,7 @@ const CorporateReactTraining = ({ path }) => (
 
         <Section>
           <Row>
-            <Col md={4} lgOffset={1}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList2 />
-            </Col>
-            <Col md={5} mdOffset={1}>
+            <Col md={5} mdOffset={1} order={[2, 1]}>
               <a name="previous-clients" />
               <AttendeeQuote
                 quote="It's really hard to find good advanced tech training. In house, you standardise the knowledge [in a team] and start doing things the right way."
@@ -102,6 +98,10 @@ const CorporateReactTraining = ({ path }) => (
               Tech-Relevant (Blog)"
                 ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"
               />
+            </Col>
+            <Col md={4} lgOffset={1} order={[1, 2]}>
+              <H2>Trusted by industry leaders</H2>
+              <TrustedByLogoList2 />
             </Col>
           </Row>
         </Section>
