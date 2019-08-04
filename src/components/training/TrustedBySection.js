@@ -61,82 +61,98 @@ export const TrustedByLogoList = () => (
   </CompanyList>
 )
 
-const TrustedBySection = ({ type }) => (
-  <Section variant="dark">
-    <Card variant="primary" border="none">
-      <Row>
-        <Col lg={10} lgOffset={1} mb={5}>
-          <H2>
-            Developers from all these companies have trusted us{' '}
-            <a href="#trusted-by" />
-          </H2>
-          <TrustedByLogoList />
-        </Col>
-      </Row>
-      <Row>
-        <Col md={5} mdOffset={1}>
-          <Video youtubeId="o6YwbHGfPOo" />
-        </Col>
-        <Col md={5} mdOffset={1}>
-          <H2>Why React GraphQL Academy is great for your dev team</H2>
-          <Ul>
-            <Li>
-              Avoid delays & business losses with more reliable and consistent
-              code
-            </Li>
-            <Li>Increase employee retention, motivation, and productivity</Li>
-            <Li>
-              Great for team building, and a safe environment for devs to learn.
-            </Li>
-            <Li>Minimise the risk of onboarding React</Li>
-            <Li>Delivered wherever you need - worldwide!</Li>
-          </Ul>
-          <Flex flexDirection={['column', 'row']}>
-            {type === 'contact' ? (
-              <React.Fragment>
-                <LinkButton
-                  variant="primary"
-                  minWidth="150px"
-                  to="#contact-us"
-                  className="corporate-team-training-testimonials-cta"
-                >
-                  Contact us
-                </LinkButton>
+const TrustedBySection = ({ type, showContent = false }) => {
+  const buttons = (
+    <Flex flexDirection={['column', 'row']}>
+      {type === 'contact' ? (
+        <React.Fragment>
+          <LinkButton
+            variant="primary"
+            minWidth="150px"
+            to="#contact-us"
+            className="corporate-team-training-testimonials-cta"
+          >
+            Contact us
+          </LinkButton>
 
-                <LinkButton
-                  pdf
-                  mt={[4, 0]}
-                  ml={[0, 3]}
-                  to={CONVINCE_THE_BOSS_PDF}
-                  className="learn-with-us-pdf"
-                >
-                  Why devs should learn with us
-                </LinkButton>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <LinkButton
-                  to="/react/training/corporate"
-                  className="corporate-team-training-testimonials-cta-react"
-                >
-                  React team training
-                </LinkButton>
+          <LinkButton
+            pdf
+            mt={[4, 0]}
+            ml={[0, 3]}
+            to={CONVINCE_THE_BOSS_PDF}
+            className="learn-with-us-pdf"
+          >
+            Why devs should learn with us
+          </LinkButton>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <LinkButton
+            to="/react/training/corporate"
+            className="corporate-team-training-testimonials-cta-react"
+          >
+            React team training
+          </LinkButton>
 
-                <LinkButton
-                  mt={[4, 0]}
-                  ml={[0, 3]}
-                  to="/graphql/training/corporate"
-                  className="corporate-team-training-testimonials-cta-graphql"
-                >
-                  GraphQL team training
-                </LinkButton>
-              </React.Fragment>
-            )}
-          </Flex>
-        </Col>
-      </Row>
-    </Card>
-  </Section>
-)
+          <LinkButton
+            mt={[4, 0]}
+            ml={[0, 3]}
+            to="/graphql/training/corporate"
+            className="corporate-team-training-testimonials-cta-graphql"
+          >
+            GraphQL team training
+          </LinkButton>
+        </React.Fragment>
+      )}
+    </Flex>
+  )
+  return (
+    <Section variant="dark">
+      <Card variant="primary" border="none">
+        <Row>
+          <Col lg={10} lgOffset={1} mb={5}>
+            <H2>
+              Developers from all these companies have trusted us{' '}
+              <a href="#trusted-by" />
+            </H2>
+            <TrustedByLogoList />
+          </Col>
+        </Row>
+        <Row>
+          {showContent ? (
+            <React.Fragment>
+              <Col md={5} mdOffset={1}>
+                <Video youtubeId="o6YwbHGfPOo" />
+              </Col>
+              <Col md={5} mdOffset={1}>
+                <H2>Why React GraphQL Academy is great for your dev team</H2>
+                <Ul>
+                  <Li>
+                    Avoid delays & business losses with more reliable and
+                    consistent code
+                  </Li>
+                  <Li>
+                    Increase employee retention, motivation, and productivity
+                  </Li>
+                  <Li>
+                    Great for team building, and a safe environment for devs to
+                    learn.
+                  </Li>
+                  <Li>Minimise the risk of onboarding React</Li>
+                  <Li>Delivered wherever you need - worldwide!</Li>
+                </Ul>
+                {buttons}
+              </Col>
+            </React.Fragment>
+          ) : (
+            <Col md={10} mdOffset={1}>
+              {buttons}
+            </Col>
+          )}
+        </Row>
+      </Card>
+    </Section>
+  )
+}
 
 export default TrustedBySection

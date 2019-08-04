@@ -187,7 +187,7 @@ const IndexPage = () => {
               </React.Fragment>
             }
           />
-          <TrustedBySection />
+          <TrustedBySection showContent />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )}
