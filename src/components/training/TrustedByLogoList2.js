@@ -7,7 +7,7 @@ import Telegraph from '../logos/Telegraph'
 import Xing from '../logos/Xing'
 import IBM from '../logos/IBM'
 import Microsoft from '../logos/Microsoft'
-import Asos from '../logos/Asos'
+import Asos from '../logos/ASOS'
 import { LIGHT_BLUE } from '../../config/styles'
 
 const TrustedByLogoList2 = () => (
