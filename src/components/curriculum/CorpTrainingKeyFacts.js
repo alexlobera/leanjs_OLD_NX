@@ -5,22 +5,24 @@ import { LinkButton } from '../buttons'
 
 const CorpTrainingFacts = () => (
   <React.Fragment>
-    <a name="dev-level" />
-    <H3 pt={[4, 0]}>Level expertise across your team</H3>
-    <P>
-      If you're looking to change your tech stack, avoiding risk is key. So
-      knowing developers are on the same skill level can really help.
-    </P>
-    <P>
-      Great for <strong>experienced developers who know JavaScript</strong>, our
-      training is a deep dive into React, GraphQL or React Native.
-    </P>
-    <H3>How tailored is training?</H3>
+    <H3 pt={[4, 0]}>
+      How tailored is training? <a name="how-tailored" />
+    </H3>
     <P>
       As any training progresses and we discover issues your developers have, we
       quickly adapt our learning methods to ensure meaningful learning. If you
       want to learn using <strong>your</strong> codebase{' '}
       <Link to="#custom-training">click here.</Link>
+    </P>
+    <a name="dev-level" />
+    <H3>Level expertise across your team</H3>
+    <P>
+      If you're looking to change your tech stack, avoiding risk is key. So
+      knowing developers are on the same skill level can really help.
+    </P>
+    <P>
+      Great for experienced developers who know JavaScript, our training is a
+      deep dive into React, GraphQL or React Native.
     </P>
     <a name="pricing" />
     <H3>Pricing, locations, scheduling </H3>

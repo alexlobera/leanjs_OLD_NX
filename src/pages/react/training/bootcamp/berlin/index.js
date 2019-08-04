@@ -89,7 +89,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             training={training}
             showInfoBox={true}
           />
-          <TopSection variant="dark" top>
+          <TopSection variant="darkMob">
             <Card variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>

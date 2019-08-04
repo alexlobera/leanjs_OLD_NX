@@ -68,6 +68,7 @@ const CurriculumCorporateGraphQL = ({
     layout,
     type,
     corpTrainingFacts: true,
+    curriculumTitle: 'GraphQL Training Curriculum Example',
   })
 }
 

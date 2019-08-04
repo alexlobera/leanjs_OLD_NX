@@ -4,7 +4,9 @@ import { H3 } from '../text'
 import { UpcomingTrainings } from './UpcomingTrainingSection'
 import { selectUpcomingTrainings } from './UpcomingTrainings'
 import { LinkButton } from '../buttons'
+import Link from '../navigation/Link'
 import { Row, Col } from '../layout/Grid'
+import Flex from '../layout/Flex'
 import Section from '../layout/Section'
 
 import {
@@ -19,6 +21,7 @@ const AlternativeTrainings = ({
   titleText = 'You may also be interested in',
   city,
   hideAllBtn,
+  type = 'react',
 }) =>
   trainings && trainings.length ? (
     <React.Fragment>
@@ -32,9 +35,17 @@ const AlternativeTrainings = ({
         />
       </Row>
       {!hideAllBtn && (
-        <LinkButton className="suggested-courses" to="#upcoming">
-          See all Courses
-        </LinkButton>
+        <Flex flexDirection={['column', 'row']}>
+          <LinkButton mr={4} className="suggested-courses" to="#upcoming">
+            See all public courses
+          </LinkButton>
+          <Link
+            pt={[3, 1]}
+            to={type === 'react' ? '/react/training/corporate/' : ''}
+          >
+            See private corporate training
+          </Link>
+        </Flex>
       )}
     </React.Fragment>
   ) : null

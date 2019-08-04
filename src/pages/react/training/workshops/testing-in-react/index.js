@@ -65,7 +65,7 @@ const AdvancedReactWorkshop = ({ path }) => (
             bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
           />
-          <TopSection top>
+          <TopSection>
             <Card>
               <Row>
                 <Col lg={10} lgOffset={1}>

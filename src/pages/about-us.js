@@ -295,7 +295,9 @@ const AboutUs = ({ data }) => {
             </Row>
           </Section>
           <Section variant="dark">
-            <LeanJSsprints />
+            <Card variant="primary" border="none">
+              <LeanJSsprints />
+            </Card>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

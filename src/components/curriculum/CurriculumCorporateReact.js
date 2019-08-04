@@ -68,6 +68,7 @@ const CurriculumCorporateReact = ({
     layout,
     type,
     corpTrainingFacts: true,
+    curriculumTitle: 'React Training Curriculum Example',
   })
 }
 

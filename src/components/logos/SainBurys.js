@@ -3,7 +3,7 @@ import React from 'react'
 const SainBurys = ({ colour = '#f47320', width, height }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
-    viewBox="0 0 306 58"
+    viewBox="0 8 306 58"
     width={width}
     height={height}
   >

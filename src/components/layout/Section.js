@@ -1,18 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
-import { DARK_BLUE, DARK_GREY } from '../../config/styles'
+import { DARK_BLUE } from '../../config/styles'
 import Box from './Box'
 import Grid, { Col, Row } from './Grid'
 
 export const MOB_SECTION_MARGIN_Y = 5
 
+export const getVariantProps = (variants, variantProps) =>
+  variants && variants.reduce
+    ? variants.reduce(
+        (acc, variant) => ({
+          ...acc,
+          ...(variantProps[variant] || {}),
+        }),
+        {}
+      )
+    : variantProps[variants] || {}
+
 const sectionVariantProps = {
   dark: {
     backgroundColor: DARK_BLUE,
+    pt: 0,
+    pb: 0,
   },
-  // grey: {
-  //   backgroundColor: [DARK_GREY, 'transparent'],
-  // },
   darkMob: {
     backgroundColor: [DARK_BLUE, 'transparent'],
   },
@@ -25,9 +35,9 @@ const StyledSection = styled(Box)`
   }
 `
 
-const Section = ({ variant, children, ...rest }) => (
+const Section = ({ children, ...rest }) => (
   <StyledSection
-    {...((variant && sectionVariantProps[variant]) || {})}
+    {...getVariantProps(rest.variant || rest.variants, sectionVariantProps)}
     {...rest}
   >
     <Grid>{children}</Grid>
@@ -51,8 +61,11 @@ TopSection.defaultProps = {
 }
 TopSection.displayName = 'TopSection'
 
-export const ColSection = ({ variant, col, col2, ...rest }) => {
-  const variantProps = colSectionVariantProps[variant] || {}
+export const ColSection = ({ col, col2, ...rest }) => {
+  const variantProps = getVariantProps(
+    rest.variants || rest.variant,
+    colSectionVariantProps
+  )
   const col1Props =
     col && col2 ? variantProps.col1 || {} : { md: 10, mdOffset: 1 }
   const Col1 = <Col {...col1Props}>{col}</Col>

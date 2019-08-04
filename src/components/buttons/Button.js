@@ -5,8 +5,8 @@ import { WHITE, DARK_GREY, DARK_BLUE, RED } from '../../config/styles'
 import Box from '../layout/Box'
 
 export const defaultButtonStyle = css`
-  align-items: flex-start;
   cursor: pointer;
+  align-items: center;
   ${props =>
     props.disabled &&
     `

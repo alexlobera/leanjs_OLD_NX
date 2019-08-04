@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { formatUTC } from '../utils'
 import Section from './Section'
-import Grid, { Col, Row } from './Grid'
+import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
 import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
 import {

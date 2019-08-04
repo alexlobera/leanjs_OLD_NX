@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 
 import { WHITE, DARK_GREY, DARK_BLUE } from '../config/styles'
 import { WHY_REACTJS_ACADEMY } from '../config/images.js'
-import { CONVINCE_THE_BOSS_PDF } from '../config/data'
 import { HOME_PAGE } from '../../images/imageNames'
 import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
@@ -12,7 +11,7 @@ import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
 import { TopSection, ColSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
-import { H2, P } from '../components/text'
+import { H2 } from '../components/text'
 import AttendeeQuote from 'src/components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import FullCurriculumsReact from '../components/curriculum/FullCurriculumsReact'
@@ -20,7 +19,6 @@ import FullCurriculumsGraphQL from '../components/curriculum/FullCurriculumsGrap
 import { createSocialMetas } from '../components/utils'
 import { RootHeader as Header } from '../components/layout/Header'
 import Card from '../components/elements/Card'
-import Video from '../components/elements/Video'
 import TrustedBySection from '../components/training/TrustedBySection'
 import UpcomingTrainingSection from '../components/training/UpcomingTrainingSection'
 import Box from 'src/components/layout/Box'
@@ -190,57 +188,6 @@ const IndexPage = () => {
             }
           />
           <TrustedBySection />
-          <ColSection
-            variant="thinLeft"
-            col={
-              <Video
-                youtubeId="o6YwbHGfPOo"
-                description={
-                  <P>
-                    <em>
-                      Andru Dunn, Senior Developer at{' '}
-                      <strong>John Lewis</strong> speaks how React GraphQL
-                      Academy training has improved his team.
-                    </em>
-                  </P>
-                }
-              />
-            }
-            col2={
-              <React.Fragment>
-                <H2>React GraphQL Academy - great for your whole team</H2>
-                <Ul>
-                  <Li>Avoid delays and business losses</Li>
-                  <Li>Minimize risk of onboarding React & GraphQL</Li>
-                  <Li>Safe environment for developers to learn</Li>
-                  <Li>Increase employee retention and productivity</Li>
-                  <Li>Offer more services to internal and external clients</Li>
-                </Ul>
-                <Row>
-                  <Col sm={7}>
-                    <LinkButton
-                      pdf
-                      to={CONVINCE_THE_BOSS_PDF}
-                      className="learn-with-us-pdf"
-                    >
-                      Why devs should learn with us
-                    </LinkButton>
-                  </Col>
-                  <Col sm={5}>
-                    <LinkButton
-                      mt={[4, 0]}
-                      display={'block'}
-                      variant="secondary"
-                      to="/react/training/corporate/"
-                      className="corporate-team-training-testimonials-cta"
-                    >
-                      Corporate team training
-                    </LinkButton>
-                  </Col>
-                </Row>
-              </React.Fragment>
-            }
-          ></ColSection>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )}
