@@ -105,7 +105,7 @@ const CorporateGraphQLTraining = ({ path }) => (
             </Col>
           </Row>
         </Section>
-        <TrustedBySection type="contact" />
+        <TrustedBySection type="contact" showContent />
         <Section>
           <a name="custom-training" />
           <LeanJSsprints />

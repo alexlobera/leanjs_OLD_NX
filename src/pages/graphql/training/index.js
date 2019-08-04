@@ -183,7 +183,7 @@ const TrainingPage = ({ path }) => (
               </Col>
             </Row>
           </Section>
-          <TrustedBySection />
+          <TrustedBySection showContent />
 
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
