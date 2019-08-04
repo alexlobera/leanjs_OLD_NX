@@ -3,16 +3,18 @@
 exports[`<MarketingCard /> should render component 1`] = `
 <styled.div>
   <Row>
-    <Styled(Box)
+    <Styled(Styled(Box))
       box={[Function]}
+      display="flex"
       md={6}
     >
       <Styled(Box)
         box="span"
       />
-    </Styled(Box)>
-    <Styled(Box)
+    </Styled(Styled(Box))>
+    <Styled(Styled(Box))
       box={[Function]}
+      display="flex"
       lgOffset={1}
       md={5}
     >
@@ -20,7 +22,7 @@ exports[`<MarketingCard /> should render component 1`] = `
         className="blog-article"
         variant="secondary"
       />
-    </Styled(Box)>
+    </Styled(Styled(Box))>
   </Row>
 </styled.div>
 `;

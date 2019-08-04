@@ -3,8 +3,9 @@
 exports[`<CurriculumPartTime /> should render component 1`] = `
 <Fragment>
   <Row>
-    <Styled(Box)
+    <Styled(Styled(Box))
       box={[Function]}
+      display="flex"
       lg={10}
       lgOffset={1}
     >
@@ -25,11 +26,12 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
           #
         </Link>
       </Styled(Styled(Box))>
-    </Styled(Box)>
+    </Styled(Styled(Box))>
   </Row>
   <Row>
-    <Styled(Box)
+    <Styled(Styled(Box))
       box={[Function]}
+      display="flex"
       lg={5}
       lgOffset={1}
       md={6}
@@ -149,9 +151,10 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
           Full curriculum
         </LinkButton>
       </Styled(Box)>
-    </Styled(Box)>
-    <Styled(Box)
+    </Styled(Styled(Box))>
+    <Styled(Styled(Box))
       box={[Function]}
+      display="flex"
       lg={4}
       md={5}
       mdOffset={1}
