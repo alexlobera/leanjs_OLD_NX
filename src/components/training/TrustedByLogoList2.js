@@ -18,7 +18,7 @@ const TrustedByLogoList2 = () => (
     <Li>
       <Nationwide height={100} />
     </Li>
-    <Li>
+    <Li mb={3}>
       <Asos height={40} />
     </Li>
     <Li>
