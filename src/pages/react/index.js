@@ -101,7 +101,7 @@ const ReactPage = ({ data, path }) => {
                 to: '#free-react-resources',
               },
               {
-                text: 'Our React courses',
+                text: 'Our React training',
                 to: '#our-react-training',
               },
               {
