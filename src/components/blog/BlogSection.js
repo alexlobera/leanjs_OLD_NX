@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Section from 'src/components/layout/Section'
-import Grid, { Col, Row } from 'src/components/layout/Grid'
+import { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
 import PostCard from 'src/components/blog/PostCard'
 import { Link } from 'src/components/navigation'
@@ -54,30 +54,23 @@ const BlogSection = ({ tags = [] }) => (
 
       return (
         <Section>
-          <Grid>
-            <Row>
-              <Col lg={11}>
-                <Flex>
-                  <H2>Related blogs</H2>
-                  <Link
-                    className="articles-summary"
-                    ml="auto"
-                    mt={3}
-                    to="/blog"
-                  >
-                    See all blogs
-                  </Link>
-                </Flex>
+          <Row>
+            <Col lg={11}>
+              <Flex>
+                <H2>Related blogs</H2>
+                <Link className="articles-summary" ml="auto" mt={3} to="/blog">
+                  See all blogs
+                </Link>
+              </Flex>
+            </Col>
+          </Row>
+          <Row>
+            {posts.map(({ node: post }) => (
+              <Col md={4} key={post.fields.slug}>
+                <PostCard small post={post} />
               </Col>
-            </Row>
-            <Row>
-              {posts.map(({ node: post }) => (
-                <Col md={4} key={post.fields.slug}>
-                  <PostCard post={post} />
-                </Col>
-              ))}
-            </Row>
-          </Grid>
+            ))}
+          </Row>
         </Section>
       )
     }}

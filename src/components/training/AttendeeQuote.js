@@ -14,10 +14,11 @@ const AttendeeQuote = ({
   ctaButton,
   ctaUrl = '/#',
   youtubeId,
+  youtubeTime,
   ...rest
 }) => (
   <Card variant="info" {...rest}>
-    {youtubeId && <Video youtubeId={youtubeId} />}
+    {youtubeId && <Video time={youtubeTime} youtubeId={youtubeId} />}
     <Box px={1}>
       <Blockquote>{quote || 'This is a quote from a trainee.'}</Blockquote>
       <P pt={2}>

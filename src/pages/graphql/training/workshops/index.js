@@ -7,9 +7,10 @@ import Link from 'src/components/navigation/Link'
 import { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H4, H5 } from 'src/components/text'
-import { UpcomingTrainingSection, TrainingCard } from 'src/components/training'
+import { UpcomingTrainingSection } from 'src/components/training'
 import Header from 'src/components/layout/Header'
-import { Card, Newsletter } from 'src/components/elements'
+import { Segment, Newsletter } from 'src/components/elements'
+import Card from 'src/components/elements/Card'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_PINK } from '../../../../config/styles'
 import { createSocialMetas } from 'src/components/utils'
@@ -83,7 +84,7 @@ const GraphQLWorkshops = ({ path }) => (
             subtitle="Specialist GraphQL workshops focussing on one specific part of GraphQL - all delivered by industry experts and that lasting a maximum of 1 day."
           />
           <TopSection marginTop={`-250`}>
-            <Card>
+            <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
                   <H2>Which GraphQL workshop are you looking for?</H2>
@@ -102,7 +103,7 @@ const GraphQLWorkshops = ({ path }) => (
 
                       return (
                         <Col sm={6} md={4}>
-                          <TrainingCard borderColor={GRAPHQL_PINK}>
+                          <Card borderColor={GRAPHQL_PINK}>
                             <Link underline={false} to={to}>
                               <H4>{workshop.title}</H4>
                             </Link>
@@ -115,7 +116,7 @@ const GraphQLWorkshops = ({ path }) => (
                             >
                               {text}
                             </LinkButton>
-                          </TrainingCard>
+                          </Card>
                         </Col>
                       )
                     })}
@@ -125,7 +126,7 @@ const GraphQLWorkshops = ({ path }) => (
                   <Newsletter />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

@@ -18,7 +18,7 @@ import {
   UpcomingTrainingSection,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { Video } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_NATIVE } from 'src/config/data'
@@ -66,10 +66,9 @@ const ReactNativeBoocamp = ({ path }) => (
             links={header.landingPageLinks.links}
           />
           <TopSection>
-            <Card>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
+            <Segment>
               <CurriculumReactNative />
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

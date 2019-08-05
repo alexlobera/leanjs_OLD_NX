@@ -92,7 +92,7 @@ const CurriculumReactBootcamp = ({
         <IntroReduxSession />
         <AdvancedReduxSession title="Advanced Redux" />
       </Section>
-      {marketingCard}
+      {marketingCard ? React.cloneElement(marketingCard, { type }) : null}
     </React.Fragment>
   )
   const secondHalf = (

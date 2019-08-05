@@ -7,7 +7,7 @@ import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
-import { Card } from '../components/elements'
+import { Segment } from '../components/elements'
 
 const ThanksForSignUp = () => (
   <Layout>
@@ -17,7 +17,7 @@ const ThanksForSignUp = () => (
       bgImageName={BOOTCAMP}
     />
     <TopSection>
-      <Card>
+      <Segment>
         <Row>
           <Col md={5} mdOffset={1}>
             <H2>What happens now?</H2>
@@ -42,7 +42,7 @@ const ThanksForSignUp = () => (
           </Col>
           <Col md={4} mdOffset={1} />
         </Row>
-      </Card>
+      </Segment>
     </TopSection>
   </Layout>
 )

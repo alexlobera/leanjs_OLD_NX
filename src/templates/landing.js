@@ -8,7 +8,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import CurriculumReactBootcamp from '../components/curriculum/CurriculumReactBootcamp'
-import { Card, Video } from '../components/elements'
+import { Segment, Video } from '../components/elements'
 import Header from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import {
@@ -61,7 +61,7 @@ const Landing = ({ data }) => {
             <TopSection>
               <Section variant="darkMob">
                 <Grid>
-                  <Card variant="primary">
+                  <Segment variant="primary">
                     <Row>
                       <Col md={6} lg={4} lgOffset={1}>
                         <Video youtubeId={youtubeId} />
@@ -80,7 +80,7 @@ const Landing = ({ data }) => {
                         <Newsletter />
                       </Col>
                     </Row>
-                  </Card>
+                  </Segment>
                 </Grid>
               </Section>
             </TopSection>
@@ -137,21 +137,21 @@ const Landing = ({ data }) => {
             </Section>
             <Section>
               <Grid>
-                <Card>
+                <Segment>
                   <Row>
                     <Col>
                       <H2>Trusted by industry leaders</H2>
                       <TrustedByLogoList />
                     </Col>
                   </Row>
-                </Card>
+                </Segment>
               </Grid>
             </Section>
             <Section>
               <Grid>
-                <Card white border="shadow">
+                <Segment white border="shadow">
                   <CurriculumReactBootcamp listTwoCol />
-                </Card>
+                </Segment>
               </Grid>
             </Section>
 

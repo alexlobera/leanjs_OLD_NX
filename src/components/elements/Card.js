@@ -1,80 +1,65 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Box from '../layout/Box'
-import { DARK_BLUE, BROWN, WHITE, BLUE, DARK_GREY } from '../../config/styles'
 import { fontColor } from '../text'
+import { getVariantProps } from '../utils'
+import Box from '../layout/Box'
+import { BLUE, WHITE, DARK_GREY, BOX_SHADOW } from '../../config/styles'
+
+const cardVariants = ({ borderColor, borderStyle }) => ({
+  primary: {
+    borderLeft: `3px ${borderStyle}`,
+    borderColor: borderColor,
+    pl: [2, 5],
+  },
+  secondary: {
+    boxShadow: BOX_SHADOW,
+    pl: [1, 5],
+    pr: [1, 5],
+    pt: [1, 5],
+    pb: [1, 5],
+    backgroundColor: WHITE,
+  },
+  info: {
+    border: `3px ${borderStyle}`,
+    borderColor: borderColor,
+    pl: [1, 5],
+    pr: [1, 5],
+    pt: [1, 5],
+    pb: [1, 5],
+  },
+})
 
 const StyledCard = styled(Box)`
-  position: relative;
-  ${({ variant, small }) => {
-    const isImportant = !!small
-    switch (variant) {
-      case 'primary':
-        return `
-          ${fontColor(WHITE, isImportant)}
-        `
-      case 'secondary':
-        return `
-          ${fontColor(DARK_GREY, isImportant)}
-        `
-      default:
-        return ''
-    }
-  }}
+  ${fontColor(DARK_GREY, true)}
 `
-StyledCard.defaultProps = {
-  pt: [0, 7],
-  pb: [0, 7],
-  pl: 0,
-  pr: 0,
-}
-
-const Card = props => {
+const Card = ({ borderColor, borderStyle, children, ...rest }) => {
   let smallProps = {}
-  if (props.small) {
-    smallProps.pt = [0, 5]
-    smallProps.pb = [0, 5]
-    smallProps.pl = [1, 5]
-    smallProps.pr = [1, 5]
+  if (rest.small) {
+    smallProps.pt = [1, 3]
+    smallProps.pb = [1, 3]
+    smallProps.pl = [1, 3]
+    smallProps.pr = [1, 3]
   }
   return (
     <StyledCard
+      {...getVariantProps(
+        rest.variant || rest.variants,
+        cardVariants({ borderColor, borderStyle })
+      )}
       {...smallProps}
-      {...(cardVariantProps[props.variant] || {})}
-      {...props}
-    />
+      {...rest}
+    >
+      {children}
+    </StyledCard>
   )
 }
-
-const cardVariantProps = {
-  info: {
-    pl: [0, 6],
-    pr: [0, 6],
-    pt: [0, 6],
-    pb: [0, 6],
-    border: [null, '3px solid'],
-    borderColor: [null, BLUE],
-  },
-  primary: {
-    pt: [2, 5],
-    pb: [2, 5],
-    backgroundColor: DARK_BLUE,
-    border: [null, `1px solid ${BROWN}`],
-    borderColor: BROWN,
-  },
-  secondary: {
-    backgroundColor: WHITE,
-    boxShadow: [
-      null,
-      '0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);',
-    ],
-  },
-}
-
-Card.displayName = 'Card'
 Card.defaultProps = {
-  variant: 'secondary',
+  variant: 'primary',
+  borderColor: BLUE,
+  borderStyle: 'solid',
+  position: 'relative',
 }
+Card.displayName = 'Card'
 
 export default Card

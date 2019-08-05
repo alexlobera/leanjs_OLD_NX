@@ -19,7 +19,7 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_FUNDAMENTALS } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -66,12 +66,11 @@ const ReactFundamentals = ({ path }) => (
             type={REACT_FUNDAMENTALS}
           />
           <TopSection>
-            <Card>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
+            <Segment>
               <CurriculumReactFundamentals
                 trainings={upcomingFundamentalsTrainings}
               />
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

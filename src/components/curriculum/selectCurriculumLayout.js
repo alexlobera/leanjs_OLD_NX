@@ -77,7 +77,10 @@ const selectCurriculumLayout = ({
         )}
         <Row>
           <Col md={6} lg={5} lgOffset={1}>
-            <H3>{curriculumTitle}</H3>
+            <H3>
+              {curriculumTitle}
+              <a name="curriculum" />
+            </H3>
             {firstHalf}
             {secondHalf}
             {curriculumTo && curriculumButtonSection}

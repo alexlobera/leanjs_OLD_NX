@@ -1,14 +1,14 @@
 export const FONT_FAMILY = `font-family: 'Barlow', sans-serif;`
 
-export const BLUE = `rgba(97, 218, 251, 1)` // #6FCFF0
+export const BLUE = `rgba(97, 218, 251, 1)`
 
-export const BLUE_04 = `rgba(97, 218, 251, 0.4)` // #6FCFF0
+export const BLUE_04 = `rgba(97, 218, 251, 0.4)`
 
-export const DARK_BLUE = `rgba(0,41,56, 1)` // #002938
+export const DARK_BLUE = `rgba(0,41,56, 1)`
 
 export const DARK_BLUE_075 = `rgba(0,41,56, 0.75)`
 
-export const LIGHT_BLUE = `rgba(87,178,212,0.9)` // '#57B2D4'
+export const LIGHT_BLUE = `rgba(87,178,212,0.9)`
 
 export const YELLOW = '#D6D100'
 
@@ -29,6 +29,9 @@ export const GREEN = '#80da8d'
 export const MEETUP_RED = '#F64060'
 
 export const RED = '#C0392B'
+
+export const BOX_SHADOW =
+  '0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12);'
 
 export const TEXT_SIZE = ({ sm = false, lg = false }) => {
   if (sm) return `font-size: 12px;`

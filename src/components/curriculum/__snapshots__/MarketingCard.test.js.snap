@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MarketingCard /> should render component 1`] = `
-<styled.div>
+<Card
+  borderColor="rgba(97, 218, 251, 1)"
+  borderStyle="solid"
+  mb={2}
+  mt={4}
+  position="relative"
+  variant="info"
+>
   <Row>
     <Styled(Styled(Box))
       box={[Function]}
@@ -24,5 +31,5 @@ exports[`<MarketingCard /> should render component 1`] = `
       />
     </Styled(Styled(Box))>
   </Row>
-</styled.div>
+</Card>
 `;

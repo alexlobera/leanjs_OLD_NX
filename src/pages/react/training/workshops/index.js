@@ -9,11 +9,11 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P, H4, H5, Span } from 'src/components/text'
 import {
   UpcomingTrainingSection,
-  TrainingCard,
   selectUpcomingTrainings,
 } from 'src/components/training'
 import Header from 'src/components/layout/Header'
-import { Card, Newsletter } from 'src/components/elements'
+import { Segment, Newsletter } from 'src/components/elements'
+import Card from 'src/components/elements/Card'
 import { Breadcrumb } from 'src/components/navigation'
 import { LIGHT_BLUE } from '../../../../config/styles'
 import { REACT_WORKSHOP } from '../../../../config/data'
@@ -93,7 +93,7 @@ const Workshops = ({ path }) => (
             subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
           />
           <TopSection marginTop={`-250`}>
-            <Card>
+            <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
                   <H2>Which 1-day React training are you looking for?</H2>
@@ -142,7 +142,7 @@ const Workshops = ({ path }) => (
 
                       return (
                         <Col sm={6} md={4}>
-                          <TrainingCard borderColor={LIGHT_BLUE}>
+                          <Card borderColor={LIGHT_BLUE}>
                             <Link underline={false} to={to}>
                               <H4>{title}</H4>
                             </Link>
@@ -177,7 +177,7 @@ const Workshops = ({ path }) => (
                             >
                               {buttonText}
                             </LinkButton>
-                          </TrainingCard>
+                          </Card>
                         </Col>
                       )
                     })}
@@ -187,7 +187,7 @@ const Workshops = ({ path }) => (
                   <Newsletter />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

@@ -23,6 +23,7 @@ const Th = styled(responsiveTable.Th)`
 `
 const Td = styled(responsiveTable.Td)`
   text-align: center;
+  vertical-align: ${({ verticalAlign = 'center' }) => verticalAlign};
 `
 
 export { Table, Thead, Tbody, Tr, Th, Td }

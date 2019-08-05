@@ -16,7 +16,7 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_API } from 'src/config/data'
@@ -67,13 +67,12 @@ const GraphQL = ({ path }) => (
             type={GRAPHQL_API}
           />
           <TopSection>
-            <Card>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
+            <Segment>
               <CurriculumGraphQLAPI
                 trainings={upcomingGraphQLTrainings}
                 isOpen={false}
               />
-            </Card>
+            </Segment>
           </TopSection>
 
           <Section>

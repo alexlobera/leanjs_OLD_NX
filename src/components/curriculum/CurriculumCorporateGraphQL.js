@@ -9,7 +9,6 @@ const CurriculumCorporateGraphQL = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
-  marketingCard = null,
   showLinkToCurriculum = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
@@ -47,7 +46,6 @@ const CurriculumCorporateGraphQL = ({
         name="day4"
         subTitle="Testing GraphQL, replacing redux with GraphQL and production tooling"
       />
-      {marketingCard}
     </React.Fragment>
   )
   const secondHalf = (

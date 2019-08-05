@@ -10,7 +10,7 @@ import Ul from 'src/components/layout/Ul'
 import CurriculumStylingAndAdvUI, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -81,13 +81,13 @@ const StylingDesignSystemWorkshop = ({ path }) => (
             type={REACT_WORKSHOP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumStylingAndAdvUI layout={LIST_TWO_COL} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
 
           <Section>

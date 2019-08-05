@@ -7,13 +7,13 @@ import { H2, H3, P } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
 import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
-import { Card } from '../components/elements'
+import { Segment } from '../components/elements'
 
 const PrivacyPolicy = () => (
   <Layout>
     <Header titleLines={['Privacy Policy']} />
     <TopSection>
-      <Card>
+      <Segment>
         <Row>
           <Col md={10} mdOffset={1}>
             <P>
@@ -39,7 +39,7 @@ const PrivacyPolicy = () => (
             </P>
           </Col>
         </Row>
-      </Card>
+      </Segment>
     </TopSection>
     <Section>
       <Row>

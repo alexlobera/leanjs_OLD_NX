@@ -9,7 +9,6 @@ const CurriculumCorporateReact = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
-  marketingCard = null,
   showLinkToCurriculum = false,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
@@ -47,7 +46,6 @@ const CurriculumCorporateReact = ({
         name="day4"
         subTitle="Redux and Testing Principles"
       />
-      {marketingCard}
     </React.Fragment>
   )
   const secondHalf = (
@@ -68,7 +66,7 @@ const CurriculumCorporateReact = ({
     layout,
     type,
     corpTrainingFacts: true,
-    curriculumTitle: 'React Training Curriculum Example',
+    curriculumTitle: 'React Training Schedule Example',
   })
 }
 

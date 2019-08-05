@@ -10,7 +10,7 @@ import { TopSection } from 'src/components/layout/Section'
 import { Ul, Li } from 'src/components/layout/Ul'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H2Ref, H3, H4, H5, P, Span, Hr } from 'src/components/text'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { UpcomingTrainingSection } from 'src/components/training'
 import { PaymentSection } from 'src/components/payment'
@@ -92,7 +92,7 @@ const Meetup = () => (
                       className="meetup-details-clicks"
                     />
                     <TopSection variant="darkMob">
-                      <Card variant="primary">
+                      <Segment variant="primary">
                         <Row>
                           <Col md={6} lg={4} lgOffset={1}>
                             <H2Ref>
@@ -134,7 +134,7 @@ const Meetup = () => (
                             />
                           </Col>
                         </Row>
-                      </Card>
+                      </Segment>
                     </TopSection>
                     <UpcomingTrainingSection trainings={trainings} />
                   </>

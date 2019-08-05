@@ -8,7 +8,7 @@ import Section, { TopSection } from '../../components/layout/Section'
 import { Col, Row } from '../../components/layout/Grid'
 import { H2, H3, P } from '../../components/text'
 import { Link } from '../../components/navigation'
-import { Card, Image } from '../../components/elements'
+import { Segment, Image } from '../../components/elements'
 import { RootHeader as Header } from '../../components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -189,7 +189,7 @@ const Community = ({ data, path }) => (
             </CallToActionRow>
             <Row>
               <Col md={6}>
-                <Card>
+                <Segment>
                   <Col md={8} mdOffset={2}>
                     <H2>
                       Meetups? Yes! <a name="meetups" />
@@ -206,8 +206,8 @@ const Community = ({ data, path }) => (
                     </LinkButton>
                     <OurMeetupGroups />
                   </Col>
-                </Card>
-                <Card mt={5}>
+                </Segment>
+                <Segment mt={5}>
                   <Col md={8} mdOffset={2}>
                     <H2>
                       Instagram - boom! <a name="instagram" />
@@ -230,10 +230,10 @@ const Community = ({ data, path }) => (
                       ))}
                     </Row>
                   </Col>
-                </Card>
+                </Segment>
               </Col>
               <Col md={6}>
-                <Card>
+                <Segment>
                   <Col md={8} mdOffset={2}>
                     <H2>
                       Twitter? Sure.
@@ -241,7 +241,7 @@ const Community = ({ data, path }) => (
                     </H2>
                     <TwitterWidgetsOnlyOnClientSide />
                   </Col>
-                </Card>
+                </Segment>
               </Col>
               <Col md={6} />
             </Row>

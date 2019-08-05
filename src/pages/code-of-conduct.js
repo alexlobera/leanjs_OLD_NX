@@ -8,7 +8,7 @@ import { H2, H2Ref, P } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import { RootHeader as Header } from '../components/layout/Header'
-import { Card } from '../components/elements'
+import { Segment } from '../components/elements'
 import { Image } from '../components/elements'
 import Link from '../components/navigation/Link'
 
@@ -28,7 +28,7 @@ const CodeOfConduct = ({ data }) => (
             ]}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <Row>
@@ -104,7 +104,7 @@ const CodeOfConduct = ({ data }) => (
                   </Row>
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

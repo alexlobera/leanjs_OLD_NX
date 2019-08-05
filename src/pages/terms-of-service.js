@@ -7,7 +7,7 @@ import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
-import { Card } from '../components/elements'
+import { Segment } from '../components/elements'
 import Box from '../components/layout/Box'
 
 const SubSection = styled(Box)``
@@ -20,7 +20,7 @@ const TermsOfService = () => (
   <Layout>
     <Header titleLines={['Terms of service']} />
     <TopSection>
-      <Card>
+      <Segment>
         <Row>
           <Col md={10} mdOffset={1}>
             <H2>
@@ -29,7 +29,7 @@ const TermsOfService = () => (
             </H2>
           </Col>
         </Row>
-      </Card>
+      </Segment>
     </TopSection>
     <Section>
       <Row>

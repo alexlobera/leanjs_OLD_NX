@@ -29,9 +29,9 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
-  TrainingCard,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
+import Card from 'src/components/elements/Card'
 import { getURLParameter } from 'src/components/utils/url'
 import { GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_CLIENT } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
@@ -110,7 +110,7 @@ class GraphQLCurriculum extends React.Component {
                 bgColor={GRAPHQL_PINK}
               />
               <TopSection>
-                <Card>
+                <Segment>
                   <Row>
                     <Col lg={10} lgOffset={1}>
                       <H2Ref>
@@ -221,7 +221,7 @@ class GraphQLCurriculum extends React.Component {
                           <H5>Also available...</H5>
                         </Col>
                         <Col md={6}>
-                          <TrainingCard borderColor={GRAPHQL_PINK}>
+                          <Card borderColor={GRAPHQL_PINK}>
                             <H4>Corporate training</H4>
                             <P>
                               Private team training, located in your offices
@@ -233,10 +233,10 @@ class GraphQLCurriculum extends React.Component {
                             >
                               Find Out More
                             </Link>
-                          </TrainingCard>
+                          </Card>
                         </Col>
                         <Col md={6}>
-                          <TrainingCard mb={0} borderColor={GRAPHQL_PINK}>
+                          <Card mb={0} borderColor={GRAPHQL_PINK}>
                             <H4>1 Day Workshops</H4>
                             <P>
                               Instense training focussing on specific parts of
@@ -249,12 +249,12 @@ class GraphQLCurriculum extends React.Component {
                             >
                               Find Out More
                             </Link>
-                          </TrainingCard>
+                          </Card>
                         </Col>
                       </Row>
                     </Col>
                   </Row>
-                </Card>
+                </Segment>
               </TopSection>
 
               <Section>

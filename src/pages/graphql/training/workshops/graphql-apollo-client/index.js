@@ -8,7 +8,7 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumGraphQLApollo from 'src/components/curriculum/workshops/CurriculumGraphQLApollo'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
@@ -78,13 +78,13 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
             training={training}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumGraphQLApollo layout={LIST_TWO_COL} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
 
           <Section>

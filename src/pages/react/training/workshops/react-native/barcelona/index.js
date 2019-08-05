@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import { Card, Video } from 'src/components/elements'
+import { Segment, Video } from 'src/components/elements'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import Header from 'src/components/layout/Header'
 import {
@@ -98,7 +98,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="darkMob">
-            <Card variant="primary">
+            <Segment variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>
                   <PaymentSection
@@ -113,7 +113,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   <TrainingDetails foodIncluded coaches={[HORACIO_HERRERA]} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>
@@ -148,13 +148,13 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
           </Section>
 
           <Section>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumReactNative layout={LIST_TWO_COL} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </Section>
 
           <UpcomingTrainingSection trainings={trainings} />

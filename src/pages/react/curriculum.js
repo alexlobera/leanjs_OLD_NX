@@ -29,9 +29,8 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
-  TrainingCard,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { Tick } from 'src/components/icons'
 import { getURLParameter } from 'src/components/utils/url'
 import { formatUTC } from 'src/components/utils'
@@ -43,7 +42,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-import { LIGHT_BLUE, BLUE } from '../../config/styles'
+import { BLUE } from '../../config/styles'
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -125,7 +124,7 @@ class ReactCurriculum extends React.Component {
                 bgImageName={BOOTCAMP}
               />
               <TopSection>
-                <Card>
+                <Segment>
                   <Row>
                     <Col lg={10} lgOffset={1}>
                       <H2Ref>
@@ -250,8 +249,14 @@ class ReactCurriculum extends React.Component {
                             <Td />
                           </Tr>
                           <Tr>
-                            <Td />
+                            <Td verticalAlign="top">Timings/Pricing</Td>
                             <Td>
+                              <Ul textAlign="left">
+                                <Li>1 week</Li>
+                                <Li>Full time</Li>
+                                <Li>9 am to 6 pm</Li>
+                                <Li>Starting at £1630</Li>
+                              </Ul>
                               <LinkButton
                                 variant="secondary"
                                 to="/react/training/bootcamp"
@@ -261,15 +266,12 @@ class ReactCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
-                              <LinkButton
-                                variant="secondary"
-                                to="/react/training/advanced"
-                                className="training-curriculum-clicks"
-                              >
-                                Advanced
-                              </LinkButton>
-                            </Td>
-                            <Td>
+                              <Ul textAlign="left">
+                                <Li>1 month</Li>
+                                <Li>Part time</Li>
+                                <Li>Evenings or weekends</Li>
+                                <Li>Starting at £980</Li>
+                              </Ul>
                               <LinkButton
                                 variant="secondary"
                                 to="/react/training/part-time-course/"
@@ -279,6 +281,31 @@ class ReactCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
+                              <Ul textAlign="left">
+                                <Li>3 days</Li>
+                                <Li>Full time</Li>
+                                <Li>9 am to 6 pm</Li>
+                                <Li>Starting at £1100</Li>
+                              </Ul>
+                              <LinkButton
+                                variant="secondary"
+                                to="/react/training/advanced"
+                                className="training-curriculum-clicks"
+                              >
+                                Advanced
+                              </LinkButton>
+                            </Td>
+                            <Td>
+                              <Ul textAlign="left">
+                                <Li>3 days</Li>
+                                <Li>Full time</Li>
+                                <Li>9 am to 6 pm</Li>
+                                <Li>
+                                  Starting at £980
+                                  <br />
+                                  &nbsp;
+                                </Li>
+                              </Ul>
                               <LinkButton
                                 variant="secondary"
                                 to="/react/training/react-fundamentals/"
@@ -290,45 +317,34 @@ class ReactCurriculum extends React.Component {
                           </Tr>
                         </Tbody>
                       </Table>
+
+                      <H5>Also available...</H5>
                       <Row>
-                        <Col>
-                          <H5>Also available...</H5>
-                        </Col>
-                        <Col md={6}>
-                          <TrainingCard borderColor={LIGHT_BLUE}>
-                            <H4>Corporate training</H4>
-                            <P>
-                              Private team training, located in your offices
-                              anywhere in the world.
-                            </P>
-                            <Link
-                              to="/react/training/corporate"
+                        {[
+                          {
+                            to: '/react/training/corporate/',
+                            txt: 'Corporate team training',
+                          },
+                          {
+                            to: '/react/training/workshops/',
+                            txt: '1-day React workshops',
+                          },
+                          { to: '/graphql/training/', txt: 'GraphQL training' },
+                        ].map(({ to, txt }) => (
+                          <Col md={4}>
+                            <LinkButton
+                              display="block"
                               className="training-curriculum-clicks"
+                              to={to}
                             >
-                              Find Out More
-                            </Link>
-                          </TrainingCard>
-                        </Col>
-                        <Col md={6}>
-                          <TrainingCard mb={0} borderColor={LIGHT_BLUE}>
-                            <H4>1 Day Workshops</H4>
-                            <P>
-                              Instense training focussing on specific parts of
-                              our React curriculum.
-                            </P>
-                            <Link
-                              variant="secondary"
-                              to="/react/training/workshops"
-                              className="training-curriculum-clicks"
-                            >
-                              Find Out More
-                            </Link>
-                          </TrainingCard>
-                        </Col>
+                              {txt}
+                            </LinkButton>
+                          </Col>
+                        ))}
                       </Row>
                     </Col>
                   </Row>
-                </Card>
+                </Segment>
               </TopSection>
               <Section>
                 <Row>

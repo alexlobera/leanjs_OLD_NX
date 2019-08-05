@@ -8,7 +8,7 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'
-import { Card, Image } from 'src/components/elements'
+import { Segment, Image } from 'src/components/elements'
 import { RootHeader as Header } from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -84,7 +84,7 @@ const Meetups = ({ data, path }) => (
             training={nextMeetup}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Col lg={11} lgOffset={1}>
                 <H2>
                   Our upcoming meetups
@@ -98,7 +98,7 @@ const Meetups = ({ data, path }) => (
                 />
                 <OurMeetupGroups />
               </Col>
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

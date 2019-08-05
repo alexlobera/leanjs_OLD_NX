@@ -15,7 +15,7 @@ import {
 } from 'src/components/training'
 import Ul, { Li } from 'src/components/layout/Ul'
 import TrustedBySection from 'src/components/training/TrustedBySection'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { Breadcrumb } from 'src/components/navigation'
 import BlogSection from 'src/components/blog/BlogSection'
@@ -132,7 +132,7 @@ const Location = ({ path, data }) => (
             ]}
           />
           <TopSection mt={-250}>
-            <Card border="shadow">
+            <Segment border="shadow">
               <Link to="#upcoming" name="upcoming" />
               <Row>
                 <Col lg={10} lgOffset={1}>
@@ -140,7 +140,7 @@ const Location = ({ path, data }) => (
                   <UpcomingTrainingTabs trainings={upcomingEvents} limit={12} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
 
           <ColSection

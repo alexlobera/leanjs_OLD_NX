@@ -7,7 +7,7 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import { Card, Video } from 'src/components/elements'
+import { Segment, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
@@ -102,7 +102,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="darkMob">
-            <Card variant="primary">
+            <Segment variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>
                   <PaymentSection
@@ -120,10 +120,10 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumAdvancedReact
@@ -132,7 +132,7 @@ const Page = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </Section>
           <Section>
             <Row>

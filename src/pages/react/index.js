@@ -12,18 +12,16 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Header from 'src/components/layout/Header'
-import {
-  TrustedBySection,
-  UpcomingTrainingSection,
-} from 'src/components/training'
-import { Card, Video } from 'src/components/elements'
+import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
+import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
-import { LIGHT_BLUE } from 'src/config/styles'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
+import Newsletter from 'src/components/elements/Newsletter'
+import Card from 'src/components/elements/Card'
 
 const trainingList = [
   {
@@ -110,34 +108,42 @@ const ReactPage = ({ data, path }) => {
                 text: 'What is React?',
                 to: '#what-is-react',
               },
-              {
-                text: 'Should I learn React?',
-                to: '#should-i-learn-react',
-              },
             ]}
             type={REACT_BOOTCAMP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Link to="#free-react-resources" name="free-react-resources" />
                 <Col md={5} mdOffset={1}>
                   <LearningResources resources={posts} type="React" />
                 </Col>
                 <Link to="#our-react-training" name="our-react-training" />
-                <Col md={4} mdOffset={1}>
+                <Col md={4} mdOffset={1} mt={[5, 0]}>
                   <H3>Our React training</H3>
-                  <TrainingCardList
-                    data={trainingList}
-                    borderColor={LIGHT_BLUE}
-                  />
+                  <TrainingCardList data={trainingList} borderColor={BLUE} />
+                  <Card variant="primary" mt={4}>
+                    <Newsletter mt={2} buttonVariant="primary" />
+                  </Card>
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
+
           <Section>
             <Row>
-              <Col md={5} mdOffset={1}>
+              <Col md={5} mdOffset={1} order={[2, 1]}>
+                <AttendeeQuote
+                  mt={[5, 0]}
+                  quote="I've found it [the course] fantastic, it was really tiring but it was all worth it... it taught me many things I didn't even know I don't know about React"
+                  fullname="Polina Stoyanova"
+                  job="Software Engineer & UX"
+                  company="tray.io"
+                  youtubeId="6hmKu1-vW-8"
+                  youtubeTime="35"
+                />
+              </Col>
+              <Col md={4} lgOffset={1} order={[1, 2]}>
                 <H2>
                   <Link to="#what-is-react" name="what-is-react" />
                   What is React?
@@ -162,23 +168,8 @@ const ReactPage = ({ data, path }) => {
                   </LinkButton>
                 </P>
               </Col>
-              <Col md={5} mdOffset={1}>
-                <Link to="#should-i-learn-react" name="should-i-learn-react" />
-                <Video youtubeId="6hmKu1-vW-8" />
-                <P>
-                  Polina Stoyanova, a software engineer from tray.io, explains
-                  her experiences of learning React on our React Bootcamp
-                </P>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
-              </Col>
             </Row>
           </Section>
-          <TrustedBySection showContent />
 
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

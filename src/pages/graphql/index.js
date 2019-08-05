@@ -15,7 +15,7 @@ import {
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
-import { Card, Image } from 'src/components/elements'
+import { Segment, Image } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_BOOTCAMP } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
@@ -23,6 +23,8 @@ import LearningResources from 'src/components/blog/LearningResources'
 import { GRAPHQL_PINK } from 'src/config/styles'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import Newsletter from 'src/components/elements/Newsletter'
+import Card from 'src/components/elements/Card'
 
 const trainingList = [
   {
@@ -93,7 +95,7 @@ const GraphQLPage = ({ data, path }) => {
             type={GRAPHQL_BOOTCAMP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Link
                   to="#free-graphql-resources"
@@ -110,9 +112,12 @@ const GraphQLPage = ({ data, path }) => {
                     borderColor={GRAPHQL_PINK}
                     className="course-training-clicks"
                   />
+                  <Card variant="primary" borderColor={GRAPHQL_PINK} mt={4}>
+                    <Newsletter mt={2} buttonVariant="primary" />
+                  </Card>
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
 
           <Section>

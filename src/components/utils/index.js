@@ -233,7 +233,7 @@ export const trainingTimings = ({ training = {} }) =>
     formatUTC(training.startDate, training.utcOffset, 'HH:mm')) ||
     '09:00'} - ${(training.endDate &&
     formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
-    '18:30'}`
+    '18:00'}`
 
 function twoDigits(number) {
   return ('0' + number).slice(-2)

@@ -6,7 +6,7 @@ import { LinkButton } from '../buttons'
 import Section from '../layout/Section'
 import Flex from '../layout/Flex'
 import { Col, Row } from '../layout/Grid'
-import { Video, Card } from '../elements'
+import { Video, Segment } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { H2 } from '../text'
 import Capgemini from '../logos/Capgemini'
@@ -108,7 +108,7 @@ const TrustedBySection = ({ type, showContent = false }) => {
   )
   return (
     <Section variant="dark">
-      <Card variant="primary" border="none">
+      <Segment variant="primary" border="none">
         <Row>
           <Col lg={10} lgOffset={1} mb={5}>
             <H2>
@@ -150,7 +150,7 @@ const TrustedBySection = ({ type, showContent = false }) => {
             </Col>
           )}
         </Row>
-      </Card>
+      </Segment>
     </Section>
   )
 }

@@ -65,7 +65,7 @@ const CurriculumGraphQLBootcamp = ({
       >
         <GraphQLApolloClientDaySessions />
       </Section>
-      {marketingCard}
+      {marketingCard ? React.cloneElement(marketingCard, { type }) : null}
     </React.Fragment>
   )
 

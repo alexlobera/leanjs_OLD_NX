@@ -49,7 +49,7 @@ const TrainingItem = ({
       {cityCountry}
       <br />
       <Link className={className} to={path}>
-        Find out more
+        Prices & more details
       </Link>
     </P>
   </Flex>
