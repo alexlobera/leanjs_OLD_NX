@@ -1,8 +1,8 @@
 import React from 'react'
 import { H2 } from 'src/components/text'
-import Newsletter from 'src/components/elements/Newsletter'
 import Box from '../layout/Box'
 import PostCard from './PostCard'
+import { LinkButton } from '../buttons'
 
 const LearningResources = ({ resources = [], type = '' }) => (
   <React.Fragment>
@@ -15,7 +15,7 @@ const LearningResources = ({ resources = [], type = '' }) => (
         />
       ))}
     </Box>
-    <Newsletter />
+    <LinkButton to="/blog">Read blog</LinkButton>
   </React.Fragment>
 )
 

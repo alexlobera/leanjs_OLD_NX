@@ -7,7 +7,8 @@ import { navigate } from 'gatsby'
 import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
 import ContactForm from '../../components/form/Contact'
 import { H2Ref, H3, P } from '../text'
-import { Ribbon, Card } from '../elements'
+import { Ribbon, Segment } from '../elements'
+import Card from '../elements/Card'
 import Link from '../navigation/Link'
 import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
@@ -19,7 +20,7 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
-import { FinanceCard } from './'
+import FinanceCard from './FinanceCard'
 
 const primaryCardPaddingTopBottomProps = {
   pt: [2, 5],
@@ -216,7 +217,7 @@ class PaymentSection extends React.Component {
               training, it does not include travel expenses.
             </P>
           )}
-          <Card small {...primaryCardPaddingTopBottomProps}>
+          <Card variant="secondary" {...primaryCardPaddingTopBottomProps}>
             <H3>
               <strong>{notSoldOut ? title : 'Sold out!'}</strong>
             </H3>
@@ -275,9 +276,9 @@ class PaymentSection extends React.Component {
         {financeAvailable && (
           <FinanceCard {...primaryCardPaddingTopBottomProps} />
         )}
-        <Card small variant="primary" mt={3}>
+        <Segment small variant="primary" mt={3}>
           <ContactForm simplified />
-        </Card>
+        </Segment>
       </React.Fragment>
     )
   }

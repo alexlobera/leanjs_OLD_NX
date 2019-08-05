@@ -13,7 +13,7 @@ import { H2, H2Ref, H3, P, H5 } from '../components/text'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import { RootHeader as Header } from '../components/layout/Header'
-import { Card, Video, Image } from '../components/elements'
+import { Segment, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Box from '../components/layout/Box'
 import { GREY } from '../config/styles.js'
@@ -44,7 +44,7 @@ const AboutUs = ({ data }) => {
             ]}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
                   <H2>
@@ -79,7 +79,7 @@ const AboutUs = ({ data }) => {
                   </Row>
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section mb={0} pb={0}>
             <H2>Our coaches</H2>
@@ -295,9 +295,9 @@ const AboutUs = ({ data }) => {
             </Row>
           </Section>
           <Section variant="dark">
-            <Card variant="primary" border="none">
+            <Segment variant="primary" border="none">
               <LeanJSsprints />
-            </Card>
+            </Segment>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

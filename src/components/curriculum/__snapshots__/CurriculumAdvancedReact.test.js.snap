@@ -43,14 +43,18 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         pt={4}
       >
         Course outline
+        <a
+          name="curriculum"
+        />
       </Styled(Box)>
       <CurriculumSection
         buyPath="/react/training/workshops/advanced-react-patterns-fp-performance"
+        mt={4}
         name="day1"
         subTitle="Advanced React patterns, Hooks, and performance"
         title="Advanced React Day 1"
         toggleNavigateTo={[Function]}
-        trainingTime=" 09:00 - 18:30"
+        trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
         <HoCsRenderPropsStateReducerSession
@@ -61,11 +65,12 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         />
       </CurriculumSection>
       <CurriculumSection
+        mt={4}
         name="day2"
         subTitle="Advanced UI Patterns & Styling in React"
         title="Advanced React Day 2"
         toggleNavigateTo={[Function]}
-        trainingTime=" 09:00 - 18:30"
+        trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
         <AdvancedUIPatterns
@@ -77,11 +82,12 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         />
       </CurriculumSection>
       <CurriculumSection
+        mt={4}
         name="day3"
         subTitle="Real-World Testing in React"
         title="Advanced React Day 3"
         toggleNavigateTo={[Function]}
-        trainingTime=" 09:00 - 18:30"
+        trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
         <TestingIntroSession />

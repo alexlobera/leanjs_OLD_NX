@@ -8,7 +8,7 @@ import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
 import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
-import { Card } from '../components/elements'
+import { Segment } from '../components/elements'
 import trackUserBehaviour, {
   CHECKOUT_PAYMENT_SUCCESS,
 } from '../components/utils/trackUserBehaviour'
@@ -58,7 +58,7 @@ class PaymentConfirmation extends React.Component {
           bgImageName={BOOTCAMP}
         />
         <TopSection marginTop="-250">
-          <Card>
+          <Segment>
             <Row>
               <Col md={5} mdOffset={1}>
                 <H2>What happens now?</H2>
@@ -80,7 +80,7 @@ class PaymentConfirmation extends React.Component {
               </Col>
               <Col md={4} mdOffset={1} />
             </Row>
-          </Card>
+          </Segment>
         </TopSection>
       </Layout>
     )

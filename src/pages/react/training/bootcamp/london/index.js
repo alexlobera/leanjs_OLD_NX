@@ -11,7 +11,7 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
-import { Card, Video } from 'src/components/elements'
+import { Segment, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
@@ -95,7 +95,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="darkMob">
-            <Card variant="primary">
+            <Segment variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>
                   <PaymentSection
@@ -115,10 +115,10 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumReactBootcamp
@@ -127,7 +127,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </Section>
           <Section>
             <Row>

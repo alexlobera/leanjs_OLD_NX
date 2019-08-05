@@ -307,7 +307,7 @@ class CheckoutForm extends React.Component {
                   validate={required}
                 />
                 <CCNumberInput
-                  label="Card number:"
+                  label="Segment number:"
                   name="CCnumber"
                   placeholder="XXXX XXXX XXXX XXXX"
                   autoComplete="cc-number"

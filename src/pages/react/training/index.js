@@ -17,7 +17,7 @@ import {
   TrustedBySection,
   UpcomingTrainingSection,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -111,6 +111,10 @@ const TrainingPage = ({ path }) => (
             }
             links={[
               {
+                text: 'Course Outline',
+                to: '#curriculum',
+              },
+              {
                 text: 'Upcoming Courses',
                 to: '#upcoming-courses',
               },
@@ -130,9 +134,9 @@ const TrainingPage = ({ path }) => (
             type={REACT_BOOTCAMP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <FullCurriculumsReact trainings={trainings} />
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>
@@ -147,7 +151,18 @@ const TrainingPage = ({ path }) => (
               </Col>
               <Col md={4} mdOffset={1}>
                 <Link to="#student-outcomes" name="student-outcomes" />
-                <H2>What developers get from our training</H2>
+                <H2>What developers can expect...</H2>
+                <P>
+                  <strong>Not for beginner devs!</strong>{' '}
+                </P>
+                <P>
+                  <Link
+                    className="perfect-course-student"
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                  >
+                    Blog: Are YOU the Perfect React Student?
+                  </Link>
+                </P>
                 <Ul>
                   <Li>
                     <strong>Build production ready</strong> React apps.
@@ -168,21 +183,6 @@ const TrainingPage = ({ path }) => (
                 <LinkButton pdf to={CONVINCE_THE_BOSS_PDF}>
                   Download: Why Devs Should Learn With Us
                 </LinkButton>
-                <H3>Not for beginner devs!</H3>
-                <P>
-                  <strong>We do not run learn-to-code bootcamps</strong>. If you
-                  want to learn to code, we recommend checking out{' '}
-                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                    Free Code camps
-                  </Link>
-                  .
-                </P>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
               </Col>
             </Row>
           </Section>

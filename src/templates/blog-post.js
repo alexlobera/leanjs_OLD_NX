@@ -16,7 +16,7 @@ import { Breadcrumb, Link } from '../components/navigation'
 import { WHITE } from '../config/styles'
 import { Image } from '../components/elements'
 import ContactForm from '../components/form/Contact'
-import { Card, Video } from '../components/elements'
+import { Segment, Video } from '../components/elements'
 import { blogAuthors } from '../config/data'
 import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
 import Tweet from '../components/blog/Tweet'
@@ -165,11 +165,11 @@ const BlogPost = ({ data }) => {
                 {renderAst(htmlAst)}
               </Col>
               <Col md={4} mdOffset={1}>
-                <Card small variant="primary" mt={3}>
+                <Segment small variant="primary" mt={3}>
                   <ContactForm simplified />
-                </Card>
+                </Segment>
                 {relatedPosts.length ? (
-                  <Card border="shadow" small mt={4}>
+                  <Segment border="shadow" small mt={4}>
                     <H4>Related articles</H4>
                     {relatedPosts.map((post, index) => (
                       <React.Fragment key={index}>
@@ -182,7 +182,7 @@ const BlogPost = ({ data }) => {
                         <P>{formatUTC(post.node.frontmatter.date)}</P>
                       </React.Fragment>
                     ))}
-                  </Card>
+                  </Segment>
                 ) : null}
               </Col>
             </Row>

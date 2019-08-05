@@ -11,24 +11,10 @@ import { selectTypeColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
 import Flex from '../layout/Flex'
 import Box from '../layout/Box'
+import Card from '../elements/Card'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
-
-const Section = styled(Box)`
-  &:first-child {
-    margin-top: 0;
-  }
-  ${({ type }) =>
-    `border-left: 3px ${selectBorderStyle(type)} ${selectTypeColor(type)};`}
-  a {
-    display: inline-block;
-  }
-`
-Section.defaultProps = {
-  mt: 5,
-  pl: 3,
-}
 
 const StyledFeedback = styled(Flex)`
   border: 2px dashed ${PINK};
@@ -80,9 +66,8 @@ const CurriculumSection = props => {
     enableToggle = false,
     toggleNavigateTo,
     showLinkToCurriculum = true,
+    mt,
   } = props
-  // TODO: Remove traingType once all upcoming workshops have type REACT_WORKSHOP or GRAPHQL_WORKSHOP as it should only be a string
-  const trainingType = type.length < 5 ? type[0] : type
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
       ? {
@@ -116,7 +101,11 @@ const CurriculumSection = props => {
   )
 
   return (
-    <Section type={trainingType}>
+    <Card
+      borderStyle={selectBorderStyle(type)}
+      borderColor={selectTypeColor(type)}
+      mt={mt}
+    >
       <Element name={name || title} />
       {title ? (
         <H4 mb={1}>
@@ -129,11 +118,15 @@ const CurriculumSection = props => {
         {addFullStopAtTheEnd(subTitle)} {` `}
         {showLinkToCurriculum || enableToggle ? subsection : ''}
       </Box>
-    </Section>
+    </Card>
   )
 }
 
 const addFullStopAtTheEnd = text =>
   text && text.replace ? text.replace(/([^.])$/, '$1.') : ''
+
+CurriculumSection.defaultProps = {
+  mt: 4,
+}
 
 export default CurriculumSection

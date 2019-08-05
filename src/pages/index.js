@@ -18,7 +18,7 @@ import FullCurriculumsReact from '../components/curriculum/FullCurriculumsReact'
 import FullCurriculumsGraphQL from '../components/curriculum/FullCurriculumsGraphQL'
 import { createSocialMetas } from '../components/utils'
 import { RootHeader as Header } from '../components/layout/Header'
-import Card from '../components/elements/Card'
+import Segment from '../components/elements/Segment'
 import TrustedBySection from '../components/training/TrustedBySection'
 import UpcomingTrainingSection from '../components/training/UpcomingTrainingSection'
 import Box from 'src/components/layout/Box'
@@ -129,13 +129,13 @@ const IndexPage = () => {
                 <a name="tab-curriculum" />
               </Col>
             </Row>
-            <Card pt={[4, 7]}>
+            <Segment pt={[4, 7]}>
               {selectedTab === TAB_REACT ? (
                 <FullCurriculumsReact trainings={trainings} />
               ) : (
                 <FullCurriculumsGraphQL trainings={trainings} />
               )}
-            </Card>
+            </Segment>
           </TopSection>
           <ColSection
             col={

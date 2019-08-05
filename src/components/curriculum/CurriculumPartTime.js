@@ -84,7 +84,7 @@ const CurriculumPartTime = ({
       >
         <ReactFundamentalsRecapSession />
       </Section>
-      {marketingCard}
+      {marketingCard ? React.cloneElement(marketingCard, { type }) : null}
     </React.Fragment>
   )
 

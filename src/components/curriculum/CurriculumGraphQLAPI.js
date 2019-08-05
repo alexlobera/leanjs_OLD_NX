@@ -58,7 +58,7 @@ const CurriculumGraphQLAPI = ({
       >
         <GraphQLServerDayTwoSessions />
       </Section> */}
-      {marketingCard}
+      {marketingCard ? React.cloneElement(marketingCard, { type }) : null}
     </React.Fragment>
   )
 

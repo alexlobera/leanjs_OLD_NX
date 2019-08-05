@@ -10,7 +10,7 @@ import Ul from 'src/components/layout/Ul'
 import CurriculumTestingInReact, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumTestingInReact'
-import { Card, Video } from 'src/components/elements'
+import { Segment, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -98,7 +98,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             showInfoBox={true}
           />
           <TopSection variant="darkMob">
-            <Card variant="primary">
+            <Segment variant="primary">
               <Row>
                 <Col md={6} lg={5} lgOffset={1}>
                   <PaymentSection
@@ -114,7 +114,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>
@@ -159,13 +159,13 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             </Row>
           </Section>
           <Section>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumTestingInReact layout={LIST_TWO_COL} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </Section>
 
           <AlternativeTrainingSection trainings={crossSellTrainings} />

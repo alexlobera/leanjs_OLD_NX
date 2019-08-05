@@ -23,7 +23,6 @@ const CurriculumReactFundamentals = ({
   enableToggle,
   isOpen,
   toggleNavigateTo = `/react/curriculum?tab=${REACT_FUNDAMENTALS}`,
-  marketingCard = null,
   showLinkToCurriculum = true,
   trainings,
   training,
@@ -58,7 +57,6 @@ const CurriculumReactFundamentals = ({
         <ThinkingInReactSession />
         <RoutingAndDataFetchingSession />
       </Section>
-      {marketingCard}
     </React.Fragment>
   )
   const secondHalf = (

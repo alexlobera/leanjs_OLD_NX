@@ -18,7 +18,7 @@ exports[`<TermsOfService /> should render component 1`] = `
     }
     position="relative"
   >
-    <Card
+    <Segment
       variant="secondary"
     >
       <Row>
@@ -40,7 +40,7 @@ exports[`<TermsOfService /> should render component 1`] = `
           </Styled(Box)>
         </Styled(Styled(Box))>
       </Row>
-    </Card>
+    </Segment>
   </TopSection>
   <Section
     box="section"

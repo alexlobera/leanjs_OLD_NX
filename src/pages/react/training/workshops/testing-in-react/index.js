@@ -10,7 +10,7 @@ import Ul from 'src/components/layout/Ul'
 import CurriculumTestingInReact, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumTestingInReact'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -66,13 +66,13 @@ const AdvancedReactWorkshop = ({ path }) => (
             type={REACT_WORKSHOP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumTestingInReact layout={LIST_TWO_COL} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

@@ -6,7 +6,7 @@ import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2 } from '../components/text'
 import Ul, { Li } from '../components/layout/Ul'
-import { Card, Video } from '../components/elements'
+import { Segment, Video } from '../components/elements'
 import Link from '../components/navigation/Link'
 import { RootHeader as Header } from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
@@ -23,17 +23,17 @@ const BootcampList = () => (
             bgImageName={BOOTCAMP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <H2>We've trained developers from a range of companies</H2>
                   <TrustedByLogoList />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
           <Section variant="darkMob">
-            <Card variant="primary">
+            <Segment variant="primary">
               <Row>
                 <Col md={6} lg={4} lgOffset={1}>
                   <Video youtubeId="yvROXLQ1jHg" />
@@ -91,7 +91,7 @@ const BootcampList = () => (
                   </Ul>
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

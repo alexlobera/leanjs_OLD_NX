@@ -32,4 +32,4 @@ export {
   FRANCISCO_GOMES,
 } from './TrainingDetails'
 
-export { default as TrainingCard, TrainingCardList } from './TrainingCard'
+export { default as TrainingCardList } from './TrainingCardList'

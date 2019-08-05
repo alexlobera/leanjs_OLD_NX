@@ -12,7 +12,7 @@ import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
 import TrustedByLogoList2 from 'src/components/training/TrustedByLogoList2'
 import Header from 'src/components/layout/Header'
 import { CallToActionRow } from 'src/components/layout/CallToActionRow'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { Breadcrumb } from 'src/components/navigation'
@@ -79,9 +79,9 @@ const CorporateReactTraining = ({ path }) => (
             <Col mdOffset={1} md={6} />
           </CallToActionRow>
           <a name="schedule" />
-          <Card>
+          <Segment>
             <CurriculumCorporateReact />
-          </Card>
+          </Segment>
         </TopSection>
         <Section>
           <Row>

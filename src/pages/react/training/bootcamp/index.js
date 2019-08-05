@@ -20,7 +20,7 @@ import {
   AttendeeQuote,
 } from 'src/components/training'
 import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -79,10 +79,10 @@ const Bootcamps = ({ path }) => (
             type={REACT_BOOTCAMP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumReactBootcamp trainings={upcomingBootCampTrainings} />
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

@@ -2,12 +2,13 @@ import React from 'react'
 
 import { H3, P } from '../../components/text'
 import { Link } from '../../components/navigation'
-import { Card, Image } from '../../components/elements'
+import { Image } from '../../components/elements'
+import Card from '../../components/elements/Card'
 import Box from '../../components/layout/Box'
 import { formatPostTitle } from '../../templates/blog-post'
 
-const PostCard = ({ post, p, pt = 0, pb = 0, imageProps = {} }) => (
-  <Card py={0} mb={5} p={p} pt={pt} pb={pb}>
+const PostCard = ({ post, imageProps = {} }) => (
+  <Card small variant="secondary" mb={5}>
     <Link to={`${post.fields.slug}`} className="articles-summary">
       <Image
         {...imageProps}
@@ -16,7 +17,7 @@ const PostCard = ({ post, p, pt = 0, pb = 0, imageProps = {} }) => (
         mb={0}
       />
     </Link>
-    <Box p={p ? 0 : 3}>
+    <Box p={2}>
       <Link to={`${post.fields.slug}`} className="articles-summary">
         <H3>{formatPostTitle(post.frontmatter.title)}</H3>
       </Link>

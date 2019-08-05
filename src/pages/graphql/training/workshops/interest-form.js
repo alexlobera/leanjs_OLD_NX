@@ -7,7 +7,7 @@ import { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, H4, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { Button } from 'src/components/buttons'
 import Header from 'src/components/layout/Header'
 import {
@@ -85,7 +85,7 @@ const SessionInterestGraphQL = ({ path }) => (
           />
 
           <TopSection marginTop={`-250`}>
-            <Card>
+            <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
                   <Form
@@ -179,7 +179,7 @@ const SessionInterestGraphQL = ({ path }) => (
                   />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
 
           <UpcomingTrainingSection trainings={trainings} />

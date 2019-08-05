@@ -10,7 +10,7 @@ import Ul from 'src/components/layout/Ul'
 import CurriculumOneDayRedux, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -67,13 +67,13 @@ const ReduxWorkshopLanding = ({ path }) => (
             type={REACT_WORKSHOP}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
                   <CurriculumOneDayRedux layout={LIST_TWO_COL} />
                 </Col>
               </Row>
-            </Card>
+            </Segment>
           </TopSection>
 
           <Section>

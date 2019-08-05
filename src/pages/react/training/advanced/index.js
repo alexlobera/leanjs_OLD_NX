@@ -18,7 +18,7 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { ADVANCED_REACT } from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -73,9 +73,9 @@ const AdvancedTraining = ({ path }) => (
             type={ADVANCED_REACT}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <CurriculumAdvancedReact trainings={upcomingAdvancedTrainings} />
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

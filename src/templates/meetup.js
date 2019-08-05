@@ -10,7 +10,7 @@ import Grid, { Col, Row } from 'src/components/layout/Grid'
 import { H2, H2Ref, H3, H4, H5, P, Span } from 'src/components/text'
 import Ul, { Li } from '../components/layout/Ul'
 
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -93,7 +93,7 @@ const MeetUpPage = ({ data }) => {
             />
             <TopSection variant="darkMob">
               <Grid>
-                <Card variant="primary">
+                <Segment variant="primary">
                   <Row>
                     <Col md={6} lg={4} lgOffset={1}>
                       <H2Ref>
@@ -122,7 +122,7 @@ const MeetUpPage = ({ data }) => {
                       />
                     </Col>
                   </Row>
-                </Card>
+                </Segment>
               </Grid>
             </TopSection>
             <UpcomingTrainingSection trainings={trainings} />

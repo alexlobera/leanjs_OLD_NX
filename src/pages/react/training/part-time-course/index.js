@@ -15,7 +15,7 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
-import { Card } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
 import CurriculumPartTime from 'src/components/curriculum/CurriculumPartTime'
 import Header from 'src/components/layout/Header'
 import { PART_TIME } from 'src/config/data'
@@ -72,10 +72,10 @@ const PartTime = ({ trainings, path }) => (
             links={header.landingPageLinks.links}
           />
           <TopSection>
-            <Card>
+            <Segment>
               <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumPartTime trainings={upcomingPartTimeTrainings} />
-            </Card>
+            </Segment>
           </TopSection>
           <Section>
             <Row>

@@ -13,7 +13,7 @@ const CurriculumReactWorkshops = ({
   showLinkToCurriculum = false,
   trainings,
 }) => {
-  const type = [REACT_WORKSHOP]
+  const type = REACT_WORKSHOP
   const commonProps = {
     showLinkToCurriculum,
     enableToggle,

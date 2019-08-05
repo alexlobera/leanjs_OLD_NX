@@ -18,7 +18,7 @@ export const mustBeEmail = value => {
 export const mustBeCardNumber = number =>
   PaymentLib.fns.validateCardNumber(number)
     ? undefined
-    : 'Card number is not correct'
+    : 'Segment number is not correct'
 
 export const mustBeCvc = cvc => {
   const formatedCvc = formatCVC(cvc)
