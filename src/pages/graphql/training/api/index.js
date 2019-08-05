@@ -68,7 +68,6 @@ const GraphQL = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumGraphQLAPI
                 trainings={upcomingGraphQLTrainings}
                 isOpen={false}

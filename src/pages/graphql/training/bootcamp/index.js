@@ -72,7 +72,6 @@ const GraphQL = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumGraphQLBootcamp
                 trainings={upcomingGraphQLTrainings}
                 enableToggle

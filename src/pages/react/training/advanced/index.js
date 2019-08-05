@@ -11,6 +11,7 @@ import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
 import Header from 'src/components/layout/Header'
+import header from 'src/components/layout/Header.json'
 import {
   TrustedBySection,
   AttendeeQuote,
@@ -71,6 +72,7 @@ const AdvancedTraining = ({ path }) => (
             subtitle="For 3 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
             bgImageName={BOOTCAMP}
             type={ADVANCED_REACT}
+            links={header.landingPageLinks.links}
           />
           <TopSection>
             <Segment>

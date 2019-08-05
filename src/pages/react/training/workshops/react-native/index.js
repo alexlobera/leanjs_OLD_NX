@@ -67,7 +67,6 @@ const ReactNativeBoocamp = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumReactNative />
             </Segment>
           </TopSection>

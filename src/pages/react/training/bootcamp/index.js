@@ -80,7 +80,6 @@ const Bootcamps = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumReactBootcamp trainings={upcomingBootCampTrainings} />
             </Segment>
           </TopSection>

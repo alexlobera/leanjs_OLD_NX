@@ -67,7 +67,6 @@ const ReactFundamentals = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumReactFundamentals
                 trainings={upcomingFundamentalsTrainings}
               />

@@ -73,7 +73,6 @@ const PartTime = ({ trainings, path }) => (
           />
           <TopSection>
             <Segment>
-              <Link to="#upcoming-courses" name="upcoming-courses" />
               <CurriculumPartTime trainings={upcomingPartTimeTrainings} />
             </Segment>
           </TopSection>
