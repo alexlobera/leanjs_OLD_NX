@@ -31,7 +31,6 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import Card from 'src/components/elements/Card'
 import { Tick } from 'src/components/icons'
 import { getURLParameter } from 'src/components/utils/url'
 import { formatUTC } from 'src/components/utils'
@@ -43,7 +42,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
-import { LIGHT_BLUE, BLUE } from '../../config/styles'
+import { BLUE } from '../../config/styles'
 
 class ReactCurriculum extends React.Component {
   state = {
@@ -321,27 +320,27 @@ class ReactCurriculum extends React.Component {
 
                       <H5>Also available...</H5>
                       <Row>
-                        <Col md={4}>
-                          <LinkButton
-                            display="block"
-                            to="/react/training/corporate/"
-                          >
-                            Corporate team training
-                          </LinkButton>
-                        </Col>
-                        <Col md={4}>
-                          <LinkButton
-                            display="block"
-                            to="/react/training/workshops/"
-                          >
-                            1-day React workshops
-                          </LinkButton>
-                        </Col>
-                        <Col md={4}>
-                          <LinkButton display="block" to="/graphql/training/">
-                            GraphQL training
-                          </LinkButton>
-                        </Col>
+                        {[
+                          {
+                            to: '/react/training/corporate/',
+                            txt: 'Corporate team training',
+                          },
+                          {
+                            to: '/react/training/workshops/',
+                            txt: '1-day React workshops',
+                          },
+                          { to: '/graphql/training/', txt: 'GraphQL training' },
+                        ].map(({ to, txt }) => (
+                          <Col md={4}>
+                            <LinkButton
+                              display="block"
+                              className="training-curriculum-clicks"
+                              to={to}
+                            >
+                              {txt}
+                            </LinkButton>
+                          </Col>
+                        ))}
                       </Row>
                     </Col>
                   </Row>

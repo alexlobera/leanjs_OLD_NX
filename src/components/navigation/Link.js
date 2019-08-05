@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { DARK_GREY } from '../../config/styles'
 import Box from '../layout/Box'
