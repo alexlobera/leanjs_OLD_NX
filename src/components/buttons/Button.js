@@ -7,6 +7,7 @@ import Box from '../layout/Box'
 export const defaultButtonStyle = css`
   cursor: pointer;
   align-items: center;
+  justify-content: center;
   ${props =>
     props.disabled &&
     `

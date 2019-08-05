@@ -336,6 +336,7 @@ class ReactCurriculum extends React.Component {
                               display="block"
                               className="training-curriculum-clicks"
                               to={to}
+                              mt={[2, 0]}
                             >
                               {txt}
                             </LinkButton>
