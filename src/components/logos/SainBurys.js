@@ -1,6 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-const SainBurys = ({ colour = '#f47320', width, height }) => (
+const SainBurys = ({ colour = LIGHT_BLUE, width, height }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 8 306 58"

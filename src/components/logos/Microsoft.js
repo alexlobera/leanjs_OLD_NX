@@ -1,6 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-const Microsoft = ({ colour = '#231F20', width, height }) => (
+const Microsoft = ({ colour = LIGHT_BLUE, width, height }) => (
   <svg
     viewBox="0 0 400 90"
     preserveAspectRatio="xMidYMid meet"

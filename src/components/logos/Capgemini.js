@@ -1,7 +1,8 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
 const Capgemini = ({
-  colour = '#12ABDB',
+  colour = LIGHT_BLUE,
   secColour = '#0070AD',
   width,
   height,

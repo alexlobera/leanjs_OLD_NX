@@ -1,6 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-const FinancialTimes = ({ colour = '#231F20', width, height, className }) => (
+const FinancialTimes = ({ colour = LIGHT_BLUE, width, height, className }) => (
   <svg
     className={className}
     viewBox="0 0 1054 86"

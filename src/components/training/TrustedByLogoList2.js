@@ -6,32 +6,32 @@ import Trainline from '../logos/Trainline'
 import Telegraph from '../logos/Telegraph'
 import Xing from '../logos/Xing'
 import IBM from '../logos/IBM'
-import Microsoft from '../logos/Microsoft'
+import Nationwide from '../logos/Nationwide'
 import Asos from '../logos/ASOS'
-import { LIGHT_BLUE } from '../../config/styles'
+import NetAPorter from '../logos/NetAPorter'
 
 const TrustedByLogoList2 = () => (
   <Ul variant="unstyled">
     <Li>
-      <Microsoft colour={LIGHT_BLUE} height={60} />
+      <NetAPorter height={90} />
     </Li>
     <Li>
-      <Trainline colour={LIGHT_BLUE} height={65} />
+      <Nationwide height={100} />
     </Li>
     <Li>
-      <Telegraph colour={LIGHT_BLUE} height={75} width={250} />
+      <Asos height={40} />
     </Li>
     <Li>
-      <SainBurys colour={LIGHT_BLUE} height={75} width={250} />
+      <Trainline height={65} />
     </Li>
     <Li>
-      <Asos colour={LIGHT_BLUE} height={45} />
+      <Telegraph height={75} width={250} />
     </Li>
     <Li>
-      <IBM colour={LIGHT_BLUE} height={90} />
+      <IBM height={65} />
     </Li>
     <Li>
-      <Xing colour={LIGHT_BLUE} height={85} y={20} />
+      <Xing height={75} y={20} />
     </Li>
   </Ul>
 )

@@ -1,6 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-const JohnLewis = ({ colour = '#003e24', width, height }) => (
+const JohnLewis = ({ colour = LIGHT_BLUE, width, height }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 260 61"

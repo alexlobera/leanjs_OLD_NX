@@ -1,7 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-// -181 -110 1059 511
-const IKEA = ({ colour = '#231F20', width, height }) => (
+const IKEA = ({ colour = LIGHT_BLUE, width, height }) => (
   <svg
     viewBox="0 0 450 86"
     preserveAspectRatio="xMidYMid meet"

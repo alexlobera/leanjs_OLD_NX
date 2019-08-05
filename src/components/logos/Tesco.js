@@ -1,7 +1,8 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
 const Tesco = ({
-  colour = '#0054a4',
+  colour = LIGHT_BLUE,
   secColour = '#f02e25',
   stroke = '#ffffff',
   width,

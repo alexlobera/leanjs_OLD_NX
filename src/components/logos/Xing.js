@@ -1,6 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-const Xing = ({ colour = '#00d5b5', width, height, y }) => (
+const Xing = ({ colour = LIGHT_BLUE, width, height, y }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
     viewBox={`0 ${y} 413 163`}

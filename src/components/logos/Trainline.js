@@ -1,6 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-const Trainline = ({ colour = '#00d5b5', width, height, y = 0 }) => (
+const Trainline = ({ colour = LIGHT_BLUE, width, height, y = 0 }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
     viewBox={`20 ${y} 550 115`}

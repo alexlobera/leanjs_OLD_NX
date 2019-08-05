@@ -1,6 +1,7 @@
 import React from 'react'
+import { LIGHT_BLUE } from '../../config/styles'
 
-const Telegraph = ({ colour = '#1d1d1b', width, height }) => (
+const Telegraph = ({ colour = LIGHT_BLUE, width, height }) => (
   <svg
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 117 19.1"
