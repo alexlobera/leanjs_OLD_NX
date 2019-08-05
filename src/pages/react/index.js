@@ -120,7 +120,7 @@ const ReactPage = ({ data, path }) => {
                 </Col>
                 <Link to="#our-react-training" name="our-react-training" />
                 <Col md={4} mdOffset={1} mt={[5, 0]}>
-                  <H3>Our React courses</H3>
+                  <H3>Our React training</H3>
                   <TrainingCardList data={trainingList} borderColor={BLUE} />
                   <Card variant="primary" mt={4}>
                     <Newsletter mt={2} buttonVariant="primary" />
