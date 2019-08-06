@@ -181,15 +181,15 @@ export const formatUTC = (
   offsetDays = 0
 ) => {
   const targetTime = new Date(utcDate),
-    now = new Date(),
     minutesToMilliseconds = 60000,
     minutesToDays = 1440
-  const localOffsetInMs = now.getTimezoneOffset() * minutesToMilliseconds
+  const localOffsetInMs = targetTime.getTimezoneOffset() * minutesToMilliseconds
   const utcOffsetInMs = utcOffset * minutesToMilliseconds
   const dayOffset = offsetDays * minutesToDays * minutesToMilliseconds
   const offsetDate = new Date(
     targetTime.getTime() + dayOffset + localOffsetInMs + utcOffsetInMs
   )
+  debugger
   const months = [
       'Jan',
       'Feb',
