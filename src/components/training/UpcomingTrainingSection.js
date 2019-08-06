@@ -59,9 +59,10 @@ export const UpcomingTrainings = ({
       const startDate = new Date(training.startDate)
       const endDate = new Date(training.endDate)
       const days = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1
+      const hours = Math.round((endDate - startDate) / (1000 * 60 * 60))
       const duration =
-        days < 1
-          ? `${Math.round((endDate - startDate) / (1000 * 60 * 24)) + 1} hours`
+        hours < 7
+          ? ``
           : days < 2
           ? '1 day'
           : days < 3
