@@ -24,7 +24,7 @@ const Newsletter = ({ buttonVariant, mt, showCTA = true }) => (
         className="free-learning-resources-cta"
         to="#newsletter"
       >
-        Sign up now!
+        Sign up now
       </LinkButton>
     )}
   </React.Fragment>
