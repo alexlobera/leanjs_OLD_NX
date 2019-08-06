@@ -5,11 +5,7 @@ import { GRAPHQL_BOOTCAMP } from '../../config/data'
 
 const CorporateTrainingCard = ({ type }) => (
   <React.Fragment>
-    <H3>Corporate Team Training</H3>
-    <P>
-      Private team training, located in your offices anywhere in the world,
-      based on our proven curriculum for React and GraphQL{' '}
-    </P>
+    <H3>Training anywhere, anytime?</H3>
     <LinkButton
       to={
         type === GRAPHQL_BOOTCAMP

@@ -21,7 +21,6 @@ import {
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import {
-  REACT_NATIVE,
   ADVANCED_REACT,
   REACT_BOOTCAMP,
   REACT_WORKSHOP,
@@ -94,7 +93,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             subtitle="Take your React developer career to the next level by learning React Native in Barcelona, in only one day. "
             bgImageName={BOOTCAMP}
             training={training}
-            type={REACT_NATIVE}
+            type={REACT_WORKSHOP}
             showInfoBox={true}
           />
           <TopSection variant="darkMob">

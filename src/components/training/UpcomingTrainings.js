@@ -6,7 +6,6 @@ import {
   PART_TIME,
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
-  REACT_NATIVE,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   REACT_WORKSHOP,
@@ -42,8 +41,6 @@ const createTrainingPath = ({ type, city = '', index, id, slug }) => {
       return `/react/training/bootcamp/${city.toLowerCase()}/${i}`
     case REACT_FUNDAMENTALS:
       return `/react/training/react-fundamentals/${city.toLowerCase()}/${i}`
-    case REACT_NATIVE:
-      return `/react/training/react-native/${city.toLowerCase()}/${i}`
     case ADVANCED_REACT:
       return `/react/training/advanced/${city.toLowerCase()}/${i}`
     case GRAPHQL_BOOTCAMP:

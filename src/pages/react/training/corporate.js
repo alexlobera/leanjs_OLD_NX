@@ -99,7 +99,9 @@ const CorporateReactTraining = ({ path }) => (
               />
             </Col>
             <Col md={4} lgOffset={1} order={[1, 2]}>
-              <H2>Trusted by industry leaders</H2>
+              <H2>
+                We have delivered Corporate training to almost any industry
+              </H2>
               <TrustedByLogoList2 />
             </Col>
           </Row>

@@ -10,6 +10,7 @@ import { Col, Row } from '../layout/Grid'
 import { getComponentAliaser } from '../utils/aliasComponent'
 import { composeValidators, required, mustBeEmail } from './validations'
 import { triggerSubscribe } from '../../api'
+import { Newsletter } from '../elements'
 
 const aliasInput = getComponentAliaser(InputField)
 const aliasH3 = getComponentAliaser(H3)
@@ -76,22 +77,7 @@ const ContactForm = props => {
           </P>
         </React.Fragment>
       )}
-      <a name="newsletter" />
-      <H3 pt={simplified ? 0 : undefined}>Free learning resources</H3>
-      <P>
-        We share our resources directly from our{' '}
-        <Link className="footer-free-learning-resources" to="/react/curriculum">
-          React
-        </Link>{' '}
-        and{' '}
-        <Link
-          className="footer-free-learning-resources"
-          to="/graphql/curriculum"
-        >
-          GraphQL
-        </Link>{' '}
-        curriculums and we'd love for you to enjoy and learn from them!{' '}
-      </P>
+      <Newsletter showCTA={false} />
       <P>
         Signup and learn about cutting-edge React thinking plus the latest news
         on our courses...{' '}
