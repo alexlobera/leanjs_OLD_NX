@@ -21,7 +21,7 @@ import {
 import { Segment } from 'src/components/elements'
 import { Video } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import { REACT_NATIVE } from 'src/config/data'
+import { REACT_WORKSHOP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
@@ -62,7 +62,7 @@ const ReactNativeBoocamp = ({ path }) => (
             titleLines={[title]}
             subtitle="Intense hands-on React Native workshop, <br /> return to work as a React Native specialist"
             bgImageName={BOOTCAMP}
-            type={REACT_NATIVE}
+            type={REACT_WORKSHOP}
             links={header.landingPageLinks.links}
           />
           <TopSection>

@@ -1,26 +1,31 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
+import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
-import Link from 'src/components/navigation/Link'
-import { TopSection } from 'src/components/layout/Section'
+import { Link } from 'src/components/navigation'
+import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2, P, H4, H5, Span } from 'src/components/text'
+import { H2, P } from 'src/components/text'
+import Ul, { Li } from 'src/components/layout/Ul'
+import CurriculumReactWorkshops from 'src/components/curriculum/CurriculumReactWorkshops'
+import Header from 'src/components/layout/Header'
 import {
+  TrustedBySection,
   UpcomingTrainingSection,
   selectUpcomingTrainings,
+  selectNthTraining,
+  AttendeeQuote,
 } from 'src/components/training'
-import Header from 'src/components/layout/Header'
-import { Segment, Newsletter } from 'src/components/elements'
-import Card from 'src/components/elements/Card'
+import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
+import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import { LIGHT_BLUE } from '../../../../config/styles'
-import { REACT_WORKSHOP } from '../../../../config/data'
-import { DEFAULT_VAT_RATE } from '../../../../config'
-import formatPrice from 'src/components/utils/currency'
-import { createSocialMetas, formatUTC } from 'src/components/utils'
+import { REACT_WORKSHOP } from 'src/config/data'
+import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { createSocialMetas } from 'src/components/utils'
 
 const metas = {
   title: 'React Workshops | React GraphQL Academy',
@@ -30,34 +35,17 @@ const metas = {
   type: 'website',
 }
 
-const waitListURL = '/react/training/workshops/interest-form/'
-const waitlistWorkshops = [
-  {
-    title: 'Design Systems in React Workshop',
-    description:
-      'Learn how to build a Design System in React to simplify design and development while ensuring consistent brand experiences, at scale.',
-    to: waitListURL,
-  },
-  {
-    title: 'React Hooks & Suspense',
-    description: 'Learn 2 of the newest and most exciting features in React',
-    to: waitListURL,
-  },
-  {
-    title: 'React Native',
-    description: 'Build upon your React knowledge and create great native apps',
-    to: waitListURL,
-  },
-]
-
-const Workshops = ({ path }) => (
+const Bootcamps = ({ path }) => (
   <Layout>
     {({ trainings }) => {
-      const reactWorkshops = selectUpcomingTrainings({
+      const allReactWorkshops = selectUpcomingTrainings({
         trainings,
         types: [REACT_WORKSHOP],
       })
-      const allWorkshops = [...reactWorkshops, ...waitlistWorkshops]
+      const nextTraining = selectNthTraining({
+        trainings: allReactWorkshops,
+      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -91,104 +79,92 @@ const Workshops = ({ path }) => (
           <Header
             titleLines={['1-day React Workshops']}
             subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
+            bgImageName={BOOTCAMP}
+            links={[
+              {
+                text: 'Workshop offerings',
+                to: '#curriculum',
+              },
+              {
+                text: 'Is it right for me?',
+                to: '#target-audience',
+              },
+              {
+                text: 'Upcoming workshops',
+                to: '#upcoming-courses',
+              },
+            ]}
+            type={REACT_WORKSHOP}
           />
-          <TopSection marginTop={`-250`}>
+          <TopSection>
             <Segment>
-              <Row>
-                <Col md={10} mdOffset={1}>
-                  <H2>Which 1-day React training are you looking for?</H2>
-                  <Row>
-                    {allWorkshops.map(workshop => {
-                      let to,
-                        buttonText,
-                        variant,
-                        title,
-                        description,
-                        price,
-                        currency,
-                        city,
-                        startDate,
-                        utcOffset
-                      if (workshop.toPath) {
-                        title =
-                          workshop &&
-                          workshop.training &&
-                          workshop.training.description &&
-                          workshop.training.description.title
-
-                        description =
-                          workshop &&
-                          workshop.training &&
-                          workshop.training.description &&
-                          workshop.training.description.objectives
-
-                        price = workshop && workshop.price
-
-                        currency = workshop && workshop.currency
-                        city = workshop && workshop.city
-                        startDate = workshop && workshop.startDate
-                        utcOffset = workshop && workshop.utcOffset
-                        to = workshop.toPath
-                        buttonText = 'Find out more'
-                        variant = 'primary'
-                      } else {
-                        title = workshop.title
-                        description = workshop.description
-                        currency = 'gdp'
-                        to = workshop.to
-                        buttonText = 'Join Waitlist'
-                        variant = 'secondary'
-                      }
-
-                      return (
-                        <Col sm={6} md={4}>
-                          <Card borderColor={LIGHT_BLUE}>
-                            <Link underline={false} to={to}>
-                              <H4>{title}</H4>
-                            </Link>
-                            {startDate && (
-                              <H5 mb={1}>
-                                {`${city} ${formatUTC(
-                                  startDate,
-                                  utcOffset,
-                                  'D MMM'
-                                )}`}
-                              </H5>
-                            )}
-                            <H5>
-                              {price ? (
-                                <Span>
-                                  {formatPrice(
-                                    currency,
-                                    price,
-                                    DEFAULT_VAT_RATE
-                                  )}{' '}
-                                  Incl VAT
-                                </Span>
-                              ) : (
-                                'Coming soon'
-                              )}
-                            </H5>
-                            <P>{description}</P>
-                            <LinkButton
-                              className="workshop-cta"
-                              variant={variant}
-                              to={to}
-                            >
-                              {buttonText}
-                            </LinkButton>
-                          </Card>
-                        </Col>
-                      )
-                    })}
-                  </Row>
-                </Col>
-                <Col md={10} mdOffset={1}>
-                  <Newsletter />
-                </Col>
-              </Row>
+              <CurriculumReactWorkshops
+                trainings={allReactWorkshops}
+                showTitle={false}
+              />
             </Segment>
           </TopSection>
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
+                  fullname="Charlie Wilson"
+                  job="Software Engineer"
+                  company="ESG PLC"
+                  youtubeId="CP422OORbPA"
+                />
+              </Col>
+              <Col md={4} mdOffset={1}>
+                <H2>
+                  <Link to="#target-audience" name="target-audience" />
+                  Are these React workshops right for me?
+                </H2>
+                <Ul>
+                  <Li>Extremely rapid, intense learning</Li>
+                  <Li>
+                    Ideal for experienced programmers familiar with good
+                    practices and React.
+                  </Li>
+                  <Li>Not for React beginners!</Li>
+                  <Li>
+                    Small classes focused on one topic with expert developer
+                    coaches
+                  </Li>
+                  <Li>
+                    Hands-on project-based training - most of the time you'll be
+                    coding.
+                  </Li>
+                  <Li>
+                    Join a growing network of alumni for advice, knowledge and
+                    social fun!
+                  </Li>
+                </Ul>
+                <P>
+                  {nextTraining && (
+                    <LinkButton variant="primary" to={nextTraining.toPath}>
+                      Next bootcamp:{' '}
+                      {formatUTC(
+                        nextTraining.startDate,
+                        nextTraining.utcOffset,
+                        'D MMM'
+                      )}
+                      , {nextTraining.city}
+                    </LinkButton>
+                  )}
+                </P>
+              </Col>
+            </Row>
+          </Section>
+          <Section>
+            <Row>
+              <Col lg={10} lgOffset={1}>
+                <AlternativeBootcampTrainings trainings={trainings} />
+              </Col>
+            </Row>
+          </Section>
+          <TrustedBySection />
+          <BlogSection tags={['react', 'advanced']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -196,4 +172,4 @@ const Workshops = ({ path }) => (
   </Layout>
 )
 
-export default Workshops
+export default Bootcamps

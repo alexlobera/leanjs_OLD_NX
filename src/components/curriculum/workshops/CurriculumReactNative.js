@@ -6,7 +6,7 @@ import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
 import ReactNativeFoundationSession from '../sessions/native/ReactNativeFoundationSession'
 import ReactNativeNavigationSession from '../sessions/native/ReactNativeNavigationSession'
 import ReactNativeAnimationsSession from '../sessions/native/ReactNativeAnimationsSession'
-import { REACT_NATIVE } from '../../../config/data'
+import { REACT_WORKSHOP } from '../../../config/data'
 import selectCurriculumLayout from '../selectCurriculumLayout'
 
 const CurriculumReactNative = ({
@@ -19,7 +19,7 @@ const CurriculumReactNative = ({
   trainings,
 }) => {
   const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = REACT_NATIVE
+  const type = REACT_WORKSHOP
   const commonProps = {
     enableToggle,
     toggleNavigateTo: toggleNavigateToSection,

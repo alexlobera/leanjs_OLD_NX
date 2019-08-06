@@ -29,7 +29,7 @@ const CurriculumReactWorkshops = ({
         name="testingReact"
         subTitle="Ensure consistent, reliable code across the React ecosystem"
         showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/testing-in-react/london/"
+        toggleNavigateTo="/react/training/workshops/testing-in-react/"
       />
       <Section
         {...commonProps}
@@ -45,7 +45,7 @@ const CurriculumReactWorkshops = ({
         name="perfAndFP"
         subTitle="Discover best patterns for reusable and performant React apps"
         showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/"
+        toggleNavigateTo="/react/training/workshops/advanced-react-patterns-fp-performance"
       />
     </React.Fragment>
   )
@@ -61,17 +61,17 @@ const CurriculumReactWorkshops = ({
       />
       <Section
         {...commonProps}
-        title="React Hooks & Suspense"
-        name="hooksAndSuspense"
-        subTitle="Learn 2 of the newest and most exciting features in React"
-        showLinkToCurriculum
-        toggleNavigateTo="/react/training/workshops/interest-form#details"
-      />
-      <Section
-        {...commonProps}
         title="React Native"
         name="react-native"
         subTitle="Build upon your React knowledge and create great apps"
+        showLinkToCurriculum
+        toggleNavigateTo="/react/training/workshops/react-native"
+      />
+      <Section
+        {...commonProps}
+        title="React Hooks & Suspense"
+        name="hooksAndSuspense"
+        subTitle="Learn 2 of the newest and most exciting features in React"
         showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/interest-form#details"
       />
@@ -80,7 +80,7 @@ const CurriculumReactWorkshops = ({
 
   const title = showTitle ? (
     <H2Ref>
-      Design Systems & styling in React{' '}
+      React Workshops{' '}
       <Link to="#curriculum" name="curriculum">
         #
       </Link>
@@ -94,6 +94,7 @@ const CurriculumReactWorkshops = ({
     type,
     title,
     trainings,
+    curriculumTitle: 'Workshop offerings',
   })
 }
 

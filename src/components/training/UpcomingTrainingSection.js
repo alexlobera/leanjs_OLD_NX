@@ -6,15 +6,14 @@ import Grid, { Col, Row } from '../layout/Grid'
 import { H2Ref, H3, P } from '../text'
 import { TrainingItem } from '.'
 import Link from '../navigation/Link'
+import LinkButton from '../buttons/LinkButton'
 import { selectUpcomingTrainings } from './UpcomingTrainings'
-import Newsletter from '../elements/Newsletter'
 import { GREY } from '../../config/styles'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   PART_TIME,
-  REACT_NATIVE,
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
   GRAPHQL_BOOTCAMP,
@@ -61,7 +60,9 @@ export const UpcomingTrainings = ({
       const endDate = new Date(training.endDate)
       const days = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1
       const duration =
-        days < 2
+        days < 1
+          ? `${Math.round((endDate - startDate) / (1000 * 60 * 24)) + 1} hours`
+          : days < 2
           ? '1 day'
           : days < 3
           ? `2 days`
@@ -107,7 +108,7 @@ export const UpcomingTrainingCurriculum = ({
       <H3 pt={[4, 0]}>Upcoming dates</H3>
       <UpcomingTrainings
         type={type}
-        limit={3}
+        limit={5}
         curriculum
         trainings={trainings}
         className={className}
@@ -118,7 +119,10 @@ export const UpcomingTrainingCurriculum = ({
       {!removeAdditionalCTAs && (
         <React.Fragment>
           <Link to="#free-learning-resources" name="free-learning-resources" />
-          <Newsletter />
+          <H3 mt={2}>Free learning resources!</H3>
+          <LinkButton className="free-learning-resources-cta" to="#newsletter">
+            Sign up now
+          </LinkButton>
           <Link to="#corporate-training" name="corporate-training" />
           <CorporateTrainingCard type={type} />
         </React.Fragment>
@@ -136,7 +140,6 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
       REACT_BOOTCAMP,
       ADVANCED_REACT,
       PART_TIME,
-      REACT_NATIVE,
       REACT_WORKSHOP,
       REACT_FUNDAMENTALS,
     ],
