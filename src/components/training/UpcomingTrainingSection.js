@@ -58,8 +58,10 @@ export const UpcomingTrainings = ({
       const dayMonth = formatedDate ? formatedDate.split(' ') : ['', '']
       const startDate = new Date(training.startDate)
       const endDate = new Date(training.endDate)
-      const days = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1
-      const hours = Math.round((endDate - startDate) / (1000 * 60 * 60))
+      const daysCoefficient = 86400000 // 1000 * 60 * 60 * 24
+      const hourCoefficient = 3600000 // 1000 * 60 * 60
+      const days = Math.round((endDate - startDate) / daysCoefficient) + 1
+      const hours = Math.round((endDate - startDate) / hourCoefficient)
       const duration =
         hours < 7
           ? ``
