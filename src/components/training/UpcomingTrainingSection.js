@@ -22,14 +22,17 @@ import {
   MEETUP,
 } from '../../config/data'
 import CorporateTrainingCard from './CorporateTrainingCard'
+import Flex from '../layout/Flex'
 
 const CorporateCrossSell = ({ to }) => (
-  <Link to={to} px={3} py={1} border={`3px dotted`} borderColor={GREY}>
-    <P>
-      <strong>Corporate team training</strong>
-    </P>
-    Find out more
-  </Link>
+  <Flex alignSelf="self-start">
+    <Link to={to} px={3} py={1} border={`3px dotted`} borderColor={GREY}>
+      <P>
+        <strong>Corporate team training</strong>
+      </P>
+      Find out more
+    </Link>
+  </Flex>
 )
 
 export const UpcomingTrainings = ({
