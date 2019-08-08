@@ -45,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(result => {
       const blogPaths = /(^\/blog\/|^\/react\/|^\/graphql\/)/g
+      const isTrainingPath = /^\/(react|graphql)\/training/g
       const coachPath = /^\/coaches/
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
@@ -76,7 +77,7 @@ exports.createPages = ({ graphql, actions }) => {
               },
             })
           })
-        } else if (slug.match(blogPaths)) {
+        } else if (slug.match(blogPaths) && !slug.match(isTrainingPath)) {
           createPage({
             path: slug,
             component: path.resolve(`./src/templates/blog-post.js`),
