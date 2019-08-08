@@ -17,11 +17,8 @@ import {
 } from 'src/components/training'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { trainingId, title, breadcrumbTrainingName } from './config.json'
-
-// export const title = ['1-Day Advanced Patterns, FP', 'and Performance Workshop']
 
 const AdvancedReactWorkshop = ({ path }) => (
   <Layout>
@@ -65,11 +62,11 @@ const AdvancedReactWorkshop = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumAdvReactPatterns layout={LIST_TWO_COL} />
-                </Col>
-              </Row>
+              <CurriculumAdvReactPatterns
+                trainingId={trainingId}
+                trainings={trainings}
+                section={{ isOpen: true }}
+              />
             </Segment>
           </TopSection>
 

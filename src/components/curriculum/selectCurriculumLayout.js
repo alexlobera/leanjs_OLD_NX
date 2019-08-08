@@ -26,6 +26,7 @@ const selectCurriculumLayout = ({
   corpTrainingFacts,
   curriculumTo,
   title,
+  trainingId,
   curriculumTitle = 'Course outline',
 }) => {
   const curriculumButtonSection = (
@@ -87,7 +88,11 @@ const selectCurriculumLayout = ({
           </Col>
           <Col md={5} lg={4} mdOffset={1}>
             {trainings ? (
-              <UpcomingTrainingCurriculum trainings={trainings} type={type} />
+              <UpcomingTrainingCurriculum
+                trainingId={trainingId}
+                trainings={trainings}
+                type={type}
+              />
             ) : corpTrainingFacts ? (
               <CorpTrainingFacts />
             ) : null}

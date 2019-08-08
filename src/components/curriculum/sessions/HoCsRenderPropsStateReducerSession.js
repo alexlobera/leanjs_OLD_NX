@@ -2,6 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
+export const titleSession = 'Functional Programming & Advanced React patterns'
+
 const HoCsRenderPropsStateReducerSession = ({ title }) => (
   <Session title={title}>
     <Ul>

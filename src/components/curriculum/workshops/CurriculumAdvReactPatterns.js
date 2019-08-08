@@ -1,51 +1,31 @@
 import React from 'react'
 import Section from '../CurriculumSection'
-import Link from '../../navigation/Link'
 import { REACT_WORKSHOP } from '../../../config/data'
-import { H2Ref, H3 } from '../../text'
-import HoCsRenderPropsStateReducerSession from '../sessions/HoCsRenderPropsStateReducerSession'
-import ReactPerformanceSession from '../sessions/ReactPerformanceSession'
-import selectCurriculumLayout from '../selectCurriculumLayout'
+import HoCsRenderPropsStateReducerSession, {
+  titleSession as titleSession1,
+} from '../sessions/HoCsRenderPropsStateReducerSession'
+import ReactPerformanceSession, {
+  titleSession as titleSession2,
+} from '../sessions/ReactPerformanceSession'
 import { Li } from '../../layout/Ul'
+import Curriculum from './Curriculum'
 
-const CurriculumAdvReactPatterns = ({
-  showTitle = true,
-  layout,
-  enableToggle = true,
-  isOpen = true,
-  showLinkToCurriculum = false,
-}) => {
-  const type = REACT_WORKSHOP
-  const commonProps = {
-    showLinkToCurriculum,
-    enableToggle,
-    type,
-    isOpen,
-  }
-
-  const firstHalf = (
-    <Section
-      {...commonProps}
-      title="Advanced React Patterns, FP and Performance"
-    >
-      <HoCsRenderPropsStateReducerSession />
-      <ReactPerformanceSession />
-    </Section>
-  )
-  const secondHalf = null
-
-  const title = showTitle ? (
-    <H2Ref>
-      Advanced React Patterns, FP and Performance{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-      <H3>1-day workshop</H3>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({ firstHalf, secondHalf, title, layout, type })
-}
+const CurriculumAdvReactPatterns = ({ showTitle = true, section, ...rest }) => (
+  <Curriculum
+    title={showTitle ? '1-Day Advanced React Patterns, FP and Performance' : ''}
+    {...rest}
+    firstHalf={
+      <React.Fragment>
+        <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
+          <HoCsRenderPropsStateReducerSession title="" />
+        </Section>
+        <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
+          <ReactPerformanceSession title="" />
+        </Section>
+      </React.Fragment>
+    }
+  />
+)
 
 export const TargetAudienceList = () => (
   <React.Fragment>

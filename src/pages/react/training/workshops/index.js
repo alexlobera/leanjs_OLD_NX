@@ -77,7 +77,7 @@ const Bootcamps = ({ path }) => (
             ]}
           />
           <Header
-            titleLines={['1-day React Workshops']}
+            titleLines={['1-Day React Workshops']}
             subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
             bgImageName={BOOTCAMP}
             links={[

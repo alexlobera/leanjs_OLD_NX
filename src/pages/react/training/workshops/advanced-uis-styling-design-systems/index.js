@@ -19,7 +19,6 @@ import {
 } from 'src/components/training'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
@@ -81,11 +80,11 @@ const StylingDesignSystemWorkshop = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumStylingAndAdvUI layout={LIST_TWO_COL} />
-                </Col>
-              </Row>
+              <CurriculumStylingAndAdvUI
+                trainingId={trainingId}
+                trainings={trainings}
+                section={{ isOpen: true }}
+              />
             </Segment>
           </TopSection>
 

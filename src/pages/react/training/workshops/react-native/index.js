@@ -65,7 +65,11 @@ const ReactNativeBoocamp = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <CurriculumReactNative />
+              <CurriculumReactNative
+                section={{ isOpen: true }}
+                trainings={trainings}
+                trainingId={trainingId}
+              />
             </Segment>
           </TopSection>
           <Section>

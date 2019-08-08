@@ -29,6 +29,7 @@ const InstancePage = ({
   targetAudienceList: TargetAudienceList,
   crossSellTypes,
   pageContext: {
+    coaches,
     trainingId,
     tech,
     breadcrumbTrainingType,
@@ -50,8 +51,6 @@ const InstancePage = ({
         breadcrumbTrainingName.toLowerCase().replace(' ', '-')}/`
       const subtitle =
         'Learn how Redux and React work together in practice in this 1-day workshop in London, from Redux fundamentals and FP through to Redux Middlewares'
-      const coaches = [ALEX_LOBERA, RICHARD_MOSS]
-
       const upcomingTrainings = selectUpcomingTrainings({
         trainings,
         trainingId,

@@ -11,6 +11,7 @@ const UpcomingTrainings = ({
   type,
   city,
   limit,
+  trainingId,
   trainings,
   className,
 }) => {
@@ -19,6 +20,7 @@ const UpcomingTrainings = ({
     limit,
     city,
     trainings,
+    trainingId,
   })
   if (!filteredTrainings.length || !filteredTrainings[0].id) {
     return <P>Sorry! There are no {type} dates confirmed.</P>
@@ -64,6 +66,7 @@ const UpcomingTrainings = ({
           className={className}
         />
       )
+
       return (
         <React.Fragment key={training.id}>
           {curriculum ? trainingInstance : <Col md={4}>{trainingInstance}</Col>}

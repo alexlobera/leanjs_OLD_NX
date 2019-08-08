@@ -22,7 +22,6 @@ import {
 import BlogSection from 'src/components/blog/BlogSection'
 
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { REACT_WORKSHOP } from 'src/config/data'
 import {
@@ -86,11 +85,11 @@ const ReduxWorkshopLanding = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <Curriculum layout={LIST_TWO_COL} />
-                </Col>
-              </Row>
+              <Curriculum
+                section={{ isOpen: true }}
+                trainings={trainings}
+                trainingId={trainingId}
+              />
             </Segment>
           </TopSection>
 

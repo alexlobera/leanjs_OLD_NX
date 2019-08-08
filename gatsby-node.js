@@ -36,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 city
+                coaches
               }
             }
           }
@@ -45,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
       const blogPaths = /(^\/blog\/|^\/react\/|^\/graphql\/)/g
       const coachPath = /^\/coaches/
       const locationPath = /^\/locations\//g
-      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona).*/
+      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         const { slug } = node.fields
         if (slug.match(instancePath)) {
@@ -67,6 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
                 city: titleCaseCity,
                 instanceTitle: `${restConfig.title} in ${titleCaseCity}`,
                 nth,
+                coaches: (node.frontmatter && node.frontmatter.coaches) || [],
                 canonical: `https://reactgraphql.academy${slug}`,
                 ...restConfig,
               },

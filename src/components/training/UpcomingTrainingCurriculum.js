@@ -9,6 +9,7 @@ import UpcomingTrainings from './UpcomingTrainings'
 const UpcomingTrainingCurriculum = ({
   type,
   trainings,
+  trainingId,
   removeAdditionalCTAs = false,
   className = 'upcoming-courses-upcoming-dates',
 }) => {
@@ -18,6 +19,7 @@ const UpcomingTrainingCurriculum = ({
       <H3 pt={[4, 0]}>Upcoming dates</H3>
       <UpcomingTrainings
         type={type}
+        trainingId={trainingId}
         limit={5}
         curriculum
         trainings={trainings}

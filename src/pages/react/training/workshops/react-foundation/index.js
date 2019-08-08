@@ -20,7 +20,6 @@ import {
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { title, trainingId, breadcrumbTrainingName } from './config.json'
 
 const Workshop = ({ path }) => (
@@ -66,11 +65,11 @@ const Workshop = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumReactFoundation layout={LIST_TWO_COL} />
-                </Col>
-              </Row>
+              <CurriculumReactFoundation
+                section={{ isOpen: true }}
+                trainings={trainings}
+                trainingId={trainingId}
+              />
             </Segment>
           </TopSection>
 

@@ -19,7 +19,6 @@ import {
 } from 'src/components/training'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { title, trainingId, breadcrumbTrainingName } from './config.json'
 
@@ -68,11 +67,11 @@ const AdvancedReactWorkshop = ({ path }) => (
           />
           <TopSection>
             <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumTestingInReact layout={LIST_TWO_COL} />
-                </Col>
-              </Row>
+              <CurriculumTestingInReact
+                section={{ isOpen: true }}
+                trainings={trainings}
+                trainingId={trainingId}
+              />
             </Segment>
           </TopSection>
           <Section>

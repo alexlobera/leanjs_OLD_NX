@@ -1,47 +1,28 @@
 import React from 'react'
-import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
-import Link from '../../navigation/Link'
+import Section from '../CurriculumSection'
 import { GRAPHQL_WORKSHOP } from '../../../config/data'
-import { H2Ref, H3 } from '../../text'
 import GraphQLApolloClientDaySessions from '../sessions/GraphQLApolloClientDaySessions'
-import selectCurriculumLayout from '../selectCurriculumLayout'
+import { Li } from '../../layout/Ul'
+import Curriculum from './Curriculum'
 
-const CurriculumGraphQLApollo = ({
-  showTitle = true,
-  layout,
-  enableToggle = true,
-  isOpen = true,
-  toggleNavigateTo,
-  showLinkToCurriculum = false,
-}) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = GRAPHQL_WORKSHOP
-  const commonProps = {
-    showLinkToCurriculum,
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
-    type,
-    isOpen,
-  }
+const CurriculumGraphQLApollo = ({ showTitle = true, section, ...rest }) => (
+  <Curriculum
+    title={showTitle ? 'GraphQL React Apollo Client' : ''}
+    {...rest}
+    firstHalf={
+      <React.Fragment>
+        <Section type={GRAPHQL_WORKSHOP} {...section}>
+          <GraphQLApolloClientDaySessions title="" />
+        </Section>
+      </React.Fragment>
+    }
+  />
+)
 
-  const firstHalf = (
-    <Section {...commonProps} title="GraphQL React Apollo Client">
-      <GraphQLApolloClientDaySessions />
-    </Section>
-  )
-  const secondHalf = null
-
-  const title = showTitle ? (
-    <H2Ref>
-      GraphQL Apollo Client{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-      <H3>1-day workshop</H3>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({ firstHalf, title, secondHalf, layout, type })
-}
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li></Li>
+  </React.Fragment>
+)
 
 export default CurriculumGraphQLApollo

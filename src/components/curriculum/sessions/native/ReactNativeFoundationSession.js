@@ -2,7 +2,9 @@ import React from 'react'
 import Ul, { Li } from '../../../layout/Ul'
 import Session from '../Session'
 
-const ReactNativeFoundationSession = ({ title }) => (
+export const titleSession = 'React Native Foundation'
+
+const ReactNativeFoundationSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>Architecture & Project setup</Li>
