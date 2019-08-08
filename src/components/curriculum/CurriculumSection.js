@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { H4 } from '../text'
 import { PINK } from '../../config/styles'
 import { Element } from 'react-scroll'
-import { Link } from '../navigation'
+import Link from '../navigation/Link'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'

@@ -12,9 +12,9 @@ import { Button } from 'src/components/buttons'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { REACT_BOOTCAMP } from 'src/config/data'
 import { InputField, Form, CheckboxField } from 'src/components/form'
 import {

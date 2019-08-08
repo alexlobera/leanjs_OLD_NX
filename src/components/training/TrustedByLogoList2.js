@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Ul, { Li } from '../layout/Ul'
-import SainBurys from '../logos/SainBurys'
 import Trainline from '../logos/Trainline'
 import Telegraph from '../logos/Telegraph'
 import Xing from '../logos/Xing'

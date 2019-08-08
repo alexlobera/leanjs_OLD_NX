@@ -12,10 +12,10 @@ import { Segment, Image } from 'src/components/elements'
 import { RootHeader as Header } from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
-  UpcomingTrainings,
-  selectUpcomingTrainings,
   selectNthTraining,
 } from 'src/components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
+import UpcomingTrainings from 'src/components/training/UpcomingTrainings'
 import { LinkButton } from 'src/components/buttons'
 import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'

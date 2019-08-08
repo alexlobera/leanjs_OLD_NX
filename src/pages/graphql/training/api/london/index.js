@@ -15,11 +15,11 @@ import {
   UpcomingTrainingSection,
   TrainingDetails,
   ALEX_LOBERA,
-  selectUpcomingTrainings,
   selectNthTraining,
   AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'

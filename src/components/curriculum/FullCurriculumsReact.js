@@ -9,7 +9,7 @@ import CurriculumPartTime from './CurriculumPartTime'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
-import { selectUpcomingTrainings } from '../training/UpcomingTrainings'
+import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
 import {
   REACT_BOOTCAMP,
   PART_TIME,

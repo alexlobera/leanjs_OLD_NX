@@ -12,9 +12,9 @@ import { Segment, Image } from '../../components/elements'
 import { RootHeader as Header } from '../../components/layout/Header'
 import {
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
   selectNthTraining,
 } from '../../components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { LinkButton } from '../../components/buttons'
 import { MEETUP } from '../../config/data'
 import { CallToActionRow } from '../../components/layout/CallToActionRow'

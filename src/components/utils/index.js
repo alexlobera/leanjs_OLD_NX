@@ -245,11 +245,3 @@ export const trainingTime = ({ day, training = {}, type }) =>
       ? '18:30 - 21:00'
       : trainingTimings({ training })
   }`
-
-export function titleCase(txt) {
-  return txt
-    ? txt.replace(/\w\S*/g, function(txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-      })
-    : ''
-}

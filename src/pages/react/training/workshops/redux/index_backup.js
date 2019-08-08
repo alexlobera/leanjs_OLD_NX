@@ -1,13 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BOOTCAMP } from 'src/../images/imageNames'
+// import { BOOTCAMP } from 'src/../images/imageNames'
+//import Layout from '../../../../../components/layout'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumOneDayRedux, {
+import Curriculum, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
 import { Segment } from 'src/components/elements'
@@ -18,12 +19,18 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import { ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP } from 'src/config/data'
 
 export const title = '1-Day React Redux Workshop'
 export const WORKSHOP_TRAINING_ID = '5cffb4e806051b7d3bcb0cee'
+export const crossSellTypes = [ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP]
+export { TargetAudienceList, Curriculum }
+export const type = REACT_WORKSHOP
+export const tech = 'React'
+export const trainingType = 'Workshops'
+export const trainingName = 'Redux'
 
 const ReduxWorkshopLanding = ({ path }) => (
   <Layout>
@@ -47,7 +54,7 @@ const ReduxWorkshopLanding = ({ path }) => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
+              { to: '/react', label: tech },
               { to: '/react/training/', label: 'Training' },
               { to: '/react/training/workshops', label: 'Workshops' },
               {
@@ -63,14 +70,14 @@ const ReduxWorkshopLanding = ({ path }) => (
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
-            bgImageName={BOOTCAMP}
-            type={REACT_WORKSHOP}
+            bgImageName={'TODO !! '}
+            type={type}
           />
           <TopSection>
             <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <CurriculumOneDayRedux layout={LIST_TWO_COL} />
+                  <Curriculum layout={LIST_TWO_COL} />
                 </Col>
               </Row>
             </Segment>

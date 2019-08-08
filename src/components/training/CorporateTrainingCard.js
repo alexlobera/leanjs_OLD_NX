@@ -1,6 +1,6 @@
 import React from 'react'
 import LinkButton from '../buttons/LinkButton'
-import { P, H3 } from '../text'
+import { H3 } from '../text'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 
 const CorporateTrainingCard = ({ type }) => (

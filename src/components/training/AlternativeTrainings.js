@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { H3 } from '../text'
-import { UpcomingTrainings } from './UpcomingTrainingSection'
-import { selectUpcomingTrainings } from './UpcomingTrainings'
+import UpcomingTrainings from './UpcomingTrainings'
+import selectUpcomingTrainings from './selectUpcomingTrainings'
 import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
 import { Row, Col } from '../layout/Grid'

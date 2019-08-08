@@ -32,7 +32,7 @@ import {
   REACT_BOOTCAMP,
 } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { WORKSHOP_TRAINING_ID, title } from '../'
+import { WORKSHOP_TRAINING_ID, title } from '../index2'
 
 const instanceTitle = `${title} In Berlin`
 

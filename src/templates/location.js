@@ -19,7 +19,8 @@ import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { Breadcrumb } from 'src/components/navigation'
 import BlogSection from 'src/components/blog/BlogSection'
-import { createSocialMetas, titleCase } from 'src/components/utils'
+import { createSocialMetas } from 'src/components/utils'
+import { titleCase } from 'src/components/utils/text'
 import Gallery from 'src/components/elements/Gallery'
 
 const renderAst = new rehypeReact({
