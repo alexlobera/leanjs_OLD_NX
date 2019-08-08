@@ -13,7 +13,6 @@ import { BOOTCAMP_COLLAB } from 'src/config/images'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
 import {
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
   selectNthTraining,
   AlternativeTrainings,
   TrainingDetails,
@@ -22,6 +21,7 @@ import {
   RICHARD_MOSS,
   AttendeeQuote,
 } from 'src/components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'

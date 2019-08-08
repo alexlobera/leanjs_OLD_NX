@@ -15,8 +15,8 @@ import {
   UpcomingTrainingSection,
   AttendeeQuote,
   selectNthTraining,
-  selectUpcomingTrainings,
 } from 'src/components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_CLIENT, LONDON } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'

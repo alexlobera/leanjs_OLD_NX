@@ -1,13 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumOneDayRedux, {
+import Curriculum, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
 import { Segment } from 'src/components/elements'
@@ -16,21 +15,37 @@ import {
   UpcomingTrainingSection,
   AttendeeQuote,
   getNextTrainingByTrainingId,
+  AlternativeTrainingSection,
+  selectUpcomingTrainings,
+  TrustedBySection,
 } from 'src/components/training'
-import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import BlogSection from 'src/components/blog/BlogSection'
 
-export const title = '1-Day React Redux Workshop'
-export const WORKSHOP_TRAINING_ID = '5cffb4e806051b7d3bcb0cee'
+import { Link, Breadcrumb } from 'src/components/navigation'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import { REACT_WORKSHOP } from 'src/config/data'
+import {
+  title,
+  tech,
+  trainingId,
+  breadcrumbTrainingType,
+  breadcrumbTrainingName,
+  tags,
+} from './config.json'
+import { crossSellTypes } from 'src/templates/instance/1-day-redux'
 
 const ReduxWorkshopLanding = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: WORKSHOP_TRAINING_ID,
+        trainingId,
+      })
+
+      const crossSellTrainings = selectUpcomingTrainings({
+        trainings,
+        types: crossSellTypes,
+        excludeTrainingId: trainingId,
       })
 
       return (
@@ -47,12 +62,15 @@ const ReduxWorkshopLanding = ({ path }) => (
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
+              { to: '/react', label: tech },
               { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
+              {
+                to: '/react/training/workshops',
+                label: breadcrumbTrainingType,
+              },
               {
                 to: path,
-                label: '1-Day Redux',
+                label: breadcrumbTrainingName,
               },
             ]}
           />
@@ -63,16 +81,15 @@ const ReduxWorkshopLanding = ({ path }) => (
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
-            bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
           />
           <TopSection>
             <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumOneDayRedux layout={LIST_TWO_COL} />
-                </Col>
-              </Row>
+              <Curriculum
+                section={{ isOpen: true }}
+                trainings={trainings}
+                trainingId={trainingId}
+              />
             </Segment>
           </TopSection>
 
@@ -105,7 +122,9 @@ const ReduxWorkshopLanding = ({ path }) => (
               </Col>
             </Row>
           </Section>
-
+          <AlternativeTrainingSection trainings={crossSellTrainings} />
+          <TrustedBySection />
+          <BlogSection tags={tags} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

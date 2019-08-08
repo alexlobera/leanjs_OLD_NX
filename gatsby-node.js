@@ -5,6 +5,7 @@
  */
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { titleCase } = require('./src/components/utils/text')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -35,84 +36,83 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 city
+                coaches
+                subTitle
               }
             }
-          }
-        }
-        getInstancePages: allFile(
-          filter: {
-            relativePath: {
-              regex: "/(react|graphql)/training/.*/(london|berlin|amsterdam|lisbon|barcelona)/index.js$/"
-            }
-          }
-        ) {
-          nodes {
-            relativePath
           }
         }
       }
     `).then(result => {
       const blogPaths = /(^\/blog\/|^\/react\/|^\/graphql\/)/g
+      const isTrainingPath = /^\/(react|graphql)\/training/g
       const coachPath = /^\/coaches/
       const locationPath = /^\/locations\//g
+      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if (node.fields.slug.match(blogPaths)) {
+        const { slug } = node.fields
+        if (slug.match(instancePath)) {
+          const slugNoTrailingSlash = slug.replace(/\/$/g, '')
+          const slugArray = slugNoTrailingSlash.split('/')
+          const city = slugArray.pop()
+          const titleCaseCity = titleCase(city)
+          const instancesToCreate = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+          const pathConfig = path.resolve(`./src/pages/${slug}../config.json`)
+          const { instanceTemplate, ...restConfig } = require(pathConfig)
+          instancesToCreate.forEach(nth => {
+            const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
+            createPage({
+              path: pagePath,
+              component: path.resolve(
+                `./src/templates/instance/${instanceTemplate}.js`
+              ),
+              context: {
+                city: titleCaseCity,
+                instanceTitle: `${restConfig.title} in ${titleCaseCity}`,
+                nth,
+                coaches: (node.frontmatter && node.frontmatter.coaches) || [],
+                subTitle: (node.frontmatter && node.frontmatter.subTitle) || '',
+                canonical: `https://reactgraphql.academy${slug}`,
+                ...restConfig,
+              },
+            })
+          })
+        } else if (slug.match(blogPaths) && !slug.match(isTrainingPath)) {
           createPage({
-            path: node.fields.slug,
+            path: slug,
             component: path.resolve(`./src/templates/blog-post.js`),
             context: {
-              slug: node.fields.slug,
+              slug,
             },
           })
-        } else if (node.fields.slug.match(coachPath)) {
+        } else if (slug.match(coachPath)) {
           createPage({
-            path: node.fields.slug,
+            path: slug,
             component: path.resolve(`./src/templates/coach.js`),
             context: {
-              slug: node.fields.slug,
+              slug,
               imgMaxWidth: 1000,
             },
           })
         } else if (node.fields.slug.match(locationPath)) {
           createPage({
-            path: node.fields.slug,
+            path: slug,
             component: path.resolve(`./src/templates/location.js`),
             context: {
-              slug: node.fields.slug,
+              slug,
               imgMaxWidth: 1000,
               regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,
             },
           })
         } else {
           createPage({
-            path: node.fields.slug,
+            path: slug,
             component: path.resolve(`./src/templates/landing.js`),
             context: {
-              slug: node.fields.slug,
+              slug,
             },
           })
         }
-      })
-
-      result.data.getInstancePages.nodes.forEach(node => {
-        const { relativePath } = node
-        const component = path.resolve(`src/${relativePath}`)
-        const instanceBasePath = relativePath
-          .substring(0, relativePath.lastIndexOf('/') + 1)
-          .substring(relativePath.indexOf('/'))
-
-        const instancesToCreate = [2, 3, 4, 5, 6, 8, 9]
-        instancesToCreate.forEach(nth => {
-          const instancePath = `${instanceBasePath}${nth}/`
-          createPage({
-            path: instancePath,
-            component,
-            context: {
-              nth,
-              canonical: `https://reactgraphql.academy${instanceBasePath}`,
-            },
-          })
-        })
       })
 
       resolve()

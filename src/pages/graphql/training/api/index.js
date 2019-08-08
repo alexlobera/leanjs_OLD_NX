@@ -14,8 +14,8 @@ import {
   AttendeeQuote,
   TrustedBySection,
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
 } from 'src/components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { Breadcrumb } from 'src/components/navigation'

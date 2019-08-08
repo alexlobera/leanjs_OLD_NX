@@ -1,19 +1,19 @@
+export { default as QueryUpcomingTrainings } from './QueryUpcomingTrainings'
 export {
-  default as QueryUpcomingTrainings,
-  selectUpcomingTrainings,
+  default as selectUpcomingTrainings,
   selectNthTraining,
   selectTrainingByInstanceId,
   getNextTrainingByTrainingId,
-} from './UpcomingTrainings'
+} from './selectUpcomingTrainings'
 export { default as AttendeeQuote } from './AttendeeQuote'
 export { default as TrainingItem } from './TrainingItem'
 export { default as TrustedBySection } from './TrustedBySection'
 export {
   default as UpcomingTrainingSection,
-  UpcomingTrainingCurriculum,
-  UpcomingTrainings,
   UpcomingTrainingTabs,
 } from './UpcomingTrainingSection'
+export { default as UpcomingTrainings } from './UpcomingTrainings'
+
 export {
   default as AlternativeTrainings,
   AlternativeTrainingSection,

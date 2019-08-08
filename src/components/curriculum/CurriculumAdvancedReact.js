@@ -43,8 +43,8 @@ const CurriculumAdvancedReact = ({
         trainingTime={trainingTime({ day: 0, training, type })}
         buyPath="/react/training/workshops/advanced-react-patterns-fp-performance"
       >
-        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
-        <ReactPerformanceSession title="Performance" />
+        <HoCsRenderPropsStateReducerSession />
+        <ReactPerformanceSession />
       </Section>
       <Section
         {...commonProps}
@@ -53,9 +53,9 @@ const CurriculumAdvancedReact = ({
         subTitle={`Advanced UI Patterns & Styling in React`}
         trainingTime={trainingTime({ day: 1, training })}
       >
-        <AdvancedUIPatterns title="Advanced UI Patterns" />
+        <AdvancedUIPatterns />
         <StylingInReactSession />
-        <DesignSystemSession title="Design Systems" />
+        <DesignSystemSession />
       </Section>
     </React.Fragment>
   )

@@ -1,67 +1,38 @@
 import React from 'react'
-import { H2Ref } from '../../text'
 import Link from '../../navigation/Link'
 import { Li } from '../../layout/Ul'
-import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
-import ReactNativeFoundationSession from '../sessions/native/ReactNativeFoundationSession'
-import ReactNativeNavigationSession from '../sessions/native/ReactNativeNavigationSession'
-import ReactNativeAnimationsSession from '../sessions/native/ReactNativeAnimationsSession'
+import Section from '../CurriculumSection'
+import ReactNativeFoundationSession, {
+  titleSession as titleSession1,
+} from '../sessions/native/ReactNativeFoundationSession'
+import ReactNativeNavigationSession, {
+  titleSession as titleSession2,
+} from '../sessions/native/ReactNativeNavigationSession'
+import ReactNativeAnimationsSession, {
+  titleSession as titleSession3,
+} from '../sessions/native/ReactNativeAnimationsSession'
 import { REACT_WORKSHOP } from '../../../config/data'
-import selectCurriculumLayout from '../selectCurriculumLayout'
+import Curriculum from './Curriculum'
 
-const CurriculumReactNative = ({
-  showTitle = true,
-  enableToggle,
-  isOpen,
-  toggleNavigateTo,
-  showLinkToCurriculum = false,
-  layout,
-  trainings,
-}) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = REACT_WORKSHOP
-  const commonProps = {
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
-    type,
-    isOpen,
-  }
-  const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="React Native Day 1"
-        name="day1"
-        subTitle="Foundation, Navigation, and Animations"
-      >
-        <ReactNativeFoundationSession title="Foundation" />
-        <ReactNativeNavigationSession title="Navigation" />
-        <ReactNativeAnimationsSession title="Animations" />
-      </Section>
-    </React.Fragment>
-  )
-
-  const secondHalf = null
-
-  const title = showTitle ? (
-    <H2Ref>
-      React Native Curriculum
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({
-    firstHalf,
-    secondHalf,
-    layout,
-    type,
-    title,
-    trainings,
-    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-  })
-}
+const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
+  <Curriculum
+    title={showTitle ? '1-Day React Native Curriculum' : ''}
+    {...rest}
+    firstHalf={
+      <React.Fragment>
+        <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
+          <ReactNativeFoundationSession title="" />
+        </Section>
+        <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
+          <ReactNativeNavigationSession title="" />
+        </Section>
+        <Section title={titleSession3} type={REACT_WORKSHOP} {...section}>
+          <ReactNativeAnimationsSession title="" />
+        </Section>
+      </React.Fragment>
+    }
+  />
+)
 
 export const TargetAudienceList = () => (
   <React.Fragment>

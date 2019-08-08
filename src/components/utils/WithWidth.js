@@ -12,12 +12,6 @@ export const EXTRA_LARGE = 4,
   defaultResizeInterval = 166
 
 export class Width extends React.Component {
-  static EXTRA_LARGE = EXTRA_LARGE
-  static LARGE = LARGE
-  static MEDIUM = MEDIUM
-  static SMALL = SMALL
-  static EXTRA_SMALL = EXTRA_SMALL
-
   constructor(props, context) {
     super(props)
     const {
@@ -27,6 +21,8 @@ export class Width extends React.Component {
       smallWidth,
       resizeInterval,
     } = context ? context.width || {} : {}
+    this.handleResize = this.handleResize.bind(this)
+    this.updateWidth = this.updateWidth.bind(this)
 
     this.state = { width: null }
     this.deferTime = null
@@ -49,28 +45,28 @@ export class Width extends React.Component {
     clearTimeout(this.deferTime)
   }
 
-  handleResize = () => {
+  handleResize() {
     clearTimeout(this.deferTime)
     this.deferTime = setTimeout(() => {
       this.updateWidth()
     }, this.resizeInterval)
   }
 
-  updateWidth = () => {
+  updateWidth() {
     let innerWidth = 0
     let width
     if (window) innerWidth = window.innerWidth
 
     if (innerWidth >= this.extraLargeWidth) {
-      width = Width.EXTRA_LARGE
+      width = EXTRA_LARGE
     } else if (innerWidth >= this.largeWidth) {
-      width = Width.LARGE
+      width = LARGE
     } else if (innerWidth >= this.mediumWidth) {
-      width = Width.MEDIUM
+      width = MEDIUM
     } else if (innerWidth >= this.smallWidth) {
-      width = Width.SMALL
+      width = SMALL
     } else {
-      width = Width.EXTRA_SMALL
+      width = EXTRA_SMALL
     }
 
     if (width !== this.state.width) {

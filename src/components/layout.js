@@ -18,7 +18,7 @@ import Footer from '../components/layout/Footer'
 import favicon from './favicon.ico'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
-import { QueryUpcomingTrainings } from '../components/training'
+import QueryUpcomingTrainings from '../components/training/QueryUpcomingTrainings'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 

@@ -1,80 +1,38 @@
 import React from 'react'
 
-import Link from '../../navigation/Link'
 import { REACT_WORKSHOP } from '../../../config/data'
-import { H2Ref } from '../../text'
 import { Li } from '../../layout/Ul'
-import Section, { curriedToggleNavigateTo } from '../CurriculumSection'
-import selectCurriculumLayout from '../selectCurriculumLayout'
-import DesignSystemSession from '../sessions/DesignSystemSession'
-import StylingInReactSession from '../sessions/StylingInReactSession'
-import AdvancedUIPatterns from '../sessions/AdvancedUIPatterns'
+import Section from '../CurriculumSection'
+import AdvancedUIPatterns, {
+  titleSession as titleSession1,
+} from '../sessions/AdvancedUIPatterns'
+import StylingInReactSession, {
+  titleSession as titleSession2,
+} from '../sessions/StylingInReactSession'
+import DesignSystemSession, {
+  titleSession as titleSession3,
+} from '../sessions/DesignSystemSession'
+import Curriculum from './Curriculum'
 
-const CurriculumStylingAndAdvUI = ({
-  showTitle = true,
-  layout,
-  enableToggle = true,
-  isOpen,
-  toggleNavigateTo,
-  showLinkToCurriculum = false,
-}) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
-  const type = REACT_WORKSHOP
-  const commonProps = {
-    showLinkToCurriculum,
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
-    type,
-    isOpen,
-  }
-  const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Advanced UI Patterns"
-        subTitle="Themes, Variantes, compound components, context, and best practices"
-      >
-        <AdvancedUIPatterns />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Styling in React"
-        subTitle="Component based style with styled-components & Storybook"
-      >
-        <StylingInReactSession />
-      </Section>
-    </React.Fragment>
-  )
-  const secondHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Design Systems with Styled System"
-        subTitle="Constraint-based style props based on design system tokens"
-      >
-        <DesignSystemSession />
-      </Section>
-    </React.Fragment>
-  )
-
-  const title = showTitle ? (
-    <H2Ref>
-      Styling in React using Design Systems{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({
-    firstHalf,
-    secondHalf,
-    layout,
-    type,
-    title,
-    corpTrainingFacts: true,
-  })
-}
+const CurriculumStylingAndAdvUI = ({ showTitle = true, section, ...rest }) => (
+  <Curriculum
+    title={showTitle ? '1-Day Advanced React UIs & Styling Curriculum' : ''}
+    {...rest}
+    firstHalf={
+      <React.Fragment>
+        <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
+          <AdvancedUIPatterns title="" />
+        </Section>
+        <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
+          <StylingInReactSession title="" />
+        </Section>
+        <Section title={titleSession3} type={REACT_WORKSHOP} {...section}>
+          <DesignSystemSession title="" />
+        </Section>
+      </React.Fragment>
+    }
+  />
+)
 
 export const TargetAudienceList = () => (
   <React.Fragment>

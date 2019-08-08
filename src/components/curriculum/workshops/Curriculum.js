@@ -4,7 +4,14 @@ import { REACT_WORKSHOP } from '../../../config/data'
 import { H2Ref } from '../../text'
 import selectCurriculumLayout from '../selectCurriculumLayout'
 
-const Curriculum = ({ title, layout, firstHalf, secondHalf }) => {
+const Curriculum = ({
+  title,
+  layout,
+  trainings,
+  trainingId,
+  firstHalf,
+  secondHalf,
+}) => {
   const type = REACT_WORKSHOP
 
   const curriculumTitle = title ? (
@@ -22,6 +29,8 @@ const Curriculum = ({ title, layout, firstHalf, secondHalf }) => {
     title: curriculumTitle,
     layout,
     type,
+    trainings,
+    trainingId,
   })
 }
 

@@ -2,7 +2,9 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const AdvancedUIPatterns = ({ title }) => (
+export const titleSession = 'Advanced UI Patterns'
+
+const AdvancedUIPatterns = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>Themes and Variants</Li>

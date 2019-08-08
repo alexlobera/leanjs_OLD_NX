@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { H3 } from '../text'
 import { LinkButton } from '../buttons'
 import { Col, Row } from '../layout/Grid'
-import { UpcomingTrainingCurriculum } from '../training'
+import UpcomingTrainingCurriculum from '../training/UpcomingTrainingCurriculum'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
 import Flex from '../layout/Flex'
 import Box from '../layout/Box'
@@ -26,6 +26,7 @@ const selectCurriculumLayout = ({
   corpTrainingFacts,
   curriculumTo,
   title,
+  trainingId,
   curriculumTitle = 'Course outline',
 }) => {
   const curriculumButtonSection = (
@@ -87,7 +88,11 @@ const selectCurriculumLayout = ({
           </Col>
           <Col md={5} lg={4} mdOffset={1}>
             {trainings ? (
-              <UpcomingTrainingCurriculum trainings={trainings} type={type} />
+              <UpcomingTrainingCurriculum
+                trainingId={trainingId}
+                trainings={trainings}
+                type={type}
+              />
             ) : corpTrainingFacts ? (
               <CorpTrainingFacts />
             ) : null}

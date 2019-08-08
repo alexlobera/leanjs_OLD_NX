@@ -6,7 +6,7 @@ import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
 import CurriculumGraphQLWorkshops from './CurriculumGraphQLWorkshops'
 import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 
-import { selectUpcomingTrainings } from '../training/UpcomingTrainings'
+import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
 import {
   GRAPHQL_BOOTCAMP,
   GRAPHQL_WORKSHOP,

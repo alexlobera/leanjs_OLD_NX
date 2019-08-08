@@ -69,6 +69,14 @@ const CurriculumReactWorkshops = ({
       />
       <Section
         {...commonProps}
+        title="Redux"
+        name="redux"
+        subTitle="Build Redux yourself and learn functional programming and middlewares"
+        showLinkToCurriculum
+        toggleNavigateTo="/react/training/workshops/redux"
+      />
+      <Section
+        {...commonProps}
         title="React Hooks & Suspense"
         name="hooksAndSuspense"
         subTitle="Learn 2 of the newest and most exciting features in React"

@@ -1,73 +1,75 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, P, H4 } from 'src/components/text'
+import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumStylingAndAdvUI, {
-  TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
 import { Segment, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  AlternativeTrainingSection,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
-  selectNthTraining,
   selectUpcomingTrainings,
+  selectNthTraining,
+  AlternativeTrainingSection,
   AttendeeQuote,
 } from 'src/components/training'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import {
-  REACT_WORKSHOP,
-  REACT_BOOTCAMP,
-  ADVANCED_REACT,
-  LONDON,
-} from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-import { createSocialMetas } from 'src/components/utils'
-import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { WORKSHOP_TRAINING_ID } from '../'
 
-const metas = {
-  title:
-    'Advanced React UIs & Styling With Design Systems Workshop London | React GraphQL Academy',
-  description:
-    'Interested in Design Systems? React GraphQL Academy offers London Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
-  image: WHY_REACTJS_ACADEMY,
-  type: 'website',
-}
-
-const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
+const InstancePage = ({
+  path,
+  curriculum: Curriculum,
+  targetAudienceList: TargetAudienceList,
+  crossSellTypes,
+  pageContext: {
+    subtitle,
+    coaches,
+    trainingId,
+    tech,
+    breadcrumbTrainingType,
+    breadcrumbTrainingName,
+    breadcrumbTrainingSlug,
+    type,
+    instanceTitle,
+    city,
+    canonical,
+    nth = 1,
+  },
+}) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const upcoming = selectUpcomingTrainings({
+      const pathTech = `/${tech.toLowerCase()}/`
+      const pathTraining = `${pathTech}training/`
+      const pathTrainingType = `/${pathTraining}/${breadcrumbTrainingType.toLowerCase()}/`
+      const pathTrainingName = `/${pathTrainingType}/${breadcrumbTrainingSlug ||
+        breadcrumbTrainingName.toLowerCase().replace(' ', '-')}/`
+      const upcomingTrainings = selectUpcomingTrainings({
         trainings,
-        trainingId: WORKSHOP_TRAINING_ID,
-        city: LONDON,
+        trainingId,
+        city,
       })
+
       const training = selectNthTraining({
-        trainings: upcoming,
+        trainings: upcomingTrainings,
         nth,
       })
+
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
-        city: LONDON,
-        types: [REACT_BOOTCAMP, ADVANCED_REACT, REACT_WORKSHOP],
-        excludeTrainingId: WORKSHOP_TRAINING_ID,
+        types: crossSellTypes,
+        excludeTrainingId: trainingId,
+        city,
       })
 
       return (
         <React.Fragment>
           <Helmet
-            title={metas.title}
+            title={instanceTitle}
             link={[
               {
                 rel: 'canonical',
@@ -77,37 +79,34 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             meta={[
               {
                 name: 'description',
-                content: metas.description,
+                content: instanceTitle,
               },
             ]}
-          >
-            {createSocialMetas(metas)}
-          </Helmet>
+          />
           <Breadcrumb
             path={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
+              { to: pathTech, label: tech },
+              { to: pathTraining, label: 'Training' },
               {
-                to:
-                  '/react/training/workshops/advanced-uis-styling-design-systems',
-                label: 'Adv UIs and Design Systems',
+                to: pathTrainingType,
+                label: breadcrumbTrainingType,
+              },
+              {
+                to: pathTrainingName,
+                label: breadcrumbTrainingName,
               },
               {
                 to: path,
-                label: 'London',
+                label: city,
               },
             ]}
           />
           <Header
-            titleLines={[
-              'Advanced React UIs & Styling With Design Systems in London',
-            ]}
-            subtitle="See in this workshop how React can look gorgeous and encourage design consistency"
+            titleLines={[instanceTitle]}
+            subtitle={subtitle}
             links={header.landingTraining.links}
-            bgImageName={BOOTCAMP}
-            type={REACT_WORKSHOP}
+            type={type}
             training={training}
             showInfoBox={true}
           />
@@ -122,10 +121,9 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                   />
                 </Col>
                 <Col md={6} lg={4} lgOffset={1}>
-                  <H4>Charlie's student experience</H4>
-
-                  <Video youtubeId="CP422OORbPA" />
-                  <TrainingDetails coaches={[ALEX_LOBERA, RICHARD_MOSS]} />
+                  <H4>Rafa's student experience</H4>
+                  <Video youtubeId="hZZksRcqtkc" />
+                  <TrainingDetails coaches={coaches} />
                 </Col>
               </Row>
             </Segment>
@@ -134,11 +132,11 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="This course has taught me not just the 'how' but WHY React is good..."
-                  fullname="Jim Plimmer"
-                  job="Developer"
-                  company="Conversion.com"
-                  youtubeId="nIK8ouQp17s"
+                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
+                  fullname="Lara Ramey"
+                  job="Software Developer"
+                  company="Meredith Corporation"
+                  youtubeId="blg40SCle7I"
                 />
               </Col>
               <Col md={4} lgOffset={1}>
@@ -154,13 +152,21 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!
                 </P>
+                <H3>Not for beginner devs!</H3>
                 <P>
-                  If you're a developer who's not yet familar with React, we
-                  recommend first attending the{' '}
-                  <Link to="/react/training/react-fundamentals/">
-                    React Fundamentals Course.
+                  This is not a learn-to-code course. If you want to learn to
+                  code, we recommend checking out{' '}
+                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
+                    Free Code camps
                   </Link>
+                  .
                 </P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
               </Col>
             </Row>
           </Section>
@@ -168,7 +174,7 @@ const InstancePage = ({ path, pageContext: { canonical, nth = 1 } }) => (
             <Segment>
               <Row>
                 <Col lg={10} lgOffset={1}>
-                  <CurriculumStylingAndAdvUI layout={LIST_TWO_COL} />
+                  <Curriculum layout={LIST_TWO_COL} />
                 </Col>
               </Row>
             </Segment>

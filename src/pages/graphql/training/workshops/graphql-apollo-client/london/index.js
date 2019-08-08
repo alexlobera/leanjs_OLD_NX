@@ -13,13 +13,13 @@ import { BOOTCAMP_COLLAB } from 'src/config/images'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
-  selectUpcomingTrainings,
   selectNthTraining,
   TrainingDetails,
   ALEX_LOBERA,
   AlternativeTrainings,
   AttendeeQuote,
 } from 'src/components/training'
+import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'

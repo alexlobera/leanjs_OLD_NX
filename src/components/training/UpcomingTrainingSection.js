@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 
-import { formatUTC } from '../utils'
 import Section from '../layout/Section'
 import Grid, { Col, Row } from '../layout/Grid'
-import { H2Ref, H3, P } from '../text'
-import { TrainingItem } from '.'
+import { H2Ref, P } from '../text'
+import UpcomingTrainings from './UpcomingTrainings'
 import Link from '../navigation/Link'
-import LinkButton from '../buttons/LinkButton'
-import { selectUpcomingTrainings } from './UpcomingTrainings'
+import selectUpcomingTrainings from './selectUpcomingTrainings'
 import { GREY } from '../../config/styles'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
@@ -21,7 +19,6 @@ import {
   GRAPHQL_CLIENT,
   MEETUP,
 } from '../../config/data'
-import CorporateTrainingCard from './CorporateTrainingCard'
 import Flex from '../layout/Flex'
 
 const CorporateCrossSell = ({ to }) => (
@@ -34,108 +31,6 @@ const CorporateCrossSell = ({ to }) => (
     </Link>
   </Flex>
 )
-
-export const UpcomingTrainings = ({
-  curriculum,
-  type,
-  city,
-  limit,
-  trainings,
-  className,
-}) => {
-  const filteredTrainings = selectUpcomingTrainings({
-    type,
-    limit,
-    city,
-    trainings,
-  })
-  if (!filteredTrainings.length || !filteredTrainings[0].id) {
-    return <P>Sorry! There are no {type} dates confirmed.</P>
-  } else {
-    return filteredTrainings.map(training => {
-      const formatedDate = formatUTC(
-        training.startDate,
-        training.utcOffset,
-        'D MMM'
-      )
-      const dayMonth = formatedDate ? formatedDate.split(' ') : ['', '']
-      const startDate = new Date(training.startDate)
-      const endDate = new Date(training.endDate)
-      const daysCoefficient = 86400000 // 1000 * 60 * 60 * 24
-      const hourCoefficient = 3600000 // 1000 * 60 * 60
-      const days = Math.round((endDate - startDate) / daysCoefficient) + 1
-      const hours = Math.round((endDate - startDate) / hourCoefficient)
-      const duration =
-        hours < 7
-          ? ``
-          : days < 2
-          ? '1 day'
-          : days < 3
-          ? `2 days`
-          : days < 5
-          ? `3 days`
-          : days < 10
-          ? '1 week'
-          : days < 40
-          ? '1 month'
-          : ''
-
-      const trainingInstance = (
-        <TrainingItem
-          key={training.id}
-          cityCountry={training.cityCountry}
-          startDay={dayMonth[0]}
-          startMonth={dayMonth[1]}
-          duration={duration}
-          type={training.type}
-          title={training.title}
-          path={training.toPath}
-          className={className}
-        />
-      )
-      return (
-        <React.Fragment key={training.id}>
-          {curriculum ? trainingInstance : <Col md={4}>{trainingInstance}</Col>}
-        </React.Fragment>
-      )
-    })
-  }
-}
-
-export const UpcomingTrainingCurriculum = ({
-  type,
-  trainings,
-  removeAdditionalCTAs = false,
-  className = 'upcoming-courses-upcoming-dates',
-}) => {
-  return (
-    <React.Fragment>
-      <Link to="#upcoming-courses" name="upcoming-courses" />
-      <H3 pt={[4, 0]}>Upcoming dates</H3>
-      <UpcomingTrainings
-        type={type}
-        limit={5}
-        curriculum
-        trainings={trainings}
-        className={className}
-      />
-      <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
-        See all upcoming courses
-      </Link>
-      {!removeAdditionalCTAs && (
-        <React.Fragment>
-          <Link to="#free-learning-resources" name="free-learning-resources" />
-          <H3 mt={2}>Free learning resources!</H3>
-          <LinkButton className="free-learning-resources-cta" to="#newsletter">
-            Sign up now
-          </LinkButton>
-          <Link to="#corporate-training" name="corporate-training" />
-          <CorporateTrainingCard type={type} />
-        </React.Fragment>
-      )}
-    </React.Fragment>
-  )
-}
 
 export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
   const [activeTab, setActiveTab] = useState(REACT_BOOTCAMP)

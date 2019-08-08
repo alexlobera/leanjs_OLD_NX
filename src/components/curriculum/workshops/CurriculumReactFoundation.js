@@ -11,35 +11,20 @@ import RoutingAndDataFetchingSession, {
 import { Li } from 'src/components/layout/Ul'
 import { REACT_WORKSHOP } from '../../../config/data'
 
-const CurriculumReactFoundation = ({ showTitle = true, layout, ...rest }) => (
+const CurriculumReactFoundation = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? '1-Day React Foundation Curriculum' : ''}
-    layout={layout}
+    {...rest}
     firstHalf={
       <React.Fragment>
-        <Section
-          title={es6Title}
-          subTitle="Session 1"
-          type={REACT_WORKSHOP}
-          {...rest}
-        >
-          <ES6Session />
+        <Section title={es6Title} type={REACT_WORKSHOP} {...section}>
+          <ES6Session title="" />
         </Section>
-        <Section
-          title={thinkingTitle}
-          subTitle="Session 2"
-          type={REACT_WORKSHOP}
-          {...rest}
-        >
-          <ThinkingInReactSession />
+        <Section title={thinkingTitle} type={REACT_WORKSHOP} {...section}>
+          <ThinkingInReactSession title="" />
         </Section>
-        <Section
-          title={routingTitle}
-          subTitle="Session 3"
-          type={REACT_WORKSHOP}
-          {...rest}
-        >
-          <RoutingAndDataFetchingSession />
+        <Section title={routingTitle} type={REACT_WORKSHOP} {...section}>
+          <RoutingAndDataFetchingSession title="" />
         </Section>
       </React.Fragment>
     }

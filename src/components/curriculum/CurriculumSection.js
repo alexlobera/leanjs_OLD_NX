@@ -1,39 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import { H4 } from '../text'
-import { PINK } from '../../config/styles'
 import { Element } from 'react-scroll'
-import { Link } from '../navigation'
+import Link from '../navigation/Link'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
 import { selectTypeColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
-import Flex from '../layout/Flex'
 import Box from '../layout/Box'
 import Card from '../elements/Card'
 
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
 
-const StyledFeedback = styled(Flex)`
-  border: 2px dashed ${PINK};
-  max-width: 320px;
-`
-StyledFeedback.defaultProps = {
-  p: 3,
-  my: 3,
-  jc: 'center',
-}
+// Feedback disabled temporarly.
+// const StyledFeedback = styled(Flex)`
+//   border: 2px dashed ${PINK};
+//   max-width: 320px;
+// `
+// StyledFeedback.defaultProps = {
+//   p: 3,
+//   my: 3,
+//   jc: 'center',
+// }
 
-const Feedback = () => (
-  <StyledFeedback>
-    Any questions?
-    <Link className="training-curriculum-link-clicks" ml={1} to="#contact-us">
-      Contact us
-    </Link>
-  </StyledFeedback>
-)
+// const Feedback = () => (
+//   <StyledFeedback>
+//     Any questions?
+//     <Link className="training-curriculum-link-clicks" ml={1} to="#contact-us">
+//       Contact us
+//     </Link>
+//   </StyledFeedback>
+// )
 
 const CurriculumSection = props => {
   const isOpen =
@@ -81,7 +79,7 @@ const CurriculumSection = props => {
   const subsection = isTabOpen ? (
     <Box pt={1}>
       {children}
-      <Feedback />
+      {/* <Feedback /> */}
       <Link
         className="training-curriculum-link-clicks"
         duration={200}

@@ -10,27 +10,17 @@ import TestingInReactSession, {
 } from '../sessions/TestingInReactSession'
 import Curriculum from './Curriculum'
 
-const CurriculumTestingInReact = ({ showTitle = true, layout, ...rest }) => (
+const CurriculumTestingInReact = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? '1-Day Testing in React Curriculum' : ''}
-    layout={layout}
+    {...rest}
     firstHalf={
       <React.Fragment>
-        <Section
-          title={introTitle}
-          subTitle="Session 1"
-          type={REACT_WORKSHOP}
-          {...rest}
-        >
-          <TestingIntroSession />
+        <Section title={introTitle} type={REACT_WORKSHOP} {...section}>
+          <TestingIntroSession title="" />
         </Section>
-        <Section
-          title={reactTitle}
-          subTitle="Session 2"
-          type={REACT_WORKSHOP}
-          {...rest}
-        >
-          <TestingInReactSession />
+        <Section title={reactTitle} type={REACT_WORKSHOP} {...section}>
+          <TestingInReactSession title="" />
         </Section>
       </React.Fragment>
     }

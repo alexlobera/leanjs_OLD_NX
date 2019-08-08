@@ -2,7 +2,9 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const AdvancedReduxSession = ({ title }) => (
+export const titleSession = 'Advanced Redux'
+
+const AdvancedReduxSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>
