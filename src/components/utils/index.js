@@ -189,7 +189,7 @@ export const formatUTC = (
   const offsetDate = new Date(
     targetTime.getTime() + dayOffset + localOffsetInMs + utcOffsetInMs
   )
-  debugger
+
   const months = [
       'Jan',
       'Feb',

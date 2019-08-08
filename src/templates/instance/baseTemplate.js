@@ -6,9 +6,6 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P, H4 } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-// import CurriculumOneDayRedux, {
-//   TargetAudienceList,
-// } from 'src/components/curriculum/workshops/CurriculumOneDayRedux'
 import { Segment, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -24,43 +21,31 @@ import {
 import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-// import {
-//   ADVANCED_REACT,
-//   REACT_WORKSHOP,
-//   REACT_BOOTCAMP,
-//   LONDON,
-// } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
-// import { WORKSHOP_TRAINING_ID, title } from '../'
-
-// const city = LONDON
-// const trainingId = WORKSHOP_TRAINING_ID
-// const instanceTitle = `${title} In London`
-// const crossSellTypes = [ADVANCED_REACT, REACT_BOOTCAMP, REACT_WORKSHOP]
-// const excludeTrainingId = WORKSHOP_TRAINING_ID
-// const type = REACT_WORKSHOP
-
-// const Curriculum = CurriculumOneDayRedux
 
 const InstancePage = ({
   path,
   curriculum: Curriculum,
   targetAudienceList: TargetAudienceList,
-  trainingName,
-  tech,
-  trainingType,
   crossSellTypes,
-  trainingId,
-  pageContext: { type, instanceTitle, city, canonical, nth = 1 },
+  pageContext: {
+    trainingId,
+    tech,
+    breadcrumbTrainingType,
+    breadcrumbTrainingName,
+    type,
+    instanceTitle,
+    city,
+    canonical,
+    nth = 1,
+  },
 }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      // const tech = 'React'
-      // const trainingName = 'Redux'
       const pathTech = `/${tech.toLowerCase()}/`
       const pathTraining = `${pathTech}training/`
-      const pathTrainingType = `/${pathTraining}/${trainingType.toLowerCase()}/`
-      const pathTrainingName = `/${pathTrainingType}/${trainingName.toLowerCase()}/`
+      const pathTrainingType = `/${pathTraining}/${breadcrumbTrainingType.toLowerCase()}/`
+      const pathTrainingName = `/${pathTrainingType}/${breadcrumbTrainingName.toLowerCase()}/`
       const subtitle =
         'Learn how Redux and React work together in practice in this 1-day workshop in London, from Redux fundamentals and FP through to Redux Middlewares'
       const coaches = [ALEX_LOBERA, RICHARD_MOSS]
@@ -70,10 +55,12 @@ const InstancePage = ({
         trainingId,
         city,
       })
+
       const training = selectNthTraining({
         trainings: upcomingTrainings,
         nth,
       })
+
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: crossSellTypes,
@@ -105,11 +92,11 @@ const InstancePage = ({
               { to: pathTraining, label: 'Training' },
               {
                 to: pathTrainingType,
-                label: trainingType,
+                label: breadcrumbTrainingType,
               },
               {
                 to: pathTrainingName,
-                label: trainingName,
+                label: breadcrumbTrainingName,
               },
               {
                 to: path,
