@@ -2,8 +2,8 @@
   "instanceTemplate": "1-day-advanced-react-patterns-fp",
   "tech": "React",
   "breadcrumbTrainingType": "Workshops",
-  "breadcrumbTrainingName": "Advanced Patterns",
-  "breadcrumbTrainingSlug": "advanced-react-patterns-fp-performance",
+  "breadcrumbWorkshopName": "Advanced Patterns",
+  "breadcrumbWorkshopSlug": "advanced-react-patterns-fp-performance",
   "trainingId": "5d0112d806051b7d3bcb0cf7",
   "title": ["1-Day Advanced Patterns, FP", "and Performance Workshop"],
   "tags": ["redux"]

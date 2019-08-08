@@ -66,6 +66,13 @@ const InstancePage = ({
         city,
       })
 
+      const workshopBreadcrumb = pathTrainingName
+        ? {
+            to: pathTrainingName,
+            label: breadcrumbTrainingName,
+          }
+        : {}
+
       return (
         <React.Fragment>
           <Helmet
@@ -92,10 +99,7 @@ const InstancePage = ({
                 to: pathTrainingType,
                 label: breadcrumbTrainingType,
               },
-              {
-                to: pathTrainingName,
-                label: breadcrumbTrainingName,
-              },
+              ...workshopBreadcrumb,
               {
                 to: path,
                 label: city,

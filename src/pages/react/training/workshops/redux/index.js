@@ -29,7 +29,7 @@ import {
   tech,
   trainingId,
   breadcrumbTrainingType,
-  breadcrumbTrainingName,
+  breadcrumbWorkshopName,
   tags,
 } from './config.json'
 import { crossSellTypes } from 'src/templates/instance/1-day-redux'
@@ -70,7 +70,7 @@ const ReduxWorkshopLanding = ({ path }) => (
               },
               {
                 to: path,
-                label: breadcrumbTrainingName,
+                label: breadcrumbWorkshopName,
               },
             ]}
           />

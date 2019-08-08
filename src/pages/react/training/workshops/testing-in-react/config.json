@@ -2,8 +2,8 @@
   "instanceTemplate": "1-day-testing-in-react",
   "tech": "React",
   "breadcrumbTrainingType": "Workshops",
-  "breadcrumbTrainingName": "Testing",
-  "breadcrumbTrainingSlug": "testing-in-react",
+  "breadcrumbWorkshopName": "Testing",
+  "breadcrumbWorkshopSlug": "testing-in-react",
   "trainingId": "5d01096406051b7d3bcb0cf5",
   "title": "1-Day Testing in React Workshop",
   "tags": ["testing", "react"]

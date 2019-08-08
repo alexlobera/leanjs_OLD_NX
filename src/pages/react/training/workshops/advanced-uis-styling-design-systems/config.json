@@ -2,8 +2,8 @@
   "instanceTemplate": "1-day-advanced-uis-styling-ds",
   "tech": "React",
   "breadcrumbTrainingType": "Workshops",
-  "breadcrumbTrainingName": "Advanced UI & styling",
-  "breadcrumbTrainingSlug": "advanced-uis-styling-design-systems",
+  "breadcrumbWorkshopName": "Advanced UI & styling",
+  "breadcrumbWorkshopSlug": "advanced-uis-styling-design-systems",
   "trainingId": "5cd2c86daa5e8f0a07b924fb",
   "title": "1-Day Advanced React UIs & Styling With Design Systems Workshop",
   "tags": ["styling"]

@@ -2,7 +2,7 @@
   "instanceTemplate": "1-day-react-native",
   "tech": "React",
   "breadcrumbTrainingType": "Workshops",
-  "breadcrumbTrainingName": "React Native",
+  "breadcrumbWorkshopName": "React Native",
   "trainingId": "5b68c76daff9b939d15e5099",
   "title": "1-Day React Native Workshop",
   "tags": ["react native"]

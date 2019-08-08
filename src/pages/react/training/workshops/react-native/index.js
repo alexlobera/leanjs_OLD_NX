@@ -24,7 +24,7 @@ import { Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { title, trainingId, breadcrumbTrainingName } from './config.json'
+import { title, trainingId, breadcrumbWorkshopName } from './config.json'
 
 const ReactNativeBoocamp = ({ path }) => (
   <Layout>
@@ -52,7 +52,7 @@ const ReactNativeBoocamp = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: breadcrumbTrainingName,
+                label: breadcrumbWorkshopName,
               },
             ]}
           />
