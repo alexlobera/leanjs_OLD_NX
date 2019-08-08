@@ -27,63 +27,6 @@ const CurriculumOneDayRedux = ({ showTitle = true, section, ...rest }) => (
   />
 )
 
-// const CurriculumOneDayRedux = ({
-//   showTitle = true,
-//   layout,
-//   enableToggle = true,
-//   isOpen,
-//   showLinkToCurriculum = false,
-// }) => {
-//   const type = REACT_WORKSHOP
-//   const commonProps = {
-//     showLinkToCurriculum,
-//     enableToggle,
-//     type,
-//     isOpen,
-//   }
-//   const firstHalf = (
-//     <React.Fragment>
-//       <Section
-//         {...commonProps}
-//         title={titleSession1}
-//         subTitle="Redux from the ground up"
-//       >
-//         <IntroReduxSessions />
-//       </Section>
-//     </React.Fragment>
-//   )
-//   const secondHalf = (
-//     <React.Fragment>
-//       <Section
-//         {...commonProps}
-//         title={titleSession2}
-//         subTitle="Advanced concepts including FP and middlewares"
-//       >
-//         <AdvancedReduxSession />
-//       </Section>
-//     </React.Fragment>
-//   )
-
-//   const title = showTitle ? (
-//     <H2Ref>
-//       Redux{' '}
-//       <Link to="#curriculum" name="curriculum">
-//         #
-//       </Link>
-//       <H3>1 day workshop</H3>
-//     </H2Ref>
-//   ) : null
-
-//   return selectCurriculumLayout({
-//     firstHalf,
-//     secondHalf,
-//     title,
-//     layout,
-//     type,
-//     corpTrainingFacts: true,
-//   })
-// }
-
 export const TargetAudienceList = () => (
   <React.Fragment>
     <Li>
