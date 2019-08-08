@@ -11,8 +11,6 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   TrainingDetails,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
   selectUpcomingTrainings,
   selectNthTraining,
   AlternativeTrainingSection,
