@@ -23,6 +23,7 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import { trainingId, breadcrumbTrainingName } from './config.json'
 
 const metas = {
   title: `Advanced React UIs & Styling With Design Systems Workshop | React GraphQL Academy`,
@@ -32,14 +33,12 @@ const metas = {
   type: 'website',
 }
 
-export const WORKSHOP_TRAINING_ID = '5cd2c86daa5e8f0a07b924fb'
-
 const StylingDesignSystemWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: WORKSHOP_TRAINING_ID,
+        trainingId,
       })
 
       return (
@@ -63,7 +62,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'Adv UIs and Design Systems',
+                label: breadcrumbTrainingName,
               },
             ]}
           />

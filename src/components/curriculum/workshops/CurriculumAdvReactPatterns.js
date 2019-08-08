@@ -6,6 +6,7 @@ import { H2Ref, H3 } from '../../text'
 import HoCsRenderPropsStateReducerSession from '../sessions/HoCsRenderPropsStateReducerSession'
 import ReactPerformanceSession from '../sessions/ReactPerformanceSession'
 import selectCurriculumLayout from '../selectCurriculumLayout'
+import { Li } from '../../layout/Ul'
 
 const CurriculumAdvReactPatterns = ({
   showTitle = true,
@@ -45,5 +46,11 @@ const CurriculumAdvReactPatterns = ({
 
   return selectCurriculumLayout({ firstHalf, secondHalf, title, layout, type })
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li></Li>
+  </React.Fragment>
+)
 
 export default CurriculumAdvReactPatterns

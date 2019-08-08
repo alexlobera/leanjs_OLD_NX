@@ -33,6 +33,7 @@ const InstancePage = ({
     tech,
     breadcrumbTrainingType,
     breadcrumbTrainingName,
+    breadcrumbTrainingSlug,
     type,
     instanceTitle,
     city,
@@ -45,7 +46,8 @@ const InstancePage = ({
       const pathTech = `/${tech.toLowerCase()}/`
       const pathTraining = `${pathTech}training/`
       const pathTrainingType = `/${pathTraining}/${breadcrumbTrainingType.toLowerCase()}/`
-      const pathTrainingName = `/${pathTrainingType}/${breadcrumbTrainingName.toLowerCase()}/`
+      const pathTrainingName = `/${pathTrainingType}/${breadcrumbTrainingSlug ||
+        breadcrumbTrainingName.toLowerCase().replace(' ', '-')}/`
       const subtitle =
         'Learn how Redux and React work together in practice in this 1-day workshop in London, from Redux fundamentals and FP through to Redux Middlewares'
       const coaches = [ALEX_LOBERA, RICHARD_MOSS]

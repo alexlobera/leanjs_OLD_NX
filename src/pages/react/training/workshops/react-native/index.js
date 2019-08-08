@@ -24,16 +24,14 @@ import { Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-
-export const title = '1-Day React Native Workshop'
-export const WORKSHOP_TRAINING_ID = '5b68c76daff9b939d15e5099'
+import { title, trainingId, breadcrumbTrainingName } from './config.json'
 
 const ReactNativeBoocamp = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: WORKSHOP_TRAINING_ID,
+        trainingId,
       })
       return (
         <React.Fragment>
@@ -54,7 +52,7 @@ const ReactNativeBoocamp = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: '1-Day React Native',
+                label: breadcrumbTrainingName,
               },
             ]}
           />

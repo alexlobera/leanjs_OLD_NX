@@ -19,16 +19,16 @@ import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import { trainingId, title, breadcrumbTrainingName } from './config.json'
 
-export const title = ['1-Day Advanced Patterns, FP', 'and Performance Workshop']
-export const WORKSHOP_TRAINING_ID = '5d0112d806051b7d3bcb0cf7'
+// export const title = ['1-Day Advanced Patterns, FP', 'and Performance Workshop']
 
 const AdvancedReactWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        trainingId: WORKSHOP_TRAINING_ID,
+        trainingId,
       })
       return (
         <React.Fragment>
@@ -49,7 +49,7 @@ const AdvancedReactWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'Advanced Patterns, FP and Performance',
+                label: breadcrumbTrainingName,
               },
             ]}
           />
