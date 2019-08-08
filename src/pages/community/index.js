@@ -14,7 +14,7 @@ import {
   UpcomingTrainingSection,
   selectNthTraining,
 } from '../../components/training'
-import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
+import selectUpcomingTrainings from '../../components/training/selectUpcomingTrainings'
 import { LinkButton } from '../../components/buttons'
 import { MEETUP } from '../../config/data'
 import { CallToActionRow } from '../../components/layout/CallToActionRow'

@@ -57,12 +57,8 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
-        <HoCsRenderPropsStateReducerSession
-          title="Functional Programming & Advanced React patterns"
-        />
-        <ReactPerformanceSession
-          title="Performance"
-        />
+        <HoCsRenderPropsStateReducerSession />
+        <ReactPerformanceSession />
       </CurriculumSection>
       <CurriculumSection
         mt={4}
@@ -73,13 +69,9 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
-        <AdvancedUIPatterns
-          title="Advanced UI Patterns"
-        />
+        <AdvancedUIPatterns />
         <AdvancedReduxSession />
-        <DesignSystemSession
-          title="Design Systems"
-        />
+        <DesignSystemSession />
       </CurriculumSection>
       <CurriculumSection
         mt={4}

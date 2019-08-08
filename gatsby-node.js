@@ -37,6 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 city
                 coaches
+                subTitle
               }
             }
           }
@@ -69,6 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
                 instanceTitle: `${restConfig.title} in ${titleCaseCity}`,
                 nth,
                 coaches: (node.frontmatter && node.frontmatter.coaches) || [],
+                subTitle: (node.frontmatter && node.frontmatter.subTitle) || '',
                 canonical: `https://reactgraphql.academy${slug}`,
                 ...restConfig,
               },
