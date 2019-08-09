@@ -68,7 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
               ),
               context: {
                 city: titleCaseCity,
-                instanceTitle: `${restConfig.title} in ${titleCaseCity}`,
+                instanceTitle: `${restConfig.title} ${titleCaseCity}`,
                 nth,
                 coaches: (node.frontmatter && node.frontmatter.coaches) || [],
                 subtitle: (node.frontmatter && node.frontmatter.subtitle) || '',

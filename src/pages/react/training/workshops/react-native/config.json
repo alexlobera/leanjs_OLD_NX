@@ -1,8 +1,10 @@
 {
   "instanceTemplate": "1-day-react-native",
   "tech": "React",
-  "breadcrumbTrainingType": "Workshops",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
   "breadcrumbWorkshopName": "React Native",
+  "breadcrumbWorkshopSlug": "react-native",
   "trainingId": "5b68c76daff9b939d15e5099",
   "title": "1-Day React Native Workshop",
   "tags": ["react native"]

@@ -1,7 +1,8 @@
 {
   "instanceTemplate": "1-day-advanced-uis-styling-ds",
   "tech": "React",
-  "breadcrumbTrainingType": "Workshops",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
   "breadcrumbWorkshopName": "Advanced UI & styling",
   "breadcrumbWorkshopSlug": "advanced-uis-styling-design-systems",
   "trainingId": "5cd2c86daa5e8f0a07b924fb",

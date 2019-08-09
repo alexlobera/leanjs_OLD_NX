@@ -74,17 +74,17 @@ const TrainingPage = ({ path }) => (
                     children: 'React Bootcamp',
                   },
                   {
-                    to: '/react/training/react-fundamentals/',
-                    children: 'React Fundamentals',
-                    px: 1,
+                    to: '/react/training/part-time-course',
+                    children: 'Part time Course',
                   },
                   {
                     to: '/react/training/advanced',
                     children: 'Advanced React',
                   },
                   {
-                    to: '/react/training/part-time-course',
-                    children: 'Part time Course',
+                    to: '/react/training/react-fundamentals/',
+                    children: 'React Fundamentals',
+                    px: 1,
                   },
                   {
                     to: '/react/training/workshops',

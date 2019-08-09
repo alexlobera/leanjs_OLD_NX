@@ -50,6 +50,10 @@ const CorporateReactTraining = ({ path }) => (
               label: 'React',
             },
             {
+              to: '/react/training/',
+              label: 'Training',
+            },
+            {
               to: path,
               label: 'Corporate',
             },

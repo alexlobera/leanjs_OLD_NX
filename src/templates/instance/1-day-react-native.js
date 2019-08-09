@@ -10,6 +10,7 @@ export const crossSellTypes = [ADVANCED_REACT, REACT_WORKSHOP]
 const Page = props => (
   <BaseTemplate
     {...props}
+    type={REACT_WORKSHOP}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

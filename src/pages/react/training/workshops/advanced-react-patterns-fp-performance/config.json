@@ -1,7 +1,8 @@
 {
   "instanceTemplate": "1-day-advanced-react-patterns-fp",
   "tech": "React",
-  "breadcrumbTrainingType": "Workshops",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
   "breadcrumbWorkshopName": "Advanced Patterns",
   "breadcrumbWorkshopSlug": "advanced-react-patterns-fp-performance",
   "trainingId": "5d0112d806051b7d3bcb0cf7",

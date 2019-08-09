@@ -153,7 +153,29 @@ const CurriculumReactBootcamp = ({
 
 export const TargetAudienceList = () => (
   <React.Fragment>
-    <Li></Li>
+    <Li>
+      A developer{' '}
+      <strong>
+        interested in becoming quickly a productive React developer
+      </strong>{' '}
+      capable to work on real-world React projects.
+    </Li>
+    <Li>
+      You are interested in intense training for extremely rapid learning by
+      focusing on one thing during one week.
+    </Li>
+    <Li>
+      Ideal for experienced programmers familiar with good practices. Not for
+      beginner devs!
+    </Li>
+    <Li>
+      You learn by doing. This is a hands-on project-based training - most of
+      the time you'll be coding.
+    </Li>
+    <Li>
+      You think code reviews and pair programming are useful and you are
+      interested in getting feedback on your coding.
+    </Li>
   </React.Fragment>
 )
 

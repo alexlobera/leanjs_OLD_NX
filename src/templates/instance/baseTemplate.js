@@ -23,6 +23,8 @@ import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
 
 const InstancePage = ({
   path,
+  type,
+  typeOfTraining = '1-day React workshop',
   curriculum: Curriculum,
   targetAudienceList: TargetAudienceList,
   crossSellTypes,
@@ -31,10 +33,10 @@ const InstancePage = ({
     coaches,
     trainingId,
     tech,
-    breadcrumbTrainingType,
     breadcrumbTrainingName,
     breadcrumbTrainingSlug,
-    type,
+    breadcrumbWorkshopName,
+    breadcrumbWorkshopSlug,
     instanceTitle,
     city,
     canonical,
@@ -45,9 +47,8 @@ const InstancePage = ({
     {({ trainings, trainingLoading, trainingError }) => {
       const pathTech = `/${tech.toLowerCase()}/`
       const pathTraining = `${pathTech}training/`
-      const pathTrainingType = `/${pathTraining}/${breadcrumbTrainingType.toLowerCase()}/`
-      const pathTrainingName = `/${pathTrainingType}/${breadcrumbTrainingSlug ||
-        breadcrumbTrainingName.toLowerCase().replace(' ', '-')}/`
+      const pathTrainingType = `${pathTraining}${breadcrumbTrainingSlug}/`
+      const pathWorkshopType = `${pathTrainingType}${breadcrumbWorkshopSlug}/`
       const upcomingTrainings = selectUpcomingTrainings({
         trainings,
         trainingId,
@@ -66,12 +67,30 @@ const InstancePage = ({
         city,
       })
 
-      const workshopBreadcrumb = pathTrainingName
-        ? {
-            to: pathTrainingName,
-            label: breadcrumbTrainingName,
-          }
-        : {}
+      const breadcrumbInstance = {
+        to: path,
+        label: city,
+      }
+      const breadcrumbLastItems = breadcrumbWorkshopName
+        ? [
+            {
+              to: pathWorkshopType,
+              label: breadcrumbWorkshopName,
+            },
+            breadcrumbInstance,
+          ]
+        : [breadcrumbInstance]
+
+      const breadcrumb = [
+        { to: '/', label: 'Home' },
+        { to: pathTech, label: tech },
+        { to: pathTraining, label: 'Training' },
+        {
+          to: pathTrainingType,
+          label: breadcrumbTrainingName,
+        },
+        ...breadcrumbLastItems,
+      ]
 
       return (
         <React.Fragment>
@@ -90,22 +109,7 @@ const InstancePage = ({
               },
             ]}
           />
-          <Breadcrumb
-            path={[
-              { to: '/', label: 'Home' },
-              { to: pathTech, label: tech },
-              { to: pathTraining, label: 'Training' },
-              {
-                to: pathTrainingType,
-                label: breadcrumbTrainingType,
-              },
-              ...workshopBreadcrumb,
-              {
-                to: path,
-                label: city,
-              },
-            ]}
-          />
+          <Breadcrumb path={breadcrumb} />
           <Header
             titleLines={[instanceTitle]}
             subtitle={subtitle}
@@ -145,26 +149,17 @@ const InstancePage = ({
               </Col>
               <Col md={4} lgOffset={1}>
                 <H2Ref>
-                  Is this one day workshop right for me? Are you...{' '}
-                  <Link to="#target-audience" name="target-audience">
-                    #
-                  </Link>
+                  Is this {typeOfTraining} right for me? Are you...{' '}
+                  <a to="#target-audience" name="target-audience" />
                 </H2Ref>
                 <Ul>
                   <TargetAudienceList />
                 </Ul>
                 <P>
-                  If you've said 'yes' to these, this workshop could be for you!
+                  If you've said 'yes' to these, this {typeOfTraining} could be
+                  for you!
                 </P>
                 <H3>Not for beginner devs!</H3>
-                <P>
-                  This is not a learn-to-code course. If you want to learn to
-                  code, we recommend checking out{' '}
-                  <Link to="https://learn.freecodecamp.org/front-end-libraries/react/">
-                    Free Code camps
-                  </Link>
-                  .
-                </P>
                 <Link
                   className="perfect-course-student"
                   to="/blog/are-you-the-perfect-react-graphql-student/"

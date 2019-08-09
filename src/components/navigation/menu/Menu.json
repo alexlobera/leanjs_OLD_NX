@@ -9,8 +9,7 @@
       },
       {
         "to": "/react/training/corporate",
-        "text": "React Corporate Training",
-        "hideOnMobile": true
+        "text": "React Corporate Training"
       },
       {
         "to": "/react/curriculum",
@@ -28,8 +27,7 @@
       },
       {
         "to": "/graphql/training/corporate",
-        "text": "GraphQL Corporate Training",
-        "hideOnMobile": true
+        "text": "GraphQL Corporate Training"
       },
       {
         "to": "/graphql/curriculum",
