@@ -1,6 +1,6 @@
 ---
 coaches: ['alex-lobera']
-subtitle: Learn how Redux and React work together in practice in this 1-day workshop in Berlin, from Redux principles and FP through to Redux Middlewares
+subtitle: For 3 days, expert coaches and mentors will work alongside you in Berlin on real-world React problems so you return to work as a Senior React developer
 ---
 
 TODO ADD TEXT
