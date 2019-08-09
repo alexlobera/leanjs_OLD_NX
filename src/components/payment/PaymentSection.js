@@ -5,11 +5,9 @@ import { graphql, compose } from 'react-apollo'
 import { navigate } from 'gatsby'
 
 import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
-import ContactForm from '../../components/form/Contact'
-import { H2Ref, H3, P } from '../text'
-import { Ribbon, Segment } from '../elements'
+import { H2, H3, P } from '../text'
+import { Ribbon } from '../elements'
 import Card from '../elements/Card'
-import Link from '../navigation/Link'
 import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
 import { DEFAULT_VAT_RATE } from '../../config'
@@ -20,12 +18,6 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
-import FinanceCard from './FinanceCard'
-
-const primaryCardPaddingTopBottomProps = {
-  pt: [2, 5],
-  pb: [2, 5],
-}
 
 class PaymentSection extends React.Component {
   state = {
@@ -123,7 +115,6 @@ class PaymentSection extends React.Component {
       navigate,
       data: autoVoucherData = {},
       city,
-      financeAvailable,
     } = this.props
     let trainingInstanceId,
       eventId,
@@ -193,13 +184,10 @@ class PaymentSection extends React.Component {
     return (
       <React.Fragment>
         <React.Fragment>
-          <H2Ref>
-            Prices{' '}
-            <Link to="#pricing" name="pricing">
-              #
-            </Link>
-          </H2Ref>
-          {trainingType === MEETUP ? (
+          <H2>
+            Prices <a to="#pricing" name="pricing" />
+          </H2>
+          {trainingType === MEETUP && (
             <React.Fragment>
               <P>Why do we charge a nominal fee?</P>
               <P>
@@ -211,13 +199,8 @@ class PaymentSection extends React.Component {
                 happy to refund you.
               </P>
             </React.Fragment>
-          ) : (
-            <P>
-              Please be aware that the ticket only covers the cost of the
-              training, it does not include travel expenses.
-            </P>
           )}
-          <Card variant="secondary" {...primaryCardPaddingTopBottomProps}>
+          <Card variant="secondary">
             <H3>
               <strong>{notSoldOut ? title : 'Sold out!'}</strong>
             </H3>
@@ -272,13 +255,13 @@ class PaymentSection extends React.Component {
               </React.Fragment>
             )}
           </Card>
+          {trainingType !== MEETUP && (
+            <P pt={4}>
+              Please be aware that the ticket only covers the cost of the
+              training, it does not include travel expenses.
+            </P>
+          )}
         </React.Fragment>
-        {financeAvailable && (
-          <FinanceCard {...primaryCardPaddingTopBottomProps} />
-        )}
-        <Segment small variant="primary" mt={3}>
-          <ContactForm simplified />
-        </Segment>
       </React.Fragment>
     )
   }

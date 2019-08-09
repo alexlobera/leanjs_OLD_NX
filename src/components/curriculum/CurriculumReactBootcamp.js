@@ -29,6 +29,7 @@ import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 const CurriculumReactBootcamp = ({
   showTitle = true,
   layout,
+  content,
   enableToggle,
   isOpen,
   toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
@@ -147,6 +148,7 @@ const CurriculumReactBootcamp = ({
     type,
     title,
     trainings,
+    content,
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
@@ -165,16 +167,12 @@ export const TargetAudienceList = () => (
       focusing on one thing during one week.
     </Li>
     <Li>
-      Ideal for experienced programmers familiar with good practices. Not for
-      beginner devs!
+      Ideal for experienced programmers familiar with good practices, code
+      reviews and pair programming. Not for beginner devs!
     </Li>
     <Li>
       You learn by doing. This is a hands-on project-based training - most of
       the time you'll be coding.
-    </Li>
-    <Li>
-      You think code reviews and pair programming are useful and you are
-      interested in getting feedback on your coding.
     </Li>
   </React.Fragment>
 )

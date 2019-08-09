@@ -6,7 +6,7 @@ import { LinkButton } from '../buttons'
 import Section from '../layout/Section'
 import Flex from '../layout/Flex'
 import { Col, Row } from '../layout/Grid'
-import { Video, Segment } from '../elements'
+import { Video } from '../elements'
 import Ul, { Li } from '../layout/Ul'
 import { H2 } from '../text'
 import Capgemini from '../logos/Capgemini'
@@ -108,49 +108,47 @@ const TrustedBySection = ({ type, showContent = false }) => {
   )
   return (
     <Section variant="dark">
-      <Segment variant="primary" border="none">
-        <Row>
-          <Col lg={10} lgOffset={1} mb={5}>
-            <H2>
-              Developers from all these companies have trusted us{' '}
-              <a href="#trusted-by" />
-            </H2>
-            <TrustedByLogoList />
-          </Col>
-        </Row>
-        <Row>
-          {showContent ? (
-            <React.Fragment>
-              <Col md={5} mdOffset={1}>
-                <Video youtubeId="o6YwbHGfPOo" />
-              </Col>
-              <Col md={5} mdOffset={1}>
-                <H2>Why React GraphQL Academy is great for your dev team</H2>
-                <Ul>
-                  <Li>
-                    Avoid delays & business losses with more reliable and
-                    consistent code
-                  </Li>
-                  <Li>
-                    Increase employee retention, motivation, and productivity
-                  </Li>
-                  <Li>
-                    Great for team building, and a safe environment for devs to
-                    learn.
-                  </Li>
-                  <Li>Minimise the risk of onboarding React</Li>
-                  <Li>Delivered wherever you need - worldwide!</Li>
-                </Ul>
-                {buttons}
-              </Col>
-            </React.Fragment>
-          ) : (
-            <Col md={10} mdOffset={1}>
+      <Row>
+        <Col lg={10} lgOffset={1} mb={5}>
+          <H2>
+            Developers from all these companies have trusted us{' '}
+            <a href="#trusted-by" />
+          </H2>
+          <TrustedByLogoList />
+        </Col>
+      </Row>
+      <Row>
+        {showContent ? (
+          <React.Fragment>
+            <Col md={5} mdOffset={1}>
+              <Video youtubeId="o6YwbHGfPOo" />
+            </Col>
+            <Col md={5} mdOffset={1}>
+              <H2>Why React GraphQL Academy is great for your dev team</H2>
+              <Ul>
+                <Li>
+                  Avoid delays & business losses with more reliable and
+                  consistent code
+                </Li>
+                <Li>
+                  Increase employee retention, motivation, and productivity
+                </Li>
+                <Li>
+                  Great for team building, and a safe environment for devs to
+                  learn.
+                </Li>
+                <Li>Minimise the risk of onboarding React</Li>
+                <Li>Delivered wherever you need - worldwide!</Li>
+              </Ul>
               {buttons}
             </Col>
-          )}
-        </Row>
-      </Segment>
+          </React.Fragment>
+        ) : (
+          <Col md={10} mdOffset={1}>
+            {buttons}
+          </Col>
+        )}
+      </Row>
     </Section>
   )
 }

@@ -3,6 +3,7 @@ import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { LinkButton } from '../buttons'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
+import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
 const CurriculumCorporateReact = ({
   layout,
@@ -65,7 +66,7 @@ const CurriculumCorporateReact = ({
     secondHalf,
     layout,
     type,
-    corpTrainingFacts: true,
+    content: <CorpTrainingFacts />,
     curriculumTitle: 'React Training Schedule Example',
   })
 }

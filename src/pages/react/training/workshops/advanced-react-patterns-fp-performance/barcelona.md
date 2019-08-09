@@ -1,5 +1,5 @@
 ---
-subtitle: Master how to use and apply React patterns including, HOC, render props and perpendicular composition with hooks in this workshop in Barcelona
+subtitle: Master React patterns, perpendicular composition with Hooks, HOC, and Render Props this workshop in Barcelona
 ---
 
 TODO ADD TEXT

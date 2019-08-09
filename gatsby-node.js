@@ -49,6 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
       const coachPath = /^\/coaches/
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
+      const citiesFinanceAvailable = ['london']
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         const { slug } = node.fields
         if (slug.match(instancePath)) {
@@ -68,6 +69,9 @@ exports.createPages = ({ graphql, actions }) => {
               ),
               context: {
                 city: titleCaseCity,
+                financeAvailable: !!citiesFinanceAvailable.find(
+                  city => city === city.toLowerCase()
+                ),
                 instanceTitle: `${restConfig.title} ${titleCaseCity}`,
                 nth,
                 coaches: (node.frontmatter && node.frontmatter.coaches) || [],

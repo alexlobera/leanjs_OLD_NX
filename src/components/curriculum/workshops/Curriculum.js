@@ -10,6 +10,7 @@ const Curriculum = ({
   trainings,
   trainingId,
   firstHalf,
+  content,
   secondHalf,
 }) => {
   const type = REACT_WORKSHOP
@@ -31,6 +32,7 @@ const Curriculum = ({
     type,
     trainings,
     trainingId,
+    content,
   })
 }
 

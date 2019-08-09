@@ -20,14 +20,19 @@ export const ThanksTitle = aliasH3()
 
 export const THANKS_MESSAGE = 'Thanks for submitting!'
 
-const ContactForm = props => {
+const ContactForm = ({
+  triggerSubscribe,
+  addContactUsLink,
+  simplified,
+  variant = 'primary',
+}) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const handleFormSubmit = ({ email }) => {
     setFormSubmitted(prevState => !prevState)
-    props.triggerSubscribe({ email })
+    triggerSubscribe({ email })
     navigate('/thanks-for-signing-up')
   }
-  const { addContactUsLink, simplified } = props
+
   return (
     <React.Fragment>
       {!simplified && (
@@ -79,8 +84,8 @@ const ContactForm = props => {
       )}
       <Newsletter showCTA={false} />
       <P>
-        Signup and learn about cutting-edge React thinking plus the latest news
-        on our courses...{' '}
+        Signup and learn about cutting-edge React and GraphQL plus the latest
+        news on our courses...{' '}
       </P>
       <Row>
         <Col>
@@ -99,7 +104,11 @@ const ContactForm = props => {
                     placeholder="eg. steve@jobs.com"
                     color={WHITE}
                   />
-                  <Button variant="primary" type="submit" disabled={!valid}>
+                  <Button
+                    variant={variant || 'primary'}
+                    type="submit"
+                    disabled={!valid}
+                  >
                     Submit email
                   </Button>
                 </form>

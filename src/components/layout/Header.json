@@ -2,16 +2,16 @@
   "landingTraining": {
     "links": [
       {
-        "text": "Pricing",
-        "to": "#pricing"
-      },
-      {
         "text": "Curriculum",
         "to": "#curriculum"
       },
       {
         "text": "Is it right for me?",
         "to": "#target-audience"
+      },
+      {
+        "text": "Pricing",
+        "to": "#pricing"
       }
     ]
   },

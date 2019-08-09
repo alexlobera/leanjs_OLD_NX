@@ -1,20 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import Box from '../layout/Box'
 import withLazyLoad from './withLazyLoad'
 
-const IframeWrapper = styled.div`
+const IframeWrapper = styled(Box)`
   > iframe {
     border: 0;
+    margin-bottom: 0;
     ${props => `height: ${props.height}px;`}
-  }
-  > div {
-    margin-top: -15px;
-    margin-bottom: 20px;
   }
 `
 
-const Video = ({ youtubeId, time, description, height = '390' }) => (
-  <IframeWrapper height={height}>
+const Video = ({ youtubeId, time, description, height = '390', ...rest }) => (
+  <IframeWrapper height={height} {...rest}>
     <iframe
       title={description}
       width="100%"

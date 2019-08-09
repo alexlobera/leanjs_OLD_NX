@@ -21,11 +21,6 @@ const CoachItem = ({ path, name }) => (
 
 const TrainingDetails = ({ foodIncluded = false, coaches = [] }) => (
   <React.Fragment>
-    <H3>Further details</H3>
-    <Ul>
-      <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}</Li>
-      <Li>Accomodation not included</Li>
-    </Ul>
     {coaches.length ? (
       <React.Fragment>
         <H3>Teaching staff</H3>
@@ -40,6 +35,11 @@ const TrainingDetails = ({ foodIncluded = false, coaches = [] }) => (
         </Ul>
       </React.Fragment>
     ) : null}
+    <H3>Further details</H3>
+    <Ul>
+      <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}</Li>
+      <Li>Accomodation not included</Li>
+    </Ul>
   </React.Fragment>
 )
 
