@@ -17,7 +17,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "to": "/react/training",
           },
           Object {
-            "hideOnMobile": true,
             "text": "React Corporate Training",
             "to": "/react/training/corporate",
           },
@@ -39,7 +38,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "to": "/graphql/training",
           },
           Object {
-            "hideOnMobile": true,
             "text": "GraphQL Corporate Training",
             "to": "/graphql/training/corporate",
           },
