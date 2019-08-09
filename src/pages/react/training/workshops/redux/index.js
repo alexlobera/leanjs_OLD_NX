@@ -28,8 +28,8 @@ import {
   title,
   tech,
   trainingId,
-  breadcrumbTrainingType,
   breadcrumbTrainingName,
+  breadcrumbWorkshopName,
   tags,
 } from './config.json'
 import { crossSellTypes } from 'src/templates/instance/1-day-redux'
@@ -66,17 +66,17 @@ const ReduxWorkshopLanding = ({ path }) => (
               { to: '/react/training/', label: 'Training' },
               {
                 to: '/react/training/workshops',
-                label: breadcrumbTrainingType,
+                label: breadcrumbTrainingName,
               },
               {
                 to: path,
-                label: breadcrumbTrainingName,
+                label: breadcrumbWorkshopName,
               },
             ]}
           />
           <Header
             titleLines={[title]}
-            subtitle="Learn how Redux and React work together in practice, from Redux fundamentals and FP through to Redux middlewares"
+            subtitle="Learn how Redux and React work together in practice, from Redux principles and FP through to Redux middlewares"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },

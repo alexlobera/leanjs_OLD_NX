@@ -20,7 +20,7 @@ import {
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { trainingId, title, breadcrumbTrainingName } from './config.json'
+import { trainingId, title, breadcrumbWorkshopName } from './config.json'
 
 const AdvancedReactWorkshop = ({ path }) => (
   <Layout>
@@ -48,7 +48,7 @@ const AdvancedReactWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: breadcrumbTrainingName,
+                label: breadcrumbWorkshopName,
               },
             ]}
           />

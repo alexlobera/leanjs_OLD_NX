@@ -143,7 +143,7 @@ const Bootcamps = ({ path }) => (
                 <P>
                   {nextTraining && (
                     <LinkButton variant="primary" to={nextTraining.toPath}>
-                      Next bootcamp:{' '}
+                      Next workshop:{' '}
                       {formatUTC(
                         nextTraining.startDate,
                         nextTraining.utcOffset,

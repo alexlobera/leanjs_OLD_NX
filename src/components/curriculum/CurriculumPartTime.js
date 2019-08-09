@@ -14,7 +14,6 @@ import TestingIntroSession from './sessions/TestingIntroSession'
 import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
-import { TargetAudienceList } from './CurriculumReactFundamentals'
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -163,6 +162,35 @@ export const LearningObjectivesList = () => (
       ecosystem.
     </Li>
     <Li>Learn how to style React applications in an idiomatic way.</Li>
+  </React.Fragment>
+)
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>
+      A developer{' '}
+      <strong>
+        interested in progressively shifting towards front-end development in
+        React
+      </strong>
+      .
+    </Li>
+    <Li>
+      You won't have to make critical decisions on your own in the React
+      projects you will work on.
+    </Li>
+    <Li>
+      You are interested in intense training for extremely rapid learning but
+      you don't want to cut into valuable work-days.
+    </Li>
+    <Li>
+      You learn by doing. This is a hands-on project-based training - most of
+      the time you'll be coding.
+    </Li>
+    <Li>
+      You think code reviews and pair programming are useful and you are
+      interested in getting feedback on your coding.
+    </Li>
   </React.Fragment>
 )
 

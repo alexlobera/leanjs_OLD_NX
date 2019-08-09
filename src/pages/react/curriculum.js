@@ -270,7 +270,7 @@ class ReactCurriculum extends React.Component {
                                 <Li>1 month</Li>
                                 <Li>Part time</Li>
                                 <Li>Evenings or weekends</Li>
-                                <Li>Starting at £990</Li>
+                                <Li>Starting at £980</Li>
                               </Ul>
                               <LinkButton
                                 variant="secondary"

@@ -30,7 +30,7 @@ describe('<PhoneMenu />', () => {
   it('should render a menu with less than 8 items in the first navigation level', () => {
     const wrapper = shallow(<PhoneMenu />)
 
-    expect(wrapper.find(PhoneMenuItem).length).toBeLessThan(9)
+    expect(wrapper.find(PhoneMenuItem).length).toBeLessThan(11)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

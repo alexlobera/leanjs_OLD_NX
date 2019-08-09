@@ -22,7 +22,7 @@ import { REACT_WORKSHOP } from 'src/config/data'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { trainingId, breadcrumbTrainingName } from './config.json'
+import { trainingId, breadcrumbWorkshopName } from './config.json'
 
 const metas = {
   title: `Advanced React UIs & Styling With Design Systems Workshop | React GraphQL Academy`,
@@ -61,7 +61,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               { to: '/react/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: breadcrumbTrainingName,
+                label: breadcrumbWorkshopName,
               },
             ]}
           />

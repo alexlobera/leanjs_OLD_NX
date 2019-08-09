@@ -1,9 +1,10 @@
 {
   "instanceTemplate": "1-day-advanced-uis-styling-ds",
   "tech": "React",
-  "breadcrumbTrainingType": "Workshops",
-  "breadcrumbTrainingName": "Foundation",
-  "breadcrumbTrainingSlug": "react-foundation",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
+  "breadcrumbWorkshopName": "Foundation",
+  "breadcrumbWorkshopSlug": "react-foundation",
   "trainingId": "5d44795ab809c0500a3f3455",
   "title": "1-Day React Foundation Workshop",
   "tags": ["beginner", "react"]

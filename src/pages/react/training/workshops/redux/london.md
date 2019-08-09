@@ -1,6 +1,6 @@
 ---
 coaches: ['alex-lobera', 'richard-moss']
-subtitle: Learn how Redux and React work together in practice in this 1-day workshop in London, from Redux fundamentals and FP through to Redux Middlewares
+subtitle: Learn how Redux and React work together in practice in this 1-day workshop in London, from Redux principles and FP through to Redux Middlewares
 ---
 
 TODO ADD TEXT

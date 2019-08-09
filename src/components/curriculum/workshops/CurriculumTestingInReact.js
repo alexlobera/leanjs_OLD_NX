@@ -30,16 +30,16 @@ const CurriculumTestingInReact = ({ showTitle = true, section, ...rest }) => (
 export const TargetAudienceList = () => (
   <React.Fragment>
     <Li>
-      A developer who wants to make a difference in the projects she/ he works
-      on by learning how to test those React apps the best way possible
+      A developer who wants to make a difference in the projects you work on by
+      learning how to test those React apps the best way possible.
     </Li>
     <Li>
-      A developer who wants to stand out his/ her résumé by being able to test
-      real-world React apps
+      A developer who wants to stand out your résumé by being able to test
+      real-world React apps.
     </Li>
-    <Li>A developer with previous experience building React apps?</Li>
+    <Li>A developer with previous experience building React apps.</Li>
     <Li>
-      A developer who wants to upskill or specialise in advanced React skills?
+      A developer who wants to upskill or specialise in advanced React skills.
     </Li>
   </React.Fragment>
 )

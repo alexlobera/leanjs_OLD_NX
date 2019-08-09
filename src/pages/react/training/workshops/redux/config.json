@@ -1,8 +1,10 @@
 {
   "instanceTemplate": "1-day-redux",
   "tech": "React",
-  "breadcrumbTrainingType": "Workshops",
-  "breadcrumbTrainingName": "Redux",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
+  "breadcrumbWorkshopName": "Redux",
+  "breadcrumbWorkshopSlug": "redux",
   "trainingId": "5cffb4e806051b7d3bcb0cee",
   "title": "1-Day React Redux Workshop",
   "tags": ["redux"]

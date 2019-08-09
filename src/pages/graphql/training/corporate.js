@@ -50,6 +50,10 @@ const CorporateGraphQLTraining = ({ path }) => (
               label: 'GraphQL',
             },
             {
+              to: '/graphql/training/',
+              label: 'Training',
+            },
+            {
               to: path,
               label: 'Corporate',
             },
