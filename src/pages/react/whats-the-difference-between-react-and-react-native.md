@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: What's the difference between React & React Native?
 date: 2018-11-07
 subtitle: If you’re new to React, it won’t be long before you come across React Native.

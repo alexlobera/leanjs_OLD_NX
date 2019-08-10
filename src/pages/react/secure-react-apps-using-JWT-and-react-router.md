@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Secure React apps <br />using JWT and React Router
 date: 2018-11-07
 subtitle: Being able to secure certain parts of your app is very important. In this article we'll cover the two most important layers

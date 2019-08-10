@@ -27,12 +27,12 @@ import BlogSection from 'src/components/blog/BlogSection'
 const InstancePage = ({
   path,
   type,
-  tags,
   typeOfTraining = '1-day React workshop',
   curriculum: Curriculum,
   targetAudienceList: TargetAudienceList,
   crossSellTypes,
   pageContext: {
+    posts,
     subtitle,
     financeAvailable,
     coaches,
@@ -207,13 +207,29 @@ const InstancePage = ({
             </Row>
           </Section>
           <AlternativeTrainingSection trainings={crossSellTrainings} />
-          <BlogSection tags={tags} />
+          <BlogSection posts={posts} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
     }}
   </Layout>
 )
+
+// export const query = graphql`
+//   query getPostsInstancePage($limit: Int = 3) {
+//     allMarkdownRemark(
+//       filter: { frontmatter: { contentType: { eq: "blog" } } }
+//       sort: { fields: [frontmatter___order], order: DESC }
+//       limit: $limit
+//     ) {
+//       edges {
+//         node {
+//           ...PostListInformation
+//         }
+//       }
+//     }
+//   }
+// `
 
 InstancePage.defaultProps = {
   pageContext: {},

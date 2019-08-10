@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: 5 reasons why advanced dev<br />training will keep your company<br />tech-relevant
 date: 2019-01-25
 subtitle: Technology evolves pretty fast, and in the highly competitive tech sector, that makes it hard to keep your team and company tech-relevant.

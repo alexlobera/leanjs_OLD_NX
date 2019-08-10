@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Introduction to Redux
 date: 2018-10-04
 subtitle: From Redux for dummies to building Redux from scratch

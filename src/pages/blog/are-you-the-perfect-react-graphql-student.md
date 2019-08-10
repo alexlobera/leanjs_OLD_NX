@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Are YOU the Perfect React GraphQL Student?
 date: 2019-01-25
 subtitle: Our courses are catered to devs looking to upskill, but is it right for you?!
@@ -120,9 +121,10 @@ There are loads of reasons to choose us - here’s just a few:
 
 ## Conclusion
 
-- [React bootcamp includes:](#react-bootcamp-syllabus) Forms, Authentication, Styling, Redux, Testing, Functional programming, Advanced patterns, GraphQL and more
-- [It's not for beginners](#developer-student-level) - the bootcamp caters for working developers who want to upskill.
-- [Passion for development is a must](#passionate-react-developers) - the week long format is intense so if you love what you do, you'll have a blast!
-- [Learning React in our bootcamp will be easier](#react-easy-to-learn) - we'll give you hands-on projects and will be with you, person-to-person, all the way
+- [What do our students learn? <a name="react-bootcamp-syllabus"></a>](#what-do-our-students-learn-a-name%22react-bootcamp-syllabus%22a)
+- [How much experience do I need to learn React and GraphQL? <a name="developer-student-level"></a>](#how-much-experience-do-i-need-to-learn-react-and-graphql-a-name%22developer-student-level%22a)
+- [Who will get the most out of the React / GraphQL Bootcamps? <a name="passionate-react-developers"></a>](#who-will-get-the-most-out-of-the-react--graphql-bootcamps-a-name%22passionate-react-developers%22a)
+- [Why React GraphQL Academy?](#why-react-graphql-academy)
+- [Conclusion](#conclusion)
 
 If you think you’re ready to learn React, [get in touch today](#contact-us)!

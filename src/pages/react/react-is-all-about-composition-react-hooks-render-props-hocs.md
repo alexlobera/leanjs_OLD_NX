@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: React is all about <br />composition
 date: 2019-01-25
 subtitle: Understanding React Hooks, Render Props, HoCs, and the React composition model

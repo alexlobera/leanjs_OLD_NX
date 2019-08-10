@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Styling in React
 date: 2019-01-25
 subtitle: Styling apps is an important and sometimes underestimated task. Let's learn how to do it right following the React philosophy.

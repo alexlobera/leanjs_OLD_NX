@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Arise React GraphQL Academy - Announcing Our New Name
 date: 2019-06-11
 subtitle: We’ve changed our name to React GraphQL Academy and here’s why…

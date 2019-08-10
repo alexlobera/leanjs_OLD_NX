@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Heading to React Amsterdam? <br /> We’ll see you there!
 date: 2019-02-05
 subtitle: Not only is it our first time at React Amsterdam, we’re also running our first part-time course in Amsterdam this March - and you’re invited!

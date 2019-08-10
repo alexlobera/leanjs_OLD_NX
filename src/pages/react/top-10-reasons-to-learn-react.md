@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Top 10 reasons why you should learn React right now
 date: 2019-02-28
 subtitle:

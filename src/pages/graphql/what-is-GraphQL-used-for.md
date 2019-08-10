@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: What is GraphQL used for?
 date: 2018-11-07
 subtitle: GraphQL is a modern syntax for building and querying APIs, but what does that actually mean? And why should you use GraphQL?

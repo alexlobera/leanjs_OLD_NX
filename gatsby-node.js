@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 const path = require(`path`)
+const gql = require('graphql-tag')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { titleCase } = require('./src/components/utils/text')
 
@@ -59,26 +60,69 @@ exports.createPages = ({ graphql, actions }) => {
           const titleCaseCity = titleCase(city)
           const instancesToCreate = [1, 2, 3, 4, 5, 6, 7, 8, 9]
           const pathConfig = path.resolve(`./src/pages/${slug}../config.json`)
-          const { instanceTemplate, ...restConfig } = require(pathConfig)
-          instancesToCreate.forEach(nth => {
-            const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
-            createPage({
-              path: pagePath,
-              component: path.resolve(
-                `./src/templates/instance/${instanceTemplate}.js`
-              ),
-              context: {
-                city: titleCaseCity,
-                financeAvailable: !!citiesFinanceAvailable.find(
-                  city => city === city.toLowerCase()
+          const {
+            instanceTemplate,
+            tagsIn = [],
+            tagsNin = '',
+            ...restConfig
+          } = require(pathConfig)
+
+          const queryPosts = `
+            query getPosts($limit: Int = 3) {
+              allMarkdownRemark(
+                filter: {
+                  frontmatter: {
+                    contentType: { eq: "blog" }
+                    tags: { in: ["${tagsIn.join('","')}"], nin: "${tagsNin}" }
+                  }
+                }
+                sort: { fields: [frontmatter___order], order: DESC }
+                limit: $limit
+              ) {
+                edges {
+                  node {
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      imageUrl
+                      tags
+                    }
+                    excerpt
+                  }
+                }
+              }
+            }
+          `
+          return graphql(queryPosts).then(({ data }) => {
+            const posts =
+              (data &&
+                data.allMarkdownRemark &&
+                data.allMarkdownRemark.edges) ||
+              []
+            instancesToCreate.forEach(nth => {
+              const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
+              createPage({
+                path: pagePath,
+                component: path.resolve(
+                  `./src/templates/instance/${instanceTemplate}.js`
                 ),
-                instanceTitle: `${restConfig.title} ${titleCaseCity}`,
-                nth,
-                coaches: (node.frontmatter && node.frontmatter.coaches) || [],
-                subtitle: (node.frontmatter && node.frontmatter.subtitle) || '',
-                canonical: `https://reactgraphql.academy${slug}`,
-                ...restConfig,
-              },
+                context: {
+                  posts,
+                  city: titleCaseCity,
+                  financeAvailable: !!citiesFinanceAvailable.find(
+                    city => city === city.toLowerCase()
+                  ),
+                  instanceTitle: `${restConfig.title} ${titleCaseCity}`,
+                  nth,
+                  coaches: (node.frontmatter && node.frontmatter.coaches) || [],
+                  subtitle:
+                    (node.frontmatter && node.frontmatter.subtitle) || '',
+                  canonical: `https://reactgraphql.academy${slug}`,
+                  ...restConfig,
+                },
+              })
             })
           })
         } else if (slug.match(blogPaths) && !slug.match(isTrainingPath)) {

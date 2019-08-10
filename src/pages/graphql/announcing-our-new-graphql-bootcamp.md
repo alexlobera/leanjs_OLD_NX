@@ -1,4 +1,5 @@
 ---
+contentType: blog
 title: Announcing our new GraphQL Bootcamp!
 date: 2019-03-26
 subtitle: After a great reception for our ReactJS Bootcamps around Europe, we’re really proud to bring you our latest week-long course - The GraphQL Bootcamp!

@@ -54,7 +54,7 @@ const AboutUs = ({ data }) => {
                     their career, while leading the way for a mentorship
                     conscious tech industry.
                   </P>
-                  <H3>The React GraphQL Academy Values: </H3>
+                  <H3>The React GraphQL Academy Values </H3>
                 </Col>
                 <Col xs={6} md={3} mdOffset={1}>
                   <Ul mb={0}>
