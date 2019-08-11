@@ -16,7 +16,6 @@ import {
   AlternativeTrainingSection,
   AttendeeQuote,
 } from 'src/components/training'
-import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import Box from 'src/components/layout/Box'
@@ -31,6 +30,7 @@ const InstancePage = ({
   curriculum: Curriculum,
   targetAudienceList: TargetAudienceList,
   crossSellTypes,
+  curriculumProps = {},
   pageContext: {
     posts,
     subtitle,
@@ -122,7 +122,20 @@ const InstancePage = ({
           <Header
             titleLines={[instanceTitle]}
             subtitle={subtitle}
-            links={header.landingTraining.links}
+            links={[
+              {
+                text: 'Course details',
+                to: '#curriculum',
+              },
+              {
+                text: 'Is it right for me?',
+                to: '#target-audience',
+              },
+              {
+                text: 'Pricing',
+                to: '#pricing',
+              },
+            ]}
             type={type}
             training={training}
             showInfoBox={true}
@@ -132,6 +145,7 @@ const InstancePage = ({
           <TopSection>
             <Segment>
               <Curriculum
+                {...curriculumProps}
                 content={
                   <React.Fragment>
                     <H3>Attendee testimonial</H3>
@@ -150,7 +164,6 @@ const InstancePage = ({
                     <TrainingDetails coaches={coaches} />
                   </React.Fragment>
                 }
-                section={{ isOpen: true }}
               />
             </Segment>
           </TopSection>
@@ -167,8 +180,8 @@ const InstancePage = ({
               </Col>
               <Col md={4} lgOffset={1}>
                 <H2>
-                  Is this {typeOfTraining} right for me? Are you...{' '}
                   <a to="#target-audience" name="target-audience" />
+                  Is this {typeOfTraining} right for me? Are you...{' '}
                 </H2>
                 <Ul>
                   <TargetAudienceList />
@@ -214,22 +227,6 @@ const InstancePage = ({
     }}
   </Layout>
 )
-
-// export const query = graphql`
-//   query getPostsInstancePage($limit: Int = 3) {
-//     allMarkdownRemark(
-//       filter: { frontmatter: { contentType: { eq: "blog" } } }
-//       sort: { fields: [frontmatter___order], order: DESC }
-//       limit: $limit
-//     ) {
-//       edges {
-//         node {
-//           ...PostListInformation
-//         }
-//       }
-//     }
-//   }
-// `
 
 InstancePage.defaultProps = {
   pageContext: {},

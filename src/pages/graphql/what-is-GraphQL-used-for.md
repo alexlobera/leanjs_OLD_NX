@@ -3,9 +3,10 @@ contentType: blog
 title: What is GraphQL used for?
 date: 2018-11-07
 subtitle: GraphQL is a modern syntax for building and querying APIs, but what does that actually mean? And why should you use GraphQL?
-author: richard
+author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fwhat-is-graphql-used-for%2Fwhat-is-graphql.jpg?alt=media&
 order: 17
+tags: ['graphql', 'beginner']
 ---
 
 Some say that [data is the new oil](https://www.economist.com/leaders/2017/05/06/the-worlds-most-valuable-resource-is-no-longer-oil-but-data), but it isn’t enough to just have a vast amount of data - you also need to know how to use it efficiently. GraphQL is how you use data better. If you’re not clued up on GraphQL, the term could seem a little daunting. Today, we’re going to answer the question "What is GraphQL?" and show you what GraphQL is used for and why you should use it.

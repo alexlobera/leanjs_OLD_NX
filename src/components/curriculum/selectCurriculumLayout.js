@@ -28,6 +28,7 @@ const selectCurriculumLayout = ({
   curriculumTo,
   title,
   trainingId,
+  marketingCard,
   curriculumTitle = 'Course outline',
 }) => {
   const curriculumButtonSection = (
@@ -38,12 +39,17 @@ const selectCurriculumLayout = ({
     </SectionCTA>
   )
 
+  const typedMarketingCard = marketingCard
+    ? React.cloneElement(marketingCard, { type })
+    : null
+
   if (layout === LIST_LAYOUT) {
     return (
       <React.Fragment>
         {title}
         <Flex flexDirection="column">
           {firstHalf}
+          {typedMarketingCard}
           {secondHalf}
           {curriculumTo && curriculumButtonSection}
         </Flex>
@@ -84,6 +90,7 @@ const selectCurriculumLayout = ({
               <a name="curriculum" />
             </H3>
             {firstHalf}
+            {typedMarketingCard}
             {secondHalf}
             {curriculumTo && curriculumButtonSection}
           </Col>

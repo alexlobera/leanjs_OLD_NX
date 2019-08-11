@@ -3,9 +3,10 @@ contentType: blog
 title: Are YOU the Perfect React GraphQL Student?
 date: 2019-01-25
 subtitle: Our courses are catered to devs looking to upskill, but is it right for you?!
-author: richard
+author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2FIMG_0414.jpg?alt=media&
 order: 15
+tags: ['training']
 ---
 
 We’ve been teaching since 2016 and in that time we’ve often been asked what makes the perfect React GraphQL Academy student. We’ve been asked what base knowledge you need, especially.

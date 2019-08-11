@@ -10,8 +10,12 @@ import { getURLParameter } from '../utils/url'
 import Box from '../layout/Box'
 import Card from '../elements/Card'
 
+// DELETE NEXT FUNCTION AFTER GRAPHQL REFACTORING
 export const curriedToggleNavigateTo = to => section =>
   to ? `${to}&section=${section}` : false
+
+export const navigateToSection = (to, section) =>
+  section ? `${to}&section=${section}` : to
 
 // Feedback disabled temporarly.
 // const StyledFeedback = styled(Flex)`
@@ -66,13 +70,15 @@ const CurriculumSection = props => {
     showLinkToCurriculum = true,
     mt,
   } = props
+
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
       ? {
-          to:
-            typeof toggleNavigateTo === 'function'
-              ? toggleNavigateTo(name)
-              : toggleNavigateTo,
+          // to:
+          //   typeof toggleNavigateTo === 'function'
+          //     ? toggleNavigateTo(name)
+          //     : toggleNavigateTo,
+          to: navigateToSection(toggleNavigateTo, name),
         }
       : { onClick: toggleSubSection }
 

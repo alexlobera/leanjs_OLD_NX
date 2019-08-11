@@ -29,29 +29,25 @@ Part-time prices
 */
 
 export const blogAuthors = {
-  richard: {
+  ['richard-moss']: {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.jpg?alt=media',
     fullname: 'Richard Moss',
-    path: 'richard-moss',
   },
-  alex: {
+  ['alex-lobera']: {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Falex.jpg?alt=media',
     fullname: 'Alex Lobera',
-    path: 'alex-lobera',
   },
-  horacio: {
+  ['horacio-herrera']: {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio.jpg?alt=media',
     fullname: 'Horacio Herrera',
-    path: 'horacio-herrera',
   },
-  paul: {
+  ['paul-woodley']: {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media',
     fullname: 'Paul Woodley',
-    path: 'paul-woodley',
   },
 }
 

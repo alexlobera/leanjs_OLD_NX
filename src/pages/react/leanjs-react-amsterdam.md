@@ -3,9 +3,10 @@ contentType: blog
 title: Heading to React Amsterdam? <br /> We’ll see you there!
 date: 2019-02-05
 subtitle: Not only is it our first time at React Amsterdam, we’re also running our first part-time course in Amsterdam this March - and you’re invited!
-author: richard
+author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Famsterdam.jpg?alt=media
 order: 14
+tags: ['amsterdam', 'react']
 ---
 
 As the alumni from our courses will probably tell you, we live and breathe all things React here at React GraphQL Academy. True as that is, for some reason we’ve never had the opportunity to visit React Amsterdam before, the biggest React conference in the world!

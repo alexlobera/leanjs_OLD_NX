@@ -81,14 +81,13 @@ const StyledAuthor = styled.div`
   }
 `
 
-const PostMeta = ({ author = 'richard', date = '', timeToRead }) => (
+const PostMeta = ({ author = 'alex-lobera', date = '', timeToRead }) => (
   <StyledAuthor>
-    <Image src={blogAuthors[author].imgSrc} circle />
+    <Link to={`/coaches/${author}/`} className="blog-article">
+      <Image src={blogAuthors[author].imgSrc} circle />
+    </Link>
     <P>
-      <Link
-        to={`/about-us#${blogAuthors[author].path}`}
-        className="blog-article"
-      >
+      <Link to={`/coaches/${author}/`} className="blog-article">
         By {blogAuthors[author].fullname}
       </Link>
       <Span>
@@ -103,13 +102,11 @@ const GridContent = styled(Grid)`
   padding-top: 72px;
 `
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, pageContext: { relatedPosts } }) => {
   const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
   const { title, date, subtitle, author, imageUrl } = frontmatter
   const authorTwitter = frontmatter.authorTwitter || 'reactgqlacademy'
   const { slug } = data.markdownRemark.fields
-  const allPosts = data.allMarkdownRemark.edges
-  const relatedPosts = allPosts.filter(post => post.node.fields.slug !== slug)
   const postTypePath = slug.replace(/^\/([^/]*).*$/, '$1')
   const postTypeLabel = `${postTypePath
     .charAt(0)
@@ -243,23 +240,6 @@ export const query = graphql`
       }
       htmlAst
       timeToRead
-    }
-    allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/blog/" } } }
-      limit: 3
-    ) {
-      edges {
-        node {
-          htmlAst
-          frontmatter {
-            title
-            date
-          }
-          fields {
-            slug
-          }
-        }
-      }
     }
   }
 `

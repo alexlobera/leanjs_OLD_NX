@@ -3,7 +3,7 @@ contentType: blog
 title: Must know JavaScript for React developers
 date: 2019-02-24
 subtitle: Understanding ES6 key features for React is crucial to rapidly learning the React ecosystem
-author: richard
+author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fes6%2Freact_code_laptop.jpg?alt=media
 order: 7
 tags: ['beginner', 'javascript']

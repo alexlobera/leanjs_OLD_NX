@@ -8,7 +8,7 @@ import TestingIntroSession, {
 import TestingInReactSession, {
   titleSession as reactTitle,
 } from '../sessions/TestingInReactSession'
-import Curriculum from './Curriculum'
+import Curriculum from '../Curriculum'
 
 const CurriculumTestingInReact = ({ showTitle = true, section, ...rest }) => (
   <Curriculum

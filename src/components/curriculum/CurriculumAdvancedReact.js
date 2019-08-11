@@ -1,97 +1,54 @@
 import React from 'react'
-import Link from '../navigation/Link'
-import { H2Ref } from '../text'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import TestingInReactSession from './sessions/TestingInReactSession'
-import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
-import StylingInReactSession from './sessions/AdvancedReduxSession'
-import AdvancedUIPatterns from './sessions/AdvancedUIPatterns'
-import DesignSystemSession from './sessions/DesignSystemSession'
-import TestingIntroSession from './sessions/TestingIntroSession'
-import E2ESession from './sessions/E2ESession'
-import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import { ADVANCED_REACT } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
 import { Li } from '../layout/Ul'
-import { trainingTime } from '../utils'
+import { sessionsSecondHalf as sessionsSecondHalfBootcamp } from './CurriculumReactBootcamp'
+import Curriculum, { renderSection } from './Curriculum'
 
 const CurriculumAdvancedReact = ({
-  showTitle = true,
-  isOpen,
-  enableToggle,
   toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT}`,
-  showLinkToCurriculum = true,
-  layout,
-  trainings,
+  marketingCard,
   training,
+  section = {},
+  ...rest
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  const halfWayThough = Math.floor(sessionsSecondHalfBootcamp.length / 2)
+  const sessionsFirstHalf = sessionsSecondHalfBootcamp.slice(0, halfWayThough)
+  const sessionsSecondHalf = sessionsSecondHalfBootcamp.slice(
+    halfWayThough,
+    sessionsSecondHalfBootcamp.length
+  )
   const type = ADVANCED_REACT
-  const commonProps = {
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
+  const sectionProps = {
+    ...section,
+    // ...commonProps,
+    toggleNavigateTo,
     type,
-    isOpen,
   }
-  const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Advanced React Day 1"
-        name="day1"
-        subTitle="Advanced React patterns, Hooks, and performance"
-        trainingTime={trainingTime({ day: 0, training, type })}
-        buyPath="/react/training/workshops/advanced-react-patterns-fp-performance"
-      >
-        <HoCsRenderPropsStateReducerSession />
-        <ReactPerformanceSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title={`Advanced React Day 2`}
-        name="day2"
-        subTitle={`Advanced UI Patterns & Styling in React`}
-        trainingTime={trainingTime({ day: 1, training })}
-      >
-        <AdvancedUIPatterns />
-        <StylingInReactSession />
-        <DesignSystemSession />
-      </Section>
-    </React.Fragment>
+  const initialIndex = 1
+
+  return (
+    <Curriculum
+      title="Advanced React Curriculum"
+      training={training}
+      type={type}
+      curriculumTo={toggleNavigateTo}
+      {...rest}
+      firstHalf={sessionsFirstHalf.map(
+        renderSection({
+          initialIndex,
+          training,
+          sectionProps,
+        })
+      )}
+      secondHalf={sessionsSecondHalf.map(
+        renderSection({
+          initialIndex: sessionsFirstHalf.length + initialIndex,
+          training,
+          sectionProps,
+        })
+      )}
+    />
   )
-
-  const secondHalf = (
-    <Section
-      {...commonProps}
-      title="Advanced React Day 3"
-      name="day3"
-      subTitle="Real-World Testing in React"
-      trainingTime={trainingTime({ day: 2, training })}
-    >
-      <TestingIntroSession />
-      <TestingInReactSession />
-      <E2ESession title="End-to-End Testing" />
-    </Section>
-  )
-
-  const title = showTitle ? (
-    <H2Ref>
-      Advanced React Curriculum{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({
-    firstHalf,
-    secondHalf,
-    title,
-    layout,
-    type,
-    trainings,
-    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-  })
 }
 
 export const TargetAudienceList = () => (

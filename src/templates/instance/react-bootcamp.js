@@ -16,7 +16,7 @@ const Page = props => (
   <BaseTemplate
     {...props}
     type={REACT_BOOTCAMP}
-    typeOfTraining="React bootcamp"
+    typeOfTraining="React Bootcamp"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

@@ -3,9 +3,10 @@ contentType: blog
 title: Top 10 reasons why you should learn React right now
 date: 2019-02-28
 subtitle:
-author: richard
+author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Ftop_10_reasons_to_learn_react%2Fcoding_react.jpg?alt=media
 order: 10
+tags: ['react']
 ---
 
 Despite competition from Vue.js and Angular, React is proving developers’ go-to choice for building exciting web applications. Whether you’re a developer looking to upskill, or a business leader looking to improve your digital offering, there’s a tonne of reasons to learn React.

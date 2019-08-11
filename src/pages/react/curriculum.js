@@ -73,7 +73,7 @@ class ReactCurriculum extends React.Component {
   render() {
     const { path } = this.props
     const commonCurriculumProps = {
-      enableToggle: true,
+      section: { enableToggle: true },
       showTitle: false,
       layout: LIST_LAYOUT,
       showLinkToCurriculum: false,

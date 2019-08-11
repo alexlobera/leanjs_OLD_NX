@@ -10,7 +10,7 @@ const CurriculumReactWorkshops = ({
   layout,
   enableToggle,
   isOpen,
-  showLinkToCurriculum = false,
+  showLinkToCurriculum = true,
   trainings,
 }) => {
   const type = REACT_WORKSHOP
@@ -26,25 +26,19 @@ const CurriculumReactWorkshops = ({
       <Section
         {...commonProps}
         title="Testing in React"
-        name="testingReact"
         subTitle="Ensure consistent, reliable code across the React ecosystem"
-        showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/testing-in-react/"
       />
       <Section
         {...commonProps}
         title="Advanced React UIs & Styling With Design Systems"
-        name="styling"
         subTitle="See how React can look gorgeous and encourage design consistency"
-        showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/advanced-uis-styling-design-systems/"
       />
       <Section
         {...commonProps}
         title="Advanced Patterns, Performance & FP in React"
-        name="perfAndFP"
         subTitle="Discover best patterns for reusable and performant React apps"
-        showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/advanced-react-patterns-fp-performance"
       />
     </React.Fragment>
@@ -54,33 +48,25 @@ const CurriculumReactWorkshops = ({
       <Section
         {...commonProps}
         title="React Foundation"
-        name="foundation"
         subTitle="Learn the basics of React and jumpstart your way into a new coding ecosystem"
-        showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/react-foundation/"
       />
       <Section
         {...commonProps}
         title="React Native"
-        name="react-native"
         subTitle="Build upon your React knowledge and create great apps"
-        showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/react-native"
       />
       <Section
         {...commonProps}
         title="Redux"
-        name="redux"
         subTitle="Build Redux yourself and learn functional programming and middlewares"
-        showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/redux"
       />
       <Section
         {...commonProps}
         title="React Hooks & Suspense"
-        name="hooksAndSuspense"
         subTitle="Learn 2 of the newest and most exciting features in React"
-        showLinkToCurriculum
         toggleNavigateTo="/react/training/workshops/interest-form#details"
       />
     </React.Fragment>

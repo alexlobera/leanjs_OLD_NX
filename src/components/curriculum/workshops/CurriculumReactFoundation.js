@@ -1,6 +1,6 @@
 import React from 'react'
 import Section from '../CurriculumSection'
-import Curriculum from './Curriculum'
+import Curriculum from '../Curriculum'
 import ES6Session, { titleSession as es6Title } from '../sessions/ES6Session'
 import ThinkingInReactSession, {
   titleSession as thinkingTitle,

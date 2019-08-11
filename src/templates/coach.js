@@ -31,7 +31,7 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-const Coach = ({ data }) => {
+const Coach = ({ data, pageContext: { posts } }) => {
   const {
     name,
     title,
@@ -46,7 +46,6 @@ const Coach = ({ data }) => {
     videoDescription,
     imageDescription,
     imageSrc,
-    tags,
   } = data.markdownRemark.frontmatter
   const coachImgSrc = imageSrc.childImageSharp.fluid.src
   const { htmlAst } = data.markdownRemark
@@ -149,7 +148,7 @@ const Coach = ({ data }) => {
               </Row>
             </Grid>
           </Section>
-          <BlogSection tags={tags} />
+          <BlogSection title={`Articles by ${name}`} posts={posts} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )}

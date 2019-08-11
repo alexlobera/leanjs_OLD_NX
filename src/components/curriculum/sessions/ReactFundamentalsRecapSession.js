@@ -2,7 +2,10 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-const ReactFundamentalsRecapSession = ({ title }) => (
+export const titleSession =
+  'React Fundamentals recap, build a React app from scratch on your own to consolidate:'
+
+const ReactFundamentalsRecapSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>

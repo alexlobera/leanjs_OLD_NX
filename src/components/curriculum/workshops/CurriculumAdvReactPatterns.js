@@ -8,7 +8,7 @@ import ReactPerformanceSession, {
   titleSession as titleSession2,
 } from '../sessions/ReactPerformanceSession'
 import { Li } from '../../layout/Ul'
-import Curriculum from './Curriculum'
+import Curriculum from '../Curriculum'
 
 const CurriculumAdvReactPatterns = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
