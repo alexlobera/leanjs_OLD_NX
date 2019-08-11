@@ -65,7 +65,6 @@ const CurriculumReactBootcamp = ({
   const type = REACT_BOOTCAMP
   const sectionProps = {
     ...section,
-    // ...commonProps,
     toggleNavigateTo,
     type,
   }

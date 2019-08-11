@@ -21,7 +21,6 @@ const CurriculumReactFundamentals = ({
   const type = REACT_FUNDAMENTALS
   const sectionProps = {
     ...section,
-    // ...commonProps,
     toggleNavigateTo,
     type,
   }

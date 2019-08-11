@@ -19,7 +19,6 @@ const CurriculumAdvancedReact = ({
   const type = ADVANCED_REACT
   const sectionProps = {
     ...section,
-    // ...commonProps,
     toggleNavigateTo,
     type,
   }
