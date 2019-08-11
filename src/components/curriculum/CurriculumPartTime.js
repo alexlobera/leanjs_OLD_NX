@@ -10,7 +10,7 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
-import Curriculum, { renderSection } from './Curriculum'
+import Curriculum from './Curriculum'
 import Section from './CurriculumSection'
 
 export const renderPartTimeSection = (sectionProps = {}) => initialIndex => (
