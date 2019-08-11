@@ -10,7 +10,7 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
-import Curriculum from './Curriculum'
+import Curriculum, { renderSection } from './Curriculum'
 import Section from './CurriculumSection'
 
 export const renderPartTimeSection = (sectionProps = {}) => initialIndex => (
@@ -70,14 +70,9 @@ const CurriculumPartTime = ({
   ...rest
 }) => {
   const type = PART_TIME
-  // const commonProps = {
-  //   type: PART_TIME,
-  //   toggleNavigateTo,
-  // }
   const initialIndex = 1
   const renderSectionWithProps = renderPartTimeSection({
     ...section,
-    // ...commonProps,
     toggleNavigateTo,
     type,
   })
@@ -88,7 +83,6 @@ const CurriculumPartTime = ({
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}
-      //{...commonProps}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}
       secondHalf={sessionsSecondHalf.map(

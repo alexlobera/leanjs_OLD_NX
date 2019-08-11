@@ -1,177 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CurriculumPartTime /> should render component 1`] = `
-<Fragment>
-  <Row>
-    <Styled(Styled(Box))
-      box={[Function]}
-      display="flex"
-      lg={10}
-      lgOffset={1}
-    >
-      <Styled(Styled(Box))
-        box="h2"
-        fontSize={5}
-        fontWeight="bold"
-        lineHeight={6}
-        mb={5}
-        pt={5}
-      >
-        Part-time course curriculum
-         
-        <Link
-          name="curriculum"
-          to="#curriculum"
-        >
-          #
-        </Link>
-      </Styled(Styled(Box))>
-    </Styled(Styled(Box))>
-  </Row>
-  <Row>
-    <Styled(Styled(Box))
-      box={[Function]}
-      display="flex"
-      lg={5}
-      lgOffset={1}
-      md={6}
-    >
-      <Styled(Box)
-        box="h3"
-        fontSize={4}
-        lineHeight={4}
-        pt={4}
-      >
-        Course outline
-        <a
-          name="curriculum"
-        />
-      </Styled(Box)>
+<Curriculum
+  curriculumTo="/react/curriculum?tab=Part-time"
+  firstHalf={
+    Array [
       <CurriculumSection
         mt={4}
         name="session1"
         title="Session 1 - Modern JavaScript"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <ES6Session
-          title=""
-        />
-      </CurriculumSection>
+        <ES6Session />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session2"
         title="Session 2 - Thinking in React"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <ThinkingInReactSession
-          title=""
-        />
-      </CurriculumSection>
+        <ThinkingInReactSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session3"
         title="Session 3 - Routing & Data Fetching"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <RoutingAndDataFetchingSession
-          title=""
-        />
-      </CurriculumSection>
+        <RoutingAndDataFetchingSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session4"
         title="Session 4 - Forms & Auth"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <FormsAndAuthSession
-          title=""
-        />
-      </CurriculumSection>
+        <FormsAndAuthSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session5"
         title="Session 5 - Recap: build a React app from scratch"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
         <ReactFundamentalsRecapSession />
-      </CurriculumSection>
+      </CurriculumSection>,
+    ]
+  }
+  secondHalf={
+    Array [
       <CurriculumSection
         mt={4}
         name="session6"
         title="Session 6 - Styling in React"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <StylingInReactSession
-          title=""
-        />
-      </CurriculumSection>
+        <StylingInReactSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session7"
         title="Session 7 - Redux"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <IntroReduxSession
-          title=""
-        />
-      </CurriculumSection>
+        <IntroReduxSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session8"
         title="Session 8 - Testing Fundamentals in JS"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <TestingIntroSession
-          title=""
-        />
-      </CurriculumSection>
+        <TestingIntroSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session9"
         title="Session 9 - React Hooks"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
-        <HooksSession
-          title=""
-        />
-      </CurriculumSection>
+        <HooksSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session10"
         title="Session 10 - React Redux Real-world Final Project"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
         <PartTimeFinalProject />
-      </CurriculumSection>
-      <Styled(Box)
-        pt={5}
-      >
-        <LinkButton
-          className="curriculum-cta"
-          to="/react/curriculum?tab=Part-time"
-          variant="default"
-        >
-          Full curriculum
-        </LinkButton>
-      </Styled(Box)>
-    </Styled(Styled(Box))>
-    <Styled(Styled(Box))
-      box={[Function]}
-      display="flex"
-      lg={4}
-      md={5}
-      mdOffset={1}
-    />
-  </Row>
-</Fragment>
+      </CurriculumSection>,
+    ]
+  }
+  title="Part-time course curriculum"
+  type="Part-time"
+/>
 `;

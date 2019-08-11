@@ -50,30 +50,6 @@ exports[`<TermsOfService /> should render component 1`] = `
         "block",
       ]
     }
-    mb={
-      Array [
-        2,
-        3,
-      ]
-    }
-    mt={
-      Array [
-        2,
-        3,
-      ]
-    }
-    pb={
-      Array [
-        4,
-        4,
-      ]
-    }
-    pt={
-      Array [
-        4,
-        4,
-      ]
-    }
   >
     <Row>
       <Styled(Styled(Box))

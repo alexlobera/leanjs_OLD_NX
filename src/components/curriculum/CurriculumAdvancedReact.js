@@ -6,7 +6,6 @@ import Curriculum, { renderSection } from './Curriculum'
 
 const CurriculumAdvancedReact = ({
   toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT}`,
-  marketingCard,
   training,
   section = {},
   ...rest
@@ -25,7 +24,7 @@ const CurriculumAdvancedReact = ({
     type,
   }
   const initialIndex = 1
-
+  const titlePrefix = 'Advanced React Day'
   return (
     <Curriculum
       title="Advanced React Curriculum"
@@ -38,6 +37,7 @@ const CurriculumAdvancedReact = ({
           initialIndex,
           training,
           sectionProps,
+          titlePrefix,
         })
       )}
       secondHalf={sessionsSecondHalf.map(
@@ -45,6 +45,7 @@ const CurriculumAdvancedReact = ({
           initialIndex: sessionsFirstHalf.length + initialIndex,
           training,
           sectionProps,
+          titlePrefix,
         })
       )}
     />

@@ -33,14 +33,16 @@ const Curriculum = ({
   })
 }
 
-export const renderSection = ({ initialIndex, sectionProps, training }) => (
-  { title, subTitle, comps },
-  index
-) => {
+export const renderSection = ({
+  initialIndex,
+  sectionProps,
+  training,
+  titlePrefix = 'Day ',
+}) => ({ title, subTitle, comps }, index) => {
   const day = index + initialIndex
   return (
     <Section
-      title={title || `Day ${day}`}
+      title={title || `${titlePrefix} ${day}`}
       subTitle={subTitle}
       name={`day${day}`}
       trainingTime={trainingTime({ day, training })}

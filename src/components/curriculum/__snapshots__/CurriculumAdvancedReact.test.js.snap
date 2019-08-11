@@ -1,112 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CurriculumAdvancedReact /> should render component 1`] = `
-<Fragment>
-  <Row>
-    <Styled(Styled(Box))
-      box={[Function]}
-      display="flex"
-      lg={10}
-      lgOffset={1}
-    >
-      <Styled(Styled(Box))
-        box="h2"
-        fontSize={5}
-        fontWeight="bold"
-        lineHeight={6}
-        mb={5}
-        pt={5}
-      >
-        Advanced React Curriculum
-         
-        <Link
-          name="curriculum"
-          to="#curriculum"
-        >
-          #
-        </Link>
-      </Styled(Styled(Box))>
-    </Styled(Styled(Box))>
-  </Row>
-  <Row>
-    <Styled(Styled(Box))
-      box={[Function]}
-      display="flex"
-      lg={5}
-      lgOffset={1}
-      md={6}
-    >
-      <Styled(Box)
-        box="h3"
-        fontSize={4}
-        lineHeight={4}
-        pt={4}
-      >
-        Course outline
-        <a
-          name="curriculum"
-        />
-      </Styled(Box)>
+<Curriculum
+  curriculumTo="/react/curriculum?tab=Advanced React"
+  firstHalf={
+    Array [
       <CurriculumSection
-        buyPath="/react/training/workshops/advanced-react-patterns-fp-performance"
         mt={4}
         name="day1"
         subTitle="Advanced React patterns, Hooks, and performance"
         title="Advanced React Day 1"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
-        <HoCsRenderPropsStateReducerSession />
-        <ReactPerformanceSession />
-      </CurriculumSection>
+        <React.Fragment>
+          <HoCsRenderPropsStateReducerSession />
+          <ReactPerformanceSession />
+        </React.Fragment>
+      </CurriculumSection>,
+    ]
+  }
+  secondHalf={
+    Array [
       <CurriculumSection
         mt={4}
         name="day2"
         subTitle="Advanced UI Patterns & Styling in React"
         title="Advanced React Day 2"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
-        <AdvancedUIPatterns />
-        <AdvancedReduxSession />
-        <DesignSystemSession />
-      </CurriculumSection>
+        <React.Fragment>
+          <AdvancedUIPatterns />
+          <StylingInReactSession />
+          <DesignSystemSession />
+        </React.Fragment>
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="day3"
         subTitle="Real-World Testing in React"
         title="Advanced React Day 3"
-        toggleNavigateTo={[Function]}
+        toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingTime=" 09:00 - 18:00"
         type="Advanced React"
       >
-        <TestingIntroSession />
-        <TestingInReactSession />
-        <E2ESession
-          title="End-to-End Testing"
-        />
-      </CurriculumSection>
-      <Styled(Box)
-        pt={5}
-      >
-        <LinkButton
-          className="curriculum-cta"
-          to="/react/curriculum?tab=Advanced React"
-          variant="default"
-        >
-          Full curriculum
-        </LinkButton>
-      </Styled(Box)>
-    </Styled(Styled(Box))>
-    <Styled(Styled(Box))
-      box={[Function]}
-      display="flex"
-      lg={4}
-      md={5}
-      mdOffset={1}
-    />
-  </Row>
-</Fragment>
+        <React.Fragment>
+          <TestingIntroSession />
+          <TestingInReactSession />
+          <E2ESession />
+        </React.Fragment>
+      </CurriculumSection>,
+    ]
+  }
+  title="Advanced React Curriculum"
+  type="Advanced React"
+/>
 `;
