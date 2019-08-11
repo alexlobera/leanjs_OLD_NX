@@ -99,19 +99,17 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
 
 export const UpcomingTrainingSection = ({ trainings, limit = 15 }) => (
   <Section>
-    <Grid>
-      <Row>
-        <Col md={11} mdOffset={1}>
-          <H2Ref>
-            Upcoming - All Events
-            <Link to="#upcoming" name="upcoming">
-              #
-            </Link>
-          </H2Ref>
-          <UpcomingTrainingTabs trainings={trainings} limit={limit} />
-        </Col>
-      </Row>
-    </Grid>
+    <Row>
+      <Col md={11} mdOffset={1}>
+        <H2Ref>
+          Upcoming - All Events
+          <Link to="#upcoming" name="upcoming">
+            #
+          </Link>
+        </H2Ref>
+        <UpcomingTrainingTabs trainings={trainings} limit={limit} />
+      </Col>
+    </Row>
   </Section>
 )
 
