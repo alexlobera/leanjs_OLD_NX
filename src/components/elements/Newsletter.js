@@ -3,10 +3,15 @@ import LinkButton from '../buttons/LinkButton'
 import { P, H3 } from '../text'
 import Link from '../navigation/Link'
 
-const Newsletter = ({ buttonVariant, mt, showCTA = true }) => (
+const Newsletter = ({
+  buttonVariant,
+  mt,
+  showCTA = true,
+  anchorName = 'newsletter',
+}) => (
   <React.Fragment>
     <H3 mt={mt}>Free learning resources</H3>
-    <a name="newsletter" />
+    <a name={anchorName} />
     <P>
       We share our resources directly from our{' '}
       <Link className="free-learning-resources" to="/react/curriculum">
