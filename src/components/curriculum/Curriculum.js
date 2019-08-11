@@ -40,17 +40,19 @@ export const renderSection = ({
   titlePrefix = 'Day ',
 }) => ({ title, subTitle, comps }, index) => {
   const day = index + initialIndex
+  const sectionTitle = title || `${titlePrefix} ${day}`
   return (
     <Section
-      title={title || `${titlePrefix} ${day}`}
+      title={sectionTitle}
       subTitle={subTitle}
       name={`day${day}`}
       trainingTime={trainingTime({ day, training })}
       {...sectionProps}
+      key={title}
     >
       <React.Fragment>
-        {comps.map(Comp => (
-          <Comp />
+        {comps.map((Comp, i) => (
+          <Comp key={`${sectionTitle}${i}`} />
         ))}
       </React.Fragment>
     </Section>
