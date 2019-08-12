@@ -7,7 +7,7 @@ author: horacio-herrera
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Freact-native-differences%2FreactNative_differences2.jpg?alt=media
 authorTwitter: hhg2288
 order: 15
-tags: ['react', 'react native']
+tags: ['react', 'react native', 'beginner']
 ---
 
 The two share a lot in common, but you’re going to want to take a minute before you dive in and create your first React Native app. There are important differences between React and React Native you need to know about!
