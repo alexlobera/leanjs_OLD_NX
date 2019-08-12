@@ -27,7 +27,6 @@ const Curriculum = ({
   return selectCurriculumLayout({
     title: curriculumTitle,
     curriculumTo: showLinkToCurriculum ? curriculumTo : undefined,
-    // TODO does this line works in all cases?
     trainingId: trainingId || (training && training.id),
     ...rest,
   })
