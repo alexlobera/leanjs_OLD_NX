@@ -29,7 +29,7 @@ import { createSocialMetas } from 'src/components/utils'
 const metas = {
   title: 'GraphQL Workshops | React GraphQL Academy',
   description:
-    'Interested in GraphQL workshops? React GraphQL Academy offers specialist GraphQL workshops, focussing on one specific part of the GraphQL ecosystm. Contact us now!',
+    'Interested in GraphQL workshops? React GraphQL Academy offers specialist GraphQL workshops, focussing on one specific part of the GraphQL ecosystem. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
