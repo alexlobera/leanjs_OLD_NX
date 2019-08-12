@@ -47,17 +47,17 @@ const InstancePage = ({
     canonical,
     nth = 1,
     videoOneTime,
-    videoOneId = '6hmKu1-vW-8',
+    videoOneId,
     videoOneQuote,
     videoOneFullname,
     videoOneJob,
     videoOneCompany,
     videoTwoTime,
-    videoTwoId = 'blg40SCle7I',
-    videoTwoQuote = "We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns...",
-    videoTwoFullname = 'Lara Ramey',
-    videoTwoJob = 'Software Developer',
-    videoTwoCompany = 'Meredith Corporation',
+    videoTwoId,
+    videoTwoQuote,
+    videoTwoFullname,
+    videoTwoJob,
+    videoTwoCompany,
   },
 }) => (
   <Layout>
@@ -184,6 +184,7 @@ const InstancePage = ({
                   job={videoTwoJob}
                   company={videoTwoCompany}
                   youtubeId={videoTwoId}
+                  youtubeTime={videoTwoTime}
                 />
               </Col>
               <Col md={4} lgOffset={1}>

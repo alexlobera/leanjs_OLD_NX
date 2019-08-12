@@ -90,11 +90,13 @@ exports.createPages = async ({ graphql, actions }) => {
                 subtitle
                 author
                 tags
+                videoOneTime
                 videoOneId
                 videoOneQuote
                 videoOneFullname
                 videoOneJob
                 videoOneCompany
+                videoTwoTime
                 videoTwoId
                 videoTwoQuote
                 videoTwoFullname
@@ -129,11 +131,13 @@ exports.createPages = async ({ graphql, actions }) => {
           )
           const posts = await getPosts({ tagsIn, tagsNin })
           const {
+            videoOneTime,
             videoOneId,
             videoOneQuote,
             videoOneFullname,
             videoOneJob,
             videoOneCompany,
+            videoTwoTime,
             videoTwoId,
             videoTwoQuote,
             videoTwoFullname,
@@ -150,16 +154,24 @@ exports.createPages = async ({ graphql, actions }) => {
                   `./src/templates/instance/${instanceTemplate}.js`
                 ),
                 context: {
-                  videoOneId,
+                  videoOneTime,
+                  videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',
                   videoOneQuote,
                   videoOneFullname,
                   videoOneJob,
                   videoOneCompany,
-                  videoTwoId,
-                  videoTwoQuote,
-                  videoTwoFullname,
-                  videoTwoJob,
-                  videoTwoCompany,
+                  videoTwoTime,
+                  videoTwoId: videoTwoId ? videoTwoId : 'blg40SCle7I',
+                  videoTwoQuote: videoTwoQuote
+                    ? videoTwoQuote
+                    : "We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns...",
+                  videoTwoFullname: videoTwoFullname
+                    ? videoTwoFullname
+                    : 'Lara Ramey',
+                  videoTwoJob: videoTwoJob ? videoTwoJob : 'Software Developer',
+                  videoTwoCompany: videoTwoCompany
+                    ? videoTwoCompany
+                    : 'Meredith Corporation',
                   posts,
                   city: titleCaseCity,
                   financeAvailable,
