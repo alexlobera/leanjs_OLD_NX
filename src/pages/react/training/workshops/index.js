@@ -19,7 +19,6 @@ import {
   selectNthTraining,
   AttendeeQuote,
 } from 'src/components/training'
-import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
 import { REACT_WORKSHOP } from 'src/config/data'
@@ -150,13 +149,6 @@ const Bootcamps = ({ path }) => (
                     </LinkButton>
                   )}
                 </P>
-              </Col>
-            </Row>
-          </Section>
-          <Section>
-            <Row>
-              <Col lg={10} lgOffset={1}>
-                <AlternativeBootcampTrainings trainings={trainings} />
               </Col>
             </Row>
           </Section>

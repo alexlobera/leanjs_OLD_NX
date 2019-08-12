@@ -11,7 +11,6 @@ import {
   GRAPHQL_BOOTCAMP,
   GRAPHQL_WORKSHOP,
   GRAPHQL_API,
-  GRAPHQL_CLIENT,
 } from '../../config/data'
 
 const FullCurriculumsGraphQL = ({ trainings }) => {
@@ -21,7 +20,7 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
   }
   const allGraphQLWorkshops = selectUpcomingTrainings({
     trainings,
-    types: [GRAPHQL_CLIENT, GRAPHQL_WORKSHOP],
+    type: GRAPHQL_WORKSHOP,
   })
   return (
     <React.Fragment>

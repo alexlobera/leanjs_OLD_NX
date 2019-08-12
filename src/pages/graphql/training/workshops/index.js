@@ -1,54 +1,50 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
+import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
-import Link from 'src/components/navigation/Link'
-import { TopSection } from 'src/components/layout/Section'
+import { Link } from 'src/components/navigation'
+import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2, P, H4, H5 } from 'src/components/text'
-import { UpcomingTrainingSection } from 'src/components/training'
+import { H2, P } from 'src/components/text'
+import Ul, { Li } from 'src/components/layout/Ul'
+import CurriculumGraphQLWorkshops from 'src/components/curriculum/CurriculumGraphQLWorkshops'
 import Header from 'src/components/layout/Header'
-import { Segment, Newsletter } from 'src/components/elements'
-import Card from 'src/components/elements/Card'
+import {
+  TrustedBySection,
+  UpcomingTrainingSection,
+  selectUpcomingTrainings,
+  selectNthTraining,
+  AttendeeQuote,
+} from 'src/components/training'
+import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_PINK } from '../../../../config/styles'
+import { GRAPHQL_WORKSHOP } from 'src/config/data'
+import BlogSection from 'src/components/blog/BlogSection'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
-import { BOOTCAMP_COLLAB } from 'src/config/images'
-
-const PROVISIONAL_WORKSHOP_PRICE = '£360 Inc VAT'
-
-const workshops = [
-  {
-    title: 'GraphQL Apollo Client',
-    description:
-      'Create production-ready React applications with the most community-driven GraphQL client',
-    to: '/graphql/training/workshops/graphql-apollo-client/london/',
-  },
-  {
-    title: 'GraphQL Relay Modern',
-    description:
-      'A JavaScript framework created and used by Facebook for building data-driven React apps with GraphQL',
-  },
-
-  {
-    title: 'GraphQL with Prisma',
-    description:
-      'Build GraphQL auto-generated and type-safe database clients. Replace traditional ORMs with Prisma',
-  },
-]
 
 const metas = {
   title: 'GraphQL Workshops | React GraphQL Academy',
   description:
-    'Interested in GraphQL workshops? React GraphQL Academy offers specialist GraphQL workshops, focussing on one specific part of GraphQL. Contact us now!',
-  image: BOOTCAMP_COLLAB,
+    'Interested in GraphQL workshops? React GraphQL Academy offers specialist GraphQL workshops, focussing on one specific part of the GraphQL ecosystm. Contact us now!',
+  image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
 
-const GraphQLWorkshops = ({ path }) => (
+const Bootcamps = ({ path }) => (
   <Layout>
     {({ trainings }) => {
+      const allGraphQLWorkshops = selectUpcomingTrainings({
+        trainings,
+        types: [GRAPHQL_WORKSHOP],
+      })
+      const nextTraining = selectNthTraining({
+        trainings: allGraphQLWorkshops,
+      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -80,54 +76,84 @@ const GraphQLWorkshops = ({ path }) => (
             ]}
           />
           <Header
-            titleLines={['GraphQL Workshops']}
-            subtitle="Specialist GraphQL workshops focussing on one specific part of GraphQL - all delivered by industry experts and that lasting a maximum of 1 day."
+            titleLines={['1-Day GraphQL Workshops']}
+            subtitle="Intense, 1-day workshops that focusses on one specific part of GraphQL - all delivered by industry experts"
+            bgImageName={BOOTCAMP}
+            links={[
+              {
+                text: 'Workshop offerings',
+                to: '#curriculum',
+              },
+              {
+                text: 'Upcoming workshops',
+                to: '#upcoming-courses',
+              },
+              {
+                text: 'Is it right for me?',
+                to: '#target-audience',
+              },
+            ]}
+            type={GRAPHQL_WORKSHOP}
           />
-          <TopSection marginTop={`-250`}>
+          <TopSection>
             <Segment>
-              <Row>
-                <Col md={10} mdOffset={1}>
-                  <H2>Which GraphQL workshop are you looking for?</H2>
-                  <Row>
-                    {workshops.map(workshop => {
-                      let to, text, variant
-                      if (workshop.to) {
-                        to = workshop.to
-                        text = 'Find out more'
-                        variant = 'primary'
-                      } else {
-                        to = '/graphql/training/workshops/interest-form'
-                        text = 'Join Waitlist'
-                        variant = 'secondary'
-                      }
-
-                      return (
-                        <Col sm={6} md={4}>
-                          <Card borderColor={GRAPHQL_PINK}>
-                            <Link underline={false} to={to}>
-                              <H4>{workshop.title}</H4>
-                            </Link>
-                            <H5>{PROVISIONAL_WORKSHOP_PRICE}</H5>
-                            <P>{workshop.description}</P>
-                            <LinkButton
-                              className="workshop-cta"
-                              variant={variant}
-                              to={to}
-                            >
-                              {text}
-                            </LinkButton>
-                          </Card>
-                        </Col>
-                      )
-                    })}
-                  </Row>
-                </Col>
-                <Col md={10} mdOffset={1}>
-                  <Newsletter />
-                </Col>
-              </Row>
+              <CurriculumGraphQLWorkshops trainings={allGraphQLWorkshops} />
             </Segment>
           </TopSection>
+          <Section>
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
+                  fullname="Charlie Wilson"
+                  job="Software Engineer"
+                  company="ESG PLC"
+                  youtubeId="CP422OORbPA"
+                />
+              </Col>
+              <Col md={4} mdOffset={1}>
+                <H2>
+                  <Link to="#target-audience" name="target-audience" />
+                  Are these GraphQL workshops right for me?
+                </H2>
+                <Ul>
+                  <Li>Extremely rapid, intense learning</Li>
+                  <Li>
+                    Ideal for experienced programmers familiar with good
+                    practices.
+                  </Li>
+                  <Li>Not for beginner devs!</Li>
+                  <Li>
+                    Small classes focused on one topic with expert developer
+                    coaches
+                  </Li>
+                  <Li>
+                    Hands-on project-based training - most of the time you'll be
+                    coding.
+                  </Li>
+                  <Li>
+                    Join a growing network of alumni for advice, knowledge and
+                    social fun!
+                  </Li>
+                </Ul>
+                <P>
+                  {nextTraining && (
+                    <LinkButton variant="primary" to={nextTraining.toPath}>
+                      Next workshop:{' '}
+                      {formatUTC(
+                        nextTraining.startDate,
+                        nextTraining.utcOffset,
+                        'D MMM'
+                      )}
+                      , {nextTraining.city}
+                    </LinkButton>
+                  )}
+                </P>
+              </Col>
+            </Row>
+          </Section>
+          <TrustedBySection />
+          <BlogSection tags={['graphql']} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -135,4 +161,4 @@ const GraphQLWorkshops = ({ path }) => (
   </Layout>
 )
 
-export default GraphQLWorkshops
+export default Bootcamps

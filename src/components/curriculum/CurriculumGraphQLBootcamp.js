@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from '../navigation/Link'
+import { Li } from '../layout/Ul'
 import { H2Ref } from '../text'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
+import Section from './CurriculumSection'
 import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
 import NodejsSession from './sessions/NodejsSession'
 // import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
@@ -19,11 +20,10 @@ const CurriculumGraphQLBootcamp = ({
   marketingCard,
   trainings,
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = GRAPHQL_BOOTCAMP
   const commonProps = {
     enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
+    toggleNavigateTo,
     type,
     isOpen,
   }
@@ -88,5 +88,13 @@ const CurriculumGraphQLBootcamp = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>A developer with some experience developing React applications?</Li>
+    <Li>Perfect for developers with 1+ year building backends and REST APIs</Li>
+    <Li>Build production ready apps leverging GraphQL.</Li>
+  </React.Fragment>
+)
 
 export default CurriculumGraphQLBootcamp

@@ -9,7 +9,6 @@ import {
   REACT_FUNDAMENTALS,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
-  GRAPHQL_CLIENT,
   GRAPHQL_WORKSHOP,
   MEETUP,
 } from '../../config/data'
@@ -50,7 +49,6 @@ export const selectTypeColor = type => {
       return BLUE
     case GRAPHQL_BOOTCAMP:
     case GRAPHQL_API:
-    case GRAPHQL_CLIENT:
     case GRAPHQL_WORKSHOP:
       return GRAPHQL_PINK
     case MEETUP:
@@ -73,7 +71,6 @@ export const selectBorderStyle = type => {
       return 'dashed'
     case REACT_WORKSHOP:
     case GRAPHQL_WORKSHOP:
-    case GRAPHQL_CLIENT:
       return 'dotted'
     default:
       return 'solid'
