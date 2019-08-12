@@ -14,13 +14,13 @@ import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  selectNthTraining,
+  getNextTrainingByTrainingId,
 } from 'src/components/training'
-import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_CLIENT, LONDON } from 'src/config/data'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import { GRAPHQL_WORKSHOP } from 'src/config/data'
 import { createSocialMetas } from 'src/components/utils'
+import { trainingId, breadcrumbWorkshopName } from './config.json'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
   title: 'GraphQL Apollo Client Training | React GraphQL Academy',
@@ -33,14 +33,11 @@ const metas = {
 const GraphQLApolloClientWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
-      const workshops = selectUpcomingTrainings({
+      const nextTraining = getNextTrainingByTrainingId({
         trainings,
-        type: GRAPHQL_CLIENT,
-        city: LONDON,
+        trainingId,
       })
-      const training = selectNthTraining({
-        trainings: workshops,
-      })
+
       return (
         <React.Fragment>
           <Helmet
@@ -62,7 +59,7 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
               { to: '/graphql/training/workshops', label: 'Workshops' },
               {
                 to: path,
-                label: 'GraphQL Apollo Client',
+                label: breadcrumbWorkshopName,
               },
             ]}
           />
@@ -74,16 +71,16 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
             bgImageName={LONDON_BOOTCAMP}
-            type={GRAPHQL_CLIENT}
-            training={training}
+            type={GRAPHQL_WORKSHOP}
           />
           <TopSection>
             <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <CurriculumGraphQLApollo layout={LIST_TWO_COL} />
-                </Col>
-              </Row>
+              <CurriculumGraphQLApollo
+                trainings={trainings}
+                trainingId={trainingId}
+                enableToggle
+                section={{ isOpen: true }}
+              />
             </Segment>
           </TopSection>
 
@@ -128,12 +125,7 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
                 </P>
                 <H3>Not for beginner devs!</H3>
                 <P>This is not a learn-to-code workshop!</P>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
+                <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>
             </Row>
           </Section>

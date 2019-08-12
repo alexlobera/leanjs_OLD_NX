@@ -11,7 +11,6 @@ import {
 } from '../utils'
 import {
   GRAPHQL_API,
-  GRAPHQL_CLIENT,
   GRAPHQL_WORKSHOP,
   GRAPHQL_BOOTCAMP,
 } from '../../config/data'
@@ -103,7 +102,6 @@ const A = styled.a.attrs({ className: props => props.className })`
       props.isActive &&
       (props.name === GRAPHQL_BOOTCAMP ||
         props.name === GRAPHQL_API ||
-        props.name === GRAPHQL_CLIENT ||
         props.name === GRAPHQL_WORKSHOP)
     ) {
       return `color: white !important`

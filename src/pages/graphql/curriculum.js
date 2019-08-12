@@ -33,7 +33,11 @@ import {
 import { Segment } from 'src/components/elements'
 import Card from 'src/components/elements/Card'
 import { getURLParameter } from 'src/components/utils/url'
-import { GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_CLIENT } from 'src/config/data'
+import {
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_API,
+  GRAPHQL_WORKSHOP,
+} from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { Breadcrumb } from 'src/components/navigation'
 import { formatUTC } from 'src/components/utils'
@@ -87,7 +91,7 @@ class GraphQLCurriculum extends React.Component {
           })
           const trainingClient = selectNthTraining({
             trainings,
-            type: GRAPHQL_CLIENT,
+            type: GRAPHQL_WORKSHOP,
           })
           return (
             <React.Fragment>
@@ -129,7 +133,7 @@ class GraphQLCurriculum extends React.Component {
                             <Th />
                             <Th type={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</Th>
                             <Th type={GRAPHQL_API}>GraphQL API</Th>
-                            <Th type={GRAPHQL_CLIENT}>GraphQL Client</Th>
+                            <Th type={GRAPHQL_WORKSHOP}>GraphQL Client</Th>
                           </Tr>
                         </Thead>
                         <Tbody>
@@ -171,7 +175,7 @@ class GraphQLCurriculum extends React.Component {
                             </Td>
                             <Td />
                             <Td>
-                              <Tick type={GRAPHQL_CLIENT} />
+                              <Tick type={GRAPHQL_WORKSHOP} />
                             </Td>
                           </Tr>
                           <Tr>
@@ -181,7 +185,7 @@ class GraphQLCurriculum extends React.Component {
                             </Td>
                             <Td />
                             <Td>
-                              <Tick type={GRAPHQL_CLIENT} />
+                              <Tick type={GRAPHQL_WORKSHOP} />
                             </Td>
                           </Tr>
                           <Tr>
@@ -270,7 +274,7 @@ class GraphQLCurriculum extends React.Component {
                         <TabItem name={GRAPHQL_API}>
                           GraphQL API training
                         </TabItem>
-                        <TabItem name={GRAPHQL_CLIENT}>
+                        <TabItem name={GRAPHQL_WORKSHOP}>
                           GraphQL Client training
                         </TabItem>
                       </TabList>
@@ -405,7 +409,7 @@ class GraphQLCurriculum extends React.Component {
                           </Row>
                         </ContentItem>
 
-                        <ContentItem name={GRAPHQL_CLIENT}>
+                        <ContentItem name={GRAPHQL_WORKSHOP}>
                           <P>
                             <strong>
                               On completion of the GraphQL Client training each

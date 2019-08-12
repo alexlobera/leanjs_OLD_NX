@@ -181,7 +181,10 @@ const ReactPage = ({ data, path }) => {
 export const query = graphql`
   query reactPage {
     allMarkdownRemark(
-      filter: { frontmatter: { contentType: { eq: "blog" } } }
+      filter: {
+        fields: { slug: { regex: "/(/react/)/" } }
+        frontmatter: { contentType: { eq: "blog" } }
+      }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 3
     ) {

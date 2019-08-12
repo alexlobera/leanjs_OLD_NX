@@ -21,7 +21,11 @@ const CurriculumGraphQLApollo = ({ showTitle = true, section, ...rest }) => (
 
 export const TargetAudienceList = () => (
   <React.Fragment>
-    <Li></Li>
+    <Li>A developer with some experience developing React applications?</Li>
+    <Li>
+      Interested in learning how cutting-edge companies build products faster at
+      scale
+    </Li>
   </React.Fragment>
 )
 

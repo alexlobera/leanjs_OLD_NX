@@ -1,7 +1,9 @@
 import React from 'react'
+
+import { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
 import { H2Ref } from '../text'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
+import Section from './CurriculumSection'
 import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
 import NodejsSession from './sessions/NodejsSession'
 // import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
@@ -18,11 +20,10 @@ const CurriculumGraphQLAPI = ({
   marketingCard,
   trainings,
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = GRAPHQL_API
   const commonProps = {
     enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
+    toggleNavigateTo,
     type,
     isOpen,
   }
@@ -81,5 +82,16 @@ const CurriculumGraphQLAPI = ({
     curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
 }
+
+export const TargetAudienceList = () => (
+  <React.Fragment>
+    <Li>
+      For working developers, experience with JavaScript and npm - not for
+      beginners!
+    </Li>
+    <Li>Perfect for developers with 1+ year building backends and REST APIs</Li>
+    <Li>Build production ready apps leverging GraphQL.</Li>
+  </React.Fragment>
+)
 
 export default CurriculumGraphQLAPI

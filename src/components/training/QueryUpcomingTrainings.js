@@ -10,9 +10,9 @@ import {
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
   REACT_WORKSHOP,
-  GRAPHQL_CLIENT,
   GRAPHQL_API,
   MEETUP,
+  GRAPHQL_WORKSHOP,
 } from '../../config/data'
 
 const LISBON_LOCATION =
@@ -48,8 +48,8 @@ const createTrainingPath = ({ type, city = '', index, id, slug }) => {
       return `/graphql/training/bootcamp/${city.toLowerCase()}/${i}`
     case GRAPHQL_API:
       return `/graphql/training/api/${city.toLowerCase()}/${i}`
-    case GRAPHQL_CLIENT:
-      return `/graphql/training/workshops/graphql-apollo-client/${city.toLowerCase()}/${i}`
+    case GRAPHQL_WORKSHOP:
+      return `/graphql/training/workshops/${slug}/${city.toLowerCase()}/${i}`
     case REACT_WORKSHOP:
       return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
     default:
