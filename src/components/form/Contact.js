@@ -44,7 +44,7 @@ const ContactForm = ({
           <P>
             The best way to contact us is by emailing us at{' '}
             <Link
-              to="mailto:hello@reactgrahql.academy?subject=Course%20Query&body=Hi%20RGA%20team!"
+              to="mailto:hello@reactgraphql.academy?subject=Course%20Query&body=Hi%20RGA%20team!"
               className="footer-contact-us-mailto"
             >
               hello@reactgraphql.academy

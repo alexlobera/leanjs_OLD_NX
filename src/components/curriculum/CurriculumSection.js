@@ -74,10 +74,6 @@ const CurriculumSection = props => {
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
       ? {
-          // to:
-          //   typeof toggleNavigateTo === 'function'
-          //     ? toggleNavigateTo(name)
-          //     : toggleNavigateTo,
           to: navigateToSection(toggleNavigateTo, name),
         }
       : { onClick: toggleSubSection }
