@@ -1,10 +1,12 @@
 ---
+contentType: blog
 title: Arise React GraphQL Academy - Announcing Our New Name
 date: 2019-06-11
 subtitle: We’ve changed our name to React GraphQL Academy and here’s why…
-author: paul
+author: paul-woodley
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_ariseRGA-rebranding%2Fheader.jpg?alt=media&
 order: 111
+tags: ['graphql', 'beginner']
 ---
 
 <a name="name-change"></a>

@@ -1,10 +1,12 @@
 ---
+contentType: blog
 title: Learn React the fast way
 date: 2018-10-04
 subtitle: So you’re looking to learn React, Redux and GraphQL quickly in order to become a sought after front-end engineer?
-author: richard
+author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcoding_learning_curve.png?alt=media
 order: 7
+tags: ['react', 'beginner']
 ---
 
 The good news is that learning React fundamentals is achievable quite quickly (assuming you’re already a developer). There are two critical factors that will basically determine how fast you become a good React developer:

@@ -123,7 +123,7 @@ const ReactPage = ({ data, path }) => {
                   <H3>Our React training</H3>
                   <TrainingCardList data={trainingList} borderColor={BLUE} />
                   <Card variant="primary" mt={4}>
-                    <Newsletter mt={2} buttonVariant="primary" />
+                    <Newsletter anchorName="" mt={2} buttonVariant="primary" />
                   </Card>
                 </Col>
               </Row>
@@ -181,7 +181,7 @@ const ReactPage = ({ data, path }) => {
 export const query = graphql`
   query reactPage {
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/(/react/)/g" } } }
+      filter: { frontmatter: { contentType: { eq: "blog" } } }
       sort: { fields: frontmatter___date, order: DESC }
       limit: 3
     ) {

@@ -3,6 +3,7 @@ import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import { LinkButton } from '../buttons'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
+import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
 const CurriculumCorporateGraphQL = ({
   layout,
@@ -65,7 +66,7 @@ const CurriculumCorporateGraphQL = ({
     secondHalf,
     layout,
     type,
-    corpTrainingFacts: true,
+    content: <CorpTrainingFacts />,
     curriculumTitle: 'GraphQL Training Curriculum Example',
   })
 }

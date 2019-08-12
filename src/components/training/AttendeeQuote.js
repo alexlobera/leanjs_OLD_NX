@@ -18,7 +18,7 @@ const AttendeeQuote = ({
   ...rest
 }) => (
   <Card variant="info" {...rest}>
-    {youtubeId && <Video time={youtubeTime} youtubeId={youtubeId} />}
+    {youtubeId && <Video mb={2} time={youtubeTime} youtubeId={youtubeId} />}
     <Box px={1}>
       <Blockquote>{quote || 'This is a quote from a trainee.'}</Blockquote>
       <P pt={2}>

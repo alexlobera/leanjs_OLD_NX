@@ -86,22 +86,19 @@ const Bootcamps = ({ path }) => (
                 to: '#curriculum',
               },
               {
-                text: 'Is it right for me?',
-                to: '#target-audience',
-              },
-              {
                 text: 'Upcoming workshops',
                 to: '#upcoming-courses',
+              },
+              {
+                text: 'Is it right for me?',
+                to: '#target-audience',
               },
             ]}
             type={REACT_WORKSHOP}
           />
           <TopSection>
             <Segment>
-              <CurriculumReactWorkshops
-                trainings={allReactWorkshops}
-                showTitle={false}
-              />
+              <CurriculumReactWorkshops trainings={allReactWorkshops} />
             </Segment>
           </TopSection>
           <Section>

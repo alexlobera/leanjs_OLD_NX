@@ -59,7 +59,7 @@ const massageGalleryImages = images =>
     )
     .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
 
-const Location = ({ path, data }) => (
+const Location = ({ path, data, pageContext: { posts } }) => (
   <Layout>
     {({ trainings }) => {
       const { htmlAst, frontmatter } = data.markdownRemark
@@ -164,7 +164,7 @@ const Location = ({ path, data }) => (
             }
           />
           <TrustedBySection />
-          <BlogSection tags={[lowerCaseCity]} />
+          <BlogSection posts={posts} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

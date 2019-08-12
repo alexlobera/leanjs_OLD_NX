@@ -5,5 +5,6 @@
   "breadcrumbTrainingSlug": "advanced",
   "trainingId": "5ab6244a88546e46fa2b2601",
   "title": "3-Day Advanced React Training",
-  "tags": ["react", "advanced"]
+  "tagsIn": ["react", "advanced"],
+  "tagsNin": "beginner"
 }

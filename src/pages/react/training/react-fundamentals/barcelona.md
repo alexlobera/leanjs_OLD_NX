@@ -1,6 +1,18 @@
 ---
 coaches: ['horacio-herrera']
-subtitle: In 3 days, our coaches will work with you in Barcelona to help you learn the React fundamentals needed to develop React apps the right way
+subtitle: Learn in 3 days in Barcelona the React fundamentals needed to develop React apps the right way
+videoOneTime: ''
+videoOneId: zRa5-FyWbK8
+videoOneQuote: ''
+videoOneFullname: ''
+videoOneJob: ''
+videoOneCompany: ''
+videoTwoTime: ''
+videoTwoId: ''
+videoTwoQuote: ''
+videoTwoFullname: ''
+videoTwoJob: ''
+videoTwoCompany: ''
 ---
 
 TODO ADD TEXT

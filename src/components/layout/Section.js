@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { DARK_BLUE } from '../../config/styles'
+import { fontColor } from '../text'
+import { DARK_BLUE, WHITE } from '../../config/styles'
 import { getVariantProps } from '../utils'
 import Box from './Box'
 import Grid, { Col, Row } from './Grid'
@@ -11,15 +12,26 @@ export const MOB_SECTION_MARGIN_Y = 5
 const sectionVariantProps = {
   dark: {
     backgroundColor: DARK_BLUE,
-    pt: 0,
-    pb: 0,
+    color: WHITE,
+    pt: [2, 6],
+    pb: [4, 6],
+    mt: [2, 6],
+    mb: [2, 5],
   },
   darkMob: {
     backgroundColor: [DARK_BLUE, 'transparent'],
   },
+  default: {
+    pt: [4, 4],
+    pb: [4, 4],
+    mt: [2, 3],
+    mb: [2, 3],
+  },
 }
 
 const StyledSection = styled(Box)`
+  ${({ color }) => color && fontColor(color)}
+
   p:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -36,10 +48,6 @@ const Section = ({ children, ...rest }) => (
 )
 
 Section.defaultProps = {
-  pt: [4, 4],
-  pb: [4, 4],
-  mt: [2, 3],
-  mb: [2, 3],
   display: ['inline-block', 'block'],
   box: 'section',
 }

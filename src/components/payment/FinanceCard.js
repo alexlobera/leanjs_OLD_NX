@@ -1,11 +1,11 @@
 import React from 'react'
 import { P, H3 } from '../text'
-import Card from '../elements/Card'
+import Segment from '../elements/Segment'
 import CourseBud from '../logos/CourseBud'
 import { Link } from '../navigation'
 
 const FinanceCard = props => (
-  <Card variant="secondary" my={5} {...props}>
+  <Segment small variant="primary" my={5} {...props}>
     <H3>Financial Support</H3>
     <P>
       Looking for a way to spread the cost of training? We've partnered with
@@ -22,7 +22,7 @@ const FinanceCard = props => (
     <Link to="https://www.coursebud.com/search">
       <CourseBud height={50} />
     </Link>
-  </Card>
+  </Segment>
 )
 
 export default FinanceCard

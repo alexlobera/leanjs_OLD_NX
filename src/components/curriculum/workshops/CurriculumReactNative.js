@@ -12,7 +12,7 @@ import ReactNativeAnimationsSession, {
   titleSession as titleSession3,
 } from '../sessions/native/ReactNativeAnimationsSession'
 import { REACT_WORKSHOP } from '../../../config/data'
-import Curriculum from './Curriculum'
+import Curriculum from '../Curriculum'
 
 const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
   <Curriculum

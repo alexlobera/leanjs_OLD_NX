@@ -3,7 +3,7 @@ import Section from '../CurriculumSection'
 import { GRAPHQL_WORKSHOP } from '../../../config/data'
 import GraphQLApolloClientDaySessions from '../sessions/GraphQLApolloClientDaySessions'
 import { Li } from '../../layout/Ul'
-import Curriculum from './Curriculum'
+import Curriculum from '../Curriculum'
 
 const CurriculumGraphQLApollo = ({ showTitle = true, section, ...rest }) => (
   <Curriculum

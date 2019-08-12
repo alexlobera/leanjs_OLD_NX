@@ -24,6 +24,7 @@ import Link, { styleChildLinkColor } from '../navigation/Link'
 import { selectTypeColor, selectBorderStyle } from '../utils/index.js'
 import { Image } from '../elements'
 import Box from '../layout/Box'
+import { LinkButton } from '../buttons'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -205,18 +206,10 @@ const TitleCol = styled(Col)`
 `
 const InfoBox = styled(Box)`
   background-color: ${WHITE};
-  ul {
-    padding: 5px 10px 10px 10px;
-    margin: 0;
-  }
-  li {
-    margin-bottom: 1em;
-  }
   a {
     font-size: 0.9rem;
   }
   font-size: 0.9rem;
-  padding: 10px 10px 0 10px;
   border: ${({ type }) =>
     `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
 `
@@ -249,6 +242,7 @@ const Header = ({
   subtitle,
   links = [],
   bgImageName,
+  removeBgImage,
   bgImgUrl,
   bgColors,
   bgColor,
@@ -284,7 +278,9 @@ const Header = ({
       }
     `}
     render={data => {
-      const bgImage = bgImgUrl || getBackgroundImageSrc(data, bgImageName)
+      const bgImage = removeBgImage
+        ? undefined
+        : bgImgUrl || getBackgroundImageSrc(data, bgImageName)
       const startDate =
         training.startDate &&
         formatUTC(training.startDate, training.utcOffset, 'D MMM')
@@ -362,7 +358,7 @@ const Header = ({
               )}
               {showInfoBox && (
                 <Col md={3} mdOffset={1}>
-                  <InfoBox type={type}>
+                  <InfoBox type={type} p={1}>
                     {training.image && (
                       <Image
                         src={training.image}
@@ -370,8 +366,7 @@ const Header = ({
                         alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
                       />
                     )}
-
-                    <Ul variant="unstyled" pl={0}>
+                    <Ul variant="unstyled" mb={1} pl={1} pr={1}>
                       <Li>
                         <strong>Date</strong>: {startDate ? startDate : 'TBD'}
                         {startDate === endDate ? '' : ` - ${endDate}`}
@@ -427,6 +422,11 @@ const Header = ({
                         </Li>
                       )}
                     </Ul>
+                    <Box textAlign="center" mb="-38px">
+                      <LinkButton variant="primary" to="#pricing">
+                        Buy tickets
+                      </LinkButton>
+                    </Box>
                   </InfoBox>
                 </Col>
               )}

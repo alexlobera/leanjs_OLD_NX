@@ -47,37 +47,38 @@ const AboutUs = ({ data }) => {
             <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
-                  <H2>
-                    Our coaches - professional developers who love to teach
-                  </H2>
-                  <H3 pt={0}>The React GraphQL Academy coach values: </H3>
-                  <Row>
-                    <Col xs={5} sm={5} md={3}>
-                      <Ul>
-                        <Li>Passion</Li>
-                        <Li>Empathy</Li>
-                        <Li>Community</Li>
-                        <Li>Excellence</Li>
-                        <Li>Continuous learning</Li>
-                      </Ul>
-                    </Col>
-                    <Col xs={5} sm={5} md={3}>
-                      <Ul>
-                        <Li>Forward thinking</Li>
-                        <Li>Determination</Li>
-                        <Li>Feedback</Li>
-                        <Li>Best-practices</Li>
-                        <Li>Cutting-edge</Li>
-                      </Ul>
-                    </Col>
-                    <HideComponentsUsingCss xs>
-                      <Col md={1} />
-                      <Col md={5}>
-                        <Video height="200" youtubeId="Rx2v_6I7PMM" />
-                      </Col>
-                    </HideComponentsUsingCss>
-                  </Row>
+                  <H2>We are professional developers who love to teach</H2>
+                  <H3 pt={0}>Our Mission</H3>
+                  <P>
+                    To inspire and support professional developers to grow in
+                    their career, while leading the way for a mentorship
+                    conscious tech industry.
+                  </P>
+                  <H3>The React GraphQL Academy Values </H3>
                 </Col>
+                <Col xs={6} md={3} mdOffset={1}>
+                  <Ul mb={0}>
+                    <Li>Passion</Li>
+                    <Li>Empathy</Li>
+                    <Li>Community</Li>
+                    <Li>Excellence</Li>
+                    <Li>Continuous learning</Li>
+                  </Ul>
+                </Col>
+                <Col xs={6} md={3}>
+                  <Ul mb={0}>
+                    <Li>Forward thinking</Li>
+                    <Li>Determination</Li>
+                    <Li>Feedback</Li>
+                    <Li>Best-practices</Li>
+                    <Li>Cutting-edge</Li>
+                  </Ul>
+                </Col>
+                <HideComponentsUsingCss xs>
+                  <Col md={4} mdOffest={1}>
+                    <Video height="200" youtubeId="Rx2v_6I7PMM" />
+                  </Col>
+                </HideComponentsUsingCss>
               </Row>
             </Segment>
           </TopSection>

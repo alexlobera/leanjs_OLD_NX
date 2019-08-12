@@ -1,10 +1,12 @@
 ---
+contentType: blog
 title: Who uses GraphQL anyway??
 date: 2018-11-07
 subtitle: We’ve covered what GraphQL is, but who actually uses GraphQL? You might be surprised by the big names that use it, and why...!
-author: richard
+author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_whoUsesGraphQL%2Fwho-uses-graphql.jpg?alt=media&
 order: 15
+tags: ['graphql', 'beginner']
 ---
 
 You may know [what GraphQL is](/graphql/what-is-GraphQL-used-for/) and why it’s so useful, but if you’re yet to be convinced of this syntax’s capabilities you need only look at some of the big names that are already using it - and making a success of it!
@@ -51,7 +53,13 @@ They always received too much irrelevant data, but GraphQL has fixed that. GitHu
 
 ## In summary, these platforms use GraphQL…
 
-- [Facebook](#facebook)
+- [Facebook <a name="facebook"></a>](#facebook-a-name%22facebook%22a)
+- [Twitter <a name="twitter"></a>](#twitter-a-name%22twitter%22a)
+- [New York Times <a name="new-york-times"></a>](#new-york-times-a-name%22new-york-times%22a)
+- [Hudl <a name="hudl"></a>](#hudl-a-name%22hudl%22a)
+- [GitHub <a name="github"></a>](#github-a-name%22github%22a)
+- [In summary, these platforms use GraphQL…](#in-summary-these-platforms-use-graphql)
+- [Learn GraphQL with React GraphQL Academy](#learn-graphql-with-react-graphql-academy)
 
 - [Twitter](#twitter)
 

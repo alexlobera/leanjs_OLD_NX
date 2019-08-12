@@ -1,7 +1,4 @@
 import React from 'react'
-import { H2Ref } from '../text'
-import Link from '../navigation/Link'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import Ul, { Li } from '../layout/Ul'
 import ES6Session from './sessions/ES6Session'
 import ThinkingInReactSession from './sessions/ThinkingInReactSession'
@@ -13,7 +10,24 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
+import Curriculum from './Curriculum'
+import Section from './CurriculumSection'
+
+export const renderPartTimeSection = (sectionProps = {}) => initialIndex => (
+  { title, Comp },
+  index
+) => {
+  const sectionNum = index + initialIndex
+  return (
+    <Section
+      title={`Session ${sectionNum} - ${title}`}
+      name={`session${sectionNum}`}
+      {...sectionProps}
+    >
+      <Comp />
+    </Section>
+  )
+}
 
 const PartTimeFinalProject = () => (
   <Ul>
@@ -28,115 +42,54 @@ const PartTimeFinalProject = () => (
   </Ul>
 )
 
+const sessionsFirstHalf = [
+  { title: 'Modern JavaScript', Comp: ES6Session },
+  { title: 'Thinking in React', Comp: ThinkingInReactSession },
+  { title: 'Routing & Data Fetching', Comp: RoutingAndDataFetchingSession },
+  { title: 'Forms & Auth', Comp: FormsAndAuthSession },
+  {
+    title: 'Recap: build a React app from scratch',
+    Comp: ReactFundamentalsRecapSession,
+  },
+]
+const sessionsSecondHalf = [
+  { title: 'Styling in React', Comp: StylingInReactSession },
+  { title: 'Redux', Comp: IntroReduxSession },
+  { title: 'Testing Fundamentals in JS', Comp: TestingIntroSession },
+  { title: 'React Hooks', Comp: HooksSession },
+  {
+    title: 'React Redux Real-world Final Project',
+    Comp: PartTimeFinalProject,
+  },
+]
+
 const CurriculumPartTime = ({
-  showTitle = true,
-  isOpen,
-  enableToggle,
   toggleNavigateTo = `/react/curriculum?tab=${PART_TIME}`,
-  marketingCard = null,
-  layout,
-  showLinkToCurriculum = true,
-  trainings,
+  training,
+  section = {},
+  ...rest
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = PART_TIME
-  const commonProps = {
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
-    isOpen,
+  const initialIndex = 1
+  const renderSectionWithProps = renderPartTimeSection({
+    ...section,
+    toggleNavigateTo,
     type,
-  }
-  const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Session 1 - Modern JavaScript"
-        name="session1"
-      >
-        <ES6Session title="" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 2 - Thinking in React"
-        name="session2"
-      >
-        <ThinkingInReactSession title="" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 3 - Routing & Data Fetching"
-        name="session3"
-      >
-        <RoutingAndDataFetchingSession title="" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 4 - Forms & Auth"
-        name="session4"
-      >
-        <FormsAndAuthSession title="" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 5 - Recap: build a React app from scratch"
-        name="session5"
-      >
-        <ReactFundamentalsRecapSession />
-      </Section>
-      {marketingCard ? React.cloneElement(marketingCard, { type }) : null}
-    </React.Fragment>
-  )
-
-  const secondHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Session 6 - Styling in React"
-        name="session6"
-      >
-        <StylingInReactSession title="" />
-      </Section>
-      <Section {...commonProps} title="Session 7 - Redux" name="session7">
-        <IntroReduxSession title="" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 8 - Testing Fundamentals in JS"
-        name="session8"
-      >
-        <TestingIntroSession title="" />
-      </Section>
-      <Section {...commonProps} title="Session 9 - React Hooks" name="session9">
-        <HooksSession title="" />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Session 10 - React Redux Real-world Final Project"
-        name="session10"
-      >
-        <PartTimeFinalProject />
-      </Section>
-    </React.Fragment>
-  )
-
-  const title = showTitle ? (
-    <H2Ref>
-      Part-time course curriculum{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({
-    firstHalf,
-    secondHalf,
-    layout,
-    type,
-    title,
-    trainings,
-    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
   })
+
+  return (
+    <Curriculum
+      title="Part-time course curriculum"
+      training={training}
+      type={type}
+      curriculumTo={toggleNavigateTo}
+      {...rest}
+      firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}
+      secondHalf={sessionsSecondHalf.map(
+        renderSectionWithProps(sessionsSecondHalf.length + initialIndex)
+      )}
+    />
+  )
 }
 
 export const LearningObjectivesList = () => (

@@ -55,8 +55,8 @@ const Segment = props => {
 
 const segmentVariantProps = {
   primary: {
-    pt: [2, 5],
-    pb: [2, 5],
+    pt: [2, 6],
+    pb: [2, 6],
     backgroundColor: DARK_BLUE,
     border: [null, `1px solid ${BROWN}`],
     borderColor: BROWN,

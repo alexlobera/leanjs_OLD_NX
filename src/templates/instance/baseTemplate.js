@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2Ref, H3, P, H4 } from 'src/components/text'
+import { H2, H3, P, Blockquote } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
 import { Segment, Video } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
@@ -16,10 +16,12 @@ import {
   AlternativeTrainingSection,
   AttendeeQuote,
 } from 'src/components/training'
-import header from 'src/components/layout/Header.json'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
-import { LIST_TWO_COL } from 'src/components/curriculum/selectCurriculumLayout'
+import Box from 'src/components/layout/Box'
+import ContactForm from 'src/components/form/Contact'
+import FinanceCard from 'src/components/payment/FinanceCard'
+import BlogSection from 'src/components/blog/BlogSection'
 
 const InstancePage = ({
   path,
@@ -28,8 +30,11 @@ const InstancePage = ({
   curriculum: Curriculum,
   targetAudienceList: TargetAudienceList,
   crossSellTypes,
+  curriculumProps = {},
   pageContext: {
+    posts,
     subtitle,
+    financeAvailable,
     coaches,
     trainingId,
     tech,
@@ -41,6 +46,18 @@ const InstancePage = ({
     city,
     canonical,
     nth = 1,
+    videoOneTime,
+    videoOneId,
+    videoOneQuote,
+    videoOneFullname,
+    videoOneJob,
+    videoOneCompany,
+    videoTwoTime,
+    videoTwoId,
+    videoTwoQuote,
+    videoTwoFullname,
+    videoTwoJob,
+    videoTwoCompany,
   },
 }) => (
   <Layout>
@@ -113,45 +130,68 @@ const InstancePage = ({
           <Header
             titleLines={[instanceTitle]}
             subtitle={subtitle}
-            links={header.landingTraining.links}
+            links={[
+              {
+                text: 'Course details',
+                to: '#curriculum',
+              },
+              {
+                text: 'Is it right for me?',
+                to: '#target-audience',
+              },
+              {
+                text: 'Pricing',
+                to: '#pricing',
+              },
+            ]}
             type={type}
             training={training}
             showInfoBox={true}
+            bgColor="transparent"
+            removeBgImage
           />
-          <TopSection variant="darkMob">
-            <Segment variant="primary">
-              <Row>
-                <Col md={6} lg={5} lgOffset={1}>
-                  <PaymentSection
-                    training={training}
-                    trainingError={trainingError}
-                    trainingLoading={trainingLoading}
-                  />
-                </Col>
-                <Col md={6} lg={4} lgOffset={1}>
-                  <H4>Rafa's student experience</H4>
-                  <Video youtubeId="hZZksRcqtkc" />
-                  <TrainingDetails coaches={coaches} />
-                </Col>
-              </Row>
+          <TopSection>
+            <Segment>
+              <Curriculum
+                {...curriculumProps}
+                content={
+                  <React.Fragment>
+                    <H3>Attendee testimonial</H3>
+                    <Video time={videoOneTime} youtubeId={videoOneId} />
+                    <Box px={1}>
+                      {videoOneQuote && (
+                        <Blockquote>{videoOneQuote}</Blockquote>
+                      )}
+                      {videoOneFullname && (
+                        <P pt={2}>
+                          {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
+                          {videoOneCompany || 'Freelance'}{' '}
+                        </P>
+                      )}
+                    </Box>
+                    <TrainingDetails coaches={coaches} />
+                  </React.Fragment>
+                }
+              />
             </Segment>
           </TopSection>
           <Section>
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
-                  fullname="Lara Ramey"
-                  job="Software Developer"
-                  company="Meredith Corporation"
-                  youtubeId="blg40SCle7I"
+                  quote={videoTwoQuote}
+                  fullname={videoTwoFullname}
+                  job={videoTwoJob}
+                  company={videoTwoCompany}
+                  youtubeId={videoTwoId}
+                  youtubeTime={videoTwoTime}
                 />
               </Col>
               <Col md={4} lgOffset={1}>
-                <H2Ref>
-                  Is this {typeOfTraining} right for me? Are you...{' '}
+                <H2>
                   <a to="#target-audience" name="target-audience" />
-                </H2Ref>
+                  Is this {typeOfTraining} right for me? Are you...{' '}
+                </H2>
                 <Ul>
                   <TargetAudienceList />
                 </Ul>
@@ -169,16 +209,27 @@ const InstancePage = ({
               </Col>
             </Row>
           </Section>
-          <Section>
-            <Segment>
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <Curriculum layout={LIST_TWO_COL} />
+          <Section variant="dark">
+            <Row>
+              <Col md={5} mdOffset={1}>
+                <PaymentSection
+                  training={training}
+                  trainingError={trainingError}
+                  trainingLoading={trainingLoading}
+                />
+              </Col>
+              <Col md={4} mdOffset={1} pt={3}>
+                <ContactForm variant="default" simplified />
+              </Col>
+              {financeAvailable && (
+                <Col md={10} mdOffset={1}>
+                  <FinanceCard />
                 </Col>
-              </Row>
-            </Segment>
+              )}
+            </Row>
           </Section>
           <AlternativeTrainingSection trainings={crossSellTrainings} />
+          <BlogSection posts={posts} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )

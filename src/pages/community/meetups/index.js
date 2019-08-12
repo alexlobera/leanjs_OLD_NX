@@ -92,7 +92,7 @@ const Meetups = ({ data, path }) => (
                 </H2>
                 <UpcomingTrainings
                   curriculum
-                  removeAdditionalCTAs
+                  content={null}
                   trainings={upcomingMeetups}
                   className="upcoming-meetups"
                 />

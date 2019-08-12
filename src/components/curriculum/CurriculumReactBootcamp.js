@@ -1,7 +1,4 @@
 import React from 'react'
-import Link from '../navigation/Link'
-import { H2Ref } from '../text'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
 import ES6Session from './sessions/ES6Session'
 import ReactJS101Session from './sessions/ReactJS101Session'
 import ThinkingInReactSession from './sessions/ThinkingInReactSession'
@@ -22,133 +19,79 @@ import DesignSystemSession from './sessions/DesignSystemSession'
 import { Li } from '../layout/Ul'
 
 import { REACT_BOOTCAMP } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
-import { trainingTime } from '../utils'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
+import Curriculum, { renderSection } from './Curriculum'
+
+export const sessionsFirstHalf = [
+  {
+    title: 'Evening pre-bootcamp',
+    subTitle: 'React JS 101',
+    comps: [ReactJS101Session],
+  },
+  {
+    subTitle: 'Modern JavaScript, Thinking in React, Routing & Data Fetching',
+    comps: [ES6Session, ThinkingInReactSession, RoutingAndDataFetchingSession],
+  },
+  {
+    subTitle: 'Forms, Authentication, and Hooks',
+    comps: [FormsAndAuthSession, ReactFundamentalsRecapSession, HooksSession],
+  },
+  {
+    subTitle: 'Redux Fundamentals, Advanced Redux, and FP',
+    comps: [IntroReduxSession, AdvancedReduxSession],
+  },
+]
+export const sessionsSecondHalf = [
+  {
+    subTitle: 'Advanced React patterns, Hooks, and performance',
+    comps: [HoCsRenderPropsStateReducerSession, ReactPerformanceSession],
+  },
+  {
+    subTitle: 'Advanced UI Patterns & Styling in React',
+    comps: [AdvancedUIPatterns, StylingInReactSession, DesignSystemSession],
+  },
+  {
+    subTitle: 'Real-World Testing in React',
+    comps: [TestingIntroSession, TestingInReactSession, E2ESession],
+  },
+]
 
 const CurriculumReactBootcamp = ({
-  showTitle = true,
-  layout,
-  enableToggle,
-  isOpen,
   toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
-  marketingCard = null,
-  showLinkToCurriculum = true,
-  trainings,
   training,
+  section = {},
+  ...rest
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
-  const commonProps = {
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
+  const sectionProps = {
+    ...section,
+    toggleNavigateTo,
     type,
-    isOpen,
   }
 
-  const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title={`Evening pre-bootcamp`}
-        name="day0"
-        subTitle={`React JS 101`}
-        trainingTime={trainingTime({ day: 0, training })}
-      >
-        <ReactJS101Session />
-      </Section>
-      <Section
-        {...commonProps}
-        title={`Day 1`}
-        name="day1"
-        subTitle={`Modern JavaScript, Thinking in React, Routing & Data Fetching`}
-        trainingTime={trainingTime({ day: 1, training })}
-      >
-        <ES6Session />
-        <ThinkingInReactSession />
-        <RoutingAndDataFetchingSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title={`Day 2`}
-        name="day2"
-        subTitle={`Forms, Authentication, and Hooks`}
-        trainingTime={trainingTime({ day: 2, training })}
-      >
-        <FormsAndAuthSession />
-        <ReactFundamentalsRecapSession
-          title="React Fundamentals recap, build a React app from scratch on your own to
-          consolidate:"
-        />
-        <HooksSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title={`Day 3`}
-        name="day3"
-        subTitle={`Redux Fundamentals, Advanced Redux, and FP`}
-        trainingTime={trainingTime({ day: 3, training })}
-      >
-        <IntroReduxSession />
-        <AdvancedReduxSession title="Advanced Redux" />
-      </Section>
-      {marketingCard ? React.cloneElement(marketingCard, { type }) : null}
-    </React.Fragment>
+  return (
+    <Curriculum
+      title="React Bootcamp Curriculum"
+      training={training}
+      type={type}
+      curriculumTo={toggleNavigateTo}
+      {...rest}
+      firstHalf={sessionsFirstHalf.map(
+        renderSection({
+          initialIndex: 0,
+          training,
+          sectionProps,
+        })
+      )}
+      secondHalf={sessionsSecondHalf.map(
+        renderSection({
+          initialIndex: sessionsFirstHalf.length,
+          training,
+          sectionProps,
+        })
+      )}
+    />
   )
-  const secondHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title={`Day 4`}
-        name="day4"
-        subTitle={`Advanced React patterns, Hooks, and performance`}
-        trainingTime={trainingTime({ day: 6, training })}
-      >
-        <HoCsRenderPropsStateReducerSession title="Functional Programming & Advanced React patterns" />
-        <ReactPerformanceSession title="Performance" />
-      </Section>
-      <Section
-        {...commonProps}
-        title={`Day 5`}
-        name="day5"
-        subTitle={`Advanced UI Patterns & Styling in React`}
-        trainingTime={trainingTime({ day: 7, training })}
-      >
-        <AdvancedUIPatterns title="Advanced UI Patterns" />
-        <StylingInReactSession />
-        <DesignSystemSession title="Design Systems" />
-      </Section>
-      <Section
-        {...commonProps}
-        title={`Day 6`}
-        name="day6"
-        subTitle={`Real-World Testing in React`}
-        trainingTime={trainingTime({ day: 8, training })}
-      >
-        <TestingIntroSession />
-        <TestingInReactSession />
-        <E2ESession title="End-to-End Testing" />
-      </Section>
-    </React.Fragment>
-  )
-  const title = showTitle ? (
-    <H2Ref>
-      React Bootcamp Curriculum{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({
-    firstHalf,
-    secondHalf,
-    layout,
-    type,
-    title,
-    trainings,
-    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-  })
 }
 
 export const TargetAudienceList = () => (
@@ -165,16 +108,12 @@ export const TargetAudienceList = () => (
       focusing on one thing during one week.
     </Li>
     <Li>
-      Ideal for experienced programmers familiar with good practices. Not for
-      beginner devs!
+      Ideal for experienced programmers familiar with good practices, code
+      reviews and pair programming. Not for beginner devs!
     </Li>
     <Li>
       You learn by doing. This is a hands-on project-based training - most of
       the time you'll be coding.
-    </Li>
-    <Li>
-      You think code reviews and pair programming are useful and you are
-      interested in getting feedback on your coding.
     </Li>
   </React.Fragment>
 )

@@ -18,6 +18,9 @@ const Page = props => (
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
+    curriculumProps={{
+      section: { isOpen: true },
+    }}
   />
 )
 

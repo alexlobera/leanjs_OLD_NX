@@ -1,8 +1,9 @@
 ---
+contentType: blog
 title: Introduction to Redux
 date: 2018-10-04
 subtitle: From Redux for dummies to building Redux from scratch
-author: alex
+author: alex-lobera
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fredux%2Fone-way-min.jpeg?alt=media
 order: 6
 tags: ['redux', 'beginner']

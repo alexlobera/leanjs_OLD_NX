@@ -38,7 +38,7 @@ export const getVariantProps = (variants, variantProps) =>
         }),
         {}
       )
-    : variantProps[variants] || {}
+    : variantProps[variants || 'default'] || {}
 
 export const selectTypeColor = type => {
   switch (type) {

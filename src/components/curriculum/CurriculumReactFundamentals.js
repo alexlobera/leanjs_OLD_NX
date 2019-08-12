@@ -1,111 +1,53 @@
 import React from 'react'
-import Link from '../navigation/Link'
 import { Li } from '../layout/Ul'
-import { H2Ref } from '../text'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
-import ES6Session from './sessions/ES6Session'
-import ReactJS101Session from './sessions/ReactJS101Session'
-import ThinkingInReactSession from './sessions/ThinkingInReactSession'
-import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
-import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
-import FormsAndAuthSession from './sessions/FormsAndAuthSession'
-import HooksSession from './sessions/HooksSession'
-import IntroReduxSession from './sessions/IntroReduxSession'
-import AdvancedReduxSession from './sessions/AdvancedReduxSession'
-import { trainingTime } from '../utils'
 
 import { REACT_FUNDAMENTALS } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
+import Curriculum, { renderSection } from './Curriculum'
+import { sessionsFirstHalf as sessionsFirstHalfBootcamp } from './CurriculumReactBootcamp'
+
+const halfWayThough = Math.floor(sessionsFirstHalfBootcamp.length / 2)
+const sessionsFirstHalf = sessionsFirstHalfBootcamp.slice(0, halfWayThough)
+const sessionsSecondHalf = sessionsFirstHalfBootcamp.slice(
+  halfWayThough,
+  sessionsFirstHalfBootcamp.length
+)
 
 const CurriculumReactFundamentals = ({
-  showTitle = true,
-  layout,
-  enableToggle,
-  isOpen,
   toggleNavigateTo = `/react/curriculum?tab=${REACT_FUNDAMENTALS}`,
-  showLinkToCurriculum = true,
-  trainings,
   training,
+  section = {},
+  ...rest
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_FUNDAMENTALS
-  const commonProps = {
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
+  const sectionProps = {
+    ...section,
+    toggleNavigateTo,
     type,
-    isOpen,
   }
-  const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Evening pre-course"
-        name="day0"
-        subTitle="React JS 101"
-        trainingTime={trainingTime({ day: 0, training })}
-      >
-        <ReactJS101Session />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Day 1"
-        name="day1"
-        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
-        trainingTime={trainingTime({ day: 1, training })}
-      >
-        <ES6Session />
-        <ThinkingInReactSession />
-        <RoutingAndDataFetchingSession />
-      </Section>
-    </React.Fragment>
-  )
-  const secondHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Day 2"
-        name="day2"
-        subTitle="Forms, Authentication, and Hooks"
-        trainingTime={trainingTime({ day: 2, training })}
-      >
-        <FormsAndAuthSession />
-        <ReactFundamentalsRecapSession
-          title="React Fundamentals recap, build a React app from scratch on your own to
-          consolidate:"
-        />
-        <HooksSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Day 3"
-        name="day3"
-        subTitle="Redux Fundamentals, Advanced Redux, and FP"
-        trainingTime={trainingTime({ day: 3, training })}
-      >
-        <IntroReduxSession />
-        <AdvancedReduxSession title="Advanced Redux" />
-      </Section>
-    </React.Fragment>
-  )
 
-  const title = showTitle ? (
-    <H2Ref>
-      React Fundamentals Curriculum{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({
-    firstHalf,
-    secondHalf,
-    layout,
-    type,
-    title,
-    trainings,
-    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-  })
+  return (
+    <Curriculum
+      title="React Fundamentals Curriculum"
+      training={training}
+      type={type}
+      curriculumTo={toggleNavigateTo}
+      {...rest}
+      firstHalf={sessionsFirstHalf.map(
+        renderSection({
+          initialIndex: 0,
+          training,
+          sectionProps,
+        })
+      )}
+      secondHalf={sessionsSecondHalf.map(
+        renderSection({
+          initialIndex: sessionsFirstHalf.length,
+          training,
+          sectionProps,
+        })
+      )}
+    />
+  )
 }
 
 export const TargetAudienceList = () => (

@@ -1,8 +1,9 @@
 ---
+contentType: blog
 title: React is all about <br />composition
 date: 2019-01-25
 subtitle: Understanding React Hooks, Render Props, HoCs, and the React composition model
-author: alex
+author: alex-lobera
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fcomposition%2Fkid-lego-2-min.jpeg?alt=media
 authorTwitter: alex_lobera
 order: 15

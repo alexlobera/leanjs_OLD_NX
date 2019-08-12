@@ -12,7 +12,7 @@ import StylingInReactSession, {
 import DesignSystemSession, {
   titleSession as titleSession3,
 } from '../sessions/DesignSystemSession'
-import Curriculum from './Curriculum'
+import Curriculum from '../Curriculum'
 
 const CurriculumStylingAndAdvUI = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
