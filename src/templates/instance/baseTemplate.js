@@ -46,10 +46,18 @@ const InstancePage = ({
     city,
     canonical,
     nth = 1,
-    headerYoutubeTime,
-    headerYoutubeId = '6hmKu1-vW-8',
-    headerQuote,
-    quoteFrom,
+    videoOneTime,
+    videoOneId = '6hmKu1-vW-8',
+    videoOneQuote,
+    videoOneFullname,
+    videoOneJob,
+    videoOneCompany,
+    videoTwoTime,
+    videoTwoId = 'blg40SCle7I',
+    videoTwoQuote = "We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns...",
+    videoTwoFullname = 'Lara Ramey',
+    videoTwoJob = 'Software Developer',
+    videoTwoCompany = 'Meredith Corporation',
   },
 }) => (
   <Layout>
@@ -149,15 +157,15 @@ const InstancePage = ({
                 content={
                   <React.Fragment>
                     <H3>Attendee testimonial</H3>
-                    <Video
-                      time={headerYoutubeTime}
-                      youtubeId={headerYoutubeId}
-                    />
+                    <Video time={videoOneTime} youtubeId={videoOneId} />
                     <Box px={1}>
-                      {headerQuote && <Blockquote>{headerQuote}</Blockquote>}
-                      {quoteFrom && (
+                      {videoOneQuote && (
+                        <Blockquote>{videoOneQuote}</Blockquote>
+                      )}
+                      {videoOneFullname && (
                         <P pt={2}>
-                          <strong>{quoteFrom}</strong>
+                          {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
+                          {videoOneCompany || 'Freelance'}{' '}
                         </P>
                       )}
                     </Box>
@@ -171,11 +179,11 @@ const InstancePage = ({
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns..."
-                  fullname="Lara Ramey"
-                  job="Software Developer"
-                  company="Meredith Corporation"
-                  youtubeId="blg40SCle7I"
+                  quote={videoTwoQuote}
+                  fullname={videoTwoFullname}
+                  job={videoTwoJob}
+                  company={videoTwoCompany}
+                  youtubeId={videoTwoId}
                 />
               </Col>
               <Col md={4} lgOffset={1}>

@@ -90,6 +90,16 @@ exports.createPages = async ({ graphql, actions }) => {
                 subtitle
                 author
                 tags
+                videoOneId
+                videoOneQuote
+                videoOneFullname
+                videoOneJob
+                videoOneCompany
+                videoTwoId
+                videoTwoQuote
+                videoTwoFullname
+                videoTwoJob
+                videoTwoCompany
               }
             }
           }
@@ -118,6 +128,19 @@ exports.createPages = async ({ graphql, actions }) => {
             c => city.toLowerCase() === c.toLowerCase()
           )
           const posts = await getPosts({ tagsIn, tagsNin })
+          const {
+            videoOneId,
+            videoOneQuote,
+            videoOneFullname,
+            videoOneJob,
+            videoOneCompany,
+            videoTwoId,
+            videoTwoQuote,
+            videoTwoFullname,
+            videoTwoJob,
+            videoTwoCompany,
+          } = node.frontmatter
+
           await Promise.all(
             instancesToCreate.map(async nth => {
               const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
@@ -127,6 +150,16 @@ exports.createPages = async ({ graphql, actions }) => {
                   `./src/templates/instance/${instanceTemplate}.js`
                 ),
                 context: {
+                  videoOneId,
+                  videoOneQuote,
+                  videoOneFullname,
+                  videoOneJob,
+                  videoOneCompany,
+                  videoTwoId,
+                  videoTwoQuote,
+                  videoTwoFullname,
+                  videoTwoJob,
+                  videoTwoCompany,
                   posts,
                   city: titleCaseCity,
                   financeAvailable,
