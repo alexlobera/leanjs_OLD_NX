@@ -9,9 +9,6 @@ import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
 
-// const isNotATrainingInstance = ({ node }) =>
-//   !node.fields.slug.match(/(react|graphql)\/training/)
-
 const Blog = ({ data, path }) => {
   const posts = data.allMarkdownRemark.edges
   return (
