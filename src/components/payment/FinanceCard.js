@@ -14,12 +14,18 @@ const FinanceCard = props => (
     </P>
     <P>
       Just{' '}
-      <Link to="https://www.coursebud.com/search">
+      <Link
+        className="financial-support-link-apply"
+        to="https://www.coursebud.com/search"
+      >
         click the link, and apply
       </Link>{' '}
       directly on the Coursebud site... that's it!
     </P>
-    <Link to="https://www.coursebud.com/search">
+    <Link
+      className="financial-support-logo"
+      to="https://www.coursebud.com/search"
+    >
       <CourseBud height={50} />
     </Link>
   </Segment>
