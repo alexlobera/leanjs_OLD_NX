@@ -108,7 +108,7 @@ const AboutUs = ({ data }) => {
                       <Box mr={5} mb={5} pb={5}>
                         <Row>
                           <Col md={4}>
-                            <Link to={slug}>
+                            <Link to={slug} className="coach-full-profile">
                               <Image
                                 circle
                                 src={imageSrc}
@@ -136,7 +136,9 @@ const AboutUs = ({ data }) => {
                           <P fontStyle="italic">
                             {blockquote}
                             <br />
-                            <Link to={slug}>Full profile</Link>
+                            <Link className="coach-full-profile" to={slug}>
+                              Full profile
+                            </Link>
                           </P>
                         </CoachQuote>
                       </Box>

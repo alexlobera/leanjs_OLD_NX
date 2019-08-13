@@ -108,6 +108,7 @@ const ContactForm = ({
                     variant={variant || 'primary'}
                     type="submit"
                     disabled={!valid}
+                    className="newsletter-submit-button"
                   >
                     Submit email
                   </Button>
