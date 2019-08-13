@@ -423,7 +423,11 @@ const Header = ({
                       )}
                     </Ul>
                     <Box textAlign="center" mb="-38px">
-                      <LinkButton variant="primary" to="#pricing">
+                      <LinkButton
+                        className="header-buy-tickets"
+                        variant="primary"
+                        to="#pricing"
+                      >
                         Buy tickets
                       </LinkButton>
                     </Box>
