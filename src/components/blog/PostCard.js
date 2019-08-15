@@ -12,7 +12,10 @@ const PostCard = ({ post, imageProps = {} }) => (
     <Link to={`${post.fields.slug}`} className="articles-summary">
       <Image
         {...imageProps}
-        src={post.frontmatter.imageUrl}
+        src={
+          post.frontmatter.imageUrl ||
+          post.frontmatter.imageSrc.childImageSharp.fluid.src
+        }
         alt={formatPostTitle(post.frontmatter.title)}
         mb={0}
       />

@@ -54,6 +54,13 @@ export const query = graphql`
           frontmatter {
             title
             imageUrl
+            imageSrc {
+              childImageSharp {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }
