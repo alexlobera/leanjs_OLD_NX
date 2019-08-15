@@ -28,7 +28,7 @@ React Bootcamp helped her do that. It gave her the knowledge and practical skill
 
 However, now Lara has learned how to harness that natural creativity and combine it with React skills to produce more effective work. She says that the [React Bootcamp](https://reactgraphql.academy/react/training/bootcamp/) focused her, and that she can get to solutions faster than before. She’s less stressed and more confident as a result, which helps the company succeed.
 
-![image alt text](image_1.jpg)
+![something](./images/intern_to_dev_lead_image_1.jpg)
 
 ## The practical impact of React Bootcamp
 
@@ -48,7 +48,7 @@ The effect on Lara’s career prospects was instantly positive. On bringing back
 
 When Lara returned to work after the [Bootcamp](https://reactgraphql.academy/react/training/bootcamp/), she gave a TED-style talk to the rest of the team. Her confidence shined through, and she was offered a promotion the following week. "I’m real happy with how things turned out," said Lara.
 
-![image alt text](image_2.jpg)
+![image alt text](./images/intern_to_dev_lead_image_2.jpg)
 
 ## Learn React now with React GraphQL Academy
 
