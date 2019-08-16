@@ -53,14 +53,6 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `blogImages`,
-    //     path: `${__dirname}/src/pages/blog/images`,
-    //     ignore: [`**/\.*`], // ignore files starting with a dot
-    //   },
-    // },
     `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',

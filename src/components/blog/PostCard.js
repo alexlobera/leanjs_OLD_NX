@@ -14,7 +14,8 @@ const PostCard = ({ post, imageProps = {} }) => (
         {...imageProps}
         src={
           post.frontmatter.imageUrl ||
-          post.frontmatter.imageSrc.childImageSharp.fluid.src
+          (post.frontmatter.imageSrc &&
+            post.frontmatter.imageSrc.childImageSharp.fluid.src)
         }
         alt={formatPostTitle(post.frontmatter.title)}
         mb={0}
