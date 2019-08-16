@@ -10,7 +10,20 @@ module.exports = {
     'gatsby-plugin-root-import',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-remark',
+    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 650,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
@@ -40,14 +53,15 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    {
-      resolve: `gatsby-remark-images`,
-      options: {
-        maxWidth: 650,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `blogImages`,
+    //     path: `${__dirname}/src/pages/blog/images`,
+    //     ignore: [`**/\.*`], // ignore files starting with a dot
+    //   },
+    // },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {

@@ -28,7 +28,7 @@ React Bootcamp helped her do that. It gave her the knowledge and practical skill
 
 However, now Lara has learned how to harness that natural creativity and combine it with React skills to produce more effective work. She says that the [React Bootcamp](https://reactgraphql.academy/react/training/bootcamp/) focused her, and that she can get to solutions faster than before. She’s less stressed and more confident as a result, which helps the company succeed.
 
-![something](./images/intern_to_dev_lead_image_1.jpg)
+![image alt text](./images/intern_to_dev_lead_image_1.jpg)
 
 ## The practical impact of React Bootcamp
 
