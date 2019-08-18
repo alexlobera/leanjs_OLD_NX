@@ -48,7 +48,7 @@ The effect on Lara’s career prospects was instantly positive. On bringing back
 
 When Lara returned to work after the [Bootcamp](https://reactgraphql.academy/react/training/bootcamp/), she gave a TED-style talk to the rest of the team. Her confidence shined through, and she was offered a promotion the following week. "I’m real happy with how things turned out," said Lara.
 
-![image alt text](./images/intern_to_dev_lead_image_2.jpg)
+<!-- ![image alt text](./images/intern_to_dev_lead_image_2.jpg) -->
 
 ## Learn React now with React GraphQL Academy
 
