@@ -5,6 +5,7 @@ import withWidth, { MEDIUM } from '../utils/WithWidth'
 import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import RGALogo from '../logos/RGALogo'
+import JoobleLogoLink from '../logos/JoobleLogo'
 import Ul, { Li } from './Ul'
 import Link from '../navigation/Link'
 import { DARK_BLUE, WHITE } from '../../config/styles'
@@ -150,9 +151,15 @@ const Footer = ({ width }) => (
                   </Link>{' '}
                   product
                 </P>
-              </Col>
-              <Col>
                 <RGALogo className="footer-rga-logo" />
+                <P pt={4}>
+                  Looking for a Job?
+                  <br />
+                  Search for Developer Careers on Jooble
+                </P>
+                <P>
+                  <JoobleLogoLink />
+                </P>
               </Col>
             </Row>
           </Col>
