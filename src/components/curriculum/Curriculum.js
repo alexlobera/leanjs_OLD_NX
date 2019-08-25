@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
 import { H2Ref } from '../text'
-import { trainingTime } from '../utils'
+import { trainingDateTime } from '../utils'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import Section from './CurriculumSection'
 
@@ -33,19 +33,21 @@ const Curriculum = ({
 }
 
 export const renderSection = ({
-  initialIndex,
+  initialIndex = 1,
   sectionProps,
   training,
   titlePrefix = 'Day ',
+  preEvening,
 }) => ({ title, subTitle, comps }, index) => {
   const day = index + initialIndex
-  const sectionTitle = title || `${titlePrefix} ${day}`
+  const curriculumDay = preEvening ? day - 1 : day
+  const sectionTitle = title || `${titlePrefix} ${curriculumDay}`
   return (
     <Section
       title={sectionTitle}
       subTitle={subTitle}
-      name={`day${day}`}
-      trainingTime={trainingTime({ day, training })}
+      name={`day${curriculumDay}`}
+      trainingDateTime={trainingDateTime({ day, training, preEvening })}
       {...sectionProps}
       key={title}
     >

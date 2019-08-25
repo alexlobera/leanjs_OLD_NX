@@ -11,7 +11,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Advanced React patterns, Hooks, and performance"
         title="Advanced React Day 1"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
-        trainingTime=" 09:00 - 18:00"
+        trainingDateTime=" 09:00 - 18:00"
         type="Advanced React"
       >
         <React.Fragment>
@@ -29,7 +29,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Advanced UI Patterns & Styling in React"
         title="Advanced React Day 2"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
-        trainingTime=" 09:00 - 18:00"
+        trainingDateTime=" 09:00 - 18:00"
         type="Advanced React"
       >
         <React.Fragment>
@@ -44,7 +44,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Real-World Testing in React"
         title="Advanced React Day 3"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
-        trainingTime=" 09:00 - 18:00"
+        trainingDateTime=" 09:00 - 18:00"
         type="Advanced React"
       >
         <React.Fragment>

@@ -32,6 +32,7 @@ query upcomingTrainingInstancesWithAutoDiscounts($city: String) {
         endDate
         city
         cityCountry
+        daysOfTheWeek
         address
         venueName
         mapUrl
