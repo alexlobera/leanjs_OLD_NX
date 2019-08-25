@@ -171,12 +171,10 @@ export const DisplayComponentsUsingCss = styled(Components)`
         : ''}
 `
 
-export const formatUTC = (
-  utcDate,
-  utcOffset = 60,
-  format = "D MMM 'YYYY",
-  offsetDays = 0
-) => {
+function getOffsetDate(utcDate, utcOffset = 60, offsetDays = 0) {
+  if (!utcDate) {
+    return null
+  }
   const targetTime = new Date(utcDate),
     minutesToMilliseconds = 60000,
     minutesToDays = 1440
@@ -187,6 +185,13 @@ export const formatUTC = (
     targetTime.getTime() + dayOffset + localOffsetInMs + utcOffsetInMs
   )
 
+  return offsetDate
+}
+
+function formatDate(date, format) {
+  if (!date) {
+    return ''
+  }
   const months = [
       'Jan',
       'Feb',
@@ -201,11 +206,11 @@ export const formatUTC = (
       'Nov',
       'Dec',
     ],
-    D = offsetDate.getDate() || '',
-    MMM = months[offsetDate.getMonth()] || '',
-    YYYY = offsetDate.getFullYear() || '',
-    HH = twoDigits(offsetDate.getHours()) || '',
-    mm = twoDigits(offsetDate.getMinutes()) || ''
+    D = date.getDate() || '',
+    MMM = months[date.getMonth()] || '',
+    YYYY = date.getFullYear() || '',
+    HH = twoDigits(date.getHours()) || '',
+    mm = twoDigits(date.getMinutes()) || ''
   switch (format) {
     case 'D MMM':
       return `${D} ${MMM}`
@@ -220,10 +225,46 @@ export const formatUTC = (
   }
 }
 
-export const trainingDateByDay = ({ training = {}, day = 0 }) =>
-  training.startDate
-    ? formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
-    : ''
+export const formatUTC = (
+  utcDate,
+  utcOffset = 60,
+  format = "D MMM 'YYYY",
+  offsetDays = 0
+) => formatDate(getOffsetDate(utcDate, utcOffset, offsetDays), format)
+
+const days = {
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+  Sunday: 0,
+}
+
+export const trainingDateByDay = ({ training = {}, day = 1 }) => {
+  let daysOfTheWeek
+  if (training.daysOfTheWeek && training.daysOfTheWeek.length) {
+    daysOfTheWeek = new Set(training.daysOfTheWeek.map(day => days[day]))
+  }
+  if (daysOfTheWeek) {
+    let validDaysCounter = 0
+    for (
+      let iterationDate = getOffsetDate(training.startDate, training.utcOffset);
+      iterationDate <= getOffsetDate(training.endDate, training.utcOffset);
+      iterationDate.setDate(iterationDate.getDate() + 1)
+    ) {
+      if (daysOfTheWeek.has(iterationDate.getDay())) {
+        validDaysCounter++
+        if (validDaysCounter === day) {
+          return formatDate(iterationDate, 'D MMM')
+        }
+      }
+    }
+  } else {
+    return formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
+  }
+}
 
 export const trainingTimings = ({ training = {} }) =>
   `${(training.startDate &&
@@ -236,9 +277,7 @@ function twoDigits(number) {
   return ('0' + number).slice(-2)
 }
 
-export const trainingTime = ({ day, training = {}, type }) =>
+export const trainingDateTime = ({ day, training = {}, preEvening = false }) =>
   `${trainingDateByDay({ training, day })} ${
-    day === 0 && type !== ADVANCED_REACT
-      ? '18:30 - 21:00'
-      : trainingTimings({ training })
+    day === 1 && preEvening ? '18:30 - 21:00' : trainingTimings({ training })
   }`

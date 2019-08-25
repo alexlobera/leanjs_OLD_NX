@@ -63,7 +63,7 @@ const CurriculumSection = props => {
     name,
     type,
     subTitle,
-    trainingTime = '',
+    trainingDateTime = '',
     children,
     enableToggle = false,
     toggleNavigateTo,
@@ -109,7 +109,8 @@ const CurriculumSection = props => {
       <Element name={name || title} />
       {title ? (
         <H4 mb={1}>
-          {title} {trainingTime && <small>{` (${trainingTime.trim()})`}</small>}
+          {title}{' '}
+          {trainingDateTime && <small>{` (${trainingDateTime.trim()})`}</small>}
         </H4>
       ) : (
         ''

@@ -68,6 +68,11 @@ const CurriculumReactBootcamp = ({
     toggleNavigateTo,
     type,
   }
+  const renderSectionArgs = {
+    training,
+    sectionProps,
+    preEvening: true,
+  }
 
   return (
     <Curriculum
@@ -76,18 +81,11 @@ const CurriculumReactBootcamp = ({
       type={type}
       curriculumTo={toggleNavigateTo}
       {...rest}
-      firstHalf={sessionsFirstHalf.map(
-        renderSection({
-          initialIndex: 0,
-          training,
-          sectionProps,
-        })
-      )}
+      firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}
       secondHalf={sessionsSecondHalf.map(
         renderSection({
-          initialIndex: sessionsFirstHalf.length,
-          training,
-          sectionProps,
+          ...renderSectionArgs,
+          initialIndex: sessionsFirstHalf.length + 1,
         })
       )}
     />

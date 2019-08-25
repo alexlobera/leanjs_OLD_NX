@@ -22,8 +22,11 @@ const CurriculumAdvancedReact = ({
     toggleNavigateTo,
     type,
   }
-  const initialIndex = 1
-  const titlePrefix = 'Advanced React Day'
+  const renderSectionArgs = {
+    training,
+    sectionProps,
+    titlePrefix: 'Advanced React Day',
+  }
   return (
     <Curriculum
       title="Advanced React Curriculum"
@@ -31,20 +34,11 @@ const CurriculumAdvancedReact = ({
       type={type}
       curriculumTo={toggleNavigateTo}
       {...rest}
-      firstHalf={sessionsFirstHalf.map(
-        renderSection({
-          initialIndex,
-          training,
-          sectionProps,
-          titlePrefix,
-        })
-      )}
+      firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}
       secondHalf={sessionsSecondHalf.map(
         renderSection({
-          initialIndex: sessionsFirstHalf.length + initialIndex,
-          training,
-          sectionProps,
-          titlePrefix,
+          ...renderSectionArgs,
+          initialIndex: sessionsFirstHalf.length + 1,
         })
       )}
     />

@@ -154,6 +154,7 @@ const InstancePage = ({
             <Segment>
               <Curriculum
                 {...curriculumProps}
+                training={training}
                 content={
                   <React.Fragment>
                     <H3>Attendee testimonial</H3>
