@@ -112,7 +112,7 @@ const TrustedBySection = ({ type, showContent = false }) => {
         <Col lg={10} lgOffset={1} mb={5}>
           <H2>
             Developers from all these companies have trusted us{' '}
-            <a href="#trusted-by" />
+            <a name="trusted-by" href="#trusted-by" />
           </H2>
           <TrustedByLogoList />
         </Col>
