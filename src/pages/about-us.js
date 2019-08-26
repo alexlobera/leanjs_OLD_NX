@@ -34,6 +34,7 @@ const AboutUs = ({ data }) => {
             titleLines={['About us']}
             subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your ReactJS<br /> journey"
             links={[
+              { text: 'Mission & values ', to: '#values' },
               { text: 'Coach profiles ', to: '#coaches' },
               {
                 text: 'How we improve   ',
@@ -47,7 +48,10 @@ const AboutUs = ({ data }) => {
             <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
-                  <H2>We are professional developers who love to teach</H2>
+                  <H2>
+                    <Link to="#values" name="values"></Link>
+                    We are professional developers who love to teach
+                  </H2>
                   <H3 pt={0}>Our Mission</H3>
                   <P>
                     To inspire and support professional developers to grow in
