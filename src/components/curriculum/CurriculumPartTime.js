@@ -12,16 +12,35 @@ import HooksSession from './sessions/HooksSession'
 import { PART_TIME } from '../../config/data'
 import Curriculum from './Curriculum'
 import Section from './CurriculumSection'
+import { trainingDateTime } from '../utils'
 
-export const renderPartTimeSection = (sectionProps = {}) => initialIndex => (
-  { title, Comp },
-  index
-) => {
+export const renderPartTimeSection = ({
+  sectionProps = {},
+  training,
+} = {}) => initialIndex => ({ title, Comp, group }, index) => {
   const sectionNum = index + initialIndex
+  let day = sectionNum
+
+  if (
+    training &&
+    training.daysOfTheWeek &&
+    training.daysOfTheWeek.length === 1
+  ) {
+    day = group
+  }
+
   return (
     <Section
       title={`Session ${sectionNum} - ${title}`}
       name={`session${sectionNum}`}
+      trainingDateTime={
+        training && (
+          <React.Fragment>
+            <br />
+            {trainingDateTime({ day, training })}
+          </React.Fragment>
+        )
+      }
       {...sectionProps}
     >
       <Comp />
@@ -43,23 +62,29 @@ const PartTimeFinalProject = () => (
 )
 
 const sessionsFirstHalf = [
-  { title: 'Modern JavaScript', Comp: ES6Session },
-  { title: 'Thinking in React', Comp: ThinkingInReactSession },
-  { title: 'Routing & Data Fetching', Comp: RoutingAndDataFetchingSession },
-  { title: 'Forms & Auth', Comp: FormsAndAuthSession },
+  { title: 'Modern JavaScript', Comp: ES6Session, group: 1 },
+  { title: 'Thinking in React', Comp: ThinkingInReactSession, group: 1 },
+  {
+    title: 'Routing & Data Fetching',
+    Comp: RoutingAndDataFetchingSession,
+    group: 2,
+  },
+  { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 2 },
   {
     title: 'Recap: build a React app from scratch',
     Comp: ReactFundamentalsRecapSession,
+    group: 2,
   },
 ]
 const sessionsSecondHalf = [
-  { title: 'Styling in React', Comp: StylingInReactSession },
-  { title: 'Redux', Comp: IntroReduxSession },
-  { title: 'Testing Fundamentals in JS', Comp: TestingIntroSession },
-  { title: 'React Hooks', Comp: HooksSession },
+  { title: 'Redux', Comp: IntroReduxSession, group: 3 },
+  { title: 'Testing Fundamentals in JS', Comp: TestingIntroSession, group: 3 },
+  { title: 'Styling in React', Comp: StylingInReactSession, group: 4 },
+  { title: 'React Hooks', Comp: HooksSession, group: 4 },
   {
     title: 'React Redux Real-world Final Project',
     Comp: PartTimeFinalProject,
+    group: 4,
   },
 ]
 
@@ -75,6 +100,7 @@ const CurriculumPartTime = ({
     ...section,
     toggleNavigateTo,
     type,
+    training,
   })
 
   return (

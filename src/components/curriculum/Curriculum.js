@@ -47,7 +47,7 @@ export const renderSection = ({
       title={sectionTitle}
       subTitle={subTitle}
       name={`day${curriculumDay}`}
-      trainingDateTime={trainingDateTime({ day, training, preEvening })}
+      trainingDateTime={`- ${trainingDateTime({ day, training, preEvening })}`}
       {...sectionProps}
       key={title}
     >

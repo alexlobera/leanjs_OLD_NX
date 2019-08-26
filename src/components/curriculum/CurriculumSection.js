@@ -109,8 +109,7 @@ const CurriculumSection = props => {
       <Element name={name || title} />
       {title ? (
         <H4 mb={1}>
-          {title}{' '}
-          {trainingDateTime && <small>{` (${trainingDateTime.trim()})`}</small>}
+          {title} {trainingDateTime && <small>{trainingDateTime}</small>}
         </H4>
       ) : (
         ''
