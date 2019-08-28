@@ -48,6 +48,12 @@ export const blogAuthors = {
       'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media',
     fullname: 'Paul Woodley',
   },
+
+  ['lena-tregub']: {
+    imgSrc:
+      'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2Flena.jpg?alt=media',
+    fullname: 'Lena Tregub',
+  },
 }
 
 export const CONVINCE_THE_BOSS_PDF =
