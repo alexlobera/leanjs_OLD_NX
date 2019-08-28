@@ -1,6 +1,6 @@
 ---
 name: Roy Derks
-title: Senior Frontend Developer at
+title: Senior Frontend Developer
 companyName: City of Amsterdam
 companyLink: https://data.amsterdam.nl
 gitHub: https://github.com/royderks
@@ -11,6 +11,7 @@ blockquote: When in doubt, start coding.
 imageDescription: React GraphQL Academy coach Roy Derks, speaking at a developer conference with microphone.
 imageSrc: roy-derks.jpg
 tags: []
+order: 2
 ---
 
 - Develops products with **React**,

@@ -1,11 +1,10 @@
 ---
 contentType: blog
 title: Intern to Dev Lead via learning React - Lara’s story
-date: 2019-01-25
+date: 2019-08-28
 subtitle: We recently caught up with Lara Ramey, a former student on the React Bootcamp, to find out how the course has changed her career and day-to-day. Here’s Lara’s story when she learned how to use React.
-author: alex-lobera
-imageSrc: ./images/intern_to_dev_lead_image_1.jpg
-authorTwitter: alex_lobera
+author: lena-tregub
+imageUrl: https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_lauras_story%2Fintern_to_dev_lead_image_1_opt-min.jpg?alt=media
 order: 100
 tags: ['training']
 ---
@@ -18,7 +17,7 @@ Lara quickly stepped up to the plate and put extra time and effort to make sure 
 
 Following the [React Bootcamp](https://reactgraphql.academy/react/training/bootcamp/), Lara’s confidence and career prospects have greatly improved. She now leads and trains two devs within the department, showing them how to use React skilfully - Lara has even trained her old mentor from when she started as an intern! "It’s cool to teach your teacher!" Lara said.
 
-[https://www.youtube.com/watch?v=OaBC11CpguM](https://www.youtube.com/watch?v=OaBC11CpguM)
+<video youtube-id="OaBC11CpguM"></video>
 
 ## Why React Bootcamp?
 
@@ -28,7 +27,7 @@ React Bootcamp helped her do that. It gave her the knowledge and practical skill
 
 However, now Lara has learned how to harness that natural creativity and combine it with React skills to produce more effective work. She says that the [React Bootcamp](https://reactgraphql.academy/react/training/bootcamp/) focused her, and that she can get to solutions faster than before. She’s less stressed and more confident as a result, which helps the company succeed.
 
-![Alex Lobera coding with students from the Lisbon React bootcamp](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_lauras_story%2Fimage_1.jpg?alt=media)
+![Alex Lobera coding with students from the Lisbon React bootcamp](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_lauras_story%2Fintern_to_dev_lead_image_1_opt-min.jpg?alt=media)
 
 ## The practical impact of React Bootcamp
 
@@ -48,7 +47,7 @@ The effect on Lara’s career prospects was instantly positive. On bringing back
 
 When Lara returned to work after the [Bootcamp](https://reactgraphql.academy/react/training/bootcamp/), she gave a TED-style talk to the rest of the team. Her confidence shined through, and she was offered a promotion the following week. "I’m real happy with how things turned out," said Lara.
 
-![Students from the Lisbon React bootcamp](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_lauras_story%2Fimage_2.jpg?alt=media)
+![Students from the Lisbon React bootcamp](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_lauras_story%2Fintern_to_dev_lead_image_2_opt-min.jpg?alt=media)
 
 ## Learn React now with React GraphQL Academy
 

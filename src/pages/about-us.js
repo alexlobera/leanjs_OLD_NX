@@ -1,8 +1,6 @@
 /* eslint no-undef: 0 */
 import React from 'react'
 import { graphql } from 'gatsby'
-import { typography } from 'styled-system'
-import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
@@ -10,29 +8,71 @@ import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, H3, P, H5 } from '../components/text'
+import Teamquote from '../components/text/Teamquote'
 import { UpcomingTrainingSection } from '../components/training'
 import Ul, { Li } from '../components/layout/Ul'
 import { RootHeader as Header } from '../components/layout/Header'
 import { Segment, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Box from '../components/layout/Box'
-import { GREY } from '../config/styles.js'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
 
-const CoachQuote = styled(Box)`
-  border-left: 7px solid ${GREY};
-  ${typography}
-`
+const renderProfile = ({
+  frontmatter: {
+    name,
+    imageSrc: {
+      childImageSharp: {
+        fluid: { src: imageSrc },
+      },
+    },
+    imageDescription,
+    title,
+    companyName,
+    companyLink,
+    blockquote,
+  },
+  fields: { slug },
+}) => (
+  <Col md={4}>
+    <Box mr={5} mb={5} pb={5}>
+      <Row>
+        <Col md={4}>
+          <Link to={slug} className="coach-full-profile">
+            <Image circle src={imageSrc} width="100%" alt={imageDescription} />
+          </Link>
+        </Col>
+        <Col md={8}>
+          <Box>
+            <H5 mb={1}>{name}</H5>
+            <P>
+              {title} at{' '}
+              <Link to={companyLink} className="coach-profiles">
+                {companyName}
+              </Link>
+            </P>
+          </Box>
+        </Col>
+      </Row>
+      <Teamquote blockquote={blockquote}>
+        <br />
+        <Link className="coach-full-profile" to={slug}>
+          Full profile
+        </Link>
+      </Teamquote>
+    </Box>
+  </Col>
+)
 
 const AboutUs = ({ data }) => {
-  const coaches = data.allMarkdownRemark.nodes
+  const coaches = data.coaches.nodes
+  const team = data.team.nodes
   return (
     <Layout>
       {({ trainings }) => (
         <React.Fragment>
           <Header
             titleLines={['About us']}
-            subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your ReactJS<br /> journey"
+            subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your React and GraphQL<br /> journey"
             links={[
               { text: 'Mission & values ', to: '#values' },
               { text: 'Coach profiles ', to: '#coaches' },
@@ -87,70 +127,12 @@ const AboutUs = ({ data }) => {
             </Segment>
           </TopSection>
           <Section mb={0} pb={0}>
-            <H2>Our coaches</H2>
+            <H2>Our coach team</H2>
             <Link to="#coaches" name="coaches"></Link>
-            <Row>
-              {coaches.map(
-                ({
-                  frontmatter: {
-                    name,
-                    imageSrc: {
-                      childImageSharp: {
-                        fluid: { src: imageSrc },
-                      },
-                    },
-                    imageDescription,
-                    title,
-                    companyName,
-                    companyLink,
-                    blockquote,
-                  },
-                  fields: { slug },
-                }) => (
-                  <React.Fragment>
-                    <Col md={4}>
-                      <Box mr={5} mb={5} pb={5}>
-                        <Row>
-                          <Col md={4}>
-                            <Link to={slug} className="coach-full-profile">
-                              <Image
-                                circle
-                                src={imageSrc}
-                                width="100%"
-                                alt={imageDescription}
-                              />
-                            </Link>
-                          </Col>
-                          <Col md={8}>
-                            <Box>
-                              <H5 mb={1}>{name}</H5>
-                              <P>
-                                {title} at{' '}
-                                <Link
-                                  to={companyLink}
-                                  className="coach-profiles"
-                                >
-                                  {companyName}
-                                </Link>
-                              </P>
-                            </Box>
-                          </Col>
-                        </Row>
-                        <CoachQuote mt={3} pl={3}>
-                          <P fontStyle="italic">
-                            {blockquote}
-                            <br />
-                            <Link className="coach-full-profile" to={slug}>
-                              Full profile
-                            </Link>
-                          </P>
-                        </CoachQuote>
-                      </Box>
-                    </Col>
-                  </React.Fragment>
-                )
-              )}
-            </Row>
+            <Row>{coaches.map(renderProfile)}</Row>
+            <H2>Our support team</H2>
+            <Link to="#coaches" name="coaches"></Link>
+            <Row>{team.map(renderProfile)}</Row>
           </Section>
           <Section>
             <Row>
@@ -313,28 +295,48 @@ const AboutUs = ({ data }) => {
   )
 }
 export const query = graphql`
-  query coaches($imgMaxWidth: Int!) {
-    allMarkdownRemark(filter: { fields: { slug: { regex: "/coaches/" } } }) {
+  query profiles($imgMaxWidth: Int!) {
+    coaches: allMarkdownRemark(
+      filter: {
+        fields: { slug: { regex: "/team/" } }
+        frontmatter: { isCoach: { ne: false } }
+      }
+      sort: { fields: frontmatter___order, order: ASC }
+    ) {
       nodes {
-        frontmatter {
-          imageSrc {
-            childImageSharp {
-              fluid(maxWidth: $imgMaxWidth) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+        ...profile
+      }
+    }
+    team: allMarkdownRemark(
+      filter: {
+        fields: { slug: { regex: "/team/" } }
+        frontmatter: { isCoach: { eq: false } }
+      }
+      sort: { fields: frontmatter___order, order: ASC }
+    ) {
+      nodes {
+        ...profile
+      }
+    }
+  }
+  fragment profile on MarkdownRemark {
+    frontmatter {
+      imageSrc {
+        childImageSharp {
+          fluid(maxWidth: $imgMaxWidth) {
+            ...GatsbyImageSharpFluid
           }
-          imageDescription
-          name
-          title
-          companyName
-          companyLink
-          blockquote
-        }
-        fields {
-          slug
         }
       }
+      imageDescription
+      name
+      title
+      companyName
+      companyLink
+      blockquote
+    }
+    fields {
+      slug
     }
   }
 `

@@ -11,6 +11,7 @@ blockquote: I'm not a developer, but code is what is used to bring design to lif
 imageDescription: React GraphQL Academy coach Francisco Gomes, smiling with sunglasses on
 imageSrc: paul-woodley.jpg
 tags: []
+order: 9
 ---
 
 - A designer with over 15 years experience in User Experience

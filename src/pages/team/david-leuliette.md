@@ -11,6 +11,7 @@ blockquote: When you work 8 hours a day with a tool, every second matters.
 imageDescription: React GraphQL Academy coach David Leuliette, jumping on the Brooklyn Bridge
 imageSrc: david-leuliette.jpg
 tags: []
+order: 6
 ---
 
 - Focused on building **memorable UX** and

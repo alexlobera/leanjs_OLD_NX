@@ -13,6 +13,7 @@ imageDescription: React GraphQL Academy coach Alex Lobera, looking happy with mo
 youtubeVideoId: QiR8iNq3tCQ
 videoDescription: Alex talking about advanced testing at Facebook London HQ
 tags: ['advanced']
+order: 1
 ---
 
 - Full-stack JavaScript Developer passionate about **teaching React since <a href="https:/www.meetup.com/JavaScript-London/events/230287691/" class="coach-profiles">May, 2016</a>**.

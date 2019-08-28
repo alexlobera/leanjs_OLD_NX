@@ -13,6 +13,7 @@ blockquote:
 imageDescription: React GraphQL Academy coach Richard Moss, looking pretty happy with a beach in the background
 imageSrc: richard-moss.jpg
 tags: ['beginner']
+order: 5
 ---
 
 - Focused on delivering cutting-edge
