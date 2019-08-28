@@ -1,7 +1,7 @@
 ---
 contentType: blog
 title: Are YOU the Perfect React GraphQL Student?
-date: 2019-01-25
+date: 2019-02-06
 subtitle: Our courses are catered to devs looking to upskill, but is it right for you?!
 author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2FIMG_0414.jpg?alt=media&
