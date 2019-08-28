@@ -104,7 +104,10 @@ const GridContent = styled(Grid)`
 
 const BlogPost = ({ data, pageContext: { relatedPosts } }) => {
   const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
-  const { title, date, subtitle, author, imageUrl } = frontmatter
+  const { title, date, subtitle, author, imageUrl, imageSrc } = frontmatter
+  const image = imageUrl ? imageUrl : imageSrc.childImageSharp.fluid.src
+  const publicUrl =
+    imageSrc && imageSrc.publicURL ? imageSrc.publicURL : imageUrl
   const authorTwitter = frontmatter.authorTwitter || 'reactgqlacademy'
   const { slug } = data.markdownRemark.fields
   const postTypePath = slug.replace(/^\/([^/]*).*$/, '$1')
@@ -125,7 +128,7 @@ const BlogPost = ({ data, pageContext: { relatedPosts } }) => {
             ]}
           >
             <meta property="og:title" content={title} />
-            <meta property="og:image" content={imageUrl} />
+            <meta property="og:image" content={publicUrl} />
             <meta property="og:description" content={subtitle} />
             <meta property="og:type" content="article" />
             <meta name="twitter:card" content="summary" />
@@ -133,7 +136,7 @@ const BlogPost = ({ data, pageContext: { relatedPosts } }) => {
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={subtitle} />
             <meta name="twitter:creator" content={`@${authorTwitter}`} />
-            <meta name="twitter:image" content={imageUrl} />
+            <meta name="twitter:image" content={publicUrl} />
           </Helmet>
           <Breadcrumb
             path={[
@@ -149,7 +152,7 @@ const BlogPost = ({ data, pageContext: { relatedPosts } }) => {
             titleLines={title.split('<br />')}
             fullHeight={false}
             paddingBottom={80}
-            bgImgUrl={imageUrl}
+            bgImgUrl={image}
             bgColor="transparent"
             bgImageOpacity={1}
           >
@@ -234,6 +237,14 @@ export const query = graphql`
         author
         imageUrl
         authorTwitter
+        imageSrc {
+          publicURL
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
       fields {
         slug
