@@ -108,7 +108,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `).then(async result => {
-      const coachPath = /^\/coaches/
+      const coachPath = /^\/team/
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
       const citiesFinanceAvailable = ['london']
@@ -203,7 +203,7 @@ exports.createPages = async ({ graphql, actions }) => {
           const posts = author ? await getPosts({ author }) : []
           await createPage({
             path: slug,
-            component: path.resolve(`./src/templates/coach.js`),
+            component: path.resolve(`./src/templates/team.js`),
             context: {
               posts,
               slug,

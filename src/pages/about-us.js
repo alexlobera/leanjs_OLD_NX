@@ -32,7 +32,7 @@ const AboutUs = ({ data }) => {
         <React.Fragment>
           <Header
             titleLines={['About us']}
-            subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your ReactJS<br /> journey"
+            subtitle="Our coaches are expert, every day developers<br /> who will mentor you throughout your React and GraphQL<br /> journey"
             links={[
               { text: 'Mission & values ', to: '#values' },
               { text: 'Coach profiles ', to: '#coaches' },
@@ -87,7 +87,7 @@ const AboutUs = ({ data }) => {
             </Segment>
           </TopSection>
           <Section mb={0} pb={0}>
-            <H2>Our coaches</H2>
+            <H2>Our team</H2>
             <Link to="#coaches" name="coaches"></Link>
             <Row>
               {coaches.map(
@@ -314,7 +314,7 @@ const AboutUs = ({ data }) => {
 }
 export const query = graphql`
   query coaches($imgMaxWidth: Int!) {
-    allMarkdownRemark(filter: { fields: { slug: { regex: "/coaches/" } } }) {
+    allMarkdownRemark(filter: { fields: { slug: { regex: "/team/" } } }) {
       nodes {
         frontmatter {
           imageSrc {

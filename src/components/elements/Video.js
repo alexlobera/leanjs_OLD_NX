@@ -20,7 +20,8 @@ const Video = ({ youtubeId, time, description, height = '390', ...rest }) => (
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen
-      src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&showinfo=0&wmode=opaque${
+      src={`https://www.youtube-nocookie.com/embed/${youtubeId ||
+        rest['youtube-id']}?rel=0&showinfo=0&wmode=opaque${
         time ? `&start=${time}` : ''
       }`}
     />

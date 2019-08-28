@@ -83,11 +83,11 @@ const StyledAuthor = styled.div`
 
 const PostMeta = ({ author = 'alex-lobera', date = '', timeToRead }) => (
   <StyledAuthor>
-    <Link to={`/coaches/${author}/`} className="blog-article">
+    <Link to={`/team/${author}/`} className="blog-article">
       <Image src={blogAuthors[author].imgSrc} circle />
     </Link>
     <P>
-      <Link to={`/coaches/${author}/`} className="blog-article">
+      <Link to={`/team/${author}/`} className="blog-article">
         By {blogAuthors[author].fullname}
       </Link>
       <Span>
