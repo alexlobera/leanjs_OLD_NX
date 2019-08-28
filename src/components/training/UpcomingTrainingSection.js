@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import Section from '../layout/Section'
-import Grid, { Col, Row } from '../layout/Grid'
+import { Col, Row } from '../layout/Grid'
 import { H2Ref, P } from '../text'
 import UpcomingTrainings from './UpcomingTrainings'
 import Link from '../navigation/Link'

@@ -4,9 +4,8 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
-import styled from 'styled-components'
 import Link from '../components/navigation/Link'
-import { Blockquote } from '../components/text'
+import Teamquote from '../components/text/Teamquote'
 import Section from 'src/components/layout/Section'
 import Grid, { Col, Row } from '../components/layout/Grid'
 import { H2Ref, H3, P } from '../components/text'
@@ -17,11 +16,6 @@ import { UpcomingTrainingSection } from '../components/training'
 import BlogSection from 'src/components/blog/BlogSection'
 import { createSocialMetas } from 'src/components/utils/index'
 
-const CoachTitle = styled(H3)`
-  & {
-    padding-top: 0;
-  }
-`
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
@@ -30,6 +24,18 @@ const renderAst = new rehypeReact({
     li: Li,
   },
 }).Compiler
+
+const ProfileLink = ({ link, text, first = false }) =>
+  link && (
+    <React.Fragment>
+      {!first && <Li>|</Li>}
+      <Li>
+        <Link to={link} className="coach-profiles">
+          {text}
+        </Link>
+      </Li>
+    </React.Fragment>
+  )
 
 const Coach = ({ data, pageContext: { posts } }) => {
   const {
@@ -40,6 +46,7 @@ const Coach = ({ data, pageContext: { posts } }) => {
     gitHub,
     medium,
     twitter,
+    instagram,
     linkedIn,
     blockquote,
     youtubeVideoId,
@@ -101,49 +108,21 @@ const Coach = ({ data, pageContext: { posts } }) => {
                       #
                     </Link>
                   </H2Ref>
-                  <CoachTitle>
+                  <H3 pt={0}>
                     {title} at{' '}
                     <Link to={companyLink} className="coach-profiles">
                       {companyName}
                     </Link>
-                  </CoachTitle>
+                  </H3>
                   <Ul variant="inline">
-                    <Li>
-                      <Link to={gitHub} className="coach-profiles">
-                        GitHub
-                      </Link>
-                    </Li>
-                    <Li>|</Li>
-                    {medium && (
-                      <React.Fragment>
-                        <Li>
-                          <Link to={medium} className="coach-profiles">
-                            Medium
-                          </Link>
-                        </Li>
-                        <Li>|</Li>
-                      </React.Fragment>
-                    )}
-                    {twitter && (
-                      <React.Fragment>
-                        <Li>
-                          <Link to={twitter} className="coach-profiles">
-                            Twitter
-                          </Link>
-                        </Li>
-                        <Li>|</Li>
-                      </React.Fragment>
-                    )}
-                    <Li>
-                      <Link to={linkedIn} className="coach-profiles">
-                        LinkedIn
-                      </Link>
-                    </Li>
+                    <ProfileLink first link={gitHub} text="GitHub" />
+                    <ProfileLink link={medium} text="Medium" />
+                    <ProfileLink link={twitter} text="Twitter" />
+                    <ProfileLink link={linkedIn} text="LinkedIn" />
+                    <ProfileLink link={instagram} text="Instagram" />
                   </Ul>
                   {renderAst(htmlAst)}
-                  <Blockquote bg="primary" triangle="left">
-                    {blockquote}
-                  </Blockquote>
+                  <Teamquote blockquote={blockquote} mt={5} />
                 </Col>
               </Row>
             </Grid>
@@ -168,6 +147,7 @@ export const query = graphql`
         medium
         twitter
         linkedIn
+        instagram
         blockquote
         youtubeVideoId
         videoDescription

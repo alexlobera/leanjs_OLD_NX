@@ -10,6 +10,7 @@ blockquote: While teaching, the technology itself is not life-changing. It's the
 imageDescription: React GraphQL Academy coach Francisco Gomes, smiling in vineyard
 imageSrc: francisco-gomes.jpg
 tags: []
+order: 7
 ---
 
 - Builds products with **React** and

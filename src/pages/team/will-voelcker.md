@@ -9,6 +9,7 @@ blockquote: I love working with developers to help them improve their skills, st
 imageDescription: React GraphQL Academy coach Will Voelcker, smiling with coach Alex in the background
 imageSrc: will-voelcker.jpg
 tags: []
+order: 8
 ---
 
 - Professional web **developer since 2005**.

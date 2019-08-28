@@ -14,6 +14,7 @@ blockquote:
 imageDescription: React GraphQL Academy coach Eva Hoffmann, smiling.
 imageSrc: eva-hoffmann.jpg
 tags: []
+order: 3
 ---
 
 - Currently, a **front-end engineer** working

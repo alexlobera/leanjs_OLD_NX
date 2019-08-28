@@ -11,6 +11,7 @@ blockquote: I love teaching and seeing other developers grow...
 imageDescription: React GraphQL Academy coach Horacio Herrera, smiling with sunglasses on.
 imageSrc: horacio-herrera.jpg
 tags: []
+order: 4
 ---
 
 - Holds a **Digital Design degree**,

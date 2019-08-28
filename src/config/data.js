@@ -28,28 +28,27 @@ Part-time prices
 */
 
 export const blogAuthors = {
-  ['richard-moss']: {
+  'richard-moss': {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.jpg?alt=media',
     fullname: 'Richard Moss',
   },
-  ['alex-lobera']: {
+  'alex-lobera': {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Falex.jpg?alt=media',
     fullname: 'Alex Lobera',
   },
-  ['horacio-herrera']: {
+  'horacio-herrera': {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio.jpg?alt=media',
     fullname: 'Horacio Herrera',
   },
-  ['paul-woodley']: {
+  'paul-woodley': {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media',
     fullname: 'Paul Woodley',
   },
-
-  ['lena-tregub']: {
+  'lena-tregub': {
     imgSrc:
       'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2Flena.jpg?alt=media',
     fullname: 'Lena Tregub',

@@ -10,6 +10,8 @@ blockquote: The Sky is a Limit. There is always a way out. If you can't find any
 imageDescription: React GraphQL Academy Happiness Officer
 imageSrc: lena-tregub.jpg
 tags: []
+order: 1000
+isCoach: false
 ---
 
 - Passionate about finding a win-win way to tackle the toughest issues
