@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import rehypeReact from 'rehype-react'
+import { graphql } from 'gatsby'
 
 import Layout from 'src/components/layout'
 import { Link } from 'src/components/navigation'

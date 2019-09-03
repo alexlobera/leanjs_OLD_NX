@@ -1,3 +1,7 @@
+const {
+  api: { projectId: sanityProjectId, dataset: sanityDataset },
+} = require('./studio/sanity.json')
+
 module.exports = {
   siteMetadata: {
     title: 'React & GraphQL Expert Training | React GraphQL Academy',
@@ -65,6 +69,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/community/meetups/*`] },
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: sanityProjectId,
+        dataset: sanityDataset,
+      },
     },
   ],
 }
