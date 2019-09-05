@@ -61,5 +61,25 @@ export default {
       type: 'image',
       options: { hotspot: true },
     },
+    {
+      type: 'youtube',
+    },
+    {
+      type: 'tweet',
+    },
+    {
+      type: 'codesandbox',
+    },
+    {
+      type: 'code',
+    },
+    // {
+    //   name: 'exampleUsage',
+    //   title: 'Example usage',
+    //   type: 'code',
+    //   options: {
+    //     language: 'js',
+    //   },
+    // },
   ],
 }

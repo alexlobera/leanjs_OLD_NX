@@ -21,14 +21,15 @@ function getEditor({ noInline, code }) {
 }
 
 export const Code = props => {
+  const { children } = props
   if (props.className === 'language-runkit') {
-    return <EmbedRunkit {...props} source={props.children.toString()} />
+    return <EmbedRunkit {...props} source={children && children.toString()} />
   } else if (props.className === 'language-.jsx') {
-    return getEditor({ noInline: false, code: props.children.toString() })
+    return getEditor({ noInline: false, code: children && children.toString() })
   } else if (props.className === 'language-.jsx-inline') {
-    return getEditor({ noInline: true, code: props.children.toString() })
+    return getEditor({ noInline: true, code: children && children.toString() })
   } else {
-    return <code>{props.children}</code>
+    return <code>{children}</code>
   }
 }
 

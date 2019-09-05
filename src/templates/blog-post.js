@@ -2,9 +2,18 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '@sanity/block-content-to-react'
 
+import {
+  Code,
+  // Blockquote,
+  Codesandbox,
+  Img,
+} from '../components/blog/BlockContent'
 import BlogPost from '../components/blog/BlogPost'
+import Tweet from '../components/blog/Tweet'
+import Video from '../components/elements/Video'
+import Link from '../components/navigation/Link'
 
-const Page = ({ data, pageContext: { relatedPosts, slug } }) => {
+const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
@@ -17,12 +26,13 @@ const Page = ({ data, pageContext: { relatedPosts, slug } }) => {
 
   const serializers = {
     types: {
-      code: props => (
-        <pre data-language={props.node.language}>
-          <code>{props.node.code}</code>
-        </pre>
-      ),
-      image: props => <img src={bodyImagePublicURLs[props.node.asset.id]} />,
+      link: ({ node }) => <Link to={node.href} />,
+      code: ({ node }) => <Code className={node.language}>{node.code}</Code>,
+      tweet: ({ node }) => <Tweet id={node.id} />,
+      youtube: ({ node }) => <Video youtubeId={node.id} />,
+      //blockquote: ({ node }) => <Blockquote id={node.id} />,
+      codesandbox: ({ node }) => <Codesandbox id={node.id} />,
+      image: props => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
     },
   }
 
@@ -64,7 +74,7 @@ const Page = ({ data, pageContext: { relatedPosts, slug } }) => {
     subtitle,
     date,
     relatedPosts,
-    timeToRead: null, // Not handled yet
+    timeToRead,
   }
 
   return <BlogPost {...blogPostProps} />
