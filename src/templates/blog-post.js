@@ -1,258 +1,119 @@
 import React from 'react'
-import styled from 'styled-components'
-import rehypeReact from 'rehype-react'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { RunkitProvider } from '../components/blog/Runkit'
+import BlockContent from '@sanity/block-content-to-react'
 
-import Layout from '../components/layout.js'
-import { formatUTC } from '../components/utils'
-import Grid, { Col, Row } from '../components/layout/Grid'
-import Ul, { Li } from '../components/layout/Ul'
-import { P, Span, H2, H3, H4, H5, Hr } from '../components/text'
-import Header from '../components/layout/Header'
-import { UpcomingTrainingSection } from '../components/training'
-import { Breadcrumb, Link } from '../components/navigation'
-import { WHITE } from '../config/styles'
-import { Image } from '../components/elements'
-import ContactForm from '../components/form/Contact'
-import { Segment, Video } from '../components/elements'
-import { blogAuthors } from '../config/data'
-import { Code, Blockquote, Codesandbox } from '../components/blog/Markdown'
-import Tweet from '../components/blog/Tweet'
-import ShareButtons from '../components/blog/ShareButtons'
-import MarketingCard from '../components/curriculum/MarketingCard'
-import { FONT_FAMILY } from '../config/styles'
+import BlogPost from '../components/blog/BlogPost'
 
-export const formatPostTitle = title => title.replace(/(<([^>]+)>)/gi, ' ')
+const Page = ({ data, pageContext: { relatedPosts, slug } }) => {
+  const { nodes: bodyImageNodes = [] } = data.bodyImages || []
+  const bodyImagePublicURLs = bodyImageNodes.reduce(
+    (acc, { localFile = {}, id }) => {
+      acc[id] = localFile.publicURL
 
-const Table = styled.table`
-  ${FONT_FAMILY};
-`
-
-const pre = styled.pre`
-  overflow: hidden;
-  > div {
-    overflow: hidden;
-  }
-`
-const img = styled(Image)`
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
-`
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    a: Link,
-    table: Table,
-    p: P,
-    h2: H2,
-    h3: H3,
-    h4: H4,
-    h5: H5,
-    ul: Ul,
-    li: Li,
-    pre,
-    img,
-    code: Code,
-    span: Span,
-    tweet: Tweet,
-    blockquote: Blockquote,
-    codesandbox: Codesandbox,
-    video: Video,
-    marketingcard: MarketingCard,
-  },
-}).Compiler
-
-const StyledAuthor = styled.div`
-  display: flex;
-  img {
-    margin-right: 18px;
-    width: 90px;
-    height: 90px;
-  }
-  a,
-  p,
-  span {
-    color: ${WHITE};
-  }
-  a {
-    display: block;
-  }
-`
-
-const PostMeta = ({ author = 'alex-lobera', date = '', timeToRead }) => (
-  <StyledAuthor>
-    <Link to={`/team/${author}/`} className="blog-article">
-      <Image src={blogAuthors[author].imgSrc} circle />
-    </Link>
-    <P>
-      <Link to={`/team/${author}/`} className="blog-article">
-        By {blogAuthors[author].fullname}
-      </Link>
-      <Span>
-        {formatUTC(date)} <br />
-        Reading time: {timeToRead} mins
-      </Span>
-    </P>
-  </StyledAuthor>
-)
-
-const GridContent = styled(Grid)`
-  padding-top: 72px;
-`
-
-const BlogPost = ({ data, pageContext: { relatedPosts } }) => {
-  const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
-  const { title, date, subtitle, author, imageUrl, imageSrc } = frontmatter
-  const image = imageUrl ? imageUrl : imageSrc.childImageSharp.fluid.src
-  const publicUrl =
-    imageSrc && imageSrc.publicURL ? imageSrc.publicURL : imageUrl
-  const authorTwitter = frontmatter.authorTwitter || 'reactgqlacademy'
-  const { slug } = data.markdownRemark.fields
-  const postTypePath = slug.replace(/^\/([^/]*).*$/, '$1')
-  const postTypeLabel = `${postTypePath
-    .charAt(0)
-    .toUpperCase()}${postTypePath.slice(1)}`
-  return (
-    <Layout loadAutopilot={false}>
-      {({ trainings }) => (
-        <RunkitProvider>
-          <Helmet
-            title={title}
-            meta={[
-              {
-                name: 'description',
-                content: subtitle,
-              },
-            ]}
-          >
-            <meta property="og:title" content={title} />
-            <meta property="og:image" content={publicUrl} />
-            <meta property="og:description" content={subtitle} />
-            <meta property="og:type" content="article" />
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:site" content="@reactgqlacademy" />
-            <meta name="twitter:title" content={title} />
-            <meta name="twitter:description" content={subtitle} />
-            <meta name="twitter:creator" content={`@${authorTwitter}`} />
-            <meta name="twitter:image" content={publicUrl} />
-          </Helmet>
-          <Breadcrumb
-            path={[
-              { to: '/', label: 'Home' },
-              {
-                to: `/${postTypePath}`,
-                label: postTypeLabel,
-              },
-              { to: slug, label: title },
-            ]}
-          />
-          <Header
-            titleLines={title.split('<br />')}
-            fullHeight={false}
-            paddingBottom={80}
-            bgImgUrl={image}
-            bgColor="transparent"
-            bgImageOpacity={1}
-          >
-            <PostMeta date={date} author={author} timeToRead={timeToRead} />
-          </Header>
-          <GridContent>
-            <Row>
-              <Col md={7}>
-                {subtitle ? <H2>{subtitle}</H2> : null}
-                {renderAst(htmlAst)}
-              </Col>
-              <Col md={4} mdOffset={1}>
-                <Segment small variant="primary" mt={3}>
-                  <ContactForm simplified />
-                </Segment>
-                {relatedPosts.length ? (
-                  <Segment border="shadow" small mt={4}>
-                    <H4>Related articles</H4>
-                    {relatedPosts.map((post, index) => (
-                      <React.Fragment key={index}>
-                        <Link
-                          to={post.node.fields.slug}
-                          className="blog-article"
-                        >
-                          {formatPostTitle(post.node.frontmatter.title)}
-                        </Link>
-                        <P>{formatUTC(post.node.frontmatter.date)}</P>
-                      </React.Fragment>
-                    ))}
-                  </Segment>
-                ) : null}
-              </Col>
-            </Row>
-            <Row>
-              <Col md={6}>
-                <P>Share this on: </P>
-                <ShareButtons slug={slug} />
-                <Hr />
-                <P>
-                  This website is built using Gatsbyjs. Curious about how this
-                  blog is implemented? It's open source so you can{' '}
-                  <Link
-                    to="https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/templates/blog-post.js"
-                    className="blog-article"
-                  >
-                    check the source code
-                  </Link>
-                </P>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col md={6}>
-                <Hr />
-                <P>
-                  Comments? Shoot me a{' '}
-                  <Link
-                    to={`http://twitter.com/${authorTwitter}`}
-                    className="blog-article"
-                  >
-                    tweet {`@${authorTwitter}`}
-                  </Link>{' '}
-                  !
-                </P>
-              </Col>
-            </Row>
-          </GridContent>
-          <UpcomingTrainingSection trainings={trainings} />
-        </RunkitProvider>
-      )}
-    </Layout>
+      return acc
+    },
+    {}
   )
+
+  const serializers = {
+    types: {
+      code: props => (
+        <pre data-language={props.node.language}>
+          <code>{props.node.code}</code>
+        </pre>
+      ),
+      image: props => <img src={bodyImagePublicURLs[props.node.asset.id]} />,
+    },
+  }
+
+  const {
+    tech,
+    author,
+    mainImage,
+    title,
+    subtitle,
+    publishedAt: date,
+    _rawBody,
+  } = data.sanityPost
+
+  const mainImagePublicUrl =
+    mainImage &&
+    mainImage.asset &&
+    mainImage.asset.localFile &&
+    mainImage.asset.localFile.publicURL
+  const { fullname, twitter, username = {}, image: authorImage } = author || {}
+  const postTypeLabel =
+    tech === 'react' ? 'React' : tech === 'graphql' ? 'GraphQL' : 'Blog'
+  const authorImageUrl =
+    authorImage &&
+    authorImage.asset &&
+    authorImage.asset.localFile &&
+    authorImage.asset.localFile.publicURL
+  const body = <BlockContent blocks={_rawBody} serializers={serializers} />
+  const blogPostProps = {
+    body,
+    postTypeLabel,
+    postTypePath: tech,
+    slug,
+    authorImageUrl,
+    authorFullname: fullname,
+    authorTwitter: twitter,
+    authorSlug: username.current,
+    mainImagePublicUrl,
+    title,
+    subtitle,
+    date,
+    relatedPosts,
+    timeToRead: null, // Not handled yet
+  }
+
+  return <BlogPost {...blogPostProps} />
 }
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
-        subtitle
-        author
-        imageUrl
-        authorTwitter
-        imageSrc {
+  query sanityPost($id: String!, $sanityImageAssetIds: [String] = []) {
+    bodyImages: allSanityImageAsset(
+      filter: { id: { in: $sanityImageAssetIds } }
+    ) {
+      nodes {
+        id
+        localFile(width: 600) {
           publicURL
-          childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    sanityPost(id: { eq: $id }) {
+      _rawBody(resolveReferences: { maxDepth: 5 })
+      title
+      subtitle
+      publishedAt
+      author {
+        twitter
+        fullname
+        username {
+          current
+        }
+        image {
+          asset {
+            localFile(width: 250) {
+              publicURL
             }
           }
         }
       }
-      fields {
-        slug
+      tech
+      slug {
+        current
       }
-      htmlAst
-      timeToRead
+      mainImage {
+        asset {
+          id
+          localFile {
+            publicURL
+          }
+        }
+      }
     }
   }
 `
-
-export default BlogPost
+export default Page

@@ -8,6 +8,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
+    "deploy": "sanity deploy",
+    "deploy:schema:production": "sanity graphql deploy --dataset production",
     "test": "sanity check"
   },
   "keywords": [
@@ -15,11 +17,11 @@
   ],
   "dependencies": {
     "@sanity/base": "^0.142.2",
-    "@sanity/components": "^0.142.3",
-    "@sanity/core": "^0.142.2",
-    "@sanity/default-layout": "^0.142.3",
+    "@sanity/components": "^0.142.4",
+    "@sanity/core": "^0.142.4",
+    "@sanity/default-layout": "^0.142.4",
     "@sanity/default-login": "^0.142.3",
-    "@sanity/desk-tool": "^0.142.3",
+    "@sanity/desk-tool": "^0.142.4",
     "prop-types": "^15.6",
     "react": "^16.2",
     "react-dom": "^16.2"

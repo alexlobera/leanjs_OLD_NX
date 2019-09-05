@@ -50,6 +50,15 @@ module.exports = {
         path: `${__dirname}/images/`,
       },
     },
+
+    'gatsby-source-sanity-transform-images',
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: sanityProjectId,
+        dataset: sanityDataset,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -69,13 +78,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/community/meetups/*`] },
-    },
-    {
-      resolve: 'gatsby-source-sanity',
-      options: {
-        projectId: sanityProjectId,
-        dataset: sanityDataset,
-      },
     },
   ],
 }

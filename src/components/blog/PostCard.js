@@ -5,7 +5,7 @@ import { Link } from '../../components/navigation'
 import { Image } from '../../components/elements'
 import Card from '../../components/elements/Card'
 import Box from '../../components/layout/Box'
-import { formatPostTitle } from '../../templates/blog-post'
+import { formatPostTitle } from './BlogPost'
 
 const PostCard = ({ post, imageProps = {} }) => (
   <Card small variant="secondary" mb={5}>

@@ -1,3 +1,6 @@
+const REACT = 'react'
+const GRAPHQL = 'graphql'
+
 export default {
   name: 'post',
   title: 'Post',
@@ -46,6 +49,18 @@ export default {
       title: 'Tags',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'tag' } }],
+    },
+    {
+      name: 'tech',
+      title: 'Tech',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'React', value: REACT },
+          { title: 'GraphQL', value: GRAPHQL },
+          { title: 'Generic', value: 'generic' },
+        ],
+      },
     },
     {
       name: 'publishedAt',

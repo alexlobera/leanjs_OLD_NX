@@ -729,9 +729,9 @@
     make-error "^1.3.0"
     object-assign "^4.1.1"
 
-"@sanity/components@^0.142.3":
-  version "0.142.3"
-  resolved "https://registry.npmjs.org/@sanity/components/-/components-0.142.3.tgz#4c1558705526e8a331677b0c3f1519bbb4663e9e"
+"@sanity/components@^0.142.4":
+  version "0.142.4"
+  resolved "https://registry.npmjs.org/@sanity/components/-/components-0.142.4.tgz#c3d92aae40ac02cf1a9069493cc376cbdc4829d9"
   dependencies:
     "@sanity/date-input" "0.142.0"
     "@sanity/imagetool" "0.142.0"
@@ -762,9 +762,9 @@
     scroll "^2.0.0"
     string-hash "^1.1.3"
 
-"@sanity/core@^0.142.2":
-  version "0.142.2"
-  resolved "https://registry.npmjs.org/@sanity/core/-/core-0.142.2.tgz#eece5d1eb62f853fc603b165448c1b51b400578e"
+"@sanity/core@^0.142.4":
+  version "0.142.4"
+  resolved "https://registry.npmjs.org/@sanity/core/-/core-0.142.4.tgz#56f28a536c61a1b779901470b59b26effbe7f73b"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.4.4"
     "@babel/preset-env" "^7.4.5"
@@ -843,9 +843,9 @@
     "@sanity/generate-help-url" "0.142.0"
     "@sanity/rich-date-input" "0.142.0"
 
-"@sanity/default-layout@^0.142.3":
-  version "0.142.3"
-  resolved "https://registry.npmjs.org/@sanity/default-layout/-/default-layout-0.142.3.tgz#1c444d622181969faf274ec4d7fc4d089d13d891"
+"@sanity/default-layout@^0.142.4":
+  version "0.142.4"
+  resolved "https://registry.npmjs.org/@sanity/default-layout/-/default-layout-0.142.4.tgz#e9b2ff1892a7a6dc453f8a007346de7536a945b6"
   dependencies:
     "@sanity/generate-help-url" "0.142.0"
     is-hotkey "^0.1.4"
@@ -865,12 +865,12 @@
     prop-types "^15.6.0"
     rxjs "^6.5.2"
 
-"@sanity/desk-tool@^0.142.3":
-  version "0.142.3"
-  resolved "https://registry.npmjs.org/@sanity/desk-tool/-/desk-tool-0.142.3.tgz#959885f0ab3058acd4c95b2d317f25890fe5b619"
+"@sanity/desk-tool@^0.142.4":
+  version "0.142.4"
+  resolved "https://registry.npmjs.org/@sanity/desk-tool/-/desk-tool-0.142.4.tgz#23a8e98ea81229d3cdffa4f2662cb209dae86814"
   dependencies:
     "@sanity/data-aspects" "0.142.0"
-    "@sanity/form-builder" "0.142.3"
+    "@sanity/form-builder" "0.142.4"
     "@sanity/generate-help-url" "0.142.0"
     "@sanity/mutator" "0.142.0"
     "@sanity/structure" "0.142.3"
@@ -922,9 +922,9 @@
     simple-get "^3.0.2"
     split2 "^2.1.1"
 
-"@sanity/form-builder@0.142.3":
-  version "0.142.3"
-  resolved "https://registry.npmjs.org/@sanity/form-builder/-/form-builder-0.142.3.tgz#7f952503d7710024fcd67b48c5482093b42caaf3"
+"@sanity/form-builder@0.142.4":
+  version "0.142.4"
+  resolved "https://registry.npmjs.org/@sanity/form-builder/-/form-builder-0.142.4.tgz#102e41e9a2115dace00c9091c6dfc528c11f723b"
   dependencies:
     "@sanity/block-tools" "0.142.0"
     "@sanity/generate-help-url" "0.142.0"
@@ -1204,8 +1204,8 @@
   resolved "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
 
 "@types/node@*":
-  version "12.7.3"
-  resolved "https://registry.npmjs.org/@types/node/-/node-12.7.3.tgz#27b3f40addaf2f580459fdb405222685542f907a"
+  version "12.7.4"
+  resolved "https://registry.npmjs.org/@types/node/-/node-12.7.4.tgz#64db61e0359eb5a8d99b55e05c729f130a678b04"
 
 "@types/node@^8.0.0", "@types/node@^8.0.7":
   version "8.10.53"
@@ -2475,7 +2475,7 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.npmjs.org/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
-d@1:
+d@1, d@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/d/-/d-1.0.1.tgz#8698095372d58dbee346ffd0c7093f99f8f9eb5a"
   dependencies:
@@ -2721,8 +2721,8 @@ ee-first@1.1.1:
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
 electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.30:
-  version "1.3.251"
-  resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.251.tgz#8dbfe0d5c5d884c456d3d8d83fcb3258ab9eba3a"
+  version "1.3.252"
+  resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.252.tgz#5b6261965b564a0f4df0f1c86246487897017f52"
 
 element-resize-detector@1.1.13:
   version "1.1.13"
@@ -2737,8 +2737,8 @@ element-resize-detector@^1.1.14:
     batch-processor "^1.0.0"
 
 elliptic@^6.0.0:
-  version "6.5.0"
-  resolved "https://registry.npmjs.org/elliptic/-/elliptic-6.5.0.tgz#2b8ed4c891b7de3200e14412a5b8248c7af505ca"
+  version "6.5.1"
+  resolved "https://registry.npmjs.org/elliptic/-/elliptic-6.5.1.tgz#c380f5f909bf1b9b4428d028cd18d3b0efd6b52b"
   dependencies:
     bn.js "^4.4.0"
     brorand "^1.0.1"
@@ -2794,8 +2794,8 @@ error-ex@^1.2.0, error-ex@^1.3.1:
     is-arrayish "^0.2.1"
 
 es-abstract@^1.12.0, es-abstract@^1.13.0, es-abstract@^1.5.1:
-  version "1.14.0"
-  resolved "https://registry.npmjs.org/es-abstract/-/es-abstract-1.14.0.tgz#f59d9d44278ea8f90c8ff3de1552537c2fd739b4"
+  version "1.14.1"
+  resolved "https://registry.npmjs.org/es-abstract/-/es-abstract-1.14.1.tgz#6e8d84b445ec9c610781e74a6d52cc31aac5b4ca"
   dependencies:
     es-to-primitive "^1.2.0"
     function-bind "^1.1.1"
@@ -2816,7 +2816,7 @@ es-to-primitive@^1.2.0:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-es5-ext@^0.10.35, es5-ext@^0.10.46, es5-ext@^0.10.50, es5-ext@~0.10.14:
+es5-ext@^0.10.35, es5-ext@^0.10.46, es5-ext@^0.10.50, es5-ext@^0.10.51, es5-ext@~0.10.14:
   version "0.10.51"
   resolved "https://registry.npmjs.org/es5-ext/-/es5-ext-0.10.51.tgz#ed2d7d9d48a12df86e0299287e93a09ff478842f"
   dependencies:
@@ -2861,12 +2861,19 @@ es6-set@~0.1.5:
     es6-symbol "3.1.1"
     event-emitter "~0.3.5"
 
-es6-symbol@3.1.1, es6-symbol@^3.1.1, es6-symbol@~3.1.1:
+es6-symbol@3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/es6-symbol/-/es6-symbol-3.1.1.tgz#bf00ef4fdab6ba1b46ecb7b629b4c7ed5715cc77"
   dependencies:
     d "1"
     es5-ext "~0.10.14"
+
+es6-symbol@^3.1.1, es6-symbol@~3.1.1:
+  version "3.1.2"
+  resolved "https://registry.npmjs.org/es6-symbol/-/es6-symbol-3.1.2.tgz#859fdd34f32e905ff06d752e7171ddd4444a7ed1"
+  dependencies:
+    d "^1.0.1"
+    es5-ext "^0.10.51"
 
 es6-weak-map@^2.0.1:
   version "2.0.3"
@@ -6563,8 +6570,8 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     inherits "^2.0.1"
 
 rxjs@^6.1.0, rxjs@^6.5.2:
-  version "6.5.2"
-  resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.5.2.tgz#2e35ce815cd46d84d02a209fb4e5921e051dbec7"
+  version "6.5.3"
+  resolved "https://registry.npmjs.org/rxjs/-/rxjs-6.5.3.tgz#510e26317f4db91a7eb1de77d9dd9ba0a4899a3a"
   dependencies:
     tslib "^1.9.0"
 
