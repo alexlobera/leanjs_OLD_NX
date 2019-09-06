@@ -4,7 +4,7 @@ import BlockContent from '@sanity/block-content-to-react'
 
 import {
   Code,
-  // Blockquote,
+  Blockquote,
   Codesandbox,
   Img,
 } from '../components/blog/BlockContent'
@@ -12,6 +12,9 @@ import BlogPost from '../components/blog/BlogPost'
 import Tweet from '../components/blog/Tweet'
 import Video from '../components/elements/Video'
 import Link from '../components/navigation/Link'
+import Ul, { Li } from '../components/layout/Ul'
+import { H2, H3, H4, H5 } from '../components/text/H'
+import P from '../components/text/P'
 
 const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
@@ -25,12 +28,37 @@ const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
   )
 
   const serializers = {
+    marks: {
+      link: ({ mark: { href }, children }) => (
+        <Link to={href} children={children} />
+      ),
+    },
+    list: ({ children }) => <Ul children={children} />,
+    listItem: ({ children = {} }) => <Li children={children} />,
     types: {
-      link: ({ node }) => <Link to={node.href} />,
+      block: ({ children, node }) => {
+        const style = node.style || 'normal'
+        let props = {
+          children,
+        }
+        switch (style) {
+          case 'h2':
+            return <H2 {...props} />
+          case 'h3':
+            return <H3 {...props} />
+          case 'h4':
+            return <H4 {...props} />
+          case 'h5':
+            return <H5 {...props} />
+          case 'blockquote':
+            return <Blockquote {...props} />
+          default:
+            return <P {...props} />
+        }
+      },
       code: ({ node }) => <Code className={node.language}>{node.code}</Code>,
       tweet: ({ node }) => <Tweet id={node.id} />,
       youtube: ({ node }) => <Video youtubeId={node.id} />,
-      //blockquote: ({ node }) => <Blockquote id={node.id} />,
       codesandbox: ({ node }) => <Codesandbox id={node.id} />,
       image: props => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
     },
@@ -59,6 +87,9 @@ const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
     authorImage.asset &&
     authorImage.asset.localFile &&
     authorImage.asset.localFile.publicURL
+
+  console.log('_rawBody', _rawBody)
+
   const body = <BlockContent blocks={_rawBody} serializers={serializers} />
   const blogPostProps = {
     body,
