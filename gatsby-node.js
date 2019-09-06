@@ -31,27 +31,6 @@ function getLastPathFromSlug(slug) {
   return city
 }
 
-function readingTime(rawText) {
-  function traverse(node) {
-    let text = node.text || ''
-    if (node.children) {
-      const childrenText = node.children.reduce(
-        (acc, child) => `${acc} ${traverse(child)}`,
-        ''
-      )
-      text = `${text} ${childrenText}`
-    }
-
-    return text
-  }
-  const text = rawText.reduce((acc, block) => `${acc} ${traverse(block)}`, '')
-  const wordsPerMinute = 200
-  const noOfWords = text.split(/\s/g).length
-  const minutes = noOfWords / wordsPerMinute
-
-  return Math.ceil(minutes)
-}
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3, author }) => {
@@ -101,6 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
         allSanityPost(sort: { order: ASC, fields: order }) {
           nodes {
             _rawBody(resolveReferences: { maxDepth: 5 })
+            readingTimeInMinutes
             id
             tech
             slug {
@@ -156,6 +136,7 @@ exports.createPages = async ({ graphql, actions }) => {
             tech,
             tags = [],
             _rawBody = [],
+            readingTimeInMinutes,
           }) => {
             const relatedPosts = await getPosts({
               tagsIn: tags.map(t => t.name),
@@ -173,12 +154,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
             await createPage({
               path: `/${tech || 'blog'}/${currentSlug}`,
-              component: path.resolve(`./src/templates/blog-post.js`),
+              component: path.resolve(`./src/templates/blog-post-sanity.js`),
               context: {
                 relatedPosts,
                 id,
                 slug: currentSlug,
-                timeToRead: readingTime(_rawBody),
+                timeToRead: readingTimeInMinutes,
                 sanityImageAssetIds,
               },
             })

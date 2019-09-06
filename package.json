@@ -24,6 +24,7 @@
     "gatsby-remark-images": "^3.1.7",
     "gatsby-source-filesystem": "^2.1.9",
     "gatsby-transformer-remark": "^2.6.14",
+    "lodash.memoize": "^4.1.2",
     "markdown-to-jsx": "^6.10.2",
     "payment": "^2.3.0",
     "raven-js": "^3.26.4",

@@ -46,9 +46,6 @@ const renderAst = new rehypeReact({
 const Page = ({ data, pageContext: { relatedPosts } }) => {
   const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
   const { title, date, subtitle, author, imageUrl } = frontmatter
-  // const image = imageUrl ? imageUrl : imageSrc.childImageSharp.fluid.src
-  // const mainImagePublicUrl =
-  //   imageSrc && imageSrc.publicURL ? imageSrc.publicURL : imageUrl
   const mainImagePublicUrl = imageUrl
   const authorTwitter = frontmatter.authorTwitter || 'reactgqlacademy'
   const { slug } = data.markdownRemark.fields
@@ -64,12 +61,13 @@ const Page = ({ data, pageContext: { relatedPosts } }) => {
     postTypePath,
     slug,
     authorTwitter,
+    authorSlug: author,
+    authorFullname: blogAuthors[author].fullname,
+    authorImageUrl: blogAuthors[author].imgSrc,
     mainImagePublicUrl,
     title,
     date,
     subtitle,
-    authorFullname: blogAuthors[author].fullname,
-    authorImageUrl: blogAuthors[author].imgSrc,
     timeToRead,
     relatedPosts,
   }
@@ -87,14 +85,6 @@ export const query = graphql`
         author
         imageUrl
         authorTwitter
-        # imageSrc {
-        #   publicURL
-        #   childImageSharp {
-        #     fluid(maxWidth: 1000) {
-        #       ...GatsbyImageSharpFluid
-        #     }
-        #   }
-        # }
       }
       fields {
         slug

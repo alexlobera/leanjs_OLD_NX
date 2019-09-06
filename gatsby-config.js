@@ -50,8 +50,8 @@ module.exports = {
         path: `${__dirname}/images/`,
       },
     },
-
     'gatsby-source-sanity-transform-images',
+    'gatsby-source-sanity-text',
     {
       resolve: 'gatsby-source-sanity',
       options: {

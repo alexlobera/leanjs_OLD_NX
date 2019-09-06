@@ -1,0 +1,6 @@
+{
+  "name": "gatsby-source-sanity-excerpt",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "LeanJS<hello@leanjs.com>"
+}
