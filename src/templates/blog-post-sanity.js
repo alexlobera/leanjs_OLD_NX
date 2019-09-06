@@ -65,7 +65,7 @@ const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
   }
 
   const {
-    tech,
+    category,
     author,
     mainImage,
     title,
@@ -81,7 +81,7 @@ const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
     mainImage.asset.localFile.publicURL
   const { fullname, twitter, username = {}, image: authorImage } = author || {}
   const postTypeLabel =
-    tech === 'react' ? 'React' : tech === 'graphql' ? 'GraphQL' : 'Blog'
+    category === 'react' ? 'React' : category === 'graphql' ? 'GraphQL' : 'Blog'
   const authorImageUrl =
     authorImage &&
     authorImage.asset &&
@@ -94,7 +94,7 @@ const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
   const blogPostProps = {
     body,
     postTypeLabel,
-    postTypePath: tech,
+    postTypePath: category,
     slug,
     authorImageUrl,
     authorFullname: fullname,
@@ -142,14 +142,14 @@ export const query = graphql`
           }
         }
       }
-      tech
+      category
       slug {
         current
       }
       mainImage {
         asset {
           id
-          localFile {
+          localFile(width: 1440) {
             publicURL
           }
         }

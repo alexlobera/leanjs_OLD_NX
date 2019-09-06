@@ -51,7 +51,7 @@ module.exports = {
       },
     },
     'gatsby-source-sanity-transform-images',
-    'gatsby-source-sanity-text',
+    'gatsby-source-sanity-transform-text',
     {
       resolve: 'gatsby-source-sanity',
       options: {

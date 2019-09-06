@@ -10,7 +10,31 @@ import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
 
 const Blog = ({ data, path }) => {
-  const posts = data.allMarkdownRemark.edges
+  const sanityPosts = data.allSanityPost.nodes.map(
+    ({ slug, category, mainImage, title, excerpt }) => ({
+      path: `/${category}/${slug ? slug.current : ''}`,
+      imageUrl:
+        mainImage &&
+        mainImage.asset &&
+        mainImage.asset.localFile &&
+        mainImage.asset.localFile.publicURL,
+      title,
+      excerpt,
+    })
+  )
+
+  const markdownPosts = data.allMarkdownRemark.edges.map(({ node }) => ({
+    path: node.fields.slug,
+    imageUrl:
+      node.frontmatter.imageUrl ||
+      (node.frontmatter.imageSrc &&
+        node.frontmatter.imageSrc.childImageSharp.fluid.src),
+    title: node.frontmatter.title,
+    excerpt: node.excerpt,
+  }))
+
+  const posts = [...sanityPosts, ...markdownPosts]
+  console.log(posts)
   return (
     <Layout>
       {({ trainings }) => (
@@ -26,8 +50,8 @@ const Blog = ({ data, path }) => {
           />
           <TopSection>
             <Row>
-              {posts.map(({ node: post }) => (
-                <Col lg={4} key={post.fields.slug}>
+              {posts.map(post => (
+                <Col lg={4} key={post.path}>
                   <PostCard post={post} />
                 </Col>
               ))}
@@ -42,6 +66,24 @@ const Blog = ({ data, path }) => {
 
 export const query = graphql`
   query blogQuery {
+    allSanityPost(sort: { fields: order, order: ASC }) {
+      nodes {
+        title
+        excerpt
+        category
+        mainImage {
+          asset {
+            localFile(width: 500, height: 333) {
+              publicURL
+            }
+          }
+        }
+        slug {
+          current
+        }
+      }
+    }
+
     allMarkdownRemark(
       filter: { frontmatter: { contentType: { eq: "blog" } } }
       sort: { fields: [frontmatter___order], order: DESC }

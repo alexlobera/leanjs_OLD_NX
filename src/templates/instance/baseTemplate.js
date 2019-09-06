@@ -37,7 +37,7 @@ const InstancePage = ({
     financeAvailable,
     coaches,
     trainingId,
-    tech,
+    category,
     breadcrumbTrainingName,
     breadcrumbTrainingSlug,
     breadcrumbWorkshopName,
@@ -62,8 +62,8 @@ const InstancePage = ({
 }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const pathTech = `/${tech.toLowerCase()}/`
-      const pathTraining = `${pathTech}training/`
+      const pathCategory = `/${category.toLowerCase()}/`
+      const pathTraining = `${pathCategory}training/`
       const pathTrainingType = `${pathTraining}${breadcrumbTrainingSlug}/`
       const pathWorkshopType = `${pathTrainingType}${breadcrumbWorkshopSlug}/`
       const upcomingTrainings = selectUpcomingTrainings({
@@ -100,7 +100,7 @@ const InstancePage = ({
 
       const breadcrumb = [
         { to: '/', label: 'Home' },
-        { to: pathTech, label: tech },
+        { to: pathCategory, label: category },
         { to: pathTraining, label: 'Training' },
         {
           to: pathTrainingType,

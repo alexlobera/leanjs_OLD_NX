@@ -82,7 +82,7 @@ exports.createPages = async ({ graphql, actions }) => {
             _rawBody(resolveReferences: { maxDepth: 5 })
             readingTimeInMinutes
             id
-            tech
+            category
             slug {
               current
             }
@@ -133,7 +133,7 @@ exports.createPages = async ({ graphql, actions }) => {
           async ({
             id,
             slug: { current: currentSlug },
-            tech,
+            category,
             tags = [],
             _rawBody = [],
             readingTimeInMinutes,
@@ -153,7 +153,7 @@ exports.createPages = async ({ graphql, actions }) => {
             )
 
             await createPage({
-              path: `/${tech || 'blog'}/${currentSlug}`,
+              path: `/${category}/${currentSlug}`,
               component: path.resolve(`./src/templates/blog-post-sanity.js`),
               context: {
                 relatedPosts,

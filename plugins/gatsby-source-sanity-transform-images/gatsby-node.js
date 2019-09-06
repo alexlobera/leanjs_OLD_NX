@@ -1,4 +1,4 @@
-const { GraphQLInt } = require('gatsby/graphql')
+const { GraphQLInt, GraphQLString } = require('gatsby/graphql')
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 exports.setFieldsOnGraphQLNodeType = ({ type }) => {
@@ -10,6 +10,13 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
           width: {
             type: GraphQLInt,
             defaultValue: 600,
+          },
+          height: {
+            type: GraphQLInt,
+          },
+          fit: {
+            type: GraphQLString,
+            defaultValue: 'crop',
           },
         },
       },
@@ -31,9 +38,11 @@ exports.createResolvers = ({
   const resolvers = {
     SanityImageAsset: {
       localFile: {
-        resolve: (source, args, context, info) => {
+        resolve: (source, { width, height, fit }, context, info) => {
           return createRemoteFileNode({
-            url: `${source.url}?w=${args.width}`,
+            url: `${source.url}?w=${width}${
+              height ? `&h=${height}` : ''
+            }&fit=${fit}`,
             store,
             cache,
             createNode,

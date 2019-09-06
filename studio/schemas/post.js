@@ -10,6 +10,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'subtitle',
@@ -25,6 +26,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      validation: Rule => Rule.required(),
       options: {
         source: 'title',
         maxLength: 128,
@@ -34,12 +36,14 @@ export default {
       name: 'author',
       title: 'Author',
       type: 'reference',
+      validation: Rule => Rule.required(),
       to: { type: 'person' },
     },
     {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      validation: Rule => Rule.required(),
       options: {
         hotspot: true,
       },
@@ -51,14 +55,15 @@ export default {
       of: [{ type: 'reference', to: { type: 'tag' } }],
     },
     {
-      name: 'tech',
-      title: 'Tech',
+      name: 'category',
+      title: 'Category',
       type: 'string',
+      validation: Rule => Rule.required(),
       options: {
         list: [
           { title: 'React', value: REACT },
           { title: 'GraphQL', value: GRAPHQL },
-          { title: 'Generic', value: 'generic' },
+          { title: 'Blog', value: 'blog' },
         ],
       },
     },
@@ -66,11 +71,13 @@ export default {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      validation: Rule => Rule.required(),
     },
   ],
 

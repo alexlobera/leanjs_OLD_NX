@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCode } from '@fortawesome/free-solid-svg-icons'
 import { Code } from '../../src/components/blog/BlockContent'
 
 const Preview = ({ value: { code, language } }) => {
@@ -10,6 +12,7 @@ export default {
   name: 'code',
   type: 'object',
   title: 'Code',
+  icon: () => <FontAwesomeIcon icon={faCode} />,
   fields: [
     {
       name: 'language',
@@ -22,7 +25,6 @@ export default {
           { title: 'JSX-inline', value: 'language-.jsx-inline' },
         ],
       },
-      validation: Rule => Rule.required(),
     },
     {
       name: 'code',
