@@ -14,6 +14,7 @@ import Ul, { Li } from '../components/layout/Ul'
 import { Video, Image } from '../components/elements'
 import { UpcomingTrainingSection } from '../components/training'
 import BlogSection from 'src/components/blog/BlogSection'
+import { getPostsFromNodes } from 'src/components/blog/PostCard'
 import { createSocialMetas } from 'src/components/utils/index'
 
 const renderAst = new rehypeReact({
@@ -37,7 +38,7 @@ const ProfileLink = ({ link, text, first = false }) =>
     </React.Fragment>
   )
 
-const Coach = ({ data, pageContext: { posts } }) => {
+const Coach = ({ data }) => {
   const {
     name,
     title,
@@ -64,6 +65,12 @@ const Coach = ({ data, pageContext: { posts } }) => {
     description: blockquote,
     type: 'article',
   }
+
+  const posts = getPostsFromNodes({
+    markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+    sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+  })
+
   return (
     <Layout>
       {({ trainings }) => (
@@ -127,7 +134,7 @@ const Coach = ({ data, pageContext: { posts } }) => {
               </Row>
             </Grid>
           </Section>
-          <BlogSection title={`Articles by ${name}`} posts={posts} />
+          <BlogSection title={`Latest articles by ${name}`} posts={posts} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )}
@@ -136,7 +143,29 @@ const Coach = ({ data, pageContext: { posts } }) => {
 }
 
 export const query = graphql`
-  query CoachQuery($slug: String!, $imgMaxWidth: Int!) {
+  query CoachQuery($slug: String!, $imgMaxWidth: Int!, $author: String! = "") {
+    markdownPosts: allMarkdownRemark(
+      filter: {
+        frontmatter: { contentType: { eq: "blog" }, author: { eq: $author } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...MarkdownPostItemFragment
+      }
+    }
+
+    sanityNodes: allSanityPost(
+      filter: { author: { username: { current: { eq: $author } } } }
+      sort: { fields: publishedAt, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...SanityPostItemFragment
+      }
+    }
+
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         name

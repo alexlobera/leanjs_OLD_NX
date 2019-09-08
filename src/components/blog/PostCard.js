@@ -7,8 +7,39 @@ import Card from '../../components/elements/Card'
 import Box from '../../components/layout/Box'
 import { formatPostTitle } from './BlogPost'
 
+export function getPostsFromNodes({ markdownNodes, sanityNodes }) {
+  const sanityPosts =
+    sanityNodes &&
+    sanityNodes.map &&
+    sanityNodes.map(({ slug, category, mainImage, title, excerpt }) => ({
+      path: `/${category}/${slug ? slug.current : ''}`,
+      imageUrl:
+        mainImage &&
+        mainImage.asset &&
+        mainImage.asset.localFile &&
+        mainImage.asset.localFile.publicURL,
+      title,
+      excerpt,
+    }))
+
+  const markdownPosts =
+    markdownNodes &&
+    markdownNodes.map &&
+    markdownNodes.map(node => ({
+      path: node.fields.slug,
+      imageUrl: node.frontmatter.imageUrl,
+      // || (node.frontmatter.imageSrc &&
+      //   node.frontmatter.imageSrc.childImageSharp.fluid.src),
+      title: node.frontmatter.title,
+      excerpt: node.excerpt,
+    }))
+
+  return [...(sanityPosts || []), ...(markdownPosts || [])]
+}
+
 const PostCard = ({
-  post: { path, imageUrl, title, excerpt, imageProps = {} },
+  post: { path, imageUrl, title, excerpt },
+  imageProps = {},
 }) => {
   const formatedTitle = formatPostTitle(title)
 
@@ -31,6 +62,35 @@ const PostCard = ({
     </Card>
   )
 }
+
+export const query = graphql`
+  fragment SanityPostItemFragment on SanityPost {
+    title
+    excerpt
+    category
+    mainImage {
+      asset {
+        localFile(width: 500, height: 333) {
+          publicURL
+        }
+      }
+    }
+    slug {
+      current
+    }
+  }
+
+  fragment MarkdownPostItemFragment on MarkdownRemark {
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+      imageUrl
+    }
+    excerpt
+  }
+`
 
 export default PostCard
 

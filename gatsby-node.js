@@ -33,14 +33,13 @@ function getLastPathFromSlug(slug) {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3, author }) => {
+  const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3 }) => {
     const queryPosts = `
       query getPosts($limit: Int = ${limit}) {
         allMarkdownRemark(
           filter: {
             frontmatter: {
               contentType: { eq: "blog" }
-              ${author ? `author: { eq: "${author}" }` : ''}
               ${
                 tagsNin || tagsIn.length
                   ? `tags: { in: ["${tagsIn.join('","')}"], nin: "${tagsNin}" }`
@@ -259,13 +258,12 @@ exports.createPages = async ({ graphql, actions }) => {
             })
           } else if (slug.match(coachPath)) {
             const author = getLastPathFromSlug(slug)
-            const posts = author ? await getPosts({ author }) : []
             await createPage({
               path: slug,
               component: path.resolve(`./src/templates/team.js`),
               context: {
-                posts,
                 slug,
+                author,
                 imgMaxWidth: 1000,
               },
             })

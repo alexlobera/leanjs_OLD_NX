@@ -22,6 +22,7 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
 import Newsletter from 'src/components/elements/Newsletter'
 import Card from 'src/components/elements/Card'
+import { getPostsFromNodes } from 'src/components/blog/PostCard'
 
 const trainingList = [
   {
@@ -65,7 +66,11 @@ const metas = {
 }
 
 const ReactPage = ({ data, path }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = getPostsFromNodes({
+    markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+    sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+  })
+
   return (
     <Layout>
       {({ trainings }) => (
@@ -116,7 +121,7 @@ const ReactPage = ({ data, path }) => {
               <Row>
                 <Link to="#free-react-resources" name="free-react-resources" />
                 <Col md={5} mdOffset={1}>
-                  <LearningResources resources={posts} type="React" />
+                  <LearningResources posts={posts} type="React" />
                 </Col>
                 <Link to="#our-react-training" name="our-react-training" />
                 <Col md={4} mdOffset={1} mt={[5, 0]}>
@@ -180,7 +185,17 @@ const ReactPage = ({ data, path }) => {
 
 export const query = graphql`
   query reactPage {
-    allMarkdownRemark(
+    sanityNodes: allSanityPost(
+      filter: { category: { eq: "react" } }
+      sort: { fields: publishedAt, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...SanityPostItemFragment
+      }
+    }
+
+    markdownPosts: allMarkdownRemark(
       filter: {
         fields: { slug: { regex: "/(/react/)/" } }
         frontmatter: { contentType: { eq: "blog" } }
@@ -188,17 +203,8 @@ export const query = graphql`
       sort: { fields: frontmatter___date, order: DESC }
       limit: 3
     ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            imageUrl
-          }
-          excerpt
-        }
+      nodes {
+        ...MarkdownPostItemFragment
       }
     }
   }

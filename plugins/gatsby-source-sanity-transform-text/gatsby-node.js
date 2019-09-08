@@ -34,6 +34,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
           limit: {
             type: GraphQLInt,
             defaultValue: 100,
+            description: `The max number of characters that should be displayed. The excerpt doesn't crop words. If all the characters of a word don't fit the limit then the word is not included.`,
           },
         },
       },
@@ -43,6 +44,8 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
           wordsPerMinute: {
             type: GraphQLInt,
             defaultValue: 200,
+            description:
+              'The number of words a person can read on average in a minute',
           },
         },
       },
@@ -70,7 +73,9 @@ exports.createResolvers = ({ createResolvers }) => {
           const { limit } = args
           const text = toPlainText(source[field])
 
-          return text.substr(0, text.lastIndexOf(' ', limit)) + '...'
+          return text.lenghth > limit
+            ? text.substr(0, text.lastIndexOf(' ', limit)) + '...'
+            : text
         },
       },
     },
