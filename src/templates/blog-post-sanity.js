@@ -15,8 +15,9 @@ import Link from '../components/navigation/Link'
 import Ul, { Li } from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text/H'
 import P from '../components/text/P'
+import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 
-const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
+const Page = ({ data, pageContext: { slug, timeToRead } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
@@ -91,6 +92,11 @@ const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
   console.log('_rawBody', _rawBody)
 
   const body = <BlockContent blocks={_rawBody} serializers={serializers} />
+  const relatedPosts = getPostsFromNodes({
+    markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+    sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+  })
+
   const blogPostProps = {
     body,
     postTypeLabel,
@@ -104,15 +110,45 @@ const Page = ({ data, pageContext: { relatedPosts, slug, timeToRead } }) => {
     title,
     subtitle,
     date,
-    relatedPosts,
     timeToRead,
+    relatedPosts,
   }
-
   return <BlogPost {...blogPostProps} />
 }
 
 export const query = graphql`
-  query sanityPost($id: String!, $sanityImageAssetIds: [String] = []) {
+  query sanityPost(
+    $id: String!
+    $sanityImageAssetIds: [String] = []
+    $tags: [String] = []
+    $slug: String!
+  ) {
+    markdownPosts: allMarkdownRemark(
+      filter: {
+        frontmatter: { contentType: { eq: "blog" }, tags: { in: $tags } }
+        fields: { slug: { ne: $slug } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...MarkdownPostItemFragment
+      }
+    }
+
+    sanityNodes: allSanityPost(
+      filter: {
+        tags: { elemMatch: { name: { in: $tags } } }
+        slug: { current: { ne: $slug } }
+      }
+      sort: { fields: publishedAt, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...SanityPostItemFragment
+      }
+    }
+
     bodyImages: allSanityImageAsset(
       filter: { id: { in: $sanityImageAssetIds } }
     ) {

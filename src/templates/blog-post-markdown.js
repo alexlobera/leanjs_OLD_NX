@@ -18,7 +18,7 @@ import {
 import Tweet from '../components/blog/Tweet'
 import MarketingCard from '../components/curriculum/MarketingCard'
 import BlogPost from '../components/blog/BlogPost'
-import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
+import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -59,6 +59,7 @@ const Page = ({ data }) => {
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
     sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
   })
+
   const blogPostProps = {
     body,
     postTypeLabel:

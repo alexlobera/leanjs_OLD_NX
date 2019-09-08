@@ -23,6 +23,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 import { createSocialMetas } from 'src/components/utils'
 import { titleCase } from 'src/components/utils/text'
 import Gallery from 'src/components/elements/Gallery'
+import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -60,9 +61,13 @@ const massageGalleryImages = images =>
     )
     .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
 
-const Location = ({ path, data, pageContext: { posts } }) => (
+const Location = ({ path, data }) => (
   <Layout>
     {({ trainings }) => {
+      const posts = getPostsFromNodes({
+        markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+        sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+      })
       const { htmlAst, frontmatter } = data.markdownRemark
       const { city } = frontmatter
       const capitalCity = titleCase(city)
@@ -174,7 +179,29 @@ const Location = ({ path, data, pageContext: { posts } }) => (
 )
 
 export const query = graphql`
-  query location($slug: String!, $regex: String!) {
+  query location($slug: String!, $regex: String!, $citySlug: String!) {
+    markdownPosts: allMarkdownRemark(
+      filter: {
+        frontmatter: { contentType: { eq: "blog" }, tags: { in: [$citySlug] } }
+        fields: { slug: { ne: $slug } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...MarkdownPostItemFragment
+      }
+    }
+
+    sanityNodes: allSanityPost(
+      filter: { tags: { elemMatch: { name: { in: [$citySlug] } } } }
+      sort: { fields: publishedAt, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...SanityPostItemFragment
+      }
+    }
     smallImages: allFile(filter: { absolutePath: { regex: $regex } }) {
       edges {
         node {
@@ -207,16 +234,6 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         city
-        # TODO use this instead of the code above when we now how to do it using different sizes from markdown images
-        # galleryImagesSrc {
-        #   publicURL
-        #   childImageSharp {
-        #     original {
-        #       width
-        #       height
-        #     }
-        #   }
-        # }
       }
       htmlAst
     }

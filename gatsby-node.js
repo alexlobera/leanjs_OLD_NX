@@ -27,9 +27,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 function getLastPathFromSlug(slug) {
   const slugNoTrailingSlash = slug.replace(/\/$/g, '')
   const slugArray = slugNoTrailingSlash.split('/')
-  const city = slugArray.pop()
+  return slugArray.pop()
+}
 
-  return city
+function getFirstPathFromSlug(slug) {
+  const slugArray = slug.split('/')
+  return slugArray[1]
 }
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -283,11 +286,15 @@ exports.createPages = async ({ graphql, actions }) => {
               })
             )
           } else if (contentType === 'blog') {
+            const category = getFirstPathFromSlug(slug)
+            const tagsInNoDuplicates = [
+              ...new Set([...node.frontmatter.tags, category]),
+            ]
             await createPage({
               path: slug,
               component: path.resolve(`./src/templates/blog-post-markdown.js`),
               context: {
-                tags: node.frontmatter.tags,
+                tags: tagsInNoDuplicates,
                 slug,
               },
             })
@@ -303,13 +310,12 @@ exports.createPages = async ({ graphql, actions }) => {
               },
             })
           } else if (node.fields.slug.match(locationPath)) {
-            const city = getLastPathFromSlug(slug)
-            const posts = city ? await getPosts({ tagsIn: [city] }) : []
+            const citySlug = getLastPathFromSlug(slug)
             await createPage({
               path: slug,
               component: path.resolve(`./src/templates/location.js`),
               context: {
-                posts,
+                citySlug,
                 slug,
                 imgMaxWidth: 1000,
                 regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,

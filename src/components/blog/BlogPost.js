@@ -146,7 +146,7 @@ const BlogPost = ({
               {relatedPosts.length ? (
                 <Segment border="shadow" small mt={4}>
                   <H4>Related articles</H4>
-                  {relatedPosts.map((post, index) => (
+                  {relatedPosts.splice(0, 5).map((post, index) => (
                     <React.Fragment key={index}>
                       <Link to={post.path} className="blog-article">
                         {formatPostTitle(post.title)}
