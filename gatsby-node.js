@@ -6,6 +6,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { titleCase } = require('./src/components/utils/text')
+const getPostsFromNodes = require('./src/components/blog/getPostsFromNodes')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -34,9 +35,41 @@ function getLastPathFromSlug(slug) {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3 }) => {
+    // TODO move this getPosts function to src/templates/baseTemplate somehow.
+    // It's not clear at this point how to do it because baseTemplate is not really a template and so it's not treated as such by Gatsby.
+    // The problem with this code is that we are duplicating the fragments defined in PostCard component
     const queryPosts = `
       query getPosts($limit: Int = ${limit}) {
-        allMarkdownRemark(
+        sanityNodes: allSanityPost(
+          filter: {   
+            ${
+              tagsNin || tagsIn.length
+                ? `tags: { elemMatch: { name: { in : ["${tagsIn.join(
+                    '","'
+                  )}"], nin: "${tagsNin}" }}}`
+                : ''
+            }
+          }
+          sort: { fields: publishedAt, order: DESC }
+          limit: 3
+        ) {
+          nodes {
+            title
+            excerpt
+            category
+            mainImage {
+              asset {
+                localFile(width: 500, height: 333) {
+                  publicURL
+                }
+              }
+            }
+            slug {
+              current
+            }
+          }
+        }
+        markdownPosts: allMarkdownRemark(
           filter: {
             frontmatter: {
               contentType: { eq: "blog" }
@@ -47,30 +80,30 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
-          sort: { fields: [frontmatter___order], order: DESC }
+          sort: { fields: [frontmatter___date], order: DESC }
           limit: $limit
         ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                imageUrl
-                tags
-              }
-              excerpt
+          nodes {
+            fields {
+              slug
             }
+            frontmatter {
+              title
+              imageUrl
+              tags
+            } 
+            excerpt
           }
         }
       }
     `
+
     const { data } = await graphql(queryPosts)
 
-    return (
-      (data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || []
-    )
+    return getPostsFromNodes({
+      markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+      sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+    })
   }
 
   return new Promise((resolve, reject) => {
@@ -137,10 +170,6 @@ exports.createPages = async ({ graphql, actions }) => {
             _rawBody = [],
             readingTimeInMinutes,
           }) => {
-            const relatedPosts = await getPosts({
-              tagsIn: tags.map(t => t.name),
-            })
-
             const sanityImageAssetIds = _rawBody.reduce(
               (images, { _type, asset = {} }) => {
                 if (_type === 'image' && asset._id) {
@@ -150,12 +179,15 @@ exports.createPages = async ({ graphql, actions }) => {
               },
               []
             )
+            const tagsNoDuplicates = [
+              ...new Set([...tags.map(t => t.name), category]),
+            ]
 
             await createPage({
               path: `/${category}/${currentSlug}`,
               component: path.resolve(`./src/templates/blog-post-sanity.js`),
               context: {
-                relatedPosts,
+                tags: tagsNoDuplicates,
                 id,
                 slug: currentSlug,
                 timeToRead: readingTimeInMinutes,
@@ -184,7 +216,13 @@ exports.createPages = async ({ graphql, actions }) => {
             const financeAvailable = !!citiesFinanceAvailable.find(
               c => city.toLowerCase() === c.toLowerCase()
             )
-            const posts = await getPosts({ tagsIn, tagsNin })
+            const tagsInNoDuplicates = [
+              ...new Set([...tagsIn, restConfig.tech.toLowerCase()]),
+            ]
+            const posts = await getPosts({
+              tagsIn: tagsInNoDuplicates,
+              tagsNin,
+            })
             const {
               videoOneTime,
               videoOneId,
@@ -245,14 +283,11 @@ exports.createPages = async ({ graphql, actions }) => {
               })
             )
           } else if (contentType === 'blog') {
-            const relatedPosts = await getPosts({
-              tagsIn: [node.frontmatter.tags],
-            })
             await createPage({
               path: slug,
               component: path.resolve(`./src/templates/blog-post-markdown.js`),
               context: {
-                relatedPosts,
+                tags: node.frontmatter.tags,
                 slug,
               },
             })

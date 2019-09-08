@@ -18,6 +18,7 @@ import {
 import Tweet from '../components/blog/Tweet'
 import MarketingCard from '../components/curriculum/MarketingCard'
 import BlogPost from '../components/blog/BlogPost'
+import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -43,7 +44,7 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-const Page = ({ data, pageContext: { relatedPosts } }) => {
+const Page = ({ data }) => {
   const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
   const { title, date, subtitle, author, imageUrl } = frontmatter
   const mainImagePublicUrl = imageUrl
@@ -53,11 +54,17 @@ const Page = ({ data, pageContext: { relatedPosts } }) => {
   const postTypeLabel = `${postTypePath
     .charAt(0)
     .toUpperCase()}${postTypePath.slice(1)}`
-
   const body = renderAst(htmlAst)
+  const relatedPosts = getPostsFromNodes({
+    markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+    sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+  })
   const blogPostProps = {
     body,
-    postTypeLabel,
+    postTypeLabel:
+      postTypeLabel.toLocaleLowerCase() === 'graphql'
+        ? 'GraphQL'
+        : postTypeLabel,
     postTypePath,
     slug,
     authorTwitter,
@@ -76,7 +83,30 @@ const Page = ({ data, pageContext: { relatedPosts } }) => {
 }
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
+  query BlogPostQuery($slug: String!, $tags: [String] = []) {
+    markdownPosts: allMarkdownRemark(
+      filter: {
+        frontmatter: { contentType: { eq: "blog" }, tags: { in: $tags } }
+        fields: { slug: { ne: $slug } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...MarkdownPostItemFragment
+      }
+    }
+
+    sanityNodes: allSanityPost(
+      filter: { tags: { elemMatch: { name: { in: $tags } } } }
+      sort: { fields: publishedAt, order: DESC }
+      limit: 3
+    ) {
+      nodes {
+        ...SanityPostItemFragment
+      }
+    }
+
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title

@@ -7,7 +7,8 @@ import { RootHeader as Header } from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
-import PostCard, { getPostsFromNodes } from '../../components/blog/PostCard'
+import PostCard from '../../components/blog/PostCard'
+import getPostsFromNodes from '../../components/blog/getPostsFromNodes'
 
 const Blog = ({ data, path }) => {
   const posts = getPostsFromNodes({

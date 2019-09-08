@@ -16,7 +16,8 @@ import ContactForm from '../form/Contact'
 import { Segment } from '../elements'
 import ShareButtons from './ShareButtons'
 
-export const formatPostTitle = title => title.replace(/(<([^>]+)>)/gi, ' ')
+export const formatPostTitle = title =>
+  title ? title.replace(/(<([^>]+)>)/gi, ' ') : ''
 
 const StyledAuthor = styled.div`
   display: flex;
@@ -81,7 +82,7 @@ const BlogPost = ({
   date,
   subtitle,
   timeToRead,
-  relatedPosts,
+  relatedPosts = [],
 }) => (
   <Layout loadAutopilot={false}>
     {({ trainings }) => (
@@ -147,10 +148,10 @@ const BlogPost = ({
                   <H4>Related articles</H4>
                   {relatedPosts.map((post, index) => (
                     <React.Fragment key={index}>
-                      <Link to={post.node.fields.slug} className="blog-article">
-                        {formatPostTitle(post.node.frontmatter.title)}
+                      <Link to={post.path} className="blog-article">
+                        {formatPostTitle(post.title)}
                       </Link>
-                      <P>{formatUTC(post.node.frontmatter.date)}</P>
+                      <P>{formatUTC(post.date || post.publishedAt)}</P>
                     </React.Fragment>
                   ))}
                 </Segment>
@@ -166,7 +167,7 @@ const BlogPost = ({
                 This website is built using Gatsbyjs. Curious about how this
                 blog is implemented? It's open source so you can{' '}
                 <Link
-                  to="https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/templates/blog-post.js"
+                  to="https://github.com/reactgraphqlacademy/reactgraphqlacademy"
                   className="blog-article"
                 >
                   check the source code

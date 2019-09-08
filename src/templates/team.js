@@ -14,7 +14,7 @@ import Ul, { Li } from '../components/layout/Ul'
 import { Video, Image } from '../components/elements'
 import { UpcomingTrainingSection } from '../components/training'
 import BlogSection from 'src/components/blog/BlogSection'
-import { getPostsFromNodes } from 'src/components/blog/PostCard'
+import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
 import { createSocialMetas } from 'src/components/utils/index'
 
 const renderAst = new rehypeReact({
