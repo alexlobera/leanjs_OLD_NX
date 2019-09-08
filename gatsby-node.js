@@ -127,6 +127,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
+        teamPages: allSanityPerson {
+          nodes {
+            username {
+              current
+            }
+          }
+        }
+
         allMarkdownRemark {
           edges {
             node {
@@ -158,10 +166,21 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `).then(async result => {
-      const coachPath = /^\/team/
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
       const citiesFinanceAvailable = ['london']
+
+      await Promise.all(
+        result.data.teamPages.nodes.map(({ username: { current } }) =>
+          createPage({
+            path: `/team/${current}`,
+            component: path.resolve(`./src/templates/team-member.js`),
+            context: {
+              username: current,
+            },
+          })
+        )
+      )
 
       await Promise.all(
         result.data.allSanityPost.nodes.map(
@@ -171,7 +190,6 @@ exports.createPages = async ({ graphql, actions }) => {
             category,
             tags = [],
             _rawBody = [],
-            readingTimeInMinutes,
           }) => {
             const sanityImageAssetIds = _rawBody.reduce(
               (images, { _type, asset = {} }) => {
@@ -193,7 +211,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 tags: tagsNoDuplicates,
                 id,
                 slug: currentSlug,
-                timeToRead: readingTimeInMinutes,
                 sanityImageAssetIds,
               },
             })
@@ -296,15 +313,6 @@ exports.createPages = async ({ graphql, actions }) => {
               context: {
                 tags: tagsInNoDuplicates,
                 slug,
-              },
-            })
-          } else if (slug.match(coachPath)) {
-            const username = getLastPathFromSlug(slug)
-            await createPage({
-              path: slug,
-              component: path.resolve(`./src/templates/team-member.js`),
-              context: {
-                username,
               },
             })
           } else if (node.fields.slug.match(locationPath)) {

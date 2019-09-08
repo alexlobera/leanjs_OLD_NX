@@ -235,30 +235,4 @@ export const query = graphql`
   }
 `
 
-// markdownRemark(fields: { slug: { eq: $slug } }) {
-//   frontmatter {
-//     name
-//     title
-//     companyName
-//     companyLink
-//     gitHub
-//     medium
-//     twitter
-//     linkedIn
-//     instagram
-//     blockquote
-//     youtubeVideoId
-//     videoDescription
-//     imageDescription
-//     imageSrc {
-//       childImageSharp {
-//         fluid(maxWidth: $imgMaxWidth) {
-//           ...GatsbyImageSharpFluid
-//         }
-//       }
-//     }
-//     tags
-//   }
-//   htmlAst
-// }
 export default TeamMember

@@ -17,7 +17,7 @@ import { H2, H3, H4, H5 } from '../components/text/H'
 import P from '../components/text/P'
 import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 
-const Page = ({ data, pageContext: { slug, timeToRead } }) => {
+const Page = ({ data, pageContext: { slug } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
@@ -73,6 +73,7 @@ const Page = ({ data, pageContext: { slug, timeToRead } }) => {
     subtitle,
     publishedAt: date,
     _rawBody,
+    readingTimeInMinutes,
   } = data.sanityPost
 
   const mainImagePublicUrl =
@@ -110,7 +111,7 @@ const Page = ({ data, pageContext: { slug, timeToRead } }) => {
     title,
     subtitle,
     date,
-    timeToRead,
+    timeToRead: readingTimeInMinutes,
     relatedPosts,
   }
   return <BlogPost {...blogPostProps} />
@@ -164,6 +165,7 @@ export const query = graphql`
       title
       subtitle
       publishedAt
+      readingTimeInMinutes
       author {
         twitter
         fullname
