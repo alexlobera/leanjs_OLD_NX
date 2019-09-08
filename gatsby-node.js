@@ -299,14 +299,12 @@ exports.createPages = async ({ graphql, actions }) => {
               },
             })
           } else if (slug.match(coachPath)) {
-            const author = getLastPathFromSlug(slug)
+            const username = getLastPathFromSlug(slug)
             await createPage({
               path: slug,
-              component: path.resolve(`./src/templates/team.js`),
+              component: path.resolve(`./src/templates/team-member.js`),
               context: {
-                slug,
-                author,
-                imgMaxWidth: 1000,
+                username,
               },
             })
           } else if (node.fields.slug.match(locationPath)) {

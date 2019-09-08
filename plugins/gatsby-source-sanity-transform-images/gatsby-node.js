@@ -11,6 +11,10 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
             type: GraphQLInt,
             defaultValue: 600,
           },
+          format: {
+            type: GraphQLString,
+            defaultValue: 'jpg',
+          },
           height: {
             type: GraphQLInt,
           },
@@ -38,9 +42,9 @@ exports.createResolvers = ({
   const resolvers = {
     SanityImageAsset: {
       localFile: {
-        resolve: (source, { width, height, fit }, context, info) => {
+        resolve: (source, { width, height, fit, format }) => {
           return createRemoteFileNode({
-            url: `${source.url}?w=${width}${
+            url: `${source.url}?w=${width}&fm=${format}${
               height ? `&h=${height}` : ''
             }&fit=${fit}`,
             store,

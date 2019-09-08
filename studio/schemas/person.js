@@ -31,10 +31,17 @@ export default {
       },
     },
     {
-      name: 'profileBulletPoints',
-      title: 'Profile bullet points',
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'description',
+      title: 'Description',
       type: 'richBulletPoints',
-      // of: [{ type: 'richBulletPoints' }],
     },
     {
       name: 'jobTitle',
@@ -55,7 +62,6 @@ export default {
       name: 'academyRole',
       title: 'Academy role',
       type: 'string',
-      validation: Rule => Rule.required(),
       options: {
         list: [
           { title: 'Coach', value: 'coach' },
@@ -89,7 +95,7 @@ export default {
     },
     {
       name: 'linkedIn',
-      title: 'LinkedIn',
+      title: 'LinkedIn URL',
       type: 'url',
     },
     {
@@ -98,8 +104,8 @@ export default {
       type: 'string',
     },
     {
-      name: 'youtubeVideoId',
-      title: 'YoutTube Video Id',
+      name: 'youtubeVideo',
+      title: 'YoutTube Video',
       type: 'youtube',
     },
     {

@@ -8,14 +8,13 @@ const Preview = ({ value: { id } }) => <YouTube videoId={id} />
 export default {
   name: 'youtube',
   type: 'object',
-  title: 'YouTube ID',
+  title: 'YouTube',
   icon: () => <FontAwesomeIcon icon={faYoutube} />,
   fields: [
     {
-      name: 'id',
+      name: 'videoId',
       type: 'string',
       title: 'YouTube video ID',
-      validation: Rule => Rule.required(),
     },
     {
       name: 'description',
