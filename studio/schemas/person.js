@@ -1,3 +1,5 @@
+import { usernameValidator } from './validators'
+
 export default {
   name: 'person',
   title: 'Person',
@@ -7,6 +9,7 @@ export default {
       name: 'fullname',
       title: 'Fullname',
       type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'username',
@@ -16,19 +19,93 @@ export default {
         source: 'fullname',
         maxLength: 128,
       },
-    },
-    {
-      name: 'twitter',
-      title: 'Twitter',
-      type: 'string',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
+      validation: Rule => Rule.required(),
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'profileBulletPoints',
+      title: 'Profile bullet points',
+      type: 'richBulletPoints',
+      // of: [{ type: 'richBulletPoints' }],
+    },
+    {
+      name: 'jobTitle',
+      title: 'Job title',
+      type: 'string',
+    },
+    {
+      name: 'companyName',
+      title: 'Company name',
+      type: 'string',
+    },
+    {
+      name: 'companyLink',
+      title: 'Company website',
+      type: 'url',
+    },
+    {
+      name: 'academyRole',
+      title: 'Academy role',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      options: {
+        list: [
+          { title: 'Coach', value: 'coach' },
+          { title: 'Other', value: '' },
+        ],
+      },
+    },
+    {
+      name: 'twitter',
+      title: 'Twitter username',
+      type: 'string',
+      validation: usernameValidator,
+    },
+    {
+      name: 'gitHub',
+      title: 'GitHub username',
+      type: 'string',
+      validation: usernameValidator,
+    },
+    {
+      name: 'medium',
+      title: 'Medium username',
+      type: 'string',
+      validation: usernameValidator,
+    },
+    {
+      name: 'instagram',
+      title: 'Instagram username',
+      type: 'string',
+      validation: usernameValidator,
+    },
+    {
+      name: 'linkedIn',
+      title: 'LinkedIn',
+      type: 'url',
+    },
+    {
+      name: 'blockquote',
+      title: 'Blockquote',
+      type: 'string',
+    },
+    {
+      name: 'youtubeVideoId',
+      title: 'YoutTube Video Id',
+      type: 'youtube',
+    },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'string',
     },
   ],
   preview: {

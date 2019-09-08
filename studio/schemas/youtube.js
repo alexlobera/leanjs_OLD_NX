@@ -17,6 +17,11 @@ export default {
       title: 'YouTube video ID',
       validation: Rule => Rule.required(),
     },
+    {
+      name: 'description',
+      type: 'string',
+      title: 'Description',
+    },
   ],
   preview: {
     select: {
