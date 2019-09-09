@@ -12,6 +12,9 @@ package-lock.json
 # functions 
 functions/config
 
+# Sanity Studio
+studio/dist
+
 # Build directory
 /public
 .DS_Store
