@@ -62,13 +62,5 @@ export default {
     {
       type: 'code',
     },
-    // {
-    //   name: 'exampleUsage',
-    //   title: 'Example usage',
-    //   type: 'code',
-    //   options: {
-    //     language: 'js',
-    //   },
-    // },
   ],
 }
