@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import { H3, P } from '../../components/text'
 import { Link } from '../../components/navigation'
