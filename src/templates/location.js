@@ -86,7 +86,6 @@ const Location = ({ path, data }) => (
       })
 
       const smallGalleryImages = massageGalleryImages(data.images, 'sm')
-      debugger
       const largeGalleryImages = massageGalleryImages(data.images, 'lg')
 
       const galleryImages = smallGalleryImages.map(

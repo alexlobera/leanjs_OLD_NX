@@ -90,8 +90,6 @@ const Page = ({ data, pageContext: { slug } }) => {
     authorImage.asset.localFile &&
     authorImage.asset.localFile.publicURL
 
-  console.log('_rawBody', _rawBody)
-
   const body = <BlockContent blocks={_rawBody} serializers={serializers} />
   const relatedPosts = getPostsFromNodes({
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
