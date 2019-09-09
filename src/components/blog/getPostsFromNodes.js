@@ -19,8 +19,6 @@ function getPostsFromNodes({ markdownNodes, sanityNodes }) {
     markdownNodes.map(node => ({
       path: node.fields.slug,
       imageUrl: node.frontmatter.imageUrl,
-      // || (node.frontmatter.imageSrc &&
-      //   node.frontmatter.imageSrc.childImageSharp.fluid.src),
       title: node.frontmatter.title,
       excerpt: node.excerpt,
     }))
