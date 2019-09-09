@@ -99,7 +99,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       submenuItems={
         Array [
           Object {
-            "text": "About our coaches",
+            "text": "The Academy",
             "to": "/about-us",
           },
           Object {

@@ -76,7 +76,7 @@ exports[`<PhoneMenu /> should render a menu with less than 8 items in the first 
       onClick={[Function]}
       to="/about-us"
     >
-      About our coaches
+      The Academy
     </PhoneMenuItem>
     <PhoneMenuItem
       key="#contact-us"
