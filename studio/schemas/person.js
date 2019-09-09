@@ -42,6 +42,7 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'richBulletPoints',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'jobTitle',
