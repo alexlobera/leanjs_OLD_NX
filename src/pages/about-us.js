@@ -18,50 +18,57 @@ import Box from '../components/layout/Box'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
 
 const renderProfile = ({
-  frontmatter: {
-    name,
-    imageSrc: {
-      childImageSharp: {
-        fluid: { src: imageSrc },
-      },
-    },
-    imageDescription,
-    title,
-    companyName,
-    companyLink,
-    blockquote,
-  },
-  fields: { slug },
-}) => (
-  <Col md={4}>
-    <Box mr={5} mb={5} pb={5}>
-      <Row>
-        <Col md={4}>
-          <Link to={slug} className="coach-full-profile">
-            <Image circle src={imageSrc} width="100%" alt={imageDescription} />
+  fullname,
+  username: { current },
+  image,
+  jobTitle,
+  companyName,
+  companyLink,
+  blockquote,
+}) => {
+  const imageSrc =
+    image &&
+    image.asset &&
+    image.asset.localFile &&
+    image.asset.localFile.publicURL
+  const slug = `/team/${current}/`
+
+  return (
+    <Col md={4}>
+      <Box mr={5} mb={5} pb={5}>
+        <Row>
+          <Col md={4}>
+            <Link to={slug} className="coach-full-profile">
+              <Image
+                circle
+                src={imageSrc}
+                width="100%"
+                alt={`${fullname} ${jobTitle} at ${companyName}`}
+              />
+            </Link>
+          </Col>
+          <Col md={8}>
+            <Box>
+              <H5 mb={1}>{fullname}</H5>
+              <P>
+                {jobTitle} at{' '}
+                <Link to={companyLink} className="coach-profiles">
+                  {companyName}
+                </Link>
+              </P>
+            </Box>
+          </Col>
+        </Row>
+        <Teamquote blockquote={blockquote}>
+          <br />
+          <Link className="coach-full-profile" to={slug}>
+            Full profile
           </Link>
-        </Col>
-        <Col md={8}>
-          <Box>
-            <H5 mb={1}>{name}</H5>
-            <P>
-              {title} at{' '}
-              <Link to={companyLink} className="coach-profiles">
-                {companyName}
-              </Link>
-            </P>
-          </Box>
-        </Col>
-      </Row>
-      <Teamquote blockquote={blockquote}>
-        <br />
-        <Link className="coach-full-profile" to={slug}>
-          Full profile
-        </Link>
-      </Teamquote>
-    </Box>
-  </Col>
-)
+        </Teamquote>
+      </Box>
+    </Col>
+  )
+}
 
 const AboutUs = ({ data }) => {
   const coaches = data.coaches.nodes
@@ -295,49 +302,43 @@ const AboutUs = ({ data }) => {
   )
 }
 export const query = graphql`
-  query profiles($imgMaxWidth: Int!) {
-    coaches: allMarkdownRemark(
-      filter: {
-        fields: { slug: { regex: "/team/" } }
-        frontmatter: { isCoach: { ne: false } }
-      }
-      sort: { fields: frontmatter___order, order: ASC }
+  query profiles {
+    coaches: allSanityPerson(
+      sort: { fields: order, order: ASC }
+      filter: { academyRole: { eq: "coach" } }
     ) {
       nodes {
-        ...profile
+        ...Profile
       }
     }
-    team: allMarkdownRemark(
-      filter: {
-        fields: { slug: { regex: "/team/" } }
-        frontmatter: { isCoach: { eq: false } }
-      }
-      sort: { fields: frontmatter___order, order: ASC }
+
+    team: allSanityPerson(
+      sort: { fields: order, order: ASC }
+      filter: { academyRole: { ne: "coach" } }
     ) {
       nodes {
-        ...profile
+        ...Profile
       }
     }
   }
-  fragment profile on MarkdownRemark {
-    frontmatter {
-      imageSrc {
-        childImageSharp {
-          fluid(maxWidth: $imgMaxWidth) {
-            ...GatsbyImageSharpFluid
-          }
+
+  fragment Profile on SanityPerson {
+    fullname
+    username {
+      current
+    }
+    image {
+      asset {
+        url
+        localFile(width: 500) {
+          publicURL
         }
       }
-      imageDescription
-      name
-      title
-      companyName
-      companyLink
-      blockquote
     }
-    fields {
-      slug
-    }
+    jobTitle
+    companyName
+    companyLink
+    blockquote
   }
 `
 

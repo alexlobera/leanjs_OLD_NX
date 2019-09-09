@@ -8,9 +8,14 @@ import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
+import getPostsFromNodes from '../../components/blog/getPostsFromNodes'
 
 const Blog = ({ data, path }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = getPostsFromNodes({
+    markdownNodes: data.allMarkdownRemark.nodes,
+    sanityNodes: data.allSanityPost.nodes,
+  })
+
   return (
     <Layout>
       {({ trainings }) => (
@@ -26,8 +31,8 @@ const Blog = ({ data, path }) => {
           />
           <TopSection>
             <Row>
-              {posts.map(({ node: post }) => (
-                <Col lg={4} key={post.fields.slug}>
+              {posts.map(post => (
+                <Col lg={4} key={post.path}>
                   <PostCard post={post} />
                 </Col>
               ))}
@@ -42,28 +47,18 @@ const Blog = ({ data, path }) => {
 
 export const query = graphql`
   query blogQuery {
+    allSanityPost(sort: { fields: order, order: ASC }) {
+      nodes {
+        ...SanityPostItemFragment
+      }
+    }
+
     allMarkdownRemark(
       filter: { frontmatter: { contentType: { eq: "blog" } } }
       sort: { fields: [frontmatter___order], order: DESC }
     ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            imageUrl
-            imageSrc {
-              childImageSharp {
-                fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          excerpt
-        }
+      nodes {
+        ...MarkdownPostItemFragment
       }
     }
   }

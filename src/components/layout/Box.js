@@ -12,7 +12,62 @@ import {
 } from 'styled-system'
 import { DARK_GREY } from '../../config/styles'
 
-export const StyledBox = styled('div')(
+const PropsBlackList = ({
+  as: _as,
+  box,
+  m,
+  p,
+  mx,
+  my,
+  mt,
+  mb,
+  ml,
+  mr,
+  pt,
+  pl,
+  pr,
+  pb,
+  px,
+  py,
+  lineheight,
+  fontFamily,
+  fontWeight,
+  color,
+  display,
+  variant,
+  position,
+  border,
+  borderColor,
+  lineHeight,
+  borderLeft,
+  fontSize,
+  backgroundColor,
+  paddingBottom,
+  bgColor,
+  bgImageOpacity,
+  bgImage,
+  boxShadow,
+  fontStyle,
+  textShadow,
+  borderRadius,
+  textAlign,
+  letterSpacing,
+  alignItems,
+  flexDirection,
+  sm,
+  alignSelf,
+  small,
+  fullHeight,
+  bgColors,
+  bg,
+  ...rest
+}) => {
+  const Component = box || _as || 'div'
+
+  return <Component {...rest} />
+}
+
+export const StyledBox = styled(PropsBlackList)(
   compose(
     space,
     color,
@@ -24,18 +79,11 @@ export const StyledBox = styled('div')(
   )
 )
 
-const Box = React.forwardRef(({ children, ...rest }, ref) => {
-  const props = {
-    ...rest,
-    as: rest.box || rest.as || rest.undefined,
-  }
-
-  return (
-    <StyledBox {...props} ref={ref}>
-      {children}
-    </StyledBox>
-  )
-})
+const Box = React.forwardRef(({ children, ...rest }, ref) => (
+  <StyledBox {...rest} ref={ref}>
+    {children}
+  </StyledBox>
+))
 
 Box.displayName = 'Box'
 Box.defaultProps = {

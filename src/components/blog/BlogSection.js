@@ -24,8 +24,8 @@ const BlogSection = ({ posts, title = 'Related articles' }) => {
         </Col>
       </Row>
       <Row>
-        {posts.map(({ node: post }) => (
-          <Col md={4} key={post.fields.slug}>
+        {posts.slice(0, 3).map(post => (
+          <Col md={4} key={post.slug}>
             <PostCard small post={post} />
           </Col>
         ))}

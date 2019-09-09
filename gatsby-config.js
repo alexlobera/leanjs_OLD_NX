@@ -1,3 +1,7 @@
+const {
+  api: { projectId: sanityProjectId, dataset: sanityDataset },
+} = require('./studio/sanity.json')
+
 module.exports = {
   siteMetadata: {
     title: 'React & GraphQL Expert Training | React GraphQL Academy',
@@ -44,6 +48,15 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/images/`,
+      },
+    },
+    'gatsby-source-sanity-transform-images',
+    'gatsby-source-sanity-transform-text',
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: sanityProjectId,
+        dataset: sanityDataset,
       },
     },
     {

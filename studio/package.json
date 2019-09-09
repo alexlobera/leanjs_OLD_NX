@@ -1,0 +1,41 @@
+{
+  "name": "reactgraphqlacademysite",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Alex Lobera <alex.lobera@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "deploy": "sanity deploy",
+    "deploy:schema:production": "sanity graphql deploy --dataset production",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-brands-svg-icons": "^5.10.2",
+    "@fortawesome/free-regular-svg-icons": "^5.10.2",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@sanity/base": "^0.142.2",
+    "@sanity/code-input": "^0.142.0",
+    "@sanity/components": "^0.142.4",
+    "@sanity/core": "^0.142.4",
+    "@sanity/default-layout": "^0.142.4",
+    "@sanity/default-login": "^0.142.3",
+    "@sanity/desk-tool": "^0.142.4",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-dom": "^16.2",
+    "react-youtube": "^7.9.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:reactgraphqlacademy/reactgraphqlacademy.git"
+  }
+}

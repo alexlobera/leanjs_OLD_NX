@@ -6,6 +6,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { titleCase } = require('./src/components/utils/text')
+const getPostsFromNodes = require('./src/components/blog/getPostsFromNodes')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -26,21 +27,55 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 function getLastPathFromSlug(slug) {
   const slugNoTrailingSlash = slug.replace(/\/$/g, '')
   const slugArray = slugNoTrailingSlash.split('/')
-  const city = slugArray.pop()
+  return slugArray.pop()
+}
 
-  return city
+function getFirstPathFromSlug(slug) {
+  const slugArray = slug.split('/')
+  return slugArray[1]
 }
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3, author }) => {
+  const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3 }) => {
+    // TODO move this getPosts function to src/templates/baseTemplate somehow.
+    // It's not clear at this point how to do it because baseTemplate is not really a template and so it's not treated as such by Gatsby.
+    // The problem with this code is that we are duplicating the fragments defined in PostCard component
     const queryPosts = `
       query getPosts($limit: Int = ${limit}) {
-        allMarkdownRemark(
+        sanityNodes: allSanityPost(
+          filter: {   
+            ${
+              tagsNin || tagsIn.length
+                ? `tags: { elemMatch: { name: { in : ["${tagsIn.join(
+                    '","'
+                  )}"], nin: "${tagsNin}" }}}`
+                : ''
+            }
+          }
+          sort: { fields: publishedAt, order: DESC }
+          limit: 3
+        ) {
+          nodes {
+            title
+            excerpt
+            category
+            mainImage {
+              asset {
+                localFile(width: 500, height: 333) {
+                  publicURL
+                }
+              }
+            }
+            slug {
+              current
+            }
+          }
+        }
+        markdownPosts: allMarkdownRemark(
           filter: {
             frontmatter: {
               contentType: { eq: "blog" }
-              ${author ? `author: { eq: "${author}" }` : ''}
               ${
                 tagsNin || tagsIn.length
                   ? `tags: { in: ["${tagsIn.join('","')}"], nin: "${tagsNin}" }`
@@ -48,35 +83,58 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
-          sort: { fields: [frontmatter___order], order: DESC }
+          sort: { fields: [frontmatter___date], order: DESC }
           limit: $limit
         ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                imageUrl
-                tags
-              }
-              excerpt
+          nodes {
+            fields {
+              slug
             }
+            frontmatter {
+              title
+              imageUrl
+              tags
+            } 
+            excerpt
           }
         }
       }
     `
+
     const { data } = await graphql(queryPosts)
 
-    return (
-      (data && data.allMarkdownRemark && data.allMarkdownRemark.edges) || []
-    )
+    return getPostsFromNodes({
+      markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+      sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+    })
   }
 
   return new Promise((resolve, reject) => {
     graphql(`
       {
+        allSanityPost(sort: { order: ASC, fields: order }) {
+          nodes {
+            _rawBody(resolveReferences: { maxDepth: 5 })
+            readingTimeInMinutes
+            id
+            category
+            slug {
+              current
+            }
+            tags {
+              name
+            }
+          }
+        }
+
+        teamPages: allSanityPerson {
+          nodes {
+            username {
+              current
+            }
+          }
+        }
+
         allMarkdownRemark {
           edges {
             node {
@@ -108,131 +166,179 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `).then(async result => {
-      const coachPath = /^\/team/
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
       const citiesFinanceAvailable = ['london']
-      await result.data.allMarkdownRemark.edges.forEach(async ({ node }) => {
-        const { slug } = node.fields
-        const { contentType } = node.frontmatter
-        if (slug.match(instancePath)) {
-          const city = getLastPathFromSlug(slug)
-          const titleCaseCity = titleCase(city)
-          const instancesToCreate = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-          const pathConfig = path.resolve(`./src/pages/${slug}../config.json`)
-          const {
-            instanceTemplate,
-            tagsIn = [],
-            tagsNin = '',
-            ...restConfig
-          } = require(pathConfig)
-          const financeAvailable = !!citiesFinanceAvailable.find(
-            c => city.toLowerCase() === c.toLowerCase()
-          )
-          const posts = await getPosts({ tagsIn, tagsNin })
-          const {
-            videoOneTime,
-            videoOneId,
-            videoOneQuote,
-            videoOneFullname,
-            videoOneJob,
-            videoOneCompany,
-            videoTwoTime,
-            videoTwoId,
-            videoTwoQuote,
-            videoTwoFullname,
-            videoTwoJob,
-            videoTwoCompany,
-          } = node.frontmatter
 
-          await Promise.all(
-            instancesToCreate.map(async nth => {
-              const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
-              await createPage({
-                path: pagePath,
-                component: path.resolve(
-                  `./src/templates/instance/${instanceTemplate}.js`
-                ),
-                context: {
-                  videoOneTime,
-                  videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',
-                  videoOneQuote,
-                  videoOneFullname,
-                  videoOneJob,
-                  videoOneCompany,
-                  videoTwoTime,
-                  videoTwoId: videoTwoId ? videoTwoId : 'blg40SCle7I',
-                  videoTwoQuote: videoTwoQuote
-                    ? videoTwoQuote
-                    : "We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns...",
-                  videoTwoFullname: videoTwoFullname
-                    ? videoTwoFullname
-                    : 'Lara Ramey',
-                  videoTwoJob: videoTwoJob ? videoTwoJob : 'Software Developer',
-                  videoTwoCompany: videoTwoCompany
-                    ? videoTwoCompany
-                    : 'Meredith Corporation',
-                  posts,
-                  city: titleCaseCity,
-                  financeAvailable,
-                  instanceTitle: `${restConfig.title} ${titleCaseCity}`,
-                  nth,
-                  coaches: (node.frontmatter && node.frontmatter.coaches) || [],
-                  subtitle:
-                    (node.frontmatter && node.frontmatter.subtitle) || '',
-                  canonical: `https://reactgraphql.academy${slug}`,
-                  ...restConfig,
-                },
-              })
+      await Promise.all(
+        result.data.teamPages.nodes.map(({ username: { current } }) =>
+          createPage({
+            path: `/team/${current}`,
+            component: path.resolve(`./src/templates/team-member.js`),
+            context: {
+              username: current,
+            },
+          })
+        )
+      )
+
+      await Promise.all(
+        result.data.allSanityPost.nodes.map(
+          async ({
+            id,
+            slug: { current: currentSlug },
+            category,
+            tags = [],
+            _rawBody = [],
+          }) => {
+            const sanityImageAssetIds = _rawBody.reduce(
+              (images, { _type, asset = {} }) => {
+                if (_type === 'image' && asset._id) {
+                  return [...images, asset._id]
+                }
+                return images
+              },
+              []
+            )
+            const tagsNoDuplicates = [
+              ...new Set([...tags.map(t => t.name), category]),
+            ]
+
+            await createPage({
+              path: `/${category}/${currentSlug}`,
+              component: path.resolve(`./src/templates/blog-post-sanity.js`),
+              context: {
+                tags: tagsNoDuplicates,
+                id,
+                slug: currentSlug,
+                sanityImageAssetIds,
+              },
             })
-          )
-        } else if (contentType === 'blog') {
-          const relatedPosts = await getPosts({
-            tagsIn: [node.frontmatter.tags],
-          })
-          await createPage({
-            path: slug,
-            component: path.resolve(`./src/templates/blog-post.js`),
-            context: {
-              relatedPosts,
-              slug,
-            },
-          })
-        } else if (slug.match(coachPath)) {
-          const author = getLastPathFromSlug(slug)
-          const posts = author ? await getPosts({ author }) : []
-          await createPage({
-            path: slug,
-            component: path.resolve(`./src/templates/team.js`),
-            context: {
-              posts,
-              slug,
-              imgMaxWidth: 1000,
-            },
-          })
-        } else if (node.fields.slug.match(locationPath)) {
-          const city = getLastPathFromSlug(slug)
-          const posts = city ? await getPosts({ tagsIn: [city] }) : []
-          await createPage({
-            path: slug,
-            component: path.resolve(`./src/templates/location.js`),
-            context: {
-              posts,
-              slug,
-              imgMaxWidth: 1000,
-              regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,
-            },
-          })
-        } else {
-          await createPage({
-            path: slug,
-            component: path.resolve(`./src/templates/landing.js`),
-            context: {
-              slug,
-            },
-          })
-        }
-      })
+          }
+        )
+      )
+
+      await Promise.all(
+        result.data.allMarkdownRemark.edges.map(async ({ node }) => {
+          const { slug } = node.fields
+          const { contentType } = node.frontmatter
+          if (slug.match(instancePath)) {
+            const city = getLastPathFromSlug(slug)
+            const titleCaseCity = titleCase(city)
+            const instancesToCreate = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            const pathConfig = path.resolve(`./src/pages/${slug}../config.json`)
+            const {
+              instanceTemplate,
+              tagsIn = [],
+              tagsNin = '',
+              ...restConfig
+            } = require(pathConfig)
+            const financeAvailable = !!citiesFinanceAvailable.find(
+              c => city.toLowerCase() === c.toLowerCase()
+            )
+            const tagsInNoDuplicates = [
+              ...new Set([...tagsIn, restConfig.tech.toLowerCase()]),
+            ]
+            const posts = await getPosts({
+              tagsIn: tagsInNoDuplicates,
+              tagsNin,
+            })
+            const {
+              videoOneTime,
+              videoOneId,
+              videoOneQuote,
+              videoOneFullname,
+              videoOneJob,
+              videoOneCompany,
+              videoTwoTime,
+              videoTwoId,
+              videoTwoQuote,
+              videoTwoFullname,
+              videoTwoJob,
+              videoTwoCompany,
+            } = node.frontmatter
+
+            await Promise.all(
+              instancesToCreate.map(async nth => {
+                const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
+                await createPage({
+                  path: pagePath,
+                  component: path.resolve(
+                    `./src/templates/instance/${instanceTemplate}.js`
+                  ),
+                  context: {
+                    videoOneTime,
+                    videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',
+                    videoOneQuote,
+                    videoOneFullname,
+                    videoOneJob,
+                    videoOneCompany,
+                    videoTwoTime,
+                    videoTwoId: videoTwoId ? videoTwoId : 'blg40SCle7I',
+                    videoTwoQuote: videoTwoQuote
+                      ? videoTwoQuote
+                      : "We're moving to React so I've looked at the codebase to identify where we could be using advanced patterns...",
+                    videoTwoFullname: videoTwoFullname
+                      ? videoTwoFullname
+                      : 'Lara Ramey',
+                    videoTwoJob: videoTwoJob
+                      ? videoTwoJob
+                      : 'Software Developer',
+                    videoTwoCompany: videoTwoCompany
+                      ? videoTwoCompany
+                      : 'Meredith Corporation',
+                    posts,
+                    city: titleCaseCity,
+                    financeAvailable,
+                    instanceTitle: `${restConfig.title} ${titleCaseCity}`,
+                    nth,
+                    coaches:
+                      (node.frontmatter && node.frontmatter.coaches) || [],
+                    subtitle:
+                      (node.frontmatter && node.frontmatter.subtitle) || '',
+                    canonical: `https://reactgraphql.academy${slug}`,
+                    ...restConfig,
+                  },
+                })
+              })
+            )
+          } else if (contentType === 'blog') {
+            const category = getFirstPathFromSlug(slug)
+            const tagsInNoDuplicates = [
+              ...new Set([...node.frontmatter.tags, category]),
+            ]
+            await createPage({
+              path: slug,
+              component: path.resolve(`./src/templates/blog-post-markdown.js`),
+              context: {
+                tags: tagsInNoDuplicates,
+                slug,
+              },
+            })
+          } else if (node.fields.slug.match(locationPath)) {
+            const citySlug = getLastPathFromSlug(slug)
+            await createPage({
+              path: slug,
+              component: path.resolve(`./src/templates/location.js`),
+              context: {
+                citySlug,
+                slug,
+                imgMaxWidth: 1000,
+                // regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,
+                regex: `./images/locations/${node.frontmatter.city.toLowerCase()}/`,
+              },
+            })
+          } else {
+            await createPage({
+              path: slug,
+              component: path.resolve(`./src/templates/landing.js`),
+              context: {
+                slug,
+              },
+            })
+          }
+        })
+      )
 
       resolve()
     })

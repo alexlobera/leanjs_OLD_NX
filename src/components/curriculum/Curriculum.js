@@ -42,6 +42,7 @@ export const renderSection = ({
   const day = index + initialIndex
   const curriculumDay = preEvening ? day - 1 : day
   const sectionTitle = title || `${titlePrefix} ${curriculumDay}`
+
   return (
     <Section
       title={sectionTitle}

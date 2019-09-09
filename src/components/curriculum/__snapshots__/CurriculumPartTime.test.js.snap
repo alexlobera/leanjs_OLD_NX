@@ -9,6 +9,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session1"
         title="Session 1 - Modern JavaScript"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <ES6Session />
       </CurriculumSection>,
@@ -16,6 +18,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session2"
         title="Session 2 - Thinking in React"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <ThinkingInReactSession />
       </CurriculumSection>,
@@ -23,6 +27,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session3"
         title="Session 3 - Routing & Data Fetching"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <RoutingAndDataFetchingSession />
       </CurriculumSection>,
@@ -30,6 +36,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session4"
         title="Session 4 - Forms & Auth"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <FormsAndAuthSession />
       </CurriculumSection>,
@@ -37,6 +45,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session5"
         title="Session 5 - Recap: build a React app from scratch"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <ReactFundamentalsRecapSession />
       </CurriculumSection>,
@@ -48,6 +58,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session6"
         title="Session 6 - Redux"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <IntroReduxSession />
       </CurriculumSection>,
@@ -55,6 +67,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session7"
         title="Session 7 - Testing Fundamentals in JS"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <TestingIntroSession />
       </CurriculumSection>,
@@ -62,6 +76,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session8"
         title="Session 8 - Styling in React"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <StylingInReactSession />
       </CurriculumSection>,
@@ -69,6 +85,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session9"
         title="Session 9 - React Hooks"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <HooksSession />
       </CurriculumSection>,
@@ -76,6 +94,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
         mt={4}
         name="session10"
         title="Session 10 - React Redux Real-world Final Project"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
       >
         <PartTimeFinalProject />
       </CurriculumSection>,
