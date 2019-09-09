@@ -22,6 +22,7 @@ const UpcomingTrainings = ({
     trainings,
     trainingId,
   })
+
   if (!filteredTrainings.length || !filteredTrainings[0].id) {
     return <P>Sorry! There are no {type} dates confirmed.</P>
   } else {

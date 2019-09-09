@@ -33,8 +33,7 @@ export const selectUpcomingTrainings = ({
   trainings = [],
   limit = 9999,
 }) => {
-  const typesArray = types ? types : type ? [...type] : []
-
+  const typesArray = types ? types : type ? [type] : []
   return trainings
     .filter(trainingByTypes(typesArray))
     .filter(filterByTrainingId(trainingId))

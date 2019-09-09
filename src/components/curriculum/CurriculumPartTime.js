@@ -96,10 +96,14 @@ const CurriculumPartTime = ({
 }) => {
   const type = PART_TIME
   const initialIndex = 1
-  const renderSectionWithProps = renderPartTimeSection({
+
+  const sectionProps = {
     ...section,
     toggleNavigateTo,
     type,
+  }
+  const renderSectionWithProps = renderPartTimeSection({
+    sectionProps,
     training,
   })
 

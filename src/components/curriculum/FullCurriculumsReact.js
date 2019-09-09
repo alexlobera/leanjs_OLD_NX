@@ -28,6 +28,7 @@ const FullCurriculumsReact = ({ trainings }) => {
     trainings,
     showTitle: false,
   }
+
   return (
     <React.Fragment>
       <Row>
