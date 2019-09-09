@@ -2,14 +2,6 @@
 city: Berlin
 order: 3
 listImageSrc: berlin.jpg
-# TODO use this when we know how to do it using different sizes from markdown images
-# galleryImagesSrc: [
-#     "./gallery_images/image1.jpg",
-#     "./gallery_images/image2.jpg",
-#     "./gallery_images/image3.jpg",
-#     "./gallery_images/image4.jpg",
-#     "./gallery_images/image5.jpg"
-# ]
 ---
 
 We partner with companies across in Berlin to deliver great training in awesome locations.

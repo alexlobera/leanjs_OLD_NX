@@ -42,21 +42,21 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-const massageGalleryImages = images =>
-  images.edges
-    .filter(({ node }) => node.childImageSharp)
+const massageGalleryImages = (images, size) =>
+  images.nodes
+    .filter(({ name }) => name.endsWith(size))
     .map(
       ({
-        node: {
-          childImageSharp: {
-            fluid: { src, presentationHeight, presentationWidth, originalName },
-          },
+        publicURL,
+        name,
+        childImageSharp: {
+          original: { width, height },
         },
       }) => ({
-        src,
-        presentationHeight,
-        presentationWidth,
-        originalName,
+        src: publicURL,
+        width,
+        height,
+        originalName: name,
       })
     )
     .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
@@ -85,19 +85,17 @@ const Location = ({ path, data }) => (
         city,
       })
 
-      const smallGalleryImages = massageGalleryImages(data.smallImages)
-      const largeGalleryImages = massageGalleryImages(data.largeImages)
+      const smallGalleryImages = massageGalleryImages(data.images, 'sm')
+      debugger
+      const largeGalleryImages = massageGalleryImages(data.images, 'lg')
 
       const galleryImages = smallGalleryImages.map(
-        (
-          { src, presentationHeight, presentationWidth, originalName },
-          index
-        ) => {
+        ({ src, height, width, originalName }, index) => {
           return {
             srcSmall: src,
             srcLarge: largeGalleryImages[index].src,
-            height: presentationHeight,
-            width: presentationWidth,
+            height,
+            width,
             originalName,
           }
         }
@@ -202,30 +200,15 @@ export const query = graphql`
         ...SanityPostItemFragment
       }
     }
-    smallImages: allFile(filter: { absolutePath: { regex: $regex } }) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 600) {
-              src
-              presentationHeight
-              presentationWidth
-              originalName
-            }
-          }
-        }
-      }
-    }
-    largeImages: allFile(filter: { absolutePath: { regex: $regex } }) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              src
-              presentationHeight
-              presentationWidth
-              originalName
-            }
+
+    images: allFile(filter: { absolutePath: { regex: $regex } }) {
+      nodes {
+        publicURL
+        name
+        childImageSharp {
+          original {
+            width
+            height
           }
         }
       }

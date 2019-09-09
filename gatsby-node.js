@@ -324,7 +324,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 citySlug,
                 slug,
                 imgMaxWidth: 1000,
-                regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,
+                // regex: `.src/pages/locations/${node.frontmatter.city.toLowerCase()}/gallery_images/`,
+                regex: `./images/locations/${node.frontmatter.city.toLowerCase()}/`,
               },
             })
           } else {

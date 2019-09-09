@@ -2,17 +2,6 @@
 city: London
 order: 1
 listImageSrc: london.jpg
-# TODO use this when we know how to do it using different sizes from markdown images
-# galleryImagesSrc: [
-#     "./gallery_images/image1.jpg",
-#     "./gallery_images/image2.jpg",
-#     "./gallery_images/image3.jpg",
-#     "./gallery_images/image4.jpg",
-#     "./gallery_images/image5.jpg",
-#     "./gallery_images/image6.jpg",
-#     "./gallery_images/image7.jpg",
-#     "./gallery_images/image8.jpg"
-# ]
 ---
 
 We partner with the leading tech companies in London to deliver the awesome training in spectacular venues.
