@@ -57,6 +57,14 @@ const TeamMember = ({ data }) => {
     image,
     coverImage,
   } = data.getTeamMember
+
+  const coachFluidImg =
+    image &&
+    coverImage.asset &&
+    coverImage.asset.localFile &&
+    coverImage.asset.localFile.childImageSharp &&
+    coverImage.asset.localFile.childImageSharp.fluid
+
   const coachImgSrc =
     image &&
     image.asset &&
@@ -113,7 +121,7 @@ const TeamMember = ({ data }) => {
                       description={<P>{youtubeVideo.description}</P>}
                     />
                   ) : (
-                    <Image src={coachImgSrc} width="100%" alt={pageTitle} />
+                    <Image fluid={coachFluidImg} alt={pageTitle} />
                   )}
                 </Col>
                 <Col md={5} mdOffset={1}>
@@ -186,6 +194,11 @@ export const query = graphql`
         asset {
           localFile(width: 500) {
             publicURL
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
