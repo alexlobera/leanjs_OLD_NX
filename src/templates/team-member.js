@@ -60,10 +60,10 @@ const TeamMember = ({ data }) => {
 
   const coachFluidImg =
     image &&
-    coverImage.asset &&
-    coverImage.asset.localFile &&
-    coverImage.asset.localFile.childImageSharp &&
-    coverImage.asset.localFile.childImageSharp.fluid
+    image.asset &&
+    image.asset.localFile &&
+    image.asset.localFile.childImageSharp &&
+    image.asset.localFile.childImageSharp.fluid
 
   const coachImgSrc =
     image &&
