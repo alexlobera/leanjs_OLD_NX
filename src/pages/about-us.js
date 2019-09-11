@@ -16,14 +16,13 @@ import { Segment, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Box from '../components/layout/Box'
 import LeanJSsprints from '../components/elements/LeanJSsprints'
+import { renderJob } from '../templates/team-member'
 
 const renderProfile = ({
   fullname,
   username: { current },
   image,
-  jobTitle,
-  companyName,
-  companyLink,
+  jobs,
   blockquote,
 }) => {
   const imageSrc =
@@ -32,7 +31,7 @@ const renderProfile = ({
     image.asset.localFile &&
     image.asset.localFile.publicURL
   const slug = `/team/${current}/`
-
+  const job = jobs && jobs.map(renderJob({ length: jobs.length }))
   return (
     <Col md={4}>
       <Box mr={5} mb={5} pb={5}>
@@ -43,7 +42,7 @@ const renderProfile = ({
                 circle
                 src={imageSrc}
                 width="100%"
-                alt={`${fullname} ${jobTitle} at ${companyName}`}
+                alt={`${fullname} ${job}`}
               />
             </Link>
           </Col>
@@ -51,9 +50,10 @@ const renderProfile = ({
             <Box>
               <H5 mb={1}>{fullname}</H5>
               <P>
-                {jobTitle} at{' '}
-                <Link to={companyLink} className="coach-profiles">
-                  {companyName}
+                {job}
+                <br />
+                <Link className="coach-full-profile" to={slug}>
+                  Full profile
                 </Link>
               </P>
             </Box>
@@ -335,9 +335,11 @@ export const query = graphql`
         }
       }
     }
-    jobTitle
-    companyName
-    companyLink
+    jobs {
+      title
+      companyName
+      companyLink
+    }
     blockquote
   }
 `

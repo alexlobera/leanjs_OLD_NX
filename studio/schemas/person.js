@@ -45,19 +45,10 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'jobTitle',
-      title: 'Job title',
-      type: 'string',
-    },
-    {
-      name: 'companyName',
-      title: 'Company name',
-      type: 'string',
-    },
-    {
-      name: 'companyLink',
-      title: 'Company website',
-      type: 'url',
+      name: 'jobs',
+      title: 'Job/s',
+      type: 'array',
+      of: [{ type: 'job' }],
     },
     {
       name: 'academyRole',
