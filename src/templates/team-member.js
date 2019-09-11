@@ -17,12 +17,13 @@ import BlogSection from 'src/components/blog/BlogSection'
 import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
 import { createSocialMetas } from 'src/components/utils/index'
 
-export const renderJob = ({ enableLink = false, length }) => (
+export const renderJob = ({ enableLink = false } = {}) => (
   { title, companyLink, companyName },
-  index = 0
+  index = 0,
+  array
 ) => (
   <React.Fragment>
-    {index > 0 && index === length - 1 ? ` and ` : index > 0 ? `, ` : ''}
+    {index > 0 && index === array.length - 1 ? ` and ` : index > 0 ? `, ` : ''}
     {title && `${title} at`}{' '}
     {companyLink && enableLink ? (
       <Link to={companyLink} className="coach-profiles">
@@ -155,10 +156,7 @@ const TeamMember = ({ data }) => {
                     </Link>
                   </H2Ref>
                   <H3 pt={0}>
-                    {jobs &&
-                      jobs.map(
-                        renderJob({ length: jobs.length, enableLink: true })
-                      )}
+                    {jobs && jobs.map(renderJob({ enableLink: true }))}
                   </H3>
                   <Ul variant="inline">
                     <ProfileLink

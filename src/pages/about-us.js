@@ -31,7 +31,7 @@ const renderProfile = ({
     image.asset.localFile &&
     image.asset.localFile.publicURL
   const slug = `/team/${current}/`
-  const job = jobs && jobs.map(renderJob({ length: jobs.length }))
+  const job = jobs && jobs.map(renderJob())
   return (
     <Col md={4}>
       <Box mr={5} mb={5} pb={5}>
