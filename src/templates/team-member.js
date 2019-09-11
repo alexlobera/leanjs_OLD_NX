@@ -17,6 +17,26 @@ import BlogSection from 'src/components/blog/BlogSection'
 import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
 import { createSocialMetas } from 'src/components/utils/index'
 
+export const renderJob = ({ enableLink = false } = {}) => (
+  { title, companyLink, companyName },
+  index = 0,
+  array
+) => (
+  <React.Fragment>
+    {index > 0 && index === array.length - 1 ? ` and ` : index > 0 ? `, ` : ''}
+    {title && `${title} at`}{' '}
+    {companyLink && enableLink ? (
+      <Link to={companyLink} className="coach-profiles">
+        {companyName}
+      </Link>
+    ) : companyName ? (
+      companyName
+    ) : (
+      ''
+    )}
+  </React.Fragment>
+)
+
 const ProfileLink = ({ link, text, first = false }) =>
   link && (
     <React.Fragment>
@@ -44,9 +64,7 @@ const TeamMember = ({ data }) => {
     fullname,
     username,
     _rawDescription,
-    jobTitle,
-    companyName,
-    companyLink,
+    jobs,
     gitHub,
     medium,
     twitter,
@@ -78,7 +96,9 @@ const TeamMember = ({ data }) => {
     coverImage.asset.localFile.publicURL
 
   const linkName = username.current || 'username'
-  const pageTitle = `${fullname} - ${jobTitle} | React GraphQL Academy`
+  const job1 = jobs && jobs.length ? jobs[0] : null
+  const pageTitle = `${fullname} - ${job1 &&
+    job1.title} | React GraphQL Academy`
   const metas = {
     title: pageTitle,
     image: coachImgSrc,
@@ -136,12 +156,7 @@ const TeamMember = ({ data }) => {
                     </Link>
                   </H2Ref>
                   <H3 pt={0}>
-                    {jobTitle && `${jobTitle} at`}{' '}
-                    {companyLink && (
-                      <Link to={companyLink} className="coach-profiles">
-                        {companyName}
-                      </Link>
-                    )}
+                    {jobs && jobs.map(renderJob({ enableLink: true }))}
                   </H3>
                   <Ul variant="inline">
                     <ProfileLink
@@ -209,9 +224,11 @@ export const query = graphql`
           }
         }
       }
-      jobTitle
-      companyName
-      companyLink
+      jobs {
+        title
+        companyName
+        companyLink
+      }
       twitter
       gitHub
       medium
