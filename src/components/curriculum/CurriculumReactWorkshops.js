@@ -21,6 +21,12 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
         <React.Fragment>
           <Section
             {...sectionProps}
+            title="ReasonML for React Devs"
+            subTitle="How and Why we should write our code in ReasonML plus React use cases"
+            toggleNavigateTo={`${workshopBasePath}react-reasonml/`}
+          />
+          <Section
+            {...sectionProps}
             title="Testing in React"
             subTitle="Ensure consistent, reliable code across the React ecosystem"
             toggleNavigateTo={`${workshopBasePath}testing-in-react/`}

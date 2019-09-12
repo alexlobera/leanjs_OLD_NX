@@ -1,0 +1,11 @@
+{
+  "instanceTemplate": "1-day-react-reasonml",
+  "tech": "React",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
+  "breadcrumbWorkshopName": "React ReasonML",
+  "breadcrumbWorkshopSlug": "reasonml-for-react-devs",
+  "trainingId": "5d7a16dfa9ecfa67233bc8b1",
+  "title": "1-Day Practical ReasonML For React Devs",
+  "tags": ["react", "reasonml"]
+}

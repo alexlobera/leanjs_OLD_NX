@@ -82,14 +82,16 @@ const CurriculumSection = props => {
     <Box pt={1}>
       {children}
       {/* <Feedback /> */}
-      <Link
-        className="training-curriculum-link-clicks"
-        duration={200}
-        to={`#${name || title}`}
-        onClick={toggleSubSection}
-      >
-        Hide detail
-      </Link>
+      {enableToggle || showLinkToCurriculum ? (
+        <Link
+          className="training-curriculum-link-clicks"
+          duration={200}
+          to={`#${name || title}`}
+          onClick={toggleSubSection}
+        >
+          Hide detail
+        </Link>
+      ) : null}
     </Box>
   ) : (
     <Link
@@ -116,7 +118,7 @@ const CurriculumSection = props => {
       )}
       <Box m={0} pb={3} lineHeight={2}>
         {addFullStopAtTheEnd(subTitle)} {` `}
-        {showLinkToCurriculum || enableToggle ? subsection : ''}
+        {subsection}
       </Box>
     </Card>
   )
