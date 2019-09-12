@@ -1,40 +1,77 @@
 ## Description
 
-Include a summary of what this plugin accomplishes. Is there a demo site that shows how this plugin operates? If so, include a link to the deployed demo site and/or its src code here.
+This plugin extends the Gatsby Sanity GraphQL schema to add a `localFile` field to the `SanityImageAsset` type. The field `localFile` returns a `File` type. This enables downloading remote images to local so you have the flexibility to deploy them to a different CDN or process the images with `gatsby-plugin-sharp` for instance. This plugin is inspired by the [localFile field from Contentful](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-contentful#download-assets-for-static-distribution).
 
-### Dependencies (optional)
+### Demo
 
-Are there any plugins that must be installed in order to make this plugin work, please include a list of those plugins and links to their pages here.
+This [page](https://reactgraphql.academy/team/will-voelcker/) downloads the profile picture using [localFile](https://github.com/reactgraphqlacademy/reactgraphqlacademy/blob/master/src/templates/team-member.js#L210). The picture is served via Firebase CDN.
 
-### Learning Resources (optional)
+### Dependencies
 
-If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.
+This plugin depends on [gatsby-source-sanity](https://github.com/sanity-io/gatsby-source-sanity)
 
 ## How to install
 
-Please include installation instructions here.
+```npm i gatsby-source-sanity-transform-images --save```
 
-## Available options (if any)
+```js
+// in your gatsby-config.js
+module.exports = {
+  // ...
+  plugins: [
+    // ...
+    'gatsby-source-sanity-transform-images',
+  ],
+  // ...
+}
+
+```
 
 ## When do I use this plugin?
 
-Include stories about when this plugin is helpful and/or necessary.
+If you want to download assets for static distribution instead of using Sanity's CDN. This plugin downloads the Sanity Assets to the local filesystem.
+
+Useful for reduced data usage in development or projects where you want the assets copied locally with builds for deploying without links to Sanity's CDN.
 
 ## Examples of usage
 
-This usually shows a code example showing how to include this plugin in a site's `config.js` file.
-code example
-//See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
-This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
+You 
 
-## How to query for data (source plugins only)
-
-If this is a source plugin README, source plugins ought to allow people to query for data within their Gatsby site. Please include code examples to show how to query for data using your source plugin.
-
-## How to run tests
-
-## How to develop locally
+```GraphQL
+query Example {
+  allSanityImageAsset {
+    nodes {
+    # Direct URL to Sanity CDN for this asset
+      url
+      # Query for locally stored file(eg An image) - `File` node
+      localFile(width: 500) {
+          # Where the asset is copied to for distribution
+          publicURL
+          # Use `gatsby-image` to create fluid image resource
+          childImageSharp {
+            # max width is already 500 because of localFile(width: 500) 
+            fluid {
+              src
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 ## How to contribute
 
-If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
+Thanks for your interest in contributing to this plugin! Pull Requests welcome for any level of improvement, from a small typo to a new section, help us make the project better.
+
+## Pull Requests
+
+To submit a pull request, follow these steps
+
+1. Fork and clone this repo
+2. Create a branch for your changes
+3. Install dependencies with `yarn`
+4. Make changes locally and commit them
+5. Push your branch to origin
+6. Open a pull request in this repository with a clear title and description and link to any relevant issues
+7.  Wait for a maintainer to review your PR
