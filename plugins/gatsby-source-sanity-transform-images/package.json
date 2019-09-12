@@ -1,6 +1,13 @@
 {
   "name": "gatsby-source-sanity-transform-images",
   "version": "0.0.1",
-  "main": "index.js",
-  "author": "LeanJS<hello@leanjs.com>"
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-transformer-plugin",
+    "sanity",
+    "gatsby-sanity-source",
+    "images"
+  ],
+  "author": "React GraphQL Academy<hello@reactgraphql.academy>"
 }
