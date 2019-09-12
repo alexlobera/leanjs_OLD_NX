@@ -22,11 +22,6 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
             type: GraphQLString,
             defaultValue: 'crop',
           },
-
-          // limitSizes: {
-          //   type: GraphQLString,
-          // },
-          // crop
         },
       },
     }
