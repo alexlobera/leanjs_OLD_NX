@@ -43,7 +43,7 @@ jobs:
   e2e-tests:
     docker:
       # the Docker image with Cypress dependencies
-      - image: cypress/base:9
+      - image: cypress/base:8.15.1
         environment:
           ## this enables colors in the output
           TERM: xterm
