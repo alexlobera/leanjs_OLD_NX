@@ -104,8 +104,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const { data } = await graphql(queryPosts)
 
     return getPostsFromNodes({
-      markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
-      sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+      markdownNodes: data && data.markdownPosts && data.markdownPosts.nodes,
+      sanityNodes: data && data.sanityNodes && data.sanityNodes.nodes,
     })
   }
 
