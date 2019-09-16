@@ -10,6 +10,7 @@
     "start": "sanity start",
     "deploy": "sanity deploy",
     "deploy:schema:production": "sanity graphql deploy --dataset production",
+    "deploy:schema:development": "sanity graphql deploy --dataset development",
     "test": "sanity check"
   },
   "keywords": [

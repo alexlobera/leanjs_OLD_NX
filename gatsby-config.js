@@ -50,8 +50,6 @@ module.exports = {
         path: `${__dirname}/images/`,
       },
     },
-    'gatsby-source-sanity-transform-images',
-    'gatsby-source-sanity-transform-text',
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -78,6 +76,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/community/meetups/*`] },
+    },
+    'gatsby-source-sanity-transform-images',
+    {
+      resolve: `gatsby-transform-portable-text`,
+      options: {
+        extendTypes: [{ typeName: `SanityPost`, contentFieldName: 'body' }],
+      },
     },
   ],
 }
