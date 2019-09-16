@@ -18,14 +18,6 @@ import P from '../components/text/P'
 import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 import { slugify } from '../components/utils/text'
 
-const textFromBlockChildren = block =>
-  block && block.map
-    ? block
-        .map(({ text }) => text)
-        .join(' ')
-        .trim()
-    : ''
-
 const Page = ({ data, pageContext: { slug } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
   const bodyImagePublicURLs = bodyImageNodes.reduce(
@@ -111,7 +103,11 @@ const Page = ({ data, pageContext: { slug } }) => {
   })
   const contents = _rawBody.reduce((accContents, currentBlock) => {
     if (currentBlock.style === 'h2') {
-      const text = textFromBlockChildren(currentBlock.children)
+      const text = currentBlock.children
+        .map(({ text }) => text)
+        .join(' ')
+        .trim()
+
       accContents.push({ text, slug: slugify(text) })
     }
 

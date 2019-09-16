@@ -68,6 +68,9 @@ const PostMeta = ({
 const GridContent = styled(Grid)`
   padding-top: 72px;
 `
+GridContent.defaultProps = {
+  as: 'article',
+}
 
 const BlogPost = ({
   body,

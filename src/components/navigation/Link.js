@@ -85,6 +85,7 @@ class Link extends React.Component {
             onClick && onClick()
           }}
           to={toHref.substr(1)}
+          href={toHref}
           box={DefaultLinkScroll}
         >
           {children}
