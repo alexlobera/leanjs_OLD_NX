@@ -7,6 +7,7 @@ import Layout from '../layout.js'
 import { formatUTC } from '../utils'
 import Grid, { Col, Row } from '../layout/Grid'
 import { P, Span, H2, H4, Hr } from '../text'
+import Ul, { Li } from '../layout/Ul'
 import Header from '../layout/Header'
 import { UpcomingTrainingSection } from '../training'
 import { Breadcrumb, Link } from '../navigation'
@@ -83,6 +84,7 @@ const BlogPost = ({
   subtitle,
   timeToRead,
   relatedPosts = [],
+  contents,
 }) => (
   <Layout loadAutopilot={false}>
     {({ trainings }) => (
@@ -137,6 +139,18 @@ const BlogPost = ({
           <Row>
             <Col md={7}>
               {subtitle ? <H2>{subtitle}</H2> : null}
+              {contents && (
+                <React.Fragment>
+                  <P>On this page:</P>
+                  <Ul>
+                    {contents.map(({ slug, text }) => (
+                      <Li>
+                        <Link to={`#${slug}`}>{text}</Link>
+                      </Li>
+                    ))}
+                  </Ul>
+                </React.Fragment>
+              )}
               {body}
             </Col>
             <Col md={4} mdOffset={1}>

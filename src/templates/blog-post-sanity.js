@@ -16,6 +16,15 @@ import Ul, { Li } from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text/H'
 import P from '../components/text/P'
 import getPostsFromNodes from '../components/blog/getPostsFromNodes'
+import { slugify } from '../components/utils/text'
+
+const textFromBlockChildren = block =>
+  block && block.map
+    ? block
+        .map(({ text }) => text)
+        .join(' ')
+        .trim()
+    : ''
 
 const Page = ({ data, pageContext: { slug } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
@@ -39,22 +48,27 @@ const Page = ({ data, pageContext: { slug } }) => {
     types: {
       block: ({ children, node }) => {
         const style = node.style || 'normal'
-        let props = {
-          children,
-        }
         switch (style) {
           case 'h2':
-            return <H2 {...props} />
+            return (
+              <H2>
+                <a name={slugify(children.join(' '))} />
+                {children}
+              </H2>
+            )
           case 'h3':
-            return <H3 {...props} />
+            return <H3 children={children} />
           case 'h4':
-            return <H4 {...props} />
+            return <H4 children={children} />
           case 'h5':
-            return <H5 {...props} />
+            return <H5 children={children} />
           case 'blockquote':
-            return <Blockquote {...props} />
+            return <Blockquote children={children} />
           default:
-            return <P {...props} />
+            const length = children.length
+            return (length === 1 && !children[0]) || !length ? null : (
+              <P children={children} />
+            )
         }
       },
       code: ({ node }) => <Code className={node.language}>{node.code}</Code>,
@@ -95,6 +109,14 @@ const Page = ({ data, pageContext: { slug } }) => {
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
     sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
   })
+  const contents = _rawBody.reduce((accContents, currentBlock) => {
+    if (currentBlock.style === 'h2') {
+      const text = textFromBlockChildren(currentBlock.children)
+      accContents.push({ text, slug: slugify(text) })
+    }
+
+    return accContents
+  }, [])
 
   const blogPostProps = {
     body,
@@ -111,6 +133,7 @@ const Page = ({ data, pageContext: { slug } }) => {
     date,
     timeToRead: readingTimeInMinutes,
     relatedPosts,
+    contents,
   }
   return <BlogPost {...blogPostProps} />
 }
