@@ -6,6 +6,17 @@ function titleCase(txt) {
     : ''
 }
 
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '_')
+    .replace(/^-+|-+$/g, '')
+}
+
 module.exports = {
   titleCase,
+  slugify,
 }
