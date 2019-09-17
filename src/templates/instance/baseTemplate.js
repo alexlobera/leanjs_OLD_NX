@@ -48,6 +48,7 @@ const InstancePage = ({
     videoOneTime,
     videoOneId,
     videoOneQuote,
+    videoCoachId,
     videoOneFullname,
     videoOneJob,
     videoOneCompany,
@@ -158,19 +159,28 @@ const InstancePage = ({
                 training={training}
                 content={
                   <React.Fragment>
-                    <H3>Attendee testimonial</H3>
-                    <Video time={videoOneTime} youtubeId={videoOneId} />
-                    <Box px={1}>
-                      {videoOneQuote && (
-                        <Blockquote>{videoOneQuote}</Blockquote>
-                      )}
-                      {videoOneFullname && (
-                        <P pt={2}>
-                          {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
-                          {videoOneCompany || 'Freelance'}{' '}
-                        </P>
-                      )}
-                    </Box>
+                    {videoCoachId ? (
+                      <React.Fragment>
+                        <H3>Meet the coach</H3>
+                        <Video youtubeId={videoCoachId} />
+                      </React.Fragment>
+                    ) : videoOneId ? (
+                      <React.Fragment>
+                        <H3>Attendee testimonial</H3>
+                        <Video time={videoOneTime} youtubeId={videoOneId} />
+                        <Box px={1}>
+                          {videoOneQuote && (
+                            <Blockquote>{videoOneQuote}</Blockquote>
+                          )}
+                          {videoOneFullname && (
+                            <P pt={2}>
+                              {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
+                              {videoOneCompany || 'Freelance'}{' '}
+                            </P>
+                          )}
+                        </Box>
+                      </React.Fragment>
+                    ) : null}
                     <TrainingDetails coaches={coaches} />
                   </React.Fragment>
                 }

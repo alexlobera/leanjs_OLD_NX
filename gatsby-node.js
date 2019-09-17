@@ -148,6 +148,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 subtitle
                 author
                 tags
+                videoCoachId
                 videoOneTime
                 videoOneId
                 videoOneQuote
@@ -246,6 +247,7 @@ exports.createPages = async ({ graphql, actions }) => {
             const {
               videoOneTime,
               videoOneId,
+              videoCoachId,
               videoOneQuote,
               videoOneFullname,
               videoOneJob,
@@ -267,6 +269,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     `./src/templates/instance/${instanceTemplate}.js`
                   ),
                   context: {
+                    videoCoachId,
                     videoOneTime,
                     videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',
                     videoOneQuote,
