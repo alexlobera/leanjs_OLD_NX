@@ -24,8 +24,9 @@ const StyledAuthor = styled.div`
   display: flex;
   img {
     margin-right: 18px;
-    width: 90px;
-    height: 90px;
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 50%;
   }
   a,
   p,
@@ -40,13 +41,18 @@ const StyledAuthor = styled.div`
 const PostMeta = ({
   authorFullname,
   authorImageUrl,
+  authorFixedImg,
   authorSlug,
   date = '',
   timeToRead,
 }) => (
   <StyledAuthor>
     <Link to={`/team/${authorSlug}/`} className="blog-article">
-      {authorImageUrl && <Image src={authorImageUrl} circle />}
+      {authorFixedImg ? (
+        <Image fixed={authorFixedImg} />
+      ) : authorImageUrl ? (
+        <Image src={authorImageUrl} />
+      ) : null}
     </Link>
     <P>
       <Link to={`/team/${authorSlug}/`} className="blog-article">
@@ -80,6 +86,7 @@ const BlogPost = ({
   authorTwitter,
   authorFullname,
   authorImageUrl,
+  authorFixedImg,
   authorSlug,
   mainImagePublicUrl,
   title,
@@ -103,12 +110,12 @@ const BlogPost = ({
         >
           <meta property="og:title" content={title} />
           <meta property="og:image" content={mainImagePublicUrl} />
-          <meta property="og:description" content={subtitle} />
+          <meta property="og:description" content={subtitle || title} />
           <meta property="og:type" content="article" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@reactgqlacademy" />
           <meta name="twitter:title" content={title} />
-          <meta name="twitter:description" content={subtitle} />
+          <meta name="twitter:description" content={subtitle || title} />
           <meta name="twitter:creator" content={`@${authorTwitter}`} />
           <meta name="twitter:image" content={mainImagePublicUrl} />
         </Helmet>
@@ -134,6 +141,7 @@ const BlogPost = ({
             date={date}
             authorFullname={authorFullname}
             authorImageUrl={authorImageUrl}
+            authorFixedImg={authorFixedImg}
             authorSlug={authorSlug}
             timeToRead={timeToRead}
           />
@@ -148,7 +156,7 @@ const BlogPost = ({
                   <Ul>
                     {contents.map(({ slug, text }) => (
                       <Li>
-                        <Link to={`#${slug}`}>{text}</Link>
+                        {text}, <Link to={`#${slug}`}>read section</Link>.
                       </Li>
                     ))}
                   </Ul>

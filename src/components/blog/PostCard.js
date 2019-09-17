@@ -9,15 +9,19 @@ import Box from '../../components/layout/Box'
 import { formatPostTitle } from './BlogPost'
 
 const PostCard = ({
-  post: { path, imageUrl, title, excerpt },
+  post: { path, imageUrl, fluidImage, title, excerpt },
   imageProps = {},
 }) => {
   const formatedTitle = formatPostTitle(title)
-
+  if (fluidImage) {
+    imageProps.fluid = fluidImage
+  } else {
+    imageProps.src = imageUrl
+  }
   return (
     <Card small variant="secondary" mb={5}>
       <Link to={`${path}`} className="articles-summary">
-        <Image {...imageProps} src={imageUrl} alt={formatedTitle} mb={0} />
+        <Image {...imageProps} alt={formatedTitle} mb={0} />
       </Link>
       <Box p={2}>
         <Link to={`${path}`} className="articles-summary">
@@ -43,6 +47,11 @@ export const query = graphql`
       asset {
         localFile(width: 500, height: 333) {
           publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

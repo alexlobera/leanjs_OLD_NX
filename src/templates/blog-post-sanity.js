@@ -90,11 +90,13 @@ const Page = ({ data, pageContext: { slug } }) => {
   const { fullname, twitter, username = {}, image: authorImage } = author || {}
   const postTypeLabel =
     category === 'react' ? 'React' : category === 'graphql' ? 'GraphQL' : 'Blog'
-  const authorImageUrl =
-    authorImage &&
-    authorImage.asset &&
-    authorImage.asset.localFile &&
-    authorImage.asset.localFile.publicURL
+
+  const authorLocalFile =
+    authorImage && authorImage.asset && authorImage.asset.localFile
+  const authorFixedImg =
+    authorLocalFile &&
+    authorLocalFile.childImageSharp &&
+    authorLocalFile.childImageSharp.fixed
 
   const body = <BlockContent blocks={_rawBody} serializers={serializers} />
   const relatedPosts = getPostsFromNodes({
@@ -119,7 +121,7 @@ const Page = ({ data, pageContext: { slug } }) => {
     postTypeLabel,
     postTypePath: category,
     slug,
-    authorImageUrl,
+    authorFixedImg,
     authorFullname: fullname,
     authorTwitter: twitter,
     authorSlug: username.current,
@@ -191,8 +193,12 @@ export const query = graphql`
         }
         image {
           asset {
-            localFile(width: 250) {
-              publicURL
+            localFile(width: 108) {
+              childImageSharp {
+                fixed {
+                  ...GatsbyImageSharpFixed
+                }
+              }
             }
           }
         }
