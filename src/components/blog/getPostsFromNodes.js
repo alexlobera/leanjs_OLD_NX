@@ -2,16 +2,21 @@ function getPostsFromNodes({ markdownNodes, sanityNodes }) {
   const sanityPosts =
     sanityNodes &&
     sanityNodes.map &&
-    sanityNodes.map(({ slug, category, mainImage, title, excerpt }) => ({
-      path: `/${category}/${slug ? slug.current : ''}`,
-      imageUrl:
-        mainImage &&
-        mainImage.asset &&
-        mainImage.asset.localFile &&
-        mainImage.asset.localFile.publicURL,
-      title,
-      excerpt,
-    }))
+    sanityNodes.map(({ slug, category, mainImage, title, excerpt }) => {
+      const sanityLocalFile =
+        mainImage && mainImage.asset && mainImage.asset.localFile
+
+      return {
+        path: `/${category}/${slug ? slug.current : ''}`,
+        imageUrl: sanityLocalFile && sanityLocalFile.publicURL,
+        fluidImage:
+          sanityLocalFile &&
+          sanityLocalFile.childImageSharp &&
+          sanityLocalFile.childImageSharp.fluid,
+        title,
+        excerpt,
+      }
+    })
 
   const markdownPosts =
     markdownNodes &&
