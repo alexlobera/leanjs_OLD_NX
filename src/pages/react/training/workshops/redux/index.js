@@ -21,9 +21,9 @@ import {
 } from 'src/components/training'
 import BlogSection from 'src/components/blog/BlogSection'
 
-import { Link, Breadcrumb } from 'src/components/navigation'
+import { Link } from 'src/components/navigation'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { REACT_WORKSHOP } from 'src/config/data'
+import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import {
   title,
   tech,
@@ -59,8 +59,8 @@ const ReduxWorkshopLanding = ({ path }) => (
               },
             ]}
           />
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: tech },
               { to: '/react/training/', label: 'Training' },
@@ -73,8 +73,7 @@ const ReduxWorkshopLanding = ({ path }) => (
                 label: breadcrumbWorkshopName,
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={[title]}
             subtitle="Learn how Redux and React work together in practice, from Redux principles and FP through to Redux middlewares"
             links={[

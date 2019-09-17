@@ -17,7 +17,7 @@ import {
   AttendeeQuote,
 } from 'src/components/training'
 import { PaymentSection } from 'src/components/payment'
-import { Link, Breadcrumb } from 'src/components/navigation'
+import { Link } from 'src/components/navigation'
 import Box from 'src/components/layout/Box'
 import ContactForm from 'src/components/form/Contact'
 import FinanceCard from 'src/components/payment/FinanceCard'
@@ -37,7 +37,6 @@ const InstancePage = ({
     financeAvailable,
     coaches,
     trainingId,
-    tech,
     breadcrumbTrainingName,
     breadcrumbTrainingSlug,
     breadcrumbWorkshopName,
@@ -58,6 +57,7 @@ const InstancePage = ({
     videoTwoFullname,
     videoTwoJob,
     videoTwoCompany,
+    tech,
   },
 }) => (
   <Layout>
@@ -126,8 +126,9 @@ const InstancePage = ({
               },
             ]}
           />
-          <Breadcrumb path={breadcrumb} />
           <Header
+            breadcrumbPath={breadcrumb}
+            tech={tech.toLowerCase()}
             titleLines={[instanceTitle]}
             subtitle={subtitle}
             links={[

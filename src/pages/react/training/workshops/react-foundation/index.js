@@ -18,8 +18,8 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
+import { Link } from 'src/components/navigation'
+import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import { title, trainingId, breadcrumbWorkshopName } from './config.json'
 
 const Workshop = ({ path }) => (
@@ -41,8 +41,8 @@ const Workshop = ({ path }) => (
               },
             ]}
           />
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -52,8 +52,7 @@ const Workshop = ({ path }) => (
                 label: breadcrumbWorkshopName,
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={[title]}
             subtitle="Get started with React by creating a solid foundation that will help you speed up your career as React developer "
             links={[

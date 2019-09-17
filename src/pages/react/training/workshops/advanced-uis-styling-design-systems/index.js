@@ -17,8 +17,8 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
+import { Link } from 'src/components/navigation'
+import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
@@ -53,8 +53,8 @@ const StylingDesignSystemWorkshop = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -64,8 +64,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
                 label: breadcrumbWorkshopName,
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={[
               'Advanced React UIs & Styling',
               'With Design Systems Workshop',

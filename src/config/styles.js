@@ -24,6 +24,8 @@ export const PINK = '#f388a2'
 
 export const GRAPHQL_PINK = '#DF0098'
 
+export const LIGHT_PINK = 'rgba(223, 0, 152, 0.8)'
+
 export const GREEN = '#80da8d'
 
 export const MEETUP_RED = '#F64060'

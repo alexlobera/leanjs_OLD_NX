@@ -16,8 +16,7 @@ import {
   UpcomingTrainingSection,
 } from 'src/components/training'
 import { Segment, Image } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_BOOTCAMP } from 'src/config/data'
+import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 import { GRAPHQL_PINK } from 'src/config/styles'
@@ -75,10 +74,12 @@ const GraphQLPage = ({ data, path }) => {
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[{ to: '/', label: 'Home' }, { to: path, label: 'GraphQL' }]}
-          />
           <Header
+            breadcrumbPath={[
+              { to: '/', label: 'Home' },
+              { to: path, label: 'GraphQL' },
+            ]}
+            tech={TECH_GRAPHQL}
             titleLines={['Learn GraphQL with us...']}
             subtitle="Supercharge your development skill set with latest curriculum in GraphQL"
             bgImageName={BOOTCAMP}

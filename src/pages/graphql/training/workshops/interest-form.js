@@ -15,7 +15,7 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
-import { REACT_BOOTCAMP } from 'src/config/data'
+import { REACT_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
 import { InputField, Form, CheckboxField } from 'src/components/form'
 import {
   composeValidators,
@@ -25,7 +25,6 @@ import {
 import { aliasComponent } from 'src/components/utils/aliasComponent'
 import { EmailInput } from 'src/components/form/Contact'
 import { triggerSessionSubscribe } from 'src/api'
-import { Breadcrumb } from 'src/components/navigation'
 import trackUserBehaviour, {
   FORM_SUBMIT,
 } from 'src/components/utils/trackUserBehaviour'
@@ -67,15 +66,14 @@ const SessionInterestGraphQL = ({ path }) => (
         selectNthTraining({ trainings: upcomingBootcamps }) || {}
       return (
         <React.Fragment>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training/', label: 'Training' },
               { to: path, label: 'Workshops' },
             ]}
-          />
-          <Header
+            tech={TECH_GRAPHQL}
             titleLines={['GraphQL Workshops']}
             subtitle={[
               'Your opportunity tell us what GraphQL workshops you want to see!',

@@ -20,8 +20,7 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { ADVANCED_REACT } from 'src/config/data'
+import { ADVANCED_REACT, TECH_REACT } from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
 
@@ -56,8 +55,8 @@ const AdvancedTraining = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -66,8 +65,7 @@ const AdvancedTraining = ({ path }) => (
                 label: 'Advanced',
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={['Advanced React Training']}
             subtitle="For 3 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
             bgImageName={BOOTCAMP}

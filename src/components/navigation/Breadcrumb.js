@@ -4,7 +4,13 @@ import Ul, { Li } from '../layout/Ul'
 import Grid, { Row, Col } from '../layout/Grid'
 import Link, { styleChildLinkColor } from './Link'
 
-import { LIGHT_BLUE, WHITE, Z_INDEX_MEDIUM } from '../../config/styles'
+import {
+  LIGHT_BLUE,
+  LIGHT_PINK,
+  WHITE,
+  Z_INDEX_MEDIUM,
+} from '../../config/styles'
+import { TECH_GRAPHQL, TECH_REACT } from '../../config/data'
 import { SCREEN_XS_MAX } from '../utils'
 
 const BreadcrumbContainer = styled.nav`
@@ -14,7 +20,12 @@ const BreadcrumbContainer = styled.nav`
   width: 100%;
   z-index: ${Z_INDEX_MEDIUM};
   ul {
-    background-color: ${LIGHT_BLUE};
+    background-color: ${({ tech = TECH_REACT }) =>
+      tech === TECH_REACT
+        ? LIGHT_BLUE
+        : tech === TECH_GRAPHQL
+        ? LIGHT_PINK
+        : ''};
     padding-left: 16px;
     li {
       padding-left: 0px !important;
@@ -43,9 +54,9 @@ const BreadcrumbContainer = styled.nav`
   }
 `
 
-const Breadcrumb = ({ path }) =>
+const Breadcrumb = ({ path, tech }) =>
   path && path.length ? (
-    <BreadcrumbContainer ariaLabel="Breadcrumb">
+    <BreadcrumbContainer tech={tech} ariaLabel="Breadcrumb">
       <Grid>
         <Row>
           <Col>

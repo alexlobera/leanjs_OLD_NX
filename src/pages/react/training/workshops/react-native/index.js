@@ -20,8 +20,7 @@ import {
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { Video } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
+import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { title, trainingId, breadcrumbWorkshopName } from './config.json'
@@ -44,8 +43,8 @@ const ReactNativeBoocamp = ({ path }) => (
               },
             ]}
           />
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -55,8 +54,7 @@ const ReactNativeBoocamp = ({ path }) => (
                 label: breadcrumbWorkshopName,
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={[title]}
             subtitle="Intense hands-on React Native workshop, <br /> return to work as a React Native specialist"
             bgImageName={BOOTCAMP}

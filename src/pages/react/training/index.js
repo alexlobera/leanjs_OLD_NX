@@ -18,8 +18,11 @@ import {
   UpcomingTrainingSection,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
+import {
+  REACT_BOOTCAMP,
+  CONVINCE_THE_BOSS_PDF,
+  TECH_REACT,
+} from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
 
@@ -47,8 +50,8 @@ const TrainingPage = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               {
                 to: '/react',
@@ -59,8 +62,7 @@ const TrainingPage = ({ path }) => (
                 label: 'Training',
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={['React Training']}
             subtitle="Take your development career to the next level with our React training"
             bgImageName={BOOTCAMP}

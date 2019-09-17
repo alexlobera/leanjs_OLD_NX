@@ -17,8 +17,8 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import { Link, Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
+import { Link } from 'src/components/navigation'
+import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { trainingId, title, breadcrumbWorkshopName } from './config.json'
 
@@ -40,8 +40,8 @@ const AdvancedReactWorkshop = ({ path }) => (
               },
             ]}
           />
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -51,8 +51,7 @@ const AdvancedReactWorkshop = ({ path }) => (
                 label: breadcrumbWorkshopName,
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={title}
             subtitle="Understand how to use and apply React patterns including, HOC, render props and perpendicular composition with hooks"
             links={[
