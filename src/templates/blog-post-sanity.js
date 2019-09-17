@@ -93,7 +93,6 @@ const Page = ({ data, pageContext: { slug } }) => {
 
   const authorLocalFile =
     authorImage && authorImage.asset && authorImage.asset.localFile
-  const authorImageUrl = authorLocalFile && authorLocalFile.publicURL
   const authorFixedImg =
     authorLocalFile &&
     authorLocalFile.childImageSharp &&
@@ -122,7 +121,6 @@ const Page = ({ data, pageContext: { slug } }) => {
     postTypeLabel,
     postTypePath: category,
     slug,
-    authorImageUrl,
     authorFixedImg,
     authorFullname: fullname,
     authorTwitter: twitter,
@@ -196,7 +194,6 @@ export const query = graphql`
         image {
           asset {
             localFile(width: 108) {
-              publicURL
               childImageSharp {
                 fixed {
                   ...GatsbyImageSharpFixed
