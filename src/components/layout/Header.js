@@ -80,7 +80,7 @@ const HeaderSection = styled(Section)`
           : bgc.length === 1
           ? `
           background-color: ${bgc[0]};
-          opacity: 0.75;`
+          opacity: 0.6;`
           : ''
       }
       
@@ -152,8 +152,10 @@ const TechLogo = styled.div`
     background-size: cover;
     width: 100%;
     height: 150%;
-    background-position-x: 200px;
-    background-position-y: -100px;
+    @media (min-width: ${SCREEN_SM_MIN}) {
+      background-position-x: 200px;
+      background-position-y: -100px;
+    }
   }
 `}
 `
