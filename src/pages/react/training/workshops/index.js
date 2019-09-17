@@ -20,8 +20,7 @@ import {
   AttendeeQuote,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { REACT_WORKSHOP } from 'src/config/data'
+import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
@@ -58,8 +57,8 @@ const Bootcamps = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               {
                 to: '/react',
@@ -74,8 +73,7 @@ const Bootcamps = ({ path }) => (
                 label: 'Workshops',
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={['1-Day React Workshops']}
             subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
             bgImageName={BOOTCAMP}

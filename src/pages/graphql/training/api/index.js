@@ -18,8 +18,7 @@ import {
 import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
-import { Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_API } from 'src/config/data'
+import { GRAPHQL_API, TECH_GRAPHQL } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createSocialMetas } from 'src/components/utils'
 
@@ -51,15 +50,14 @@ const GraphQL = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            tech={TECH_GRAPHQL}
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training', label: 'Training' },
               { to: path, label: 'API' },
             ]}
-          />
-          <Header
             titleLines={['Build real-world', `GraphQL APIs`]}
             subtitle="In-person GraphQL API training from industry experts"
             bgImageName={BOOTCAMP}

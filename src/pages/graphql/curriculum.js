@@ -37,9 +37,9 @@ import {
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
   GRAPHQL_WORKSHOP,
+  TECH_GRAPHQL,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
-import { Breadcrumb } from 'src/components/navigation'
 import { formatUTC } from 'src/components/utils'
 import { GRAPHQL_PINK } from '../../config/styles'
 
@@ -95,8 +95,8 @@ class GraphQLCurriculum extends React.Component {
           })
           return (
             <React.Fragment>
-              <Breadcrumb
-                path={[
+              <Header
+                breadcrumbPath={[
                   { to: '/', label: 'Home' },
                   {
                     to: '/graphql',
@@ -107,8 +107,7 @@ class GraphQLCurriculum extends React.Component {
                     label: 'Curriculum',
                   },
                 ]}
-              />
-              <Header
+                tech={TECH_GRAPHQL}
                 titleLines={['GraphQL curriculum']}
                 subtitle="We're proud to say that our curriculum is the most<br /> up-to-date on the market - there really is<br />nowhere better to learn GraphQL."
                 bgColor={GRAPHQL_PINK}

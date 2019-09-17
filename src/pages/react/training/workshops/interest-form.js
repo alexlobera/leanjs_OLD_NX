@@ -16,7 +16,7 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 
-import { REACT_BOOTCAMP } from 'src/config/data'
+import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
 import { InputField, Form, CheckboxField } from 'src/components/form'
 import {
   composeValidators,
@@ -26,7 +26,6 @@ import {
 import { aliasComponent } from 'src/components/utils/aliasComponent'
 import { EmailInput } from 'src/components/form/Contact'
 import { triggerSessionSubscribe } from 'src/api'
-import { Breadcrumb } from 'src/components/navigation'
 import trackUserBehaviour, {
   FORM_SUBMIT,
 } from 'src/components/utils/trackUserBehaviour'
@@ -63,8 +62,8 @@ const SessionInterest = ({ path }) => (
         selectNthTraining({ trainings: upcomingBootcamps }) || {}
       return (
         <React.Fragment>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -74,8 +73,7 @@ const SessionInterest = ({ path }) => (
                 label: 'Interest Form',
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={['React Workshops']}
             subtitle={[
               'Join the wait and be the first to know about our upcoming 1-day workshops',

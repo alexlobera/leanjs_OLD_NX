@@ -15,9 +15,9 @@ import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Segment } from 'src/components/elements'
 import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
-import { Breadcrumb } from 'src/components/navigation'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
+import { TECH_REACT } from 'src/config/data'
 
 const metas = {
   title: 'React Corporte Training | React GraphQL Academy',
@@ -42,8 +42,8 @@ const CorporateReactTraining = ({ path }) => (
         >
           {createSocialMetas(metas)}
         </Helmet>
-        <Breadcrumb
-          path={[
+        <Header
+          breadcrumbPath={[
             { to: '/', label: 'Home' },
             {
               to: '/react',
@@ -58,8 +58,7 @@ const CorporateReactTraining = ({ path }) => (
               label: 'Corporate',
             },
           ]}
-        />
-        <Header
+          tech={TECH_REACT}
           titleLines={['Corporate React team training']}
           subtitle="Private team training, located in your offices anywhere in the world, based on our proven React curriculum."
           links={[

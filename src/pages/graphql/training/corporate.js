@@ -15,9 +15,9 @@ import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Segment } from 'src/components/elements'
 import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
-import { Breadcrumb } from 'src/components/navigation'
 import { createSocialMetas } from 'src/components/utils'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
+import { TECH_GRAPHQL } from 'src/config/data'
 
 const metas = {
   title: 'GraphQL Corporte Training | React GraphQL Academy',
@@ -42,8 +42,9 @@ const CorporateGraphQLTraining = ({ path }) => (
         >
           {createSocialMetas(metas)}
         </Helmet>
-        <Breadcrumb
-          path={[
+        <Header
+          tech={TECH_GRAPHQL}
+          breadcrumbPath={[
             { to: '/', label: 'Home' },
             {
               to: '/graphql',
@@ -58,8 +59,6 @@ const CorporateGraphQLTraining = ({ path }) => (
               label: 'Corporate',
             },
           ]}
-        />
-        <Header
           titleLines={['Corporate GraphQL Team Training']}
           subtitle="Private team training, located in your offices anywhere in the world, based on our proven GraphQL curriculum."
           links={[

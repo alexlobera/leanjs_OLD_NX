@@ -15,7 +15,7 @@ import Header from 'src/components/layout/Header'
 import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP } from 'src/config/data'
+import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -115,6 +115,7 @@ const ReactPage = ({ data, path }) => {
               },
             ]}
             type={REACT_BOOTCAMP}
+            tech={TECH_REACT}
           />
           <TopSection>
             <Segment>

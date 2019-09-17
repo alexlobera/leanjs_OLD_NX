@@ -16,8 +16,8 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import { Link, Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_WORKSHOP } from 'src/config/data'
+import { Link } from 'src/components/navigation'
+import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import { createSocialMetas } from 'src/components/utils'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
@@ -51,8 +51,8 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/graphql', label: 'GraphQL' },
               { to: '/graphql/training/', label: 'Training' },
@@ -62,8 +62,7 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
                 label: breadcrumbWorkshopName,
               },
             ]}
-          />
-          <Header
+            tech={TECH_GRAPHQL}
             titleLines={['GraphQL Apollo Client']}
             subtitle="Create production-ready React applications with the most community-driven GraphQL client"
             links={[

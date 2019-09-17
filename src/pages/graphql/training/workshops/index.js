@@ -21,7 +21,7 @@ import {
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_WORKSHOP } from 'src/config/data'
+import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createSocialMetas } from 'src/components/utils'
@@ -58,8 +58,8 @@ const Bootcamps = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               {
                 to: '/graphql',
@@ -74,8 +74,7 @@ const Bootcamps = ({ path }) => (
                 label: 'Workshops',
               },
             ]}
-          />
-          <Header
+            tech={TECH_GRAPHQL}
             titleLines={['1-Day GraphQL Workshops']}
             subtitle="Intense, 1-day workshops that focusses on one specific part of GraphQL - all delivered by industry experts"
             bgImageName={BOOTCAMP}

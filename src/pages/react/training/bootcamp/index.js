@@ -21,8 +21,7 @@ import {
 } from 'src/components/training'
 import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import { Segment } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { REACT_BOOTCAMP } from 'src/config/data'
+import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -60,8 +59,8 @@ const Bootcamps = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -70,8 +69,7 @@ const Bootcamps = ({ path }) => (
                 label: 'Bootcamp',
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={['React Redux Bootcamp']}
             subtitle="For a week, expert coaches and mentors will work alongside you to master the React ecosystem so you return to work as a React specialist"
             bgImageName={BOOTCAMP}

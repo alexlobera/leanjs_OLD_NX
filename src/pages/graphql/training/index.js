@@ -18,8 +18,11 @@ import {
 } from 'src/components/training'
 
 import { Segment } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { GRAPHQL_BOOTCAMP, CONVINCE_THE_BOSS_PDF } from 'src/config/data'
+import {
+  GRAPHQL_BOOTCAMP,
+  CONVINCE_THE_BOSS_PDF,
+  TECH_GRAPHQL,
+} from 'src/config/data'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { GRAPHQL_PINK } from 'src/config/styles'
@@ -48,19 +51,6 @@ const TrainingPage = ({ path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
-              { to: '/', label: 'Home' },
-              {
-                to: '/graphql/',
-                label: 'GraphQL',
-              },
-              {
-                to: path,
-                label: 'Training',
-              },
-            ]}
-          />
           <Header
             titleLines={['GraphQL Training']}
             subtitle="Take your development career to the next level with our GraphQL training"
@@ -125,6 +115,18 @@ const TrainingPage = ({ path }) => (
               },
             ]}
             type={GRAPHQL_BOOTCAMP}
+            tech={TECH_GRAPHQL}
+            breadcrumbPath={[
+              { to: '/', label: 'Home' },
+              {
+                to: '/graphql/',
+                label: 'GraphQL',
+              },
+              {
+                to: path,
+                label: 'Training',
+              },
+            ]}
           />
           <TopSection>
             <Segment>

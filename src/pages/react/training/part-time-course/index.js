@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import Layout from 'src/components/layout'
-import { Link, Breadcrumb } from 'src/components/navigation'
+import { Link } from 'src/components/navigation'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -18,7 +18,7 @@ import {
 import { Segment } from 'src/components/elements'
 import CurriculumPartTime from 'src/components/curriculum/CurriculumPartTime'
 import Header from 'src/components/layout/Header'
-import { PART_TIME } from 'src/config/data'
+import { PART_TIME, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -54,8 +54,8 @@ const PartTime = ({ trainings, path }) => (
           >
             {createSocialMetas(metas)}
           </Helmet>
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -64,8 +64,7 @@ const PartTime = ({ trainings, path }) => (
                 label: 'Part Time Course',
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={['1-month part-time', 'React Redux course']}
             subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
             type={PART_TIME}

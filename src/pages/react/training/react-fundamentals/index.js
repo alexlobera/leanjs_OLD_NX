@@ -20,8 +20,7 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
-import { REACT_FUNDAMENTALS } from 'src/config/data'
+import { REACT_FUNDAMENTALS, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 
@@ -47,8 +46,8 @@ const ReactFundamentals = ({ path }) => (
               },
             ]}
           />
-          <Breadcrumb
-            path={[
+          <Header
+            breadcrumbPath={[
               { to: '/', label: 'Home' },
               { to: '/react', label: 'React' },
               { to: '/react/training/', label: 'Training' },
@@ -57,8 +56,7 @@ const ReactFundamentals = ({ path }) => (
                 label: 'React Fundamentals',
               },
             ]}
-          />
-          <Header
+            tech={TECH_REACT}
             titleLines={['React Redux Fundamentals']}
             subtitle="In 3 days, our coaches will work with you to help you learn the React fundamentals needed to develop React apps the right way"
             bgImageName={BOOTCAMP}
