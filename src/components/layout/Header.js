@@ -129,7 +129,7 @@ HeaderSection.defaultProps = {
 const H2Header = styled(BaseH2)`
   text-shadow: 1px -1px 17px ${BLUE_04};
 `
-const Logo = styled.div`
+const TechLogo = styled.div`
   ${({ tech }) =>
     tech &&
     `
@@ -337,7 +337,7 @@ const Header = ({
             />
           )}
           {breadcrumbPath && <Breadcrumb tech={tech} path={breadcrumbPath} />}
-          <Logo tech={tech}>
+          <TechLogo tech={tech}>
             <HeaderSection
               bgColors={bgColors}
               bgColor={bgColor}
@@ -475,7 +475,7 @@ const Header = ({
                 )}
               </Row>
             </HeaderSection>
-          </Logo>
+          </TechLogo>
         </React.Fragment>
       )
     }}
