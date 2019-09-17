@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import rehypeReact from 'rehype-react'
+import { slugify } from '../components/utils/text'
 
 import { blogAuthors } from '../config/data'
 import Ul, { Li } from '../components/layout/Ul'
@@ -26,7 +27,12 @@ const renderAst = new rehypeReact({
     a: Link,
     table: Table,
     p: P,
-    h2: H2,
+    h2: ({ children }) => (
+      <H2>
+        <a name={slugify(children.join(' '))} />
+        {children}
+      </H2>
+    ),
     h3: H3,
     h4: H4,
     h5: H5,
@@ -59,6 +65,21 @@ const Page = ({ data }) => {
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
     sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
   })
+  const contents = htmlAst.children.reduce(
+    (accContents, { tagName, children }) => {
+      if (tagName === 'h2') {
+        const text = children
+          .map(({ value }) => value)
+          .join(' ')
+          .trim()
+
+        accContents.push({ text, slug: slugify(text) })
+      }
+
+      return accContents
+    },
+    []
+  )
 
   const blogPostProps = {
     body,
@@ -78,6 +99,7 @@ const Page = ({ data }) => {
     subtitle,
     timeToRead,
     relatedPosts,
+    contents,
   }
 
   return <BlogPost {...blogPostProps} />
