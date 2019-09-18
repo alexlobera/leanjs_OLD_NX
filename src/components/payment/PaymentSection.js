@@ -194,9 +194,11 @@ class PaymentSection extends React.Component {
                 We charge a nominal fee for community events in order to confirm
                 attendance to ensure we have an accurate RSVP list. Our meetups
                 are always over-subscribed so when people don't show it stops
-                somone else attending. The payment confirmation email is your
-                ticket. If you can't attend simply let us know and we'll be
-                happy to refund you.
+                somone else attending.
+              </P>
+              <P>
+                The payment confirmation email is your ticket. If you can't
+                attend simply let us know and we'll be happy to refund you.
               </P>
             </React.Fragment>
           )}
