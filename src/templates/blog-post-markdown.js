@@ -29,7 +29,15 @@ const renderAst = new rehypeReact({
     p: P,
     h2: ({ children }) => (
       <H2>
-        <a name={slugify(children.join(' '))} />
+        <a
+          name={slugify(
+            children.reduce(
+              (acc, current) =>
+                typeof current === 'string' ? `${acc} ${current}` : acc,
+              ''
+            )
+          )}
+        />
         {children}
       </H2>
     ),

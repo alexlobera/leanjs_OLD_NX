@@ -10,11 +10,6 @@ order: 8
 tags: ['react', 'advanced', 'testing', 'javascript']
 ---
 
-This article is meant to show you two things:
-
-- What is a good unit test
-- What is a bad unit test
-
 ## What is a unit test?
 
 I find useful to start explaining unit tests using the following example. Once I was hired to work on a big project for a company. I said during the interview that I was used to writing unit tests, and they really liked that since they were not writing any. So the first task I was assigned, was to write some unit tests on their existing code base. After seeing the code base I turned to my manager and said “I can’t write unit tests”. He said “Why? You said you knew how to write unit tests?”. I replied “well, you don’t have units”.
