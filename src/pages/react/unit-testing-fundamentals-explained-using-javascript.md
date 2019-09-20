@@ -118,8 +118,13 @@ const sum = (a,b) => a + b
 
 We also use this example when we start teaching testing in JavaScript 😛. People tend to find it obvious that it’s **predictable and doesn’t produce side-effects**. They also find it very easy to test.
 
-The problem they often find is that it doesn’t quite look like the code they write in real-world applications. They say the sum function is too simple compared to the code in real-world applications. I observe two main differences between the sum function and the real-world code:
+### What we will never see, in theory
+
+The problem they often find with very simple code examples is that it doesn’t quite look like the code we see in real-world applications. They say the sum function is too simple compared to the code we write in real-world applications. 
+
+I observe two main differences between the sum function and the real-world code:
 Real world code is made of many units, not just one. Those units might have dependencies between each other.
+
 Real world code has side-effects. I/O operations are side-effects. Therefore all applications have side effects by nature. Let me get philosophical, if a program has no side-effects at all, does the program exist if you can’t see or communicate with it? If a tree falls in a forest with no side-effects… did it fall?
 
 <img placeholder-height="372px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fside-effects-min.png?alt=media" alt="Apps with no side-effects?"></img>

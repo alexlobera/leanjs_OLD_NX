@@ -21,29 +21,33 @@ import MarketingCard from '../components/curriculum/MarketingCard'
 import BlogPost from '../components/blog/BlogPost'
 import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 
+function renderHeadingWithAnchor({ children, Component }) {
+  return (
+    <Component>
+      {children}
+      <a
+        name={slugify(
+          children.reduce(
+            (acc, current) =>
+              typeof current === 'string' ? `${acc} ${current}` : acc,
+            ''
+          )
+        )}
+      />
+    </Component>
+  )
+}
+
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     a: Link,
     table: Table,
     p: P,
-    h2: ({ children }) => (
-      <H2>
-        <a
-          name={slugify(
-            children.reduce(
-              (acc, current) =>
-                typeof current === 'string' ? `${acc} ${current}` : acc,
-              ''
-            )
-          )}
-        />
-        {children}
-      </H2>
-    ),
-    h3: H3,
-    h4: H4,
-    h5: H5,
+    h2: ({ children }) => renderHeadingWithAnchor({ children, Component: H2 }),
+    h3: ({ children }) => renderHeadingWithAnchor({ children, Component: H3 }),
+    h4: ({ children }) => renderHeadingWithAnchor({ children, Component: H4 }),
+    h5: ({ children }) => renderHeadingWithAnchor({ children, Component: H5 }),
     ul: Ul,
     li: Li,
     pre: Pre,

@@ -18,6 +18,15 @@ import P from '../components/text/P'
 import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 import { slugify } from '../components/utils/text'
 
+function renderHeadingWithAnchor({ children, Component }) {
+  return (
+    <Component>
+      <a name={slugify(children.join(' '))} />
+      {children}
+    </Component>
+  )
+}
+
 const Page = ({ data, pageContext: { slug } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
   const bodyImagePublicURLs = bodyImageNodes.reduce(
@@ -42,18 +51,13 @@ const Page = ({ data, pageContext: { slug } }) => {
         const style = node.style || 'normal'
         switch (style) {
           case 'h2':
-            return (
-              <H2>
-                <a name={slugify(children.join(' '))} />
-                {children}
-              </H2>
-            )
+            return renderHeadingWithAnchor({ children, Component: H2 })
           case 'h3':
-            return <H3 children={children} />
+            return renderHeadingWithAnchor({ children, Component: H3 })
           case 'h4':
-            return <H4 children={children} />
+            return renderHeadingWithAnchor({ children, Component: H4 })
           case 'h5':
-            return <H5 children={children} />
+            return renderHeadingWithAnchor({ children, Component: H5 })
           case 'blockquote':
             return <Blockquote children={children} />
           default:
