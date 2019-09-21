@@ -31,8 +31,7 @@
     "@sanity/desk-tool": "^0.142.4",
     "prop-types": "^15.6",
     "react": "^16.2",
-    "react-dom": "^16.2",
-    "react-youtube": "^7.9.0"
+    "react-dom": "^16.2"
   },
   "devDependencies": {},
   "repository": {

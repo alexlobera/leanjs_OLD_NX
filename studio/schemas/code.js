@@ -3,11 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
 import { Code } from '../../src/components/blog/BlockContent'
 
-const Preview = ({ value: { code, language } }) => {
-  const className = language === 'language-runkit' ? '' : language
-  return <Code className={className} children={code} />
-}
-
 export default {
   name: 'code',
   type: 'object',
@@ -38,6 +33,9 @@ export default {
       code: 'code',
       language: 'language',
     },
-    component: Preview,
+    component: ({ value: { code, language } }) => {
+      const className = language === 'language-runkit' ? '' : language
+      return <Code className={className} children={code} />
+    },
   },
 }

@@ -1,9 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
-import YouTube from 'react-youtube'
-
-const Preview = ({ value: { id } }) => <YouTube videoId={id} />
+import Video from '../../src/components/elements/Video'
 
 export default {
   name: 'youtube',
@@ -21,11 +19,19 @@ export default {
       type: 'string',
       title: 'Description',
     },
+    {
+      name: 'startSecond',
+      type: 'number',
+      title: 'Start second',
+    },
   ],
   preview: {
     select: {
-      id: 'id',
+      videoId: 'videoId',
+      startSecond: 'startSecond',
     },
-    component: Preview,
+    component: ({ value: { videoId, startSecond } }) => (
+      <Video time={startSecond} youtubeId={videoId} />
+    ),
   },
 }
