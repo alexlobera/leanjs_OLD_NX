@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 import Tweet from '../../src/components/blog/Tweet'
 
-const Preview = ({ value: { id } }) => <Tweet id={id} />
-
 export default {
   name: 'tweet',
   type: 'object',
@@ -22,6 +20,6 @@ export default {
     select: {
       id: 'id',
     },
-    component: Preview,
+    component: ({ value: { id } }) => <Tweet id={id} />,
   },
 }

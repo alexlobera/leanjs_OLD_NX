@@ -69,7 +69,9 @@ const Page = ({ data, pageContext: { slug } }) => {
       },
       code: ({ node }) => <Code className={node.language}>{node.code}</Code>,
       tweet: ({ node }) => <Tweet id={node.id} />,
-      youtube: ({ node }) => <Video youtubeId={node.id} />,
+      youtube: ({ node }) => (
+        <Video time={node.startSecond} youtubeId={node.videoId} />
+      ),
       codesandbox: ({ node }) => <Codesandbox id={node.id} />,
       image: props => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
     },
