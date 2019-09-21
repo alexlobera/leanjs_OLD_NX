@@ -28,7 +28,10 @@ export default {
   preview: {
     select: {
       videoId: 'videoId',
+      startSecond: 'startSecond',
     },
-    component: ({ value: { videoId } }) => <Video youtubeId={videoId} />,
+    component: ({ value: { videoId, startSecond } }) => (
+      <Video time={startSecond} youtubeId={videoId} />
+    ),
   },
 }
