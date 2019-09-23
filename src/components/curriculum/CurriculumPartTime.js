@@ -77,10 +77,10 @@ const sessionsFirstHalf = [
   },
 ]
 const sessionsSecondHalf = [
+  { title: 'React Hooks', Comp: HooksSession, group: 4 },
+  { title: 'Styling in React', Comp: StylingInReactSession, group: 4 },
   { title: 'Redux', Comp: IntroReduxSession, group: 3 },
   { title: 'Testing Fundamentals in JS', Comp: TestingIntroSession, group: 3 },
-  { title: 'Styling in React', Comp: StylingInReactSession, group: 4 },
-  { title: 'React Hooks', Comp: HooksSession, group: 4 },
   {
     title: 'React Redux Real-world Final Project',
     Comp: PartTimeFinalProject,
