@@ -216,7 +216,7 @@ export const query = graphql`
       mainImage {
         asset {
           id
-          localFile(width: 1440) {
+          localFile(width: 1200) {
             publicURL
           }
         }

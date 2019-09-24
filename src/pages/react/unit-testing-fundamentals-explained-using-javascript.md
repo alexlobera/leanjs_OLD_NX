@@ -120,7 +120,7 @@ We also use this example when we start teaching testing in JavaScript 😛. Peop
 
 ### What we will never see, in theory
 
-The problem they often find with very simple code examples is that it doesn’t quite look like the code we see in real-world applications. They say the sum function is too simple compared to the code we write in real-world applications. 
+The problem they often find with very simple code examples is that it doesn’t quite look like the code we see in real-world applications. They say the sum function is too simple compared to the code we write in real-world applications.
 
 I observe two main differences between the sum function and the real-world code:
 Real world code is made of many units, not just one. Those units might have dependencies between each other.
