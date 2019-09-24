@@ -104,6 +104,12 @@ const Page = ({ data, pageContext: { slug } }) => {
     authorLocalFile.childImageSharp &&
     authorLocalFile.childImageSharp.fixed
 
+  const metaImageFullPublicUrl =
+    mainImage &&
+    mainImage.asset &&
+    mainImage.asset.fixed &&
+    mainImage.asset.fixed.src
+
   const body = <BlockContent blocks={_rawBody} serializers={serializers} />
   const relatedPosts = getPostsFromNodes({
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
@@ -138,6 +144,7 @@ const Page = ({ data, pageContext: { slug } }) => {
     timeToRead: readingTimeInMinutes,
     relatedPosts,
     contents,
+    metaImageFullPublicUrl,
   }
   return <BlogPost {...blogPostProps} />
 }
@@ -216,6 +223,9 @@ export const query = graphql`
       mainImage {
         asset {
           id
+          fixed(width: 1200) {
+            src
+          }
           localFile(width: 1200) {
             publicURL
           }
