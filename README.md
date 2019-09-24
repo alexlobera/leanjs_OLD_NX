@@ -2,8 +2,6 @@
 
 # React GraphQL Academy website
 
-React GraphQL has been built with Gatsby. Gatsby is a static site generator for React and is a great solution if you are building a content heavy site, you can read more about Gatsby in the [official docs](https://www.gatsbyjs.org/docs/) and you can read more about [our experiences using Gatsby.](https://medium.com/leanjs/the-great-and-not-so-great-gatsbyjs-788b5fb34e77) :sunglasses:
-
 ## Install
 
 Clone this repo to your local machine and run
@@ -33,4 +31,4 @@ We use [Jest](https://jestjs.io/) for testing. As the site is content heavy, we 
 
 ## Our Deploy and Hosting
 
-We use [Google's firebase platform](https://firebase.google.com/) for hosting the site. There is a generous free layer and so the site does not cost anything to host. This also allows for the rapid addition of features that you need a backend for (such as contact forms etc), for which we use [cloud functions](https://firebase.google.com/products/functions/). We also use the [cloud storage](https://firebase.google.com/products/storage/), which is a CDN, to keep the weight of images off the server and maintain a rapid build time.
+We use [Google's firebase platform](https://firebase.google.com/) for hosting the site. There is a generous free layer and so the site does not cost anything to host. This also allows for the rapid addition of features that you need a backend for (such as contact forms etc), for which we use [cloud functions](https://firebase.google.com/products/functions/).
