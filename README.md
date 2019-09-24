@@ -10,12 +10,6 @@ Clone this repo to your local machine and run
 npm install
 ```
 
-Make sure that you have the Gatsby CLI program installed:
-
-```sh
-npm install --global gatsby-cli
-```
-
 ### We have several scripts in place:
 
 - To run the site, user `npm run develop`
