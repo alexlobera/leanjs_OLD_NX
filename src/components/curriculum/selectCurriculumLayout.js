@@ -106,10 +106,7 @@ const selectCurriculumLayout = ({
               content
             ) : (
               <React.Fragment>
-                <Link
-                  to="#free-learning-resources"
-                  name="free-learning-resources"
-                />
+                <Link name="free-learning-resources" />
                 <H3 mt={2}>Free learning resources!</H3>
                 <LinkButton
                   className="free-learning-resources-cta"
