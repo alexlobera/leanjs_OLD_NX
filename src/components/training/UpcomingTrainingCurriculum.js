@@ -12,7 +12,11 @@ const UpcomingTrainingCurriculum = ({
 }) => {
   return (
     <React.Fragment>
-      <Link to="#upcoming-courses" name="upcoming-courses" />
+      <Link
+        to="#upcoming-courses"
+        alt="Upcoming courses"
+        name="upcoming-courses"
+      />
       <H3 pt={[4, 0]}>Upcoming dates</H3>
       <UpcomingTrainings
         type={type}
