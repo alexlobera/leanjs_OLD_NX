@@ -114,7 +114,7 @@ const selectCurriculumLayout = ({
                 >
                   Sign up now
                 </LinkButton>
-                <Link to="#corporate-training" name="corporate-training" />
+                <Link name="corporate-training" />
                 <H3>Training anywhere, anytime?</H3>
                 <LinkButton
                   to={
