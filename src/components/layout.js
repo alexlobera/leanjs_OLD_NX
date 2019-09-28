@@ -19,8 +19,8 @@ import favicon from './favicon.ico'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
 import QueryUpcomingTrainings from '../components/training/QueryUpcomingTrainings'
-import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
-import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
+// import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
+// import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 
 raven.config(SENTRY_DSN).install()
 
@@ -35,19 +35,19 @@ const graphqlClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
-  FONT_BARLOW_400_LATIN_EXT_WOFF2,
-  FONT_BARLOW_800_LATIN_EXT_WOFF2,
-]
-const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
-  url => ({
-    rel: 'preload',
-    href: url,
-    as: 'font',
-    type: 'font/woff2',
-    crossorigin: 'crossorigin',
-  })
-)
+// const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
+//   FONT_BARLOW_400_LATIN_EXT_WOFF2,
+//   FONT_BARLOW_800_LATIN_EXT_WOFF2,
+// ]
+// const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
+//   url => ({
+//     rel: 'preload',
+//     href: url,
+//     as: 'font',
+//     type: 'font/woff2',
+//     crossorigin: 'crossorigin',
+//   })
+// )
 
 const Layout = ({ children, loadAutopilot = true }) => {
   let prefetchDnsUrls = [
@@ -104,7 +104,7 @@ const Layout = ({ children, loadAutopilot = true }) => {
                     },
                   ]}
                   link={[
-                    ...preloadUrls,
+                    //...preloadUrls,
                     ...prefetchDnsLinks,
                     ...preconnectLinks,
                     {
