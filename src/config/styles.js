@@ -78,11 +78,12 @@ export const theme = {
     '0.8rem', // 0
     '0.9rem', // 1
     '1rem', // 2
-    '1.25rem', // 3
-    '1.563rem', // 4
-    '1.953rem', // 5
-    '2.441rem', // 6
-    '2.77rem', // 7
+    '1.15rem', // 3
+    '1.25rem', // 4
+    '1.563rem', // 5
+    '1.953rem', // 6
+    '2.441rem', // 7
+    '2.77rem', // 8
   ],
   fontStyle: {
     normal: 'normal',
@@ -92,7 +93,7 @@ export const theme = {
     '0', // 0
     '1.2rem', // 1
     '1.5rem', // 2
-    '1.87rem', // 3
+    '1.845rem', // 3
     '2rem', // 4
     '2.5rem', // 5
     '3rem', // 6

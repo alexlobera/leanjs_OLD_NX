@@ -164,7 +164,7 @@ H2Header.defaultProps = {
   color: WHITE,
   padding: 0,
   margin: 0,
-  fontSize: 3,
+  fontSize: 4,
   lineHeight: 3,
   fontWeight: 'normal',
 }

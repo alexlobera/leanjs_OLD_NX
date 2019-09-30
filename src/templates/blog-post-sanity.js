@@ -8,13 +8,16 @@ import {
   Codesandbox,
   Img,
 } from '../components/blog/BlockContent'
-import BlogPost from '../components/blog/BlogPost'
+import BlogPost, {
+  BlogPostP,
+  BlogPostLi,
+  BlogPostLink,
+  BlogPostSpan,
+} from '../components/blog/BlogPost'
 import Tweet from '../components/blog/Tweet'
 import Video from '../components/elements/Video'
-import Link from '../components/navigation/Link'
-import Ul, { Li } from '../components/layout/Ul'
+import Ul from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text/H'
-import P from '../components/text/P'
 import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 import { slugify } from '../components/utils/text'
 
@@ -25,6 +28,14 @@ function renderHeadingWithAnchor({ children, Component }) {
       {children}
     </Component>
   )
+}
+
+function removeCarriageReturn(text) {
+  if (text && typeof text === 'string') {
+    return text.replace(/[\n\r]+/g, '')
+  } else {
+    return text
+  }
 }
 
 const Page = ({ data, location, pageContext: { slug } }) => {
@@ -46,11 +57,14 @@ const Page = ({ data, location, pageContext: { slug } }) => {
   const serializers = {
     marks: {
       link: ({ mark: { href }, children }) => (
-        <Link to={href} children={children} />
+        <BlogPostLink to={href} children={children} />
       ),
     },
     list: ({ children }) => <Ul children={children} />,
-    listItem: ({ children = {} }) => <Li children={children} />,
+    listItem: ({ children = {} }) => (
+      <BlogPostLi lineHeight={3} fontSize={3} children={children} />
+    ),
+    hardBreak: null,
     types: {
       block: ({ children, node }) => {
         const style = node.style || 'normal'
@@ -66,10 +80,25 @@ const Page = ({ data, location, pageContext: { slug } }) => {
           case 'blockquote':
             return <Blockquote children={children} />
           default:
-            const length = children.length
-            return (length === 1 && !children[0]) || !length ? null : (
-              <P children={children} />
-            )
+            const formatedChildren =
+              children &&
+              children.reduce &&
+              children.reduce((acc, curr) => {
+                const element = removeCarriageReturn(curr)
+                if (element) {
+                  acc.push(element)
+                }
+
+                return acc
+              }, [])
+
+            return formatedChildren && formatedChildren.length ? (
+              <BlogPostP
+                lineHeight={3}
+                fontSize={3}
+                children={formatedChildren}
+              />
+            ) : null
         }
       },
       code: ({ node }) => <Code className={node.language}>{node.code}</Code>,
@@ -77,6 +106,7 @@ const Page = ({ data, location, pageContext: { slug } }) => {
       youtube: ({ node }) => (
         <Video time={node.startSecond} youtubeId={node.videoId} />
       ),
+      span: BlogPostSpan,
       codesandbox: ({ node }) => <Codesandbox id={node.id} />,
       image: props => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
     },
@@ -92,6 +122,8 @@ const Page = ({ data, location, pageContext: { slug } }) => {
     _rawBody,
     readingTimeInMinutes,
   } = data.sanityPost
+
+  console.log('aaaaa', _rawBody)
 
   const mainImagePublicUrl =
     mainImage &&

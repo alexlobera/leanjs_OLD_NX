@@ -78,6 +78,12 @@ GridContent.defaultProps = {
   as: 'article',
 }
 
+const textProps = { lineHeight: 3, fontSize: 3 }
+export const BlogPostP = props => <P {...textProps} {...props} />
+export const BlogPostLi = props => <Li {...textProps} {...props} />
+export const BlogPostLink = props => <Link {...textProps} {...props} />
+export const BlogPostSpan = props => <Span {...textProps} {...props} />
+
 const BlogPost = ({
   location,
   body,
@@ -154,12 +160,12 @@ const BlogPost = ({
               {subtitle ? <H2>{subtitle}</H2> : null}
               {contents && (
                 <React.Fragment>
-                  <P>On this page:</P>
+                  <BlogPostP>On this page:</BlogPostP>
                   <Ul>
                     {contents.map(({ slug, text }) => (
-                      <Li>
+                      <BlogPostLi lineHeight={3} fontSize={3}>
                         {text}, <Link to={`#${slug}`}>go to section</Link>.
-                      </Li>
+                      </BlogPostLi>
                     ))}
                   </Ul>
                 </React.Fragment>
