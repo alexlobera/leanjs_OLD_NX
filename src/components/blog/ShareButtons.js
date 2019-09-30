@@ -19,10 +19,10 @@ const SocialShare = styled.div.attrs({ className: 'blog-article' })`
   }
 `
 
-const ShareButtons = ({ slug }) => (
+const ShareButtons = ({ path }) => (
   <SocialShare>
     <TwitterShareButton
-      url={`https://reactgraphql.academy${slug}`}
+      url={`https://reactgraphql.academy${path}`}
       quote={'title'}
       via="reactgqlacademy"
     >
@@ -30,21 +30,21 @@ const ShareButtons = ({ slug }) => (
     </TwitterShareButton>
 
     <FacebookShareButton
-      url={`https://reactgraphql.academy${slug}`}
+      url={`https://reactgraphql.academy${path}`}
       quote={'title'}
     >
       <FacebookIcon size={36} round />
     </FacebookShareButton>
 
     <LinkedinShareButton
-      url={`https://reactgraphql.academy${slug}`}
+      url={`https://reactgraphql.academy${path}`}
       quote={'title'}
     >
       <LinkedinIcon size={36} round />
     </LinkedinShareButton>
 
     <EmailShareButton
-      url={`https://reactgraphql.academy${slug}`}
+      url={`https://reactgraphql.academy${path}`}
       quote={'title'}
     >
       <EmailIcon size={36} round />

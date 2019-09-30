@@ -79,6 +79,7 @@ GridContent.defaultProps = {
 }
 
 const BlogPost = ({
+  location,
   body,
   postTypeLabel,
   postTypePath,
@@ -187,7 +188,7 @@ const BlogPost = ({
           <Row>
             <Col md={6}>
               <P>Share this on: </P>
-              <ShareButtons slug={slug} />
+              <ShareButtons path={location.pathname} />
               <Hr />
               <P>
                 This website is built using Gatsbyjs. Curious about how this
