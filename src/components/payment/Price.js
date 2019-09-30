@@ -7,7 +7,7 @@ Price.defaultProps = {
   fontWeight: 'bold',
   color: DARK_GREY,
   display: 'inline-block',
-  fontSize: 5,
+  fontSize: 6,
   box: 'span',
 }
 

@@ -4,9 +4,8 @@ import rehypeReact from 'rehype-react'
 import { slugify } from '../components/utils/text'
 
 import { blogAuthors } from '../config/data'
-import Ul, { Li } from '../components/layout/Ul'
-import { P, Span, H2, H3, H4, H5 } from '../components/text'
-import { Link } from '../components/navigation'
+import Ul from '../components/layout/Ul'
+import { H2, H3, H4, H5 } from '../components/text'
 import { Video } from '../components/elements'
 import {
   Code,
@@ -18,7 +17,12 @@ import {
 } from '../components/blog/BlockContent'
 import Tweet from '../components/blog/Tweet'
 import MarketingCard from '../components/curriculum/MarketingCard'
-import BlogPost from '../components/blog/BlogPost'
+import BlogPost, {
+  BlogPostP,
+  BlogPostLi,
+  BlogPostLink,
+  BlogPostSpan,
+} from '../components/blog/BlogPost'
 import getPostsFromNodes from '../components/blog/getPostsFromNodes'
 
 function renderHeadingWithAnchor({ children, Component }) {
@@ -41,19 +45,19 @@ function renderHeadingWithAnchor({ children, Component }) {
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    a: Link,
+    a: BlogPostLink,
     table: Table,
-    p: P,
+    p: BlogPostP,
     h2: ({ children }) => renderHeadingWithAnchor({ children, Component: H2 }),
     h3: ({ children }) => renderHeadingWithAnchor({ children, Component: H3 }),
     h4: ({ children }) => renderHeadingWithAnchor({ children, Component: H4 }),
     h5: ({ children }) => renderHeadingWithAnchor({ children, Component: H5 }),
     ul: Ul,
-    li: Li,
+    li: BlogPostLi,
     pre: Pre,
     img: Img,
     code: Code,
-    span: Span,
+    span: BlogPostSpan,
     tweet: Tweet,
     blockquote: Blockquote,
     codesandbox: Codesandbox,

@@ -82,7 +82,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
       >
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -186,7 +186,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Ul>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -207,7 +207,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -236,7 +236,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -258,7 +258,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -279,7 +279,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -330,7 +330,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -359,7 +359,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h3"
-          fontSize={4}
+          fontSize={5}
           lineHeight={4}
           pt={4}
         >
@@ -392,7 +392,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h3"
-          fontSize={4}
+          fontSize={5}
           lineHeight={4}
           pt={4}
         >
@@ -425,7 +425,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -446,7 +446,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -467,7 +467,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -496,7 +496,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h2"
-          fontSize={5}
+          fontSize={6}
           fontWeight="bold"
           lineHeight={6}
           mb={5}
@@ -573,7 +573,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h3"
-          fontSize={4}
+          fontSize={5}
           lineHeight={4}
           pt={4}
         >
@@ -597,7 +597,7 @@ exports[`<PrivacyPolicy /> should render component 1`] = `
         </Styled(Box)>
         <Styled(Box)
           box="h3"
-          fontSize={4}
+          fontSize={5}
           lineHeight={4}
           pt={4}
         >

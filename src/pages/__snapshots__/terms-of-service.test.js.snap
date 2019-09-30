@@ -30,7 +30,7 @@ exports[`<TermsOfService /> should render component 1`] = `
         >
           <Styled(Box)
             box="h2"
-            fontSize={5}
+            fontSize={6}
             fontWeight="bold"
             lineHeight={6}
             mb={5}
@@ -64,7 +64,7 @@ exports[`<TermsOfService /> should render component 1`] = `
         >
           <Styled(Box)
             box="h2"
-            fontSize={5}
+            fontSize={6}
             fontWeight="bold"
             lineHeight={6}
             mb={5}
@@ -102,7 +102,7 @@ exports[`<TermsOfService /> should render component 1`] = `
         >
           <Styled(Box)
             box="h2"
-            fontSize={5}
+            fontSize={6}
             fontWeight="bold"
             lineHeight={6}
             mb={5}
@@ -133,7 +133,7 @@ exports[`<TermsOfService /> should render component 1`] = `
         >
           <Styled(Box)
             box="h2"
-            fontSize={5}
+            fontSize={6}
             fontWeight="bold"
             lineHeight={6}
             mb={5}
@@ -164,7 +164,7 @@ exports[`<TermsOfService /> should render component 1`] = `
         >
           <Styled(Box)
             box="h2"
-            fontSize={5}
+            fontSize={6}
             fontWeight="bold"
             lineHeight={6}
             mb={5}
@@ -187,7 +187,7 @@ exports[`<TermsOfService /> should render component 1`] = `
         >
           <Styled(Box)
             box="h2"
-            fontSize={5}
+            fontSize={6}
             fontWeight="bold"
             lineHeight={6}
             mb={5}
@@ -210,7 +210,7 @@ exports[`<TermsOfService /> should render component 1`] = `
         >
           <Styled(Box)
             box="h2"
-            fontSize={5}
+            fontSize={6}
             fontWeight="bold"
             lineHeight={6}
             mb={5}
