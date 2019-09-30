@@ -2,6 +2,10 @@ const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
 } = require('./studio/sanity.json')
 
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'React & GraphQL Expert Training | React GraphQL Academy',

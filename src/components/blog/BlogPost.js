@@ -118,7 +118,7 @@ const BlogPost = ({
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={subtitle || title} />
           <meta name="twitter:creator" content={`@${authorTwitter}`} />
-          <meta name="twitter:image:src" content={metaImageFullPublicUrl} />
+          <meta name="twitter:image" content={metaImageFullPublicUrl} />
         </Helmet>
         <Breadcrumb
           path={[

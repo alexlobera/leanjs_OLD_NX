@@ -31,7 +31,12 @@ const Page = ({ data, pageContext: { slug } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
-      acc[id] = localFile.publicURL
+      const baseUrl = process.env.GATSBY_BASE_URL
+      const { publicURL = '' } = localFile
+      acc[id] =
+        publicURL.indexOf('http') === 0 || !baseUrl
+          ? publicURL
+          : `${baseUrl}${publicURL}`
 
       return acc
     },
