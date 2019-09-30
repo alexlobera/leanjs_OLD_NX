@@ -14,6 +14,8 @@ const Page = props => (
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
+    typeOfTraining="1-day ReasonML workshop"
+    perfectStudentLink={false}
     curriculumProps={{
       section: { isOpen: true },
     }}

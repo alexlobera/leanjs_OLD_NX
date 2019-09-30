@@ -31,6 +31,7 @@ const InstancePage = ({
   targetAudienceList: TargetAudienceList,
   crossSellTypes,
   curriculumProps = {},
+  perfectStudentLink,
   pageContext: {
     posts,
     subtitle,
@@ -212,12 +213,14 @@ const InstancePage = ({
                   for you!
                 </P>
                 <H3>Not for beginner devs!</H3>
-                <Link
-                  className="perfect-course-student"
-                  to="/blog/are-you-the-perfect-react-graphql-student/"
-                >
-                  Blog: Are YOU the Perfect React Student?
-                </Link>
+                {perfectStudentLink === false ? null : (
+                  <Link
+                    className="perfect-course-student"
+                    to="/blog/are-you-the-perfect-react-graphql-student/"
+                  >
+                    Blog: Are YOU the Perfect React Student?
+                  </Link>
+                )}
               </Col>
             </Row>
           </Section>
