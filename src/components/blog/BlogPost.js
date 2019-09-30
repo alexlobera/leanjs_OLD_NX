@@ -114,7 +114,7 @@ const BlogPost = ({
           <meta property="og:image" content={metaImageFullPublicUrl} />
           <meta property="og:description" content={subtitle || title} />
           <meta property="og:type" content="article" />
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@reactgqlacademy" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={subtitle || title} />
