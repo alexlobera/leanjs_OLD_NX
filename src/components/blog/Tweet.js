@@ -11,7 +11,11 @@ const Tweet = ({ id, placeholderHeight }) => {
   if (typeof window !== 'undefined') {
     const { TwitterTweetEmbed } = require('react-twitter-embed')
 
-    return <TwitterTweetEmbed tweetId={id} />
+    return (
+      <div style={{ paddingTop: '25px', paddingBottom: '40px' }}>
+        <TwitterTweetEmbed tweetId={id} />
+      </div>
+    )
   }
 
   return <TweetPlaceholder height={placeholderHeight} />
