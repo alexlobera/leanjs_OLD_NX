@@ -140,7 +140,7 @@ const Page = ({ data, pageContext: { slug } }) => {
     slug,
     authorFixedImg,
     authorFullname: fullname,
-    authorTwitter: twitter,
+    authorTwitter: twitter || 'reactgqlacademy',
     authorSlug: username.current,
     mainImagePublicUrl,
     title,
