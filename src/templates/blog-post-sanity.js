@@ -61,9 +61,7 @@ const Page = ({ data, location, pageContext: { slug } }) => {
       ),
     },
     list: ({ children }) => <Ul children={children} />,
-    listItem: ({ children = {} }) => (
-      <BlogPostLi lineHeight={3} fontSize={3} children={children} />
-    ),
+    listItem: ({ children = {} }) => <BlogPostLi children={children} />,
     hardBreak: null,
     types: {
       block: ({ children, node }) => {
@@ -93,11 +91,7 @@ const Page = ({ data, location, pageContext: { slug } }) => {
               }, [])
 
             return formatedChildren && formatedChildren.length ? (
-              <BlogPostP
-                lineHeight={3}
-                fontSize={3}
-                children={formatedChildren}
-              />
+              <BlogPostP children={formatedChildren} />
             ) : null
         }
       },
@@ -122,8 +116,6 @@ const Page = ({ data, location, pageContext: { slug } }) => {
     _rawBody,
     readingTimeInMinutes,
   } = data.sanityPost
-
-  console.log('aaaaa', _rawBody)
 
   const mainImagePublicUrl =
     mainImage &&
