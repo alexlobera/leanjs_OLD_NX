@@ -27,7 +27,7 @@ function renderHeadingWithAnchor({ children, Component }) {
   )
 }
 
-const Page = ({ data, pageContext: { slug } }) => {
+const Page = ({ data, location, pageContext: { slug } }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || []
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
@@ -150,6 +150,7 @@ const Page = ({ data, pageContext: { slug } }) => {
     relatedPosts,
     contents,
     metaImageFullPublicUrl,
+    location,
   }
   return <BlogPost {...blogPostProps} />
 }
