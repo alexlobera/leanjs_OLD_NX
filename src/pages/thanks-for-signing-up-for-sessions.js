@@ -26,7 +26,7 @@ const ThanksForSignUpSessions = () => (
               intersted in, you'll recieve an email.
             </P>
             <P>
-              If you also asked for learning resources, you should be recieving
+              If you also asked for learning resources, you should be receiving
               your first learning resource very soon. Just keep and eye on your
               email inbox.
             </P>

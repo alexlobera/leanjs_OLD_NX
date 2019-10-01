@@ -22,8 +22,8 @@ const ThanksForSignUp = () => (
           <Col md={5} mdOffset={1}>
             <H2>What happens now?</H2>
             <P>
-              Now that you're part of the club, you should be recieving your
-              first learning resource very soon. Just keep and eye on your email
+              Now that you're part of the club, you should be your first
+              learning resource very soon. Just keep and eye on your email
               inbox.
             </P>
             <P>
