@@ -6,7 +6,6 @@ const HooksSession = ({ title = 'React Hooks' }) => (
   <Session title={title}>
     <Ul>
       <Li>Managing state and side effects with hooks</Li>
-      <Li>Creating custom hooks</Li>
     </Ul>
   </Session>
 )
