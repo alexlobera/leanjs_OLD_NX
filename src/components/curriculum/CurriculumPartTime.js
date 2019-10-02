@@ -56,7 +56,7 @@ const PartTimeFinalProject = () => (
     </Li>
     <Li>Discussion about architecture, features and tools</Li>
     <Li>
-      Practice extreme programming and get support from the coaches and mentors
+      Practice pair programming and get support from the coaches and mentors
     </Li>
   </Ul>
 )

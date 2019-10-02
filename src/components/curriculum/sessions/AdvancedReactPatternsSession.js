@@ -4,29 +4,36 @@ import Session from './Session'
 
 export const titleSession = 'Functional Programming & Advanced React patterns'
 
-const HoCsRenderPropsStateReducerSession = ({ title }) => (
+const AdvancedReactPatternsSession = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>
-        Functional programming (FP)
+        Functional programming (FP) applied to JavaScript
         <Ul>
-          <Li>Closures</Li>
+          <Li>Closure</Li>
           <Li>Composition</Li>
+          <Li>Memoization</Li>
         </Ul>
       </Li>
       <Li>
-        Advanced React patterns to reuse functionality across components
+        Advanced React patterns
         <Ul>
-          <Li>Higher-Order Components (HOCs)</Li>
-          <Li>
-            Declarative composition using the Render Props (AKA function as
-            children)
-          </Li>
           <Li>
             Hooks (The future of React!)
             <Ul>
               <Li>Managing state and side effects with hooks</Li>
+              <Li>Hook Reducer</Li>
               <Li>Custom hooks</Li>
+            </Ul>
+          </Li>
+          <Li>
+            Previous patterns
+            <Ul>
+              <Li>Higher-Order Components (HOCs)</Li>
+              <Li>
+                Declarative composition using the Render Props (AKA function as
+                children)
+              </Li>
             </Ul>
           </Li>
         </Ul>
@@ -35,4 +42,4 @@ const HoCsRenderPropsStateReducerSession = ({ title }) => (
   </Session>
 )
 
-export default HoCsRenderPropsStateReducerSession
+export default AdvancedReactPatternsSession

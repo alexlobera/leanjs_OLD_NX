@@ -1,9 +1,9 @@
 import React from 'react'
 import Section from '../CurriculumSection'
 import { REACT_WORKSHOP } from '../../../config/data'
-import HoCsRenderPropsStateReducerSession, {
+import AdvancedReactPatternsSession, {
   titleSession as titleSession1,
-} from '../sessions/HoCsRenderPropsStateReducerSession'
+} from '../sessions/AdvancedReactPatternsSession'
 import ReactPerformanceSession, {
   titleSession as titleSession2,
 } from '../sessions/ReactPerformanceSession'
@@ -17,7 +17,7 @@ const CurriculumAdvReactPatterns = ({ showTitle = true, section, ...rest }) => (
     firstHalf={
       <React.Fragment>
         <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
-          <HoCsRenderPropsStateReducerSession title="" />
+          <AdvancedReactPatternsSession title="" />
         </Section>
         <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
           <ReactPerformanceSession title="" />

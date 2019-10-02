@@ -8,14 +8,14 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       <CurriculumSection
         mt={4}
         name="day1"
-        subTitle="Advanced React patterns, Hooks, and performance"
+        subTitle="Advanced React patterns and performance"
         title="Advanced React Day 1"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingDateTime="-  09:00 - 18:00"
         type="Advanced React"
       >
         <React.Fragment>
-          <HoCsRenderPropsStateReducerSession />
+          <AdvancedReactPatternsSession />
           <ReactPerformanceSession />
         </React.Fragment>
       </CurriculumSection>,
@@ -26,15 +26,15 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       <CurriculumSection
         mt={4}
         name="day2"
-        subTitle="Advanced UI Patterns & Styling in React"
+        subTitle="Styling in React and Design Systems"
         title="Advanced React Day 2"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingDateTime="-  09:00 - 18:00"
         type="Advanced React"
       >
         <React.Fragment>
-          <AdvancedUIPatterns />
           <StylingInReactSession />
+          <AdvancedUIPatterns />
           <DesignSystemSession />
         </React.Fragment>
       </CurriculumSection>,
@@ -50,7 +50,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         <React.Fragment>
           <TestingIntroSession />
           <TestingInReactSession />
-          <E2ESession />
         </React.Fragment>
       </CurriculumSection>,
     ]

@@ -8,7 +8,7 @@ const AdvancedUIPatterns = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
       <Li>Themes and Variants</Li>
-      <Li>Compound Components and Context</Li>
+      <Li>Compound Components</Li>
       <Li>
         React Composition Model Best Practices:
         <Ul>
