@@ -16,15 +16,15 @@ import Curriculum from '../Curriculum'
 
 const CurriculumStylingAndAdvUI = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
-    title={showTitle ? '1-Day Advanced React UIs & Styling Curriculum' : ''}
+    title={showTitle ? '1-Day Styling & Design Systems Curriculum' : ''}
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
-          <AdvancedUIPatterns title="" />
-        </Section>
         <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
           <StylingInReactSession title="" />
+        </Section>
+        <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
+          <AdvancedUIPatterns title="" />
         </Section>
         <Section title={titleSession3} type={REACT_WORKSHOP} {...section}>
           <DesignSystemSession title="" />

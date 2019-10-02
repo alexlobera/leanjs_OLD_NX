@@ -10,8 +10,7 @@ import HooksSession from './sessions/HooksSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import TestingIntroSession from './sessions/TestingIntroSession'
 import TestingInReactSession from './sessions/TestingInReactSession'
-import E2ESession from './sessions/E2ESession'
-import HoCsRenderPropsStateReducerSession from './sessions/HoCsRenderPropsStateReducerSession'
+import AdvancedReactPatternsSession from './sessions/AdvancedReactPatternsSession'
 import ReactPerformanceSession from './sessions/ReactPerformanceSession'
 import AdvancedReduxSession from './sessions/AdvancedReduxSession'
 import AdvancedUIPatterns from './sessions/AdvancedUIPatterns'
@@ -34,7 +33,7 @@ export const sessionsFirstHalf = [
   },
   {
     subTitle: 'Forms, Authentication, and Hooks',
-    comps: [FormsAndAuthSession, ReactFundamentalsRecapSession, HooksSession],
+    comps: [FormsAndAuthSession, HooksSession, ReactFundamentalsRecapSession],
   },
   {
     subTitle: 'Redux Fundamentals, Advanced Redux, and FP',
@@ -43,16 +42,16 @@ export const sessionsFirstHalf = [
 ]
 export const sessionsSecondHalf = [
   {
-    subTitle: 'Advanced React patterns, Hooks, and performance',
-    comps: [HoCsRenderPropsStateReducerSession, ReactPerformanceSession],
+    subTitle: 'Advanced React patterns and performance',
+    comps: [AdvancedReactPatternsSession, ReactPerformanceSession],
   },
   {
-    subTitle: 'Advanced UI Patterns & Styling in React',
-    comps: [AdvancedUIPatterns, StylingInReactSession, DesignSystemSession],
+    subTitle: 'Styling in React and Design Systems',
+    comps: [StylingInReactSession, AdvancedUIPatterns, DesignSystemSession],
   },
   {
     subTitle: 'Real-World Testing in React',
-    comps: [TestingIntroSession, TestingInReactSession, E2ESession],
+    comps: [TestingIntroSession, TestingInReactSession],
   },
 ]
 

@@ -25,7 +25,7 @@ import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 
 const metas = {
-  title: `Advanced React UIs & Styling With Design Systems Workshop | React GraphQL Academy`,
+  title: `Styling in React and Design Systems Workshop | React GraphQL Academy`,
   description:
     'Interested in Design Systems? React GraphQL Academy offers Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
@@ -65,11 +65,8 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               },
             ]}
             tech={TECH_REACT}
-            titleLines={[
-              'Advanced React UIs & Styling',
-              'With Design Systems Workshop',
-            ]}
-            subtitle="See how React can look gorgeous and encourage design consistency"
+            titleLines={['Styling in React and', 'Design Systems Workshop']}
+            subtitle="See how React can look gorgeous and encourage design consistency at scale"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },

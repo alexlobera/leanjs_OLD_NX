@@ -33,8 +33,8 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
           />
           <Section
             {...sectionProps}
-            title="Advanced React UIs & Styling With Design Systems"
-            subTitle="See how React can look gorgeous and encourage design consistency"
+            title="Styling in React and Design Systems"
+            subTitle="See how React can look gorgeous and encourage design consistency at scale"
             toggleNavigateTo={`${workshopBasePath}advanced-uis-styling-design-systems/`}
           />
           <Section

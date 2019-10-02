@@ -44,8 +44,8 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       >
         <React.Fragment>
           <FormsAndAuthSession />
-          <ReactFundamentalsRecapSession />
           <HooksSession />
+          <ReactFundamentalsRecapSession />
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
@@ -69,29 +69,29 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       <CurriculumSection
         mt={4}
         name="day4"
-        subTitle="Advanced React patterns, Hooks, and performance"
+        subTitle="Advanced React patterns and performance"
         title="Day  4"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
         type="React Bootcamp"
       >
         <React.Fragment>
-          <HoCsRenderPropsStateReducerSession />
+          <AdvancedReactPatternsSession />
           <ReactPerformanceSession />
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="day5"
-        subTitle="Advanced UI Patterns & Styling in React"
+        subTitle="Styling in React and Design Systems"
         title="Day  5"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
         type="React Bootcamp"
       >
         <React.Fragment>
-          <AdvancedUIPatterns />
           <StylingInReactSession />
+          <AdvancedUIPatterns />
           <DesignSystemSession />
         </React.Fragment>
       </CurriculumSection>,
@@ -107,7 +107,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         <React.Fragment>
           <TestingIntroSession />
           <TestingInReactSession />
-          <E2ESession />
         </React.Fragment>
       </CurriculumSection>,
     ]
