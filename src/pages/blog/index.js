@@ -47,7 +47,7 @@ const Blog = ({ data, path }) => {
 
 export const query = graphql`
   query blogQuery {
-    allSanityPost(sort: { fields: order, order: ASC }) {
+    allSanityPost(sort: { fields: [order, publishedAt], order: [ASC, DESC] }) {
       nodes {
         ...SanityPostItemFragment
       }
