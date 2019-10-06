@@ -12,35 +12,42 @@ const DayOneSessions = ({ title }) => (
           <Li>
             Schema
             <Ul>
-              <Li>Types</Li>
-              <Li>Fields</Li>
-              <Li>Queries</Li>
-              <Li>Mutations</Li>
+              <Li>Types and Fields</Li>
+              <Li>Queries and Mutations</Li>
+              <Li>Unions, Interfaces, and Enums</Li>
             </Ul>
           </Li>
+        </Ul>
+      </Li>
+      <Li>
+        Schema design
+        <Ul>
+          <Li>Schema-First vs Code-First/ Resolver-First</Li>
+          <Li>Relay Cursor Connections Specification</Li>
         </Ul>
       </Li>
       <Li>
         Building a GraphQL API
         <Ul>
           <Li>Resolvers</Li>
-          <Li>Rapid GraphQL development with mocked schemas</Li>
-          <Li>Schema design Vs resolver design</Li>
-          <Li>Relay Cursor Connections Specification</Li>
+          <Li>Rapid GraphQL development with mocked data</Li>
+          <Li>Wrapping existent REST APIs with GraphQL</Li>
         </Ul>
       </Li>
       <Li>
-        Data sources
+        Error handling & security design
         <Ul>
-          <Li>Wrapping existent REST APIs & microservices with GraphQL</Li>
-          <Li>Connecting GraphQL to databases</Li>
-        </Ul>
-      </Li>
-      <Li>
-        Security design
-        <Ul>
+          <Li>Error handling</Li>
           <Li>Authentication</Li>
           <Li>Authorization</Li>
+        </Ul>
+      </Li>
+      <Li>
+        GraphQL beyond the API
+        <Ul>
+          <Li>From GraphQL to TypeScript</Li>
+          <Li>From SQL to GraphQL and more with Hasura.io (TBC)</Li>
+          <Li>From traditional ORMs to GraphQL and more with Prisma (TBC)</Li>
         </Ul>
       </Li>
     </Ul>

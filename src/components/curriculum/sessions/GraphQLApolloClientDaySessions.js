@@ -41,7 +41,13 @@ const GraphQLApolloClientDaySessions = ({ title }) => (
           <Li>Mocking</Li>
         </Ul>
       </Li>
-      <Li>GraphQL Tooling to speed up front-end development</Li>
+      <Li>
+        GraphQL Tooling to speed up front-end development
+        <Li>
+          <Li>Generating TypeScript types with Apollo codegen</Li>
+          <Li>Apollo GraphQL for VS Code</Li>
+        </Li>
+      </Li>
     </Ul>
   </Session>
 )
