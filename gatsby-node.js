@@ -142,6 +142,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
+                instanceTemplate
                 contentType
                 city
                 coaches
@@ -258,6 +259,7 @@ exports.createPages = async ({ graphql, actions }) => {
               videoTwoFullname,
               videoTwoJob,
               videoTwoCompany,
+              instanceTemplate: overrideInstanceTemplate,
             } = node.frontmatter
 
             await Promise.all(
@@ -266,7 +268,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 await createPage({
                   path: pagePath,
                   component: path.resolve(
-                    `./src/templates/instance/${instanceTemplate}.js`
+                    `./src/templates/instance/${overrideInstanceTemplate ||
+                      instanceTemplate}.js`
                   ),
                   context: {
                     videoCoachId,

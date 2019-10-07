@@ -48,7 +48,7 @@ export const renderPartTimeSection = ({
   )
 }
 
-const PartTimeFinalProject = () => (
+export const PartTimeFinalProject = () => (
   <Ul>
     <Li>
       Consolidate your new React skills by adding Styled-Components and Redux to
@@ -61,7 +61,7 @@ const PartTimeFinalProject = () => (
   </Ul>
 )
 
-const sessionsFirstHalf = [
+const defaultSessionsFirstHalf = [
   { title: 'Modern JavaScript', Comp: ES6Session, group: 1 },
   { title: 'Thinking in React', Comp: ThinkingInReactSession, group: 1 },
   {
@@ -76,11 +76,11 @@ const sessionsFirstHalf = [
     group: 2,
   },
 ]
-const sessionsSecondHalf = [
-  { title: 'React Hooks', Comp: HooksSession, group: 4 },
-  { title: 'Styling in React', Comp: StylingInReactSession, group: 4 },
-  { title: 'Redux', Comp: IntroReduxSession, group: 3 },
-  { title: 'Testing Fundamentals in JS', Comp: TestingIntroSession, group: 3 },
+const defaultSessionsSecondHalf = [
+  { title: 'React Hooks', Comp: HooksSession, group: 3 },
+  { title: 'Styling in React', Comp: StylingInReactSession, group: 3 },
+  { title: 'Redux', Comp: IntroReduxSession, group: 4 },
+  { title: 'Testing Fundamentals in JS', Comp: TestingIntroSession, group: 4 },
   {
     title: 'React Redux Real-world Final Project',
     Comp: PartTimeFinalProject,
@@ -92,6 +92,8 @@ const CurriculumPartTime = ({
   toggleNavigateTo = `/react/curriculum?tab=${PART_TIME}`,
   training,
   section = {},
+  sessionsFirstHalf = defaultSessionsFirstHalf,
+  sessionsSecondHalf = defaultSessionsSecondHalf,
   ...rest
 }) => {
   const type = PART_TIME
