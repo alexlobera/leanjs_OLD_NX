@@ -100,8 +100,16 @@ const HeaderSection = styled(Section)`
         width: 100%;
         height: 100%;
         z-index: ${Z_INDEX_BG};
-        background-image: url(${bgImage}); background-repeat: no-repeat; background-size: cover;
-        opacity: ${bgImageOpacity};
+        ${
+          bgImage
+            ? `
+          background-image: url(${bgImage}); 
+          background-repeat: no-repeat; 
+          background-size: cover;
+          opacity: ${bgImageOpacity};
+          `
+            : ''
+        }
       }
     }
   `}
