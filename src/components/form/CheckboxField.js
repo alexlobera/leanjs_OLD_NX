@@ -60,7 +60,7 @@ const Checkbox = ({ checked, input, onChange, ...props }) => {
   )
 }
 
-export const CheckboxField = props => (
+const CheckboxField = props => (
   <Field {...props} type="checkbox" component={Checkbox} />
 )
 
