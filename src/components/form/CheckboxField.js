@@ -64,8 +64,8 @@ const CheckboxField = props => (
   <Field {...props} type="checkbox" component={Checkbox} />
 )
 
-const LabeledCheckboxField = props => {
-  const [checked, setChecked] = useState(props.defaultValue || false)
+const LabeledCheckboxField = ({ defaultValue, ...props }) => {
+  const [checked, setChecked] = useState(defaultValue || false)
 
   const handleCheckboxChange = event => {
     setChecked(event.target.checked)
