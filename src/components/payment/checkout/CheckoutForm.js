@@ -166,7 +166,6 @@ class CheckoutForm extends React.Component {
       paymentErrorMessage,
       showSubscribeToNewsletter,
     } = this.props
-
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
     const discount = priceQuantity - currentPriceQuantity
     const ticketVat = !vatRate

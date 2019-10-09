@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Field } from 'react-final-form'
 
-import InputField from './InputField'
 import Label from '../text/Label'
 
 const defaultSize = 2
@@ -11,7 +11,7 @@ const Icon = styled.svg`
   stroke: black;
   stroke-width: 2px;
 `
-const HiddenCheckbox = styled(InputField).attrs({
+const HiddenCheckbox = styled.input.attrs({
   type: 'checkbox',
 })`
   clip: rect(0 0 0 0);
@@ -24,6 +24,7 @@ const HiddenCheckbox = styled(InputField).attrs({
   white-space: nowrap;
   width: 1px;
 `
+
 const StyledCheckbox = styled.div`
   margin: 1em 0;
   border: 1px solid black;
@@ -36,40 +37,53 @@ const StyledCheckbox = styled.div`
     visibility: ${props => (props.checked ? 'visible' : 'hidden')};
   }
 `
-const LabelText = styled.span`
+const Span = styled.span`
   margin-left: 1em;
   align-self: center;
 `
 
-const Checkbox = ({ checked, label, ...props }) => (
-  <React.Fragment>
-    <HiddenCheckbox checked={checked} {...props} />
-    <StyledCheckbox checked={checked} label={label} {...props}>
-      <Icon viewBox="0 0 24 24">
-        <polyline points="20 6 9 17 4 12" />
-      </Icon>
-    </StyledCheckbox>
-  </React.Fragment>
+const Checkbox = ({ checked, input, onChange, ...props }) => {
+  const newOnChange = e => {
+    input && input.onChange && input.onChange(e)
+    onChange && onChange(e)
+  }
+
+  return (
+    <React.Fragment>
+      <HiddenCheckbox {...props} checked={checked} onChange={newOnChange} />
+      <StyledCheckbox checked={checked}>
+        <Icon viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12" />
+        </Icon>
+      </StyledCheckbox>
+    </React.Fragment>
+  )
+}
+
+const CheckboxField = props => (
+  <Field {...props} type="checkbox" component={Checkbox} />
 )
 
-const CheckboxField = props => {
-  const [checked, setChecked] = useState(false)
+const LabeledCheckboxField = ({ defaultValue, ...props }) => {
+  const [checked, setChecked] = useState(defaultValue || false)
 
-  const handleCheckboxChange = event => setChecked(event.target.checked)
+  const handleCheckboxChange = event => {
+    setChecked(event.target.checked)
+  }
 
   return (
     <React.Fragment>
       <Label flex>
-        <Checkbox
+        <CheckboxField
+          {...props}
           className={props.className}
           checked={checked}
           onChange={handleCheckboxChange}
-          {...props}
         />
-        <LabelText>{props.label}</LabelText>
+        <Span>{props.label}</Span>
       </Label>
     </React.Fragment>
   )
 }
 
-export default CheckboxField
+export default LabeledCheckboxField

@@ -2,6 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import waitForExpect from 'wait-for-expect'
 
+import { MEETUP } from '../../config/data'
 import Root from '../../../test/utils/Root'
 import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import VALIDATE_VIES from './checkout/ValidateVies.graphql'
@@ -46,7 +47,7 @@ const defaultTrainingData = {
     mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
     price: 995,
     startDate: '2019-04-23T17:00:00.000Z',
-    training: { type: 'Part-time' },
+    type: 'Part-time',
   },
   trainingLoading: false,
   trainingError: false,
@@ -77,7 +78,6 @@ const mountPaymentSection = ({
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
   validateVatQuery,
-  showSubscribeToNewsletter = false,
   navigate = () => {},
   triggerSubscribe = () => {},
 }) => {
@@ -95,7 +95,6 @@ const mountPaymentSection = ({
         navigate={navigate}
         paymentApi={paymentApi}
         triggerSubscribe={triggerSubscribe}
-        showSubscribeToNewsletter={showSubscribeToNewsletter}
       />
     </Root>
   )
@@ -188,7 +187,6 @@ describe('<PaymentSection />', () => {
       let wrapper = mountPaymentSection({
         paymentMutation: { request, result },
         triggerSubscribe,
-        showSubscribeToNewsletter: true,
         trainingData: {
           training: {
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
@@ -199,7 +197,7 @@ describe('<PaymentSection />', () => {
             mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
             price: 995,
             startDate: '2019-04-23T17:00:00.000Z',
-            training: { type: 'Meetup' },
+            type: MEETUP,
           },
           trainingLoading: false,
           trainingError: false,
