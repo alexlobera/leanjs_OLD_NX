@@ -64,6 +64,7 @@ class Checkout extends React.Component {
       navigate,
       showSubscribeToNewsletter,
       city,
+      triggerSubscribe,
     } = this.props
 
     const { isOpen } = this.state
@@ -128,6 +129,7 @@ class Checkout extends React.Component {
             isVoucherValid={isVoucherValid}
             isVoucherValidationInProgress={isVoucherValidationInProgress}
             paymentApi={paymentApi}
+            triggerSubscribe={triggerSubscribe}
             showSubscribeToNewsletter={showSubscribeToNewsletter}
             {...this.props}
           />

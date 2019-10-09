@@ -115,6 +115,7 @@ class PaymentSection extends React.Component {
       navigate,
       data: autoVoucherData = {},
       city,
+      triggerSubscribe,
     } = this.props
     let trainingInstanceId,
       eventId,
@@ -228,6 +229,7 @@ class PaymentSection extends React.Component {
                 ) : null}
                 {parseInt(price, 10) > 0 && (
                   <Checkout
+                    {...this.props}
                     city={city}
                     navigate={navigate}
                     trainingInstanceId={trainingInstanceId}
@@ -246,12 +248,12 @@ class PaymentSection extends React.Component {
                     resetVoucher={this.resetVoucher}
                     voucher={voucher}
                     isVoucherValid={isVoucherValid}
+                    triggerSubscribe={triggerSubscribe}
                     isVoucherValidationInProgress={
                       isVoucherValidationInProgress
                     }
                     paymentApi={paymentApi}
                     showSubscribeToNewsletter={showSubscribeToNewsletter}
-                    {...this.props}
                   />
                 )}
               </React.Fragment>
