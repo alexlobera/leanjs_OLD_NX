@@ -42,15 +42,15 @@ const Span = styled.span`
   align-self: center;
 `
 
-const Checkbox = ({ checked, type, input, ...props }) => {
-  const onChange = e => {
+const Checkbox = ({ checked, input, onChange, ...props }) => {
+  const newOnChange = e => {
     input && input.onChange && input.onChange(e)
-    props.onChange && props.onChange(e)
+    onChange && onChange(e)
   }
 
   return (
     <React.Fragment>
-      <HiddenCheckbox {...props} checked={checked} onChange={onChange} />
+      <HiddenCheckbox {...props} checked={checked} onChange={newOnChange} />
       <StyledCheckbox checked={checked}>
         <Icon viewBox="0 0 24 24">
           <polyline points="20 6 9 17 4 12" />
