@@ -25,10 +25,6 @@ const HiddenCheckbox = styled.input.attrs({
   width: 1px;
 `
 
-const HiddenCheckboxField = props => (
-  <Field {...props} component={HiddenCheckbox} />
-)
-
 const StyledCheckbox = styled.div`
   margin: 1em 0;
   border: 1px solid black;
@@ -41,7 +37,7 @@ const StyledCheckbox = styled.div`
     visibility: ${props => (props.checked ? 'visible' : 'hidden')};
   }
 `
-const LabelText = styled.span`
+const Span = styled.span`
   margin-left: 1em;
   align-self: center;
 `
@@ -54,18 +50,8 @@ const Checkbox = ({ checked, type, input, label, ...props }) => {
 
   return (
     <React.Fragment>
-      <HiddenCheckboxField
-        {...props}
-        type={type}
-        checked={checked}
-        onChange={onChange}
-      />
-      <StyledCheckbox
-        {...props}
-        checked={checked}
-        label={label}
-        onChange={onChange}
-      >
+      <HiddenCheckbox {...props} checked={checked} onChange={onChange} />
+      <StyledCheckbox checked={checked}>
         <Icon viewBox="0 0 24 24">
           <polyline points="20 6 9 17 4 12" />
         </Icon>
@@ -78,8 +64,8 @@ export const CheckboxField = props => (
   <Field {...props} type="checkbox" component={Checkbox} />
 )
 
-const LabeledCheckbox = props => {
-  const [checked, setChecked] = useState(false)
+const LabeledCheckboxField = props => {
+  const [checked, setChecked] = useState(props.defaultValue || false)
 
   const handleCheckboxChange = event => {
     setChecked(event.target.checked)
@@ -89,15 +75,15 @@ const LabeledCheckbox = props => {
     <React.Fragment>
       <Label flex>
         <CheckboxField
+          {...props}
           className={props.className}
           checked={checked}
           onChange={handleCheckboxChange}
-          {...props}
         />
-        <LabelText>{props.label}</LabelText>
+        <Span>{props.label}</Span>
       </Label>
     </React.Fragment>
   )
 }
 
-export default LabeledCheckbox
+export default LabeledCheckboxField
