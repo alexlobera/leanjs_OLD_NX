@@ -57,7 +57,7 @@ export const theme = {
       lg: 64, // rem
     },
   },
-  // design system:
+  // design system
   space: [
     '0rem', // 0
     '0.625rem', // 1
