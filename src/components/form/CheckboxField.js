@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Field } from 'react-final-form'
-// import InputField from './InputField'
+
 import Label from '../text/Label'
 
 const defaultSize = 2
