@@ -42,7 +42,7 @@ const Span = styled.span`
   align-self: center;
 `
 
-const Checkbox = ({ checked, type, input, label, ...props }) => {
+const Checkbox = ({ checked, type, input, ...props }) => {
   const onChange = e => {
     input && input.onChange && input.onChange(e)
     props.onChange && props.onChange(e)
