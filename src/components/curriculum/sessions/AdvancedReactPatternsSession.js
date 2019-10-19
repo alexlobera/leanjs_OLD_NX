@@ -11,8 +11,8 @@ const AdvancedReactPatternsSession = ({ title }) => (
         Functional programming (FP) applied to JavaScript
         <Ul>
           <Li>Closure</Li>
-          <Li>Composition</Li>
           <Li>Memoization</Li>
+          <Li>Composition</Li>
         </Ul>
       </Li>
       <Li>
