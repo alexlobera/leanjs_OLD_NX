@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Field } from 'react-final-form'
 
-import Label from '../text/Label'
+import { FlexLabel } from '../text/Label'
 
 const defaultSize = 2
 
@@ -60,12 +60,10 @@ const Checkbox = ({ checked, input, onChange, ...props }) => {
   )
 }
 
-const CheckboxField = props => (
-  <Field {...props} type="checkbox" component={Checkbox} />
-)
-
-const LabeledCheckboxField = ({ defaultValue, ...props }) => {
-  const [checked, setChecked] = useState(defaultValue || false)
+const LabeledCheckbox = ({ defaultValue, ...props }) => {
+  const [checked, setChecked] = useState(
+    defaultValue || (props.input && props.input.checked) || false
+  )
 
   const handleCheckboxChange = event => {
     setChecked(event.target.checked)
@@ -73,17 +71,21 @@ const LabeledCheckboxField = ({ defaultValue, ...props }) => {
 
   return (
     <React.Fragment>
-      <Label flex>
-        <CheckboxField
+      <FlexLabel>
+        <Checkbox
           {...props}
           className={props.className}
           checked={checked}
           onChange={handleCheckboxChange}
         />
         <Span>{props.label}</Span>
-      </Label>
+      </FlexLabel>
     </React.Fragment>
   )
 }
+
+const LabeledCheckboxField = props => (
+  <Field {...props} type="checkbox" component={LabeledCheckbox} />
+)
 
 export default LabeledCheckboxField
