@@ -243,7 +243,6 @@ const days = {
 }
 
 export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
-  // console.log('addd', training, dayOffset)
   let daysOfTheWeek
   if (training.daysOfTheWeek && training.daysOfTheWeek.length) {
     daysOfTheWeek = new Set(training.daysOfTheWeek.map(day => days[day]))
