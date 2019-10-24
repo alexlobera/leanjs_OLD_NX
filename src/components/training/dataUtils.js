@@ -1,8 +1,3 @@
-import React from 'react'
-import { Query } from 'react-apollo'
-
-import selectUpcomingTrainings from './selectUpcomingTrainings'
-import GET_UPCOMING_TRAINING from './QueryUpcomingTrainings.graphql'
 import {
   PART_TIME,
   REACT_BOOTCAMP,
@@ -33,7 +28,7 @@ const BERLIN_LOCATION =
 const DEFAULT_INFOBOX =
   'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fdefault_infobox.jpg?alt=media'
 
-const createTrainingPath = ({ type, city = '', index, slug }) => {
+export const createTrainingPath = ({ type, city = '', index, slug }) => {
   const i = index > 1 ? index : ''
   switch (type) {
     case PART_TIME:
@@ -57,7 +52,7 @@ const createTrainingPath = ({ type, city = '', index, slug }) => {
   }
 }
 
-const selectLocationImage = ({ city = '' }) => {
+export const selectLocationImage = ({ city = '' }) => {
   switch (city) {
     case 'London':
       return LONDON_LOCATION
@@ -74,7 +69,7 @@ const selectLocationImage = ({ city = '' }) => {
   }
 }
 
-function formatMeetup({ node }) {
+export function formatMeetup({ node }) {
   return {
     ...node,
     type: MEETUP,
@@ -82,55 +77,3 @@ function formatMeetup({ node }) {
     image: selectLocationImage({ city: node.city }),
   }
 }
-
-const QueryUpcomingTrainings = ({ type, city, limit, children }) => (
-  <Query query={GET_UPCOMING_TRAINING} variables={{ city }}>
-    {({ loading, error, data }) => {
-      const cityIndex = {}
-      const formatTraining = ({ node }) => {
-        const { type, slug, description } = node.training || {}
-        const { title = '' } = description || {}
-        const { city = '', id } = node
-        const key = `${city}${type}${slug}`
-        cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
-
-        return {
-          ...node,
-          title,
-          type,
-          toPath: createTrainingPath({
-            type,
-            city,
-            index: cityIndex[key],
-            id,
-            slug,
-          }),
-          image: selectLocationImage({ city }),
-        }
-      }
-
-      const trainings =
-        !error && !loading && data.trainingInstancesConnection
-          ? data.trainingInstancesConnection.edges.map(formatTraining)
-          : []
-
-      const meetups =
-        !error && !loading && data.eventsConnection
-          ? data.eventsConnection.edges.map(formatMeetup)
-          : []
-
-      return children({
-        trainings: selectUpcomingTrainings({
-          trainings: [...trainings, ...meetups],
-          type,
-          city,
-          limit,
-        }),
-        trainingLoading: loading,
-        trainingError: error,
-      })
-    }}
-  </Query>
-)
-
-export default QueryUpcomingTrainings

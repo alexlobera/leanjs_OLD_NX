@@ -8,7 +8,14 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import fetch from 'node-fetch'
 import raven from 'raven-js'
-import { graphql, StaticQuery } from 'gatsby'
+import { useStaticQuery } from 'gatsby'
+
+import selectUpcomingTrainings from './training/selectUpcomingTrainings'
+import {
+  createTrainingPath,
+  formatMeetup,
+  selectLocationImage,
+} from './training/dataUtils'
 
 import './reset.css'
 import './layout.css'
@@ -18,7 +25,6 @@ import Footer from '../components/layout/Footer'
 import favicon from './favicon.ico'
 import AcceptCookies from '../components/layout/AcceptCookies'
 import { theme } from '../config/styles'
-import QueryUpcomingTrainings from '../components/training/QueryUpcomingTrainings'
 import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-400.woff2'
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 
@@ -74,62 +80,138 @@ const Layout = ({ children, loadAutopilot = true }) => {
     <script type="text/javascript" async="true" src={src} key={src} />
   ))
 
-  return (
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
+  const data = useStaticQuery(graphql`
+    query layoutTraining {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+      upmentoring {
+        eventsConnection(
+          filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
+          orderBy: { sort: startDate, direction: ASC }
+        ) {
+          edges {
+            node {
+              id
               title
-              description
+              startDate
+              utcOffset
+              endDate
+              city
+              cityCountry
             }
           }
         }
-      `}
-      render={data => (
-        <React.Fragment>
-          <ThemeProvider theme={theme}>
-            <ApolloProvider client={graphqlClient}>
-              <React.Fragment>
-                <Helmet
-                  htmlAttributes={{
-                    lang: 'en',
-                  }}
-                  title={data && data.site && data.site.siteMetadata.title}
-                  meta={[
-                    {
-                      name: 'description',
-                      content:
-                        data && data.site && data.site.siteMetadata.description,
-                    },
-                  ]}
-                  link={[
-                    ...preloadUrls,
-                    ...prefetchDnsLinks,
-                    ...preconnectLinks,
-                    {
-                      rel: 'icon',
-                      type: 'image/x-icon',
-                      href: `${favicon}`,
-                    },
-                  ]}
-                >
-                  {scriptTags}
-                </Helmet>
-                <Menu />
-                {typeof children === 'function' ? (
-                  <QueryUpcomingTrainings>{children}</QueryUpcomingTrainings>
-                ) : (
-                  children
-                )}
-                <Footer />
-                <AcceptCookies />
-              </React.Fragment>
-            </ApolloProvider>
-          </ThemeProvider>
-        </React.Fragment>
-      )}
-    />
+        trainingInstancesConnection(
+          filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
+          orderBy: { sort: startDate, direction: ASC }
+        ) {
+          edges {
+            node {
+              id
+              startDate
+              utcOffset
+              endDate
+              city
+              cityCountry
+              daysOfTheWeek
+              address
+              venueName
+              mapUrl
+              price
+              currency
+              training {
+                id
+                type
+                slug
+                description {
+                  title
+                  objectives
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const cityIndex = {}
+  const formatTraining = ({ node }) => {
+    const { type, slug, description } = node.training || {}
+    const { title = '' } = description || {}
+    const { city = '', id } = node
+    const key = `${city}${type}${slug}`
+    cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
+
+    return {
+      ...node,
+      title,
+      type,
+      toPath: createTrainingPath({
+        type,
+        city,
+        index: cityIndex[key],
+        id,
+        slug,
+      }),
+      image: selectLocationImage({ city }),
+    }
+  }
+
+  const trainings = data.upmentoring.trainingInstancesConnection.edges.map(
+    formatTraining
+  )
+
+  const meetups = data.upmentoring.eventsConnection.edges.map(formatMeetup)
+
+  return (
+    <React.Fragment>
+      <ThemeProvider theme={theme}>
+        <ApolloProvider client={graphqlClient}>
+          <React.Fragment>
+            <Helmet
+              htmlAttributes={{
+                lang: 'en',
+              }}
+              title={data && data.site && data.site.siteMetadata.title}
+              meta={[
+                {
+                  name: 'description',
+                  content:
+                    data && data.site && data.site.siteMetadata.description,
+                },
+              ]}
+              link={[
+                ...preloadUrls,
+                ...prefetchDnsLinks,
+                ...preconnectLinks,
+                {
+                  rel: 'icon',
+                  type: 'image/x-icon',
+                  href: `${favicon}`,
+                },
+              ]}
+            >
+              {scriptTags}
+            </Helmet>
+            <Menu />
+            {typeof children === 'function'
+              ? children({
+                  trainings: selectUpcomingTrainings({
+                    trainings: [...trainings, ...meetups],
+                  }),
+                })
+              : children}
+            <Footer />
+            <AcceptCookies />
+          </React.Fragment>
+        </ApolloProvider>
+      </ThemeProvider>
+    </React.Fragment>
   )
 }
 

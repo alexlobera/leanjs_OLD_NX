@@ -1,4 +1,3 @@
-export { default as QueryUpcomingTrainings } from './QueryUpcomingTrainings'
 export {
   default as selectUpcomingTrainings,
   selectNthTraining,

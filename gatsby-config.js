@@ -88,5 +88,15 @@ module.exports = {
         extendTypes: [{ typeName: `SanityPost`, contentFieldName: 'body' }],
       },
     },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'UpMentoring',
+        // This is field under which it's accessible
+        fieldName: 'upmentoring',
+        // Url to query from
+        url: 'https://api0.upmentoring.com/api/graphql',
+      },
+    },
   ],
 }
