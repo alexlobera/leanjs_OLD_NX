@@ -242,13 +242,15 @@ const days = {
   Sunday: 0,
 }
 
-export const trainingDateByDay = ({ training = {}, day = 1 }) => {
+export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
+  // console.log('addd', training, dayOffset)
   let daysOfTheWeek
   if (training.daysOfTheWeek && training.daysOfTheWeek.length) {
     daysOfTheWeek = new Set(training.daysOfTheWeek.map(day => days[day]))
   }
   if (daysOfTheWeek) {
     let validDaysCounter = 0
+    const day = dayOffset + 1
     for (
       let iterationDate = getOffsetDate(training.startDate, training.utcOffset);
       iterationDate <= getOffsetDate(training.endDate, training.utcOffset);
@@ -262,7 +264,7 @@ export const trainingDateByDay = ({ training = {}, day = 1 }) => {
       }
     }
   } else {
-    return formatUTC(training.startDate, training.utcOffset, 'D MMM', day)
+    return formatUTC(training.startDate, training.utcOffset, 'D MMM', dayOffset)
   }
 }
 
@@ -277,7 +279,13 @@ function twoDigits(number) {
   return ('0' + number).slice(-2)
 }
 
-export const trainingDateTime = ({ day, training = {}, preEvening = false }) =>
-  `${trainingDateByDay({ training, day })} ${
-    day === 1 && preEvening ? '18:30 - 21:00' : trainingTimings({ training })
+export const trainingDateTime = ({
+  dayOffset,
+  training = {},
+  preEvening = false,
+}) =>
+  `${trainingDateByDay({ training, dayOffset })} ${
+    dayOffset === 0 && preEvening
+      ? '18:30 - 21:00'
+      : trainingTimings({ training })
   }`

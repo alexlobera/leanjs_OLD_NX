@@ -18,15 +18,15 @@ export const renderPartTimeSection = ({
   sectionProps = {},
   training,
 } = {}) => initialIndex => ({ title, Comp, group }, index) => {
-  const sectionNum = index + initialIndex
-  let day = sectionNum
+  let dayOffset = index + initialIndex
+  const sectionNum = index + initialIndex + 1
 
   if (
     training &&
     training.daysOfTheWeek &&
     training.daysOfTheWeek.length === 1
   ) {
-    day = group
+    dayOffset = group - 1
   }
 
   return (
@@ -37,7 +37,7 @@ export const renderPartTimeSection = ({
         training && (
           <React.Fragment>
             <br />
-            {trainingDateTime({ day, training })}
+            {trainingDateTime({ dayOffset, training })}
           </React.Fragment>
         )
       }
@@ -97,7 +97,7 @@ const CurriculumPartTime = ({
   ...rest
 }) => {
   const type = PART_TIME
-  const initialIndex = 1
+  const initialIndex = 0
 
   const sectionProps = {
     ...section,

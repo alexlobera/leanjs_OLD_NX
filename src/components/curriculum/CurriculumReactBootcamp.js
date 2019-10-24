@@ -84,7 +84,7 @@ const CurriculumReactBootcamp = ({
       secondHalf={sessionsSecondHalf.map(
         renderSection({
           ...renderSectionArgs,
-          initialIndex: sessionsFirstHalf.length + 1,
+          initialDayOffset: sessionsFirstHalf.length,
         })
       )}
     />
