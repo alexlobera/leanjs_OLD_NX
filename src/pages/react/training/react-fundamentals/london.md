@@ -1,5 +1,5 @@
 ---
-coaches: ['alex-lobera', 'richard-moss']
+coaches: ['alex-lobera']
 subtitle: Learn in 3 days in London the React fundamentals needed to develop React apps the right way
 videoOneTime: ''
 videoOneId: zRa5-FyWbK8
