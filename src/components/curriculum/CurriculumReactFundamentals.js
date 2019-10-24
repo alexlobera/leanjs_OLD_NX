@@ -40,7 +40,7 @@ const CurriculumReactFundamentals = ({
       firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}
       secondHalf={sessionsSecondHalf.map(
         renderSection({
-          initialIndex: sessionsFirstHalf.length + 1,
+          initialDayOffset: sessionsFirstHalf.length,
           ...renderSectionArgs,
         })
       )}

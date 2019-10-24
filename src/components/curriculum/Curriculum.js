@@ -33,14 +33,14 @@ const Curriculum = ({
 }
 
 export const renderSection = ({
-  initialIndex = 1,
+  initialDayOffset = 0,
   sectionProps,
   training,
   titlePrefix = 'Day ',
   preEvening,
 }) => ({ title, subTitle, comps }, index) => {
-  const day = index + initialIndex
-  const curriculumDay = preEvening ? day - 1 : day
+  const dayOffset = index + initialDayOffset
+  const curriculumDay = preEvening ? dayOffset : dayOffset + 1
   const sectionTitle = title || `${titlePrefix} ${curriculumDay}`
 
   return (
@@ -48,7 +48,11 @@ export const renderSection = ({
       title={sectionTitle}
       subTitle={subTitle}
       name={`day${curriculumDay}`}
-      trainingDateTime={`- ${trainingDateTime({ day, training, preEvening })}`}
+      trainingDateTime={`- ${trainingDateTime({
+        dayOffset,
+        training,
+        preEvening,
+      })}`}
       {...sectionProps}
       key={title}
     >
