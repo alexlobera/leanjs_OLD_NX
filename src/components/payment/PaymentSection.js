@@ -1,10 +1,7 @@
 import React from 'react'
-
-import { withApollo } from 'react-apollo'
-import { graphql, compose } from 'react-apollo'
 import { navigate } from 'gatsby'
 
-import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
+import { graphql, client } from '../../api/graphql'
 import { H2, H3, P } from '../text'
 import { Ribbon } from '../elements'
 import Card from '../elements/Card'
@@ -12,13 +9,29 @@ import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
 import { DEFAULT_VAT_RATE } from '../../config'
 import { getVoucherByPathname } from '../utils/store'
-import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../utils/trackUserBehaviour'
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
+const VALIDATE_VOUCHER = `
+query validateVoucher(
+  $trainingInstanceId: ID!
+  $quantity: Int!
+  $voucherCode: String!
+) {
+  redeemVoucher(
+    trainingInstanceId: $trainingInstanceId
+    quantity: $quantity
+    voucherCode: $voucherCode
+  ) {
+    netPrice
+    totalDiscount
+  }
+}
+
+`
 class PaymentSection extends React.Component {
   state = {
     quantity: 1,
@@ -109,11 +122,11 @@ class PaymentSection extends React.Component {
   render() {
     const {
       paymentApi,
-      trainingError,
-      trainingLoading,
       training = {},
       navigate,
-      data: autoVoucherData = {},
+      data,
+      errors,
+      loading,
       city,
       triggerSubscribe,
     } = this.props
@@ -127,9 +140,9 @@ class PaymentSection extends React.Component {
       trainingType,
       notSoldOut = true
 
-    if (trainingError || autoVoucherData.error) {
+    if (errors) {
       title = 'There was an error'
-    } else if (trainingLoading || autoVoucherData.loading) {
+    } else if (loading) {
       title = 'Loading ...'
     } else if (!training || !training.id) {
       title = 'There is no training scheduled'
@@ -148,12 +161,11 @@ class PaymentSection extends React.Component {
       currency = training.currency || 'gbp'
 
       const discount =
-        autoVoucherData.trainingInstance &&
-        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts &&
-        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts.edges
-          .length &&
-        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts.edges[0]
-          .node
+        data &&
+        data.trainingInstance &&
+        data.trainingInstance.upcomingAutomaticDiscounts &&
+        data.trainingInstance.upcomingAutomaticDiscounts.edges.length &&
+        data.trainingInstance.upcomingAutomaticDiscounts.edges[0].node
 
       if (discount) {
         title = 'Discounted Ticket'
@@ -274,16 +286,32 @@ class PaymentSection extends React.Component {
 PaymentSection.defaultProps = {
   trackUserBehaviour,
   navigate,
+  client,
 }
 
-const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {
-  options: ({ training }) => ({
-    variables: { trainingInstanceId: training.id },
-  }),
-  skip: ({ training }) => !training || !training.id || training.type === MEETUP,
-})
+const withUpcomingVouchers = graphql(
+  `
+    query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
+      trainingInstance(id: $trainingInstanceId) {
+        upcomingAutomaticDiscounts {
+          edges {
+            node {
+              code
+              id
+              discountPercentage
+              startsAt
+              expiresAt
+            }
+          }
+        }
+      }
+    }
+  `,
+  {
+    options: ({ training }) => ({
+      variables: { trainingInstanceId: training.id },
+    }),
+  }
+)
 
-export default compose(
-  withUpcomingVouchers,
-  withApollo
-)(PaymentSection)
+export default withUpcomingVouchers(PaymentSection)

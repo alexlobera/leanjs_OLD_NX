@@ -2,10 +2,11 @@
 
 import React from 'react'
 
-import { graphql, withApollo } from 'react-apollo'
+// import { graphql, withApollo } from 'react-apollo'
+import { client } from '../../../api/graphql'
 
-import PAY from './Pay.graphql'
-import VALIDATE_VIES from './ValidateVies.graphql'
+// import PAY from './Pay.graphql'
+// import VALIDATE_VIES from './ValidateVies.graphql'
 import { DEFAULT_VAT_RATE } from '../../../config'
 import createLogger from '../../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
@@ -22,8 +23,52 @@ import trackUserBehaviour, {
   CHECKOUT_PAYMENT_REQUEST,
 } from '../../utils/trackUserBehaviour'
 
-import { triggerSubscribe } from '../../../api'
+import { triggerSubscribe } from '../../../api/rest'
 
+const VALIDATE_VIES = `
+query isVatNumberValid(
+  $countryCode: String!
+  $vatNumber: String!
+) {
+  isVatNumberValid(
+    countryCode: $countryCode
+    vatNumber: $vatNumber
+  )
+}
+`
+
+const PAY = `
+mutation pay(
+  $itemId: ID!
+  $itemType: PaymentItemEnum!
+  $quantity: Int!
+  $voucherCode: String
+  $email: String!
+  $token: String!
+  $companyName: String
+  $vatCountry: String
+  $vatNumber: String
+) {
+  makePayment(
+    payment: {
+      itemType: $itemType
+      itemId: $itemId
+      quantity: $quantity
+      voucherCode: $voucherCode
+      email: $email
+      token: $token
+      companyName: $companyName
+      vatCountry: $vatCountry
+      vatNumber: $vatNumber
+    }
+  ) {
+    id
+    currency
+    amount
+    metadata
+  }
+}
+`
 export class CheckoutContainer extends React.Component {
   state = {
     isPaymentInProgress: false,
@@ -92,7 +137,7 @@ export class CheckoutContainer extends React.Component {
     const {
       quantity,
       trackUserBehaviour,
-      pay,
+      client,
       trainingInstanceId,
       eventId,
       paymentApi = Stripe,
@@ -153,11 +198,14 @@ export class CheckoutContainer extends React.Component {
           vatCountry,
         }
 
-        return pay({
-          variables,
-        })
-          .then(({ data }) => {
-            if (!data.errors) {
+        // return pay({
+        return client
+          .query({
+            query: PAY,
+            variables,
+          })
+          .then(({ data, errors }) => {
+            if (!errors) {
               navigate('/payment-confirmation', {
                 email,
                 makePayment: data.makePayment,
@@ -228,10 +276,12 @@ export class CheckoutContainer extends React.Component {
 CheckoutContainer.defaultProps = {
   trackUserBehaviour,
   triggerSubscribe,
+  client,
 }
 
-const withPay = graphql(PAY, {
-  name: 'pay',
-})
+// const withPay = graphql(PAY, {
+//   name: 'pay',
+// })
 
-export default withPay(withApollo(CheckoutContainer))
+// export default withPay(withApollo(CheckoutContainer))
+export default CheckoutContainer

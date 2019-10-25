@@ -6,7 +6,7 @@ import Layout from '../../components/layout'
 import { formatUTC } from '../../components/utils'
 import Section, { TopSection } from '../../components/layout/Section'
 import { Col, Row } from '../../components/layout/Grid'
-import { H2, H3, P } from '../../components/text'
+import { H2, P } from '../../components/text'
 import { Link } from '../../components/navigation'
 import { Segment, Image } from '../../components/elements'
 import { RootHeader as Header } from '../../components/layout/Header'
@@ -18,8 +18,8 @@ import selectUpcomingTrainings from '../../components/training/selectUpcomingTra
 import { LinkButton } from '../../components/buttons'
 import { MEETUP } from '../../config/data'
 import { CallToActionRow } from '../../components/layout/CallToActionRow'
-import Ul, { Li } from '../../components/layout/Ul'
 import { Breadcrumb } from '../../components/navigation'
+import { OurMeetupGroups } from './meetups'
 
 const instagramPictures = [
   {
@@ -307,61 +307,5 @@ export const query = graphql`
     }
   }
 `
-
-export const OurMeetupGroups = () => (
-  <React.Fragment>
-    <H3>Our groups</H3>
-    <Row>
-      <Col sm={6}>
-        <Ul variant="unstyled" mb={1}>
-          {[
-            {
-              to: 'http://meetup.com/JavaScript-London',
-              txt: 'JavaScript London',
-            },
-            {
-              to: 'http://meetup.com/JavaScript-Barcelona',
-              txt: 'JavaScript Barcelona',
-            },
-            {
-              to: 'http://meetup.com/JavaScript-Paris',
-              txt: 'JavaScript Paris',
-            },
-          ].map(({ to, txt }) => (
-            <Li>
-              <Link to={to} className="meetups-clicks">
-                {txt}
-              </Link>
-            </Li>
-          ))}
-        </Ul>
-      </Col>
-      <Col sm={6}>
-        <Ul variant="unstyled" mb={1}>
-          {[
-            {
-              to: 'http://meetup.com/JavaScript-Lisbon',
-              txt: 'JavaScript Lisbon',
-            },
-            {
-              to: 'http://meetup.com/JavaScript-Amsterdam',
-              txt: 'JavaScript Amsterdam',
-            },
-            {
-              to: 'http://meetup.com/JavaScript-Berlin',
-              txt: 'JavaScript Berlin',
-            },
-          ].map(({ to, txt }) => (
-            <Li>
-              <Link to={to} className="meetups-clicks">
-                {txt}
-              </Link>
-            </Li>
-          ))}
-        </Ul>
-      </Col>
-    </Row>
-  </React.Fragment>
-)
 
 export default Community

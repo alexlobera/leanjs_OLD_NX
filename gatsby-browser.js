@@ -1,19 +1,22 @@
-/* eslint no-undef: 0 */
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
 
-// You can delete this file if you're not using it
+import { theme } from 'src/config/styles'
+import CacheProvider from './src/components/cacheProvider'
 
 // init GTM for Google Ads
-exports.onRouteUpdate = ({ location }) => {
+export const onRouteUpdate = ({ location }) => {
   window.dataLayer = window.dataLayer || []
   function gtag() {
-    dataLayer.push(arguments)
+    window.dataLayer.push(arguments)
   }
 
   gtag('js', new Date())
   gtag('config', 'AW-877316317')
 }
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={theme}>
+    <CacheProvider>{element}</CacheProvider>
+  </ThemeProvider>
+)

@@ -77,10 +77,10 @@ module.exports = {
         disable: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/community/meetups/*`] },
-    },
+    // {
+    //   resolve: `gatsby-plugin-create-client-paths`,
+    //   options: { prefixes: [`/community/meetups/*`] },
+    // },
     'gatsby-source-sanity-transform-images',
     {
       resolve: `gatsby-transform-portable-text`,
@@ -92,9 +92,7 @@ module.exports = {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'UpMentoring',
-        // This is field under which it's accessible
         fieldName: 'upmentoring',
-        // Url to query from
         url: 'https://api0.upmentoring.com/api/graphql',
       },
     },

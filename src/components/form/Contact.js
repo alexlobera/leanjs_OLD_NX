@@ -9,7 +9,7 @@ import { InputField, Form } from '.'
 import { Col, Row } from '../layout/Grid'
 import { getComponentAliaser } from '../utils/aliasComponent'
 import { composeValidators, required, mustBeEmail } from './validations'
-import { triggerSubscribe } from '../../api'
+import { triggerSubscribe } from '../../api/rest'
 import { Newsletter } from '../elements'
 
 const aliasInput = getComponentAliaser(InputField)

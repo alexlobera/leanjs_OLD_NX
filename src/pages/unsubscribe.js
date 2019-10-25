@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { BOOTCAMP } from '../../images/imageNames'
 import Layout from '../components/layout'
-import { triggerUnsubscribe } from '../api'
+import { triggerUnsubscribe } from '../api/rest'
 import Section from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H3, P } from '../components/text'

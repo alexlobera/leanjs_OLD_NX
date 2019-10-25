@@ -20,15 +20,10 @@ export {
 export { TrustedByLogoList } from './TrustedBySection'
 export { default as TargetAudienceSection } from './TargetAudienceSection'
 export {
-  default as TrainingDetails,
-  HORACIO_HERRERA,
-  WILL_VOELCKER,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
-  EVA_HOFFMANN,
-  ROY_DERKS,
-  DAVID_LEULIETTE,
-  FRANCISCO_GOMES,
-} from './TrainingDetails'
+  default as TrainingDetails, // HORACIO_HERRERA, // WILL_VOELCKER, // ALEX_LOBERA, // RICHARD_MOSS, // EVA_HOFFMANN,
+} from // ROY_DERKS,
+// DAVID_LEULIETTE,
+// FRANCISCO_GOMES,
+'./TrainingDetails'
 
 export { default as TrainingCardList } from './TrainingCardList'

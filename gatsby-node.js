@@ -1,8 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { titleCase } = require('./src/components/utils/text')
@@ -135,6 +130,31 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
+        upmentoring {
+          eventsConnection(
+            first: 1000
+            filter: { ownerId: "5aaa9b07f146e5cfafad189e" }
+          ) {
+            edges {
+              node {
+                id
+                title
+                price
+                city
+                currency
+                description
+                address
+                venueName
+                mapUrl
+                utcOffset
+                startDate
+                endDate
+                ticketsLeft
+              }
+            }
+          }
+        }
+
         allMarkdownRemark {
           edges {
             node {
@@ -179,6 +199,18 @@ exports.createPages = async ({ graphql, actions }) => {
             component: path.resolve(`./src/templates/team-member.js`),
             context: {
               username: current,
+            },
+          })
+        )
+      )
+
+      await Promise.all(
+        result.data.upmentoring.eventsConnection.edges.map(({ node }) =>
+          createPage({
+            path: `/community/meetups/${node.id}`,
+            component: path.resolve(`./src/templates/meetup.js`),
+            context: {
+              meetup: node,
             },
           })
         )

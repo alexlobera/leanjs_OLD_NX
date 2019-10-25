@@ -1,5 +1,4 @@
 import React from 'react'
-import { Match } from '@reach/router'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
@@ -14,30 +13,72 @@ import {
   UpcomingTrainingSection,
   selectNthTraining,
 } from 'src/components/training'
+import Link from 'src/components/navigation/Link'
+import Ul, { Li } from 'src/components/layout/Ul'
 import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import UpcomingTrainings from 'src/components/training/UpcomingTrainings'
 import { LinkButton } from 'src/components/buttons'
 import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'
-import { OurMeetupGroups } from '../index'
 import { Breadcrumb } from 'src/components/navigation'
-import Meetup from './Meetup'
 
-export const MEETUP_PATH = '/community/meetups/:id'
-
-const IndexPage = ({ data }) => (
-  <Match path={MEETUP_PATH}>
-    {({ match }) =>
-      match && match.id ? (
-        <Meetup instanceId={match.id} />
-      ) : (
-        <Meetups data={data} />
-      )
-    }
-  </Match>
+export const OurMeetupGroups = () => (
+  <React.Fragment>
+    <H3>Our groups</H3>
+    <Row>
+      <Col sm={6}>
+        <Ul variant="unstyled" mb={1}>
+          {[
+            {
+              to: 'http://meetup.com/JavaScript-London',
+              txt: 'JavaScript London',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Barcelona',
+              txt: 'JavaScript Barcelona',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Paris',
+              txt: 'JavaScript Paris',
+            },
+          ].map(({ to, txt }) => (
+            <Li>
+              <Link to={to} className="meetups-clicks">
+                {txt}
+              </Link>
+            </Li>
+          ))}
+        </Ul>
+      </Col>
+      <Col sm={6}>
+        <Ul variant="unstyled" mb={1}>
+          {[
+            {
+              to: 'http://meetup.com/JavaScript-Lisbon',
+              txt: 'JavaScript Lisbon',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Amsterdam',
+              txt: 'JavaScript Amsterdam',
+            },
+            {
+              to: 'http://meetup.com/JavaScript-Berlin',
+              txt: 'JavaScript Berlin',
+            },
+          ].map(({ to, txt }) => (
+            <Li>
+              <Link to={to} className="meetups-clicks">
+                {txt}
+              </Link>
+            </Li>
+          ))}
+        </Ul>
+      </Col>
+    </Row>
+  </React.Fragment>
 )
 
-const Meetups = ({ data, path }) => (
+const Meetups = ({ data }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingMeetups = selectUpcomingTrainings({
@@ -137,7 +178,6 @@ const Meetups = ({ data, path }) => (
               </Col>
             </Row>
           </Section>
-
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -157,4 +197,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default Meetups
