@@ -9,6 +9,7 @@ const StyledUl = styled(Box)`
     `
     > li {
       list-style-type: none;
+      margin-bottom: 7px;
     }
   `}
   ${({ variant, variants = [] }) =>

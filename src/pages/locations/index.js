@@ -9,7 +9,8 @@ import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
 import { H3 } from '../../components/text'
 import { Link } from '../../components/navigation'
-import { Segment, Image } from '../../components/elements'
+import { Image } from '../../components/elements'
+import Card from '../../components/elements/Card'
 import Box from '../../components/layout/Box'
 
 const Blog = ({ data, path }) => {
@@ -36,13 +37,17 @@ const Blog = ({ data, path }) => {
             <Row>
               {locations.map(({ node: location }) => (
                 <Col lg={4} key={location.fields.slug}>
-                  <Segment pt={0} pb={0} mb={5}>
+                  {/* <Segment pt={0} pb={0} mb={5}>  */}
+                  <Card small variant="secondary" mb={5}>
                     <Link
                       to={`${location.fields.slug}`}
                       className="location-summary"
                     >
                       <Image
-                        src={location.frontmatter.listImageSrc.publicURL}
+                        fluid={
+                          location.frontmatter.listImageSrc.childImageSharp
+                            .fluid
+                        }
                         alt={location.frontmatter.city}
                         mb={0}
                       />
@@ -55,7 +60,8 @@ const Blog = ({ data, path }) => {
                         <H3>{location.frontmatter.city}</H3>
                       </Link>
                     </Box>
-                  </Segment>
+                    {/* </Segment> */}
+                  </Card>
                 </Col>
               ))}
             </Row>
@@ -81,7 +87,11 @@ export const query = graphql`
           frontmatter {
             city
             listImageSrc {
-              publicURL
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

@@ -279,6 +279,7 @@ const getBackgroundImageSrc = (data, fileName) => {
 const Header = ({
   training = {},
   showInfoBox = false,
+  infoBoxFluidImage,
   featuredSection,
   type = '',
   titleLines = [],
@@ -408,11 +409,12 @@ const Header = ({
                 {showInfoBox && (
                   <Col md={3} mdOffset={1}>
                     <InfoBox type={type} p={1}>
-                      {training.image && (
+                      {infoBoxFluidImage && (
                         <Image
-                          src={training.image}
+                          fluid={infoBoxFluidImage.fluid}
                           width="100%"
-                          alt="React GraphQL Academy coach Alex assists a student, being next to them, inspecting their code and helping them on their learning path."
+                          mb={1}
+                          alt={subtitle}
                         />
                       )}
                       <Ul variant="unstyled" mb={1} pl={1} pr={1}>

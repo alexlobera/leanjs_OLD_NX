@@ -14,10 +14,9 @@ import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { MEETUP } from 'src/config/data'
 
-const Meetup = ({ pageContext }) => (
+const Meetup = ({ pageContext: { meetup = {}, locationImage } }) => (
   <Layout>
     {({ trainings }) => {
-      const meetup = pageContext.meetup || {}
       meetup.type = MEETUP
       const { city, title, description } = meetup
       const excerpt =
@@ -69,6 +68,7 @@ const Meetup = ({ pageContext }) => (
               { text: 'Buy tickets', to: '#pricing' },
             ]}
             training={meetup}
+            infoBoxFluidImage={locationImage}
             showInfoBox={true}
             type={MEETUP}
             className="meetup-details-clicks"

@@ -30,6 +30,12 @@ function getFirstPathFromSlug(slug) {
   return slugArray[1]
 }
 
+function getLocationImage(result, city) {
+  return result.data.locationImages.nodes.find(
+    image => image.name.toLowerCase() === city.toLowerCase()
+  )
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3 }) => {
@@ -130,6 +136,23 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
+        locationImages: allFile(
+          filter: { relativePath: { regex: "/pages/locations/.*.jpg/" } }
+        ) {
+          nodes {
+            name
+            childImageSharp {
+              fluid(maxWidth: 600) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                sizes
+              }
+            }
+          }
+        }
+
         upmentoring {
           eventsConnection(
             first: 1000
@@ -205,15 +228,17 @@ exports.createPages = async ({ graphql, actions }) => {
       )
 
       await Promise.all(
-        result.data.upmentoring.eventsConnection.edges.map(({ node }) =>
-          createPage({
+        result.data.upmentoring.eventsConnection.edges.map(({ node }) => {
+          const locationImage = getLocationImage(result, node.city)
+          return createPage({
             path: `/community/meetups/${node.id}`,
             component: path.resolve(`./src/templates/meetup.js`),
             context: {
               meetup: node,
+              locationImage: locationImage && locationImage.childImageSharp,
             },
           })
-        )
+        })
       )
 
       await Promise.all(
@@ -260,6 +285,7 @@ exports.createPages = async ({ graphql, actions }) => {
             const city = getLastPathFromSlug(slug)
             const titleCaseCity = titleCase(city)
             const instancesToCreate = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            const locationImage = getLocationImage(result, city)
             const pathConfig = path.resolve(`./src/pages/${slug}../config.json`)
             const {
               instanceTemplate,
@@ -304,6 +330,7 @@ exports.createPages = async ({ graphql, actions }) => {
                       instanceTemplate}.js`
                   ),
                   context: {
+                    locationImage: locationImage.childImageSharp,
                     videoCoachId,
                     videoOneTime,
                     videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',

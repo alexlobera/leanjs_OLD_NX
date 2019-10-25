@@ -7,7 +7,7 @@ import selectUpcomingTrainings from './training/selectUpcomingTrainings'
 import {
   createTrainingPath,
   formatMeetup,
-  selectLocationImage,
+  // selectLocationImage,
 } from './training/dataUtils'
 
 import './reset.css'
@@ -138,7 +138,7 @@ const Layout = ({ children, loadAutopilot = true }) => {
         id,
         slug,
       }),
-      image: selectLocationImage({ city }),
+      // image: selectLocationImage({ city }),
     }
   }
 
