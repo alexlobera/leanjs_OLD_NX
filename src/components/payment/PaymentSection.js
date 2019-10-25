@@ -16,21 +16,20 @@ import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
 const VALIDATE_VOUCHER = `
-query validateVoucher(
-  $trainingInstanceId: ID!
-  $quantity: Int!
-  $voucherCode: String!
-) {
-  redeemVoucher(
-    trainingInstanceId: $trainingInstanceId
-    quantity: $quantity
-    voucherCode: $voucherCode
+  query validateVoucher(
+    $trainingInstanceId: ID!
+    $quantity: Int!
+    $voucherCode: String!
   ) {
-    netPrice
-    totalDiscount
+    redeemVoucher(
+      trainingInstanceId: $trainingInstanceId
+      quantity: $quantity
+      voucherCode: $voucherCode
+    ) {
+      netPrice
+      totalDiscount
+    }
   }
-}
-
 `
 class PaymentSection extends React.Component {
   state = {

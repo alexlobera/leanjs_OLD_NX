@@ -77,10 +77,6 @@ module.exports = {
         disable: true,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-create-client-paths`,
-    //   options: { prefixes: [`/community/meetups/*`] },
-    // },
     'gatsby-source-sanity-transform-images',
     {
       resolve: `gatsby-transform-portable-text`,

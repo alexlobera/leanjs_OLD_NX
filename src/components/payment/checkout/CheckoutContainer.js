@@ -1,12 +1,7 @@
 /* eslint no-undef: 0 */
-
 import React from 'react'
 
-// import { graphql, withApollo } from 'react-apollo'
 import { client } from '../../../api/graphql'
-
-// import PAY from './Pay.graphql'
-// import VALIDATE_VIES from './ValidateVies.graphql'
 import { DEFAULT_VAT_RATE } from '../../../config'
 import createLogger from '../../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
@@ -18,23 +13,21 @@ import {
   formatExpirationDate,
   formatCVC,
 } from '../../utils/card'
-
 import trackUserBehaviour, {
   CHECKOUT_PAYMENT_REQUEST,
 } from '../../utils/trackUserBehaviour'
-
 import { triggerSubscribe } from '../../../api/rest'
 
 const VALIDATE_VIES = `
-query isVatNumberValid(
-  $countryCode: String!
-  $vatNumber: String!
-) {
-  isVatNumberValid(
-    countryCode: $countryCode
-    vatNumber: $vatNumber
-  )
-}
+  query isVatNumberValid(
+    $countryCode: String!
+    $vatNumber: String!
+  ) {
+    isVatNumberValid(
+      countryCode: $countryCode
+      vatNumber: $vatNumber
+    )
+  }
 `
 
 const PAY = `
@@ -198,7 +191,6 @@ export class CheckoutContainer extends React.Component {
           vatCountry,
         }
 
-        // return pay({
         return client
           .query({
             query: PAY,
@@ -279,9 +271,4 @@ CheckoutContainer.defaultProps = {
   client,
 }
 
-// const withPay = graphql(PAY, {
-//   name: 'pay',
-// })
-
-// export default withPay(withApollo(CheckoutContainer))
 export default CheckoutContainer

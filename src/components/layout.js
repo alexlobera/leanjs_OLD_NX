@@ -110,7 +110,6 @@ const Layout = ({ children, loadAutopilot = true }) => {
                 slug
                 description {
                   title
-                  objectives
                 }
               }
             }
