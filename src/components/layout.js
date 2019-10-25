@@ -4,11 +4,7 @@ import raven from 'raven-js'
 import { useStaticQuery } from 'gatsby'
 
 import selectUpcomingTrainings from './training/selectUpcomingTrainings'
-import {
-  createTrainingPath,
-  formatMeetup,
-  // selectLocationImage,
-} from './training/dataUtils'
+import { createTrainingPath, formatMeetup } from './training/dataUtils'
 
 import './reset.css'
 import './layout.css'
@@ -138,7 +134,6 @@ const Layout = ({ children, loadAutopilot = true }) => {
         id,
         slug,
       }),
-      // image: selectLocationImage({ city }),
     }
   }
 

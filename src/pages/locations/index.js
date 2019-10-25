@@ -37,7 +37,6 @@ const Blog = ({ data, path }) => {
             <Row>
               {locations.map(({ node: location }) => (
                 <Col lg={4} key={location.fields.slug}>
-                  {/* <Segment pt={0} pb={0} mb={5}>  */}
                   <Card small variant="secondary" mb={5}>
                     <Link
                       to={`${location.fields.slug}`}
@@ -60,7 +59,6 @@ const Blog = ({ data, path }) => {
                         <H3>{location.frontmatter.city}</H3>
                       </Link>
                     </Box>
-                    {/* </Segment> */}
                   </Card>
                 </Col>
               ))}
