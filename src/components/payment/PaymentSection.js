@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 
-import { graphql, client } from '../../api/graphql'
+import { graphql, withStatelessClient } from '../../api/graphql/client'
 import { H2, H3, P } from '../text'
 import { Ribbon } from '../elements'
 import Card from '../elements/Card'
@@ -51,7 +51,7 @@ class PaymentSection extends React.Component {
 
   validateVoucher = voucher => {
     const {
-      client,
+      statelessClient,
       training: { id: trainingInstanceId },
       trackUserBehaviour,
     } = this.props
@@ -66,7 +66,7 @@ class PaymentSection extends React.Component {
       event: VOUCHER_VALIDATE,
       payload: { voucher },
     })
-    return client
+    return statelessClient
       .query({
         query: VALIDATE_VOUCHER,
         variables: {
@@ -285,32 +285,30 @@ class PaymentSection extends React.Component {
 PaymentSection.defaultProps = {
   trackUserBehaviour,
   navigate,
-  client,
+  // client,
 }
 
-const withUpcomingVouchers = graphql(
-  `
-    query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
-      trainingInstance(id: $trainingInstanceId) {
-        upcomingAutomaticDiscounts {
-          edges {
-            node {
-              code
-              id
-              discountPercentage
-              startsAt
-              expiresAt
-            }
-          }
+export const QUERY_UPCOMING_VOUCHERS = `
+query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
+  trainingInstance(id: $trainingInstanceId) {
+    upcomingAutomaticDiscounts {
+      edges {
+        node {
+          code
+          id
+          discountPercentage
+          startsAt
+          expiresAt
         }
       }
     }
-  `,
-  {
-    options: ({ training }) => ({
-      variables: { trainingInstanceId: training.id },
-    }),
   }
-)
+}
+`
+const withUpcomingVouchers = graphql(QUERY_UPCOMING_VOUCHERS, {
+  options: ({ training }) => ({
+    variables: { trainingInstanceId: training.id },
+  }),
+})
 
-export default withUpcomingVouchers(PaymentSection)
+export default withStatelessClient(withUpcomingVouchers(PaymentSection))

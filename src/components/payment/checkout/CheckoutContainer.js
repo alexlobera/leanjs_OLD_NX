@@ -1,7 +1,7 @@
 /* eslint no-undef: 0 */
 import React from 'react'
 
-import { client } from '../../../api/graphql'
+import { withStatelessClient } from '../../../api/graphql/client'
 import { DEFAULT_VAT_RATE } from '../../../config'
 import createLogger from '../../utils/createLogger'
 import { STRIPE_PUBLIC_KEY } from '../../../config/apps'
@@ -98,7 +98,7 @@ export class CheckoutContainer extends React.Component {
     }
 
     this.setState({ isViesValidationInProgress: true })
-    this.props.client
+    this.props.statelessClient
       .query({
         query: VALIDATE_VIES,
         variables: { countryCode, vatNumber },
@@ -130,7 +130,7 @@ export class CheckoutContainer extends React.Component {
     const {
       quantity,
       trackUserBehaviour,
-      client,
+      statelessClient,
       trainingInstanceId,
       eventId,
       paymentApi = Stripe,
@@ -191,7 +191,7 @@ export class CheckoutContainer extends React.Component {
           vatCountry,
         }
 
-        return client
+        return statelessClient
           .query({
             query: PAY,
             variables,
@@ -268,7 +268,6 @@ export class CheckoutContainer extends React.Component {
 CheckoutContainer.defaultProps = {
   trackUserBehaviour,
   triggerSubscribe,
-  client,
 }
 
-export default CheckoutContainer
+export default withStatelessClient(CheckoutContainer)

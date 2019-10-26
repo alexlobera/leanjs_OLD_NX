@@ -2,7 +2,8 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { theme } from 'src/config/styles'
-import CacheProvider from './src/components/cacheProvider'
+import GraphQLProvider from './src/api/graphql/Provider'
+import graphqlClient from './src/api/graphql/client'
 
 // init GTM for Google Ads
 export const onRouteUpdate = ({ location }) => {
@@ -17,6 +18,6 @@ export const onRouteUpdate = ({ location }) => {
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>
-    <CacheProvider>{element}</CacheProvider>
+    <GraphQLProvider client={graphqlClient}>{element}</GraphQLProvider>
   </ThemeProvider>
 )
