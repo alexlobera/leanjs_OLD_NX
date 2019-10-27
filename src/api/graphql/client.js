@@ -13,28 +13,35 @@ const hashCode = text =>
     return a & a
   }, 0)
 
-function getCacheVars(query, variables) {
-  const queryAndVars = JSON.stringify({ query, variables })
-  const cacheKey = hashCode(queryAndVars)
+function getCacheBody(query, variables) {
+  const body = JSON.stringify({ query, variables })
+  const cacheKey = hashCode(body)
 
-  return { cacheKey, queryAndVars }
+  return { cacheKey, body }
 }
 
-// function memoize(fn) {
-//   let cache = {}
-//   return (...args) => {
-//     const key = args.join(',')
-//     if (key in cache) {
-//       return cache[key]
-//     } else {
-//       let result = fn(...args)
-//       cache[key] = result
-//       return result
-//     }
-//   }
-// }
+// TODO, DOES THIS MEMOIZE WORK WHEN WE NAVIGATE BETWEEN PAGES??
+function memoize(fn) {
+  let cache = {} // TODO use WeakMap or Set???
+  return (...args) => {
+    const hit = args.reduce((acc, arg) => acc && acc[arg], cache)
+    if (hit) {
+      console.log(' hit !')
+      return hit
+    } else {
+      console.log('no hit !', hit)
+      let result = fn(...args)
+      const lastArgIndex = args.length - 1
+      args.reduce((prev, arg, i) => {
+        prev[arg] = i === lastArgIndex ? result : {}
+        return prev[arg]
+      }, cache)
 
-// const memoizedGetCacheVars = memoize(getCacheVars)
+      return result
+    }
+  }
+}
+const memoizedGetCacheVars = memoize(getCacheBody)
 
 // TODO REPLACE THIS WITH useQuery
 export function graphql(query, config = {}) {
@@ -45,7 +52,7 @@ export function graphql(query, config = {}) {
     const { options = {} } = config
     const { variables } =
       typeof options === 'function' ? options(props) || {} : options
-    const { cacheKey } = getCacheVars(query, variables)
+    const { cacheKey } = memoizedGetCacheVars(query, variables)
     const queryData = data && data[cacheKey]
 
     useEffect(() => {
@@ -65,7 +72,7 @@ export function graphql(query, config = {}) {
   }
 }
 
-async function postQuery(body) {
+async function postQuery({ body }) {
   const response = await fetch(UPMENTORING_API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -79,21 +86,22 @@ export const withStatelessClient = Component => props => (
   <Component {...props} statelessClient={useStatelessClient()} />
 )
 
-const client = ([state, dispatch] = [], { post = postQuery } = {}) => async ({
-  query,
-  variables,
-} = {}) => {
-  const { cacheKey, queryAndVars } = getCacheVars(query, variables)
+export const createClient = ({ post = postQuery } = {}) => ([
+  state,
+  dispatch,
+] = []) => async ({ query, variables } = {}) => {
+  const { cacheKey, body } = memoizedGetCacheVars(query, variables)
+  const json = { query, variables }
 
   if (!state) {
-    return post(queryAndVars)
+    return await post({ body, json })
   }
-
   const queryData = state.data && state.data[cacheKey]
   if (queryData) {
     return { data: queryData }
   }
-  const { data, errors } = await post(queryAndVars)
+
+  const { data, errors } = await post({ body, json })
 
   if (data && cacheKey) {
     dispatch && dispatch(receiveData({ [cacheKey]: data })) // caches the data
@@ -102,7 +110,5 @@ const client = ([state, dispatch] = [], { post = postQuery } = {}) => async ({
     dispatch && dispatch(setErrors(errors))
   }
 
-  return { data, errors }
+  return Promise.resolve({ data, errors })
 }
-
-export default client

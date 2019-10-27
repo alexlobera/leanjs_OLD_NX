@@ -18,7 +18,7 @@ import trackUserBehaviour, {
 } from '../../utils/trackUserBehaviour'
 import { triggerSubscribe } from '../../../api/rest'
 
-const VALIDATE_VIES = `
+export const VALIDATE_VIES_QUERY = `
   query isVatNumberValid(
     $countryCode: String!
     $vatNumber: String!
@@ -30,7 +30,7 @@ const VALIDATE_VIES = `
   }
 `
 
-const PAY = `
+export const PAY_MUTATION = `
 mutation pay(
   $itemId: ID!
   $itemType: PaymentItemEnum!
@@ -100,7 +100,7 @@ export class CheckoutContainer extends React.Component {
     this.setState({ isViesValidationInProgress: true })
     this.props.statelessClient
       .query({
-        query: VALIDATE_VIES,
+        query: VALIDATE_VIES_QUERY,
         variables: { countryCode, vatNumber },
       })
       .then(({ data = {} }) => {
@@ -193,7 +193,7 @@ export class CheckoutContainer extends React.Component {
 
         return statelessClient
           .query({
-            query: PAY,
+            query: PAY_MUTATION,
             variables,
           })
           .then(({ data, errors }) => {

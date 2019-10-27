@@ -15,7 +15,7 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
-const VALIDATE_VOUCHER = `
+const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
     $trainingInstanceId: ID!
     $quantity: Int!
@@ -68,7 +68,7 @@ class PaymentSection extends React.Component {
     })
     return statelessClient
       .query({
-        query: VALIDATE_VOUCHER,
+        query: VALIDATE_VOUCHER_QUERY,
         variables: {
           voucherCode: voucher,
           trainingInstanceId,
