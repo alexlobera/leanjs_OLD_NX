@@ -15,7 +15,7 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
-const VALIDATE_VOUCHER_QUERY = `
+export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
     $trainingInstanceId: ID!
     $quantity: Int!
@@ -66,6 +66,7 @@ class PaymentSection extends React.Component {
       event: VOUCHER_VALIDATE,
       payload: { voucher },
     })
+
     return statelessClient
       .query({
         query: VALIDATE_VOUCHER_QUERY,
@@ -77,6 +78,7 @@ class PaymentSection extends React.Component {
       })
       .then(({ data = {} }) => {
         const { netPrice } = data.redeemVoucher || {}
+
         this.setVoucherInProgress(false)
         this.setState({
           isVoucherValid: !!netPrice,

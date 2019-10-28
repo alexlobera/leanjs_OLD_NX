@@ -41,7 +41,7 @@ export const AddCompanyDetailsButton = aliasLink()
 export const EUVATNumberField = aliasInput()
 export const ValidateViesButton = aliasLinkButton()
 export const ShowVoucherButton = aliasLink()
-export const ValidateVoucherButton = aliasLinkButton()
+export const ValidateVoucherButton = aliasButton()
 export const TotalPayablePrice = aliasPrice()
 export const VoucherInput = aliasInput()
 export const NameInput = aliasInput()
@@ -283,9 +283,9 @@ class CheckoutForm extends React.Component {
                       onClick={() => companyVat.validateVies(values.companyVat)}
                     >
                       {companyVat.isViesValidationInProgress
-                        ? '...'
+                        ? 'Validating...'
                         : companyVat.isViesValid
-                        ? 'Validated'
+                        ? 'VAT number validated'
                         : 'Validate EU VAT and update taxes'}
                     </ValidateViesButton>
                   </Fragment>
@@ -370,7 +370,7 @@ class CheckoutForm extends React.Component {
                         variant="secondary"
                       >
                         {isVoucherValidationInProgress
-                          ? '...'
+                          ? 'Validating...'
                           : isVoucherValid
                           ? 'Valid Voucher'
                           : 'Validate voucher'}
@@ -425,8 +425,13 @@ class CheckoutForm extends React.Component {
                 ) : null}
                 <Row>
                   <Col xs={5}>
-                    <Span>VAT (20%):</Span>
+                    <Span>
+                      {`VAT (${
+                        vatRate ? Math.round((vatRate - 1) * 100) : 0
+                      }%):`}
+                    </Span>
                   </Col>
+
                   <Col xs={7}>
                     <Span>
                       +{formatPrice(currency, Math.abs(ticketVat), 0)}
@@ -467,11 +472,13 @@ class CheckoutForm extends React.Component {
                     </Link>
                   </P>
                   {submitFailed && !valid ? (
-                    <Alert variant="danger">Please fix the errors above</Alert>
+                    <Alert test-id="danger-alert" variant="danger">
+                      Please fix the errors above
+                    </Alert>
                   ) : null}
 
                   {paymentErrorMessage ? (
-                    <Alert variant="danger">
+                    <Alert data-testid="danger-alert" variant="danger">
                       There was an error processing your credit card. Please
                       check your credit card with your bank. If the problem
                       persists contact{' '}
