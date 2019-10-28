@@ -212,7 +212,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `).then(async result => {
       const locationPath = /^\/locations\//g
-      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris).*/
+      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong).*/
       const citiesFinanceAvailable = ['london']
 
       await Promise.all(
@@ -330,7 +330,8 @@ exports.createPages = async ({ graphql, actions }) => {
                       instanceTemplate}.js`
                   ),
                   context: {
-                    locationImage: locationImage.childImageSharp,
+                    locationImage:
+                      locationImage && locationImage.childImageSharp,
                     videoCoachId,
                     videoOneTime,
                     videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',

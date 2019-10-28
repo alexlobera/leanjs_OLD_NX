@@ -12,23 +12,24 @@ import {
 
 export const createTrainingPath = ({ type, city = '', index, slug }) => {
   const i = index > 1 ? index : ''
+  const cityPath = city.toLowerCase().replace(' ', '-')
   switch (type) {
     case PART_TIME:
-      return `/react/training/part-time-course/${city.toLowerCase()}/${i}`
+      return `/react/training/part-time-course/${cityPath}/${i}`
     case REACT_BOOTCAMP:
-      return `/react/training/bootcamp/${city.toLowerCase()}/${i}`
+      return `/react/training/bootcamp/${cityPath}/${i}`
     case REACT_FUNDAMENTALS:
-      return `/react/training/react-fundamentals/${city.toLowerCase()}/${i}`
+      return `/react/training/react-fundamentals/${cityPath}/${i}`
     case ADVANCED_REACT:
-      return `/react/training/advanced/${city.toLowerCase()}/${i}`
+      return `/react/training/advanced/${cityPath}/${i}`
     case GRAPHQL_BOOTCAMP:
-      return `/graphql/training/bootcamp/${city.toLowerCase()}/${i}`
+      return `/graphql/training/bootcamp/${cityPath}/${i}`
     case GRAPHQL_API:
-      return `/graphql/training/api/${city.toLowerCase()}/${i}`
+      return `/graphql/training/api/${cityPath}/${i}`
     case GRAPHQL_WORKSHOP:
-      return `/graphql/training/workshops/${slug}/${city.toLowerCase()}/${i}`
+      return `/graphql/training/workshops/${slug}/${cityPath}/${i}`
     case REACT_WORKSHOP:
-      return `/react/training/workshops/${slug}/${city.toLowerCase()}/${i}`
+      return `/react/training/workshops/${slug}/${cityPath}/${i}`
     default:
       return '/'
   }
