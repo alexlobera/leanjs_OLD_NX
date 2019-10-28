@@ -307,9 +307,13 @@ query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
 }
 `
 const withUpcomingVouchers = graphql(QUERY_UPCOMING_VOUCHERS, {
-  options: ({ training }) => ({
-    variables: { trainingInstanceId: training.id },
-  }),
+  options: ({ training }) => {
+    console.log('aaaaaaa', training)
+    return {
+      variables: { trainingInstanceId: training.id },
+    }
+  },
+  skip: ({ training }) => !training || !training.id || training.type === MEETUP,
 })
 
 export default withStatelessClient(withUpcomingVouchers(PaymentSection))

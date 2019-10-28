@@ -45,6 +45,10 @@ export function graphql(query, config = {}) {
   return Component => props => {
     // TODO explore the following
     // const [stateData, dispatchQuery] = useDispatch(useSelect(useClient(), { query, variables })), ACTION )
+    if (config.skip && config.skip(props)) {
+      return <Component {...props} />
+    }
+
     const [state, dispatch] = useClient()
     const { loading, errors, data } = state
     const { options = {} } = config
