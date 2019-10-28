@@ -1,10 +1,7 @@
 import React from 'react'
-
-import { withApollo } from 'react-apollo'
-import { graphql, compose } from 'react-apollo'
 import { navigate } from 'gatsby'
 
-import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
+import { graphql, withStatelessClient } from '../../api/graphql/client'
 import { H2, H3, P } from '../text'
 import { Ribbon } from '../elements'
 import Card from '../elements/Card'
@@ -12,13 +9,28 @@ import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
 import { DEFAULT_VAT_RATE } from '../../config'
 import { getVoucherByPathname } from '../utils/store'
-import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
 import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../utils/trackUserBehaviour'
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
+const VALIDATE_VOUCHER_QUERY = `
+  query validateVoucher(
+    $trainingInstanceId: ID!
+    $quantity: Int!
+    $voucherCode: String!
+  ) {
+    redeemVoucher(
+      trainingInstanceId: $trainingInstanceId
+      quantity: $quantity
+      voucherCode: $voucherCode
+    ) {
+      netPrice
+      totalDiscount
+    }
+  }
+`
 class PaymentSection extends React.Component {
   state = {
     quantity: 1,
@@ -39,7 +51,7 @@ class PaymentSection extends React.Component {
 
   validateVoucher = voucher => {
     const {
-      client,
+      statelessClient,
       training: { id: trainingInstanceId },
       trackUserBehaviour,
     } = this.props
@@ -54,9 +66,9 @@ class PaymentSection extends React.Component {
       event: VOUCHER_VALIDATE,
       payload: { voucher },
     })
-    return client
+    return statelessClient
       .query({
-        query: VALIDATE_VOUCHER,
+        query: VALIDATE_VOUCHER_QUERY,
         variables: {
           voucherCode: voucher,
           trainingInstanceId,
@@ -109,11 +121,11 @@ class PaymentSection extends React.Component {
   render() {
     const {
       paymentApi,
-      trainingError,
-      trainingLoading,
       training = {},
       navigate,
-      data: autoVoucherData = {},
+      data,
+      errors,
+      loading,
       city,
       triggerSubscribe,
     } = this.props
@@ -127,9 +139,9 @@ class PaymentSection extends React.Component {
       trainingType,
       notSoldOut = true
 
-    if (trainingError || autoVoucherData.error) {
+    if (errors) {
       title = 'There was an error'
-    } else if (trainingLoading || autoVoucherData.loading) {
+    } else if (loading) {
       title = 'Loading ...'
     } else if (!training || !training.id) {
       title = 'There is no training scheduled'
@@ -148,12 +160,11 @@ class PaymentSection extends React.Component {
       currency = training.currency || 'gbp'
 
       const discount =
-        autoVoucherData.trainingInstance &&
-        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts &&
-        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts.edges
-          .length &&
-        autoVoucherData.trainingInstance.upcomingAutomaticDiscounts.edges[0]
-          .node
+        data &&
+        data.trainingInstance &&
+        data.trainingInstance.upcomingAutomaticDiscounts &&
+        data.trainingInstance.upcomingAutomaticDiscounts.edges.length &&
+        data.trainingInstance.upcomingAutomaticDiscounts.edges[0].node
 
       if (discount) {
         title = 'Discounted Ticket'
@@ -276,14 +287,27 @@ PaymentSection.defaultProps = {
   navigate,
 }
 
-const withUpcomingVouchers = graphql(PAYMENT_SECTION_QUERY, {
+export const QUERY_UPCOMING_VOUCHERS = `
+query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
+  trainingInstance(id: $trainingInstanceId) {
+    upcomingAutomaticDiscounts {
+      edges {
+        node {
+          code
+          id
+          discountPercentage
+          startsAt
+          expiresAt
+        }
+      }
+    }
+  }
+}
+`
+const withUpcomingVouchers = graphql(QUERY_UPCOMING_VOUCHERS, {
   options: ({ training }) => ({
     variables: { trainingInstanceId: training.id },
   }),
-  skip: ({ training }) => !training || !training.id || training.type === MEETUP,
 })
 
-export default compose(
-  withUpcomingVouchers,
-  withApollo
-)(PaymentSection)
+export default withStatelessClient(withUpcomingVouchers(PaymentSection))

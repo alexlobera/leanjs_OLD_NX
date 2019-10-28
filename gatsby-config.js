@@ -77,15 +77,19 @@ module.exports = {
         disable: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/community/meetups/*`] },
-    },
     'gatsby-source-sanity-transform-images',
     {
       resolve: `gatsby-transform-portable-text`,
       options: {
         extendTypes: [{ typeName: `SanityPost`, contentFieldName: 'body' }],
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'UpMentoring',
+        fieldName: 'upmentoring',
+        url: 'https://api0.upmentoring.com/api/graphql',
       },
     },
   ],

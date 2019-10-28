@@ -1,9 +1,0 @@
-query isVatNumberValid(
-    $countryCode: String!
-    $vatNumber: String!
-) {
-  isVatNumberValid(
-    countryCode: $countryCode
-    vatNumber: $vatNumber
-  )
-}

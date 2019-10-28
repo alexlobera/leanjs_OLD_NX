@@ -24,7 +24,7 @@ import {
 } from 'src/components/form/validations'
 import { aliasComponent } from 'src/components/utils/aliasComponent'
 import { EmailInput } from 'src/components/form/Contact'
-import { triggerSessionSubscribe } from 'src/api'
+import { triggerSessionSubscribe } from 'src/api/rest'
 import trackUserBehaviour, {
   FORM_SUBMIT,
 } from 'src/components/utils/trackUserBehaviour'

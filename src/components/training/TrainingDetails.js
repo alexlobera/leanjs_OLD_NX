@@ -4,15 +4,6 @@ import { H3 } from '../text'
 import Link from '../navigation/Link'
 import coachesData from './coaches.json'
 
-export const HORACIO_HERRERA = 'horacio-herrera'
-export const WILL_VOELCKER = 'will-voelcker'
-export const RICHARD_MOSS = 'richard-moss'
-export const ALEX_LOBERA = 'alex-lobera'
-export const EVA_HOFFMANN = 'eva-hoffmann'
-export const ROY_DERKS = 'roy-derks'
-export const DAVID_LEULIETTE = 'david-leuliette'
-export const FRANCISCO_GOMES = 'francisco-gomes'
-
 const CoachItem = ({ path, name }) => (
   <Li>
     <Link to={`/team/${path}/`}>{name}</Link>

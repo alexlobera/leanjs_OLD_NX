@@ -4,10 +4,11 @@ import waitForExpect from 'wait-for-expect'
 
 import { MEETUP } from '../../config/data'
 import Root from '../../../test/utils/Root'
-import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
-import VALIDATE_VIES from './checkout/ValidateVies.graphql'
-import PAY from './checkout/Pay.graphql'
-import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
+// import VALIDATE_VOUCHER from './ValidateVoucher.graphql'
+// import VALIDATE_VIES from './checkout/ValidateVies.graphql'
+// import PAY from './checkout/Pay.graphql'
+// import PAYMENT_SECTION_QUERY from './PaymentSection.graphql'
+import { QUERY_UPCOMING_VOUCHERS } from './PaymentSection'
 import PaymentSection from './PaymentSection'
 import { BuyButton } from './checkout'
 import {
@@ -49,13 +50,13 @@ const defaultTrainingData = {
     startDate: '2019-04-23T17:00:00.000Z',
     type: 'Part-time',
   },
-  trainingLoading: false,
-  trainingError: false,
+  // trainingLoading: false,
+  // trainingError: false,
 }
 
 const defaultAutoVoucherQuery = {
   request: {
-    query: PAYMENT_SECTION_QUERY,
+    query: QUERY_UPCOMING_VOUCHERS, //PAYMENT_SECTION_QUERY,
     variables: {
       trainingInstanceId: '5aa2acda7dcc782348ea1234',
     },
@@ -65,7 +66,7 @@ const defaultAutoVoucherQuery = {
       trainingInstance: {
         upcomingAutomaticDiscounts: {
           edges: [],
-          __typename: 'VoucherConnection',
+          // __typename: 'VoucherConnection',
         },
       },
     },
@@ -78,6 +79,7 @@ const mountPaymentSection = ({
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
   validateVatQuery,
+  client,
   navigate = () => {},
   triggerSubscribe = () => {},
 }) => {
@@ -159,7 +161,8 @@ describe('<PaymentSection />', () => {
     it('should make a payment', async () => {
       const navigate = jest.fn(() => {})
       let wrapper = mountPaymentSection({
-        paymentMutation: { request, result },
+        // paymentMutation: { request, result },
+        client: { query: () => Promise.resolve(Resultset) },
         navigate,
       })
       wrapper = await fillPaymentForm(wrapper)
@@ -199,8 +202,8 @@ describe('<PaymentSection />', () => {
             startDate: '2019-04-23T17:00:00.000Z',
             type: MEETUP,
           },
-          trainingLoading: false,
-          trainingError: false,
+          // trainingLoading: false,
+          // trainingError: false,
         },
       })
       wrapper = await fillPaymentForm(wrapper, {

@@ -33,6 +33,7 @@ const InstancePage = ({
   curriculumProps = {},
   perfectStudentLink,
   pageContext: {
+    locationImage,
     posts,
     subtitle,
     financeAvailable,
@@ -150,6 +151,7 @@ const InstancePage = ({
             type={type}
             training={training}
             showInfoBox={true}
+            infoBoxFluidImage={locationImage}
             bgColor="transparent"
             removeBgImage
           />

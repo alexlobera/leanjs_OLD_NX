@@ -1,8 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { titleCase } = require('./src/components/utils/text')
@@ -33,6 +28,12 @@ function getLastPathFromSlug(slug) {
 function getFirstPathFromSlug(slug) {
   const slugArray = slug.split('/')
   return slugArray[1]
+}
+
+function getLocationImage(result, city) {
+  return result.data.locationImages.nodes.find(
+    image => image.name.toLowerCase() === city.toLowerCase()
+  )
 }
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -135,6 +136,48 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
+        locationImages: allFile(
+          filter: { relativePath: { regex: "/pages/locations/.*.jpg/" } }
+        ) {
+          nodes {
+            name
+            childImageSharp {
+              fluid(maxWidth: 600) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                sizes
+              }
+            }
+          }
+        }
+
+        upmentoring {
+          eventsConnection(
+            first: 1000
+            filter: { ownerId: "5aaa9b07f146e5cfafad189e" }
+          ) {
+            edges {
+              node {
+                id
+                title
+                price
+                city
+                currency
+                description
+                address
+                venueName
+                mapUrl
+                utcOffset
+                startDate
+                endDate
+                ticketsLeft
+              }
+            }
+          }
+        }
+
         allMarkdownRemark {
           edges {
             node {
@@ -185,6 +228,20 @@ exports.createPages = async ({ graphql, actions }) => {
       )
 
       await Promise.all(
+        result.data.upmentoring.eventsConnection.edges.map(({ node }) => {
+          const locationImage = getLocationImage(result, node.city)
+          return createPage({
+            path: `/community/meetups/${node.id}`,
+            component: path.resolve(`./src/templates/meetup.js`),
+            context: {
+              meetup: node,
+              locationImage: locationImage && locationImage.childImageSharp,
+            },
+          })
+        })
+      )
+
+      await Promise.all(
         result.data.allSanityPost.nodes.map(
           async ({
             id,
@@ -228,6 +285,7 @@ exports.createPages = async ({ graphql, actions }) => {
             const city = getLastPathFromSlug(slug)
             const titleCaseCity = titleCase(city)
             const instancesToCreate = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            const locationImage = getLocationImage(result, city)
             const pathConfig = path.resolve(`./src/pages/${slug}../config.json`)
             const {
               instanceTemplate,
@@ -272,6 +330,7 @@ exports.createPages = async ({ graphql, actions }) => {
                       instanceTemplate}.js`
                   ),
                   context: {
+                    locationImage: locationImage.childImageSharp,
                     videoCoachId,
                     videoOneTime,
                     videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',

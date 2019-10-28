@@ -1,4 +1,3 @@
-export { default as QueryUpcomingTrainings } from './QueryUpcomingTrainings'
 export {
   default as selectUpcomingTrainings,
   selectNthTraining,
@@ -20,16 +19,5 @@ export {
 } from './AlternativeTrainings'
 export { TrustedByLogoList } from './TrustedBySection'
 export { default as TargetAudienceSection } from './TargetAudienceSection'
-export {
-  default as TrainingDetails,
-  HORACIO_HERRERA,
-  WILL_VOELCKER,
-  ALEX_LOBERA,
-  RICHARD_MOSS,
-  EVA_HOFFMANN,
-  ROY_DERKS,
-  DAVID_LEULIETTE,
-  FRANCISCO_GOMES,
-} from './TrainingDetails'
-
+export { default as TrainingDetails } from './TrainingDetails'
 export { default as TrainingCardList } from './TrainingCardList'
