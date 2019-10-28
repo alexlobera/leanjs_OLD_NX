@@ -1,6 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const { titleCase } = require('./src/components/utils/text')
+const { capitalize } = require('./src/components/utils/text')
 const getPostsFromNodes = require('./src/components/blog/getPostsFromNodes')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -283,7 +283,9 @@ exports.createPages = async ({ graphql, actions }) => {
           const { contentType } = node.frontmatter
           if (slug.match(instancePath)) {
             const city = getLastPathFromSlug(slug)
-            const titleCaseCity = titleCase(city)
+            const capitalizedCity = city
+              ? capitalize(city.replace('-', ' '))
+              : ''
             const instancesToCreate = [1, 2, 3, 4, 5, 6, 7, 8, 9]
             const locationImage = getLocationImage(result, city)
             const pathConfig = path.resolve(`./src/pages/${slug}../config.json`)
@@ -354,9 +356,9 @@ exports.createPages = async ({ graphql, actions }) => {
                       ? videoTwoCompany
                       : 'Meredith Corporation',
                     posts,
-                    city: titleCaseCity,
+                    city: capitalizedCity,
                     financeAvailable,
-                    instanceTitle: `${restConfig.title} ${titleCaseCity}`,
+                    instanceTitle: `${restConfig.title} ${capitalizedCity}`,
                     nth,
                     coaches:
                       (node.frontmatter && node.frontmatter.coaches) || [],
