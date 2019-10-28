@@ -1,11 +1,12 @@
-const React = require('react')
-const { stripIndent } = require('common-tags')
+import React from 'react'
+import { stripIndent } from 'common-tags'
+export { wrapRootElement } from './gatsby-browser'
 
 const pluginOptions = {
   includeInDevelopment: true,
 }
 
-exports.onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   if (
     process.env.NODE_ENV === `production` ||
     pluginOptions.includeInDevelopment

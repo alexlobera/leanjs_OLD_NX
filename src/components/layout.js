@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import raven from 'raven-js'
-import { useStaticQuery } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import selectUpcomingTrainings from './training/selectUpcomingTrainings'
 import { createTrainingPath, formatMeetup } from './training/dataUtils'
