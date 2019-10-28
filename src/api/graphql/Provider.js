@@ -66,7 +66,6 @@ export const useStatelessClient = () => {
   return { query: client() }
 }
 
-//export const useClientReducer = ([state, dispatch]) => {
 export const useClient = () => {
   const { client } = useContext(ClientContext) || {}
   const [state, dispatch] = useContext(StoreContext)

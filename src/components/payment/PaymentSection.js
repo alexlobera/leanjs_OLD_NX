@@ -285,7 +285,6 @@ class PaymentSection extends React.Component {
 PaymentSection.defaultProps = {
   trackUserBehaviour,
   navigate,
-  // client,
 }
 
 export const QUERY_UPCOMING_VOUCHERS = `
