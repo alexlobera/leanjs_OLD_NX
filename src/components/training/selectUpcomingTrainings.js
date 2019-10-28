@@ -10,7 +10,9 @@ const trainingByTypes = types => training =>
   types && types.length ? types.find(type => type === training.type) : true
 
 const trainingByCity = city => training =>
-  !city || (training.city && training.city.toLowerCase()) === city.toLowerCase()
+  !city ||
+  (training.city && training.city.toLowerCase().replace(' ', '-')) ===
+    city.toLowerCase().replace(' ', '-')
 
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
   trainings.find(({ training } = {}) => training && training.id === trainingId)
