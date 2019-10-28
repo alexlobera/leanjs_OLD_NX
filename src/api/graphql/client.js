@@ -20,16 +20,13 @@ function getCacheBody(query, variables) {
   return { cacheKey, body }
 }
 
-// TODO, DOES THIS MEMOIZE WORK WHEN WE NAVIGATE BETWEEN PAGES??
 function memoize(fn) {
-  let cache = {} // TODO use WeakMap or Set???
+  let cache = {}
   return (...args) => {
     const hit = args.reduce((acc, arg) => acc && acc[arg], cache)
     if (hit) {
-      console.log(' hit !')
       return hit
     } else {
-      console.log('no hit !', hit)
       let result = fn(...args)
       const lastArgIndex = args.length - 1
       args.reduce((prev, arg, i) => {
@@ -46,6 +43,7 @@ const memoizedGetCacheVars = memoize(getCacheBody)
 // TODO REPLACE THIS WITH useQuery
 export function graphql(query, config = {}) {
   return Component => props => {
+    // TODO explore the following
     // const [stateData, dispatchQuery] = useDispatch(useSelect(useClient(), { query, variables })), ACTION )
     const [state, dispatch] = useClient()
     const { loading, errors, data } = state
