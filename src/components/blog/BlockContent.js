@@ -2,6 +2,7 @@ import React from 'react'
 import { EmbedRunkit } from './Runkit'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import Box from '../layout/Box'
 
 import Image from '../elements/Image'
 import { FONT_FAMILY } from '../../config/styles'
@@ -63,7 +64,7 @@ export const Img = styled(Image)`
   margin-bottom: 10px !important;
 `
 
-export const Blockquote = styled.blockquote`
+export const Blockquote = styled(Box)`
   padding-top: 10px;
   padding-bottom: 20px;
   background: #f9f9f9;
@@ -82,3 +83,8 @@ export const Blockquote = styled.blockquote`
     vertical-align: -0.4em;
   }
 `
+Blockquote.defaultProps = {
+  box: 'blockquote',
+  fontSize: 6,
+  lineHeight: 6,
+}
