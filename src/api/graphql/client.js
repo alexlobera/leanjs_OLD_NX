@@ -23,7 +23,7 @@ function getCacheBody(query, variables) {
 function memoize(fn) {
   let cache = {}
   return (...args) => {
-    const hit = args.reduce((acc, arg) => acc && acc[arg], cache)
+    const hit = args.reduce((acc, arg) => !acc && acc[arg], cache)
     if (hit) {
       return hit
     } else {
