@@ -26,7 +26,7 @@ import Box from 'src/components/layout/Box'
 const metas = {
   title: 'React & GraphQL Expert Training | React GraphQL Academy',
   description:
-    'Looking for React and GraphQL expert training? React GraphQL Academy offers in-person real-world training by our experts. Contact us now!',
+    'Looking for React and GraphQL expert training? React GraphQL Academy (formerly React Academy) offers in-person real-world training by our experts. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
