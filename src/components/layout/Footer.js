@@ -75,6 +75,7 @@ const Footer = ({ width }) => (
                   <Ul variant="unstyled" pt={0}>
                     {[
                       { to: '/about-us', txt: 'About us' },
+                      // { to: '/partners', txt: 'Partners' },
                       { to: '/community', txt: 'Community' },
                       {
                         to: '/privacy-policy',

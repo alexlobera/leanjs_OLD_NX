@@ -6,6 +6,7 @@ import blockContent from './blockContent'
 import tag from './tag'
 import post from './post'
 import person from './person'
+import partner from './partner'
 import job from './job'
 import youtube from './youtube'
 import tweet from './tweet'
@@ -24,6 +25,7 @@ export default createSchema({
     // in the studio.
     post,
     person,
+    partner,
     tag,
     job,
     youtube,

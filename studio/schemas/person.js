@@ -101,6 +101,11 @@ export default {
       type: 'youtube',
     },
     {
+      name: 'twitch',
+      title: 'Twitch username',
+      type: 'string',
+    },
+    {
       name: 'order',
       title: 'Order',
       type: 'string',
