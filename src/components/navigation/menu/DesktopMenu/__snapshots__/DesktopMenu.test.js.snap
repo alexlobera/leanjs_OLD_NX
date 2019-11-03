@@ -109,7 +109,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
           },
         ]
       }
-      text="About us"
+      text="About"
       to="/about-us"
     />
     <DesktopMenuItem
