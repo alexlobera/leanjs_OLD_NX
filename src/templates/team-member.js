@@ -70,6 +70,7 @@ const TeamMember = ({ data }) => {
     twitter,
     instagram,
     linkedIn,
+    twitch,
     blockquote,
     youtubeVideo,
     image,
@@ -172,6 +173,10 @@ const TeamMember = ({ data }) => {
                       link={twitter && `https://twitter.com/${twitter}`}
                       text="Twitter"
                     />
+                    <ProfileLink
+                      link={twitch && `https://www.twitch.tv/${twitch}`}
+                      text="Twitch"
+                    />
                     <ProfileLink link={linkedIn} text="LinkedIn" />
                     <ProfileLink
                       link={
@@ -234,6 +239,7 @@ export const query = graphql`
       medium
       instagram
       linkedIn
+      twitch
       blockquote
       youtubeVideo {
         videoId

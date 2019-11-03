@@ -78,7 +78,7 @@
   },
   {
     "to": "/about-us",
-    "text": "About us",
+    "text": "About",
     "children": [
       {
         "to": "/about-us",
