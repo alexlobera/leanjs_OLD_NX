@@ -68,17 +68,17 @@ const Blog = ({ data, path }) => {
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_transparent_darkBG.jpg?alt=media">
-                  Donwload JPG Dark background
+                  Download JPG Dark background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_transparent_darkBG.png?alt=media">
-                  Donwload PNG transparent background
+                  Download PNG transparent background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_svg_darkBG.svg?alt=media">
-                  Donwload SVG transparent background
+                  Download SVG transparent background
                 </Link>
               </Col>
             </Row>
@@ -89,17 +89,17 @@ const Blog = ({ data, path }) => {
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_whiteBackground.jpg?alt=media">
-                  Donwload JPG white background
+                  Download JPG white background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_transparent.png?alt=media">
-                  Donwload PNG transparent background
+                  Download PNG transparent background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_svg.svg?alt=media">
-                  Donwload SVG Transparent background
+                  Download SVG Transparent background
                 </Link>
               </Col>
             </Row>
@@ -111,12 +111,12 @@ const Blog = ({ data, path }) => {
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_transparent_darkBG.jpg?alt=media">
-                  Donwload JPG Dark background
+                  Download JPG Dark background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_transparent_darkBG.png?alt=media">
-                  Donwload PNG Transparent background
+                  Download PNG Transparent background
                 </Link>
               </Col>
             </Row>
@@ -126,17 +126,17 @@ const Blog = ({ data, path }) => {
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_whiteBackground.jpg?alt=media">
-                  Donwload JPG white background
+                  Download JPG white background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_transparent.png?alt=media">
-                  Donwload PNG transparent background
+                  Download PNG transparent background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_svg.svg?alt=media">
-                  Donwload SVG transparent background
+                  Download SVG transparent background
                 </Link>
               </Col>
             </Row>
@@ -148,12 +148,12 @@ const Blog = ({ data, path }) => {
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_transparent_darkBG.jpg?alt=media">
-                  Donwload JPG Dark background
+                  Download JPG Dark background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_transparent_darkBG.png?alt=media">
-                  Donwload PNG Transparent background
+                  Download PNG Transparent background
                 </Link>
               </Col>
             </Row>
@@ -163,17 +163,17 @@ const Blog = ({ data, path }) => {
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_whiteBG.jpg?alt=media">
-                  Donwload JPG Dark background
+                  Download JPG Dark background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_transparent.png?alt=media">
-                  Donwload PNG Transparent background
+                  Download PNG Transparent background
                 </Link>
               </Col>
               <Col {...colProps}>
                 <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_svg.svg?alt=media">
-                  Donwload SVG Transparent background
+                  Download SVG Transparent background
                 </Link>
               </Col>
             </Row>
@@ -245,7 +245,7 @@ const Blog = ({ data, path }) => {
               </Col>
             </Row>
             <LinkButton href="https://fonts.google.com/specimen/Barlow">
-              Donwload - Barlow Font Family
+              Download - Barlow Font Family
             </LinkButton>
           </Section>
           <UpcomingTrainingSection trainings={trainings} />
