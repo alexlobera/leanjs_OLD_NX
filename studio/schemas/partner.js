@@ -47,7 +47,7 @@ export default {
       validation: Rule =>
         Rule.required()
           .min(10)
-          .max(140),
+          .max(160),
     },
     {
       name: 'website',
@@ -56,8 +56,29 @@ export default {
     },
     {
       name: 'order',
-      title: 'Order',
+      title: 'Partners Page Order (higher numbers go on top)',
       type: 'string',
+    },
+    {
+      name: 'locations',
+      title: 'Locations',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        list: [
+          { title: 'Barcelona', value: 'barcelona' },
+          { title: 'Amsterdam', value: 'amsterdam' },
+          { title: 'Paris', value: 'paris' },
+          { title: 'London', value: 'london' },
+          { title: 'Berlin', value: 'berlin' },
+          { title: 'Lisbon', value: 'lisbon' },
+        ],
+      },
+    },
+    {
+      name: 'featured',
+      title: 'Featured',
+      type: 'boolean',
     },
   ],
   preview: {

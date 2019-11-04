@@ -7,6 +7,7 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P, Blockquote } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
 import { Segment, Video } from 'src/components/elements'
+import { Image } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -22,6 +23,11 @@ import Box from 'src/components/layout/Box'
 import ContactForm from 'src/components/form/Contact'
 import FinanceCard from 'src/components/payment/FinanceCard'
 import BlogSection from 'src/components/blog/BlogSection'
+import {
+  REACT_BOOTCAMP,
+  REACT_FUNDAMENTALS,
+  PART_TIME,
+} from '../../config/data'
 
 const InstancePage = ({
   path,
@@ -45,6 +51,7 @@ const InstancePage = ({
     breadcrumbWorkshopSlug,
     instanceTitle,
     city,
+    learnToCodePartners = [],
     canonical,
     nth = 1,
     videoOneTime,
@@ -210,19 +217,45 @@ const InstancePage = ({
                 <Ul>
                   <TargetAudienceList />
                 </Ul>
-                <P>
-                  If you've said 'yes' to these, this {typeOfTraining} could be
-                  for you!
-                </P>
+
                 <H3>Not for beginner devs!</H3>
                 {perfectStudentLink === false ? null : (
-                  <Link
-                    className="perfect-course-student"
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                  >
-                    Blog: Are YOU the Perfect React Student?
-                  </Link>
+                  <P>
+                    <Link
+                      className="perfect-course-student"
+                      to="/blog/are-you-the-perfect-react-graphql-student/"
+                    >
+                      Blog: Are YOU the Perfect React Student?
+                    </Link>
+                  </P>
                 )}
+                {/* {TODO REPLACE THIS WITH IF ADVANCED OR WORKSHOPS DO BOOTCAMP, FUNDAMENTALS OR PART-TIME, ELSE :} */}
+                {learnToCodePartners.length > 0 &&
+                  (typeOfTraining === REACT_BOOTCAMP ||
+                    typeOfTraining === REACT_FUNDAMENTALS ||
+                    typeOfTraining === PART_TIME) && (
+                    <React.Fragment>
+                      <P>
+                        If you are not a professional developer yet, we
+                        recommend you to consider our {city} learn-to-code
+                        partner before attending our {typeOfTraining}:
+                      </P>
+                      <Row>
+                        {learnToCodePartners.slice(0, 2).map(partner => (
+                          <Col xs={6}>
+                            <Link to={partner.website}>
+                              <Image
+                                fluid={
+                                  partner.logo.asset.localFile.childImageSharp
+                                    .fluid
+                                }
+                              />
+                            </Link>
+                          </Col>
+                        ))}
+                      </Row>
+                    </React.Fragment>
+                  )}
               </Col>
             </Row>
           </Section>
