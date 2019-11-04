@@ -139,6 +139,7 @@ class PaymentSection extends React.Component {
       priceGoesUpOn,
       discountPrice,
       trainingType,
+      ticketsLeft,
       notSoldOut = true
 
     if (errors) {
@@ -150,14 +151,20 @@ class PaymentSection extends React.Component {
     } else {
       title = 'Standard priced ticket'
       trainingType = training.type
-
+      let ticketsLeft
       if (trainingType === MEETUP) {
         eventId = training.id
-        const { ticketsLeft } = training
-        notSoldOut = !(ticketsLeft && parseInt(ticketsLeft) <= 0)
+        ticketsLeft = training.ticketsLeft
       } else {
         trainingInstanceId = training.id
+        ticketsLeft = data.trainingInstance && data.trainingInstance.ticketsLeft
       }
+
+      notSoldOut = !(
+        ticketsLeft !== undefined &&
+        ticketsLeft !== null &&
+        parseInt(ticketsLeft) <= 0
+      )
       price = training.price
       currency = training.currency || 'gbp'
 
@@ -292,6 +299,7 @@ PaymentSection.defaultProps = {
 export const QUERY_UPCOMING_VOUCHERS = `
 query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
   trainingInstance(id: $trainingInstanceId) {
+    ticketsLeft
     upcomingAutomaticDiscounts {
       edges {
         node {
