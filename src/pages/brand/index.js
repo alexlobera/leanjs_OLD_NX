@@ -53,9 +53,25 @@ const Blog = ({ data, path }) => {
             titleLines={['Brand assets']}
             fullHeight={false}
             paddingBottom={170}
+            links={[
+              {
+                text: 'Logos',
+                to: '#logos',
+              },
+              {
+                text: 'Colours',
+                to: '#colours',
+              },
+              {
+                text: 'Typography',
+                to: '#typography',
+              },
+            ]}
           />
           <Section>
-            <H2>Logos</H2>
+            <H2>
+              Logos <a name="logos" />
+            </H2>
             <P>
               <LinkButton href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2FReactGraphQLAcadmey-logos2019.zip?alt=media">
                 Download - all logos
@@ -179,7 +195,9 @@ const Blog = ({ data, path }) => {
             </Row>
           </Section>
           <Section>
-            <H2>Colours</H2>
+            <H2>
+              Colours <a name="colours" />
+            </H2>
             <H3 pt={0}>Event types</H3>
             <Row>
               <Col md={3}>
@@ -231,7 +249,9 @@ const Blog = ({ data, path }) => {
             </Row>
           </Section>
           <Section>
-            <H2>Typography</H2>
+            <H2>
+              Typography <a name="typography" />
+            </H2>
             <H3 pt={0}>Barlow</H3>
             <Row>
               <Col {...colProps}>
