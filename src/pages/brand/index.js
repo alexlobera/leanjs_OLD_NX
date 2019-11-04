@@ -1,0 +1,287 @@
+import React from 'react'
+import { graphql } from 'gatsby'
+
+import Layout from '../../components/layout'
+import { H2, H3 } from '../../components/text/H'
+import LinkButton from '../../components/buttons/LinkButton'
+import Box from '../../components/layout/Box'
+import Link from '../../components/navigation/Link'
+import Image from '../../components/elements/Image'
+import P from '../../components/text/P'
+import { Col, Row } from '../../components/layout/Grid'
+import { RootHeader as Header } from '../../components/layout/Header'
+import { UpcomingTrainingSection } from '../../components/training'
+import { Breadcrumb } from '../../components/navigation'
+import Section from '../../components/layout/Section'
+import {
+  BLUE,
+  MEETUP_RED,
+  GRAPHQL_PINK,
+  DARK_GREY,
+  GREY,
+  WHITE,
+  RED,
+  DARK_BLUE,
+  PINK,
+} from '../../config/styles'
+
+const Blog = ({ data, path }) => {
+  const webAssets = data.webAssets.nodes.reduce(
+    (acc, { childImageSharp: { fluid: image } }) => {
+      acc[image.originalName] = image
+      return acc
+    },
+    {}
+  )
+  const colProps = {
+    mb: 5,
+    md: 3,
+  }
+  const colorBoxProps = {
+    width: 1,
+    height: '75px',
+  }
+
+  return (
+    <Layout>
+      {({ trainings }) => (
+        <React.Fragment>
+          <Breadcrumb
+            path={[{ to: '/', label: 'Home' }, { to: path, label: `Blog` }]}
+          />
+          <Header
+            titleLines={['Brand assets']}
+            fullHeight={false}
+            paddingBottom={170}
+          />
+          <Section>
+            <H2>Logos</H2>
+            <P>
+              <LinkButton href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2FReactGraphQLAcadmey-logos2019.zip?alt=media">
+                Download - all logos
+              </LinkButton>
+            </P>
+            <H3>Landscape</H3>
+            <Row>
+              <Col {...colProps}>
+                <Image fluid={webAssets['RGA_primary_darkBG-example.jpg']} />
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_transparent_darkBG.jpg?alt=media">
+                  Download JPG Dark background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_transparent_darkBG.png?alt=media">
+                  Download PNG transparent background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_svg_darkBG.svg?alt=media">
+                  Download SVG transparent background
+                </Link>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col {...colProps}>
+                <Image fluid={webAssets['RGA_primary_whiteBackground.jpg']} />
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_whiteBackground.jpg?alt=media">
+                  Download JPG white background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_transparent.png?alt=media">
+                  Download PNG transparent background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fprimary_wide%2FRGA_primary_svg.svg?alt=media">
+                  Download SVG Transparent background
+                </Link>
+              </Col>
+            </Row>
+
+            <H3>Square</H3>
+            <Row>
+              <Col {...colProps}>
+                <Image fluid={webAssets['RGA_square_transparent_darkBG.jpg']} />
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_transparent_darkBG.jpg?alt=media">
+                  Download JPG Dark background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_transparent_darkBG.png?alt=media">
+                  Download PNG Transparent background
+                </Link>
+              </Col>
+            </Row>
+            <Row>
+              <Col {...colProps}>
+                <Image fluid={webAssets['RGA_square_whiteBackground.jpg']} />
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_whiteBackground.jpg?alt=media">
+                  Download JPG white background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_transparent.png?alt=media">
+                  Download PNG transparent background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Fsquare%2FRGA_square_svg.svg?alt=media">
+                  Download SVG transparent background
+                </Link>
+              </Col>
+            </Row>
+
+            <H3>Icon</H3>
+            <Row>
+              <Col {...colProps}>
+                <Image fluid={webAssets['RGA_icon_transparent_darkBG.jpg']} />
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_transparent_darkBG.jpg?alt=media">
+                  Download JPG Dark background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_transparent_darkBG.png?alt=media">
+                  Download PNG Transparent background
+                </Link>
+              </Col>
+            </Row>
+            <Row>
+              <Col {...colProps}>
+                <Image fluid={webAssets['RGA_icon_transparent.png']} />
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_whiteBG.jpg?alt=media">
+                  Download JPG Dark background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_transparent.png?alt=media">
+                  Download PNG Transparent background
+                </Link>
+              </Col>
+              <Col {...colProps}>
+                <Link href="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/branding%2Flogos%2Ficon%2FRGA_icon_svg.svg?alt=media">
+                  Download SVG Transparent background
+                </Link>
+              </Col>
+            </Row>
+          </Section>
+          <Section>
+            <H2>Colours</H2>
+            <H3 pt={0}>Event types</H3>
+            <Row>
+              <Col md={3}>
+                <Box backgroundColor={BLUE} {...colorBoxProps} />
+                <P>React Blue: #6FCFF0</P>
+              </Col>
+              <Col md={3} mdOffset={1}>
+                <Box backgroundColor={GRAPHQL_PINK} {...colorBoxProps} />
+                <P>GraphQL Pink: #DF0098</P>
+              </Col>
+              <Col md={3} mdOffset={1}>
+                <Box backgroundColor={MEETUP_RED} {...colorBoxProps} />
+                <P>Meetup Red: #F64060</P>
+              </Col>
+            </Row>
+
+            <H3>Website UI</H3>
+            <Row>
+              <Col {...colProps}>
+                <Box backgroundColor={RED} {...colorBoxProps} />
+                <P>CTA primary: #C0392B</P>
+              </Col>
+              <Col {...colProps} mdOffset={1}>
+                <Box backgroundColor={DARK_BLUE} {...colorBoxProps} />
+                <P>CTA secondary: #002938</P>
+              </Col>
+              <Col {...colProps} mdOffset={1}>
+                <Box backgroundColor={PINK} {...colorBoxProps} />
+                <P>Error message: #F388A2</P>
+              </Col>
+
+              <Col md={3}>
+                <Box backgroundColor={DARK_GREY} {...colorBoxProps} />
+                <P>Text grey: #4A4A4A</P>
+              </Col>
+              <Col md={3} mdOffset={1}>
+                <Box backgroundColor={GREY} {...colorBoxProps} />
+                <P>Accent grey: #C4C4C4</P>
+              </Col>
+              <Col md={3} mdOffset={1}>
+                <Box
+                  backgroundColor={WHITE}
+                  {...colorBoxProps}
+                  border="1px solid"
+                  borderColor={GREY}
+                />
+                <P>White: #FFFFFF</P>
+              </Col>
+            </Row>
+          </Section>
+          <Section>
+            <H2>Typography</H2>
+            <H3 pt={0}>Barlow</H3>
+            <Row>
+              <Col {...colProps}>
+                <Image fluid={webAssets['typography1.png']} />
+              </Col>
+              <Col {...colProps} mdOffset={1}>
+                <Image fluid={webAssets['typography2.png']} />
+              </Col>
+              <Col {...colProps} mdOffset={1}>
+                <Image fluid={webAssets['typography3.png']} />
+              </Col>
+            </Row>
+            <LinkButton href="https://fonts.google.com/specimen/Barlow">
+              Download - Barlow Font Family
+            </LinkButton>
+          </Section>
+          <UpcomingTrainingSection trainings={trainings} />
+        </React.Fragment>
+      )}
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query brandQuery {
+    webAssets: allFile(
+      filter: {
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+        relativeDirectory: { regex: "/brand/web_asset/" }
+      }
+    ) {
+      nodes {
+        childImageSharp {
+          fluid(maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+            originalName
+          }
+        }
+      }
+    }
+
+    downloadImages: allFile(
+      filter: { relativeDirectory: { regex: "/brand/logos/" } }
+    ) {
+      nodes {
+        name
+        publicURL
+      }
+    }
+  }
+`
+
+export default Blog
