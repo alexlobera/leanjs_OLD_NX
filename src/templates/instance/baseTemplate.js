@@ -27,6 +27,8 @@ import {
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   PART_TIME,
+  ADVANCED_REACT,
+  REACT_WORKSHOP,
 } from '../../config/data'
 
 const InstancePage = ({
@@ -229,11 +231,10 @@ const InstancePage = ({
                     </Link>
                   </P>
                 )}
-                {/* {TODO REPLACE THIS WITH IF ADVANCED OR WORKSHOPS DO BOOTCAMP, FUNDAMENTALS OR PART-TIME, ELSE :} */}
                 {learnToCodePartners.length > 0 &&
-                  (typeOfTraining === REACT_BOOTCAMP ||
-                    typeOfTraining === REACT_FUNDAMENTALS ||
-                    typeOfTraining === PART_TIME) && (
+                  (type === REACT_BOOTCAMP ||
+                    type === REACT_FUNDAMENTALS ||
+                    type === PART_TIME) && (
                     <React.Fragment>
                       <P>
                         If you are not a professional developer yet, we
