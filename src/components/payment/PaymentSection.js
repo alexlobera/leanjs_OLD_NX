@@ -157,7 +157,8 @@ class PaymentSection extends React.Component {
         ticketsLeft = training.ticketsLeft
       } else {
         trainingInstanceId = training.id
-        ticketsLeft = data.trainingInstance && data.trainingInstance.ticketsLeft
+        ticketsLeft =
+          data && data.trainingInstance && data.trainingInstance.ticketsLeft
       }
 
       notSoldOut = !(

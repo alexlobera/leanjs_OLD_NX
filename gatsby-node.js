@@ -178,6 +178,31 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
+        partners: allSanityPartner {
+          nodes {
+            name
+            type
+            featured
+            locations
+            website
+            logo {
+              asset {
+                localFile(width: 300) {
+                  childImageSharp {
+                    fluid(maxWidth: 600) {
+                      base64
+                      aspectRatio
+                      src
+                      srcSet
+                      sizes
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
         allMarkdownRemark {
           edges {
             node {
@@ -321,7 +346,15 @@ exports.createPages = async ({ graphql, actions }) => {
               videoTwoCompany,
               instanceTemplate: overrideInstanceTemplate,
             } = node.frontmatter
-
+            const learnToCodePartners = result.data.partners.nodes.filter(
+              partner => {
+                const locations = partner.locations || []
+                return (
+                  locations.find(location => location === city) &&
+                  partner.featured
+                )
+              }
+            )
             await Promise.all(
               instancesToCreate.map(async nth => {
                 const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
@@ -332,6 +365,7 @@ exports.createPages = async ({ graphql, actions }) => {
                       instanceTemplate}.js`
                   ),
                   context: {
+                    learnToCodePartners,
                     locationImage:
                       locationImage && locationImage.childImageSharp,
                     videoCoachId,
