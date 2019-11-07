@@ -27,8 +27,6 @@ import {
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   PART_TIME,
-  ADVANCED_REACT,
-  REACT_WORKSHOP,
 } from '../../config/data'
 
 const InstancePage = ({
