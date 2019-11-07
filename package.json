@@ -31,7 +31,7 @@
     "react-dom": "^16.10.0",
     "react-final-form": "^6.3.0",
     "react-helmet": "^5.2.0",
-    "react-images": "^1.0.0",
+    "react-images": "^0.5.19",
     "react-lazyload": "^2.3.0",
     "react-live": "^2.1.2",
     "react-photo-gallery": "^8.0.0",
