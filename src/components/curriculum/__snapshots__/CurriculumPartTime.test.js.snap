@@ -35,16 +35,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       <CurriculumSection
         mt={4}
         name="session4"
-        title="Session 4 - Forms & Auth"
-        toggleNavigateTo="/react/curriculum?tab=Part-time"
-        type="Part-time"
-      >
-        <FormsAndAuthSession />
-      </CurriculumSection>,
-      <CurriculumSection
-        mt={4}
-        name="session5"
-        title="Session 5 - Recap: build a React app from scratch"
+        title="Session 4 - Recap: build a React app from scratch"
         toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
@@ -54,6 +45,15 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
   }
   secondHalf={
     Array [
+      <CurriculumSection
+        mt={4}
+        name="session5"
+        title="Session 5 - Forms & Auth"
+        toggleNavigateTo="/react/curriculum?tab=Part-time"
+        type="Part-time"
+      >
+        <FormsAndAuthSession />
+      </CurriculumSection>,
       <CurriculumSection
         mt={4}
         name="session6"
@@ -66,16 +66,7 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       <CurriculumSection
         mt={4}
         name="session7"
-        title="Session 7 - Styling in React"
-        toggleNavigateTo="/react/curriculum?tab=Part-time"
-        type="Part-time"
-      >
-        <StylingInReactSession />
-      </CurriculumSection>,
-      <CurriculumSection
-        mt={4}
-        name="session8"
-        title="Session 8 - Redux"
+        title="Session 7 - Redux"
         toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
@@ -83,17 +74,8 @@ exports[`<CurriculumPartTime /> should render component 1`] = `
       </CurriculumSection>,
       <CurriculumSection
         mt={4}
-        name="session9"
-        title="Session 9 - Testing Fundamentals in JS"
-        toggleNavigateTo="/react/curriculum?tab=Part-time"
-        type="Part-time"
-      >
-        <TestingIntroSession />
-      </CurriculumSection>,
-      <CurriculumSection
-        mt={4}
-        name="session10"
-        title="Session 10 - React Redux Real-world Final Project"
+        name="session8"
+        title="Session 8 - React Redux Real-world Final Project"
         toggleNavigateTo="/react/curriculum?tab=Part-time"
         type="Part-time"
       >
