@@ -69,18 +69,24 @@ const defaultSessionsFirstHalf = [
     Comp: RoutingAndDataFetchingSession,
     group: 2,
   },
-  { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 2 },
   {
     title: 'Recap: build a React app from scratch',
     Comp: ReactFundamentalsRecapSession,
     group: 2,
   },
+  // { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 2 },
+  // {
+  //   title: 'Recap: build a React app from scratch',
+  //   Comp: ReactFundamentalsRecapSession,
+  //   group: 2,
+  // },
 ]
 const defaultSessionsSecondHalf = [
+  { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 3 },
   { title: 'React Hooks', Comp: HooksSession, group: 3 },
-  { title: 'Styling in React', Comp: StylingInReactSession, group: 3 },
+  // { title: 'Styling in React', Comp: StylingInReactSession, group: 3 },
   { title: 'Redux', Comp: IntroReduxSession, group: 4 },
-  { title: 'Testing Fundamentals in JS', Comp: TestingIntroSession, group: 4 },
+  //{ title: 'Testing Fundamentals in JS', Comp: TestingIntroSession, group: 4 },
   {
     title: 'React Redux Real-world Final Project',
     Comp: PartTimeFinalProject,
