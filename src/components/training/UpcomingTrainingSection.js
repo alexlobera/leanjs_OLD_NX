@@ -18,6 +18,7 @@ import {
   GRAPHQL_API,
   GRAPHQL_WORKSHOP,
   MEETUP,
+  GRAPHQL_PART_TIME,
 } from '../../config/data'
 import Flex from '../layout/Flex'
 
@@ -48,7 +49,7 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
   const graphqlTrainings = selectUpcomingTrainings({
     trainings,
     limit,
-    types: [GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_WORKSHOP],
+    types: [GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_WORKSHOP, GRAPHQL_PART_TIME],
   })
   const meetups = selectUpcomingTrainings({
     trainings,
