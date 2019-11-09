@@ -8,6 +8,7 @@ import {
   GRAPHQL_API,
   MEETUP,
   GRAPHQL_WORKSHOP,
+  GRAPHQL_PART_TIME,
 } from '../../config/data'
 
 export const createTrainingPath = ({ type, city = '', index, slug }) => {
@@ -24,6 +25,8 @@ export const createTrainingPath = ({ type, city = '', index, slug }) => {
       return `/react/training/advanced/${cityPath}/${i}`
     case GRAPHQL_BOOTCAMP:
       return `/graphql/training/bootcamp/${cityPath}/${i}`
+    case GRAPHQL_PART_TIME:
+      return `/graphql/training/part-time/${cityPath}/${i}`
     case GRAPHQL_API:
       return `/graphql/training/api/${cityPath}/${i}`
     case GRAPHQL_WORKSHOP:

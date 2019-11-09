@@ -87,24 +87,30 @@ export const LearningObjectivesList = () => (
   </React.Fragment>
 )
 
+// TODO REVIEW ALL THE GRAPHQL TARGET AUDIENCE THIS
 export const TargetAudienceList = () => (
   <React.Fragment>
     <Li>
       A developer{' '}
       <strong>
-        interested in progressively shifting towards front-end development in
-        React
+        interested in progressively shifting towards data-driven development in
+        React with GraphQL
       </strong>
       .
     </Li>
     <Li>
-      You won't have to make critical decisions on your own in the React
-      projects you will work on.
+      Let your apps query to your API and get exactly what you need, making your
+      apps fast and stable.
+    </Li>
+    <Li>
+      Organize APIs in terms of types and fields, not endpoints, to ensure
+      queries avoiding writing manual parsing code
     </Li>
     <Li>
       You are interested in intense training for extremely rapid learning but
       you don't want to cut into valuable work-days.
     </Li>
+    <Li>Evolve your API without having to create versions.</Li>
     <Li>
       You learn by doing. This is a hands-on project-based training - most of
       the time you'll be coding.

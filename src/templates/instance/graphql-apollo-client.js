@@ -6,11 +6,11 @@ import Curriculum, {
 import {
   GRAPHQL_WORKSHOP,
   GRAPHQL_API,
-  GRAPHQL_PARTIME,
+  GRAPHQL_PART_TIME,
   GRAPHQL_BOOTCAMP,
 } from 'src/config/data'
 
-export const crossSellTypes = [GRAPHQL_API, GRAPHQL_PARTIME, GRAPHQL_BOOTCAMP]
+export const crossSellTypes = [GRAPHQL_API, GRAPHQL_PART_TIME, GRAPHQL_BOOTCAMP]
 
 const Page = props => (
   <BaseTemplate

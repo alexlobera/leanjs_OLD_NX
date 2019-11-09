@@ -7,12 +7,12 @@ import {
   GRAPHQL_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_BOOTCAMP,
-  GRAPHQL_PARTIME,
+  GRAPHQL_PART_TIME,
 } from 'src/config/data'
 
 export const crossSellTypes = [
   GRAPHQL_WORKSHOP,
-  GRAPHQL_PARTIME,
+  GRAPHQL_PART_TIME,
   GRAPHQL_BOOTCAMP,
 ]
 
