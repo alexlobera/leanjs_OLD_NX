@@ -1,5 +1,4 @@
 import React from 'react'
-import { Li } from '../layout/Ul'
 import NodejsSession from './sessions/graphql/server/NodejsSession'
 import ThinkingInGraphQLSession from './sessions/graphql/server/ThinkingInGraphQLSession'
 import SchemaDesignSession from './sessions/graphql/server/SchemaDesignSession'
@@ -11,6 +10,10 @@ import GraphQLClientRecapSession from './sessions/graphql/client/GraphQLClientRe
 import { GRAPHQL_PART_TIME } from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
+import {
+  LearningObjectivesList,
+  TargetAudienceList,
+} from './CurriculumGraphQLBootcamp'
 
 const defaultSessionsFirstHalf = [
   { Comp: NodejsSession, group: 1 },
@@ -61,66 +64,7 @@ const CurriculumPartTime = ({
   )
 }
 
-export const LearningObjectivesList = () => (
-  <React.Fragment>
-    <Li>
-      Master React principles, such as the React composition model and the
-      one-way explicit data flow, to leverage React's full potential.
-    </Li>
-    <Li>
-      Understand how the most popular libraries to build React applications work
-      under the hood:{' '}
-      <code>
-        react, react-dom, react-router, redux, react-redux, jest,
-        styled-components
-      </code>
-    </Li>
-    <Li>
-      Create a solid foundation so in future you can quickly learn advanced
-      patterns and techniques as you progress in your career as React developer.
-    </Li>
-    <Li>
-      Understand the different state management approaches in the React
-      ecosystem.
-    </Li>
-    <Li>Learn how to style React applications in an idiomatic way.</Li>
-  </React.Fragment>
-)
-
-// TODO REVIEW ALL THE GRAPHQL TARGET AUDIENCE THIS
-export const TargetAudienceList = () => (
-  <React.Fragment>
-    <Li>
-      A developer{' '}
-      <strong>
-        interested in progressively shifting towards data-driven development in
-        React with GraphQL
-      </strong>
-      .
-    </Li>
-    <Li>
-      Let your apps query to your API and get exactly what you need, making your
-      apps fast and stable.
-    </Li>
-    <Li>
-      Organize APIs in terms of types and fields, not endpoints, to ensure
-      queries avoiding writing manual parsing code
-    </Li>
-    <Li>
-      You are interested in intense training for extremely rapid learning but
-      you don't want to cut into valuable work-days.
-    </Li>
-    <Li>Evolve your API without having to create versions.</Li>
-    <Li>
-      You learn by doing. This is a hands-on project-based training - most of
-      the time you'll be coding.
-    </Li>
-    <Li>
-      You think code reviews and pair programming are useful and you are
-      interested in getting feedback on your coding.
-    </Li>
-  </React.Fragment>
-)
+export { LearningObjectivesList, TargetAudienceList }
 
 CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
 CurriculumPartTime.TargetAudienceList = TargetAudienceList

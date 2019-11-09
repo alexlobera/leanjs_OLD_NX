@@ -40,16 +40,22 @@ const CurriculumGraphQLAPI = ({
 export const TargetAudienceList = () => (
   <React.Fragment>
     <Li>
-      For working developers, experience with JavaScript and npm - not for
-      beginners!
+      A front-end developer or full-stack developer familiar with JavaScript
+      that wants to build real-world GraphQL APIs?
     </Li>
     <Li>Perfect for developers with 1+ year building backends and REST APIs</Li>
-    <Li>Build production ready apps leverging GraphQL.</Li>
   </React.Fragment>
 )
 
 export const LearningObjectivesList = () => (
-  <React.Fragment>TODO</React.Fragment>
+  <React.Fragment>
+    <Li>Learn the best practices to expose data using using GraphQL schemas</Li>
+    <Li>
+      Understand how to connect GraphQL to different data sources in a secure
+      way
+    </Li>
+    <Li>Comprehend how to effectively run a GraphQL API in production</Li>
+  </React.Fragment>
 )
 
 CurriculumGraphQLAPI.LearningObjectivesList = LearningObjectivesList

@@ -29,10 +29,10 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
           <H4>Choose a GraphQL Course</H4>
         </Col>
       </Row>
-      <Tabs defaultValue={GRAPHQL_BOOTCAMP}>
+      <Tabs defaultValue={GRAPHQL_PART_TIME}>
         <TabList lgOffset={1}>
-          <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
           <TabItem name={GRAPHQL_PART_TIME}>GraphQL Part-time</TabItem>
+          <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
           <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
         </TabList>
 
