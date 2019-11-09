@@ -1,5 +1,5 @@
 import {
-  PART_TIME,
+  REACT_PART_TIME,
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   ADVANCED_REACT,
@@ -14,7 +14,7 @@ export const createTrainingPath = ({ type, city = '', index, slug }) => {
   const i = index > 1 ? index : ''
   const cityPath = city.toLowerCase().replace(' ', '-')
   switch (type) {
-    case PART_TIME:
+    case REACT_PART_TIME:
       return `/react/training/part-time-course/${cityPath}/${i}`
     case REACT_BOOTCAMP:
       return `/react/training/bootcamp/${cityPath}/${i}`

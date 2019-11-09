@@ -2,25 +2,21 @@ import React from 'react'
 import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
-} from 'src/components/curriculum/CurriculumReactBootcamp'
+} from 'src/components/curriculum/CurriculumGraphQLPartTime'
 import {
-  REACT_FUNDAMENTALS,
-  REACT_PART_TIME,
-  REACT_BOOTCAMP,
-  ADVANCED_REACT,
+  GRAPHQL_WORKSHOP,
+  GRAPHQL_API,
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_PARTIME,
 } from 'src/config/data'
 
-export const crossSellTypes = [
-  REACT_FUNDAMENTALS,
-  REACT_PART_TIME,
-  ADVANCED_REACT,
-]
+export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_BOOTCAMP, GRAPHQL_API]
 
 const Page = props => (
   <BaseTemplate
     {...props}
-    type={REACT_BOOTCAMP}
-    typeOfTraining="React Bootcamp"
+    type={GRAPHQL_PARTIME}
+    typeOfTraining="GraphQL part-time course"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

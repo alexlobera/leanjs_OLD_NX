@@ -1,86 +1,40 @@
 import React from 'react'
-
 import { Li } from '../layout/Ul'
-import Link from '../navigation/Link'
-import { H2Ref } from '../text'
-import Section from './CurriculumSection'
-import GraphQLServerDayOneSessions from './sessions/GraphQLServerDayOneSessions'
-import NodejsSession from './sessions/NodejsSession'
-// import GraphQLServerDayTwoSessions from './sessions/GraphQLServerDayTwoSessions'
+
 import { GRAPHQL_API } from '../../config/data'
-import selectCurriculumLayout from './selectCurriculumLayout'
+import Curriculum, { renderSection } from './Curriculum'
+import { sessionsFirstHalf } from './CurriculumGraphQLBootcamp'
+
+const type = GRAPHQL_API
 
 const CurriculumGraphQLAPI = ({
-  showTitle = true,
-  layout,
-  enableToggle,
-  isOpen,
-  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_API}`,
-  showLinkToCurriculum = true,
-  marketingCard,
-  trainings,
+  toggleNavigateTo = `/graphql/curriculum?tab=${type}`,
+  training,
+  section = {},
+  ...rest
 }) => {
-  const type = GRAPHQL_API
-  const commonProps = {
-    enableToggle,
+  const sectionProps = {
+    ...section,
     toggleNavigateTo,
     type,
-    isOpen,
   }
-  const firstHalf = (
-    <React.Fragment>
-      <Section
-        {...commonProps}
-        title="Evening pre-training: Nodejs fundamentals (optional)"
-        name="day0"
-        subTitle="Nodejs Fundamentals"
-      >
-        <NodejsSession />
-      </Section>
-      <Section
-        {...commonProps}
-        title="Day 1: GraphQL Foundation"
-        name="day1"
-        subTitle="From REST to GraphQL: schema, error, and security design"
-      >
-        <GraphQLServerDayOneSessions />
-      </Section>
-    </React.Fragment>
-  )
-  const secondHalf = (
-    <React.Fragment>
-      {/* 
-      Temporarily disabled
-      <Section
-        {...commonProps}
-        title="Day 2: Advanced GraphQL API"
-        name="day2"
-        subTitle="Advanced Schema, Performance, and recap project"
-      >
-        <GraphQLServerDayTwoSessions />
-      </Section> */}
-      {marketingCard ? React.cloneElement(marketingCard, { type }) : null}
-    </React.Fragment>
-  )
+  const renderSectionArgs = {
+    training,
+    initialDayOffset: 1,
+    sectionProps,
+    preEvening: true,
+  }
 
-  const title = showTitle ? (
-    <H2Ref>
-      GraphQL API Curriculum{' '}
-      <Link to="#curriculum" name="curriculum">
-        #
-      </Link>
-    </H2Ref>
-  ) : null
-
-  return selectCurriculumLayout({
-    firstHalf,
-    secondHalf,
-    layout,
-    title,
-    type,
-    trainings,
-    curriculumTo: showLinkToCurriculum ? toggleNavigateTo : undefined,
-  })
+  return (
+    <Curriculum
+      title="GraphQL API Curriculum"
+      training={training}
+      type={type}
+      curriculumTo={toggleNavigateTo}
+      {...rest}
+      firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}
+    />
+  )
 }
 
 export const TargetAudienceList = () => (
@@ -93,5 +47,12 @@ export const TargetAudienceList = () => (
     <Li>Build production ready apps leverging GraphQL.</Li>
   </React.Fragment>
 )
+
+export const LearningObjectivesList = () => (
+  <React.Fragment>TODO</React.Fragment>
+)
+
+CurriculumGraphQLAPI.LearningObjectivesList = LearningObjectivesList
+CurriculumGraphQLAPI.TargetAudienceList = TargetAudienceList
 
 export default CurriculumGraphQLAPI

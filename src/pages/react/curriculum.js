@@ -22,7 +22,7 @@ import {
 } from 'src/components/layout/Tabs'
 import CurriculumReactFundamentals from 'src/components/curriculum/CurriculumReactFundamentals'
 import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
-import CurriculumPartTime from 'src/components/curriculum/CurriculumPartTime'
+import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPartTime'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
 import Header from 'src/components/layout/Header'
@@ -37,7 +37,7 @@ import { formatUTC } from 'src/components/utils'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
-  PART_TIME,
+  REACT_PART_TIME,
   REACT_FUNDAMENTALS,
   TECH_REACT,
 } from 'src/config/data'
@@ -92,7 +92,7 @@ class ReactCurriculum extends React.Component {
           })
           const trainingPartTime = selectNthTraining({
             trainings,
-            type: PART_TIME,
+            type: REACT_PART_TIME,
           })
           const trainingAdvanced = selectNthTraining({
             trainings,
@@ -141,7 +141,7 @@ class ReactCurriculum extends React.Component {
                           <Tr>
                             <Th />
                             <Th type={REACT_BOOTCAMP}>Bootcamp</Th>
-                            <Th type={PART_TIME}>Part Time </Th>
+                            <Th type={REACT_PART_TIME}>Part Time </Th>
                             <Th type={ADVANCED_REACT}>Advanced</Th>
                             <Th type={REACT_FUNDAMENTALS}>Fundamentals</Th>
                           </Tr>
@@ -153,7 +153,7 @@ class ReactCurriculum extends React.Component {
                               <Tick type={REACT_BOOTCAMP} />
                             </Td>
                             <Td>
-                              <Tick type={PART_TIME} />
+                              <Tick type={REACT_PART_TIME} />
                             </Td>
                             <Td />
                             <Td>
@@ -166,7 +166,7 @@ class ReactCurriculum extends React.Component {
                               <Tick type={REACT_BOOTCAMP} />
                             </Td>
                             <Td>
-                              <Tick type={PART_TIME} />
+                              <Tick type={REACT_PART_TIME} />
                             </Td>
                             <Td />
                             <Td>
@@ -179,7 +179,7 @@ class ReactCurriculum extends React.Component {
                               <Tick type={REACT_BOOTCAMP} />
                             </Td>
                             <Td>
-                              <Tick type={PART_TIME} />
+                              <Tick type={REACT_PART_TIME} />
                             </Td>
                             <Td />
                             <Td>
@@ -192,7 +192,7 @@ class ReactCurriculum extends React.Component {
                               <Tick type={REACT_BOOTCAMP} />
                             </Td>
                             <Td>
-                              <Tick type={PART_TIME} />
+                              <Tick type={REACT_PART_TIME} />
                             </Td>
                             <Td>
                               <Tick type={ADVANCED_REACT} />
@@ -203,19 +203,6 @@ class ReactCurriculum extends React.Component {
                           </Tr>
                           <Tr>
                             <Td>Testing</Td>
-                            <Td>
-                              <Tick type={REACT_BOOTCAMP} />
-                            </Td>
-                            <Td>
-                              <Tick type={PART_TIME} />
-                            </Td>
-                            <Td>
-                              <Tick type={ADVANCED_REACT} />
-                            </Td>
-                            <Td />
-                          </Tr>
-                          <Tr>
-                            <Td>Advanced Testing</Td>
                             <Td>
                               <Tick type={REACT_BOOTCAMP} />
                             </Td>
@@ -354,7 +341,9 @@ class ReactCurriculum extends React.Component {
                     <Tabs onChange={this.setActive} active={this.state.active}>
                       <TabList>
                         <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-                        <TabItem name={PART_TIME}>Part-time Course</TabItem>
+                        <TabItem name={REACT_PART_TIME}>
+                          Part-time Course
+                        </TabItem>
                         <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
                         <TabItem name={REACT_FUNDAMENTALS}>
                           React Fundamentals
@@ -412,7 +401,7 @@ class ReactCurriculum extends React.Component {
                           </Row>
                         </ContentItem>
 
-                        <ContentItem name={PART_TIME}>
+                        <ContentItem name={REACT_PART_TIME}>
                           <P>
                             <strong>
                               On completion of the React Part-time course each
@@ -420,7 +409,7 @@ class ReactCurriculum extends React.Component {
                             </strong>
                           </P>
                           <Ul>
-                            <CurriculumPartTime.LearningObjectivesList />
+                            <CurriculumReactPartTime.LearningObjectivesList />
                             <Li>
                               Not sure if our trainings are right for you? Read
                               our blog{' '}
@@ -439,7 +428,7 @@ class ReactCurriculum extends React.Component {
                           <Row>
                             <Col lg={1} lgOffset={1} />
                             <Col lg={9}>
-                              <CurriculumPartTime
+                              <CurriculumReactPartTime
                                 {...commonCurriculumProps}
                                 marketingCard={
                                   trainingPartTime && (

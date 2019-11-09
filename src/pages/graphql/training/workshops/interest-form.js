@@ -10,6 +10,7 @@ import { Link } from 'src/components/navigation'
 import { Segment } from 'src/components/elements'
 import { Button } from 'src/components/buttons'
 import Header from 'src/components/layout/Header'
+import Box from 'src/components/layout/Box'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
@@ -124,12 +125,22 @@ const SessionInterestGraphQL = ({ path }) => (
                                 name="subscriptions.apolloclient"
                                 label="GraphQL Relay Modern"
                               />
+                              <CheckboxField
+                                name="subscriptions.hasura"
+                                label="GraphQL with Hasura"
+                              />
                             </Col>
                             <Col md={6}>
                               <CheckboxField
                                 name="subscriptions.prismabackend"
                                 label="GraphQL with Prisma"
                               />
+                              <Box pt={3}>
+                                <Link
+                                  to="#contact-us"
+                                  children="Want other workhops? Contact us!"
+                                />
+                              </Box>
                             </Col>
                           </Row>
                           <Row style={{ marginTop: '2em' }}>

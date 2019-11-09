@@ -16,9 +16,9 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import CurriculumPartTime from 'src/components/curriculum/CurriculumPartTime'
+import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPartTime'
 import Header from 'src/components/layout/Header'
-import { PART_TIME, TECH_REACT } from 'src/config/data'
+import { REACT_PART_TIME, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createSocialMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -35,7 +35,7 @@ const PartTime = ({ trainings, path }) => (
   <Layout>
     {({ trainings }) => {
       const upcomingPartTimeTrainings = selectUpcomingTrainings({
-        type: PART_TIME,
+        type: REACT_PART_TIME,
         trainings,
       })
       const nextTraining = selectNthTraining({
@@ -67,12 +67,12 @@ const PartTime = ({ trainings, path }) => (
             tech={TECH_REACT}
             titleLines={['1-month part-time', 'React Redux course']}
             subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
-            type={PART_TIME}
+            type={REACT_PART_TIME}
             links={header.landingPageLinks.links}
           />
           <TopSection>
             <Segment>
-              <CurriculumPartTime trainings={upcomingPartTimeTrainings} />
+              <CurriculumReactPartTime trainings={upcomingPartTimeTrainings} />
             </Segment>
           </TopSection>
           <Section>

@@ -7,15 +7,16 @@ import {
   GRAPHQL_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_BOOTCAMP,
+  GRAPHQL_PARTIME,
 } from 'src/config/data'
 
-export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_BOOTCAMP, GRAPHQL_API]
+export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_PARTIME, GRAPHQL_API]
 
 const Page = props => (
   <BaseTemplate
     {...props}
     type={GRAPHQL_BOOTCAMP}
-    typeOfTraining="GraphQL API training"
+    typeOfTraining="GraphQL Bootcamp"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

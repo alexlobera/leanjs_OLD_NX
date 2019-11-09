@@ -2,11 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 
-import CurriculumPartTime from './CurriculumPartTime'
+import CurriculumReactPartTime from './CurriculumReactPartTime'
 
-describe('<CurriculumPartTime />', () => {
+describe('<CurriculumReactPartTime />', () => {
   it('should render component', () => {
-    const wrapper = shallow(<CurriculumPartTime />)
+    const wrapper = shallow(<CurriculumReactPartTime />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

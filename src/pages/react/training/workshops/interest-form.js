@@ -4,6 +4,7 @@ import { navigate } from 'gatsby'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
+import Box from 'src/components/layout/Box'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H3, H4, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
@@ -133,10 +134,12 @@ const SessionInterest = ({ path }) => (
                                 name="subscriptions.hooks"
                                 label="React Hooks & Suspense"
                               />
-                              <CheckboxField
-                                name="subscriptions.perf"
-                                label="Performance & FP in React"
-                              />
+                              <Box pt={3}>
+                                <Link
+                                  to="#contact-us"
+                                  children="Want other workhops? Contact us!"
+                                />
+                              </Box>
                             </Col>
                             <Col md={6}>
                               <React.Fragment>
@@ -147,6 +150,10 @@ const SessionInterest = ({ path }) => (
                                 <CheckboxField
                                   name="subscriptions.native"
                                   label="React Native"
+                                />
+                                <CheckboxField
+                                  name="subscriptions.perf"
+                                  label="Performance & FP in React"
                                 />
                               </React.Fragment>
                             </Col>

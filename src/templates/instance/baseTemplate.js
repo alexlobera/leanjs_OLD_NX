@@ -26,7 +26,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 import {
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
-  PART_TIME,
+  REACT_PART_TIME,
 } from '../../config/data'
 
 const InstancePage = ({
@@ -232,7 +232,7 @@ const InstancePage = ({
                 {learnToCodePartners.length > 0 &&
                   (type === REACT_BOOTCAMP ||
                     type === REACT_FUNDAMENTALS ||
-                    type === PART_TIME) && (
+                    type === REACT_PART_TIME) && (
                     <React.Fragment>
                       <P>
                         If you are not a professional developer yet, we

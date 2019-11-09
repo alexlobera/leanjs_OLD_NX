@@ -3,9 +3,13 @@ import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
 } from 'src/components/curriculum/CurriculumReactFundamentals'
-import { PART_TIME, REACT_BOOTCAMP, REACT_FUNDAMENTALS } from 'src/config/data'
+import {
+  REACT_PART_TIME,
+  REACT_BOOTCAMP,
+  REACT_FUNDAMENTALS,
+} from 'src/config/data'
 
-export const crossSellTypes = [PART_TIME, REACT_BOOTCAMP]
+export const crossSellTypes = [REACT_PART_TIME, REACT_BOOTCAMP]
 
 const Page = props => (
   <BaseTemplate

@@ -118,7 +118,7 @@ const selectCurriculumLayout = ({
                 <H3>Training anywhere, anytime?</H3>
                 <LinkButton
                   to={
-                    type === GRAPHQL_BOOTCAMP
+                    type.toLowerCase().indexOf('react') < 0
                       ? `/graphql/training/corporate/`
                       : '/react/training/corporate/'
                   }

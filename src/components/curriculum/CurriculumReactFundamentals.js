@@ -4,6 +4,7 @@ import { Li } from '../layout/Ul'
 import { REACT_FUNDAMENTALS } from '../../config/data'
 import Curriculum, { renderSection } from './Curriculum'
 import { sessionsFirstHalf as sessionsFirstHalfBootcamp } from './CurriculumReactBootcamp'
+import { LearningObjectivesList } from './CurriculumReactPartTime'
 
 const halfWayThough = Math.floor(sessionsFirstHalfBootcamp.length / 2)
 const sessionsFirstHalf = sessionsFirstHalfBootcamp.slice(0, halfWayThough)
@@ -76,27 +77,27 @@ export const TargetAudienceList = () => (
   </React.Fragment>
 )
 
-export const LearningObjectivesList = () => (
-  <React.Fragment>
-    <Li>
-      Master React principles, such as the React composition model and the
-      one-way explicit data flow, to leverage React's full potential.
-    </Li>
-    <Li>
-      Understand how the most popular libraries to build React applications work
-      under the hood:{' '}
-      <code>react, react-dom, react-router, redux, react-redux</code>
-    </Li>
-    <Li>
-      Create a solid foundation so in future you can quickly learn advanced
-      patterns and techniques as you progress in your career as React developer.
-    </Li>
-    <Li>
-      Understand the different state management approaches in the React
-      ecosystem.
-    </Li>
-  </React.Fragment>
-)
+// export const LearningObjectivesList = () => (
+//   <React.Fragment>
+//     <Li>
+//       Master React principles, such as the React composition model and the
+//       one-way explicit data flow, to leverage React's full potential.
+//     </Li>
+//     <Li>
+//       Understand how the most popular libraries to build React applications work
+//       under the hood:{' '}
+//       <code>react, react-dom, react-router, redux, react-redux</code>
+//     </Li>
+//     <Li>
+//       Create a solid foundation so in future you can quickly learn advanced
+//       patterns and techniques as you progress in your career as React developer.
+//     </Li>
+//     <Li>
+//       Understand the different state management approaches in the React
+//       ecosystem.
+//     </Li>
+//   </React.Fragment>
+// )
 
 CurriculumReactFundamentals.LearningObjectivesList = LearningObjectivesList
 CurriculumReactFundamentals.TargetAudienceList = TargetAudienceList

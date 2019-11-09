@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CurriculumPartTime /> should render component 1`] = `
+exports[`<CurriculumReactPartTime /> should render component 1`] = `
 <Curriculum
   curriculumTo="/react/curriculum?tab=Part-time"
   firstHalf={

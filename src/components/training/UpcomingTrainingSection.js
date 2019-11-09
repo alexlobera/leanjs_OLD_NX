@@ -11,7 +11,7 @@ import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
-  PART_TIME,
+  REACT_PART_TIME,
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
   GRAPHQL_BOOTCAMP,
@@ -40,7 +40,7 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
     types: [
       REACT_BOOTCAMP,
       ADVANCED_REACT,
-      PART_TIME,
+      REACT_PART_TIME,
       REACT_WORKSHOP,
       REACT_FUNDAMENTALS,
     ],

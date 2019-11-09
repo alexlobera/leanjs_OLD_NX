@@ -11,7 +11,7 @@ import Section from '../layout/Section'
 
 import {
   ADVANCED_REACT,
-  PART_TIME,
+  REACT_PART_TIME,
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
 } from '../../config/data'
@@ -67,7 +67,12 @@ export const AlternativeBootcampTrainings = ({ trainings, city }) => {
   const reactTrainings = selectUpcomingTrainings({
     trainings,
     city,
-    types: [REACT_FUNDAMENTALS, REACT_WORKSHOP, ADVANCED_REACT, PART_TIME],
+    types: [
+      REACT_FUNDAMENTALS,
+      REACT_WORKSHOP,
+      ADVANCED_REACT,
+      REACT_PART_TIME,
+    ],
     limit: 3,
   })
 

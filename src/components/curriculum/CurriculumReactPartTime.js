@@ -5,54 +5,17 @@ import ThinkingInReactSession from './sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
 import FormsAndAuthSession from './sessions/FormsAndAuthSession'
-import StylingInReactSession from './sessions/StylingInReactSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
-import TestingIntroSession from './sessions/TestingIntroSession'
 import HooksSession from './sessions/HooksSession'
-import { PART_TIME } from '../../config/data'
+import { REACT_PART_TIME } from '../../config/data'
 import Curriculum from './Curriculum'
-import Section from './CurriculumSection'
-import { trainingDateTime } from '../utils'
-
-export const renderPartTimeSection = ({
-  sectionProps = {},
-  training,
-} = {}) => initialIndex => ({ title, Comp, group }, index) => {
-  let dayOffset = index + initialIndex
-  const sectionNum = index + initialIndex + 1
-
-  if (
-    training &&
-    training.daysOfTheWeek &&
-    training.daysOfTheWeek.length === 1
-  ) {
-    dayOffset = group - 1
-  }
-
-  return (
-    <Section
-      title={`Session ${sectionNum} - ${title}`}
-      name={`session${sectionNum}`}
-      trainingDateTime={
-        training && (
-          <React.Fragment>
-            <br />
-            {trainingDateTime({ dayOffset, training })}
-          </React.Fragment>
-        )
-      }
-      {...sectionProps}
-    >
-      <Comp />
-    </Section>
-  )
-}
+import renderPartTimeSection from './renderPartTimeSession'
 
 export const PartTimeFinalProject = () => (
   <Ul>
     <Li>
-      Consolidate your new React skills by adding Styled-Components and Redux to
-      the application you built on session 5
+      Consolidate your new React skills by adding Redux and Forms to the
+      application you built on session 4, or bring your own project.
     </Li>
     <Li>Discussion about architecture, features and tools</Li>
     <Li>
@@ -94,15 +57,15 @@ const defaultSessionsSecondHalf = [
   },
 ]
 
-const CurriculumPartTime = ({
-  toggleNavigateTo = `/react/curriculum?tab=${PART_TIME}`,
+const CurriculumReactPartTime = ({
+  toggleNavigateTo = `/react/curriculum?tab=${REACT_PART_TIME}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
   sessionsSecondHalf = defaultSessionsSecondHalf,
   ...rest
 }) => {
-  const type = PART_TIME
+  const type = REACT_PART_TIME
   const initialIndex = 0
 
   const sectionProps = {
@@ -117,7 +80,7 @@ const CurriculumPartTime = ({
 
   return (
     <Curriculum
-      title="Part-time course curriculum"
+      title="React Part-time course curriculum"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}
@@ -133,16 +96,13 @@ const CurriculumPartTime = ({
 export const LearningObjectivesList = () => (
   <React.Fragment>
     <Li>
-      Master React principles, such as the React composition model and the
-      one-way explicit data flow, to leverage React's full potential.
-    </Li>
-    <Li>
       Understand how the most popular libraries to build React applications work
       under the hood:{' '}
-      <code>
-        react, react-dom, react-router, redux, react-redux, jest,
-        styled-components
-      </code>
+      <code>react, react-dom, react-router, redux, react-redux</code>
+    </Li>
+    <Li>
+      Master React principles, such as the React composition model and the
+      one-way explicit data flow, to leverage React's full potential.
     </Li>
     <Li>
       Create a solid foundation so in future you can quickly learn advanced
@@ -152,7 +112,6 @@ export const LearningObjectivesList = () => (
       Understand the different state management approaches in the React
       ecosystem.
     </Li>
-    <Li>Learn how to style React applications in an idiomatic way.</Li>
   </React.Fragment>
 )
 
@@ -185,7 +144,7 @@ export const TargetAudienceList = () => (
   </React.Fragment>
 )
 
-CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
-CurriculumPartTime.TargetAudienceList = TargetAudienceList
+CurriculumReactPartTime.LearningObjectivesList = LearningObjectivesList
+CurriculumReactPartTime.TargetAudienceList = TargetAudienceList
 
-export default CurriculumPartTime
+export default CurriculumReactPartTime
