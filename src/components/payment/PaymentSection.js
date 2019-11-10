@@ -15,7 +15,7 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
-function findVoucherWithOverlapingUseThis(
+function findVoucherWithOverlappingUseThis(
   overlappingVoucherWithPriority,
   { node }
 ) {
@@ -35,7 +35,7 @@ function getAutomaticVoucherFromData(data) {
     data.trainingInstance.upcomingAutomaticDiscounts.edges
   ) {
     const { edges } = data.trainingInstance.upcomingAutomaticDiscounts
-    discount = edges.reduce(findVoucherWithOverlapingUseThis, null)
+    discount = edges.reduce(findVoucherWithOverlappingUseThis, null)
 
     if (!discount && edges.length) {
       discount = edges[0].node
