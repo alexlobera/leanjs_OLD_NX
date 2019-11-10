@@ -26,7 +26,7 @@ export const createTrainingPath = ({ type, city = '', index, slug }) => {
     case GRAPHQL_BOOTCAMP:
       return `/graphql/training/bootcamp/${cityPath}/${i}`
     case GRAPHQL_PART_TIME:
-      return `/graphql/training/part-time/${cityPath}/${i}`
+      return `/graphql/training/part-time-course/${cityPath}/${i}`
     case GRAPHQL_API:
       return `/graphql/training/api/${cityPath}/${i}`
     case GRAPHQL_WORKSHOP:

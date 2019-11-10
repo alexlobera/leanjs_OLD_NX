@@ -10,12 +10,6 @@ const CurriculumAdvancedReact = ({
   section = {},
   ...rest
 }) => {
-  const halfWayThough = Math.floor(sessionsSecondHalfBootcamp.length / 2)
-  const sessionsFirstHalf = sessionsSecondHalfBootcamp.slice(0, halfWayThough)
-  const sessionsSecondHalf = sessionsSecondHalfBootcamp.slice(
-    halfWayThough,
-    sessionsSecondHalfBootcamp.length
-  )
   const type = ADVANCED_REACT
   const sectionProps = {
     ...section,
@@ -34,12 +28,8 @@ const CurriculumAdvancedReact = ({
       type={type}
       curriculumTo={toggleNavigateTo}
       {...rest}
-      firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}
-      secondHalf={sessionsSecondHalf.map(
-        renderSection({
-          ...renderSectionArgs,
-          initialDayOffset: sessionsFirstHalf.length,
-        })
+      firstHalf={sessionsSecondHalfBootcamp.map(
+        renderSection(renderSectionArgs)
       )}
     />
   )

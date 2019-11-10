@@ -51,7 +51,7 @@ const trainingList = [
   },
   {
     title: '1-day Workshops',
-    text: `Covering specific aspects in our Curriculum so you can
+    text: `Covering specific aspects in React so you can
     specialise`,
     to: '/react/training/workshops',
   },

@@ -303,7 +303,6 @@ class ReactCurriculum extends React.Component {
                           </Tr>
                         </Tbody>
                       </Table>
-
                       <H5>Also available...</H5>
                       <Row>
                         {[
@@ -383,7 +382,7 @@ class ReactCurriculum extends React.Component {
                                   marketingCard={
                                     <MarketingCard
                                       heading="Next React Bootcamp"
-                                      text={`Take your career to the next level and master React in just 1 week!`}
+                                      text={`Learn the React ecosystem in 1 week!`}
                                       className="training-curriculum-next-training-cta"
                                       to={trainingBootcamp.toPath}
                                       buttonText={`${
@@ -434,11 +433,7 @@ class ReactCurriculum extends React.Component {
                                   trainingPartTime && (
                                     <MarketingCard
                                       heading="Next React Part time Training"
-                                      text={`Next React part-time course starts on ${formatUTC(
-                                        trainingPartTime.startDate,
-                                        trainingPartTime.utcOffset,
-                                        'D MMM'
-                                      )} in ${trainingPartTime.city}`}
+                                      text={`Don't cut into valuable work-days!`}
                                       className="training-curriculum-next-training-cta"
                                       to={trainingPartTime.toPath}
                                       buttonText={`${
@@ -488,7 +483,7 @@ class ReactCurriculum extends React.Component {
                                   marketingCard={
                                     <MarketingCard
                                       heading="Next React Fundamentals"
-                                      text={`Take your career by learning a solid foundation React in just 3 days!`}
+                                      text={`Build a solid React foundation in just 3 days!`}
                                       className="training-curriculum-next-training-cta"
                                       to={trainingFundamentals.toPath}
                                       buttonText={`${
@@ -537,7 +532,7 @@ class ReactCurriculum extends React.Component {
                                   marketingCard={
                                     <MarketingCard
                                       heading="Next React Advanced Training"
-                                      text={`You can master Advanced React - in just 2 days!`}
+                                      text={`Master Advanced React in just 3 days!`}
                                       className="training-curriculum-next-training-cta"
                                       to={trainingAdvanced.toPath}
                                       buttonText={`${

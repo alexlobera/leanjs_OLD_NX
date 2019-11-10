@@ -45,7 +45,7 @@ import { GRAPHQL_PINK } from '../../config/styles'
 
 class GraphQLCurriculum extends React.Component {
   state = {
-    active: GRAPHQL_BOOTCAMP,
+    active: GRAPHQL_PART_TIME,
   }
 
   componentDidMount() {
@@ -193,8 +193,14 @@ class GraphQLCurriculum extends React.Component {
                             <Td />
                           </Tr>
                           <Tr>
-                            <Td />
+                            <Td verticalAlign="top">Timings/Pricing</Td>
                             <Td>
+                              <Ul textAlign="left">
+                                <Li>3 days</Li>
+                                <Li>Full time</Li>
+                                <Li>9 am to 6 pm</Li>
+                                <Li>£995</Li>
+                              </Ul>
                               <LinkButton
                                 variant="secondary"
                                 to="/graphql/training/bootcamp"
@@ -204,15 +210,27 @@ class GraphQLCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
+                              <Ul textAlign="left">
+                                <Li>1 month</Li>
+                                <Li>Part time</Li>
+                                <Li>Evenings or weekends</Li>
+                                <Li>£995</Li>
+                              </Ul>
                               <LinkButton
                                 variant="secondary"
-                                to="/graphql/training/part-time"
+                                to="/graphql/training/part-time-course/"
                                 className="training-curriculum-clicks"
                               >
-                                GraphQL Part-time
+                                GraphQL Part-Time
                               </LinkButton>
                             </Td>
                             <Td>
+                              <Ul textAlign="left">
+                                <Li>2 days</Li>
+                                <Li>Full time</Li>
+                                <Li>9 am to 6 pm</Li>
+                                <Li>£795</Li>
+                              </Ul>
                               <LinkButton
                                 variant="secondary"
                                 to="/graphql/training/api"
@@ -224,47 +242,35 @@ class GraphQLCurriculum extends React.Component {
                           </Tr>
                         </Tbody>
                       </Table>
+                      <H5>Also available...</H5>
                       <Row>
-                        <Col>
-                          <H5>Also available...</H5>
-                        </Col>
-                        <Col md={6}>
-                          <Card borderColor={GRAPHQL_PINK}>
-                            <H4>Corporate training</H4>
-                            <P>
-                              Private team training, located in your offices
-                              anywhere in the world.
-                            </P>
-                            <Link
-                              to="/graphql/training/corporate"
+                        {[
+                          {
+                            to: '/graphql/training/corporate/',
+                            txt: 'Corporate team training',
+                          },
+                          {
+                            to: '/graphql/training/workshops/',
+                            txt: '1-day GraphQL workshops',
+                          },
+                          { to: '/react/training/', txt: 'React training' },
+                        ].map(({ to, txt }) => (
+                          <Col md={4}>
+                            <LinkButton
+                              display="block"
                               className="training-curriculum-clicks"
+                              to={to}
+                              mt={[2, 0]}
                             >
-                              Find Out More
-                            </Link>
-                          </Card>
-                        </Col>
-                        <Col md={6}>
-                          <Card mb={0} borderColor={GRAPHQL_PINK}>
-                            <H4>1 Day Workshops</H4>
-                            <P>
-                              Instense training focussing on specific parts of
-                              GraphQL.
-                            </P>
-                            <Link
-                              variant="secondary"
-                              to="/graphql/training/workshops"
-                              className="training-curriculum-clicks"
-                            >
-                              Find Out More
-                            </Link>
-                          </Card>
-                        </Col>
+                              {txt}
+                            </LinkButton>
+                          </Col>
+                        ))}
                       </Row>
                     </Col>
                   </Row>
                 </Segment>
               </TopSection>
-
               <Section>
                 <Row>
                   <Col lg={10} lgOffset={1}>
@@ -272,11 +278,11 @@ class GraphQLCurriculum extends React.Component {
                     <H2>Choose a curriculum:</H2>
                     <Tabs onChange={this.setActive} active={this.state.active}>
                       <TabList>
-                        <TabItem name={GRAPHQL_BOOTCAMP}>
-                          GraphQL Bootcamp
-                        </TabItem>
                         <TabItem name={GRAPHQL_PART_TIME}>
                           GraphQL Part-time
+                        </TabItem>
+                        <TabItem name={GRAPHQL_BOOTCAMP}>
+                          GraphQL Bootcamp
                         </TabItem>
                         <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
                       </TabList>
@@ -313,7 +319,6 @@ class GraphQLCurriculum extends React.Component {
                                   trainingBootcamp && (
                                     <MarketingCard
                                       heading="Next GraphQL Bootcamp"
-                                      text={`Learn the secrets of efficient apps with GraphQL`}
                                       className="training-curriculum-next-training-cta"
                                       to={
                                         trainingBootcamp &&
@@ -365,7 +370,7 @@ class GraphQLCurriculum extends React.Component {
                                   trainingPartTime && (
                                     <MarketingCard
                                       heading="Next GraphQL part-time course"
-                                      text={`Learn the secrets of efficient apps with GraphQL`}
+                                      text={`Don't cut into valuable work-days!`}
                                       className="training-curriculum-next-training-cta"
                                       to={
                                         trainingPartTime &&
@@ -373,7 +378,7 @@ class GraphQLCurriculum extends React.Component {
                                       }
                                       buttonText={`${
                                         trainingPartTime.city
-                                      } GraphQL Bootcamp, ${formatUTC(
+                                      } GraphQL part-time, ${formatUTC(
                                         trainingPartTime.startDate,
                                         trainingPartTime.utcOffset,
                                         'D MMM'
@@ -418,7 +423,6 @@ class GraphQLCurriculum extends React.Component {
                                   trainingApi && (
                                     <MarketingCard
                                       heading="Next GraphQL API Training"
-                                      text={`Learn the secrets of efficient GraphQL APIs`}
                                       className="training-curriculum-next-training-cta"
                                       to={trainingApi && trainingApi.toPath}
                                       buttonText={`${
