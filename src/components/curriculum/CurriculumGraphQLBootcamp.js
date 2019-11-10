@@ -88,7 +88,7 @@ export const LearningObjectivesList = () => (
     <LearningObjectivesListAPI />
     <Li>
       Learn how to build data-driven React apps efficiently and rapidly using
-      GraphQL{' '}
+      GraphQL
     </Li>
   </React.Fragment>
 )

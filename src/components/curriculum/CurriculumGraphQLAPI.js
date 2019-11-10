@@ -49,7 +49,7 @@ export const TargetAudienceList = () => (
 
 export const LearningObjectivesList = () => (
   <React.Fragment>
-    <Li>Learn the best practices to expose data using using GraphQL schemas</Li>
+    <Li>Learn the best practices to expose data using GraphQL schemas</Li>
     <Li>
       Understand how to connect GraphQL to different data sources in a secure
       way

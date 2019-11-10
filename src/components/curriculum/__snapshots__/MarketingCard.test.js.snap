@@ -13,16 +13,11 @@ exports[`<MarketingCard /> should render component 1`] = `
     <Styled(Styled(Box))
       box={[Function]}
       display="flex"
-      md={6}
-    >
-      <Styled(Box)
-        box="span"
-      />
-    </Styled(Styled(Box))>
+      md={7}
+    />
     <Styled(Styled(Box))
       box={[Function]}
       display="flex"
-      lgOffset={1}
       md={5}
     >
       <LinkButton
