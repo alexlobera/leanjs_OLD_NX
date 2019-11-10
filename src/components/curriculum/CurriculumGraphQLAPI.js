@@ -43,7 +43,9 @@ export const TargetAudienceList = () => (
       A front-end developer or full-stack developer familiar with JavaScript
       that wants to build real-world GraphQL APIs?
     </Li>
-    <Li>Perfect for developers with 1+ year building backends and REST APIs</Li>
+    <Li>
+      Perfect for developers with 6+ months building backends and REST APIs
+    </Li>
   </React.Fragment>
 )
 

@@ -97,7 +97,7 @@ const GraphQL = ({ path }) => (
                     <strong>not for beginners!</strong>
                   </Li>
                   <Li>
-                    Perfect for developers with 1+ year building backends and
+                    Perfect for developers with 6+ months building backends and
                     REST APIs?
                   </Li>
                   <Li>
