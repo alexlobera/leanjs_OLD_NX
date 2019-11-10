@@ -12,6 +12,7 @@ import {
   TargetAudienceList as TargetAudienceListAPI,
 } from './CurriculumGraphQLAPI'
 import { Li } from '../layout/Ul'
+import Link from '../navigation/Link'
 
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import Curriculum, { renderSection } from './Curriculum'
@@ -80,6 +81,11 @@ export const TargetAudienceList = () => (
   <React.Fragment>
     <TargetAudienceListAPI />
     <Li>A developer with some experience developing React applications?</Li>
+    <Li>
+      You don't have enough React experience to attend this course? No worries,
+      join our <Link to="/react/training/">React training</Link> if you need to
+      upskill in React to attend this training.
+    </Li>
   </React.Fragment>
 )
 
