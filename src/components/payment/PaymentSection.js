@@ -15,6 +15,36 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
+function findVoucherWithOverlapingUseThis(
+  overlappingVoucherWithPriority,
+  { node }
+) {
+  return overlappingVoucherWithPriority
+    ? overlappingVoucherWithPriority
+    : node.onOverlappingUseThis === true
+    ? node
+    : null
+}
+
+function getAutomaticVoucherFromData(data) {
+  let discount
+  if (
+    data &&
+    data.trainingInstance &&
+    data.trainingInstance.upcomingAutomaticDiscounts &&
+    data.trainingInstance.upcomingAutomaticDiscounts.edges
+  ) {
+    const { edges } = data.trainingInstance.upcomingAutomaticDiscounts
+    discount = edges.reduce(findVoucherWithOverlapingUseThis, null)
+
+    if (!discount && edges.length) {
+      discount = edges[0].node
+    }
+  }
+
+  return discount
+}
+
 export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
     $trainingInstanceId: ID!
@@ -169,12 +199,7 @@ class PaymentSection extends React.Component {
       price = training.price
       currency = training.currency || 'gbp'
 
-      const discount =
-        data &&
-        data.trainingInstance &&
-        data.trainingInstance.upcomingAutomaticDiscounts &&
-        data.trainingInstance.upcomingAutomaticDiscounts.edges.length &&
-        data.trainingInstance.upcomingAutomaticDiscounts.edges[0].node
+      let discount = getAutomaticVoucherFromData(data)
 
       if (discount) {
         title = 'Discounted Ticket'
@@ -309,6 +334,7 @@ query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
           discountPercentage
           startsAt
           expiresAt
+          onOverlappingUseThis
         }
       }
     }
