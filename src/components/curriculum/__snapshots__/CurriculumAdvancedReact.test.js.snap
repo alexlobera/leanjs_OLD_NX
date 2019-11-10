@@ -19,10 +19,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
           <ReactPerformanceSession />
         </React.Fragment>
       </CurriculumSection>,
-    ]
-  }
-  secondHalf={
-    Array [
       <CurriculumSection
         mt={4}
         name="day2"

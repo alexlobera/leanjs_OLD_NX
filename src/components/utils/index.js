@@ -3,10 +3,11 @@ import styled from 'styled-components'
 
 import {
   REACT_BOOTCAMP,
-  PART_TIME,
+  REACT_PART_TIME,
   ADVANCED_REACT,
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
+  GRAPHQL_PART_TIME,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
   GRAPHQL_WORKSHOP,
@@ -42,11 +43,12 @@ export const getVariantProps = (variants, variantProps) =>
 export const selectTypeColor = type => {
   switch (type) {
     case REACT_BOOTCAMP:
-    case PART_TIME:
+    case REACT_PART_TIME:
     case ADVANCED_REACT:
     case REACT_WORKSHOP:
     case REACT_FUNDAMENTALS:
       return BLUE
+    case GRAPHQL_PART_TIME:
     case GRAPHQL_BOOTCAMP:
     case GRAPHQL_API:
     case GRAPHQL_WORKSHOP:
@@ -63,7 +65,8 @@ export const selectBorderStyle = type => {
     case REACT_BOOTCAMP:
     case GRAPHQL_BOOTCAMP:
       return 'solid'
-    case PART_TIME:
+    case GRAPHQL_PART_TIME:
+    case REACT_PART_TIME:
       return 'double'
     case REACT_FUNDAMENTALS:
     case ADVANCED_REACT:

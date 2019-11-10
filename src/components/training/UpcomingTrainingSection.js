@@ -11,13 +11,14 @@ import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
-  PART_TIME,
+  REACT_PART_TIME,
   REACT_WORKSHOP,
   REACT_FUNDAMENTALS,
   GRAPHQL_BOOTCAMP,
   GRAPHQL_API,
   GRAPHQL_WORKSHOP,
   MEETUP,
+  GRAPHQL_PART_TIME,
 } from '../../config/data'
 import Flex from '../layout/Flex'
 
@@ -40,7 +41,7 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
     types: [
       REACT_BOOTCAMP,
       ADVANCED_REACT,
-      PART_TIME,
+      REACT_PART_TIME,
       REACT_WORKSHOP,
       REACT_FUNDAMENTALS,
     ],
@@ -48,7 +49,7 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
   const graphqlTrainings = selectUpcomingTrainings({
     trainings,
     limit,
-    types: [GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_WORKSHOP],
+    types: [GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_WORKSHOP, GRAPHQL_PART_TIME],
   })
   const meetups = selectUpcomingTrainings({
     trainings,

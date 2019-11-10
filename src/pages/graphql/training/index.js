@@ -66,12 +66,16 @@ const TrainingPage = ({ path }) => (
                     px: 3,
                   },
                   {
+                    to: '/graphql/training/part-time-course/',
+                    children: 'GraphQL Part-time',
+                  },
+                  {
                     to: '/graphql/training/api/',
                     children: 'GraphQL API',
                   },
                   {
-                    to: '/graphql/training/workshops/graphql-apollo-client/',
-                    children: 'GraphQL Client',
+                    to: '/graphql/training/workshops/',
+                    children: '1-Day Workshops',
                   },
                   {
                     to: '/graphql/training/corporate',

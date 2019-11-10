@@ -3,14 +3,14 @@ import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
-import CurriculumGraphQLWorkshops from './CurriculumGraphQLWorkshops'
+import CurriculumGraphQLPartTime from './CurriculumGraphQLPartTime'
 import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 
 import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
 import {
   GRAPHQL_BOOTCAMP,
-  GRAPHQL_WORKSHOP,
   GRAPHQL_API,
+  GRAPHQL_PART_TIME,
 } from '../../config/data'
 
 const FullCurriculumsGraphQL = ({ trainings }) => {
@@ -18,9 +18,9 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
     trainings,
     showTitle: false,
   }
-  const allGraphQLWorkshops = selectUpcomingTrainings({
+  const allGraphQLPartTimes = selectUpcomingTrainings({
     trainings,
-    type: GRAPHQL_WORKSHOP,
+    type: GRAPHQL_PART_TIME,
   })
   return (
     <React.Fragment>
@@ -29,11 +29,11 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
           <H4>Choose a GraphQL Course</H4>
         </Col>
       </Row>
-      <Tabs defaultValue={GRAPHQL_BOOTCAMP}>
+      <Tabs defaultValue={GRAPHQL_PART_TIME}>
         <TabList lgOffset={1}>
+          <TabItem name={GRAPHQL_PART_TIME}>GraphQL Part-time</TabItem>
           <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
           <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
-          <TabItem name={GRAPHQL_WORKSHOP}>GraphQL 1-Day Workshops</TabItem>
         </TabList>
 
         <TabContent>
@@ -43,9 +43,9 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
           <ContentItem name={GRAPHQL_API}>
             <CurriculumGraphQLAPI {...commonCurriculumProps} />
           </ContentItem>
-          <ContentItem name={GRAPHQL_WORKSHOP}>
-            <CurriculumGraphQLWorkshops
-              trainings={allGraphQLWorkshops}
+          <ContentItem name={GRAPHQL_PART_TIME}>
+            <CurriculumGraphQLPartTime
+              trainings={allGraphQLPartTimes}
               showTitle={false}
             />
           </ContentItem>

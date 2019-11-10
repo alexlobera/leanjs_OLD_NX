@@ -24,11 +24,19 @@ const MarketingCard = ({
     mb={mb}
   >
     <Row>
-      <Col md={6}>
-        {heading && <H4 mb={1}>{heading}</H4>}
-        <Span>{text}</Span>
+      <Col md={7}>
+        {heading && (
+          <H4 mb={0} pt={0}>
+            {heading}
+          </H4>
+        )}
+        {text && (
+          <Span display="inline-block" mt={1}>
+            {text}
+          </Span>
+        )}
       </Col>
-      <Col md={5} lgOffset={1}>
+      <Col md={5}>
         <LinkButton
           to={to}
           variant="secondary"

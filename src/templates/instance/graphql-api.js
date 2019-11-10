@@ -7,9 +7,14 @@ import {
   GRAPHQL_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_BOOTCAMP,
+  GRAPHQL_PART_TIME,
 } from 'src/config/data'
 
-export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_BOOTCAMP]
+export const crossSellTypes = [
+  GRAPHQL_WORKSHOP,
+  GRAPHQL_PART_TIME,
+  GRAPHQL_BOOTCAMP,
+]
 
 const Page = props => (
   <BaseTemplate

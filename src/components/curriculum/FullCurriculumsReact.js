@@ -5,14 +5,14 @@ import { H4 } from '../text'
 import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import CurriculumReactBootcamp from './CurriculumReactBootcamp'
 import CurriculumReactFundamentals from './CurriculumReactFundamentals'
-import CurriculumPartTime from './CurriculumPartTime'
+import CurriculumReactPartTime from './CurriculumReactPartTime'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
 import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
 import {
   REACT_BOOTCAMP,
-  PART_TIME,
+  REACT_PART_TIME,
   ADVANCED_REACT,
   REACT_FUNDAMENTALS,
   REACT_WORKSHOP,
@@ -39,7 +39,7 @@ const FullCurriculumsReact = ({ trainings }) => {
       <Tabs defaultValue={REACT_BOOTCAMP}>
         <TabList lgOffset={1}>
           <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-          <TabItem name={PART_TIME}>Part-time Course</TabItem>
+          <TabItem name={REACT_PART_TIME}>Part-time Course</TabItem>
           <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
           <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
           <TabItem name={REACT_WORKSHOP}>1-Day Workshops</TabItem>
@@ -55,8 +55,8 @@ const FullCurriculumsReact = ({ trainings }) => {
           <ContentItem name={ADVANCED_REACT}>
             <CurriculumAdvancedReact {...commonCurriculumProps} />
           </ContentItem>
-          <ContentItem name={PART_TIME}>
-            <CurriculumPartTime {...commonCurriculumProps} />
+          <ContentItem name={REACT_PART_TIME}>
+            <CurriculumReactPartTime {...commonCurriculumProps} />
           </ContentItem>
           <ContentItem name={REACT_WORKSHOP}>
             <CurriculumReactWorkshops

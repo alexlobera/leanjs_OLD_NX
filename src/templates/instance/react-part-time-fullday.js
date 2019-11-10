@@ -4,7 +4,7 @@ import StylingInReactSession from '../../components/curriculum/sessions/StylingI
 import IntroReduxSession from '../../components/curriculum/sessions/IntroReduxSession'
 import TestingIntroSession from '../../components/curriculum/sessions/TestingIntroSession'
 import HooksSession from '../../components/curriculum/sessions/HooksSession'
-import { PartTimeFinalProject } from '../../components/curriculum/CurriculumPartTime'
+import { PartTimeFinalProject } from '../../components/curriculum/CurriculumReactPartTime'
 
 const sessionsSecondHalf = [
   { title: 'Redux', Comp: IntroReduxSession, group: 3 },

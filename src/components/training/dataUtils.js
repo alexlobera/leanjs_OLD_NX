@@ -1,5 +1,5 @@
 import {
-  PART_TIME,
+  REACT_PART_TIME,
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   ADVANCED_REACT,
@@ -8,13 +8,14 @@ import {
   GRAPHQL_API,
   MEETUP,
   GRAPHQL_WORKSHOP,
+  GRAPHQL_PART_TIME,
 } from '../../config/data'
 
 export const createTrainingPath = ({ type, city = '', index, slug }) => {
   const i = index > 1 ? index : ''
   const cityPath = city.toLowerCase().replace(' ', '-')
   switch (type) {
-    case PART_TIME:
+    case REACT_PART_TIME:
       return `/react/training/part-time-course/${cityPath}/${i}`
     case REACT_BOOTCAMP:
       return `/react/training/bootcamp/${cityPath}/${i}`
@@ -24,6 +25,8 @@ export const createTrainingPath = ({ type, city = '', index, slug }) => {
       return `/react/training/advanced/${cityPath}/${i}`
     case GRAPHQL_BOOTCAMP:
       return `/graphql/training/bootcamp/${cityPath}/${i}`
+    case GRAPHQL_PART_TIME:
+      return `/graphql/training/part-time-course/${cityPath}/${i}`
     case GRAPHQL_API:
       return `/graphql/training/api/${cityPath}/${i}`
     case GRAPHQL_WORKSHOP:

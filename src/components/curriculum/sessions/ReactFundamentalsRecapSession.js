@@ -3,7 +3,7 @@ import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
 export const titleSession =
-  'React Fundamentals recap, build a React app from scratch on your own to consolidate:'
+  'React Fundamentals recap: Build a React app from scratch to consolidate:'
 
 const ReactFundamentalsRecapSession = ({ title = titleSession }) => (
   <Session title={title}>
@@ -15,7 +15,6 @@ const ReactFundamentalsRecapSession = ({ title = titleSession }) => (
           <Li>React</Li>
           <Li>React Router</Li>
           <Li>Data fetching</Li>
-          <Li>Forms</Li>
         </Ul>
       </Li>
     </Ul>

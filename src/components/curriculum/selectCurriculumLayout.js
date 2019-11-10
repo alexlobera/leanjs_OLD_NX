@@ -8,7 +8,6 @@ import { Col, Row } from '../layout/Grid'
 import UpcomingTrainingCurriculum from '../training/UpcomingTrainingCurriculum'
 import Flex from '../layout/Flex'
 import Box from '../layout/Box'
-import { GRAPHQL_BOOTCAMP } from '../../config/data'
 
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
@@ -49,8 +48,9 @@ const selectCurriculumLayout = ({
         {title}
         <Flex flexDirection="column">
           {firstHalf}
-          {typedMarketingCard}
+          {firstHalf.length > 2 && typedMarketingCard}
           {secondHalf}
+          {secondHalf && secondHalf.length > 2 && typedMarketingCard}
           {curriculumTo && curriculumButtonSection}
         </Flex>
       </React.Fragment>
@@ -118,7 +118,7 @@ const selectCurriculumLayout = ({
                 <H3>Training anywhere, anytime?</H3>
                 <LinkButton
                   to={
-                    type === GRAPHQL_BOOTCAMP
+                    type.toLowerCase().indexOf('react') < 0
                       ? `/graphql/training/corporate/`
                       : '/react/training/corporate/'
                   }

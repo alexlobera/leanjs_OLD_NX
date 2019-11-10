@@ -32,26 +32,26 @@ const trainingList = [
     to: '/react/training/bootcamp/',
   },
   {
-    title: 'Part-Time Course',
-    text: `Maximum flexibility React training that fits around your
+    title: 'React Part-Time Course',
+    text: `Maximum React training flexibility that fits around your
     job`,
     to: 'react/training/part-time-course',
   },
   {
-    title: 'Corporate Team Training',
+    title: 'React Corporate Training',
     text: ` We come to you, teach skills and best practice to your
     entire team!`,
     to: '/react/training/corporate',
   },
   {
-    title: 'React Advanced',
+    title: 'Advanced React Training',
     text: `For React developers who need to supercharge their
-    skills`,
+    React skills`,
     to: '/react/training/advanced/',
   },
   {
-    title: '1-day Workshops',
-    text: `Covering specific aspects in our Curriculum so you can
+    title: '1-day React Workshops',
+    text: `Covering specific aspects in React so you can
     specialise`,
     to: '/react/training/workshops',
   },
