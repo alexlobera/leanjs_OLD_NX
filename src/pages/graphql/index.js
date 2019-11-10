@@ -34,7 +34,7 @@ const trainingList = [
   },
   {
     title: 'Part-time',
-    text: `Maximum flexibility GraphQL training that fits around your`,
+    text: `Maximum GraphQL training flexibility that fits around your`,
     to: '/graphql/training/part-time-course/',
   },
   {
