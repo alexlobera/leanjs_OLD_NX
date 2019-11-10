@@ -28,28 +28,28 @@ import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
 
 const trainingList = [
   {
-    title: 'Bootcamp',
+    title: 'GraphQL Bootcamp',
     text: `Master GraphQL server-side and client-side`,
     to: '/graphql/training/bootcamp/',
   },
   {
-    title: 'Part-time',
+    title: 'GraphQL Part-time Course',
     text: `Maximum GraphQL training flexibility that fits around your`,
     to: '/graphql/training/part-time-course/',
   },
   {
-    title: 'APIs',
+    title: 'GraphQL APIs Training',
     text: `Rapid learning with a deep-dive into GraphQL APIs`,
     to: '/graphql/training/api/',
   },
   {
-    title: 'Corporate Team Training',
+    title: 'GraphQL Corporate Training',
     text: ` We come to you, teach skills and best practice to your
     entire team!`,
     to: '/graphql/training/corporate',
   },
   {
-    title: 'Workshops',
+    title: 'GraphQL Workshops',
     text: `Covering specific aspects in GraphQL so you can
     specialise`,
     to: '/graphql/training/workshops/',
