@@ -9,12 +9,6 @@ import {
   selectTypeColor,
   selectBorderStyle,
 } from '../utils'
-import {
-  GRAPHQL_API,
-  GRAPHQL_WORKSHOP,
-  GRAPHQL_BOOTCAMP,
-  GRAPHQL_PART_TIME,
-} from '../../config/data'
 import { Col, Row } from './Grid'
 import Box from './Box'
 
@@ -101,10 +95,8 @@ const A = styled.a.attrs({ className: props => props.className })`
   ${props => {
     if (
       props.isActive &&
-      (props.name === GRAPHQL_BOOTCAMP ||
-        props.name === GRAPHQL_API ||
-        props.name === GRAPHQL_PART_TIME ||
-        props.name === GRAPHQL_WORKSHOP)
+      props.name &&
+      props.name.toLowerCase().indexOf('graphql') > -1
     ) {
       return `color: white !important`
     }
