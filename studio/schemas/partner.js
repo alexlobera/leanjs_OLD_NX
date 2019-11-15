@@ -57,7 +57,7 @@ export default {
     {
       name: 'order',
       title: 'Partners Page Order (higher numbers go on top)',
-      type: 'string',
+      type: 'number',
     },
     {
       name: 'locations',
@@ -84,6 +84,7 @@ export default {
   preview: {
     select: {
       title: 'name',
+      subtitle: 'order',
       media: 'logo',
     },
   },
