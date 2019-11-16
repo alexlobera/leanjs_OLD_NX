@@ -104,6 +104,11 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
           },
           Object {
             "hideOnMobile": true,
+            "text": "Partners",
+            "to": "/partners",
+          },
+          Object {
+            "hideOnMobile": true,
             "text": "Community",
             "to": "/community",
           },

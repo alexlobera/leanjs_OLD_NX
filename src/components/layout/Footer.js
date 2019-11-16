@@ -62,6 +62,7 @@ const Footer = ({ width }) => (
                       { to: '/graphql/training', txt: 'GraphQL Courses' },
                       { to: '/graphql/curriculum', txt: 'GraphQL Curriculum' },
                       { to: '/blog', txt: 'Blog' },
+                      { to: '/code-of-conduct', txt: 'Code of conduct' },
                     ].map(({ txt, to }) => (
                       <Li key={to}>
                         <Link to={to} className="footer-site-links">
@@ -76,7 +77,7 @@ const Footer = ({ width }) => (
                     {[
                       { to: '/about-us', txt: 'About us' },
                       { to: '/brand', txt: 'Logo & Assets' },
-                      // { to: '/partners', txt: 'Partners' },
+                      { to: '/partners', txt: 'Partners' },
                       { to: '/community', txt: 'Community' },
                       {
                         to: '/privacy-policy',
@@ -84,7 +85,6 @@ const Footer = ({ width }) => (
                         extraClass: 'footer-privacy-policy',
                       },
                       { to: '/terms-of-service', txt: 'Terms of service' },
-                      { to: '/code-of-conduct', txt: 'Code of conduct' },
                     ].map(({ txt, to, extraClass }) => (
                       <Li key={to}>
                         <Link
