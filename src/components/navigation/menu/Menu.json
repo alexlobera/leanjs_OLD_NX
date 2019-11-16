@@ -86,7 +86,8 @@
       },
       {
         "to": "/partners",
-        "text": "Partners"
+        "text": "Partners",
+        "hideOnMobile": true
       },
       {
         "to": "/community",
