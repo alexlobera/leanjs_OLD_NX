@@ -85,6 +85,10 @@
         "text": "The Academy"
       },
       {
+        "to": "/partners",
+        "text": "Partners"
+      },
+      {
         "to": "/community",
         "text": "Community",
         "hideOnMobile": true
