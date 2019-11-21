@@ -10,7 +10,7 @@ const GraphQLClientFundamentalsSession = ({ title }) => (
       <Li>
         Apollo Client
         <Ul>
-          <Li>Creating and connecting the client to React</Li>
+          <Li>Creating and connecting the React client</Li>
           <Li>Fetching data: queries and mutations</Li>
           <Li>Caching fundamentals</Li>
         </Ul>
