@@ -348,9 +348,9 @@ There are countless advantages of using Hooks compared to HoC and Render Props. 
 - Hooks let you split one component into smaller functions that can be reused across different components.
 - Hooks remove the cognitive overhead that [Render Props](#composition-via-render-props) and [HoC](#composition-via-hocs) add when reusing component logic.
 
-If you are excited about React Hooks (you probably should) and you want to learn more about it, I recommend you watching my colleague Richard’s video about useState
+If you are excited about composition (you probably should) and you want to learn more about it, I recommend you watching my video about composition
 
-<video youtube-id="8ejtnaOxXQE"></video>
+<video youtube-id="DSlFlks7R0g"></video>
 
 ## Composition versus inheritance in React <a name="composition-vs-inheritance-in-react"></a>
 
