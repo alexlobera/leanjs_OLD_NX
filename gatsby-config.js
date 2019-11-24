@@ -89,7 +89,9 @@ module.exports = {
       options: {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
-        url: 'https://api0.upmentoring.com/api/graphql',
+        // url: 'https://api0.upmentoring.com/api/graphql',
+        url:
+          'https://europe-west1-upmentoring-api.cloudfunctions.net/api/graphql',
       },
     },
   ],
