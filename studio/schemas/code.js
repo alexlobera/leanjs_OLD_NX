@@ -16,9 +16,11 @@ export default {
       options: {
         list: [
           { title: 'Runkit', value: 'language-runkit' },
-          { title: 'JSX', value: 'language-.jsx' },
-          { title: 'JSX-inline', value: 'language-.jsx-inline' },
+          { title: 'Live JSX', value: 'language-.jsx' },
+          { title: 'Live JSX-inline', value: 'language-.jsx-inline' },
+          { title: 'JSX', value: 'jsx' },
           { title: 'JSON', value: 'json' },
+          { title: 'bash', value: 'bash' },
           { title: 'JavaScript', value: 'javascript' },
           { title: 'TypeScript', value: 'typescript' },
         ],

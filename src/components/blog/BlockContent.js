@@ -3,6 +3,7 @@ import { EmbedRunkit } from './Runkit'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import Box from '../layout/Box'
+import PrismCode from './PrismCode'
 
 import Image from '../elements/Image'
 import { FONT_FAMILY } from '../../config/styles'
@@ -30,7 +31,11 @@ export const Code = props => {
   } else if (props.className === 'language-.jsx-inline') {
     return getEditor({ noInline: true, code: children && children.toString() })
   } else {
-    return <code>{children}</code>
+    return (
+      <PrismCode language={props.className} plugins={['line-numbers']}>
+        {children}
+      </PrismCode>
+    )
   }
 }
 
