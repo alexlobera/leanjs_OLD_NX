@@ -31,8 +31,11 @@ export const SubmenuButton = styled.i`
 `
 
 class ItemSubmenu extends React.Component {
-  state = {
-    isOpen: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      isOpen: false,
+    }
   }
 
   wrapperRef = React.createRef()

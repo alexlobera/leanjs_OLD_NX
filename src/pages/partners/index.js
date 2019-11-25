@@ -22,7 +22,10 @@ const Partners = ({ data, path }) => {
       {({ trainings }) => (
         <React.Fragment>
           <Breadcrumb
-            path={[{ to: '/', label: 'Home' }, { to: path, label: `Partners` }]}
+            path={[
+              { to: '/', label: 'Home' },
+              { to: path, label: `Partners` },
+            ]}
           />
           <Header
             titleLines={['Partners']}
