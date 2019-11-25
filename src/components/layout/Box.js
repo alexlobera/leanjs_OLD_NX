@@ -68,15 +68,7 @@ const PropsBlackList = ({
 }
 
 export const StyledBox = styled(PropsBlackList)(
-  compose(
-    space,
-    color,
-    typography,
-    border,
-    shadow,
-    layout,
-    position
-  )
+  compose(space, color, typography, border, shadow, layout, position)
 )
 
 const Box = React.forwardRef(({ children, ...rest }, ref) => (

@@ -21,7 +21,10 @@ const Blog = ({ data, path }) => {
       {({ trainings }) => (
         <React.Fragment>
           <Breadcrumb
-            path={[{ to: '/', label: 'Home' }, { to: path, label: `Blog` }]}
+            path={[
+              { to: '/', label: 'Home' },
+              { to: path, label: `Blog` },
+            ]}
           />
           <Header
             titleLines={['Blog']}
