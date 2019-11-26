@@ -6,16 +6,37 @@ import { Col, Row } from '../../components/layout/Grid'
 import { RootHeader as Header } from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb, Link } from '../../components/navigation'
-import { TopSection } from '../../components/layout/Section'
-import { H3, P } from '../../components/text'
+import Section from '../../components/layout/Section'
+import { H2, H3, P } from '../../components/text'
 import { Image } from '../../components/elements'
 import Card from '../../components/elements/Card'
 import Box from '../../components/layout/Box'
 import Flex from '../../components/layout/Flex'
 import { titleCase } from '../../components/utils/text'
 
+function getFuildLogo(logo) {
+  return (
+    logo &&
+    logo.asset &&
+    logo.asset.localFile &&
+    logo.asset.localFile.childImageSharp &&
+    logo.asset.localFile.childImageSharp.fluid
+  )
+}
+
 const Partners = ({ data, path }) => {
-  const partners = data.allSanityPartner.nodes
+  const { communityPartners, partners } = data.allSanityPartner.nodes.reduce(
+    (acc, partner) => {
+      if (partner.type === 'conference' || partner.type === 'community') {
+        acc.communityPartners.push(partner)
+      } else {
+        acc.partners.push(partner)
+      }
+
+      return acc
+    },
+    { communityPartners: [], partners: [] }
+  )
 
   return (
     <Layout>
@@ -34,36 +55,39 @@ const Partners = ({ data, path }) => {
             bgImageName="partners"
             paddingBottom={170}
           />
-          <TopSection>
+
+          <Section>
+            <H2>Community Partners</H2>
+            <Row>
+              {communityPartners.map(({ name, logo }) => (
+                <Col lg={3} key={name}>
+                  <Image fluid={getFuildLogo(logo)} alt={name} mb={0} />
+                </Col>
+              ))}
+            </Row>
+          </Section>
+          <Section>
+            <H2>Schools and Venue Partners</H2>
             <Row>
               {partners.map(
-                ({ name, slug, website, type, description, logo }) => {
-                  const fluid =
-                    logo &&
-                    logo.asset &&
-                    logo.asset.localFile &&
-                    logo.asset.localFile.childImageSharp &&
-                    logo.asset.localFile.childImageSharp.fluid
-
-                  return (
-                    <Col lg={4} key={slug}>
-                      <Card small variant="secondary" mb={5}>
-                        <Image fluid={fluid} alt={name} mb={0} />
-                        <Box p={2}>
-                          <H3>{name}</H3>
-                          <P>{description}</P>
-                          <Flex>
-                            <Link to={website}>Visit website</Link>
-                            <Box ml="auto">{titleCase(type)} partner</Box>
-                          </Flex>
-                        </Box>
-                      </Card>
-                    </Col>
-                  )
-                }
+                ({ name, slug, website, type, description, logo }) => (
+                  <Col lg={4} key={slug}>
+                    <Card small variant="secondary" mb={5}>
+                      <Image fluid={getFuildLogo(logo)} alt={name} mb={0} />
+                      <Box p={2}>
+                        <H3>{name}</H3>
+                        <P>{description}</P>
+                        <Flex>
+                          <Link to={website}>Visit website</Link>
+                          <Box ml="auto">{titleCase(type)} partner</Box>
+                        </Flex>
+                      </Box>
+                    </Card>
+                  </Col>
+                )
               )}
             </Row>
-          </TopSection>
+          </Section>
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )}

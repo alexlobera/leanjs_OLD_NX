@@ -32,10 +32,12 @@ export default {
       name: 'type',
       title: 'Type',
       type: 'string',
+      validation: Rule => Rule.required(),
       options: {
         list: [
           { title: 'Learn-to-code school', value: 'learn-to-code' },
           { title: 'Conference', value: 'conference' },
+          { title: 'Community', value: 'community' },
           { title: 'Venue', value: 'venue' },
         ],
       },
@@ -44,10 +46,7 @@ export default {
       name: 'description',
       title: 'Description',
       type: 'string',
-      validation: Rule =>
-        Rule.required()
-          .min(10)
-          .max(160),
+      validation: Rule => Rule.max(160),
     },
     {
       name: 'website',
