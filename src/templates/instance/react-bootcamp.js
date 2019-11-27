@@ -1,5 +1,6 @@
 import React from 'react'
 import BaseTemplate from './baseTemplate'
+import Curriculum_TEMP from 'src/components/curriculum/CurriculumReactBootcamp_TEMP'
 import Curriculum, {
   TargetAudienceList,
 } from 'src/components/curriculum/CurriculumReactBootcamp'
@@ -16,15 +17,19 @@ export const crossSellTypes = [
   ADVANCED_REACT,
 ]
 
-const Page = props => (
-  <BaseTemplate
-    {...props}
-    type={REACT_BOOTCAMP}
-    typeOfTraining="React Bootcamp"
-    crossSellTypes={crossSellTypes}
-    targetAudienceList={TargetAudienceList}
-    curriculum={Curriculum}
-  />
-)
+const Page = props => {
+  const CurriculumComp =
+    props.pageContext.city === 'London' ? Curriculum_TEMP : Curriculum
+  return (
+    <BaseTemplate
+      {...props}
+      type={REACT_BOOTCAMP}
+      typeOfTraining="React Bootcamp"
+      crossSellTypes={crossSellTypes}
+      targetAudienceList={TargetAudienceList}
+      curriculum={CurriculumComp}
+    />
+  )
+}
 
 export default Page
