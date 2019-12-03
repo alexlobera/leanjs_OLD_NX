@@ -27,7 +27,7 @@ describe('<PhoneMenu />', () => {
     expect(wrapper.find(Overlay).length).toBe(0)
   })
 
-  it('should render a menu with less than 8 items in the first navigation level', () => {
+  it('should render a menu with less than 11 items in the first navigation level', () => {
     const wrapper = shallow(<PhoneMenu />)
 
     expect(wrapper.find(PhoneMenuItem).length).toBeLessThan(11)
