@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 // TODO add some SVG that looks like a tweet?
 const TweetPlaceholder = styled.div`
-  height: ${props => props.height || '200px'};
+  min-height: ${props => props.height || '200px'};
   width: 100%;
 `
 
