@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Footer /> should render component 1`] = `
-<Footer
-  width={3}
-/>
-`;
