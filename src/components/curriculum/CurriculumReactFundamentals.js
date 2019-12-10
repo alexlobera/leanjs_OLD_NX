@@ -21,7 +21,6 @@ const CurriculumReactFundamentals = ({
   const renderSectionArgs = {
     training,
     sectionProps,
-    preEvening: true,
   }
 
   return (

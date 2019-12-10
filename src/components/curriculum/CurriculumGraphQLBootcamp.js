@@ -56,7 +56,6 @@ const CurriculumGraphQLBootcamp = ({
     training,
     initialDayOffset: 1,
     sectionProps,
-    preEvening: true,
   }
 
   return (
