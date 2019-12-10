@@ -22,7 +22,6 @@ const CurriculumGraphQLAPI = ({
     training,
     initialDayOffset: 1,
     sectionProps,
-    preEvening: true,
   }
 
   return (

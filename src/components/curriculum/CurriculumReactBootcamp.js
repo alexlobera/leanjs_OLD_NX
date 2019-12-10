@@ -1,6 +1,5 @@
 import React from 'react'
 import ES6Session from './sessions/ES6Session'
-import ReactJS101Session from './sessions/ReactJS101Session'
 import ThinkingInReactSession from './sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
 import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
@@ -22,11 +21,6 @@ import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 import Curriculum, { renderSection } from './Curriculum'
 
 export const sessionsFirstHalf = [
-  {
-    title: 'Evening pre-bootcamp',
-    subTitle: 'React JS 101',
-    comps: [ReactJS101Session],
-  },
   {
     subTitle: 'Modern JavaScript, Thinking in React, Routing & Data Fetching',
     comps: [ES6Session, ThinkingInReactSession, RoutingAndDataFetchingSession],
@@ -70,7 +64,6 @@ const CurriculumReactBootcamp = ({
   const renderSectionArgs = {
     training,
     sectionProps,
-    preEvening: true,
   }
 
   return (
