@@ -7,19 +7,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
     Array [
       <CurriculumSection
         mt={4}
-        name="day0"
-        subTitle="React JS 101"
-        title="Evening pre-bootcamp"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
-        trainingDateTime="-  18:30 - 21:00"
-        type="React Bootcamp"
-      >
-        <React.Fragment>
-          <ReactJS101Session />
-        </React.Fragment>
-      </CurriculumSection>,
-      <CurriculumSection
-        mt={4}
         name="day1"
         subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
         title="Day  1"
