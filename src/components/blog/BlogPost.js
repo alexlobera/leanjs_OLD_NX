@@ -142,8 +142,7 @@ const BlogPost = ({
           fullHeight={false}
           paddingBottom={80}
           bgImgUrl={mainImagePublicUrl}
-          bgColor="transparent"
-          bgImageOpacity={1}
+          bgImageOpacity={0.3}
         >
           <PostMeta
             date={date}

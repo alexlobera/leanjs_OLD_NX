@@ -106,6 +106,7 @@ const HeaderSection = styled(Section)`
           background-image: url(${bgImage}); 
           background-repeat: no-repeat; 
           background-size: cover;
+          background-position: center;
           opacity: ${bgImageOpacity};
           `
             : ''
