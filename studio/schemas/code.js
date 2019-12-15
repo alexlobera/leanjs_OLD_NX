@@ -23,6 +23,7 @@ export default {
           { title: 'bash', value: 'bash' },
           { title: 'JavaScript', value: 'javascript' },
           { title: 'TypeScript', value: 'typescript' },
+          { title: 'GraphQL', value: 'graphql' },
         ],
       },
     },
