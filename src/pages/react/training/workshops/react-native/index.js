@@ -10,7 +10,7 @@ import { Link } from 'src/components/navigation'
 import Ul from 'src/components/layout/Ul'
 import CurriculumReactNative, {
   TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumReactNative'
+} from 'src/components/curriculum/workshops/CurriculumReactNative3Day'
 import Header from 'src/components/layout/Header'
 import {
   TrustedBySection,
@@ -56,7 +56,7 @@ const ReactNativeBoocamp = ({ path }) => (
             ]}
             tech={TECH_REACT}
             titleLines={[title]}
-            subtitle="Intense hands-on React Native workshop, <br /> return to work as a React Native specialist"
+            subtitle="Immersive 3-day React Native training, <br /> return to work as a React Native specialist"
             bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             links={header.landingPageLinks.links}
