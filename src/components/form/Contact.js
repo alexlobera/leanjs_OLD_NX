@@ -98,7 +98,7 @@ const ContactForm = ({
                   style={formSubmitted ? { display: 'none' } : {}}
                 >
                   <EmailInput
-                    validate={composeValidators(required, mustBeEmail)}
+                    validate={composeValidators(mustBeEmail, required)}
                     label="Your email address:"
                     name="email"
                     placeholder="eg. steve@jobs.com"

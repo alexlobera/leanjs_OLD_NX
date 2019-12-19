@@ -107,8 +107,8 @@ const SessionInterest = ({ path }) => (
                             <Col md={6}>
                               <EmailInput
                                 validate={composeValidators(
-                                  required,
-                                  mustBeEmail
+                                  mustBeEmail,
+                                  required
                                 )}
                                 label="Your best email address"
                                 name="email"
