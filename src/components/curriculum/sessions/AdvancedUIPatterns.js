@@ -7,15 +7,9 @@ export const titleSession = 'Advanced UI Patterns'
 const AdvancedUIPatterns = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
-      <Li>Themes and Variants</Li>
+      <Li>Themes</Li>
       <Li>Compound Components</Li>
-      <Li>
-        React Composition Model Best Practices:
-        <Ul>
-          <Li>Minimal API Surface Area</Li>
-          <Li>Optimize for change</Li>
-        </Ul>
-      </Li>
+      <Li>Context</Li>
     </Ul>
   </Session>
 )

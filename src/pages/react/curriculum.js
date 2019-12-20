@@ -21,9 +21,13 @@ import {
   ContentItem,
 } from 'src/components/layout/Tabs'
 import CurriculumReactFundamentals from 'src/components/curriculum/CurriculumReactFundamentals'
+import ReactFundamentalsLearningObjectivesList from 'src/components/curriculum/CurriculumReactFundamentals/LearningObjectivesList'
 import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
+import ReactBootcampLearningObjectivesList from 'src/components/curriculum/CurriculumReactBootcamp/LearningObjectivesList'
 import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPartTime'
+import ReactPartTimeLearningObjectivesList from 'src/components/curriculum/CurriculumReactPartTime/LearningObjectivesList'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
+import AdvLearningObjectivesList from 'src/components/curriculum/CurriculumAdvancedReact/LearningObjectivesList'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
 import Header from 'src/components/layout/Header'
 import {
@@ -357,7 +361,7 @@ class ReactCurriculum extends React.Component {
                             </strong>
                           </P>
                           <Ul>
-                            <CurriculumReactBootcamp.LearningObjectivesList />
+                            <ReactBootcampLearningObjectivesList />
                             <Li>
                               Not sure if our trainings are right for you? Read
                               our blog{' '}
@@ -408,7 +412,7 @@ class ReactCurriculum extends React.Component {
                             </strong>
                           </P>
                           <Ul>
-                            <CurriculumReactPartTime.LearningObjectivesList />
+                            <ReactPartTimeLearningObjectivesList />
                             <Li>
                               Not sure if our trainings are right for you? Read
                               our blog{' '}
@@ -458,7 +462,7 @@ class ReactCurriculum extends React.Component {
                             </strong>
                           </P>
                           <Ul>
-                            <CurriculumReactFundamentals.LearningObjectivesList />
+                            <ReactFundamentalsLearningObjectivesList />
                             <Li>
                               Not sure if our trainings are right for you? Read
                               our blog{' '}
@@ -508,7 +512,7 @@ class ReactCurriculum extends React.Component {
                             </strong>
                           </P>
                           <Ul>
-                            <CurriculumAdvancedReact.LearningObjectivesList />
+                            <AdvLearningObjectivesList />
                             <Li>
                               Not sure if our trainings are right for you? Read
                               our blog{' '}

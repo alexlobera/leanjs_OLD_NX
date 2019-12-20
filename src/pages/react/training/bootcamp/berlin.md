@@ -1,6 +1,6 @@
 ---
 coaches: ['alex-lobera']
-subtitle: For a week, expert coaches and mentors will work alongside you in Berlin to master the React ecosystem so you return to work as a React specialist
+subtitle: For a week, expert coaches and developers will work alongside you in Berlin to master the React ecosystem so you return to work as a React specialist
 videoOneTime: ''
 videoOneId: 3ILCb7drlis
 videoOneQuote: ''

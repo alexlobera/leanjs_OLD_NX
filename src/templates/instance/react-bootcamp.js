@@ -1,8 +1,7 @@
 import React from 'react'
 import BaseTemplate from './baseTemplate'
-import Curriculum, {
-  TargetAudienceList,
-} from 'src/components/curriculum/CurriculumReactBootcamp'
+import Curriculum from 'src/components/curriculum/CurriculumReactBootcamp'
+import TargetAudienceList from 'src/components/curriculum/CurriculumReactBootcamp/TargetAudienceList'
 import {
   REACT_FUNDAMENTALS,
   REACT_PART_TIME,

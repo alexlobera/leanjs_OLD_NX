@@ -7,15 +7,7 @@ export const titleSession = 'Design Systems'
 const DesignSystemSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
-      <Li>
-        Design principles for developers:
-        <Ul>
-          <Li>Design system tokens: spacing, fonts, and colors</Li>
-          <Li>
-            Atomic design: Atoms, Molecules, Organisms, Templates, and Pages
-          </Li>
-        </Ul>
-      </Li>
+      <Li>Design system tokens: spacing, fonts, and colors</Li>
       <Li>
         Styled System
         <Ul>
@@ -24,7 +16,7 @@ const DesignSystemSession = ({ title = titleSession }) => (
             Design System based on props
             <Ul>
               <Li>Array props</Li>
-              <Li>Variant prop</Li>
+              <Li>Variants</Li>
             </Ul>
           </Li>
           <Li>

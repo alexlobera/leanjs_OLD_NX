@@ -21,12 +21,6 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
         <React.Fragment>
           <Section
             {...sectionProps}
-            title="ReasonML for React Devs"
-            subTitle="How and Why we should write our code in ReasonML plus React use cases"
-            toggleNavigateTo={`${workshopBasePath}react-reasonml/`}
-          />
-          <Section
-            {...sectionProps}
             title="Testing in React"
             subTitle="Ensure consistent, reliable code across the React ecosystem"
             toggleNavigateTo={`${workshopBasePath}testing-in-react/`}
@@ -64,12 +58,6 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
             title="Redux"
             subTitle="Build Redux yourself and learn functional programming and middlewares"
             toggleNavigateTo={`${workshopBasePath}redux`}
-          />
-          <Section
-            {...sectionProps}
-            title="React Hooks & Suspense"
-            subTitle="Learn 2 of the newest and most exciting features in React"
-            toggleNavigateTo={`${workshopBasePath}interest-form#details`}
           />
         </React.Fragment>
       }
