@@ -1,5 +1,4 @@
 import React from 'react'
-import Ul, { Li } from '../../layout/Ul'
 import ES6Session from '../sessions/ES6Session'
 import ThinkingInReactSession from '../sessions/ThinkingInReactSession'
 import RoutingAndDataFetchingSession from '../sessions/RoutingAndDataFetchingSession'
@@ -7,22 +6,10 @@ import ReactFundamentalsRecapSession from '../sessions/ReactFundamentalsRecapSes
 import FormsAndAuthSession from '../sessions/FormsAndAuthSession'
 import IntroReduxSession from '../sessions/IntroReduxSession'
 import HooksSession from '../sessions/HooksSession'
+import FundamentalsFinalProject from '../sessions/FundamentalsFinalProject'
 import { REACT_PART_TIME } from '../../../config/data'
 import Curriculum from '../Curriculum'
 import renderPartTimeSection from '../renderPartTimeSession'
-
-export const PartTimeFinalProject = () => (
-  <Ul>
-    <Li>
-      Consolidate your new React skills by adding Redux and Forms to the
-      application you built on session 4, or bring your own project.
-    </Li>
-    <Li>Discussion about architecture, features and tools</Li>
-    <Li>
-      Practice pair programming and get support from the coaches and mentors
-    </Li>
-  </Ul>
-)
 
 const defaultSessionsFirstHalf = [
   { title: 'Modern JavaScript', Comp: ES6Session, group: 1 },
@@ -47,12 +34,10 @@ const defaultSessionsFirstHalf = [
 const defaultSessionsSecondHalf = [
   { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 3 },
   { title: 'React Hooks', Comp: HooksSession, group: 3 },
-  // { title: 'Styling in React', Comp: StylingInReactSession, group: 3 },
   { title: 'Redux', Comp: IntroReduxSession, group: 4 },
-  //{ title: 'Testing Fundamentals in JS', Comp: TestingIntroSession, group: 4 },
   {
-    title: 'React Redux Real-world Final Project',
-    Comp: PartTimeFinalProject,
+    title: 'Final project and deployment to production',
+    Comp: FundamentalsFinalProject,
     group: 4,
   },
 ]

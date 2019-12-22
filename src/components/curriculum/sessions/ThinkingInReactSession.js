@@ -7,25 +7,13 @@ export const titleSession = 'Thinking in React'
 const ThinkingInReactSession = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
-      <Li>The Imperative to Declarative Shift</Li>
-      <Li>Componentization</Li>
-      <Li>
-        What is React made up of
-        <Ul>
-          <Li>Props & State</Li>
-          <Li>Classes Vs. Functions</Li>
-          <Li>One way data binding</Li>
-        </Ul>
-      </Li>
-      <Li>Composition</Li>
-      <Li>
-        Virtual DOM and JSX
-        <Ul>
-          <Li>React Components, Elements, and Instances</Li>
-          <Li>JSX and React.createElement</Li>
-        </Ul>
-      </Li>
-      <Li>Developer tools</Li>
+      <Li>The Imperative to Declarative shift</Li>
+      <Li>UI as a function of state and props</Li>
+      <Li>React component tree, host tree, and virtual tree</Li>
+      <Li>Lifting state up</Li>
+      <Li>One-way top-down data flow</Li>
+      <Li>React composition model</Li>
+      <Li>React developer tools</Li>
     </Ul>
   </Session>
 )

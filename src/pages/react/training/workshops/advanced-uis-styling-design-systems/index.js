@@ -24,7 +24,6 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 
-console.log('aLearningObjectives', LearningObjectives)
 const metas = {
   title: `Styling in React and Design Systems Workshop | React GraphQL Academy`,
   description:

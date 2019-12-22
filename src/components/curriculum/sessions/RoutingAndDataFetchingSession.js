@@ -11,17 +11,11 @@ const RoutingAndDataFetchingSession = ({ title = titleSession }) => (
         React Router
         <Ul>
           <Li>Declarative routing</Li>
-          <Li>Implementing a master-detail web application</Li>
+          <Li>Implementing a master-detail page</Li>
         </Ul>
       </Li>
-      <Li>Component lifecycle</Li>
-      <Li>
-        Data management
-        <Ul>
-          <Li>Presentational Components Vs. Container Components</Li>
-          <Li>Data fetching</Li>
-        </Ul>
-      </Li>
+      <Li>Component lifecycle using effects</Li>
+      <Li>Data fetching</Li>
     </Ul>
   </Session>
 )

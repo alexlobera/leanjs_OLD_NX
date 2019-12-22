@@ -17,11 +17,11 @@ const CurriculumReactFoundation = ({ showTitle = true, section, ...rest }) => (
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section title={es6Title} type={REACT_WORKSHOP} {...section}>
-          <ES6Session title="" />
-        </Section>
         <Section title={thinkingTitle} type={REACT_WORKSHOP} {...section}>
           <ThinkingInReactSession title="" />
+        </Section>
+        <Section title={es6Title} type={REACT_WORKSHOP} {...section}>
+          <ES6Session title="" />
         </Section>
         <Section title={routingTitle} type={REACT_WORKSHOP} {...section}>
           <RoutingAndDataFetchingSession title="" />

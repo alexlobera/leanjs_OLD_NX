@@ -7,16 +7,12 @@ export const titleSession = 'Modern JavaScript'
 const ES6Session = ({ title = titleSession }) => (
   <Session title={title}>
     <Ul>
-      <Li>Modern JavaScript for React - ES6 and beyond</Li>
-      <Li>Arrow Functions, Class syntax, Template strings</Li>
-      <Li>Destructuring</Li>
-      <Li>Default parameters, REST operator, Spread operator</Li>
-      <Li>Let and Const vs Var</Li>
-      <Li>REST + Spread properties</Li>
-      <Li>Iterators and functional programming in JS</Li>
-      <Li>Modules</Li>
-      <Li>Promises</Li>
-      <Li>ES6 exercise using TDD</Li>
+      <Li>Destructuring, rest, and spread operator</Li>
+      <Li>Modules, let, const, and var</Li>
+      <Li>Iterators and intro to functional programming in JS</Li>
+      <Li>Arrow functions, template literals</Li>
+      <Li>Promises and async code</Li>
+      <Li>Modern JavaScript for React - Babel, ES6 and beyond</Li>
     </Ul>
   </Session>
 )

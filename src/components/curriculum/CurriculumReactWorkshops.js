@@ -43,21 +43,15 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
         <React.Fragment>
           <Section
             {...sectionProps}
-            title="React Foundation"
-            subTitle="Learn the basics of React and jumpstart your way into a new coding ecosystem"
-            toggleNavigateTo={`${workshopBasePath}react-foundation/`}
-          />
-          <Section
-            {...sectionProps}
             title="React Native"
             subTitle="Build upon your React knowledge and create great apps"
             toggleNavigateTo={`${workshopBasePath}react-native`}
           />
           <Section
             {...sectionProps}
-            title="Redux"
-            subTitle="Build Redux yourself and learn functional programming and middlewares"
-            toggleNavigateTo={`${workshopBasePath}redux`}
+            title="React Foundation"
+            subTitle="Learn the basics of React and jumpstart your way into a new coding ecosystem"
+            toggleNavigateTo={`${workshopBasePath}react-foundation/`}
           />
         </React.Fragment>
       }
