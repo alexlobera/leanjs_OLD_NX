@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { H3 } from '../text'
+import Section from './CurriculumSection'
+import Ul from '../layout/Ul'
+import { H3 } from '../text/H'
 import { LinkButton } from '../buttons'
 import Link from '../navigation/Link'
 import { Col, Row } from '../layout/Grid'
@@ -29,13 +31,25 @@ const selectCurriculumLayout = ({
   trainingId,
   marketingCard,
   curriculumTitle = 'Course outline',
+  learningObjectives: LearningObjectives,
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
       <LinkButton className="curriculum-cta" to={curriculumTo}>
-        Full curriculum
+        Learning objectives & full curriculum
       </LinkButton>
     </SectionCTA>
+  )
+
+  const learningObjectives = LearningObjectives && (
+    <React.Fragment>
+      <H3>Learning Objectives</H3>
+      <Section title="" type={type} enableToggle={false}>
+        <Ul>
+          <LearningObjectives />
+        </Ul>
+      </Section>
+    </React.Fragment>
   )
 
   const typedMarketingCard = marketingCard
@@ -52,6 +66,7 @@ const selectCurriculumLayout = ({
           {secondHalf}
           {secondHalf && secondHalf.length > 2 && typedMarketingCard}
           {curriculumTo && curriculumButtonSection}
+          {learningObjectives}
         </Flex>
       </React.Fragment>
     )
@@ -70,6 +85,7 @@ const selectCurriculumLayout = ({
           </Row>
 
           {curriculumTo && curriculumButtonSection}
+          {learningObjectives}
         </Flex>
       </React.Fragment>
     )
@@ -93,6 +109,7 @@ const selectCurriculumLayout = ({
             {typedMarketingCard}
             {secondHalf}
             {curriculumTo && curriculumButtonSection}
+            {learningObjectives}
           </Col>
           <Col md={5} lg={4} mdOffset={1}>
             {trainings && (

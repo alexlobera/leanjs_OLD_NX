@@ -7,9 +7,9 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumStylingAndAdvUI, {
-  TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
+import CurriculumStylingAndAdvUI from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
+import TargetAudienceList from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI/TargetAudienceList'
+import LearningObjectives from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI/LearningObjectivesList'
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -80,6 +80,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
                 trainingId={trainingId}
                 trainings={trainings}
                 section={{ isOpen: true }}
+                learningObjectives={LearningObjectives}
               />
             </Segment>
           </TopSection>

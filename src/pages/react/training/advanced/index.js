@@ -10,6 +10,7 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
+import TargetAudienceList from 'src/components/curriculum/CurriculumAdvancedReact/TargetAudienceList'
 import Header from 'src/components/layout/Header'
 import header from 'src/components/layout/Header.json'
 import {
@@ -67,7 +68,7 @@ const AdvancedTraining = ({ path }) => (
             ]}
             tech={TECH_REACT}
             titleLines={['Advanced React Training']}
-            subtitle="For 3 days, expert coaches and mentors will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
+            subtitle="For 3 days, expert coaches and developers will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
             bgImageName={BOOTCAMP}
             type={ADVANCED_REACT}
             links={header.landingPageLinks.links}
@@ -91,7 +92,7 @@ const AdvancedTraining = ({ path }) => (
               <Col md={4} mdOffset={1}>
                 <H2>Is this advanced React training right for me?</H2>
                 <Ul>
-                  <CurriculumAdvancedReact.TargetAudienceList />
+                  <TargetAudienceList />
                   <Li>
                     Join a growing network of alumni for advice, knowledge and
                     social fun!

@@ -7,9 +7,10 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumAdvReactPatterns, {
-  TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns'
+import CurriculumAdvReactPatterns from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns'
+import TargetAudienceList from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns/TargetAudienceList'
+import LearningObjectives from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns/LearningObjectivesList'
+
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -53,7 +54,7 @@ const AdvancedReactWorkshop = ({ path }) => (
             ]}
             tech={TECH_REACT}
             titleLines={title}
-            subtitle="Understand how to use and apply React patterns including, HOC, render props and perpendicular composition with hooks"
+            subtitle="Leverage advanced patterns and functional programming in React to create performant apps"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
@@ -67,6 +68,7 @@ const AdvancedReactWorkshop = ({ path }) => (
                 trainingId={trainingId}
                 trainings={trainings}
                 section={{ isOpen: true }}
+                learningObjectives={LearningObjectives}
               />
             </Segment>
           </TopSection>

@@ -16,26 +16,19 @@ const AdvancedReactPatternsSession = ({ title }) => (
         </Ul>
       </Li>
       <Li>
-        Advanced React patterns
+        Hooks
         <Ul>
-          <Li>
-            Hooks (The future of React!)
-            <Ul>
-              <Li>Managing state and side effects with hooks</Li>
-              <Li>Hook Reducer</Li>
-              <Li>Custom hooks</Li>
-            </Ul>
-          </Li>
-          <Li>
-            Previous patterns
-            <Ul>
-              <Li>Higher-Order Components (HOCs)</Li>
-              <Li>
-                Declarative composition using the Render Props (AKA function as
-                children)
-              </Li>
-            </Ul>
-          </Li>
+          <Li>Hooks Composition Model (custom Hooks)</Li>
+          <Li>Hook Reducer</Li>
+          <Li>useMemo</Li>
+          <Li>useCallback</Li>
+        </Ul>
+      </Li>
+      <Li>
+        Suspense
+        <Ul>
+          <Li>Suspense for Code-Splitting</Li>
+          <Li>Suspense for Data Fetching</Li>
         </Ul>
       </Li>
     </Ul>

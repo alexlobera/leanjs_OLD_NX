@@ -7,21 +7,15 @@ export const titleSession = 'Performance'
 const ReactPerformanceSession = ({ title }) => (
   <Session title={title}>
     <Ul>
+      <Li>Profiling</Li>
       <Li>
-        Performance
+        Avoiding re-renderings
         <Ul>
-          <Li>Profiling</Li>
-          <Li>
-            Avoiding renderings
-            <Ul>
-              <Li>React.memo</Li>
-              <Li>React.PureComponent</Li>
-              <Li>componentShouldUpdate</Li>
-            </Ul>
-          </Li>
-          <Li>Windowing</Li>
+          <Li>Encapsulated state</Li>
+          <Li>React.memo and immutability</Li>
         </Ul>
       </Li>
+      <Li>Windowing</Li>
     </Ul>
   </Session>
 )

@@ -71,7 +71,7 @@ const Bootcamps = ({ path }) => (
             ]}
             tech={TECH_REACT}
             titleLines={['React Redux Bootcamp']}
-            subtitle="For a week, expert coaches and mentors will work alongside you to master the React ecosystem so you return to work as a React specialist"
+            subtitle="For a week, expert coaches and developers will work alongside you to master the React ecosystem so you return to work as a React specialist"
             bgImageName={BOOTCAMP}
             links={header.landingPageLinks.links}
             type={REACT_BOOTCAMP}
