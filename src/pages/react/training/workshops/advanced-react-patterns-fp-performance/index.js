@@ -7,9 +7,10 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumAdvReactPatterns, {
-  TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns'
+import CurriculumAdvReactPatterns from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns'
+import TargetAudienceList from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns/TargetAudienceList'
+import LearningObjectives from 'src/components/curriculum/workshops/CurriculumAdvReactPatterns/LearningObjectivesList'
+
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import {
@@ -67,6 +68,7 @@ const AdvancedReactWorkshop = ({ path }) => (
                 trainingId={trainingId}
                 trainings={trainings}
                 section={{ isOpen: true }}
+                learningObjectives={LearningObjectives}
               />
             </Segment>
           </TopSection>
