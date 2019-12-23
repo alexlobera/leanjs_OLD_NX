@@ -12,8 +12,8 @@ import Curriculum from '../Curriculum'
 import renderPartTimeSection from '../renderPartTimeSession'
 
 const defaultSessionsFirstHalf = [
-  { title: 'Modern JavaScript', Comp: ES6Session, group: 1 },
   { title: 'Thinking in React', Comp: ThinkingInReactSession, group: 1 },
+  { title: 'Modern JavaScript', Comp: ES6Session, group: 1 },
   {
     title: 'Routing & Data Fetching',
     Comp: RoutingAndDataFetchingSession,
