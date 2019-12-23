@@ -53,7 +53,7 @@ const AdvancedReactWorkshop = ({ path }) => (
             ]}
             tech={TECH_REACT}
             titleLines={title}
-            subtitle="Understand how to use and apply React patterns including, HOC, render props and perpendicular composition with hooks"
+            subtitle="Leverage advanced patterns and functional programming in React to create performant apps"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
