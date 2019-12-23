@@ -12,7 +12,7 @@ const ReactPerformanceSession = ({ title }) => (
         Avoiding renderings
         <Ul>
           <Li>Encapsulated state</Li>
-          <Li>React.memo</Li>
+          <Li>React.memo and immutability</Li>
         </Ul>
       </Li>
       <Li>Windowing</Li>
