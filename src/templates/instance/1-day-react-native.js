@@ -14,6 +14,7 @@ const Page = props => (
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
+    typeOfTraining="3-day React Native workshop"
     curriculumProps={{
       section: { isOpen: true },
     }}

@@ -19,7 +19,6 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { Video } from 'src/components/elements'
 import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
@@ -72,29 +71,20 @@ const ReactNativeBoocamp = ({ path }) => (
           </TopSection>
           <Section>
             <Row>
-              <Col md={5}>
-                <Video youtubeId="Z4s1gf09oeY" />
-              </Col>
               <Col md={5} mdOffset={1}>
+                <AttendeeQuote
+                  quote="Demystifying Complex Animations Creation Process in React Native"
+                  fullname="Vladimir Novick"
+                  youtubeId="aOiq-xNSqRo"
+                />
+              </Col>
+              <Col md={4} lgOffset={1}>
                 <Link to="#target-audience" name="target-audience" />
                 <H2>Is this React Native training right for me?</H2>
                 <Ul>
                   <TargetAudienceList />
                 </Ul>
                 <NextTrainingButton type="workshop" training={nextTraining} />
-              </Col>
-            </Row>
-          </Section>
-          <Section>
-            <Row>
-              <Col lg={10} lgOffset={1}>
-                <AttendeeQuote
-                  quote="I like how friendly the training was. I loved spending time pair programming and then sharing what we'd learnt from each other - that was the best bit. I would definitely recommend [React GraphQL Academy]."
-                  fullname="Polina Stoyanova"
-                  job="Front-end and UX developer"
-                  company="tray.io"
-                  youtubeId="6hmKu1-vW-8"
-                />
               </Col>
             </Row>
           </Section>

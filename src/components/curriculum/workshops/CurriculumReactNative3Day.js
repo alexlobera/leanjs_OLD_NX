@@ -1,20 +1,23 @@
 import React from 'react'
 import Link from '../../navigation/Link'
-import { Li } from '../../layout/Ul'
 import Section from '../CurriculumSection'
 import Ul, { Li } from '../../layout/Ul'
-import Session from '../Session'
+import Session from '../sessions/Session'
 import { REACT_WORKSHOP } from '../../../config/data'
 import Curriculum from '../Curriculum'
 
 const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
-    title={showTitle ? '3-Day React Native Curriculum' : ''}
+    title={showTitle ? '3-Day Immersive React Native Curriculum' : ''}
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section title="Day 1" type={REACT_WORKSHOP} {...section}>
-          <Session title="Fundamentals">
+        <Section
+          title="Day 1 - Fundamentals"
+          type={REACT_WORKSHOP}
+          {...section}
+        >
+          <Session title="">
             <Ul>
               <Li>Understand how React Native works under the hood</Li>
               <Li>
@@ -41,8 +44,12 @@ const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
             </Ul>
           </Session>
         </Section>
-        <Section title="Day 2" type={REACT_WORKSHOP} {...section}>
-          <Session title="Intermediate">
+        <Section
+          title="Day 2 - Intermediate"
+          type={REACT_WORKSHOP}
+          {...section}
+        >
+          <Session title="">
             <Ul>
               <Li>
                 Understand and use various debugging techniques and which are
@@ -70,8 +77,8 @@ const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
             </Ul>
           </Session>
         </Section>
-        <Section title="Day 3" type={REACT_WORKSHOP} {...section}>
-          <Session title="Advance">
+        <Section title="Day 3 - Advanced" type={REACT_WORKSHOP} {...section}>
+          <Session title="">
             <Ul>
               <Li>Overview best practices to scale your apps</Li>
               <Li>Introduce theming into your app.</Li>
@@ -110,10 +117,6 @@ export const TargetAudienceList = () => (
     <Li>
       Taking a step forward to become a React Native Specialist able to make
       critical decisions about the architecture of a React Native application.
-    </Li>
-    <Li>
-      Not satisfied with the pace of online learning and it's lack of 1-on-1
-      mentoring?
     </Li>
     <li>
       Mandatory completion of the pre-course setup instructions (it will be sent
