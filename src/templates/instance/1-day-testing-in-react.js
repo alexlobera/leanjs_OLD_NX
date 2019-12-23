@@ -1,8 +1,8 @@
 import React from 'react'
 import BaseTemplate from './baseTemplate'
-import Curriculum, {
-  TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumTestingInReact'
+import Curriculum from 'src/components/curriculum/workshops/CurriculumTestingInReact'
+import TargetAudienceList from 'src/components/curriculum/workshops/CurriculumTestingInReact/TargetAudienceList'
+
 import {
   REACT_WORKSHOP,
   ADVANCED_REACT,
