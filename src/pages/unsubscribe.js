@@ -62,7 +62,7 @@ export class Unsubscribe extends React.Component {
                       style={this.state.formSubmited ? { display: 'none' } : {}}
                     >
                       <EmailInput
-                        validate={composeValidators(required, mustBeEmail)}
+                        validate={composeValidators(mustBeEmail, required)}
                         label="Your email address:"
                         name="email"
                         placeholder="eg. steve@jobs.com"

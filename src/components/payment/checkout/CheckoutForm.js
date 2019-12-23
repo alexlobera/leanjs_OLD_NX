@@ -237,7 +237,7 @@ class CheckoutForm extends React.Component {
                   placeholder="eg. Steve Jobs"
                 />
                 <EmailInput
-                  validate={composeValidators(required, mustBeEmail)}
+                  validate={composeValidators(mustBeEmail, required)}
                   label="Your email address:"
                   name="email"
                   placeholder="eg. steve@jobs.com"
@@ -272,7 +272,7 @@ class CheckoutForm extends React.Component {
                       label="EU VAT number:"
                       name="companyVat"
                       placeholder="eg. GB256547555"
-                      validate={composeValidators(required, mustBeEuVat)}
+                      validate={composeValidators(mustBeEuVat, required)}
                       onChange={companyVat.resetVatRate}
                     />
                     <ValidateViesButton
@@ -314,7 +314,7 @@ class CheckoutForm extends React.Component {
                   autoCapitalize="no"
                   spellCheck="no"
                   format={formatCreditCardNumber}
-                  validate={composeValidators(required, mustBeCardNumber)}
+                  validate={composeValidators(mustBeCardNumber, required)}
                 />
                 <Row>
                   <Col xs={6}>
@@ -324,7 +324,7 @@ class CheckoutForm extends React.Component {
                       placeholder="MM / YY"
                       maxLength="9"
                       format={formatExpirationDate}
-                      validate={composeValidators(required, mustBeCardDate)}
+                      validate={composeValidators(mustBeCardDate, required)}
                     />
                   </Col>
                   <Col xs={6}>
@@ -334,7 +334,7 @@ class CheckoutForm extends React.Component {
                       placeholder="XXX"
                       maxLength="6"
                       format={formatCVC}
-                      validate={composeValidators(required, mustBeCvc)}
+                      validate={composeValidators(mustBeCvc, required)}
                     />
                   </Col>
                 </Row>

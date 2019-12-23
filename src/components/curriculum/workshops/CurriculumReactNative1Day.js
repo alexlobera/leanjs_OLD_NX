@@ -45,10 +45,6 @@ export const TargetAudienceList = () => (
       Taking a step forward to become a React Native Specialist able to make
       critical decisions about the architecture of a React Native application.
     </Li>
-    <Li>
-      Not satisfied with the pace of online learning and it's lack of 1-on-1
-      mentoring?
-    </Li>
   </React.Fragment>
 )
 

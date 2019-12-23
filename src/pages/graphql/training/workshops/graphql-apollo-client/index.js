@@ -114,10 +114,6 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
                     make critical decisions about the architecture of an
                     application.
                   </Li>
-                  <Li>
-                    Not satisfied with the pace of online learning and it's lack
-                    of 1-on-1 mentoring?
-                  </Li>
                 </Ul>
                 <P>
                   If you've said 'yes' to these, this workshop could be for you!

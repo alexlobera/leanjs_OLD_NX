@@ -48,10 +48,6 @@ export const TargetAudienceList = () => (
       Want to pull data from an API into a React app but you are confused with
       the different approaches you find on the Internet.
     </Li>
-    <Li>
-      Not satisfied with the pace of online learning and it's lack of 1-on-1
-      mentoring.
-    </Li>
   </React.Fragment>
 )
 
