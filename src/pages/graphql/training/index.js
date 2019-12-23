@@ -75,7 +75,7 @@ const TrainingPage = ({ path }) => (
                   },
                   {
                     to: '/graphql/training/workshops/',
-                    children: '1-Day Workshops',
+                    children: 'Workshops',
                   },
                   {
                     to: '/graphql/training/corporate',

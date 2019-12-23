@@ -90,7 +90,7 @@ const TrainingPage = ({ path }) => (
                   },
                   {
                     to: '/react/training/workshops',
-                    children: '1-Day Workshops',
+                    children: 'Workshops',
                   },
                   {
                     to: '/react/training/corporate',
