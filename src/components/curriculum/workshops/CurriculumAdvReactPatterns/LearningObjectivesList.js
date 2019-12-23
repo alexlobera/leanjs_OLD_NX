@@ -7,8 +7,8 @@ const LearningObjectivesList = () => (
       Be able to use advanced patterns & functional programming to improve code
       quality
     </Li>
-    <Li>Understand how to improve absolute and perceived performance</Li>
-    <Li>Understand basic theoretical concepts of React</Li>
+    <Li>Understand absolute and perceived performance and how to improve it</Li>
+    <Li>Comprehend basic theoretical concepts of React</Li>
   </React.Fragment>
 )
 

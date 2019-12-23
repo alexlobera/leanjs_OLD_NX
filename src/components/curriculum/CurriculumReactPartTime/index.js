@@ -24,12 +24,6 @@ const defaultSessionsFirstHalf = [
     Comp: ReactFundamentalsRecapSession,
     group: 2,
   },
-  // { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 2 },
-  // {
-  //   title: 'Recap: build a React app from scratch',
-  //   Comp: ReactFundamentalsRecapSession,
-  //   group: 2,
-  // },
 ]
 const defaultSessionsSecondHalf = [
   { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 3 },

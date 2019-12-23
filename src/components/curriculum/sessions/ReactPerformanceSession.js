@@ -9,7 +9,7 @@ const ReactPerformanceSession = ({ title }) => (
     <Ul>
       <Li>Profiling</Li>
       <Li>
-        Avoiding renderings
+        Avoiding re-renderings
         <Ul>
           <Li>Encapsulated state</Li>
           <Li>React.memo and immutability</Li>
