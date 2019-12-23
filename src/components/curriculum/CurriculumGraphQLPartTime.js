@@ -20,12 +20,7 @@ const defaultSessionsFirstHalf = [
   { Comp: ThinkingInGraphQLSession, group: 1 },
   { Comp: SchemaDesignSession, group: 2 },
   { Comp: ErrorAndSecuritySession, group: 2 },
-]
-const defaultSessionsSecondHalf = [
   { Comp: GraphQLServerRecapSession, group: 3 },
-  { Comp: GraphQLClientFundamentalsSession, group: 3 },
-  { Comp: AdvGQLQueryMutationSession, group: 4 },
-  { Comp: GraphQLClientRecapSession, group: 4 },
 ]
 
 const CurriculumPartTime = ({
@@ -33,7 +28,6 @@ const CurriculumPartTime = ({
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
-  sessionsSecondHalf = defaultSessionsSecondHalf,
   ...rest
 }) => {
   const type = GRAPHQL_PART_TIME
@@ -57,9 +51,6 @@ const CurriculumPartTime = ({
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}
-      secondHalf={sessionsSecondHalf.map(
-        renderSectionWithProps(sessionsSecondHalf.length + initialIndex)
-      )}
     />
   )
 }

@@ -21,7 +21,7 @@ const GraphQLServerRecapSession = ({ title }) => (
 )
 
 GraphQLServerRecapSession.defaultProps = {
-  title: 'GraphQL API consolidation project',
+  title: 'GraphQL API final project',
 }
 
 export default GraphQLServerRecapSession
