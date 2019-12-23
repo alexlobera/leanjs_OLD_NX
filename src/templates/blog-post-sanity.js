@@ -217,7 +217,7 @@ export const query = graphql`
     ) {
       nodes {
         id
-        localFile(width: 600) {
+        localFile(width: 650) {
           publicURL
         }
       }
