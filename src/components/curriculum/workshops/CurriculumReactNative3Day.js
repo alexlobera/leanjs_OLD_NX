@@ -8,7 +8,7 @@ import Curriculum from '../Curriculum'
 
 const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
-    title={showTitle ? '3-Day Immersive React Native Curriculum' : ''}
+    title={showTitle ? '3-Day React Native Immersive Curriculum' : ''}
     {...rest}
     firstHalf={
       <React.Fragment>

@@ -55,7 +55,7 @@ const ReactNativeBoocamp = ({ path }) => (
             ]}
             tech={TECH_REACT}
             titleLines={[title]}
-            subtitle="Immersive 3-day React Native training, <br /> return to work as a React Native specialist"
+            subtitle="3-day React Native Immersive training, <br /> return to work as a React Native specialist"
             bgImageName={BOOTCAMP}
             type={REACT_WORKSHOP}
             links={header.landingPageLinks.links}
