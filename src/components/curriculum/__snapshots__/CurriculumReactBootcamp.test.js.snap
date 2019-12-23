@@ -8,15 +8,15 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       <CurriculumSection
         mt={4}
         name="day1"
-        subTitle="Modern JavaScript, Thinking in React, Routing & Data Fetching"
+        subTitle="Thinking in React, Modern JavaScript, Routing & Data Fetching"
         title="Day  1"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
         type="React Bootcamp"
       >
         <React.Fragment>
-          <ES6Session />
           <ThinkingInReactSession />
+          <ES6Session />
           <RoutingAndDataFetchingSession />
         </React.Fragment>
       </CurriculumSection>,
@@ -38,7 +38,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       <CurriculumSection
         mt={4}
         name="day3"
-        subTitle="Redux Fundamentals, Advanced Redux, and FP"
+        subTitle="Redux Fundamentals, deployment to production"
         title="Day  3"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
@@ -46,7 +46,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       >
         <React.Fragment>
           <IntroReduxSession />
-          <AdvancedReduxSession />
+          <FundamentalsFinalProject />
         </React.Fragment>
       </CurriculumSection>,
     ]
