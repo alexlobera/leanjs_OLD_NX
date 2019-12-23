@@ -42,7 +42,7 @@ const FullCurriculumsReact = ({ trainings }) => {
           <TabItem name={REACT_PART_TIME}>Part-time Course</TabItem>
           <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
           <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
-          <TabItem name={REACT_WORKSHOP}>1-Day Workshops</TabItem>
+          <TabItem name={REACT_WORKSHOP}>Workshops</TabItem>
         </TabList>
 
         <TabContent>
