@@ -33,7 +33,7 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
           />
           <Section
             {...sectionProps}
-            title="Advanced Patterns, Performance & FP in React"
+            title="Advanced Patterns and Performance"
             subTitle="Discover best patterns for reusable and performant React apps"
             toggleNavigateTo={`${workshopBasePath}advanced-react-patterns-fp-performance`}
           />

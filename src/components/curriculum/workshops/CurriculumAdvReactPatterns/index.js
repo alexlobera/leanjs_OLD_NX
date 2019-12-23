@@ -11,7 +11,7 @@ import Curriculum from '../../Curriculum'
 
 const CurriculumAdvReactPatterns = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
-    title={showTitle ? '1-Day Advanced React Patterns, FP and Performance' : ''}
+    title={showTitle ? '1-Day Advanced React Patterns and Performance' : ''}
     type={REACT_WORKSHOP}
     {...rest}
     firstHalf={
