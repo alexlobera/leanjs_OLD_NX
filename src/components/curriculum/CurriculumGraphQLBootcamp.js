@@ -54,7 +54,7 @@ const CurriculumGraphQLBootcamp = ({
   }
   const renderSectionArgs = {
     training,
-    initialDayOffset: 1,
+    initialDayOffset: 0,
     sectionProps,
   }
 
@@ -69,7 +69,7 @@ const CurriculumGraphQLBootcamp = ({
       secondHalf={sessionsSecondHalf.map(
         renderSection({
           ...renderSectionArgs,
-          initialDayOffset: sessionsFirstHalf.length + 1,
+          initialDayOffset: sessionsFirstHalf.length,
         })
       )}
     />

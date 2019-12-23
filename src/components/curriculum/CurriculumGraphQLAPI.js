@@ -20,7 +20,7 @@ const CurriculumGraphQLAPI = ({
   }
   const renderSectionArgs = {
     training,
-    initialDayOffset: 1,
+    initialDayOffset: 0,
     sectionProps,
   }
 
