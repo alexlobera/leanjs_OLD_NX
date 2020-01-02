@@ -48,7 +48,8 @@ const Section = ({ children, ...rest }) => (
 )
 
 Section.defaultProps = {
-  display: ['inline-block', 'block'],
+  // display: ['inline-block', 'block'],
+  display: 'block',
   box: 'section',
 }
 Section.displayName = 'Section'
