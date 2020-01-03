@@ -8,5 +8,6 @@ const InstagramIcon = props => {
     </svg>
   )
 }
+InstagramIcon.title = 'Instagram'
 
 export default InstagramIcon
