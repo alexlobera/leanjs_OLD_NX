@@ -370,9 +370,13 @@ const Header = ({
                   </H1>
                   {subtitle ? (
                     <SubTitleBackground>
-                      <H2Header
-                        dangerouslySetInnerHTML={{ __html: subtitle }}
-                      />
+                      {typeof subtitle === 'string' ? (
+                        <H2Header
+                          dangerouslySetInnerHTML={{ __html: subtitle }}
+                        />
+                      ) : (
+                        <H2Header>{subtitle}</H2Header>
+                      )}
                     </SubTitleBackground>
                   ) : null}
                   {children ? (

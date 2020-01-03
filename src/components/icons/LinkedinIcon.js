@@ -8,5 +8,6 @@ const LinkedinIcon = props => {
     </svg>
   )
 }
+LinkedinIcon.title = 'LinkedIn'
 
 export default LinkedinIcon

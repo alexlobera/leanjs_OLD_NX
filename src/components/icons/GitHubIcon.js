@@ -8,5 +8,6 @@ const GitHubIcon = props => {
     </svg>
   )
 }
+GitHubIcon.title = 'GitHub'
 
 export default GitHubIcon

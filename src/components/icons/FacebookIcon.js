@@ -8,5 +8,6 @@ const FacebookIcon = props => {
     </svg>
   )
 }
+FacebookIcon.title = 'Facebook'
 
 export default FacebookIcon

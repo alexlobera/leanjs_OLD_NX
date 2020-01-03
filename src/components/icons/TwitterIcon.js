@@ -8,5 +8,6 @@ const TwitterIcon = props => {
     </svg>
   )
 }
+TwitterIcon.title = 'Twitter'
 
 export default TwitterIcon
