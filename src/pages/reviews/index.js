@@ -96,7 +96,7 @@ const Review = ({
 const reviews = [
   {
     name: 'Georgina Hodgkinson',
-    date: '8/23/2019',
+    date: 'August 23, 2019',
     highlight:
       '“REACT 101 to REACT ADVANCED in 1 bootcamp - REACT GRAPHQL ACADEMY - London August 2019”',
     links: [
@@ -181,7 +181,7 @@ const reviews = [
   },
   {
     name: 'Daniel Marksteiner',
-    date: '04/11/2019',
+    date: 'Nov 04, 2019',
     highlight: '“A great, focused one week bootcamp introduction to React!”',
     links: [
       {
@@ -211,23 +211,28 @@ const reviews = [
           straight away to problems encouraging you to learn more effectively in
           the exercises through solving issues yourself. He has great patience
           and often stayed behind late after class to help us complete tasks or
-          answer any additional questions we had. My advice for anyone
-          considering the course is that it's a very valuable experience and
-          you'll get a lot more out of learning together in a real environment
-          face-to-face with other developers. I would encourage anyone attending
-          the course to brush up on the basics of ES6, functional programming
-          and the core concepts of React. The team at the academy send plenty of
-          handy links and exercises before you start and you'll get far more out
-          of the course if you spend a short amount of time brushing up on your
-          skills beforehand. Overall I would definitely recommend this course
-          for anyone considering learning React!”
+          answer any additional questions we had.
+        </P>
+        <P>
+          My advice for anyone considering the course is that it's a very
+          valuable experience and you'll get a lot more out of learning together
+          in a real environment face-to-face with other developers. I would
+          encourage anyone attending the course to brush up on the basics of
+          ES6, functional programming and the core concepts of React. The team
+          at the academy send plenty of handy links and exercises before you
+          start and you'll get far more out of the course if you spend a short
+          amount of time brushing up on your skills beforehand.
+        </P>
+        <P>
+          Overall I would definitely recommend this course for anyone
+          considering learning React!”
         </P>
       </>
     ),
   },
   {
     name: 'Sam F',
-    date: '9/11/2019',
+    date: 'Sept 11, 2019',
     highlight: '“Intense and information packed”',
     links: [
       {
