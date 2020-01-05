@@ -2,9 +2,10 @@ import React from 'react'
 import { navigate } from 'gatsby'
 
 import { graphql, withStatelessClient } from '../../api/graphql/client'
-import { H2, H3, P } from '../text'
+import { H2, H3, H4, P } from '../text'
 import { Ribbon } from '../elements'
 import Card from '../elements/Card'
+import Link from '../navigation/Link'
 import Checkout from './checkout/'
 import formatPrice from '../utils/currency'
 import { DEFAULT_VAT_RATE } from '../../config'
@@ -236,7 +237,9 @@ class PaymentSection extends React.Component {
           </H2>
           {trainingType === MEETUP && (
             <React.Fragment>
-              <P>Why do we charge a nominal fee?</P>
+              <P>
+                <strong>Why do we charge a nominal fee?</strong>
+              </P>
               <P>
                 We charge a nominal fee for community events in order to confirm
                 attendance to ensure we have an accurate RSVP list. Our meetups
@@ -244,9 +247,17 @@ class PaymentSection extends React.Component {
                 somone else attending.
               </P>
               <P>
-                The payment confirmation email is your ticket. If you can't
-                attend simply let us know and we'll be happy to refund you.
+                <strong>What do we do with the fee?</strong>
               </P>
+              <P>
+                By paying for the nominal fee you're supporting minorities in
+                tech. You can read more about it in this{' '}
+                <Link to="/blog/join-our-meetups-and-support-minorities-in-tech#why_we_charge_a_nominal_fee">
+                  link
+                </Link>
+                .
+              </P>
+              <P>The payment confirmation email is your ticket.</P>
             </React.Fragment>
           )}
           <Card variant="secondary">

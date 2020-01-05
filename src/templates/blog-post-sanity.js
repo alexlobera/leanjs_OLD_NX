@@ -39,7 +39,7 @@ function removeCarriageReturn(text) {
 }
 
 const Page = ({ data, location, pageContext: { slug } }) => {
-  const { nodes: bodyImageNodes = [] } = data.bodyImages || []
+  const { nodes: bodyImageNodes = [] } = data.bodyImages || {}
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
       const baseUrl = process.env.GATSBY_BASE_URL

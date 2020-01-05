@@ -1,6 +1,11 @@
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
 } = require('./studio/sanity.json')
+const PortableText = require('@sanity/block-content-to-html')
+// `hyperscript` is a way to build HTML known as hyperscript
+// See https://github.com/hyperhype/hyperscript for more info
+const hyperscript = PortableText.h
+const getPostsFromNodes = require('./src/components/blog/getPostsFromNodes')
 
 require('dotenv').config({
   path: `.env`,
@@ -11,14 +16,13 @@ module.exports = {
     title: 'React & GraphQL Expert Training | React GraphQL Academy',
     description:
       'Looking for React and GraphQL expert training? React GraphQL Academy offers in-person real-world training by our experts. Contact us now!',
-    siteUrl: `https://www.reactgraphql.academy`,
+    siteUrl: `https://www.reactgraphql.academy/`,
   },
   plugins: [
     'gatsby-plugin-sitemap',
     'gatsby-plugin-root-import',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -92,6 +96,162 @@ module.exports = {
         // url: 'https://api0.upmentoring.com/api/graphql',
         url:
           'https://europe-west1-upmentoring-api.cloudfunctions.net/api/graphql',
+      },
+    },
+
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+          `,
+        feeds: [
+          {
+            serialize: ({
+              query: { site, allSanityPost = [], allSanityImageAsset },
+            }) => {
+              const posts = getPostsFromNodes({
+                sanityNodes: allSanityPost.nodes,
+              })
+
+              const { siteUrl } = site.siteMetadata
+
+              const { nodes: bodyImageNodes = [] } = allSanityImageAsset || {}
+              const bodyImagePublicURLs = bodyImageNodes.reduce(
+                (acc, { localFile = {}, id }) => {
+                  const { publicURL = '' } = localFile
+                  acc[id] =
+                    publicURL.indexOf('http') === 0 || !siteUrl
+                      ? publicURL
+                      : `${siteUrl}${publicURL}`
+
+                  return acc
+                },
+                {}
+              )
+
+              return posts.map(node => {
+                const { title, publishedAt, _rawBody, excerpt } = node
+                const url = siteUrl + node.path
+
+                return {
+                  title: title,
+                  date: publishedAt,
+                  description: excerpt,
+                  url,
+                  guid: url,
+                  custom_elements: [
+                    {
+                      'content:encoded': PortableText({
+                        blocks: _rawBody,
+                        serializers: {
+                          types: {
+                            image: ({ node }) => {
+                              console.log('aaaaaaa', node)
+                              return hyperscript('img', {
+                                src: bodyImagePublicURLs[node.asset.id],
+                              })
+                            },
+                            code: ({ node }) =>
+                              hyperscript(
+                                'pre',
+                                hyperscript(
+                                  'code',
+                                  { lang: node.language },
+                                  node.code
+                                )
+                              ),
+                            mainImage: ({ node }) =>
+                              hyperscript('img', {
+                                src: node.fluidImage.src,
+                              }),
+                            tweet: ({ node }) =>
+                              hyperscript(
+                                'p',
+                                {},
+                                hyperscript('a', {
+                                  href: `https://twitter.com/user/status/${node.id}`,
+                                  innerHTML: 'Look at the tweet.',
+                                })
+                              ),
+                            youtube: ({ node }) =>
+                              hyperscript(
+                                'p',
+                                {},
+                                hyperscript('a', {
+                                  href: `https://www.youtube.com/watch?v=${
+                                    node.videoId
+                                  }${
+                                    node.startSecond
+                                      ? `&start=${node.startSecond}`
+                                      : ''
+                                  }`,
+                                  innerHTML: `Related video ${
+                                    node.description
+                                      ? `about: "${node.description}"`
+                                      : ''
+                                  }.`,
+                                })
+                              ),
+                            codesandbox: ({ node }) =>
+                              hyperscript(
+                                'p',
+                                {},
+                                hyperscript('a', {
+                                  href: `https://codesandbox.io/s/${node.id}`,
+                                  innerHTML: `Look at this codesandbox`,
+                                })
+                              ),
+                          },
+                        },
+                      }),
+                    },
+                  ],
+                }
+              })
+            },
+            query: `{
+                allSanityPost(sort: {fields: publishedAt, order: DESC}) {
+                    nodes {
+                      _rawBody(resolveReferences: {maxDepth: 10})
+                      id
+                      title
+                      publishedAt
+                      category
+                      excerpt
+                      slug {
+                        current
+                      }
+                    }
+                }
+                allSanityImageAsset {
+                    nodes {
+                      id
+                      localFile(width: 650) {
+                        publicURL
+                      }
+                    }
+                  }
+              }
+              `,
+            output: '/rss.xml',
+            title: 'React GraphQL Academy RSS Feed',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+          },
+        ],
       },
     },
   ],
