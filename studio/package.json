@@ -33,7 +33,9 @@
     "react": "^16.12",
     "react-dom": "^16.12"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@sanity/cli": "^0.147.3"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:reactgraphqlacademy/reactgraphqlacademy.git"
