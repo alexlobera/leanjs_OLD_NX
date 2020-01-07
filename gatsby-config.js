@@ -155,9 +155,28 @@ module.exports = {
                       'content:encoded': PortableText({
                         blocks: _rawBody,
                         serializers: {
+                          marks: {
+                            link: ({ mark, children }) => {
+                              const href =
+                                mark.href &&
+                                mark.href.match(
+                                  /^(https:\/\/*|http:\/\/*|mailto:*)/
+                                )
+                                  ? mark.href
+                                  : mark.href
+                                  ? `${siteUrl}${mark.href}`
+                                  : ''
+                              return h(
+                                'a',
+                                {
+                                  href,
+                                },
+                                children
+                              )
+                            },
+                          },
                           types: {
                             image: ({ node }) => {
-                              console.log('aaaaaaa', node)
                               return hyperscript('img', {
                                 src: bodyImagePublicURLs[node.asset.id],
                               })
