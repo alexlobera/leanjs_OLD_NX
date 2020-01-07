@@ -170,7 +170,7 @@ module.exports = {
                                   : mark.href
                                   ? `${baseUrl}${mark.href}`
                                   : ''
-                              return h(
+                              return hyperscript(
                                 'a',
                                 {
                                   href,
