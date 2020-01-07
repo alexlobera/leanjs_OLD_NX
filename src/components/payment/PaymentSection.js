@@ -2,7 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby'
 
 import { graphql, withStatelessClient } from '../../api/graphql/client'
-import { H2, H3, H4, P } from '../text'
+import { H2, H3, P } from '../text'
 import { Ribbon } from '../elements'
 import Card from '../elements/Card'
 import Link from '../navigation/Link'
@@ -170,7 +170,6 @@ class PaymentSection extends React.Component {
       priceGoesUpOn,
       discountPrice,
       trainingType,
-      ticketsLeft,
       notSoldOut = true
 
     if (errors) {

@@ -1,7 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { capitalize } = require('./src/components/utils/text')
-const getPostsFromNodes = require('./src/components/blog/getPostsFromNodes')
+const { getPostsFromNodes } = require('./src/components/blog/utils')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions

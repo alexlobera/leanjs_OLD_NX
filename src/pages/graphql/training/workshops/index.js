@@ -20,7 +20,6 @@ import {
   AttendeeQuote,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { Breadcrumb } from 'src/components/navigation'
 import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'

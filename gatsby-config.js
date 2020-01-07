@@ -5,7 +5,11 @@ const PortableText = require('@sanity/block-content-to-html')
 // `hyperscript` is a way to build HTML known as hyperscript
 // See https://github.com/hyperhype/hyperscript for more info
 const hyperscript = PortableText.h
-const getPostsFromNodes = require('./src/components/blog/getPostsFromNodes')
+const {
+  getPostsFromNodes,
+  getContents,
+  createPortableTextListItem,
+} = require('./src/components/blog/utils')
 
 require('dotenv').config({
   path: `.env`,
@@ -143,6 +147,11 @@ module.exports = {
               return posts.map(node => {
                 const { title, publishedAt, _rawBody, excerpt } = node
                 const url = siteUrl + node.path
+                const contentsBlockList = getContents({
+                  rawBody: _rawBody,
+                }).map(createPortableTextListItem)
+
+                const rawBodyWithContents = [...contentsBlockList, ..._rawBody]
 
                 return {
                   title: title,
@@ -153,7 +162,7 @@ module.exports = {
                   custom_elements: [
                     {
                       'content:encoded': PortableText({
-                        blocks: _rawBody,
+                        blocks: rawBodyWithContents,
                         serializers: {
                           marks: {
                             link: ({ mark, children }) => {

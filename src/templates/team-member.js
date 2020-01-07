@@ -14,7 +14,7 @@ import Ul, { Li } from '../components/layout/Ul'
 import { Video, Image } from '../components/elements'
 import { UpcomingTrainingSection } from '../components/training'
 import BlogSection from '../components/blog/BlogSection'
-import getPostsFromNodes from '../components/blog/getPostsFromNodes'
+import { getPostsFromNodes } from '../components/blog/utils'
 import { createSocialMetas } from '../components/utils/index'
 
 export const renderJob = ({ enableLink = false } = {}) => (

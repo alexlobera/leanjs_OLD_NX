@@ -31,7 +31,6 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import Card from 'src/components/elements/Card'
 import { getURLParameter } from 'src/components/utils/url'
 import {
   GRAPHQL_BOOTCAMP,
