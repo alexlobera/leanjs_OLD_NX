@@ -157,6 +157,10 @@ module.exports = {
                         serializers: {
                           marks: {
                             link: ({ mark, children }) => {
+                              const baseUrl =
+                                siteUrl.slice(-1) === '/'
+                                  ? siteUrl.slice(0, -1)
+                                  : siteUrl
                               const href =
                                 mark.href &&
                                 mark.href.match(
@@ -164,7 +168,7 @@ module.exports = {
                                 )
                                   ? mark.href
                                   : mark.href
-                                  ? `${siteUrl}${mark.href}`
+                                  ? `${baseUrl}${mark.href}`
                                   : ''
                               return h(
                                 'a',
