@@ -1,14 +1,12 @@
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
 } = require('./studio/sanity.json')
-const PortableText = require('@sanity/block-content-to-html')
 // `hyperscript` is a way to build HTML known as hyperscript
 // See https://github.com/hyperhype/hyperscript for more info
-const hyperscript = PortableText.h
+
 const {
   getPostsFromNodes,
-  getContents,
-  createPortableTextListItem,
+  postsToHtml,
 } = require('./src/components/blog/utils')
 
 require('dotenv').config({
@@ -144,113 +142,7 @@ module.exports = {
                 {}
               )
 
-              return posts.map(node => {
-                const { title, publishedAt, _rawBody, excerpt } = node
-                const url = siteUrl + node.path
-                const contentsBlockList = getContents({
-                  rawBody: _rawBody,
-                }).map(createPortableTextListItem)
-
-                const rawBodyWithContents = [...contentsBlockList, ..._rawBody]
-
-                return {
-                  title: title,
-                  date: publishedAt,
-                  description: excerpt,
-                  url,
-                  guid: url,
-                  custom_elements: [
-                    {
-                      'content:encoded': PortableText({
-                        blocks: rawBodyWithContents,
-                        serializers: {
-                          marks: {
-                            link: ({ mark, children }) => {
-                              const baseUrl =
-                                siteUrl.slice(-1) === '/'
-                                  ? siteUrl.slice(0, -1)
-                                  : siteUrl
-                              const href =
-                                mark.href &&
-                                mark.href.match(
-                                  /^(https:\/\/*|http:\/\/*|mailto:*)/
-                                )
-                                  ? mark.href
-                                  : mark.href
-                                  ? `${baseUrl}${mark.href}`
-                                  : ''
-                              return hyperscript(
-                                'a',
-                                {
-                                  href,
-                                },
-                                children
-                              )
-                            },
-                          },
-                          types: {
-                            image: ({ node }) => {
-                              return hyperscript('img', {
-                                src: bodyImagePublicURLs[node.asset.id],
-                              })
-                            },
-                            code: ({ node }) =>
-                              hyperscript(
-                                'pre',
-                                hyperscript(
-                                  'code',
-                                  { lang: node.language },
-                                  node.code
-                                )
-                              ),
-                            mainImage: ({ node }) =>
-                              hyperscript('img', {
-                                src: node.fluidImage.src,
-                              }),
-                            tweet: ({ node }) =>
-                              hyperscript(
-                                'p',
-                                {},
-                                hyperscript('a', {
-                                  href: `https://twitter.com/user/status/${node.id}`,
-                                  innerHTML: 'Look at the tweet.',
-                                })
-                              ),
-                            youtube: ({ node }) =>
-                              hyperscript(
-                                'p',
-                                {},
-                                hyperscript('a', {
-                                  href: `https://www.youtube.com/watch?v=${
-                                    node.videoId
-                                  }${
-                                    node.startSecond
-                                      ? `&start=${node.startSecond}`
-                                      : ''
-                                  }`,
-                                  innerHTML: `Related video ${
-                                    node.description
-                                      ? `about: "${node.description}"`
-                                      : ''
-                                  }.`,
-                                })
-                              ),
-                            codesandbox: ({ node }) =>
-                              hyperscript(
-                                'p',
-                                {},
-                                hyperscript('a', {
-                                  href: `https://codesandbox.io/s/${node.id}`,
-                                  innerHTML: `Look at this codesandbox`,
-                                })
-                              ),
-                          },
-                        },
-                      }),
-                    },
-                  ],
-                }
-              })
+              return postsToHtml({ posts, bodyImagePublicURLs, siteUrl })
             },
             query: `{
                 allSanityPost(sort: {fields: publishedAt, order: DESC}) {
