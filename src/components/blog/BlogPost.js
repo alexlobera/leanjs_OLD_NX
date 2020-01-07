@@ -163,7 +163,7 @@ const BlogPost = ({
                   <Ul>
                     {contents.map(({ slug, text }) => (
                       <BlogPostLi>
-                        {text}, <Link to={`#${slug}`}>go to section</Link>.
+                        {text}, <Link to={slug}>go to section</Link>.
                       </BlogPostLi>
                     ))}
                   </Ul>
