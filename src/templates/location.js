@@ -23,7 +23,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 import { createSocialMetas } from 'src/components/utils'
 import { titleCase } from 'src/components/utils/text'
 import Gallery from 'src/components/elements/Gallery'
-import getPostsFromNodes from 'src/components/blog/getPostsFromNodes'
+import { getPostsFromNodes } from 'src/components/blog/utils'
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,

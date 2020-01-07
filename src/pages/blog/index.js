@@ -8,7 +8,7 @@ import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
-import getPostsFromNodes from '../../components/blog/getPostsFromNodes'
+import { getPostsFromNodes } from '../../components/blog/utils'
 
 const Blog = ({ data, path }) => {
   const posts = getPostsFromNodes({

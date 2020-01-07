@@ -18,7 +18,7 @@ import Tweet from '../components/blog/Tweet'
 import Video from '../components/elements/Video'
 import Ul from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text/H'
-import getPostsFromNodes from '../components/blog/getPostsFromNodes'
+import { getPostsFromNodes, getContents } from '../components/blog/utils'
 import { slugify } from '../components/utils/text'
 
 function renderHeadingWithAnchor({ children, Component }) {
@@ -144,18 +144,7 @@ const Page = ({ data, location, pageContext: { slug } }) => {
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
     sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
   })
-  const contents = _rawBody.reduce((accContents, currentBlock) => {
-    if (currentBlock.style === 'h2') {
-      const text = currentBlock.children
-        .map(({ text }) => text)
-        .join(' ')
-        .trim()
-
-      accContents.push({ text, slug: slugify(text) })
-    }
-
-    return accContents
-  }, [])
+  const contents = getContents({ rawBody: _rawBody })
 
   const blogPostProps = {
     body,

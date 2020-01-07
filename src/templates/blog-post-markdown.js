@@ -23,7 +23,7 @@ import BlogPost, {
   BlogPostLink,
   BlogPostSpan,
 } from '../components/blog/BlogPost'
-import getPostsFromNodes from '../components/blog/getPostsFromNodes'
+import { getPostsFromNodes } from '../components/blog/utils'
 
 function renderHeadingWithAnchor({ children, Component }) {
   return (
