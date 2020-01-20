@@ -58,13 +58,6 @@ exports[`<PhoneMenu /> should render a menu with less than 11 items in the first
       GraphQL Curriculum
     </PhoneMenuItem>
     <PhoneMenuItem
-      key="/locations"
-      onClick={[Function]}
-      to="/locations"
-    >
-      Locations
-    </PhoneMenuItem>
-    <PhoneMenuItem
       key="/blog"
       onClick={[Function]}
       to="/blog"

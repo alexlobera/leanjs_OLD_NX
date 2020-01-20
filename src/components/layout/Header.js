@@ -445,7 +445,14 @@ const Header = ({
                         </Li>
                         <Li>
                           <strong>Venue</strong>:{' '}
-                          {training.address || 'To be confirmed'}
+                          {training.address || (
+                            <>
+                              TBC. {` `}
+                              <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
+                                Host it and get exclusive promotions
+                              </Link>
+                            </>
+                          )}
                           {training.mapUrl ? (
                             <React.Fragment>
                               {` - `}

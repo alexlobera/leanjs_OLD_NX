@@ -36,43 +36,6 @@
     ]
   },
   {
-    "to": "/locations",
-    "text": "Locations",
-    "showOnMobile": true,
-    "children": [
-      {
-        "to": "/locations/london",
-        "text": "London",
-        "hideOnMobile": true
-      },
-      {
-        "to": "/locations/amsterdam",
-        "text": "Amsterdam",
-        "hideOnMobile": true
-      },
-      {
-        "to": "/locations/berlin",
-        "text": "Berlin",
-        "hideOnMobile": true
-      },
-      {
-        "to": "/locations/barcelona",
-        "text": "Barcelona",
-        "hideOnMobile": true
-      },
-      {
-        "to": "/locations/paris",
-        "text": "Paris",
-        "hideOnMobile": true
-      },
-      {
-        "to": "/locations/lisbon",
-        "text": "Lisbon",
-        "hideOnMobile": true
-      }
-    ]
-  },
-  {
     "to": "/blog",
     "text": "Blog"
   },

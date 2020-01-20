@@ -51,45 +51,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/graphql"
     />
     <DesktopMenuItem
-      key="/locations"
-      submenuItems={
-        Array [
-          Object {
-            "hideOnMobile": true,
-            "text": "London",
-            "to": "/locations/london",
-          },
-          Object {
-            "hideOnMobile": true,
-            "text": "Amsterdam",
-            "to": "/locations/amsterdam",
-          },
-          Object {
-            "hideOnMobile": true,
-            "text": "Berlin",
-            "to": "/locations/berlin",
-          },
-          Object {
-            "hideOnMobile": true,
-            "text": "Barcelona",
-            "to": "/locations/barcelona",
-          },
-          Object {
-            "hideOnMobile": true,
-            "text": "Paris",
-            "to": "/locations/paris",
-          },
-          Object {
-            "hideOnMobile": true,
-            "text": "Lisbon",
-            "to": "/locations/lisbon",
-          },
-        ]
-      }
-      text="Locations"
-      to="/locations"
-    />
-    <DesktopMenuItem
       key="/blog"
       text="Blog"
       to="/blog"
