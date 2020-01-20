@@ -141,7 +141,14 @@ const selectCurriculumLayout = ({
                   }
                   className="corporate-team-training-course-cta"
                 >
-                  Corporate Team Training
+                  Corporate team training
+                </LinkButton>
+                <H3>Host a public training</H3>
+                <LinkButton
+                  to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/"
+                  className="corporate-team-training-course-cta"
+                >
+                  Get exclusive promotions
                 </LinkButton>
               </React.Fragment>
             )}

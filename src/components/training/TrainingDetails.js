@@ -30,6 +30,12 @@ const TrainingDetails = ({ foodIncluded = false, coaches = [] }) => (
     <Ul>
       <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}</Li>
       <Li>Accomodation not included</Li>
+      <Li>
+        <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
+          Become a host and get exclusive promotions
+        </Link>{' '}
+        for your company.
+      </Li>
     </Ul>
   </React.Fragment>
 )
