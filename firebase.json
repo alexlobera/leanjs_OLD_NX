@@ -41,12 +41,8 @@
         "type": 301
       }
     ],
-    "rewrites": [
-      {
-        "source": "/community/meetups/**",
-        "destination": "/community/meetups/Meetup/index.html"
-      }
-    ]
+    "appAssociation": "AUTO",
+    "rewrites": [{ "source": "/_/**", "dynamicLinks": true }]
   },
   "storage": {
     "rules": "storage.rules"
