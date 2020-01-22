@@ -196,6 +196,17 @@ function postsToHtml({ posts, bodyImagePublicURLs, siteUrl }) {
                       innerHTML: 'Look at the tweet.',
                     })
                   ),
+                tedvideo: ({ node }) =>
+                  hyperscript(
+                    'p',
+                    {},
+                    hyperscript('a', {
+                      href: node.embedUrl,
+                      innerHTML: `Related Ted video ${
+                        node.description ? `about: "${node.description}"` : ''
+                      }.`,
+                    })
+                  ),
                 youtube: ({ node }) =>
                   hyperscript(
                     'p',
