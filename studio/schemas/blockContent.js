@@ -63,5 +63,8 @@ export default {
     {
       type: 'code',
     },
+    {
+      type: 'tedvideo',
+    },
   ],
 }

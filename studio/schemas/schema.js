@@ -13,6 +13,7 @@ import tweet from './tweet'
 import codesanbox from './codesanbox'
 import code from './code'
 import richBulletPoints from './richBulletPoints'
+import tedvideo from './tedvideo'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -36,5 +37,6 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     richBulletPoints,
     blockContent,
+    tedvideo,
   ]),
 })
