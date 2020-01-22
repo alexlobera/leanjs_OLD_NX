@@ -39,7 +39,7 @@ function removeCarriageReturn(text) {
   }
 }
 
-const Page = ({ data, location, pageContext: { slug } }) => {
+const Page = ({ data, location }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || {}
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
@@ -154,7 +154,7 @@ const Page = ({ data, location, pageContext: { slug } }) => {
     body,
     postTypeLabel,
     postTypePath: category,
-    slug,
+    slug: location.pathname,
     authorFixedImg,
     authorFullname: fullname,
     authorTwitter: twitter || 'reactgqlacademy',
