@@ -39,11 +39,6 @@
         "source": "/community/meetups/1{,/}",
         "destination": "https://reactgraphql.academy/community/meetups/5ce811c728bf226ebe872d74/",
         "type": 301
-      },
-      {
-        "source": "!/_/:path*",
-        "destination": "https://reactgraphql.academy/:path",
-        "type": 302
       }
     ],
     "appAssociation": "AUTO",
