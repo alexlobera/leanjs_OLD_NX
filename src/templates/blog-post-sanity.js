@@ -16,6 +16,7 @@ import BlogPost, {
 } from '../components/blog/BlogPost'
 import Tweet from '../components/blog/Tweet'
 import Video from '../components/elements/Video'
+import TedVideo from '../components/elements/TedVideo'
 import Ul from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text/H'
 import { getPostsFromNodes, getContents } from '../components/blog/utils'
@@ -101,6 +102,9 @@ const Page = ({ data, location, pageContext: { slug } }) => {
         <Video time={node.startSecond} youtubeId={node.videoId} />
       ),
       span: BlogPostSpan,
+      tedvideo: ({ node }) => (
+        <TedVideo embedUrl={node.embedUrl} description={node.description} />
+      ),
       codesandbox: ({ node }) => <Codesandbox id={node.id} />,
       image: props => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
     },
