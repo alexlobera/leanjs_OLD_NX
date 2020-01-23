@@ -4,6 +4,7 @@ import { P, Span } from '../text'
 import Link from '../navigation/Link'
 import { selectTypeColor, selectBorderStyle } from '../utils'
 import Flex from '../layout/Flex'
+import Tag from '../elements/Tag'
 
 const Calendar = styled(Link).attrs({
   className: props => props.className,
@@ -33,6 +34,7 @@ const TrainingItem = ({
   startMonth,
   path,
   className,
+  isOnline,
 }) => (
   <Flex flexDirection="row" alignItems="flex-start" pb={4}>
     <Calendar className={className} type={type} to={path}>
@@ -46,7 +48,7 @@ const TrainingItem = ({
     <P display="inline" pl={2} pr={2}>
       {title}
       <br />
-      {cityCountry}
+      {isOnline ? <Tag>Online</Tag> : cityCountry}
       <br />
       <Link className={className} to={path}>
         Prices & more details

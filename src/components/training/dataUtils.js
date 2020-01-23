@@ -11,9 +11,15 @@ import {
   GRAPHQL_PART_TIME,
 } from '../../config/data'
 
-export const createTrainingPath = ({ type, city = '', index, slug }) => {
+export const createTrainingPath = ({
+  type,
+  city = '',
+  index,
+  slug,
+  isOnline,
+}) => {
   const i = index > 1 ? index : ''
-  const cityPath = city.toLowerCase().replace(' ', '-')
+  const cityPath = isOnline ? 'online' : city.toLowerCase().replace(' ', '-')
   switch (type) {
     case REACT_PART_TIME:
       return `/react/training/part-time-course/${cityPath}/${i}`

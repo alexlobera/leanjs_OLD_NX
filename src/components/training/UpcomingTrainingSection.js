@@ -7,7 +7,7 @@ import UpcomingTrainings from './UpcomingTrainings'
 import Link from '../navigation/Link'
 import selectUpcomingTrainings from './selectUpcomingTrainings'
 import { GREY } from '../../config/styles'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
+// import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
@@ -34,8 +34,8 @@ const CorporateCrossSell = ({ to }) => (
 )
 
 export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
-  const [activeTab, setActiveTab] = useState(REACT_BOOTCAMP)
-  const reactTrainings = selectUpcomingTrainings({
+  // const [activeTab, setActiveTab] = useState(REACT_BOOTCAMP)
+  const allTrainings = selectUpcomingTrainings({
     trainings,
     limit,
     types: [
@@ -44,57 +44,61 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
       REACT_PART_TIME,
       REACT_WORKSHOP,
       REACT_FUNDAMENTALS,
+      GRAPHQL_BOOTCAMP,
+      GRAPHQL_API,
+      GRAPHQL_WORKSHOP,
+      GRAPHQL_PART_TIME,
+      MEETUP,
     ],
   })
-  const graphqlTrainings = selectUpcomingTrainings({
-    trainings,
-    limit,
-    types: [GRAPHQL_BOOTCAMP, GRAPHQL_API, GRAPHQL_WORKSHOP, GRAPHQL_PART_TIME],
-  })
-  const meetups = selectUpcomingTrainings({
-    trainings,
-    limit,
-    types: [MEETUP],
-  })
+
+  //   const meetups = selectUpcomingTrainings({
+  //     trainings,
+  //     limit,
+  //     types: [MEETUP],
+  //   })
 
   return (
-    <Tabs active={activeTab} onChange={setActiveTab}>
-      <TabList>
-        <TabItem className="upcoming-events" name={REACT_BOOTCAMP}>
-          React Courses
-        </TabItem>
-        <TabItem className="upcoming-events" name={GRAPHQL_BOOTCAMP}>
-          GraphQL Courses
-        </TabItem>
-        <TabItem className="upcoming-events" name={MEETUP}>
-          Meetups
-        </TabItem>
-      </TabList>
-      <TabContent>
-        <ContentItem name={REACT_BOOTCAMP}>
-          <Row>
-            <UpcomingTrainings
-              className="upcoming-courses-all-courses"
-              trainings={reactTrainings}
-            />
-            <CorporateCrossSell to="/react/training/corporate/" />
-          </Row>
-        </ContentItem>
+    // <Tabs active={activeTab} onChange={setActiveTab}>
+    //   <TabList>
+    //     <TabItem className="upcoming-events" name={TRAINING}>
+    //       Courses
+    //     </TabItem>
+    //     <TabItem className="upcoming-events" name={REACT_BOOTCAMP}>
+    //       React Courses
+    //     </TabItem>
+    //     <TabItem className="upcoming-events" name={GRAPHQL_BOOTCAMP}>
+    //       GraphQL Courses
+    //     </TabItem>
+    //     <TabItem className="upcoming-events" name={MEETUP}>
+    //       Meetups
+    //     </TabItem>
+    //   </TabList>
+    //   <TabContent>
+    //     <ContentItem name={REACT_BOOTCAMP}>
+    <Row>
+      <UpcomingTrainings
+        className="upcoming-courses-all-courses"
+        trainings={allTrainings}
+      />
+      <CorporateCrossSell to="/react/training/corporate/" />
+    </Row>
+    //     </ContentItem>
 
-        <ContentItem name={GRAPHQL_BOOTCAMP}>
-          <Row>
-            <UpcomingTrainings trainings={graphqlTrainings} />
-            <CorporateCrossSell to="/graphql/training/corporate/" />
-          </Row>
-        </ContentItem>
+    //     <ContentItem name={GRAPHQL_BOOTCAMP}>
+    //       <Row>
+    //         <UpcomingTrainings trainings={graphqlTrainings} />
+    //         <CorporateCrossSell to="/graphql/training/corporate/" />
+    //       </Row>
+    //     </ContentItem>
 
-        <ContentItem name={MEETUP}>
-          <Row>
-            <UpcomingTrainings trainings={meetups} />
-          </Row>
-        </ContentItem>
-      </TabContent>
-    </Tabs>
+    //     <ContentItem name={MEETUP}>
+    //       <Row>
+    //         <UpcomingTrainings trainings={meetups} />
+    //       </Row>
+    //     </ContentItem>
+    //   </TabContent>
+    // </Tabs>
   )
 }
 

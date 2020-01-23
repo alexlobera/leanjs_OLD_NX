@@ -237,7 +237,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `).then(async result => {
       const locationPath = /^\/locations\//g
-      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong).*/
+      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|online).*/
       const citiesFinanceAvailable = ['london']
 
       await Promise.all(

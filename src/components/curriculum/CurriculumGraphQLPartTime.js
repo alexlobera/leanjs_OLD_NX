@@ -1,12 +1,12 @@
 import React from 'react'
-import NodejsSession from './sessions/graphql/server/NodejsSession'
 import ThinkingInGraphQLSession from './sessions/graphql/server/ThinkingInGraphQLSession'
 import SchemaDesignSession from './sessions/graphql/server/SchemaDesignSession'
 import ErrorAndSecuritySession from './sessions/graphql/server/ErrorAndSecuritySession'
-import GraphQLServerRecapSession from './sessions/graphql/server/GraphQLServerRecapSession'
-// import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-// import AdvGQLQueryMutationSession from './sessions/graphql/client/AdvGQLQueryMutationSession'
-// import GraphQLClientRecapSession from './sessions/graphql/client/GraphQLClientRecapSession'
+import SubscriptionsSession from './sessions/graphql/server/SubscriptionsSession'
+import FederationSession from './sessions/graphql/server/FederationSession'
+import HasuraSession from './sessions/graphql/server/HasuraSession'
+import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
+import IntermediateApolloClientSession from './sessions/graphql/client/IntermediateApolloClientSession'
 import { GRAPHQL_PART_TIME } from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
@@ -16,11 +16,17 @@ import {
 } from './CurriculumGraphQLBootcamp'
 
 const defaultSessionsFirstHalf = [
-  { Comp: NodejsSession, group: 1 },
-  { Comp: ThinkingInGraphQLSession, group: 1 },
-  { Comp: SchemaDesignSession, group: 2 },
-  { Comp: ErrorAndSecuritySession, group: 2 },
-  { Comp: GraphQLServerRecapSession, group: 3 },
+  { Comp: ThinkingInGraphQLSession },
+  { Comp: SchemaDesignSession },
+  { Comp: ErrorAndSecuritySession },
+  { Comp: FederationSession },
+]
+
+const defaultSessionsSecondtHalf = [
+  { Comp: SubscriptionsSession },
+  { Comp: HasuraSession },
+  { Comp: GraphQLClientFundamentalsSession },
+  { Comp: IntermediateApolloClientSession },
 ]
 
 const CurriculumPartTime = ({
@@ -28,6 +34,7 @@ const CurriculumPartTime = ({
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
+  sessionsSecondtHalf = defaultSessionsSecondtHalf,
   ...rest
 }) => {
   const type = GRAPHQL_PART_TIME
@@ -51,6 +58,9 @@ const CurriculumPartTime = ({
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}
+      secondHalf={sessionsSecondtHalf.map(
+        renderSectionWithProps(sessionsFirstHalf.length)
+      )}
     />
   )
 }

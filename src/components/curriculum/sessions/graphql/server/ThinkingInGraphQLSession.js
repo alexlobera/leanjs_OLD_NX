@@ -5,20 +5,27 @@ import Session from '../../Session'
 const ThinkingInGraphQLSession = ({ title }) => (
   <Session title={title}>
     <Ul>
-      <Li>Switching from REST to GraphQL</Li>
+      <Li>
+        Switching from REST to GraphQL
+        <Ul>
+          <Li>What GraphQL is and what it is not</Li>
+          <Li>Advantages of GraphQL over REST</Li>
+        </Ul>
+      </Li>
       <Li>
         Schema fundamentals
         <Ul>
+          <Li>Schema Definition Language</Li>
           <Li>Types and Fields</Li>
           <Li>Queries and Mutations</Li>
         </Ul>
       </Li>
       <Li>
-        Building a GraphQL API
+        GraphQL API
         <Ul>
+          <Li>Query validation and execution</Li>
           <Li>Resolvers</Li>
           <Li>Rapid GraphQL development with mocked data</Li>
-          <Li>Wrapping existent REST APIs with GraphQL</Li>
         </Ul>
       </Li>
     </Ul>
@@ -28,5 +35,7 @@ const ThinkingInGraphQLSession = ({ title }) => (
 ThinkingInGraphQLSession.defaultProps = {
   title: 'Thinking in GraphQL',
 }
+// TODO remove this when training instance unit is fetched from the API
+ThinkingInGraphQLSession.coachName = 'Alex Lobera'
 
 export default ThinkingInGraphQLSession

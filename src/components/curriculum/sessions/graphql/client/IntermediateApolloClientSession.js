@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../../../layout/Ul'
 import Session from '../../Session'
 
-const AdvGQLQueryMutationSession = ({ title }) => (
+const IntermediateApolloClientSession = ({ title, coach }) => (
   <Session title={title}>
     <Ul>
       <Li>Building data-driven React applications</Li>
@@ -24,8 +24,10 @@ const AdvGQLQueryMutationSession = ({ title }) => (
   </Session>
 )
 
-AdvGQLQueryMutationSession.defaultProps = {
-  title: 'Advanced Queries & Mutations in React',
+IntermediateApolloClientSession.defaultProps = {
+  title: 'Intermediate Apollo Client',
 }
+// TODO remove this when training instance unit is fetched from the API
+IntermediateApolloClientSession.coachName = 'Vladimir Novick'
 
-export default AdvGQLQueryMutationSession
+export default IntermediateApolloClientSession

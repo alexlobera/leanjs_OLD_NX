@@ -57,6 +57,7 @@ const UpcomingTrainings = ({
       const trainingInstance = (
         <TrainingItem
           key={training.id}
+          isOnline={training.isOnline}
           cityCountry={training.cityCountry}
           startDay={dayMonth[0]}
           startMonth={dayMonth[1]}

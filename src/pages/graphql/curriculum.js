@@ -22,7 +22,6 @@ import {
   ContentItem,
 } from 'src/components/layout/Tabs'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
-import CurriculumGraphQLAPI from 'src/components/curriculum/CurriculumGraphQLAPI'
 import CurriculumGraphQLPartTime from 'src/components/curriculum/CurriculumGraphQLPartTime'
 import CurriculumGraphQLBootcamp from 'src/components/curriculum/CurriculumGraphQLBootcamp'
 import Header from 'src/components/layout/Header'
@@ -129,24 +128,12 @@ class GraphQLCurriculum extends React.Component {
                         <Thead>
                           <Tr>
                             <Th />
-                            <Th type={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</Th>
                             <Th type={GRAPHQL_PART_TIME}>GraphQL Part-time</Th>
-                            <Th type={GRAPHQL_API}>GraphQL API</Th>
+                            <Th type={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</Th>
+                            {/* <Th type={GRAPHQL_API}>GraphQL API</Th> */}
                           </Tr>
                         </Thead>
                         <Tbody>
-                          <Tr>
-                            <Td>Node.js & Cloud</Td>
-                            <Td>
-                              <Tick type={GRAPHQL_BOOTCAMP} />
-                            </Td>
-                            <Td>
-                              <Tick type={GRAPHQL_PART_TIME} />
-                            </Td>
-                            <Td>
-                              <Tick type={GRAPHQL_API} />
-                            </Td>
-                          </Tr>
                           <Tr>
                             <Td>Schema Design</Td>
                             <Td>
@@ -155,9 +142,9 @@ class GraphQLCurriculum extends React.Component {
                             <Td>
                               <Tick type={GRAPHQL_PART_TIME} />
                             </Td>
-                            <Td>
+                            {/* <Td>
                               <Tick type={GRAPHQL_API} />
-                            </Td>
+                            </Td> */}
                           </Tr>
                           <Tr>
                             <Td>Security & Error Handling</Td>
@@ -167,9 +154,19 @@ class GraphQLCurriculum extends React.Component {
                             <Td>
                               <Tick type={GRAPHQL_PART_TIME} />
                             </Td>
-                            <Td>
+                            {/* <Td>
                               <Tick type={GRAPHQL_API} />
+                            </Td> */}
+                          </Tr>
+                          <Tr>
+                            <Td>Apollo Federation and Subscriptions</Td>
+                            <Td>
+                              <Tick type={GRAPHQL_BOOTCAMP} />
                             </Td>
+                            <Td>
+                              <Tick type={GRAPHQL_PART_TIME} />
+                            </Td>
+                            {/* <Td /> */}
                           </Tr>
                           <Tr>
                             <Td>Data-Driven application</Td>
@@ -179,7 +176,7 @@ class GraphQLCurriculum extends React.Component {
                             <Td>
                               <Tick type={GRAPHQL_PART_TIME} />
                             </Td>
-                            <Td />
+                            {/* <Td /> */}
                           </Tr>
                           <Tr>
                             <Td>Client-side caching</Td>
@@ -189,31 +186,16 @@ class GraphQLCurriculum extends React.Component {
                             <Td>
                               <Tick type={GRAPHQL_PART_TIME} />
                             </Td>
-                            <Td />
+                            {/* <Td /> */}
                           </Tr>
                           <Tr>
                             <Td verticalAlign="top">Timings/Pricing</Td>
                             <Td>
                               <Ul textAlign="left">
-                                <Li>3 days</Li>
-                                <Li>Full time</Li>
-                                <Li>9 am to 6 pm</Li>
-                                <Li>£995</Li>
-                              </Ul>
-                              <LinkButton
-                                variant="secondary"
-                                to="/graphql/training/bootcamp"
-                                className="training-curriculum-clicks"
-                              >
-                                GraphQL Bootcamp
-                              </LinkButton>
-                            </Td>
-                            <Td>
-                              <Ul textAlign="left">
                                 <Li>1 month</Li>
                                 <Li>Part time</Li>
-                                <Li>Evenings or weekends</Li>
-                                <Li>£995</Li>
+                                <Li>Evenings Central European Time</Li>
+                                <Li>Starting at £995</Li>
                               </Ul>
                               <LinkButton
                                 variant="secondary"
@@ -224,6 +206,21 @@ class GraphQLCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
+                              <Ul textAlign="left">
+                                <Li>3 days</Li>
+                                <Li>Full time</Li>
+                                <Li>9 am to 6 pm</Li>
+                                <Li>Starting at £995</Li>
+                              </Ul>
+                              <LinkButton
+                                variant="secondary"
+                                to="/graphql/training/bootcamp"
+                                className="training-curriculum-clicks"
+                              >
+                                GraphQL Bootcamp
+                              </LinkButton>
+                            </Td>
+                            {/* <Td>
                               <Ul textAlign="left">
                                 <Li>2 days</Li>
                                 <Li>Full time</Li>
@@ -237,7 +234,7 @@ class GraphQLCurriculum extends React.Component {
                               >
                                 GraphQL API
                               </LinkButton>
-                            </Td>
+                            </Td> */}
                           </Tr>
                         </Tbody>
                       </Table>
@@ -246,15 +243,11 @@ class GraphQLCurriculum extends React.Component {
                         {[
                           {
                             to: '/graphql/training/corporate/',
-                            txt: 'Corporate team training',
-                          },
-                          {
-                            to: '/graphql/training/workshops/',
-                            txt: '1-day GraphQL workshops',
+                            txt: 'Corporate GraphQL team training',
                           },
                           { to: '/react/training/', txt: 'React training' },
                         ].map(({ to, txt }) => (
-                          <Col md={4}>
+                          <Col md={6}>
                             <LinkButton
                               display="block"
                               className="training-curriculum-clicks"
@@ -283,7 +276,6 @@ class GraphQLCurriculum extends React.Component {
                         <TabItem name={GRAPHQL_BOOTCAMP}>
                           GraphQL Bootcamp
                         </TabItem>
-                        <TabItem name={GRAPHQL_API}>GraphQL API</TabItem>
                       </TabList>
                       <TabContent>
                         <ContentItem name={GRAPHQL_BOOTCAMP}>
@@ -376,59 +368,12 @@ class GraphQLCurriculum extends React.Component {
                                         trainingPartTime.toPath
                                       }
                                       buttonText={`${
-                                        trainingPartTime.city
+                                        trainingPartTime.isOnline
+                                          ? 'Online'
+                                          : trainingPartTime.city
                                       } GraphQL part-time, ${formatUTC(
                                         trainingPartTime.startDate,
                                         trainingPartTime.utcOffset,
-                                        'D MMM'
-                                      )}  `}
-                                    />
-                                  )
-                                }
-                              />
-                            </Col>
-                          </Row>
-                        </ContentItem>
-                        <ContentItem name={GRAPHQL_API}>
-                          <P>
-                            <strong>
-                              On completion of the GraphQL API training each
-                              student will:
-                            </strong>
-                          </P>
-                          <Ul>
-                            <CurriculumGraphQLAPI.LearningObjectivesList />
-                            <Li>
-                              Not sure if our trainings are right for you? Read
-                              our blog{' '}
-                              <Link
-                                className="perfect-course-student"
-                                to="/blog/are-you-the-perfect-react-graphql-student/"
-                              >
-                                <strong>
-                                  Are YOU the Perfect GraphQL Student?
-                                </strong>
-                              </Link>
-                            </Li>
-                          </Ul>
-
-                          <H4>GraphQL API Curriculum:</H4>
-                          <Row>
-                            <Col lg={1} lgOffset={1} />
-                            <Col lg={9}>
-                              <CurriculumGraphQLAPI
-                                {...commonCurriculumProps}
-                                marketingCard={
-                                  trainingApi && (
-                                    <MarketingCard
-                                      heading="Next GraphQL API Training"
-                                      className="training-curriculum-next-training-cta"
-                                      to={trainingApi && trainingApi.toPath}
-                                      buttonText={`${
-                                        trainingApi.city
-                                      } GraphQL API training, ${formatUTC(
-                                        trainingApi.startDate,
-                                        trainingApi.utcOffset,
                                         'D MMM'
                                       )}  `}
                                     />

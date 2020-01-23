@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../../../../layout/Ul'
 import Session from '../../Session'
 
-const GraphQLClientFundamentalsSession = ({ title }) => (
-  <Session title={title}>
+const GraphQLClientFundamentalsSession = ({ title, coachName }) => (
+  <Session title={title} coachName={coachName}>
     <Ul>
       <Li>Query and Mutation principles</Li>
       <Li>Do I need a GraphQL client?</Li>
@@ -20,7 +20,9 @@ const GraphQLClientFundamentalsSession = ({ title }) => (
 )
 
 GraphQLClientFundamentalsSession.defaultProps = {
-  title: 'GraphQL client-side fundamentals',
+  title: 'Apollo Client Fundamentals',
 }
+// TODO remove this when training instance unit is fetched from the API
+GraphQLClientFundamentalsSession.coachName = 'Vladimir Novick'
 
 export default GraphQLClientFundamentalsSession

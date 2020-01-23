@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { formatUTC } from '../utils'
+import { formatUTC, convertMinutesToHoursAndMinutes } from '../utils'
 import Section from './Section'
 import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
@@ -27,6 +27,7 @@ import Box from '../layout/Box'
 import { LinkButton } from '../buttons'
 import { TECH_GRAPHQL, TECH_REACT } from '../../config/data'
 import { Breadcrumb } from '../navigation'
+import Tag from '../elements/Tag'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -334,6 +335,10 @@ const Header = ({
       const endDate =
         training.endDate &&
         formatUTC(training.endDate, training.utcOffset, 'D MMM')
+      const {
+        hours: utcHours,
+        minutes: utcMinutes,
+      } = convertMinutesToHoursAndMinutes(training.utcOffset)
 
       return (
         <React.Fragment>
@@ -422,7 +427,7 @@ const Header = ({
                           alt={subtitle}
                         />
                       )}
-                      <Ul variant="unstyled" mb={1} pl={1} pr={1}>
+                      <Ul variant="unstyled" mb={1} pl={0} pr={0}>
                         <Li>
                           <strong>Date</strong>: {startDate ? startDate : 'TBD'}
                           {startDate === endDate ? '' : ` - ${endDate}`}
@@ -435,39 +440,47 @@ const Header = ({
                               training.utcOffset,
                               'HH:mm'
                             )) ||
-                            '9am'} - ${(training.endDate &&
+                            '9am'}-${(training.endDate &&
                             formatUTC(
                               training.endDate,
                               training.utcOffset,
                               'HH:mm'
                             )) ||
                             '6:00pm'}`}
+                          {training.isOnline && ` GMT${utcHours}:${utcMinutes}`}
                         </Li>
-                        <Li>
-                          <strong>Venue</strong>:{' '}
-                          {training.address || (
-                            <>
-                              TBC. {` `}
-                              <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
-                                Host it and get exclusive promotions
-                              </Link>
-                            </>
-                          )}
-                          {training.mapUrl ? (
-                            <React.Fragment>
-                              {` - `}
-                              <Link to={training.mapUrl} className={className}>
-                                {' '}
-                                map
-                              </Link>
-                            </React.Fragment>
-                          ) : null}
-                        </Li>
-                        {(!training.address ||
-                          training.address === 'To be confirmed') && (
+                        {training.isOnline ? (
+                          <>
+                            <Li>
+                              <strong>Location</strong>: <Tag>Online</Tag>
+                            </Li>
+                            <Li>
+                              <strong>Conference room</strong>:{' '}
+                              {training.venueName}
+                            </Li>
+                          </>
+                        ) : training.address ? (
                           <Li>
-                            <strong>Location</strong>:{' '}
-                            {training.city || 'To be confirmed'}
+                            <strong>Venue</strong>:{training.address}
+                            {training.mapUrl && (
+                              <>
+                                {` - `}
+                                <Link
+                                  to={training.mapUrl}
+                                  className={className}
+                                >
+                                  {' '}
+                                  map
+                                </Link>
+                              </>
+                            )}
+                          </Li>
+                        ) : (
+                          <Li>
+                            <strong>Venue</strong>: TBC. {` `}
+                            <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
+                              Host it and get exclusive promotions
+                            </Link>
                           </Li>
                         )}
                         {linkToGallery && (

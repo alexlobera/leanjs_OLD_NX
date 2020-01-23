@@ -38,6 +38,7 @@ const InstancePage = ({
   crossSellTypes,
   curriculumProps = {},
   perfectStudentLink,
+  data,
   pageContext: {
     locationImage,
     posts,
@@ -81,12 +82,12 @@ const InstancePage = ({
         trainingId,
         city,
       })
-
+      console.log('1111 upcomingTrainings', upcomingTrainings)
       const training = selectNthTraining({
         trainings: upcomingTrainings,
         nth,
       })
-
+      console.log('1111 training', training)
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: crossSellTypes,
@@ -118,7 +119,7 @@ const InstancePage = ({
         },
         ...breadcrumbLastItems,
       ]
-
+      console.log('...CoachInstance...CoachInstance...CoachInstance', data)
       return (
         <React.Fragment>
           <Helmet
@@ -191,7 +192,7 @@ const InstancePage = ({
                         </Box>
                       </React.Fragment>
                     ) : null}
-                    <TrainingDetails coaches={coaches} />
+                    <TrainingDetails coaches={coaches} training={training} />
                   </React.Fragment>
                 }
               />
@@ -285,6 +286,23 @@ const InstancePage = ({
     }}
   </Layout>
 )
+
+export const query = graphql`
+  fragment CoachInstance on SanityPerson {
+    fullname
+    image {
+      asset {
+        localFile(width: 200) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 InstancePage.defaultProps = {
   pageContext: {},
