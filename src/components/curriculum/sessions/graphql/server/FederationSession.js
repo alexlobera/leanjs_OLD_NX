@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../../../layout/Ul'
 import Session from '../../Session'
 
-const FederationSession = ({ title, coach }) => (
+const FederationSession = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>Understanding Federation</Li>

@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../../../layout/Ul'
 import Session from '../../Session'
 
-const ErrorAndSecuritySession = ({ title, coach }) => (
+const ErrorAndSecuritySession = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>

@@ -2,8 +2,8 @@ import React from 'react'
 import Ul, { Li } from '../../../../layout/Ul'
 import Session from '../../Session'
 
-const GraphQLClientFundamentalsSession = ({ title, coachName }) => (
-  <Session title={title} coachName={coachName}>
+const GraphQLClientFundamentalsSession = ({ title }) => (
+  <Session title={title}>
     <Ul>
       <Li>Query and Mutation principles</Li>
       <Li>Do I need a GraphQL client?</Li>

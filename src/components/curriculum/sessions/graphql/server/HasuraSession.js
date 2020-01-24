@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../../../layout/Ul'
 import Session from '../../Session'
 
-const HasuraSession = ({ title, coach }) => (
+const HasuraSession = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>TBD</Li>
