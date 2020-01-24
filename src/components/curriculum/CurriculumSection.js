@@ -56,7 +56,7 @@ const CurriculumSection = props => {
         courseOutline: props.title,
       },
     })
-  }, [isTabOpen])
+  }, [isTabOpen, props.title])
 
   const {
     title,

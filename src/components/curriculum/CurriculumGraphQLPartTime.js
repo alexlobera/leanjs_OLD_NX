@@ -15,14 +15,14 @@ import {
   TargetAudienceList,
 } from './CurriculumGraphQLBootcamp'
 
-const defaultSessionsFirstHalf = [
+export const defaultSessionsFirstHalf = [
   { Comp: ThinkingInGraphQLSession },
   { Comp: SchemaDesignSession },
   { Comp: ErrorAndSecuritySession },
   { Comp: FederationSession },
 ]
 
-const defaultSessionsSecondtHalf = [
+export const defaultSessionsSecondtHalf = [
   { Comp: SubscriptionsSession },
   { Comp: HasuraSession },
   { Comp: GraphQLClientFundamentalsSession },

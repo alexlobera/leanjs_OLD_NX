@@ -6,7 +6,7 @@ import { formatUTC, convertMinutesToHoursAndMinutes } from '../utils'
 import Section from './Section'
 import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
-import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
+import { H1 as BaseH1, H2 as BaseH2, Span, H3 } from '../text'
 import {
   DARK_BLUE_075,
   LIGHT_BLUE,
@@ -28,6 +28,7 @@ import { LinkButton } from '../buttons'
 import { TECH_GRAPHQL, TECH_REACT } from '../../config/data'
 import { Breadcrumb } from '../navigation'
 import Tag from '../elements/Tag'
+import TrainingItem, { getTrainingTimings } from '../training/TrainingItem'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -184,6 +185,18 @@ const TITLE_BACKGROUND = `
   display: table;
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
+
+const FeaturedTrainingTitle = styled(H3)``
+FeaturedTrainingTitle.defaultProps = {
+  backgroundColor: DARK_BLUE_075,
+  color: WHITE,
+  display: 'inline-block',
+  pt: 1,
+  pr: 1,
+  pb: 1,
+  pl: 1,
+}
+
 const TitleBackground = styled.span`
   &:first-child  {
     padding-top: 15px;
@@ -262,7 +275,7 @@ const FeaturedSection = styled(Box)`
   background-color: ${WHITE};
 `
 FeaturedSection.defaultProps = {
-  p: 4,
+  p: 3,
 }
 
 const getBackgroundImageSrc = (data, fileName) => {
@@ -283,6 +296,7 @@ const Header = ({
   showInfoBox = false,
   infoBoxFluidImage,
   featuredSection,
+  featuredTrainings,
   type = '',
   titleLines = [],
   subtitle,
@@ -365,7 +379,13 @@ const Header = ({
             >
               <Row>
                 <TitleCol
-                  md={(showInfoBox && training) || featuredSection ? 7 : 12}
+                  md={
+                    (showInfoBox && training) || featuredSection
+                      ? 7
+                      : featuredTrainings
+                      ? 8
+                      : 12
+                  }
                   type={type}
                 >
                   <H1>
@@ -411,11 +431,37 @@ const Header = ({
                     </Col>
                   </Row>
                 </TitleCol>
-                {featuredSection && (
+                {featuredSection ? (
                   <Col md={3} mdOffset={1}>
                     <FeaturedSection>{featuredSection}</FeaturedSection>
                   </Col>
-                )}
+                ) : featuredTrainings ? (
+                  <Col md={4} marginLeft="auto">
+                    <FeaturedTrainingTitle>
+                      Featured Course
+                    </FeaturedTrainingTitle>
+                    {featuredTrainings.map(training => {
+                      const { dayMonth, duration } = getTrainingTimings({
+                        training,
+                      })
+                      return (
+                        <TrainingItem
+                          color={WHITE}
+                          key={training.id}
+                          isOnline={training.isOnline}
+                          cityCountry={training.cityCountry}
+                          startDay={dayMonth[0]}
+                          startMonth={dayMonth[1]}
+                          duration={duration}
+                          type={training.type}
+                          title={training.title}
+                          path={training.toPath}
+                          className={className}
+                        />
+                      )
+                    })}
+                  </Col>
+                ) : null}
                 {showInfoBox && (
                   <Col md={3} mdOffset={1}>
                     <InfoBox type={type} p={1}>

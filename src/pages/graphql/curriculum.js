@@ -33,7 +33,6 @@ import { Segment } from 'src/components/elements'
 import { getURLParameter } from 'src/components/utils/url'
 import {
   GRAPHQL_BOOTCAMP,
-  GRAPHQL_API,
   TECH_GRAPHQL,
   GRAPHQL_PART_TIME,
 } from 'src/config/data'
@@ -87,10 +86,7 @@ class GraphQLCurriculum extends React.Component {
             trainings,
             type: GRAPHQL_PART_TIME,
           })
-          const trainingApi = selectNthTraining({
-            trainings,
-            type: GRAPHQL_API,
-          })
+
           return (
             <React.Fragment>
               <Header

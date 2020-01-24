@@ -21,7 +21,7 @@ export const styleChildLinkColor = (color, isImportant) => {
   const important = isImportant ? ' !important' : ''
 
   return `
-  a:not([role='button']) {
+  a:not([role='button']):not([role='tag']) {
     color: ${color} ${important};
     text-shadow: 0px 0px 1px ${color} ${important};
     &:link {

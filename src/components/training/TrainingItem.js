@@ -5,6 +5,8 @@ import Link from '../navigation/Link'
 import { selectTypeColor, selectBorderStyle } from '../utils'
 import Flex from '../layout/Flex'
 import Tag from '../elements/Tag'
+import { formatUTC } from '../utils'
+import { WHITE } from '../../config/styles'
 
 const Calendar = styled(Link).attrs({
   className: props => props.className,
@@ -23,7 +25,39 @@ const Calendar = styled(Link).attrs({
   font-size: 1.16rem;
   text-decoration: none;
   line-height: normal;
+  background-color: ${WHITE};
 `
+
+export function getTrainingTimings({ training }) {
+  const formatedDate = formatUTC(
+    training.startDate,
+    training.utcOffset,
+    'D MMM'
+  )
+  const dayMonth = formatedDate ? formatedDate.split(' ') : ['', '']
+  const startDate = new Date(training.startDate)
+  const endDate = new Date(training.endDate)
+  const daysCoefficient = 86400000 // 1000 * 60 * 60 * 24
+  const hourCoefficient = 3600000 // 1000 * 60 * 60
+  const days = Math.round((endDate - startDate) / daysCoefficient) + 1
+  const hours = Math.round((endDate - startDate) / hourCoefficient)
+  const duration =
+    hours < 7
+      ? ``
+      : days < 2
+      ? '1 day'
+      : days < 3
+      ? `2 days`
+      : days < 5
+      ? `3 days`
+      : days < 10
+      ? '1 week'
+      : days < 40
+      ? '1 month'
+      : ''
+
+  return { duration, dayMonth }
+}
 
 const TrainingItem = ({
   type,
@@ -35,6 +69,7 @@ const TrainingItem = ({
   path,
   className,
   isOnline,
+  color,
 }) => (
   <Flex flexDirection="row" alignItems="flex-start" pb={4}>
     <Calendar className={className} type={type} to={path}>
@@ -45,12 +80,18 @@ const TrainingItem = ({
         {duration}
       </Span>
     </Calendar>
-    <P display="inline" pl={2} pr={2}>
+    <P display="inline" pl={2} pr={2} color={color}>
       {title}
       <br />
-      {isOnline ? <Tag>Online</Tag> : cityCountry}
+      {isOnline ? (
+        <Tag as={Link} to={path}>
+          Online
+        </Tag>
+      ) : (
+        cityCountry
+      )}
       <br />
-      <Link className={className} to={path}>
+      <Link className={className} to={path} color={color}>
         Prices & more details
       </Link>
     </P>
