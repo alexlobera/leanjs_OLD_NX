@@ -71,7 +71,8 @@
     "cy:run": "./node_modules/.bin/cypress run",
     "test:e2e": "start-server-and-test serve http://localhost:9000 cy:open",
     "ci:e2e": "start-server-and-test serve http://localhost:9000 cy:run",
-    "deploy:backoffice": "cd studio && npm run deploy && npm run deploy:schema:production"
+    "deploy:backoffice": "cd studio && npm run deploy && npm run deploy:schema:production",
+    "lerna:publish": "lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -115,6 +116,7 @@
     "jest-environment-jsdom-global": "^1.1.0",
     "jest-styled-components": "^7.0.0",
     "jest-transform-graphql": "^2.1.0",
+    "lerna": "^3.20.2",
     "lint-staged": "^9.4.2",
     "node-fetch": "^2.2.0",
     "pre-commit": "^1.2.2",
