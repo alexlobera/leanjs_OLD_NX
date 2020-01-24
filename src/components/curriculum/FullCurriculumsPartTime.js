@@ -30,7 +30,7 @@ const renderReactSectionWithProps = renderPartTimeSection({
 
 const renderGraphQLSectionWithProps = renderPartTimeSection({
   sectionProps: {
-    toggleNavigateTo: `/react/curriculum?tab=${REACT_PART_TIME}`,
+    toggleNavigateTo: `/graphql/curriculum?tab=${GRAPHQL_PART_TIME}`,
     type: GRAPHQL_PART_TIME,
   },
 })

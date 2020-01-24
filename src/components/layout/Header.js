@@ -17,6 +17,7 @@ import {
   Z_INDEX_BG,
   GRAPHQL_PINK,
   BLUE,
+  DARK_GREY,
 } from '../../config/styles'
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
@@ -446,7 +447,6 @@ const Header = ({
                       })
                       return (
                         <TrainingItem
-                          color={WHITE}
                           key={training.id}
                           isOnline={training.isOnline}
                           cityCountry={training.cityCountry}
@@ -457,6 +457,10 @@ const Header = ({
                           title={training.title}
                           path={training.toPath}
                           className={className}
+                          textProps={{
+                            color: WHITE,
+                            textShadow: `1px 1px 5px ${DARK_GREY};`,
+                          }}
                         />
                       )
                     })}

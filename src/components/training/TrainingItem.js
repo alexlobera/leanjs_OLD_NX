@@ -69,7 +69,7 @@ const TrainingItem = ({
   path,
   className,
   isOnline,
-  color,
+  textProps = {},
 }) => (
   <Flex flexDirection="row" alignItems="flex-start" pb={4}>
     <Calendar className={className} type={type} to={path}>
@@ -80,7 +80,7 @@ const TrainingItem = ({
         {duration}
       </Span>
     </Calendar>
-    <P display="inline" pl={2} pr={2} color={color}>
+    <P display="inline" pl={2} pr={2} {...textProps}>
       {title}
       <br />
       {isOnline ? (
@@ -91,7 +91,7 @@ const TrainingItem = ({
         cityCountry
       )}
       <br />
-      <Link className={className} to={path} color={color}>
+      <Link className={className} to={path} {...textProps}>
         Prices & more details
       </Link>
     </P>
