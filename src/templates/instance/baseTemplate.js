@@ -82,12 +82,12 @@ const InstancePage = ({
         trainingId,
         city,
       })
-      
+
       const training = selectNthTraining({
         trainings: upcomingTrainings,
         nth,
       })
-      
+
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: crossSellTypes,
@@ -119,7 +119,7 @@ const InstancePage = ({
         },
         ...breadcrumbLastItems,
       ]
-      console.log('...CoachInstance...CoachInstance...CoachInstance', data)
+
       return (
         <React.Fragment>
           <Helmet
