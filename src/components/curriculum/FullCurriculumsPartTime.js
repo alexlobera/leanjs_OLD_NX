@@ -56,8 +56,7 @@ const graphqlSessions = [
 const FullCurriculumsPartTime = ({ trainings }) => {
   const allPartTimes = selectUpcomingTrainings({
     trainings,
-    type: GRAPHQL_PART_TIME,
-    REACT_PART_TIME,
+    types: [GRAPHQL_PART_TIME, REACT_PART_TIME],
   })
 
   return (

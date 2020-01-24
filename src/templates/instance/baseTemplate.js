@@ -82,12 +82,12 @@ const InstancePage = ({
         trainingId,
         city,
       })
-      console.log('1111 upcomingTrainings', upcomingTrainings)
+      
       const training = selectNthTraining({
         trainings: upcomingTrainings,
         nth,
       })
-      console.log('1111 training', training)
+      
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: crossSellTypes,
