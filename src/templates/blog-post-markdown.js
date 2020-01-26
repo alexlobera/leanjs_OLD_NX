@@ -89,13 +89,15 @@ const Page = ({ data, location }) => {
           .join(' ')
           .trim()
 
-        accContents.push({ text, slug: slugify(text) })
+        accContents.push({ text, slug: `#${slugify(text)}` })
       }
 
       return accContents
     },
     []
   )
+
+  console.log('aaa', contents)
 
   const blogPostProps = {
     body,
@@ -104,7 +106,7 @@ const Page = ({ data, location }) => {
         ? 'GraphQL'
         : postTypeLabel,
     postTypePath,
-    slug,
+    slug: location.pathname,
     authorTwitter,
     authorSlug: author,
     authorFullname: blogAuthors[author].fullname,

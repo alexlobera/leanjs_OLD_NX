@@ -84,13 +84,14 @@ export default {
   preview: {
     select: {
       title: 'title',
+      order: 'order',
       author: 'author.fullname',
       media: 'mainImage',
     },
     prepare(selection) {
-      const { author } = selection
+      const { author, order } = selection
       return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
+        subtitle: author && `by ${author} ${order ? ` - order: ${order}` : ''}`,
       })
     },
   },
