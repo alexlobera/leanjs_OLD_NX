@@ -97,8 +97,6 @@ const Page = ({ data, location }) => {
     []
   )
 
-  console.log('aaa', contents)
-
   const blogPostProps = {
     body,
     postTypeLabel:
