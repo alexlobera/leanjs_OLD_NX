@@ -71,8 +71,7 @@
     "cy:run": "./node_modules/.bin/cypress run",
     "test:e2e": "start-server-and-test serve http://localhost:9000 cy:open",
     "ci:e2e": "start-server-and-test serve http://localhost:9000 cy:run",
-    "deploy:backoffice": "cd studio && npm run deploy && npm run deploy:schema:production",
-    "lerna:publish": "lerna publish"
+    "deploy:backoffice": "cd studio && npm run deploy && npm run deploy:schema:production"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
