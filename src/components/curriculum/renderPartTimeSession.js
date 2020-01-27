@@ -18,7 +18,7 @@ const renderPartTimeSection = ({
   }
 
   // TODO replace this by data from the API training instance unit in the training object
-  const { coachName } = Comp
+  const { coachName } = Comp || {}
   let gmt
   if (training && training.isOnline) {
     const {
