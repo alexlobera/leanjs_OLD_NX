@@ -51,7 +51,14 @@ Ul.defaultProps = {
   mb: 4,
 }
 
-export const TabList = ({ active, setActive, onChange, children, ...rest }) => {
+export const TabList = ({
+  active,
+  setActive,
+  onChange,
+  children,
+  includeRowCol = true,
+  ...rest
+}) => {
   const compound = React.Children.map(children, child =>
     React.cloneElement(child, {
       isActive: child.props.name === active,
@@ -63,12 +70,14 @@ export const TabList = ({ active, setActive, onChange, children, ...rest }) => {
         : undefined,
     })
   )
-  return (
+  return includeRowCol ? (
     <Row>
       <Col {...rest} md={11}>
         <Ul {...rest}>{compound}</Ul>
       </Col>
     </Row>
+  ) : (
+    <Ul {...rest}>{compound}</Ul>
   )
 }
 

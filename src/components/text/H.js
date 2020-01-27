@@ -52,12 +52,12 @@ export const H3 = styled(Box)`
     ${fontSize({ fontSize: 4 })}
   }
   :first-child {
-    padding-top: 0;
+    margin-top: 0;
   }
 `
 H3.defaultProps = {
   fontSize: 5,
-  pt: 4,
+  mt: 4,
   lineHeight: 4,
   box: 'h3',
 }
@@ -66,11 +66,15 @@ export const H3Ref = styled(H3)`
   ${REF};
 `
 
-export const H4 = styled(Box)``
+export const H4 = styled(Box)`
+  :first-child {
+    margin-top: 0;
+  }
+`
 H4.defaultProps = {
   fontSize: 4,
   lineHeight: 3,
-  pt: 3,
+  mt: 3,
   fontWeight: 'bold',
   box: 'h4',
 }

@@ -44,9 +44,7 @@ class PaymentConfirmation extends React.Component {
           payload,
         })
       }
-    } catch (err) {
-      console.log(err)
-    }
+    } catch (err) {}
   }
 
   render() {

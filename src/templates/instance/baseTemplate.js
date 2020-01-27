@@ -38,6 +38,7 @@ const InstancePage = ({
   crossSellTypes,
   curriculumProps = {},
   perfectStudentLink,
+  data,
   pageContext: {
     locationImage,
     posts,
@@ -191,7 +192,7 @@ const InstancePage = ({
                         </Box>
                       </React.Fragment>
                     ) : null}
-                    <TrainingDetails coaches={coaches} />
+                    <TrainingDetails coaches={coaches} training={training} />
                   </React.Fragment>
                 }
               />
@@ -285,6 +286,23 @@ const InstancePage = ({
     }}
   </Layout>
 )
+
+export const query = graphql`
+  fragment CoachInstance on SanityPerson {
+    fullname
+    image {
+      asset {
+        localFile(width: 200) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 InstancePage.defaultProps = {
   pageContext: {},

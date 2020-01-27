@@ -136,7 +136,9 @@ const AboutUs = ({ data }) => {
           <Section mb={0} pb={0}>
             <H2>Our coach team</H2>
             <Link to="#coaches" name="coaches"></Link>
-            <Row>{coaches.map(renderProfile)}</Row>
+            <Row>
+              {coaches.filter(({ hidden }) => !hidden).map(renderProfile)}
+            </Row>
             <H2>Our support team</H2>
             <Link to="#coaches" name="coaches"></Link>
             <Row>{team.map(renderProfile)}</Row>
@@ -341,6 +343,7 @@ export const query = graphql`
       companyLink
     }
     blockquote
+    hidden
   }
 `
 

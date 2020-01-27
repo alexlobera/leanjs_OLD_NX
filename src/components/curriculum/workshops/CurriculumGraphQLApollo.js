@@ -3,7 +3,7 @@ import Section from '../CurriculumSection'
 import { GRAPHQL_WORKSHOP } from '../../../config/data'
 
 import GraphQLClientFundamentalsSession from '../sessions/graphql/client/GraphQLClientFundamentalsSession'
-import AdvGQLQueryMutationSession from '../sessions/graphql/client/AdvGQLQueryMutationSession'
+import AdvancedApolloClientSession from '../sessions/graphql/client/AdvancedApolloClientSession'
 import GraphQLClientRecapSession from '../sessions/graphql/client/GraphQLClientRecapSession'
 import { Li } from '../../layout/Ul'
 import Curriculum from '../Curriculum'
@@ -16,7 +16,7 @@ const CurriculumGraphQLApollo = ({ showTitle = true, section, ...rest }) => (
       <React.Fragment>
         <Section type={GRAPHQL_WORKSHOP} {...section}>
           <GraphQLClientFundamentalsSession />
-          <AdvGQLQueryMutationSession />
+          <AdvancedApolloClientSession />
           <GraphQLClientRecapSession />
         </Section>
       </React.Fragment>

@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { formatUTC } from '../utils'
+import { formatUTC, convertMinutesToHoursAndMinutes } from '../utils'
 import Section from './Section'
 import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
-import { H1 as BaseH1, H2 as BaseH2, Span } from '../text'
+import { H1 as BaseH1, H2 as BaseH2, Span, H3 } from '../text'
 import {
   DARK_BLUE_075,
   LIGHT_BLUE,
@@ -17,6 +17,7 @@ import {
   Z_INDEX_BG,
   GRAPHQL_PINK,
   BLUE,
+  DARK_GREY,
 } from '../../config/styles'
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
@@ -27,6 +28,8 @@ import Box from '../layout/Box'
 import { LinkButton } from '../buttons'
 import { TECH_GRAPHQL, TECH_REACT } from '../../config/data'
 import { Breadcrumb } from '../navigation'
+import Tag from '../elements/Tag'
+import TrainingItem, { getTrainingTimings } from '../training/TrainingItem'
 
 const H1 = styled(BaseH1)`
   margin-bottom: 0;
@@ -183,6 +186,18 @@ const TITLE_BACKGROUND = `
   display: table;
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
+
+const FeaturedTrainingTitle = styled(H3)``
+FeaturedTrainingTitle.defaultProps = {
+  backgroundColor: DARK_BLUE_075,
+  color: WHITE,
+  display: 'inline-block',
+  pt: 1,
+  pr: 1,
+  pb: 1,
+  pl: 1,
+}
+
 const TitleBackground = styled.span`
   &:first-child  {
     padding-top: 15px;
@@ -261,7 +276,7 @@ const FeaturedSection = styled(Box)`
   background-color: ${WHITE};
 `
 FeaturedSection.defaultProps = {
-  p: 4,
+  p: 3,
 }
 
 const getBackgroundImageSrc = (data, fileName) => {
@@ -282,6 +297,7 @@ const Header = ({
   showInfoBox = false,
   infoBoxFluidImage,
   featuredSection,
+  featuredTrainings,
   type = '',
   titleLines = [],
   subtitle,
@@ -334,6 +350,10 @@ const Header = ({
       const endDate =
         training.endDate &&
         formatUTC(training.endDate, training.utcOffset, 'D MMM')
+      const {
+        hours: utcHours,
+        minutes: utcMinutes,
+      } = convertMinutesToHoursAndMinutes(training.utcOffset)
 
       return (
         <React.Fragment>
@@ -360,7 +380,13 @@ const Header = ({
             >
               <Row>
                 <TitleCol
-                  md={(showInfoBox && training) || featuredSection ? 7 : 12}
+                  md={
+                    (showInfoBox && training) || featuredSection
+                      ? 7
+                      : featuredTrainings
+                      ? 8
+                      : 12
+                  }
                   type={type}
                 >
                   <H1>
@@ -406,11 +432,40 @@ const Header = ({
                     </Col>
                   </Row>
                 </TitleCol>
-                {featuredSection && (
+                {featuredSection ? (
                   <Col md={3} mdOffset={1}>
                     <FeaturedSection>{featuredSection}</FeaturedSection>
                   </Col>
-                )}
+                ) : featuredTrainings ? (
+                  <Col md={4} marginLeft="auto">
+                    <FeaturedTrainingTitle>
+                      Featured Course
+                    </FeaturedTrainingTitle>
+                    {featuredTrainings.map(training => {
+                      const { dayMonth, duration } = getTrainingTimings({
+                        training,
+                      })
+                      return (
+                        <TrainingItem
+                          key={training.id}
+                          isOnline={training.isOnline}
+                          cityCountry={training.cityCountry}
+                          startDay={dayMonth[0]}
+                          startMonth={dayMonth[1]}
+                          duration={duration}
+                          type={training.type}
+                          title={training.title}
+                          path={training.toPath}
+                          className={className}
+                          textProps={{
+                            color: WHITE,
+                            textShadow: `1px 1px 5px ${DARK_GREY};`,
+                          }}
+                        />
+                      )
+                    })}
+                  </Col>
+                ) : null}
                 {showInfoBox && (
                   <Col md={3} mdOffset={1}>
                     <InfoBox type={type} p={1}>
@@ -422,7 +477,7 @@ const Header = ({
                           alt={subtitle}
                         />
                       )}
-                      <Ul variant="unstyled" mb={1} pl={1} pr={1}>
+                      <Ul variant="unstyled" mb={1} pl={0} pr={0}>
                         <Li>
                           <strong>Date</strong>: {startDate ? startDate : 'TBD'}
                           {startDate === endDate ? '' : ` - ${endDate}`}
@@ -435,39 +490,47 @@ const Header = ({
                               training.utcOffset,
                               'HH:mm'
                             )) ||
-                            '9am'} - ${(training.endDate &&
+                            '9am'}-${(training.endDate &&
                             formatUTC(
                               training.endDate,
                               training.utcOffset,
                               'HH:mm'
                             )) ||
                             '6:00pm'}`}
+                          {training.isOnline && ` GMT${utcHours}:${utcMinutes}`}
                         </Li>
-                        <Li>
-                          <strong>Venue</strong>:{' '}
-                          {training.address || (
-                            <>
-                              TBC. {` `}
-                              <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
-                                Host it and get exclusive promotions
-                              </Link>
-                            </>
-                          )}
-                          {training.mapUrl ? (
-                            <React.Fragment>
-                              {` - `}
-                              <Link to={training.mapUrl} className={className}>
-                                {' '}
-                                map
-                              </Link>
-                            </React.Fragment>
-                          ) : null}
-                        </Li>
-                        {(!training.address ||
-                          training.address === 'To be confirmed') && (
+                        {training.isOnline ? (
+                          <>
+                            <Li>
+                              <strong>Location</strong>: <Tag>Online</Tag>
+                            </Li>
+                            <Li>
+                              <strong>Conference room</strong>:{' '}
+                              {training.venueName}
+                            </Li>
+                          </>
+                        ) : training.address ? (
                           <Li>
-                            <strong>Location</strong>:{' '}
-                            {training.city || 'To be confirmed'}
+                            <strong>Venue</strong>:{training.address}
+                            {training.mapUrl && (
+                              <>
+                                {` - `}
+                                <Link
+                                  to={training.mapUrl}
+                                  className={className}
+                                >
+                                  {' '}
+                                  map
+                                </Link>
+                              </>
+                            )}
+                          </Li>
+                        ) : (
+                          <Li>
+                            <strong>Venue</strong>: TBC. {` `}
+                            <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
+                              Host it and get exclusive promotions
+                            </Link>
                           </Li>
                         )}
                         {linkToGallery && (

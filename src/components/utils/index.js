@@ -277,8 +277,15 @@ export const trainingTimings = ({ training = {} }) =>
     formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
     '18:00'}`
 
-function twoDigits(number) {
-  return ('0' + number).slice(-2)
+function twoDigits(number, includeSymbol = false) {
+  const intNumber = parseInt(number)
+  const twoDigitNumber = ('0' + Math.abs(intNumber)).slice(-2)
+
+  return includeSymbol
+    ? intNumber < 0
+      ? `-${twoDigitNumber}`
+      : `+${twoDigitNumber}`
+    : twoDigitNumber
 }
 
 export const trainingDateTime = ({
@@ -291,3 +298,17 @@ export const trainingDateTime = ({
       ? '18:30 - 21:00'
       : trainingTimings({ training })
   }`
+
+export function convertMinutesToHoursAndMinutes(
+  totalMinutes,
+  useTwoDigits = true
+) {
+  const intMinutes = parseInt(totalMinutes)
+  const hours = Math.floor(intMinutes / 60)
+  const minutes = intMinutes % 60
+
+  return {
+    hours: useTwoDigits ? twoDigits(hours, true) : `${hours}`,
+    minutes: useTwoDigits ? twoDigits(minutes) : `${minutes}`,
+  }
+}

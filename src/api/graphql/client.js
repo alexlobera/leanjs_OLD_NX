@@ -61,7 +61,7 @@ export function graphql(query, config = {}) {
       if (!queryData) {
         dispatch({ type: 'GRAPHQL_QUERY', query, variables })
       }
-    }, [query, variables, dispatch, queryData])
+    }, [variables, dispatch, queryData])
 
     return (
       <Component

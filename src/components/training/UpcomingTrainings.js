@@ -1,9 +1,8 @@
 import React from 'react'
 
-import { formatUTC } from '../utils'
 import { Col } from '../layout/Grid'
 import { P } from '../text'
-import TrainingItem from './TrainingItem'
+import TrainingItem, { getTrainingTimings } from './TrainingItem'
 import selectUpcomingTrainings from './selectUpcomingTrainings'
 
 const UpcomingTrainings = ({
@@ -27,36 +26,11 @@ const UpcomingTrainings = ({
     return <P>Sorry! There are no {type} dates confirmed.</P>
   } else {
     return filteredTrainings.map(training => {
-      const formatedDate = formatUTC(
-        training.startDate,
-        training.utcOffset,
-        'D MMM'
-      )
-      const dayMonth = formatedDate ? formatedDate.split(' ') : ['', '']
-      const startDate = new Date(training.startDate)
-      const endDate = new Date(training.endDate)
-      const daysCoefficient = 86400000 // 1000 * 60 * 60 * 24
-      const hourCoefficient = 3600000 // 1000 * 60 * 60
-      const days = Math.round((endDate - startDate) / daysCoefficient) + 1
-      const hours = Math.round((endDate - startDate) / hourCoefficient)
-      const duration =
-        hours < 7
-          ? ``
-          : days < 2
-          ? '1 day'
-          : days < 3
-          ? `2 days`
-          : days < 5
-          ? `3 days`
-          : days < 10
-          ? '1 week'
-          : days < 40
-          ? '1 month'
-          : ''
-
+      const { dayMonth, duration } = getTrainingTimings({ training })
       const trainingInstance = (
         <TrainingItem
           key={training.id}
+          isOnline={training.isOnline}
           cityCountry={training.cityCountry}
           startDay={dayMonth[0]}
           startMonth={dayMonth[1]}

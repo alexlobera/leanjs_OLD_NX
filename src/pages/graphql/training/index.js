@@ -61,21 +61,13 @@ const TrainingPage = ({ path }) => (
                 <P>Our courses:</P>
                 {[
                   {
-                    to: '/graphql/training/bootcamp',
-                    children: 'GraphQL Bootcamp',
-                    px: 3,
-                  },
-                  {
                     to: '/graphql/training/part-time-course/',
                     children: 'GraphQL Part-time',
                   },
                   {
-                    to: '/graphql/training/api/',
-                    children: 'GraphQL API',
-                  },
-                  {
-                    to: '/graphql/training/workshops/',
-                    children: 'Workshops',
+                    to: '/graphql/training/bootcamp',
+                    children: 'GraphQL Bootcamp',
+                    px: 3,
                   },
                   {
                     to: '/graphql/training/corporate',

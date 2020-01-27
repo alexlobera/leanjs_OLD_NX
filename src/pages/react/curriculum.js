@@ -441,7 +441,9 @@ class ReactCurriculum extends React.Component {
                                       className="training-curriculum-next-training-cta"
                                       to={trainingPartTime.toPath}
                                       buttonText={`${
-                                        trainingPartTime.city
+                                        trainingPartTime.isOnline
+                                          ? 'Online'
+                                          : trainingPartTime.city
                                       } React part-time ${formatUTC(
                                         trainingPartTime.startDate,
                                         trainingPartTime.utcOffset,

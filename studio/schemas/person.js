@@ -110,10 +110,16 @@ export default {
       title: 'Order',
       type: 'string',
     },
+    {
+      name: 'hidden',
+      title: 'Hidden',
+      type: 'boolean',
+    },
   ],
   preview: {
     select: {
       title: 'fullname',
+      subtitle: 'order',
       media: 'image',
     },
   },

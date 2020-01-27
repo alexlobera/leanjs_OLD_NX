@@ -92,6 +92,7 @@ const Layout = ({ children, loadAutopilot = true }) => {
               startDate
               utcOffset
               endDate
+              isOnline
               city
               cityCountry
               daysOfTheWeek
@@ -119,7 +120,7 @@ const Layout = ({ children, loadAutopilot = true }) => {
   const formatTraining = ({ node }) => {
     const { type, slug, description } = node.training || {}
     const { title = '' } = description || {}
-    const { city = '', id } = node
+    const { city = '', id, isOnline } = node
     const key = `${city}${type}${slug}`
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
@@ -133,6 +134,7 @@ const Layout = ({ children, loadAutopilot = true }) => {
         index: cityIndex[key],
         id,
         slug,
+        isOnline,
       }),
     }
   }

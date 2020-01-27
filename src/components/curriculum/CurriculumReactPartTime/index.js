@@ -11,7 +11,7 @@ import { REACT_PART_TIME } from '../../../config/data'
 import Curriculum from '../Curriculum'
 import renderPartTimeSection from '../renderPartTimeSession'
 
-const defaultSessionsFirstHalf = [
+export const defaultSessionsFirstHalf = [
   { title: 'Thinking in React', Comp: ThinkingInReactSession, group: 1 },
   { title: 'Modern JavaScript', Comp: ES6Session, group: 1 },
   {
@@ -25,7 +25,8 @@ const defaultSessionsFirstHalf = [
     group: 2,
   },
 ]
-const defaultSessionsSecondHalf = [
+
+export const defaultSessionsSecondHalf = [
   { title: 'Forms & Auth', Comp: FormsAndAuthSession, group: 3 },
   { title: 'React Hooks', Comp: HooksSession, group: 3 },
   { title: 'Redux', Comp: IntroReduxSession, group: 4 },
