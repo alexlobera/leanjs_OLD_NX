@@ -36,17 +36,19 @@ const SchemaDesignSession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
     <Li>
       Feel comfortable designing a GraphQL schema based on established patterns
       like the Input Object Mutations or Connection Specification
     </Li>
-    <Li>
-      Understand the tradeoffs between various patterns and where it's
-      appropriate to apply them
-    </Li>
-  </Ul>
+    {showAll && (
+      <Li>
+        Understand the tradeoffs between various patterns and where it's
+        appropriate to apply them
+      </Li>
+    )}
+  </>
 )
 
 SchemaDesignSession.defaultProps = {

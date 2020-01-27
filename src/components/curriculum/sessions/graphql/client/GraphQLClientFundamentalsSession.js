@@ -14,10 +14,8 @@ const GraphQLClientFundamentalsSession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
-    <Li>Learn how to consume GraphQL APIs in React using Apollo Client</Li>
-  </Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <Li>Learn how to consume GraphQL APIs in React using Apollo Client</Li>
 )
 
 GraphQLClientFundamentalsSession.defaultProps = {

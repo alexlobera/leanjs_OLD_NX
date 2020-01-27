@@ -15,15 +15,21 @@ const SubscriptionsSession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
     <Li>Learn to set up subscription support with Apollo Server</Li>
-    <Li>Add real-time features to user interfaces with @apollo/react-hooks</Li>
-    <Li>
-      Gain an understanding of how to incorporate subscriptions in real-world
-      applications
-    </Li>
-  </Ul>
+    {showAll && (
+      <>
+        <Li>
+          Add real-time features to user interfaces with @apollo/react-hooks
+        </Li>
+        <Li>
+          Gain an understanding of how to incorporate subscriptions in
+          real-world applications
+        </Li>
+      </>
+    )}
+  </>
 )
 
 SubscriptionsSession.defaultProps = {

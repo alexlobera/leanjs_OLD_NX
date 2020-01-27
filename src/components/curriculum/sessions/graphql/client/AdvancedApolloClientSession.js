@@ -14,16 +14,18 @@ const AdvancedApolloClientSession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
     <Li>
       Learn how to use Apollo Client to improve code reusability and performance
     </Li>
-    <Li>
-      Adapt your app to more use cases by customizing networking and extending
-      GraphQL local state
-    </Li>
-  </Ul>
+    {showAll && (
+      <Li>
+        Adapt your app to more use cases by customizing networking and extending
+        GraphQL local state
+      </Li>
+    )}
+  </>
 )
 
 AdvancedApolloClientSession.defaultProps = {

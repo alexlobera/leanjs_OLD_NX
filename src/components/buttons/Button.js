@@ -26,7 +26,6 @@ export const buttonDefaultProps = {
   textAlign: 'center',
   fontSize: 2,
   letterSpacing: ' 0.6px',
-  variant: 'default',
   box: 'button',
 }
 
@@ -53,6 +52,7 @@ export const buttonVariantProps = {
 const StyledButton = styled(Box)`
   ${defaultButtonStyle};
 `
+StyledButton.defaultProps = buttonDefaultProps
 
 const Button = ({ children, loading, onClick, variant, ...rest }) => {
   const props = {
@@ -62,7 +62,6 @@ const Button = ({ children, loading, onClick, variant, ...rest }) => {
 
   return (
     <StyledButton
-      {...buttonDefaultProps}
       type="button"
       {...(variant ? buttonVariantProps[variant] : {})}
       {...props}
@@ -70,6 +69,9 @@ const Button = ({ children, loading, onClick, variant, ...rest }) => {
       {loading ? 'Loading ...' : children}
     </StyledButton>
   )
+}
+Button.defaultProps = {
+  variant: 'default',
 }
 
 Button.displayName = 'Button'

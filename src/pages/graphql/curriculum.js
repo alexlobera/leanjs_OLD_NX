@@ -22,7 +22,9 @@ import {
   ContentItem,
 } from 'src/components/layout/Tabs'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
-import CurriculumGraphQLPartTime from 'src/components/curriculum/CurriculumGraphQLPartTime'
+import CurriculumGraphQLPartTime, {
+  LearningObjectives as PartTimeLearningObjectives,
+} from 'src/components/curriculum/CurriculumGraphQLPartTime'
 import CurriculumGraphQLBootcamp from 'src/components/curriculum/CurriculumGraphQLBootcamp'
 import Header from 'src/components/layout/Header'
 import {
@@ -332,21 +334,20 @@ class GraphQLCurriculum extends React.Component {
                               student will:
                             </strong>
                           </P>
-                          <Ul>
-                            <CurriculumGraphQLPartTime.LearningObjectivesList />
-                            <Li>
-                              Not sure if our trainings are right for you? Read
-                              our blog{' '}
-                              <Link
-                                className="perfect-course-student"
-                                to="/blog/are-you-the-perfect-react-graphql-student/"
-                              >
-                                <strong>
-                                  Are YOU the Perfect GraphQL Student?
-                                </strong>
-                              </Link>
-                            </Li>
-                          </Ul>
+                          <PartTimeLearningObjectives />
+                          {/* <P>
+                            Not sure if our trainings are right for you? Read
+                            our blog{' '}
+                            <Link
+                              className="perfect-course-student"
+                              to="/blog/are-you-the-perfect-react-graphql-student/"
+                            >
+                              <strong>
+                                Are YOU the Perfect GraphQL Student?
+                              </strong>
+                            </Link>
+                          </P> */}
+
                           <H4>GraphQL part-time Curriculum:</H4>
                           <Row>
                             <Col lg={1} lgOffset={1} />

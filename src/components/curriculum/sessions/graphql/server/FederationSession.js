@@ -21,18 +21,22 @@ const FederationSession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
     <Li>
       Understand of how to orchestrate a collection of GraphQL APIs under a
       single GraphQL gateway
     </Li>
-    <Li>Scale your graph across teams</Li>
-    <Li>
-      Incorporate developer tools to encourage team collaboration and code
-      quality
-    </Li>
-  </Ul>
+    {showAll && (
+      <>
+        <Li>Scale your graph across teams</Li>
+        <Li>
+          Incorporate developer tools to encourage team collaboration and code
+          quality
+        </Li>
+      </>
+    )}
+  </>
 )
 
 FederationSession.defaultProps = {

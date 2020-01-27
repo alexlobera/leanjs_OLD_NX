@@ -15,17 +15,19 @@ const HasuraSession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
     <Li>
       Learn what is Hasura engine and how you can use it to auto generate
       GraphQL APIs on top of new or existing Postgres databases
     </Li>
-    <Li>
-      Understand how to use authentication and how to write your own serverless
-      business logic
-    </Li>
-  </Ul>
+    {showAll && (
+      <Li>
+        Understand how to use authentication and how to write your own
+        serverless business logic
+      </Li>
+    )}
+  </>
 )
 
 HasuraSession.defaultProps = {

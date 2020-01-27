@@ -1,19 +1,35 @@
-import React from 'react'
-import ThinkingInGraphQLSession from './sessions/graphql/server/ThinkingInGraphQLSession'
-import SchemaDesignSession from './sessions/graphql/server/SchemaDesignSession'
-import ErrorAndSecuritySession from './sessions/graphql/server/ErrorAndSecuritySession'
-import SubscriptionsSession from './sessions/graphql/server/SubscriptionsSession'
-import FederationSession from './sessions/graphql/server/FederationSession'
-import HasuraSession from './sessions/graphql/server/HasuraSession'
-import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-import AdvancedApolloClientSession from './sessions/graphql/client/AdvancedApolloClientSession'
+import React, { useState } from 'react'
+import ThinkingInGraphQLSession, {
+  LearningObjectives as ThinkingInLearningObjectives,
+} from './sessions/graphql/server/ThinkingInGraphQLSession'
+import SchemaDesignSession, {
+  LearningObjectives as SchemaDesignLearningObjectives,
+} from './sessions/graphql/server/SchemaDesignSession'
+import ErrorAndSecuritySession, {
+  LearningObjectives as ErrorAndSecurityLearningObjectives,
+} from './sessions/graphql/server/ErrorAndSecuritySession'
+import SubscriptionsSession, {
+  LearningObjectives as SubscriptionsLearningObjectives,
+} from './sessions/graphql/server/SubscriptionsSession'
+import FederationSession, {
+  LearningObjectives as FederationLearningObjectives,
+} from './sessions/graphql/server/FederationSession'
+import HasuraSession, {
+  LearningObjectives as HasuraLearningObjectives,
+} from './sessions/graphql/server/HasuraSession'
+import GraphQLClientFundamentalsSession, {
+  LearningObjectives as GraphQLClientLearningObjectives,
+} from './sessions/graphql/client/GraphQLClientFundamentalsSession'
+import AdvancedApolloClientSession, {
+  LearningObjectives as AdvancedApolloClientLearningObjectives,
+} from './sessions/graphql/client/AdvancedApolloClientSession'
 import { GRAPHQL_PART_TIME } from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
-import {
-  LearningObjectivesList,
-  TargetAudienceList,
-} from './CurriculumGraphQLBootcamp'
+import { TargetAudienceList } from './CurriculumGraphQLBootcamp'
+import Ul from '../layout/Ul'
+import P from '../text/P'
+import Button from '../buttons/Button'
 
 export const defaultSessionsFirstHalf = [
   { Comp: ThinkingInGraphQLSession },
@@ -65,9 +81,65 @@ const CurriculumPartTime = ({
   )
 }
 
-export { LearningObjectivesList, TargetAudienceList }
+export { TargetAudienceList }
 
-CurriculumPartTime.LearningObjectivesList = LearningObjectivesList
+export const LearningObjectives = ({ showAllButton = true }) => {
+  const [showAll, setShowAll] = useState(!showAllButton)
+  const toggleShowAll = () => {
+    setShowAll(!showAll)
+  }
+
+  //   let learningObjectives
+  //   if (showAll) {
+  //     learningObjectives = [
+  //       ThinkingInLearningObjectives,
+  //       SchemaDesignLearningObjectives,
+  //       ErrorAndSecurityLearningObjectives,
+  //       SubscriptionsLearningObjectives,
+  //       FederationLearningObjectives,
+  //       HasuraLearningObjectives,
+  //       GraphQLClientLearningObjectives,
+  //       AdvancedApolloClientLearningObjectives,
+  //     ]
+  //   } else {
+  //     learningObjectives = [
+  //       ThinkingInLearningObjectives[0],
+  //       SchemaDesignLearningObjectives[0],
+  //       ErrorAndSecurityLearningObjectives[0],
+  //       SubscriptionsLearningObjectives[0],
+  //       FederationLearningObjectives[0],
+  //       HasuraLearningObjectives[0],
+  //       GraphQLClientLearningObjectives[0],
+  //       AdvancedApolloClientLearningObjectives[0],
+  //     ]
+  //   }
+
+  return (
+    <>
+      <Ul>
+        <ThinkingInLearningObjectives showAll={showAll} />
+        <SchemaDesignLearningObjectives showAll={showAll} />
+        <ErrorAndSecurityLearningObjectives showAll={showAll} />
+        <SubscriptionsLearningObjectives showAll={showAll} />
+        <FederationLearningObjectives showAll={showAll} />
+        <HasuraLearningObjectives showAll={showAll} />
+        <GraphQLClientLearningObjectives showAll={showAll} />
+        <AdvancedApolloClientLearningObjectives showAll={showAll} />
+      </Ul>
+
+      {showAllButton && (
+        <P>
+          <Button onClick={toggleShowAll}>
+            {showAll
+              ? `Hide learning objectives`
+              : `Show all the learning objectives`}
+          </Button>
+        </P>
+      )}
+    </>
+  )
+}
+
 CurriculumPartTime.TargetAudienceList = TargetAudienceList
 
 export default CurriculumPartTime

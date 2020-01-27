@@ -32,20 +32,25 @@ const ThinkingInGraphQLSession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
     <Li>
       Understand the main functionalities and responsibilities of a GraphQL
       Server
     </Li>
-    <Li>
-      Learn how to migrate an existent REST API to GraphQL and start “thinking
-      in graphs”
-    </Li>
-    <Li>
-      Start identifying potential problems when running real-world GraphQL APIs
-    </Li>
-  </Ul>
+    {showAll && (
+      <>
+        <Li>
+          Learn how to migrate an existent REST API to GraphQL and start
+          “thinking in graphs”
+        </Li>
+        <Li>
+          Start identifying potential problems when running real-world GraphQL
+          APIs
+        </Li>
+      </>
+    )}
+  </>
 )
 
 ThinkingInGraphQLSession.defaultProps = {

@@ -26,19 +26,23 @@ const ErrorAndSecuritySession = ({ title }) => (
   </Session>
 )
 
-export const LearningObjectives = (
-  <Ul>
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
     <Li>Be aware of the multiple attack vectors that exist in GraphQL APIs</Li>
-    <Li>
-      Get a good understanding on which measurements tackle which of the attack
-      vectors to help you use them appropriately
-    </Li>
-    <Li>Differentiate between expected and unexpected errors</Li>
-    <Li>
-      Establish a good understanding of the ergonomics of global and field based
-      errors to decide which are a better fit for your API
-    </Li>
-  </Ul>
+    {showAll && (
+      <>
+        <Li>
+          Get a good understanding on which measurements tackle which of the
+          attack vectors to help you use them appropriately
+        </Li>
+        <Li>Differentiate between expected and unexpected errors</Li>
+        <Li>
+          Establish a good understanding of the ergonomics of global and field
+          based errors to decide which are a better fit for your API
+        </Li>
+      </>
+    )}
+  </>
 )
 
 ErrorAndSecuritySession.defaultProps = {
