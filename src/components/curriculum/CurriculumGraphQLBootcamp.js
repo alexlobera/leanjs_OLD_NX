@@ -5,7 +5,7 @@ import ThinkingInGraphQLSession from './sessions/graphql/server/ThinkingInGraphQ
 import ErrorAndSecuritySession from './sessions/graphql/server/ErrorAndSecuritySession'
 import GraphQLServerRecapSession from './sessions/graphql/server/GraphQLServerRecapSession'
 import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-import IntermediateApolloClientSession from './sessions/graphql/client/IntermediateApolloClientSession'
+import AdvancedApolloClientSession from './sessions/graphql/client/AdvancedApolloClientSession'
 import GraphQLClientRecapSession from './sessions/graphql/client/GraphQLClientRecapSession'
 import {
   LearningObjectivesList as LearningObjectivesListAPI,
@@ -33,7 +33,7 @@ export const sessionsSecondHalf = [
       'GraphQL client fundamentals, Advanced queries and mutations, and Consolidation Project',
     comps: [
       GraphQLClientFundamentalsSession,
-      IntermediateApolloClientSession,
+      AdvancedApolloClientSession,
       GraphQLClientRecapSession,
     ],
   },

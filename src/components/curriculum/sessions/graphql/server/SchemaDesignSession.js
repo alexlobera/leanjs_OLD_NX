@@ -6,34 +6,47 @@ const SchemaDesignSession = ({ title }) => (
   <Session title={title}>
     <Ul>
       <Li>
-        GraphQL Schema Design Process
+        GraphQL schema design process
         <Ul>
           <Li>Where to start?</Li>
-          <Li> Domain-driven Design</Li>
+          <Li>Domain-driven Design</Li>
         </Ul>
       </Li>
       <Li>
         Queries
         <Ul>
-          <Li>Naming Conventions for Fields</Li>
-          <Li>Naming Conventions leveraging Aliases</Li>
+          <Li>Naming conventions for fields</Li>
+          <Li>Naming conventions leveraging aliases</Li>
           <Li>Pagination using the Connection Specification</Li>
-          <Li>Extending GraphQL Connections</Li>
-          <Li>Naming top-level Query Fields in GraphQL</Li>
+          <Li>Extending GraphQL connections</Li>
+          <Li>Naming top-level query fields in GraphQL</Li>
         </Ul>
       </Li>
-      <Li>Nullable vs Non-nullable Fields in GraphQL</Li>
+      <Li>Nullable vs non-nullable fields in GraphQL</Li>
       <Li>
         Mutations
         <Ul>
-          <Li>Input and Payload Structure</Li>
+          <Li>Input and payload structure</Li>
           <Li>Domain Driven</Li>
-          <Li>Updating Connections</Li>
-          <Li>Tradeoffs when updating multiple Properties on one Entity</Li>
+          <Li>Updating connections</Li>
+          <Li>Tradeoffs when updating multiple properties on one entity</Li>
         </Ul>
       </Li>
     </Ul>
   </Session>
+)
+
+export const LearningObjectives = (
+  <Ul>
+    <Li>
+      Feel comfortable designing a GraphQL schema based on established patterns
+      like the Input Object Mutations or Connection Specification
+    </Li>
+    <Li>
+      Understand the tradeoffs between various patterns and where it's
+      appropriate to apply them
+    </Li>
+  </Ul>
 )
 
 SchemaDesignSession.defaultProps = {

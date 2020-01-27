@@ -8,8 +8,8 @@ const ErrorAndSecuritySession = ({ title }) => (
       <Li>
         Error handling
         <Ul>
-          <Li>GraphQL Errors explained</Li>
-          <Li>Extensions Fields</Li>
+          <Li>GraphQL errors explained</Li>
+          <Li>Extensions fields</Li>
           <Li>Handling expected errors as fields</Li>
         </Ul>
       </Li>
@@ -17,13 +17,28 @@ const ErrorAndSecuritySession = ({ title }) => (
         Security
         <Ul>
           <Li>Different attack vectors</Li>
-          <Li>Persistent Queries</Li>
-          <Li>Query Cost Analysis</Li>
+          <Li>Persistent queries</Li>
+          <Li>Query cost analysis</Li>
           <Li>Rate limiting</Li>
         </Ul>
       </Li>
     </Ul>
   </Session>
+)
+
+export const LearningObjectives = (
+  <Ul>
+    <Li>Be aware of the multiple attack vectors that exist in GraphQL APIs</Li>
+    <Li>
+      Get a good understanding on which measurements tackle which of the attack
+      vectors to help you use them appropriately
+    </Li>
+    <Li>Differentiate between expected and unexpected errors</Li>
+    <Li>
+      Establish a good understanding of the ergonomics of global and field based
+      errors to decide which are a better fit for your API
+    </Li>
+  </Ul>
 )
 
 ErrorAndSecuritySession.defaultProps = {

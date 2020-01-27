@@ -6,7 +6,7 @@ import SubscriptionsSession from './sessions/graphql/server/SubscriptionsSession
 import FederationSession from './sessions/graphql/server/FederationSession'
 import HasuraSession from './sessions/graphql/server/HasuraSession'
 import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-import IntermediateApolloClientSession from './sessions/graphql/client/IntermediateApolloClientSession'
+import AdvancedApolloClientSession from './sessions/graphql/client/AdvancedApolloClientSession'
 import { GRAPHQL_PART_TIME } from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
@@ -26,7 +26,7 @@ export const defaultSessionsSecondtHalf = [
   { Comp: SubscriptionsSession },
   { Comp: HasuraSession },
   { Comp: GraphQLClientFundamentalsSession },
-  { Comp: IntermediateApolloClientSession },
+  { Comp: AdvancedApolloClientSession },
 ]
 
 const CurriculumPartTime = ({

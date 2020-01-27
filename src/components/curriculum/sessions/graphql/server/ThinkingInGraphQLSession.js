@@ -15,7 +15,7 @@ const ThinkingInGraphQLSession = ({ title }) => (
       <Li>
         Schema fundamentals
         <Ul>
-          <Li>Schema Definition Language</Li>
+          <Li>Schema Definition Language (SDL)</Li>
           <Li>Types and Fields</Li>
           <Li>Queries and Mutations</Li>
         </Ul>
@@ -30,6 +30,22 @@ const ThinkingInGraphQLSession = ({ title }) => (
       </Li>
     </Ul>
   </Session>
+)
+
+export const LearningObjectives = (
+  <Ul>
+    <Li>
+      Understand the main functionalities and responsibilities of a GraphQL
+      Server
+    </Li>
+    <Li>
+      Learn how to migrate an existent REST API to GraphQL and start “thinking
+      in graphs”
+    </Li>
+    <Li>
+      Start identifying potential problems when running real-world GraphQL APIs
+    </Li>
+  </Ul>
 )
 
 ThinkingInGraphQLSession.defaultProps = {

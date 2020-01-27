@@ -5,18 +5,19 @@ import Session from '../../Session'
 const GraphQLClientFundamentalsSession = ({ title }) => (
   <Session title={title}>
     <Ul>
-      <Li>Query and Mutation principles</Li>
-      <Li>Do I need a GraphQL client?</Li>
-      <Li>
-        Apollo Client
-        <Ul>
-          <Li>Creating and connecting the React client</Li>
-          <Li>Fetching data: queries and mutations</Li>
-          <Li>Caching fundamentals</Li>
-        </Ul>
-      </Li>
+      <Li>Fetching data with GraphQL queries</Li>
+      <Li>Changing data using GraphQL mutations</Li>
+      <Li>Caching GraphQL data</Li>
+      <Li>Authentication</Li>
+      <Li>Error handling</Li>
     </Ul>
   </Session>
+)
+
+export const LearningObjectives = (
+  <Ul>
+    <Li>Learn how to consume GraphQL APIs in React using Apollo Client</Li>
+  </Ul>
 )
 
 GraphQLClientFundamentalsSession.defaultProps = {
