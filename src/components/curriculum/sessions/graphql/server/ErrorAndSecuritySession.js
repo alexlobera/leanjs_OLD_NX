@@ -17,7 +17,7 @@ const ErrorAndSecuritySession = ({ title }) => (
         Security
         <Ul>
           <Li>Different attack vectors</Li>
-          <Li>Persistent queries</Li>
+          <Li>Persisted queries</Li>
           <Li>Query cost analysis</Li>
           <Li>Rate limiting</Li>
         </Ul>
