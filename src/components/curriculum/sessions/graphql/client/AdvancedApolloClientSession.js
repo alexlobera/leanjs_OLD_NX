@@ -29,7 +29,7 @@ export const LearningObjectives = ({ showAll = true }) => (
 )
 
 AdvancedApolloClientSession.defaultProps = {
-  title: 'Intermediate Apollo Client',
+  title: 'Advanced Apollo Client',
 }
 // TODO remove this when training instance unit is fetched from the API
 AdvancedApolloClientSession.coachName = 'Vladimir Novick'
