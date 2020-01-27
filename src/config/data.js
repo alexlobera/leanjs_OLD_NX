@@ -14,7 +14,6 @@ export const GRAPHQL_WORKSHOP = 'GraphQL Worskhop'
 export const REACT_WORKSHOP = 'React Worskhop'
 export const REACT_CORPORATE = 'React - 5 Days'
 export const MEETUP = 'Meetup'
-export const TRAINING = 'Training'
 export const TECH_REACT = 'react'
 export const TECH_GRAPHQL = 'graphql'
 
