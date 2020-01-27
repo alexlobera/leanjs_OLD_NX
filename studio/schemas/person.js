@@ -114,6 +114,7 @@ export default {
   preview: {
     select: {
       title: 'fullname',
+      subtitle: 'order',
       media: 'image',
     },
   },

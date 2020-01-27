@@ -89,31 +89,6 @@ export const LearningObjectives = ({ showAllButton = true }) => {
     setShowAll(!showAll)
   }
 
-  //   let learningObjectives
-  //   if (showAll) {
-  //     learningObjectives = [
-  //       ThinkingInLearningObjectives,
-  //       SchemaDesignLearningObjectives,
-  //       ErrorAndSecurityLearningObjectives,
-  //       SubscriptionsLearningObjectives,
-  //       FederationLearningObjectives,
-  //       HasuraLearningObjectives,
-  //       GraphQLClientLearningObjectives,
-  //       AdvancedApolloClientLearningObjectives,
-  //     ]
-  //   } else {
-  //     learningObjectives = [
-  //       ThinkingInLearningObjectives[0],
-  //       SchemaDesignLearningObjectives[0],
-  //       ErrorAndSecurityLearningObjectives[0],
-  //       SubscriptionsLearningObjectives[0],
-  //       FederationLearningObjectives[0],
-  //       HasuraLearningObjectives[0],
-  //       GraphQLClientLearningObjectives[0],
-  //       AdvancedApolloClientLearningObjectives[0],
-  //     ]
-  //   }
-
   return (
     <>
       <Ul>
@@ -129,7 +104,10 @@ export const LearningObjectives = ({ showAllButton = true }) => {
 
       {showAllButton && (
         <P>
-          <Button onClick={toggleShowAll}>
+          <Button
+            className="show-all-learning-objectives"
+            onClick={toggleShowAll}
+          >
             {showAll
               ? `Hide learning objectives`
               : `Show all the learning objectives`}

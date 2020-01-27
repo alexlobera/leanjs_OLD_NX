@@ -187,13 +187,13 @@ class GraphQLCurriculum extends React.Component {
                             {/* <Td /> */}
                           </Tr>
                           <Tr>
-                            <Td verticalAlign="top">Timings/Pricing</Td>
+                            <Td verticalAlign="top">Timings</Td>
                             <Td>
                               <Ul textAlign="left">
                                 <Li>1 month</Li>
                                 <Li>Part time</Li>
                                 <Li>Evenings Central European Time</Li>
-                                <Li>Starting at £995</Li>
+                                {/* <Li>Starting at £995</Li> */}
                               </Ul>
                               <LinkButton
                                 variant="secondary"
@@ -208,7 +208,7 @@ class GraphQLCurriculum extends React.Component {
                                 <Li>3 days</Li>
                                 <Li>Full time</Li>
                                 <Li>9 am to 6 pm</Li>
-                                <Li>Starting at £995</Li>
+                                {/* <Li>Starting at £995</Li> */}
                               </Ul>
                               <LinkButton
                                 variant="secondary"
