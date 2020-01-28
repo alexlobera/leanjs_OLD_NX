@@ -122,7 +122,7 @@ render(
 
 You can edit the previous code by removing 'primary' from the last button. Try it! The style will react and change the color.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
 
 ### CSS optimization <a name="css-optimization"></a>
 

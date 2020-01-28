@@ -123,7 +123,7 @@ The previous Modal is an uncontrolled component.
 
 Which modal is easier to reuse in different projects? The second one (the uncontrolled one). Why? Because the state is handled by the modal itself so we don’t need to do any extra work to reuse the modal.
 
-<marketingcard text="🎉🎉 New course - GraphQL Bootcamp! 🎉🎉" to="/graphql/training/bootcamp/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
 
 ### Controlled vs uncontrolled components <a name="controlled-vs-uncontrolled"></a>
 

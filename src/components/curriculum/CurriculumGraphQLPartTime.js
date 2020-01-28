@@ -39,10 +39,10 @@ export const defaultSessionsFirstHalf = [
 ]
 
 export const defaultSessionsSecondtHalf = [
-  { Comp: SubscriptionsSession },
   { Comp: HasuraSession },
   { Comp: GraphQLClientFundamentalsSession },
   { Comp: AdvancedApolloClientSession },
+  { Comp: SubscriptionsSession },
 ]
 
 const CurriculumPartTime = ({
