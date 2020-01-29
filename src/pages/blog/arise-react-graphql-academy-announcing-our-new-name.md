@@ -38,7 +38,7 @@ We’ve been teaching GraphQL as part of our [React Bootcamp](https://reactgraph
 
 Our Senior Coach, [Richard Moss](https://reactgraphql.academy/about-us/#richard-moss) says:
 
-> "React is a declarative UI library that fits very well into the GraphQL declarative data fetching model. In combination, they enable fast and reusable component-based data-driven applications that deliver faster software at scale."<br><br>It helps that React and GraphQL were created by the same people - Facebook - and they’ve been using the two in harmony since 2012. It’s not _always_ the case that technologies created by the same teams work great together, but in this case, they work great!
+> "React and GraphQL were created by the same people - Facebook - and they’ve been using the two in harmony since 2012. It’s not _always_ the case that technologies created by the same teams work great together, but in this case, they work great!"
 
 See who else uses GraphQL on our blog ["_Who Uses GraphQL anyway?_"](https://reactgraphql.academy/graphql/who-uses-graphql/)
 
