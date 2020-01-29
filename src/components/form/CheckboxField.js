@@ -11,9 +11,9 @@ const Icon = styled.svg`
   stroke: black;
   stroke-width: 2px;
 `
-const HiddenCheckbox = styled.input.attrs({
+const HiddenCheckbox = styled.input.attrs(props => ({
   type: 'checkbox',
-})`
+}))`
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;

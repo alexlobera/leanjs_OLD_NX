@@ -11,7 +11,7 @@ import {
   EmailIcon,
 } from 'react-share'
 
-const SocialShare = styled.div.attrs({ className: 'blog-article' })`
+const SocialShare = styled.div.attrs(props => ({ className: 'blog-article' }))`
   display: flex;
   justify-content: space-evenly;
   div {

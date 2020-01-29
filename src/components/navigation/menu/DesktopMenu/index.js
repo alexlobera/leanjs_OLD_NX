@@ -41,9 +41,9 @@ class Item extends React.Component {
   }
 }
 
-export const DesktopMenuItem = styled(Item).attrs({
+export const DesktopMenuItem = styled(Item).attrs(props => ({
   className: 'navigation',
-})`
+}))`
   margin: 0 0 0 6px;
 `
 DesktopMenuItem.displayName = 'DesktopMenuItem'
