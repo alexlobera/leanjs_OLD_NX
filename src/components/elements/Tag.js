@@ -6,15 +6,13 @@ import Box from '../layout/Box'
 const Tag = styled(Box)`
   padding: 2px 8px;
   margin: 4px 0;
-  color: ${WHITE};
 `
 Tag.defaultProps = {
   borderRadius: '5px',
   backgroundColor: DARK_BLUE,
-  color: WHITE,
+  color: `${WHITE} !important`,
   fontSize: 1,
   display: 'inline-block',
-  role: 'tag',
 }
 
 export default Tag

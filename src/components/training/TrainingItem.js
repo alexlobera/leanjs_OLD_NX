@@ -9,7 +9,7 @@ import { formatUTC } from '../utils'
 import { WHITE } from '../../config/styles'
 
 const Calendar = styled(Link).attrs(props => ({
-  className: props => props.className,
+  className: props.className,
 }))`
   ${props =>
     `border: 3px ${selectBorderStyle(props.type)} ${selectTypeColor(

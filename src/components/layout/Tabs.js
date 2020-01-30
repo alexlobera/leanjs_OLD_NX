@@ -83,7 +83,7 @@ export const TabList = ({
 
 TabList.displayName = 'TabList'
 
-const A = styled.a.attrs(props => ({ className: props => props.className }))`
+const A = styled.a.attrs(props => ({ className: props.className }))`
   ${props =>
     props.isActive
       ? `
