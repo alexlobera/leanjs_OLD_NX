@@ -12,24 +12,22 @@ const MarketingCard = ({
   heading,
   className = 'blog-article',
   type,
-  mt = 4,
-  mb = 2,
+  sx: { mt = 4, mb = 2, ...sxRest } = {},
   ...rest
 }) => (
   <Card
     variant="info"
-    borderStyle={selectBorderStyle(type)}
-    borderColor={selectTypeColor(type)}
-    mt={mt}
-    mb={mb}
+    sx={{
+      borderStyle: selectBorderStyle(type),
+      borderColor: selectTypeColor(type),
+      mt,
+      mb,
+      ...sxRest,
+    }}
   >
     <Row>
       <Col md={7}>
-        {heading && (
-          <H4 mb={0} pt={0}>
-            {heading}
-          </H4>
-        )}
+        {heading && <H4 sx={{ mb: 0, pt: 0 }}>{heading}</H4>}
         {text && (
           <Span display="inline-block" mt={1}>
             {text}

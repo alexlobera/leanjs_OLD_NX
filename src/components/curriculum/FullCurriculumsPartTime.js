@@ -68,7 +68,7 @@ const FullCurriculumsPartTime = ({ trainings }) => {
             <a name="curriculum" />
           </H3>
           <Tabs defaultValue={GRAPHQL_PART_TIME}>
-            <TabList includeRowCol={false} mb={0}>
+            <TabList includeRowCol={false} sx={{ mb: 0 }}>
               <TabItem name={GRAPHQL_PART_TIME}>GraphQL curriculum</TabItem>
               <TabItem name={REACT_PART_TIME}>React curriculum</TabItem>
             </TabList>
@@ -86,7 +86,7 @@ const FullCurriculumsPartTime = ({ trainings }) => {
         <Col md={5} lg={4} mdOffset={1}>
           {trainings && <UpcomingTrainingCurriculum trainings={allPartTimes} />}
           <Link name="free-learning-resources" />
-          <H3 mt={2}>Free learning resources!</H3>
+          <H3 sx={{ mt: 2 }}>Free learning resources!</H3>
           <LinkButton className="free-learning-resources-cta" to="#newsletter">
             Sign up now
           </LinkButton>

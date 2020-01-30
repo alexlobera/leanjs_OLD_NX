@@ -14,10 +14,16 @@ const StyledLinkButton = styled(Link)`
   text-decoration: none;
 `
 StyledLinkButton.displayName = 'StyledLinkButton'
+
+const { sx = {}, ...buttonDefaultRestProps } = buttonDefaultProps
+
 StyledLinkButton.defaultProps = {
-  ...buttonDefaultProps,
-  display: 'inline-flex',
-  alignItems: 'center',
+  ...buttonDefaultRestProps,
+  sx: {
+    ...sx,
+    display: 'inline-flex',
+    alignItems: 'center',
+  },
 }
 
 const LinkButton = ({
@@ -32,8 +38,8 @@ const LinkButton = ({
       {...(variant ? buttonVariantProps[variant] : {})}
       {...props}
     >
-      {props.pdf ? <PdfDownload mr={3} /> : null}
-      {props.external ? <ExternalLinkIcon mr={3} /> : null}
+      {props.pdf ? <PdfDownload sx={{ mr: 3 }} /> : null}
+      {props.external ? <ExternalLinkIcon sx={{ mr: 3 }} /> : null}
       {children}
     </StyledLinkButton>
   )

@@ -18,14 +18,16 @@ export const defaultButtonStyle = css`
 `
 
 export const buttonDefaultProps = {
-  py: 1,
-  px: 4,
-  boxShadow: 'light',
-  borderRadius: 2,
-  border: 0,
-  textAlign: 'center',
-  fontSize: 2,
-  letterSpacing: ' 0.6px',
+  sx: {
+    py: 1,
+    px: 4,
+    boxShadow: 'light',
+    borderRadius: 2,
+    border: 0,
+    textAlign: 'center',
+    fontSize: 2,
+    letterSpacing: ' 0.6px',
+  },
   box: 'button',
 }
 
@@ -52,9 +54,9 @@ export const buttonVariantProps = {
 const StyledButton = styled(Box)`
   ${defaultButtonStyle};
 `
-StyledButton.defaultProps = buttonDefaultProps
+//StyledButton.defaultProps = buttonDefaultProps
 
-const Button = ({ children, loading, onClick, variant, ...rest }) => {
+const Button = ({ children, loading, onClick, variant, sx = {}, ...rest }) => {
   const props = {
     ...rest,
     onClick: rest.disabled ? undefined : onClick,
@@ -63,7 +65,7 @@ const Button = ({ children, loading, onClick, variant, ...rest }) => {
   return (
     <StyledButton
       type="button"
-      {...(variant ? buttonVariantProps[variant] : {})}
+      sx={{ ...(buttonVariantProps[variant] || {}), ...sx }}
       {...props}
     >
       {loading ? 'Loading ...' : children}
@@ -72,6 +74,7 @@ const Button = ({ children, loading, onClick, variant, ...rest }) => {
 }
 Button.defaultProps = {
   variant: 'default',
+  ...buttonDefaultProps,
 }
 
 Button.displayName = 'Button'

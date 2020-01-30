@@ -17,8 +17,10 @@ const REF = `
 
 export const H1 = styled(Box)``
 H1.defaultProps = {
-  fontWeight: 'bold',
-  fontSize: 8,
+  sx: {
+    fontWeight: 'bold',
+    fontSize: 8,
+  },
   box: 'h1',
 }
 
@@ -35,11 +37,13 @@ export const H2 = styled(Box)`
   }
 `
 H2.defaultProps = {
-  fontWeight: 'bold',
-  lineHeight: 6,
-  fontSize: 6,
-  mb: 5,
-  pt: 5,
+  sx: {
+    fontWeight: 'bold',
+    lineHeight: 6,
+    fontSize: 6,
+    mb: 5,
+    pt: 5,
+  },
   box: 'h2',
 }
 
@@ -56,9 +60,11 @@ export const H3 = styled(Box)`
   }
 `
 H3.defaultProps = {
-  fontSize: 5,
-  mt: 4,
-  lineHeight: 4,
+  sx: {
+    fontSize: 5,
+    mt: 4,
+    lineHeight: 4,
+  },
   box: 'h3',
 }
 
@@ -72,10 +78,12 @@ export const H4 = styled(Box)`
   }
 `
 H4.defaultProps = {
-  fontSize: 4,
-  lineHeight: 3,
-  mt: 3,
-  fontWeight: 'bold',
+  sx: {
+    fontSize: 4,
+    lineHeight: 3,
+    mt: 3,
+    fontWeight: 'bold',
+  },
   box: 'h4',
 }
 
@@ -85,10 +93,12 @@ export const H4Ref = styled(H4)`
 
 export const H5 = styled(Box)``
 H5.defaultProps = {
-  fontSize: 2,
-  lineHeight: 1,
-  pt: 2,
-  fontWeight: 'bold',
+  sx: {
+    fontSize: 2,
+    lineHeight: 1,
+    pt: 2,
+    fontWeight: 'bold',
+  },
   box: 'h5',
 }
 

@@ -8,14 +8,12 @@ const LearningResources = ({ posts = [], type = '' }) => {
   return (
     <React.Fragment>
       <H2>Latest {type} Blogs</H2>
-      <Box mt={5}>
+      <Box sx={{ mt: 5 }}>
         {posts.slice(0, 3).map(post => (
           <PostCard
             post={post}
             imageProps={{
-              objectFit: 'cover',
-              width: '100%',
-              maxHeight: '8rem',
+              sx: { objectFit: 'cover', width: '100%', maxHeight: '8rem' },
             }}
           />
         ))}

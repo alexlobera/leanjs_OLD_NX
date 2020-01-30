@@ -89,7 +89,6 @@ export const Blockquote = styled(Box)`
   }
 `
 Blockquote.defaultProps = {
+  sx: { fontSize: 6, lineHeight: 6 },
   box: 'blockquote',
-  fontSize: 6,
-  lineHeight: 6,
 }

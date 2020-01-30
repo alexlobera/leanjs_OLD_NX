@@ -68,7 +68,7 @@ const CurriculumSection = props => {
     enableToggle = false,
     toggleNavigateTo,
     showLinkToCurriculum = true,
-    mt,
+    sx = {},
   } = props
 
   const toogleLinkProps =
@@ -79,7 +79,7 @@ const CurriculumSection = props => {
       : { onClick: toggleSubSection }
 
   const subsection = isTabOpen ? (
-    <Box pt={1}>
+    <Box sx={{ pt: 1 }}>
       {children}
       {/* <Feedback /> */}
       {enableToggle || showLinkToCurriculum ? (
@@ -104,19 +104,21 @@ const CurriculumSection = props => {
 
   return (
     <Card
-      borderStyle={selectBorderStyle(type)}
-      borderColor={selectTypeColor(type)}
-      mt={mt}
+      sx={{
+        ...sx,
+        borderStyle: selectBorderStyle(type),
+        borderColor: selectTypeColor(type),
+      }}
     >
       <Element name={name || title} />
       {title ? (
-        <H4 mb={1}>
+        <H4 sx={{ mb: 1 }}>
           {title} {trainingDateTime && <small>{trainingDateTime}</small>}
         </H4>
       ) : (
         ''
       )}
-      <Box m={0} pb={3} lineHeight={2}>
+      <Box sx={{ m: 0, pb: 3, lineHeight: 2 }}>
         {addFullStopAtTheEnd(subTitle)} {` `}
         {subsection}
       </Box>
@@ -128,7 +130,7 @@ const addFullStopAtTheEnd = text =>
   text && text.replace ? text.replace(/([^.])$/, '$1.') : ''
 
 CurriculumSection.defaultProps = {
-  mt: 4,
+  sx: { mt: 4 },
 }
 
 export default CurriculumSection

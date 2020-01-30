@@ -30,13 +30,15 @@ const StyledSegment = styled(Box)`
   }}
 `
 StyledSegment.defaultProps = {
-  pt: [0, 7],
-  pb: [0, 7],
-  pl: 0,
-  pr: 0,
+  sx: {
+    pt: [0, 7],
+    pb: [0, 7],
+    pl: 0,
+    pr: 0,
+  },
 }
 
-const Segment = props => {
+const Segment = ({ sx = {}, ...props }) => {
   let smallProps = {}
   if (props.small) {
     smallProps.pt = [0, 5]
@@ -44,10 +46,14 @@ const Segment = props => {
     smallProps.pl = [1, 5]
     smallProps.pr = [1, 5]
   }
+
   return (
     <StyledSegment
-      {...(segmentVariantProps[props.variant] || {})}
-      {...smallProps}
+      sx={{
+        ...(segmentVariantProps[props.variant] || {}),
+        ...smallProps,
+        ...sx,
+      }}
       {...props}
     />
   )

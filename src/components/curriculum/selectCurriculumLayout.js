@@ -16,7 +16,7 @@ export const LIST_TWO_COL = 'listTwoCol'
 
 const SectionCTA = styled(Box)``
 SectionCTA.defaultProps = {
-  pt: 5,
+  sx: { pt: 5 },
 }
 
 const selectCurriculumLayout = ({
@@ -124,7 +124,7 @@ const selectCurriculumLayout = ({
             ) : (
               <React.Fragment>
                 <Link name="free-learning-resources" />
-                <H3 mt={2}>Free learning resources!</H3>
+                <H3 sx={{ mt: 2 }}>Free learning resources!</H3>
                 <LinkButton
                   className="free-learning-resources-cta"
                   to="#newsletter"

@@ -140,7 +140,9 @@ const BlogPost = ({
         <Header
           titleLines={title.split('<br />')}
           fullHeight={false}
-          paddingBottom={80}
+          sx={{
+            pb: 80,
+          }}
           bgImgUrl={mainImagePublicUrl}
           bgImageOpacity={0.3}
         >
@@ -172,11 +174,11 @@ const BlogPost = ({
               {body}
             </Col>
             <Col md={4} mdOffset={1}>
-              <Segment small variant="primary" mt={3}>
+              <Segment small variant="primary" sx={{ mt: 3 }}>
                 <ContactForm simplified />
               </Segment>
               {relatedPosts.length ? (
-                <Segment border="shadow" small mt={4}>
+                <Segment small sx={{ mt: 4, border: 'shadow' }}>
                   <H4>Related articles</H4>
                   {relatedPosts.splice(0, 5).map((post, index) => (
                     <React.Fragment key={index}>

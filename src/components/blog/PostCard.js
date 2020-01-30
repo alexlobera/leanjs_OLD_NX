@@ -10,18 +10,23 @@ import { formatPostTitle } from './BlogPost'
 
 const PostCard = ({
   post: { path, imageUrl, fluidImage, title, excerpt },
-  imageProps = {},
+  imageProps: { sx = {}, ...imageRest } = {},
 }) => {
   const formatedTitle = formatPostTitle(title)
   if (fluidImage) {
-    imageProps.fluid = fluidImage
+    imageRest.fluid = fluidImage
   } else {
-    imageProps.src = imageUrl
+    imageRest.src = imageUrl
   }
+
   return (
     <Card small variant="secondary" mb={5}>
       <Link to={`${path}`} className="articles-summary">
-        <Image {...imageProps} alt={formatedTitle} mb={0} />
+        <Image
+          {...(imageRest || {})}
+          alt={formatedTitle}
+          sx={{ ...sx, mb: 0 }}
+        />
       </Link>
       <Box p={2}>
         <Link to={`${path}`} className="articles-summary">
