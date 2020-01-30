@@ -22,6 +22,7 @@ import Segment from '../components/elements/Segment'
 import TrustedBySection from '../components/training/TrustedBySection'
 import UpcomingTrainingSection from '../components/training/UpcomingTrainingSection'
 import Box from 'src/components/layout/Box'
+import { world } from '@leanjs/academy-ui'
 
 const metas = {
   title: 'React & GraphQL Expert Training | React GraphQL Academy',

@@ -1,8 +1,8 @@
-const hello = require('@leanjs/hello')
+const { hello } = require('../hello')
 
 function world() {
   console.log(`${hello} world 🎉`)
   return `${hello} world 🎉`
 }
 
-module.exports = world
+module.exports = { world }
