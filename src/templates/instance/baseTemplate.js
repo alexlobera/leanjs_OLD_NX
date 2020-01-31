@@ -28,6 +28,7 @@ import {
   REACT_FUNDAMENTALS,
   REACT_PART_TIME,
 } from '../../config/data'
+import { createMetas } from '../../components/utils'
 
 const InstancePage = ({
   path,
@@ -69,6 +70,7 @@ const InstancePage = ({
     videoTwoJob,
     videoTwoCompany,
     tech,
+    siteUrl,
   },
 }) => (
   <Layout>
@@ -120,6 +122,17 @@ const InstancePage = ({
         ...breadcrumbLastItems,
       ]
 
+      const instanceImage =
+        data &&
+        data.instanceImage &&
+        data.instanceImage.nodes &&
+        data.instanceImage.nodes.length
+          ? data.instanceImage.nodes[0].childImageSharp.fluid.src
+          : locationImage.fluid.src
+      const instanceImageUrl = instanceImage
+        ? `${siteUrl}${instanceImage}`
+        : undefined
+
       return (
         <React.Fragment>
           <Helmet
@@ -130,13 +143,15 @@ const InstancePage = ({
                 href: canonical,
               },
             ]}
-            meta={[
-              {
-                name: 'description',
-                content: instanceTitle,
-              },
-            ]}
-          />
+          >
+            {createMetas({
+              title: instanceTitle,
+              imageFullPublicUrl: instanceImageUrl,
+              subtitle,
+              ogType: 'website',
+              twitterSite: '@reactgqlacademy',
+            })}
+          </Helmet>
           <Header
             breadcrumbPath={breadcrumb}
             tech={tech.toLowerCase()}

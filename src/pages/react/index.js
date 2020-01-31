@@ -19,7 +19,7 @@ import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import Newsletter from 'src/components/elements/Newsletter'
 import Card from 'src/components/elements/Card'
 import { getPostsFromNodes } from 'src/components/blog/utils'
@@ -84,7 +84,7 @@ const ReactPage = ({ data, path }) => {
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Breadcrumb
             path={[

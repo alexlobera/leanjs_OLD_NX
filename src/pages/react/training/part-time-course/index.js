@@ -20,7 +20,7 @@ import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPa
 import Header from 'src/components/layout/Header'
 import { REACT_PART_TIME, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
 const metas = {
@@ -52,7 +52,7 @@ const PartTime = ({ trainings, path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[

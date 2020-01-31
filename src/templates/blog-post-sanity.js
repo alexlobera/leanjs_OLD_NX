@@ -116,6 +116,7 @@ const Page = ({ data, location }) => {
     mainImage,
     title,
     subtitle,
+    excerpt,
     publishedAt: date,
     _rawBody,
     readingTimeInMinutes,
@@ -168,6 +169,7 @@ const Page = ({ data, location }) => {
     contents,
     metaImageFullPublicUrl,
     location,
+    metaDescription: subtitle || excerpt,
   }
   return <BlogPost {...blogPostProps} />
 }
@@ -219,6 +221,7 @@ export const query = graphql`
       _rawBody(resolveReferences: { maxDepth: 5 })
       title
       subtitle
+      excerpt(limit: 250)
       publishedAt
       readingTimeInMinutes
       author {

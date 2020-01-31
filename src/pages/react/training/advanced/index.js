@@ -23,7 +23,7 @@ import {
 import { Segment } from 'src/components/elements'
 import { ADVANCED_REACT, TECH_REACT } from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 
 const metas = {
   title: 'Advanced React Training | React GraphQL Academy',
@@ -54,7 +54,7 @@ const AdvancedTraining = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[

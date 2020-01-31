@@ -20,7 +20,7 @@ import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { GRAPHQL_API, TECH_GRAPHQL } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 
 const metas = {
   title: 'GraphQL API Training | React GraphQL Academy',
@@ -48,7 +48,7 @@ const GraphQL = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             tech={TECH_GRAPHQL}

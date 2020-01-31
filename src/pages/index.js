@@ -16,7 +16,7 @@ import AttendeeQuote from 'src/components/training/AttendeeQuote'
 import Ul, { Li } from '../components/layout/Ul'
 import FullCurriculumsImmersive from '../components/curriculum/FullCurriculumsImmersive'
 import FullCurriculumsPartTime from '../components/curriculum/FullCurriculumsPartTime'
-import { createSocialMetas } from '../components/utils'
+import { createMetas } from '../components/utils'
 import { RootHeader as Header } from '../components/layout/Header'
 import { selectTrainingByInstanceId } from '../components/training/selectUpcomingTrainings'
 import Segment from '../components/elements/Segment'
@@ -106,7 +106,7 @@ const IndexPage = () => {
                 },
               ]}
             >
-              {createSocialMetas(metas)}
+              {createMetas(metas)}
             </Helmet>
             <Header
               featuredTrainings={[featuredTrainings]}
