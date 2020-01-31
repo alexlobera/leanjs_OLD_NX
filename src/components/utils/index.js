@@ -84,10 +84,10 @@ export const createMetas = ({
   title,
   description,
   subtitle,
-  imageFullPublicUrl, // previously named metaImageFullPublicUrl and image
+  imageFullPublicUrl,
   ogType = 'article',
   twitterSite = '@reactgqlacademy',
-  twitterCreator, // previously named authorTwitter
+  authorTwitter,
 }) => {
   const metaDescription = description || subtitle || title
   return [
@@ -115,11 +115,11 @@ export const createMetas = ({
       name="twitter:description"
       content={metaDescription}
     />,
-    twitterCreator ? (
+    authorTwitter ? (
       <meta
         key={'twitter:creator'}
         name="twitter:creator"
-        content={twitterCreator}
+        content={authorTwitter}
       />
     ) : null,
   ].filter(m => m)

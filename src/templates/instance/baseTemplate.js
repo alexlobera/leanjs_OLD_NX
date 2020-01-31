@@ -123,7 +123,10 @@ const InstancePage = ({
       ]
 
       const instanceImage =
-        data.instanceImage.nodes && data.instanceImage.nodes.length
+        data &&
+        data.instanceImage &&
+        data.instanceImage.nodes &&
+        data.instanceImage.nodes.length
           ? data.instanceImage.nodes[0].childImageSharp.fluid.src
           : locationImage.fluid.src
       const instanceImageUrl = instanceImage

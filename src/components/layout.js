@@ -37,7 +37,7 @@ const Layout = ({ children, loadAutopilot = true }) => {
     'https://connect.facebook.net',
     'https://www.google-analytics.com',
   ]
-  // TODO add only preconnect to 'https://api.upmentoring.com' in training instance page
+  // TODO only add preconnect to 'https://api.upmentoring.com' in training instance page
   // let preconnectUrls = ['https://api.upmentoring.com']
   let preconnectUrls = []
   let scriptUrls = []
