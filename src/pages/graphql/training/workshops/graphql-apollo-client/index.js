@@ -18,7 +18,7 @@ import {
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
 import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
@@ -49,7 +49,7 @@ const GraphQLApolloClientWorkshop = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[

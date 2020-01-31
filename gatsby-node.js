@@ -2,6 +2,7 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const { capitalize } = require('./src/components/utils/text')
 const { getPostsFromNodes } = require('./src/components/blog/utils')
+const { removeTrailingSlash } = require('./src/components/utils/text')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
@@ -135,6 +136,11 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
 
         locationImages: allFile(
           filter: { relativePath: { regex: "/pages/locations/.*.jpg/" } }
@@ -239,6 +245,7 @@ exports.createPages = async ({ graphql, actions }) => {
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|online).*/
       const citiesFinanceAvailable = ['london']
+      const siteUrl = removeTrailingSlash(result.data.site.siteMetadata.siteUrl)
 
       await Promise.all(
         result.data.teamPages.nodes.map(({ username: { current } }) =>
@@ -355,6 +362,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 )
               }
             )
+
             await Promise.all(
               instancesToCreate.map(async nth => {
                 const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
@@ -365,6 +373,7 @@ exports.createPages = async ({ graphql, actions }) => {
                       instanceTemplate}.js`
                   ),
                   context: {
+                    siteUrl,
                     learnToCodePartners,
                     locationImage:
                       locationImage && locationImage.childImageSharp,
@@ -398,7 +407,7 @@ exports.createPages = async ({ graphql, actions }) => {
                       (node.frontmatter && node.frontmatter.coaches) || [],
                     subtitle:
                       (node.frontmatter && node.frontmatter.subtitle) || '',
-                    canonical: `https://reactgraphql.academy${slug}`,
+                    canonical: `${siteUrl}${slug}`,
                     ...restConfig,
                   },
                 })

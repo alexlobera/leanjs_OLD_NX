@@ -15,7 +15,7 @@ import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Segment } from 'src/components/elements'
 import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorporateGraphQL'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import { TECH_GRAPHQL } from 'src/config/data'
 
@@ -40,7 +40,7 @@ const CorporateGraphQLTraining = ({ path }) => (
             },
           ]}
         >
-          {createSocialMetas(metas)}
+          {createMetas(metas)}
         </Helmet>
         <Header
           tech={TECH_GRAPHQL}

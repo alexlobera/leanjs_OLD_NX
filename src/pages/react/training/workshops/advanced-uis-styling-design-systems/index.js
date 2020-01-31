@@ -19,7 +19,7 @@ import {
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
 import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
@@ -51,7 +51,7 @@ const StylingDesignSystemWorkshop = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[

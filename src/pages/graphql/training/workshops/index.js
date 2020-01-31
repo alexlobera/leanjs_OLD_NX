@@ -23,7 +23,7 @@ import { Segment } from 'src/components/elements'
 import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 
 const metas = {
   title: 'GraphQL Workshops | React GraphQL Academy',
@@ -55,7 +55,7 @@ const Bootcamps = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[

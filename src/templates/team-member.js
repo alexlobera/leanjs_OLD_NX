@@ -15,7 +15,7 @@ import { Video, Image } from '../components/elements'
 import { UpcomingTrainingSection } from '../components/training'
 import BlogSection from '../components/blog/BlogSection'
 import { getPostsFromNodes } from '../components/blog/utils'
-import { createSocialMetas } from '../components/utils/index'
+import { createMetas } from '../components/utils/index'
 
 export const renderJob = ({ enableLink = false } = {}) => (
   { title, companyLink, companyName },
@@ -125,7 +125,7 @@ const TeamMember = ({ data }) => {
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             bgImgUrl={coverImgUrl}

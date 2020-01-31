@@ -23,7 +23,7 @@ import {
   CONVINCE_THE_BOSS_PDF,
   TECH_GRAPHQL,
 } from 'src/config/data'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { GRAPHQL_PINK } from 'src/config/styles'
 
@@ -49,7 +49,7 @@ const TrainingPage = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             titleLines={['GraphQL Training']}

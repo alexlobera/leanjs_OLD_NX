@@ -23,4 +23,35 @@ const Page = props => (
   />
 )
 
+export const query = graphql`
+  query($usernames: [String!] = []) {
+    instanceImage: allFile(
+      filter: {
+        relativePath: {
+          # this image should come from UM traning instance
+          regex: "/pages/graphql/training/part-time-course/online.png/"
+        }
+      }
+    ) {
+      nodes {
+        name
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            sizes
+          }
+        }
+      }
+    }
+    allSanityPerson(filter: { username: { current: { in: $usernames } } }) {
+      nodes {
+        ...CoachInstance
+      }
+    }
+  }
+`
+
 export default Page

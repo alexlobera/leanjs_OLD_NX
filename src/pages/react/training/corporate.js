@@ -15,7 +15,7 @@ import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Segment } from 'src/components/elements'
 import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
 import LeanJSsprints from 'src/components/elements/LeanJSsprints'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { TECH_REACT } from 'src/config/data'
 
@@ -40,7 +40,7 @@ const CorporateReactTraining = ({ path }) => (
             },
           ]}
         >
-          {createSocialMetas(metas)}
+          {createMetas(metas)}
         </Helmet>
         <Header
           breadcrumbPath={[

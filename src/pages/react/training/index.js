@@ -24,7 +24,7 @@ import {
   TECH_REACT,
 } from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 
 const metas = {
   title: 'React Training | React GraphQL Academy',
@@ -48,7 +48,7 @@ const TrainingPage = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[
