@@ -359,21 +359,6 @@ const InstancePage = ({
                     ) : null}
                   </Col>
                 )}
-              {/* {financeAvailable && training && (
-                <Col md={10} mdOffset={1}>
-                  <FinanceCard />
-                </Col>
-              )}
-              {trialTraingInstance && training && (
-                <Col md={10} mdOffset={1}>
-                  <TrialCard trainingInstance={trialTraingInstance} />
-                </Col>
-              )}
-              {trialOfTraingInstance && training && (
-                <Col md={10} mdOffset={1}>
-                  <TrialOfCard trialOfTraingInstance={trialOfTraingInstance} />
-                </Col>
-              )} */}
             </Row>
           </Section>
           {!training || (!trialTraingInstance && !trialOfTheTrainingId) ? (

@@ -99,12 +99,6 @@ const RowBuy = styled.div`
   padding: 36px 0 0;
 `
 
-// const CheckoutH4 = styled(H4)`
-//   border-bottom: 1px solid ${GREY};
-//   padding-bottom: 6px;
-//   margin: 18px 0 9px;
-// `
-
 const CheckoutH4 = styled(H4)``
 CheckoutH4.defaultProps = {
   pb: '6px',

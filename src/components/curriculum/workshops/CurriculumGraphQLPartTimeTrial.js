@@ -14,7 +14,7 @@ const CurriculumGraphQLPartTimeTrial = ({
   ...rest
 }) => (
   <Curriculum
-    title={showTitle ? 'GraphQL Trial Curriculum' : ''}
+    title={showTitle ? 'GraphQL Trial Outline' : ''}
     defaultLearningObjectivesIsOpen
     {...rest}
     firstHalf={
@@ -32,7 +32,5 @@ export const LearningObjectives = () => (
     <ThinkingInLearningObjectives showAll />
   </Ul>
 )
-
-// CurriculumPartTime.TargetAudienceList = TargetAudienceList
 
 export default CurriculumGraphQLPartTimeTrial

@@ -9,34 +9,14 @@ const trainingByType = type => training => !type || training.type === type
 const trainingByTypes = types => training =>
   types && types.length ? types.find(type => type === training.type) : true
 
-// const trainingByTypes = types => {
-//   let typeFound = {}
-//   return training =>
-//     types && types.length
-//       ? types.find(type => {
-//           if (typeFound[type]) {
-//             return false
-//           } else {
-//             typeFound[type] = type === training.type
-
-//             return typeFound[type]
-//           }
-//         })
-//       : true
-// }
-
 const trainingByCity = ({ city, onlineOrOffline = false } = {}) => training => {
   if (!city) {
     return true
   }
 
   const cityLowerCase = city.toLowerCase()
-  //   const trainingCityLowerCase =
-  //     training && training.city && training.city.toLowerCase()
   const isSameCity =
     training && training.city && training.city.toLowerCase() === cityLowerCase
-  //   training.city.toLowerCase().replace(' ', '-') ===
-  //     cityLowerCase.replace(' ', '-')
 
   return onlineOrOffline && (training.isOnline || isSameCity)
     ? true
@@ -45,13 +25,6 @@ const trainingByCity = ({ city, onlineOrOffline = false } = {}) => training => {
     : cityLowerCase !== 'online' && isSameCity && !training.isOnline
     ? true
     : false
-
-  //   return city.toLowerCase() === 'online'
-  //     ? training.isOnline
-  //     : (!training.isOnline &&
-  //         training.city &&
-  //         training.city.toLowerCase().replace(' ', '-')) ===
-  //         city.toLowerCase().replace(' ', '-')
 }
 
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
