@@ -4,9 +4,9 @@ import { Li } from '../../layout/Ul'
 const TargetAudienceList = () => (
   <React.Fragment>
     <Li>
-      A developer{' '}
+      A{' '}
       <strong>
-        interested in becoming quickly a productive React developer
+        developer interested in becoming quickly a productive React developer
       </strong>{' '}
       capable to work on real-world React projects.
     </Li>

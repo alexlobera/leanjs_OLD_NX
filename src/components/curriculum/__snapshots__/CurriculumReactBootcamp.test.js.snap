@@ -98,7 +98,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       </CurriculumSection>,
     ]
   }
-  title="React Bootcamp Curriculum"
+  title="React Bootcamp Outline"
   type="React Bootcamp"
 />
 `;

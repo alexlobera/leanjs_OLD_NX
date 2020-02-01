@@ -159,8 +159,10 @@ class PaymentSection extends React.Component {
       data,
       errors,
       loading,
+      isOnline,
       city,
       triggerSubscribe,
+      trialTraingInstance,
     } = this.props
     let trainingInstanceId,
       eventId,
@@ -286,6 +288,7 @@ class PaymentSection extends React.Component {
                 {parseInt(price, 10) > 0 && (
                   <Checkout
                     {...this.props}
+                    trialTraingInstance={trialTraingInstance}
                     city={city}
                     navigate={navigate}
                     trainingInstanceId={trainingInstanceId}
@@ -315,7 +318,7 @@ class PaymentSection extends React.Component {
               </React.Fragment>
             )}
           </Card>
-          {trainingType !== MEETUP && (
+          {trainingType !== MEETUP && !isOnline && (
             <P pt={4}>
               Please be aware that the ticket only covers the cost of the
               training, it does not include travel expenses.
