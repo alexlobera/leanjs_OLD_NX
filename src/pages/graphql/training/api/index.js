@@ -77,6 +77,7 @@ const GraphQL = ({ path }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
+                  type={GRAPHQL_API}
                   quote="[The coaches] are very important - they're able to explain things in a way we can understand."
                   fullname="Jim Plimmer"
                   job="Developer"

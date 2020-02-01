@@ -26,6 +26,7 @@ import {
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { GRAPHQL_PINK } from 'src/config/styles'
+import { GRAPHQL_WORKSHOP } from '../../../config/data'
 
 const metas = {
   title: 'GraphQL Training (NEW) | React GraphQL Academy',
@@ -133,6 +134,7 @@ const TrainingPage = ({ path }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
+                  type={GRAPHQL_WORKSHOP}
                   quote="I think whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
                   fullname="Lara Ramey"
                   job="Software Developer"

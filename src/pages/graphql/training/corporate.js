@@ -18,6 +18,7 @@ import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { createMetas } from 'src/components/utils'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import { TECH_GRAPHQL } from 'src/config/data'
+import { GRAPHQL_BOOTCAMP } from '../../../config/data'
 
 const metas = {
   title: 'GraphQL Corporte Training | React GraphQL Academy',
@@ -92,6 +93,7 @@ const CorporateGraphQLTraining = ({ path }) => (
             <Col md={5} mdOffset={1} order={[2, 1]}>
               <a name="previous-clients" />
               <AttendeeQuote
+                type={GRAPHQL_BOOTCAMP}
                 quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
                 fullname="Lara Ramey"
                 job="Senior Developer"
