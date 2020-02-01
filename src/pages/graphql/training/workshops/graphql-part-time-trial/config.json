@@ -1,0 +1,12 @@
+{
+  "instanceTemplate": "graphql-part-time-trial",
+  "tech": "GraphQL",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
+  "breadcrumbWorkshopName": "Part-Time Trial",
+  "breadcrumbWorkshopSlug": "graphql-part-time-trial",
+  "trainingId": "5e349275778e880002113474",
+  "title": "3-Hour GraphQL Trial",
+  "tagsIn": ["graphql"],
+  "tagsNin": ""
+}

@@ -42,8 +42,10 @@ export function getTrainingTimings({ training }) {
   const days = Math.round((endDate - startDate) / daysCoefficient) + 1
   const hours = Math.round((endDate - startDate) / hourCoefficient)
   const duration =
-    hours < 7
-      ? ``
+    hours < 1
+      ? `1 hour`
+      : hours < 7
+      ? `${hours} hours`
       : days < 2
       ? '1 day'
       : days < 3

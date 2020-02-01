@@ -65,6 +65,7 @@ class Checkout extends React.Component {
       showSubscribeToNewsletter,
       city,
       triggerSubscribe,
+      showTrial,
     } = this.props
 
     const { isOpen } = this.state
@@ -109,6 +110,7 @@ class Checkout extends React.Component {
           </PurchaseWrapper>
         ) : (
           <CheckoutContainer
+            showTrial={showTrial}
             city={city}
             navigate={navigate}
             trainingInstanceId={trainingInstanceId}

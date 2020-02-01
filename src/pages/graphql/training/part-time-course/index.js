@@ -24,7 +24,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 import { createMetas } from 'src/components/utils'
 
 const metas = {
-  title: 'GraphQL Part-time | React GraphQL Academy',
+  title: 'GraphQL Part-time Course | React GraphQL Academy',
   description:
     'Interested in GraphQL part-time course? React GraphQL Academy offers in-person GraphQL part-time courses from industry experts. Contact us now!',
   image: WHY_GQLU_ACADEMY,

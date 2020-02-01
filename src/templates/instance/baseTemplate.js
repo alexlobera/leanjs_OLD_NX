@@ -16,7 +16,9 @@ import {
   selectNthTraining,
   AlternativeTrainingSection,
   AttendeeQuote,
+  getNextTrainingByTrainingId,
 } from 'src/components/training'
+import TrialCard from 'src/components/training/TrialCard'
 import { PaymentSection } from 'src/components/payment'
 import { Link } from 'src/components/navigation'
 import Box from 'src/components/layout/Box'
@@ -39,6 +41,9 @@ const InstancePage = ({
   crossSellTypes,
   curriculumProps = {},
   perfectStudentLink,
+  learningObjectives,
+  trialOfTheTrainingId,
+  trialTrainingId,
   data,
   pageContext: {
     locationImage,
@@ -75,7 +80,8 @@ const InstancePage = ({
 }) => (
   <Layout>
     {({ trainings, trainingLoading, trainingError }) => {
-      const pathTech = `/${tech.toLowerCase()}/`
+      const techLowerCase = tech.toLowerCase()
+      const pathTech = `/${techLowerCase}/`
       const pathTraining = `${pathTech}training/`
       const pathTrainingType = `${pathTraining}${breadcrumbTrainingSlug}/`
       const pathWorkshopType = `${pathTrainingType}${breadcrumbWorkshopSlug}/`
@@ -95,6 +101,16 @@ const InstancePage = ({
         types: crossSellTypes,
         excludeTrainingId: trainingId,
         city,
+      })
+
+      const trialTraingInstance = getNextTrainingByTrainingId({
+        trainings,
+        trainingId: trialTrainingId,
+      })
+
+      const trialOfTheTraingInstance = getNextTrainingByTrainingId({
+        trainings,
+        trainingId: trialOfTheTrainingId,
       })
 
       const breadcrumbInstance = {
@@ -133,6 +149,20 @@ const InstancePage = ({
         ? `${siteUrl}${instanceImage}`
         : undefined
 
+      const furtherDetails = trialOfTheTrainingId ? (
+        <P>
+          This training trial for the{' '}
+          <Link
+            to={`/${techLowerCase}/training/${trialOfTheTraingInstance.training.slug}`}
+          >
+            {trialOfTheTraingInstance.training.description.title}
+          </Link>
+        </P>
+      ) : (
+        undefined
+      )
+
+      console.log('trialOfTheTraingInstance', trialOfTheTraingInstance)
       return (
         <React.Fragment>
           <Helmet
@@ -154,7 +184,7 @@ const InstancePage = ({
           </Helmet>
           <Header
             breadcrumbPath={breadcrumb}
-            tech={tech.toLowerCase()}
+            tech={techLowerCase}
             titleLines={[instanceTitle]}
             subtitle={subtitle}
             links={[
@@ -183,6 +213,8 @@ const InstancePage = ({
               <Curriculum
                 {...curriculumProps}
                 training={training}
+                learningObjectives={learningObjectives}
+                type={type}
                 content={
                   <React.Fragment>
                     {videoCoachId ? (
@@ -207,7 +239,11 @@ const InstancePage = ({
                         </Box>
                       </React.Fragment>
                     ) : null}
-                    <TrainingDetails coaches={coaches} training={training} />
+                    <TrainingDetails
+                      coaches={coaches}
+                      training={training}
+                      furtherDetails={furtherDetails}
+                    />
                   </React.Fragment>
                 }
               />
@@ -278,6 +314,8 @@ const InstancePage = ({
             <Row>
               <Col md={5} mdOffset={1}>
                 <PaymentSection
+                  showTrial={!!trialTraingInstance}
+                  isOnline={city && city.toLowerCase() === 'online'}
                   training={training}
                   trainingError={trainingError}
                   trainingLoading={trainingLoading}
@@ -291,9 +329,16 @@ const InstancePage = ({
                   <FinanceCard />
                 </Col>
               )}
+              {trialTraingInstance && (
+                <Col md={10} mdOffset={1}>
+                  <TrialCard trainingInstance={trialTraingInstance} />
+                </Col>
+              )}
             </Row>
           </Section>
-          <AlternativeTrainingSection trainings={crossSellTrainings} />
+          {!trialTraingInstance && !trialOfTheTrainingId && (
+            <AlternativeTrainingSection trainings={crossSellTrainings} />
+          )}
           <BlogSection posts={posts} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

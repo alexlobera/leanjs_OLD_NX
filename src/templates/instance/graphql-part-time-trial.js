@@ -2,25 +2,22 @@ import React from 'react'
 import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
-} from 'src/components/curriculum/CurriculumGraphQLPartTime'
-import {
-  GRAPHQL_WORKSHOP,
-  GRAPHQL_API,
-  GRAPHQL_BOOTCAMP,
-  GRAPHQL_PART_TIME,
-} from 'src/config/data'
-
-export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_BOOTCAMP, GRAPHQL_API]
+  LearningObjectives,
+} from 'src/components/curriculum/workshops/CurriculumGraphQLPartTimeTrial'
+import { GRAPHQL_WORKSHOP } from 'src/config/data'
 
 const Page = props => (
   <BaseTemplate
     {...props}
-    trialTrainingId="5e349275778e880002113474"
-    type={GRAPHQL_PART_TIME}
-    typeOfTraining="GraphQL part-time course"
-    crossSellTypes={crossSellTypes}
+    trialOfTheTrainingId="5dc6f35fce62530002bd3e92"
+    type={GRAPHQL_WORKSHOP}
+    typeOfTraining="GraphQL trial"
     targetAudienceList={TargetAudienceList}
+    learningObjectives={LearningObjectives}
     curriculum={Curriculum}
+    curriculumProps={{
+      section: { isOpen: true },
+    }}
   />
 )
 
@@ -30,7 +27,7 @@ export const query = graphql`
       filter: {
         relativePath: {
           # this image should come from UM traning instance
-          regex: "/pages/graphql/training/part-time-course/online.png/"
+          regex: "/pages/graphql/training/part-time-course-trial/online.png/"
         }
       }
     ) {

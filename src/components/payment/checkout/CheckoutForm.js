@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Span, P, H4 } from '../../text'
+import { Span, P, H4, H5 } from '../../text'
 import { Button, LinkButton } from '../../buttons'
 import { FormGroup, InputField, Form, CheckboxField } from '../../form'
 import {
@@ -15,11 +15,12 @@ import {
   mustBeCardDate,
 } from '../../form/validations'
 import { Row, Col } from '../../layout/Grid'
+import Box from '../../layout/Box'
 import formatPrice from '../../utils/currency'
 import { Price } from '../'
 import { SCREEN_XS_MAX, SCREEN_SM_MIN } from '../../utils'
 import { WHITE, BROWN, GREY, FONT_FAMILY } from '../../../config/styles'
-import { Link } from '../../navigation'
+import Link from '../../navigation/Link'
 import { Ribbon, Alert } from '../../elements'
 import {
   formatCreditCardNumber,
@@ -98,11 +99,19 @@ const RowBuy = styled.div`
   padding: 36px 0 0;
 `
 
-const CheckoutH4 = styled(H4)`
-  border-bottom: 1px solid ${GREY};
-  padding-bottom: 6px;
-  margin: 18px 0 9px;
-`
+// const CheckoutH4 = styled(H4)`
+//   border-bottom: 1px solid ${GREY};
+//   padding-bottom: 6px;
+//   margin: 18px 0 9px;
+// `
+
+const CheckoutH4 = styled(H4)``
+CheckoutH4.defaultProps = {
+  pb: '6px',
+  m: '18px 0 9px',
+  borderBottom: '1px solid',
+  borderColor: GREY,
+}
 
 const RibbonBottomContainer = styled('div')`
   position: relative;
@@ -165,6 +174,7 @@ class CheckoutForm extends React.Component {
       isPaymentInProgress,
       paymentErrorMessage,
       showSubscribeToNewsletter,
+      showTrial,
     } = this.props
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
     const discount = priceQuantity - currentPriceQuantity
@@ -218,6 +228,17 @@ class CheckoutForm extends React.Component {
             </P>
           </Col>
         </Row>
+
+        {showTrial && (
+          <Box mb={3}>
+            <H5 mb={1} borderBottom="none">
+              Not ready to buy yet?
+            </H5>
+            <LinkButton to="#try-first" variant="primary">
+              Try first
+            </LinkButton>
+          </Box>
+        )}
         <Form
           onSubmit={pay}
           render={({
