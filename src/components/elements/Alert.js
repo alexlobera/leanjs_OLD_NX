@@ -6,8 +6,12 @@ import Box from '../layout/Box'
 
 const StyledAlert = styled(Box)``
 
-const Alert = ({ variant, ...rest }) => (
-  <StyledAlert {...(variant ? alertVariants[variant] : {})} {...rest} />
+const Alert = ({ variant, sx = {}, ...rest }) => (
+  <StyledAlert
+    //   {...(variant ? alertVariants[variant] : {})}
+    sx={{ ...(alertVariants[variant] || {}), ...sx }}
+    {...rest}
+  />
 )
 
 const alertVariants = {
@@ -22,10 +26,12 @@ const alertVariants = {
 }
 
 Alert.defaultProps = {
-  my: 1,
-  pl: 1,
-  pr: 1,
-  py: 3,
+  sx: {
+    my: 1,
+    pl: 1,
+    pr: 1,
+    py: 3,
+  },
   variant: 'default',
 }
 

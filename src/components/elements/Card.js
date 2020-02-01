@@ -33,21 +33,28 @@ const cardVariants = ({ borderColor, borderStyle }) => ({
 const StyledCard = styled(Box)`
   ${fontColor(DARK_GREY, true)}
 `
-const Card = ({ borderColor, borderStyle, children, ...rest }) => {
-  let smallProps = {}
+const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
+  let smallSxProps = {}
   if (rest.small) {
-    smallProps.pt = [1, 3]
-    smallProps.pb = [1, 3]
-    smallProps.pl = [1, 3]
-    smallProps.pr = [1, 3]
+    smallSxProps.pt = [1, 3]
+    smallSxProps.pb = [1, 3]
+    smallSxProps.pl = [1, 3]
+    smallSxProps.pr = [1, 3]
   }
   return (
     <StyledCard
-      {...getVariantProps(
-        rest.variant || rest.variants,
-        cardVariants({ borderColor, borderStyle })
-      )}
-      {...smallProps}
+      //   {...getVariantProps(
+      //     rest.variant || rest.variants,
+      //     cardVariants({ borderColor, borderStyle })
+      //   )}
+      sx={{
+        ...getVariantProps(
+          rest.variant || rest.variants,
+          cardVariants({ borderColor, borderStyle })
+        ),
+        ...smallSxProps,
+        ...sx,
+      }}
       {...rest}
     >
       {children}
@@ -55,10 +62,12 @@ const Card = ({ borderColor, borderStyle, children, ...rest }) => {
   )
 }
 Card.defaultProps = {
-  variant: 'primary',
-  borderColor: BLUE,
-  borderStyle: 'solid',
-  position: 'relative',
+  sx: {
+    variant: 'primary',
+    borderColor: BLUE,
+    borderStyle: 'solid',
+    position: 'relative',
+  },
 }
 Card.displayName = 'Card'
 
