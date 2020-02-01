@@ -62,7 +62,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       </CurriculumSection>,
     ]
   }
-  title="Advanced React Curriculum"
+  title="Advanced React Training Outline"
   type="Advanced React"
 />
 `;

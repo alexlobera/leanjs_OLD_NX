@@ -30,8 +30,9 @@ const selectCurriculumLayout = ({
   title,
   trainingId,
   marketingCard,
-  curriculumTitle = 'Course outline',
+  curriculumTitle = 'Curriculum',
   learningObjectives: LearningObjectives,
+  defaultLearningObjectivesIsOpen = false,
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
@@ -44,7 +45,7 @@ const selectCurriculumLayout = ({
   const learningObjectives = LearningObjectives && (
     <React.Fragment>
       <H3>Learning Objectives</H3>
-      <Section title="" type={type} enableToggle={false}>
+      <Section isOpen={defaultLearningObjectivesIsOpen} title="" type={type}>
         <Ul>
           <LearningObjectives />
         </Ul>

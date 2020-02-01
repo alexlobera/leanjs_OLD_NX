@@ -16,6 +16,7 @@ import { Image } from '../elements'
 import ContactForm from '../form/Contact'
 import { Segment } from '../elements'
 import ShareButtons from './ShareButtons'
+import { createMetas } from '../utils'
 
 export const formatPostTitle = title =>
   title ? title.replace(/(<([^>]+)>)/gi, ' ') : ''
@@ -89,6 +90,7 @@ const BlogPost = ({
   body,
   postTypeLabel,
   postTypePath,
+  metaDescription,
   slug,
   authorTwitter,
   authorFullname,
@@ -107,25 +109,16 @@ const BlogPost = ({
   <Layout loadAutopilot={false}>
     {({ trainings }) => (
       <RunkitProvider>
-        <Helmet
-          title={title}
-          meta={[
-            {
-              name: 'description',
-              content: subtitle,
-            },
-          ]}
-        >
-          <meta property="og:title" content={title} />
-          <meta property="og:image" content={metaImageFullPublicUrl} />
-          <meta property="og:description" content={subtitle || title} />
-          <meta property="og:type" content="article" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@reactgqlacademy" />
-          <meta name="twitter:title" content={title} />
-          <meta name="twitter:description" content={subtitle || title} />
-          <meta name="twitter:creator" content={`@${authorTwitter}`} />
-          <meta name="twitter:image" content={metaImageFullPublicUrl} />
+        <Helmet title={title}>
+          {createMetas({
+            title,
+            description: metaDescription,
+            imageFullPublicUrl: metaImageFullPublicUrl,
+            subtitle,
+            ogType: 'article',
+            twitterSite: '@reactgqlacademy',
+            authorTwitter,
+          })}
         </Helmet>
         <Breadcrumb
           path={[

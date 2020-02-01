@@ -25,7 +25,7 @@ import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 
 const metas = {
   title: 'React Bootcamp | React GraphQL Academy',
@@ -57,7 +57,7 @@ const Bootcamps = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[

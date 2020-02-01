@@ -1,4 +1,4 @@
-const { slugify } = require('../utils/text')
+const { slugify, removeTrailingSlash } = require('../utils/text')
 const PortableText = require('@sanity/block-content-to-html')
 const hyperscript = PortableText.h
 
@@ -146,8 +146,7 @@ function postsToHtml({ posts, bodyImagePublicURLs, siteUrl }) {
             serializers: {
               marks: {
                 link: ({ mark, children }) => {
-                  const baseUrl =
-                    siteUrl.slice(-1) === '/' ? siteUrl.slice(0, -1) : siteUrl
+                  const baseUrl = removeTrailingSlash(siteUrl)
 
                   let href
                   if (

@@ -66,7 +66,7 @@ const CurriculumReactBootcamp = ({
 
   return (
     <Curriculum
-      title="React Bootcamp Curriculum"
+      title="React Bootcamp Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}

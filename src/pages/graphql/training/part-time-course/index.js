@@ -21,10 +21,10 @@ import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import { GRAPHQL_PART_TIME, TECH_GRAPHQL } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 
 const metas = {
-  title: 'GraphQL Part-time | React GraphQL Academy',
+  title: 'GraphQL Part-time Course | React GraphQL Academy',
   description:
     'Interested in GraphQL part-time course? React GraphQL Academy offers in-person GraphQL part-time courses from industry experts. Contact us now!',
   image: WHY_GQLU_ACADEMY,
@@ -49,7 +49,7 @@ const GraphQL = ({ path }) => (
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             tech={TECH_GRAPHQL}

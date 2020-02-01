@@ -6,6 +6,7 @@ import { formatUTC, convertMinutesToHoursAndMinutes } from '../utils'
 import Section from './Section'
 import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
+import { useExpandCheckout } from '../payment/checkout'
 import { H1 as BaseH1, H2 as BaseH2, Span, H3 } from '../text'
 import {
   DARK_BLUE_075,
@@ -317,13 +318,26 @@ const Header = ({
   className = 'course-details-clicks',
   breadcrumbPath,
   tech,
-}) => (
-  <StaticQuery
-    query={graphql`
-      query getBackgroundImage($maxWidth: Int = 1000) {
-        allFile(filter: { relativePath: { regex: "/covers/" } }) {
-          nodes {
-            relativePath
+}) => {
+  const expandCheckout = useExpandCheckout()
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query getBackgroundImage($maxWidth: Int = 1000) {
+          allFile(filter: { relativePath: { regex: "/covers/" } }) {
+            nodes {
+              relativePath
+              childImageSharp {
+                fluid(maxWidth: $maxWidth) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          defaultHeaderImage: file(
+            relativePath: { regex: "/covers/default/" }
+          ) {
             childImageSharp {
               fluid(maxWidth: $maxWidth) {
                 ...GatsbyImageSharpFluid
@@ -331,243 +345,239 @@ const Header = ({
             }
           }
         }
-        defaultHeaderImage: file(relativePath: { regex: "/covers/default/" }) {
-          childImageSharp {
-            fluid(maxWidth: $maxWidth) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => {
-      const bgImage = removeBgImage
-        ? undefined
-        : bgImgUrl || getBackgroundImageSrc(data, bgImageName)
-      const startDate =
-        training.startDate &&
-        formatUTC(training.startDate, training.utcOffset, 'D MMM')
-      const endDate =
-        training.endDate &&
-        formatUTC(training.endDate, training.utcOffset, 'D MMM')
-      const {
-        hours: utcHours,
-        minutes: utcMinutes,
-      } = convertMinutesToHoursAndMinutes(training.utcOffset)
+      `}
+      render={data => {
+        const bgImage = removeBgImage
+          ? undefined
+          : bgImgUrl || getBackgroundImageSrc(data, bgImageName)
+        const startDate =
+          training.startDate &&
+          formatUTC(training.startDate, training.utcOffset, 'D MMM')
+        const endDate =
+          training.endDate &&
+          formatUTC(training.endDate, training.utcOffset, 'D MMM')
+        const {
+          hours: utcHours,
+          minutes: utcMinutes,
+        } = convertMinutesToHoursAndMinutes(training.utcOffset)
 
-      return (
-        <React.Fragment>
-          {bgImage && width > SMALL && (
-            <Helmet
-              link={[
-                {
-                  rel: 'preload',
-                  href: bgImage,
-                  as: 'image',
-                },
-              ]}
-            />
-          )}
-          {breadcrumbPath && <Breadcrumb tech={tech} path={breadcrumbPath} />}
-          <TechLogo tech={tech}>
-            <HeaderSection
-              bgColors={bgColors}
-              bgColor={bgColor}
-              bgImage={bgImage}
-              fullHeight={fullHeight}
-              paddingBottom={paddingBottom}
-              bgImageOpacity={bgImageOpacity}
-            >
-              <Row>
-                <TitleCol
-                  md={
-                    (showInfoBox && training) || featuredSection
-                      ? 7
-                      : featuredTrainings
-                      ? 8
-                      : 12
-                  }
-                  type={type}
-                >
-                  <H1>
-                    {titleLines.map((line, i) => (
-                      <TitleBackground key={i} children={line} />
-                    ))}
-                  </H1>
-                  {subtitle ? (
-                    <SubTitleBackground>
-                      {typeof subtitle === 'string' ? (
-                        <H2Header
-                          dangerouslySetInnerHTML={{ __html: subtitle }}
-                        />
-                      ) : (
-                        <H2Header>{subtitle}</H2Header>
-                      )}
-                    </SubTitleBackground>
-                  ) : null}
-                  {children ? (
-                    <SubTitleBackground>{children}</SubTitleBackground>
-                  ) : null}
-                  <Row>
-                    <Col>
-                      {links.length ? (
-                        <Nav quickLinks>
-                          <Ul variant="inline">
-                            <Li>
-                              <Span>On this page:</Span>
-                            </Li>
-                            {links.map(({ to, text }, i) => (
-                              <Li key={i}>
-                                <Link
-                                  className="on-this-page"
-                                  to={to[0] !== '#' ? `#${to}` : to}
-                                >
-                                  {text}
-                                </Link>
-                              </Li>
-                            ))}
-                          </Ul>
-                        </Nav>
-                      ) : null}
-                    </Col>
-                  </Row>
-                </TitleCol>
-                {featuredSection ? (
-                  <Col md={3} mdOffset={1}>
-                    <FeaturedSection>{featuredSection}</FeaturedSection>
-                  </Col>
-                ) : featuredTrainings ? (
-                  <Col md={4} marginLeft="auto">
-                    <FeaturedTrainingTitle>
-                      Featured Course
-                    </FeaturedTrainingTitle>
-                    {featuredTrainings.map(training => {
-                      const { dayMonth, duration } = getTrainingTimings({
-                        training,
-                      })
-                      return (
-                        <TrainingItem
-                          key={training.id}
-                          isOnline={training.isOnline}
-                          cityCountry={training.cityCountry}
-                          startDay={dayMonth[0]}
-                          startMonth={dayMonth[1]}
-                          duration={duration}
-                          type={training.type}
-                          title={training.title}
-                          path={training.toPath}
-                          className={className}
-                          textProps={{
-                            color: WHITE,
-                            textShadow: `1px 1px 5px ${DARK_GREY};`,
-                          }}
-                        />
-                      )
-                    })}
-                  </Col>
-                ) : null}
-                {showInfoBox && (
-                  <Col md={3} mdOffset={1}>
-                    <InfoBox type={type} p={1}>
-                      {infoBoxFluidImage && (
-                        <Image
-                          fluid={infoBoxFluidImage.fluid}
-                          width="100%"
-                          mb={1}
-                          alt={subtitle}
-                        />
-                      )}
-                      <Ul variant="unstyled" mb={1} pl={0} pr={0}>
-                        <Li>
-                          <strong>Date</strong>: {startDate ? startDate : 'TBD'}
-                          {startDate === endDate ? '' : ` - ${endDate}`}
-                        </Li>
-                        <Li>
-                          <strong>Timings</strong>:{' '}
-                          {`${(training.startDate &&
-                            formatUTC(
-                              training.startDate,
-                              training.utcOffset,
-                              'HH:mm'
-                            )) ||
-                            '9am'}-${(training.endDate &&
-                            formatUTC(
-                              training.endDate,
-                              training.utcOffset,
-                              'HH:mm'
-                            )) ||
-                            '6:00pm'}`}
-                          {training.isOnline && ` GMT${utcHours}:${utcMinutes}`}
-                        </Li>
-                        {training.isOnline ? (
-                          <>
-                            <Li>
-                              <strong>Location</strong>: <Tag>Online</Tag>
-                            </Li>
-                            <Li>
-                              <strong>Conference room</strong>:{' '}
-                              {training.venueName}
-                            </Li>
-                          </>
-                        ) : training.address ? (
-                          <Li>
-                            <strong>Venue</strong>:{training.address}
-                            {training.mapUrl && (
-                              <>
-                                {` - `}
-                                <Link
-                                  to={training.mapUrl}
-                                  className={className}
-                                >
-                                  {' '}
-                                  map
-                                </Link>
-                              </>
-                            )}
-                          </Li>
+        return (
+          <React.Fragment>
+            {bgImage && width > SMALL && (
+              <Helmet
+                link={[
+                  {
+                    rel: 'preload',
+                    href: bgImage,
+                    as: 'image',
+                  },
+                ]}
+              />
+            )}
+            {breadcrumbPath && <Breadcrumb tech={tech} path={breadcrumbPath} />}
+            <TechLogo tech={tech}>
+              <HeaderSection
+                bgColors={bgColors}
+                bgColor={bgColor}
+                bgImage={bgImage}
+                fullHeight={fullHeight}
+                paddingBottom={paddingBottom}
+                bgImageOpacity={bgImageOpacity}
+              >
+                <Row>
+                  <TitleCol
+                    md={
+                      (showInfoBox && training) || featuredSection
+                        ? 7
+                        : featuredTrainings
+                        ? 8
+                        : 12
+                    }
+                    type={type}
+                  >
+                    <H1>
+                      {titleLines.map((line, i) => (
+                        <TitleBackground key={i} children={line} />
+                      ))}
+                    </H1>
+                    {subtitle ? (
+                      <SubTitleBackground>
+                        {typeof subtitle === 'string' ? (
+                          <H2Header
+                            dangerouslySetInnerHTML={{ __html: subtitle }}
+                          />
                         ) : (
-                          <Li>
-                            <strong>Venue</strong>: TBC. {` `}
-                            <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
-                              Host it and get exclusive promotions
-                            </Link>
-                          </Li>
+                          <H2Header>{subtitle}</H2Header>
                         )}
-                        {linkToGallery && (
-                          <Li>
-                            <Link to={`#${linkToGallery}`}>
-                              See venue pictures
-                            </Link>
-                          </Li>
+                      </SubTitleBackground>
+                    ) : null}
+                    {children ? (
+                      <SubTitleBackground>{children}</SubTitleBackground>
+                    ) : null}
+                    <Row>
+                      <Col>
+                        {links.length ? (
+                          <Nav quickLinks>
+                            <Ul variant="inline">
+                              <Li>
+                                <Span>On this page:</Span>
+                              </Li>
+                              {links.map(({ to, text }, i) => (
+                                <Li key={i}>
+                                  <Link
+                                    className="on-this-page"
+                                    to={to[0] !== '#' ? `#${to}` : to}
+                                  >
+                                    {text}
+                                  </Link>
+                                </Li>
+                              ))}
+                            </Ul>
+                          </Nav>
+                        ) : null}
+                      </Col>
+                    </Row>
+                  </TitleCol>
+                  {featuredSection ? (
+                    <Col md={3} mdOffset={1}>
+                      <FeaturedSection>{featuredSection}</FeaturedSection>
+                    </Col>
+                  ) : featuredTrainings ? (
+                    <Col md={4} marginLeft="auto">
+                      <FeaturedTrainingTitle>
+                        Featured Course
+                      </FeaturedTrainingTitle>
+                      {featuredTrainings.map(training => {
+                        const { dayMonth, duration } = getTrainingTimings({
+                          training,
+                        })
+                        return (
+                          <TrainingItem
+                            key={training.id}
+                            isOnline={training.isOnline}
+                            cityCountry={training.cityCountry}
+                            startDay={dayMonth[0]}
+                            startMonth={dayMonth[1]}
+                            duration={duration}
+                            type={training.type}
+                            title={training.title}
+                            path={training.toPath}
+                            className={className}
+                            textProps={{
+                              color: WHITE,
+                              textShadow: `1px 1px 5px ${DARK_GREY};`,
+                            }}
+                          />
+                        )
+                      })}
+                    </Col>
+                  ) : null}
+                  {showInfoBox && (
+                    <Col md={3} mdOffset={1}>
+                      <InfoBox type={type} p={1}>
+                        {infoBoxFluidImage && (
+                          <Image
+                            fluid={infoBoxFluidImage.fluid}
+                            width="100%"
+                            mb={1}
+                            alt={subtitle}
+                          />
                         )}
-                        {downloadVenuePDF && (
+                        <Ul variant="unstyled" mb={1} pl={0} pr={0}>
                           <Li>
-                            <Link to={downloadVenuePDF}>
-                              Download more info PDF
-                            </Link>
+                            <strong>Date</strong>:{' '}
+                            {startDate ? startDate : 'TBD'}
+                            {startDate === endDate ? '' : ` - ${endDate}`}
                           </Li>
-                        )}
-                      </Ul>
-                      <Box textAlign="center" mb="-38px">
-                        <LinkButton
-                          className="header-buy-tickets"
-                          variant="primary"
-                          to="#pricing"
-                        >
-                          Buy tickets
-                        </LinkButton>
-                      </Box>
-                    </InfoBox>
-                  </Col>
-                )}
-              </Row>
-            </HeaderSection>
-          </TechLogo>
-        </React.Fragment>
-      )
-    }}
-  />
-)
+                          <Li>
+                            <strong>Timings</strong>:{' '}
+                            {`${(training.startDate &&
+                              formatUTC(
+                                training.startDate,
+                                training.utcOffset,
+                                'HH:mm'
+                              )) ||
+                              '9am'}-${(training.endDate &&
+                              formatUTC(
+                                training.endDate,
+                                training.utcOffset,
+                                'HH:mm'
+                              )) ||
+                              '6:00pm'}`}
+                            {training.isOnline &&
+                              ` GMT${utcHours}:${utcMinutes}`}
+                          </Li>
+                          {training.isOnline ? (
+                            <>
+                              <Li>
+                                <strong>Location</strong>: <Tag>Online</Tag>
+                              </Li>
+                              <Li>
+                                <strong>Conference room</strong>:{' '}
+                                {training.venueName}
+                              </Li>
+                            </>
+                          ) : training.address ? (
+                            <Li>
+                              <strong>Venue</strong>:{training.address}
+                              {training.mapUrl && (
+                                <>
+                                  {` - `}
+                                  <Link
+                                    to={training.mapUrl}
+                                    className={className}
+                                  >
+                                    {' '}
+                                    map
+                                  </Link>
+                                </>
+                              )}
+                            </Li>
+                          ) : (
+                            <Li>
+                              <strong>Venue</strong>: TBC. {` `}
+                              <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
+                                Host it and get exclusive promotions
+                              </Link>
+                            </Li>
+                          )}
+                          {linkToGallery && (
+                            <Li>
+                              <Link to={`#${linkToGallery}`}>
+                                See venue pictures
+                              </Link>
+                            </Li>
+                          )}
+                          {downloadVenuePDF && (
+                            <Li>
+                              <Link to={downloadVenuePDF}>
+                                Download more info PDF
+                              </Link>
+                            </Li>
+                          )}
+                        </Ul>
+                        <Box textAlign="center" mb="-38px">
+                          <LinkButton
+                            onClick={expandCheckout || undefined}
+                            className="header-buy-tickets"
+                            variant="primary"
+                            to="#pricing"
+                          >
+                            Buy tickets
+                          </LinkButton>
+                        </Box>
+                      </InfoBox>
+                    </Col>
+                  )}
+                </Row>
+              </HeaderSection>
+            </TechLogo>
+          </React.Fragment>
+        )
+      }}
+    />
+  )
+}
 
 export const RootHeader = props => (
   <Header bgColors={[GRAPHQL_PINK, BLUE]} bgImageOpacity={0.3} {...props} />

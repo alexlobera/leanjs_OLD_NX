@@ -20,7 +20,7 @@ import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
 import { GRAPHQL_PINK } from 'src/config/styles'
-import { createSocialMetas } from 'src/components/utils'
+import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Newsletter from 'src/components/elements/Newsletter'
 import Card from 'src/components/elements/Card'
@@ -83,7 +83,7 @@ const GraphQLPage = ({ data, path }) => {
               },
             ]}
           >
-            {createSocialMetas(metas)}
+            {createMetas(metas)}
           </Helmet>
           <Header
             breadcrumbPath={[

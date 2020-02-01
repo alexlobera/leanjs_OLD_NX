@@ -37,7 +37,9 @@ const Layout = ({ children, loadAutopilot = true }) => {
     'https://connect.facebook.net',
     'https://www.google-analytics.com',
   ]
-  let preconnectUrls = ['https://api.upmentoring.com']
+  // TODO only add preconnect to 'https://api.upmentoring.com' in training instance page
+  // let preconnectUrls = ['https://api.upmentoring.com']
+  let preconnectUrls = []
   let scriptUrls = []
 
   if (loadAutopilot) {
@@ -118,7 +120,8 @@ const Layout = ({ children, loadAutopilot = true }) => {
 
   const cityIndex = {}
   const formatTraining = ({ node }) => {
-    const { type, slug, description } = node.training || {}
+    const { training } = node
+    const { type, slug, description } = training || {}
     const { title = '' } = description || {}
     const { city = '', id, isOnline } = node
     const key = `${city}${type}${slug}`
@@ -128,6 +131,14 @@ const Layout = ({ children, loadAutopilot = true }) => {
       ...node,
       title,
       type,
+      training: {
+        ...training,
+        toPath: createTrainingPath({
+          type,
+          id,
+          slug,
+        }),
+      },
       toPath: createTrainingPath({
         type,
         city,

@@ -1,38 +1,38 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BOOTCAMP } from 'src/../images/imageNames'
+import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
-import Ul from 'src/components/layout/Ul'
-import CurriculumStylingAndAdvUI from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI'
-import TargetAudienceList from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI/TargetAudienceList'
-import LearningObjectives from 'src/components/curriculum/workshops/CurriculumStylingAndAdvUI/LearningObjectivesList'
+import Ul, { Li } from 'src/components/layout/Ul'
+import CurriculumGraphQLPartTimeTrial, {
+  LearningObjectives,
+} from 'src/components/curriculum/workshops/CurriculumGraphQLPartTimeTrial'
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
+import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
+import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
-import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
+import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
-  title: `Styling in React and Design Systems Workshop | React GraphQL Academy`,
+  title: 'GraphQL Part-Time Course Trial | React GraphQL Academy',
   description:
-    'Interested in Design Systems? React GraphQL Academy offers Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
-  image: WHY_REACTJS_ACADEMY,
+    'Are you not sure yet about buying our GraphQL part-time course? With this trial of our GraphQL part-time course, you will be able to make an informed decision before purchasing the full course',
+  image: BOOTCAMP_COLLAB,
   type: 'website',
 }
 
-const StylingDesignSystemWorkshop = ({ path }) => (
+const GraphQLApolloClientWorkshop = ({ path }) => (
   <Layout>
     {({ trainings }) => {
       const nextTraining = getNextTrainingByTrainingId({
@@ -56,29 +56,31 @@ const StylingDesignSystemWorkshop = ({ path }) => (
           <Header
             breadcrumbPath={[
               { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
+              { to: '/graphql', label: 'GraphQL' },
+              { to: '/graphql/training/', label: 'Training' },
+              { to: '/graphql/training/workshops', label: 'Workshops' },
               {
                 to: path,
                 label: breadcrumbWorkshopName,
               },
             ]}
-            tech={TECH_REACT}
-            titleLines={['Styling in React and', 'Design Systems Workshop']}
-            subtitle="See how React can look gorgeous and encourage design consistency at scale"
+            tech={TECH_GRAPHQL}
+            titleLines={['3-Hour GraphQL Trial']}
+            subtitle="With this trial of our GraphQL part-time course, you will be able to make an informed decision before purchasing the full course"
             links={[
               { text: 'Workshop Agenda', to: '#curriculum' },
               { text: 'Is this right for me?', to: '#target-audience' },
             ]}
-            bgImageName={BOOTCAMP}
-            type={REACT_WORKSHOP}
+            bgImageName={LONDON_BOOTCAMP}
+            type={GRAPHQL_WORKSHOP}
           />
           <TopSection>
             <Segment>
-              <CurriculumStylingAndAdvUI
-                trainingId={trainingId}
+              <CurriculumGraphQLPartTimeTrial
                 trainings={trainings}
+                trainingId={trainingId}
+                enableToggle
+                type={GRAPHQL_WORKSHOP}
                 section={{ isOpen: true }}
                 learningObjectives={LearningObjectives}
               />
@@ -89,30 +91,42 @@ const StylingDesignSystemWorkshop = ({ path }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
+                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
                   fullname="Rafa Fraga"
                   job="Software Engineer"
-                  youtubeId="9QpAWAtZy6M"
+                  youtubeId="hZZksRcqtkc"
                 />
               </Col>
               <Col md={4} lgOffset={1}>
                 <H2Ref>
-                  Is this one day workshop right for me? Are you...{' '}
+                  Is this 3-hour trial right for me? Are you...{' '}
                   <Link to="#target-audience" name="target-audience">
                     #
                   </Link>
                 </H2Ref>
                 <Ul>
-                  <TargetAudienceList />
+                  <Li>
+                    A developer with some experience developing Nodes.js APIs?
+                  </Li>
+                  <Li>
+                    Familiar with front-end technologies like React (used during
+                    the GraphQL part-time course) and JavaScript?
+                  </Li>
+                  <Li>
+                    Taking a step forward to become a GraphQL Specialist to
+                    build modern and efficient APIs?
+                  </Li>
                 </Ul>
                 <P>
-                  If you've said 'yes' to these, this workshop could be for you!
+                  If you've said 'yes' to these, this trial could be for you!
                 </P>
-                <H3>Not for React beginners!</H3>
+                <H3>Not for beginner devs!</H3>
+                <P>This is not a learn-to-code course!</P>
                 <NextTrainingButton type="workshop" training={nextTraining} />
               </Col>
             </Row>
           </Section>
+
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>
       )
@@ -120,4 +134,4 @@ const StylingDesignSystemWorkshop = ({ path }) => (
   </Layout>
 )
 
-export default StylingDesignSystemWorkshop
+export default GraphQLApolloClientWorkshop

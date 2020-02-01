@@ -67,7 +67,7 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const Page = ({ data, location }) => {
-  const { htmlAst, timeToRead, frontmatter } = data.markdownRemark
+  const { htmlAst, timeToRead, excerpt, frontmatter } = data.markdownRemark
   const { title, date, subtitle, author, imageUrl } = frontmatter
   const mainImagePublicUrl = imageUrl
   const authorTwitter = frontmatter.authorTwitter || 'reactgqlacademy'
@@ -104,6 +104,7 @@ const Page = ({ data, location }) => {
         ? 'GraphQL'
         : postTypeLabel,
     postTypePath,
+    metaDescription: subtitle || excerpt,
     slug: location.pathname,
     authorTwitter,
     authorSlug: author,
@@ -159,6 +160,7 @@ export const query = graphql`
       fields {
         slug
       }
+      excerpt(pruneLength: 250)
       htmlAst
       timeToRead
     }

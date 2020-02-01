@@ -9,17 +9,22 @@ const trainingByType = type => training => !type || training.type === type
 const trainingByTypes = types => training =>
   types && types.length ? types.find(type => type === training.type) : true
 
-const trainingByCity = city => training => {
+const trainingByCity = ({ city, onlineOrOffline = false } = {}) => training => {
   if (!city) {
     return true
   }
 
-  return city.toLowerCase() === 'online'
-    ? training.isOnline
-    : (!training.isOnline &&
-        training.city &&
-        training.city.toLowerCase().replace(' ', '-')) ===
-        city.toLowerCase().replace(' ', '-')
+  const cityLowerCase = city.toLowerCase()
+  const isSameCity =
+    training && training.city && training.city.toLowerCase() === cityLowerCase
+
+  return onlineOrOffline && (training.isOnline || isSameCity)
+    ? true
+    : cityLowerCase === 'online' && training.isOnline
+    ? true
+    : cityLowerCase !== 'online' && isSameCity && !training.isOnline
+    ? true
+    : false
 }
 
 export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
@@ -31,8 +36,14 @@ export const selectTrainingByInstanceId = ({ trainings, id }) =>
 export const excludeByTrainingId = trainingId => ({ training }) =>
   !training || !training.id || training.id !== trainingId
 
+export const excludeByInstanceId = instanceId => instance =>
+  !instance || !instance.id || instance.id !== instanceId
+
 export const filterByTrainingId = trainingId => ({ training } = {}) =>
   !trainingId || (training && training.id && training.id === trainingId)
+
+export const sortUpcomingTrainings = (a, b) =>
+  a.startDate > b.startDate ? 1 : -1
 
 export const selectUpcomingTrainings = ({
   city,
@@ -40,15 +51,20 @@ export const selectUpcomingTrainings = ({
   type,
   trainingId,
   excludeTrainingId,
+  excludeInstanceId,
   trainings = [],
   limit = 9999,
+  onlineOrOffline,
 }) => {
   const typesArray = types ? types : type ? [type] : []
+
   return trainings
     .filter(trainingByTypes(typesArray))
+    .filter(trainingByCity({ city, onlineOrOffline }))
+    .filter(excludeByInstanceId(excludeInstanceId))
     .filter(filterByTrainingId(trainingId))
-    .filter(trainingByCity(city))
     .filter(excludeByTrainingId(excludeTrainingId))
+    .sort(sortUpcomingTrainings)
     .slice(0, limit)
 }
 

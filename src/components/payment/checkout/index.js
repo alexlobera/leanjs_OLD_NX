@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 import styled from 'styled-components'
 import { Button } from '../../buttons'
@@ -25,118 +25,129 @@ const PriceAndDiscount = styled.div`
 
 export const BuyButton = aliasComponent(Button)
 
-class Checkout extends React.Component {
-  constructor(props) {
-    super(props)
+const CheckoutContext = React.createContext()
 
-    this.state = {
-      isOpen: props.isOpen || false,
-    }
-  }
+export const CheckoutProvider = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const expandCheckout = () => setIsOpen(true)
 
-  toggleIsOpen = () => {
-    this.props.trackUserBehaviour({
+  return (
+    <CheckoutContext.Provider value={{ isOpen, expandCheckout, setIsOpen }}>
+      {children}
+    </CheckoutContext.Provider>
+  )
+}
+
+export const useExpandCheckout = () => {
+  const checkoutContext = React.useContext(CheckoutContext)
+
+  return checkoutContext && checkoutContext.expandCheckout
+}
+
+const Checkout = props => {
+  const [isOpen, setIsOpen] = useState(false)
+  const checkoutContext = React.useContext(CheckoutContext)
+  const isCheckoutOpen = (checkoutContext && checkoutContext.isOpen) || isOpen
+
+  const openCheckout = () => {
+    props.trackUserBehaviour({
       event: BUY_BUTTON_CLICK,
     })
-    this.setState({ isOpen: !this.state.isOpen })
+    setIsOpen(true)
   }
 
-  render() {
-    const {
-      trainingInstanceId,
-      eventId,
-      price,
-      discountPrice,
-      currency,
-      quantity,
-      removeCourse,
-      addCourse,
-      priceQuantity,
-      currentPriceQuantity,
-      vatRate,
-      updateVatRate,
-      resetVoucher,
-      validateVoucher,
-      voucher,
-      isVoucherValid,
-      isVoucherValidationInProgress,
-      paymentApi,
-      navigate,
-      showSubscribeToNewsletter,
-      city,
-      triggerSubscribe,
-    } = this.props
+  const {
+    trainingInstanceId,
+    eventId,
+    price,
+    discountPrice,
+    currency,
+    quantity,
+    removeCourse,
+    addCourse,
+    priceQuantity,
+    currentPriceQuantity,
+    vatRate,
+    updateVatRate,
+    resetVoucher,
+    validateVoucher,
+    voucher,
+    isVoucherValid,
+    isVoucherValidationInProgress,
+    paymentApi,
+    navigate,
+    showSubscribeToNewsletter,
+    city,
+    triggerSubscribe,
+    trialTraingInstance,
+  } = props
 
-    const { isOpen } = this.state
-    // The class `gtm-purchase-box` is needed for Tracking purposes,
-    // please DON'T DELETE IT!!
-
-    return (
-      <Fragment>
-        {!isOpen ? (
-          <PurchaseWrapper className="gtm-purchase-box">
-            <Fragment>
-              {currentPriceQuantity ? (
-                <PriceAndDiscount>
-                  <Price width={1} textAlign="center" pt={1} pb={1}>
-                    {formatPrice(currency, currentPriceQuantity, vatRate)}
-                  </Price>
-                  <P>
-                    {' '}
-                    {priceQuantity !== currentPriceQuantity ? (
-                      <Span lineThrough>
-                        (Full prices:{' '}
-                        {formatPrice(currency, priceQuantity, vatRate)})
-                      </Span>
-                    ) : null}
-                  </P>
-                </PriceAndDiscount>
-              ) : (
-                <Price>{formatPrice(currency, priceQuantity, vatRate)}</Price>
-              )}
-              <BuyButton
-                onClick={this.toggleIsOpen}
-                ml="auto"
-                children="Buy now"
-                variant="primary"
-                className={
-                  showSubscribeToNewsletter
-                    ? `meetup-details-cta`
-                    : `pricing-clicks`
-                }
-              />
-            </Fragment>
-          </PurchaseWrapper>
-        ) : (
-          <CheckoutContainer
-            city={city}
-            navigate={navigate}
-            trainingInstanceId={trainingInstanceId}
-            eventId={eventId}
-            vatRate={vatRate}
-            updateVatRate={updateVatRate}
-            currency={currency}
-            price={price}
-            discountPrice={discountPrice}
-            quantity={quantity}
-            priceQuantity={priceQuantity}
-            currentPriceQuantity={currentPriceQuantity}
-            removeCourse={removeCourse}
-            addCourse={addCourse}
-            resetVoucher={resetVoucher}
-            validateVoucher={validateVoucher}
-            voucher={voucher}
-            isVoucherValid={isVoucherValid}
-            isVoucherValidationInProgress={isVoucherValidationInProgress}
-            paymentApi={paymentApi}
-            triggerSubscribe={triggerSubscribe}
-            showSubscribeToNewsletter={showSubscribeToNewsletter}
-            {...this.props}
-          />
-        )}
-      </Fragment>
-    )
-  }
+  return (
+    <Fragment>
+      {!isCheckoutOpen ? (
+        <PurchaseWrapper className="gtm-purchase-box">
+          <Fragment>
+            {currentPriceQuantity ? (
+              <PriceAndDiscount>
+                <Price width={1} textAlign="center" pt={1} pb={1}>
+                  {formatPrice(currency, currentPriceQuantity, vatRate)}
+                </Price>
+                <P>
+                  {' '}
+                  {priceQuantity !== currentPriceQuantity ? (
+                    <Span lineThrough>
+                      (Full prices:{' '}
+                      {formatPrice(currency, priceQuantity, vatRate)})
+                    </Span>
+                  ) : null}
+                </P>
+              </PriceAndDiscount>
+            ) : (
+              <Price>{formatPrice(currency, priceQuantity, vatRate)}</Price>
+            )}
+            <BuyButton
+              onClick={openCheckout}
+              ml="auto"
+              children="Buy now"
+              variant="primary"
+              className={
+                showSubscribeToNewsletter
+                  ? `meetup-details-cta`
+                  : `pricing-clicks`
+              }
+            />
+          </Fragment>
+        </PurchaseWrapper>
+      ) : (
+        <CheckoutContainer
+          trialTraingInstance={trialTraingInstance}
+          city={city}
+          navigate={navigate}
+          trainingInstanceId={trainingInstanceId}
+          eventId={eventId}
+          vatRate={vatRate}
+          updateVatRate={updateVatRate}
+          currency={currency}
+          price={price}
+          discountPrice={discountPrice}
+          quantity={quantity}
+          priceQuantity={priceQuantity}
+          currentPriceQuantity={currentPriceQuantity}
+          removeCourse={removeCourse}
+          addCourse={addCourse}
+          resetVoucher={resetVoucher}
+          validateVoucher={validateVoucher}
+          voucher={voucher}
+          isVoucherValid={isVoucherValid}
+          isVoucherValidationInProgress={isVoucherValidationInProgress}
+          paymentApi={paymentApi}
+          triggerSubscribe={triggerSubscribe}
+          showSubscribeToNewsletter={showSubscribeToNewsletter}
+          {...props}
+        />
+      )}
+    </Fragment>
+  )
 }
 
 Checkout.defaultProps = {

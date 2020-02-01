@@ -14,7 +14,12 @@ const CoachItem = ({ path, name, coachFluidImg }) => (
   </Li>
 )
 
-const TrainingDetails = ({ foodIncluded = false, coaches = [], training }) => (
+const TrainingDetails = ({
+  furtherDetails,
+  foodIncluded = false,
+  coaches = [],
+  training,
+}) => (
   <React.Fragment>
     {coaches.length ? (
       <React.Fragment>
@@ -31,44 +36,48 @@ const TrainingDetails = ({ foodIncluded = false, coaches = [], training }) => (
       </React.Fragment>
     ) : null}
     <H3>Further details</H3>
-    <Ul>
-      {training && training.isOnline ? (
-        <>
-          <Li>
-            24 hours of online workshops with industry experts across 4 weeks.
-          </Li>
-          <Li>
-            15-minute video call with each coach for 1-on-1 mentoring during the
-            course on top of the workshops.
-          </Li>
-        </>
-      ) : (
-        <>
-          <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}.</Li>
-          <Li>Accomodation not included.</Li>
-        </>
-      )}
-      <Li>
-        Hans-on training and progressive curriculum based on our{' '}
-        <Link to="/blog/react-graphql-academy-teaching-method/">
-          teaching method
-        </Link>
-        .
-      </Li>
-      <Li>Cohort and alumni Slack channels.</Li>
-      {training && !training.isOnline && (
+    {furtherDetails ? (
+      furtherDetails
+    ) : (
+      <Ul>
+        {training && training.isOnline ? (
+          <>
+            <Li>
+              24 hours of online workshops with industry experts across 4 weeks.
+            </Li>
+            <Li>
+              15-minute video call with each coach for 1-on-1 mentoring during
+              the course on top of the workshops.
+            </Li>
+          </>
+        ) : (
+          <>
+            <Li>{foodIncluded ? 'Lunch included' : 'Food not included'}.</Li>
+            <Li>Accomodation not included.</Li>
+          </>
+        )}
         <Li>
-          <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
-            Become a host and get exclusive promotions
-          </Link>{' '}
-          for your company.
+          Hans-on training and progressive curriculum based on our{' '}
+          <Link to="/blog/react-graphql-academy-teaching-method/">
+            teaching method
+          </Link>
+          .
         </Li>
-      )}
-      <Li>
-        Further questions?{` `}
-        <Link to="#contact-us">Contact us :)</Link>
-      </Li>
-    </Ul>
+        <Li>Cohort and alumni Slack channels.</Li>
+        {training && !training.isOnline && (
+          <Li>
+            <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
+              Become a host and get exclusive promotions
+            </Link>{' '}
+            for your company.
+          </Li>
+        )}
+        <Li>
+          Further questions?{` `}
+          <Link to="#contact-us">Contact us :)</Link>
+        </Li>
+      </Ul>
+    )}
   </React.Fragment>
 )
 
