@@ -318,7 +318,6 @@ const Header = ({
   className = 'course-details-clicks',
   breadcrumbPath,
   tech,
-  onBuyButtonClick,
 }) => {
   const expandCheckout = useExpandCheckout()
 
