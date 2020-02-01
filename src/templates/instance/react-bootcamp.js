@@ -8,12 +8,15 @@ import {
   REACT_PART_TIME,
   REACT_BOOTCAMP,
   ADVANCED_REACT,
+  REACT_WORKSHOP,
 } from 'src/config/data'
 
 export const crossSellTypes = [
   REACT_FUNDAMENTALS,
+  REACT_BOOTCAMP,
   REACT_PART_TIME,
   ADVANCED_REACT,
+  REACT_WORKSHOP,
 ]
 
 const Page = props => (

@@ -26,7 +26,7 @@ const CurriculumGraphQLAPI = ({
 
   return (
     <Curriculum
-      title="GraphQL API Curriculum"
+      title="GraphQL API Training Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}

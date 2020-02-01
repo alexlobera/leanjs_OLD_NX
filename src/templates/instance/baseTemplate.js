@@ -5,9 +5,10 @@ import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P, Blockquote } from 'src/components/text'
-import Ul from 'src/components/layout/Ul'
+import Ul, { Li } from 'src/components/layout/Ul'
 import { Segment, Video } from 'src/components/elements'
 import { Image } from 'src/components/elements'
+import LinkButton from 'src/components/buttons/LinkButton'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
@@ -18,7 +19,10 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import TrialCard from 'src/components/training/TrialCard'
+import TrialCard, {
+  DeductPriceOnPurchase,
+} from 'src/components/training/TrialCard'
+import TrialOfCard from 'src/components/training/TrialOfCard'
 import { PaymentSection } from 'src/components/payment'
 import { Link } from 'src/components/navigation'
 import Box from 'src/components/layout/Box'
@@ -30,7 +34,7 @@ import {
   REACT_FUNDAMENTALS,
   REACT_PART_TIME,
 } from '../../config/data'
-import { createMetas } from '../../components/utils'
+import { createMetas } from 'src/components/utils'
 
 const InstancePage = ({
   path,
@@ -99,8 +103,9 @@ const InstancePage = ({
       const crossSellTrainings = selectUpcomingTrainings({
         trainings,
         types: crossSellTypes,
-        excludeTrainingId: trainingId,
+        excludeInstanceId: training && training.id,
         city,
+        onlineOrOffline: true,
       })
 
       const trialTraingInstance = getNextTrainingByTrainingId({
@@ -108,7 +113,7 @@ const InstancePage = ({
         trainingId: trialTrainingId,
       })
 
-      const trialOfTheTraingInstance = getNextTrainingByTrainingId({
+      const trialOfTraingInstance = getNextTrainingByTrainingId({
         trainings,
         trainingId: trialOfTheTrainingId,
       })
@@ -150,19 +155,31 @@ const InstancePage = ({
         : undefined
 
       const furtherDetails = trialOfTheTrainingId ? (
-        <P>
-          This training trial for the{' '}
-          <Link
-            to={`/${techLowerCase}/training/${trialOfTheTraingInstance.training.slug}`}
-          >
-            {trialOfTheTraingInstance.training.description.title}
-          </Link>
-        </P>
+        <>
+          <Ul>
+            {trialOfTraingInstance && trialOfTraingInstance.training && (
+              <Li>
+                This training is a trial for the{' '}
+                <Link to={trialOfTraingInstance.training.toPath}>
+                  {trialOfTraingInstance.training.description.title}
+                </Link>
+              </Li>
+            )}
+            <Li>
+              <DeductPriceOnPurchase trainingInstance={training} />
+            </Li>
+          </Ul>
+
+          {trialOfTraingInstance && (
+            <LinkButton to={trialOfTraingInstance.training.toPath}>
+              Buy full course
+            </LinkButton>
+          )}
+        </>
       ) : (
         undefined
       )
 
-      console.log('trialOfTheTraingInstance', trialOfTheTraingInstance)
       return (
         <React.Fragment>
           <Helmet
@@ -253,6 +270,7 @@ const InstancePage = ({
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
+                  type={type}
                   quote={videoTwoQuote}
                   fullname={videoTwoFullname}
                   job={videoTwoJob}
@@ -314,7 +332,7 @@ const InstancePage = ({
             <Row>
               <Col md={5} mdOffset={1}>
                 <PaymentSection
-                  showTrial={!!trialTraingInstance}
+                  trialTraingInstance={trialTraingInstance}
                   isOnline={city && city.toLowerCase() === 'online'}
                   training={training}
                   trainingError={trainingError}
@@ -322,23 +340,45 @@ const InstancePage = ({
                 />
               </Col>
               <Col md={4} mdOffset={1} pt={3}>
-                <ContactForm variant="default" simplified />
+                <ContactForm
+                  variant={training ? 'default' : 'primary'}
+                  simplified
+                />
               </Col>
-              {financeAvailable && (
+              {training &&
+                (financeAvailable ||
+                  trialTraingInstance ||
+                  trialOfTraingInstance) && (
+                  <Col md={10} mdOffset={1}>
+                    {trialTraingInstance ? (
+                      <TrialCard trainingInstance={trialTraingInstance} />
+                    ) : trialOfTraingInstance ? (
+                      <TrialOfCard trainingInstance={trialOfTraingInstance} />
+                    ) : financeAvailable ? (
+                      <FinanceCard />
+                    ) : null}
+                  </Col>
+                )}
+              {/* {financeAvailable && training && (
                 <Col md={10} mdOffset={1}>
                   <FinanceCard />
                 </Col>
               )}
-              {trialTraingInstance && (
+              {trialTraingInstance && training && (
                 <Col md={10} mdOffset={1}>
                   <TrialCard trainingInstance={trialTraingInstance} />
                 </Col>
               )}
+              {trialOfTraingInstance && training && (
+                <Col md={10} mdOffset={1}>
+                  <TrialOfCard trialOfTraingInstance={trialOfTraingInstance} />
+                </Col>
+              )} */}
             </Row>
           </Section>
-          {!trialTraingInstance && !trialOfTheTrainingId && (
+          {!training || (!trialTraingInstance && !trialOfTheTrainingId) ? (
             <AlternativeTrainingSection trainings={crossSellTrainings} />
-          )}
+          ) : null}
           <BlogSection posts={posts} />
           <UpcomingTrainingSection trainings={trainings} />
         </React.Fragment>

@@ -30,7 +30,7 @@ const selectCurriculumLayout = ({
   title,
   trainingId,
   marketingCard,
-  curriculumTitle = 'Course outline',
+  curriculumTitle = 'Curriculum', //'Course outline',
   learningObjectives: LearningObjectives,
   defaultLearningObjectivesIsOpen = false,
 }) => {

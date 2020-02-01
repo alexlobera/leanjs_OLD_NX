@@ -174,7 +174,7 @@ class CheckoutForm extends React.Component {
       isPaymentInProgress,
       paymentErrorMessage,
       showSubscribeToNewsletter,
-      showTrial,
+      trialTraingInstance,
     } = this.props
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
     const discount = priceQuantity - currentPriceQuantity
@@ -229,12 +229,12 @@ class CheckoutForm extends React.Component {
           </Col>
         </Row>
 
-        {showTrial && (
+        {trialTraingInstance && (
           <Box mb={3}>
             <H5 mb={1} borderBottom="none">
               Not ready to buy yet?
             </H5>
-            <LinkButton to="#try-first" variant="primary">
+            <LinkButton to={trialTraingInstance.toPath} variant="primary">
               Try first
             </LinkButton>
           </Box>

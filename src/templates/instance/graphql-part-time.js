@@ -5,12 +5,19 @@ import Curriculum, {
 } from 'src/components/curriculum/CurriculumGraphQLPartTime'
 import {
   GRAPHQL_WORKSHOP,
-  GRAPHQL_API,
   GRAPHQL_BOOTCAMP,
+  GRAPHQL_API,
   GRAPHQL_PART_TIME,
+  GRAPHQL_PART_TIME_TRIAL,
 } from 'src/config/data'
 
-export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_BOOTCAMP, GRAPHQL_API]
+export const crossSellTypes = [
+  GRAPHQL_WORKSHOP,
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_API,
+  GRAPHQL_PART_TIME,
+  GRAPHQL_PART_TIME_TRIAL,
+]
 
 const Page = props => (
   <BaseTemplate
@@ -29,7 +36,7 @@ export const query = graphql`
     instanceImage: allFile(
       filter: {
         relativePath: {
-          # this image should come from UM traning instance
+          # this image should come from UM API traning instance
           regex: "/pages/graphql/training/part-time-course/online.png/"
         }
       }

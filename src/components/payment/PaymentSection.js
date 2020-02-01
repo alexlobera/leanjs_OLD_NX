@@ -162,7 +162,7 @@ class PaymentSection extends React.Component {
       isOnline,
       city,
       triggerSubscribe,
-      showTrial,
+      trialTraingInstance,
     } = this.props
     let trainingInstanceId,
       eventId,
@@ -288,7 +288,7 @@ class PaymentSection extends React.Component {
                 {parseInt(price, 10) > 0 && (
                   <Checkout
                     {...this.props}
-                    showTrial={showTrial}
+                    trialTraingInstance={trialTraingInstance}
                     city={city}
                     navigate={navigate}
                     trainingInstanceId={trainingInstanceId}

@@ -68,7 +68,7 @@ const CurriculumPartTime = ({
 
   return (
     <Curriculum
-      title="GraphQL Part-time course curriculum"
+      title="GraphQL Part-time Course Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}
