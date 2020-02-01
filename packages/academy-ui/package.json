@@ -15,5 +15,9 @@
     "url": "https://github.com/reactgraphqlacademy/reactgraphqlacademy.git",
     "directory": "packages/academy-ui"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.10.0",
+    "styled-components": "^4.2.0"
+  }
 }

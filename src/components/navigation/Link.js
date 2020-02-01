@@ -5,7 +5,7 @@ import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
 import { DARK_GREY } from '../../config/styles'
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 
 export const DEFAULT_SCROLL_OFFSET = -125
 export const DEFAULT_SCROLL_DURATION = 500

@@ -5,7 +5,7 @@ import { H3, P } from '../../components/text'
 import { Link } from '../../components/navigation'
 import { Image } from '../../components/elements'
 import Card from '../../components/elements/Card'
-import Box from '../../components/layout/Box'
+import { Box } from '@leanjs/academy-ui'
 import { formatPostTitle } from './BlogPost'
 
 const PostCard = ({

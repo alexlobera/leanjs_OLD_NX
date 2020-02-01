@@ -9,7 +9,7 @@ import { Link } from 'src/components/navigation'
 import { Segment } from 'src/components/elements'
 import { Button } from 'src/components/buttons'
 import Header from 'src/components/layout/Header'
-import Box from 'src/components/layout/Box'
+import {Box} from '@leanjs/academy-ui'
 import {
   UpcomingTrainingSection,
   selectNthTraining,

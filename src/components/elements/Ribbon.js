@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 import { RED, WHITE } from '../../config/styles'
 
 const Ribbon = styled(Box)`

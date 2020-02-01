@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import GatsbyImage from 'gatsby-image'
 import withLazyLoad from './withLazyLoad'
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 
 // const defaultProps = {
 //   // TODOSX DO WE NEED THIS PROP?

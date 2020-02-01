@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { fontColor } from '../text'
 import { DARK_BLUE, WHITE } from '../../config/styles'
 import { getVariantProps } from '../utils'
-import Box from './Box'
+import { Box } from '@leanjs/academy-ui'
 import Grid, { Col, Row } from './Grid'
 
 export const MOB_SECTION_MARGIN_Y = 5

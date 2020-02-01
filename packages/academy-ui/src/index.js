@@ -1,4 +1,1 @@
-module.exports = {
-  ...require('./hello'),
-  ...require('./world'),
-}
+export { Box } from './Box/Box'

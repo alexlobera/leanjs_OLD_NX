@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 import { WHITE, DARK_GREY, DARK_BLUE, RED } from '../../config/styles'
-import Box from '../layout/Box'
+import { Box } from '@leanjs/academy-ui'
 
 // TODOSX MOVE THIS TO SX DEFAULT PROP
 export const defaultButtonStyle = css`

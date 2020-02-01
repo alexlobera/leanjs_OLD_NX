@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 import withLazyLoad from './withLazyLoad'
 
 const IframeWrapper = styled(Box)`

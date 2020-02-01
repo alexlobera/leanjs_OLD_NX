@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { PINK, GREY } from '../../config/styles'
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 
 // const StyledAlert = styled(Box)``
 // const StyledAlert = props => <Box {...props} />

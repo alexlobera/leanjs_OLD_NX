@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { fontSize } from 'styled-system'
 
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 
 const REF = `
   :hover {

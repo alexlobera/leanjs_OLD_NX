@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { fontColor } from '../text'
 import { getVariantProps } from '../utils'
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 import { BLUE, WHITE, DARK_GREY, BOX_SHADOW } from '../../config/styles'
 
 const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({

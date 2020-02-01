@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../navigation/Link'
 import './RGALogo.css'
-import Box from '../layout/Box'
+import {Box} from '@leanjs/academy-ui'
 
 const RGALogo = ({ className, ...rest }) => (
   <Link

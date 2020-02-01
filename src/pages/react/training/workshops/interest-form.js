@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { TopSection } from 'src/components/layout/Section'
-import Box from 'src/components/layout/Box'
+import {Box} from '@leanjs/academy-ui'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H3, H4, P } from 'src/components/text'
 import { Link } from 'src/components/navigation'
