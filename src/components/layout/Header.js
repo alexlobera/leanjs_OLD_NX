@@ -207,18 +207,32 @@ const TITLE_BACKGROUND = `
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
 
-const FeaturedTrainingTitle = props => <H3 {...props} />
-FeaturedTrainingTitle.defaultProps = {
-  sx: {
-    backgroundColor: DARK_BLUE_075,
-    color: WHITE,
-    display: 'inline-block',
-    pt: 1,
-    pr: 1,
-    pb: 1,
-    pl: 1,
-  },
-}
+const FeaturedTrainingTitle = ({ sx = {}, ...rest }) => (
+  <H3
+    sx={{
+      backgroundColor: DARK_BLUE_075,
+      color: WHITE,
+      display: 'inline-block',
+      pt: 1,
+      pr: 1,
+      pb: 1,
+      pl: 1,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
+// FeaturedTrainingTitle.defaultProps = {
+//   sx: {
+//     backgroundColor: DARK_BLUE_075,
+//     color: WHITE,
+//     display: 'inline-block',
+//     pt: 1,
+//     pr: 1,
+//     pb: 1,
+//     pl: 1,
+//   },
+// }
 
 const TitleBackground = styled.span`
   &:first-child  {
@@ -496,7 +510,7 @@ const Header = ({
                             title={training.title}
                             path={training.toPath}
                             className={className}
-                            textProps={{
+                            textSxProps={{
                               color: WHITE,
                               textShadow: `1px 1px 5px ${DARK_GREY};`,
                             }}

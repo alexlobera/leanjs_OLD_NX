@@ -71,7 +71,7 @@ const TrainingItem = ({
   path,
   className,
   isOnline,
-  textProps = {},
+  textSxProps = {},
 }) => (
   <Flex sx={{ flexDirection: 'row', alignItems: 'flex-start', pb: 4 }}>
     <Calendar className={className} type={type} to={path}>
@@ -80,7 +80,7 @@ const TrainingItem = ({
       {startMonth}
       <Span sx={{ fontSize: 1, textAlign: 'center' }}>{duration}</Span>
     </Calendar>
-    <P sx={{ display: 'inline', pl: 2, pr: 2 }} {...textProps}>
+    <P sx={{ display: 'inline', pl: 2, pr: 2, ...textSxProps }}>
       {title}
       <br />
       {isOnline ? (
@@ -91,7 +91,7 @@ const TrainingItem = ({
         cityCountry
       )}
       <br />
-      <Link className={className} to={path} {...textProps}>
+      <Link className={className} to={path} sx={textSxProps}>
         Prices & more details
       </Link>
     </P>
