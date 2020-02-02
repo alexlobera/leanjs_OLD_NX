@@ -75,9 +75,6 @@ const PostMeta = ({
 const GridContent = styled(Grid)`
   padding-top: 72px;
 `
-GridContent.defaultProps = {
-  as: 'article',
-}
 
 const textProps = { lineHeight: 3, fontSize: 3 }
 export const BlogPostP = props => <P {...textProps} {...props} />
@@ -148,7 +145,7 @@ const BlogPost = ({
             timeToRead={timeToRead}
           />
         </Header>
-        <GridContent>
+        <GridContent as="article">
           <Row>
             <Col md={7}>
               {subtitle ? <H2>{subtitle}</H2> : null}

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { WHITE, DARK_BLUE_075, Z_INDEX_TOP } from '../../config/styles'
 import { Link } from '../navigation'
 import Button from '../buttons/Button'
@@ -9,33 +8,67 @@ import Flex from './Flex'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'
 
-const StyledCookiesNotification = styled(Flex)``
-StyledCookiesNotification.defaultProps = {
-  sx: {
-    my: 0,
-    mx: 'auto',
-    lineHeight: 1,
-    border: '1px dashed',
-    borderColor: WHITE,
-    px: 1,
-    py: 1,
-    maxWidth: '22rem',
-    backgroundColor: DARK_BLUE_075,
-    color: WHITE,
-    fontSize: 0,
-  },
-}
+// const StyledCookiesNotification = styled(Flex)``
+const StyledCookiesNotification = ({ sx = {}, ...rest }) => (
+  <Flex
+    sx={{
+      my: 0,
+      mx: 'auto',
+      lineHeight: 1,
+      border: '1px dashed',
+      borderColor: WHITE,
+      px: 1,
+      py: 1,
+      maxWidth: '22rem',
+      backgroundColor: DARK_BLUE_075,
+      color: WHITE,
+      fontSize: 0,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
-const CookiesNotificationWrapper = styled(Box)``
-CookiesNotificationWrapper.defaultProps = {
-  sx: {
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    width: 1,
-    zIndex: Z_INDEX_TOP,
-  },
-}
+// StyledCookiesNotification.defaultProps = {
+//   sx: {
+//     my: 0,
+//     mx: 'auto',
+//     lineHeight: 1,
+//     border: '1px dashed',
+//     borderColor: WHITE,
+//     px: 1,
+//     py: 1,
+//     maxWidth: '22rem',
+//     backgroundColor: DARK_BLUE_075,
+//     color: WHITE,
+//     fontSize: 0,
+//   },
+// }
+
+// const CookiesNotificationWrapper = styled(Box)``
+const CookiesNotificationWrapper = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      width: 1,
+      zIndex: Z_INDEX_TOP,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
+
+// CookiesNotificationWrapper.defaultProps = {
+//   sx: {
+//     position: 'fixed',
+//     bottom: 0,
+//     left: 0,
+//     width: 1,
+//     zIndex: Z_INDEX_TOP,
+//   },
+// }
 
 const AcceptCookies = () => {
   const [hideAcceptCookies, setHideAcceptCookies] = useState(

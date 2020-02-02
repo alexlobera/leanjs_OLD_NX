@@ -47,34 +47,34 @@ const StyledTabItem = styled(Link).attrs(props => ({
   border-bottom: none;
   text-decoration: none;
 `
-const StyledTabTitle = styled(Box)`
-  color: ${WHITE};
-`
-StyledTabTitle.defaultProps = {
-  sx: {
-    pb: 1,
-  },
-}
+const StyledTabTitle = ({ sx = {}, ...rest }) => (
+  <Box sx={{ color: WHITE, pb: 1, ...sx }} {...rest} />
+)
 
-const TabItem = ({ variant, sx = {}, ...rest }) => (
+// StyledTabTitle.defaultProps = {
+//   sx: {
+//     pb: 1,
+//   },
+// }
+
+const TabItem = ({ variant = 'default', sx = {}, ...rest }) => (
   <StyledTabItem
     sx={{
-      ...(variant ? tabItemVariantProps[variant] : {}),
+      border: '1px solid',
+      p: 3,
+      borderColor: DARK_BLUE,
       display: 'inline-block',
+      ...(variant ? tabItemVariantProps[variant] : {}),
       ...sx,
     }}
     {...rest}
   />
 )
 
-TabItem.defaultProps = {
-  variant: 'default',
-  sx: {
-    border: '1px solid',
-    p: 3,
-    borderColor: DARK_BLUE,
-  },
-}
+// TabItem.defaultProps = {
+//   variant: 'default',
+//   sx: {},
+// }
 
 export const tabItemVariantProps = {
   default: {

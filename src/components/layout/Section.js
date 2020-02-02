@@ -38,34 +38,29 @@ const StyledSection = styled(Box)`
   }
 `
 
+// const defaultSectionSxProp = {
+//   // display: ['inline-block', 'block'],
+//   display: 'block',
+// }
 const Section = ({ children, sx = {}, ...rest }) => (
   <StyledSection
     sx={{
+      display: 'block',
       ...getVariantProps(rest.variant || rest.variants, sectionVariantProps),
       ...sx,
     }}
+    box="section"
     {...rest}
   >
     <Grid>{children}</Grid>
   </StyledSection>
 )
-
-Section.defaultProps = {
-  sx: {
-    // display: ['inline-block', 'block'],
-    display: 'block',
-  },
-  box: 'section',
-}
 Section.displayName = 'Section'
 
-export const TopSection = styled(Section)``
-TopSection.defaultProps = {
-  sx: {
-    position: 'relative',
-    mt: [0, -125],
-  },
-}
+// export const TopSection = styled(Section)``
+export const TopSection = ({ sx = {}, ...rest }) => (
+  <Section sx={{ position: 'relative', mt: [0, -125], ...sx }} {...rest} />
+)
 TopSection.displayName = 'TopSection'
 
 export const ColSection = ({ col, col2, ...rest }) => {
@@ -86,6 +81,9 @@ export const ColSection = ({ col, col2, ...rest }) => {
       </Row>
     </Section>
   )
+}
+ColSection.defaultProps = {
+  variant: 'thin',
 }
 
 const colSectionVariantProps = {
@@ -121,10 +119,6 @@ const colSectionVariantProps = {
       mt: [5, 0],
     },
   },
-}
-
-ColSection.defaultProps = {
-  variant: 'thin',
 }
 
 export default Section

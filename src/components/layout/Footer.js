@@ -21,33 +21,33 @@ import {
 import { fontColor } from '../text'
 import Box from './Box'
 
-const FooterWrapper = styled(Box)``
-FooterWrapper.defaultProps = {
-  sx: {
-    backgroundColor: [DARK_BLUE, 'transparent'],
-  },
-}
+// const FooterWrapper = styled(Box)``
+const FooterWrapper = () => (
+  <Box
+    sx={{
+      backgroundColor: [DARK_BLUE, 'transparent'],
+    }}
+  />
+)
 
 const StyledFooter = styled(Box)`
   ${fontColor(WHITE)}
 `
-StyledFooter.defaultProps = {
-  sx: {
-    backgroundColor: DARK_BLUE,
-    pt: 6,
-    pb: 5,
-    mt: 4,
-  },
-  box: 'footer',
-}
 
-const SocialLink = styled(Link)`
-  text-decoration: none;
-`
+// const SocialLink = styled(Link)`
+//   text-decoration: none;
+// `
+const SocialLink = ({ sx = {}, ...rest }) => (
+  <Link sx={{ textDecoration: 'none', ...sx }} {...rest} />
+)
+
 const Footer = ({ width }) => (
   <FooterWrapper>
     <Grid>
-      <StyledFooter>
+      <StyledFooter
+        sx={{ backgroundColor: DARK_BLUE, pt: 6, pb: 5, mt: 4 }}
+        box="footer"
+      >
         <Row>
           <Col md={5} mdOffset={1}>
             <ContactForm addContactUsLink={true} />

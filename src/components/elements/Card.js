@@ -48,8 +48,11 @@ const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
       //     cardVariants({ borderColor, borderStyle })
       //   )}
       sx={{
+        borderColor: BLUE,
+        borderStyle: 'solid',
+        position: 'relative',
         ...getVariantProps(
-          rest.variant || rest.variants,
+          rest.variants || rest.variant,
           cardVariants({ borderColor, borderStyle })
         ),
         ...smallSxProps,
@@ -62,12 +65,7 @@ const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
   )
 }
 Card.defaultProps = {
-  sx: {
-    variant: 'primary',
-    borderColor: BLUE,
-    borderStyle: 'solid',
-    position: 'relative',
-  },
+  variant: 'primary',
 }
 Card.displayName = 'Card'
 

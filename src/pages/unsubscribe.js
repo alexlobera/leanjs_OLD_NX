@@ -20,9 +20,9 @@ import {
 const aliasInput = getComponentAliaser(InputField)
 export const EmailInput = aliasInput()
 
-export const ThanksTitle = styled(H3)`
-  margin: 1em 0;
-` //TODO: animate this later
+// export const ThanksTitle = styled(H3)`
+//   margin: 1em 0;
+// ` //TODO: animate this later
 
 export const THANKS_MESSAGE = 'To finish the process, check your Email.'
 
@@ -79,7 +79,7 @@ export class Unsubscribe extends React.Component {
           {formSubmited ? (
             <Row>
               <Col>
-                <ThanksTitle>{THANKS_MESSAGE}</ThanksTitle>
+                <H3 sx={{ my: 2 }}>{THANKS_MESSAGE}</H3>
               </Col>
             </Row>
           ) : null}

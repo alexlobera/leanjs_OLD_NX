@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Box from '../layout/Box'
 
 const ExternalLinkIcon = props => (
@@ -11,9 +10,9 @@ const ExternalLinkIcon = props => (
   </svg>
 )
 
-const StyledExternalLinkIcon = styled(Box)``
-StyledExternalLinkIcon.defaultProps = {
-  box: ExternalLinkIcon,
-}
+// const StyledExternalLinkIcon = styled(Box)``
+const StyledExternalLinkIcon = props => (
+  <Box box={ExternalLinkIcon} {...props} />
+)
 
 export default StyledExternalLinkIcon

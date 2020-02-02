@@ -68,8 +68,9 @@ const CurriculumSection = props => {
     enableToggle = false,
     toggleNavigateTo,
     showLinkToCurriculum = true,
-    sx = {},
+    sx: sxWithoutDefaults = {},
   } = props
+  const sx = { mt: 4, ...sxWithoutDefaults }
 
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
@@ -129,8 +130,8 @@ const CurriculumSection = props => {
 const addFullStopAtTheEnd = text =>
   text && text.replace ? text.replace(/([^.])$/, '$1.') : ''
 
-CurriculumSection.defaultProps = {
-  sx: { mt: 4 },
-}
+// CurriculumSection.defaultProps = {
+//   sx: { mt: 4 },
+// }
 
 export default CurriculumSection

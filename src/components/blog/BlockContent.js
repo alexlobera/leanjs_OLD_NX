@@ -69,7 +69,7 @@ export const Img = styled(Image)`
   margin-bottom: 10px !important;
 `
 
-export const Blockquote = styled(Box)`
+const StyledBlockquote = styled(Box)`
   padding-top: 10px;
   padding-bottom: 20px;
   background: #f9f9f9;
@@ -88,7 +88,11 @@ export const Blockquote = styled(Box)`
     vertical-align: -0.4em;
   }
 `
-Blockquote.defaultProps = {
-  sx: { fontSize: 6, lineHeight: 6 },
-  box: 'blockquote',
-}
+
+export const Blockquote = ({ sx = {}, ...rest }) => (
+  <StyledBlockquote
+    sx={{ fontSize: 6, lineHeight: 6, ...sx }}
+    box="blockquote"
+    {...rest}
+  />
+)

@@ -54,14 +54,25 @@ export const CCExpiryInput = aliasInput()
 export const CCCVCInput = aliasInput()
 export const SubmitPaymentFormButton = aliasButton()
 
-const QuantityActions = styled(Flex)``
-QuantityActions.defaultProps = {
-  sx: {
-    textAlign: 'center',
-    mx: 0,
-    my: 1,
-  },
-}
+// const QuantityActions = styled(Flex)``
+// QuantityActions.defaultProps = {
+//   sx: {
+//     textAlign: 'center',
+//     mx: 0,
+//     my: 1,
+//   },
+// }
+const QuantityActions = ({ sx = {}, ...rest }) => (
+  <Flex
+    sx={{
+      textAlign: 'center',
+      mx: 0,
+      my: 1,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
 const QuantityButton = styled(Button)`
   font-size: 1.16rem !important;
@@ -102,15 +113,27 @@ const RowBuy = styled.div`
 `
 
 // const CheckoutH4 = styled(H4)``
-const CheckoutH4 = props => <H4 {...props} />
-CheckoutH4.defaultProps = {
-  sx: {
-    pb: '6px',
-    m: '18px 0 9px',
-    borderBottom: '1px solid',
-    borderColor: GREY,
-  },
-}
+// CheckoutH4.defaultProps = {
+//   sx: {
+//     pb: '6px',
+//     m: '18px 0 9px',
+//     borderBottom: '1px solid',
+//     borderColor: GREY,
+//   },
+// }
+
+const CheckoutH4 = ({ sx = {}, ...rest }) => (
+  <H4
+    sx={{
+      pb: '6px',
+      m: '18px 0 9px',
+      borderBottom: '1px solid',
+      borderColor: GREY,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
 const RibbonBottomContainer = styled('div')`
   position: relative;

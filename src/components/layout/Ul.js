@@ -31,6 +31,7 @@ const StyledUl = styled(Box)`
 
 const Ul = ({ sx = {}, ...rest }) => (
   <StyledUl
+    box="ul"
     sx={{
       ...getVariantProps(rest.variant || rest.variants, ulVariantProps),
       ...sx,
@@ -38,9 +39,9 @@ const Ul = ({ sx = {}, ...rest }) => (
     {...rest}
   />
 )
-Ul.defaultProps = {
-  box: 'ul',
-}
+// Ul.defaultProps = {
+//   box: 'ul',
+// }
 
 const ulVariantProps = {
   inline: {
@@ -52,10 +53,11 @@ const ulVariantProps = {
   },
 }
 
-const Li = styled(Box)``
-Li.defaultProps = {
-  box: 'li',
-}
+// const Li = styled(Box)``
+// Li.defaultProps = {
+//   box: 'li',
+// }
+const Li = props => <Box box="li" {...props} />
 
 export { Ul, Li }
 export default Ul

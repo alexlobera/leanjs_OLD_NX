@@ -1,13 +1,16 @@
-import styled from 'styled-components'
+import React from 'react-photo-gallery'
 import Box from '../layout/Box'
 
-const Hr = styled(Box)``
-Hr.defaultProps = {
-  sx: {
-    mt: 6,
-    mb: 6,
-  },
-  box: 'hr',
-}
+const Hr = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      mt: 6,
+      mb: 6,
+      ...sx,
+    }}
+    box="hr"
+    {...rest}
+  />
+)
 
 export default Hr

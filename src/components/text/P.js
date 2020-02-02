@@ -1,21 +1,25 @@
+import React from 'react'
 import styled from 'styled-components'
 
 import Box from '../layout/Box'
 
-const P = styled(Box)`
+const StyledP = styled(Box)`
   text-align: ${props => props.align || 'left'};
   ${props => props.small && `font-size 0.9rem`};
   > a {
     ${props => props.small && `font-size 0.9rem`};
   }
 `
-P.defaultProps = {
-  sx: {
-    m: 0,
-    lineHeight: 2,
-    pb: 3,
-  },
-  box: 'p',
-}
+const P = ({ sx = {}, ...rest }) => (
+  <StyledP box="p" sx={{ m: 0, lineHeight: 2, pb: 3, ...sx }} {...rest} />
+)
+// P.defaultProps = {
+//   sx: {
+//     m: 0,
+//     lineHeight: 2,
+//     pb: 3,
+//   },
+//   box: 'p',
+// }
 
 export default P

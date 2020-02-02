@@ -26,19 +26,31 @@ const StyledBox = styled(({ sx, variant, as: Component, ...rest }) => (
   return css(props.sx)
 })
 
-const Box = React.forwardRef(({ children, as: _as, box, ...rest }, ref) => (
-  <StyledBox {...rest} as={box || _as || 'div'} ref={ref}>
-    {children}
-  </StyledBox>
+// const StyledBox = styled(({ sx, variant, as: Component, ...rest }) => (
+//   <Component {...rest} />
+// ))(props => css({ ...(props.sx || {}), theme: props.theme }))
+
+const Box = React.forwardRef(({ sx = {}, as: _as, box, ...rest }, ref) => (
+  <StyledBox
+    sx={{
+      fontFamily: 'barlow',
+      fontWeight: 'normal',
+      color: DARK_GREY,
+      ...sx,
+    }}
+    {...rest}
+    as={box || _as || 'div'}
+    ref={ref}
+  />
 ))
 
 Box.displayName = 'Box'
-Box.defaultProps = {
-  sx: {
-    fontFamily: 'barlow',
-    fontWeight: 'normal',
-    color: DARK_GREY,
-  },
-}
+// Box.defaultProps = {
+//   sx: {
+//     fontFamily: 'barlow',
+//     fontWeight: 'normal',
+//     color: DARK_GREY,
+//   },
+// }
 
 export default Box

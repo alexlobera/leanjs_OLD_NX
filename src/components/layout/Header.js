@@ -7,7 +7,7 @@ import Section from './Section'
 import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
 import { useExpandCheckout } from '../payment/checkout'
-import { H1 as BaseH1, H2 as BaseH2, Span, H3 } from '../text'
+import { H1 as BaseH1, H2, Span, H3 } from '../text'
 import {
   DARK_BLUE_075,
   LIGHT_BLUE,
@@ -132,18 +132,33 @@ const HeaderSection = styled(Section)`
   }
 `
 HeaderSection.displayName = 'HeaderSection'
-HeaderSection.defaultProps = {
-  sx: {
-    bgColor: 'rgba(196,196,196,0.6)',
-    mt: 0,
-    mb: 0,
-    pb: [5],
-  },
-}
+// HeaderSection.defaultProps = {
+//   sx: {
+//     bgColor: 'rgba(196,196,196,0.6)',
+//     mt: 0,
+//     mb: 0,
+//     pb: [5],
+//   },
+// }
 
-const H2Header = styled(BaseH2)`
-  text-shadow: 1px -1px 17px ${BLUE_04};
-`
+// const H2Header = styled(BaseH2)`
+//   text-shadow: 1px -1px 17px ${BLUE_04};
+// `
+const H2Header = ({ sx = {}, ...rest }) => (
+  <H2
+    sx={{
+      color: WHITE,
+      p: 0,
+      m: 0,
+      fontSize: 4,
+      lineHeight: 3,
+      fontWeight: 'normal',
+      textShadow: `1px -1px 17px ${BLUE_04}`,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 const TechLogo = styled.div`
   ${({ tech }) =>
     tech &&
@@ -175,16 +190,16 @@ const TechLogo = styled.div`
 `}
 `
 
-H2Header.defaultProps = {
-  sx: {
-    color: WHITE,
-    p: 0,
-    m: 0,
-    fontSize: 4,
-    lineHeight: 3,
-    fontWeight: 'normal',
-  },
-}
+// H2Header.defaultProps = {
+//   sx: {
+//     color: WHITE,
+//     p: 0,
+//     m: 0,
+//     fontSize: 4,
+//     lineHeight: 3,
+//     fontWeight: 'normal',
+//   },
+// }
 
 const TITLE_BACKGROUND = `
   background-color: ${DARK_BLUE_075};
@@ -192,7 +207,7 @@ const TITLE_BACKGROUND = `
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
 
-const FeaturedTrainingTitle = styled(H3)``
+const FeaturedTrainingTitle = props => <H3 {...props} />
 FeaturedTrainingTitle.defaultProps = {
   sx: {
     backgroundColor: DARK_BLUE_075,
@@ -280,14 +295,22 @@ const InfoBox = styled(Box)`
   border: ${({ type }) =>
     `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
 `
-const FeaturedSection = styled(Box)`
-  background-color: ${WHITE};
-`
-FeaturedSection.defaultProps = {
-  sx: {
-    p: 3,
-  },
-}
+const FeaturedSection = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      p: 3,
+      backgroundColor: WHITE,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
+
+// FeaturedSection.defaultProps = {
+//   sx: {
+//     p: 3,
+//   },
+// }
 
 const getBackgroundImageSrc = (data, fileName) => {
   if (!data) {
@@ -386,6 +409,7 @@ const Header = ({
             {breadcrumbPath && <Breadcrumb tech={tech} path={breadcrumbPath} />}
             <TechLogo tech={tech}>
               <HeaderSection
+                sx={{ bgColor: 'rgba(196,196,196,0.6)', mt: 0, mb: 0, pb: [5] }}
                 bgColors={bgColors}
                 bgColor={bgColor}
                 bgImage={bgImage}

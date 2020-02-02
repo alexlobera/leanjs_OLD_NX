@@ -8,7 +8,7 @@ import MenuData from '../Menu.json'
 import RGALogo from '../../../logos/RGALogo'
 import ToggleButton from './ToggleButton'
 
-const Item = ({ children, ...props }) => <Link {...props}>{children}</Link>
+const Item = props => <Link {...props} />
 
 export const PhoneMenuItem = styled(Item)`
   display: block;
