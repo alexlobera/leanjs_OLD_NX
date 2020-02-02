@@ -13,7 +13,9 @@ import Box from '../components/layout/Box'
 const SubSection = styled(Box)``
 SubSection.defaultProps = {
   box: 'section',
-  py: 4,
+  sx: {
+    py: 4,
+  },
 }
 
 const TermsOfService = () => (

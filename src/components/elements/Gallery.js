@@ -104,8 +104,7 @@ const Gallery = ({
         {hasMorePictures() && (
           <Col md={6}>
             <Link
-              display="inline-block"
-              pt={2}
+              sx={{ display: 'inline-block', pt: 2 }}
               className={className}
               onClick={loadMore}
             >
@@ -116,8 +115,7 @@ const Gallery = ({
         {downloadVenuePDF && (
           <Col md={6}>
             <Link
-              display="inline-block"
-              pt={2}
+              sx={{ display: 'inline-block', pt: 2 }}
               className={className}
               to={downloadVenuePDF}
             >

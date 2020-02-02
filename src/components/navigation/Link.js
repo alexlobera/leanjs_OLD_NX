@@ -82,7 +82,7 @@ class Link extends React.Component {
         <StyledLink
           {...restLinkScrollProps}
           onClick={e => {
-            onClick && onClick()
+            onClick && onClick(e)
           }}
           to={toHref.substr(1)}
           href={toHref}

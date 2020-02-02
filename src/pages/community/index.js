@@ -207,7 +207,7 @@ const Community = ({ data, path }) => (
                     <OurMeetupGroups />
                   </Col>
                 </Segment>
-                <Segment mt={5}>
+                <Segment sx={{ mt: 5 }}>
                   <Col md={8} mdOffset={2}>
                     <H2>
                       Instagram - boom! <a name="instagram" />

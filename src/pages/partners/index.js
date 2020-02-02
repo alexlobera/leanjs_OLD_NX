@@ -61,7 +61,7 @@ const Partners = ({ data, path }) => {
             <Row>
               {communityPartners.map(({ name, logo }) => (
                 <Col lg={3} key={name}>
-                  <Image fluid={getFuildLogo(logo)} alt={name} mb={0} />
+                  <Image fluid={getFuildLogo(logo)} alt={name} sx={{ mb: 0 }} />
                 </Col>
               ))}
             </Row>
@@ -72,14 +72,20 @@ const Partners = ({ data, path }) => {
               {partners.map(
                 ({ name, slug, website, type, description, logo }) => (
                   <Col lg={4} key={slug}>
-                    <Card small variant="secondary" mb={5}>
-                      <Image fluid={getFuildLogo(logo)} alt={name} mb={0} />
-                      <Box p={2}>
+                    <Card small variant="secondary" sx={{ mb: 5 }}>
+                      <Image
+                        fluid={getFuildLogo(logo)}
+                        alt={name}
+                        sx={{ mb: 0 }}
+                      />
+                      <Box sx={{ p: 2 }}>
                         <H3>{name}</H3>
                         <P>{description}</P>
                         <Flex>
                           <Link to={website}>Visit website</Link>
-                          <Box ml="auto">{titleCase(type)} partner</Box>
+                          <Box sx={{ ml: 'auto' }}>
+                            {titleCase(type)} partner
+                          </Box>
                         </Flex>
                       </Box>
                     </Card>

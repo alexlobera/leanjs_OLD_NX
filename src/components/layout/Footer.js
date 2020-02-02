@@ -23,17 +23,21 @@ import Box from './Box'
 
 const FooterWrapper = styled(Box)``
 FooterWrapper.defaultProps = {
-  backgroundColor: [DARK_BLUE, 'transparent'],
+  sx: {
+    backgroundColor: [DARK_BLUE, 'transparent'],
+  },
 }
 
 const StyledFooter = styled(Box)`
   ${fontColor(WHITE)}
 `
 StyledFooter.defaultProps = {
-  backgroundColor: DARK_BLUE,
-  pt: 6,
-  pb: 5,
-  mt: 4,
+  sx: {
+    backgroundColor: DARK_BLUE,
+    pt: 6,
+    pb: 5,
+    mt: 4,
+  },
   box: 'footer',
 }
 
@@ -55,7 +59,7 @@ const Footer = ({ width }) => (
                   <H3>Site links</H3>
                 </Col>
                 <Col md={6}>
-                  <Ul variant="unstyled" pt={0}>
+                  <Ul variant="unstyled" sx={{ pt: 0 }}>
                     {[
                       { to: '/react/training', txt: 'React Courses' },
                       { to: '/react/curriculum', txt: 'React Curriculum' },
@@ -74,7 +78,7 @@ const Footer = ({ width }) => (
                   </Ul>
                 </Col>
                 <Col md={6}>
-                  <Ul variant="unstyled" pt={0}>
+                  <Ul variant="unstyled" sx={{ pt: 0 }}>
                     {[
                       { to: '/brand', txt: 'Logo & Assets' },
                       { to: '/partners', txt: 'Partners' },
@@ -105,7 +109,7 @@ const Footer = ({ width }) => (
             <Row>
               <Col>
                 <Span>Follow us...</Span>
-                <Ul variants={['unstyled', 'inline']} mt={1} mb={2}>
+                <Ul variants={['unstyled', 'inline']} sx={{ mt: 1, mb: 2 }}>
                   {[
                     {
                       to: 'https://twitter.com/reactgqlacademy',
@@ -155,7 +159,7 @@ const Footer = ({ width }) => (
                   product
                 </P>
                 <RGALogo className="footer-rga-logo" />
-                <P pt={4}>
+                <P sx={{ pt: 4 }}>
                   Looking for a Job?
                   <br />
                   Search for Developer Careers on Jooble

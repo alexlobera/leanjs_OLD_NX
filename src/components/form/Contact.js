@@ -102,6 +102,7 @@ const ContactForm = ({
                     label="Your email address:"
                     name="email"
                     placeholder="eg. steve@jobs.com"
+                    // TODO Do we need this color prop?
                     color={WHITE}
                   />
                   <Button
@@ -128,12 +129,12 @@ const ContactForm = ({
       {formSubmitted ? (
         <Row>
           <Col>
-            <ThanksTitle my={3}>{THANKS_MESSAGE}</ThanksTitle>
+            <ThanksTitle sx={{ my: 3 }}>{THANKS_MESSAGE}</ThanksTitle>
           </Col>
         </Row>
       ) : null}
 
-      <P pt={3}>
+      <P sx={{ pt: 3 }}>
         Looking to{' '}
         <Link to="/unsubscribe/" className="footer-unsubscribe">
           unsubscribe?

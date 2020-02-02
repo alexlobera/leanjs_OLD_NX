@@ -14,29 +14,35 @@ const InputForm = styled(Box)`
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `
 InputForm.defaultProps = {
-  fontSize: 2,
-  lineHeight: 2,
+  sx: {
+    fontSize: 2,
+    lineHeight: 2,
+    p: 1,
+  },
   box: 'input',
-  p: 1,
 }
 
 export const ErrorMessage = styled(Box)`
   background-color: ${PINK};
 `
 ErrorMessage.defaultProps = {
-  m: 0,
-  fontWeight: 'bold',
-  color: DARK_BLUE,
-  py: 0,
-  px: 1,
-  fontSize: 0,
+  sx: {
+    m: 0,
+    fontWeight: 'bold',
+    color: DARK_BLUE,
+    py: 0,
+    px: 1,
+    fontSize: 0,
+  },
 }
 
 export const FormGroup = styled(Box)`
   display: block;
 `
 FormGroup.defaultProps = {
-  py: 1,
+  sx: {
+    py: 1,
+  },
 }
 
 const Input = ({

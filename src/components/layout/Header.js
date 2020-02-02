@@ -133,10 +133,12 @@ const HeaderSection = styled(Section)`
 `
 HeaderSection.displayName = 'HeaderSection'
 HeaderSection.defaultProps = {
-  bgColor: 'rgba(196,196,196,0.6)',
-  mt: 0,
-  mb: 0,
-  pb: [5],
+  sx: {
+    bgColor: 'rgba(196,196,196,0.6)',
+    mt: 0,
+    mb: 0,
+    pb: [5],
+  },
 }
 
 const H2Header = styled(BaseH2)`
@@ -174,12 +176,14 @@ const TechLogo = styled.div`
 `
 
 H2Header.defaultProps = {
-  color: WHITE,
-  padding: 0,
-  margin: 0,
-  fontSize: 4,
-  lineHeight: 3,
-  fontWeight: 'normal',
+  sx: {
+    color: WHITE,
+    p: 0,
+    m: 0,
+    fontSize: 4,
+    lineHeight: 3,
+    fontWeight: 'normal',
+  },
 }
 
 const TITLE_BACKGROUND = `
@@ -190,13 +194,15 @@ const TITLE_BACKGROUND = `
 
 const FeaturedTrainingTitle = styled(H3)``
 FeaturedTrainingTitle.defaultProps = {
-  backgroundColor: DARK_BLUE_075,
-  color: WHITE,
-  display: 'inline-block',
-  pt: 1,
-  pr: 1,
-  pb: 1,
-  pl: 1,
+  sx: {
+    backgroundColor: DARK_BLUE_075,
+    color: WHITE,
+    display: 'inline-block',
+    pt: 1,
+    pr: 1,
+    pb: 1,
+    pl: 1,
+  },
 }
 
 const TitleBackground = styled.span`
@@ -249,6 +255,7 @@ const Nav = styled.div`
     }
   }
 `
+
 const TitleCol = styled(Col)`
   ${({ type }) =>
     type &&
@@ -277,7 +284,9 @@ const FeaturedSection = styled(Box)`
   background-color: ${WHITE};
 `
 FeaturedSection.defaultProps = {
-  p: 3,
+  sx: {
+    p: 3,
+  },
 }
 
 const getBackgroundImageSrc = (data, fileName) => {
@@ -443,7 +452,7 @@ const Header = ({
                       <FeaturedSection>{featuredSection}</FeaturedSection>
                     </Col>
                   ) : featuredTrainings ? (
-                    <Col md={4} marginLeft="auto">
+                    <Col md={4} sx={{ ml: 'auto' }}>
                       <FeaturedTrainingTitle>
                         Featured Course
                       </FeaturedTrainingTitle>
@@ -474,16 +483,18 @@ const Header = ({
                   ) : null}
                   {showInfoBox && (
                     <Col md={3} mdOffset={1}>
-                      <InfoBox type={type} p={1}>
+                      <InfoBox type={type} sx={{ p: 1 }}>
                         {infoBoxFluidImage && (
                           <Image
                             fluid={infoBoxFluidImage.fluid}
-                            width="100%"
-                            mb={1}
+                            sx={{
+                              width: '100%',
+                              mb: 1,
+                            }}
                             alt={subtitle}
                           />
                         )}
-                        <Ul variant="unstyled" mb={1} pl={0} pr={0}>
+                        <Ul variant="unstyled" sx={{ mb: 1, pl: 0, pr: 0 }}>
                           <Li>
                             <strong>Date</strong>:{' '}
                             {startDate ? startDate : 'TBD'}
@@ -556,7 +567,7 @@ const Header = ({
                             </Li>
                           )}
                         </Ul>
-                        <Box textAlign="center" mb="-38px">
+                        <Box sx={{ textAlign: 'center', mb: '-38px' }}>
                           <LinkButton
                             onClick={expandCheckout || undefined}
                             className="header-buy-tickets"

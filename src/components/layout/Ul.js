@@ -29,10 +29,13 @@ const StyledUl = styled(Box)`
   `};
 `
 
-const Ul = props => (
+const Ul = ({ sx = {}, ...rest }) => (
   <StyledUl
-    {...getVariantProps(props.variant || props.variants, ulVariantProps)}
-    {...props}
+    sx={{
+      ...getVariantProps(rest.variant || rest.variants, ulVariantProps),
+      ...sx,
+    }}
+    {...rest}
   />
 )
 Ul.defaultProps = {

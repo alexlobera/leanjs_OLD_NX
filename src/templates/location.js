@@ -135,8 +135,8 @@ const Location = ({ path, data }) => (
               },
             ]}
           />
-          <TopSection mt={-250}>
-            <Segment border="shadow">
+          <TopSection sx={{ mt: -250 }}>
+            <Segment sx={{ border: 'shadow' }}>
               <Link to="#upcoming" name="upcoming" />
               <Row>
                 <Col lg={10} lgOffset={1}>

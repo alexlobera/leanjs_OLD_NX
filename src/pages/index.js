@@ -51,22 +51,29 @@ const StyledTabTitle = styled(Box)`
   color: ${WHITE};
 `
 StyledTabTitle.defaultProps = {
-  pb: 1,
+  sx: {
+    pb: 1,
+  },
 }
 
-const TabItem = ({ variant, ...rest }) => (
+const TabItem = ({ variant, sx = {}, ...rest }) => (
   <StyledTabItem
-    {...(variant ? tabItemVariantProps[variant] : {})}
+    sx={{
+      ...(variant ? tabItemVariantProps[variant] : {}),
+      display: 'inline-block',
+      ...sx,
+    }}
     {...rest}
-    display="inline-block"
   />
 )
 
 TabItem.defaultProps = {
-  border: '1px solid',
   variant: 'default',
-  p: 3,
-  borderColor: DARK_BLUE,
+  sx: {
+    border: '1px solid',
+    p: 3,
+    borderColor: DARK_BLUE,
+  },
 }
 
 export const tabItemVariantProps = {
@@ -118,7 +125,7 @@ const IndexPage = () => {
         Europe to teach React. "
               bgImageName={HOME_PAGE}
             />
-            <TopSection mt={[0, -225]}>
+            <TopSection sx={{ mt: [0, -225] }}>
               <Row>
                 <Col lgOffset={1} lg={11}>
                   <StyledTabTitle>Select learning experience: </StyledTabTitle>
@@ -139,7 +146,7 @@ const IndexPage = () => {
                   <a name="tab-curriculum" />
                 </Col>
               </Row>
-              <Segment pt={[4, 7]}>
+              <Segment sx={{ pt: [4, 7] }}>
                 {selectedTab === TAB_REACT ? (
                   <FullCurriculumsImmersive trainings={trainings} />
                 ) : (

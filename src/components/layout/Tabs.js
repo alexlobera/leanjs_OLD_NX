@@ -46,9 +46,11 @@ const Ul = styled(Box)`
 `
 Ul.defaultProps = {
   box: 'ul',
-  p: 0,
-  m: 0,
-  mb: 4,
+  sx: {
+    p: 0,
+    m: 0,
+    mb: 4,
+  },
 }
 
 export const TabList = ({

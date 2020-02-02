@@ -156,7 +156,7 @@ const TeamMember = ({ data }) => {
                       #
                     </Link>
                   </H2Ref>
-                  <H3 pt={0}>
+                  <H3 sx={{ pt: 0 }}>
                     {jobs && jobs.map(renderJob({ enableLink: true }))}
                   </H3>
                   <Ul variant="inline">
@@ -189,7 +189,7 @@ const TeamMember = ({ data }) => {
                     blocks={_rawDescription}
                     serializers={serializers}
                   />
-                  <Teamquote blockquote={blockquote} mt={5} />
+                  <Teamquote blockquote={blockquote} sx={{ mt: 5 }} />
                 </Col>
               </Row>
             </Grid>

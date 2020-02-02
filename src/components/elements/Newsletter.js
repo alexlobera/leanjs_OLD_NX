@@ -5,12 +5,12 @@ import Link from '../navigation/Link'
 
 const Newsletter = ({
   buttonVariant,
-  mt,
+  sx = {},
   showCTA = true,
   anchorName = 'newsletter',
 }) => (
   <React.Fragment>
-    <H3 mt={mt}>Free learning resources</H3>
+    <H3 sx={sx}>Free learning resources</H3>
     <a name={anchorName} />
     <P>
       We share our resources directly from our{' '}

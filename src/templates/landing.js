@@ -149,7 +149,7 @@ const Landing = ({ data }) => {
             </Section>
             <Section>
               <Grid>
-                <Segment white border="shadow">
+                <Segment white sx={{ border: 'shadow' }}>
                   <CurriculumReactBootcamp listTwoCol />
                 </Segment>
               </Grid>

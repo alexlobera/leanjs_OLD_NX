@@ -11,26 +11,30 @@ const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'
 
 const StyledCookiesNotification = styled(Flex)``
 StyledCookiesNotification.defaultProps = {
-  my: 0,
-  mx: 'auto',
-  lineHeight: 1,
-  border: '1px dashed',
-  borderColor: WHITE,
-  px: 1,
-  py: 1,
-  maxWidth: '22rem',
-  backgroundColor: DARK_BLUE_075,
-  color: WHITE,
-  fontSize: 0,
+  sx: {
+    my: 0,
+    mx: 'auto',
+    lineHeight: 1,
+    border: '1px dashed',
+    borderColor: WHITE,
+    px: 1,
+    py: 1,
+    maxWidth: '22rem',
+    backgroundColor: DARK_BLUE_075,
+    color: WHITE,
+    fontSize: 0,
+  },
 }
 
 const CookiesNotificationWrapper = styled(Box)``
 CookiesNotificationWrapper.defaultProps = {
-  position: 'fixed',
-  bottom: 0,
-  left: 0,
-  width: 1,
-  zIndex: Z_INDEX_TOP,
+  sx: {
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    width: 1,
+    zIndex: Z_INDEX_TOP,
+  },
 }
 
 const AcceptCookies = () => {
@@ -47,18 +51,20 @@ const AcceptCookies = () => {
     <CookiesNotificationWrapper>
       <StyledCookiesNotification>
         <Button
-          fontSize={0}
-          p={1}
-          mr={1}
-          variant="secondary"
+          sx={{
+            fontSize: 0,
+            p: 1,
+            mr: 1,
+          }}
           onClick={handleClick}
+          variant="secondary"
         >
           Close
         </Button>
         <div>
           Using our site means you consent to our use of cookies. Find out more
           in our{' '}
-          <Link color={WHITE} to="/privacy-policy">
+          <Link sx={{ color: WHITE }} to="/privacy-policy">
             privacy policy
           </Link>
           .

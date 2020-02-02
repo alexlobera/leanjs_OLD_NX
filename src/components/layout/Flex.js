@@ -6,7 +6,9 @@ const Flex = styled(Box)`
   ${flexbox}
 `
 Flex.defaultProps = {
-  display: 'flex',
+  sx: {
+    display: 'flex',
+  },
 }
 
 export default Flex

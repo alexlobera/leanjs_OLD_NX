@@ -97,16 +97,17 @@ const TrainingPage = ({ path }) => (
                     children: 'Corporate Training',
                     variant: 'secondary',
                   },
-                ].map(({ to, variant = 'primary', children, px = 4 }) => (
+                ].map(({ variant = 'primary', px = 4, ...rest }) => (
                   <LinkButton
-                    mb={1}
-                    px={px}
+                    sx={{
+                      display: 'block',
+                      textAlign: 'center',
+                      mb: 1,
+                      px,
+                    }}
                     variant={variant}
-                    to={to}
-                    display="block"
-                    textAlign="center"
-                    children={children}
                     className="main-cta-buttons"
+                    {...rest}
                   />
                 ))}
               </React.Fragment>

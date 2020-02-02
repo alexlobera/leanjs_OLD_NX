@@ -63,12 +63,14 @@ export const TrustedByLogoList = () => (
 
 const TrustedBySection = ({ type, showContent = false }) => {
   const buttons = (
-    <Flex flexDirection={['column', 'row']}>
+    <Flex sx={{ flexDirection: ['column', 'row'] }}>
       {type === 'contact' ? (
         <React.Fragment>
           <LinkButton
             variant="primary"
-            minWidth="150px"
+            sx={{
+              minWidth: '150px',
+            }}
             to="#contact-us"
             className="corporate-team-training-testimonials-cta"
           >
@@ -77,8 +79,10 @@ const TrustedBySection = ({ type, showContent = false }) => {
 
           <LinkButton
             pdf
-            mt={[4, 0]}
-            ml={[0, 3]}
+            sx={{
+              mt: [4, 0],
+              ml: [0, 3],
+            }}
             to={CONVINCE_THE_BOSS_PDF}
             className="learn-with-us-pdf"
           >
@@ -95,8 +99,10 @@ const TrustedBySection = ({ type, showContent = false }) => {
           </LinkButton>
 
           <LinkButton
-            mt={[4, 0]}
-            ml={[0, 3]}
+            sx={{
+              mt: [4, 0],
+              ml: [0, 3],
+            }}
             to="/graphql/training/corporate"
             className="corporate-team-training-testimonials-cta-graphql"
           >
@@ -109,7 +115,7 @@ const TrustedBySection = ({ type, showContent = false }) => {
   return (
     <Section variant="dark">
       <Row>
-        <Col lg={10} lgOffset={1} mb={5}>
+        <Col lg={10} lgOffset={1} sx={{ mb: 5 }}>
           <H2>
             Developers from all these companies have trusted us{' '}
             <a name="trusted-by" />

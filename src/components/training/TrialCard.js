@@ -25,14 +25,14 @@ export const DeductPriceOnPurchase = ({ price, trainingInstance }) => (
   </>
 )
 
-const TrialCard = ({ trainingInstance, ...rest }) => {
+const TrialCard = ({ trainingInstance, sx = {}, ...rest }) => {
   const price = formatPrice(
     trainingInstance.currency,
     trainingInstance.price,
     DEFAULT_VAT_RATE
   )
   return (
-    <Segment small variant="primary" my={5} {...rest}>
+    <Segment small variant="primary" sx={{ my: 5, ...sx }} {...rest}>
       <Row>
         <Col md={8}>
           <H3>You can try this course first</H3>
@@ -42,7 +42,7 @@ const TrialCard = ({ trainingInstance, ...rest }) => {
             <DeductPriceOnPurchase price={price} />
           </P>
         </Col>
-        <Col md={4} textAlign="center">
+        <Col md={4} sx={{ textAlign: 'center' }}>
           <H3>{price}</H3>
           <LinkButton
             className="instance-page-trial-card"

@@ -4,10 +4,12 @@ import { DARK_GREY } from '../../config/styles'
 
 export const Price = styled(Box)``
 Price.defaultProps = {
-  fontWeight: 'bold',
-  color: DARK_GREY,
-  display: 'inline-block',
-  fontSize: 6,
+  sx: {
+    fontWeight: 'bold',
+    color: DARK_GREY,
+    display: 'inline-block',
+    fontSize: 6,
+  },
   box: 'span',
 }
 

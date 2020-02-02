@@ -73,16 +73,14 @@ const TrainingItem = ({
   isOnline,
   textProps = {},
 }) => (
-  <Flex flexDirection="row" alignItems="flex-start" pb={4}>
+  <Flex sx={{ flexDirection: 'row', alignItems: 'flex-start', pb: 4 }}>
     <Calendar className={className} type={type} to={path}>
       {startDay}
       <br />
       {startMonth}
-      <Span fontSize={1} textAlign="center">
-        {duration}
-      </Span>
+      <Span sx={{ fontSize: 1, textAlign: 'center' }}>{duration}</Span>
     </Calendar>
-    <P display="inline" pl={2} pr={2} {...textProps}>
+    <P sx={{ display: 'inline', pl: 2, pr: 2 }} {...textProps}>
       {title}
       <br />
       {isOnline ? (

@@ -35,6 +35,7 @@ const Meetup = ({ pageContext: { meetup = {}, locationImage } }) => (
               },
             ]}
           >
+            {/* TODO REPLACE THIS WITH createMetas function */}
             <meta property="og:title" content={title || defaultMetaText} />
             <meta
               property="og:description"

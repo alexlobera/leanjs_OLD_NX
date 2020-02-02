@@ -38,9 +38,12 @@ const StyledSection = styled(Box)`
   }
 `
 
-const Section = ({ children, ...rest }) => (
+const Section = ({ children, sx = {}, ...rest }) => (
   <StyledSection
-    {...getVariantProps(rest.variant || rest.variants, sectionVariantProps)}
+    sx={{
+      ...getVariantProps(rest.variant || rest.variants, sectionVariantProps),
+      ...sx,
+    }}
     {...rest}
   >
     <Grid>{children}</Grid>
@@ -48,16 +51,20 @@ const Section = ({ children, ...rest }) => (
 )
 
 Section.defaultProps = {
-  // display: ['inline-block', 'block'],
-  display: 'block',
+  sx: {
+    // display: ['inline-block', 'block'],
+    display: 'block',
+  },
   box: 'section',
 }
 Section.displayName = 'Section'
 
 export const TopSection = styled(Section)``
 TopSection.defaultProps = {
-  position: 'relative',
-  mt: [0, -125],
+  sx: {
+    position: 'relative',
+    mt: [0, -125],
+  },
 }
 TopSection.displayName = 'TopSection'
 

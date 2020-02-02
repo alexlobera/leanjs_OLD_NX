@@ -129,8 +129,11 @@ const GraphQLPage = ({ data, path }) => {
                     borderColor={GRAPHQL_PINK}
                     className="course-training-clicks"
                   />
-                  <Card variant="primary" borderColor={GRAPHQL_PINK} mt={4}>
-                    <Newsletter mt={2} buttonVariant="primary" />
+                  <Card
+                    variant="primary"
+                    sx={{ borderColor: GRAPHQL_PINK, mt: 4 }}
+                  >
+                    <Newsletter sx={{ mt: 2 }} buttonVariant="primary" />
                   </Card>
                 </Col>
               </Row>

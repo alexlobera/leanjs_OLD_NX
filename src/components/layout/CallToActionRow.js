@@ -6,8 +6,10 @@ import Box from './Box'
 
 export const CallToActionRow = styled(Box)``
 CallToActionRow.defaultProps = {
-  mb: [0, -25],
-  position: 'relative',
-  zIndex: Z_INDEX_MEDIUM,
+  sx: {
+    mb: [0, -25],
+    position: 'relative',
+    zIndex: Z_INDEX_MEDIUM,
+  },
   box: Row,
 }

@@ -48,8 +48,10 @@ const LeanJSsprints = () => {
       <Col md={5} mdOffset={1}>
         <Image
           src={alexLeanJSImgSrc}
-          mt={[3, 0]}
-          alt="LeanJS teaching a group of developers "
+          sx={{
+            mt: [3, 0],
+          }}
+          alt="LeanJS teaching a group of developers"
         />
       </Col>
     </Row>

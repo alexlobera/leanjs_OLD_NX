@@ -5,7 +5,9 @@ import withLazyLoad from './withLazyLoad'
 import Box from '../layout/Box'
 
 const defaultProps = {
-  mt: 0,
+  sx: {
+    mt: 0,
+  },
   box: 'img',
 }
 

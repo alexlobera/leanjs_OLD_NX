@@ -18,6 +18,8 @@ const css = compose(space, color, typography, border, shadow, layout, position)
 const StyledBox = styled(({ sx, variant, as: Component, ...rest }) => (
   <Component {...rest} />
 ))(props => {
+  // Alex: I'm mutation to microoptimize since we know we only need the theme.
+  // TODO: should we spread it instead in pro of readability and immutability?
   if (props.sx) {
     props.sx.theme = props.theme
   }

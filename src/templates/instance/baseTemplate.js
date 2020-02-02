@@ -245,12 +245,12 @@ const InstancePage = ({
                         <React.Fragment>
                           <H3>Attendee testimonial</H3>
                           <Video time={videoOneTime} youtubeId={videoOneId} />
-                          <Box px={1}>
+                          <Box sx={{ px: 1 }}>
                             {videoOneQuote && (
                               <Blockquote>{videoOneQuote}</Blockquote>
                             )}
                             {videoOneFullname && (
-                              <P pt={2}>
+                              <P sx={{ pt: 2 }}>
                                 {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
                                 {videoOneCompany || 'Freelance'}{' '}
                               </P>
@@ -341,7 +341,7 @@ const InstancePage = ({
                     trainingLoading={trainingLoading}
                   />
                 </Col>
-                <Col md={4} mdOffset={1} pt={3}>
+                <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
                   <ContactForm
                     variant={training ? 'default' : 'primary'}
                     simplified

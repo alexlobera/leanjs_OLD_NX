@@ -17,20 +17,27 @@ const AttendeeQuote = ({
   ctaUrl = '/#',
   youtubeId,
   youtubeTime,
+  sx = {},
   ...rest
 }) => (
-  <Card borderColor={selectTypeColor(type)} variant="info" {...rest}>
-    {youtubeId && <Video mb={2} time={youtubeTime} youtubeId={youtubeId} />}
-    <Box px={1}>
+  <Card
+    sx={{ borderColor: selectTypeColor(type), ...sx }}
+    variant="info"
+    {...rest}
+  >
+    {youtubeId && (
+      <Video sx={{ mb: 2 }} time={youtubeTime} youtubeId={youtubeId} />
+    )}
+    <Box sx={{ px: 1 }}>
       <Blockquote>{quote || 'This is a quote from a trainee.'}</Blockquote>
-      <P pt={2}>
+      <P sx={{ pt: 2 }}>
         <strong>
           {fullname || ''}, {job || ''} - {company || 'Freelance'}{' '}
         </strong>
       </P>
     </Box>
     {ctaButton && (
-      <LinkButton mt={2} to={ctaUrl}>
+      <LinkButton sx={{ mt: 2 }} to={ctaUrl}>
         {ctaButton || 'Click here'}
       </LinkButton>
     )}

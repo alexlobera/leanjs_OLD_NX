@@ -16,7 +16,7 @@ const ThanksForSignUpSessions = () => (
       subtitle="If you also also asked for free learning resources, every week for the next 5 weeks, you'll get a new email with juicy React goodness..."
       bgImageName={BOOTCAMP}
     />
-    <TopSection marginTop="-250">
+    <TopSection sx={{ mt: '-250' }}>
       <Segment>
         <Row>
           <Col md={5} mdOffset={1}>

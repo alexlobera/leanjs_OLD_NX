@@ -8,7 +8,12 @@ import coachesData from './coaches.json'
 const CoachItem = ({ path, name, coachFluidImg }) => (
   <Li>
     {coachFluidImg && (
-      <Image maxWidth="150px" circle fluid={coachFluidImg} alt={name} />
+      <Image
+        sx={{ maxWidth: '150px' }}
+        circle
+        fluid={coachFluidImg}
+        alt={name}
+      />
     )}{' '}
     <Link to={`/team/${path}/`}>{name}</Link>
   </Li>

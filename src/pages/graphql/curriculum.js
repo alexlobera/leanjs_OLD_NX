@@ -189,7 +189,7 @@ class GraphQLCurriculum extends React.Component {
                           <Tr>
                             <Td verticalAlign="top">Timings</Td>
                             <Td>
-                              <Ul textAlign="left">
+                              <Ul sx={{ textAlign: 'left' }}>
                                 <Li>1 month</Li>
                                 <Li>Part time</Li>
                                 <Li>Evenings Central European Time</Li>
@@ -204,7 +204,7 @@ class GraphQLCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
-                              <Ul textAlign="left">
+                              <Ul sx={{ textAlign: 'left' }}>
                                 <Li>3 days</Li>
                                 <Li>Full time</Li>
                                 <Li>9 am to 6 pm</Li>
@@ -247,10 +247,12 @@ class GraphQLCurriculum extends React.Component {
                         ].map(({ to, txt }) => (
                           <Col md={6}>
                             <LinkButton
-                              display="block"
                               className="training-curriculum-clicks"
                               to={to}
-                              mt={[2, 0]}
+                              sx={{
+                                mt: [2, 0],
+                                display: 'block',
+                              }}
                             >
                               {txt}
                             </LinkButton>

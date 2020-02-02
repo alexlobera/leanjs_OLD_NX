@@ -31,7 +31,7 @@ const StyledCheckbox = styled.div`
   height: ${props => (props.size ? props.size : defaultSize)}em;
   width: ${props => (props.size ? props.size : defaultSize)}em;
   ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 3px pink; !important
+    box-shadow: 0 0 0 3px pink;
   } // RM: focus needs to be fixed, it works with simple styled input
   ${Icon} {
     visibility: ${props => (props.checked ? 'visible' : 'hidden')};

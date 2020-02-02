@@ -37,7 +37,7 @@ const Blog = ({ data, path }) => {
             <Row>
               {locations.map(({ node: location }) => (
                 <Col lg={4} key={location.fields.slug}>
-                  <Card small variant="secondary" mb={5}>
+                  <Card small variant="secondary" sx={{ mb: 5 }}>
                     <Link
                       to={`${location.fields.slug}`}
                       className="location-summary"
@@ -48,10 +48,10 @@ const Blog = ({ data, path }) => {
                             .fluid
                         }
                         alt={location.frontmatter.city}
-                        mb={0}
+                        sx={{ mb: 0 }}
                       />
                     </Link>
-                    <Box p={3}>
+                    <Box sx={{ p: 3 }}>
                       <Link
                         to={`${location.fields.slug}`}
                         className="location-summary"
