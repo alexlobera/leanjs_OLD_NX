@@ -5,10 +5,11 @@ import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
-import Ul, { Li } from 'src/components/layout/Ul'
-import CurriculumGraphQLPartTimeTrial, {
+import Ul from 'src/components/layout/Ul'
+import CurriculumReactPartTimeTrial, {
   LearningObjectives,
-} from 'src/components/curriculum/workshops/CurriculumGraphQLPartTimeTrial'
+} from 'src/components/curriculum/workshops/CurriculumReactPartTimeTrial'
+import TargetAudienceList from 'src/components/curriculum/CurriculumReactPartTime/TargetAudienceList'
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
@@ -17,16 +18,16 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import { Link } from 'src/components/navigation'
-import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
+import Link from 'src/components/navigation/Link'
+import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
-  title: 'GraphQL Part-Time Course Trial | React GraphQL Academy',
+  title: 'React Part-Time Course Trial | React GraphQL Academy',
   description:
-    'Are you not sure yet about buying our GraphQL part-time course? With this trial of our GraphQL part-time course, you will be able to make an informed decision before purchasing the full course',
+    'Are you not sure yet about buying our React part-time course? With this trial of our React part-time course, you will be able to make an informed decision before purchasing the full course',
   image: BOOTCAMP_COLLAB,
   type: 'website',
 }
@@ -53,31 +54,31 @@ const Page = ({ path, trainings }) => {
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
-          { to: '/graphql', label: 'GraphQL' },
-          { to: '/graphql/training/', label: 'Training' },
-          { to: '/graphql/training/workshops', label: 'Workshops' },
+          { to: '/react', label: 'React' },
+          { to: '/react/training/', label: 'Training' },
+          { to: '/react/training/workshops', label: 'Workshops' },
           {
             to: path,
             label: breadcrumbWorkshopName,
           },
         ]}
-        tech={TECH_GRAPHQL}
-        titleLines={['3-Hour GraphQL Trial']}
-        subtitle="With this trial of our GraphQL part-time course, you will be able to make an informed decision before purchasing the full course"
+        tech={TECH_REACT}
+        titleLines={['3-Hour React Trial']}
+        subtitle="With this trial of our React part-time course, you will be able to make an informed decision before purchasing the full course"
         links={[
           { text: 'Workshop Agenda', to: '#curriculum' },
           { text: 'Is this right for me?', to: '#target-audience' },
         ]}
         bgImageName={LONDON_BOOTCAMP}
-        type={GRAPHQL_WORKSHOP}
+        type={REACT_WORKSHOP}
       />
       <TopSection>
         <Segment>
-          <CurriculumGraphQLPartTimeTrial
+          <CurriculumReactPartTimeTrial
             trainings={trainings}
             trainingId={trainingId}
             enableToggle
-            type={GRAPHQL_WORKSHOP}
+            type={REACT_WORKSHOP}
             section={{ isOpen: true }}
             learningObjectives={LearningObjectives}
           />
@@ -88,11 +89,12 @@ const Page = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              type={GRAPHQL_WORKSHOP}
-              quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-              fullname="Rafa Fraga"
-              job="Software Engineer"
-              youtubeId="hZZksRcqtkc"
+              type={TECH_REACT}
+              quote="[The coaches] are very important - they're able to explain things in a way we can understand."
+              fullname="Jim Plimmer"
+              job="Developer"
+              company="Conversion.com"
+              youtubeId="GU-IIi-84t8"
             />
           </Col>
           <Col md={4} lgOffset={1}>
@@ -103,17 +105,7 @@ const Page = ({ path, trainings }) => {
               </Link>
             </H2Ref>
             <Ul>
-              <Li>
-                A developer with some experience developing Nodes.js APIs?
-              </Li>
-              <Li>
-                Familiar with front-end technologies like React (used during the
-                GraphQL part-time course) and JavaScript?
-              </Li>
-              <Li>
-                Taking a step forward to become a GraphQL Specialist to build
-                modern and efficient APIs?
-              </Li>
+              <TargetAudienceList />
             </Ul>
             <P>If you've said 'yes' to these, this trial could be for you!</P>
             <H3>Not for beginner devs!</H3>

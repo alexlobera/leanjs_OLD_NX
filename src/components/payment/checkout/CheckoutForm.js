@@ -254,7 +254,11 @@ class CheckoutForm extends React.Component {
         {trialTraingInstance && (
           <Box mb={3}>
             <H5 sx={{ mb: 1, borderBottom: 'none' }}>Not ready to buy yet?</H5>
-            <LinkButton to={trialTraingInstance.toPath} variant="primary">
+            <LinkButton
+              sx={{ mb: 2 }}
+              to={trialTraingInstance.toPath}
+              variant="primary"
+            >
               Try first
             </LinkButton>
           </Box>

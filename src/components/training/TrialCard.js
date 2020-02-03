@@ -45,6 +45,7 @@ const TrialCard = ({ trainingInstance, sx = {}, ...rest }) => {
         <Col md={4} sx={{ textAlign: 'center' }}>
           <H3>{price}</H3>
           <LinkButton
+            variant="primary"
             className="instance-page-trial-card"
             to={trainingInstance.toPath}
           >

@@ -13,15 +13,8 @@ const Newsletter = ({
     <H3 sx={sx}>Free learning resources</H3>
     <a name={anchorName} />
     <P>
-      We share our resources directly from our{' '}
-      <Link className="free-learning-resources" to="/react/curriculum">
-        React
-      </Link>{' '}
-      and{' '}
-      <Link className="free-learning-resources" to="/graphql/curriculum">
-        GraphQL
-      </Link>{' '}
-      curriculums and we'd love for you to enjoy and learn from them!{' '}
+      Signup and learn about cutting-edge React and GraphQL plus the latest news
+      on our courses...{' '}
     </P>
     {showCTA && (
       <LinkButton
