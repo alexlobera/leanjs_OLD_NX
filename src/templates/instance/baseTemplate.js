@@ -34,7 +34,7 @@ import {
   REACT_FUNDAMENTALS,
   REACT_PART_TIME,
 } from '../../config/data'
-import { createMetas } from 'src/components/utils'
+import { createMetas, getRandom } from 'src/components/utils'
 
 const InstancePage = ({
   path,
@@ -93,6 +93,8 @@ const InstancePage = ({
     trainingId,
     city,
   })
+
+  const randomPosts = getRandom(posts, 3)
 
   const training = selectNthTraining({
     trainings: upcomingTrainings,
@@ -360,7 +362,7 @@ const InstancePage = ({
       {!training || (!trialTraingInstance && !trialOfTheTrainingId) ? (
         <AlternativeTrainingSection trainings={crossSellTrainings} />
       ) : null}
-      <BlogSection posts={posts} />
+      <BlogSection posts={randomPosts} />
       <UpcomingTrainingSection trainings={trainings} />
     </CheckoutProvider>
   )

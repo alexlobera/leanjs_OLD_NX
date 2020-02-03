@@ -83,10 +83,6 @@ const ContactForm = ({
         </React.Fragment>
       )}
       <Newsletter showCTA={false} />
-      <P>
-        Signup and learn about cutting-edge React and GraphQL plus the latest
-        news on our courses...{' '}
-      </P>
       <Row>
         <Col>
           <Form

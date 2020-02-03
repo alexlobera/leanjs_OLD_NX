@@ -7,12 +7,12 @@ import PostCard from 'src/components/blog/PostCard'
 import { Link } from 'src/components/navigation'
 import Flex from 'src/components/layout/Flex'
 
-const BlogSection = ({ posts, title = 'Related articles' }) => {
+const BlogSection = ({ posts, variant, title = 'Related articles' }) => {
   if (!posts || !posts.length) {
     return null
   }
   return (
-    <Section>
+    <Section variant={variant}>
       <Row>
         <Col lg={11}>
           <Flex>

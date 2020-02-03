@@ -39,7 +39,7 @@ function getLocationImage(result, city) {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 3 }) => {
+  const getPosts = async ({ tagsIn = [], tagsNin = '', limit = 8 }) => {
     // TODO move this getPosts function to src/templates/baseTemplate somehow.
     // It's not clear at this point how to do it because baseTemplate is not really a template and so it's not treated as such by Gatsby.
     // The problem with this code is that we are duplicating the fragments defined in PostCard component
@@ -56,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
           sort: { fields: publishedAt, order: DESC }
-          limit: 3
+          limit: $limit
         ) {
           nodes {
             title

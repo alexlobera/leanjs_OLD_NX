@@ -14,6 +14,7 @@ const Page = props => (
   <BaseTemplate
     {...props}
     type={REACT_PART_TIME}
+    trialTrainingId="5e3854d66bfd23000238647f"
     typeOfTraining="part-time React course"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}

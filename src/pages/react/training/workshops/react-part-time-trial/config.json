@@ -1,0 +1,12 @@
+{
+  "instanceTemplate": "react-part-time-trial",
+  "tech": "React",
+  "breadcrumbTrainingName": "Workshops",
+  "breadcrumbTrainingSlug": "workshops",
+  "breadcrumbWorkshopName": "Part-Time Trial",
+  "breadcrumbWorkshopSlug": "react-part-time-trial",
+  "trainingId": "5e3854d66bfd23000238647f",
+  "title": "3-Hour React Trial",
+  "tagsIn": ["react"],
+  "tagsNin": "advanced"
+}

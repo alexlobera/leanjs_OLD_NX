@@ -18,4 +18,22 @@ const ThinkingInReactSession = ({ title = titleSession }) => (
   </Session>
 )
 
+export const LearningObjectives = ({ showAll = true }) => (
+  <>
+    <Li>Learn the difference between declarative and imperative programming</Li>
+    {showAll && (
+      <>
+        <Li>
+          Comprehend the value of breaking down your UI into reusable
+          components.
+        </Li>
+        <Li>
+          Understand which components should hold state and how to share and
+          manipulate state in React
+        </Li>
+      </>
+    )}
+  </>
+)
+
 export default ThinkingInReactSession
