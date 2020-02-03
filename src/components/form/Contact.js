@@ -102,7 +102,6 @@ const ContactForm = ({
                     label="Your email address:"
                     name="email"
                     placeholder="eg. steve@jobs.com"
-                    // TODO Do we need this color prop?
                     color={WHITE}
                   />
                   <Button

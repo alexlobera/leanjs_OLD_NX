@@ -28,11 +28,7 @@ const MarketingCard = ({
     <Row>
       <Col md={7}>
         {heading && <H4 sx={{ mb: 0, pt: 0 }}>{heading}</H4>}
-        {text && (
-          <Span display="inline-block" mt={1}>
-            {text}
-          </Span>
-        )}
+        {text && <Span sx={{ display: 'inline-block', mt: 1 }}>{text}</Span>}
       </Col>
       <Col md={5}>
         <LinkButton

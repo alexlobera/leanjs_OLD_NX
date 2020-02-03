@@ -15,22 +15,18 @@ import { DARK_GREY } from '../../config/styles'
 
 const css = compose(space, color, typography, border, shadow, layout, position)
 
-const StyledBox = styled(({ sx, variant, as: Component, ...rest }) => (
+const StyledBox = styled(({ sx, variant, box: Component = 'div', ...rest }) => (
   <Component {...rest} />
-))(props => {
-  // Alex: I'm mutation to microoptimize since we know we only need the theme.
+))(({ sx, theme }) => {
+  // Alex: I'm mutating sx to microoptimize perf since we know we only need the theme.
   // TODO: should we spread it instead in pro of readability and immutability?
-  if (props.sx) {
-    props.sx.theme = props.theme
+  if (sx) {
+    sx.theme = theme
   }
-  return css(props.sx)
+  return css(sx)
 })
 
-// const StyledBox = styled(({ sx, variant, as: Component, ...rest }) => (
-//   <Component {...rest} />
-// ))(props => css({ ...(props.sx || {}), theme: props.theme }))
-
-const Box = React.forwardRef(({ sx = {}, as: _as, box, ...rest }, ref) => (
+const Box = React.forwardRef(({ sx = {}, ...rest }, ref) => (
   <StyledBox
     sx={{
       fontFamily: 'barlow',
@@ -39,18 +35,10 @@ const Box = React.forwardRef(({ sx = {}, as: _as, box, ...rest }, ref) => (
       ...sx,
     }}
     {...rest}
-    as={box || _as || 'div'}
     ref={ref}
   />
 ))
 
 Box.displayName = 'Box'
-// Box.defaultProps = {
-//   sx: {
-//     fontFamily: 'barlow',
-//     fontWeight: 'normal',
-//     color: DARK_GREY,
-//   },
-// }
 
 export default Box

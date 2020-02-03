@@ -1,23 +1,15 @@
 import React from 'react'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
+import Section from './CurriculumSection'
 import { LinkButton } from '../buttons'
 import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
-const CurriculumCorporateReact = ({
-  layout,
-  enableToggle,
-  isOpen,
-  // toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
-  showLinkToCurriculum = false,
-}) => {
-  // const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+const CurriculumCorporateReact = ({ layout }) => {
   const type = REACT_BOOTCAMP
   const commonProps = {
     showLinkToCurriculum: false,
     enableToggle: false,
-    // toggleNavigateTo: toggleNavigateToSection,
     type,
     isOpen: false,
   }

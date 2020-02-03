@@ -12,6 +12,8 @@ import {
   GRAPHQL_API,
   GRAPHQL_WORKSHOP,
   MEETUP,
+  TECH_REACT,
+  TECH_GRAPHQL,
 } from '../../config/data'
 import { GRAPHQL_PINK, MEETUP_RED, BLUE } from '../../config/styles'
 
@@ -47,11 +49,13 @@ export const selectTypeColor = type => {
     case ADVANCED_REACT:
     case REACT_WORKSHOP:
     case REACT_FUNDAMENTALS:
+    case TECH_REACT:
       return BLUE
     case GRAPHQL_PART_TIME:
     case GRAPHQL_BOOTCAMP:
     case GRAPHQL_API:
     case GRAPHQL_WORKSHOP:
+    case TECH_GRAPHQL:
       return GRAPHQL_PINK
     case MEETUP:
       return MEETUP_RED

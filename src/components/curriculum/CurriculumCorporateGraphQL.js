@@ -5,19 +5,11 @@ import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
-const CurriculumCorporateGraphQL = ({
-  layout,
-  enableToggle,
-  isOpen,
-  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
-  showLinkToCurriculum = false,
-}) => {
-  //const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+const CurriculumCorporateGraphQL = ({ layout }) => {
   const type = GRAPHQL_BOOTCAMP
   const commonProps = {
     showLinkToCurriculum: false,
     enableToggle: false,
-    // toggleNavigateTo: toggleNavigateToSection,
     type,
     isOpen: false,
   }
