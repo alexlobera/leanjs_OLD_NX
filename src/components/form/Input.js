@@ -78,7 +78,7 @@ const Input = ({
     <FormGroup>
       {label && input.name ? (
         <React.Fragment>
-          <Label color={color}>
+          <Label sx={{ color }}>
             {label}
             <InputForm
               {...props}

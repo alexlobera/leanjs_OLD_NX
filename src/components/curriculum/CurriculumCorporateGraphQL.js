@@ -1,5 +1,5 @@
 import React from 'react'
-import Section, { curriedToggleNavigateTo } from './CurriculumSection'
+import Section from './CurriculumSection'
 import { LinkButton } from '../buttons'
 import { GRAPHQL_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
@@ -12,14 +12,14 @@ const CurriculumCorporateGraphQL = ({
   toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
   showLinkToCurriculum = false,
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  //const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = GRAPHQL_BOOTCAMP
   const commonProps = {
-    showLinkToCurriculum,
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
+    showLinkToCurriculum: false,
+    enableToggle: false,
+    // toggleNavigateTo: toggleNavigateToSection,
     type,
-    isOpen,
+    isOpen: false,
   }
   const firstHalf = (
     <React.Fragment>
@@ -57,7 +57,7 @@ const CurriculumCorporateGraphQL = ({
         name="day5"
         subTitle="Apollo Client, Advanced Queries and mutations"
       />
-      <LinkButton mt={4} to="#contact-us" children="Contact Us" />
+      <LinkButton sx={{ mt: 4 }} to="#contact-us" children="Contact Us" />
     </React.Fragment>
   )
 

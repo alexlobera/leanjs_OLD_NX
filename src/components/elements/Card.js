@@ -6,10 +6,10 @@ import { getVariantProps } from '../utils'
 import Box from '../layout/Box'
 import { BLUE, WHITE, DARK_GREY, BOX_SHADOW } from '../../config/styles'
 
-const cardVariants = ({ borderColor, borderStyle }) => ({
+const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({
   primary: {
     borderLeft: `3px ${borderStyle}`,
-    borderColor: borderColor,
+    borderLeftColor: borderColor,
     pl: [2, 5],
   },
   secondary: {
@@ -48,8 +48,8 @@ const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
       //     cardVariants({ borderColor, borderStyle })
       //   )}
       sx={{
-        borderColor: BLUE,
-        borderStyle: 'solid',
+        // borderColor: BLUE,
+        // borderStyle: 'solid',
         position: 'relative',
         ...getVariantProps(
           rest.variants || rest.variant,

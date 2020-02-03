@@ -130,9 +130,7 @@ const BlogPost = ({
         <Header
           titleLines={title.split('<br />')}
           fullHeight={false}
-          sx={{
-            pb: 80,
-          }}
+          paddingBottom={80}
           bgImgUrl={mainImagePublicUrl}
           bgImageOpacity={0.3}
         >

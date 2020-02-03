@@ -76,12 +76,14 @@ const TrainingPage = ({ path }) => (
                   },
                 ].map(({ to, variant = 'primary', children, px = 4 }) => (
                   <LinkButton
-                    mb={1}
-                    px={px}
+                    sx={{
+                      mb: 1,
+                      px,
+                      display: 'block',
+                      textAlign: 'center',
+                    }}
                     variant={variant}
                     to={to}
-                    display="block"
-                    textAlign="center"
                     children={children}
                     className="main-cta-buttons"
                   />

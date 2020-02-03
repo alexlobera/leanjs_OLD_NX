@@ -8,11 +8,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       <CurriculumSection
         name="day1"
         subTitle="Advanced React patterns and performance"
-        sx={
-          Object {
-            "mt": 4,
-          }
-        }
         title="Advanced React Day 1"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingDateTime="-  09:00 - 18:00"
@@ -26,11 +21,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       <CurriculumSection
         name="day2"
         subTitle="Styling in React and Design Systems"
-        sx={
-          Object {
-            "mt": 4,
-          }
-        }
         title="Advanced React Day 2"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingDateTime="-  09:00 - 18:00"
@@ -45,11 +35,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       <CurriculumSection
         name="day3"
         subTitle="Real-World Testing in React"
-        sx={
-          Object {
-            "mt": 4,
-          }
-        }
         title="Advanced React Day 3"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingDateTime="-  09:00 - 18:00"

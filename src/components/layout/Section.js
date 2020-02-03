@@ -30,7 +30,7 @@ const sectionVariantProps = {
 }
 
 const StyledSection = styled(Box)`
-  ${({ color }) => color && fontColor(color)}
+  ${({ sx: { color } = {} }) => color && fontColor(color)}
 
   p:last-child {
     margin-bottom: 0;

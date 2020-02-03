@@ -9,17 +9,17 @@ const CurriculumCorporateReact = ({
   layout,
   enableToggle,
   isOpen,
-  toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
+  // toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
   showLinkToCurriculum = false,
 }) => {
-  const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
+  // const toggleNavigateToSection = curriedToggleNavigateTo(toggleNavigateTo)
   const type = REACT_BOOTCAMP
   const commonProps = {
-    showLinkToCurriculum,
-    enableToggle,
-    toggleNavigateTo: toggleNavigateToSection,
+    showLinkToCurriculum: false,
+    enableToggle: false,
+    // toggleNavigateTo: toggleNavigateToSection,
     type,
-    isOpen,
+    isOpen: false,
   }
   const firstHalf = (
     <React.Fragment>
@@ -57,7 +57,7 @@ const CurriculumCorporateReact = ({
         name="day5"
         subTitle="Advanced React patterns and GraphQL"
       />
-      <LinkButton mt={4} to="#contact-us" children="Contact Us" />
+      <LinkButton sx={{ mt: 4 }} to="#contact-us" children="Contact Us" />
     </React.Fragment>
   )
 

@@ -63,7 +63,7 @@ const selectCurriculumLayout = ({
     return (
       <React.Fragment>
         {title}
-        <Flex flexDirection="column">
+        <Flex sx={{ flexDirection: 'column' }}>
           {firstHalf}
           {firstHalf.length > 2 && typedMarketingCard}
           {secondHalf}
@@ -77,7 +77,7 @@ const selectCurriculumLayout = ({
     return (
       <React.Fragment>
         {title}
-        <Flex flexDirection="column">
+        <Flex sx={{ flexDirection: 'column' }}>
           <Row>
             <Col md={6} lg={5}>
               {firstHalf}

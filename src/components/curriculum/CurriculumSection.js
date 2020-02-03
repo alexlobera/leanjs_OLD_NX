@@ -68,9 +68,9 @@ const CurriculumSection = props => {
     enableToggle = false,
     toggleNavigateTo,
     showLinkToCurriculum = true,
-    sx: sxWithoutDefaults = {},
+    sx = {},
   } = props
-  const sx = { mt: 4, ...sxWithoutDefaults }
+  // const sx = { mt: 4, ...sxWithoutDefaults }
 
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
@@ -94,21 +94,22 @@ const CurriculumSection = props => {
         </Link>
       ) : null}
     </Box>
-  ) : (
+  ) : enableToggle || showLinkToCurriculum ? (
     <Link
       className="curriculum training-curriculum-link-clicks"
       {...toogleLinkProps}
     >
       Find out more
     </Link>
-  )
+  ) : null
 
   return (
     <Card
+      borderStyle={selectBorderStyle(type)}
+      borderColor={selectTypeColor(type)}
       sx={{
+        mt: 4,
         ...sx,
-        borderStyle: selectBorderStyle(type),
-        borderColor: selectTypeColor(type),
       }}
     >
       <Element name={name || title} />

@@ -93,8 +93,7 @@ const HeaderSection = styled(Section)`
     )
   }}
   
-  ${({ bgImage, bgImageOpacity = '0.5' }) =>
-    `
+  ${({ bgImage, bgImageOpacity = '0.5' }) => `
     @media (min-width: ${SCREEN_SM_MIN}) {
       &:after {
         content: '';
@@ -120,7 +119,7 @@ const HeaderSection = styled(Section)`
   `}
   
   @media (min-width: ${SCREEN_SM_MIN}) {
-    height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : '')};
+    height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : 'auto')};
     min-height: ${({ fullHeight }) =>
       fullHeight === false ? 'auto' : '800px'};
     padding-bottom: ${({ paddingBottom = '200' }) =>
@@ -353,7 +352,7 @@ const Header = ({
   removeBgImage,
   bgImgUrl,
   bgColors,
-  bgColor,
+  bgColor = 'rgba(196,196,196,0.6)',
   fullHeight,
   paddingBottom,
   children,

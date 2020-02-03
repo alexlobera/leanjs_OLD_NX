@@ -1,4 +1,4 @@
-import React from 'react-photo-gallery'
+import React from 'react'
 import Box from '../layout/Box'
 
 const Hr = ({ sx = {}, ...rest }) => (
