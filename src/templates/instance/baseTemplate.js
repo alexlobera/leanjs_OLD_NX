@@ -94,7 +94,10 @@ const InstancePage = ({
     city,
   })
 
+  console.log('posts222', posts)
   const randomPosts = getRandom(posts, 3)
+
+  console.log('posts222', posts, randomPosts)
 
   const training = selectNthTraining({
     trainings: upcomingTrainings,

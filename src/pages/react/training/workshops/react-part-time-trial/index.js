@@ -8,8 +8,9 @@ import { H2Ref, H3, P } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
 import CurriculumReactPartTimeTrial, {
   LearningObjectives,
+  TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumReactPartTimeTrial'
-import TargetAudienceList from 'src/components/curriculum/CurriculumReactPartTime/TargetAudienceList'
+// import TargetAudienceList from 'src/components/curriculum/CurriculumReactPartTime/TargetAudienceList'
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
@@ -25,7 +26,7 @@ import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
-  title: 'React Part-Time Course Trial | React GraphQL Academy',
+  title: 'React Part-Time Trial | React GraphQL Academy',
   description:
     'Are you not sure yet about buying our React part-time course? With this trial of our React part-time course, you will be able to make an informed decision before purchasing the full course',
   image: BOOTCAMP_COLLAB,
