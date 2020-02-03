@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Box from '../layout/Box'
 
 const PdfDownload = props => (
@@ -18,9 +17,7 @@ const PdfDownload = props => (
   </svg>
 )
 
-const StyledPdfDownload = styled(Box)``
-StyledPdfDownload.defaultProps = {
-  box: PdfDownload,
-}
+// const StyledPdfDownload = styled(Box)``
+const StyledPdfDownload = props => <Box box={PdfDownload} {...props} />
 
 export default StyledPdfDownload

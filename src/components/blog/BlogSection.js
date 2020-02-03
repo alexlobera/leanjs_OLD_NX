@@ -17,7 +17,11 @@ const BlogSection = ({ posts, title = 'Related articles' }) => {
         <Col lg={11}>
           <Flex>
             <H2>{title}</H2>
-            <Link className="articles-summary" ml="auto" mt={3} to="/blog">
+            <Link
+              className="articles-summary"
+              sx={{ ml: 'auto', mt: 3 }}
+              to="/blog"
+            >
               See all blogs
             </Link>
           </Flex>

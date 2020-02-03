@@ -26,7 +26,6 @@ import {
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { GRAPHQL_PINK } from 'src/config/styles'
-import { GRAPHQL_WORKSHOP } from '../../../config/data'
 
 const metas = {
   title: 'GraphQL Training (NEW) | React GraphQL Academy',
@@ -77,12 +76,14 @@ const TrainingPage = ({ path }) => (
                   },
                 ].map(({ to, variant = 'primary', children, px = 4 }) => (
                   <LinkButton
-                    mb={1}
-                    px={px}
+                    sx={{
+                      mb: 1,
+                      px,
+                      display: 'block',
+                      textAlign: 'center',
+                    }}
                     variant={variant}
                     to={to}
-                    display="block"
-                    textAlign="center"
                     children={children}
                     className="main-cta-buttons"
                   />
@@ -134,7 +135,7 @@ const TrainingPage = ({ path }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
-                  type={GRAPHQL_WORKSHOP}
+                  type={TECH_GRAPHQL}
                   quote="I think whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
                   fullname="Lara Ramey"
                   job="Software Developer"

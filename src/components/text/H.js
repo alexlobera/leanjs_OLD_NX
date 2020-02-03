@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import { fontSize } from 'styled-system'
 
@@ -15,18 +16,31 @@ const REF = `
   }
 `
 
-export const H1 = styled(Box)``
-H1.defaultProps = {
-  fontWeight: 'bold',
-  fontSize: 8,
-  box: 'h1',
-}
+// export const H1 = styled(Box)``
+// H1.defaultProps = {
+//   sx: {
+//     fontWeight: 'bold',
+//     fontSize: 8,
+//   },
+//   box: 'h1',
+// }
+export const H1 = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      fontWeight: 'bold',
+      fontSize: 8,
+      ...sx,
+    }}
+    box="h1"
+    {...rest}
+  />
+)
 
 export const H1Ref = styled(H1)`
   ${REF};
 `
 
-export const H2 = styled(Box)`
+const StyledH2 = styled(Box)`
   :first-child {
     padding-top: 0;
   }
@@ -34,20 +48,19 @@ export const H2 = styled(Box)`
     ${fontSize({ fontSize: 6 })}
   }
 `
-H2.defaultProps = {
-  fontWeight: 'bold',
-  lineHeight: 6,
-  fontSize: 6,
-  mb: 5,
-  pt: 5,
-  box: 'h2',
-}
+export const H2 = ({ sx = {}, ...rest }) => (
+  <StyledH2
+    sx={{ fontWeight: 'bold', lineHeight: 6, fontSize: 6, mb: 5, pt: 5, ...sx }}
+    box="h2"
+    {...rest}
+  />
+)
 
 export const H2Ref = styled(H2)`
   ${REF};
 `
 
-export const H3 = styled(Box)`
+const StyledH3 = styled(Box)`
   a {
     ${fontSize({ fontSize: 4 })}
   }
@@ -55,42 +68,54 @@ export const H3 = styled(Box)`
     margin-top: 0;
   }
 `
-H3.defaultProps = {
-  fontSize: 5,
-  mt: 4,
-  lineHeight: 4,
-  box: 'h3',
-}
+export const H3 = ({ sx = {}, ...rest }) => (
+  <StyledH3
+    sx={{ fontSize: 5, mt: 4, lineHeight: 4, ...sx }}
+    box="h3"
+    {...rest}
+  />
+)
 
 export const H3Ref = styled(H3)`
   ${REF};
 `
 
-export const H4 = styled(Box)`
+const StyledH4 = styled(Box)`
   :first-child {
     margin-top: 0;
   }
 `
-H4.defaultProps = {
-  fontSize: 4,
-  lineHeight: 3,
-  mt: 3,
-  fontWeight: 'bold',
-  box: 'h4',
-}
+export const H4 = ({ sx = {}, ...rest }) => (
+  <StyledH4
+    sx={{
+      fontSize: 4,
+      lineHeight: 3,
+      mt: 3,
+      fontWeight: 'bold',
+      ...sx,
+    }}
+    box="h4"
+    {...rest}
+  />
+)
 
 export const H4Ref = styled(H4)`
   ${REF};
 `
 
-export const H5 = styled(Box)``
-H5.defaultProps = {
-  fontSize: 2,
-  lineHeight: 1,
-  pt: 2,
-  fontWeight: 'bold',
-  box: 'h5',
-}
+export const H5 = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      fontSize: 2,
+      lineHeight: 1,
+      pt: 2,
+      fontWeight: 'bold',
+      ...sx,
+    }}
+    box="h5"
+    {...rest}
+  />
+)
 
 export const H5Ref = styled(H5)`
   ${REF};

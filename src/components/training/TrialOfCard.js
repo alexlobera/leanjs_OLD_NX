@@ -4,20 +4,22 @@ import Segment from '../elements/Segment'
 import LinkButton from '../buttons/LinkButton'
 import { Row, Col } from '../layout/Grid'
 
-const TrialOfCard = ({ trainingInstance, ...rest }) => {
+const TrialOfCard = ({ trainingInstance, sx = {}, ...rest }) => {
   return (
-    <Segment small variant="primary" my={5} {...rest}>
+    <Segment small variant="primary" sx={{ my: 5, ...sx }} {...rest}>
       <Row>
-        <Col md={8} display="flex !important" alignItems="center">
-          <H3 mb={0}>Looking for the full course of this trial?</H3>
+        <Col md={8} sx={{ display: 'flex !important', alignItems: 'center' }}>
+          <H3 sx={{ mb: 0 }}>Looking for the full course of this trial?</H3>
         </Col>
-        <Col md={4} textAlign="center">
+        <Col md={4} sx={{ textAlign: 'center' }}>
           <LinkButton
             className="instance-page-trial-card"
             variant="primary"
             to={trainingInstance.toPath}
-            display={['block', 'inline-block']}
-            mt={[2, 0]}
+            sx={{
+              display: ['block', 'inline-block'],
+              mt: [2, 0],
+            }}
           >
             Check out the full course
           </LinkButton>

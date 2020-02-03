@@ -83,7 +83,7 @@ const SessionInterest = ({ path }) => (
             training={nextBootcamp}
           />
 
-          <TopSection marginTop={`-250`}>
+          <TopSection sx={{ mt: `-250` }}>
             <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
@@ -134,7 +134,7 @@ const SessionInterest = ({ path }) => (
                                 name="subscriptions.hooks"
                                 label="React Hooks & Suspense"
                               />
-                              <Box pt={3}>
+                              <Box sx={{ pt: 3 }}>
                                 <Link
                                   to="#contact-us"
                                   children="Want other workhops? Contact us!"
@@ -181,7 +181,7 @@ const SessionInterest = ({ path }) => (
                           <Row style={{ marginTop: '2em' }}>
                             <Col md={3}>
                               <Button
-                                width={1}
+                                sx={{ width: 1 }}
                                 variant="primary"
                                 type="submit"
                                 disabled={!valid}

@@ -75,9 +75,6 @@ const PostMeta = ({
 const GridContent = styled(Grid)`
   padding-top: 72px;
 `
-GridContent.defaultProps = {
-  as: 'article',
-}
 
 const textProps = { lineHeight: 3, fontSize: 3 }
 export const BlogPostP = props => <P {...textProps} {...props} />
@@ -146,7 +143,7 @@ const BlogPost = ({
             timeToRead={timeToRead}
           />
         </Header>
-        <GridContent>
+        <GridContent as="article">
           <Row>
             <Col md={7}>
               {subtitle ? <H2>{subtitle}</H2> : null}
@@ -165,11 +162,11 @@ const BlogPost = ({
               {body}
             </Col>
             <Col md={4} mdOffset={1}>
-              <Segment small variant="primary" mt={3}>
+              <Segment small variant="primary" sx={{ mt: 3 }}>
                 <ContactForm simplified />
               </Segment>
               {relatedPosts.length ? (
-                <Segment border="shadow" small mt={4}>
+                <Segment small sx={{ mt: 4, border: 'shadow' }}>
                   <H4>Related articles</H4>
                   {relatedPosts.splice(0, 5).map((post, index) => (
                     <React.Fragment key={index}>

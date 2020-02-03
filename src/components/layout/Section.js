@@ -30,7 +30,7 @@ const sectionVariantProps = {
 }
 
 const StyledSection = styled(Box)`
-  ${({ color }) => color && fontColor(color)}
+  ${({ sx: { color } = {} }) => color && fontColor(color)}
 
   p:last-child {
     margin-bottom: 0;
@@ -38,27 +38,29 @@ const StyledSection = styled(Box)`
   }
 `
 
-const Section = ({ children, ...rest }) => (
+// const defaultSectionSxProp = {
+//   // display: ['inline-block', 'block'],
+//   display: 'block',
+// }
+const Section = ({ children, sx = {}, ...rest }) => (
   <StyledSection
-    {...getVariantProps(rest.variant || rest.variants, sectionVariantProps)}
+    sx={{
+      display: 'block',
+      ...getVariantProps(rest.variant || rest.variants, sectionVariantProps),
+      ...sx,
+    }}
+    box="section"
     {...rest}
   >
     <Grid>{children}</Grid>
   </StyledSection>
 )
-
-Section.defaultProps = {
-  // display: ['inline-block', 'block'],
-  display: 'block',
-  box: 'section',
-}
 Section.displayName = 'Section'
 
-export const TopSection = styled(Section)``
-TopSection.defaultProps = {
-  position: 'relative',
-  mt: [0, -125],
-}
+// export const TopSection = styled(Section)``
+export const TopSection = ({ sx = {}, ...rest }) => (
+  <Section sx={{ position: 'relative', mt: [0, -125], ...sx }} {...rest} />
+)
 TopSection.displayName = 'TopSection'
 
 export const ColSection = ({ col, col2, ...rest }) => {
@@ -79,6 +81,9 @@ export const ColSection = ({ col, col2, ...rest }) => {
       </Row>
     </Section>
   )
+}
+ColSection.defaultProps = {
+  variant: 'thin',
 }
 
 const colSectionVariantProps = {
@@ -114,10 +119,6 @@ const colSectionVariantProps = {
       mt: [5, 0],
     },
   },
-}
-
-ColSection.defaultProps = {
-  variant: 'thin',
 }
 
 export default Section

@@ -13,7 +13,7 @@ const UpcomingTrainingCurriculum = ({
   return (
     <React.Fragment>
       <Link name="upcoming-courses" />
-      <H3 mt={[4, 0]}>Upcoming dates</H3>
+      <H3 sx={{ mt: [4, 0] }}>Upcoming dates</H3>
       <UpcomingTrainings
         type={type}
         trainingId={trainingId}

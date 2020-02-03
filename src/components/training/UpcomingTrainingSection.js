@@ -22,8 +22,11 @@ import {
 import Flex from '../layout/Flex'
 
 const CorporateCrossSell = ({ to }) => (
-  <Flex alignSelf="self-start">
-    <Link to={to} px={3} py={1} border={`3px dotted`} borderColor={GREY}>
+  <Flex sx={{ alignSelf: 'self-start' }}>
+    <Link
+      to={to}
+      sx={{ px: 3, py: 1, border: `3px dotted`, borderColor: GREY }}
+    >
       <P>
         <strong>Corporate team training</strong>
       </P>

@@ -30,7 +30,7 @@ const Blog = ({ data, path }) => {
             titleLines={['Blog']}
             subtitle="Insights into the world of React GraphQL Academy"
             fullHeight={false}
-            paddingBottom={170}
+            sx={{ pb: 170 }}
           />
           <TopSection>
             <Row>

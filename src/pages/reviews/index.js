@@ -51,11 +51,11 @@ const Review = ({
   highlight,
   lastIndex,
 }) => (
-  <Box pb={lastIndex ? 0 : 5}>
+  <Box sx={{ pb: lastIndex ? 0 : 5 }}>
     <Row>
       <Col xs={6} md={6} mdOffset={1}>
-        <H3 mb={1}>{name}</H3>
-        <Ul variants={['unstyled', 'inline']} mb={3}>
+        <H3 sx={{ mb: 1 }}>{name}</H3>
+        <Ul variants={['unstyled', 'inline']} sx={{ mb: 3 }}>
           {links.map(({ to, icon }) => (
             <Li>
               <Link title={`${name} ${icon.title}`} to={to}>
@@ -65,7 +65,7 @@ const Review = ({
           ))}
         </Ul>
       </Col>
-      <Col xs={6} md={4} textAlign="right">
+      <Col xs={6} md={4} sx={{ textAlign: 'right' }}>
         <Rating /> <br />
         <strong>{date}</strong>
       </Col>
@@ -78,14 +78,14 @@ const Review = ({
         )}
         {review}
       </Col>
-      <Col md={9} mdOffset={1} textAlign="center" mt={2} mb={4}>
+      <Col md={9} mdOffset={1} sx={{ textAlign: 'center', mt: 2, mb: 4 }}>
         Source:{' '}
         <Link to="https://www.switchup.org/bootcamps/react-graphql-academy">
           SwitchUp
         </Link>
       </Col>
       {footer && (
-        <Col md={8} mdOffset={1} mt={3} mb={4}>
+        <Col md={8} mdOffset={1} sx={{ mt: 3, mb: 4 }}>
           {footer}
         </Col>
       )}
@@ -320,7 +320,7 @@ const ReviewsPage = ({ data }) => (
             <H2>Best coding bootcamp</H2>
             <Row>
               {data.badges.nodes.map(({ name, childImageSharp }) => (
-                <Col md={4} textAlign="center" pb={4}>
+                <Col md={4} sx={{ textAlign: 'center', pb: 4 }}>
                   <Image
                     title={name.replace(/^\w/, c => c.toUpperCase())}
                     fluid={childImageSharp.fluid}

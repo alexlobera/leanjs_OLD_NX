@@ -6,7 +6,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
   firstHalf={
     Array [
       <CurriculumSection
-        mt={4}
         name="day1"
         subTitle="Advanced React patterns and performance"
         title="Advanced React Day 1"
@@ -20,7 +19,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
-        mt={4}
         name="day2"
         subTitle="Styling in React and Design Systems"
         title="Advanced React Day 2"
@@ -35,7 +33,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
-        mt={4}
         name="day3"
         subTitle="Real-World Testing in React"
         title="Advanced React Day 3"

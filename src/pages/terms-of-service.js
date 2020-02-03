@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
@@ -10,11 +9,16 @@ import Link from '../components/navigation/Link'
 import { Segment } from '../components/elements'
 import Box from '../components/layout/Box'
 
-const SubSection = styled(Box)``
-SubSection.defaultProps = {
-  box: 'section',
-  py: 4,
-}
+const SubSection = ({ sx = {}, ...rest }) => (
+  <Box sx={{ py: 4, ...sx }} box="section" {...rest} />
+)
+// const SubSection = styled(Box)``
+// SubSection.defaultProps = {
+//   box: 'section',
+//   sx: {
+//     py: 4,
+//   },
+// }
 
 const TermsOfService = () => (
   <Layout>

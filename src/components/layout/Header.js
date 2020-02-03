@@ -7,7 +7,7 @@ import Section from './Section'
 import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
 import { useExpandCheckout } from '../payment/checkout'
-import { H1 as BaseH1, H2 as BaseH2, Span, H3 } from '../text'
+import { H1 as BaseH1, H2, Span, H3 } from '../text'
 import {
   DARK_BLUE_075,
   LIGHT_BLUE,
@@ -93,8 +93,7 @@ const HeaderSection = styled(Section)`
     )
   }}
   
-  ${({ bgImage, bgImageOpacity = '0.5' }) =>
-    `
+  ${({ bgImage, bgImageOpacity = '0.5' }) => `
     @media (min-width: ${SCREEN_SM_MIN}) {
       &:after {
         content: '';
@@ -120,7 +119,7 @@ const HeaderSection = styled(Section)`
   `}
   
   @media (min-width: ${SCREEN_SM_MIN}) {
-    height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : '')};
+    height: ${({ fullHeight }) => (fullHeight !== false ? '100vh' : 'auto')};
     min-height: ${({ fullHeight }) =>
       fullHeight === false ? 'auto' : '800px'};
     padding-bottom: ${({ paddingBottom = '200' }) =>
@@ -132,16 +131,33 @@ const HeaderSection = styled(Section)`
   }
 `
 HeaderSection.displayName = 'HeaderSection'
-HeaderSection.defaultProps = {
-  bgColor: 'rgba(196,196,196,0.6)',
-  mt: 0,
-  mb: 0,
-  pb: [5],
-}
+// HeaderSection.defaultProps = {
+//   sx: {
+//     bgColor: 'rgba(196,196,196,0.6)',
+//     mt: 0,
+//     mb: 0,
+//     pb: [5],
+//   },
+// }
 
-const H2Header = styled(BaseH2)`
-  text-shadow: 1px -1px 17px ${BLUE_04};
-`
+// const H2Header = styled(BaseH2)`
+//   text-shadow: 1px -1px 17px ${BLUE_04};
+// `
+const H2Header = ({ sx = {}, ...rest }) => (
+  <H2
+    sx={{
+      color: WHITE,
+      p: 0,
+      m: 0,
+      fontSize: 4,
+      lineHeight: 3,
+      fontWeight: 'normal',
+      textShadow: `1px -1px 17px ${BLUE_04}`,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 const TechLogo = styled.div`
   ${({ tech }) =>
     tech &&
@@ -173,14 +189,16 @@ const TechLogo = styled.div`
 `}
 `
 
-H2Header.defaultProps = {
-  color: WHITE,
-  padding: 0,
-  margin: 0,
-  fontSize: 4,
-  lineHeight: 3,
-  fontWeight: 'normal',
-}
+// H2Header.defaultProps = {
+//   sx: {
+//     color: WHITE,
+//     p: 0,
+//     m: 0,
+//     fontSize: 4,
+//     lineHeight: 3,
+//     fontWeight: 'normal',
+//   },
+// }
 
 const TITLE_BACKGROUND = `
   background-color: ${DARK_BLUE_075};
@@ -188,16 +206,32 @@ const TITLE_BACKGROUND = `
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT};
 `
 
-const FeaturedTrainingTitle = styled(H3)``
-FeaturedTrainingTitle.defaultProps = {
-  backgroundColor: DARK_BLUE_075,
-  color: WHITE,
-  display: 'inline-block',
-  pt: 1,
-  pr: 1,
-  pb: 1,
-  pl: 1,
-}
+const FeaturedTrainingTitle = ({ sx = {}, ...rest }) => (
+  <H3
+    sx={{
+      backgroundColor: DARK_BLUE_075,
+      color: WHITE,
+      display: 'inline-block',
+      pt: 1,
+      pr: 1,
+      pb: 1,
+      pl: 1,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
+// FeaturedTrainingTitle.defaultProps = {
+//   sx: {
+//     backgroundColor: DARK_BLUE_075,
+//     color: WHITE,
+//     display: 'inline-block',
+//     pt: 1,
+//     pr: 1,
+//     pb: 1,
+//     pl: 1,
+//   },
+// }
 
 const TitleBackground = styled.span`
   &:first-child  {
@@ -249,6 +283,7 @@ const Nav = styled.div`
     }
   }
 `
+
 const TitleCol = styled(Col)`
   ${({ type }) =>
     type &&
@@ -273,12 +308,22 @@ const InfoBox = styled(Box)`
   border: ${({ type }) =>
     `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
 `
-const FeaturedSection = styled(Box)`
-  background-color: ${WHITE};
-`
-FeaturedSection.defaultProps = {
-  p: 3,
-}
+const FeaturedSection = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      p: 3,
+      backgroundColor: WHITE,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
+
+// FeaturedSection.defaultProps = {
+//   sx: {
+//     p: 3,
+//   },
+// }
 
 const getBackgroundImageSrc = (data, fileName) => {
   if (!data) {
@@ -307,7 +352,7 @@ const Header = ({
   removeBgImage,
   bgImgUrl,
   bgColors,
-  bgColor,
+  bgColor = 'rgba(196,196,196,0.6)',
   fullHeight,
   paddingBottom,
   children,
@@ -377,6 +422,7 @@ const Header = ({
             {breadcrumbPath && <Breadcrumb tech={tech} path={breadcrumbPath} />}
             <TechLogo tech={tech}>
               <HeaderSection
+                sx={{ bgColor: 'rgba(196,196,196,0.6)', mt: 0, mb: 0, pb: [5] }}
                 bgColors={bgColors}
                 bgColor={bgColor}
                 bgImage={bgImage}
@@ -443,7 +489,7 @@ const Header = ({
                       <FeaturedSection>{featuredSection}</FeaturedSection>
                     </Col>
                   ) : featuredTrainings ? (
-                    <Col md={4} marginLeft="auto">
+                    <Col md={4} sx={{ ml: 'auto' }}>
                       <FeaturedTrainingTitle>
                         Featured Course
                       </FeaturedTrainingTitle>
@@ -463,7 +509,7 @@ const Header = ({
                             title={training.title}
                             path={training.toPath}
                             className={className}
-                            textProps={{
+                            textSxProps={{
                               color: WHITE,
                               textShadow: `1px 1px 5px ${DARK_GREY};`,
                             }}
@@ -474,16 +520,18 @@ const Header = ({
                   ) : null}
                   {showInfoBox && (
                     <Col md={3} mdOffset={1}>
-                      <InfoBox type={type} p={1}>
+                      <InfoBox type={type} sx={{ p: 1 }}>
                         {infoBoxFluidImage && (
                           <Image
                             fluid={infoBoxFluidImage.fluid}
-                            width="100%"
-                            mb={1}
+                            sx={{
+                              width: '100%',
+                              mb: 1,
+                            }}
                             alt={subtitle}
                           />
                         )}
-                        <Ul variant="unstyled" mb={1} pl={0} pr={0}>
+                        <Ul variant="unstyled" sx={{ mb: 1, pl: 0, pr: 0 }}>
                           <Li>
                             <strong>Date</strong>:{' '}
                             {startDate ? startDate : 'TBD'}
@@ -556,7 +604,7 @@ const Header = ({
                             </Li>
                           )}
                         </Ul>
-                        <Box textAlign="center" mb="-38px">
+                        <Box sx={{ textAlign: 'center', mb: '-38px' }}>
                           <LinkButton
                             onClick={expandCheckout || undefined}
                             className="header-buy-tickets"

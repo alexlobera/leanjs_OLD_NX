@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { WHITE, DARK_GREY, DARK_BLUE, RED } from '../../config/styles'
 import Box from '../layout/Box'
 
+// TODOSX MOVE THIS TO SX DEFAULT PROP
 export const defaultButtonStyle = css`
   cursor: pointer;
   align-items: center;
@@ -17,7 +18,21 @@ export const defaultButtonStyle = css`
   `}
 `
 
-export const buttonDefaultProps = {
+// export const buttonDefaultProps = {
+//   sx: {
+//     py: 1,
+//     px: 4,
+//     boxShadow: 'light',
+//     borderRadius: 2,
+//     border: 0,
+//     textAlign: 'center',
+//     fontSize: 2,
+//     letterSpacing: ' 0.6px',
+//   },
+//   //box: 'button',
+// }
+
+export const buttonDefaultSxProp = {
   py: 1,
   px: 4,
   boxShadow: 'light',
@@ -26,7 +41,6 @@ export const buttonDefaultProps = {
   textAlign: 'center',
   fontSize: 2,
   letterSpacing: ' 0.6px',
-  box: 'button',
 }
 
 export const buttonVariantProps = {
@@ -52,10 +66,17 @@ export const buttonVariantProps = {
 const StyledButton = styled(Box)`
   ${defaultButtonStyle};
 `
-StyledButton.defaultProps = buttonDefaultProps
+//StyledButton.defaultProps = buttonDefaultProps
 
-const Button = ({ children, loading, onClick, variant, ...rest }) => {
-  const props = {
+const Button = ({
+  children,
+  loading,
+  onClick,
+  variant = 'default',
+  sx = {},
+  ...rest
+}) => {
+  const extendedProps = {
     ...rest,
     onClick: rest.disabled ? undefined : onClick,
   }
@@ -63,16 +84,22 @@ const Button = ({ children, loading, onClick, variant, ...rest }) => {
   return (
     <StyledButton
       type="button"
-      {...(variant ? buttonVariantProps[variant] : {})}
-      {...props}
+      box="button"
+      sx={{
+        ...buttonDefaultSxProp,
+        ...(buttonVariantProps[variant] || {}),
+        ...sx,
+      }}
+      {...extendedProps}
     >
       {loading ? 'Loading ...' : children}
     </StyledButton>
   )
 }
-Button.defaultProps = {
-  variant: 'default',
-}
+// Button.defaultProps = {
+//   //variant: 'default',
+//   //...buttonDefaultProps,
+// }
 
 Button.displayName = 'Button'
 

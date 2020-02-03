@@ -18,7 +18,7 @@ import LeanJSsprints from 'src/components/elements/LeanJSsprints'
 import { createMetas } from 'src/components/utils'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import { TECH_GRAPHQL } from 'src/config/data'
-import { GRAPHQL_BOOTCAMP } from '../../../config/data'
+import { LIGHT_PINK } from 'src/config/styles'
 
 const metas = {
   title: 'GraphQL Corporte Training | React GraphQL Academy',
@@ -93,7 +93,7 @@ const CorporateGraphQLTraining = ({ path }) => (
             <Col md={5} mdOffset={1} order={[2, 1]}>
               <a name="previous-clients" />
               <AttendeeQuote
-                type={GRAPHQL_BOOTCAMP}
+                type={TECH_GRAPHQL}
                 quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
                 fullname="Lara Ramey"
                 job="Senior Developer"
@@ -106,7 +106,7 @@ const CorporateGraphQLTraining = ({ path }) => (
             </Col>
             <Col md={4} lgOffset={1} order={[1, 2]}>
               <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList2 />
+              <TrustedByLogoList2 colour={LIGHT_PINK} />
             </Col>
           </Row>
         </Section>

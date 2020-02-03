@@ -15,9 +15,10 @@ const RGALogo = ({ className, ...rest }) => (
   </Link>
 )
 
-const StyledLogo = styled(Box)``
-StyledLogo.defaultProps = {
-  box: RGALogo,
-}
+// const StyledLogo = styled(Box)``
+// StyledLogo.defaultProps = {
+//   box: RGALogo,
+// }
+const StyledLogo = props => <Box box={RGALogo} {...props} />
 
 export default StyledLogo

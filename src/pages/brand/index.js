@@ -34,12 +34,16 @@ const Blog = ({ data, path }) => {
     {}
   )
   const colProps = {
-    mb: 5,
-    md: 3,
+    sx: {
+      mb: 5,
+      md: 3,
+    },
   }
-  const colorBoxProps = {
-    width: 1,
-    height: '75px',
+  const colorBoxSxProps = {
+    sx: {
+      width: 1,
+      height: '75px',
+    },
   }
 
   return (
@@ -55,6 +59,7 @@ const Blog = ({ data, path }) => {
           <Header
             titleLines={['Brand assets']}
             fullHeight={false}
+            // TODO migrate the following paddingBottom to sx and refactor Header
             paddingBottom={170}
             links={[
               {
@@ -201,18 +206,20 @@ const Blog = ({ data, path }) => {
             <H2>
               Colours <a name="colours" />
             </H2>
-            <H3 pt={0}>Event types</H3>
+            <H3 sx={{ pt: 0 }}>Event types</H3>
             <Row>
               <Col md={3}>
-                <Box backgroundColor={BLUE} {...colorBoxProps} />
+                <Box sx={{ backgroundColor: BLUE, ...colorBoxSxProps }} />
                 <P>React Blue: #6FCFF0</P>
               </Col>
               <Col md={3} mdOffset={1}>
-                <Box backgroundColor={GRAPHQL_PINK} {...colorBoxProps} />
+                <Box
+                  sx={{ backgroundColor: GRAPHQL_PINK, ...colorBoxSxProps }}
+                />
                 <P>GraphQL Pink: #DF0098</P>
               </Col>
               <Col md={3} mdOffset={1}>
-                <Box backgroundColor={MEETUP_RED} {...colorBoxProps} />
+                <Box sx={{ backgroundColor: MEETUP_RED, ...colorBoxSxProps }} />
                 <P>Meetup Red: #F64060</P>
               </Col>
             </Row>
@@ -220,32 +227,34 @@ const Blog = ({ data, path }) => {
             <H3>Website UI</H3>
             <Row>
               <Col {...colProps}>
-                <Box backgroundColor={RED} {...colorBoxProps} />
+                <Box sx={{ backgroundColor: RED, ...colorBoxSxProps }} />
                 <P>CTA primary: #C0392B</P>
               </Col>
               <Col {...colProps} mdOffset={1}>
-                <Box backgroundColor={DARK_BLUE} {...colorBoxProps} />
+                <Box sx={{ backgroundColor: DARK_BLUE, ...colorBoxSxProps }} />
                 <P>CTA secondary: #002938</P>
               </Col>
               <Col {...colProps} mdOffset={1}>
-                <Box backgroundColor={PINK} {...colorBoxProps} />
+                <Box sx={{ backgroundColor: PINK, ...colorBoxSxProps }} />
                 <P>Error message: #F388A2</P>
               </Col>
 
               <Col md={3}>
-                <Box backgroundColor={DARK_GREY} {...colorBoxProps} />
+                <Box sx={{ backgroundColor: DARK_GREY, ...colorBoxSxProps }} />
                 <P>Text grey: #4A4A4A</P>
               </Col>
               <Col md={3} mdOffset={1}>
-                <Box backgroundColor={GREY} {...colorBoxProps} />
+                <Box sx={{ backgroundColor: GREY, ...colorBoxSxProps }} />
                 <P>Accent grey: #C4C4C4</P>
               </Col>
               <Col md={3} mdOffset={1}>
                 <Box
-                  backgroundColor={WHITE}
-                  {...colorBoxProps}
-                  border="1px solid"
-                  borderColor={GREY}
+                  sx={{
+                    backgroundColor: WHITE,
+                    border: '1px solid',
+                    borderColor: GREY,
+                    ...colorBoxSxProps,
+                  }}
                 />
                 <P>White: #FFFFFF</P>
               </Col>

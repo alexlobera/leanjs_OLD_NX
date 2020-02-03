@@ -6,7 +6,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
   firstHalf={
     Array [
       <CurriculumSection
-        mt={4}
         name="day1"
         subTitle="Thinking in React, Modern JavaScript, Routing & Data Fetching"
         title="Day  1"
@@ -21,7 +20,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
-        mt={4}
         name="day2"
         subTitle="Forms, Authentication, and Hooks"
         title="Day  2"
@@ -36,7 +34,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
-        mt={4}
         name="day3"
         subTitle="Redux Fundamentals, deployment to production"
         title="Day  3"
@@ -54,7 +51,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
   secondHalf={
     Array [
       <CurriculumSection
-        mt={4}
         name="day4"
         subTitle="Advanced React patterns and performance"
         title="Day  4"
@@ -68,7 +64,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
-        mt={4}
         name="day5"
         subTitle="Styling in React and Design Systems"
         title="Day  5"
@@ -83,7 +78,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
-        mt={4}
         name="day6"
         subTitle="Real-World Testing in React"
         title="Day  6"

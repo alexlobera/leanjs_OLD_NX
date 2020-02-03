@@ -8,7 +8,7 @@ import MenuData from '../Menu.json'
 import RGALogo from '../../../logos/RGALogo'
 import ToggleButton from './ToggleButton'
 
-const Item = ({ children, ...props }) => <Link {...props}>{children}</Link>
+const Item = props => <Link {...props} />
 
 export const PhoneMenuItem = styled(Item)`
   display: block;
@@ -78,7 +78,7 @@ const PhoneMenu = ({ width, defaultIsOpen = false }) => {
       <ToggleButton toggleMenu={toggleMenu} isOpen={isOpen} />
       {isOpen && <Overlay onClick={toggleMenu} />}
       <MenuContent width={width} isOpen={isOpen}>
-        <RGALogo mb={5} display="inline-block" />
+        <RGALogo sx={{ mb: 5, display: 'inline-block' }} />
         {items.map(item => (
           <PhoneMenuItem onClick={toggleMenu} key={item.to} to={item.to}>
             {item.text}

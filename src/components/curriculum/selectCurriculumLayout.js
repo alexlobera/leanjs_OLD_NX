@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Section from './CurriculumSection'
 import Ul from '../layout/Ul'
@@ -14,10 +13,13 @@ import Box from '../layout/Box'
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
 
-const SectionCTA = styled(Box)``
-SectionCTA.defaultProps = {
-  pt: 5,
-}
+// const SectionCTA = styled(Box)``
+// SectionCTA.defaultProps = {
+//   sx: { pt: 5 },
+// }
+const SectionCTA = ({ sx = {}, ...rest }) => (
+  <Box sx={{ pt: 5, ...sx }} {...rest} />
+)
 
 const selectCurriculumLayout = ({
   firstHalf,
@@ -61,7 +63,7 @@ const selectCurriculumLayout = ({
     return (
       <React.Fragment>
         {title}
-        <Flex flexDirection="column">
+        <Flex sx={{ flexDirection: 'column' }}>
           {firstHalf}
           {firstHalf.length > 2 && typedMarketingCard}
           {secondHalf}
@@ -75,7 +77,7 @@ const selectCurriculumLayout = ({
     return (
       <React.Fragment>
         {title}
-        <Flex flexDirection="column">
+        <Flex sx={{ flexDirection: 'column' }}>
           <Row>
             <Col md={6} lg={5}>
               {firstHalf}
@@ -125,7 +127,7 @@ const selectCurriculumLayout = ({
             ) : (
               <React.Fragment>
                 <Link name="free-learning-resources" />
-                <H3 mt={2}>Free learning resources!</H3>
+                <H3 sx={{ mt: 2 }}>Free learning resources!</H3>
                 <LinkButton
                   className="free-learning-resources-cta"
                   to="#newsletter"

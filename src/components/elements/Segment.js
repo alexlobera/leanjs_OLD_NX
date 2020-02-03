@@ -29,28 +29,43 @@ const StyledSegment = styled(Box)`
     }
   }}
 `
-StyledSegment.defaultProps = {
-  pt: [0, 7],
-  pb: [0, 7],
-  pl: 0,
-  pr: 0,
-}
+// StyledSegment.defaultProps = {
+//   sx: {
+//     pt: [0, 7],
+//     pb: [0, 7],
+//     pl: 0,
+//     pr: 0,
+//   },
+// }
 
-const Segment = props => {
+const Segment = ({ sx = {}, ...rest }) => {
   let smallProps = {}
-  if (props.small) {
+  if (rest.small) {
     smallProps.pt = [0, 5]
     smallProps.pb = [0, 5]
     smallProps.pl = [1, 5]
     smallProps.pr = [1, 5]
   }
+
   return (
     <StyledSegment
-      {...(segmentVariantProps[props.variant] || {})}
-      {...smallProps}
-      {...props}
+      sx={{
+        pt: [0, 7],
+        pb: [0, 7],
+        pl: 0,
+        pr: 0,
+        ...(segmentVariantProps[rest.variant] || {}),
+        ...smallProps,
+        ...sx,
+      }}
+      {...rest}
     />
   )
+}
+
+Segment.displayName = 'Segment'
+Segment.defaultProps = {
+  variant: 'secondary',
 }
 
 const segmentVariantProps = {
@@ -65,11 +80,6 @@ const segmentVariantProps = {
     backgroundColor: WHITE,
     boxShadow: [null, BOX_SHADOW],
   },
-}
-
-Segment.displayName = 'Segment'
-Segment.defaultProps = {
-  variant: 'secondary',
 }
 
 export default Segment

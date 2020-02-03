@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import withWidth, { MEDIUM } from '../utils/WithWidth'
 import ContactForm from '../form/Contact'
 import Grid, { Col, Row } from './Grid'
 import RGALogo from '../logos/RGALogo'
@@ -21,91 +20,94 @@ import {
 import { fontColor } from '../text'
 import Box from './Box'
 
-const FooterWrapper = styled(Box)``
-FooterWrapper.defaultProps = {
-  backgroundColor: [DARK_BLUE, 'transparent'],
-}
+// const FooterWrapper = styled(Box)``
+const FooterWrapper = props => (
+  <Box
+    sx={{
+      backgroundColor: [DARK_BLUE, 'transparent'],
+    }}
+    {...props}
+  />
+)
 
 const StyledFooter = styled(Box)`
   ${fontColor(WHITE)}
 `
-StyledFooter.defaultProps = {
-  backgroundColor: DARK_BLUE,
-  pt: 6,
-  pb: 5,
-  mt: 4,
-  box: 'footer',
-}
 
-const SocialLink = styled(Link)`
-  text-decoration: none;
-`
-const Footer = ({ width }) => (
+// const SocialLink = styled(Link)`
+//   text-decoration: none;
+// `
+const SocialLink = ({ sx = {}, ...rest }) => (
+  <Link sx={{ textDecoration: 'none', ...sx }} {...rest} />
+)
+
+const Footer = () => (
   <FooterWrapper>
     <Grid>
-      <StyledFooter>
+      <StyledFooter
+        sx={{ backgroundColor: DARK_BLUE, pt: 6, pb: 5, mt: 4 }}
+        box="footer"
+      >
         <Row>
           <Col md={5} mdOffset={1}>
             <ContactForm addContactUsLink={true} />
           </Col>
           <Col md={4} mdOffset={1}>
-            {width > MEDIUM && (
-              <Row>
-                <Col>
-                  <H3>Site links</H3>
-                </Col>
-                <Col md={6}>
-                  <Ul variant="unstyled" pt={0}>
-                    {[
-                      { to: '/react/training', txt: 'React Courses' },
-                      { to: '/react/curriculum', txt: 'React Curriculum' },
-                      { to: '/graphql/training', txt: 'GraphQL Courses' },
-                      { to: '/graphql/curriculum', txt: 'GraphQL Curriculum' },
-                      { to: '/blog', txt: 'Blog' },
-                      { to: '/about-us', txt: 'About us' },
-                      { to: '/locations', txt: 'Locations' },
-                    ].map(({ txt, to }) => (
-                      <Li key={to}>
-                        <Link to={to} className="footer-site-links">
-                          {txt}
-                        </Link>
-                      </Li>
-                    ))}
-                  </Ul>
-                </Col>
-                <Col md={6}>
-                  <Ul variant="unstyled" pt={0}>
-                    {[
-                      { to: '/brand', txt: 'Logo & Assets' },
-                      { to: '/partners', txt: 'Partners' },
-                      { to: '/community', txt: 'Community' },
-                      { to: '/code-of-conduct', txt: 'Code of conduct' },
-                      {
-                        to: '/privacy-policy',
-                        txt: 'Privacy Policy',
-                        extraClass: 'footer-privacy-policy',
-                      },
-                      { to: '/terms-of-service', txt: 'Terms of service' },
-                    ].map(({ txt, to, extraClass }) => (
-                      <Li key={to}>
-                        <Link
-                          to={to}
-                          className={`footer-site-links ${
-                            extraClass ? extraClass : ''
-                          }`}
-                        >
-                          {txt}
-                        </Link>
-                      </Li>
-                    ))}
-                  </Ul>
-                </Col>
-              </Row>
-            )}
+            <Row>
+              <Col>
+                <H3>Site links</H3>
+              </Col>
+              <Col md={6}>
+                <Ul variant="unstyled" sx={{ pt: 0 }}>
+                  {[
+                    { to: '/react/training', txt: 'React Courses' },
+                    { to: '/react/curriculum', txt: 'React Curriculum' },
+                    { to: '/graphql/training', txt: 'GraphQL Courses' },
+                    { to: '/graphql/curriculum', txt: 'GraphQL Curriculum' },
+                    { to: '/blog', txt: 'Blog' },
+                    { to: '/about-us', txt: 'About us' },
+                    { to: '/locations', txt: 'Locations' },
+                  ].map(({ txt, to }) => (
+                    <Li key={to}>
+                      <Link to={to} className="footer-site-links">
+                        {txt}
+                      </Link>
+                    </Li>
+                  ))}
+                </Ul>
+              </Col>
+              <Col md={6}>
+                <Ul variant="unstyled" sx={{ pt: 0 }}>
+                  {[
+                    { to: '/brand', txt: 'Logo & Assets' },
+                    { to: '/partners', txt: 'Partners' },
+                    { to: '/community', txt: 'Community' },
+                    { to: '/code-of-conduct', txt: 'Code of conduct' },
+                    {
+                      to: '/privacy-policy',
+                      txt: 'Privacy Policy',
+                      extraClass: 'footer-privacy-policy',
+                    },
+                    { to: '/terms-of-service', txt: 'Terms of service' },
+                  ].map(({ txt, to, extraClass }) => (
+                    <Li key={to}>
+                      <Link
+                        to={to}
+                        className={`footer-site-links ${
+                          extraClass ? extraClass : ''
+                        }`}
+                      >
+                        {txt}
+                      </Link>
+                    </Li>
+                  ))}
+                </Ul>
+              </Col>
+            </Row>
             <Row>
               <Col>
                 <Span>Follow us...</Span>
-                <Ul variants={['unstyled', 'inline']} mt={1} mb={2}>
+                <Ul variants={['unstyled', 'inline']} sx={{ mt: 1, mb: 2 }}>
                   {[
                     {
                       to: 'https://twitter.com/reactgqlacademy',
@@ -155,7 +157,7 @@ const Footer = ({ width }) => (
                   product
                 </P>
                 <RGALogo className="footer-rga-logo" />
-                <P pt={4}>
+                <P sx={{ pt: 4 }}>
                   Looking for a Job?
                   <br />
                   Search for Developer Careers on Jooble
@@ -172,4 +174,4 @@ const Footer = ({ width }) => (
   </FooterWrapper>
 )
 
-export default withWidth()(Footer)
+export default Footer

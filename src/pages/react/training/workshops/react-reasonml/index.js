@@ -21,7 +21,7 @@ import {
 } from 'src/components/training'
 import BlogSection from 'src/components/blog/BlogSection'
 
-import { Link } from 'src/components/navigation'
+import Link from 'src/components/navigation/Link'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import {

@@ -83,7 +83,7 @@ const SessionInterestGraphQL = ({ path }) => (
             training={nextBootcamp}
           />
 
-          <TopSection marginTop={`-250`}>
+          <TopSection sx={{ mt: `-250` }}>
             <Segment>
               <Row>
                 <Col md={10} mdOffset={1}>
@@ -135,7 +135,7 @@ const SessionInterestGraphQL = ({ path }) => (
                                 name="subscriptions.prismabackend"
                                 label="GraphQL with Prisma"
                               />
-                              <Box pt={3}>
+                              <Box sx={{ pt: 3 }}>
                                 <Link
                                   to="#contact-us"
                                   children="Want other workhops? Contact us!"
@@ -166,7 +166,7 @@ const SessionInterestGraphQL = ({ path }) => (
                           <Row style={{ marginTop: '2em' }}>
                             <Col md={3}>
                               <Button
-                                width={1}
+                                sx={{ width: 1 }}
                                 variant="primary"
                                 type="submit"
                                 disabled={!valid}
@@ -175,7 +175,7 @@ const SessionInterestGraphQL = ({ path }) => (
                               </Button>
                             </Col>
                             <Col mdOffset={1} md={8}>
-                              <P pt={1}>
+                              <P sx={{ pt: 1 }}>
                                 We won't spam you as per our{' '}
                                 <Link to="/privacy-policy">Privacy Policy</Link>
                                 .

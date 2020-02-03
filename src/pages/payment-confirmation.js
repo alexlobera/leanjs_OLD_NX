@@ -55,7 +55,7 @@ class PaymentConfirmation extends React.Component {
           subtitle="We can’t wait to help you on your React journey."
           bgImageName={BOOTCAMP}
         />
-        <TopSection marginTop="-250">
+        <TopSection sx={{ mt: '-250' }}>
           <Segment>
             <Row>
               <Col md={5} mdOffset={1}>

@@ -1,11 +1,16 @@
-import styled from 'styled-components'
+import React from 'react'
 import Box from '../layout/Box'
 
-const Hr = styled(Box)``
-Hr.defaultProps = {
-  mt: 6,
-  mb: 6,
-  box: 'hr',
-}
+const Hr = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      mt: 6,
+      mb: 6,
+      ...sx,
+    }}
+    box="hr"
+    {...rest}
+  />
+)
 
 export default Hr

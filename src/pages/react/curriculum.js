@@ -241,7 +241,7 @@ class ReactCurriculum extends React.Component {
                           <Tr>
                             <Td verticalAlign="top">Timings/Pricing</Td>
                             <Td>
-                              <Ul textAlign="left">
+                              <Ul sx={{ textAlign: 'left' }}>
                                 <Li>1 week</Li>
                                 <Li>Full time</Li>
                                 <Li>9 am to 6 pm</Li>
@@ -256,7 +256,7 @@ class ReactCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
-                              <Ul textAlign="left">
+                              <Ul sx={{ textAlign: 'left' }}>
                                 <Li>1 month</Li>
                                 <Li>Part time</Li>
                                 <Li>Evenings or weekends</Li>
@@ -271,7 +271,7 @@ class ReactCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
-                              <Ul textAlign="left">
+                              <Ul sx={{ textAlign: 'left' }}>
                                 <Li>3 days</Li>
                                 <Li>Full time</Li>
                                 <Li>9 am to 6 pm</Li>
@@ -286,7 +286,7 @@ class ReactCurriculum extends React.Component {
                               </LinkButton>
                             </Td>
                             <Td>
-                              <Ul textAlign="left">
+                              <Ul sx={{ textAlign: 'left' }}>
                                 <Li>3 days</Li>
                                 <Li>Full time</Li>
                                 <Li>9 am to 6 pm</Li>
@@ -322,10 +322,12 @@ class ReactCurriculum extends React.Component {
                         ].map(({ to, txt }) => (
                           <Col md={4}>
                             <LinkButton
-                              display="block"
+                              sx={{
+                                mt: [2, 0],
+                                display: 'block',
+                              }}
                               className="training-curriculum-clicks"
                               to={to}
-                              mt={[2, 0]}
                             >
                               {txt}
                             </LinkButton>

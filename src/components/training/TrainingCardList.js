@@ -9,9 +9,11 @@ export const TrainingCardList = ({ data = [], borderColor, className = '' }) =>
   data.map((training, i) => (
     <Card
       variant="primary"
-      mt={i === 0 ? 0 : 4}
+      sx={{
+        mt: i === 0 ? 0 : 4,
+        borderColor,
+      }}
       key={`${training.to}${i}`}
-      borderColor={borderColor}
     >
       <H4>
         <Link underline={false} to={training.to} className={className}>

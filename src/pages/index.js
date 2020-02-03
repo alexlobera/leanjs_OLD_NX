@@ -47,27 +47,34 @@ const StyledTabItem = styled(Link).attrs(props => ({
   border-bottom: none;
   text-decoration: none;
 `
-const StyledTabTitle = styled(Box)`
-  color: ${WHITE};
-`
-StyledTabTitle.defaultProps = {
-  pb: 1,
-}
+const StyledTabTitle = ({ sx = {}, ...rest }) => (
+  <Box sx={{ color: WHITE, pb: 1, ...sx }} {...rest} />
+)
 
-const TabItem = ({ variant, ...rest }) => (
+// StyledTabTitle.defaultProps = {
+//   sx: {
+//     pb: 1,
+//   },
+// }
+
+const TabItem = ({ variant = 'default', sx = {}, ...rest }) => (
   <StyledTabItem
-    {...(variant ? tabItemVariantProps[variant] : {})}
+    sx={{
+      border: '1px solid',
+      p: 3,
+      borderColor: DARK_BLUE,
+      display: 'inline-block',
+      ...(variant ? tabItemVariantProps[variant] : {}),
+      ...sx,
+    }}
     {...rest}
-    display="inline-block"
   />
 )
 
-TabItem.defaultProps = {
-  border: '1px solid',
-  variant: 'default',
-  p: 3,
-  borderColor: DARK_BLUE,
-}
+// TabItem.defaultProps = {
+//   variant: 'default',
+//   sx: {},
+// }
 
 export const tabItemVariantProps = {
   default: {
@@ -118,7 +125,7 @@ const IndexPage = () => {
         Europe to teach React. "
               bgImageName={HOME_PAGE}
             />
-            <TopSection mt={[0, -225]}>
+            <TopSection sx={{ mt: [0, -225] }}>
               <Row>
                 <Col lgOffset={1} lg={11}>
                   <StyledTabTitle>Select learning experience: </StyledTabTitle>
@@ -139,7 +146,7 @@ const IndexPage = () => {
                   <a name="tab-curriculum" />
                 </Col>
               </Row>
-              <Segment pt={[4, 7]}>
+              <Segment sx={{ pt: [4, 7] }}>
                 {selectedTab === TAB_REACT ? (
                   <FullCurriculumsImmersive trainings={trainings} />
                 ) : (

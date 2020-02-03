@@ -5,7 +5,7 @@ import CourseBud from '../logos/CourseBud'
 import { Link } from '../navigation'
 
 const FinanceCard = props => (
-  <Segment small variant="primary" my={5} {...props}>
+  <Segment small variant="primary" sx={{ my: 5 }} {...props}>
     <H3>Financial Support</H3>
     <P>
       Looking for a way to spread the cost of training? We've partnered with

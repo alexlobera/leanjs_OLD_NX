@@ -44,18 +44,13 @@ const Ul = styled(Box)`
     }
   }
 `
-Ul.defaultProps = {
-  box: 'ul',
-  p: 0,
-  m: 0,
-  mb: 4,
-}
 
 export const TabList = ({
   active,
   setActive,
   onChange,
   children,
+  sx = {},
   includeRowCol = true,
   ...rest
 }) => {
@@ -70,14 +65,30 @@ export const TabList = ({
         : undefined,
     })
   )
+
+  const ul = (
+    <Ul
+      sx={{
+        p: 0,
+        m: 0,
+        mb: 4,
+        ...sx,
+      }}
+      {...rest}
+      box="ul"
+    >
+      {compound}
+    </Ul>
+  )
+
   return includeRowCol ? (
     <Row>
       <Col {...rest} md={11}>
-        <Ul {...rest}>{compound}</Ul>
+        {ul}
       </Col>
     </Row>
   ) : (
-    <Ul {...rest}>{compound}</Ul>
+    ul
   )
 }
 

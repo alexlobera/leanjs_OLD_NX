@@ -35,12 +35,16 @@ const AlternativeTrainings = ({
         />
       </Row>
       {!hideAllBtn && (
-        <Flex flexDirection={['column', 'row']}>
-          <LinkButton mr={4} className="suggested-courses" to="#upcoming">
+        <Flex sx={{ flexDirection: ['column', 'row'] }}>
+          <LinkButton
+            sx={{ mr: 4 }}
+            className="suggested-courses"
+            to="#upcoming"
+          >
             See all public courses
           </LinkButton>
           <Link
-            pt={[3, 1]}
+            sx={{ pt: [3, 1] }}
             to={type === 'react' ? '/react/training/corporate/' : ''}
           >
             See private corporate training

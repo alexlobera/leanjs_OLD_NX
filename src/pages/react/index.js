@@ -125,11 +125,15 @@ const ReactPage = ({ data, path }) => {
                   <LearningResources posts={posts} type="React" />
                 </Col>
                 <Link to="#our-react-training" name="our-react-training" />
-                <Col md={4} mdOffset={1} mt={[5, 0]}>
+                <Col md={4} mdOffset={1} sx={{ mt: [5, 0] }}>
                   <H3>Our React training</H3>
                   <TrainingCardList data={trainingList} borderColor={BLUE} />
-                  <Card variant="primary" mt={4}>
-                    <Newsletter anchorName="" mt={2} buttonVariant="primary" />
+                  <Card variant="primary" sx={{ mt: 4 }}>
+                    <Newsletter
+                      anchorName=""
+                      sx={{ mt: 2 }}
+                      buttonVariant="primary"
+                    />
                   </Card>
                 </Col>
               </Row>
@@ -140,7 +144,7 @@ const ReactPage = ({ data, path }) => {
             <Row>
               <Col md={5} mdOffset={1} order={[2, 1]}>
                 <AttendeeQuote
-                  mt={[5, 0]}
+                  sx={{ mt: [5, 0] }}
                   quote="I've found it [the course] fantastic, it was really tiring but it was all worth it... it taught me many things I didn't even know I don't know about React"
                   fullname="Polina Stoyanova"
                   job="Software Engineer & UX"

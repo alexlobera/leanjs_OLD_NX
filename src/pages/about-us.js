@@ -34,21 +34,23 @@ const renderProfile = ({
   const job = jobs && jobs.map(renderJob())
   return (
     <Col md={4}>
-      <Box mr={5} mb={5} pb={5}>
+      <Box sx={{ mr: 5, mb: 5, pb: 5 }}>
         <Row>
           <Col md={4}>
             <Link to={slug} className="coach-full-profile">
               <Image
                 circle
                 src={imageSrc}
-                width="100%"
+                sx={{
+                  width: '100%', // TODO DOES THE FOLLOWING WORK INSTEAD?  width: 1
+                }}
                 alt={`${fullname} ${job}`}
               />
             </Link>
           </Col>
           <Col md={8}>
             <Box>
-              <H5 mb={1}>{fullname}</H5>
+              <H5 sx={{ mb: 1 }}>{fullname}</H5>
               <P>
                 {job}
                 <br />
@@ -99,7 +101,7 @@ const AboutUs = ({ data }) => {
                     <Link to="#values" name="values"></Link>
                     We are professional developers who love to teach
                   </H2>
-                  <H3 pt={0}>Our Mission</H3>
+                  <H3 sx={{ pt: 0 }}>Our Mission</H3>
                   <P>
                     To inspire and support professional developers to grow in
                     their career, while leading the way for a mentorship
@@ -108,7 +110,7 @@ const AboutUs = ({ data }) => {
                   <H3>The React GraphQL Academy Values </H3>
                 </Col>
                 <Col xs={6} md={3} mdOffset={1}>
-                  <Ul mb={0}>
+                  <Ul sx={{ mb: 0 }}>
                     <Li>Passion</Li>
                     <Li>Empathy</Li>
                     <Li>Community</Li>
@@ -117,7 +119,7 @@ const AboutUs = ({ data }) => {
                   </Ul>
                 </Col>
                 <Col xs={6} md={3}>
-                  <Ul mb={0}>
+                  <Ul sx={{ mb: 0 }}>
                     <Li>Forward thinking</Li>
                     <Li>Determination</Li>
                     <Li>Feedback</Li>
@@ -133,7 +135,7 @@ const AboutUs = ({ data }) => {
               </Row>
             </Segment>
           </TopSection>
-          <Section mb={0} pb={0}>
+          <Section sx={{ mb: 0, pb: 0 }}>
             <H2>Our coach team</H2>
             <Link to="#coaches" name="coaches"></Link>
             <Row>
@@ -293,7 +295,7 @@ const AboutUs = ({ data }) => {
             </Row>
           </Section>
           <Section variant="dark">
-            <Segment variant="primary" border="none">
+            <Segment variant="primary" sx={{ border: 'none' }}>
               <LeanJSsprints />
             </Segment>
           </Section>

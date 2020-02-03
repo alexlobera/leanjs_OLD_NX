@@ -10,7 +10,7 @@ const TedVideo = ({
   width = '854',
   ...rest
 }) => (
-  <Box mb={4}>
+  <Box sx={{ mb: 4 }}>
     <div style={{ position: 'relative', height: 0, paddingBottom: '56.25%' }}>
       <iframe
         src={embedUrl}

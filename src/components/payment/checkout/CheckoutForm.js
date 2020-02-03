@@ -54,12 +54,25 @@ export const CCExpiryInput = aliasInput()
 export const CCCVCInput = aliasInput()
 export const SubmitPaymentFormButton = aliasButton()
 
-const QuantityActions = styled(Flex)``
-QuantityActions.defaultProps = {
-  textAlign: 'center',
-  mx: 0,
-  my: 1,
-}
+// const QuantityActions = styled(Flex)``
+// QuantityActions.defaultProps = {
+//   sx: {
+//     textAlign: 'center',
+//     mx: 0,
+//     my: 1,
+//   },
+// }
+const QuantityActions = ({ sx = {}, ...rest }) => (
+  <Flex
+    sx={{
+      textAlign: 'center',
+      mx: 0,
+      my: 1,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
 const QuantityButton = styled(Button)`
   font-size: 1.16rem !important;
@@ -99,13 +112,28 @@ const RowBuy = styled.div`
   padding: 36px 0 0;
 `
 
-const CheckoutH4 = styled(H4)``
-CheckoutH4.defaultProps = {
-  pb: '6px',
-  m: '18px 0 9px',
-  borderBottom: '1px solid',
-  borderColor: GREY,
-}
+// const CheckoutH4 = styled(H4)``
+// CheckoutH4.defaultProps = {
+//   sx: {
+//     pb: '6px',
+//     m: '18px 0 9px',
+//     borderBottom: '1px solid',
+//     borderColor: GREY,
+//   },
+// }
+
+const CheckoutH4 = ({ sx = {}, ...rest }) => (
+  <H4
+    sx={{
+      pb: '6px',
+      m: '18px 0 9px',
+      borderBottom: '1px solid',
+      borderColor: GREY,
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
 const RibbonBottomContainer = styled('div')`
   position: relative;
@@ -208,14 +236,14 @@ class CheckoutForm extends React.Component {
           </Col>
           <Col xs={6}>
             <TotalPrice>Price</TotalPrice>
-            <P textAlign="center">
-              <Price mr={1} mt={1}>
+            <P sx={{ textAlign: 'center' }}>
+              <Price sx={{ mr: 1, mt: 1 }}>
                 {formatPrice(currency, currentPriceQuantity, vatRate)}
               </Price>
               <br />
 
               {currentPriceQuantity < priceQuantity ? (
-                <Span lineThrough>
+                <Span sx={{ textDecoration: 'line-through' }}>
                   (Full price: {formatPrice(currency, priceQuantity, vatRate)})
                 </Span>
               ) : null}
@@ -225,9 +253,7 @@ class CheckoutForm extends React.Component {
 
         {trialTraingInstance && (
           <Box mb={3}>
-            <H5 mb={1} borderBottom="none">
-              Not ready to buy yet?
-            </H5>
+            <H5 sx={{ mb: 1, borderBottom: 'none' }}>Not ready to buy yet?</H5>
             <LinkButton to={trialTraingInstance.toPath} variant="primary">
               Try first
             </LinkButton>
@@ -505,7 +531,7 @@ class CheckoutForm extends React.Component {
                   <SubmitPaymentFormButton
                     type="submit"
                     variant="primary"
-                    width={1}
+                    sx={{ width: 1 }}
                     onClick={this.onSubmitClicked}
                     disabled={submitting || isPaymentInProgress}
                   >

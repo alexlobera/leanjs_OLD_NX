@@ -89,13 +89,13 @@ const Checkout = props => {
           <Fragment>
             {currentPriceQuantity ? (
               <PriceAndDiscount>
-                <Price width={1} textAlign="center" pt={1} pb={1}>
+                <Price sx={{ width: 1, textAlign: 'center', pt: 1, pb: 1 }}>
                   {formatPrice(currency, currentPriceQuantity, vatRate)}
                 </Price>
                 <P>
                   {' '}
                   {priceQuantity !== currentPriceQuantity ? (
-                    <Span lineThrough>
+                    <Span sx={{ textDecoration: 'line-through' }}>
                       (Full prices:{' '}
                       {formatPrice(currency, priceQuantity, vatRate)})
                     </Span>
@@ -107,7 +107,9 @@ const Checkout = props => {
             )}
             <BuyButton
               onClick={openCheckout}
-              ml="auto"
+              sx={{
+                ml: 'auto',
+              }}
               children="Buy now"
               variant="primary"
               className={

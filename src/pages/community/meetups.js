@@ -27,7 +27,7 @@ export const OurMeetupGroups = () => (
     <H3>Our groups</H3>
     <Row>
       <Col sm={6}>
-        <Ul variant="unstyled" mb={1}>
+        <Ul variant="unstyled" sx={{ mb: 1 }}>
           {[
             {
               to: 'http://meetup.com/JavaScript-London',
@@ -51,7 +51,7 @@ export const OurMeetupGroups = () => (
         </Ul>
       </Col>
       <Col sm={6}>
-        <Ul variant="unstyled" mb={1}>
+        <Ul variant="unstyled" sx={{ mb: 1 }}>
           {[
             {
               to: 'http://meetup.com/JavaScript-Lisbon',

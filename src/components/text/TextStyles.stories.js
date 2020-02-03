@@ -16,5 +16,4 @@ storiesOf('Atoms | Text | Headings', module)
   .add('H4', () => <H4>Heading 4</H4>)
   .add('H5', () => <H5>Heading 5</H5>)
   .add('Label', () => <Label>Label</Label>)
-  .add('Strikethrough', () => <Span lineThrough>Strikethrough</Span>)
 // ^ This Span component - why don't we use P and create a prop for strikethrough?

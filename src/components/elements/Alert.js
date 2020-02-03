@@ -1,13 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { PINK, GREY } from '../../config/styles'
 import Box from '../layout/Box'
 
-const StyledAlert = styled(Box)``
+// const StyledAlert = styled(Box)``
+// const StyledAlert = props => <Box {...props} />
 
-const Alert = ({ variant, ...rest }) => (
-  <StyledAlert {...(variant ? alertVariants[variant] : {})} {...rest} />
+const Alert = ({ variant = 'default', sx = {}, ...rest }) => (
+  <Box
+    //   {...(variant ? alertVariants[variant] : {})}
+    sx={{
+      my: 1,
+      pl: 1,
+      pr: 1,
+      py: 3,
+      ...(alertVariants[variant] || {}),
+      ...sx,
+    }}
+    {...rest}
+  />
 )
 
 const alertVariants = {
@@ -21,12 +32,8 @@ const alertVariants = {
   },
 }
 
-Alert.defaultProps = {
-  my: 1,
-  pl: 1,
-  pr: 1,
-  py: 3,
-  variant: 'default',
-}
+// Alert.defaultProps = {
+//   variant: 'default',
+// }
 
 export default Alert

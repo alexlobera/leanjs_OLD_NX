@@ -59,7 +59,13 @@ const renderAst = new rehypeReact({
     code: Code,
     span: BlogPostSpan,
     tweet: Tweet,
-    blockquote: Blockquote,
+    blockquote: props => {
+      const text = props.children.find(
+        child => child && child.props && child.props.children
+      )
+
+      return <Blockquote children={text && text.props.children} />
+    },
     codesandbox: Codesandbox,
     video: Video,
     marketingcard: MarketingCard,

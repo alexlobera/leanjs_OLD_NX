@@ -1,11 +1,9 @@
-import styled from 'styled-components'
+import React from 'react'
 import Box from '../layout/Box'
 
-const Span = styled(Box)`
-  ${props => props.lineThrough && `text-decoration: line-through`};
-`
-Span.defaultProps = {
-  box: 'span',
-}
+// const Span = styled(Box)`
+//   ${props => props.lineThrough && `text-decoration: line-through`};
+// `
+const Span = props => <Box box="span" {...props} />
 
 export default Span

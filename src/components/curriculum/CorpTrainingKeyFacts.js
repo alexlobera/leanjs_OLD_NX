@@ -5,7 +5,7 @@ import { LinkButton } from '../buttons'
 
 const CorpTrainingFacts = () => (
   <React.Fragment>
-    <H3 pt={[4, 0]}>
+    <H3 sx={{ pt: [4, 0] }}>
       How tailored is training? <a name="how-tailored" />
     </H3>
     <P>
