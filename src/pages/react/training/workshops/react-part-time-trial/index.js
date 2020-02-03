@@ -10,7 +10,6 @@ import CurriculumReactPartTimeTrial, {
   LearningObjectives,
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumReactPartTimeTrial'
-// import TargetAudienceList from 'src/components/curriculum/CurriculumReactPartTime/TargetAudienceList'
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
