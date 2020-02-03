@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, H3, P } from '../components/text'
@@ -11,7 +10,7 @@ import { Segment } from '../components/elements'
 
 const PrivacyPolicy = () => (
   <React.Fragment>
-    <Header titleLines={['Privacy Policy']} />
+    <Header titleLines={['Privacy Policy']} fullHeight={false} />
     <TopSection>
       <Segment>
         <Row>

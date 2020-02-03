@@ -2,7 +2,6 @@ import React from 'react'
 import { navigate } from 'gatsby'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Box from 'src/components/layout/Box'
 import { Col, Row } from 'src/components/layout/Grid'

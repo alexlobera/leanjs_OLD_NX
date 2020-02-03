@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 import { RunkitProvider } from '../blog/Runkit'
-import Layout from '../layout.js'
 import { formatUTC } from '../utils'
 import Grid, { Col, Row } from '../layout/Grid'
 import { P, Span, H2, H4, Hr } from '../text'

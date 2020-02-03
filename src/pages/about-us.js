@@ -2,7 +2,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import Section, { TopSection } from '../components/layout/Section'

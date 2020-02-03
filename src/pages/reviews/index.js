@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 import Image from '../../components/elements/Image'
 import Video from '../../components/elements/Video'
-import Layout from '../../components/layout'
 import Box from '../../components/layout/Box'
 import Section, { TopSection } from '../../components/layout/Section'
 import { Col, Row } from '../../components/layout/Grid'

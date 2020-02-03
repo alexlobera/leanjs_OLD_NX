@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import { CORP_TRAINING } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import TrustedBySection from 'src/components/training/TrustedBySection'
 import Section, { TopSection } from 'src/components/layout/Section'

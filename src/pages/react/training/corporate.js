@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 
 import { CORP_TRAINING } from 'src/../images/imageNames'
 import TrustedBySection from 'src/components/training/TrustedBySection'
-import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'

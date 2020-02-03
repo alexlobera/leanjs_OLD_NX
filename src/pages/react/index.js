@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 
 import { BLUE } from 'src/config/styles'
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'

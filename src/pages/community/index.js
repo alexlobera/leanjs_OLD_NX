@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import { LONDON_BOOTCAMP } from '../../../images/imageNames'
-import Layout from '../../components/layout'
 import { formatUTC } from '../../components/utils'
 import Section, { TopSection } from '../../components/layout/Section'
 import { Col, Row } from '../../components/layout/Grid'

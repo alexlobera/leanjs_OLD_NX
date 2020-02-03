@@ -2,7 +2,6 @@ import React from 'react'
 import Markdown from 'markdown-to-jsx'
 import Helmet from 'react-helmet'
 
-import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import { Ul, Li } from 'src/components/layout/Ul'
 import { Col, Row } from 'src/components/layout/Grid'

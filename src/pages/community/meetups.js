@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import { MEETUPS } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P } from 'src/components/text'

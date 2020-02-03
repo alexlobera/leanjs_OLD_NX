@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, H2Ref, P } from '../components/text'
@@ -24,6 +23,7 @@ const CodeOfConduct = ({ data, trainings }) => {
           { text: 'Key takeaways ', to: '#key-takeaways' },
           { text: 'More detail', to: '#more-detail' },
         ]}
+        fullHeight={false}
       />
       <TopSection>
         <Segment>

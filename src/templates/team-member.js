@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import BlockContent from '@sanity/block-content-to-react'
 
-import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import Teamquote from '../components/text/Teamquote'
 import Section from '../components/layout/Section'

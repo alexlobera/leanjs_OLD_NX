@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../../components/layout'
 import { Col, Row } from '../../components/layout/Grid'
 import { RootHeader as Header } from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'
@@ -13,7 +12,7 @@ import { Image } from '../../components/elements'
 import Card from '../../components/elements/Card'
 import Box from '../../components/layout/Box'
 
-const Blog = ({ data, pat, trainingsh }) => {
+const Blog = ({ data, path, trainings }) => {
   const locations = data.allMarkdownRemark.edges || []
 
   return (

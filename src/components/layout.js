@@ -40,40 +40,6 @@ const prefetchDnsLinks = prefetchDnsUrls.map(href => ({
   href,
 }))
 
-const formatTraining = (() => {
-  const cityIndex = {}
-  return ({ node }) => {
-    const { training } = node
-    const { type, slug, description } = training || {}
-    const { title = '' } = description || {}
-    const { city = '', id, isOnline } = node
-    const key = `${city}${type}${slug}`
-    cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
-
-    return {
-      ...node,
-      title,
-      type,
-      training: {
-        ...training,
-        toPath: createTrainingPath({
-          type,
-          id,
-          slug,
-        }),
-      },
-      toPath: createTrainingPath({
-        type,
-        city,
-        index: cityIndex[key],
-        id,
-        slug,
-        isOnline,
-      }),
-    }
-  }
-})()
-
 const layoutQuery = graphql`
   query layoutTraining {
     site {
@@ -146,6 +112,38 @@ const Layout = ({ children }) => {
     rel: 'preconnect',
     href,
   }))
+
+  const cityIndex = {}
+  const formatTraining = ({ node }) => {
+    const { training } = node
+    const { type, slug, description } = training || {}
+    const { title = '' } = description || {}
+    const { city = '', id, isOnline } = node
+    const key = `${city}${type}${slug}`
+    cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
+
+    return {
+      ...node,
+      title,
+      type,
+      training: {
+        ...training,
+        toPath: createTrainingPath({
+          type,
+          id,
+          slug,
+        }),
+      },
+      toPath: createTrainingPath({
+        type,
+        city,
+        index: cityIndex[key],
+        id,
+        slug,
+        isOnline,
+      }),
+    }
+  }
   //   const scriptTags = scriptUrls.map(src => (
   //     <script type="text/javascript" async="true" src={src} key={src} />
   //   ))

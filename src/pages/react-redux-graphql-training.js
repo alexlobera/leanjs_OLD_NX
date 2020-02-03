@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { BOOTCAMP } from '../../images/imageNames'
-import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2 } from '../components/text'
@@ -12,12 +11,13 @@ import { RootHeader as Header } from '../components/layout/Header'
 import { TrustedByLogoList } from '../components/training/TrustedBySection'
 import { UpcomingTrainingSection } from '../components/training'
 
-const BootcampList = trainings => (
+const BootcampList = ({ trainings }) => (
   <React.Fragment>
     <Header
       titleLines={['React Redux GraphQL Training']}
       subtitle="Full list of trainings by React GraphQL Academy"
       bgImageName={BOOTCAMP}
+      fullHeight={false}
     />
     <TopSection>
       <Segment>

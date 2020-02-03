@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 import { WHITE, DARK_GREY, DARK_BLUE } from '../config/styles'
 import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { HOME_PAGE } from '../../images/imageNames'
-import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
@@ -100,10 +99,6 @@ const IndexPage = ({ trainings }) => {
   })
 
   return (
-    // <Layout>
-    //   {({ trainings }) => {
-
-    //return (
     <React.Fragment>
       <Helmet
         title={metas.title}

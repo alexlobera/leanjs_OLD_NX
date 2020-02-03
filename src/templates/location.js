@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import rehypeReact from 'rehype-react'
 import { graphql } from 'gatsby'
 
-import Layout from 'src/components/layout'
 import { Link } from 'src/components/navigation'
 import { TopSection, ColSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'

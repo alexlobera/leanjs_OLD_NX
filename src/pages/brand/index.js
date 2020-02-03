@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../../components/layout'
 import { H2, H3 } from '../../components/text/H'
 import LinkButton from '../../components/buttons/LinkButton'
 import Box from '../../components/layout/Box'
@@ -36,14 +35,12 @@ const Blog = ({ data, path, trainings }) => {
   const colProps = {
     sx: {
       mb: 5,
-      md: 3,
     },
+    md: 3,
   }
   const colorBoxSxProps = {
-    sx: {
-      width: 1,
-      height: '75px',
-    },
+    width: 1,
+    height: '75px',
   }
 
   return (

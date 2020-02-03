@@ -1,7 +1,7 @@
 import React from 'react'
 import { Element, scroller } from 'react-scroll'
+
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'

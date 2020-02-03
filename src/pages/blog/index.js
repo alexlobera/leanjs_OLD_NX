@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../../components/layout'
 import { Col, Row } from '../../components/layout/Grid'
 import { RootHeader as Header } from '../../components/layout/Header'
 import { UpcomingTrainingSection } from '../../components/training'

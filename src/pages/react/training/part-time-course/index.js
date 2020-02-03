@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Layout from 'src/components/layout'
 import { Link } from 'src/components/navigation'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -31,7 +30,7 @@ const metas = {
   type: 'website',
 }
 
-const PartTime = ({ trainings, path, trainings }) => {
+const PartTime = ({ trainings, path }) => {
   const upcomingPartTimeTrainings = selectUpcomingTrainings({
     type: REACT_PART_TIME,
     trainings,
