@@ -135,6 +135,7 @@ const TrainingPage = ({ path }) => (
             <Row>
               <Col md={5} mdOffset={1}>
                 <AttendeeQuote
+                  type={TECH_GRAPHQL}
                   quote="I think whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
                   fullname="Lara Ramey"
                   job="Software Developer"
