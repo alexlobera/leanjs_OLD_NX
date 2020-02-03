@@ -10,78 +10,37 @@ import {
   position,
   compose,
 } from 'styled-system'
-import { DARK_GREY } from '../config/styles'
 
-const PropsBlackList = ({
-  as: _as,
-  box,
-  m,
-  p,
-  mx,
-  my,
-  mt,
-  mb,
-  ml,
-  mr,
-  pt,
-  pl,
-  pr,
-  pb,
-  px,
-  py,
-  lineheight,
-  fontFamily,
-  fontWeight,
-  color,
-  display,
-  variant,
-  position,
-  border,
-  borderColor,
-  lineHeight,
-  borderLeft,
-  fontSize,
-  backgroundColor,
-  paddingBottom,
-  bgColor,
-  bgImageOpacity,
-  bgImage,
-  boxShadow,
-  fontStyle,
-  textShadow,
-  borderRadius,
-  textAlign,
-  letterSpacing,
-  alignItems,
-  flexDirection,
-  sm,
-  alignSelf,
-  small,
-  fullHeight,
-  bgColors,
-  bg,
-  ...rest
-}) => {
-  const Component = box || _as || 'div'
+import { DARK_GREY } from '../../config/styles'
 
-  return <Component {...rest} />
-}
+const css = compose(space, color, typography, border, shadow, layout, position)
 
-export const StyledBox = styled(PropsBlackList)(
-  compose(space, color, typography, border, shadow, layout, position)
+const StyledBox = React.memo(
+  styled(({ sx, variant, box: Component = 'div', ...rest }) => (
+    <Component {...rest} />
+  ))(({ sx, theme }) => {
+    // Alex: I'm mutating sx to microoptimize perf since we know we only need the theme.
+    // TODO: should we spread it instead in pro of readability and immutability?
+    if (sx) {
+      sx.theme = theme
+    }
+    return css(sx)
+  })
 )
 
-export const Box = React.forwardRef(({ children, ...rest }, ref) => (
-  <StyledBox {...rest} ref={ref}>
-    {children}
-  </StyledBox>
+const Box = React.forwardRef(({ sx = {}, ...rest }, ref) => (
+  <StyledBox
+    sx={{
+      fontFamily: 'barlow',
+      fontWeight: 'normal',
+      color: DARK_GREY,
+      ...sx,
+    }}
+    {...rest}
+    ref={ref}
+  />
 ))
 
 Box.displayName = 'Box'
-Box.defaultProps = {
-  fontFamily: 'barlow',
-  fontWeight: 'normal',
-  color: DARK_GREY,
-}
 
-// export default Box
+export default React.memo(Box)
