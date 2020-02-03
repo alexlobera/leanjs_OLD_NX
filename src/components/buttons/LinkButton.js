@@ -58,4 +58,4 @@ const LinkButton = ({
 //   variant: 'default',
 // }
 
-export default LinkButton
+export default React.memo(LinkButton)

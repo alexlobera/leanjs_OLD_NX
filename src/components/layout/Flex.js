@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import { css } from 'styled-components'
 import { flexbox } from 'styled-system'
 import Box from './Box'
 
@@ -24,4 +24,4 @@ const Flex = ({ sx = {}, ...rest }) => (
 //   },
 // }
 
-export default Flex
+export default React.memo(Flex)

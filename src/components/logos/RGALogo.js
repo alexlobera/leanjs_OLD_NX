@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Link from '../navigation/Link'
 import './RGALogo.css'
 import Box from '../layout/Box'
@@ -15,10 +14,6 @@ const RGALogo = ({ className, ...rest }) => (
   </Link>
 )
 
-// const StyledLogo = styled(Box)``
-// StyledLogo.defaultProps = {
-//   box: RGALogo,
-// }
 const StyledLogo = props => <Box box={RGALogo} {...props} />
 
 export default StyledLogo

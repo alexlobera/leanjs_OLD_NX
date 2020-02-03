@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -34,101 +33,97 @@ import {
 } from './config.json'
 import { crossSellTypes } from 'src/templates/instance/1-day-react-reasonml'
 
-const ReactReasonLanding = ({ path }) => (
-  <Layout>
-    {({ trainings }) => {
-      const nextTraining = getNextTrainingByTrainingId({
-        trainings,
-        trainingId,
-      })
+const ReactReasonLanding = ({ path, trainings }) => {
+  const nextTraining = getNextTrainingByTrainingId({
+    trainings,
+    trainingId,
+  })
 
-      const crossSellTrainings = selectUpcomingTrainings({
-        trainings,
-        types: crossSellTypes,
-        excludeTrainingId: trainingId,
-      })
+  const crossSellTrainings = selectUpcomingTrainings({
+    trainings,
+    types: crossSellTypes,
+    excludeTrainingId: trainingId,
+  })
 
-      return (
-        <React.Fragment>
-          <Helmet
-            title="React ReasonML Workshop"
-            meta={[
-              {
-                name: 'description',
-                content: title,
-              },
-            ]}
+  return (
+    <React.Fragment>
+      <Helmet
+        title="React ReasonML Workshop"
+        meta={[
+          {
+            name: 'description',
+            content: title,
+          },
+        ]}
+      />
+      <Header
+        breadcrumbPath={[
+          { to: '/', label: 'Home' },
+          { to: '/react', label: tech },
+          { to: '/react/training/', label: 'Training' },
+          {
+            to: '/react/training/workshops',
+            label: breadcrumbTrainingName,
+          },
+          {
+            to: path,
+            label: breadcrumbWorkshopName,
+          },
+        ]}
+        tech={TECH_REACT}
+        titleLines={[title]}
+        subtitle="Learn how and why we should write our code in ReasonML, plus use cases of using ReasonML in new or existing React projects"
+        links={[
+          { text: 'Workshop Agenda', to: '#curriculum' },
+          { text: 'Is this right for me?', to: '#target-audience' },
+        ]}
+        type={REACT_WORKSHOP}
+      />
+      <TopSection>
+        <Segment>
+          <Curriculum
+            section={{ isOpen: true }}
+            trainings={trainings}
+            trainingId={trainingId}
           />
-          <Header
-            breadcrumbPath={[
-              { to: '/', label: 'Home' },
-              { to: '/react', label: tech },
-              { to: '/react/training/', label: 'Training' },
-              {
-                to: '/react/training/workshops',
-                label: breadcrumbTrainingName,
-              },
-              {
-                to: path,
-                label: breadcrumbWorkshopName,
-              },
-            ]}
-            tech={TECH_REACT}
-            titleLines={[title]}
-            subtitle="Learn how and why we should write our code in ReasonML, plus use cases of using ReasonML in new or existing React projects"
-            links={[
-              { text: 'Workshop Agenda', to: '#curriculum' },
-              { text: 'Is this right for me?', to: '#target-audience' },
-            ]}
-            type={REACT_WORKSHOP}
-          />
-          <TopSection>
-            <Segment>
-              <Curriculum
-                section={{ isOpen: true }}
-                trainings={trainings}
-                trainingId={trainingId}
-              />
-            </Segment>
-          </TopSection>
+        </Segment>
+      </TopSection>
 
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1}>
-                <AttendeeQuote
-                  quote="[The coaches] are very important - they're able to explain things in a way we can understand."
-                  fullname="Jim Plimmer"
-                  job="Developer"
-                  company="Conversion.com"
-                  youtubeId="GU-IIi-84t8"
-                />
-              </Col>
-              <Col md={4} lgOffset={1}>
-                <H2Ref>
-                  Is this one day workshop right for me? Are you...{' '}
-                  <Link to="#target-audience" name="target-audience">
-                    #
-                  </Link>
-                </H2Ref>
-                <Ul>
-                  <TargetAudienceList />
-                </Ul>
-                <P>
-                  If you've said 'yes' to these, this workshop could be for you!
-                </P>
-                <H3>Not for React beginners!</H3>
-                <NextTrainingButton type="workshop" training={nextTraining} />
-              </Col>
-            </Row>
-          </Section>
-          <AlternativeTrainingSection trainings={crossSellTrainings} />
-          <TrustedBySection />
-          <BlogSection tags={tags} />
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <AttendeeQuote
+              quote="[The coaches] are very important - they're able to explain things in a way we can understand."
+              fullname="Jim Plimmer"
+              job="Developer"
+              company="Conversion.com"
+              youtubeId="GU-IIi-84t8"
+            />
+          </Col>
+          <Col md={4} lgOffset={1}>
+            <H2Ref>
+              Is this one day workshop right for me? Are you...{' '}
+              <Link to="#target-audience" name="target-audience">
+                #
+              </Link>
+            </H2Ref>
+            <Ul>
+              <TargetAudienceList />
+            </Ul>
+            <P>
+              If you've said 'yes' to these, this workshop could be for you!
+            </P>
+            <H3>Not for React beginners!</H3>
+            <NextTrainingButton type="workshop" training={nextTraining} />
+          </Col>
+        </Row>
+      </Section>
+      <AlternativeTrainingSection trainings={crossSellTrainings} />
+      <TrustedBySection />
+      <BlogSection tags={tags} />
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export default ReactReasonLanding

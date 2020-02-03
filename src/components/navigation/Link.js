@@ -119,4 +119,4 @@ class Link extends React.Component {
   }
 }
 
-export default Link
+export default React.memo(Link)

@@ -2,7 +2,6 @@
 import React from 'react'
 
 import { BOOTCAMP } from '../../images/imageNames'
-import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
@@ -49,13 +48,14 @@ class PaymentConfirmation extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <React.Fragment>
         <Header
           titleLines={['Thanks!']}
           subtitle="We can’t wait to help you on your React journey."
           bgImageName={BOOTCAMP}
+          fullHeight={false}
         />
-        <TopSection sx={{ mt: '-250' }}>
+        <TopSection>
           <Segment>
             <Row>
               <Col md={5} mdOffset={1}>
@@ -80,7 +80,7 @@ class PaymentConfirmation extends React.Component {
             </Row>
           </Segment>
         </TopSection>
-      </Layout>
+      </React.Fragment>
     )
   }
 }

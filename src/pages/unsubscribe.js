@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { BOOTCAMP } from '../../images/imageNames'
-import Layout from '../components/layout'
 import { triggerUnsubscribe } from '../api/rest'
 import Section from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
@@ -45,6 +43,7 @@ export class Unsubscribe extends React.Component {
           titleLines={['Unsubscribe']}
           subtitle=""
           bgImageName={BOOTCAMP}
+          fullHeight={false}
         />
         <Section>
           <Row>
@@ -93,10 +92,6 @@ Unsubscribe.defaultProps = {
   triggerUnsubscribe,
 }
 
-const UnsubscribePage = () => (
-  <Layout>
-    <Unsubscribe />
-  </Layout>
-)
+// const UnsubscribePage = () => <Unsubscribe />
 
-export default UnsubscribePage
+export default Unsubscribe //UnsubscribePage

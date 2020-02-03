@@ -39,7 +39,7 @@ function removeCarriageReturn(text) {
   }
 }
 
-const Page = ({ data, location }) => {
+const Page = ({ data, location, rest }) => {
   const { nodes: bodyImageNodes = [] } = data.bodyImages || {}
   const bodyImagePublicURLs = bodyImageNodes.reduce(
     (acc, { localFile = {}, id }) => {
@@ -170,6 +170,7 @@ const Page = ({ data, location }) => {
     metaImageFullPublicUrl,
     location,
     metaDescription: subtitle || excerpt,
+    ...rest,
   }
   return <BlogPost {...blogPostProps} />
 }

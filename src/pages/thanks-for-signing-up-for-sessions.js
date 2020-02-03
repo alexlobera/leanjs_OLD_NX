@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { BOOTCAMP } from '../../images/imageNames'
-import Layout from '../components/layout'
 import { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
@@ -10,13 +9,14 @@ import Link from '../components/navigation/Link'
 import { Segment } from '../components/elements'
 
 const ThanksForSignUpSessions = () => (
-  <Layout>
+  <React.Fragment>
     <Header
       titleLines={['Thanks - your signed up for 1-day session info!']}
       subtitle="If you also also asked for free learning resources, every week for the next 5 weeks, you'll get a new email with juicy React goodness..."
       bgImageName={BOOTCAMP}
+      fullHeight={false}
     />
-    <TopSection sx={{ mt: '-250' }}>
+    <TopSection>
       <Segment>
         <Row>
           <Col md={5} mdOffset={1}>
@@ -48,7 +48,7 @@ const ThanksForSignUpSessions = () => (
         </Row>
       </Segment>
     </TopSection>
-  </Layout>
+  </React.Fragment>
 )
 
 export default ThanksForSignUpSessions

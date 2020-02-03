@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -32,92 +31,88 @@ const metas = {
   type: 'website',
 }
 
-const StylingDesignSystemWorkshop = ({ path }) => (
-  <Layout>
-    {({ trainings }) => {
-      const nextTraining = getNextTrainingByTrainingId({
-        trainings,
-        trainingId,
-      })
+const StylingDesignSystemWorkshop = ({ path, trainings }) => {
+  const nextTraining = getNextTrainingByTrainingId({
+    trainings,
+    trainingId,
+  })
 
-      return (
-        <React.Fragment>
-          <Helmet
-            title={metas.title}
-            meta={[
-              {
-                name: 'description',
-                content: metas.description,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Header
-            breadcrumbPath={[
-              { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
-              {
-                to: path,
-                label: breadcrumbWorkshopName,
-              },
-            ]}
-            tech={TECH_REACT}
-            titleLines={['Styling in React and', 'Design Systems Workshop']}
-            subtitle="See how React can look gorgeous and encourage design consistency at scale"
-            links={[
-              { text: 'Workshop Agenda', to: '#curriculum' },
-              { text: 'Is this right for me?', to: '#target-audience' },
-            ]}
-            bgImageName={BOOTCAMP}
-            type={REACT_WORKSHOP}
+  return (
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Header
+        breadcrumbPath={[
+          { to: '/', label: 'Home' },
+          { to: '/react', label: 'React' },
+          { to: '/react/training/', label: 'Training' },
+          { to: '/react/training/workshops', label: 'Workshops' },
+          {
+            to: path,
+            label: breadcrumbWorkshopName,
+          },
+        ]}
+        tech={TECH_REACT}
+        titleLines={['Styling in React and', 'Design Systems Workshop']}
+        subtitle="See how React can look gorgeous and encourage design consistency at scale"
+        links={[
+          { text: 'Workshop Agenda', to: '#curriculum' },
+          { text: 'Is this right for me?', to: '#target-audience' },
+        ]}
+        bgImageName={BOOTCAMP}
+        type={REACT_WORKSHOP}
+      />
+      <TopSection>
+        <Segment>
+          <CurriculumStylingAndAdvUI
+            trainingId={trainingId}
+            trainings={trainings}
+            section={{ isOpen: true }}
+            learningObjectives={LearningObjectives}
           />
-          <TopSection>
-            <Segment>
-              <CurriculumStylingAndAdvUI
-                trainingId={trainingId}
-                trainings={trainings}
-                section={{ isOpen: true }}
-                learningObjectives={LearningObjectives}
-              />
-            </Segment>
-          </TopSection>
+        </Segment>
+      </TopSection>
 
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1}>
-                <AttendeeQuote
-                  quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
-                  fullname="Rafa Fraga"
-                  job="Software Engineer"
-                  youtubeId="9QpAWAtZy6M"
-                />
-              </Col>
-              <Col md={4} lgOffset={1}>
-                <H2Ref>
-                  Is this one day workshop right for me? Are you...{' '}
-                  <Link to="#target-audience" name="target-audience">
-                    #
-                  </Link>
-                </H2Ref>
-                <Ul>
-                  <TargetAudienceList />
-                </Ul>
-                <P>
-                  If you've said 'yes' to these, this workshop could be for you!
-                </P>
-                <H3>Not for React beginners!</H3>
-                <NextTrainingButton type="workshop" training={nextTraining} />
-              </Col>
-            </Row>
-          </Section>
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <AttendeeQuote
+              quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
+              fullname="Rafa Fraga"
+              job="Software Engineer"
+              youtubeId="9QpAWAtZy6M"
+            />
+          </Col>
+          <Col md={4} lgOffset={1}>
+            <H2Ref>
+              Is this one day workshop right for me? Are you...{' '}
+              <Link to="#target-audience" name="target-audience">
+                #
+              </Link>
+            </H2Ref>
+            <Ul>
+              <TargetAudienceList />
+            </Ul>
+            <P>
+              If you've said 'yes' to these, this workshop could be for you!
+            </P>
+            <H3>Not for React beginners!</H3>
+            <NextTrainingButton type="workshop" training={nextTraining} />
+          </Col>
+        </Row>
+      </Section>
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export default StylingDesignSystemWorkshop

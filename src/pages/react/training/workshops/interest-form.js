@@ -2,7 +2,6 @@ import React from 'react'
 import { navigate } from 'gatsby'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { TopSection } from 'src/components/layout/Section'
 import Box from 'src/components/layout/Box'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -33,184 +32,174 @@ import trackUserBehaviour, {
 
 const NameInput = aliasComponent(InputField)
 
-const SessionInterest = ({ path }) => (
-  <Layout>
-    {({ trainings }) => {
-      const handleFormSubmit = ({ name, email, subscriptions, resources }) => {
-        triggerSessionSubscribe({
-          name,
-          email,
-          subscriptions: Object.keys(subscriptions),
-          resources,
-          pathname: 'React 1 day workshops form',
-        })
-        trackUserBehaviour({
-          event: FORM_SUBMIT,
-          payload: {
-            interestedInCourse: 'React',
-            formType: 'Interest form',
-            subject: Object.keys(subscriptions),
+const SessionInterest = ({ path, trainings }) => {
+  const handleFormSubmit = ({ name, email, subscriptions, resources }) => {
+    triggerSessionSubscribe({
+      name,
+      email,
+      subscriptions: Object.keys(subscriptions),
+      resources,
+      pathname: 'React 1 day workshops form',
+    })
+    trackUserBehaviour({
+      event: FORM_SUBMIT,
+      payload: {
+        interestedInCourse: 'React',
+        formType: 'Interest form',
+        subject: Object.keys(subscriptions),
+      },
+    })
+    navigate('/thanks-for-signing-up-for-sessions')
+  }
+
+  const upcomingBootcamps = selectUpcomingTrainings({
+    trainings,
+    type: REACT_BOOTCAMP,
+  })
+  const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
+  return (
+    <React.Fragment>
+      <Header
+        breadcrumbPath={[
+          { to: '/', label: 'Home' },
+          { to: '/react', label: 'React' },
+          { to: '/react/training/', label: 'Training' },
+          { to: '/react/training/workshops', label: 'Workshops' },
+          {
+            to: path,
+            label: 'Interest Form',
           },
-        })
-        navigate('/thanks-for-signing-up-for-sessions')
-      }
+        ]}
+        tech={TECH_REACT}
+        titleLines={['React Workshops']}
+        subtitle={[
+          'Join the wait and be the first to know about our upcoming 1-day workshops',
+        ]}
+        bgImageName={BOOTCAMP}
+        training={nextBootcamp}
+      />
 
-      const upcomingBootcamps = selectUpcomingTrainings({
-        trainings,
-        type: REACT_BOOTCAMP,
-      })
-      const nextBootcamp =
-        selectNthTraining({ trainings: upcomingBootcamps }) || {}
-      return (
-        <React.Fragment>
-          <Header
-            breadcrumbPath={[
-              { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              { to: '/react/training/workshops', label: 'Workshops' },
-              {
-                to: path,
-                label: 'Interest Form',
-              },
-            ]}
-            tech={TECH_REACT}
-            titleLines={['React Workshops']}
-            subtitle={[
-              'Join the wait and be the first to know about our upcoming 1-day workshops',
-            ]}
-            bgImageName={BOOTCAMP}
-            training={nextBootcamp}
-          />
+      <TopSection sx={{ mt: `-250` }}>
+        <Segment>
+          <Row>
+            <Col md={10} mdOffset={1}>
+              <Form
+                onSubmit={handleFormSubmit}
+                render={({ handleSubmit, valid }) => {
+                  return (
+                    <form onSubmit={handleSubmit}>
+                      <H4>
+                        What are your details?
+                        <a name="details" />
+                      </H4>
+                      <Row>
+                        <Col md={6}>
+                          <NameInput
+                            label="Your name"
+                            name="name"
+                            placeholder="eg. Steve Jobs"
+                          />
+                        </Col>
+                        <Col md={6}>
+                          <EmailInput
+                            validate={composeValidators(mustBeEmail, required)}
+                            label="Your best email address"
+                            name="email"
+                            placeholder="eg. steve@jobs.com"
+                          />
+                        </Col>
+                      </Row>
 
-          <TopSection sx={{ mt: `-250` }}>
-            <Segment>
-              <Row>
-                <Col md={10} mdOffset={1}>
-                  <Form
-                    onSubmit={handleFormSubmit}
-                    render={({ handleSubmit, valid }) => {
-                      return (
-                        <form onSubmit={handleSubmit}>
-                          <H4>
-                            What are your details?
-                            <a name="details" />
-                          </H4>
-                          <Row>
-                            <Col md={6}>
-                              <NameInput
-                                label="Your name"
-                                name="name"
-                                placeholder="eg. Steve Jobs"
-                              />
-                            </Col>
-                            <Col md={6}>
-                              <EmailInput
-                                validate={composeValidators(
-                                  mustBeEmail,
-                                  required
-                                )}
-                                label="Your best email address"
-                                name="email"
-                                placeholder="eg. steve@jobs.com"
-                              />
-                            </Col>
-                          </Row>
+                      <Row>
+                        <Col>
+                          <H4>Which Workshops are you interested in?</H4>
+                        </Col>
+                        <Col md={6}>
+                          <CheckboxField
+                            name="subscriptions.fundamentals"
+                            label="Modern JS and React Fundamentals"
+                          />
+                          <CheckboxField
+                            name="subscriptions.styling"
+                            label="Styling in React and Design Systems"
+                          />
+                          <CheckboxField
+                            name="subscriptions.hooks"
+                            label="React Hooks & Suspense"
+                          />
+                          <Box sx={{ pt: 3 }}>
+                            <Link
+                              to="#contact-us"
+                              children="Want other workhops? Contact us!"
+                            />
+                          </Box>
+                        </Col>
+                        <Col md={6}>
+                          <React.Fragment>
+                            <CheckboxField
+                              name="subscriptions.testing"
+                              label="Testing in React"
+                            />
+                            <CheckboxField
+                              name="subscriptions.native"
+                              label="React Native"
+                            />
+                            <CheckboxField
+                              name="subscriptions.perf"
+                              label="Performance & FP in React"
+                            />
+                          </React.Fragment>
+                        </Col>
+                      </Row>
+                      <Row style={{ marginTop: '2em' }}>
+                        <Col>
+                          <H3>Free learning resources</H3>
+                          <P>
+                            We share our learning resources{' '}
+                            <strong>
+                              directly from our{' '}
+                              <Link to="/react/curriculum">
+                                <strong>curriculum</strong>
+                              </Link>
+                            </strong>{' '}
+                            and we'd love for you to enjoy and learn from them!{' '}
+                          </P>
+                          <CheckboxField
+                            name="resources"
+                            label="I want free learning resources!"
+                          />
+                        </Col>
+                      </Row>
+                      <Row style={{ marginTop: '2em' }}>
+                        <Col md={3}>
+                          <Button
+                            sx={{ width: 1 }}
+                            variant="primary"
+                            type="submit"
+                            disabled={!valid}
+                          >
+                            Submit
+                          </Button>
+                        </Col>
+                        <Col mdOffset={1} md={8}>
+                          <P pt={1}>
+                            We won't spam you as per our{' '}
+                            <Link to="/privacy-policy">Privacy Policy</Link>.
+                          </P>
+                        </Col>
+                      </Row>
+                    </form>
+                  )
+                }}
+              />
+            </Col>
+          </Row>
+        </Segment>
+      </TopSection>
 
-                          <Row>
-                            <Col>
-                              <H4>Which Workshops are you interested in?</H4>
-                            </Col>
-                            <Col md={6}>
-                              <CheckboxField
-                                name="subscriptions.fundamentals"
-                                label="Modern JS and React Fundamentals"
-                              />
-                              <CheckboxField
-                                name="subscriptions.styling"
-                                label="Styling in React and Design Systems"
-                              />
-                              <CheckboxField
-                                name="subscriptions.hooks"
-                                label="React Hooks & Suspense"
-                              />
-                              <Box sx={{ pt: 3 }}>
-                                <Link
-                                  to="#contact-us"
-                                  children="Want other workhops? Contact us!"
-                                />
-                              </Box>
-                            </Col>
-                            <Col md={6}>
-                              <React.Fragment>
-                                <CheckboxField
-                                  name="subscriptions.testing"
-                                  label="Testing in React"
-                                />
-                                <CheckboxField
-                                  name="subscriptions.native"
-                                  label="React Native"
-                                />
-                                <CheckboxField
-                                  name="subscriptions.perf"
-                                  label="Performance & FP in React"
-                                />
-                              </React.Fragment>
-                            </Col>
-                          </Row>
-                          <Row style={{ marginTop: '2em' }}>
-                            <Col>
-                              <H3>Free learning resources</H3>
-                              <P>
-                                We share our learning resources{' '}
-                                <strong>
-                                  directly from our{' '}
-                                  <Link to="/react/curriculum">
-                                    <strong>curriculum</strong>
-                                  </Link>
-                                </strong>{' '}
-                                and we'd love for you to enjoy and learn from
-                                them!{' '}
-                              </P>
-                              <CheckboxField
-                                name="resources"
-                                label="I want free learning resources!"
-                              />
-                            </Col>
-                          </Row>
-                          <Row style={{ marginTop: '2em' }}>
-                            <Col md={3}>
-                              <Button
-                                sx={{ width: 1 }}
-                                variant="primary"
-                                type="submit"
-                                disabled={!valid}
-                              >
-                                Submit
-                              </Button>
-                            </Col>
-                            <Col mdOffset={1} md={8}>
-                              <P pt={1}>
-                                We won't spam you as per our{' '}
-                                <Link to="/privacy-policy">Privacy Policy</Link>
-                                .
-                              </P>
-                            </Col>
-                          </Row>
-                        </form>
-                      )
-                    }}
-                  />
-                </Col>
-              </Row>
-            </Segment>
-          </TopSection>
-
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export default SessionInterest

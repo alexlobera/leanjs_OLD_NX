@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 import { WHITE, DARK_GREY, DARK_BLUE } from '../config/styles'
 import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { HOME_PAGE } from '../../images/imageNames'
-import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
 import { defaultButtonStyle } from '../components/buttons/Button'
@@ -91,126 +90,116 @@ export const tabItemVariantProps = {
 const TAB_REACT = 'react'
 const TAB_GRAPHQL = 'graphql'
 
-const IndexPage = () => {
+const IndexPage = ({ trainings }) => {
   const [selectedTab, setTab] = useState(TAB_REACT)
 
-  return (
-    <Layout>
-      {({ trainings }) => {
-        const featuredTrainings = selectTrainingByInstanceId({
-          trainings,
-          id: '5e289434817eda00025ce40c',
-        })
+  const featuredTrainings = selectTrainingByInstanceId({
+    trainings,
+    id: '5e289434817eda00025ce40c',
+  })
 
-        return (
-          <React.Fragment>
-            <Helmet
-              title={metas.title}
-              meta={[
-                {
-                  name: 'description',
-                  content: metas.description,
-                },
-              ]}
-            >
-              {createMetas(metas)}
-            </Helmet>
-            <Header
-              featuredTrainings={[featuredTrainings]}
-              titleLines={[
-                'Take your dev career further',
-                'with React GraphQL Academy',
-              ]}
-              subtitle="In-person courses, workshops and meetups from experts who were the first in
+  return (
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Header
+        featuredTrainings={[featuredTrainings]}
+        titleLines={[
+          'Take your dev career further',
+          'with React GraphQL Academy',
+        ]}
+        subtitle="In-person courses, workshops and meetups from experts who were the first in
         Europe to teach React. "
-              bgImageName={HOME_PAGE}
-            />
-            <TopSection sx={{ mt: [0, -225] }}>
-              <Row>
-                <Col lgOffset={1} lg={11}>
-                  <StyledTabTitle>Select learning experience: </StyledTabTitle>
-                  <TabItem
-                    onClick={() => setTab(TAB_REACT)}
-                    to="#tab-curriculum"
-                    variant={selectedTab === TAB_REACT ? 'active' : undefined}
-                  >
-                    Immersive
-                  </TabItem>
-                  <TabItem
-                    variant={selectedTab === TAB_GRAPHQL ? 'active' : undefined}
-                    onClick={() => setTab(TAB_GRAPHQL)}
-                    to="#tab-curriculum"
-                  >
-                    Part-time
-                  </TabItem>
-                  <a name="tab-curriculum" />
-                </Col>
-              </Row>
-              <Segment sx={{ pt: [4, 7] }}>
-                {selectedTab === TAB_REACT ? (
-                  <FullCurriculumsImmersive trainings={trainings} />
-                ) : (
-                  <FullCurriculumsPartTime trainings={trainings} />
-                )}
-              </Segment>
-            </TopSection>
-            <ColSection
-              col={
-                <AttendeeQuote
-                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-                  fullname="Rafa Fraga"
-                  job="Software Engineer"
-                  youtubeId="hZZksRcqtkc"
-                />
-              }
-              col2={
-                <React.Fragment>
-                  <H2>Is React GraphQL Academy right for me?</H2>
-                  <Ul>
-                    <Li>
-                      For working developers -{' '}
-                      <strong>not for beginners!</strong>
-                    </Li>
-                    <Li>
-                      <strong>Hands-on project-based</strong> training.
-                    </Li>
-                    <Li>
-                      <strong>collaborative</strong> learning environment.
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/react/training/bootcamp"
-                        className="is-it-for-me"
-                      >
-                        Bootcamps
-                      </Link>{' '}
-                      for accelerated learning.
-                    </Li>
-                    <Li>
-                      <Link
-                        to="/react/training/part-time-course/"
-                        className="is-it-for-me"
-                      >
-                        Part-time courses
-                      </Link>{' '}
-                      for accelerated learning.
-                    </Li>
-                  </Ul>
-                  <LinkButton
-                    to="/blog/are-you-the-perfect-react-graphql-student/"
-                    className="is-it-for-me-cta"
-                  >
-                    Blog: Are YOU the Perfect Bootcamp Student?
-                  </LinkButton>
-                </React.Fragment>
-              }
-            />
-            <TrustedBySection showContent />
-            <UpcomingTrainingSection trainings={trainings} />
+        bgImageName={HOME_PAGE}
+      />
+      <TopSection sx={{ mt: [0, -225] }}>
+        <Row>
+          <Col lgOffset={1} lg={11}>
+            <StyledTabTitle>Select learning experience: </StyledTabTitle>
+            <TabItem
+              onClick={() => setTab(TAB_REACT)}
+              to="#tab-curriculum"
+              variant={selectedTab === TAB_REACT ? 'active' : undefined}
+            >
+              Immersive
+            </TabItem>
+            <TabItem
+              variant={selectedTab === TAB_GRAPHQL ? 'active' : undefined}
+              onClick={() => setTab(TAB_GRAPHQL)}
+              to="#tab-curriculum"
+            >
+              Part-time
+            </TabItem>
+            <a name="tab-curriculum" />
+          </Col>
+        </Row>
+        <Segment sx={{ pt: [4, 7] }}>
+          {selectedTab === TAB_REACT ? (
+            <FullCurriculumsImmersive trainings={trainings} />
+          ) : (
+            <FullCurriculumsPartTime trainings={trainings} />
+          )}
+        </Segment>
+      </TopSection>
+      <ColSection
+        col={
+          <AttendeeQuote
+            quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+            fullname="Rafa Fraga"
+            job="Software Engineer"
+            youtubeId="hZZksRcqtkc"
+          />
+        }
+        col2={
+          <React.Fragment>
+            <H2>Is React GraphQL Academy right for me?</H2>
+            <Ul>
+              <Li>
+                For working developers - <strong>not for beginners!</strong>
+              </Li>
+              <Li>
+                <strong>Hands-on project-based</strong> training.
+              </Li>
+              <Li>
+                <strong>collaborative</strong> learning environment.
+              </Li>
+              <Li>
+                <Link to="/react/training/bootcamp" className="is-it-for-me">
+                  Bootcamps
+                </Link>{' '}
+                for accelerated learning.
+              </Li>
+              <Li>
+                <Link
+                  to="/react/training/part-time-course/"
+                  className="is-it-for-me"
+                >
+                  Part-time courses
+                </Link>{' '}
+                for accelerated learning.
+              </Li>
+            </Ul>
+            <LinkButton
+              to="/blog/are-you-the-perfect-react-graphql-student/"
+              className="is-it-for-me-cta"
+            >
+              Blog: Are YOU the Perfect Bootcamp Student?
+            </LinkButton>
           </React.Fragment>
-        )
-      }}
-    </Layout>
+        }
+      />
+      <TrustedBySection showContent />
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
   )
 }
 

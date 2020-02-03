@@ -4,7 +4,7 @@ import StylingInReactSession from '../../components/curriculum/sessions/StylingI
 import IntroReduxSession from '../../components/curriculum/sessions/IntroReduxSession'
 import TestingIntroSession from '../../components/curriculum/sessions/TestingIntroSession'
 import HooksSession from '../../components/curriculum/sessions/HooksSession'
-import { PartTimeFinalProject } from '../../components/curriculum/CurriculumReactPartTime'
+import FundamentalsFinalProject from '../../components/curriculum/sessions/FundamentalsFinalProject'
 
 const sessionsSecondHalf = [
   { title: 'Redux', Comp: IntroReduxSession, group: 3 },
@@ -13,7 +13,7 @@ const sessionsSecondHalf = [
   { title: 'Styling in React', Comp: StylingInReactSession, group: 4 },
   {
     title: 'React Redux Real-world Final Project',
-    Comp: PartTimeFinalProject,
+    Comp: FundamentalsFinalProject,
     group: 4,
   },
 ]

@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
@@ -33,130 +32,125 @@ const metas = {
   type: 'website',
 }
 
-const Bootcamps = ({ path }) => (
-  <Layout>
-    {({ trainings }) => {
-      const allReactWorkshops = selectUpcomingTrainings({
-        trainings,
-        types: [REACT_WORKSHOP],
-      })
-      const nextTraining = selectNthTraining({
-        trainings: allReactWorkshops,
-      })
+const Bootcamps = ({ path, trainings }) => {
+  const allReactWorkshops = selectUpcomingTrainings({
+    trainings,
+    types: [REACT_WORKSHOP],
+  })
+  const nextTraining = selectNthTraining({
+    trainings: allReactWorkshops,
+  })
 
-      return (
-        <React.Fragment>
-          <Helmet
-            title={metas.title}
-            meta={[
-              {
-                name: 'description',
-                content: metas.description,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Header
-            breadcrumbPath={[
-              { to: '/', label: 'Home' },
-              {
-                to: '/react',
-                label: 'React',
-              },
-              {
-                to: '/react/training/',
-                label: 'Training',
-              },
-              {
-                to: path,
-                label: 'Workshops',
-              },
-            ]}
-            tech={TECH_REACT}
-            titleLines={['1-Day React Workshops']}
-            subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
-            bgImageName={BOOTCAMP}
-            links={[
-              {
-                text: 'Workshop offerings',
-                to: '#curriculum',
-              },
-              {
-                text: 'Upcoming workshops',
-                to: '#upcoming-courses',
-              },
-              {
-                text: 'Is it right for me?',
-                to: '#target-audience',
-              },
-            ]}
-            type={REACT_WORKSHOP}
-          />
-          <TopSection>
-            <Segment>
-              <CurriculumReactWorkshops trainings={allReactWorkshops} />
-            </Segment>
-          </TopSection>
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1}>
-                <AttendeeQuote
-                  quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
-                  fullname="Charlie Wilson"
-                  job="Software Engineer"
-                  company="ESG PLC"
-                  youtubeId="CP422OORbPA"
-                />
-              </Col>
-              <Col md={4} mdOffset={1}>
-                <H2>
-                  <Link to="#target-audience" name="target-audience" />
-                  Are these React workshops right for me?
-                </H2>
-                <Ul>
-                  <Li>Extremely rapid, intense learning</Li>
-                  <Li>
-                    Ideal for experienced programmers familiar with good
-                    practices and React.
-                  </Li>
-                  <Li>Not for React beginners!</Li>
-                  <Li>
-                    Small classes focused on one topic with expert developer
-                    coaches
-                  </Li>
-                  <Li>
-                    Hands-on project-based training - most of the time you'll be
-                    coding.
-                  </Li>
-                  <Li>
-                    Join a growing network of alumni for advice, knowledge and
-                    social fun!
-                  </Li>
-                </Ul>
-                <P>
-                  {nextTraining && (
-                    <LinkButton variant="primary" to={nextTraining.toPath}>
-                      Next workshop:{' '}
-                      {formatUTC(
-                        nextTraining.startDate,
-                        nextTraining.utcOffset,
-                        'D MMM'
-                      )}
-                      , {nextTraining.city}
-                    </LinkButton>
+  return (
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Header
+        breadcrumbPath={[
+          { to: '/', label: 'Home' },
+          {
+            to: '/react',
+            label: 'React',
+          },
+          {
+            to: '/react/training/',
+            label: 'Training',
+          },
+          {
+            to: path,
+            label: 'Workshops',
+          },
+        ]}
+        tech={TECH_REACT}
+        titleLines={['1-Day React Workshops']}
+        subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
+        bgImageName={BOOTCAMP}
+        links={[
+          {
+            text: 'Workshop offerings',
+            to: '#curriculum',
+          },
+          {
+            text: 'Upcoming workshops',
+            to: '#upcoming-courses',
+          },
+          {
+            text: 'Is it right for me?',
+            to: '#target-audience',
+          },
+        ]}
+        type={REACT_WORKSHOP}
+      />
+      <TopSection>
+        <Segment>
+          <CurriculumReactWorkshops trainings={allReactWorkshops} />
+        </Segment>
+      </TopSection>
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <AttendeeQuote
+              quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
+              fullname="Charlie Wilson"
+              job="Software Engineer"
+              company="ESG PLC"
+              youtubeId="CP422OORbPA"
+            />
+          </Col>
+          <Col md={4} mdOffset={1}>
+            <H2>
+              <Link to="#target-audience" name="target-audience" />
+              Are these React workshops right for me?
+            </H2>
+            <Ul>
+              <Li>Extremely rapid, intense learning</Li>
+              <Li>
+                Ideal for experienced programmers familiar with good practices
+                and React.
+              </Li>
+              <Li>Not for React beginners!</Li>
+              <Li>
+                Small classes focused on one topic with expert developer coaches
+              </Li>
+              <Li>
+                Hands-on project-based training - most of the time you'll be
+                coding.
+              </Li>
+              <Li>
+                Join a growing network of alumni for advice, knowledge and
+                social fun!
+              </Li>
+            </Ul>
+            <P>
+              {nextTraining && (
+                <LinkButton variant="primary" to={nextTraining.toPath}>
+                  Next workshop:{' '}
+                  {formatUTC(
+                    nextTraining.startDate,
+                    nextTraining.utcOffset,
+                    'D MMM'
                   )}
-                </P>
-              </Col>
-            </Row>
-          </Section>
-          <TrustedBySection />
-          <BlogSection tags={['react', 'advanced']} />
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+                  , {nextTraining.city}
+                </LinkButton>
+              )}
+            </P>
+          </Col>
+        </Row>
+      </Section>
+      <TrustedBySection />
+      <BlogSection tags={['react', 'advanced']} />
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export default Bootcamps

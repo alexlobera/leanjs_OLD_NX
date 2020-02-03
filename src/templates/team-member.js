@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import BlockContent from '@sanity/block-content-to-react'
 
-import Layout from '../components/layout'
 import Link from '../components/navigation/Link'
 import Teamquote from '../components/text/Teamquote'
 import Section from '../components/layout/Section'
@@ -59,7 +58,7 @@ const serializers = {
   listItem: ({ children = {} }) => <Li children={children} />,
 }
 
-const TeamMember = ({ data }) => {
+const TeamMember = ({ data, trainings }) => {
   const {
     fullname,
     username,
@@ -113,92 +112,86 @@ const TeamMember = ({ data }) => {
   })
 
   return (
-    <Layout>
-      {({ trainings }) => (
-        <React.Fragment>
-          <Helmet
-            title={pageTitle}
-            meta={[
-              {
-                name: 'description',
-                content: blockquote,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Header
-            bgImgUrl={coverImgUrl}
-            fullHeight={false}
-            titleLines={[`${fullname}`]}
-          />
-          <Section>
-            <Grid>
-              <Row>
-                <Col md={5}>
-                  {youtubeVideo && youtubeVideo.videoId ? (
-                    <Video
-                      youtubeId={youtubeVideo.videoId}
-                      description={<P>{youtubeVideo.description}</P>}
-                    />
-                  ) : (
-                    <Image fluid={coachFluidImg} alt={pageTitle} />
-                  )}
-                </Col>
-                <Col md={5} mdOffset={1}>
-                  <H2Ref>
-                    {fullname}
-                    <Link
-                      name={linkName}
-                      to={`#${linkName}`}
-                      className="coach-profiles"
-                    >
-                      #
-                    </Link>
-                  </H2Ref>
-                  <H3 sx={{ pt: 0 }}>
-                    {jobs && jobs.map(renderJob({ enableLink: true }))}
-                  </H3>
-                  <Ul variant="inline">
-                    <ProfileLink
-                      first
-                      link={gitHub && `https://github.com/${gitHub}`}
-                      text="GitHub"
-                    />
-                    <ProfileLink
-                      link={medium && `https://medium.com/@${medium}`}
-                      text="Medium"
-                    />
-                    <ProfileLink
-                      link={twitter && `https://twitter.com/${twitter}`}
-                      text="Twitter"
-                    />
-                    <ProfileLink
-                      link={twitch && `https://www.twitch.tv/${twitch}`}
-                      text="Twitch"
-                    />
-                    <ProfileLink link={linkedIn} text="LinkedIn" />
-                    <ProfileLink
-                      link={
-                        instagram && `https://www.instagram.com/${instagram}`
-                      }
-                      text="Instagram"
-                    />
-                  </Ul>
-                  <BlockContent
-                    blocks={_rawDescription}
-                    serializers={serializers}
-                  />
-                  <Teamquote blockquote={blockquote} sx={{ mt: 5 }} />
-                </Col>
-              </Row>
-            </Grid>
-          </Section>
-          <BlogSection title={`Latest articles by ${fullname}`} posts={posts} />
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )}
-    </Layout>
+    <React.Fragment>
+      <Helmet
+        title={pageTitle}
+        meta={[
+          {
+            name: 'description',
+            content: blockquote,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Header
+        bgImgUrl={coverImgUrl}
+        fullHeight={false}
+        titleLines={[`${fullname}`]}
+      />
+      <Section>
+        <Grid>
+          <Row>
+            <Col md={5}>
+              {youtubeVideo && youtubeVideo.videoId ? (
+                <Video
+                  youtubeId={youtubeVideo.videoId}
+                  description={<P>{youtubeVideo.description}</P>}
+                />
+              ) : (
+                <Image fluid={coachFluidImg} alt={pageTitle} />
+              )}
+            </Col>
+            <Col md={5} mdOffset={1}>
+              <H2Ref>
+                {fullname}
+                <Link
+                  name={linkName}
+                  to={`#${linkName}`}
+                  className="coach-profiles"
+                >
+                  #
+                </Link>
+              </H2Ref>
+              <H3 sx={{ pt: 0 }}>
+                {jobs && jobs.map(renderJob({ enableLink: true }))}
+              </H3>
+              <Ul variant="inline">
+                <ProfileLink
+                  first
+                  link={gitHub && `https://github.com/${gitHub}`}
+                  text="GitHub"
+                />
+                <ProfileLink
+                  link={medium && `https://medium.com/@${medium}`}
+                  text="Medium"
+                />
+                <ProfileLink
+                  link={twitter && `https://twitter.com/${twitter}`}
+                  text="Twitter"
+                />
+                <ProfileLink
+                  link={twitch && `https://www.twitch.tv/${twitch}`}
+                  text="Twitch"
+                />
+                <ProfileLink link={linkedIn} text="LinkedIn" />
+                <ProfileLink
+                  link={instagram && `https://www.instagram.com/${instagram}`}
+                  text="Instagram"
+                />
+              </Ul>
+              <BlockContent
+                blocks={_rawDescription}
+                serializers={serializers}
+              />
+              <Teamquote blockquote={blockquote} sx={{ mt: 5 }} />
+            </Col>
+          </Row>
+        </Grid>
+      </Section>
+      <BlogSection title={`Latest articles by ${fullname}`} posts={posts} />
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
   )
 }
 

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -64,128 +63,118 @@ const metas = {
   type: 'website',
 }
 
-const GraphQLPage = ({ data, path }) => {
+const GraphQLPage = ({ data, path, trainings }) => {
   const posts = getPostsFromNodes({
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
     sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
   })
 
   return (
-    <Layout>
-      {({ trainings }) => (
-        <React.Fragment>
-          <Helmet
-            title={metas.title}
-            meta={[
-              {
-                name: 'description',
-                content: metas.description,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Header
-            breadcrumbPath={[
-              { to: '/', label: 'Home' },
-              { to: path, label: 'GraphQL' },
-            ]}
-            tech={TECH_GRAPHQL}
-            titleLines={['Learn GraphQL with us...']}
-            subtitle="Supercharge your development skill set with latest curriculum in GraphQL"
-            bgImageName={BOOTCAMP}
-            bgColor={GRAPHQL_PINK}
-            links={[
-              {
-                text: 'Latest GraphQL Blogs',
-                to: '#free-graphql-resources',
-              },
-              {
-                text: 'Our GraphQL training',
-                to: '#our-graphql-training',
-              },
-              {
-                text: 'What is GraphQL?',
-                to: '#what-is-graphql',
-              },
-            ]}
-            type={GRAPHQL_BOOTCAMP}
-          />
-          <TopSection>
-            <Segment>
-              <Row>
-                <Link
-                  to="#free-graphql-resources"
-                  name="free-graphql-resources"
-                />
-                <Col md={5} mdOffset={1}>
-                  <LearningResources posts={posts} type="GraphQL" />
-                </Col>
-                <Link to="#our-graphql-training" name="our-graphql-training" />
-                <Col md={4} mdOffset={1}>
-                  <H3>Our GraphQL training</H3>
-                  <TrainingCardList
-                    data={trainingList}
-                    borderColor={GRAPHQL_PINK}
-                    className="course-training-clicks"
-                  />
-                  <Card
-                    variant="primary"
-                    sx={{ borderColor: GRAPHQL_PINK, mt: 4 }}
-                  >
-                    <Newsletter sx={{ mt: 2 }} buttonVariant="primary" />
-                  </Card>
-                </Col>
-              </Row>
-            </Segment>
-          </TopSection>
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Header
+        breadcrumbPath={[
+          { to: '/', label: 'Home' },
+          { to: path, label: 'GraphQL' },
+        ]}
+        tech={TECH_GRAPHQL}
+        titleLines={['Learn GraphQL with us...']}
+        subtitle="Supercharge your development skill set with latest curriculum in GraphQL"
+        bgImageName={BOOTCAMP}
+        bgColor={GRAPHQL_PINK}
+        links={[
+          {
+            text: 'Latest GraphQL Blogs',
+            to: '#free-graphql-resources',
+          },
+          {
+            text: 'Our GraphQL training',
+            to: '#our-graphql-training',
+          },
+          {
+            text: 'What is GraphQL?',
+            to: '#what-is-graphql',
+          },
+        ]}
+        type={GRAPHQL_BOOTCAMP}
+      />
+      <TopSection>
+        <Segment>
+          <Row>
+            <Link to="#free-graphql-resources" name="free-graphql-resources" />
+            <Col md={5} mdOffset={1}>
+              <LearningResources posts={posts} type="GraphQL" />
+            </Col>
+            <Link to="#our-graphql-training" name="our-graphql-training" />
+            <Col md={4} mdOffset={1}>
+              <H3>Our GraphQL training</H3>
+              <TrainingCardList
+                data={trainingList}
+                borderColor={GRAPHQL_PINK}
+                className="course-training-clicks"
+              />
+              <Card variant="primary" sx={{ borderColor: GRAPHQL_PINK, mt: 4 }}>
+                <Newsletter sx={{ mt: 2 }} buttonVariant="primary" />
+              </Card>
+            </Col>
+          </Row>
+        </Segment>
+      </TopSection>
 
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1}>
-                <H2>
-                  <Link to="#what-is-graphql" name="what-is-graphql" />
-                  What is GraphQL?
-                </H2>
-                <P>
-                  GraphQL is a modern syntax for building and querying APIs, but
-                  what does that actually mean? And why should you use GraphQL?
-                </P>
-                <Ul>
-                  <Li>
-                    At it's core, GraphQL describes how ot ask a server for data
-                  </Li>
-                  <Li>
-                    Your apps decide what data they need and recieve only that
-                  </Li>
-                  <Li>
-                    Therefore, GraphQL is very effecient and helps your system
-                    be well organised
-                  </Li>
-                  <Li>
-                    It's growing at a fast pace and the community is fantastic!
-                  </Li>
-                </Ul>
-                <LinkButton
-                  className="course-training-what-is-clicks"
-                  to="/graphql/what-is-graphql-used-for/"
-                >
-                  Blog: What is GraphQL and What Is It Used For?
-                </LinkButton>
-              </Col>
-              <Col md={5} mdOffset={1}>
-                <Image
-                  src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media&"
-                  alt="Why learn GraphQL"
-                />
-              </Col>
-            </Row>
-          </Section>
-          <TrustedBySection showContent />
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )}
-    </Layout>
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <H2>
+              <Link to="#what-is-graphql" name="what-is-graphql" />
+              What is GraphQL?
+            </H2>
+            <P>
+              GraphQL is a modern syntax for building and querying APIs, but
+              what does that actually mean? And why should you use GraphQL?
+            </P>
+            <Ul>
+              <Li>
+                At it's core, GraphQL describes how ot ask a server for data
+              </Li>
+              <Li>
+                Your apps decide what data they need and recieve only that
+              </Li>
+              <Li>
+                Therefore, GraphQL is very effecient and helps your system be
+                well organised
+              </Li>
+              <Li>
+                It's growing at a fast pace and the community is fantastic!
+              </Li>
+            </Ul>
+            <LinkButton
+              className="course-training-what-is-clicks"
+              to="/graphql/what-is-graphql-used-for/"
+            >
+              Blog: What is GraphQL and What Is It Used For?
+            </LinkButton>
+          </Col>
+          <Col md={5} mdOffset={1}>
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/graphql_university%2Fhomepage_whyGQLU.jpg?alt=media&"
+              alt="Why learn GraphQL"
+            />
+          </Col>
+        </Row>
+      </Section>
+      <TrustedBySection showContent />
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
   )
 }
 

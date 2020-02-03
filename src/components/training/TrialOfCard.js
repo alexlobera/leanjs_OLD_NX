@@ -1,5 +1,5 @@
 import React from 'react'
-import { H3, P } from '../text'
+import { H3 } from '../text'
 import Segment from '../elements/Segment'
 import LinkButton from '../buttons/LinkButton'
 import { Row, Col } from '../layout/Grid'

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Layout from '../components/layout'
 import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
@@ -21,8 +20,8 @@ const SubSection = ({ sx = {}, ...rest }) => (
 // }
 
 const TermsOfService = () => (
-  <Layout>
-    <Header titleLines={['Terms of service']} />
+  <React.Fragment>
+    <Header titleLines={['Terms of service']} fullHeight={false} />
     <TopSection>
       <Segment>
         <Row>
@@ -105,7 +104,7 @@ const TermsOfService = () => (
         </Col>
       </Row>
     </Section>
-  </Layout>
+  </React.Fragment>
 )
 
 export default TermsOfService

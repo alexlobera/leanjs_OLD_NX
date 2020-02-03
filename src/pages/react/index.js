@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 
 import { BLUE } from 'src/config/styles'
 import { BOOTCAMP } from 'src/../images/imageNames'
-import Layout from 'src/components/layout'
 import { LinkButton } from 'src/components/buttons'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -65,126 +64,122 @@ const metas = {
   type: 'website',
 }
 
-const ReactPage = ({ data, path }) => {
+const ReactPage = ({ data, path, trainings }) => {
   const posts = getPostsFromNodes({
     markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
     sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
   })
 
   return (
-    <Layout>
-      {({ trainings }) => (
-        <React.Fragment>
-          <Helmet
-            title={metas.title}
-            meta={[
-              {
-                name: 'description',
-                content: metas.description,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Breadcrumb
-            path={[
-              { to: '/', label: 'Home' },
-              {
-                to: path,
-                label: 'React',
-              },
-            ]}
-          />
-          <Header
-            titleLines={['Learn React with us...']}
-            subtitle="Move into the future of development with the React Ecosystem"
-            bgImageName={BOOTCAMP}
-            bgColor={BLUE}
-            links={[
-              {
-                text: 'Latest React Blogs',
-                to: '#free-react-resources',
-              },
-              {
-                text: 'Our React training',
-                to: '#our-react-training',
-              },
-              {
-                text: 'What is React?',
-                to: '#what-is-react',
-              },
-            ]}
-            type={REACT_BOOTCAMP}
-            tech={TECH_REACT}
-          />
-          <TopSection>
-            <Segment>
-              <Row>
-                <Link to="#free-react-resources" name="free-react-resources" />
-                <Col md={5} mdOffset={1}>
-                  <LearningResources posts={posts} type="React" />
-                </Col>
-                <Link to="#our-react-training" name="our-react-training" />
-                <Col md={4} mdOffset={1} sx={{ mt: [5, 0] }}>
-                  <H3>Our React training</H3>
-                  <TrainingCardList data={trainingList} borderColor={BLUE} />
-                  <Card variant="primary" sx={{ mt: 4 }}>
-                    <Newsletter
-                      anchorName=""
-                      sx={{ mt: 2 }}
-                      buttonVariant="primary"
-                    />
-                  </Card>
-                </Col>
-              </Row>
-            </Segment>
-          </TopSection>
-
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1} order={[2, 1]}>
-                <AttendeeQuote
-                  sx={{ mt: [5, 0] }}
-                  quote="I've found it [the course] fantastic, it was really tiring but it was all worth it... it taught me many things I didn't even know I don't know about React"
-                  fullname="Polina Stoyanova"
-                  job="Software Engineer & UX"
-                  company="tray.io"
-                  youtubeId="6hmKu1-vW-8"
-                  youtubeTime="35"
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Breadcrumb
+        path={[
+          { to: '/', label: 'Home' },
+          {
+            to: path,
+            label: 'React',
+          },
+        ]}
+      />
+      <Header
+        titleLines={['Learn React with us...']}
+        subtitle="Move into the future of development with the React Ecosystem"
+        bgImageName={BOOTCAMP}
+        bgColor={BLUE}
+        links={[
+          {
+            text: 'Latest React Blogs',
+            to: '#free-react-resources',
+          },
+          {
+            text: 'Our React training',
+            to: '#our-react-training',
+          },
+          {
+            text: 'What is React?',
+            to: '#what-is-react',
+          },
+        ]}
+        type={REACT_BOOTCAMP}
+        tech={TECH_REACT}
+      />
+      <TopSection>
+        <Segment>
+          <Row>
+            <Link to="#free-react-resources" name="free-react-resources" />
+            <Col md={5} mdOffset={1}>
+              <LearningResources posts={posts} type="React" />
+            </Col>
+            <Link to="#our-react-training" name="our-react-training" />
+            <Col md={4} mdOffset={1} sx={{ mt: [5, 0] }}>
+              <H3>Our React training</H3>
+              <TrainingCardList data={trainingList} borderColor={BLUE} />
+              <Card variant="primary" sx={{ mt: 4 }}>
+                <Newsletter
+                  anchorName=""
+                  sx={{ mt: 2 }}
+                  buttonVariant="primary"
                 />
-              </Col>
-              <Col md={4} lgOffset={1} order={[1, 2]}>
-                <H2>
-                  <Link to="#what-is-react" name="what-is-react" />
-                  What is React?
-                </H2>
-                <P>
-                  Created by Facebook in 2015, React is a JavaScript library -
-                  not a framework - that creates user interfaces. Basically,
-                  it's a simpler and better way of developing apps because...
-                </P>
-                <Ul>
-                  <Li>React is declarative</Li>
-                  <Li>It's all about Reusable Components</Li>
-                  <Li>React is SEO friendly</Li>
-                  <Li>It fully embraces JavaScript</Li>
-                  <Li>
-                    It's growing at a fast pace and the community is fantastic!
-                  </Li>
-                </Ul>
-                <P>
-                  <LinkButton to="/react/top-10-reasons-to-learn-react/">
-                    Blog: Why You Should Learn React Right Now
-                  </LinkButton>
-                </P>
-              </Col>
-            </Row>
-          </Section>
+              </Card>
+            </Col>
+          </Row>
+        </Segment>
+      </TopSection>
 
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )}
-    </Layout>
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1} order={[2, 1]}>
+            <AttendeeQuote
+              sx={{ mt: [5, 0] }}
+              quote="I've found it [the course] fantastic, it was really tiring but it was all worth it... it taught me many things I didn't even know I don't know about React"
+              fullname="Polina Stoyanova"
+              job="Software Engineer & UX"
+              company="tray.io"
+              youtubeId="6hmKu1-vW-8"
+              youtubeTime="35"
+            />
+          </Col>
+          <Col md={4} lgOffset={1} order={[1, 2]}>
+            <H2>
+              <Link to="#what-is-react" name="what-is-react" />
+              What is React?
+            </H2>
+            <P>
+              Created by Facebook in 2015, React is a JavaScript library - not a
+              framework - that creates user interfaces. Basically, it's a
+              simpler and better way of developing apps because...
+            </P>
+            <Ul>
+              <Li>React is declarative</Li>
+              <Li>It's all about Reusable Components</Li>
+              <Li>React is SEO friendly</Li>
+              <Li>It fully embraces JavaScript</Li>
+              <Li>
+                It's growing at a fast pace and the community is fantastic!
+              </Li>
+            </Ul>
+            <P>
+              <LinkButton to="/react/top-10-reasons-to-learn-react/">
+                Blog: Why You Should Learn React Right Now
+              </LinkButton>
+            </P>
+          </Col>
+        </Row>
+      </Section>
+
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
   )
 }
 

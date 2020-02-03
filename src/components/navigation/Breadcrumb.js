@@ -13,7 +13,7 @@ import {
 import { TECH_GRAPHQL, TECH_REACT } from '../../config/data'
 import { SCREEN_XS_MAX } from '../utils'
 
-const BreadcrumbContainer = styled.nav`
+const BreadcrumbContainer = React.memo(styled.nav`
   position: absolute;
   top: 84px;
   left: 0;
@@ -52,7 +52,7 @@ const BreadcrumbContainer = styled.nav`
       }
     }
   }
-`
+`)
 
 const Breadcrumb = ({ path, tech }) =>
   path && path.length ? (
@@ -83,4 +83,4 @@ const Breadcrumb = ({ path, tech }) =>
     </BreadcrumbContainer>
   ) : null
 
-export default Breadcrumb
+export default React.memo(Breadcrumb)

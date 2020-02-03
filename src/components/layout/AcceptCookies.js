@@ -107,4 +107,4 @@ const AcceptCookies = () => {
   )
 }
 
-export default AcceptCookies
+export default React.memo(AcceptCookies)
