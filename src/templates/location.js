@@ -61,119 +61,115 @@ const massageGalleryImages = (images, size) =>
     )
     .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
 
-const Location = ({ path, data }) => (
-  <Layout>
-    {({ trainings }) => {
-      const posts = getPostsFromNodes({
-        markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
-        sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
-      })
-      const { htmlAst, frontmatter } = data.markdownRemark
-      const { city } = frontmatter
-      const capitalCity = titleCase(city)
-      const lowerCaseCity = city.toLowerCase()
+const Location = ({ path, data, trainings }) => {
+  const posts = getPostsFromNodes({
+    markdownNodes: data.markdownPosts && data.markdownPosts.nodes,
+    sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+  })
+  const { htmlAst, frontmatter } = data.markdownRemark
+  const { city } = frontmatter
+  const capitalCity = titleCase(city)
+  const lowerCaseCity = city.toLowerCase()
 
-      const metas = {
-        title: `${capitalCity} React GraphQL Academy`,
-        description: `Learn React and GraphQL in ${capitalCity} | React GraphQL Academy`,
-        image: WHY_GQLU_ACADEMY,
-        type: 'website',
+  const metas = {
+    title: `${capitalCity} React GraphQL Academy`,
+    description: `Learn React and GraphQL in ${capitalCity} | React GraphQL Academy`,
+    image: WHY_GQLU_ACADEMY,
+    type: 'website',
+  }
+
+  const upcomingEvents = selectUpcomingTrainings({
+    trainings,
+    city,
+  })
+
+  const smallGalleryImages = massageGalleryImages(data.images, 'sm')
+  const largeGalleryImages = massageGalleryImages(data.images, 'lg')
+
+  const galleryImages = smallGalleryImages.map(
+    ({ src, height, width, originalName }, index) => {
+      return {
+        srcSmall: src,
+        srcLarge: largeGalleryImages[index].src,
+        height,
+        width,
+        originalName,
       }
+    }
+  )
 
-      const upcomingEvents = selectUpcomingTrainings({
-        trainings,
-        city,
-      })
+  return (
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Breadcrumb
+        path={[
+          { to: '/', label: 'Home' },
+          { to: '/locations', label: 'Locations' },
+          { to: path, label: capitalCity },
+        ]}
+      />
+      <Header
+        titleLines={[`React GraphQL Academy ${capitalCity}`]}
+        subtitle={`The React and GraphQL hub in ${capitalCity}`}
+        bgImageName={lowerCaseCity}
+        links={[
+          {
+            text: 'Upcoming events',
+            to: '#upcoming',
+          },
+          {
+            text: 'Venues',
+            to: '#venues',
+          },
+        ]}
+      />
+      <TopSection sx={{ mt: -250 }}>
+        <Segment sx={{ border: 'shadow' }}>
+          <Link to="#upcoming" name="upcoming" />
+          <Row>
+            <Col lg={10} lgOffset={1}>
+              <H2>Upcoming events in {capitalCity}</H2>
+              <UpcomingTrainingTabs trainings={upcomingEvents} limit={12} />
+            </Col>
+          </Row>
+        </Segment>
+      </TopSection>
 
-      const smallGalleryImages = massageGalleryImages(data.images, 'sm')
-      const largeGalleryImages = massageGalleryImages(data.images, 'lg')
-
-      const galleryImages = smallGalleryImages.map(
-        ({ src, height, width, originalName }, index) => {
-          return {
-            srcSmall: src,
-            srcLarge: largeGalleryImages[index].src,
-            height,
-            width,
-            originalName,
-          }
+      <ColSection
+        variant="thinRight"
+        col={
+          <Gallery
+            className="pictures-city-gallery"
+            photos={galleryImages}
+            pageLimit={3}
+          />
         }
-      )
-
-      return (
-        <React.Fragment>
-          <Helmet
-            title={metas.title}
-            meta={[
-              {
-                name: 'description',
-                content: metas.description,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Breadcrumb
-            path={[
-              { to: '/', label: 'Home' },
-              { to: '/locations', label: 'Locations' },
-              { to: path, label: capitalCity },
-            ]}
-          />
-          <Header
-            titleLines={[`React GraphQL Academy ${capitalCity}`]}
-            subtitle={`The React and GraphQL hub in ${capitalCity}`}
-            bgImageName={lowerCaseCity}
-            links={[
-              {
-                text: 'Upcoming events',
-                to: '#upcoming',
-              },
-              {
-                text: 'Venues',
-                to: '#venues',
-              },
-            ]}
-          />
-          <TopSection sx={{ mt: -250 }}>
-            <Segment sx={{ border: 'shadow' }}>
-              <Link to="#upcoming" name="upcoming" />
-              <Row>
-                <Col lg={10} lgOffset={1}>
-                  <H2>Upcoming events in {capitalCity}</H2>
-                  <UpcomingTrainingTabs trainings={upcomingEvents} limit={12} />
-                </Col>
-              </Row>
-            </Segment>
-          </TopSection>
-
-          <ColSection
-            variant="thinRight"
-            col={
-              <Gallery
-                className="pictures-city-gallery"
-                photos={galleryImages}
-                pageLimit={3}
-              />
-            }
-            col2={
-              <React.Fragment>
-                <H2>
-                  <a name="venues" />
-                  {capitalCity} best tech venues and talent
-                </H2>
-                {renderAst(htmlAst)}
-              </React.Fragment>
-            }
-          />
-          <TrustedBySection />
-          <BlogSection posts={posts} />
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+        col2={
+          <React.Fragment>
+            <H2>
+              <a name="venues" />
+              {capitalCity} best tech venues and talent
+            </H2>
+            {renderAst(htmlAst)}
+          </React.Fragment>
+        }
+      />
+      <TrustedBySection />
+      <BlogSection posts={posts} />
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export const query = graphql`
   query location($slug: String!, $regex: String!, $citySlug: String!) {

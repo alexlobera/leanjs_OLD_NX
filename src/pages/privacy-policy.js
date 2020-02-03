@@ -10,7 +10,7 @@ import Link from '../components/navigation/Link'
 import { Segment } from '../components/elements'
 
 const PrivacyPolicy = () => (
-  <Layout>
+  <React.Fragment>
     <Header titleLines={['Privacy Policy']} />
     <TopSection>
       <Segment>
@@ -286,7 +286,7 @@ const PrivacyPolicy = () => (
         </Col>
       </Row>
     </Section>
-  </Layout>
+  </React.Fragment>
 )
 
 export default PrivacyPolicy

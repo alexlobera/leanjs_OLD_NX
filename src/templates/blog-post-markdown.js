@@ -72,7 +72,7 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-const Page = ({ data, location }) => {
+const Page = ({ data, location, ...rest }) => {
   const { htmlAst, timeToRead, excerpt, frontmatter } = data.markdownRemark
   const { title, date, subtitle, author, imageUrl } = frontmatter
   const mainImagePublicUrl = imageUrl
@@ -124,6 +124,7 @@ const Page = ({ data, location }) => {
     relatedPosts,
     contents,
     location,
+    ...rest,
   }
 
   return <BlogPost {...blogPostProps} />

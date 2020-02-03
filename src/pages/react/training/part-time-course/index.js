@@ -31,87 +31,83 @@ const metas = {
   type: 'website',
 }
 
-const PartTime = ({ trainings, path }) => (
-  <Layout>
-    {({ trainings }) => {
-      const upcomingPartTimeTrainings = selectUpcomingTrainings({
-        type: REACT_PART_TIME,
-        trainings,
-      })
-      const nextTraining = selectNthTraining({
-        trainings: upcomingPartTimeTrainings,
-      })
-      return (
-        <React.Fragment>
-          <Helmet
-            title={metas.title}
-            meta={[
-              {
-                name: 'description',
-                content: metas.description,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Header
-            breadcrumbPath={[
-              { to: '/', label: 'Home' },
-              { to: '/react', label: 'React' },
-              { to: '/react/training/', label: 'Training' },
-              {
-                to: path,
-                label: 'Part Time Course',
-              },
-            ]}
-            tech={TECH_REACT}
-            titleLines={['1-month part-time', 'React Redux course']}
-            subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
-            type={REACT_PART_TIME}
-            links={header.landingPageLinks.links}
-          />
-          <TopSection>
-            <Segment>
-              <CurriculumReactPartTime trainings={upcomingPartTimeTrainings} />
-            </Segment>
-          </TopSection>
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1}>
-                <AttendeeQuote
-                  quote="Whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
-                  fullname="Lara Ramey"
-                  job="Software Developer"
-                  company="Meredith Corporation"
-                  youtubeId="4NY7HCRPhWA"
-                />
-              </Col>
-              <Col md={4} mdOffset={1}>
-                <Link to="#target-audience" name="target-audience" />
-                <H2>Is this React part-time course right for me?</H2>
-                <Ul>
-                  <Li>Meaningful, collaborative learning</Li>
-                  <Li>Personal mentoring rather than online learning</Li>
-                  <Li>Don't miss work days or projects</Li>
-                  <Li>Not for beginners!</Li>
-                  <Li>Discuss real-world projects to learn best practices</Li>
-                  <Li>Expert coaches with extensive React experience</Li>
-                </Ul>
-                <NextTrainingButton
-                  type="part-time course"
-                  training={nextTraining}
-                />
-              </Col>
-            </Row>
-          </Section>
+const PartTime = ({ trainings, path, trainings }) => {
+  const upcomingPartTimeTrainings = selectUpcomingTrainings({
+    type: REACT_PART_TIME,
+    trainings,
+  })
+  const nextTraining = selectNthTraining({
+    trainings: upcomingPartTimeTrainings,
+  })
+  return (
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Header
+        breadcrumbPath={[
+          { to: '/', label: 'Home' },
+          { to: '/react', label: 'React' },
+          { to: '/react/training/', label: 'Training' },
+          {
+            to: path,
+            label: 'Part Time Course',
+          },
+        ]}
+        tech={TECH_REACT}
+        titleLines={['1-month part-time', 'React Redux course']}
+        subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
+        type={REACT_PART_TIME}
+        links={header.landingPageLinks.links}
+      />
+      <TopSection>
+        <Segment>
+          <CurriculumReactPartTime trainings={upcomingPartTimeTrainings} />
+        </Segment>
+      </TopSection>
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <AttendeeQuote
+              quote="Whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
+              fullname="Lara Ramey"
+              job="Software Developer"
+              company="Meredith Corporation"
+              youtubeId="4NY7HCRPhWA"
+            />
+          </Col>
+          <Col md={4} mdOffset={1}>
+            <Link to="#target-audience" name="target-audience" />
+            <H2>Is this React part-time course right for me?</H2>
+            <Ul>
+              <Li>Meaningful, collaborative learning</Li>
+              <Li>Personal mentoring rather than online learning</Li>
+              <Li>Don't miss work days or projects</Li>
+              <Li>Not for beginners!</Li>
+              <Li>Discuss real-world projects to learn best practices</Li>
+              <Li>Expert coaches with extensive React experience</Li>
+            </Ul>
+            <NextTrainingButton
+              type="part-time course"
+              training={nextTraining}
+            />
+          </Col>
+        </Row>
+      </Section>
 
-          <TrustedBySection />
+      <TrustedBySection />
 
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export default PartTime

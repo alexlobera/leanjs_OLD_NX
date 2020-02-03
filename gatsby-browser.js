@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from 'src/config/styles'
 import GraphQLProvider from './src/api/graphql/Provider'
 import { createClient } from './src/api/graphql/client'
+import Layout from './src/components/layout'
 
 // init GTM for Google Ads
 export const onRouteUpdate = ({ location }) => {
@@ -22,4 +23,8 @@ export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>
     <GraphQLProvider client={client}>{element}</GraphQLProvider>
   </ThemeProvider>
+)
+
+export const wrapPageElement = ({ element, props }) => (
+  <Layout {...props}>{element}</Layout>
 )

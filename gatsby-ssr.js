@@ -1,6 +1,6 @@
 import React from 'react'
 import { stripIndent } from 'common-tags'
-export { wrapRootElement } from './gatsby-browser'
+export { wrapRootElement, wrapPageElement } from './gatsby-browser'
 
 const pluginOptions = {
   includeInDevelopment: true,

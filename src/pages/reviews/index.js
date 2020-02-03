@@ -14,6 +14,7 @@ import { RootHeader as Header } from '../../components/layout/Header'
 import Link from '../../components/navigation/Link'
 import { Segment } from '../../components/elements'
 import { BulletIcon, TwitterIcon, LinkedinIcon } from '../../components/icons'
+import { UpcomingTrainingSection } from '../../components/training'
 
 const StyledStars = styled.div`
   unicode-bidi: bidi-override;
@@ -288,8 +289,8 @@ const reviews = [
   },
 ]
 
-const ReviewsPage = ({ data }) => (
-  <Layout>
+const ReviewsPage = ({ data, trainings }) => (
+  <React.Fragment>
     <Header
       titleLines={['Reviews']}
       subtitle={
@@ -332,7 +333,8 @@ const ReviewsPage = ({ data }) => (
         </Row>
       </Section>
     )}
-  </Layout>
+    <UpcomingTrainingSection trainings={trainings} />
+  </React.Fragment>
 )
 
 export const query = graphql`

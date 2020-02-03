@@ -98,4 +98,4 @@ const TrainingItem = ({
   </Flex>
 )
 
-export default TrainingItem
+export default React.memo(TrainingItem)

@@ -20,23 +20,19 @@ import {
 import { fontColor } from '../text'
 import Box from './Box'
 
-// const FooterWrapper = styled(Box)``
-const FooterWrapper = props => (
+const FooterWrapper = React.memo(props => (
   <Box
     sx={{
       backgroundColor: [DARK_BLUE, 'transparent'],
     }}
     {...props}
   />
-)
+))
 
-const StyledFooter = styled(Box)`
+const StyledFooter = React.memo(styled(Box)`
   ${fontColor(WHITE)}
-`
+`)
 
-// const SocialLink = styled(Link)`
-//   text-decoration: none;
-// `
 const SocialLink = ({ sx = {}, ...rest }) => (
   <Link sx={{ textDecoration: 'none', ...sx }} {...rest} />
 )
@@ -174,4 +170,4 @@ const Footer = () => (
   </FooterWrapper>
 )
 
-export default Footer
+export default React.memo(Footer)

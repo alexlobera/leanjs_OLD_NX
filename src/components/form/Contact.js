@@ -147,4 +147,4 @@ ContactForm.defaultProps = {
   triggerSubscribe,
 }
 
-export default ContactForm
+export default React.memo(ContactForm)

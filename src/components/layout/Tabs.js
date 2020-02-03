@@ -45,52 +45,54 @@ const Ul = styled(Box)`
   }
 `
 
-export const TabList = ({
-  active,
-  setActive,
-  onChange,
-  children,
-  sx = {},
-  includeRowCol = true,
-  ...rest
-}) => {
-  const compound = React.Children.map(children, child =>
-    React.cloneElement(child, {
-      isActive: child.props.name === active,
-      onClick: child.props.name
-        ? () => {
-            onChange && onChange(child.props.name)
-            setActive(child.props.name)
-          }
-        : undefined,
-    })
-  )
+export const TabList = React.memo(
+  ({
+    active,
+    setActive,
+    onChange,
+    children,
+    sx = {},
+    includeRowCol = true,
+    ...rest
+  }) => {
+    const compound = React.Children.map(children, child =>
+      React.cloneElement(child, {
+        isActive: child.props.name === active,
+        onClick: child.props.name
+          ? () => {
+              onChange && onChange(child.props.name)
+              setActive(child.props.name)
+            }
+          : undefined,
+      })
+    )
 
-  const ul = (
-    <Ul
-      sx={{
-        p: 0,
-        m: 0,
-        mb: 4,
-        ...sx,
-      }}
-      {...rest}
-      box="ul"
-    >
-      {compound}
-    </Ul>
-  )
+    const ul = (
+      <Ul
+        sx={{
+          p: 0,
+          m: 0,
+          mb: 4,
+          ...sx,
+        }}
+        {...rest}
+        box="ul"
+      >
+        {compound}
+      </Ul>
+    )
 
-  return includeRowCol ? (
-    <Row>
-      <Col {...rest} md={11}>
-        {ul}
-      </Col>
-    </Row>
-  ) : (
-    ul
-  )
-}
+    return includeRowCol ? (
+      <Row>
+        <Col {...rest} md={11}>
+          {ul}
+        </Col>
+      </Row>
+    ) : (
+      ul
+    )
+  }
+)
 
 TabList.displayName = 'TabList'
 
@@ -123,46 +125,50 @@ const A = styled.a.attrs(props => ({ className: props.className }))`
   }};
 `
 
-export const TabItem = ({
-  children,
-  isActive,
-  onClick,
-  name,
-  component,
-  className = 'courses training-curriculum-clicks',
-  ...props
-}) => {
-  return (
-    <li name={name}>
-      <A
-        role="button"
-        isActive={isActive}
-        name={name}
-        {...props}
-        onClick={e => {
-          e.preventDefault()
-          onClick && onClick()
-        }}
-        className={className}
-      >
-        {children}
-      </A>
-    </li>
-  )
-}
+export const TabItem = React.memo(
+  ({
+    children,
+    isActive,
+    onClick,
+    name,
+    component,
+    className = 'courses training-curriculum-clicks',
+    ...props
+  }) => {
+    return (
+      <li name={name}>
+        <A
+          role="button"
+          isActive={isActive}
+          name={name}
+          {...props}
+          onClick={e => {
+            e.preventDefault()
+            onClick && onClick()
+          }}
+          className={className}
+        >
+          {children}
+        </A>
+      </li>
+    )
+  }
+)
 TabItem.displayName = 'TabItem'
 
-export const TabContent = ({ active, children }) =>
+export const TabContent = React.memo(({ active, children }) =>
   React.Children.map(children, child =>
     React.cloneElement(child, {
       isActive: child.props.name === active,
     })
   )
+)
 
 TabContent.displayName = 'TabContent'
 
-export const ContentItem = ({ isActive, children }) =>
+export const ContentItem = React.memo(({ isActive, children }) =>
   isActive ? children : null
+)
 
 ContentItem.displayName = 'ContentItem'
 
@@ -193,4 +199,4 @@ export class Tabs extends React.Component {
   }
 }
 
-export default Tabs
+export default React.memo(Tabs)

@@ -10,41 +10,37 @@ import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
 import { getPostsFromNodes } from '../../components/blog/utils'
 
-const Blog = ({ data, path }) => {
+const Blog = ({ data, path, trainings }) => {
   const posts = getPostsFromNodes({
     markdownNodes: data.allMarkdownRemark.nodes,
     sanityNodes: data.allSanityPost.nodes,
   })
 
   return (
-    <Layout>
-      {({ trainings }) => (
-        <React.Fragment>
-          <Breadcrumb
-            path={[
-              { to: '/', label: 'Home' },
-              { to: path, label: `Blog` },
-            ]}
-          />
-          <Header
-            titleLines={['Blog']}
-            subtitle="Insights into the world of React GraphQL Academy"
-            fullHeight={false}
-            sx={{ pb: 170 }}
-          />
-          <TopSection>
-            <Row>
-              {posts.map(post => (
-                <Col lg={4} key={post.path}>
-                  <PostCard post={post} />
-                </Col>
-              ))}
-            </Row>
-          </TopSection>
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )}
-    </Layout>
+    <React.Fragment>
+      <Breadcrumb
+        path={[
+          { to: '/', label: 'Home' },
+          { to: path, label: `Blog` },
+        ]}
+      />
+      <Header
+        titleLines={['Blog']}
+        subtitle="Insights into the world of React GraphQL Academy"
+        fullHeight={false}
+        sx={{ pb: 170 }}
+      />
+      <TopSection>
+        <Row>
+          {posts.map(post => (
+            <Col lg={4} key={post.path}>
+              <PostCard post={post} />
+            </Col>
+          ))}
+        </Row>
+      </TopSection>
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
   )
 }
 

@@ -10,7 +10,7 @@ import Link from '../components/navigation/Link'
 import { Segment } from '../components/elements'
 
 const ThanksForSignUpSessions = () => (
-  <Layout>
+  <React.Fragment>
     <Header
       titleLines={['Thanks - your signed up for 1-day session info!']}
       subtitle="If you also also asked for free learning resources, every week for the next 5 weeks, you'll get a new email with juicy React goodness..."
@@ -48,7 +48,7 @@ const ThanksForSignUpSessions = () => (
         </Row>
       </Segment>
     </TopSection>
-  </Layout>
+  </React.Fragment>
 )
 
 export default ThanksForSignUpSessions

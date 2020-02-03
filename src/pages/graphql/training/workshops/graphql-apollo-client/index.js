@@ -30,107 +30,102 @@ const metas = {
   type: 'website',
 }
 
-const GraphQLApolloClientWorkshop = ({ path }) => (
-  <Layout>
-    {({ trainings }) => {
-      const nextTraining = getNextTrainingByTrainingId({
-        trainings,
-        trainingId,
-      })
+const GraphQLApolloClientWorkshop = ({ path, trainings }) => {
+  const nextTraining = getNextTrainingByTrainingId({
+    trainings,
+    trainingId,
+  })
 
-      return (
-        <React.Fragment>
-          <Helmet
-            title={metas.title}
-            meta={[
-              {
-                name: 'description',
-                content: metas.description,
-              },
-            ]}
-          >
-            {createMetas(metas)}
-          </Helmet>
-          <Header
-            breadcrumbPath={[
-              { to: '/', label: 'Home' },
-              { to: '/graphql', label: 'GraphQL' },
-              { to: '/graphql/training/', label: 'Training' },
-              { to: '/graphql/training/workshops', label: 'Workshops' },
-              {
-                to: path,
-                label: breadcrumbWorkshopName,
-              },
-            ]}
-            tech={TECH_GRAPHQL}
-            titleLines={['GraphQL Apollo Client']}
-            subtitle="Create production-ready React applications with the most community-driven GraphQL client"
-            links={[
-              { text: 'Workshop Agenda', to: '#curriculum' },
-              { text: 'Is this right for me?', to: '#target-audience' },
-            ]}
-            bgImageName={LONDON_BOOTCAMP}
-            type={GRAPHQL_WORKSHOP}
+  return (
+    <React.Fragment>
+      <Helmet
+        title={metas.title}
+        meta={[
+          {
+            name: 'description',
+            content: metas.description,
+          },
+        ]}
+      >
+        {createMetas(metas)}
+      </Helmet>
+      <Header
+        breadcrumbPath={[
+          { to: '/', label: 'Home' },
+          { to: '/graphql', label: 'GraphQL' },
+          { to: '/graphql/training/', label: 'Training' },
+          { to: '/graphql/training/workshops', label: 'Workshops' },
+          {
+            to: path,
+            label: breadcrumbWorkshopName,
+          },
+        ]}
+        tech={TECH_GRAPHQL}
+        titleLines={['GraphQL Apollo Client']}
+        subtitle="Create production-ready React applications with the most community-driven GraphQL client"
+        links={[
+          { text: 'Workshop Agenda', to: '#curriculum' },
+          { text: 'Is this right for me?', to: '#target-audience' },
+        ]}
+        bgImageName={LONDON_BOOTCAMP}
+        type={GRAPHQL_WORKSHOP}
+      />
+      <TopSection>
+        <Segment>
+          <CurriculumGraphQLApollo
+            trainings={trainings}
+            trainingId={trainingId}
+            enableToggle
+            section={{ isOpen: true }}
           />
-          <TopSection>
-            <Segment>
-              <CurriculumGraphQLApollo
-                trainings={trainings}
-                trainingId={trainingId}
-                enableToggle
-                section={{ isOpen: true }}
-              />
-            </Segment>
-          </TopSection>
+        </Segment>
+      </TopSection>
 
-          <Section>
-            <Row>
-              <Col md={5} mdOffset={1}>
-                <AttendeeQuote
-                  type={GRAPHQL_WORKSHOP}
-                  quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
-                  fullname="Rafa Fraga"
-                  job="Software Engineer"
-                  youtubeId="hZZksRcqtkc"
-                />
-              </Col>
-              <Col md={4} lgOffset={1}>
-                <H2Ref>
-                  Is this one day workshop right for me? Are you...{' '}
-                  <Link to="#target-audience" name="target-audience">
-                    #
-                  </Link>
-                </H2Ref>
-                <Ul>
-                  <Li>
-                    A developer with some experience developing React
-                    applications?
-                  </Li>
-                  <Li>
-                    Familiar with front-end technologies like React, JavaScript,
-                    CSS, and HTML?
-                  </Li>
-                  <Li>
-                    Taking a step forward to become a GraphQL Specialist able to
-                    make critical decisions about the architecture of an
-                    application.
-                  </Li>
-                </Ul>
-                <P>
-                  If you've said 'yes' to these, this workshop could be for you!
-                </P>
-                <H3>Not for beginner devs!</H3>
-                <P>This is not a learn-to-code workshop!</P>
-                <NextTrainingButton type="workshop" training={nextTraining} />
-              </Col>
-            </Row>
-          </Section>
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <AttendeeQuote
+              type={GRAPHQL_WORKSHOP}
+              quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+              fullname="Rafa Fraga"
+              job="Software Engineer"
+              youtubeId="hZZksRcqtkc"
+            />
+          </Col>
+          <Col md={4} lgOffset={1}>
+            <H2Ref>
+              Is this one day workshop right for me? Are you...{' '}
+              <Link to="#target-audience" name="target-audience">
+                #
+              </Link>
+            </H2Ref>
+            <Ul>
+              <Li>
+                A developer with some experience developing React applications?
+              </Li>
+              <Li>
+                Familiar with front-end technologies like React, JavaScript,
+                CSS, and HTML?
+              </Li>
+              <Li>
+                Taking a step forward to become a GraphQL Specialist able to
+                make critical decisions about the architecture of an
+                application.
+              </Li>
+            </Ul>
+            <P>
+              If you've said 'yes' to these, this workshop could be for you!
+            </P>
+            <H3>Not for beginner devs!</H3>
+            <P>This is not a learn-to-code workshop!</P>
+            <NextTrainingButton type="workshop" training={nextTraining} />
+          </Col>
+        </Row>
+      </Section>
 
-          <UpcomingTrainingSection trainings={trainings} />
-        </React.Fragment>
-      )
-    }}
-  </Layout>
-)
+      <UpcomingTrainingSection trainings={trainings} />
+    </React.Fragment>
+  )
+}
 
 export default GraphQLApolloClientWorkshop

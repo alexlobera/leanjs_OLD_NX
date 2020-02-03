@@ -31,95 +31,18 @@ const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.
     crossorigin: 'crossorigin',
   })
 )
+let prefetchDnsUrls = [
+  'https://connect.facebook.net',
+  'https://www.google-analytics.com',
+]
+const prefetchDnsLinks = prefetchDnsUrls.map(href => ({
+  rel: 'dns-prefetch',
+  href,
+}))
 
-const Layout = ({ children, loadAutopilot = true }) => {
-  let prefetchDnsUrls = [
-    'https://connect.facebook.net',
-    'https://www.google-analytics.com',
-  ]
-  // TODO only add preconnect to 'https://api.upmentoring.com' in training instance page
-  // let preconnectUrls = ['https://api.upmentoring.com']
-  let preconnectUrls = []
-  let scriptUrls = []
-
-  if (loadAutopilot) {
-    preconnectUrls = [...preconnectUrls, 'https://api.autopilothq.com']
-  }
-
-  const prefetchDnsLinks = prefetchDnsUrls.map(href => ({
-    rel: 'dns-prefetch',
-    href,
-  }))
-  const preconnectLinks = preconnectUrls.map(href => ({
-    crossorigin: 'crossorigin',
-    rel: 'preconnect',
-    href,
-  }))
-  const scriptTags = scriptUrls.map(src => (
-    <script type="text/javascript" async="true" src={src} key={src} />
-  ))
-
-  const data = useStaticQuery(graphql`
-    query layoutTraining {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-      upmentoring {
-        eventsConnection(
-          filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
-          orderBy: { sort: startDate, direction: ASC }
-        ) {
-          edges {
-            node {
-              id
-              title
-              startDate
-              utcOffset
-              endDate
-              city
-              cityCountry
-            }
-          }
-        }
-        trainingInstancesConnection(
-          filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
-          orderBy: { sort: startDate, direction: ASC }
-        ) {
-          edges {
-            node {
-              id
-              startDate
-              utcOffset
-              endDate
-              isOnline
-              city
-              cityCountry
-              daysOfTheWeek
-              address
-              venueName
-              mapUrl
-              price
-              currency
-              training {
-                id
-                type
-                slug
-                description {
-                  title
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
+const formatTraining = (() => {
   const cityIndex = {}
-  const formatTraining = ({ node }) => {
+  return ({ node }) => {
     const { training } = node
     const { type, slug, description } = training || {}
     const { title = '' } = description || {}
@@ -149,12 +72,92 @@ const Layout = ({ children, loadAutopilot = true }) => {
       }),
     }
   }
+})()
 
+const layoutQuery = graphql`
+  query layoutTraining {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+    upmentoring {
+      eventsConnection(
+        filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
+        orderBy: { sort: startDate, direction: ASC }
+      ) {
+        edges {
+          node {
+            id
+            title
+            startDate
+            utcOffset
+            endDate
+            city
+            cityCountry
+          }
+        }
+      }
+      trainingInstancesConnection(
+        filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
+        orderBy: { sort: startDate, direction: ASC }
+      ) {
+        edges {
+          node {
+            id
+            startDate
+            utcOffset
+            endDate
+            isOnline
+            city
+            cityCountry
+            daysOfTheWeek
+            address
+            venueName
+            mapUrl
+            price
+            currency
+            training {
+              id
+              type
+              slug
+              description {
+                title
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+const Layout = ({ children }) => {
+  // TODO only add preconnect to 'https://api.upmentoring.com' in training instance page
+  // let preconnectUrls = ['https://api.upmentoring.com']
+  let preconnectUrls = []
+  // let scriptUrls = []
+  //if (loadAutopilot) {
+  preconnectUrls = [...preconnectUrls, 'https://api.autopilothq.com']
+  //}
+  const preconnectLinks = preconnectUrls.map(href => ({
+    crossorigin: 'crossorigin',
+    rel: 'preconnect',
+    href,
+  }))
+  //   const scriptTags = scriptUrls.map(src => (
+  //     <script type="text/javascript" async="true" src={src} key={src} />
+  //   ))
+
+  const data = useStaticQuery(layoutQuery)
   const trainings = data.upmentoring.trainingInstancesConnection.edges.map(
     formatTraining
   )
-
   const meetups = data.upmentoring.eventsConnection.edges.map(formatMeetup)
+  const trainingAndEvents = selectUpcomingTrainings({
+    trainings: [...trainings, ...meetups],
+  })
 
   return (
     <React.Fragment>
@@ -181,16 +184,21 @@ const Layout = ({ children, loadAutopilot = true }) => {
             },
           ]}
         >
-          {scriptTags}
+          {/* {scriptTags} */}
         </Helmet>
         <Menu />
-        {typeof children === 'function'
+        {/* {typeof children === 'function'
           ? children({
               trainings: selectUpcomingTrainings({
                 trainings: [...trainings, ...meetups],
               }),
             })
-          : children}
+          : children} */}
+        {React.Children.map(children, child =>
+          React.cloneElement(child, {
+            trainings: trainingAndEvents,
+          })
+        )}
         <Footer />
         <AcceptCookies />
       </React.Fragment>

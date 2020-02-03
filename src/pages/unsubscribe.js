@@ -93,10 +93,6 @@ Unsubscribe.defaultProps = {
   triggerUnsubscribe,
 }
 
-const UnsubscribePage = () => (
-  <Layout>
-    <Unsubscribe />
-  </Layout>
-)
+// const UnsubscribePage = () => <Unsubscribe />
 
-export default UnsubscribePage
+export default Unsubscribe //UnsubscribePage

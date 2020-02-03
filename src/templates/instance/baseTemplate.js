@@ -50,6 +50,7 @@ const InstancePage = ({
   trialOfTheTrainingId,
   trialTrainingId,
   data,
+  trainings,
   pageContext: {
     locationImage,
     posts,
@@ -82,298 +83,291 @@ const InstancePage = ({
     tech,
     siteUrl,
   },
-}) => (
-  <CheckoutProvider>
-    <Layout>
-      {({ trainings, trainingLoading, trainingError }) => {
-        const techLowerCase = tech.toLowerCase()
-        const pathTech = `/${techLowerCase}/`
-        const pathTraining = `${pathTech}training/`
-        const pathTrainingType = `${pathTraining}${breadcrumbTrainingSlug}/`
-        const pathWorkshopType = `${pathTrainingType}${breadcrumbWorkshopSlug}/`
-        const upcomingTrainings = selectUpcomingTrainings({
-          trainings,
-          trainingId,
-          city,
-        })
+}) => {
+  const techLowerCase = tech.toLowerCase()
+  const pathTech = `/${techLowerCase}/`
+  const pathTraining = `${pathTech}training/`
+  const pathTrainingType = `${pathTraining}${breadcrumbTrainingSlug}/`
+  const pathWorkshopType = `${pathTrainingType}${breadcrumbWorkshopSlug}/`
+  const upcomingTrainings = selectUpcomingTrainings({
+    trainings,
+    trainingId,
+    city,
+  })
 
-        const training = selectNthTraining({
-          trainings: upcomingTrainings,
-          nth,
-        })
+  const training = selectNthTraining({
+    trainings: upcomingTrainings,
+    nth,
+  })
 
-        const crossSellTrainings = selectUpcomingTrainings({
-          trainings,
-          types: crossSellTypes,
-          excludeInstanceId: training && training.id,
-          city,
-          onlineOrOffline: true,
-        })
+  const crossSellTrainings = selectUpcomingTrainings({
+    trainings,
+    types: crossSellTypes,
+    excludeInstanceId: training && training.id,
+    city,
+    onlineOrOffline: true,
+  })
 
-        const trialTraingInstance = getNextTrainingByTrainingId({
-          trainings,
-          trainingId: trialTrainingId,
-        })
+  const trialTraingInstance = getNextTrainingByTrainingId({
+    trainings,
+    trainingId: trialTrainingId,
+  })
 
-        const trialOfTraingInstance = getNextTrainingByTrainingId({
-          trainings,
-          trainingId: trialOfTheTrainingId,
-        })
+  const trialOfTraingInstance = getNextTrainingByTrainingId({
+    trainings,
+    trainingId: trialOfTheTrainingId,
+  })
 
-        const breadcrumbInstance = {
-          to: path,
-          label: city,
-        }
-        const breadcrumbLastItems = breadcrumbWorkshopName
-          ? [
-              {
-                to: pathWorkshopType,
-                label: breadcrumbWorkshopName,
-              },
-              breadcrumbInstance,
-            ]
-          : [breadcrumbInstance]
+  const breadcrumbInstance = {
+    to: path,
+    label: city,
+  }
+  const breadcrumbLastItems = breadcrumbWorkshopName
+    ? [
+        {
+          to: pathWorkshopType,
+          label: breadcrumbWorkshopName,
+        },
+        breadcrumbInstance,
+      ]
+    : [breadcrumbInstance]
 
-        const breadcrumb = [
-          { to: '/', label: 'Home' },
-          { to: pathTech, label: tech },
-          { to: pathTraining, label: 'Training' },
+  const breadcrumb = [
+    { to: '/', label: 'Home' },
+    { to: pathTech, label: tech },
+    { to: pathTraining, label: 'Training' },
+    {
+      to: pathTrainingType,
+      label: breadcrumbTrainingName,
+    },
+    ...breadcrumbLastItems,
+  ]
+
+  const instanceImage =
+    data &&
+    data.instanceImage &&
+    data.instanceImage.nodes &&
+    data.instanceImage.nodes.length
+      ? data.instanceImage.nodes[0].childImageSharp.fluid.src
+      : locationImage.fluid.src
+  const instanceImageUrl = instanceImage
+    ? `${siteUrl}${instanceImage}`
+    : undefined
+
+  const furtherDetails = trialOfTheTrainingId ? (
+    <>
+      <Ul>
+        {trialOfTraingInstance && trialOfTraingInstance.training && (
+          <Li>
+            This training is a trial for the{' '}
+            <Link to={trialOfTraingInstance.training.toPath}>
+              {trialOfTraingInstance.training.description.title}
+            </Link>
+          </Li>
+        )}
+        <Li>
+          <DeductPriceOnPurchase trainingInstance={training} />
+        </Li>
+      </Ul>
+
+      {trialOfTraingInstance && (
+        <LinkButton to={trialOfTraingInstance.training.toPath}>
+          Buy full course
+        </LinkButton>
+      )}
+    </>
+  ) : (
+    undefined
+  )
+
+  return (
+    <CheckoutProvider>
+      <Helmet
+        title={instanceTitle}
+        link={[
           {
-            to: pathTrainingType,
-            label: breadcrumbTrainingName,
+            rel: 'canonical',
+            href: canonical,
           },
-          ...breadcrumbLastItems,
-        ]
-
-        const instanceImage =
-          data &&
-          data.instanceImage &&
-          data.instanceImage.nodes &&
-          data.instanceImage.nodes.length
-            ? data.instanceImage.nodes[0].childImageSharp.fluid.src
-            : locationImage.fluid.src
-        const instanceImageUrl = instanceImage
-          ? `${siteUrl}${instanceImage}`
-          : undefined
-
-        const furtherDetails = trialOfTheTrainingId ? (
-          <>
+        ]}
+      >
+        {createMetas({
+          title: instanceTitle,
+          imageFullPublicUrl: instanceImageUrl,
+          subtitle,
+          ogType: 'website',
+          twitterSite: '@reactgqlacademy',
+        })}
+      </Helmet>
+      <Header
+        breadcrumbPath={breadcrumb}
+        tech={techLowerCase}
+        titleLines={[instanceTitle]}
+        subtitle={subtitle}
+        links={[
+          {
+            text: 'Course details',
+            to: '#curriculum',
+          },
+          {
+            text: 'Is it right for me?',
+            to: '#target-audience',
+          },
+          {
+            text: 'Pricing',
+            to: '#pricing',
+          },
+        ]}
+        type={type}
+        training={training}
+        showInfoBox={true}
+        infoBoxFluidImage={locationImage}
+        bgColor="transparent"
+        removeBgImage
+      />
+      <TopSection>
+        <Segment>
+          <Curriculum
+            {...curriculumProps}
+            training={training}
+            learningObjectives={learningObjectives}
+            type={type}
+            content={
+              <React.Fragment>
+                {videoCoachId ? (
+                  <React.Fragment>
+                    <H3>Meet the coach</H3>
+                    <Video youtubeId={videoCoachId} />
+                  </React.Fragment>
+                ) : videoOneId ? (
+                  <React.Fragment>
+                    <H3>Attendee testimonial</H3>
+                    <Video time={videoOneTime} youtubeId={videoOneId} />
+                    <Box sx={{ px: 1 }}>
+                      {videoOneQuote && (
+                        <Blockquote>{videoOneQuote}</Blockquote>
+                      )}
+                      {videoOneFullname && (
+                        <P sx={{ pt: 2 }}>
+                          {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
+                          {videoOneCompany || 'Freelance'}{' '}
+                        </P>
+                      )}
+                    </Box>
+                  </React.Fragment>
+                ) : null}
+                <TrainingDetails
+                  coaches={coaches}
+                  training={training}
+                  furtherDetails={furtherDetails}
+                />
+              </React.Fragment>
+            }
+          />
+        </Segment>
+      </TopSection>
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <AttendeeQuote
+              type={type}
+              quote={videoTwoQuote}
+              fullname={videoTwoFullname}
+              job={videoTwoJob}
+              company={videoTwoCompany}
+              youtubeId={videoTwoId}
+              youtubeTime={videoTwoTime}
+            />
+          </Col>
+          <Col md={4} lgOffset={1}>
+            <H2>
+              <a to="#target-audience" name="target-audience" />
+              Is this {typeOfTraining} right for me? Are you...{' '}
+            </H2>
             <Ul>
-              {trialOfTraingInstance && trialOfTraingInstance.training && (
-                <Li>
-                  This training is a trial for the{' '}
-                  <Link to={trialOfTraingInstance.training.toPath}>
-                    {trialOfTraingInstance.training.description.title}
-                  </Link>
-                </Li>
-              )}
-              <Li>
-                <DeductPriceOnPurchase trainingInstance={training} />
-              </Li>
+              <TargetAudienceList />
             </Ul>
 
-            {trialOfTraingInstance && (
-              <LinkButton to={trialOfTraingInstance.training.toPath}>
-                Buy full course
-              </LinkButton>
+            <H3>Not for beginner devs!</H3>
+            {perfectStudentLink === false ? null : (
+              <P>
+                <Link
+                  className="perfect-course-student"
+                  to="/blog/are-you-the-perfect-react-graphql-student/"
+                >
+                  Blog: Are YOU the Perfect React Student?
+                </Link>
+              </P>
             )}
-          </>
-        ) : (
-          undefined
-        )
-
-        return (
-          <React.Fragment>
-            <Helmet
-              title={instanceTitle}
-              link={[
-                {
-                  rel: 'canonical',
-                  href: canonical,
-                },
-              ]}
-            >
-              {createMetas({
-                title: instanceTitle,
-                imageFullPublicUrl: instanceImageUrl,
-                subtitle,
-                ogType: 'website',
-                twitterSite: '@reactgqlacademy',
-              })}
-            </Helmet>
-            <Header
-              breadcrumbPath={breadcrumb}
-              tech={techLowerCase}
-              titleLines={[instanceTitle]}
-              subtitle={subtitle}
-              links={[
-                {
-                  text: 'Course details',
-                  to: '#curriculum',
-                },
-                {
-                  text: 'Is it right for me?',
-                  to: '#target-audience',
-                },
-                {
-                  text: 'Pricing',
-                  to: '#pricing',
-                },
-              ]}
-              type={type}
+            {learnToCodePartners.length > 0 &&
+              (type === REACT_BOOTCAMP ||
+                type === REACT_FUNDAMENTALS ||
+                type === REACT_PART_TIME) && (
+                <React.Fragment>
+                  <P>
+                    If you are not a professional developer yet, we recommend
+                    you to consider our {city} learn-to-code partner before
+                    attending our {typeOfTraining}:
+                  </P>
+                  <Row>
+                    {learnToCodePartners.slice(0, 2).map(partner => (
+                      <Col xs={6}>
+                        <Link to={partner.website}>
+                          <Image
+                            fluid={
+                              partner.logo.asset.localFile.childImageSharp.fluid
+                            }
+                          />
+                        </Link>
+                      </Col>
+                    ))}
+                  </Row>
+                </React.Fragment>
+              )}
+          </Col>
+        </Row>
+      </Section>
+      <Section variant="dark">
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <PaymentSection
+              trialTraingInstance={trialTraingInstance}
+              isOnline={city && city.toLowerCase() === 'online'}
               training={training}
-              showInfoBox={true}
-              infoBoxFluidImage={locationImage}
-              bgColor="transparent"
-              removeBgImage
+              trainingError={trainingError}
+              trainingLoading={trainingLoading}
             />
-            <TopSection>
-              <Segment>
-                <Curriculum
-                  {...curriculumProps}
-                  training={training}
-                  learningObjectives={learningObjectives}
-                  type={type}
-                  content={
-                    <React.Fragment>
-                      {videoCoachId ? (
-                        <React.Fragment>
-                          <H3>Meet the coach</H3>
-                          <Video youtubeId={videoCoachId} />
-                        </React.Fragment>
-                      ) : videoOneId ? (
-                        <React.Fragment>
-                          <H3>Attendee testimonial</H3>
-                          <Video time={videoOneTime} youtubeId={videoOneId} />
-                          <Box sx={{ px: 1 }}>
-                            {videoOneQuote && (
-                              <Blockquote>{videoOneQuote}</Blockquote>
-                            )}
-                            {videoOneFullname && (
-                              <P sx={{ pt: 2 }}>
-                                {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
-                                {videoOneCompany || 'Freelance'}{' '}
-                              </P>
-                            )}
-                          </Box>
-                        </React.Fragment>
-                      ) : null}
-                      <TrainingDetails
-                        coaches={coaches}
-                        training={training}
-                        furtherDetails={furtherDetails}
-                      />
-                    </React.Fragment>
-                  }
-                />
-              </Segment>
-            </TopSection>
-            <Section>
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <AttendeeQuote
-                    type={type}
-                    quote={videoTwoQuote}
-                    fullname={videoTwoFullname}
-                    job={videoTwoJob}
-                    company={videoTwoCompany}
-                    youtubeId={videoTwoId}
-                    youtubeTime={videoTwoTime}
-                  />
-                </Col>
-                <Col md={4} lgOffset={1}>
-                  <H2>
-                    <a to="#target-audience" name="target-audience" />
-                    Is this {typeOfTraining} right for me? Are you...{' '}
-                  </H2>
-                  <Ul>
-                    <TargetAudienceList />
-                  </Ul>
-
-                  <H3>Not for beginner devs!</H3>
-                  {perfectStudentLink === false ? null : (
-                    <P>
-                      <Link
-                        className="perfect-course-student"
-                        to="/blog/are-you-the-perfect-react-graphql-student/"
-                      >
-                        Blog: Are YOU the Perfect React Student?
-                      </Link>
-                    </P>
-                  )}
-                  {learnToCodePartners.length > 0 &&
-                    (type === REACT_BOOTCAMP ||
-                      type === REACT_FUNDAMENTALS ||
-                      type === REACT_PART_TIME) && (
-                      <React.Fragment>
-                        <P>
-                          If you are not a professional developer yet, we
-                          recommend you to consider our {city} learn-to-code
-                          partner before attending our {typeOfTraining}:
-                        </P>
-                        <Row>
-                          {learnToCodePartners.slice(0, 2).map(partner => (
-                            <Col xs={6}>
-                              <Link to={partner.website}>
-                                <Image
-                                  fluid={
-                                    partner.logo.asset.localFile.childImageSharp
-                                      .fluid
-                                  }
-                                />
-                              </Link>
-                            </Col>
-                          ))}
-                        </Row>
-                      </React.Fragment>
-                    )}
-                </Col>
-              </Row>
-            </Section>
-            <Section variant="dark">
-              <Row>
-                <Col md={5} mdOffset={1}>
-                  <PaymentSection
-                    trialTraingInstance={trialTraingInstance}
-                    isOnline={city && city.toLowerCase() === 'online'}
-                    training={training}
-                    trainingError={trainingError}
-                    trainingLoading={trainingLoading}
-                  />
-                </Col>
-                <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
-                  <ContactForm
-                    variant={training ? 'default' : 'primary'}
-                    simplified
-                  />
-                </Col>
-                {training &&
-                  (financeAvailable ||
-                    trialTraingInstance ||
-                    trialOfTraingInstance) && (
-                    <Col md={10} mdOffset={1}>
-                      {trialTraingInstance ? (
-                        <TrialCard trainingInstance={trialTraingInstance} />
-                      ) : trialOfTraingInstance ? (
-                        <TrialOfCard trainingInstance={trialOfTraingInstance} />
-                      ) : financeAvailable ? (
-                        <FinanceCard />
-                      ) : null}
-                    </Col>
-                  )}
-              </Row>
-            </Section>
-            {!training || (!trialTraingInstance && !trialOfTheTrainingId) ? (
-              <AlternativeTrainingSection trainings={crossSellTrainings} />
-            ) : null}
-            <BlogSection posts={posts} />
-            <UpcomingTrainingSection trainings={trainings} />
-          </React.Fragment>
-        )
-      }}
-    </Layout>
-  </CheckoutProvider>
-)
+          </Col>
+          <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
+            <ContactForm
+              variant={training ? 'default' : 'primary'}
+              simplified
+            />
+          </Col>
+          {training &&
+            (financeAvailable ||
+              trialTraingInstance ||
+              trialOfTraingInstance) && (
+              <Col md={10} mdOffset={1}>
+                {trialTraingInstance ? (
+                  <TrialCard trainingInstance={trialTraingInstance} />
+                ) : trialOfTraingInstance ? (
+                  <TrialOfCard trainingInstance={trialOfTraingInstance} />
+                ) : financeAvailable ? (
+                  <FinanceCard />
+                ) : null}
+              </Col>
+            )}
+        </Row>
+      </Section>
+      {!training || (!trialTraingInstance && !trialOfTheTrainingId) ? (
+        <AlternativeTrainingSection trainings={crossSellTrainings} />
+      ) : null}
+      <BlogSection posts={posts} />
+      <UpcomingTrainingSection trainings={trainings} />
+    </CheckoutProvider>
+  )
+}
 
 export const query = graphql`
   fragment CoachInstance on SanityPerson {

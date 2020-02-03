@@ -55,4 +55,4 @@ export const Menu = ({ width }) => {
   )
 }
 
-export default withWidth()(Menu)
+export default withWidth()(React.memo(Menu))

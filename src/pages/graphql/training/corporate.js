@@ -28,97 +28,93 @@ const metas = {
   type: 'website',
 }
 
-const CorporateGraphQLTraining = ({ path }) => (
-  <Layout>
-    {({ trainings }) => (
-      <React.Fragment>
-        <Helmet
-          title={metas.title}
-          meta={[
-            {
-              name: 'description',
-              content: metas.description,
-            },
-          ]}
-        >
-          {createMetas(metas)}
-        </Helmet>
-        <Header
-          tech={TECH_GRAPHQL}
-          breadcrumbPath={[
-            { to: '/', label: 'Home' },
-            {
-              to: '/graphql',
-              label: 'GraphQL',
-            },
-            {
-              to: '/graphql/training/',
-              label: 'Training',
-            },
-            {
-              to: path,
-              label: 'Corporate',
-            },
-          ]}
-          titleLines={['Corporate GraphQL Team Training']}
-          subtitle="Private team training, located in your offices anywhere in the world, based on our proven GraphQL curriculum."
-          links={[
-            { text: 'Training schedule', to: '#schedule' },
-            { text: 'How tailored', to: '#how-tailored' },
-            { text: 'Pricing', to: '#pricing' },
-            { text: 'Previous clients', to: '#previous-clients' },
-            { text: 'Custom training', to: '#custom-training' },
-          ]}
-          bgImageName={CORP_TRAINING}
-        />
-        <TopSection>
-          <CallToActionRow>
-            <Col mdOffset={1} md={4}>
-              <LinkButton
-                variant="primary"
-                to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
-                children="Team Training - Key Facts (PDF)"
-              />
-            </Col>
-            <Col mdOffset={1} md={6} />
-          </CallToActionRow>
-          <a name="schedule" />
-          <Segment>
-            <CurriculumCorporateGraphQL />
-          </Segment>
-        </TopSection>
+const CorporateGraphQLTraining = ({ path, trainings }) => (
+  <React.Fragment>
+    <Helmet
+      title={metas.title}
+      meta={[
+        {
+          name: 'description',
+          content: metas.description,
+        },
+      ]}
+    >
+      {createMetas(metas)}
+    </Helmet>
+    <Header
+      tech={TECH_GRAPHQL}
+      breadcrumbPath={[
+        { to: '/', label: 'Home' },
+        {
+          to: '/graphql',
+          label: 'GraphQL',
+        },
+        {
+          to: '/graphql/training/',
+          label: 'Training',
+        },
+        {
+          to: path,
+          label: 'Corporate',
+        },
+      ]}
+      titleLines={['Corporate GraphQL Team Training']}
+      subtitle="Private team training, located in your offices anywhere in the world, based on our proven GraphQL curriculum."
+      links={[
+        { text: 'Training schedule', to: '#schedule' },
+        { text: 'How tailored', to: '#how-tailored' },
+        { text: 'Pricing', to: '#pricing' },
+        { text: 'Previous clients', to: '#previous-clients' },
+        { text: 'Custom training', to: '#custom-training' },
+      ]}
+      bgImageName={CORP_TRAINING}
+    />
+    <TopSection>
+      <CallToActionRow>
+        <Col mdOffset={1} md={4}>
+          <LinkButton
+            variant="primary"
+            to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
+            children="Team Training - Key Facts (PDF)"
+          />
+        </Col>
+        <Col mdOffset={1} md={6} />
+      </CallToActionRow>
+      <a name="schedule" />
+      <Segment>
+        <CurriculumCorporateGraphQL />
+      </Segment>
+    </TopSection>
 
-        <Section>
-          <Row>
-            <Col md={5} mdOffset={1} order={[2, 1]}>
-              <a name="previous-clients" />
-              <AttendeeQuote
-                type={TECH_GRAPHQL}
-                quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
-                fullname="Lara Ramey"
-                job="Senior Developer"
-                company="Meredith Corporation"
-                youtubeId="IeZTDG7S6Dk"
-                ctaButton="How Training Keeps Xing 
+    <Section>
+      <Row>
+        <Col md={5} mdOffset={1} order={[2, 1]}>
+          <a name="previous-clients" />
+          <AttendeeQuote
+            type={TECH_GRAPHQL}
+            quote="[Before training with React GraphQL Academy] there wasn't the confidence we would meet our deadlines. Now, management know the deadlines are going to be met - that reduces our risk."
+            fullname="Lara Ramey"
+            job="Senior Developer"
+            company="Meredith Corporation"
+            youtubeId="IeZTDG7S6Dk"
+            ctaButton="How Training Keeps Xing 
               Tech-Relevant (Blog)"
-                ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"
-              />
-            </Col>
-            <Col md={4} lgOffset={1} order={[1, 2]}>
-              <H2>Trusted by industry leaders</H2>
-              <TrustedByLogoList2 colour={LIGHT_PINK} />
-            </Col>
-          </Row>
-        </Section>
-        <TrustedBySection type="contact" showContent />
-        <Section>
-          <a name="custom-training" />
-          <LeanJSsprints />
-        </Section>
-        <UpcomingTrainingSection trainings={trainings} />
-      </React.Fragment>
-    )}
-  </Layout>
+            ctaUrl="/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/"
+          />
+        </Col>
+        <Col md={4} lgOffset={1} order={[1, 2]}>
+          <H2>Trusted by industry leaders</H2>
+          <TrustedByLogoList2 colour={LIGHT_PINK} />
+        </Col>
+      </Row>
+    </Section>
+    <TrustedBySection type="contact" showContent />
+    <Section>
+      <a name="custom-training" />
+      <LeanJSsprints />
+    </Section>
+    <UpcomingTrainingSection trainings={trainings} />
+  </React.Fragment>
 )
 
 export default CorporateGraphQLTraining

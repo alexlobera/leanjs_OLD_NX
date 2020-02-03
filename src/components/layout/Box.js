@@ -15,16 +15,18 @@ import { DARK_GREY } from '../../config/styles'
 
 const css = compose(space, color, typography, border, shadow, layout, position)
 
-const StyledBox = styled(({ sx, variant, box: Component = 'div', ...rest }) => (
-  <Component {...rest} />
-))(({ sx, theme }) => {
-  // Alex: I'm mutating sx to microoptimize perf since we know we only need the theme.
-  // TODO: should we spread it instead in pro of readability and immutability?
-  if (sx) {
-    sx.theme = theme
-  }
-  return css(sx)
-})
+const StyledBox = React.memo(
+  styled(({ sx, variant, box: Component = 'div', ...rest }) => (
+    <Component {...rest} />
+  ))(({ sx, theme }) => {
+    // Alex: I'm mutating sx to microoptimize perf since we know we only need the theme.
+    // TODO: should we spread it instead in pro of readability and immutability?
+    if (sx) {
+      sx.theme = theme
+    }
+    return css(sx)
+  })
+)
 
 const Box = React.forwardRef(({ sx = {}, ...rest }, ref) => (
   <StyledBox
@@ -41,4 +43,4 @@ const Box = React.forwardRef(({ sx = {}, ...rest }, ref) => (
 
 Box.displayName = 'Box'
 
-export default Box
+export default React.memo(Box)

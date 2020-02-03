@@ -21,7 +21,7 @@ const SubSection = ({ sx = {}, ...rest }) => (
 // }
 
 const TermsOfService = () => (
-  <Layout>
+  <React.Fragment>
     <Header titleLines={['Terms of service']} />
     <TopSection>
       <Segment>
@@ -105,7 +105,7 @@ const TermsOfService = () => (
         </Col>
       </Row>
     </Section>
-  </Layout>
+  </React.Fragment>
 )
 
 export default TermsOfService

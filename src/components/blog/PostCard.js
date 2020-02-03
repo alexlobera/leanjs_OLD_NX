@@ -20,7 +20,7 @@ const PostCard = ({
   }
 
   return (
-    <Card small variant="secondary" mb={5}>
+    <Card small variant="secondary" sx={{ mb: 5 }}>
       <Link to={`${path}`} className="articles-summary">
         <Image
           {...(imageRest || {})}
@@ -28,7 +28,7 @@ const PostCard = ({
           sx={{ ...sx, mb: 0 }}
         />
       </Link>
-      <Box p={2}>
+      <Box sx={{ p: 2 }}>
         <Link to={`${path}`} className="articles-summary">
           <H3>{formatedTitle}</H3>
         </Link>
@@ -77,4 +77,4 @@ export const query = graphql`
   }
 `
 
-export default PostCard
+export default React.memo(PostCard)

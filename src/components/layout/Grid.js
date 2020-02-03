@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Row, Col as FlexboxCol } from 'react-styled-flexboxgrid'
 import Flex from './Flex'
 
-const Col = ({ xs, sm, md, lg, style = {}, ...rest }) => {
+const Col = React.memo(({ xs, sm, md, lg, style = {}, ...rest }) => {
   const sizes = {
     xs: xs || 12,
     sm: sm || xs || 12,
@@ -11,10 +11,10 @@ const Col = ({ xs, sm, md, lg, style = {}, ...rest }) => {
   }
 
   return <FlexboxCol {...rest} {...sizes} style={style} />
-}
+})
 
 // const StyledCol = styled(Flex)``
-const StyledCol = props => <Flex box={Col} {...props} />
+const StyledCol = React.memo(props => <Flex box={Col} {...props} />)
 
 export { Row, StyledCol as Col, Grid }
 
