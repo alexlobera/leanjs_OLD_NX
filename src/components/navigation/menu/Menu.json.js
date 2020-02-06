@@ -40,24 +40,6 @@ export default [
     ],
   },
   {
-    to: '/graphql',
-    text: 'JAMStack',
-    children: [
-      {
-        to: '/graphql/training',
-        text: 'GraphQL Courses',
-      },
-      {
-        to: '/graphql/training/corporate',
-        text: 'GraphQL Corporate Training',
-      },
-      {
-        to: '/graphql/curriculum',
-        text: 'GraphQL Curriculum',
-      },
-    ],
-  },
-  {
     to: '/about-us',
     text: 'About',
     children: [
