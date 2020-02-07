@@ -16,6 +16,7 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import ApolloLogo from 'src/components/logos/Apollo'
 import RGAWhiteLogo from 'src/components/logos/RGAWhiteLogo'
 import ReactSummitLogo from 'src/components/logos/ReactSummit'
+import Guild from 'src/components/logos/Guild'
 import Header from 'src/components/layout/Header'
 import TwitterIcon from 'src/components/icons/TwitterIcon'
 import GitHubIcon from 'src/components/icons/GitHubIcon'
@@ -54,7 +55,7 @@ const organizersList = [
   },
 
   {
-    element: <H2>The Guild</H2>,
+    element: <Guild width="80%" height={null} />,
     borderColor: GRAPHQL_PINK,
   },
 ]
@@ -144,7 +145,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
     ({ src, height, width, originalName }, index) => {
       return {
         srcSmall: src,
-        // srcLarge: largeGalleryImages[index].src,
+        srcLarge: largeGalleryImages[index].src,
         height,
         width,
         originalName,
@@ -209,9 +210,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
                 <a name="speakers" />
                 Call For Papers
               </H3>
-              <P>asdfads</P>
-              <P>asdfads</P>
-              <P>asdfads</P>
+              <LinkButton>Submit your talk</LinkButton>
             </Col>
             <Link to="#our-graphql-training" name="our-graphql-training" />
             <Col md={4}>
@@ -297,7 +296,9 @@ const GraphQLPage = ({ data, path, trainings }) => {
 export const query = graphql`
   query {
     images: allFile(
-      filter: { absolutePath: { regex: "/pages/graphql/mini-conf/.*.jpg/" } }
+      filter: {
+        absolutePath: { regex: "/pages/graphql/mini-conference/.*.jpg/" }
+      }
     ) {
       nodes {
         publicURL

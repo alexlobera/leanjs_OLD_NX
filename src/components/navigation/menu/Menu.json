@@ -34,8 +34,8 @@
         "text": "GraphQL Curriculum"
       },
       {
-        "to": "/graphql/mini-conf",
-        "text": "GraphQL Mini Conf",
+        "to": "/graphql/mini-conference",
+        "text": "GraphQL Mini Conference",
         "hideOnMobile": true
       }
     ]
