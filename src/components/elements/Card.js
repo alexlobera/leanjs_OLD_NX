@@ -33,6 +33,7 @@ const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({
 const StyledCard = styled(Box)`
   ${fontColor(DARK_GREY, true)}
 `
+
 const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
   let smallSxProps = {}
   if (rest.small) {
