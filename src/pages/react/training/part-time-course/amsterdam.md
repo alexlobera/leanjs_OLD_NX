@@ -1,6 +1,6 @@
 ---
-instanceTemplate: react-part-time-fullday
-coaches: ['roy-derks']
+instanceTemplate: react-part-time
+coaches: ['roy-derks', 'alex-lobera']
 subtitle: Expert coaches work with you in Amsterdam to help you master React without having to cut into valuable work-days
 videoOneTime: ''
 videoOneId: E_4eQQHjc7A
