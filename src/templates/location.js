@@ -21,7 +21,7 @@ import { Breadcrumb } from 'src/components/navigation'
 import BlogSection from 'src/components/blog/BlogSection'
 import { createMetas } from 'src/components/utils'
 import { titleCase } from 'src/components/utils/text'
-import Gallery from 'src/components/elements/Gallery'
+import Gallery, { massageGalleryImages } from 'src/components/elements/Gallery'
 import { getPostsFromNodes } from 'src/components/blog/utils'
 
 const renderAst = new rehypeReact({
@@ -40,25 +40,6 @@ const renderAst = new rehypeReact({
     span: Span,
   },
 }).Compiler
-
-const massageGalleryImages = (images, size) =>
-  images.nodes
-    .filter(({ name }) => name.endsWith(size))
-    .map(
-      ({
-        publicURL,
-        name,
-        childImageSharp: {
-          original: { width, height },
-        },
-      }) => ({
-        src: publicURL,
-        width,
-        height,
-        originalName: name,
-      })
-    )
-    .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
 
 const Location = ({ path, data, trainings }) => {
   const posts = getPostsFromNodes({
