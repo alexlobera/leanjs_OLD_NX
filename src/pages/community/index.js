@@ -149,9 +149,11 @@ const Community = ({ data, path, trainings }) => {
     type: MEETUP,
   })
   const nextMeetup = selectNthTraining({ trainings: upcomingMeetups }) || {}
+
   const nextMeetupStartDate =
     nextMeetup && formatUTC(nextMeetup.startDate, nextMeetup.utcOffset, 'D MMM')
   const mentorshipImgSrc = data.file.childImageSharp.fluid.src
+
   return (
     <React.Fragment>
       <Breadcrumb
