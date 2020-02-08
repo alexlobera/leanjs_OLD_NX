@@ -3,6 +3,7 @@ export {
   selectNthTraining,
   selectTrainingByInstanceId,
   getNextTrainingByTrainingId,
+  selectNodeById,
 } from './selectUpcomingTrainings'
 export { default as AttendeeQuote } from './AttendeeQuote'
 export { default as TrainingItem } from './TrainingItem'

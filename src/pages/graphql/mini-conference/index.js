@@ -27,6 +27,7 @@ import {
   AlternativeTrainingSection,
   getNextTrainingByTrainingId,
   selectUpcomingTrainings,
+  selectNodeById,
 } from 'src/components/training'
 import { Segment, Image } from 'src/components/elements'
 import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
@@ -34,7 +35,6 @@ import { GRAPHQL_PINK, BLUE, GREY } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Card from 'src/components/elements/Card'
-import { WHITE } from '../../../config/styles'
 
 const REACTSUMMIT_COLOR = '#0f0'
 
@@ -215,6 +215,11 @@ const GraphQLPage = ({ data, path, trainings }) => {
     }),
   ].filter(t => t)
 
+  const conference = selectNodeById({
+    nodes: trainings,
+    id: '5e3e990ae1ac3f000218d377',
+  })
+
   const smallGalleryImages = massageGalleryImages(data.images, 'sm')
   const largeGalleryImages = massageGalleryImages(data.images, 'lg')
 
@@ -261,6 +266,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
         bgImageName={'mini-conf'}
         bgColors={[GRAPHQL_PINK, REACTSUMMIT_COLOR]}
         showInfoBox={true}
+        training={conference}
         links={[
           {
             text: 'Speakers',
@@ -421,9 +427,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
       <Section variant="dark">
         <Row>
           <Col md={5} mdOffset={1}>
-            <PaymentSection
-            //   training={training}
-            />
+            <PaymentSection training={conference} />
           </Col>
           <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
             <H3>Discounts? Query them!</H3>

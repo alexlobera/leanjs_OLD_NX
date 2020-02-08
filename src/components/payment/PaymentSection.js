@@ -164,6 +164,7 @@ class PaymentSection extends React.Component {
       triggerSubscribe,
       trialTraingInstance,
     } = this.props
+
     let trainingInstanceId,
       eventId,
       price = 0,
