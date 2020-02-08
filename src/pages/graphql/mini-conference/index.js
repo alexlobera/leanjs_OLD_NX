@@ -34,6 +34,7 @@ import { GRAPHQL_PINK, BLUE, GREY } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Card from 'src/components/elements/Card'
+import { WHITE } from '../../../config/styles'
 
 const REACTSUMMIT_COLOR = '#0f0'
 
@@ -44,6 +45,8 @@ const sponsorsList = [
   },
 ]
 
+const RGABorderImage = `linear-gradient(to top, ${GRAPHQL_PINK}, ${BLUE}) 1 100%`
+
 const organizersList = [
   {
     element: <ReactSummitLogo width="80%" height={null} fontColor="#000" />,
@@ -52,7 +55,7 @@ const organizersList = [
   {
     element: <RGAWhiteLogo width="80%" height={null} />,
     borderColor: BLUE,
-    borderImage: `linear-gradient(to top, ${GRAPHQL_PINK}, ${BLUE}) 1 100%;`,
+    borderImage: RGABorderImage,
   },
 
   {
@@ -186,6 +189,14 @@ const renderSpeaker = ({ imageSrc, fullname, job, description, links }) => (
   </Flex>
 )
 
+const AgendaCard = ({ sx, ...rest }) => (
+  <Card
+    variant="primary"
+    sx={{ mb: 5, borderColor: GRAPHQL_PINK, ...sx }}
+    {...rest}
+  />
+)
+
 const GraphQLPage = ({ data, path, trainings }) => {
   const trainingsInAmsterdam =
     selectUpcomingTrainings({ trainings, city: 'amsterdam' }) || []
@@ -239,7 +250,14 @@ const GraphQLPage = ({ data, path, trainings }) => {
         ]}
         tech={TECH_GRAPHQL}
         titleLines={['GraphQL Mini Conference Amsterdam April 15, 2020']}
-        subtitle="6 Speakers &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 150 Attendees &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 Evening"
+        subtitle={
+          <Ul sx={{ mt: 0 }} variants={['unstyled', 'inline']}>
+            <Li>150 Attendees</Li>
+            <Li>6 Speakers</Li>
+            <Li>4 Hours of Fun</Li>
+            <Li>1 Evening</Li>
+          </Ul>
+        }
         bgImageName={'mini-conf'}
         bgColors={[GRAPHQL_PINK, REACTSUMMIT_COLOR]}
         showInfoBox={true}
@@ -255,6 +273,10 @@ const GraphQLPage = ({ data, path, trainings }) => {
           {
             text: "What's a Mini Conf",
             to: '#whatisaminiconf',
+          },
+          {
+            text: 'Agenda',
+            to: '#agenda',
           },
           {
             text: 'Tickets',
@@ -346,6 +368,56 @@ const GraphQLPage = ({ data, path, trainings }) => {
           </React.Fragment>
         }
       />
+      <Section>
+        <Row>
+          <Col md={4} mdOffset={4}>
+            <H2>
+              <a name="agenda" />
+              Agenda
+            </H2>
+
+            <H3>Registration</H3>
+            <AgendaCard>
+              <H4>5:30 pm - Doors Open </H4>
+              <P>Drinks and networking</P>
+            </AgendaCard>
+
+            <H3>Lightning Talks</H3>
+            <AgendaCard>
+              <H4>6:10 pm - First Lightning Talk</H4>
+              <P>TBD</P>
+              <H4>6:20 pm - Second Lightning Talk</H4>
+              <P>TBD</P>
+            </AgendaCard>
+
+            <H3>Talks</H3>
+            <AgendaCard>
+              <H4>6:30 pm - First Talk</H4>
+              <P>TBD</P>
+              <H4>7 pm - Second Talk</H4>
+              <P>TBD</P>
+            </AgendaCard>
+
+            <H3>Break</H3>
+            <AgendaCard>
+              <H4>7:30 pm - Food and drinks</H4>
+            </AgendaCard>
+
+            <H3>Talks</H3>
+            <AgendaCard>
+              <H4>8:00 pm - Third Talk</H4>
+              <P>TBD</P>
+              <H4>8:30 pm - Fourth Talk</H4>
+              <P>TBD</P>
+            </AgendaCard>
+
+            <H3>Networking & Party</H3>
+            <AgendaCard sx={{ mb: 0 }}>
+              <H4>9:00 pm - 10 pm</H4>
+            </AgendaCard>
+          </Col>
+        </Row>
+      </Section>
       <Section variant="dark">
         <Row>
           <Col md={5} mdOffset={1}>
@@ -354,7 +426,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
             />
           </Col>
           <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
-            <H3>Query your discount!</H3>
+            <H3>Discounts? Query them!</H3>
           </Col>
         </Row>
       </Section>

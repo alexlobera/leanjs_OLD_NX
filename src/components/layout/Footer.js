@@ -152,11 +152,6 @@ const Footer = () => (
                   product
                 </P>
                 <RGALogo className="footer-rga-logo" />
-                <P sx={{ pt: 4 }}>
-                  Looking for a Job?
-                  <br />
-                  Search for Developer Careers on Jooble
-                </P>
               </Col>
             </Row>
           </Col>

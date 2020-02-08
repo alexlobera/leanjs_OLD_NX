@@ -42,15 +42,10 @@ const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
     smallSxProps.pl = [1, 3]
     smallSxProps.pr = [1, 3]
   }
+
   return (
     <StyledCard
-      //   {...getVariantProps(
-      //     rest.variant || rest.variants,
-      //     cardVariants({ borderColor, borderStyle })
-      //   )}
       sx={{
-        // borderColor: BLUE,
-        // borderStyle: 'solid',
         position: 'relative',
         ...getVariantProps(
           rest.variants || rest.variant,
