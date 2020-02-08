@@ -76,6 +76,7 @@ export const selectBorderStyle = type => {
     case ADVANCED_REACT:
     case GRAPHQL_API:
       return 'dashed'
+    case MEETUP:
     case REACT_WORKSHOP:
     case GRAPHQL_WORKSHOP:
       return 'dotted'

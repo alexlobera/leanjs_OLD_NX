@@ -55,6 +55,9 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            meetup {
+              id
+            }
             id
             title
             startDate
@@ -144,15 +147,15 @@ const Layout = ({ children }) => {
       }),
     }
   }
-  //   const scriptTags = scriptUrls.map(src => (
-  //     <script type="text/javascript" async="true" src={src} key={src} />
-  //   ))
 
   const data = useStaticQuery(layoutQuery)
   const trainings = data.upmentoring.trainingInstancesConnection.edges.map(
     formatTraining
   )
-  const meetups = data.upmentoring.eventsConnection.edges.map(formatMeetup)
+  const meetups = data.upmentoring.eventsConnection.edges
+    // HEADSUP remove this when we deploy gql mini conf
+    .filter(({ node: { meetup } }) => meetup && meetup.id)
+    .map(formatMeetup)
   const trainingAndEvents = selectUpcomingTrainings({
     trainings: [...trainings, ...meetups],
   })
