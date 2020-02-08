@@ -1001,6 +1001,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.1.5":
+  version "7.8.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
+  integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/runtime@^7.7.6":
   version "7.7.7"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
@@ -17441,6 +17448,14 @@ react-sizeme@^2.6.7:
     invariant "^2.2.4"
     shallowequal "^1.1.0"
     throttle-debounce "^2.1.0"
+
+react-sticky-box@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/react-sticky-box/-/react-sticky-box-0.9.2.tgz#6021a84b0ff193f9830b4e1a3f054d417eb01693"
+  integrity sha512-gwUwxpb2aMdQ9D4cagWggYZPT79wCjE1/v3pCjBCJcS2mztChOQQxGhTA8Xg/s5tQSuewTlw4u1W3qwFSB0HQA==
+  dependencies:
+    "@babel/runtime" "^7.1.5"
+    resize-observer-polyfill "^1.5.1"
 
 react-storybook-decorator-background@^1.0.5:
   version "1.0.5"

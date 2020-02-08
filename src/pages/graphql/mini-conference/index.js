@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import StickyBox from 'react-sticky-box'
 
 import { LinkButton } from 'src/components/buttons'
 import { CheckoutProvider } from 'src/components/payment/checkout'
@@ -61,6 +62,71 @@ const organizersList = [
 ]
 
 const speakers = [
+  {
+    fullname: 'Alex Lobera',
+    job: 'Head Coach at React GraphQL Academy',
+    imageSrc:
+      'https://pbs.twimg.com/profile_images/1208906846313934848/6h0aRCgw_400x400.jpg',
+    description:
+      'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    links: [
+      { url: '', icon: TwitterIcon },
+      { url: '', icon: GitHubIcon },
+      { url: '', icon: WebsiteIcon },
+    ],
+  },
+  {
+    fullname: 'Alex Lobera',
+    job: 'Head Coach at React GraphQL Academy',
+    imageSrc:
+      'https://pbs.twimg.com/profile_images/1208906846313934848/6h0aRCgw_400x400.jpg',
+    description:
+      'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    links: [
+      { url: '', icon: TwitterIcon },
+      { url: '', icon: GitHubIcon },
+      { url: '', icon: WebsiteIcon },
+    ],
+  },
+  {
+    fullname: 'Alex Lobera',
+    job: 'Head Coach at React GraphQL Academy',
+    imageSrc:
+      'https://pbs.twimg.com/profile_images/1208906846313934848/6h0aRCgw_400x400.jpg',
+    description:
+      'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    links: [
+      { url: '', icon: TwitterIcon },
+      { url: '', icon: GitHubIcon },
+      { url: '', icon: WebsiteIcon },
+    ],
+  },
+  {
+    fullname: 'Alex Lobera',
+    job: 'Head Coach at React GraphQL Academy',
+    imageSrc:
+      'https://pbs.twimg.com/profile_images/1208906846313934848/6h0aRCgw_400x400.jpg',
+    description:
+      'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    links: [
+      { url: '', icon: TwitterIcon },
+      { url: '', icon: GitHubIcon },
+      { url: '', icon: WebsiteIcon },
+    ],
+  },
+  {
+    fullname: 'Alex Lobera',
+    job: 'Head Coach at React GraphQL Academy',
+    imageSrc:
+      'https://pbs.twimg.com/profile_images/1208906846313934848/6h0aRCgw_400x400.jpg',
+    description:
+      'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+    links: [
+      { url: '', icon: TwitterIcon },
+      { url: '', icon: GitHubIcon },
+      { url: '', icon: WebsiteIcon },
+    ],
+  },
   {
     fullname: 'Alex Lobera',
     job: 'Head Coach at React GraphQL Academy',
@@ -172,7 +238,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
           { to: path, label: 'Mini Conf' },
         ]}
         tech={TECH_GRAPHQL}
-        titleLines={['GraphQL Mini Conference Amsterdam']}
+        titleLines={['GraphQL Mini Conference Amsterdam April 15, 2020']}
         subtitle="6 Speakers &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 150 Attendees &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 Evening"
         bgImageName={'mini-conf'}
         bgColors={[GRAPHQL_PINK, REACTSUMMIT_COLOR]}
@@ -192,7 +258,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
           },
           {
             text: 'Tickets',
-            to: '#tickets',
+            to: '#pricing',
           },
         ]}
         type={GRAPHQL_BOOTCAMP}
@@ -214,32 +280,36 @@ const GraphQLPage = ({ data, path, trainings }) => {
             </Col>
             <Link to="#our-graphql-training" name="our-graphql-training" />
             <Col md={4}>
-              <H3>Sponsors</H3>
+              <H3>
+                <a name="sponsors" />
+                Sponsors
+              </H3>
               {sponsorsList.map(
                 ({ element, borderColor = GRAPHQL_PINK }, index) => (
                   <Card
                     variant="primary"
-                    sx={{ borderColor, mt: index > 0 ? 6 : 0 }}
+                    sx={{ borderColor, mb: index > 0 ? 6 : 0 }}
                   >
                     {element}
                   </Card>
                 )
               )}
-
-              <H3 sx={{ mt: 6 }}>Organizers</H3>
-              {organizersList.map(
-                (
-                  { element, borderImage, borderColor = GRAPHQL_PINK },
-                  index
-                ) => (
-                  <Card
-                    variant="primary"
-                    sx={{ borderImage, borderColor, mt: index > 0 ? 6 : 0 }}
-                  >
-                    {element}
-                  </Card>
-                )
-              )}
+              <H3 sx={{ mb: 6, pt: 5 }}>Organizers</H3>
+              <StickyBox offsetTop={120}>
+                {organizersList.map(
+                  (
+                    { element, borderImage, borderColor = GRAPHQL_PINK },
+                    index
+                  ) => (
+                    <Card
+                      variant="primary"
+                      sx={{ borderImage, borderColor, mt: index > 0 ? 6 : 0 }}
+                    >
+                      {element}
+                    </Card>
+                  )
+                )}
+              </StickyBox>
             </Col>
           </Row>
         </Segment>
@@ -257,8 +327,8 @@ const GraphQLPage = ({ data, path, trainings }) => {
         col2={
           <React.Fragment>
             <H2>
-              <a name="venues" />
-              What is a Mini Conf?
+              <a name="whatisaminiconf" />
+              What is a Mini Conference?
             </H2>
             <P>
               MiniConf is just a shorter version of a Regular conferences you
