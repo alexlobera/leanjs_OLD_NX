@@ -19,7 +19,7 @@ const paymentApi = {
   },
 }
 
-const defaultEventData = {
+const defaultItemData = {
   item: {
     address: 'Publicis Sapient - Eden House, 8 Spital Square',
     city: 'London',
@@ -52,7 +52,7 @@ const defaultAutoVoucherQuery = {
 }
 
 const mountPaymentSection = ({
-  eventData = defaultEventData,
+  itemData = defaultItemData,
   paymentMutation,
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
@@ -70,7 +70,7 @@ const mountPaymentSection = ({
   return render(
     <Root graphQlMocks={mocks}>
       <PaymentSection
-        {...eventData}
+        {...itemData}
         navigate={navigate}
         paymentApi={paymentApi}
         triggerSubscribe={triggerSubscribe}
@@ -159,7 +159,7 @@ describe('<PaymentSection />', () => {
       const { getByText, getByLabelText } = mountPaymentSection({
         paymentMutation: { request, result },
         triggerSubscribe,
-        eventData: {
+        itemData: {
           item: {
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
             city: 'London',
