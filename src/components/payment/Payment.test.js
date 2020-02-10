@@ -30,6 +30,7 @@ const defaultItemData = {
     price: 995,
     startDate: '2019-04-23T17:00:00.000Z',
     type: 'Part-time',
+    shoppingItemEnum: 'training',
   },
 }
 

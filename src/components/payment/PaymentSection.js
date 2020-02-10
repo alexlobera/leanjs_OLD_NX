@@ -192,10 +192,10 @@ class PaymentSection extends React.Component {
       title = 'Standard priced ticket'
       trainingType = item.type
       let ticketsLeft
-      if (trainingType === MEETUP) {
+      if (item.shoppingItemEnum === 'event') {
         eventId = item.id
         ticketsLeft = item.ticketsLeft
-      } else {
+      } else if (item.shoppingItemEnum === 'training') {
         trainingInstanceId = item.id
         ticketsLeft =
           data && data.trainingInstance && data.trainingInstance.ticketsLeft
