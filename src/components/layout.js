@@ -133,6 +133,7 @@ const Layout = ({ children }) => {
 
     return {
       ...node,
+      shoppingItemEnum: 'training',
       title,
       type,
       training: {

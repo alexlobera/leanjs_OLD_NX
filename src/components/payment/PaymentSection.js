@@ -29,13 +29,18 @@ function findVoucherWithOverlappingUseThis(
 
 function getAutomaticVoucherFromData(data) {
   let discount
+  const item =
+    data && data.trainingInstance
+      ? data.trainingInstance
+      : data && data.event
+      ? data.event
+      : null
   if (
-    data &&
-    data.trainingInstance &&
-    data.trainingInstance.upcomingAutomaticDiscounts &&
-    data.trainingInstance.upcomingAutomaticDiscounts.edges
+    item &&
+    item.upcomingAutomaticDiscounts &&
+    item.upcomingAutomaticDiscounts.edges
   ) {
-    const { edges } = data.trainingInstance.upcomingAutomaticDiscounts
+    const { edges } = item.upcomingAutomaticDiscounts
     discount = edges.reduce(findVoucherWithOverlappingUseThis, null)
 
     if (!discount && edges.length) {
@@ -48,12 +53,13 @@ function getAutomaticVoucherFromData(data) {
 
 export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
-    $trainingInstanceId: ID!
-    $quantity: Int!
+    $itemId: ID!
+    $shoppingItemEnum: ShoppingItemEnum!
     $voucherCode: String!
   ) {
     redeemVoucher(
-      trainingInstanceId: $trainingInstanceId
+      itemId: $itemId
+      shoppingItemEnum: $shoppingItemEnum
       quantity: $quantity
       voucherCode: $voucherCode
     ) {
@@ -83,7 +89,7 @@ class PaymentSection extends React.Component {
   validateVoucher = voucher => {
     const {
       statelessClient,
-      training: { id: trainingInstanceId },
+      item: { id: itemId, shoppingItemEnum },
       trackUserBehaviour,
     } = this.props
     const { isVoucherValidationInProgress, quantity } = this.state
@@ -103,13 +109,13 @@ class PaymentSection extends React.Component {
         query: VALIDATE_VOUCHER_QUERY,
         variables: {
           voucherCode: voucher,
-          trainingInstanceId,
+          itemId,
+          shoppingItemEnum,
           quantity,
         },
       })
       .then(({ data = {} }) => {
         const { netPrice } = data.redeemVoucher || {}
-
         this.setVoucherInProgress(false)
         this.setState({
           isVoucherValid: !!netPrice,
@@ -154,7 +160,7 @@ class PaymentSection extends React.Component {
   render() {
     const {
       paymentApi,
-      training = {},
+      item = {},
       navigate,
       data,
       errors,
@@ -179,17 +185,17 @@ class PaymentSection extends React.Component {
       title = 'There was an error'
     } else if (loading) {
       title = 'Loading ...'
-    } else if (!training || !training.id) {
-      title = 'There is no training scheduled'
+    } else if (!item || !item.id) {
+      title = 'There is no event scheduled'
     } else {
       title = 'Standard priced ticket'
-      trainingType = training.type
+      trainingType = item.type
       let ticketsLeft
       if (trainingType === MEETUP) {
-        eventId = training.id
-        ticketsLeft = training.ticketsLeft
+        eventId = item.id
+        ticketsLeft = item.ticketsLeft
       } else {
-        trainingInstanceId = training.id
+        trainingInstanceId = item.id
         ticketsLeft =
           data && data.trainingInstance && data.trainingInstance.ticketsLeft
       }
@@ -199,8 +205,8 @@ class PaymentSection extends React.Component {
         ticketsLeft !== null &&
         parseInt(ticketsLeft) <= 0
       )
-      price = training.price
-      currency = training.currency || 'gbp'
+      price = item.price
+      currency = item.currency || 'gbp'
 
       let discount = getAutomaticVoucherFromData(data)
 
@@ -336,7 +342,7 @@ PaymentSection.defaultProps = {
   navigate,
 }
 
-export const QUERY_UPCOMING_VOUCHERS = `
+export const QUERY_UPCOMING_TRAINING_VOUCHERS = `
 query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
   trainingInstance(id: $trainingInstanceId) {
     ticketsLeft
@@ -355,11 +361,39 @@ query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
   }
 }
 `
-const withUpcomingVouchers = graphql(QUERY_UPCOMING_VOUCHERS, {
-  options: ({ training }) => ({
-    variables: { trainingInstanceId: training.id },
+
+export const QUERY_UPCOMING_EVENT_VOUCHERS = `
+query upcomingAutomaticDiscounts($eventId: ID!) {
+  event(id: $eventId) {
+    upcomingAutomaticDiscounts {
+        edges {
+          node {
+            code
+            id
+            discountPercentage
+            startsAt
+            expiresAt
+            onOverlappingUseThis
+          }
+        }
+      }
+  }
+}
+`
+const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
+  options: ({ item }) => ({
+    variables: { trainingInstanceId: item.id },
   }),
-  skip: ({ training }) => !training || !training.id || training.type === MEETUP,
+  skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
 })
 
-export default withStatelessClient(withUpcomingVouchers(PaymentSection))
+const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
+  options: ({ item }) => ({
+    variables: { eventId: item.id },
+  }),
+  skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
+})
+
+export default withStatelessClient(
+  withUpcomingTrainingVouchers(withUpcomingEventVouchers(PaymentSection))
+)
