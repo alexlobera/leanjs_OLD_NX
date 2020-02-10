@@ -56,6 +56,7 @@ export const VALIDATE_VOUCHER_QUERY = `
     $itemId: ID!
     $shoppingItemEnum: ShoppingItemEnum!
     $voucherCode: String!
+    $quantity: Int!
   ) {
     redeemVoucher(
       itemId: $itemId
