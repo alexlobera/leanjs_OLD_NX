@@ -4,7 +4,11 @@ import raven from 'raven-js'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import selectUpcomingTrainings from './training/selectUpcomingTrainings'
-import { createTrainingPath, formatMeetup } from './training/dataUtils'
+import {
+  createTrainingPath,
+  formatMeetup,
+  formatConf,
+} from './training/dataUtils'
 
 import './reset.css'
 import './layout.css'
@@ -60,6 +64,8 @@ const layoutQuery = graphql`
             }
             id
             title
+            price
+            currency
             startDate
             utcOffset
             endDate
@@ -156,8 +162,11 @@ const Layout = ({ children }) => {
     // HEADSUP remove this when we deploy gql mini conf
     .filter(({ node: { meetup } }) => meetup && meetup.id)
     .map(formatMeetup)
+  const confs = data.upmentoring.eventsConnection.edges
+    .filter(({ node: { meetup } }) => !meetup || !meetup.id)
+    .map(formatConf)
   const trainingAndEvents = selectUpcomingTrainings({
-    trainings: [...trainings, ...meetups],
+    trainings: [...trainings, ...meetups, ...confs],
   })
 
   return (

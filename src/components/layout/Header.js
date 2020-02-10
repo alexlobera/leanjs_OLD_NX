@@ -246,12 +246,13 @@ TitleBackground.displayName = 'TitleBackground'
 
 const SubTitleBackground = styled.div`
   ${TITLE_BACKGROUND} padding: 16px;
+  color: ${WHITE};
   max-width: 65ch;
   a {
     color: ${WHITE};
   }
-  ul {
-    margin-top: 20px;
+  ul li {
+    color: ${WHITE};
   }
 `
 

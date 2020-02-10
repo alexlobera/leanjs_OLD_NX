@@ -33,6 +33,7 @@ const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({
 const StyledCard = styled(Box)`
   ${fontColor(DARK_GREY, true)}
 `
+
 const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
   let smallSxProps = {}
   if (rest.small) {
@@ -41,15 +42,10 @@ const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
     smallSxProps.pl = [1, 3]
     smallSxProps.pr = [1, 3]
   }
+
   return (
     <StyledCard
-      //   {...getVariantProps(
-      //     rest.variant || rest.variants,
-      //     cardVariants({ borderColor, borderStyle })
-      //   )}
       sx={{
-        // borderColor: BLUE,
-        // borderStyle: 'solid',
         position: 'relative',
         ...getVariantProps(
           rest.variants || rest.variant,
