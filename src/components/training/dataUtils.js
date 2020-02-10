@@ -60,6 +60,7 @@ export const createTrainingPath = ({
 export function formatMeetup({ node }) {
   return {
     ...node,
+    shoppingItemEnum: 'event',
     type: MEETUP,
     toPath: `/community/meetups/${node.id}`,
   }
@@ -68,6 +69,7 @@ export function formatMeetup({ node }) {
 export function formatConf({ node }) {
   return {
     ...node,
+    shoppingItemEnum: 'event',
     // TODO TYPE SHOULD NOT BE HARDCODED
     type: GRAPHQL_MINI_CONF,
     // TODO URL SHOULD NOT BE HARDCODED

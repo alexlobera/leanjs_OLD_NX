@@ -7,7 +7,7 @@ import { MEETUP } from '../../config/data'
 import Root from '../../../test/utils/Root'
 import { PAY_MUTATION, VALIDATE_VIES_QUERY } from './checkout/CheckoutContainer'
 import {
-  QUERY_UPCOMING_VOUCHERS,
+  QUERY_UPCOMING_TRAINING_VOUCHERS,
   VALIDATE_VOUCHER_QUERY,
 } from './PaymentSection'
 import PaymentSection from './PaymentSection'
@@ -19,8 +19,8 @@ const paymentApi = {
   },
 }
 
-const defaultTrainingData = {
-  training: {
+const defaultEventData = {
+  item: {
     address: 'Publicis Sapient - Eden House, 8 Spital Square',
     city: 'London',
     country: 'UK',
@@ -35,7 +35,7 @@ const defaultTrainingData = {
 
 const defaultAutoVoucherQuery = {
   request: {
-    query: QUERY_UPCOMING_VOUCHERS,
+    query: QUERY_UPCOMING_TRAINING_VOUCHERS,
     variables: {
       trainingInstanceId: '5aa2acda7dcc782348ea1234',
     },
@@ -52,7 +52,7 @@ const defaultAutoVoucherQuery = {
 }
 
 const mountPaymentSection = ({
-  trainingData = defaultTrainingData,
+  eventData = defaultEventData,
   paymentMutation,
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
@@ -70,7 +70,7 @@ const mountPaymentSection = ({
   return render(
     <Root graphQlMocks={mocks}>
       <PaymentSection
-        {...trainingData}
+        {...eventData}
         navigate={navigate}
         paymentApi={paymentApi}
         triggerSubscribe={triggerSubscribe}
@@ -159,8 +159,8 @@ describe('<PaymentSection />', () => {
       const { getByText, getByLabelText } = mountPaymentSection({
         paymentMutation: { request, result },
         triggerSubscribe,
-        trainingData: {
-          training: {
+        eventData: {
+          item: {
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
             city: 'London',
             country: 'UK',

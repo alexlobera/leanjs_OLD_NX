@@ -427,7 +427,7 @@
 //       <Section variant="dark">
 //         <Row>
 //           <Col md={5} mdOffset={1}>
-//             <PaymentSection training={conference} />
+//             <PaymentSection item={conference} />
 //           </Col>
 //           <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
 //             <H3>Discounts? Query them!</H3>

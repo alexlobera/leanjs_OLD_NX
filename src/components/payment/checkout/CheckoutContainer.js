@@ -33,7 +33,7 @@ export const VALIDATE_VIES_QUERY = `
 export const PAY_MUTATION = `
 mutation pay(
   $itemId: ID!
-  $itemType: PaymentItemEnum!
+  $itemType: ShoppingItemEnum!
   $quantity: Int!
   $voucherCode: String
   $email: String!

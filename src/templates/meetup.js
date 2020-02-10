@@ -101,7 +101,7 @@ const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
               </Link>
             </Col>
             <Col md={6} lg={5} lgOffset={1}>
-              <PaymentSection training={meetup} />
+              <PaymentSection item={meetup} />
             </Col>
           </Row>
         </Segment>
