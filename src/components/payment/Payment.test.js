@@ -87,7 +87,7 @@ describe('<PaymentSection />', () => {
       voucherCode: '',
       quantity: 1,
       itemId: '5aa2acda7dcc782348ea1234',
-      itemType: 'training',
+      shoppingItemEnum: 'training',
       email: 'test@example.com',
       name: 'Joe Bloggs',
       token: 2,
