@@ -198,13 +198,6 @@ const Layout = ({ children }) => {
           {/* {scriptTags} */}
         </Helmet>
         <Menu />
-        {/* {typeof children === 'function'
-          ? children({
-              trainings: selectUpcomingTrainings({
-                trainings: [...trainings, ...meetups],
-              }),
-            })
-          : children} */}
         {React.Children.map(children, child =>
           React.cloneElement(child, {
             trainings: trainingAndEvents,

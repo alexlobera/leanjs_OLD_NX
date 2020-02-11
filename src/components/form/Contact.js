@@ -25,6 +25,7 @@ const ContactForm = ({
   addContactUsLink,
   simplified,
   variant = 'primary',
+  newsletterAnchorName,
 }) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const handleFormSubmit = ({ email }) => {
@@ -82,7 +83,7 @@ const ContactForm = ({
           </P>
         </React.Fragment>
       )}
-      <Newsletter showCTA={false} />
+      <Newsletter showCTA={false} anchorName={newsletterAnchorName} />
       <Row>
         <Col>
           <Form
@@ -119,6 +120,12 @@ const ContactForm = ({
             </Link>
             .
           </P>
+          <P>
+            Looking to{' '}
+            <Link to="/unsubscribe/" className="footer-unsubscribe">
+              unsubscribe?
+            </Link>
+          </P>
         </Col>
       </Row>
       {formSubmitted ? (
@@ -128,13 +135,6 @@ const ContactForm = ({
           </Col>
         </Row>
       ) : null}
-
-      <P sx={{ pt: 3 }}>
-        Looking to{' '}
-        <Link to="/unsubscribe/" className="footer-unsubscribe">
-          unsubscribe?
-        </Link>
-      </P>
     </React.Fragment>
   )
 }

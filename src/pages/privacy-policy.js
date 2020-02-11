@@ -1,5 +1,7 @@
 import React from 'react'
+import StickyBox from 'react-sticky-box'
 
+import ContactForm from '../components/form/Contact'
 import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, H3, P } from '../components/text'
@@ -54,7 +56,7 @@ const PrivacyPolicy = ({ data, trainings }) => {
       </TopSection>
       <Section>
         <Row>
-          <Col md={10} mdOffset={1}>
+          <Col md={7}>
             <H2>What’s on this page:</H2>
             <Ul>
               <Li>
@@ -302,6 +304,13 @@ const PrivacyPolicy = ({ data, trainings }) => {
               </Link>
               .
             </P>
+          </Col>
+          <Col md={4} mdOffset={1}>
+            <StickyBox offsetTop={120}>
+              <Segment small variant="primary">
+                <ContactForm simplified />
+              </Segment>
+            </StickyBox>
           </Col>
         </Row>
       </Section>
