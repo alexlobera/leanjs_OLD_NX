@@ -304,7 +304,7 @@
 //                 <a name="speakers" />
 //                 Call For Papers
 //               </H3>
-//               <LinkButton>Submit your talk</LinkButton>
+//               <LinkButton to="https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform">Submit your talk</LinkButton>
 //             </Col>
 //             <Link to="#our-graphql-training" name="our-graphql-training" />
 //             <Col md={4}>

@@ -23,10 +23,19 @@ import { getPostsFromNodes, getContents } from '../components/blog/utils'
 import { slugify } from '../components/utils/text'
 
 function renderHeadingWithAnchor({ children, Component }) {
+  const formatedChildren = (Array.isArray(children) ? children : [children])
+    .map(child =>
+      typeof child === 'string'
+        ? child
+        : child && child.props && child.props.node && child.props.node.children
+    )
+    .filter(child => child)
+    .join(' ')
+
   return (
     <Component>
-      <a name={slugify(children.join(' '))} />
-      {children}
+      <a name={slugify(formatedChildren)} />
+      {formatedChildren}
     </Component>
   )
 }
