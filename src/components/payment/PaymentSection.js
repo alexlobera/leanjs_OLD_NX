@@ -329,7 +329,8 @@ class PaymentSection extends React.Component {
           {trainingType !== MEETUP && !isOnline && (
             <P sx={{ pt: 4 }}>
               Please be aware that the ticket only covers the cost of the
-              training, it does not include travel expenses.
+              {trainingInstanceId ? 'training' : 'event'}, it does not include
+              travel expenses.
             </P>
           )}
         </React.Fragment>

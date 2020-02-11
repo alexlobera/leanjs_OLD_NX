@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import StickyBox from 'react-sticky-box'
 
 import { RunkitProvider } from '../blog/Runkit'
 import { formatUTC } from '../utils'
@@ -12,7 +13,7 @@ import { UpcomingTrainingSection } from '../training'
 import { Breadcrumb, Link } from '../navigation'
 import { WHITE } from '../../config/styles'
 import { Image } from '../elements'
-import ContactForm from '../form/Contact'
+import BlogNewsletter from './BlogNewsletter'
 import { Segment } from '../elements'
 import ShareButtons from './ShareButtons'
 import { createMetas } from '../utils'
@@ -160,9 +161,6 @@ const BlogPost = ({
           {body}
         </Col>
         <Col md={4} mdOffset={1}>
-          <Segment small variant="primary" sx={{ mt: 3 }}>
-            <ContactForm simplified />
-          </Segment>
           {relatedPosts.length ? (
             <Segment small sx={{ mt: 4, border: 'shadow' }}>
               <H4>Related articles</H4>
@@ -176,10 +174,15 @@ const BlogPost = ({
               ))}
             </Segment>
           ) : null}
+          <StickyBox offsetTop={120}>
+            <Segment small sx={{ mt: 3 }}>
+              <BlogNewsletter to="#newsletter-footer" />
+            </Segment>
+          </StickyBox>
         </Col>
       </Row>
       <Row>
-        <Col md={6}>
+        <Col md={6} sx={{ mt: 4 }}>
           <P>Share this on: </P>
           <ShareButtons path={location.pathname} />
           <Hr />
