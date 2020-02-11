@@ -3,8 +3,6 @@ import React from 'react'
 import LinkButton from '../buttons/LinkButton'
 import { H3, P } from '../text'
 
-export const THANKS_MESSAGE = 'Thanks for submitting!'
-
 const BlogNewsletter = () => {
   return (
     <React.Fragment>

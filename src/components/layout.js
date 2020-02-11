@@ -169,7 +169,7 @@ const Layout = ({ children }) => {
   const trainingAndEvents = selectUpcomingTrainings({
     trainings: [...trainings, ...meetups, ...confs],
   })
-  console.log('trainingAndEvents', trainingAndEvents)
+
   return (
     <React.Fragment>
       <React.Fragment>
