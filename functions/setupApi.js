@@ -1,15 +1,35 @@
 const fetch = require('node-fetch')
 const express = require('express')
+const { WebClient } = require('@slack/web-api')
 
-const setupApi = ({ autopilotapikey, middlewares = [] }) => {
+const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
   const api = express()
   const RESOURCES_SINGED_UP = 'boolean--Resources-SingedUp'
   middlewares.map(middleware => api.use(middleware))
 
   api.use(setOptions)
+  api.post('/sendFeedback', sendFeedback)
   api.post('/unsubscribe', requireBodyEmail, unsubscribe)
   api.post('/sessionSubscribe', requireBodyEmail, sessionSubscribe)
   api.post('/subscribe', requireBodyEmail, subscribe)
+
+  async function sendFeedback(request, response, next) {
+    const feedback = request && request.body
+    if (!feedback) {
+      response.status(401).send('no feedback')
+    }
+
+    const web = new WebClient(slackToken)
+    const feedbackWebChannelId = 'GTYDWT7JB'
+
+    // See: https://api.slack.com/methods/chat.postMessage
+    const res = await web.chat.postMessage({
+      channel: feedbackWebChannelId,
+      text: JSON.stringify(feedback),
+    })
+
+    response.status(200).send('feedback submited')
+  }
 
   function requireBodyEmail(request, response, next) {
     const email = request && request.body && request.body.email
