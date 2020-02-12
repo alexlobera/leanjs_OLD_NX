@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import StickyBox from 'react-sticky-box'
 
 import { CheckoutProvider } from 'src/components/payment/checkout'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -50,6 +51,7 @@ const InstancePage = ({
   trialTrainingId,
   data,
   trainings,
+  feedback,
   pageContext: {
     locationImage,
     posts,
@@ -338,10 +340,16 @@ const InstancePage = ({
             />
           </Col>
           <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
-            <ContactForm
-              variant={training ? 'default' : 'primary'}
-              simplified
-            />
+            {feedback ? (
+              <StickyBox offsetBottom={15} offsetTop={120}>
+                {feedback}
+              </StickyBox>
+            ) : (
+              <ContactForm
+                variant={training ? 'default' : 'primary'}
+                simplified
+              />
+            )}
           </Col>
           {training &&
             (financeAvailable ||

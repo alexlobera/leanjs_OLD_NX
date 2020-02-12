@@ -6,6 +6,8 @@ export const BLUE_04 = `rgba(97, 218, 251, 0.4)`
 
 export const DARK_BLUE = `rgba(0,41,56, 1)`
 
+export const BLACK = `black`
+
 export const DARK_BLUE_075 = `rgba(0,41,56, 0.75)`
 
 export const LIGHT_BLUE = `rgba(87,178,212,0.9)`
