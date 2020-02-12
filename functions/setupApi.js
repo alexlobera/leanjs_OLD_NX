@@ -18,6 +18,7 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
     if (!feedback) {
       response.status(401).send('no feedback')
     }
+    console.log('Feedback', feedback)
 
     const web = new WebClient(slackToken)
     const feedbackWebChannelId = 'GTYDWT7JB'

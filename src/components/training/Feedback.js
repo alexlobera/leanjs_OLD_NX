@@ -16,7 +16,7 @@ function Feedback({ trialPath, articlePath }) {
   }
 
   return formSubmitted ? (
-    <H3 sx={{ my: 3 }}>Thank's a lot for your feedback 🙏</H3>
+    <H3 sx={{ my: 3 }}>Thank's a lot for your feedback</H3>
   ) : (
     <Form
       onSubmit={handleFormSubmit}

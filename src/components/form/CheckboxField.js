@@ -28,7 +28,6 @@ const HiddenCheckbox = styled.input.attrs(props => ({
 `
 
 const StyledCheckbox = styled.div`
-  /* margin: 0 0.8rem 0.9rem 0; */
   margin: 0.4rem 0.8rem 0.4rem 0;
   border: 1px solid ${({ color }) => (color ? color : BLACK)};
   height: ${props => (props.size ? props.size : defaultSize)}em;
@@ -41,10 +40,6 @@ const StyledCheckbox = styled.div`
   }
 `
 const CheckboxSpan = ({ sx, ...rest }) => <Flex box="span" sx={sx} {...rest} />
-//  styled.span`
-//   margin-left: 1em;
-//   align-self: center;
-// `
 
 const Checkbox = ({ checked, input, onChange, color, ...props }) => {
   const newOnChange = e => {
