@@ -17,12 +17,12 @@ import FederationSession, {
 import HasuraSession, {
   LearningObjectives as HasuraLearningObjectives,
 } from './sessions/graphql/server/HasuraSession'
-import GraphQLClientFundamentalsSession, {
-  LearningObjectives as GraphQLClientLearningObjectives,
-} from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-import AdvancedApolloClientSession, {
-  LearningObjectives as AdvancedApolloClientLearningObjectives,
-} from './sessions/graphql/client/AdvancedApolloClientSession'
+// import GraphQLClientFundamentalsSession, {
+//   LearningObjectives as GraphQLClientLearningObjectives,
+// } from './sessions/graphql/client/GraphQLClientFundamentalsSession'
+// import AdvancedApolloClientSession, {
+//   LearningObjectives as AdvancedApolloClientLearningObjectives,
+// } from './sessions/graphql/client/AdvancedApolloClientSession'
 import { GRAPHQL_PART_TIME } from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
@@ -35,14 +35,14 @@ export const defaultSessionsFirstHalf = [
   { Comp: ThinkingInGraphQLSession },
   { Comp: SchemaDesignSession },
   { Comp: ErrorAndSecuritySession },
-  { Comp: FederationSession },
 ]
 
 export const defaultSessionsSecondtHalf = [
-  { Comp: HasuraSession },
-  { Comp: GraphQLClientFundamentalsSession },
-  { Comp: AdvancedApolloClientSession },
+  { Comp: FederationSession },
   { Comp: SubscriptionsSession },
+  { Comp: HasuraSession },
+  //{ Comp: GraphQLClientFundamentalsSession },
+  //{ Comp: AdvancedApolloClientSession },
 ]
 
 const CurriculumPartTime = ({
@@ -98,8 +98,8 @@ export const LearningObjectives = ({ showAllButton = true }) => {
         <SubscriptionsLearningObjectives showAll={showAll} />
         <FederationLearningObjectives showAll={showAll} />
         <HasuraLearningObjectives showAll={showAll} />
-        <GraphQLClientLearningObjectives showAll={showAll} />
-        <AdvancedApolloClientLearningObjectives showAll={showAll} />
+        {/* <GraphQLClientLearningObjectives showAll={showAll} />
+        <AdvancedApolloClientLearningObjectives showAll={showAll} /> */}
       </Ul>
 
       {showAllButton && (
