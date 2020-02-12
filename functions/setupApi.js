@@ -21,7 +21,7 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
     console.log('Feedback', feedback)
 
     const web = new WebClient(slackToken)
-    const feedbackWebChannelId = 'GTYDWT7JB'
+    const feedbackWebChannelId = 'CTX1B2UJC'
 
     // See: https://api.slack.com/methods/chat.postMessage
     const res = await web.chat.postMessage({
