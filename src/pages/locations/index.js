@@ -10,7 +10,7 @@ import { H3 } from '../../components/text'
 import { Link } from '../../components/navigation'
 import { Image } from '../../components/elements'
 import Card from '../../components/elements/Card'
-import { Box } from '@leanjs/academy-ui'
+import Box from '../../components/layout/Box'
 
 const Blog = ({ data, path, trainings }) => {
   const locations = data.allMarkdownRemark.edges || []

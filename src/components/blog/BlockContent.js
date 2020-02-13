@@ -2,7 +2,7 @@ import React from 'react'
 import { EmbedRunkit } from './Runkit'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import {Box} from '@leanjs/academy-ui'
+import Box from '../layout/Box'
 import PrismCode from './PrismCode'
 
 import Image from '../elements/Image'

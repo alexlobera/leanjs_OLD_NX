@@ -10,7 +10,7 @@ import {
   selectBorderStyle,
 } from '../utils'
 import { Col, Row } from './Grid'
-import { Box } from '@leanjs/academy-ui'
+import Box from './Box'
 
 const Ul = styled(Box)`
   a {

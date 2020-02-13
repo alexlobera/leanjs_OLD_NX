@@ -7,7 +7,7 @@ import trackUserBehaviour, {
 } from '../utils/trackUserBehaviour'
 import { selectTypeColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
-import { Box } from '@leanjs/academy-ui'
+import Box from '../layout/Box'
 import Card from '../elements/Card'
 
 // DELETE NEXT FUNCTION AFTER GRAPHQL REFACTORING

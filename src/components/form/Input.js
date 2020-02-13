@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { WHITE, BROWN, DARK_GREY, DARK_BLUE, PINK } from '../../config/styles'
-import { Box } from '@leanjs/academy-ui'
+import Box from '../layout/Box'
 import Label from '../text/Label'
 
 // TODOSX MOVE ALL THIS CSS TO SX PROP

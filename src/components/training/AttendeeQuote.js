@@ -1,7 +1,7 @@
 import React from 'react'
 import { Blockquote, P } from '../text'
 import { Video } from '../elements'
-import {Box} from '@leanjs/academy-ui'
+import Box from '../layout/Box'
 import { LinkButton } from '../buttons'
 import Card from '../elements/Card'
 import { selectTypeColor } from '../utils'

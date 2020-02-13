@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { H3, P } from '../../components/text'
-import { Link } from '../../components/navigation'
-import { Image } from '../../components/elements'
-import Card from '../../components/elements/Card'
-import { Box } from '@leanjs/academy-ui'
+import { H3, P } from '../text'
+import { Link } from '../navigation'
+import { Image } from '../elements'
+import Card from '../elements/Card'
+import Box from '../layout/Box'
 import { formatPostTitle } from './BlogPost'
 
 const PostCard = ({

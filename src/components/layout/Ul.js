@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box } from '@leanjs/academy-ui'
+import Box from './Box'
 import { getVariantProps } from '../utils'
 
 const StyledUl = styled(Box)`

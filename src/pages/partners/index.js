@@ -9,7 +9,7 @@ import Section from '../../components/layout/Section'
 import { H2, H3, P } from '../../components/text'
 import { Image } from '../../components/elements'
 import Card from '../../components/elements/Card'
-import { Box } from '@leanjs/academy-ui'
+import Box from '../../components/layout/Box'
 import Flex from '../../components/layout/Flex'
 import { titleCase } from '../../components/utils/text'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box} from '@leanjs/academy-ui'
+import Box from '../layout/Box'
 
 import withLazyLoad from './withLazyLoad'
 

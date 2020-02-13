@@ -1,3 +1,3 @@
-import { Box } from '@leanjs/academy-ui'
+import { Box } from '@leanjs/box'
 
 export default Box

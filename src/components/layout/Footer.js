@@ -17,7 +17,7 @@ import {
   LinkedinIcon,
 } from '../icons'
 import { fontColor } from '../text'
-import { Box } from '@leanjs/academy-ui'
+import Box from './Box'
 
 const FooterWrapper = React.memo(props => (
   <Box

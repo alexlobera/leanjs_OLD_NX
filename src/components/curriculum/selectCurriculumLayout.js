@@ -8,7 +8,7 @@ import Link from '../navigation/Link'
 import { Col, Row } from '../layout/Grid'
 import UpcomingTrainingCurriculum from '../training/UpcomingTrainingCurriculum'
 import Flex from '../layout/Flex'
-import { Box } from '@leanjs/academy-ui'
+import Box from '../layout/Box'
 
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'

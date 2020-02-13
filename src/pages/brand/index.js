@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import { H2, H3 } from '../../components/text/H'
 import LinkButton from '../../components/buttons/LinkButton'
-import { Box } from '@leanjs/academy-ui'
+import Box from '../../components/layout/Box'
 import Link from '../../components/navigation/Link'
 import Image from '../../components/elements/Image'
 import P from '../../components/text/P'

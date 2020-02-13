@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'styled-components'
 import { flexbox } from 'styled-system'
-import { Box } from '@leanjs/academy-ui'
+import Box from './Box'
 
 const Flex = ({ sx = {}, ...rest }) => (
   <Box

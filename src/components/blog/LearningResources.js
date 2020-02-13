@@ -1,6 +1,6 @@
 import React from 'react'
 import { H2 } from 'src/components/text'
-import {Box} from '@leanjs/academy-ui'
+import Box from '../layout/Box'
 import PostCard from './PostCard'
 import { LinkButton } from '../buttons'
 
