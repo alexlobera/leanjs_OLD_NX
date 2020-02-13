@@ -2,33 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Link from '../navigation/Link'
-import {
-  defaultButtonStyle,
-  buttonVariantProps,
-  buttonDefaultSxProp,
-} from './Button'
+import { buttonVariantProps, buttonDefaultSxProp } from './Button'
 import { ExternalLinkIcon, PdfDownload } from '../../components/icons'
 
-// TODOSX MOVE THIS TO SX DEFAULT PROP
+// // TODOSX MOVE THIS TO SX DEFAULT PROP
 const StyledLinkButton = styled(Link)`
-  ${defaultButtonStyle}
   text-decoration: none;
 `
 StyledLinkButton.displayName = 'StyledLinkButton'
-
-// const {
-//   sx: buttonDefaultSxProp = {},
-//   ...buttonDefaultRestProps
-// } = buttonDefaultProps
-
-// StyledLinkButton.defaultProps = {
-//   ...buttonDefaultRestProps,
-//   sx: {
-//     ...sx,
-//     display: 'inline-flex',
-//     alignItems: 'center',
-//   },
-// }
 
 const LinkButton = ({
   trackUserBehaviour: trackUserBehaviourProp,
@@ -42,7 +23,6 @@ const LinkButton = ({
     sx={{
       ...buttonDefaultSxProp,
       display: 'inline-flex',
-      alignItems: 'center',
       ...(buttonVariantProps[variant] || {}),
       ...sx,
     }}
@@ -53,9 +33,5 @@ const LinkButton = ({
     {children}
   </StyledLinkButton>
 )
-
-// LinkButton.defaultProps = {
-//   variant: 'default',
-// }
 
 export default React.memo(LinkButton)

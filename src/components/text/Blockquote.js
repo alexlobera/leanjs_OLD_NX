@@ -7,12 +7,4 @@ const Blockquote = ({ sx = {}, children, ...rest }) => (
   </Box>
 )
 
-// Blockquote.defaultProps = {
-//   sx: {
-//     fontStyle: 'italic',
-//     lineHeight: 4,
-//   },
-//   box: 'span',
-// }
-
 export default Blockquote

@@ -4,7 +4,6 @@ import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll'
-import { DARK_GREY } from '../../config/styles'
 import Box from '../layout/Box'
 
 export const DEFAULT_SCROLL_OFFSET = -125
@@ -12,7 +11,8 @@ export const DEFAULT_SCROLL_DURATION = 500
 
 const StyledLink = styled(Box)`
   cursor: pointer;
-  text-shadow: 0px 0px 1px ${DARK_GREY};
+  text-shadow: 0px 0px 1px
+    ${({ theme = {} }) => (theme.colors ? theme.colors.text : '')};
   text-decoration: ${({ underline = true }) =>
     underline ? 'underline' : 'none'};
 `
@@ -98,10 +98,6 @@ class Link extends React.Component {
         </StyledLink>
       )
     } else {
-      // this two attrs where causing an anoying error while developing...
-      // GatsbyLink does not support strange props
-      delete rest.variant
-
       // The destination URLs need to have trailing slashes for Gatsby prefetching to happen
       const dest =
         toHref.slice(-1) === '/' ||

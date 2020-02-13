@@ -17,7 +17,6 @@ const PdfDownload = props => (
   </svg>
 )
 
-// const StyledPdfDownload = styled(Box)``
 const StyledPdfDownload = props => <Box box={PdfDownload} {...props} />
 
 export default StyledPdfDownload

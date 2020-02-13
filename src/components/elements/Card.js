@@ -4,21 +4,20 @@ import styled from 'styled-components'
 import { fontColor } from '../text'
 import { getVariantProps } from '../utils'
 import Box from '../layout/Box'
-import { BLUE, WHITE, DARK_GREY, BOX_SHADOW } from '../../config/styles'
 
-const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({
+const cardVariants = ({ borderColor = 'react', borderStyle = 'solid' }) => ({
   primary: {
     borderLeft: `3px ${borderStyle}`,
     borderLeftColor: borderColor,
     pl: [2, 5],
   },
   secondary: {
-    boxShadow: BOX_SHADOW,
+    boxShadow: 'box',
     pl: [1, 5],
     pr: [1, 5],
     pt: [1, 5],
     pb: [1, 5],
-    backgroundColor: WHITE,
+    backgroundColor: 'background',
   },
   info: {
     border: `3px ${borderStyle}`,
@@ -31,7 +30,8 @@ const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({
 })
 
 const StyledCard = styled(Box)`
-  ${fontColor(DARK_GREY, true)}
+  ${({ theme = {} }) =>
+    fontColor(theme.colors ? theme.colors.text : undefined, true)}
 `
 
 const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
