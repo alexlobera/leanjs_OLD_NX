@@ -40,7 +40,7 @@ jobs:
           command: cd www && npm install --save-dev firebase-tools
       - run:
           name: Deploy Master to Firebase
-          command: cd www && npm run deploy-hosting
+          command: cd www && npm run deploy-hosting -- --token=$FIREBASE_DEPLOY_TOKEN
   e2e-tests:
     docker:
       # the Docker image with Cypress dependencies
