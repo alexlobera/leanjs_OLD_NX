@@ -13,16 +13,11 @@ yarn-error.log
 # functions 
 functions/config
 
-# Sanity Studio
-studio/dist
-
 # Build directory
 public
-.DS_Store
 
 # Reports
 coverage
-cypress
 
 # Env
 .env

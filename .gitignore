@@ -2,28 +2,7 @@
 .cache
 node_modules
 yarn-error.log
-/components/firebase/firebase.js
-firebase-debug.log
-.firebaserc
-.firebase
 package.lock
 package-lock.json
 yarn-error.log
-
-# functions 
-functions/config
-
-# Sanity Studio
-studio/dist
-
-# Build directory
-www/public
 .DS_Store
-
-# Reports
-coverage
-cypress
-
-# Env
-.env
-.env.production
