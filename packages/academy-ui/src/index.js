@@ -1,1 +1,1 @@
-export { Box } from './Box/Box'
+export { Box } from './Box'
