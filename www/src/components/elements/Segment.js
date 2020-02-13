@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Box from '../layout/Box'
-import { DARK_BLUE, BROWN, WHITE, DARK_GREY } from '../../config/styles'
+import { BROWN, WHITE, DARK_GREY } from '../../config/styles'
 import { fontColor } from '../text'
 
 const StyledSegment = styled(Box)`
@@ -58,7 +58,7 @@ const segmentVariantProps = {
   primary: {
     pt: [2, 6],
     pb: [2, 6],
-    backgroundColor: DARK_BLUE,
+    backgroundColor: 'darkBackground',
     border: [null, `1px solid ${BROWN}`],
     borderColor: BROWN,
   },

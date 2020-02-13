@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "react-graphql-academy-webiste",
   "description": "React GraphQL website, built with Gatsby",
   "version": "2.0.0",
   "author": "React GraphQL Academy <hello@reactgraphql.academy>",
@@ -7,12 +7,26 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@leanjs/box": "0.0.1",
     "@sanity/block-content-to-html": "^1.3.8",
     "@sanity/block-content-to-react": "^2.0.6",
     "final-form": "^4.9.1",
     "firebase": "^6.0.2",
     "firebase-admin": "^8.5.0",
     "firebase-functions": "^3.2.0",
+    "gatsby": "^2.17.4",
+    "gatsby-plugin-create-client-paths": "^2.0.5",
+    "gatsby-plugin-feed": "^2.3.25",
+    "gatsby-plugin-google-tagmanager": "^2.0.15",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-robots-txt": "^1.4.0",
+    "gatsby-plugin-sitemap": "^2.2.1",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-plugin-tags": "^2.3.1",
+    "gatsby-remark-images": "^3.1.7",
+    "gatsby-source-filesystem": "^2.1.9",
+    "gatsby-source-graphql": "^2.1.20",
+    "gatsby-transformer-remark": "^2.6.14",
     "lodash.isequal": "^4.5.0",
     "markdown-to-jsx": "^6.10.2",
     "payment": "^2.3.0",
@@ -42,10 +56,27 @@
   ],
   "license": "MIT",
   "scripts": {
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "predeploy": "npm run build",
+    "deploy": "./node_modules/.bin/firebase deploy --only hosting",
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
     "prebuild": "npm run format",
-    "publish": "npx lerna publish",
-    "bootstrap": "npx lerna bootstrap"
+    "build": "gatsby build",
+    "test": "./node_modules/.bin/jest",
+    "testw": "./node_modules/.bin/jest --watch --env=jsdom  --verbose false",
+    "storybook": "NODE_ENV=production start-storybook -p 9001 -s images",
+    "precommit": "npm run format",
+    "preserve": "yarn build",
+    "serve": "gatsby serve",
+    "coverage": "./node_modules/.bin/jest --coverage",
+    "cy:open": "./node_modules/.bin/cypress open",
+    "cy:run": "./node_modules/.bin/cypress run",
+    "test:e2e": "start-server-and-test serve http://localhost:9000 cy:open",
+    "ci:e2e": "start-server-and-test serve http://localhost:9000 cy:run",
+    "deploy:backoffice": "cd studio && npm run deploy && npm run deploy:schema:production",
+    "lerna:publish": "npx lerna publish",
+    "lerna:bootstrap": "npx lerna bootstrap"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -74,6 +105,14 @@
     "eslint": "^6.6.0",
     "eslint-plugin-promise": "^4.2.1",
     "firebase-tools": "^7.3.2",
+    "gatsby-image": "^2.2.8",
+    "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-plugin-sharp": "^2.2.11",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.4",
+    "gatsby-source-sanity": "^5.0.2",
+    "gatsby-source-sanity-transform-images": "^0.0.4",
+    "gatsby-transform-portable-text": "^0.0.2",
+    "gatsby-transformer-sharp": "^2.3.0",
     "husky": "^1.0.0-rc.13",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
@@ -89,8 +128,7 @@
     "react-storybook-decorator-background": "^1.0.5",
     "react-test-renderer": "^16.5.0",
     "start-server-and-test": "^1.7.1",
-    "wait-for-expect": "^1.1.0",
-    "graphql-tools-fork": "8.0.1"
+    "wait-for-expect": "^1.1.0"
   },
   "repository": {
     "type": "git",
@@ -144,8 +182,6 @@
     "**/event-stream": "^4.0.1"
   },
   "workspaces": [
-    "packages/*",
-    "www",
-    "studio"
+    "packages/*"
   ]
 }

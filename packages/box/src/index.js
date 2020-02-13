@@ -35,3 +35,4 @@ const Box = React.forwardRef(({ sx = {}, ...rest }, ref) => (
 Box.displayName = 'Box'
 
 export default React.memo(Box)
+export { Box }

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Box from '../layout/Box'
 
 const Alert = ({ variant = 'default', sx = {}, ...rest }) => (

@@ -1,6 +1,6 @@
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
-} = require('./studio/sanity.json')
+} = require('../studio/sanity.json')
 // `hyperscript` is a way to build HTML known as hyperscript
 // See https://github.com/hyperhype/hyperscript for more info
 
@@ -21,6 +21,16 @@ module.exports = {
     siteUrl: `https://www.reactgraphql.academy/`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'UpMentoring',
+        fieldName: 'upmentoring',
+        url: 'https://api0.upmentoring.com/api/graphql',
+        // url:
+        //  'https://europe-west1-upmentoring-api.cloudfunctions.net/api/graphql',
+      },
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-root-import',
     'gatsby-plugin-styled-components',
@@ -90,17 +100,6 @@ module.exports = {
         extendTypes: [{ typeName: `SanityPost`, contentFieldName: 'body' }],
       },
     },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'UpMentoring',
-        fieldName: 'upmentoring',
-        // url: 'https://api0.upmentoring.com/api/graphql',
-        url:
-          'https://europe-west1-upmentoring-api.cloudfunctions.net/api/graphql',
-      },
-    },
-
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-feed`,

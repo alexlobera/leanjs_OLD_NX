@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/free-solid-svg-icons'
-import { Code } from '../../src/components/blog/BlockContent'
+import { Code } from '../../www/src/components/blog/BlockContent'
 
 export default {
   name: 'code',

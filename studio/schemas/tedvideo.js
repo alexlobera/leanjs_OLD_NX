@@ -1,7 +1,7 @@
 import React from 'react'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faYoutube } from '@fortawesome/free-brands-svg-icons'
-import TedVideo from '../../src/components/elements/TedVideo'
+import TedVideo from '../../www/src/components/elements/TedVideo'
 
 export default {
   name: 'tedvideo',
