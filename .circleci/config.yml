@@ -12,11 +12,13 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: yarn install
+      # - run: yarn install
+      - run: yarn bootstrap
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - run: cd www
       - run: yarn test
       - run: sudo apt-get update && sudo apt-get install -y gettext-base
       - run: envsubst < ".env.ci" > ".env.production"
@@ -30,7 +32,7 @@ jobs:
       - image: circleci/node:8.16.0-stretch
     working_directory: ~/repo
     steps:
-      - checkout
+      # - checkout
       - attach_workspace:
           at: .
       - run: ls -l public
@@ -49,18 +51,21 @@ jobs:
           TERM: xterm
     working_directory: ~/repo
     steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      #   - checkout
+      #   # Download and cache dependencies
+      #   - restore_cache:
+      #       keys:
+      #         - v1-dependencies-{{ checksum "package.json" }}
+      #         # fallback to using the latest cache if no exact match is found
+      #         - v1-dependencies-
+      #   - run: yarn install
+      #   - save_cache:
+      #       paths:
+      #         - node_modules
+      #       key: v1-dependencies-{{ checksum "package.json" }}
+      - attach_workspace:
+        at: .
+      - run: ls -l public
       - run:
           name: Running E2E tests
           command: npm run ci:e2e
