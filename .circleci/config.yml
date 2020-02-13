@@ -19,7 +19,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: cd www && yarn test
-      - run: cd www && sudo apt-get update && sudo apt-get install -y gettext-base
+      - run: sudo apt-get update && sudo apt-get install -y gettext-base
       - run: cd www && envsubst < ".env.ci" > ".env.production"
       - run: cd www && yarn build
       - persist_to_workspace:
