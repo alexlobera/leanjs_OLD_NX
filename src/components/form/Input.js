@@ -14,14 +14,6 @@ const InputForm = styled(Box)`
   border: 1px solid ${BROWN};
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `
-// InputForm.defaultProps = {
-//   sx: {
-//     fontSize: 2,
-//     lineHeight: 2,
-//     p: 1,
-//   },
-//   box: 'input',
-// }
 
 const defaultInputSxProp = {
   fontSize: 2,

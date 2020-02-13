@@ -16,14 +16,6 @@ const REF = `
   }
 `
 
-// export const H1 = styled(Box)``
-// H1.defaultProps = {
-//   sx: {
-//     fontWeight: 'bold',
-//     fontSize: 8,
-//   },
-//   box: 'h1',
-// }
 export const H1 = ({ sx = {}, ...rest }) => (
   <Box
     sx={{

@@ -11,8 +11,6 @@ import {
   compose,
 } from 'styled-system'
 
-import { DARK_GREY } from '../../config/styles'
-
 const css = compose(space, color, typography, border, shadow, layout, position)
 
 const StyledBox = React.memo(
@@ -26,7 +24,7 @@ const Box = React.forwardRef(({ sx = {}, ...rest }, ref) => (
     sx={{
       fontFamily: 'barlow',
       fontWeight: 'normal',
-      color: DARK_GREY,
+      color: 'text',
       ...sx,
     }}
     {...rest}

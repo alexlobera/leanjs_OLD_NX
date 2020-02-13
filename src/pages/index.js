@@ -7,7 +7,6 @@ import { WHY_REACTJS_ACADEMY } from '../config/images.js'
 import { HOME_PAGE } from '../../images/imageNames'
 import Link from '../components/navigation/Link'
 import { LinkButton } from '../components/buttons'
-import { defaultButtonStyle } from '../components/buttons/Button'
 import { TopSection, ColSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2 } from '../components/text'
@@ -34,7 +33,6 @@ const metas = {
 const StyledTabItem = styled(Link).attrs(props => ({
   className: 'select-technology',
 }))`
-  ${defaultButtonStyle}
   &:first-child {
     box-shadow: -5px -5px 15px -5px rgba(0, 0, 0, 0.26);
   }

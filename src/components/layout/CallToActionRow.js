@@ -4,7 +4,6 @@ import { Z_INDEX_MEDIUM } from '../../config/styles'
 import { Row } from './Grid'
 import Box from './Box'
 
-// export const CallToActionRow = styled(Box)``
 export const CallToActionRow = ({ sx = {}, ...rest }) => (
   <Box
     sx={{
