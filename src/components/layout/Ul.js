@@ -32,10 +32,12 @@ const Ul = ({ sx = {}, children, ...rest }) => (
     }}
     {...rest}
     children={React.Children.map(children, child =>
-      React.cloneElement(child, {
-        variant: rest.variant,
-        variants: rest.variants,
-      })
+      child
+        ? React.cloneElement(child, {
+            variant: rest.variant,
+            variants: rest.variants,
+          })
+        : child
     )}
   />
 )
