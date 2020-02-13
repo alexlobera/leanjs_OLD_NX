@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Z_INDEX_MEDIUM } from '../../config/styles'
 import { Row } from './Grid'
-import { Box } from '@leanjs/academy-ui'
+import Box from './Box'
 
 export const CallToActionRow = ({ sx = {}, ...rest }) => (
   <Box

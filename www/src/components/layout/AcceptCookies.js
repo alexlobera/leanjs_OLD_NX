@@ -3,7 +3,7 @@ import { WHITE, DARK_BLUE_075, Z_INDEX_TOP } from '../../config/styles'
 import { Link } from '../navigation'
 import Button from '../buttons/Button'
 import { getCookie, setCookie } from '../utils/store'
-import { Box } from '@leanjs/academy-ui'
+import Box from './Box'
 import Flex from './Flex'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'

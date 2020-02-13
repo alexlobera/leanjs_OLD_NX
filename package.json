@@ -89,7 +89,8 @@
     "react-storybook-decorator-background": "^1.0.5",
     "react-test-renderer": "^16.5.0",
     "start-server-and-test": "^1.7.1",
-    "wait-for-expect": "^1.1.0"
+    "wait-for-expect": "^1.1.0",
+    "graphql-tools-fork": "8.0.1"
   },
   "repository": {
     "type": "git",
