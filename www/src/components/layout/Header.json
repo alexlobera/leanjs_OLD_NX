@@ -1,0 +1,34 @@
+{
+  "landingTraining": {
+    "links": [
+      {
+        "text": "Curriculum",
+        "to": "#curriculum"
+      },
+      {
+        "text": "Is it right for me?",
+        "to": "#target-audience"
+      },
+      {
+        "text": "Pricing",
+        "to": "#pricing"
+      }
+    ]
+  },
+  "landingPageLinks": {
+    "links": [
+      {
+        "text": "Curriculum",
+        "to": "#curriculum"
+      },
+      {
+        "text": "Is it right for me?",
+        "to": "#target-audience"
+      },
+      {
+        "text": "Upcoming courses",
+        "to": "#upcoming-courses"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "functions": {
+    "predeploy": ["npm --prefix \"$RESOURCE_DIR\" run lint"],
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|woff|woff2|eot|ttf)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/blog/what-is-GraphQL-used-for{,/}",
+        "destination": "/graphql/what-is-GraphQL-used-for/",
+        "type": 301
+      },
+      {
+        "source": "/community/meetups/1{,/}",
+        "destination": "https://reactgraphql.academy/community/meetups/5ce811c728bf226ebe872d74/",
+        "type": 301
+      }
+    ],
+    "appAssociation": "AUTO",
+    "rewrites": [{ "source": "/_/**", "dynamicLinks": true }]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
