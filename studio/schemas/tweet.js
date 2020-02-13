@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
-import Tweet from '../../src/components/blog/Tweet'
+import Tweet from '../../www/src/components/blog/Tweet'
 
 export default {
   name: 'tweet',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodepen } from '@fortawesome/free-brands-svg-icons'
-import { Codesandbox } from '../../src/components/blog/BlockContent'
+import { Codesandbox } from '../../www/src/components/blog/BlockContent'
 
 export default {
   name: 'codesandbox',
