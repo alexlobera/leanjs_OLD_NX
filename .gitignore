@@ -17,7 +17,7 @@ functions/config
 studio/dist
 
 # Build directory
-/public
+www/public
 .DS_Store
 
 # Reports

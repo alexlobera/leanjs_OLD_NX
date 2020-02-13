@@ -2,7 +2,7 @@
   "name": "@leanjs/box",
   "version": "0.0.1",
   "main": "src/index.js",
-  "private": true,
+  "private": false,
   "description": "Box component for Design Systems in React",
   "keywords": [
     "Design System",
