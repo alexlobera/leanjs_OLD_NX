@@ -14,7 +14,7 @@ import { RootHeader as Header } from '../components/layout/Header'
 import { Segment, Video, Image } from '../components/elements'
 import { HideComponentsUsingCss } from '../components/utils'
 import Box from '../components/layout/Box'
-import LeanJSsprints from '../components/elements/LeanJSsprints'
+import LeanJSsprints from '../components/LeanJSsprints'
 import { renderJob } from '../templates/team-member'
 
 const renderProfile = ({

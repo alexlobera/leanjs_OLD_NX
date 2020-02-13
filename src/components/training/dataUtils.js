@@ -11,6 +11,7 @@ import {
   GRAPHQL_PART_TIME,
   GRAPHQL_PART_TIME_TRIAL,
   REACT_PART_TIME_TRIAL,
+  GRAPHQL_MINI_CONF,
 } from '../../config/data'
 
 export const createTrainingPathFromTrial = ({ type, ...rest }) => {
@@ -59,7 +60,19 @@ export const createTrainingPath = ({
 export function formatMeetup({ node }) {
   return {
     ...node,
+    shoppingItemEnum: 'event',
     type: MEETUP,
     toPath: `/community/meetups/${node.id}`,
+  }
+}
+
+export function formatConf({ node }) {
+  return {
+    ...node,
+    shoppingItemEnum: 'event',
+    // TODO TYPE SHOULD NOT BE HARDCODED
+    type: GRAPHQL_MINI_CONF,
+    // TODO URL SHOULD NOT BE HARDCODED
+    toPath: '/graphql/mini-conference/',
   }
 }

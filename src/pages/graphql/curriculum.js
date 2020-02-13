@@ -161,7 +161,7 @@ class GraphQLCurriculum extends React.Component {
                       </Td>
                       {/* <Td /> */}
                     </Tr>
-                    <Tr>
+                    {/* <Tr>
                       <Td>Data-Driven application</Td>
                       <Td>
                         <Tick type={GRAPHQL_BOOTCAMP} />
@@ -169,10 +169,10 @@ class GraphQLCurriculum extends React.Component {
                       <Td>
                         <Tick type={GRAPHQL_PART_TIME} />
                       </Td>
-                      {/* <Td /> */}
-                    </Tr>
+                      <Td />
+                    </Tr> */}
                     <Tr>
-                      <Td>Client-side caching</Td>
+                      <Td>Hasura</Td>
                       <Td>
                         <Tick type={GRAPHQL_BOOTCAMP} />
                       </Td>
@@ -185,7 +185,7 @@ class GraphQLCurriculum extends React.Component {
                       <Td verticalAlign="top">Timings</Td>
                       <Td>
                         <Ul sx={{ textAlign: 'left' }}>
-                          <Li>1 month</Li>
+                          <Li>3 weeks</Li>
                           <Li>Part time</Li>
                           <Li>Evenings Central European Time</Li>
                           {/* <Li>Starting at £995</Li> */}

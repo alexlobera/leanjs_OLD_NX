@@ -8,7 +8,6 @@ import Flex from './Flex'
 
 const HIDE_ACCEPT_COOKIES = 'HIDE_ACCEPT_COOKIES'
 
-// const StyledCookiesNotification = styled(Flex)``
 const StyledCookiesNotification = ({ sx = {}, ...rest }) => (
   <Flex
     sx={{
@@ -29,23 +28,6 @@ const StyledCookiesNotification = ({ sx = {}, ...rest }) => (
   />
 )
 
-// StyledCookiesNotification.defaultProps = {
-//   sx: {
-//     my: 0,
-//     mx: 'auto',
-//     lineHeight: 1,
-//     border: '1px dashed',
-//     borderColor: WHITE,
-//     px: 1,
-//     py: 1,
-//     maxWidth: '22rem',
-//     backgroundColor: DARK_BLUE_075,
-//     color: WHITE,
-//     fontSize: 0,
-//   },
-// }
-
-// const CookiesNotificationWrapper = styled(Box)``
 const CookiesNotificationWrapper = ({ sx = {}, ...rest }) => (
   <Box
     sx={{
@@ -59,16 +41,6 @@ const CookiesNotificationWrapper = ({ sx = {}, ...rest }) => (
     {...rest}
   />
 )
-
-// CookiesNotificationWrapper.defaultProps = {
-//   sx: {
-//     position: 'fixed',
-//     bottom: 0,
-//     left: 0,
-//     width: 1,
-//     zIndex: Z_INDEX_TOP,
-//   },
-// }
 
 const AcceptCookies = () => {
   const [hideAcceptCookies, setHideAcceptCookies] = useState(

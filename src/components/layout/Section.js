@@ -38,10 +38,6 @@ const StyledSection = styled(Box)`
   }
 `
 
-// const defaultSectionSxProp = {
-//   // display: ['inline-block', 'block'],
-//   display: 'block',
-// }
 const Section = ({ children, sx = {}, ...rest }) => (
   <StyledSection
     sx={{
@@ -57,7 +53,6 @@ const Section = ({ children, sx = {}, ...rest }) => (
 )
 Section.displayName = 'Section'
 
-// export const TopSection = styled(Section)``
 export const TopSection = ({ sx = {}, ...rest }) => (
   <Section sx={{ position: 'relative', mt: [0, -125], ...sx }} {...rest} />
 )

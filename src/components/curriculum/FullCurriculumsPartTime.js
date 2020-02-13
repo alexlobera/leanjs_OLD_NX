@@ -75,10 +75,10 @@ const FullCurriculumsPartTime = ({ trainings }) => {
 
             <TabContent>
               <ContentItem name={GRAPHQL_PART_TIME}>
-                <Flex flexDirection="column">{graphqlSessions}</Flex>
+                <Flex sx={{ flexDirection: 'column' }}>{graphqlSessions}</Flex>
               </ContentItem>
               <ContentItem name={REACT_PART_TIME}>
-                <Flex flexDirection="column">{reactSessions}</Flex>
+                <Flex sx={{ flexDirection: 'column' }}>{reactSessions}</Flex>
               </ContentItem>
             </TabContent>
           </Tabs>

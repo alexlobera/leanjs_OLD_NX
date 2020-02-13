@@ -3,22 +3,21 @@ import styled from 'styled-components'
 
 import { fontColor } from '../text'
 import { getVariantProps } from '../utils'
-import {Box} from '@leanjs/academy-ui'
-import { BLUE, WHITE, DARK_GREY, BOX_SHADOW } from '../../config/styles'
+import Box from '../layout/Box'
 
-const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({
+const cardVariants = ({ borderColor = 'react', borderStyle = 'solid' }) => ({
   primary: {
     borderLeft: `3px ${borderStyle}`,
     borderLeftColor: borderColor,
     pl: [2, 5],
   },
   secondary: {
-    boxShadow: BOX_SHADOW,
+    boxShadow: 'box',
     pl: [1, 5],
     pr: [1, 5],
     pt: [1, 5],
     pb: [1, 5],
-    backgroundColor: WHITE,
+    backgroundColor: 'background',
   },
   info: {
     border: `3px ${borderStyle}`,
@@ -31,8 +30,10 @@ const cardVariants = ({ borderColor = BLUE, borderStyle = 'solid' }) => ({
 })
 
 const StyledCard = styled(Box)`
-  ${fontColor(DARK_GREY, true)}
+  ${({ theme = {} }) =>
+    fontColor(theme.colors ? theme.colors.text : undefined, true)}
 `
+
 const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
   let smallSxProps = {}
   if (rest.small) {
@@ -41,15 +42,10 @@ const Card = ({ borderColor, borderStyle, sx = {}, children, ...rest }) => {
     smallSxProps.pl = [1, 3]
     smallSxProps.pr = [1, 3]
   }
+
   return (
     <StyledCard
-      //   {...getVariantProps(
-      //     rest.variant || rest.variants,
-      //     cardVariants({ borderColor, borderStyle })
-      //   )}
       sx={{
-        // borderColor: BLUE,
-        // borderStyle: 'solid',
         position: 'relative',
         ...getVariantProps(
           rest.variants || rest.variant,

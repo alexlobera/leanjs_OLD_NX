@@ -13,13 +13,5 @@ const StyledP = styled(Box)`
 const P = ({ sx = {}, ...rest }) => (
   <StyledP box="p" sx={{ m: 0, lineHeight: 2, pb: 3, ...sx }} {...rest} />
 )
-// P.defaultProps = {
-//   sx: {
-//     m: 0,
-//     lineHeight: 2,
-//     pb: 3,
-//   },
-//   box: 'p',
-// }
 
 export default P

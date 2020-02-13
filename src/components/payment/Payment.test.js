@@ -7,7 +7,7 @@ import { MEETUP } from '../../config/data'
 import Root from '../../../test/utils/Root'
 import { PAY_MUTATION, VALIDATE_VIES_QUERY } from './checkout/CheckoutContainer'
 import {
-  QUERY_UPCOMING_VOUCHERS,
+  QUERY_UPCOMING_TRAINING_VOUCHERS,
   VALIDATE_VOUCHER_QUERY,
 } from './PaymentSection'
 import PaymentSection from './PaymentSection'
@@ -19,8 +19,8 @@ const paymentApi = {
   },
 }
 
-const defaultTrainingData = {
-  training: {
+const defaultItemData = {
+  item: {
     address: 'Publicis Sapient - Eden House, 8 Spital Square',
     city: 'London',
     country: 'UK',
@@ -30,12 +30,13 @@ const defaultTrainingData = {
     price: 995,
     startDate: '2019-04-23T17:00:00.000Z',
     type: 'Part-time',
+    shoppingItemEnum: 'training',
   },
 }
 
 const defaultAutoVoucherQuery = {
   request: {
-    query: QUERY_UPCOMING_VOUCHERS,
+    query: QUERY_UPCOMING_TRAINING_VOUCHERS,
     variables: {
       trainingInstanceId: '5aa2acda7dcc782348ea1234',
     },
@@ -52,7 +53,7 @@ const defaultAutoVoucherQuery = {
 }
 
 const mountPaymentSection = ({
-  trainingData = defaultTrainingData,
+  itemData = defaultItemData,
   paymentMutation,
   autoVoucherQuery = defaultAutoVoucherQuery,
   validateVoucherQuery,
@@ -70,7 +71,7 @@ const mountPaymentSection = ({
   return render(
     <Root graphQlMocks={mocks}>
       <PaymentSection
-        {...trainingData}
+        {...itemData}
         navigate={navigate}
         paymentApi={paymentApi}
         triggerSubscribe={triggerSubscribe}
@@ -86,7 +87,7 @@ describe('<PaymentSection />', () => {
       voucherCode: '',
       quantity: 1,
       itemId: '5aa2acda7dcc782348ea1234',
-      itemType: 'training',
+      shoppingItemEnum: 'training',
       email: 'test@example.com',
       name: 'Joe Bloggs',
       token: 2,
@@ -159,8 +160,8 @@ describe('<PaymentSection />', () => {
       const { getByText, getByLabelText } = mountPaymentSection({
         paymentMutation: { request, result },
         triggerSubscribe,
-        trainingData: {
-          training: {
+        itemData: {
+          item: {
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
             city: 'London',
             country: 'UK',

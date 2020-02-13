@@ -1,14 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {Box} from '@leanjs/academy-ui'
-import {
-  DARK_BLUE,
-  BROWN,
-  WHITE,
-  DARK_GREY,
-  BOX_SHADOW,
-} from '../../config/styles'
+import Box from '../layout/Box'
+import { BROWN, WHITE, DARK_GREY } from '../../config/styles'
 import { fontColor } from '../text'
 
 const StyledSegment = styled(Box)`
@@ -29,14 +23,6 @@ const StyledSegment = styled(Box)`
     }
   }}
 `
-// StyledSegment.defaultProps = {
-//   sx: {
-//     pt: [0, 7],
-//     pb: [0, 7],
-//     pl: 0,
-//     pr: 0,
-//   },
-// }
 
 const Segment = ({ sx = {}, ...rest }) => {
   let smallProps = {}
@@ -72,13 +58,13 @@ const segmentVariantProps = {
   primary: {
     pt: [2, 6],
     pb: [2, 6],
-    backgroundColor: DARK_BLUE,
+    backgroundColor: 'darkBackground',
     border: [null, `1px solid ${BROWN}`],
     borderColor: BROWN,
   },
   secondary: {
     backgroundColor: WHITE,
-    boxShadow: [null, BOX_SHADOW],
+    boxShadow: [null, 'box'],
   },
 }
 

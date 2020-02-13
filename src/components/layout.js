@@ -4,7 +4,11 @@ import raven from 'raven-js'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import selectUpcomingTrainings from './training/selectUpcomingTrainings'
-import { createTrainingPath, formatMeetup } from './training/dataUtils'
+import {
+  createTrainingPath,
+  formatMeetup,
+  formatConf,
+} from './training/dataUtils'
 
 import './reset.css'
 import './layout.css'
@@ -55,8 +59,13 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            meetup {
+              id
+            }
             id
             title
+            price
+            currency
             startDate
             utcOffset
             endDate
@@ -124,6 +133,7 @@ const Layout = ({ children }) => {
 
     return {
       ...node,
+      shoppingItemEnum: 'training',
       title,
       type,
       training: {
@@ -144,17 +154,20 @@ const Layout = ({ children }) => {
       }),
     }
   }
-  //   const scriptTags = scriptUrls.map(src => (
-  //     <script type="text/javascript" async="true" src={src} key={src} />
-  //   ))
 
   const data = useStaticQuery(layoutQuery)
   const trainings = data.upmentoring.trainingInstancesConnection.edges.map(
     formatTraining
   )
-  const meetups = data.upmentoring.eventsConnection.edges.map(formatMeetup)
+  const meetups = data.upmentoring.eventsConnection.edges
+    // HEADSUP remove this when we deploy gql mini conf
+    .filter(({ node: { meetup } }) => meetup && meetup.id)
+    .map(formatMeetup)
+  const confs = data.upmentoring.eventsConnection.edges
+    .filter(({ node: { meetup } }) => !meetup || !meetup.id)
+    .map(formatConf)
   const trainingAndEvents = selectUpcomingTrainings({
-    trainings: [...trainings, ...meetups],
+    trainings: [...trainings, ...meetups, ...confs],
   })
 
   return (
@@ -185,13 +198,6 @@ const Layout = ({ children }) => {
           {/* {scriptTags} */}
         </Helmet>
         <Menu />
-        {/* {typeof children === 'function'
-          ? children({
-              trainings: selectUpcomingTrainings({
-                trainings: [...trainings, ...meetups],
-              }),
-            })
-          : children} */}
         {React.Children.map(children, child =>
           React.cloneElement(child, {
             trainings: trainingAndEvents,

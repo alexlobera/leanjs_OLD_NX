@@ -1,7 +1,6 @@
 import React from 'react'
 import LinkButton from '../buttons/LinkButton'
 import { P, H3 } from '../text'
-import Link from '../navigation/Link'
 
 const Newsletter = ({
   buttonVariant,
@@ -10,11 +9,14 @@ const Newsletter = ({
   anchorName = 'newsletter',
 }) => (
   <React.Fragment>
-    <H3 sx={sx}>Free learning resources</H3>
-    <a name={anchorName} />
+    <H3 sx={sx}>
+      <a name={anchorName} />
+      Join the newsletter
+    </H3>
+
     <P>
-      Signup and learn about cutting-edge React and GraphQL plus the latest news
-      on our courses...{' '}
+      Sign up and learn about cutting-edge React and GraphQL plus the latest
+      news on our courses...{' '}
     </P>
     {showCTA && (
       <LinkButton

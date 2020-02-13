@@ -22,19 +22,20 @@ const Ul = styled(DefaultUl)`
 
 class Item extends React.Component {
   render() {
-    const { text, submenuItems, ...props } = this.props
+    const { text, submenuItems, variant, variants, ...rest } = this.props
 
     return (
-      <Li>
+      <Li variant={variant} variants={variants}>
         {submenuItems ? (
           <ItemSubmenu
             className="navigation"
             items={submenuItems}
             text={text}
-            to={props.to}
+            to={rest.to}
+            {...rest}
           />
         ) : (
-          <Link {...props}>{text}</Link>
+          <Link {...rest}>{text}</Link>
         )}
       </Li>
     )

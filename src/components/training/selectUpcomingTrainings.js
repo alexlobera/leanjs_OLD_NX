@@ -33,6 +33,9 @@ export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
 export const selectTrainingByInstanceId = ({ trainings, id }) =>
   trainings.find(training => training.id === id)
 
+export const selectNodeById = ({ nodes, id }) =>
+  nodes.find(node => node.id === id)
+
 export const excludeByTrainingId = trainingId => ({ training }) =>
   !training || !training.id || training.id !== trainingId
 

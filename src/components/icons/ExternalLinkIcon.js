@@ -10,7 +10,6 @@ const ExternalLinkIcon = props => (
   </svg>
 )
 
-// const StyledExternalLinkIcon = styled(Box)``
 const StyledExternalLinkIcon = props => (
   <Box box={ExternalLinkIcon} {...props} />
 )

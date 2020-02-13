@@ -3,6 +3,7 @@ import React from 'react'
 import Section, { TopSection } from '../components/layout/Section'
 import { Col, Row } from '../components/layout/Grid'
 import { H2, P } from '../components/text'
+import { Ul, Li } from '../components/layout/Ul'
 import { RootHeader as Header } from '../components/layout/Header'
 import Link from '../components/navigation/Link'
 import { Segment } from '../components/elements'
@@ -62,7 +63,7 @@ const TermsOfService = () => (
             <P>Re-sale of tickets is not permitted.</P>
           </SubSection>
           <SubSection>
-            <H2>Cancelation and refunds</H2>
+            <H2>Cancelation and refund policy</H2>
             <P>
               You need to let us know no later than 15 days before the date of
               the event or workshop that you want to cancel your ticket in order
@@ -73,6 +74,14 @@ const TermsOfService = () => (
               event or workshop. We will notify you by email to the address that
               you have provided us during the registration process.
             </P>
+            <P>
+              In the event of a cancelation, we’ll refund you the value of your
+              tickets minus the Stripe fees:
+            </P>
+            <Ul>
+              <Li>European cards: 1.4% + 20p</Li>
+              <Li>non-European cards: 2.9% + 20p</Li>
+            </Ul>
           </SubSection>
           <SubSection>
             <H2>Photos & footage</H2>

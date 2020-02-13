@@ -45,7 +45,10 @@ const Footer = () => (
       >
         <Row>
           <Col md={5} mdOffset={1}>
-            <ContactForm addContactUsLink={true} />
+            <ContactForm
+              addContactUsLink={true}
+              newsletterAnchorName={'newsletter-footer'}
+            />
           </Col>
           <Col md={4} mdOffset={1}>
             <Row>
@@ -152,11 +155,6 @@ const Footer = () => (
                   product
                 </P>
                 <RGALogo className="footer-rga-logo" />
-                <P sx={{ pt: 4 }}>
-                  Looking for a Job?
-                  <br />
-                  Search for Developer Careers on Jooble
-                </P>
               </Col>
             </Row>
           </Col>

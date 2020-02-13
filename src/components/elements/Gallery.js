@@ -145,4 +145,23 @@ const Gallery = ({
   )
 }
 
+export const massageGalleryImages = (images, size) =>
+  images.nodes
+    .filter(({ name }) => name.endsWith(size))
+    .map(
+      ({
+        publicURL,
+        name,
+        childImageSharp: {
+          original: { width, height },
+        },
+      }) => ({
+        src: publicURL,
+        width,
+        height,
+        originalName: name,
+      })
+    )
+    .sort((a, b) => (a.originalName > b.originalName ? 1 : -1))
+
 export default Gallery

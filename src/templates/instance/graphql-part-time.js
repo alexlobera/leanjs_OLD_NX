@@ -10,6 +10,7 @@ import {
   GRAPHQL_PART_TIME,
   GRAPHQL_PART_TIME_TRIAL,
 } from 'src/config/data'
+import Feedback from 'src/components/training/Feedback'
 
 export const crossSellTypes = [
   GRAPHQL_WORKSHOP,
@@ -24,6 +25,12 @@ const Page = props => (
     {...props}
     trialTrainingId="5e349275778e880002113474"
     type={GRAPHQL_PART_TIME}
+    feedback={
+      <Feedback
+        trialPath="/graphql/training/workshops/graphql-part-time-trial/online/"
+        // articlePath="PLEASE UPDATE THIS VARIABLE"
+      />
+    }
     typeOfTraining="GraphQL part-time course"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}

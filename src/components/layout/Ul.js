@@ -7,18 +7,12 @@ const StyledUl = styled(Box)`
   ${({ variant, variants = [] }) =>
     (variant === 'unstyled' || variants.find(v => v === 'unstyled')) &&
     `
-    > li {
-      list-style-type: none;
-      margin-bottom: 7px;
-    }
-  `}
+    list-style-type: none;
+  `};
   ${({ variant, variants = [] }) =>
     (variant === 'inline' || variants.find(v => v === 'inline')) &&
     `
     > li {
-      padding: 8px;
-      margin: 0;
-      display: inline-block;
       :first-child {
         padding-left: 0;
       }
@@ -29,21 +23,26 @@ const StyledUl = styled(Box)`
   `};
 `
 
-const Ul = ({ sx = {}, ...rest }) => (
+const Ul = ({ sx = {}, children, ...rest }) => (
   <StyledUl
     box="ul"
     sx={{
-      ...getVariantProps(rest.variant || rest.variants, ulVariantProps),
+      ...getVariantProps(rest.variant || rest.variants, ulVariantSxProp),
       ...sx,
     }}
     {...rest}
+    children={React.Children.map(children, child =>
+      child
+        ? React.cloneElement(child, {
+            variant: rest.variant,
+            variants: rest.variants,
+          })
+        : child
+    )}
   />
 )
-// Ul.defaultProps = {
-//   box: 'ul',
-// }
 
-const ulVariantProps = {
+const ulVariantSxProp = {
   inline: {
     m: 0,
     p: 0,
@@ -53,11 +52,39 @@ const ulVariantProps = {
   },
 }
 
-// const Li = styled(Box)``
-// Li.defaultProps = {
-//   box: 'li',
-// }
-const Li = props => <Box box="li" {...props} />
+const liVariantSxProp = {
+  inline: {
+    p: '8px',
+    m: 0,
+    display: 'inline-block',
+    // TODO the following doesn't work, should we create a styled system function?
+    // '> li': {
+    //   backgroundColor: 'red',
+    // },
+    // should we instead create a function for
+    // firstChildML : 0
+    // should we instead create a function for
+    // firstChild : { // concern this make composability more difficult
+    //     mt: 0
+    // }
+  },
+  unstyled: {
+    // TODO the following doesn't work, should we create a styled system function?
+    // listStyleType: 'none',
+    mb: '7px',
+  },
+}
+
+const Li = ({ sx = {}, ...rest }) => (
+  <Box
+    box="li"
+    sx={{
+      ...getVariantProps(rest.variant || rest.variants, liVariantSxProp),
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
 export { Ul, Li }
 export default Ul

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Link from '../navigation/Link'
-import { LinkButton } from '../buttons'
-import { Col, Row } from '../layout/Grid'
-import { H2Ref, P } from '../text'
-import { Image } from '.'
+import Link from './navigation/Link'
+import { LinkButton } from './buttons'
+import { Col, Row } from './layout/Grid'
+import { H2Ref, P } from './text'
+import { Image } from './elements'
 
 const LeanJSsprints = () => {
   const data = useStaticQuery(graphql`

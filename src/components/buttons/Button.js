@@ -1,14 +1,42 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import Box from '../layout/Box'
 
-import { WHITE, DARK_GREY, DARK_BLUE, RED } from '../../config/styles'
-import { Box } from '@leanjs/academy-ui'
+export const buttonDefaultSxProp = {
+  py: 1,
+  px: 4,
+  justifyContent: 'center',
+  alignItems: 'center',
+  cursor: 'pointer',
+  boxShadow: 'light',
+  borderRadius: 2,
+  border: 0,
+  textAlign: 'center',
+  fontSize: 2,
+  letterSpacing: '0.6px',
+}
 
-// TODOSX MOVE THIS TO SX DEFAULT PROP
-export const defaultButtonStyle = css`
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
+export const buttonVariantProps = {
+  primary: {
+    color: 'lightText',
+    bg: 'primary',
+    fontWeight: 'bold',
+  },
+  secondary: {
+    color: 'lightText',
+    backgroundColor: 'secondary',
+  },
+  default: {
+    color: 'text',
+    bg: 'background',
+    boxShadow: 'thin',
+    border: '1px solid',
+    textShadow: 'bold',
+    borderColor: 'secondary',
+  },
+}
+
+const StyledButton = styled(Box)`
   ${props =>
     props.disabled &&
     `
@@ -18,59 +46,9 @@ export const defaultButtonStyle = css`
   `}
 `
 
-// export const buttonDefaultProps = {
-//   sx: {
-//     py: 1,
-//     px: 4,
-//     boxShadow: 'light',
-//     borderRadius: 2,
-//     border: 0,
-//     textAlign: 'center',
-//     fontSize: 2,
-//     letterSpacing: ' 0.6px',
-//   },
-//   //box: 'button',
-// }
-
-export const buttonDefaultSxProp = {
-  py: 1,
-  px: 4,
-  boxShadow: 'light',
-  borderRadius: 2,
-  border: 0,
-  textAlign: 'center',
-  fontSize: 2,
-  letterSpacing: ' 0.6px',
-}
-
-export const buttonVariantProps = {
-  primary: {
-    color: WHITE,
-    bg: RED,
-    fontWeight: 'bold',
-  },
-  secondary: {
-    color: WHITE,
-    backgroundColor: DARK_BLUE,
-  },
-  default: {
-    color: DARK_GREY,
-    bg: WHITE,
-    boxShadow: 'thin',
-    border: '1px solid',
-    textShadow: 'bold',
-    borderColor: DARK_BLUE,
-  },
-}
-
-const StyledButton = styled(Box)`
-  ${defaultButtonStyle};
-`
-//StyledButton.defaultProps = buttonDefaultProps
-
 const Button = ({
   children,
-  loading,
+  loadingText,
   onClick,
   variant = 'default',
   sx = {},
@@ -92,14 +70,10 @@ const Button = ({
       }}
       {...extendedProps}
     >
-      {loading ? 'Loading ...' : children}
+      {loadingText ? loadingText : children}
     </StyledButton>
   )
 }
-// Button.defaultProps = {
-//   //variant: 'default',
-//   //...buttonDefaultProps,
-// }
 
 Button.displayName = 'Button'
 
