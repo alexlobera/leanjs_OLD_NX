@@ -21,6 +21,7 @@ module.exports = {
     siteUrl: `https://www.reactgraphql.academy/`,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-source-graphql',
       options: {

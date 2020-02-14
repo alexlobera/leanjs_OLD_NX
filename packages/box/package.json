@@ -1,8 +1,11 @@
 {
   "name": "@leanjs/box",
   "version": "0.0.1",
-  "main": "src/index.js",
-  "private": false,
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
   "description": "Box component for Design Systems in React",
   "keywords": [
     "Design System",
@@ -17,7 +20,7 @@
   "scripts": {
     "build": "yarn clean && yarn compile",
     "clean": "rm -rf ./dist",
-    "compile": "cross-env NODE_ENV=production tsdx build --format=cjs,esm --tsconfig tsconfig.build.json"
+    "compile": "tsc -p tsconfig.build.json"
   },
   "license": "MIT",
   "dependencies": {

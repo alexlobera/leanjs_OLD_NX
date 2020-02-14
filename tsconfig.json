@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@leanjs/box": ["packages/box/src"]
+    }
+  }
+}

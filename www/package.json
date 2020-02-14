@@ -109,6 +109,7 @@
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-sharp": "^2.2.11",
+    "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.4",
     "gatsby-source-sanity": "^5.0.2",
     "gatsby-source-sanity-transform-images": "^0.0.4",
