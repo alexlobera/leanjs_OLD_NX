@@ -51,11 +51,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/graphql"
     />
     <DesktopMenuItem
-      key="/blog"
-      text="Blog"
-      to="/blog"
-    />
-    <DesktopMenuItem
       key="/about-us"
       submenuItems={
         Array [
@@ -79,6 +74,18 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/about-us"
     />
     <DesktopMenuItem
+      key="/blog"
+      text="Blog"
+      to="/blog"
+    />
+    <DesktopMenuItem
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "compare": null,
+          "type": [Function],
+        }
+      }
       key="#contact-us"
       text="Contact"
       to="#contact-us"
