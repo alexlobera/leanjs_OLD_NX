@@ -36,11 +36,11 @@ export const renderJob = ({ enableLink = false } = {}) => (
   </React.Fragment>
 )
 
-const ProfileLink = ({ link, text, first = false }) =>
+const ProfileLink = ({ link, text, first = false, ...rest }) =>
   link && (
     <React.Fragment>
-      {!first && <Li>|</Li>}
-      <Li>
+      {!first && <Li {...rest}>|</Li>}
+      <Li {...rest}>
         <Link to={link} className="coach-profiles">
           {text}
         </Link>
