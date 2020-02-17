@@ -214,7 +214,10 @@ TitleBackground.displayName = 'TitleBackground'
 const SubTitleBackground = styled.div`
   ${TITLE_BACKGROUND} padding: 16px;
   color: ${WHITE};
-  max-width: 65ch;
+  > div {
+    color: ${WHITE};
+  }
+  /* max-width: 65ch; */
   a {
     color: ${WHITE};
   }
@@ -229,6 +232,9 @@ const Nav = styled.div`
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
   background-color: ${props => (props.quickLinks ? DARK_BLUE_075 : LIGHT_BLUE)};
   color: ${WHITE};
+  > div {
+    color: ${WHITE};
+  }
   ${styleChildLinkColor(WHITE)}
   padding-top: 8px;
   padding-bottom: 8px;
@@ -310,6 +316,7 @@ const Header = ({
   titleLines = [],
   subtitle,
   links = [],
+  onThisPage,
   bgImageName,
   removeBgImage,
   bgImgUrl,
@@ -424,7 +431,9 @@ const Header = ({
                     ) : null}
                     <Row>
                       <Col>
-                        {links.length ? (
+                        {onThisPage ? (
+                          <Nav quickLinks>{onThisPage}</Nav>
+                        ) : links.length ? (
                           <Nav quickLinks>
                             <Ul variant="inline">
                               <Li>

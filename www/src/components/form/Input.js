@@ -8,7 +8,7 @@ import Label from '../text/Label'
 const InputForm = styled(Box)`
   background-color: ${WHITE};
   display: block;
-  width: 100%;
+  /* width: 100%; */
   color: ${DARK_GREY};
   background-clip: padding-box;
   border: 1px solid ${BROWN};
@@ -65,7 +65,7 @@ const Input = ({
     props.onChange && props.onChange(e)
   }
   const extendedSx = { ...defaultInputSxProp, ...sx }
-
+  console.log('aasdfasdfasd', sx)
   return (
     <FormGroup>
       {label && input.name ? (

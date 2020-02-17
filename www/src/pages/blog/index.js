@@ -8,6 +8,8 @@ import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
 import { getPostsFromNodes } from '../../components/blog/utils'
+import Input from '../../components/form/Input'
+import Flex from '../../components/layout/Flex'
 
 const Blog = ({ data, path, trainings }) => {
   const posts = getPostsFromNodes({
@@ -24,9 +26,18 @@ const Blog = ({ data, path, trainings }) => {
         ]}
       />
       <Header
-        titleLines={['Blog']}
+        titleLines={['React and GraphQL Blog']}
         subtitle="Insights into the world of React GraphQL Academy"
         fullHeight={false}
+        onThisPage={
+          <Flex sx={{ alignItems: 'center', flexDirection: ['column', 'row'] }}>
+            Search blogs
+            <Input
+              sx={{ ml: 3, width: ['100%', '400px'] }}
+              placholder="Eg. styling in react"
+            />
+          </Flex>
+        }
         sx={{ pb: 170 }}
       />
       <TopSection>

@@ -1,5 +1,6 @@
 import React from 'react'
 import StickyBox from 'react-sticky-box'
+import { graphql } from 'gatsby'
 
 import ContactForm from '../components/form/Contact'
 import Section, { TopSection } from '../components/layout/Section'
