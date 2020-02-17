@@ -27,12 +27,37 @@ function capitalize(text) {
 }
 
 function removeTrailingSlash(url) {
-  return url.slice(-1) === '/' ? url.slice(0, -1) : url
+  return url && url.slice(-1) === '/' ? url.slice(0, -1) : url
+}
+
+function portableTextToPlainText(blocks = []) {
+  return (
+    blocks
+      // loop through each block
+      .map(block => {
+        // if it's not a text block with children,
+        // return nothing
+        if (block._type !== 'block' || !block.children) {
+          return ''
+        }
+        // loop through the children spans, and join the
+        // text strings
+        return block.children.map(child => child.text).join('')
+      })
+      // join the parapgraphs leaving split by two linebreaks
+      .join('\n\n')
+  )
+}
+
+function stripHtmlTagsFromText(text) {
+  return text ? text.replace(/(<([^>]+)>)/gi, '') : ''
 }
 
 module.exports = {
+  portableTextToPlainText,
   titleCase,
   slugify,
   capitalize,
   removeTrailingSlash,
+  stripHtmlTagsFromText,
 }

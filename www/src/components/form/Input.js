@@ -8,7 +8,7 @@ import Label from '../text/Label'
 const InputForm = styled(Box)`
   background-color: ${WHITE};
   display: block;
-  width: 100%;
+  /* width: 100%; */
   color: ${DARK_GREY};
   background-clip: padding-box;
   border: 1px solid ${BROWN};

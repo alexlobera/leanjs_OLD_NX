@@ -15,7 +15,7 @@ import { SCREEN_XS_MAX } from '../utils'
 
 const BreadcrumbContainer = React.memo(styled.nav`
   position: absolute;
-  top: 84px;
+  top: 91px;
   left: 0;
   width: 100%;
   z-index: ${Z_INDEX_MEDIUM};
@@ -28,8 +28,7 @@ const BreadcrumbContainer = React.memo(styled.nav`
         : ''};
     padding-left: 16px;
     li {
-      padding-left: 0px !important;
-      padding-right: 4px !important;
+      padding: 5px 4px 7px 0 !important;
       ${styleChildLinkColor(WHITE)} a {
         font-size: 0.9rem;
         text-shadow: 1px -1px 17px #367088;

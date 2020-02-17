@@ -3,6 +3,7 @@ const {
 } = require('../studio/sanity.json')
 // `hyperscript` is a way to build HTML known as hyperscript
 // See https://github.com/hyperhype/hyperscript for more info
+const algoliaQueries = require('./src/search/algoliaQueries')
 
 const {
   getPostsFromNodes,
@@ -101,6 +102,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: algoliaQueries,
+        chunkSize: 2000, // default: 1000
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
