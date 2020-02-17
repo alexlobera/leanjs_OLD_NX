@@ -602,4 +602,4 @@ export const RootHeader = props => (
   <Header bgColors={[GRAPHQL_PINK, BLUE]} bgImageOpacity={0.3} {...props} />
 )
 
-export default withWidth()(Header)
+export default withWidth()(React.memo(Header))

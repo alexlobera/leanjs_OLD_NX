@@ -65,7 +65,7 @@ const Input = ({
     props.onChange && props.onChange(e)
   }
   const extendedSx = { ...defaultInputSxProp, ...sx }
-  console.log('aasdfasdfasd', sx)
+
   return (
     <FormGroup>
       {label && input.name ? (

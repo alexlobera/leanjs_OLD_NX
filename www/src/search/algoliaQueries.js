@@ -5,9 +5,6 @@ const {
 } = require('../components/blog/utils')
 const { stripHtmlTagsFromText } = require('../components/utils/text')
 
-const peopleQuery = `{
-    
-  }`
 const postsQuery = `{
     allMarkdownRemark(filter: {frontmatter: {contentType: {eq: "blog"}}}) {
         nodes {
@@ -44,7 +41,7 @@ const postsQuery = `{
           }
         }
         subtitle
-        excerpt(limit: 500)
+        excerpt
         category
         tags {
           name
