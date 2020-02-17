@@ -88,15 +88,6 @@ const Blog = ({ data, path, trainings }) => {
           </Segment>
         )}
       </TopSection>
-      {/* <TopSection>
-        <Row>
-          {posts.map(post => (
-            <Col lg={4} key={post.path}>
-              <PostCard post={post} />
-            </Col>
-          ))}
-        </Row>
-      </TopSection> */}
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
