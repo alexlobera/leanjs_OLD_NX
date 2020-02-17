@@ -48,12 +48,6 @@ const StyledTabTitle = ({ sx = {}, ...rest }) => (
   <Box sx={{ color: WHITE, pb: 1, ...sx }} {...rest} />
 )
 
-// StyledTabTitle.defaultProps = {
-//   sx: {
-//     pb: 1,
-//   },
-// }
-
 const TabItem = ({ variant = 'default', sx = {}, ...rest }) => (
   <StyledTabItem
     sx={{
@@ -67,11 +61,6 @@ const TabItem = ({ variant = 'default', sx = {}, ...rest }) => (
     {...rest}
   />
 )
-
-// TabItem.defaultProps = {
-//   variant: 'default',
-//   sx: {},
-// }
 
 export const tabItemVariantProps = {
   default: {
