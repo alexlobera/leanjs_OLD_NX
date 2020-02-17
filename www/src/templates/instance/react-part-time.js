@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import BaseTemplate from './baseTemplate'
 import Curriculum from 'src/components/curriculum/CurriculumReactPartTime'
 import TargetAudienceList from 'src/components/curriculum/CurriculumReactPartTime/TargetAudienceList'

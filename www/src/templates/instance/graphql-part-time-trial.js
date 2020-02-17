@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,

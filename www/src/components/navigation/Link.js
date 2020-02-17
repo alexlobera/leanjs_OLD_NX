@@ -71,7 +71,7 @@ class Link extends React.Component {
       const { target = '_blank' } = rest
       rest.rel = target === '_blank' ? 'noopener' : undefined
       return (
-        <StyledLink {...rest} box="a" target={target} href={toHref}>
+        <StyledLink box="a" target={target} href={toHref} {...rest}>
           {children}
         </StyledLink>
       )
@@ -80,20 +80,20 @@ class Link extends React.Component {
 
       return (
         <StyledLink
-          {...restLinkScrollProps}
           onClick={e => {
             onClick && onClick(e)
           }}
           to={toHref.substr(1)}
           href={toHref}
           box={DefaultLinkScroll}
+          {...restLinkScrollProps}
         >
           {children}
         </StyledLink>
       )
     } else if (!toHref) {
       return (
-        <StyledLink {...rest} box="a">
+        <StyledLink box="a" {...rest}>
           {children}
         </StyledLink>
       )
@@ -107,7 +107,7 @@ class Link extends React.Component {
           : toHref + '/'
 
       return (
-        <StyledLink {...rest} to={dest} box={GatsbyLink}>
+        <StyledLink to={dest} box={GatsbyLink} {...rest}>
           {children}
         </StyledLink>
       )

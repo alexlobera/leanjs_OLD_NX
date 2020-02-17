@@ -20,26 +20,30 @@ const Ul = styled(DefaultUl)`
   }
 `
 
-class Item extends React.Component {
-  render() {
-    const { text, submenuItems, variant, variants, ...rest } = this.props
-
-    return (
-      <Li variant={variant} variants={variants}>
-        {submenuItems ? (
-          <ItemSubmenu
-            className="navigation"
-            items={submenuItems}
-            text={text}
-            to={rest.to}
-            {...rest}
-          />
-        ) : (
-          <Link {...rest}>{text}</Link>
-        )}
-      </Li>
-    )
-  }
+const Item = ({
+  text,
+  submenuItems,
+  variant,
+  variants,
+  component,
+  ...rest
+}) => {
+  const Component = component || Link
+  return (
+    <Li variant={variant} variants={variants}>
+      {submenuItems ? (
+        <ItemSubmenu
+          className="navigation"
+          items={submenuItems}
+          text={text}
+          to={rest.to}
+          {...rest}
+        />
+      ) : (
+        <Component {...rest}>{text}</Component>
+      )}
+    </Li>
+  )
 }
 
 export const DesktopMenuItem = styled(Item).attrs(props => ({
@@ -52,13 +56,8 @@ DesktopMenuItem.displayName = 'DesktopMenuItem'
 const DesktopMenu = () => (
   <HideComponentsUsingCss xs sm>
     <Ul variant="inline">
-      {MenuData.map(item => (
-        <DesktopMenuItem
-          key={item.to}
-          to={item.to}
-          text={item.text}
-          submenuItems={item.children}
-        />
+      {MenuData.map(({ to, children, ...rest }) => (
+        <DesktopMenuItem key={to} to={to} submenuItems={children} {...rest} />
       ))}
     </Ul>
   </HideComponentsUsingCss>

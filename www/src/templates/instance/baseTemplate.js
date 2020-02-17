@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import StickyBox from 'react-sticky-box'
+import { graphql } from 'gatsby'
 
 import { CheckoutProvider } from 'src/components/payment/checkout'
 import Section, { TopSection } from 'src/components/layout/Section'
