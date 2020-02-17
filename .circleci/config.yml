@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.16.0-stretch
+      - image: circleci/node:10.18.1-stretch
     working_directory: ~/repo
     steps:
       - checkout
@@ -12,38 +12,39 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: yarn install
+      # - run: yarn install
+      - run: yarn bootstrap
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn test
+      - run: cd www && yarn test
       - run: sudo apt-get update && sudo apt-get install -y gettext-base
-      - run: envsubst < ".env.ci" > ".env.production"
-      - run: yarn build
+      - run: cd www && envsubst < ".env.ci" > ".env.production"
+      - run: cd www && yarn build
       - persist_to_workspace:
           root: .
           paths:
-            - public
+            - www/public
   deploy-prod:
     docker:
-      - image: circleci/node:8.16.0-stretch
+      - image: circleci/node:10.18.1-stretch
     working_directory: ~/repo
     steps:
       - checkout
       - attach_workspace:
           at: .
-      - run: ls -l public
+      - run: ls -l www/public
       - run:
           name: Install Firebase locally
-          command: npm install --save-dev firebase-tools
+          command: cd www && npm install --save-dev firebase-tools
       - run:
           name: Deploy Master to Firebase
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN  --only hosting
+          command: cd www && npm run deploy-hosting -- --token=$FIREBASE_DEPLOY_TOKEN
   e2e-tests:
     docker:
       # the Docker image with Cypress dependencies
-      - image: cypress/base:8.15.1
+      - image: cypress/base:10.18.1
         environment:
           ## this enables colors in the output
           TERM: xterm
@@ -56,14 +57,14 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-      - run: yarn install
+      - run: yarn bootstrap
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Running E2E tests
-          command: npm run ci:e2e
+          command: cd www && yarn ci:e2e
       - store_test_results:
           path: e2e-results
       - store_artifacts:

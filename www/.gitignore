@@ -1,0 +1,23 @@
+# Project dependencies
+.cache
+node_modules
+yarn-error.log
+/components/firebase/firebase.js
+firebase-debug.log
+.firebase
+package.lock
+package-lock.json
+yarn-error.log
+
+# functions 
+functions/config
+
+# Build directory
+public
+
+# Reports
+coverage
+
+# Env
+.env
+.env.production
