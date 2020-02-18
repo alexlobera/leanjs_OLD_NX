@@ -61,6 +61,13 @@ exports[`<PhoneMenu /> should render a menu with less than 11 items in the first
       GraphQL Curriculum
     </PhoneMenuItem>
     <PhoneMenuItem
+      key="/graphql/mini-conference"
+      onClick={[Function]}
+      to="/graphql/mini-conference"
+    >
+      GraphQL Mini Conference
+    </PhoneMenuItem>
+    <PhoneMenuItem
       key="/about-us"
       onClick={[Function]}
       to="/about-us"
