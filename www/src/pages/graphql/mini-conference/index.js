@@ -293,7 +293,10 @@ const GraphQLPage = ({ data, path, trainings }) => {
                 <a name="speakers" />
                 Call For Papers
               </H3>
-              <LinkButton to="https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform">
+              <LinkButton
+                sx={{ mb: [6, 0] }}
+                to="https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform"
+              >
                 Submit your talk
               </LinkButton>
             </Col>
