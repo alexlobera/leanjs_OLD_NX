@@ -215,13 +215,13 @@ const SubTitleBackground = styled.div`
   ${TITLE_BACKGROUND} padding: 16px;
   color: ${WHITE};
   max-width: 65ch;
-  > div {
-  }
   max-width: 65ch;
-  a {
-    color: ${WHITE};
-  }
-  ul li {
+
+  ul li,
+  a,
+  span,
+  label,
+  div {
     color: ${WHITE};
   }
 `

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Ul, { Li } from '../layout/Ul'
+import Box from '../layout/Box'
 import Grid, { Row, Col } from '../layout/Grid'
 import Link, { styleChildLinkColor } from './Link'
 
@@ -13,9 +14,8 @@ import {
 import { TECH_GRAPHQL, TECH_REACT } from '../../config/data'
 import { SCREEN_XS_MAX } from '../utils'
 
-const BreadcrumbContainer = React.memo(styled.nav`
+const BreadcrumbContainer = React.memo(styled(Box)`
   position: absolute;
-  top: 91px;
   left: 0;
   width: 100%;
   z-index: ${Z_INDEX_MEDIUM};
@@ -55,7 +55,12 @@ const BreadcrumbContainer = React.memo(styled.nav`
 
 const Breadcrumb = ({ path, tech }) =>
   path && path.length ? (
-    <BreadcrumbContainer tech={tech} ariaLabel="Breadcrumb">
+    <BreadcrumbContainer
+      sx={{ top: ['68px', '91px'] }}
+      box="nav"
+      tech={tech}
+      ariaLabel="Breadcrumb"
+    >
       <Grid>
         <Row>
           <Col>

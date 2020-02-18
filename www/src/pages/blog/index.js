@@ -17,6 +17,7 @@ import {
 } from '../../components/blog/utils'
 import Input from '../../components/form/Input'
 import Flex from '../../components/layout/Flex'
+import Span from '../../components/text/Span'
 import Segment from '../../components/elements/Segment'
 
 const client = algoliasearch(
@@ -72,10 +73,11 @@ const Blog = ({ data, path, trainings }) => {
         subtitle="Insights into the world of React GraphQL Academy"
         fullHeight={false}
         onThisPage={
-          <Flex sx={{ alignItems: 'center', flexDirection: ['column', 'row'] }}>
-            <SearchIcon sx={{ mr: 2 }} /> Search blogs
+          <Flex box="label" sx={{ alignItems: 'center' }}>
+            <SearchIcon sx={{ mr: 2 }} />
+            <Span sx={{ display: ['none', 'inline-block'] }}>Search blogs</Span>
             <Input
-              sx={{ ml: 3, width: ['100%', '400px'] }}
+              sx={{ ml: 3, width: ['auto !important', '400px !important'] }}
               placholder="Eg. styling in react"
               onChange={searchPosts}
             />

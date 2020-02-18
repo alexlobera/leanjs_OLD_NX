@@ -30,7 +30,7 @@ const StyledToggleButton = styled(ToggleButton)`
   width: 36px;
   height: 30px;
   right: 30px;
-  top: 18px;
+  top: 12px;
   z-index: 9991;
   ${FONT_FAMILY}
   label {
