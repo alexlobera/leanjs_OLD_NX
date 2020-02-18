@@ -265,6 +265,23 @@ function postsToHtml({ posts, bodyImagePublicURLs, siteUrl }) {
   return posts.map(node => postToHtml({ node, bodyImagePublicURLs, siteUrl }))
 }
 
+const findIndexFromTagName = tagName => (acc, { name: tag }) => {
+  if (acc) {
+    return acc
+  }
+
+  if (tag.lastIndexOf(tagName, 0) === 0) {
+    return parseInt(tag.replace(tagName, ''))
+  }
+}
+
+const sortingPostsByTag = tagName => (a, b) => {
+  const featuredA = a.tags.reduce(findIndexFromTagName(tagName), null)
+  const featuredB = b.tags.reduce(findIndexFromTagName(tagName), null)
+
+  return featuredA - featuredB
+}
+
 module.exports = {
   getPostsFromNodes,
   getContents,
@@ -275,4 +292,6 @@ module.exports = {
   getHeadings,
   getPostDataFromMarkdownNode,
   getPostDataFromSanityPostNode,
+  findIndexFromTagName,
+  sortingPostsByTag,
 }

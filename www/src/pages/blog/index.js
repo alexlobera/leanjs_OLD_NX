@@ -10,7 +10,11 @@ import { UpcomingTrainingSection } from '../../components/training'
 import { Breadcrumb } from '../../components/navigation'
 import { TopSection } from '../../components/layout/Section'
 import PostCard from '../../components/blog/PostCard'
-import { getPostsFromNodes } from '../../components/blog/utils'
+import {
+  getPostsFromNodes,
+  findIndexFromTagName,
+  sortingPostsByTag,
+} from '../../components/blog/utils'
 import Input from '../../components/form/Input'
 import Flex from '../../components/layout/Flex'
 import Segment from '../../components/elements/Segment'
@@ -21,13 +25,26 @@ const client = algoliasearch(
 )
 
 const algoliaPostsIndex = client.initIndex('Posts')
+const FEATURED_TAG = 'featured-blog-page-'
+
+// TODO memoize getPostsInitialState
+function getPostsInitialState(data) {
+  const nonFeaturedSanityPosts = (data.allSanityPost.nodes || []).filter(
+    post => !post.tags.reduce(findIndexFromTagName(FEATURED_TAG), null)
+  )
+  const featuredSanityPosts = data.featuredSanityPosts.nodes || []
+
+  featuredSanityPosts.sort(sortingPostsByTag(FEATURED_TAG))
+
+  return getPostsFromNodes({
+    markdownNodes: data.allMarkdownRemark.nodes,
+    sanityNodes: [...featuredSanityPosts, ...nonFeaturedSanityPosts],
+  })
+}
 
 const Blog = ({ data, path, trainings }) => {
   const [searchTerm, setSearchTerm] = useState()
-  const postsInitialState = getPostsFromNodes({
-    markdownNodes: data.allMarkdownRemark.nodes,
-    sanityNodes: data.allSanityPost.nodes,
-  })
+  const postsInitialState = getPostsInitialState(data)
   const [posts, setPosts] = useState(postsInitialState)
 
   const searchPosts = e => {
@@ -94,27 +111,51 @@ const Blog = ({ data, path, trainings }) => {
 }
 
 export const query = graphql`
-  query blogQuery {
-    allSanityPost(sort: { fields: [order, publishedAt], order: [ASC, DESC] }) {
-      nodes {
-        title
-        excerpt
-        category
-        mainImage {
-          asset {
-            localFile(width: 500, height: 333) {
-              publicURL
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+  fragment SanityPostBlogPage on SanityPost {
+    title
+    excerpt
+    category
+    tags {
+      name
+    }
+    mainImage {
+      asset {
+        localFile(width: 500, height: 333) {
+          publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
-        slug {
-          current
-        }
+      }
+    }
+    slug {
+      current
+    }
+  }
+  query blogQuery {
+    allSanityPost(
+      #   TODO negative regular expession is not working, it should be fixed and remove filtering in the component
+      #   filter: {
+      #     tags: {
+      #       elemMatch: { name: { regex: "/^((?!featured-blog-page-).)*$/" } }
+      #     }
+      #   }
+      sort: { fields: [publishedAt], order: [DESC] }
+    ) {
+      nodes {
+        ...SanityPostBlogPage
+      }
+    }
+
+    featuredSanityPosts: allSanityPost(
+      filter: {
+        tags: { elemMatch: { name: { glob: "featured-blog-page-*" } } }
+      }
+    ) {
+      nodes {
+        ...SanityPostBlogPage
       }
     }
 

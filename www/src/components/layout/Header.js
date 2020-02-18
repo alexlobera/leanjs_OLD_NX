@@ -332,6 +332,7 @@ const Header = ({
   className = 'course-details-clicks',
   breadcrumbPath,
   tech,
+  buyLink = '#pricing',
 }) => {
   const expandCheckout = useExpandCheckout()
 
@@ -443,7 +444,11 @@ const Header = ({
                                 <Li key={i}>
                                   <Link
                                     className="on-this-page"
-                                    to={to[0] !== '#' ? `#${to}` : to}
+                                    to={
+                                      to[0] !== '#' && !to.match('^http')
+                                        ? `#${to}`
+                                        : to
+                                    }
                                   >
                                     {text}
                                   </Link>
@@ -541,13 +546,13 @@ const Header = ({
                               <strong>Venue</strong>:{training.address}
                               {training.mapUrl && (
                                 <>
-                                  {` - `}
+                                  {`, `}
                                   <Link
                                     to={training.mapUrl}
                                     className={className}
                                   >
                                     {' '}
-                                    map
+                                    see on the map
                                   </Link>
                                 </>
                               )}
@@ -577,10 +582,12 @@ const Header = ({
                         </Ul>
                         <Box sx={{ textAlign: 'center', mb: '-38px' }}>
                           <LinkButton
-                            onClick={expandCheckout || undefined}
+                            onClick={
+                              expandCheckout ? expandCheckout : undefined
+                            }
+                            to={buyLink}
                             className="header-buy-tickets"
                             variant="primary"
-                            to="#pricing"
                           >
                             Buy tickets
                           </LinkButton>
