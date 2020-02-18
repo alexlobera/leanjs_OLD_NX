@@ -260,8 +260,10 @@ const GraphQLPage = ({ data, path, trainings }) => {
                         circle
                         fluid={speakerImages[imageName]}
                         sx={{
-                          width: '120px',
-                          height: '120px',
+                          display: 'flex',
+                          width: ['80px', '120px'],
+                          height: ['80px', '120px'],
+                          minWidth: '80px',
                           mr: 2,
                           mb: 1,
                         }}

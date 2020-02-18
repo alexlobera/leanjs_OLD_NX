@@ -11,7 +11,7 @@ const Image = withLazyLoad()(styled(Box)`
 Image.defaultProps = {
   box: 'img',
 }
-const StyledGatsbyImage = ({ circle, sx, ...rest }) => {
+const StyledGatsbyImage = ({ circle, sx = {}, ...rest }) => {
   if (circle) {
     sx.borderRadius = '50%'
   }
