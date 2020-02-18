@@ -137,11 +137,11 @@ export const query = graphql`
   query blogQuery {
     allSanityPost(
       #   TODO negative regular expession is not working, it should be fixed and remove filtering in the component
-      filter: {
-        tags: {
-          elemMatch: { name: { regex: "/^((?!featured-blog-page-).)*$/" } }
-        }
-      }
+      #   filter: {
+      #     tags: {
+      #       elemMatch: { name: { regex: "/^((?!featured-blog-page-).)*$/" } }
+      #     }
+      #   }
       sort: { fields: [publishedAt], order: [DESC] }
     ) {
       nodes {

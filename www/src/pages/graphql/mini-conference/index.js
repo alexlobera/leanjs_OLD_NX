@@ -98,18 +98,12 @@ const buyExternalUrl =
   'https://ti.to/gitnation/graphql-mini-conference-2020-react-summit'
 
 const GraphQLPage = ({ data, path, trainings }) => {
-  console.log(
-    'aaaa 1',
-    data.sanityNodes && data.sanityNodes.nodes,
-    getPostsFromNodes({
-      sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
-    })
-  )
+  // TODO MEMOIZE getPostsFromNodes
   const posts = getPostsFromNodes({
-    sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
-  }).sort(sortingPostsByTag('featured-mini-conf-'))
-
-  console.log('aaaa posts', posts)
+    sanityNodes: ((data.sanityNodes && data.sanityNodes.nodes) || []).sort(
+      sortingPostsByTag('featured-mini-conf-')
+    ),
+  })
 
   const trainingsInAmsterdam =
     selectUpcomingTrainings({ trainings, city: 'amsterdam' }) || []
