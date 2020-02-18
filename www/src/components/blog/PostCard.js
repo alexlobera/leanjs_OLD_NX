@@ -48,6 +48,7 @@ export const query = graphql`
     title
     excerpt
     category
+    # TODO remove tags when fixed regex not include word, this tags are used now to filter on the client
     tags {
       name
     }
