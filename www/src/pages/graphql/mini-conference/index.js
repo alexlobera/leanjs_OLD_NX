@@ -89,7 +89,7 @@ const speakers = [
   },
   {
     fullname: 'Alex Lobera',
-    job: 'Founder & Head Coach at React GraphQL Academy',
+    job: 'Head Coach & Founder at React GraphQL Academy',
     imageName: 'alex',
     description: `Experienced Full-stack Developer passionate about JavaScript, React and GraphQL. 15 years of experience in the software industry. Interested in digital products that make a social impact.`,
     links: [

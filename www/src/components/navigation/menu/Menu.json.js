@@ -37,6 +37,10 @@ export default [
         to: '/graphql/curriculum',
         text: 'GraphQL Curriculum',
       },
+      {
+        to: '/graphql/mini-conference',
+        text: 'GraphQL Mini Conference',
+      },
     ],
   },
   {
