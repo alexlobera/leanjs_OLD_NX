@@ -95,7 +95,8 @@ const AgendaCard = ({ sx, ...rest }) => (
   />
 )
 
-const buyExternalUrl = 'https://ti.to'
+const buyExternalUrl =
+  'https://ti.to/gitnation/graphql-mini-conference-on-april-15'
 
 const GraphQLPage = ({ data, path, trainings }) => {
   const posts = getPostsFromNodes({
@@ -122,6 +123,8 @@ const GraphQLPage = ({ data, path, trainings }) => {
     nodes: trainings,
     id: '5e3e990ae1ac3f000218d377',
   })
+
+  console.log('aa', conference, trainings)
 
   const smallGalleryImages = massageGalleryImages(data.venueImages, 'sm')
   const largeGalleryImages = massageGalleryImages(data.venueImages, 'lg')

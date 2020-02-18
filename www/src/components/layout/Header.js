@@ -546,13 +546,13 @@ const Header = ({
                               <strong>Venue</strong>:{training.address}
                               {training.mapUrl && (
                                 <>
-                                  {` - `}
+                                  {`, `}
                                   <Link
                                     to={training.mapUrl}
                                     className={className}
                                   >
                                     {' '}
-                                    map
+                                    see on the map
                                   </Link>
                                 </>
                               )}
