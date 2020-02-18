@@ -76,6 +76,37 @@ const speakers = [
       { url: 'https://hasura.io/blog/@tanmaig/', icon: WebsiteIcon },
     ],
   },
+  {
+    fullname: 'Roy Derks',
+    job: 'Senior Frontend Developer at City of Amsterdam',
+    imageName: 'roy',
+    description: `Roy Derks is a serial startup CTO, developer, author and conference speaker from Amsterdam. He also teaches React and GraphQL, and works on open-source JavaScript projects for the City of Amsterdam.`,
+    links: [
+      { url: 'https://twitter.com/gethackteam', icon: TwitterIcon },
+      { url: 'https://github.com/royderks', icon: GitHubIcon },
+      { url: 'https://dev.to/gethackteam', icon: WebsiteIcon },
+    ],
+  },
+  {
+    fullname: 'Alex Lobera',
+    job: 'Founder & Head Coach at React GraphQL Academy',
+    imageName: 'alex',
+    description: `Experienced Full-stack Developer passionate about JavaScript, React and GraphQL. 15 years of experience in the software industry. Interested in digital products that make a social impact.`,
+    links: [
+      { url: 'https://twitter.com/alex_lobera', icon: TwitterIcon },
+      { url: 'https://github.com/alexlbr', icon: GitHubIcon },
+    ],
+  },
+  {
+    fullname: 'Uri Goldshtein',
+    job: 'Founder at The Guild',
+    imageName: 'uri',
+    description: `Uri is the founder of The Guild, a group of open source developers in charge of the largest open source libraries in the GraphQL Javascript ecosystem. They hands-on support large companies, to help them manage successful technological transformations using open source tools and educational workshops. Uri is a former Apollo developer and a contributor to the GraphQL Subscriptions spec.`,
+    links: [
+      { url: 'https://twitter.com/UriGoldshtein', icon: TwitterIcon },
+      { url: 'https://github.com/urigo', icon: GitHubIcon },
+    ],
+  },
 ]
 
 const metas = {
@@ -352,8 +383,18 @@ const GraphQLPage = ({ data, path, trainings }) => {
             <AgendaCard>
               <H4>6:10 pm - First Lightning Talk</H4>
               <P>TBD</P>
-              <H4>6:20 pm - Second Lightning Talk</H4>
-              <P>TBD</P>
+              <H4>
+                6:20 pm - Why GraphQL between micro-services is the worst and
+                the best idea at the same time by Uri Goldshtein
+              </H4>
+              <P>
+                GraphQL is great! So let’s just “GraphQL all the things!!” But
+                does GraphQL really fits everywhere? What might be some of the
+                issues of using GraphQL between services? In this talk I will
+                demo the current ways of using GraphQL between services and
+                reveal a new radical approach that might shine a new light on
+                the subject.
+              </P>
             </AgendaCard>
 
             <H3>Talks</H3>
@@ -370,8 +411,14 @@ const GraphQLPage = ({ data, path, trainings }) => {
                 while also keeping the benefits of a microservices/serverless
                 architecture.
               </P>
-              <H4>7 pm - Second Talk</H4>
-              <P>TBD</P>
+              <H4>7 pm - GraphQL Without a Database by Roy Derks</H4>
+              <P>
+                Your frontend developers are pushing to get started with
+                GraphQL, but you don’t have the backend capacity to migrate your
+                existing REST APIs to GraphQL? In this talk, I’ll show how to
+                wrap existing REST APIs into one single GraphQL endpoint on both
+                the client and server side.
+              </P>
             </AgendaCard>
 
             <H3>Break</H3>
@@ -381,8 +428,15 @@ const GraphQLPage = ({ data, path, trainings }) => {
 
             <H3>Talks</H3>
             <AgendaCard>
-              <H4>8:00 pm - Third Talk</H4>
-              <P>TBD</P>
+              <H4>
+                8:00 pm - Do you really need a GraphQL client? by Alex Lobera
+              </H4>
+              <P>
+                GraphQL might make our apps faster, but that’s not always true.
+                TTI is an important performance metric and we bundle our apps
+                with a lot of JS. I’ll show you websites that don’t need a
+                GraphQL client and others were it made a difference, and why.
+              </P>
               <H4>8:30 pm - Fourth Talk</H4>
               <P>TBD</P>
             </AgendaCard>
