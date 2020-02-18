@@ -108,7 +108,11 @@ const Page = ({ data, location, ...rest }) => {
       code: ({ node }) => <Code className={node.language}>{node.code}</Code>,
       tweet: ({ node }) => <Tweet id={node.id} />,
       youtube: ({ node }) => (
-        <Video time={node.startSecond} youtubeId={node.videoId} />
+        <Video
+          sx={{ mb: 3, mt: 3 }}
+          time={node.startSecond}
+          youtubeId={node.videoId}
+        />
       ),
       span: BlogPostSpan,
       tedvideo: ({ node }) => (

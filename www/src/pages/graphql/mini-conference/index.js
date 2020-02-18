@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import StickyBox from 'react-sticky-box'
 
 import LinkButton from 'src/components/buttons/LinkButton'
-import { CheckoutProvider } from 'src/components/payment/checkout'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection, ColSection } from 'src/components/layout/Section'
 import Gallery, { massageGalleryImages } from 'src/components/elements/Gallery'
@@ -21,7 +20,7 @@ import Header from 'src/components/layout/Header'
 import TwitterIcon from 'src/components/icons/TwitterIcon'
 import GitHubIcon from 'src/components/icons/GitHubIcon'
 import WebsiteIcon from 'src/components/icons/WebsiteIcon'
-import { getPostsFromNodes } from 'src/components/blog/utils'
+import { getPostsFromNodes, sortingPostsByTag } from 'src/components/blog/utils'
 import BlogSection from 'src/components/blog/BlogSection'
 
 import {
@@ -96,12 +95,22 @@ const AgendaCard = ({ sx, ...rest }) => (
 )
 
 const buyExternalUrl =
-  'https://ti.to/gitnation/graphql-mini-conference-on-april-15'
+  'https://ti.to/gitnation/graphql-mini-conference-2020-react-summit'
 
 const GraphQLPage = ({ data, path, trainings }) => {
+  console.log(
+    'aaaa 1',
+    data.sanityNodes && data.sanityNodes.nodes,
+    getPostsFromNodes({
+      sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
+    })
+  )
   const posts = getPostsFromNodes({
     sanityNodes: data.sanityNodes && data.sanityNodes.nodes,
-  })
+  }).sort(sortingPostsByTag('featured-mini-conf-'))
+
+  console.log('aaaa posts', posts)
+
   const trainingsInAmsterdam =
     selectUpcomingTrainings({ trainings, city: 'amsterdam' }) || []
   const crossSellTrainings = [
@@ -123,8 +132,6 @@ const GraphQLPage = ({ data, path, trainings }) => {
     nodes: trainings,
     id: '5e3e990ae1ac3f000218d377',
   })
-
-  console.log('aa', conference, trainings)
 
   const smallGalleryImages = massageGalleryImages(data.venueImages, 'sm')
   const largeGalleryImages = massageGalleryImages(data.venueImages, 'lg')
@@ -193,12 +200,17 @@ const GraphQLPage = ({ data, path, trainings }) => {
             to: '#sponsors',
           },
           {
-            text: "What's a Mini Conf",
+            text: 'Mini Conf?',
             to: '#whatisaminiconf',
           },
           {
             text: 'Agenda',
             to: '#agenda',
+          },
+          {
+            text: 'Map',
+            to:
+              'https://www.google.com/maps/place/TQ/@52.3664431,4.8920517,15z/data=!4m5!3m4!1s0x0:0x45d87e43633373ea!8m2!3d52.3664431!4d4.8920517',
           },
           {
             text: 'Tickets',
@@ -402,8 +414,9 @@ const GraphQLPage = ({ data, path, trainings }) => {
 export const query = graphql`
   query {
     sanityNodes: allSanityPost(
-      filter: { tags: { elemMatch: { name: { in: ["mini-gql-conf"] } } } }
-      sort: { fields: publishedAt, order: DESC }
+      filter: {
+        tags: { elemMatch: { name: { glob: "featured-mini-conf-*" } } }
+      }
       limit: 3
     ) {
       nodes {

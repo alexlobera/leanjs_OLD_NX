@@ -48,6 +48,9 @@ export const query = graphql`
     title
     excerpt
     category
+    tags {
+      name
+    }
     mainImage {
       asset {
         localFile(width: 500, height: 333) {
