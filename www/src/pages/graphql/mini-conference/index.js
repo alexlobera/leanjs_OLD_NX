@@ -198,10 +198,10 @@ const GraphQLPage = ({ data, path, trainings }) => {
         breadcrumbPath={[
           { to: '/', label: 'Home' },
           { to: '/graphql', label: 'GraphQL' },
-          { to: path, label: 'Mini Conf' },
+          { to: path, label: 'MiniConf' },
         ]}
         tech={TECH_GRAPHQL}
-        titleLines={['GraphQL Mini Conference Amsterdam April 15, 2020']}
+        titleLines={['GraphQL MiniConf Amsterdam April 15, 2020']}
         subtitle={
           <Ul sx={{ mt: 0 }} variants={['unstyled', 'inline']}>
             <Li>150 Attendees</Li>
@@ -225,7 +225,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
             to: '#sponsors',
           },
           {
-            text: 'Mini Conf?',
+            text: 'MiniConf?',
             to: '#whatisaminiconf',
           },
           {
@@ -352,7 +352,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
           <React.Fragment>
             <H2>
               <a name="whatisaminiconf" />
-              What is a Mini Conference?
+              What is a MiniConf?
             </H2>
             <P>
               MiniConf is just a shorter version of a Regular conferences you

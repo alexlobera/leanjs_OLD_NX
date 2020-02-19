@@ -39,7 +39,7 @@ export default [
       },
       {
         to: '/graphql/mini-conference',
-        text: 'GraphQL Mini Conference',
+        text: 'GraphQL MiniConf',
       },
     ],
   },
