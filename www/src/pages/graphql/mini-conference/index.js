@@ -107,6 +107,16 @@ const speakers = [
       { url: 'https://github.com/urigo', icon: GitHubIcon },
     ],
   },
+  {
+    fullname: 'Sid Chatterjee',
+    job: 'Senior Software Engineer at GatsbyJS',
+    imageName: 'sid',
+    description: `Core team at Gatsby. When he isn't writing code, Sid enjoys scuba diving, reading and lazing with his dogs. He lives in Mumbai, India and writes at sidhartha.dev.`,
+    links: [
+      { url: 'https://twitter.com/chatsidhartha', icon: TwitterIcon },
+      { url: 'https://github.com/sidharthachatterjee', icon: GitHubIcon },
+    ],
+  },
 ]
 
 const metas = {
@@ -442,8 +452,17 @@ const GraphQLPage = ({ data, path, trainings }) => {
                 with a lot of JS. I’ll show you websites that don’t need a
                 GraphQL client and others were it made a difference, and why.
               </P>
-              <H4>8:30 pm - Fourth Talk</H4>
-              <P>TBD</P>
+              <H4>8:30 pm - How Gatsby uses GraphQL by Sid Chatterjee</H4>
+              <P>
+                GraphQL is one of the best things to have happened to modern web
+                development. You might've heard that Gatsby uses GraphQL but
+                Gatsby compiles away your GraphQL queries at build time. It's
+                also what makes fetching data from 100s of different data
+                sources possible and intuitive in Gatsby. In this talk, we'll
+                dive deep into Gatsby's GraphQL layer and talk about automatic
+                schema inference, schema customisation, build time query
+                extraction and more.{' '}
+              </P>
             </AgendaCard>
 
             <H3>Networking & Party</H3>
