@@ -21,7 +21,10 @@
     "dev": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "predeploy": "npm run build",
+    "serve": "gatsby serve",
+    "deploy": "npm run deploy-hosting",
+    "deploy-hosting": "./node_modules/.bin/firebase deploy --only hosting"
   },
   "dependencies": {
     "docz": "2.2.0",
@@ -30,9 +33,11 @@
     "gatsby-plugin-sharp": "^2.2.18",
     "gatsby-theme-docz": "^2.2.0",
     "gatsby-transformer-sharp": "^2.2.7",
+    "firebase-tools": "^7.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet-async": "^1.0.4"
+    "react-helmet-async": "^1.0.4",
+    "styled-components": "^5.0.0"
   }
 }

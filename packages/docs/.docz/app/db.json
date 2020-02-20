@@ -23,59 +23,29 @@
         "menu": "",
         "headings": [
           {
-            "slug": "docz-gatsby-example",
+            "slug": "do-we-need-this-a-readme",
             "depth": 1,
-            "value": "Docz Gatsby Example"
-          },
-          {
-            "slug": "using-create-docz-app",
-            "depth": 2,
-            "value": "Using  create-docz-app"
-          },
-          {
-            "slug": "download",
-            "depth": 2,
-            "value": "Download"
-          },
-          {
-            "slug": "setup",
-            "depth": 2,
-            "value": "Setup"
-          },
-          {
-            "slug": "start-developing",
-            "depth": 2,
-            "value": "Start developing"
-          },
-          {
-            "slug": "build",
-            "depth": 2,
-            "value": "Build"
-          },
-          {
-            "slug": "serve-built-app",
-            "depth": 2,
-            "value": "Serve built app"
+            "value": "Do we need this a README?"
           }
         ]
       }
     },
     {
-      "key": "src/components/Alert.mdx",
+      "key": "src/components/Box.mdx",
       "value": {
-        "name": "Alert",
+        "name": "Box",
         "menu": "Components",
-        "id": "411d2842c3d65e6ee7d3ec119ed4c5a0",
-        "filepath": "src/components/Alert.mdx",
-        "fullpath": "/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/packages/docs/src/components/Alert.mdx",
-        "link": "https://github.com/reactgraphqlacademy/reactgraphqlacademy/edit/master/packages/docs/src/components/Alert.mdx",
-        "slug": "src-components-alert",
-        "route": "/src-components-alert",
+        "id": "2b590132813e22c1cb65c08e7b128163",
+        "filepath": "src/components/Box.mdx",
+        "fullpath": "/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/packages/docs/src/components/Box.mdx",
+        "link": "https://github.com/reactgraphqlacademy/reactgraphqlacademy/edit/master/packages/docs/src/components/Box.mdx",
+        "slug": "src-components-box",
+        "route": "/src-components-box",
         "headings": [
           {
-            "slug": "alert",
+            "slug": "box",
             "depth": 1,
-            "value": "Alert"
+            "value": "Box"
           },
           {
             "slug": "properties",
@@ -88,59 +58,19 @@
             "value": "Basic usage"
           },
           {
-            "slug": "using-different-kinds",
+            "slug": "using-sx-prop",
             "depth": 2,
-            "value": "Using different kinds"
-          }
-        ]
-      }
-    },
-    {
-      "key": "src/components/Button.mdx",
-      "value": {
-        "name": "Button",
-        "menu": "Components",
-        "id": "94c04b4e4bd29ffbdeec8755c1a4c04f",
-        "filepath": "src/components/Button.mdx",
-        "fullpath": "/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/packages/docs/src/components/Button.mdx",
-        "link": "https://github.com/reactgraphqlacademy/reactgraphqlacademy/edit/master/packages/docs/src/components/Button.mdx",
-        "slug": "src-components-button",
-        "route": "/src-components-button",
-        "headings": [
-          {
-            "slug": "button",
-            "depth": 1,
-            "value": "Button"
+            "value": "Using sx prop"
           },
           {
-            "slug": "best-practices",
+            "slug": "spacing",
             "depth": 3,
-            "value": "Best practices"
+            "value": "Spacing"
           },
           {
-            "slug": "properties",
-            "depth": 2,
-            "value": "Properties"
-          },
-          {
-            "slug": "basic-usage",
-            "depth": 2,
-            "value": "Basic usage"
-          },
-          {
-            "slug": "with-different-sizes",
-            "depth": 2,
-            "value": "With different sizes"
-          },
-          {
-            "slug": "with-different-colors",
-            "depth": 2,
-            "value": "With different colors"
-          },
-          {
-            "slug": "outlined",
-            "depth": 2,
-            "value": "Outlined"
+            "slug": "colors",
+            "depth": 3,
+            "value": "Colors"
           }
         ]
       }
@@ -171,130 +101,5 @@
       }
     }
   ],
-  "props": [
-    {
-      "key": "src/components/Alert.jsx",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Alert",
-          "methods": [],
-          "actualName": "Alert",
-          "props": {
-            "kind": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "'info'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'positive'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'negative'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'warning'",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "`info`, `positive`, `negative`, or `warning`",
-              "defaultValue": {
-                "value": "'info'",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    },
-    {
-      "key": "src/components/Button.jsx",
-      "value": [
-        {
-          "description": "",
-          "displayName": "Button",
-          "methods": [],
-          "actualName": "Button",
-          "props": {
-            "scales": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "'small'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'normal'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'big'",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "'normal'",
-                "computed": false
-              }
-            },
-            "kind": {
-              "type": {
-                "name": "enum",
-                "value": [
-                  {
-                    "value": "'primary'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'secondary'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'cancel'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'dark'",
-                    "computed": false
-                  },
-                  {
-                    "value": "'gray'",
-                    "computed": false
-                  }
-                ]
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "'primary'",
-                "computed": false
-              }
-            },
-            "outline": {
-              "type": {
-                "name": "bool"
-              },
-              "required": false,
-              "description": "",
-              "defaultValue": {
-                "value": "false",
-                "computed": false
-              }
-            }
-          }
-        }
-      ]
-    }
-  ]
+  "props": []
 }
