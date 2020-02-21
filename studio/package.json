@@ -22,19 +22,19 @@
     "@fortawesome/free-regular-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@sanity/base": "^0.147.3",
-    "@sanity/code-input": "^0.147.0",
-    "@sanity/components": "^0.147.3",
-    "@sanity/core": "^0.147.3",
-    "@sanity/default-layout": "^0.147.4",
-    "@sanity/default-login": "^0.147.0",
-    "@sanity/desk-tool": "^0.147.3",
+    "@sanity/base": "^1.148.5",
+    "@sanity/code-input": "^1.148.1",
+    "@sanity/components": "^1.148.5",
+    "@sanity/core": "^1.148.5",
+    "@sanity/default-layout": "^1.148.5",
+    "@sanity/default-login": "^1.148.1",
+    "@sanity/desk-tool": "^1.148.6",
     "prop-types": "^15.6",
     "react": "^16.12",
     "react-dom": "^16.12"
   },
   "devDependencies": {
-    "@sanity/cli": "^0.147.3"
+    "@sanity/cli": "^1.148.6"
   },
   "repository": {
     "type": "git",
