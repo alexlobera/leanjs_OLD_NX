@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Field } from 'react-final-form'
 
-import { BLACK } from '../../config/styles'
+import { DARK_GREY } from '../../config/styles'
 import { FlexLabel } from '../text/Label'
 import Flex from '../layout/Flex'
 
@@ -10,7 +10,7 @@ const defaultSize = 2
 
 const Icon = styled.svg`
   fill: none;
-  stroke: ${({ color }) => (color ? color : BLACK)};
+  stroke: ${({ color = DARK_GREY }) => color};
   stroke-width: 2px;
 `
 const HiddenCheckbox = styled.input.attrs(props => ({
@@ -29,7 +29,7 @@ const HiddenCheckbox = styled.input.attrs(props => ({
 
 const StyledCheckbox = styled.div`
   margin: 0.4rem 0.8rem 0.4rem 0;
-  border: 1px solid ${({ color }) => (color ? color : BLACK)};
+  border: 1px solid ${({ color }) => (color ? color : DARK_GREY)};
   height: ${props => (props.size ? props.size : defaultSize)}em;
   width: ${props => (props.size ? props.size : defaultSize)}em;
   ${HiddenCheckbox}:focus + & {
