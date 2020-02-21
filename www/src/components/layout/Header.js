@@ -471,7 +471,7 @@ const Header = ({
                   ) : featuredTrainings ? (
                     <Col md={4} sx={{ ml: 'auto' }}>
                       <FeaturedTrainingTitle>
-                        Featured Training Course
+                        Featured Training
                       </FeaturedTrainingTitle>
                       {featuredTrainings.map(training => {
                         const { dayMonth, duration } = getTrainingTimings({
