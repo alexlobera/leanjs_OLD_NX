@@ -120,12 +120,4 @@ There are loads of reasons to choose us - here’s just a few:
 - Alumni support following completion of the React training course
   <a name="conclusion"></a>
 
-## Conclusion
-
-- [What do our students learn? <a name="react-bootcamp-syllabus"></a>](#what-do-our-students-learn)
-- [How much experience do I need to learn React and GraphQL? <a name="developer-student-level"></a>](#how-much-experience-do-i-need-to-learn-react-and-graphql)
-- [Who will get the most out of the React / GraphQL Bootcamps? <a name="passionate-react-developers"></a>](#who-will-get-the-most-out-of-the-react--graphql-bootcamps)
-- [Why React GraphQL Academy?](#why-react-graphql-academy)
-- [Conclusion](#conclusion)
-
 If you think you’re ready to learn React, [get in touch today](#contact-us)!
