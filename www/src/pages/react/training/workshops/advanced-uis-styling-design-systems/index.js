@@ -86,7 +86,7 @@ const StylingDesignSystemWorkshop = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the course]."
+              quote="With React, everything is inter-connected which can be difficult to understand. But I see it clearly now [after the training course]."
               fullname="Rafa Fraga"
               job="Software Engineer"
               youtubeId="9QpAWAtZy6M"

@@ -24,8 +24,8 @@ function Feedback({ trialPath, articlePath }) {
         <>
           <H3>You can give us feedback</H3>
           <P>
-            If you are not going to book a spot on course, you can tell us why
-            to help us improve :)
+            If you are not going to book a spot on the training course, you can
+            tell us why to help us improve :)
           </P>
           <form onSubmit={handleSubmit}>
             <Ul variant="unstyled">
@@ -33,7 +33,7 @@ function Feedback({ trialPath, articlePath }) {
                 <CheckboxField
                   color={WHITE}
                   name="tooExpensive"
-                  label="The course is too expensive"
+                  label="The training  course is too expensive"
                   elementOnChecked={
                     <Span>
                       {articlePath && (
@@ -57,7 +57,7 @@ function Feedback({ trialPath, articlePath }) {
                 <CheckboxField
                   color={WHITE}
                   name="tooLong"
-                  label="The course is too long"
+                  label="The training course is too long"
                   elementOnChecked={
                     <InputField
                       name="tooLong.expand"

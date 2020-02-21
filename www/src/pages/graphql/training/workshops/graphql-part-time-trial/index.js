@@ -24,9 +24,9 @@ import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
-  title: 'GraphQL Part-Time Course Trial | React GraphQL Academy',
+  title: 'GraphQL Training Trial | React GraphQL Academy',
   description:
-    'Are you not sure yet about buying our GraphQL part-time course? With this trial of our GraphQL part-time course, you will be able to make an informed decision before purchasing the full course',
+    'Are you not sure yet about buying our GraphQL training courses? With this trial of our GraphQL training courses, you will be able to make an informed decision before purchasing the full training course',
   image: BOOTCAMP_COLLAB,
   type: 'website',
 }
@@ -63,7 +63,7 @@ const Page = ({ path, trainings }) => {
         ]}
         tech={TECH_GRAPHQL}
         titleLines={['3-Hour GraphQL Trial']}
-        subtitle="With this trial of our GraphQL part-time course, you will be able to make an informed decision before purchasing the full course"
+        subtitle="With this trial of our GraphQL part-time training course, you will be able to make an informed decision before purchasing the full course"
         links={[
           { text: 'Workshop Agenda', to: '#curriculum' },
           { text: 'Is this right for me?', to: '#target-audience' },
@@ -89,7 +89,7 @@ const Page = ({ path, trainings }) => {
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
               type={GRAPHQL_WORKSHOP}
-              quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+              quote="As a freelance developer, I was tired of doing online training courses on my own without live support. [The course] was fantastic - the teachers didn't leave a single question unanswered."
               fullname="Rafa Fraga"
               job="Software Engineer"
               youtubeId="hZZksRcqtkc"
@@ -106,10 +106,10 @@ const Page = ({ path, trainings }) => {
               <Li>
                 A developer with some experience developing Nodes.js APIs?
               </Li>
-              <Li>
+              {/* <Li>
                 Familiar with front-end technologies like React (used during the
-                GraphQL part-time course) and JavaScript?
-              </Li>
+                GraphQL part-time training course) and JavaScript?
+              </Li> */}
               <Li>
                 Taking a step forward to become a GraphQL Specialist to build
                 modern and efficient APIs?
@@ -117,7 +117,6 @@ const Page = ({ path, trainings }) => {
             </Ul>
             <P>If you've said 'yes' to these, this trial could be for you!</P>
             <H3>Not for beginner devs!</H3>
-            <P>This is not a learn-to-code course!</P>
             <NextTrainingButton type="workshop" training={nextTraining} />
           </Col>
         </Row>

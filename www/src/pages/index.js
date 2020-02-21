@@ -104,8 +104,7 @@ const IndexPage = ({ trainings }) => {
           'Take your dev career further',
           'with React GraphQL Academy',
         ]}
-        subtitle="In-person courses, workshops and meetups from experts who were the first in
-        Europe to teach React. "
+        subtitle="In-person & online training courses and workshops from industry experts. "
         bgImageName={HOME_PAGE}
       />
       <TopSection sx={{ mt: [0, -225] }}>
@@ -140,7 +139,7 @@ const IndexPage = ({ trainings }) => {
       <ColSection
         col={
           <AttendeeQuote
-            quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+            quote="As a freelance developer, I was tired of doing online courses on my own without live support. [The course] was fantastic - the teachers didn't leave a single question unanswered."
             fullname="Rafa Fraga"
             job="Software Engineer"
             youtubeId="hZZksRcqtkc"
@@ -170,7 +169,7 @@ const IndexPage = ({ trainings }) => {
                   to="/react/training/part-time-course/"
                   className="is-it-for-me"
                 >
-                  Part-time courses
+                  Part-time training courses
                 </Link>{' '}
                 for accelerated learning.
               </Li>

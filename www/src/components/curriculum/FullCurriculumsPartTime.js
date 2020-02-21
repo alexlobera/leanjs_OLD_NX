@@ -64,7 +64,7 @@ const FullCurriculumsPartTime = ({ trainings }) => {
       <Row>
         <Col md={6} lg={5} lgOffset={1}>
           <H3>
-            Part-time courses outline
+            Part-time training outline
             <a name="curriculum" />
           </H3>
           <Tabs defaultValue={GRAPHQL_PART_TIME}>

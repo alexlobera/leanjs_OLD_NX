@@ -23,9 +23,9 @@ import BlogSection from 'src/components/blog/BlogSection'
 import { createMetas } from 'src/components/utils'
 
 const metas = {
-  title: 'GraphQL Part-time Course | React GraphQL Academy',
+  title: 'GraphQL Part-time Training Course | React GraphQL Academy',
   description:
-    'Interested in GraphQL part-time course? React GraphQL Academy offers in-person GraphQL part-time courses from industry experts. Contact us now!',
+    'Interested in GraphQL part-time training course? React GraphQL Academy offers in-person GraphQL part-time training courses from industry experts. Contact us now!',
   image: WHY_GQLU_ACADEMY,
   type: 'website',
 }
@@ -57,10 +57,10 @@ const GraphQL = ({ path, trainings }) => {
           { to: path, label: 'Part-time' },
         ]}
         titleLines={[
-          'Take your dev career further',
-          'with our GraphQL part-time course',
+          'Take your dev career further with our',
+          'GraphQL part-time training course',
         ]}
-        subtitle="In-person GraphQL part-time course from industry experts"
+        subtitle="In-person GraphQL part-time training course from industry experts"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
         type={GRAPHQL_PART_TIME}
@@ -89,7 +89,7 @@ const GraphQL = ({ path, trainings }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <H2Ref>
-              Is this GraphQL part-time course right for me?
+              Is this GraphQL part-time training course right for me?
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>

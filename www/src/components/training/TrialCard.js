@@ -21,7 +21,7 @@ export const DeductPriceOnPurchase = ({ price, trainingInstance }) => (
         : 'price'}{' '}
       of the trial will be deducted
     </strong>{' '}
-    from the price when you buy the full course within one week.
+    from the price when you buy the full training course within one week.
   </>
 )
 
@@ -35,10 +35,10 @@ const TrialCard = ({ trainingInstance, sx = {}, ...rest }) => {
     <Segment small variant="primary" sx={{ my: 5, ...sx }} {...rest}>
       <Row>
         <Col md={8}>
-          <H3>You can try this course first</H3>
+          <H3>You can try this training course first</H3>
           <P>
             We have scheduled a trial for this course, which corresponds to the
-            first session of this course curriculum.
+            first session of this training course curriculum.
             <DeductPriceOnPurchase price={price} />
           </P>
         </Col>

@@ -375,6 +375,8 @@ const Header = ({
           hours: utcHours,
           minutes: utcMinutes,
         } = convertMinutesToHoursAndMinutes(training.utcOffset)
+        const titleLinesArray =
+          typeof titleLines === 'string' ? [titleLines] : titleLines
 
         return (
           <React.Fragment>
@@ -412,7 +414,7 @@ const Header = ({
                     type={type}
                   >
                     <H1>
-                      {titleLines.map((line, i) => (
+                      {titleLinesArray.map((line, i) => (
                         <TitleBackground key={i} children={line} />
                       ))}
                     </H1>
@@ -467,7 +469,7 @@ const Header = ({
                   ) : featuredTrainings ? (
                     <Col md={4} sx={{ ml: 'auto' }}>
                       <FeaturedTrainingTitle>
-                        Featured Course
+                        Featured Training Course
                       </FeaturedTrainingTitle>
                       {featuredTrainings.map(training => {
                         const { dayMonth, duration } = getTrainingTimings({

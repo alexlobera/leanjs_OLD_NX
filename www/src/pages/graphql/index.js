@@ -32,7 +32,7 @@ const trainingList = [
     to: '/graphql/training/bootcamp/',
   },
   {
-    title: 'GraphQL Part-time Course',
+    title: 'GraphQL Part-time Training Course',
     text: `Maximum GraphQL training flexibility that fits around your`,
     to: '/graphql/training/part-time-course/',
   },

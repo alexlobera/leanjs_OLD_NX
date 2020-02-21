@@ -29,10 +29,10 @@ const Page = props => (
     feedback={
       <Feedback
         trialPath="/graphql/training/workshops/graphql-part-time-trial/online/"
-        // articlePath="PLEASE UPDATE THIS VARIABLE"
+        articlePath="/graphql/how-aligned-is-graphql-to-your-business-needs/"
       />
     }
-    typeOfTraining="GraphQL part-time course"
+    typeOfTraining="GraphQL Part-time Training"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

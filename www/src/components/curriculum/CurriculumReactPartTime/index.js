@@ -60,7 +60,7 @@ const CurriculumReactPartTime = ({
 
   return (
     <Curriculum
-      title="React Part-time Course Outline"
+      title="React Part-time Training Course Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}

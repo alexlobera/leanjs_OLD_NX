@@ -27,7 +27,7 @@ import NextTrainingButton from 'src/components/training/NextTrainingButton'
 const metas = {
   title: 'React Part-Time Trial | React GraphQL Academy',
   description:
-    'Are you not sure yet about buying our React part-time course? With this trial of our React part-time course, you will be able to make an informed decision before purchasing the full course',
+    'Are you not sure yet about buying our React part-time training course? With this trial of our React part-time training course, you will be able to make an informed decision before purchasing the full training course',
   image: BOOTCAMP_COLLAB,
   type: 'website',
 }
@@ -64,7 +64,7 @@ const Page = ({ path, trainings }) => {
         ]}
         tech={TECH_REACT}
         titleLines={['3-Hour React Trial']}
-        subtitle="With this trial of our React part-time course, you will be able to make an informed decision before purchasing the full course"
+        subtitle="With this trial of our React part-time training course, you will be able to make an informed decision before purchasing the full training course"
         links={[
           { text: 'Workshop Agenda', to: '#curriculum' },
           { text: 'Is this right for me?', to: '#target-audience' },

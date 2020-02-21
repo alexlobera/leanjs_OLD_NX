@@ -85,7 +85,7 @@ That’s why companies choose React. Although it’s constantly changing, React 
 
 Are you ready to learn React? Then our React training courses are for you!
 
-We’ll introduce you to React, Redux and GraphQL over either our week-long, full-time Bootcamp or Part-time courses.
+We’ll introduce you to React, Redux and GraphQL over either our week-long, full-time Bootcamp or Part-time training courses.
 
 We run these course throughout the year and across the EU - in London, Lisbon, Amsterdam and Barcelona - so no matter where you are, there’s always the opportunity to learn React with us.
 
