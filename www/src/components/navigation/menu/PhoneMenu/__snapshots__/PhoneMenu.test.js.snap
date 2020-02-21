@@ -23,7 +23,7 @@ exports[`<PhoneMenu /> should render a menu with less than 11 items in the first
       onClick={[Function]}
       to="/react/training"
     >
-      React Courses
+      React Training Courses
     </PhoneMenuItem>
     <PhoneMenuItem
       key="/react/training/corporate"
@@ -44,7 +44,7 @@ exports[`<PhoneMenu /> should render a menu with less than 11 items in the first
       onClick={[Function]}
       to="/graphql/training"
     >
-      GraphQL Courses
+      GraphQL Training Courses
     </PhoneMenuItem>
     <PhoneMenuItem
       key="/graphql/training/corporate"
