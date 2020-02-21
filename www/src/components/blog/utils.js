@@ -209,6 +209,7 @@ function postBodyToHtml({ rawBody, bodyImagePublicURLs = {}, siteUrl = '' }) {
               innerHTML: `Look at this codesandbox`,
             })
           ),
+        form: () => '',
       },
     },
   })
