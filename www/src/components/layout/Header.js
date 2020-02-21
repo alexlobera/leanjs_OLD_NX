@@ -201,12 +201,14 @@ const FeaturedTrainingTitle = ({ sx = {}, ...rest }) => (
 )
 
 const TitleBackground = styled.span`
-  &:first-child  {
-    padding-top: 15px;
+  /* &:first-child  {
+    padding-top: 5px;
   }
   &:last-child {
-    padding-bottom: 20px;
-  }
+    padding-bottom: 10px;
+  } */
+  padding-top: 6px;
+  padding-bottom: 6px;
   ${TITLE_BACKGROUND};
 `
 TitleBackground.displayName = 'TitleBackground'
