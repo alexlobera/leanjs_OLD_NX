@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import Video from "../../www/src/components/elements/Video";
+import Video from "../../../www/src/components/elements/Video";
 
 export default {
   name: "youtube",
