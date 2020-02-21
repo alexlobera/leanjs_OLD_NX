@@ -54,7 +54,7 @@ const TrainingPage = ({ path, trainings }) => (
       bgColor={GRAPHQL_PINK}
       featuredSection={
         <React.Fragment>
-          <P>Our courses:</P>
+          <P>Our training courses:</P>
           {[
             {
               to: '/graphql/training/part-time-course/',

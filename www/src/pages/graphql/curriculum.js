@@ -108,7 +108,7 @@ class GraphQLCurriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <H2Ref>
-                  Our courses - what are the differences?{' '}
+                  Our training courses - what are the differences?{' '}
                   <Link to="#differences" name="differences">
                     #
                   </Link>
@@ -317,8 +317,8 @@ class GraphQLCurriculum extends React.Component {
                   <ContentItem name={GRAPHQL_PART_TIME}>
                     <P>
                       <strong>
-                        On completion of the GraphQL part-time course each
-                        student will:
+                        On completion of the GraphQL part-time training course
+                        each student will:
                       </strong>
                     </P>
                     <PartTimeLearningObjectives />
@@ -344,7 +344,7 @@ class GraphQLCurriculum extends React.Component {
                           marketingCard={
                             trainingPartTime && (
                               <MarketingCard
-                                heading="Next GraphQL part-time course"
+                                heading="Next GraphQL part-time training"
                                 text={`Don't cut into valuable work-days!`}
                                 className="training-curriculum-next-training-cta"
                                 to={trainingPartTime && trainingPartTime.toPath}

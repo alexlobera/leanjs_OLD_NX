@@ -9,7 +9,7 @@ export default [
     children: [
       {
         to: '/react/training',
-        text: 'React Courses',
+        text: 'React Training Courses',
       },
       {
         to: '/react/training/corporate',
@@ -27,7 +27,7 @@ export default [
     children: [
       {
         to: '/graphql/training',
-        text: 'GraphQL Courses',
+        text: 'GraphQL Training Courses',
       },
       {
         to: '/graphql/training/corporate',

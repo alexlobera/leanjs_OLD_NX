@@ -206,7 +206,7 @@ const InstancePage = ({
       <Header
         breadcrumbPath={breadcrumb}
         tech={techLowerCase}
-        titleLines={[instanceTitle]}
+        titleLines={instanceTitle}
         subtitle={subtitle}
         links={[
           {

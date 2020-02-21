@@ -11,7 +11,7 @@ tags: ['amsterdam', 'react']
 
 As the alumni from our courses will probably tell you, we live and breathe all things React here at React GraphQL Academy. True as that is, for some reason we’ve never had the opportunity to visit React Amsterdam before, the biggest React conference in the world!
 
-This year, we’re going to set that right. We’re not just attending React Amsterdam though, we’re running a day-long React Amsterdam workshop, too. But the good news doesn’t stop there: before the conference, we’re also bringing our part-time course to Amsterdam in March. We don’t like to do things by half…
+This year, we’re going to set that right. We’re not just attending React Amsterdam though, we’re running a day-long React Amsterdam workshop, too. But the good news doesn’t stop there: before the conference, we’re also bringing our part-time training course to Amsterdam in March. We don’t like to do things by half…
 
 ## Why React Amsterdam?
 

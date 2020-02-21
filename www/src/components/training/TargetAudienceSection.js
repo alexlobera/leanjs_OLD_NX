@@ -21,7 +21,7 @@ const TargetAudienceSection = () => (
         </Col>
         <Col md={4} lgOffset={1}>
           <H2Ref>
-            Is this React part-time course right for me? Are you...{' '}
+            Is this React part-time training course right for me? Are you...{' '}
             <Link to="#target-audience" name="target-audience">
               #
             </Link>
@@ -43,8 +43,8 @@ const TargetAudienceSection = () => (
             </Li>
           </Ul>
           <P>
-            If you've said 'yes' to these, our part-time course could be for
-            you!
+            If you've said 'yes' to these, our part-time training course could
+            be for you!
           </P>
           <H3>Not for beginner devs!</H3>
           <P>

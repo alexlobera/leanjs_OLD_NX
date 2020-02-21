@@ -66,7 +66,7 @@ const TrainingPage = ({ path, trainings }) => {
         bgColor={BLUE}
         featuredSection={
           <React.Fragment>
-            <P>Our courses:</P>
+            <P>Our training courses:</P>
             {[
               {
                 to: '/react/training/bootcamp',

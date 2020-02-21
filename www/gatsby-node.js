@@ -362,6 +362,16 @@ exports.createPages = async ({ graphql, actions }) => {
                 )
               }
             )
+            let instanceTitle
+            if (Array.isArray(restConfig.title)) {
+              const lastInstanceTitleIndex = restConfig.title.length - 1
+              instanceTitle = [...restConfig.title]
+              instanceTitle[
+                lastInstanceTitleIndex
+              ] = `${instanceTitle[lastInstanceTitleIndex]} ${capitalizedCity}`
+            } else {
+              instanceTitle = `${restConfig.title} ${capitalizedCity}`
+            }
 
             await Promise.all(
               instancesToCreate.map(async nth => {
@@ -401,7 +411,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     posts,
                     city: capitalizedCity,
                     financeAvailable,
-                    instanceTitle: `${restConfig.title} ${capitalizedCity}`,
+                    instanceTitle,
                     nth,
                     coaches:
                       (node.frontmatter && node.frontmatter.coaches) || [],

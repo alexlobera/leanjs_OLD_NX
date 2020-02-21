@@ -46,7 +46,7 @@ See who else uses GraphQL on our blog ["_Who Uses GraphQL anyway?_"](https://rea
 
 The main thing that has changed is that we’re now delighted to create more [GraphQL Bootcamps](https://reactgraphql.academy/graphql/training/bootcamp/) and [Workshops](https://reactgraphql.academy/graphql/training/workshops/). Developers can now take their career even further with the specialised skills that Development Leads will kill for!
 
-Our React courses will remain unchanged through our [GraphQL curriculum](https://reactgraphql.academy/graphql/curriculum/). We’ll also be able to keep improving and enhancing our teaching through our expert coaches and by helping to sponsor [meetups](https://reactgraphql.academy/community/meetups/) that helps the community.
+Our React training courses will remain unchanged through our [GraphQL curriculum](https://reactgraphql.academy/graphql/curriculum/). We’ll also be able to keep improving and enhancing our teaching through our expert coaches and by helping to sponsor [meetups](https://reactgraphql.academy/community/meetups/) that helps the community.
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_ariseRGA-rebranding%2Fimage_2.jpg?alt=media)
 
@@ -64,10 +64,10 @@ React GraphQL Academy founder and head-coach, [Alex Lobera](https://reactgraphql
 
 - [React works great with GraphQL](#react-and-graphql)
 
-- Changing our name means [we will be offering more GraphQL training](#react-graphql-academy-rebrand) and improving our React courses
+- Changing our name means [we will be offering more GraphQL training](#react-graphql-academy-rebrand) and improving our React training courses
 
 ## Learn GraphQL with React GraphQL Academy
 
-Check out our latest course dates below and visit our GraphQL Curriculum page for much more detail about what you and your team can learn from a GraphQL Bootcamp.
+Check out our latest training course dates below and visit our GraphQL Curriculum page for much more detail about what you and your team can learn from a GraphQL Bootcamp.
 
 If you have any questions, don’t hesitate in [contacting us](#contact-us).
