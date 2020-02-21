@@ -2,20 +2,20 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // We import object and document schemas
-import blockContent from "./blockContent";
-import tag from "./tag";
-import post from "./post";
-import person from "./person";
-import partner from "./partner";
-import job from "./job";
-import youtube from "./youtube";
-import tweet from "./tweet";
-import codesanbox from "./codesanbox";
-import code from "./code";
-import richBulletPoints from "./richBulletPoints";
-import tedvideo from "./tedvideo";
-import form from "./form";
-import formType from "./formType";
+import blockContent from "./arrays/blockContent";
+import tag from "./documents/tag";
+import post from "./documents/post";
+import person from "./documents/person";
+import partner from "./documents/partner";
+import job from "./objects/job";
+import youtube from "./objects/youtube";
+import tweet from "./objects/tweet";
+import codesanbox from "./objects/codesanbox";
+import code from "./objects/code";
+import richBulletPoints from "./arrays/richBulletPoints";
+import tedvideo from "./objects/tedvideo";
+import form from "./objects/form";
+import formType from "./objects/formType";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({

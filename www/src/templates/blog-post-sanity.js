@@ -21,6 +21,7 @@ import Ul from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text/H'
 import { getPostsFromNodes, getContents } from '../components/blog/utils'
 import { slugify } from '../components/utils/text'
+import SanityForm from '../components/blog/SanityForm'
 
 function renderHeadingWithAnchor({ children, Component }) {
   const formatedChildren = (Array.isArray(children) ? children : [children])
@@ -114,6 +115,7 @@ const Page = ({ data, location, ...rest }) => {
           youtubeId={node.videoId}
         />
       ),
+      form: ({ node }) => <SanityForm data={node} />,
       span: BlogPostSpan,
       tedvideo: ({ node }) => (
         <TedVideo embedUrl={node.embedUrl} description={node.description} />

@@ -72,7 +72,5 @@ export const sendFeedback = feedback =>
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      feedback,
-    }),
+    body: JSON.stringify(feedback),
   })

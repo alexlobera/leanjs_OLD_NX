@@ -79,7 +79,7 @@ const SessionInterestGraphQL = ({ path, trainings }) => {
         training={nextBootcamp}
       />
 
-      <TopSection sx={{ mt: `-250` }}>
+      <TopSection>
         <Segment>
           <Row>
             <Col md={10} mdOffset={1}>
