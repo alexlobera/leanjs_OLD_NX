@@ -146,22 +146,19 @@ const GraphQLPage = ({ data, path, trainings }) => {
     ),
   })
 
-  const trainingsInAmsterdam =
-    selectUpcomingTrainings({ trainings, city: 'amsterdam' }) || []
-  const crossSellTrainings = [
-    getNextTrainingByTrainingId({
-      trainings,
-      trainingId: '5e349275778e880002113474',
-    }),
-    getNextTrainingByTrainingId({
-      trainings,
-      trainingId: '5dc6f35fce62530002bd3e92',
-    }),
-    getNextTrainingByTrainingId({
-      trainings: trainingsInAmsterdam,
+  const relatedTrainingInstance = [
+    { trainingId: '5e349275778e880002113474', trainings },
+    { trainingId: '5dc6f35fce62530002bd3e92', trainings },
+    {
       trainingId: '5aa2ab2a7dcc782348ea2011',
-    }),
-  ].filter(t => t)
+      trainings: (
+        selectUpcomingTrainings({ trainings, city: 'amsterdam' }) || []
+      ).slice(0, 3),
+    },
+  ]
+  const crossSellTrainings = relatedTrainingInstance
+    .map(getNextTrainingByTrainingId)
+    .filter(t => t)
 
   const conference = selectNodeById({
     nodes: trainings,
@@ -220,7 +217,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
             <Li>1 Evening</Li>
           </Ul>
         }
-        bgImageName={'mini-conf'}
+        bgImageName={'graphql-mini-conf'}
         bgColors={[GRAPHQL_PINK, REACTSUMMIT_COLOR]}
         showInfoBox={true}
         training={conference}

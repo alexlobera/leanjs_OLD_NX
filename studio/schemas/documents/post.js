@@ -18,11 +18,6 @@ export default {
       type: "string"
     },
     {
-      name: "order",
-      title: "Order (Number)",
-      type: "number"
-    },
-    {
       name: "slug",
       title: "Slug",
       type: "slug",
@@ -84,14 +79,13 @@ export default {
   preview: {
     select: {
       title: "title",
-      order: "order",
       author: "author.fullname",
       media: "mainImage"
     },
     prepare(selection) {
-      const { author, order } = selection;
+      const { author } = selection;
       return Object.assign({}, selection, {
-        subtitle: author && `by ${author} ${order ? ` - order: ${order}` : ""}`
+        subtitle: author && `by ${author}`
       });
     }
   }
