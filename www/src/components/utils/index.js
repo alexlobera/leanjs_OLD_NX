@@ -14,8 +14,14 @@ import {
   MEETUP,
   TECH_REACT,
   TECH_GRAPHQL,
+  TECH_JAMSTACK,
 } from '../../config/data'
-import { GRAPHQL_PINK, MEETUP_RED, BLUE } from '../../config/styles'
+import {
+  GRAPHQL_PINK,
+  MEETUP_RED,
+  BLUE,
+  JAMSTACK_GREEN,
+} from '../../config/styles'
 
 export const SCREEN_XS_MAX = '767px'
 export const SCREEN_SM_MIN = '768px'
@@ -57,6 +63,8 @@ export const selectTypeColor = type => {
     case GRAPHQL_WORKSHOP:
     case TECH_GRAPHQL:
       return GRAPHQL_PINK
+    case TECH_JAMSTACK:
+      return JAMSTACK_GREEN
     case MEETUP:
       return MEETUP_RED
     default:

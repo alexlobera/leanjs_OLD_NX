@@ -29,7 +29,7 @@ import {
   selectNodeById,
 } from 'src/components/training'
 import { Segment, Image } from 'src/components/elements'
-import { GRAPHQL_BOOTCAMP, TECH_JAMSTACK } from 'src/config/data'
+import { TECH_JAMSTACK } from 'src/config/data'
 import { JAMSTACK_GREEN, GRAPHQL_PINK, BLUE, GREY } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -132,12 +132,10 @@ const metas = {
 const buyExternalUrl =
   'https://ti.to/gitnation/graphql-mini-conference-2020-react-summit'
 
-const CONF_COLOR = 'red'
-
 const AgendaCard = ({ sx, ...rest }) => (
   <Card
     variant="primary"
-    sx={{ mb: 5, borderColor: CONF_COLOR, ...sx }}
+    sx={{ mb: 5, borderColor: TECH_JAMSTACK, ...sx }}
     {...rest}
   />
 )
@@ -146,12 +144,12 @@ const GraphQLPage = ({
   data,
   path,
   trainings,
-  conferenceId = '5e3e990ae1ac3f000218d377',
+  conferenceId = '5e5104235d8b760002b9a3ba',
 }) => {
   // TODO MEMOIZE getPostsFromNodes
   const posts = getPostsFromNodes({
     sanityNodes: ((data.sanityNodes && data.sanityNodes.nodes) || []).sort(
-      sortingPostsByTag('featured-mini-conf-')
+      sortingPostsByTag('featured-jamstack-conf-')
     ),
   })
 
@@ -216,7 +214,7 @@ const GraphQLPage = ({
           { to: '/', label: 'Home' },
           { to: path, label: 'JAMStack MiniConf' },
         ]}
-        tech={TECH_JAMSTACK}
+        type={TECH_JAMSTACK}
         breadcrumbBgColor={JAMSTACK_GREEN}
         titleLines={['JAMStack MiniConf Amsterdam April 16, 2020']}
         subtitle={
@@ -259,7 +257,6 @@ const GraphQLPage = ({
             to: buyExternalUrl,
           },
         ]}
-        type={GRAPHQL_BOOTCAMP}
       />
       <TopSection>
         <Segment>
@@ -331,8 +328,10 @@ const GraphQLPage = ({
                     {element}
                   </Card>
                 )
-              )} */}
+              )}
               <H3 sx={{ mb: 6, pt: 5 }}>Organizers</H3>
+               */}
+              <H3 sx={{ mb: 6, pt: 2 }}>Organizers</H3>
               <StickyBox offsetTop={120}>
                 {organizersList.map(
                   (
