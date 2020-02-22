@@ -10,12 +10,11 @@ import Gallery, { massageGalleryImages } from 'src/components/elements/Gallery'
 import { Col, Row } from 'src/components/layout/Grid'
 import Box from 'src/components/layout/Box'
 import Flex from 'src/components/layout/Flex'
-import { H2, H3, H4, P } from 'src/components/text'
+import { H2, H3, H4, H5, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import ApolloLogo from 'src/components/logos/Apollo'
+import GatsbyLogo from 'src/components/logos/Gatsby'
 import RGAWhiteLogo from 'src/components/logos/RGAWhiteLogo'
 import ReactSummitLogo from 'src/components/logos/ReactSummit'
-import Guild from 'src/components/logos/Guild'
 import Header from 'src/components/layout/Header'
 import TwitterIcon from 'src/components/icons/TwitterIcon'
 import GitHubIcon from 'src/components/icons/GitHubIcon'
@@ -30,20 +29,24 @@ import {
   selectNodeById,
 } from 'src/components/training'
 import { Segment, Image } from 'src/components/elements'
-import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
-import { GRAPHQL_PINK, LIGHT_PINK, BLUE, GREY } from 'src/config/styles'
+import { GRAPHQL_BOOTCAMP, TECH_JAMSTACK } from 'src/config/data'
+import { JAMSTACK_GREEN, GRAPHQL_PINK, BLUE, GREY } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Card from 'src/components/elements/Card'
 
+const GATSBY_COLOR = 'rgb(102, 51, 153)'
 const REACTSUMMIT_COLOR = '#0f0'
 
-const sponsorsList = [
-  {
-    element: <ApolloLogo width="100%" height={null} />,
-    borderColor: GRAPHQL_PINK,
-  },
-]
+// const callForPapersLink =
+//   'https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform'
+
+// const sponsorsList = [
+//   {
+//     element: <ApolloLogo width="100%" height={null} />,
+//     borderColor: JAMSTACK_GREEN,
+//   },
+// ]
 
 const RGABorderImage = `linear-gradient(to top, ${GRAPHQL_PINK}, ${BLUE}) 1 100%`
 
@@ -53,14 +56,13 @@ const organizersList = [
     borderColor: REACTSUMMIT_COLOR,
   },
   {
+    element: <GatsbyLogo width="80%" height={null} />,
+    borderColor: GATSBY_COLOR,
+  },
+  {
     element: <RGAWhiteLogo width="80%" height={null} />,
     borderColor: BLUE,
     borderImage: RGABorderImage,
-  },
-
-  {
-    element: <Guild width="80%" height={null} />,
-    borderColor: GRAPHQL_PINK,
   },
 ]
 
@@ -127,18 +129,25 @@ const metas = {
   type: 'website',
 }
 
+const buyExternalUrl =
+  'https://ti.to/gitnation/graphql-mini-conference-2020-react-summit'
+
+const CONF_COLOR = 'red'
+
 const AgendaCard = ({ sx, ...rest }) => (
   <Card
     variant="primary"
-    sx={{ mb: 5, borderColor: GRAPHQL_PINK, ...sx }}
+    sx={{ mb: 5, borderColor: CONF_COLOR, ...sx }}
     {...rest}
   />
 )
 
-const buyExternalUrl =
-  'https://ti.to/gitnation/graphql-mini-conference-2020-react-summit'
-
-const GraphQLPage = ({ data, path, trainings }) => {
+const GraphQLPage = ({
+  data,
+  path,
+  trainings,
+  conferenceId = '5e3e990ae1ac3f000218d377',
+}) => {
   // TODO MEMOIZE getPostsFromNodes
   const posts = getPostsFromNodes({
     sanityNodes: ((data.sanityNodes && data.sanityNodes.nodes) || []).sort(
@@ -156,13 +165,14 @@ const GraphQLPage = ({ data, path, trainings }) => {
       ).slice(0, 3),
     },
   ]
+
   const crossSellTrainings = relatedTrainingInstance
     .map(getNextTrainingByTrainingId)
     .filter(t => t)
 
   const conference = selectNodeById({
     nodes: trainings,
-    id: '5e3e990ae1ac3f000218d377',
+    id: conferenceId,
   })
 
   const smallGalleryImages = massageGalleryImages(data.venueImages, 'sm')
@@ -204,12 +214,11 @@ const GraphQLPage = ({ data, path, trainings }) => {
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
-          { to: '/graphql', label: 'GraphQL' },
-          { to: path, label: 'MiniConf' },
+          { to: path, label: 'JAMStack MiniConf' },
         ]}
-        tech={TECH_GRAPHQL}
-        breadcrumbBgColor={LIGHT_PINK}
-        titleLines={['GraphQL MiniConf Amsterdam April 15, 2020']}
+        tech={TECH_JAMSTACK}
+        breadcrumbBgColor={JAMSTACK_GREEN}
+        titleLines={['JAMStack MiniConf Amsterdam April 16, 2020']}
         subtitle={
           <Ul sx={{ mt: 0 }} variants={['unstyled', 'inline']}>
             <Li>150 Attendees</Li>
@@ -218,8 +227,8 @@ const GraphQLPage = ({ data, path, trainings }) => {
             <Li>1 Evening</Li>
           </Ul>
         }
-        bgImageName={'graphql-mini-conf'}
-        bgColors={[GRAPHQL_PINK, REACTSUMMIT_COLOR]}
+        bgImageName={'jamstack-mini-conf'}
+        bgColors={[JAMSTACK_GREEN, REACTSUMMIT_COLOR]}
         showInfoBox={true}
         training={conference}
         buyLink={buyExternalUrl}
@@ -299,25 +308,22 @@ const GraphQLPage = ({ data, path, trainings }) => {
                   </Flex>
                 )
               )}
-              <H3>
+              {/* <H3>
                 <a name="speakers" />
                 Call For Papers
               </H3>
-              <LinkButton
-                sx={{ mb: [6, 0] }}
-                to="https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform"
-              >
+              <LinkButton sx={{ mb: [6, 0] }} to={callForPapersLink}>
                 Submit your talk
-              </LinkButton>
+              </LinkButton> */}
             </Col>
             <Link to="#our-graphql-training" name="our-graphql-training" />
             <Col md={4}>
-              <H3>
+              {/* <H3>
                 <a name="sponsors" />
                 Sponsors
               </H3>
               {sponsorsList.map(
-                ({ element, borderColor = GRAPHQL_PINK }, index) => (
+                ({ element, borderColor = JAMSTACK_GREEN }, index) => (
                   <Card
                     variant="primary"
                     sx={{ borderColor, mb: index > 0 ? 6 : 0 }}
@@ -325,12 +331,12 @@ const GraphQLPage = ({ data, path, trainings }) => {
                     {element}
                   </Card>
                 )
-              )}
+              )} */}
               <H3 sx={{ mb: 6, pt: 5 }}>Organizers</H3>
               <StickyBox offsetTop={120}>
                 {organizersList.map(
                   (
-                    { element, borderImage, borderColor = GRAPHQL_PINK },
+                    { element, borderImage, borderColor = JAMSTACK_GREEN },
                     index
                   ) => (
                     <Card
@@ -485,7 +491,7 @@ export const query = graphql`
   query {
     sanityNodes: allSanityPost(
       filter: {
-        tags: { elemMatch: { name: { glob: "featured-mini-conf-*" } } }
+        tags: { elemMatch: { name: { glob: "featured-jamstack-conf-*" } } }
       }
       limit: 3
     ) {
@@ -512,7 +518,7 @@ export const query = graphql`
     venueImages: allFile(
       filter: {
         absolutePath: {
-          regex: "/pages/graphql/mini-conference/images/venue.*.jpg/"
+          regex: "/pages/jamstack-mini-conference/images/venue.*.jpg/"
         }
       }
     ) {

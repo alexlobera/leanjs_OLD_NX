@@ -39,7 +39,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
-import { GRAPHQL_PINK } from '../../config/styles'
+import { GRAPHQL_PINK, LIGHT_PINK } from '../../config/styles'
 
 class GraphQLCurriculum extends React.Component {
   state = {
@@ -99,6 +99,7 @@ class GraphQLCurriculum extends React.Component {
             },
           ]}
           tech={TECH_GRAPHQL}
+          breadcrumbBgColor={LIGHT_PINK}
           titleLines={['GraphQL curriculum']}
           subtitle="We're proud to say that our curriculum is the most<br /> up-to-date on the market - there really is<br />nowhere better to learn GraphQL."
           bgColor={GRAPHQL_PINK}

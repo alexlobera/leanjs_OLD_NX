@@ -328,6 +328,7 @@ const Header = ({
   className = 'course-details-clicks',
   breadcrumbPath,
   tech,
+  breadcrumbBgColor,
   buyLink = '#pricing',
 }) => {
   const expandCheckout = useExpandCheckout()
@@ -387,7 +388,9 @@ const Header = ({
                 ]}
               />
             )}
-            {breadcrumbPath && <Breadcrumb tech={tech} path={breadcrumbPath} />}
+            {breadcrumbPath && (
+              <Breadcrumb bgColor={breadcrumbBgColor} path={breadcrumbPath} />
+            )}
             <TechLogo tech={tech}>
               <HeaderSection
                 sx={{ bgColor: 'rgba(196,196,196,0.6)', mt: 0, mb: 0, pb: [5] }}

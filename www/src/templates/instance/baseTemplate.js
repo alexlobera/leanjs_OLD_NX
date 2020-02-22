@@ -35,8 +35,10 @@ import {
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   REACT_PART_TIME,
+  TECH_GRAPHQL,
 } from '../../config/data'
 import { createMetas, getRandom } from 'src/components/utils'
+import { LIGHT_PINK } from 'src/config/styles'
 
 const InstancePage = ({
   path,
@@ -206,6 +208,9 @@ const InstancePage = ({
       <Header
         breadcrumbPath={breadcrumb}
         tech={techLowerCase}
+        breadcrumbBgColor={
+          techLowerCase === TECH_GRAPHQL.toLowerCase() ? LIGHT_PINK : undefined
+        }
         titleLines={instanceTitle}
         subtitle={subtitle}
         links={[

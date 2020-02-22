@@ -22,6 +22,8 @@ import { H2, H3, H4, H5 } from '../components/text/H'
 import { getPostsFromNodes, getContents } from '../components/blog/utils'
 import { slugify } from '../components/utils/text'
 import SanityForm from '../components/blog/SanityForm'
+import { LIGHT_PINK } from '../config/styles'
+import { TECH_GRAPHQL } from '../config/data'
 
 function renderHeadingWithAnchor({ children, Component }) {
   const formatedChildren = (Array.isArray(children) ? children : [children])
@@ -146,6 +148,9 @@ const Page = ({ data, location, ...rest }) => {
   const postTypeLabel =
     category === 'react' ? 'React' : category === 'graphql' ? 'GraphQL' : 'Blog'
 
+  const breadcrumbBgColor =
+    category === TECH_GRAPHQL.toLowerCase() ? LIGHT_PINK : undefined
+
   const authorLocalFile =
     authorImage && authorImage.asset && authorImage.asset.localFile
   const authorFixedImg =
@@ -185,6 +190,7 @@ const Page = ({ data, location, ...rest }) => {
     metaImageFullPublicUrl,
     location,
     metaDescription: subtitle || excerpt,
+    breadcrumbBgColor,
     ...rest,
   }
   return <BlogPost {...blogPostProps} />

@@ -20,6 +20,7 @@ import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import { LIGHT_PINK } from 'src/config/styles'
 
 const metas = {
   title: 'GraphQL Apollo Client Training | React GraphQL Academy',
@@ -59,6 +60,7 @@ const GraphQLApolloClientWorkshop = ({ path, trainings }) => {
             label: breadcrumbWorkshopName,
           },
         ]}
+        breadcrumbBgColor={LIGHT_PINK}
         tech={TECH_GRAPHQL}
         titleLines={['GraphQL Apollo Client']}
         subtitle="Create production-ready React applications with the most community-driven GraphQL client"

@@ -22,6 +22,7 @@ import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import { LIGHT_PINK } from 'src/config/styles'
 
 const metas = {
   title: 'GraphQL Training Trial | React GraphQL Academy',
@@ -62,6 +63,7 @@ const Page = ({ path, trainings }) => {
           },
         ]}
         tech={TECH_GRAPHQL}
+        breadcrumbBgColor={LIGHT_PINK}
         titleLines={['3-Hour GraphQL Trial']}
         subtitle="With this trial of our GraphQL part-time training course, you will be able to make an informed decision before purchasing the full course"
         links={[
