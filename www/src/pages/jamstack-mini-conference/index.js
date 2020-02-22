@@ -135,7 +135,7 @@ const buyExternalUrl =
 const AgendaCard = ({ sx, ...rest }) => (
   <Card
     variant="primary"
-    sx={{ mb: 5, borderColor: TECH_JAMSTACK, ...sx }}
+    sx={{ mb: 5, borderColor: JAMSTACK_GREEN, ...sx }}
     {...rest}
   />
 )
