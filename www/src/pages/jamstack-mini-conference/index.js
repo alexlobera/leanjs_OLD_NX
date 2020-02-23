@@ -108,6 +108,16 @@ const speakers = [
       { url: 'https://charliegerard.github.io/', icon: WebsiteIcon },
     ],
   },
+  {
+    fullname: 'Alex Lobera',
+    job: 'Head Coach & Founder at React GraphQL Academy',
+    imageName: 'alex',
+    description: `Experienced Full-stack Developer passionate about JavaScript, React and GraphQL. 15 years of experience in the software industry. Interested in digital products that make a social impact.`,
+    links: [
+      { url: 'https://twitter.com/alex_lobera', icon: TwitterIcon },
+      { url: 'https://github.com/alexlbr', icon: GitHubIcon },
+    ],
+  },
 ]
 
 const metas = {
@@ -391,30 +401,20 @@ const GraphQLPage = ({
             <AgendaCard>
               <H4>6:10 pm - First Lightning Talk</H4>
               <P>TBD</P>
-              <H4>
-                6:20 pm - Why GraphQL between micro-services is the worst and
-                the best idea at the same time by Uri Goldshtein
-              </H4>
-              <P>
-                GraphQL is great! So let’s just “GraphQL all the things!!” But
-                does GraphQL really fits everywhere? What might be some of the
-                issues of using GraphQL between services? In this talk I will
-                demo the current ways of using GraphQL between services and
-                reveal a new radical approach that might shine a new light on
-                the subject.
-              </P>
+              <H4>6:20 pm - Second Lightning Talk</H4>
+              <P>TBD</P>
             </AgendaCard>
 
             <H3>Talks</H3>
             <AgendaCard>
-              <H4>6:30 pm - Building a Gatsby Theme by Sid Chatterjee</H4>
+              <H4>
+                6:30 pm - Scaling the JAMStack with Gatsby by Sid Chatterjee
+              </H4>
               <P>
-                In this talk you will get to know how GraphQL works really well
-                for monoliths & the problems that arise when taking GraphQL to
-                microservice and serverless architectures. You'll see a few
-                patterns that can allow for extracting the benefit of GraphQL
-                while also keeping the benefits of a microservices/serverless
-                architecture.
+                We’ve been working hard on performance and scaling improvements
+                in Gatsby to push the boundaries of what’s practically possible
+                with the JAMStack today. Can Wikipedia be built with Gatsby with
+                over a million pages? Watch this talk to find out!
               </P>
               <H4>7 pm - by Charlie Gerard</H4>
               <P>.</P>
@@ -428,26 +428,12 @@ const GraphQLPage = ({
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                8:00 pm - Do you really need a GraphQL client? by Alexandra
-                Spalato
+                8:00 pm - Frontity: a new React SSR & Front-end React framework
+                for headless WordPress by Alexandra Spalato
               </H4>
-              <P>
-                GraphQL might make our apps faster, but that’s not always true.
-                TTI is an important performance metric and we bundle our apps
-                with a lot of JS. I’ll show you websites that don’t need a
-                GraphQL client and others were it made a difference, and why.
-              </P>
-              <H4>8:30 pm - How Gatsby uses GraphQL by Sid Chatterjee</H4>
-              <P>
-                GraphQL is one of the best things to have happened to modern web
-                development. You might've heard that Gatsby uses GraphQL but
-                Gatsby compiles away your GraphQL queries at build time. It's
-                also what makes fetching data from 100s of different data
-                sources possible and intuitive in Gatsby. In this talk, we'll
-                dive deep into Gatsby's GraphQL layer and talk about automatic
-                schema inference, schema customisation, build time query
-                extraction and more.{' '}
-              </P>
+              <P>...</P>
+              <H4>8:30 pm - TBD</H4>
+              <P>TBD</P>
             </AgendaCard>
 
             <H3>Networking & Party</H3>
