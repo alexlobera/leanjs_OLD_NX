@@ -235,10 +235,10 @@ const GraphQLPage = ({
             text: 'Speakers',
             to: '#speakers',
           },
-          {
-            text: 'Sponsors',
-            to: '#sponsors',
-          },
+          //   {
+          //     text: 'Sponsors',
+          //     to: '#sponsors',
+          //   },
           {
             text: 'MiniConf?',
             to: '#whatisaminiconf',
