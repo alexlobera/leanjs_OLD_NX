@@ -42,6 +42,7 @@ const CorporateGraphQLTraining = ({ path, trainings }) => (
     </Helmet>
     <Header
       tech={TECH_GRAPHQL}
+      breadcrumbBgColor={LIGHT_PINK}
       breadcrumbPath={[
         { to: '/', label: 'Home' },
         {

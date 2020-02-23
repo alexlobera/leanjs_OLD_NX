@@ -18,7 +18,7 @@ import { Segment, Image } from 'src/components/elements'
 import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
-import { GRAPHQL_PINK } from 'src/config/styles'
+import { GRAPHQL_PINK, LIGHT_PINK } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Newsletter from 'src/components/elements/Newsletter'
@@ -83,6 +83,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
           { to: path, label: 'GraphQL' },
         ]}
         tech={TECH_GRAPHQL}
+        breadcrumbBgColor={LIGHT_PINK}
         titleLines={['Learn GraphQL with us...']}
         subtitle="Supercharge your development skill set with latest curriculum in GraphQL"
         bgImageName={BOOTCAMP}

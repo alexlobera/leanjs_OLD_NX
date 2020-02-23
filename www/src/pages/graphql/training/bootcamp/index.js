@@ -9,6 +9,7 @@ import { P, H2Ref } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumGraphQLBootcamp from 'src/components/curriculum/CurriculumGraphQLBootcamp'
 import Header from 'src/components/layout/Header'
+import { LIGHT_PINK } from 'src/config/styles'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
@@ -50,6 +51,7 @@ const GraphQL = ({ path, trainings }) => {
       </Helmet>
       <Header
         tech={TECH_GRAPHQL}
+        breadcrumbBgColor={LIGHT_PINK}
         breadcrumbPath={[
           { to: '/', label: 'Home' },
           { to: '/graphql', label: 'GraphQL' },

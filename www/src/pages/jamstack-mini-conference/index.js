@@ -10,12 +10,11 @@ import Gallery, { massageGalleryImages } from 'src/components/elements/Gallery'
 import { Col, Row } from 'src/components/layout/Grid'
 import Box from 'src/components/layout/Box'
 import Flex from 'src/components/layout/Flex'
-import { H2, H3, H4, P } from 'src/components/text'
+import { H2, H3, H4, H5, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import ApolloLogo from 'src/components/logos/Apollo'
+import GatsbyLogo from 'src/components/logos/Gatsby'
 import RGAWhiteLogo from 'src/components/logos/RGAWhiteLogo'
 import ReactSummitLogo from 'src/components/logos/ReactSummit'
-import Guild from 'src/components/logos/Guild'
 import Header from 'src/components/layout/Header'
 import TwitterIcon from 'src/components/icons/TwitterIcon'
 import GitHubIcon from 'src/components/icons/GitHubIcon'
@@ -30,19 +29,24 @@ import {
   selectNodeById,
 } from 'src/components/training'
 import { Segment, Image } from 'src/components/elements'
-import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
-import { GRAPHQL_PINK, LIGHT_PINK, BLUE, GREY } from 'src/config/styles'
+import { TECH_JAMSTACK } from 'src/config/data'
+import { JAMSTACK_GREEN, GRAPHQL_PINK, BLUE, GREY } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
+import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Card from 'src/components/elements/Card'
 
+const GATSBY_COLOR = 'rgb(102, 51, 153)'
 const REACTSUMMIT_COLOR = '#0f0'
 
-const sponsorsList = [
-  {
-    element: <ApolloLogo width="100%" height={null} />,
-    borderColor: GRAPHQL_PINK,
-  },
-]
+// const callForPapersLink =
+//   'https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform'
+
+// const sponsorsList = [
+//   {
+//     element: <ApolloLogo width="100%" height={null} />,
+//     borderColor: JAMSTACK_GREEN,
+//   },
+// ]
 
 const RGABorderImage = `linear-gradient(to top, ${GRAPHQL_PINK}, ${BLUE}) 1 100%`
 
@@ -52,38 +56,56 @@ const organizersList = [
     borderColor: REACTSUMMIT_COLOR,
   },
   {
+    element: <GatsbyLogo width="80%" height={null} />,
+    borderColor: GATSBY_COLOR,
+  },
+  {
     element: <RGAWhiteLogo width="80%" height={null} />,
     borderColor: BLUE,
     borderImage: RGABorderImage,
-  },
-
-  {
-    element: <Guild width="80%" height={null} />,
-    borderColor: GRAPHQL_PINK,
   },
 ]
 
 const speakers = [
   {
-    fullname: 'Tanmai Gopal',
-    job: 'CEO & Co-Founder at Hasura',
-    imageName: 'tanmai',
-    description: `Tanmai Gopal is the CEO, co-founder of Hasura, an open-source technology company that helps modern product teams use GraphQL in cloud-native applications. Prior to Hasura, he ran a niche consulting firm helping enterprises migrate to container-based architectures. He is a fullstack developer whose areas of interest and work span React, GraphQL, Haskell, Postgres & Kubernetes.`,
+    fullname: 'Alexandra Spalato',
+    job: 'Сo-founder and developer at gatsbywpthemes.com',
+    imageName: 'alexandra',
+    description: `Alexandra Spalato is on a mission to evangelize the power of Gatsby to the WordPress community as she is convinced that it is the future. She is a freelance developer and entrepreneur with several years of experience working as a WordPress expert at Codeable and has helped many clients around the world by building their online presence through high-quality custom theme development. 
+    Alexandra has decided to completely focus on Gatsby and is involved in the development of Gatsby WordPress themes at https://gatsbywpthemes.com/.`,
+    links: [{ url: 'https://twitter.com/alexadark', icon: TwitterIcon }],
+  },
+  {
+    fullname: 'Jason Lengstorf',
+    job: 'Dev Experience at @Netlify',
+    imageName: 'jason',
+    description: `Jason Lengstorf is a principal developer experience engineer at Netlify and the host of Learn With Jason, a live-streamed video show where he pairs with people in the community to learn something new. He’s passionate about building healthy, efficient teams and systems, and he’s done his best to positively influence the community, leadership, and technical health of open source and companies including Gatsby and IBM. He lives in Portland, Oregon and writes at lengstorf.com.`,
     links: [
-      { url: 'https://twitter.com/tanmaigo', icon: TwitterIcon },
-      { url: 'https://github.com/coco98', icon: GitHubIcon },
-      { url: 'https://hasura.io/blog/@tanmaig/', icon: WebsiteIcon },
+      { url: 'https://twitter.com/jlengstorf', icon: TwitterIcon },
+      { url: 'https://github.com/jlengstorf', icon: GitHubIcon },
+      { url: 'https://lengstorf.com/', icon: WebsiteIcon },
     ],
   },
   {
-    fullname: 'Roy Derks',
-    job: 'Senior Frontend Developer at City of Amsterdam',
-    imageName: 'roy',
-    description: `Roy Derks is a serial startup CTO, developer, author and conference speaker from Amsterdam. He also teaches React and GraphQL, and works on open-source JavaScript projects for the City of Amsterdam.`,
+    fullname: 'Sid Chatterjee',
+    job: 'Senior Software Engineer at GatsbyJS',
+    imageName: 'sid',
+    description: `Core team at Gatsby. When he isn't writing code, Sid enjoys scuba diving, reading and lazing with his dogs. He lives in Mumbai, India and writes at sidhartha.dev.`,
     links: [
-      { url: 'https://twitter.com/gethackteam', icon: TwitterIcon },
-      { url: 'https://github.com/royderks', icon: GitHubIcon },
-      { url: 'https://dev.to/gethackteam', icon: WebsiteIcon },
+      { url: 'https://twitter.com/chatsidhartha', icon: TwitterIcon },
+      { url: 'https://github.com/sidharthachatterjee', icon: GitHubIcon },
+    ],
+  },
+
+  {
+    fullname: 'Charlie Gerard',
+    job: 'Senior front-end dev @Netlify',
+    imageName: 'charlie',
+    description: `Charlie is a front-end developer at Netlify, a Mozilla Tech Speaker and Google Developer Expert in Web Technologies. She is passionate about creative coding and building interactive prototypes mixing science, art and technology. She also spends time giving back to the community by mentoring new developers, contributing to open-source projects, and speaking at conferences.`,
+    links: [
+      { url: 'https://twitter.com/devdevcharlie', icon: TwitterIcon },
+      { url: 'https://github.com/charliegerard', icon: GitHubIcon },
+      { url: 'https://charliegerard.github.io/', icon: WebsiteIcon },
     ],
   },
   {
@@ -96,54 +118,38 @@ const speakers = [
       { url: 'https://github.com/alexlbr', icon: GitHubIcon },
     ],
   },
-  {
-    fullname: 'Uri Goldshtein',
-    job: 'Founder at The Guild',
-    imageName: 'uri',
-    description: `Uri is the founder of The Guild, a group of open source developers in charge of the largest open source libraries in the GraphQL Javascript ecosystem. They hands-on support large companies, to help them manage successful technological transformations using open source tools and educational workshops. Uri is a former Apollo developer and a contributor to the GraphQL Subscriptions spec.`,
-    links: [
-      { url: 'https://twitter.com/UriGoldshtein', icon: TwitterIcon },
-      { url: 'https://github.com/urigo', icon: GitHubIcon },
-    ],
-  },
-  {
-    fullname: 'Sid Chatterjee',
-    job: 'Senior Software Engineer at GatsbyJS',
-    imageName: 'sid',
-    description: `Core team at Gatsby. When he isn't writing code, Sid enjoys scuba diving, reading and lazing with his dogs. He lives in Mumbai, India and writes at sidhartha.dev.`,
-    links: [
-      { url: 'https://twitter.com/chatsidhartha', icon: TwitterIcon },
-      { url: 'https://github.com/sidharthachatterjee', icon: GitHubIcon },
-      { url: 'https://sidhartha.dev/', icon: WebsiteIcon },
-    ],
-  },
 ]
 
 const metas = {
-  title: 'GraphQL MiniConf Amsterdam | React GraphQL Academy',
+  title: 'JAMStack MiniConf Amsterdam | React GraphQL Academy',
   description:
-    'Interested in learning more about GraphQL and connecting to its community? Join us at the GraphQL MiniConf!',
+    'Interested in learning more about JAMStack and connecting to its community? Join us at the JAMStack MiniConf!',
   imageFullPublicUrl:
-    'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fmini-confs%2Fpic-graphql-mini-conf-min.png?alt=media',
+    'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fmini-confs%2Fpic-jamstack-mini-conf-min.png?alt=media',
   type: 'website',
 }
+
+const buyExternalUrl =
+  'https://ti.to/gitnation/jamstack-mini-conference-2020-react-summit'
 
 const AgendaCard = ({ sx, ...rest }) => (
   <Card
     variant="primary"
-    sx={{ mb: 5, borderColor: GRAPHQL_PINK, ...sx }}
+    sx={{ mb: 5, borderColor: JAMSTACK_GREEN, ...sx }}
     {...rest}
   />
 )
 
-const buyExternalUrl =
-  'https://ti.to/gitnation/graphql-mini-conference-2020-react-summit'
-
-const GraphQLPage = ({ data, path, trainings }) => {
+const GraphQLPage = ({
+  data,
+  path,
+  trainings,
+  conferenceId = '5e5104235d8b760002b9a3ba',
+}) => {
   // TODO MEMOIZE getPostsFromNodes
   const posts = getPostsFromNodes({
     sanityNodes: ((data.sanityNodes && data.sanityNodes.nodes) || []).sort(
-      sortingPostsByTag('featured-mini-conf-')
+      sortingPostsByTag('featured-jamstack-conf-')
     ),
   })
 
@@ -157,13 +163,14 @@ const GraphQLPage = ({ data, path, trainings }) => {
       ).slice(0, 3),
     },
   ]
+
   const crossSellTrainings = relatedTrainingInstance
     .map(getNextTrainingByTrainingId)
     .filter(t => t)
 
   const conference = selectNodeById({
     nodes: trainings,
-    id: '5e3e990ae1ac3f000218d377',
+    id: conferenceId,
   })
 
   const smallGalleryImages = massageGalleryImages(data.venueImages, 'sm')
@@ -205,12 +212,11 @@ const GraphQLPage = ({ data, path, trainings }) => {
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
-          { to: '/graphql', label: 'GraphQL' },
-          { to: path, label: 'MiniConf' },
+          { to: path, label: 'JAMStack MiniConf' },
         ]}
-        tech={TECH_GRAPHQL}
-        breadcrumbBgColor={LIGHT_PINK}
-        titleLines={['GraphQL MiniConf Amsterdam April 15, 2020']}
+        type={TECH_JAMSTACK}
+        breadcrumbBgColor={JAMSTACK_GREEN}
+        titleLines={['JAMStack MiniConf Amsterdam April 16, 2020']}
         subtitle={
           <Ul sx={{ mt: 0 }} variants={['unstyled', 'inline']}>
             <Li>150 Attendees</Li>
@@ -219,8 +225,8 @@ const GraphQLPage = ({ data, path, trainings }) => {
             <Li>1 Evening</Li>
           </Ul>
         }
-        bgImageName={'graphql-mini-conf'}
-        bgColors={[GRAPHQL_PINK, REACTSUMMIT_COLOR]}
+        bgImageName={'jamstack-mini-conf'}
+        bgColors={[JAMSTACK_GREEN, REACTSUMMIT_COLOR]}
         showInfoBox={true}
         training={conference}
         buyLink={buyExternalUrl}
@@ -251,7 +257,6 @@ const GraphQLPage = ({ data, path, trainings }) => {
             to: buyExternalUrl,
           },
         ]}
-        type={GRAPHQL_BOOTCAMP}
       />
       <TopSection>
         <Segment>
@@ -300,25 +305,22 @@ const GraphQLPage = ({ data, path, trainings }) => {
                   </Flex>
                 )
               )}
-              <H3>
+              {/* <H3>
                 <a name="speakers" />
                 Call For Papers
               </H3>
-              <LinkButton
-                sx={{ mb: [6, 0] }}
-                to="https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform"
-              >
+              <LinkButton sx={{ mb: [6, 0] }} to={callForPapersLink}>
                 Submit your talk
-              </LinkButton>
+              </LinkButton> */}
             </Col>
             <Link to="#our-graphql-training" name="our-graphql-training" />
             <Col md={4}>
-              <H3>
+              {/* <H3>
                 <a name="sponsors" />
                 Sponsors
               </H3>
               {sponsorsList.map(
-                ({ element, borderColor = GRAPHQL_PINK }, index) => (
+                ({ element, borderColor = JAMSTACK_GREEN }, index) => (
                   <Card
                     variant="primary"
                     sx={{ borderColor, mb: index > 0 ? 6 : 0 }}
@@ -328,10 +330,12 @@ const GraphQLPage = ({ data, path, trainings }) => {
                 )
               )}
               <H3 sx={{ mb: 6, pt: 5 }}>Organizers</H3>
+               */}
+              <H3 sx={{ mb: 6, pt: 2 }}>Organizers</H3>
               <StickyBox offsetTop={120}>
                 {organizersList.map(
                   (
-                    { element, borderImage, borderColor = GRAPHQL_PINK },
+                    { element, borderImage, borderColor = JAMSTACK_GREEN },
                     index
                   ) => (
                     <Card
@@ -397,42 +401,23 @@ const GraphQLPage = ({ data, path, trainings }) => {
             <AgendaCard>
               <H4>6:10 pm - First Lightning Talk</H4>
               <P>TBD</P>
-              <H4>
-                6:20 pm - Why GraphQL between micro-services is the worst and
-                the best idea at the same time by Uri Goldshtein
-              </H4>
-              <P>
-                GraphQL is great! So let’s just “GraphQL all the things!!” But
-                does GraphQL really fits everywhere? What might be some of the
-                issues of using GraphQL between services? In this talk I will
-                demo the current ways of using GraphQL between services and
-                reveal a new radical approach that might shine a new light on
-                the subject.
-              </P>
+              <H4>6:20 pm - Second Lightning Talk</H4>
+              <P>TBD</P>
             </AgendaCard>
 
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                6:30 pm - Building a GraphQL backend for a cloud-native era, by
-                Tanmai Gopal
+                6:30 pm - Scaling the JAMStack with Gatsby by Sid Chatterjee
               </H4>
               <P>
-                In this talk you will get to know how GraphQL works really well
-                for monoliths & the problems that arise when taking GraphQL to
-                microservice and serverless architectures. You'll see a few
-                patterns that can allow for extracting the benefit of GraphQL
-                while also keeping the benefits of a microservices/serverless
-                architecture.
+                We’ve been working hard on performance and scaling improvements
+                in Gatsby to push the boundaries of what’s practically possible
+                with the JAMStack today. Can Wikipedia be built with Gatsby with
+                over a million pages? Watch this talk to find out!
               </P>
-              <H4>7 pm - GraphQL Without a Database by Roy Derks</H4>
-              <P>
-                Your frontend developers are pushing to get started with
-                GraphQL, but you don’t have the backend capacity to migrate your
-                existing REST APIs to GraphQL? In this talk, I’ll show how to
-                wrap existing REST APIs into one single GraphQL endpoint on both
-                the client and server side.
-              </P>
+              <H4>7 pm - by Charlie Gerard</H4>
+              <P>.</P>
             </AgendaCard>
 
             <H3>Break</H3>
@@ -443,25 +428,12 @@ const GraphQLPage = ({ data, path, trainings }) => {
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                8:00 pm - Do you really need a GraphQL client? by Alex Lobera
+                8:00 pm - Frontity: a new React SSR & Front-end React framework
+                for headless WordPress by Alexandra Spalato
               </H4>
-              <P>
-                GraphQL might make our apps faster, but that’s not always true.
-                TTI is an important performance metric and we bundle our apps
-                with a lot of JS. I’ll show you websites that don’t need a
-                GraphQL client and others were it made a difference, and why.
-              </P>
-              <H4>8:30 pm - How Gatsby uses GraphQL by Sid Chatterjee</H4>
-              <P>
-                GraphQL is one of the best things to have happened to modern web
-                development. You might've heard that Gatsby uses GraphQL but
-                Gatsby compiles away your GraphQL queries at build time. It's
-                also what makes fetching data from 100s of different data
-                sources possible and intuitive in Gatsby. In this talk, we'll
-                dive deep into Gatsby's GraphQL layer and talk about automatic
-                schema inference, schema customisation, build time query
-                extraction and more.{' '}
-              </P>
+              <P>...</P>
+              <H4>8:30 pm - TBD</H4>
+              <P>TBD</P>
             </AgendaCard>
 
             <H3>Networking & Party</H3>
@@ -486,7 +458,7 @@ export const query = graphql`
   query {
     sanityNodes: allSanityPost(
       filter: {
-        tags: { elemMatch: { name: { glob: "featured-mini-conf-*" } } }
+        tags: { elemMatch: { name: { glob: "featured-jamstack-conf-*" } } }
       }
       limit: 3
     ) {
@@ -497,7 +469,7 @@ export const query = graphql`
     speakerImages: allFile(
       filter: {
         absolutePath: {
-          regex: "/pages/graphql/mini-conference/images/speakers.*.jpg/"
+          regex: "/pages/jamstack-mini-conference/images/speakers.*.jpg/"
         }
       }
     ) {
@@ -513,7 +485,7 @@ export const query = graphql`
     venueImages: allFile(
       filter: {
         absolutePath: {
-          regex: "/pages/graphql/mini-conference/images/venue.*.jpg/"
+          regex: "/pages/jamstack-mini-conference/images/venue.*.jpg/"
         }
       }
     ) {

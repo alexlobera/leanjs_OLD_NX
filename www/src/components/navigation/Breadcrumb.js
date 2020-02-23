@@ -5,13 +5,7 @@ import Box from '../layout/Box'
 import Grid, { Row, Col } from '../layout/Grid'
 import Link, { styleChildLinkColor } from './Link'
 
-import {
-  LIGHT_BLUE,
-  LIGHT_PINK,
-  WHITE,
-  Z_INDEX_MEDIUM,
-} from '../../config/styles'
-import { TECH_GRAPHQL, TECH_REACT } from '../../config/data'
+import { WHITE, LIGHT_BLUE, Z_INDEX_MEDIUM } from '../../config/styles'
 import { SCREEN_XS_MAX } from '../utils'
 
 const BreadcrumbContainer = React.memo(styled(Box)`
@@ -20,12 +14,7 @@ const BreadcrumbContainer = React.memo(styled(Box)`
   width: 100%;
   z-index: ${Z_INDEX_MEDIUM};
   ul {
-    background-color: ${({ tech = TECH_REACT }) =>
-      tech === TECH_REACT
-        ? LIGHT_BLUE
-        : tech === TECH_GRAPHQL
-        ? LIGHT_PINK
-        : ''};
+    background-color: ${({ bgColor = LIGHT_BLUE }) => bgColor};
     padding-left: 16px;
     li {
       padding: 5px 4px 7px 0 !important;
@@ -53,12 +42,12 @@ const BreadcrumbContainer = React.memo(styled(Box)`
   }
 `)
 
-const Breadcrumb = ({ path, tech }) =>
+const Breadcrumb = ({ path, bgColor }) =>
   path && path.length ? (
     <BreadcrumbContainer
       sx={{ top: ['68px', '91px'] }}
       box="nav"
-      tech={tech}
+      bgColor={bgColor}
       ariaLabel="Breadcrumb"
     >
       <Grid>
