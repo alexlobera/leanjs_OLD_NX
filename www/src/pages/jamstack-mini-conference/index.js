@@ -68,45 +68,22 @@ const organizersList = [
 
 const speakers = [
   {
-    fullname: 'Tanmai Gopal',
-    job: 'CEO & Co-Founder at Hasura',
-    imageName: 'tanmai',
-    description: `Tanmai Gopal is the CEO, co-founder of Hasura, an open-source technology company that helps modern product teams use GraphQL in cloud-native applications. Prior to Hasura, he ran a niche consulting firm helping enterprises migrate to container-based architectures. He is a fullstack developer whose areas of interest and work span React, GraphQL, Haskell, Postgres & Kubernetes.`,
-    links: [
-      { url: 'https://twitter.com/tanmaigo', icon: TwitterIcon },
-      { url: 'https://github.com/coco98', icon: GitHubIcon },
-      { url: 'https://hasura.io/blog/@tanmaig/', icon: WebsiteIcon },
-    ],
+    fullname: 'Alexandra Spalato',
+    job: 'Сo-founder and developer at gatsbywpthemes.com',
+    imageName: 'alexandra',
+    description: `Alexandra Spalato is on a mission to evangelize the power of Gatsby to the WordPress community as she is convinced that it is the future. She is a freelance developer and entrepreneur with several years of experience working as a WordPress expert at Codeable and has helped many clients around the world by building their online presence through high-quality custom theme development. 
+    Alexandra has decided to completely focus on Gatsby and is involved in the development of Gatsby WordPress themes at https://gatsbywpthemes.com/.`,
+    links: [{ url: 'https://twitter.com/alexadark', icon: TwitterIcon }],
   },
   {
-    fullname: 'Roy Derks',
-    job: 'Senior Frontend Developer at City of Amsterdam',
-    imageName: 'roy',
-    description: `Roy Derks is a serial startup CTO, developer, author and conference speaker from Amsterdam. He also teaches React and GraphQL, and works on open-source JavaScript projects for the City of Amsterdam.`,
+    fullname: 'Jason Lengstorf',
+    job: 'Dev Experience at @Netlify',
+    imageName: 'jason',
+    description: `Jason Lengstorf is a principal developer experience engineer at Netlify and the host of Learn With Jason, a live-streamed video show where he pairs with people in the community to learn something new. He’s passionate about building healthy, efficient teams and systems, and he’s done his best to positively influence the community, leadership, and technical health of open source and companies including Gatsby and IBM. He lives in Portland, Oregon and writes at lengstorf.com.`,
     links: [
-      { url: 'https://twitter.com/gethackteam', icon: TwitterIcon },
-      { url: 'https://github.com/royderks', icon: GitHubIcon },
-      { url: 'https://dev.to/gethackteam', icon: WebsiteIcon },
-    ],
-  },
-  {
-    fullname: 'Alex Lobera',
-    job: 'Head Coach & Founder at React GraphQL Academy',
-    imageName: 'alex',
-    description: `Experienced Full-stack Developer passionate about JavaScript, React and GraphQL. 15 years of experience in the software industry. Interested in digital products that make a social impact.`,
-    links: [
-      { url: 'https://twitter.com/alex_lobera', icon: TwitterIcon },
-      { url: 'https://github.com/alexlbr', icon: GitHubIcon },
-    ],
-  },
-  {
-    fullname: 'Uri Goldshtein',
-    job: 'Founder at The Guild',
-    imageName: 'uri',
-    description: `Uri is the founder of The Guild, a group of open source developers in charge of the largest open source libraries in the GraphQL Javascript ecosystem. They hands-on support large companies, to help them manage successful technological transformations using open source tools and educational workshops. Uri is a former Apollo developer and a contributor to the GraphQL Subscriptions spec.`,
-    links: [
-      { url: 'https://twitter.com/UriGoldshtein', icon: TwitterIcon },
-      { url: 'https://github.com/urigo', icon: GitHubIcon },
+      { url: 'https://twitter.com/jlengstorf', icon: TwitterIcon },
+      { url: 'https://github.com/jlengstorf', icon: GitHubIcon },
+      { url: 'https://lengstorf.com/', icon: WebsiteIcon },
     ],
   },
   {
@@ -119,18 +96,31 @@ const speakers = [
       { url: 'https://github.com/sidharthachatterjee', icon: GitHubIcon },
     ],
   },
+
+  {
+    fullname: 'Charlie Gerard',
+    job: 'Senior front-end dev @Netlify',
+    imageName: 'charlie',
+    description: `Charlie is a front-end developer at Netlify, a Mozilla Tech Speaker and Google Developer Expert in Web Technologies. She is passionate about creative coding and building interactive prototypes mixing science, art and technology. She also spends time giving back to the community by mentoring new developers, contributing to open-source projects, and speaking at conferences.`,
+    links: [
+      { url: 'https://twitter.com/devdevcharlie', icon: TwitterIcon },
+      { url: 'https://github.com/charliegerard', icon: GitHubIcon },
+      { url: 'https://charliegerard.github.io/', icon: WebsiteIcon },
+    ],
+  },
 ]
 
 const metas = {
-  title: 'Learn GraphQL | React GraphQL Academy',
+  title: 'JAMStack MiniConf Amsterdam | React GraphQL Academy',
   description:
-    'Interested in learning GraphQL? Learn GrapQL with us. Supercharge your development skill set with the latest curriculum in GraphQL. Contact us now!',
-  image: WHY_REACTJS_ACADEMY,
+    'Interested in learning more about JAMStack and connecting to its community? Join us at the JAMStack MiniConf!',
+  imageFullPublicUrl:
+    'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fmini-confs%2Fpic-jamstack-mini-conf-min.png?alt=media',
   type: 'website',
 }
 
 const buyExternalUrl =
-  'https://ti.to/gitnation/graphql-mini-conference-2020-react-summit'
+  'https://ti.to/gitnation/jamstack-mini-conference-2020-react-summit'
 
 const AgendaCard = ({ sx, ...rest }) => (
   <Card
@@ -417,10 +407,7 @@ const GraphQLPage = ({
 
             <H3>Talks</H3>
             <AgendaCard>
-              <H4>
-                6:30 pm - Building a GraphQL backend for a cloud-native era, by
-                Tanmai Gopal
-              </H4>
+              <H4>6:30 pm - Building a Gatsby Theme by Sid Chatterjee</H4>
               <P>
                 In this talk you will get to know how GraphQL works really well
                 for monoliths & the problems that arise when taking GraphQL to
@@ -429,14 +416,8 @@ const GraphQLPage = ({
                 while also keeping the benefits of a microservices/serverless
                 architecture.
               </P>
-              <H4>7 pm - GraphQL Without a Database by Roy Derks</H4>
-              <P>
-                Your frontend developers are pushing to get started with
-                GraphQL, but you don’t have the backend capacity to migrate your
-                existing REST APIs to GraphQL? In this talk, I’ll show how to
-                wrap existing REST APIs into one single GraphQL endpoint on both
-                the client and server side.
-              </P>
+              <H4>7 pm - by Charlie Gerard</H4>
+              <P>.</P>
             </AgendaCard>
 
             <H3>Break</H3>
@@ -447,7 +428,8 @@ const GraphQLPage = ({
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                8:00 pm - Do you really need a GraphQL client? by Alex Lobera
+                8:00 pm - Do you really need a GraphQL client? by Alexandra
+                Spalato
               </H4>
               <P>
                 GraphQL might make our apps faster, but that’s not always true.
@@ -501,7 +483,7 @@ export const query = graphql`
     speakerImages: allFile(
       filter: {
         absolutePath: {
-          regex: "/pages/graphql/mini-conference/images/speakers.*.jpg/"
+          regex: "/pages/jamstack-mini-conference/images/speakers.*.jpg/"
         }
       }
     ) {

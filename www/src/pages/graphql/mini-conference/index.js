@@ -33,7 +33,6 @@ import { Segment, Image } from 'src/components/elements'
 import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
 import { GRAPHQL_PINK, LIGHT_PINK, BLUE, GREY } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
-import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Card from 'src/components/elements/Card'
 
 const REACTSUMMIT_COLOR = '#0f0'
@@ -115,15 +114,17 @@ const speakers = [
     links: [
       { url: 'https://twitter.com/chatsidhartha', icon: TwitterIcon },
       { url: 'https://github.com/sidharthachatterjee', icon: GitHubIcon },
+      { url: 'https://sidhartha.dev/', icon: WebsiteIcon },
     ],
   },
 ]
 
 const metas = {
-  title: 'Learn GraphQL | React GraphQL Academy',
+  title: 'GraphQL MiniConf Amsterdam | React GraphQL Academy',
   description:
-    'Interested in learning GraphQL? Learn GrapQL with us. Supercharge your development skill set with the latest curriculum in GraphQL. Contact us now!',
-  image: WHY_REACTJS_ACADEMY,
+    'Interested in learning more about GraphQL and connecting to its community? Join us at the GraphQL MiniConf!',
+  imageFullPublicUrl:
+    'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fmini-confs%2Fpic-graphql-mini-conf-min.png?alt=media',
   type: 'website',
 }
 
