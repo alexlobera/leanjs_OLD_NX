@@ -199,19 +199,3 @@ If you want to know more about how [LeanJS](https://leanjs.com) designed, built,
 Add a global and generic CSS like [normalize.css](https://necolas.github.io/normalize.css/) to remove all the custom browser styling (paddings, margins, etc). Then use only styled-components to style your app.
 
 If you really think you need to create a separate SASS or LESS file and you need to define variables there, you can export those variables to JavaScript using CSS Modules so you don’t have to define them twice. For instance variables for colors. You can see an [example here](https://github.com/reactgraphqlacademy/fb-messenger/blob/styling-in-react-leanjs/src/styles/export/colours.scss).
-
-## Conclusion
-
-- [Separation of concerns <a name="front-tend-old-school-separation-of-concerns"></a>](#separation-of-concerns)
-- [Global styles <a name="global-styles"></a>](#global-styles)
-- [Choosing the right concern <a name="choosing-the-right-concern"></a>](#choosing-the-right-concern)
-- [create-react-app](#create-react-app)
-- [Naming conventions](#naming-conventions)
-- [Styled-components <a name="styled-components"></a>](#styled-components)
-  - [Conditional rendering <a name="conditional-rendering"></a>](#conditional-rendering)
-  - [CSS optimization <a name="css-optimization"></a>](#css-optimization)
-- [Components everywhere <a name="components-everywhere"></a>](#components-everywhere)
-- [Component libraries <a name="component-libraries"></a>](#component-libraries)
-  - [Abstract components <a name="abstract-components"></a>](#abstract-components)
-- [Pro-tip <a name="pro-tip"></a>](#pro-tip)
-- [Conclusion](#conclusion)
