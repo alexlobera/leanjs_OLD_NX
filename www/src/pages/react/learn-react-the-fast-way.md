@@ -78,7 +78,7 @@ To do data fetching in React, you can now use the well supported [fetch API](htt
 
 At this stage you now have learned all the fundamentals that you know in order to build basic applications so it’s time to practice! I highly recommend building an application that consumes some data from an API, you can implement basic routing in order to give a _list view_ and _detail view_ and then you can add some forms and login to practice those parts. If you’d like some inspiration and a scaffold, [there’s one here](https://github.com/reactgraphqlacademy/fb-messenger/tree/recap1)! I’m sure you can think of a few other fun ones to make tho, what about using a weather api, or the [Rick and Morty api](https://rickandmortyapi.com/) ?? So many options 😁
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ### Step 6 and beyond <a name="beyond"></a>
 

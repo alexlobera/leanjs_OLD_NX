@@ -28,7 +28,7 @@ const Page = props => (
     type={GRAPHQL_PART_TIME}
     feedback={
       <Feedback
-        trialPath="/graphql/training/workshops/graphql-part-time-trial/online/"
+        trialPath="/graphql/training/workshops/graphql-part-time-trial/remote/"
         articlePath="/graphql/how-aligned-is-graphql-to-your-business-needs/"
       />
     }
@@ -45,7 +45,7 @@ export const query = graphql`
       filter: {
         relativePath: {
           # this image should come from UM API traning instance
-          regex: "/pages/graphql/training/part-time-course/online.png/"
+          regex: "/pages/graphql/training/part-time-course/remote.png/"
         }
       }
     ) {

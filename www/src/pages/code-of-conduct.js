@@ -44,7 +44,7 @@ const CodeOfConduct = ({ data, trainings }) => {
                     </Li>
                     <Li>
                       React GraphQL Academy is a harassment-free zone - offline
-                      AND online.
+                      AND remote.
                     </Li>
                     <Li>
                       If you don’t adhere, you’ll get thrown out without a

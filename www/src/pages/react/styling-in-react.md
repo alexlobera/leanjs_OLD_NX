@@ -122,7 +122,7 @@ render(
 
 You can edit the previous code by removing 'primary' from the last button. Try it! The style will react and change the color.
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ### CSS optimization <a name="css-optimization"></a>
 
@@ -199,12 +199,3 @@ If you want to know more about how [LeanJS](https://leanjs.com) designed, built,
 Add a global and generic CSS like [normalize.css](https://necolas.github.io/normalize.css/) to remove all the custom browser styling (paddings, margins, etc). Then use only styled-components to style your app.
 
 If you really think you need to create a separate SASS or LESS file and you need to define variables there, you can export those variables to JavaScript using CSS Modules so you don’t have to define them twice. For instance variables for colors. You can see an [example here](https://github.com/reactgraphqlacademy/fb-messenger/blob/styling-in-react-leanjs/src/styles/export/colours.scss).
-
-## Conclusion
-
-- [Separate your CSS concerns in a way](#choosing-the-right-concern) that makes it easier to maintain and reuse your code by co-locating the CSS and JS of your components.
-- [Styled-components](#styled-components) will help you easily style any React component and avoid common CSS pitfalls.
-- In React everything can be a component. [Components everywhere!](#components-everywhere)
-- Avoid [global styles](#global-styles) as they can create side effects that are difficult to predict and fix. Everything can be a component, therefore you don’t need any global CSS.
-- If you find that you really need to create some global CSS and [include variables](#pro-tip) using SASS or LESS, you can share those variables between CSS and JavaScript using CSS modules
-- Create [abstract components](#abstract-components) when using component libraries to plan for successful change.

@@ -172,7 +172,7 @@ In the next Codesandbox we are our previous createStore function with the combin
 
 Redux can manage the state of any application, not just React. You can see this in the previous CodeSandbox example where Redux is used in a Vanilla web application, there is no React.
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ## Common misconceptions about React and Redux
 

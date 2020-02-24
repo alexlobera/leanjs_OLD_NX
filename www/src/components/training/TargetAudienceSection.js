@@ -38,7 +38,7 @@ const TargetAudienceSection = () => (
               application.
             </Li>
             <Li>
-              Not satisfied with online learning and it's lack of 1-on-1
+              Not satisfied with online courses and it's lack of 1-on-1
               mentoring?
             </Li>
           </Ul>

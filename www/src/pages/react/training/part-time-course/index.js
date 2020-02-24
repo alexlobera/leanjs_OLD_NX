@@ -88,7 +88,9 @@ const PartTime = ({ trainings, path }) => {
             <H2>Is this React part-time training course right for me?</H2>
             <Ul>
               <Li>Meaningful, collaborative learning</Li>
-              <Li>Personal mentoring rather than online learning</Li>
+              <Li>
+                Personal mentoring rather than massive online open courses
+              </Li>
               <Li>Don't miss work days or projects</Li>
               <Li>Not for beginners!</Li>
               <Li>Discuss real-world projects to learn best practices</Li>
