@@ -96,18 +96,17 @@ const speakers = [
       { url: 'https://github.com/sidharthachatterjee', icon: GitHubIcon },
     ],
   },
-
-  {
-    fullname: 'Charlie Gerard',
-    job: 'Senior front-end dev @Netlify',
-    imageName: 'charlie',
-    description: `Charlie is a front-end developer at Netlify, a Mozilla Tech Speaker and Google Developer Expert in Web Technologies. She is passionate about creative coding and building interactive prototypes mixing science, art and technology. She also spends time giving back to the community by mentoring new developers, contributing to open-source projects, and speaking at conferences.`,
-    links: [
-      { url: 'https://twitter.com/devdevcharlie', icon: TwitterIcon },
-      { url: 'https://github.com/charliegerard', icon: GitHubIcon },
-      { url: 'https://charliegerard.github.io/', icon: WebsiteIcon },
-    ],
-  },
+  //   {
+  //     fullname: 'Charlie Gerard',
+  //     job: 'Senior front-end dev @Netlify',
+  //     imageName: 'charlie',
+  //     description: `Charlie is a front-end developer at Netlify, a Mozilla Tech Speaker and Google Developer Expert in Web Technologies. She is passionate about creative coding and building interactive prototypes mixing science, art and technology. She also spends time giving back to the community by mentoring new developers, contributing to open-source projects, and speaking at conferences.`,
+  //     links: [
+  //       { url: 'https://twitter.com/devdevcharlie', icon: TwitterIcon },
+  //       { url: 'https://github.com/charliegerard', icon: GitHubIcon },
+  //       { url: 'https://charliegerard.github.io/', icon: WebsiteIcon },
+  //     ],
+  //   },
   {
     fullname: 'Alex Lobera',
     job: 'Head Coach & Founder at React GraphQL Academy',
@@ -116,6 +115,16 @@ const speakers = [
     links: [
       { url: 'https://twitter.com/alex_lobera', icon: TwitterIcon },
       { url: 'https://github.com/alexlbr', icon: GitHubIcon },
+    ],
+  },
+  {
+    fullname: 'JJ Kasper',
+    job: 'Software Engineer on Next.js core team',
+    imageName: 'jj',
+    description: `JJ is a Software Engineer at ZEIT on the Next.js core team. He is passionate about building great development and user experiences by leveraging open-source technology. He really enjoys getting to learn about the latest developments in tech and finding ways to apply these developments throughout his work.`,
+    links: [
+      { url: 'https://twitter.com/_ijjk', icon: TwitterIcon },
+      { url: 'https://github.com/ijjk', icon: GitHubIcon },
     ],
   },
 ]
@@ -397,27 +406,24 @@ const GraphQLPage = ({
               <P>Drinks and networking</P>
             </AgendaCard>
 
-            <H3>Lightning Talks</H3>
+            <H3>Lightning Talk</H3>
             <AgendaCard>
-              <H4>6:10 pm - First Lightning Talk</H4>
-              <P>TBD</P>
-              <H4>6:20 pm - Second Lightning Talk</H4>
+              <H4>6:20 pm - First Lightning Talk</H4>
               <P>TBD</P>
             </AgendaCard>
 
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                6:30 pm - Scaling the JAMStack with Gatsby by Sid Chatterjee
+                6:30 pm - Dynamic JAMstack Sites with Serverless Functions by
+                Jason Lengstorf
               </H4>
-              <P>
-                We’ve been working hard on performance and scaling improvements
-                in Gatsby to push the boundaries of what’s practically possible
-                with the JAMStack today. Can Wikipedia be built with Gatsby with
-                over a million pages? Watch this talk to find out!
-              </P>
-              <H4>7 pm - by Charlie Gerard</H4>
-              <P>.</P>
+              <P></P>
+              <H4>
+                7 pm - Frontity: a new React server side and frontend framework
+                for headless WordPress by Alexandra Spalato
+              </H4>
+              <P></P>
             </AgendaCard>
 
             <H3>Break</H3>
@@ -425,20 +431,50 @@ const GraphQLPage = ({
               <H4>7:30 pm - Food and drinks</H4>
             </AgendaCard>
 
+            <H3>Lightning Talk</H3>
+            <AgendaCard>
+              <H4>
+                8 pm - Innovation at speed with Gatsby and Friends by Alex
+                Lobera
+              </H4>
+              <P>
+                The JAMStack helps developers build websites and apps that are
+                fast, secure, and scalable using different technologies. This
+                modern web stack not only helps us build blazing fast products,
+                but it can also help us build new products very fast thanks to
+                the effortless integration of specific techs and third-party
+                services. In this talk, I'll show some examples of how
+                cross-functional teams can build products faster with Gatsby and
+                Friends.
+              </P>
+            </AgendaCard>
+
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                8:00 pm - Frontity: a new React SSR & Front-end React framework
-                for headless WordPress by Alexandra Spalato
+                8:10 pm - Scaling the JAMStack with Gatsby by Sid Chatterjee
               </H4>
-              <P>...</P>
-              <H4>8:30 pm - TBD</H4>
-              <P>TBD</P>
+              <P>
+                We’ve been working hard on performance and scaling improvements
+                in Gatsby to push the boundaries of what’s practically possible
+                with the JAMStack today. Can Wikipedia be built with Gatsby with
+                over a million pages? Watch this talk to find out!
+              </P>
+              <H4>
+                8:40 pm - JAMstack and Next.js What's New and a Notion Blog by
+                JJ Kasper
+              </H4>
+              <P>
+                A talk about the latest improvements we have been working on in
+                Next.js to make creating JAMstack applications a breeze and
+                explaining why you should be using these new features. Will also
+                be demonstrating these new features on a Notion based blog.
+              </P>
             </AgendaCard>
 
             <H3>Networking & Party</H3>
             <AgendaCard sx={{ mb: 0 }}>
-              <H4>9:00 pm - 10 pm</H4>
+              <H4>9:10 pm - 10 pm</H4>
             </AgendaCard>
             <Box sx={{ mt: 6 }}>
               <LinkButton variant="primary" to={buyExternalUrl}>
