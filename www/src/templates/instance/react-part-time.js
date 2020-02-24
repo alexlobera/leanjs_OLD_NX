@@ -29,7 +29,7 @@ export const query = graphql`
       filter: {
         relativePath: {
           # this image should come from UM traning instance
-          regex: "/pages/react/training/part-time-course/online.png/"
+          regex: "/pages/react/training/part-time-course/remote.png/"
         }
       }
     ) {

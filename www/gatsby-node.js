@@ -243,7 +243,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `).then(async result => {
       const locationPath = /^\/locations\//g
-      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|online).*/
+      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|remote).*/
       const citiesFinanceAvailable = ['london']
       const siteUrl = removeTrailingSlash(result.data.site.siteMetadata.siteUrl)
 
@@ -366,9 +366,11 @@ exports.createPages = async ({ graphql, actions }) => {
             if (Array.isArray(restConfig.title)) {
               const lastInstanceTitleIndex = restConfig.title.length - 1
               instanceTitle = [...restConfig.title]
-              instanceTitle[
-                lastInstanceTitleIndex
-              ] = `${instanceTitle[lastInstanceTitleIndex]} ${capitalizedCity}`
+              instanceTitle[lastInstanceTitleIndex] = `${
+                city === 'remote' ? 'Remote' : ''
+              }${instanceTitle[lastInstanceTitleIndex]} ${
+                city !== 'remote' ? capitalizedCity : ''
+              }`
             } else {
               instanceTitle = `${restConfig.title} ${capitalizedCity}`
             }

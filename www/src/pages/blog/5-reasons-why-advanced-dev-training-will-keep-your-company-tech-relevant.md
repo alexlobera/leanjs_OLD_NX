@@ -37,7 +37,7 @@ But advanced dev training helps you standardise knowledge across your team. Not 
 
 Your team can evolve and develop together, helping each other (as well as the company) to stay tech-relevant.
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ## 3) You’ll empower your team
 

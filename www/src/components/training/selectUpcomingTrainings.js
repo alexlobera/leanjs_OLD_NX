@@ -20,9 +20,9 @@ const trainingByCity = ({ city, onlineOrOffline = false } = {}) => training => {
 
   return onlineOrOffline && (training.isOnline || isSameCity)
     ? true
-    : cityLowerCase === 'online' && training.isOnline
+    : cityLowerCase === 'remote' && training.isOnline
     ? true
-    : cityLowerCase !== 'online' && isSameCity && !training.isOnline
+    : cityLowerCase !== 'remote' && isSameCity && !training.isOnline
     ? true
     : false
 }

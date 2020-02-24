@@ -351,7 +351,7 @@ class GraphQLCurriculum extends React.Component {
                                 to={trainingPartTime && trainingPartTime.toPath}
                                 buttonText={`${
                                   trainingPartTime.isOnline
-                                    ? 'Online'
+                                    ? 'Remote'
                                     : trainingPartTime.city
                                 } GraphQL part-time, ${formatUTC(
                                   trainingPartTime.startDate,

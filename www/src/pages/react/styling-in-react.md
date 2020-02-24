@@ -122,7 +122,7 @@ render(
 
 You can edit the previous code by removing 'primary' from the last button. Try it! The style will react and change the color.
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ### CSS optimization <a name="css-optimization"></a>
 
@@ -202,9 +202,16 @@ If you really think you need to create a separate SASS or LESS file and you need
 
 ## Conclusion
 
-- [Separate your CSS concerns in a way](#choosing-the-right-concern) that makes it easier to maintain and reuse your code by co-locating the CSS and JS of your components.
-- [Styled-components](#styled-components) will help you easily style any React component and avoid common CSS pitfalls.
-- In React everything can be a component. [Components everywhere!](#components-everywhere)
-- Avoid [global styles](#global-styles) as they can create side effects that are difficult to predict and fix. Everything can be a component, therefore you don’t need any global CSS.
-- If you find that you really need to create some global CSS and [include variables](#pro-tip) using SASS or LESS, you can share those variables between CSS and JavaScript using CSS modules
-- Create [abstract components](#abstract-components) when using component libraries to plan for successful change.
+- [Separation of concerns <a name="front-tend-old-school-separation-of-concerns"></a>](#separation-of-concerns)
+- [Global styles <a name="global-styles"></a>](#global-styles)
+- [Choosing the right concern <a name="choosing-the-right-concern"></a>](#choosing-the-right-concern)
+- [create-react-app](#create-react-app)
+- [Naming conventions](#naming-conventions)
+- [Styled-components <a name="styled-components"></a>](#styled-components)
+  - [Conditional rendering <a name="conditional-rendering"></a>](#conditional-rendering)
+  - [CSS optimization <a name="css-optimization"></a>](#css-optimization)
+- [Components everywhere <a name="components-everywhere"></a>](#components-everywhere)
+- [Component libraries <a name="component-libraries"></a>](#component-libraries)
+  - [Abstract components <a name="abstract-components"></a>](#abstract-components)
+- [Pro-tip <a name="pro-tip"></a>](#pro-tip)
+- [Conclusion](#conclusion)

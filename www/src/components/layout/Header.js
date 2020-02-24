@@ -535,7 +535,7 @@ const Header = ({
                           {training.isOnline ? (
                             <>
                               <Li>
-                                <strong>Location</strong>: <Tag>Online</Tag>
+                                <strong>Location</strong>: <Tag>Remote</Tag>
                               </Li>
                               <Li>
                                 <strong>Conference room</strong>:{' '}

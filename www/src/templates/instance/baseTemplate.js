@@ -341,7 +341,7 @@ const InstancePage = ({
           <Col md={5} mdOffset={1}>
             <PaymentSection
               trialTraingInstance={trialTraingInstance}
-              isOnline={city && city.toLowerCase() === 'online'}
+              isOnline={city && city.toLowerCase() === 'remote'}
               item={training}
             />
           </Col>
