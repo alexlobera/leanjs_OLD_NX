@@ -32,7 +32,6 @@ import { Segment, Image } from 'src/components/elements'
 import { TECH_JAMSTACK } from 'src/config/data'
 import { JAMSTACK_GREEN, GRAPHQL_PINK, BLUE, GREY } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
-import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Card from 'src/components/elements/Card'
 
 const GATSBY_COLOR = 'rgb(102, 51, 153)'
@@ -130,9 +129,9 @@ const speakers = [
 ]
 
 const metas = {
-  title: 'JAMStack MiniConf Amsterdam | React GraphQL Academy',
+  title: 'JAMstack MiniConf Amsterdam | React GraphQL Academy',
   description:
-    'Interested in learning more about JAMStack and connecting to its community? Join us at the JAMStack MiniConf!',
+    'Interested in learning more about JAMstack and connecting to its community? Join us at the JAMstack MiniConf!',
   imageFullPublicUrl:
     'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fmini-confs%2Fpic-jamstack-mini-conf-min.png?alt=media',
   type: 'website',
@@ -221,11 +220,11 @@ const GraphQLPage = ({
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
-          { to: path, label: 'JAMStack MiniConf' },
+          { to: path, label: 'JAMstack MiniConf' },
         ]}
         type={TECH_JAMSTACK}
         breadcrumbBgColor={JAMSTACK_GREEN}
-        titleLines={['JAMStack MiniConf Amsterdam April 16, 2020']}
+        titleLines={['JAMstack MiniConf Amsterdam April 16, 2020']}
         subtitle={
           <Ul sx={{ mt: 0 }} variants={['unstyled', 'inline']}>
             <Li>150 Attendees</Li>
@@ -322,7 +321,6 @@ const GraphQLPage = ({
                 Submit your talk
               </LinkButton> */}
             </Col>
-            <Link to="#our-graphql-training" name="our-graphql-training" />
             <Col md={4}>
               {/* <H3>
                 <a name="sponsors" />
@@ -386,7 +384,7 @@ const GraphQLPage = ({
             </P>
             <P>
               We’ve brought experts from all around the world so you could learn
-              about GraphQL best practices and become a part of the GraphQL
+              about JAMstack best practices and become a part of the JAMstack
               community!
             </P>
           </React.Fragment>
@@ -438,7 +436,7 @@ const GraphQLPage = ({
                 Lobera
               </H4>
               <P>
-                The JAMStack helps developers build websites and apps that are
+                The JAMstack helps developers build websites and apps that are
                 fast, secure, and scalable using different technologies. This
                 modern web stack not only helps us build blazing fast products,
                 but it can also help us build new products very fast thanks to
@@ -452,12 +450,12 @@ const GraphQLPage = ({
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                8:10 pm - Scaling the JAMStack with Gatsby by Sid Chatterjee
+                8:10 pm - Scaling the JAMstack with Gatsby by Sid Chatterjee
               </H4>
               <P>
                 We’ve been working hard on performance and scaling improvements
                 in Gatsby to push the boundaries of what’s practically possible
-                with the JAMStack today. Can Wikipedia be built with Gatsby with
+                with the JAMstack today. Can Wikipedia be built with Gatsby with
                 over a million pages? Watch this talk to find out!
               </P>
               <H4>
