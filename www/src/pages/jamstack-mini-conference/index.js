@@ -416,7 +416,14 @@ const GraphQLPage = ({
                 6:30 pm - Dynamic JAMstack Sites with Serverless Functions by
                 Jason Lengstorf
               </H4>
-              <P></P>
+              <P>
+                The JAMstack is steadily rising in popularity, but did you know
+                that your JAMstack sites can be completely dynamic? In this
+                session, Jason will walk through several examples of using
+                serverless functions to add everything from image processing to
+                user authentication to databases to websites, all without
+                leaving the JAMstack!
+              </P>
               <H4>
                 7 pm - Frontity: a new React server side and frontend framework
                 for headless WordPress by Alexandra Spalato
