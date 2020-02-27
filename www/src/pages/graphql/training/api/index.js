@@ -9,6 +9,7 @@ import { P, H2Ref } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumGraphQLAPI from 'src/components/curriculum/CurriculumGraphQLAPI'
 import Header from 'src/components/layout/Header'
+import { LIGHT_PINK } from 'src/config/styles'
 import {
   AttendeeQuote,
   TrustedBySection,
@@ -49,6 +50,7 @@ const GraphQL = ({ path, trainings }) => {
       </Helmet>
       <Header
         tech={TECH_GRAPHQL}
+        breadcrumbBgColor={LIGHT_PINK}
         breadcrumbPath={[
           { to: '/', label: 'Home' },
           { to: '/graphql', label: 'GraphQL' },
@@ -84,7 +86,7 @@ const GraphQL = ({ path, trainings }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <H2Ref>
-              Is this GraphQL course right for me?
+              Is this GraphQL training course right for me?
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>

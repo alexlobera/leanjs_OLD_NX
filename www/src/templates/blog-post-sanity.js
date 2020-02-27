@@ -21,6 +21,9 @@ import Ul from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text/H'
 import { getPostsFromNodes, getContents } from '../components/blog/utils'
 import { slugify } from '../components/utils/text'
+import SanityForm from '../components/blog/SanityForm'
+import { LIGHT_PINK } from '../config/styles'
+import { TECH_GRAPHQL } from '../config/data'
 
 function renderHeadingWithAnchor({ children, Component }) {
   const formatedChildren = (Array.isArray(children) ? children : [children])
@@ -108,8 +111,13 @@ const Page = ({ data, location, ...rest }) => {
       code: ({ node }) => <Code className={node.language}>{node.code}</Code>,
       tweet: ({ node }) => <Tweet id={node.id} />,
       youtube: ({ node }) => (
-        <Video time={node.startSecond} youtubeId={node.videoId} />
+        <Video
+          sx={{ mb: 3, mt: 3 }}
+          time={node.startSecond}
+          youtubeId={node.videoId}
+        />
       ),
+      form: ({ node }) => <SanityForm data={node} />,
       span: BlogPostSpan,
       tedvideo: ({ node }) => (
         <TedVideo embedUrl={node.embedUrl} description={node.description} />
@@ -139,6 +147,9 @@ const Page = ({ data, location, ...rest }) => {
   const { fullname, twitter, username = {}, image: authorImage } = author || {}
   const postTypeLabel =
     category === 'react' ? 'React' : category === 'graphql' ? 'GraphQL' : 'Blog'
+
+  const breadcrumbBgColor =
+    category === TECH_GRAPHQL.toLowerCase() ? LIGHT_PINK : undefined
 
   const authorLocalFile =
     authorImage && authorImage.asset && authorImage.asset.localFile
@@ -179,6 +190,7 @@ const Page = ({ data, location, ...rest }) => {
     metaImageFullPublicUrl,
     location,
     metaDescription: subtitle || excerpt,
+    breadcrumbBgColor,
     ...rest,
   }
   return <BlogPost {...blogPostProps} />

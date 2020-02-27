@@ -80,4 +80,4 @@ export const UpcomingTrainingSection = ({ trainings, limit = 15 }) => (
   </Section>
 )
 
-export default UpcomingTrainingSection
+export default React.memo(UpcomingTrainingSection)

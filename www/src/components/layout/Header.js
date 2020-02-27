@@ -201,12 +201,8 @@ const FeaturedTrainingTitle = ({ sx = {}, ...rest }) => (
 )
 
 const TitleBackground = styled.span`
-  &:first-child  {
-    padding-top: 15px;
-  }
-  &:last-child {
-    padding-bottom: 20px;
-  }
+  padding-top: 6px;
+  padding-bottom: 6px;
   ${TITLE_BACKGROUND};
 `
 TitleBackground.displayName = 'TitleBackground'
@@ -215,10 +211,13 @@ const SubTitleBackground = styled.div`
   ${TITLE_BACKGROUND} padding: 16px;
   color: ${WHITE};
   max-width: 65ch;
-  a {
-    color: ${WHITE};
-  }
-  ul li {
+  max-width: 65ch;
+
+  ul li,
+  a,
+  span,
+  label,
+  div {
     color: ${WHITE};
   }
 `
@@ -229,6 +228,9 @@ const Nav = styled.div`
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
   background-color: ${props => (props.quickLinks ? DARK_BLUE_075 : LIGHT_BLUE)};
   color: ${WHITE};
+  > div {
+    color: ${WHITE};
+  }
   ${styleChildLinkColor(WHITE)}
   padding-top: 8px;
   padding-bottom: 8px;
@@ -310,6 +312,7 @@ const Header = ({
   titleLines = [],
   subtitle,
   links = [],
+  onThisPage,
   bgImageName,
   removeBgImage,
   bgImgUrl,
@@ -325,6 +328,8 @@ const Header = ({
   className = 'course-details-clicks',
   breadcrumbPath,
   tech,
+  breadcrumbBgColor,
+  buyLink = '#pricing',
 }) => {
   const expandCheckout = useExpandCheckout()
 
@@ -367,6 +372,8 @@ const Header = ({
           hours: utcHours,
           minutes: utcMinutes,
         } = convertMinutesToHoursAndMinutes(training.utcOffset)
+        const titleLinesArray =
+          typeof titleLines === 'string' ? [titleLines] : titleLines
 
         return (
           <React.Fragment>
@@ -381,7 +388,9 @@ const Header = ({
                 ]}
               />
             )}
-            {breadcrumbPath && <Breadcrumb tech={tech} path={breadcrumbPath} />}
+            {breadcrumbPath && (
+              <Breadcrumb bgColor={breadcrumbBgColor} path={breadcrumbPath} />
+            )}
             <TechLogo tech={tech}>
               <HeaderSection
                 sx={{ bgColor: 'rgba(196,196,196,0.6)', mt: 0, mb: 0, pb: [5] }}
@@ -404,7 +413,7 @@ const Header = ({
                     type={type}
                   >
                     <H1>
-                      {titleLines.map((line, i) => (
+                      {titleLinesArray.map((line, i) => (
                         <TitleBackground key={i} children={line} />
                       ))}
                     </H1>
@@ -424,7 +433,9 @@ const Header = ({
                     ) : null}
                     <Row>
                       <Col>
-                        {links.length ? (
+                        {onThisPage ? (
+                          <Nav quickLinks>{onThisPage}</Nav>
+                        ) : links.length ? (
                           <Nav quickLinks>
                             <Ul variant="inline">
                               <Li>
@@ -434,7 +445,11 @@ const Header = ({
                                 <Li key={i}>
                                   <Link
                                     className="on-this-page"
-                                    to={to[0] !== '#' ? `#${to}` : to}
+                                    to={
+                                      to[0] !== '#' && !to.match('^http')
+                                        ? `#${to}`
+                                        : to
+                                    }
                                   >
                                     {text}
                                   </Link>
@@ -453,7 +468,7 @@ const Header = ({
                   ) : featuredTrainings ? (
                     <Col md={4} sx={{ ml: 'auto' }}>
                       <FeaturedTrainingTitle>
-                        Featured Course
+                        Featured Training
                       </FeaturedTrainingTitle>
                       {featuredTrainings.map(training => {
                         const { dayMonth, duration } = getTrainingTimings({
@@ -520,7 +535,7 @@ const Header = ({
                           {training.isOnline ? (
                             <>
                               <Li>
-                                <strong>Location</strong>: <Tag>Online</Tag>
+                                <strong>Location</strong>: <Tag>Remote</Tag>
                               </Li>
                               <Li>
                                 <strong>Conference room</strong>:{' '}
@@ -532,13 +547,13 @@ const Header = ({
                               <strong>Venue</strong>:{training.address}
                               {training.mapUrl && (
                                 <>
-                                  {` - `}
+                                  {`, `}
                                   <Link
                                     to={training.mapUrl}
                                     className={className}
                                   >
                                     {' '}
-                                    map
+                                    see on the map
                                   </Link>
                                 </>
                               )}
@@ -568,10 +583,12 @@ const Header = ({
                         </Ul>
                         <Box sx={{ textAlign: 'center', mb: '-38px' }}>
                           <LinkButton
-                            onClick={expandCheckout || undefined}
+                            onClick={
+                              expandCheckout ? expandCheckout : undefined
+                            }
+                            to={buyLink}
                             className="header-buy-tickets"
                             variant="primary"
-                            to="#pricing"
                           >
                             Buy tickets
                           </LinkButton>
@@ -593,4 +610,4 @@ export const RootHeader = props => (
   <Header bgColors={[GRAPHQL_PINK, BLUE]} bgImageOpacity={0.3} {...props} />
 )
 
-export default withWidth()(Header)
+export default withWidth()(React.memo(Header))

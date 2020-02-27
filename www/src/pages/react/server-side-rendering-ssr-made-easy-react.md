@@ -91,7 +91,7 @@ The time it takes for # 8 to complete depends on the client device.
 
 Long story short, looking at the previous sequence, in a SPA the user needs to complete # 5 to see the UI and to complete # 8 to see the UI populated with data. In SSR the user can see the UI populated with data at the end of # 2
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ## Implementing SSR in React <a name="implementing-ssr-in-react"></a>
 

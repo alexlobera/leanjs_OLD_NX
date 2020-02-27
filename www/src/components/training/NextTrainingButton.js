@@ -7,7 +7,7 @@ const NextTrainingButton = ({ training, type }) =>
   training ? (
     <LinkButton variant="primary" to={training.toPath}>
       Next {type}: {formatUTC(training.startDate, training.utcOffset, 'D MMM')},{' '}
-      {training.isOnline ? 'online' : training.city}
+      {training.isOnline ? 'remote' : training.city}
     </LinkButton>
   ) : null
 

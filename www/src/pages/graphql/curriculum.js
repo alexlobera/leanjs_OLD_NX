@@ -39,7 +39,7 @@ import {
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
-import { GRAPHQL_PINK } from '../../config/styles'
+import { GRAPHQL_PINK, LIGHT_PINK } from '../../config/styles'
 
 class GraphQLCurriculum extends React.Component {
   state = {
@@ -99,6 +99,7 @@ class GraphQLCurriculum extends React.Component {
             },
           ]}
           tech={TECH_GRAPHQL}
+          breadcrumbBgColor={LIGHT_PINK}
           titleLines={['GraphQL curriculum']}
           subtitle="We're proud to say that our curriculum is the most<br /> up-to-date on the market - there really is<br />nowhere better to learn GraphQL."
           bgColor={GRAPHQL_PINK}
@@ -108,7 +109,7 @@ class GraphQLCurriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <H2Ref>
-                  Our courses - what are the differences?{' '}
+                  Our training courses - what are the differences?{' '}
                   <Link to="#differences" name="differences">
                     #
                   </Link>
@@ -317,8 +318,8 @@ class GraphQLCurriculum extends React.Component {
                   <ContentItem name={GRAPHQL_PART_TIME}>
                     <P>
                       <strong>
-                        On completion of the GraphQL part-time course each
-                        student will:
+                        On completion of the GraphQL part-time training course
+                        each student will:
                       </strong>
                     </P>
                     <PartTimeLearningObjectives />
@@ -344,13 +345,13 @@ class GraphQLCurriculum extends React.Component {
                           marketingCard={
                             trainingPartTime && (
                               <MarketingCard
-                                heading="Next GraphQL part-time course"
+                                heading="Next GraphQL part-time training"
                                 text={`Don't cut into valuable work-days!`}
                                 className="training-curriculum-next-training-cta"
                                 to={trainingPartTime && trainingPartTime.toPath}
                                 buttonText={`${
                                   trainingPartTime.isOnline
-                                    ? 'Online'
+                                    ? 'Remote'
                                     : trainingPartTime.city
                                 } GraphQL part-time, ${formatUTC(
                                   trainingPartTime.startDate,

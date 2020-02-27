@@ -103,6 +103,7 @@ const BlogPost = ({
   relatedPosts = [],
   contents,
   trainings,
+  breadcrumbBgColor,
 }) => (
   <RunkitProvider>
     <Helmet title={title}>
@@ -125,6 +126,7 @@ const BlogPost = ({
         },
         { to: slug, label: title },
       ]}
+      bgColor={breadcrumbBgColor}
     />
     <Header
       titleLines={title.split('<br />')}

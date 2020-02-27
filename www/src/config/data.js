@@ -18,6 +18,7 @@ export const REACT_CORPORATE = 'React - 5 Days'
 export const MEETUP = 'Meetup'
 export const TECH_REACT = 'react'
 export const TECH_GRAPHQL = 'graphql'
+export const TECH_JAMSTACK = 'jamstack'
 export const GRAPHQL_MINI_CONF = 'GraphQL Mini Conf'
 
 /*

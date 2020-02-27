@@ -28,6 +28,7 @@ import { triggerSessionSubscribe } from 'src/api/rest'
 import trackUserBehaviour, {
   FORM_SUBMIT,
 } from 'src/components/utils/trackUserBehaviour'
+import { LIGHT_PINK } from 'src/config/styles'
 
 const NameInput = aliasComponent(InputField)
 
@@ -71,6 +72,7 @@ const SessionInterestGraphQL = ({ path, trainings }) => {
           { to: path, label: 'Workshops' },
         ]}
         tech={TECH_GRAPHQL}
+        breadcrumbBgColor={LIGHT_PINK}
         titleLines={['GraphQL Workshops']}
         subtitle={[
           'Your opportunity tell us what GraphQL workshops you want to see!',
@@ -79,7 +81,7 @@ const SessionInterestGraphQL = ({ path, trainings }) => {
         training={nextBootcamp}
       />
 
-      <TopSection sx={{ mt: `-250` }}>
+      <TopSection>
         <Segment>
           <Row>
             <Col md={10} mdOffset={1}>

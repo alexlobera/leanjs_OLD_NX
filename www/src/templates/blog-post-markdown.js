@@ -24,6 +24,8 @@ import BlogPost, {
   BlogPostSpan,
 } from '../components/blog/BlogPost'
 import { getPostsFromNodes } from '../components/blog/utils'
+import { LIGHT_PINK } from '../config/styles'
+import { TECH_GRAPHQL } from '../config/data'
 
 function renderHeadingWithAnchor({ children, Component }) {
   return (
@@ -102,6 +104,10 @@ const Page = ({ data, location, ...rest }) => {
     },
     []
   )
+  const breadcrumbBgColor =
+    postTypeLabel.toLocaleLowerCase() === TECH_GRAPHQL.toLowerCase()
+      ? LIGHT_PINK
+      : undefined
 
   const blogPostProps = {
     body,
@@ -124,6 +130,7 @@ const Page = ({ data, location, ...rest }) => {
     relatedPosts,
     contents,
     location,
+    breadcrumbBgColor,
     ...rest,
   }
 

@@ -23,7 +23,7 @@ const CurriculumReactFundamentals = ({
 
   return (
     <Curriculum
-      title="React Fundamentals Course Outline"
+      title="React Fundamentals Training Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}

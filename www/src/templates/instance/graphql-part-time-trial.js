@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
@@ -27,7 +28,7 @@ export const query = graphql`
       filter: {
         relativePath: {
           # this image should come from UM traning instance
-          regex: "/pages/graphql/training/workshops/graphql-part-time-trial/online.png/"
+          regex: "/pages/graphql/training/workshops/graphql-part-time-trial/remote.png/"
         }
       }
     ) {

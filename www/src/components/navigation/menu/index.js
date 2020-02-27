@@ -19,7 +19,7 @@ const MenuContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px;
+  padding: 12px 20px;
   position: relative;
   z-index: ${Z_INDEX_SMALL};
   background-color: ${DARK_BLUE_075};

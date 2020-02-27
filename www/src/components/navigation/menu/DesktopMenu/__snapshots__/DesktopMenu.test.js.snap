@@ -13,7 +13,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       submenuItems={
         Array [
           Object {
-            "text": "React Courses",
+            "text": "React Training Courses",
             "to": "/react/training",
           },
           Object {
@@ -34,7 +34,7 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       submenuItems={
         Array [
           Object {
-            "text": "GraphQL Courses",
+            "text": "GraphQL Training Courses",
             "to": "/graphql/training",
           },
           Object {
@@ -45,15 +45,14 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "text": "GraphQL Curriculum",
             "to": "/graphql/curriculum",
           },
+          Object {
+            "text": "GraphQL MiniConf",
+            "to": "/graphql/mini-conference",
+          },
         ]
       }
       text="GraphQL"
       to="/graphql"
-    />
-    <DesktopMenuItem
-      key="/blog"
-      text="Blog"
-      to="/blog"
     />
     <DesktopMenuItem
       key="/about-us"
@@ -79,6 +78,18 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
       to="/about-us"
     />
     <DesktopMenuItem
+      key="/blog"
+      text="Blog"
+      to="/blog"
+    />
+    <DesktopMenuItem
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "compare": null,
+          "type": [Function],
+        }
+      }
       key="#contact-us"
       text="Contact"
       to="#contact-us"

@@ -31,7 +31,7 @@ export const createTrainingPath = ({
   isOnline,
 }) => {
   const i = index > 1 ? index : ''
-  const cityPath = isOnline ? 'online' : city.toLowerCase().replace(' ', '-')
+  const cityPath = isOnline ? 'remote' : city.toLowerCase().replace(' ', '-')
   const cityPathI = `${cityPath}/${i}/`
   switch (type) {
     case REACT_PART_TIME:

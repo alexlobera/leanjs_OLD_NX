@@ -44,7 +44,7 @@ We are not going to get into much detail about JWT in this article, but we want 
 
 The [JWT website](https://jwt.io/) has a debugger tool on the home page and you can paste tokens and visualize the content. Have a look, it’s fun to play with it if you haven’t yet.
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ## Storing the state on the client <a name="storing-state-on-the-client"></a>
 
@@ -80,7 +80,7 @@ You can implement that easily by adding a condition at the Root level in the com
 
 The following is an example of how to implement that conditional rendering in your React component
 
-<img placeholder-height="320px" src="https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Fauth%2Fconditional-rendering-code-2.jpg?alt=media" alt="Conditional rendering code example with React Router"></img>
+<img placeholder-height="320px" src="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_react_router_jwt%2Fconditional-rendering-min.png?alt=media" alt="Conditional rendering code example with React Router"></img>
 
 In the previous example we’ve seen the Redirect component. The Redirect component is a declarative way to take the user to a different path. Internally the Redirect component is doing “history.push(path)”. The React component encapsulates some imperative code so we can be declarative. [Declarative is the prefered choice in React](/react/introduction-to-thinking-in-react/) so you should try to avoid using history.push(path).
 

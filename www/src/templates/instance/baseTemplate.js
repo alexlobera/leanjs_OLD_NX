@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import StickyBox from 'react-sticky-box'
+import { graphql } from 'gatsby'
 
 import { CheckoutProvider } from 'src/components/payment/checkout'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -34,8 +35,10 @@ import {
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   REACT_PART_TIME,
+  TECH_GRAPHQL,
 } from '../../config/data'
 import { createMetas, getRandom } from 'src/components/utils'
+import { LIGHT_PINK } from 'src/config/styles'
 
 const InstancePage = ({
   path,
@@ -205,7 +208,10 @@ const InstancePage = ({
       <Header
         breadcrumbPath={breadcrumb}
         tech={techLowerCase}
-        titleLines={[instanceTitle]}
+        breadcrumbBgColor={
+          techLowerCase === TECH_GRAPHQL.toLowerCase() ? LIGHT_PINK : undefined
+        }
+        titleLines={instanceTitle}
         subtitle={subtitle}
         links={[
           {
@@ -335,7 +341,7 @@ const InstancePage = ({
           <Col md={5} mdOffset={1}>
             <PaymentSection
               trialTraingInstance={trialTraingInstance}
-              isOnline={city && city.toLowerCase() === 'online'}
+              isOnline={city && city.toLowerCase() === 'remote'}
               item={training}
             />
           </Col>

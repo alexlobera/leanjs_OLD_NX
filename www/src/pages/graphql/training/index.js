@@ -24,7 +24,7 @@ import {
 } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { GRAPHQL_PINK } from 'src/config/styles'
+import { GRAPHQL_PINK, LIGHT_PINK } from 'src/config/styles'
 
 const metas = {
   title: 'GraphQL Training (NEW) | React GraphQL Academy',
@@ -52,9 +52,10 @@ const TrainingPage = ({ path, trainings }) => (
       subtitle="Take your development career to the next level with our GraphQL training"
       bgImageName={BOOTCAMP}
       bgColor={GRAPHQL_PINK}
+      breadcrumbBgColor={LIGHT_PINK}
       featuredSection={
         <React.Fragment>
-          <P>Our courses:</P>
+          <P>Our training courses:</P>
           {[
             {
               to: '/graphql/training/part-time-course/',

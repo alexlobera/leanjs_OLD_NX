@@ -11,7 +11,12 @@ const Image = withLazyLoad()(styled(Box)`
 Image.defaultProps = {
   box: 'img',
 }
-const StyledGatsbyImage = props => <Box box={GatsbyImage} {...props} />
+const StyledGatsbyImage = ({ circle, sx = {}, ...rest }) => {
+  if (circle) {
+    sx.borderRadius = '50%'
+  }
+  return <Box sx={sx} box={GatsbyImage} {...rest} />
+}
 
 export default props => {
   const Component = !(props.fluid || props.fixed) ? Image : StyledGatsbyImage

@@ -41,7 +41,7 @@ const AlternativeTrainings = ({
             className="suggested-courses"
             to="#upcoming"
           >
-            See all public courses
+            See all public training courses
           </LinkButton>
           <Link
             sx={{ pt: [3, 1] }}

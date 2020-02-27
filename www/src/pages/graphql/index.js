@@ -18,7 +18,7 @@ import { Segment, Image } from 'src/components/elements'
 import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
 import { TrainingCardList } from 'src/components/training'
 import LearningResources from 'src/components/blog/LearningResources'
-import { GRAPHQL_PINK } from 'src/config/styles'
+import { GRAPHQL_PINK, LIGHT_PINK } from 'src/config/styles'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import Newsletter from 'src/components/elements/Newsletter'
@@ -27,25 +27,20 @@ import { getPostsFromNodes } from 'src/components/blog/utils'
 
 const trainingList = [
   {
-    title: 'GraphQL Bootcamp',
-    text: `Master GraphQL server-side and client-side`,
-    to: '/graphql/training/bootcamp/',
-  },
-  {
-    title: 'GraphQL Part-time Course',
+    title: 'GraphQL Part-time Training Course',
     text: `Maximum GraphQL training flexibility that fits around your`,
     to: '/graphql/training/part-time-course/',
-  },
-  {
-    title: 'GraphQL APIs Training',
-    text: `Rapid learning with a deep-dive into GraphQL APIs`,
-    to: '/graphql/training/api/',
   },
   {
     title: 'GraphQL Corporate Training',
     text: ` We come to you, teach skills and best practice to your
     entire team!`,
     to: '/graphql/training/corporate',
+  },
+  {
+    title: 'GraphQL Bootcamp',
+    text: `Master GraphQL server-side and client-side`,
+    to: '/graphql/training/bootcamp/',
   },
   {
     title: 'GraphQL Workshops',
@@ -88,6 +83,7 @@ const GraphQLPage = ({ data, path, trainings }) => {
           { to: path, label: 'GraphQL' },
         ]}
         tech={TECH_GRAPHQL}
+        breadcrumbBgColor={LIGHT_PINK}
         titleLines={['Learn GraphQL with us...']}
         subtitle="Supercharge your development skill set with latest curriculum in GraphQL"
         bgImageName={BOOTCAMP}

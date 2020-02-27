@@ -58,9 +58,12 @@ const Footer = () => (
               <Col md={6}>
                 <Ul variant="unstyled" sx={{ pt: 0 }}>
                   {[
-                    { to: '/react/training', txt: 'React Courses' },
+                    { to: '/react/training', txt: 'React Training Courses' },
                     { to: '/react/curriculum', txt: 'React Curriculum' },
-                    { to: '/graphql/training', txt: 'GraphQL Courses' },
+                    {
+                      to: '/graphql/training',
+                      txt: 'GraphQL Training Courses',
+                    },
                     { to: '/graphql/curriculum', txt: 'GraphQL Curriculum' },
                     { to: '/blog', txt: 'Blog' },
                     { to: '/about-us', txt: 'About us' },
@@ -87,6 +90,10 @@ const Footer = () => (
                       extraClass: 'footer-privacy-policy',
                     },
                     { to: '/terms-of-service', txt: 'Terms of service' },
+                    // {
+                    //   to: '/jamstack-mini-conference/',
+                    //   txt: 'JAMStack MiniConf',
+                    // },
                   ].map(({ txt, to, extraClass }) => (
                     <Li key={to}>
                       <Link

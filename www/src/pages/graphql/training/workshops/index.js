@@ -11,6 +11,7 @@ import { H2, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import CurriculumGraphQLWorkshops from 'src/components/curriculum/CurriculumGraphQLWorkshops'
 import Header from 'src/components/layout/Header'
+import { LIGHT_PINK } from 'src/config/styles'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
@@ -71,6 +72,7 @@ const Bootcamps = ({ path, trainings }) => {
           },
         ]}
         tech={TECH_GRAPHQL}
+        breadcrumbBgColor={LIGHT_PINK}
         titleLines={['1-Day GraphQL Workshops']}
         subtitle="Intense, 1-day workshops that focusses on one specific part of GraphQL - all delivered by industry experts"
         bgImageName={BOOTCAMP}

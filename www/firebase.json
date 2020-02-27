@@ -39,6 +39,16 @@
         "source": "/community/meetups/1{,/}",
         "destination": "https://reactgraphql.academy/community/meetups/5ce811c728bf226ebe872d74/",
         "type": 301
+      },
+      {
+        "source": "/graphql/training/part-time-course/online{,/}",
+        "destination": "/graphql/training/part-time-course/remote/",
+        "type": 301
+      },
+      {
+        "source": "/react/training/part-time-course/online{,/}",
+        "destination": "/react/training/part-time-course/remote/",
+        "type": 301
       }
     ],
     "appAssociation": "AUTO",

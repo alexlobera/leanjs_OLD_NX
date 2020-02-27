@@ -71,6 +71,9 @@ const layoutQuery = graphql`
             endDate
             city
             cityCountry
+            mapUrl
+            address
+            venueName
           }
         }
       }

@@ -20,6 +20,7 @@ import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
+import { LIGHT_PINK } from 'src/config/styles'
 
 const metas = {
   title: 'GraphQL Apollo Client Training | React GraphQL Academy',
@@ -59,6 +60,7 @@ const GraphQLApolloClientWorkshop = ({ path, trainings }) => {
             label: breadcrumbWorkshopName,
           },
         ]}
+        breadcrumbBgColor={LIGHT_PINK}
         tech={TECH_GRAPHQL}
         titleLines={['GraphQL Apollo Client']}
         subtitle="Create production-ready React applications with the most community-driven GraphQL client"
@@ -85,7 +87,7 @@ const GraphQLApolloClientWorkshop = ({ path, trainings }) => {
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
               type={GRAPHQL_WORKSHOP}
-              quote="As a freelance developer, I was tired of doing online courses. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+              quote="As a freelance developer, I was tired of doing online training courses on my own without live support. [The course] was fantastic - the teachers didn't leave a single question unanswered."
               fullname="Rafa Fraga"
               job="Software Engineer"
               youtubeId="hZZksRcqtkc"

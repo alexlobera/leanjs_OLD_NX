@@ -85,7 +85,7 @@ const TrainingItem = ({
       <br />
       {isOnline ? (
         <Tag as={Link} to={path}>
-          Online
+          Remote
         </Tag>
       ) : (
         cityCountry

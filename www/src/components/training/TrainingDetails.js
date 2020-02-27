@@ -48,11 +48,11 @@ const TrainingDetails = ({
         {training && training.isOnline ? (
           <>
             <Li>
-              24 hours of online workshops with industry experts across 4 weeks.
+              24 hours of remote training with industry experts across 4 weeks.
             </Li>
             <Li>
               15-minute video call with each coach for 1-on-1 mentoring during
-              the course on top of the workshops.
+              the training course on top of the workshops.
             </Li>
           </>
         ) : (

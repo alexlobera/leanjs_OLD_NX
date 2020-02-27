@@ -28,8 +28,8 @@ const TermsOfService = () => (
         <Row>
           <Col md={10} mdOffset={1}>
             <H2>
-              By registering for our workshops, courses or bootcamps, you agree
-              to the following terms and conditions.
+              By registering for our workshops, training courses or bootcamps,
+              you agree to the following terms and conditions.
             </H2>
           </Col>
         </Row>

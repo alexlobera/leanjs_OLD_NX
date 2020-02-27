@@ -45,7 +45,7 @@ There’s a reason why React is so popular, and that’s because it’s been pro
 
 Facebook continues to care for and improve React, meaning you’ll benefit from this knowledge too.
 
-<marketingcard text="🎉 New Online GraphQL Course! 🎉" to="/graphql/training/part-time-course/online/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ### 6. React is SEO-friendly
 
@@ -85,7 +85,7 @@ That’s why companies choose React. Although it’s constantly changing, React 
 
 Are you ready to learn React? Then our React training courses are for you!
 
-We’ll introduce you to React, Redux and GraphQL over either our week-long, full-time Bootcamp or Part-time courses.
+We’ll introduce you to React, Redux and GraphQL over either our week-long, full-time Bootcamp or Part-time training courses.
 
 We run these course throughout the year and across the EU - in London, Lisbon, Amsterdam and Barcelona - so no matter where you are, there’s always the opportunity to learn React with us.
 

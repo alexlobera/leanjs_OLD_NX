@@ -243,7 +243,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `).then(async result => {
       const locationPath = /^\/locations\//g
-      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|online).*/
+      const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|remote).*/
       const citiesFinanceAvailable = ['london']
       const siteUrl = removeTrailingSlash(result.data.site.siteMetadata.siteUrl)
 
@@ -362,6 +362,23 @@ exports.createPages = async ({ graphql, actions }) => {
                 )
               }
             )
+            let instanceTitle
+            const remote = city === 'remote' ? 'Remote' : ''
+            if (Array.isArray(restConfig.title)) {
+              const lastInstanceTitleIndex = restConfig.title.length - 1
+              instanceTitle = [...restConfig.title]
+              if (remote) {
+                instanceTitle[0] = `${remote} ${instanceTitle[0]}`
+              } else {
+                instanceTitle[
+                  lastInstanceTitleIndex
+                ] = `${instanceTitle[lastInstanceTitleIndex]} ${capitalizedCity}`
+              }
+            } else {
+              instanceTitle = `${remote} ${restConfig.title} ${
+                !remote ? capitalizedCity : ''
+              }`
+            }
 
             await Promise.all(
               instancesToCreate.map(async nth => {
@@ -401,7 +418,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     posts,
                     city: capitalizedCity,
                     financeAvailable,
-                    instanceTitle: `${restConfig.title} ${capitalizedCity}`,
+                    instanceTitle,
                     nth,
                     coaches:
                       (node.frontmatter && node.frontmatter.coaches) || [],

@@ -23,9 +23,9 @@ import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
 const metas = {
-  title: 'React Part Time Course | React GraphQL Academy',
+  title: 'React Part Time Training Course | React GraphQL Academy',
   description:
-    'Interested in a React course? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time course.',
+    'Interested in a React training course? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time training course.',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -58,11 +58,11 @@ const PartTime = ({ trainings, path }) => {
           { to: '/react/training/', label: 'Training' },
           {
             to: path,
-            label: 'Part Time Course',
+            label: 'Part Time',
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['1-month part-time', 'React Redux course']}
+        titleLines={['1-month part-time', 'React training course']}
         subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
         type={REACT_PART_TIME}
         links={header.landingPageLinks.links}
@@ -85,10 +85,12 @@ const PartTime = ({ trainings, path }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <Link to="#target-audience" name="target-audience" />
-            <H2>Is this React part-time course right for me?</H2>
+            <H2>Is this React part-time training course right for me?</H2>
             <Ul>
               <Li>Meaningful, collaborative learning</Li>
-              <Li>Personal mentoring rather than online learning</Li>
+              <Li>
+                Personal mentoring rather than massive online open courses
+              </Li>
               <Li>Don't miss work days or projects</Li>
               <Li>Not for beginners!</Li>
               <Li>Discuss real-world projects to learn best practices</Li>
