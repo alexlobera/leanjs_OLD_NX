@@ -1,19 +1,24 @@
 import React from "react";
-import Box from "@leanjs/box";
+import Box, { BoxProps } from "@leanjs/box";
 
-const Alert = ({ variant = "default", sx = {}, ...rest }) => (
+interface AlertProps extends BoxProps {
+  variant?: keyof typeof alertVariants;
+}
+
+const Alert = ({ variant = "default", sx = {}, ...rest }: AlertProps) => (
   <Box
     sx={{
       my: 1,
       pl: 1,
       pr: 1,
       py: 3,
-      //  ...(alertVariants[variant] || {}),
+      ...(alertVariants[variant] || {}),
       ...sx
     }}
     {...rest}
   />
 );
+// const A = () => <Alert onClick={() => {}} />;
 
 const alertVariants = {
   default: {

@@ -26,17 +26,20 @@ export type StyleProps = SpaceProps &
   LayoutProps &
   PositionProps;
 
-interface BoxProps {
+export interface BoxProps {
   sx?: StyleProps;
   children?: ReactNode;
-  variant?: string;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+}
+
+interface StyledBoxProps extends BoxProps {
+  variant?: string;
 }
 
 const css = compose(space, color, typography, border, shadow, layout, position);
 
 const StyledBox = React.memo(
-  styled(({ sx, variant, box: Component = "div", ...rest }: BoxProps) => (
+  styled(({ sx, variant, box: Component = "div", ...rest }: StyledBoxProps) => (
     <Component {...rest} />
   ))(({ sx, theme }) => css({ ...sx, theme }))
 );
