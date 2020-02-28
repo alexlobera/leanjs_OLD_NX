@@ -1,6 +1,11 @@
 {
   "extends": "../../tsconfig.build.json",
   "include": ["src"],
+  "references": [
+    {
+      "path": "../box/tsconfig.build.json"
+    }
+  ],
   "compilerOptions": {
     "composite": true,
     "declaration": true,

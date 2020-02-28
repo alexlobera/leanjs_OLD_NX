@@ -9,3 +9,6 @@ yarn-error.log
 
 # bundled files
 /packages/*/dist
+
+# build
+*/**/tsconfig.build.tsbuildinfo

@@ -8,7 +8,7 @@ const Alert = ({ variant = "default", sx = {}, ...rest }) => (
       pl: 1,
       pr: 1,
       py: 3,
-      ...(alertVariants[variant] || {}),
+      //  ...(alertVariants[variant] || {}),
       ...sx
     }}
     {...rest}

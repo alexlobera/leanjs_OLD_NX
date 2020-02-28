@@ -1,4 +1,9 @@
 {
+  "references": [
+    {
+      "path": "packages/box/tsconfig.build.json"
+    }
+  ],
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
