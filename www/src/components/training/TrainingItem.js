@@ -54,6 +54,12 @@ export function getTrainingTimings({ training }) {
       ? `3 days`
       : days < 10
       ? '1 week'
+      : days < 15
+      ? '2 weeks'
+      : days < 25
+      ? '3 weeks'
+      : days < 40
+      ? '1 month'
       : days < 40
       ? '1 month'
       : ''
