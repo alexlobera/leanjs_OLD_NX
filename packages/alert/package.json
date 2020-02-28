@@ -1,12 +1,9 @@
 {
-  "name": "@leanjs/box",
+  "name": "@leanjs/alert",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "description": "Box component for Design Systems in React",
+  "main": "src/index.js",
+  "private": false,
+  "description": "Alert component for Design Systems in React",
   "keywords": [
     "Design System",
     "React"
@@ -15,20 +12,18 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/reactgraphqlacademy/reactgraphqlacademy.git",
-    "directory": "packages/box"
+    "directory": "packages/alert"
   },
   "scripts": {
     "build": "yarn clean && yarn compile",
     "clean": "rm -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json"
+    "compile": "cross-env NODE_ENV=production tsdx build --format=cjs,esm --tsconfig tsconfig.build.json"
   },
   "license": "MIT",
   "dependencies": {
-    "styled-system": "^5.0.5"
+    "@leanjs/box": "^0.0.1"
   },
   "peerDependencies": {
-    "react": "^16.10.0",
-    "react-dom": "^16.10.0",
-    "styled-components": "^5.0.0"
+    "react": "^16.10.0"
   }
 }
