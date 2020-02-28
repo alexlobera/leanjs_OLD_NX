@@ -18,7 +18,6 @@ const Alert = ({ variant = "default", sx = {}, ...rest }: AlertProps) => (
     {...rest}
   />
 );
-// const A = () => <Alert onClick={() => {}} />;
 
 const alertVariants = {
   default: {
