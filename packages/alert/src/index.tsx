@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@leanjs/Box";
+import Box from "@leanjs/box";
 
 const Alert = ({ variant = "default", sx = {}, ...rest }) => (
   <Box
