@@ -2,7 +2,10 @@
   "config": {
     "title": "Docs",
     "description": "Documentation for LeanJS UI",
-    "menu": ["Home", "Components"],
+    "menu": [
+      "Home",
+      "Components"
+    ],
     "version": "0.0.1",
     "repository": "https://github.com/reactgraphqlacademy/reactgraphqlacademy",
     "native": false,

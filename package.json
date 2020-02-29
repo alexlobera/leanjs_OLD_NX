@@ -50,9 +50,9 @@
     "postinstall": "echo 'TODO fix this 🔥postinstall hack https://github.com/DefinitelyTyped/DefinitelyTyped/issues/33311#issuecomment-560230205 🔥 in root package.json' && rm -rf node_modules/@types/react-native",
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
     "prebuild": "npm run format",
-    "publish": "npx lerna publish",
+    "publish": "npm run build:packages && npx lerna publish",
     "bootstrap": "npx lerna bootstrap",
-    "build:packages": "lerna run compile"
+    "build:packages": "lerna run build"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

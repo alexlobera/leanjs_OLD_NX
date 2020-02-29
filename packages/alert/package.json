@@ -1,7 +1,11 @@
 {
   "name": "@leanjs/alert",
   "version": "0.0.1",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "private": false,
   "description": "Alert component for Design Systems in React",
   "keywords": [
