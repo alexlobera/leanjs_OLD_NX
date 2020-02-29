@@ -54,7 +54,7 @@
     "bootstrap": "lerna bootstrap",
     "build:packages": "lerna run build:package",
     "watch:lib": "lerna run --stream watch:lib",
-    "start": "yarn watch:lib & lerna run start --scope=react-graphql-academy-website --stream"
+    "start": "yarn watch:lib & lerna run start --scope=rga-www --stream"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
