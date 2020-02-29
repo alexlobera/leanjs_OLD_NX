@@ -2,6 +2,7 @@
   "name": "@leanjs/box",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "module": "./dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -18,7 +19,8 @@
     "directory": "packages/box"
   },
   "scripts": {
-    "build": "yarn clean && yarn compile",
+    "watch:lib": "yarn clean && yarn compile -- -w",
+    "build:package": "yarn clean && yarn compile",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo",
     "compile": "tsc -p tsconfig.build.json"
   },

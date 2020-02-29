@@ -52,7 +52,9 @@
     "prebuild": "npm run format",
     "publish": "npm run build:packages && npx lerna publish",
     "bootstrap": "npx lerna bootstrap",
-    "build:packages": "lerna run build"
+    "build:packages": "lerna run build:package",
+    "watch:lib": "lerna run --stream watch:lib",
+    "start": "yarn watch:lib & lerna run start --scope=react-graphql-academy-website --stream"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
