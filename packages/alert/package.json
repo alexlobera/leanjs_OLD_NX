@@ -1,5 +1,5 @@
 {
-  "name": "@leanjs/alert",
+  "name": "@leanui/alert",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "./dist/index.esm.js",
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@leanjs/box": "^0.0.1"
+    "@leanui/box": "^0.0.1"
   },
   "peerDependencies": {
     "react": "^16.10.0"

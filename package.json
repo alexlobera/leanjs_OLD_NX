@@ -51,7 +51,7 @@
     "format": "prettier --write '{src,functions,firebase}/**/*.{js,json,css,md}'",
     "prebuild": "npm run format",
     "publish": "npm run build:packages && npx lerna publish",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "npx lerna bootstrap",
     "build:packages": "lerna run build:package",
     "watch:lib": "lerna run --stream watch:lib",
     "start": "yarn watch:lib & lerna run start --scope=rga-www --stream"

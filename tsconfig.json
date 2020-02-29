@@ -4,7 +4,7 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@leanjs/box": ["packages/box/src"]
+      "@leanui/box": ["packages/box/src"]
     }
   }
 }

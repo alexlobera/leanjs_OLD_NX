@@ -1,2 +1,2 @@
-import Alert from '@leanjs/alert'
+import Alert from '@leanui/alert'
 export default Alert
