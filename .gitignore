@@ -12,3 +12,5 @@ yarn-error.log
 
 # build
 */**/tsconfig.build.tsbuildinfo
+*/**/*.docz
+
