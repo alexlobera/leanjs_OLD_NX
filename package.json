@@ -83,7 +83,6 @@
     "eslint": "^6.6.0",
     "eslint-plugin-promise": "^4.2.1",
     "firebase-tools": "^7.3.2",
-    "graphql-tools-fork": "8.0.1",
     "husky": "^1.0.0-rc.13",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
