@@ -1,0 +1,33 @@
+---
+name: Box
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import Box from '@leanui/box'
+
+# Box
+
+## Properties
+
+<Props of={Box} />
+
+## Basic usage
+
+<Playground>
+  <Box>Some messages</Box>
+</Playground>
+
+## Using sx prop
+
+### Spacing 
+<Playground>
+  <Box sx={{ p: 6}}>With padding</Box>
+  <Box sx={{ m: 6}}>With margin</Box>
+</Playground>
+
+### Colors 
+<Playground>
+  <Box sx={{ backgroundColor: "blue"}}>Background color</Box>
+  <Box sx={{ color: "blue"}}>Text color</Box>
+</Playground>

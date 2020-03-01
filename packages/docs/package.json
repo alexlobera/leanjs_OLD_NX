@@ -1,0 +1,43 @@
+{
+  "name": "@leanui/docs",
+  "private": true,
+  "description": "Documentation for LeanJS UI",
+  "version": "0.0.1",
+  "keywords": [
+    "gatsby",
+    "docz",
+    "design systems"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reactgraphqlacademy/reactgraphqlacademy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactgraphqlacademy/reactgraphqlacademy.git",
+    "directory": "packages/docs"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "predeploy": "npm run build",
+    "serve": "gatsby serve",
+    "deploy": "npm run deploy-hosting",
+    "deploy-hosting": "./node_modules/.bin/firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "docz": "2.2.0",
+    "gatsby": "^2.19.18",
+    "gatsby-plugin-offline": "^3.0.35",
+    "gatsby-plugin-sharp": "^2.2.18",
+    "gatsby-theme-docz": "^2.2.0",
+    "gatsby-transformer-sharp": "^2.2.7",
+    "firebase-tools": "^7.3.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet-async": "^1.0.4",
+    "styled-components": "^5.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+# gatsby files
+.cache/
+public
+
+# Project dependencies
+firebase-debug.log
+.firebase
+package.lock
+package-lock.json
+yarn-error.log
+
+# dependencies
+node_modules

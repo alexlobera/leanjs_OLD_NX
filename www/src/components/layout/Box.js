@@ -1,3 +1,3 @@
-import { Box } from '@leanjs/box'
+import { Box } from '@leanui/box'
 
 export default Box

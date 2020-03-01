@@ -6,3 +6,11 @@ package.lock
 package-lock.json
 yarn-error.log
 .DS_Store
+
+# bundled files
+/packages/*/dist
+
+# build
+*/**/tsconfig.build.tsbuildinfo
+*/**/*.docz
+

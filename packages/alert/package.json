@@ -1,5 +1,5 @@
 {
-  "name": "@leanui/box",
+  "name": "@leanui/alert",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "./dist/index.esm.js",
@@ -7,7 +7,8 @@
   "files": [
     "dist"
   ],
-  "description": "Box component for Design Systems in React",
+  "private": false,
+  "description": "Alert component for Design Systems in React",
   "keywords": [
     "Design System",
     "React"
@@ -16,21 +17,19 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/reactgraphqlacademy/reactgraphqlacademy.git",
-    "directory": "packages/box"
+    "directory": "packages/alert"
   },
   "scripts": {
     "watch:lib": "yarn clean && yarn compile -- -w",
-    "build:package": "yarn clean && yarn compile",
+    "build:package": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist && rm -rf tsconfig.build.tsbuildinfo",
-    "compile": "tsc -p tsconfig.build.json"
+    "compile": "tsc -b tsconfig.build.json"
   },
   "license": "MIT",
   "dependencies": {
-    "styled-system": "^5.0.5"
+    "@leanui/box": "^0.0.1"
   },
   "peerDependencies": {
-    "react": "^16.10.0",
-    "react-dom": "^16.10.0",
-    "styled-components": "^5.0.0"
+    "react": "^16.10.0"
   }
 }
