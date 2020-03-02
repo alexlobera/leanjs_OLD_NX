@@ -24,11 +24,11 @@ const defaultItemData = {
     address: 'Publicis Sapient - Eden House, 8 Spital Square',
     city: 'London',
     country: 'UK',
-    endDate: '2019-05-23T20:00:00.000Z',
+    endDate: '2039-05-23T20:00:00.000Z',
     id: '5aa2acda7dcc782348ea1234',
     mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
     price: 995,
-    startDate: '2019-04-23T17:00:00.000Z',
+    startDate: '2039-04-23T17:00:00.000Z',
     type: 'Part-time',
     shoppingItemEnum: 'training',
   },
@@ -154,6 +154,31 @@ describe('<PaymentSection />', () => {
       })
     })
 
+    it('should not show the checkout if the event has endend', async () => {
+      const navigate = jest.fn(() => {})
+      const { getByText } = mountPaymentSection({
+        paymentMutation: { request, result },
+        navigate,
+        itemData: {
+          item: {
+            address: 'Publicis Sapient - Eden House, 8 Spital Square',
+            city: 'London',
+            country: 'UK',
+            endDate: '2019-05-23T20:00:00.000Z',
+            id: '5aa2acda7dcc782348ea1234',
+            mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
+            price: 995,
+            startDate: '2019-04-23T17:00:00.000Z',
+            type: MEETUP,
+          },
+        },
+      })
+
+      await waitForExpect(() => {
+        expect(getByText('The event has ended')).toBeTruthy()
+      })
+    })
+
     it('should trigger an email subscribe if meetup is true and the subscribe to newsletter checkbox is checked', async () => {
       const triggerSubscribe = jest.fn(() => {})
 
@@ -165,11 +190,11 @@ describe('<PaymentSection />', () => {
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
             city: 'London',
             country: 'UK',
-            endDate: '2019-05-23T20:00:00.000Z',
+            endDate: '2039-05-23T20:00:00.000Z',
             id: '5aa2acda7dcc782348ea1234',
             mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
             price: 995,
-            startDate: '2019-04-23T17:00:00.000Z',
+            startDate: '2039-04-23T17:00:00.000Z',
             type: MEETUP,
           },
         },
@@ -186,7 +211,8 @@ describe('<PaymentSection />', () => {
       await waitForExpect(() => {
         expect(triggerSubscribe).toHaveBeenCalledWith({
           email: 'test@example.com',
-          pathname: 'checkout',
+          form: 'checkout',
+          city: undefined,
         })
       })
     })

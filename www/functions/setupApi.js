@@ -100,14 +100,13 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
 
   async function subscribe(request, response) {
     const data = request && request.body
-    const { email, pathname, city, path, resources } = data
+    const { email, form, city, path, resources } = data
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
-        LeadSource: pathname,
+        LeadSource: `from ${form} in ${path}`,
         custom: {
           'string--From--City': city,
-          'string--From--URLPath': path,
           [RESOURCES_SINGED_UP]: resources,
         },
       },

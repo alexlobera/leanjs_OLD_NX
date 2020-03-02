@@ -152,7 +152,7 @@ export class CheckoutContainer extends React.Component {
     } = values
 
     if (meetupSubscribe) {
-      this.props.triggerSubscribe({ email, pathname: 'checkout', city })
+      this.props.triggerSubscribe({ email, form: 'checkout', city })
     }
 
     const number = formatCreditCardNumber(CCnumber)
