@@ -4,7 +4,7 @@
 
 ## Install
 
-Clone this repo to your local machine and run from the root repository
+Clone the root repository to your local machine and run from the root repository:
 
 ```sh
 yarn bootstrap
@@ -12,7 +12,7 @@ yarn bootstrap
 
 ### We have several scripts in place:
 
-- To run the site, user `npm run start`
+- To run the site, use `npm run start` from the root repository. It will build the dependencies from the packages folder before starting the website.
 - To run the tests first you need to build the design system packages. To do that run `npm build:packages` from the root repository. Then use `npm run test` or `npm run testw` for watch mode from this repository
 - To generate a code coverage report use `npm run coverage` from this repository
 - To run storybook to visually see the components, use `npm run storybook` from this repository
