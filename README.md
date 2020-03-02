@@ -16,7 +16,7 @@ The website is under the www folder. The website is built with Gatsby.js.
 
 ## Running the website
 
-After [installing the dependencies](#getting started),from the root repository (meaning, this folder) you can run:
+After [installing the dependencies](#getting-started),from the root repository (meaning, this folder) run:
 
 ```console
 yarn start
