@@ -1,6 +1,6 @@
 ---
 coaches: ['alex-lobera']
-subtitle: Get started with GraphQL in React and learn how to write real-world tests for React and GraphQL apps in Berlin
+subtitle: Learn how to write real-world tests in React and GraphQL apps in this 1-day workshop in Berlin
 ---
 
 TODO ADD TEXT
