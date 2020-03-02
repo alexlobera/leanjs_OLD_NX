@@ -48,23 +48,28 @@ export const triggerSubscribe = ({
   pathname = 'footer',
   city = 'unknown',
   resources = true,
-}) =>
-  fetch(`${apiBaseUrl}subscribe`, {
+}) => {
+  const path = typeof window !== 'undefined' ? window.location.pathname : ''
+  const payload = {
+    email,
+    pathname,
+    city,
+    resources,
+    path,
+  }
+  return fetch(`${apiBaseUrl}subscribe`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      email,
-      pathname,
-      city,
-      resources,
-    }),
+    body: JSON.stringify(payload),
   }).then(() => {
     trackUserBehaviour({
       event: 'NEWSLETTER_SIGNUP',
+      payload,
     })
   })
+}
 
 export const sendFeedback = feedback =>
   fetch(`${apiBaseUrl}sendFeedback`, {
