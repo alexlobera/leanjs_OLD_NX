@@ -15,13 +15,13 @@ const ReactGraphQLIntroSession = ({ title }) => (
           <Li>useQuery and useMutation</Li>
         </Ul>
       </Li>
-      <Li>
+      {/* <Li>
         Best practices
         <Ul>
           <Li>Query colocation</Li>
           <Li>Fragment composition</Li>
         </Ul>
-      </Li>
+      </Li> */}
     </Ul>
   </Session>
 )
