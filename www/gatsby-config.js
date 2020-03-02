@@ -1,6 +1,6 @@
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
-} = require('../studio/sanity.json')
+} = require('../cms/sanity.json')
 // `hyperscript` is a way to build HTML known as hyperscript
 // See https://github.com/hyperhype/hyperscript for more info
 const algoliaQueries = require('./src/search/algoliaQueries')

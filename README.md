@@ -41,3 +41,13 @@ More info about the website [here](/cms)
 ## Design System
 
 The design system is under packages folder. It's built with Lerna (1 package per component), TypeScript, and styled-system. It's documented with Docz + Gatsby under /packages/docs.
+
+### Running the Design System
+
+After [installing the dependencies](#getting-started),from the root repository (meaning, this folder) run:
+
+```console
+yarn start:docs
+```
+
+More info about the website [here](/packages)
