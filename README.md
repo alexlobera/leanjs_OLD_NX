@@ -4,11 +4,11 @@ This is the root repository for the React GraphQL Academy website, CMS, and desi
 
 ## Website
 
-The website is under the www folder. It's built with Gatsby.js. [Read more](/www)
+The website is under the www folder. The website is built with Gatsby.js. [Read more](/www)
 
 ## CMS
 
-The CMS is under the studio folder. It's built with Sanity.io
+The CMS is under the studio folder. The CMS is built with Sanity.io
 
 ## Design System
 
