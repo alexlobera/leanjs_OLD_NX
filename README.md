@@ -36,7 +36,7 @@ After [installing the dependencies](#getting-started), from the root repository 
 yarn start:cms
 ```
 
-More info about the website [here](/cms)
+More info about the CMS [here](/cms)
 
 ## Design System
 
@@ -50,4 +50,4 @@ After [installing the dependencies](#getting-started), from the root repository 
 yarn start:docs
 ```
 
-More info about the website [here](/packages)
+More info about the design system documentation [here](/packages)
