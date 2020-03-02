@@ -7,8 +7,9 @@ import FormsAndAuthSession from '../sessions/FormsAndAuthSession'
 import StylingInReactSession from '../sessions/StylingInReactSession'
 import HooksSession from '../sessions/HooksSession'
 import IntroReduxSession from '../sessions/IntroReduxSession'
+import ReactGraphQLIntroSession from '../sessions/ReactGraphQLIntroSession'
 import TestingIntroSession from '../sessions/TestingIntroSession'
-import TestingInReactSession from '../sessions/TestingInReactSession'
+import TestingInReactSession2 from '../sessions/TestingInReactSession2'
 import AdvancedReactPatternsSession from '../sessions/AdvancedReactPatternsSession'
 import ReactPerformanceSession from '../sessions/ReactPerformanceSession'
 import FundamentalsFinalProject from '../sessions/FundamentalsFinalProject'
@@ -42,8 +43,12 @@ export const sessionsSecondHalf = [
     comps: [StylingInReactSession, AdvancedUIPatterns, DesignSystemSession],
   },
   {
-    subTitle: 'Real-World Testing in React',
-    comps: [TestingIntroSession, TestingInReactSession],
+    subTitle: 'GraphQL Fundamentals & Real-World Testing in React',
+    comps: [
+      ReactGraphQLIntroSession,
+      TestingIntroSession,
+      TestingInReactSession2,
+    ],
   },
 ]
 

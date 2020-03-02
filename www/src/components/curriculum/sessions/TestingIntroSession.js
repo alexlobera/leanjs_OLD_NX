@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-export const titleSession = 'Testing Foundation in JS'
+export const titleSession = 'Testing Foundation in JavaScript'
 
 const TestingIntroSession = ({ title = titleSession }) => (
   <Session title={title}>

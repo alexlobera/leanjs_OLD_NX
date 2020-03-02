@@ -3,9 +3,9 @@
   "tech": "React",
   "breadcrumbTrainingName": "Workshops",
   "breadcrumbTrainingSlug": "workshops",
-  "breadcrumbWorkshopName": "Testing",
+  "breadcrumbWorkshopName": "Testing & GraphQL",
   "breadcrumbWorkshopSlug": "testing-in-react",
   "trainingId": "5d01096406051b7d3bcb0cf5",
-  "title": "1-Day Testing in React Workshop",
+  "title": ["1-Day GraphQL 101 & ", "Real-World Testing in React Workshop"],
   "tags": ["testing", "react"]
 }

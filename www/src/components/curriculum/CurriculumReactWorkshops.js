@@ -21,7 +21,7 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
         <React.Fragment>
           <Section
             {...sectionProps}
-            title="Testing in React"
+            title="GraphQL 101 & Real-World Testing in React"
             subTitle="Ensure consistent, reliable code across the React ecosystem"
             toggleNavigateTo={`${workshopBasePath}testing-in-react/`}
           />
