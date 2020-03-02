@@ -188,6 +188,8 @@ class PaymentSection extends React.Component {
       title = 'Loading ...'
     } else if (!item || !item.id) {
       title = 'There is no event scheduled'
+    } else if (new Date(item.endDate) < new Date()) {
+      title = 'The event has ended'
     } else {
       title = 'Standard priced ticket'
       trainingType = item.type
