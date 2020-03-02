@@ -26,8 +26,18 @@ More info about the website [here](/www)
 
 ## CMS
 
-The CMS is under the studio folder. The CMS is built with Sanity.io
+The CMS is under the /cms folder. The CMS is built with Sanity.io.
+
+### Running the CMS
+
+After [installing the dependencies](#getting-started),from the root repository (meaning, this folder) run:
+
+```console
+yarn start:cms
+```
+
+More info about the website [here](/cms)
 
 ## Design System
 
-The design system is under packages folder. It's built with Lerna (1 package per component), TypeScript, and styled-system. It's documented with Docz + Gatsby under /packages/docs
+The design system is under packages folder. It's built with Lerna (1 package per component), TypeScript, and styled-system. It's documented with Docz + Gatsby under /packages/docs.

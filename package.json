@@ -56,6 +56,7 @@
     "watch:lib": "lerna run --stream watch:lib",
     "prestart": "yarn build:packages",
     "start": "yarn watch:lib & lerna run start --scope=rga-www --stream",
+    "start:cms": "yarn build:packages && yarn watch:lib & lerna run start --scope=rga-cms --stream",
     "start:docs": "yarn build:packages && yarn watch:lib & lerna run start --scope=@leanui/docs --stream"
   },
   "devDependencies": {
