@@ -4,18 +4,18 @@
 
 ## Install
 
-Clone this repo to your local machine and run
+Clone this repo to your local machine and run from the root repository
 
 ```sh
-npm install
+yarn bootstrap
 ```
 
 ### We have several scripts in place:
 
-- To run the site, user `npm run develop`
-- To run the tests use `npm run test` or `npm run testw` for watch mode
-- To generate a code coverage report use `npm run coverage`
-- To run storybook to visually see the components, use `npm run storybook`
+- To run the site, user `npm run start`
+- To run the tests first you need to build the design system packages. To do that run `npm build:packages` from the root repository. Then use `npm run test` or `npm run testw` for watch mode from this repository
+- To generate a code coverage report use `npm run coverage` from this repository
+- To run storybook to visually see the components, use `npm run storybook` from this repository
 
 There are a few other scripts in the package.json that are used for formatting via [prettier](https://prettier.io/) and to spin up production builds of the site, please refer to the [gatsby docs](https://v1.gatsbyjs.org/) for further reading on the later.
 
