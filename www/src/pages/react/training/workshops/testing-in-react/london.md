@@ -1,6 +1,6 @@
 ---
 coaches: ['alex-lobera']
-subtitle: Learn in London how to write tests for real-world applications that are flexible and increase the quality
+subtitle: Learn how to write real-world tests in React and GraphQL apps in this 1-day workshop in London
 ---
 
 TODO ADD TEXT

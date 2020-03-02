@@ -9,7 +9,6 @@ const AdvancedUIPatterns = ({ title = titleSession }) => (
     <Ul>
       <Li>Themes</Li>
       <Li>Compound Components</Li>
-      <Li>Context</Li>
     </Ul>
   </Session>
 )

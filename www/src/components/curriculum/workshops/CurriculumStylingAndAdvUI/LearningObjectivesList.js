@@ -8,7 +8,7 @@ const LearningObjectivesList = () => (
       design consistency using design systems.
     </Li>
     <Li>
-      Understand how to build components that are easy to use and maintain.
+      Understand how to build components that are easy to reuse and maintain.
     </Li>
   </React.Fragment>
 )
