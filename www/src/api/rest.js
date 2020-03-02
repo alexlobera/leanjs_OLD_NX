@@ -45,14 +45,14 @@ export const triggerUnsubscribe = ({ email }) =>
 
 export const triggerSubscribe = ({
   email,
-  pathname = 'footer',
+  form = 'footer',
   city = 'unknown',
   resources = true,
 }) => {
   const path = typeof window !== 'undefined' ? window.location.pathname : ''
   const payload = {
     email,
-    pathname,
+    form,
     city,
     resources,
     path,
