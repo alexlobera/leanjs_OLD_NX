@@ -4,6 +4,8 @@ This is the root repository for the React GraphQL Academy website, CMS, and desi
 
 ## Getting Started
 
+First, install all the dependencies. ⚠️ Don't do `yarn` or `npm install`, instead run:
+
 ```console
 yarn bootstrap
 ```
