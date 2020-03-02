@@ -266,7 +266,7 @@ exports.createPages = async ({ graphql, actions }) => {
             path: `/community/meetups/${node.id}`,
             component: path.resolve(`./src/templates/meetup.js`),
             context: {
-              meetup: node,
+              meetup: { ...node, shoppingItemEnum: 'event' },
               locationImage: locationImage && locationImage.childImageSharp,
             },
           })
