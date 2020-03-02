@@ -43,7 +43,7 @@ export const sessionsSecondHalf = [
     comps: [StylingInReactSession, AdvancedUIPatterns, DesignSystemSession],
   },
   {
-    subTitle: 'GraphQL Fundamentals & Real-World Testing in React',
+    subTitle: 'GraphQL 101 & Real-World Testing in React',
     comps: [
       ReactGraphQLIntroSession,
       TestingIntroSession,
