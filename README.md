@@ -16,7 +16,7 @@ The website is under the www folder. The website is built with Gatsby.js.
 
 ### Running the website
 
-After [installing the dependencies](#getting-started),from the root repository (meaning, this folder) run:
+After [installing the dependencies](#getting-started), from the root repository (meaning, this folder) run:
 
 ```console
 yarn start
@@ -30,7 +30,7 @@ The CMS is under the /cms folder. The CMS is built with Sanity.io.
 
 ### Running the CMS
 
-After [installing the dependencies](#getting-started),from the root repository (meaning, this folder) run:
+After [installing the dependencies](#getting-started), from the root repository (meaning, this folder) run:
 
 ```console
 yarn start:cms
@@ -44,7 +44,7 @@ The design system is under packages folder. It's built with Lerna (1 package per
 
 ### Running the Design System
 
-After [installing the dependencies](#getting-started),from the root repository (meaning, this folder) run:
+After [installing the dependencies](#getting-started), from the root repository (meaning, this folder) run:
 
 ```console
 yarn start:docs
