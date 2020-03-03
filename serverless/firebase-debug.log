@@ -1,0 +1,36 @@
+[debug] [2020-03-03T22:51:57.871Z] ----------------------------------------------------------------------
+[debug] [2020-03-03T22:51:57.873Z] Command:       /Users/alexlobera/.nvm/versions/node/v8.16.1/bin/node /Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/.bin/firebase serve --only functions
+[debug] [2020-03-03T22:51:57.874Z] CLI Version:   7.14.0
+[debug] [2020-03-03T22:51:57.874Z] Platform:      darwin
+[debug] [2020-03-03T22:51:57.874Z] Node Version:  v8.16.1
+[debug] [2020-03-03T22:51:57.875Z] Time:          Tue Mar 03 2020 22:51:57 GMT+0000 (GMT)
+[debug] [2020-03-03T22:51:57.875Z] ----------------------------------------------------------------------
+[debug] [2020-03-03T22:51:57.875Z] 
+[debug] [2020-03-03T22:51:57.883Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-03T22:51:57.883Z] > authorizing via signed-in user
+[debug] [2020-03-03T22:51:57.883Z] [iam] checking project reactgraphqlacademy for permissions ["firebase.projects.get"]
+[debug] [2020-03-03T22:51:57.885Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/reactgraphqlacademy:testIamPermissions  
+
+[debug] [2020-03-03T22:51:58.784Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-03T22:51:58.785Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/reactgraphqlacademy  
+ 
+[debug] [2020-03-03T22:51:58.994Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-03T22:51:59.001Z] Error: Cannot find module '/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/serverless/src/package.json'
+    at Function.Module._resolveFilename (module.js:548:15)
+    at Function.Module._load (module.js:475:25)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at FunctionsEmulator.<anonymous> (/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:327:25)
+    at Generator.next (<anonymous>)
+    at /Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:4:12)
+    at FunctionsEmulator.askInstallNodeVersion (/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:326:16)
+    at FunctionsEmulator.<anonymous> (/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:99:42)
+    at Generator.next (<anonymous>)
+    at /Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:4:12)
+    at FunctionsEmulator.start (/Users/alexlobera/Projects/leanjscom/internal/reactgraphqlacademy/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:98:16)
+[error] 
+[error] Error: An unexpected error has occurred.

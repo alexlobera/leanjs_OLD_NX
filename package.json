@@ -157,6 +157,7 @@
   "workspaces": [
     "packages/*",
     "www",
-    "cms"
+    "cms",
+    "serverless"
   ]
 }
