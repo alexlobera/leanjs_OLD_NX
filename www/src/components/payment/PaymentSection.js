@@ -16,17 +16,6 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
-// function findVoucherWithOverlappingUseThis(
-//   overlappingVoucherWithPriority,
-//   { node }
-// ) {
-//   return overlappingVoucherWithPriority
-//     ? overlappingVoucherWithPriority
-//     : node.onOverlappingUseThis === true
-//     ? node
-//     : null
-// }
-
 function getAutomaticVoucherFromData(data) {
   let discount
   const item =
@@ -41,9 +30,7 @@ function getAutomaticVoucherFromData(data) {
     item.upcomingAutomaticDiscounts.edges
   ) {
     const { edges } = item.upcomingAutomaticDiscounts
-    //discount = edges.reduce(findVoucherWithOverlappingUseThis, null)
     if (edges.length) {
-      // if (!discount && edges.length) {
       discount = edges[0].node
     }
   }
