@@ -16,16 +16,16 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
-function findVoucherWithOverlappingUseThis(
-  overlappingVoucherWithPriority,
-  { node }
-) {
-  return overlappingVoucherWithPriority
-    ? overlappingVoucherWithPriority
-    : node.onOverlappingUseThis === true
-    ? node
-    : null
-}
+// function findVoucherWithOverlappingUseThis(
+//   overlappingVoucherWithPriority,
+//   { node }
+// ) {
+//   return overlappingVoucherWithPriority
+//     ? overlappingVoucherWithPriority
+//     : node.onOverlappingUseThis === true
+//     ? node
+//     : null
+// }
 
 function getAutomaticVoucherFromData(data) {
   let discount
@@ -41,9 +41,9 @@ function getAutomaticVoucherFromData(data) {
     item.upcomingAutomaticDiscounts.edges
   ) {
     const { edges } = item.upcomingAutomaticDiscounts
-    discount = edges.reduce(findVoucherWithOverlappingUseThis, null)
-
-    if (!discount && edges.length) {
+    //discount = edges.reduce(findVoucherWithOverlappingUseThis, null)
+    if (edges.length) {
+      // if (!discount && edges.length) {
       discount = edges[0].node
     }
   }
@@ -358,7 +358,6 @@ query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
           discountPercentage
           startsAt
           expiresAt
-          onOverlappingUseThis
         }
       }
     }
@@ -377,7 +376,6 @@ query upcomingAutomaticDiscounts($eventId: ID!) {
             discountPercentage
             startsAt
             expiresAt
-            onOverlappingUseThis
           }
         }
       }
