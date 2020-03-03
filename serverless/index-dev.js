@@ -2,7 +2,7 @@ const autopilotapikey = "empty";
 const slackToken = "empty";
 const bodyParser = require("body-parser");
 
-const { setupApi } = require("./setupApi");
+const { setupApi } = require("./src/api");
 const middlewares = [bodyParser.json()];
 
 const server = setupApi({

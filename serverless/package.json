@@ -6,7 +6,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "dev": "node src/index-dev.js",
+    "dev": "node index-dev.js",
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
