@@ -62,10 +62,10 @@ The serverless functions are under the /serverless folder. It uses Google Cloud 
 
 ⚠️ The serverless package is not using Lerna at the moment because it requires Node.js v8 due to Google Cloud Functions and the other packages use Node.js v10+
 
-First install the dependencies, run `cd serverless && yarn`. Then:
+First install the dependencies from the serverless folder: `cd serverless && yarn`.
 
 ```console
-yarn dev
+cd serverless && yarn dev
 ```
 
 More info about the Serverless [here](/serverless)
