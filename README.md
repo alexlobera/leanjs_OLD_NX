@@ -44,7 +44,7 @@ More info about the CMS [here](/cms)
 
 Our design system is implemented in a UI component library under the packages folder. It's built with Lerna (1 package per component), TypeScript, and styled-system. It's documented with Docz + Gatsby under /packages/docs.
 
-### Running the Design System
+### Running the UI Component Library
 
 After [installing the dependencies](#getting-started), from the root repository (meaning, this folder) run:
 
