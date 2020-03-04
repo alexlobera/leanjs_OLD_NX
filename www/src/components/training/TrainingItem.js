@@ -41,6 +41,8 @@ export function getTrainingTimings({ training }) {
   const hourCoefficient = 3600000 // 1000 * 60 * 60
   const days = Math.round((endDate - startDate) / daysCoefficient) + 1
   const hours = Math.round((endDate - startDate) / hourCoefficient)
+
+  console.log('aaaa', days, training)
   const duration =
     hours < 1
       ? `1 hour`
@@ -56,10 +58,8 @@ export function getTrainingTimings({ training }) {
       ? '1 week'
       : days < 15
       ? '2 weeks'
-      : days < 25
+      : days < 24
       ? '3 weeks'
-      : days < 40
-      ? '1 month'
       : days < 40
       ? '1 month'
       : ''
