@@ -40,9 +40,9 @@ yarn start:cms
 
 More info about the CMS [here](/cms)
 
-## Design System
+## UI Component Library
 
-The design system is under packages folder. It's built with Lerna (1 package per component), TypeScript, and styled-system. It's documented with Docz + Gatsby under /packages/docs.
+Our design system is implemented in a UI component library under the packages folder. It's built with Lerna (1 package per component), TypeScript, and styled-system. It's documented with Docz + Gatsby under /packages/docs.
 
 ### Running the Design System
 
@@ -53,3 +53,19 @@ yarn start:docs
 ```
 
 More info about the design system documentation [here](/packages)
+
+## Serverless
+
+The serverless functions are under the /serverless folder. It uses Google Cloud Functions.
+
+### Running the serverless functions
+
+⚠️ The serverless package is not using Lerna at the moment because it requires Node.js v8 due to Google Cloud Functions and the other packages use Node.js v10+
+
+First install the dependencies, run `cd serverless && yarn`. Then:
+
+```console
+yarn dev
+```
+
+More info about the Serverless [here](/serverless)
