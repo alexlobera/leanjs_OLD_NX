@@ -1,6 +1,11 @@
 # React GraphQL Academy
 
-This is the root repository for the React GraphQL Academy website, CMS, and design system. This repository contains multiple packages managed with [lerna.js](https://lerna.js.org/) and [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
+This repository contains multiple packages managed with [lerna.js](https://lerna.js.org/) and [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/). This is the root repository for the React GraphQL Academy:
+
+- [Website](#website)
+- [CMS](#cms)
+- [UI Component Library](#ui-component-library)
+- [Serverless Functions](#serverless)
 
 ## Getting Started
 
