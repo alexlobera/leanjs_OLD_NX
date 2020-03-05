@@ -443,13 +443,16 @@ const GraphQLPage = ({ data, path, trainings }) => {
             <H3>Talks</H3>
             <AgendaCard>
               <H4>
-                8:00 pm - Do you really need a GraphQL client? by Alex Lobera
+                8:00 pm - GraphQL Transformation, are we ready to change? by
+                Alex Lobera
               </H4>
               <P>
-                GraphQL might make our apps faster, but that’s not always true.
-                TTI is an important performance metric and we bundle our apps
-                with a lot of JS. I’ll show you websites that don’t need a
-                GraphQL client and others were it made a difference, and why.
+                GraphQL is transforming the way we build apps. Front-end devs
+                love it because they get more control. Back-end devs or
+                infrastructure engineers might feel pushed out of their comfort
+                zone and refuse to change. Understanding how GraphQL can improve
+                the way we build products is key for successful GraphQL
+                adoption.
               </P>
               <H4>8:30 pm - How Gatsby uses GraphQL by Sid Chatterjee</H4>
               <P>
