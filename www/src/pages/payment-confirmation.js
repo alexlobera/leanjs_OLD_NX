@@ -15,10 +15,11 @@ import trackUserBehaviour, {
 class PaymentConfirmation extends React.Component {
   componentDidMount() {
     const { trackUserBehaviour } = this.props
-    const { makePayment = {}, trainingInstanceId = '' } =
+    const { makePayment: { payment = {} } = {}, trainingInstanceId = '' } =
       this.props.location.state || {}
-    const { amount = 100, id } = makePayment
     try {
+      const { amount = 100, id } = payment
+
       window.dataLayer = window.dataLayer || []
       function gtag() {
         dataLayer.push(arguments)
@@ -32,9 +33,9 @@ class PaymentConfirmation extends React.Component {
       })
 
       const payload = {
-        makePayment,
+        payment,
         trainingInstanceId,
-        metadata: JSON.parse(makePayment.metadata || '{}'),
+        metadata: JSON.parse(payment.metadata || '{}'),
       }
 
       if (id) {

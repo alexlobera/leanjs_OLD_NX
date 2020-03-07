@@ -98,10 +98,12 @@ describe('<PaymentSection />', () => {
   let result = {
     data: {
       makePayment: {
-        id: '123',
-        currency: 'gbp',
-        amount: 1194,
-        metadata: {},
+        payment: {
+          id: '123',
+          currency: 'gbp',
+          amount: 1194,
+          metadata: {},
+        },
       },
     },
   }
