@@ -43,6 +43,26 @@ export default [
       },
     ],
   },
+  //   {
+  //     to: '/leadership',
+  //     text: 'Leadership',
+  //     children: [
+  //       {
+  //         to: '/cto-miniconf',
+  //         text: 'CTO MiniConf',
+  //       },
+  //       {
+  //         to: '/hiring',
+  //         text: 'Hiring',
+  //         hideOnMobile: true,
+  //       },
+  //       {
+  //         to: '/consulting-services',
+  //         text: 'Consulting services',
+  //         hideOnMobile: true,
+  //       },
+  //     ],
+  //   },
   {
     to: '/about-us',
     text: 'About',
