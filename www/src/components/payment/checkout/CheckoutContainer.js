@@ -55,10 +55,12 @@ mutation pay(
       vatNumber: $vatNumber
     }
   ) {
-    id
-    currency
-    amount
-    metadata
+    payment {
+        id
+        currency
+        amount
+        metadata
+    }
   }
 }
 `
