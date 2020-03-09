@@ -1,7 +1,8 @@
 import React from 'react'
 import { navigate } from 'gatsby'
 
-import { graphql, withStatelessClient, memoize } from '../../api/graphql/client'
+import { graphql, withStatelessClient } from '../../api/graphql/client'
+import memoize from '../../api/graphql/memoize'
 import { H2, H3, P } from '../text'
 import { Ribbon } from '../elements'
 import Card from '../elements/Card'
