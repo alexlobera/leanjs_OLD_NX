@@ -1,6 +1,10 @@
 function memoize(fn) {
   const cache = new Map()
   return (...args) => {
+    if (typeof Map === 'undefined') {
+      return fn(...args)
+    }
+
     const hit = args.reduce((acc, arg) => acc && acc.get(arg), cache)
     if (hit) {
       return hit
