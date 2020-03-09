@@ -52,7 +52,7 @@ const GraphQLProvider = ({
   )
 }
 
-function hash(query, variables) {
+function hashGql(query, variables) {
   const body = JSON.stringify({ query, variables })
 
   return body.split('').reduce(function(a, b) {
@@ -61,13 +61,13 @@ function hash(query, variables) {
   }, 0)
 }
 
-const memoizedHash = memoize(hash)
+const memoizedHashGql = memoize(hashGql)
 
 export const useQuery = (query, { variables }) => {
   const { client } = useClient()
   const [state, dispatch] = useContext(StoreContext)
   const { loading, error, data: cache } = state
-  const cacheKey = memoizedHash(query, variables)
+  const cacheKey = memoizedHashGql(query, variables)
   const data = cache && cache[cacheKey]
 
   useEffect(() => {
