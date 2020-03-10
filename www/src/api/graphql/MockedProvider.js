@@ -4,7 +4,7 @@ import GraphQLProvider from './Provider'
 import { createClient } from './client'
 
 const MockedProvider = ({ children, mocks = [] }) => {
-  const post = ({ json: { query, variables } }) => {
+  const post = ({ query, variables }) => {
     const { result } =
       mocks.find(({ request }) => {
         return request.query === query &&

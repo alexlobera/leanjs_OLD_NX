@@ -37,7 +37,8 @@ export function graphql(query, config = {}) {
   }
 }
 
-async function postQuery({ body }) {
+async function postQuery({ query, variables }) {
+  const body = JSON.stringify({ query, variables })
   const response = await fetch(UPMENTORING_API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -52,12 +53,12 @@ export const withStatelessClient = Component => props => {
   return <Component {...props} statelessClient={client} />
 }
 
-export const createClient = () => {
+export const createClient = ({ post = postQuery } = {}) => {
   return {
     query: async ({ query, variables } = {}) => {
-      const body = JSON.stringify({ query, variables })
+      //   const body = JSON.stringify({ query, variables })
 
-      return await postQuery({ body })
+      return await post({ query, variables })
     },
   }
 }
