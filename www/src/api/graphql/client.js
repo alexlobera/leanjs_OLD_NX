@@ -55,10 +55,6 @@ export const withStatelessClient = Component => props => {
 
 export const createClient = ({ post = postQuery } = {}) => {
   return {
-    query: async ({ query, variables } = {}) => {
-      //   const body = JSON.stringify({ query, variables })
-
-      return await post({ query, variables })
-    },
+    query: post,
   }
 }
