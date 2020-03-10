@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import Helmet from 'react-helmet'
 import raven from 'raven-js'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -159,9 +159,13 @@ const Layout = ({ children }) => {
   }
 
   const data = useStaticQuery(layoutQuery)
-  const trainings = data.upmentoring.trainingInstancesConnection.edges.map(
-    formatTraining
+
+  const trainings = useMemo(
+    () =>
+      data.upmentoring.trainingInstancesConnection.edges.map(formatTraining),
+    [data]
   )
+
   const meetups = data.upmentoring.eventsConnection.edges
     // HEADSUP remove this when we deploy gql mini conf
     .filter(({ node: { meetup } }) => meetup && meetup.id)

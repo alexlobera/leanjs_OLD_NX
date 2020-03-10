@@ -1,17 +1,16 @@
-import React, { useReducer, useContext } from 'react'
-
+import React, { useReducer, useContext, useEffect } from 'react'
+import memoize from './memoize'
 const RECEIVE_DATA = 'RECEIVE_DATA'
-const SET_ERRORS = 'SET_ERRORS'
-const SET_LOADING = 'SET_LOADING'
+const SET_ERROR = 'SET_ERROR'
 
 export const receiveData = data => ({
   type: RECEIVE_DATA,
   data,
 })
 
-export const setErrors = errors => ({
-  type: SET_ERRORS,
-  errors,
+export const setErrors = error => ({
+  type: SET_ERROR,
+  error,
 })
 
 const StoreContext = React.createContext()
@@ -19,16 +18,15 @@ const ClientContext = React.createContext()
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case SET_LOADING:
-      return { ...state, loading: action.loading }
     case RECEIVE_DATA:
       return {
         ...state,
         loading: false,
-        data: { ...state.data, ...action.data },
+        error: action.error,
+        data: { ...state.data, ...action.payload },
       }
-    case SET_ERRORS:
-      return { ...state, loading: false, errors: action.errors }
+    case SET_ERROR:
+      return { ...state, loading: false, error: action.error }
     default:
       return state
   }
@@ -39,7 +37,7 @@ const GraphQLProvider = ({
   client,
   initialState = {
     data: {},
-    errors: null,
+    error: null,
     loading: true,
   },
 }) => {
@@ -54,48 +52,57 @@ const GraphQLProvider = ({
   )
 }
 
-export const useStatelessClient = () => {
-  const { client } = useContext(ClientContext) || {}
+function hashGql(query, variables) {
+  const body = JSON.stringify({ query, variables })
 
-  if (!client) {
-    throw new Error(
-      'No GraphQL client found, please make sure that you are providing a client prop to the GraphQL Provider'
-    )
-  }
+  return body.split('').reduce(function(a, b) {
+    a = (a << 5) - a + b.charCodeAt(0)
+    return a & a
+  }, 0)
+}
 
-  return { query: client() }
+const memoizedHashGql = memoize(hashGql)
+
+export const useQuery = (query, { variables }) => {
+  const { client } = useClient()
+  const [state, dispatch] = useContext(StoreContext)
+  const { loading, error, data: cache } = state
+  const cacheKey = memoizedHashGql(query, variables)
+  const data = cache && cache[cacheKey]
+
+  useEffect(() => {
+    if (data) {
+      return
+    }
+
+    client
+      .query({ query, variables })
+      .then(({ data, error }) => {
+        dispatch({
+          type: RECEIVE_DATA,
+          payload: { [cacheKey]: data, error },
+        })
+      })
+      .catch(error =>
+        dispatch({
+          type: SET_ERROR,
+          error,
+        })
+      )
+  }, [query, cacheKey, variables, dispatch, data]) // do I need dispatch here if it comes from useReducer?
+
+  return { data, loading, error }
 }
 
 export const useClient = () => {
   const { client } = useContext(ClientContext) || {}
-  const [state, dispatch] = useContext(StoreContext)
-
-  if (!dispatch) {
-    throw new Error(
-      'No GraphQL Provier found, please make sure that you are using the GraphQL Provider in the component tree'
-    )
-  }
-
   if (!client) {
     throw new Error(
       'No GraphQL client found, please make sure that you are providing a client prop to the GraphQL Provider'
     )
   }
 
-  // should I use useMemo for this newDispatch
-  const newDispatch = (action = {}) => {
-    const { type, query, variables } = action
-    switch (type) {
-      case 'GRAPHQL_QUERY':
-        client([state, dispatch])({ query, variables })
-        break
-      default:
-        dispatch(action)
-        break
-    }
-  }
-
-  return [state, newDispatch]
+  return { client }
 }
 
 export default GraphQLProvider

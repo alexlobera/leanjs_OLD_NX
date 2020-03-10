@@ -2,6 +2,7 @@ import React from 'react'
 import { navigate } from 'gatsby'
 
 import { graphql, withStatelessClient } from '../../api/graphql/client'
+import memoize from '../../api/graphql/memoize'
 import { H2, H3, P } from '../text'
 import { Ribbon } from '../elements'
 import Card from '../elements/Card'
@@ -369,20 +370,25 @@ query upcomingAutomaticDiscounts($eventId: ID!) {
   }
 }
 `
+
+const memoizedTrainingOptions = memoize(item => ({
+  variables: { trainingInstanceId: item.id },
+}))
+
 const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
-  options: ({ item }) => ({
-    variables: { trainingInstanceId: item.id },
-  }),
+  options: ({ item }) => memoizedTrainingOptions(item),
   skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
 })
 
+const memoizedEventOptions = memoize(item => ({
+  variables: { eventId: item.id },
+}))
+
 const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
-  options: ({ item }) => ({
-    variables: { eventId: item.id },
-  }),
+  options: ({ item }) => memoizedEventOptions(item),
   skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
 })
 
-export default withStatelessClient(
-  withUpcomingTrainingVouchers(withUpcomingEventVouchers(PaymentSection))
+export default withUpcomingTrainingVouchers(
+  withUpcomingEventVouchers(withStatelessClient(PaymentSection))
 )
