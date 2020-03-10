@@ -95,17 +95,17 @@ const speakers = [
       { url: 'https://github.com/sidharthachatterjee', icon: GitHubIcon },
     ],
   },
-  //   {
-  //     fullname: 'Charlie Gerard',
-  //     job: 'Senior front-end dev @Netlify',
-  //     imageName: 'charlie',
-  //     description: `Charlie is a front-end developer at Netlify, a Mozilla Tech Speaker and Google Developer Expert in Web Technologies. She is passionate about creative coding and building interactive prototypes mixing science, art and technology. She also spends time giving back to the community by mentoring new developers, contributing to open-source projects, and speaking at conferences.`,
-  //     links: [
-  //       { url: 'https://twitter.com/devdevcharlie', icon: TwitterIcon },
-  //       { url: 'https://github.com/charliegerard', icon: GitHubIcon },
-  //       { url: 'https://charliegerard.github.io/', icon: WebsiteIcon },
-  //     ],
-  //   },
+  {
+    fullname: 'Charlie Gerard',
+    job: 'Senior front-end dev @Netlify',
+    imageName: 'charlie',
+    description: `Charlie is a front-end developer at Netlify, a Mozilla Tech Speaker and Google Developer Expert in Web Technologies. She is passionate about creative coding and building interactive prototypes mixing science, art and technology. She also spends time giving back to the community by mentoring new developers, contributing to open-source projects, and speaking at conferences.`,
+    links: [
+      { url: 'https://twitter.com/devdevcharlie', icon: TwitterIcon },
+      { url: 'https://github.com/charliegerard', icon: GitHubIcon },
+      { url: 'https://charliegerard.github.io/', icon: WebsiteIcon },
+    ],
+  },
   {
     fullname: 'Alex Lobera',
     job: 'Head Coach & Founder at React GraphQL Academy',
@@ -404,10 +404,28 @@ const GraphQLPage = ({
               <P>Drinks and networking</P>
             </AgendaCard>
 
-            <H3>Lightning Talk</H3>
+            <H3>Lightning Talks</H3>
             <AgendaCard>
-              <H4>6:20 pm - First Lightning Talk</H4>
+              <H4>6:10 pm - First Lightning Talk</H4>
               <P>TBD</P>
+            </AgendaCard>
+
+            <AgendaCard>
+              <H4>
+                6:20 pm - Improving web performance using machine learning by
+                Charlie Gerard
+              </H4>
+              <P>
+                When thinking about machine learning & JavaScript, performance
+                is probably not the first thing that comes to mind. However,
+                using machine learning with analytics data can allow us to
+                understand user behaviour on a website, and let us leverage this
+                information to implement what is called predictive prefetching.
+                In this talk, we’ll introduce a tool called Guess.js that
+                enables web applications to prefetch resources only when they’re
+                likely to be needed, and see how this technique can help improve
+                web performance.
+              </P>
             </AgendaCard>
 
             <H3>Talks</H3>
