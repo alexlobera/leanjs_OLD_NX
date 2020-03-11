@@ -332,24 +332,7 @@ export const query = graphql`
       sort: { fields: [order, publishedAt], order: [ASC, DESC] }
     ) {
       nodes {
-        title
-        excerpt
-        category
-        mainImage {
-          asset {
-            localFile(width: 500, height: 333) {
-              publicURL
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-        slug {
-          current
-        }
+        ...SanityPostItemFragment
       }
     }
   }

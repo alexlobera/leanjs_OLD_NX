@@ -74,7 +74,7 @@ const TrustedBySection = ({ type, showContent = false }) => {
             to="#contact-us"
             className="corporate-team-training-testimonials-cta"
           >
-            Contact us
+            Contact sales
           </LinkButton>
 
           <LinkButton
