@@ -80,7 +80,7 @@ const TAB_GRAPHQL = 'graphql'
 const IndexPage = ({ trainings }) => {
   const [selectedTab, setTab] = useState(TAB_REACT)
 
-  const featuredTrainings = selectTrainingByInstanceId({
+  const featuredTraining = selectTrainingByInstanceId({
     trainings,
     id: '5e289434817eda00025ce40c',
   })
@@ -99,7 +99,7 @@ const IndexPage = ({ trainings }) => {
         {createMetas(metas)}
       </Helmet>
       <Header
-        featuredTrainings={[featuredTrainings]}
+        featuredTraining={featuredTraining}
         titleLines={[
           'Take your dev career further',
           'with React GraphQL Academy',

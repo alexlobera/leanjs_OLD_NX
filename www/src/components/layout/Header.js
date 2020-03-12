@@ -307,7 +307,7 @@ const Header = ({
   showInfoBox = false,
   infoBoxFluidImage,
   featuredSection,
-  featuredTrainings,
+  featuredTraining,
   type = '',
   titleLines = [],
   subtitle,
@@ -332,6 +332,10 @@ const Header = ({
   buyLink = '#pricing',
 }) => {
   const expandCheckout = useExpandCheckout()
+  const { dayMonth: featuredDayMonth, duration: featureDuration } =
+    getTrainingTimings({
+      training: featuredTraining,
+    }) || {}
 
   return (
     <StaticQuery
@@ -406,7 +410,7 @@ const Header = ({
                     md={
                       (showInfoBox && training) || featuredSection
                         ? 7
-                        : featuredTrainings
+                        : featuredTraining
                         ? 8
                         : 12
                     }
@@ -465,34 +469,27 @@ const Header = ({
                     <Col md={3} mdOffset={1}>
                       <FeaturedSection>{featuredSection}</FeaturedSection>
                     </Col>
-                  ) : featuredTrainings ? (
+                  ) : featuredTraining ? (
                     <Col md={4} sx={{ ml: 'auto' }}>
                       <FeaturedTrainingTitle>
                         Featured Training
                       </FeaturedTrainingTitle>
-                      {featuredTrainings.map(training => {
-                        const { dayMonth, duration } = getTrainingTimings({
-                          training,
-                        })
-                        return (
-                          <TrainingItem
-                            key={training.id}
-                            isOnline={training.isOnline}
-                            cityCountry={training.cityCountry}
-                            startDay={dayMonth[0]}
-                            startMonth={dayMonth[1]}
-                            duration={duration}
-                            type={training.type}
-                            title={training.title}
-                            path={training.toPath}
-                            className={className}
-                            textSxProps={{
-                              color: WHITE,
-                              textShadow: `1px 1px 5px ${DARK_GREY};`,
-                            }}
-                          />
-                        )
-                      })}
+                      <TrainingItem
+                        key={training.id}
+                        isOnline={training.isOnline}
+                        cityCountry={training.cityCountry}
+                        startDay={featuredDayMonth[0]}
+                        startMonth={featuredDayMonth[1]}
+                        duration={featureDuration}
+                        type={training.type}
+                        title={training.title}
+                        path={training.toPath}
+                        className={className}
+                        textSxProps={{
+                          color: WHITE,
+                          textShadow: `1px 1px 5px ${DARK_GREY};`,
+                        }}
+                      />
                     </Col>
                   ) : null}
                   {showInfoBox && (

@@ -29,6 +29,10 @@ const Calendar = styled(Link).attrs(props => ({
 `
 
 export function getTrainingTimings({ training }) {
+  if (!training) {
+    return null
+  }
+
   const formatedDate = formatUTC(
     training.startDate,
     training.utcOffset,

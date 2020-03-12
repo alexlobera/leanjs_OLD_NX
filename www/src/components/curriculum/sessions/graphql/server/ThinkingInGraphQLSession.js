@@ -41,7 +41,7 @@ export const LearningObjectives = ({ showAll = true }) => (
     {showAll && (
       <>
         <Li>
-          Learn how to migrate an existent REST API to GraphQL and start
+          Learn how to migrate an existing REST API to GraphQL and start
           “thinking in graphs”
         </Li>
         <Li>
