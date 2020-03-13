@@ -11,9 +11,9 @@ import ReactGraphQLIntroSession from '../sessions/ReactGraphQLIntroSession'
 import TestingIntroSession from '../sessions/TestingIntroSession'
 import TestingInReactSession2 from '../sessions/TestingInReactSession2'
 import AdvancedReactPatternsSession from '../sessions/AdvancedReactPatternsSession'
-import ReactPerformanceSession from '../sessions/ReactPerformanceSession'
+// import ReactPerformanceSession from '../sessions/ReactPerformanceSession'
 import FundamentalsFinalProject from '../sessions/FundamentalsFinalProject'
-import AdvancedUIPatterns from '../sessions/AdvancedUIPatterns'
+// import AdvancedUIPatterns from '../sessions/AdvancedUIPatterns'
 import DesignSystemSession from '../sessions/DesignSystemSession'
 
 import { REACT_BOOTCAMP } from '../../../config/data'
@@ -36,11 +36,12 @@ export const sessionsFirstHalf = [
 export const sessionsSecondHalf = [
   {
     subTitle: 'Advanced React patterns and performance',
-    comps: [AdvancedReactPatternsSession, ReactPerformanceSession],
+    // comps: [AdvancedReactPatternsSession, ReactPerformanceSession],
+    comps: [AdvancedReactPatternsSession],
   },
   {
-    subTitle: 'Styling in React and Design Systems',
-    comps: [StylingInReactSession, AdvancedUIPatterns, DesignSystemSession],
+    subTitle: 'Building a UI component library',
+    comps: [StylingInReactSession, DesignSystemSession],
   },
   {
     subTitle: 'GraphQL 101 & Real-World Testing in React',
