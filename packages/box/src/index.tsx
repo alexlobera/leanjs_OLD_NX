@@ -35,7 +35,7 @@ export interface BoxProps {
 
 interface StyledBoxProps extends BoxProps {
   variant?: string;
-  ref?: React.Ref<HTMLFormElement>;
+  ref?: React.Ref<HTMLElement>;
 }
 
 const css = compose(space, color, typography, border, shadow, layout, position);
@@ -46,7 +46,7 @@ const StyledBox: FunctionComponent<StyledBoxProps> = React.memo(
   ))(({ sx, theme }) => css({ ...sx, theme }))
 );
 
-const Box = React.forwardRef<HTMLFormElement, BoxProps>(
+const Box = React.forwardRef<HTMLElement, BoxProps>(
   ({ sx = {}, ...rest }, ref) => (
     <StyledBox
       sx={{
