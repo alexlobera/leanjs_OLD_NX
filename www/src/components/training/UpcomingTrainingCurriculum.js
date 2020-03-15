@@ -23,7 +23,7 @@ const UpcomingTrainingCurriculum = ({
         className={className}
       />
       <Link className="upcoming-courses-upcoming-dates" to="#upcoming">
-        See all upcoming training courses
+        See all upcoming training
       </Link>
     </React.Fragment>
   )

@@ -81,14 +81,14 @@ The front-end development industry is well-known for its fast-pace and constant 
 
 That’s why companies choose React. Although it’s constantly changing, React doesn’t depreciate or remove APIs very often. With React, you’ll benefit from the core team’s commitment to maintaining backwards compatibility.
 
-## Join us for our next React course
+## Join us for our next React training
 
-Are you ready to learn React? Then our React training courses are for you!
+Are you ready to learn React? Then our React training are for you!
 
-We’ll introduce you to React, Redux and GraphQL over either our week-long, full-time Bootcamp or Part-time training courses.
+We’ll introduce you to React, Redux and GraphQL over either our week-long, full-time Bootcamp or Part-time training.
 
-We run these course throughout the year and across the EU - in London, Lisbon, Amsterdam and Barcelona - so no matter where you are, there’s always the opportunity to learn React with us.
+We run these training throughout the year and across the EU - in London, Lisbon, Amsterdam and Barcelona - so no matter where you are, there’s always the opportunity to learn React with us.
 
 It won’t just serve as a great introduction to the world of React, you’ll also have a chance to build a real-world app, too!
 
-Check out the bootcamp and part-time courses to kickstart your React career.
+Check out the bootcamp and part-time training to kickstart your React career.

@@ -9,9 +9,7 @@ const TrialOfCard = ({ trainingInstance, sx = {}, ...rest }) => {
     <Segment small variant="primary" sx={{ my: 5, ...sx }} {...rest}>
       <Row>
         <Col md={8} sx={{ display: 'flex !important', alignItems: 'center' }}>
-          <H3 sx={{ mb: 0 }}>
-            Looking for the full training course of this trial?
-          </H3>
+          <H3 sx={{ mb: 0 }}>Looking for the full training of this trial?</H3>
         </Col>
         <Col md={4} sx={{ textAlign: 'center' }}>
           <LinkButton

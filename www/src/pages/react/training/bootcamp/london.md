@@ -9,7 +9,7 @@ videoOneJob: ''
 videoOneCompany: ''
 videoTwoTime: ''
 videoTwoId: er9ttTCS86U
-videoTwoQuote: When I got back [from the Course] I had to make this 2-hour tech talk... I did that talk on Wednesday and the following Tuesday I was called into my manager's office, and he is in the works to getting me a promotion now
+videoTwoQuote: When I got back [from the training] I had to make this 2-hour tech talk... I did that talk on Wednesday and the following Tuesday I was called into my manager's office, and he is in the works to getting me a promotion now
 videoTwoFullname: Lara Ramey
 videoTwoJob: Software Developer
 videoTwoCompany: Meredith Corporation

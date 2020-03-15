@@ -106,7 +106,7 @@ class ReactCurriculum extends React.Component {
           subtitle="We're proud to say that our curriculum is the most<br />complete and up-to-date on the market - there really is<br />nowhere better to learn React."
           links={[
             {
-              text: 'Differences in our training courses ',
+              text: 'Differences in our React training ',
               to: '#differences',
             },
             { text: 'Full curriculums', to: '#curriculum' },
@@ -131,7 +131,7 @@ class ReactCurriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <H2Ref>
-                  Our training courses - what are the differences?{' '}
+                  Our React training - what are the differences?{' '}
                   <Link to="#differences" name="differences">
                     #
                   </Link>
@@ -346,9 +346,7 @@ class ReactCurriculum extends React.Component {
               <Tabs onChange={this.setActive} active={this.state.active}>
                 <TabList>
                   <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-                  <TabItem name={REACT_PART_TIME}>
-                    Part-time Training Course
-                  </TabItem>
+                  <TabItem name={REACT_PART_TIME}>Part-time Training</TabItem>
                   <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
                   <TabItem name={REACT_FUNDAMENTALS}>
                     React Fundamentals
@@ -377,7 +375,7 @@ class ReactCurriculum extends React.Component {
                       </Li>
                     </Ul>
 
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
                     <Row>
                       <Col lg={1} lgOffset={1} />
                       <Col lg={9}>
@@ -427,7 +425,7 @@ class ReactCurriculum extends React.Component {
                         </Link>
                       </Li>
                     </Ul>
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
 
                     <Row>
                       <Col lg={1} lgOffset={1} />
@@ -480,7 +478,7 @@ class ReactCurriculum extends React.Component {
                       </Li>
                     </Ul>
 
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
                     <Row>
                       <Col lg={1} lgOffset={1} />
                       <Col lg={9}>
@@ -529,7 +527,7 @@ class ReactCurriculum extends React.Component {
                         </Link>
                       </Li>
                     </Ul>
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
                     <Row>
                       <Col lg={1} lgOffset={1} />
                       <Col lg={9}>

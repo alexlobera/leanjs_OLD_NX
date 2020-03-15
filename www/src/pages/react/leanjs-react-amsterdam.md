@@ -2,16 +2,16 @@
 contentType: blog
 title: Heading to React Amsterdam? <br /> We’ll see you there!
 date: 2019-02-05
-subtitle: Not only is it our first time at React Amsterdam, we’re also running our first part-time course in Amsterdam this March - and you’re invited!
+subtitle: Not only is it our first time at React Amsterdam, we’re also running our first part-time training in Amsterdam this March - and you’re invited!
 author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2Famsterdam.jpg?alt=media
 order: 14
 tags: ['amsterdam', 'react']
 ---
 
-As the alumni from our courses will probably tell you, we live and breathe all things React here at React GraphQL Academy. True as that is, for some reason we’ve never had the opportunity to visit React Amsterdam before, the biggest React conference in the world!
+As the alumni from our training will probably tell you, we live and breathe all things React here at React GraphQL Academy. True as that is, for some reason we’ve never had the opportunity to visit React Amsterdam before, the biggest React conference in the world!
 
-This year, we’re going to set that right. We’re not just attending React Amsterdam though, we’re running a day-long React Amsterdam workshop, too. But the good news doesn’t stop there: before the conference, we’re also bringing our part-time training course to Amsterdam in March. We don’t like to do things by half…
+This year, we’re going to set that right. We’re not just attending React Amsterdam though, we’re running a day-long React Amsterdam workshop, too. But the good news doesn’t stop there: before the conference, we’re also bringing our part-time training to Amsterdam in March. We don’t like to do things by half…
 
 ## Why React Amsterdam?
 
@@ -33,11 +33,11 @@ You’ll also understand the best practices and patterns for building real-world
 
 Not bad for a day’s workshop, is it?
 
-## Can’t wait until April? Join our Amsterdam part-time React course in March
+## Can’t wait until April? Join our Amsterdam part-time React training in March
 
-Here at React GraphQL Academy, we’re all about helping developers take their career further by learning React. We were the first to start teaching React in Europe, and now we’re proud to bring our proactive, hands-on part-time courses to Amsterdam.
+Here at React GraphQL Academy, we’re all about helping developers take their career further by learning React. We were the first to start teaching React in Europe, and now we’re proud to bring our proactive, hands-on part-time training to Amsterdam.
 
-During the part-time React course, you will learn:
+During the part-time React training, you will learn:
 
 - Modern JavaScript
 
@@ -61,6 +61,6 @@ See what our alumni thought of our training below:
 
 <video youtube-id="E_4eQQHjc7A"></video>
 
-Want to get involved in our part-time React courses in Amsterdam? [Find out more and sign up today!](/react/training/part-time-course/)
+Want to get involved in our part-time React training in Amsterdam? [Find out more and sign up today!](/react/training/part-time-course/)
 
 If you’re interested in attending React Amsterdam, better hurry: tickets are selling fast. [Reserve yours now](https://www.eventbrite.com/e/react-amsterdam-conference-2019-tickets-51631771017)!

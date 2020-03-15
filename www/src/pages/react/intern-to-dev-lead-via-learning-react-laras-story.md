@@ -2,7 +2,7 @@
 contentType: blog
 title: Intern to Dev Lead via learning React - Lara’s story
 date: 2019-08-28
-subtitle: We recently caught up with Lara Ramey, a former student on the React Bootcamp, to find out how the course has changed her career and day-to-day. Here’s Lara’s story when she learned how to use React.
+subtitle: We recently caught up with Lara Ramey, a former student on the React Bootcamp, to find out how the training has changed her career and day-to-day. Here’s Lara’s story when she learned how to use React.
 author: lena-tregub
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_lauras_story%2Fintern_to_dev_lead_image_1_opt-min.jpg?alt=media
 order: 100
@@ -43,7 +43,7 @@ Another thing Lara was really impressed with, was the ratio of [coaches](https:/
 
 ## React Bootcamp improved Lara’s career prospects
 
-The effect on Lara’s career prospects was instantly positive. On bringing back extra skills to the team, she was offered a clear path to promotion and knows that her earning power has increased because of the course.
+The effect on Lara’s career prospects was instantly positive. On bringing back extra skills to the team, she was offered a clear path to promotion and knows that her earning power has increased because of the training.
 
 When Lara returned to work after the [Bootcamp](https://reactgraphql.academy/react/training/bootcamp/), she gave a TED-style talk to the rest of the team. Her confidence shined through, and she was offered a promotion the following week. "I’m real happy with how things turned out," said Lara.
 
@@ -53,6 +53,6 @@ When Lara returned to work after the [Bootcamp](https://reactgraphql.academy/rea
 
 Need to upskill you or your dev team’s abilities fast? Do you need to find a better, more efficient way to build apps for your organisation? Then the React Bootcamp is for you.
 
-Over an intensive week-long training course, our experienced coaches train devs quickly in all things React - from the very fundamentals right through to advanced and real-world application.
+Over an intensive week-long training, our experienced coaches train devs quickly in all things React - from the very fundamentals right through to advanced and real-world application.
 
 If you want to learn React, simply [get in touch today](#contact-us)!

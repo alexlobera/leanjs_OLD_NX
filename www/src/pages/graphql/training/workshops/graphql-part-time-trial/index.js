@@ -27,7 +27,7 @@ import { LIGHT_PINK } from 'src/config/styles'
 const metas = {
   title: 'GraphQL Training Trial | React GraphQL Academy',
   description:
-    'Are you not sure yet about buying our GraphQL training courses? With this trial of our GraphQL training courses, you will be able to make an informed decision before purchasing the full training course',
+    'Are you not sure yet about buying our GraphQL training? With this trial of our GraphQL training, you will be able to make an informed decision before purchasing the full training',
   image: BOOTCAMP_COLLAB,
   type: 'website',
 }
@@ -65,7 +65,7 @@ const Page = ({ path, trainings }) => {
         tech={TECH_GRAPHQL}
         breadcrumbBgColor={LIGHT_PINK}
         titleLines={['3-Hour GraphQL Trial']}
-        subtitle="With this trial of our GraphQL part-time training course, you will be able to make an informed decision before purchasing the full course"
+        subtitle="With this trial of our GraphQL part-time training, you will be able to make an informed decision before purchasing the full training"
         links={[
           { text: 'Workshop Agenda', to: '#curriculum' },
           { text: 'Is this right for me?', to: '#target-audience' },
@@ -91,7 +91,7 @@ const Page = ({ path, trainings }) => {
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
               type={GRAPHQL_WORKSHOP}
-              quote="As a freelance developer, I was tired of doing online training courses on my own without live support. [The course] was fantastic - the teachers didn't leave a single question unanswered."
+              quote="As a freelance developer, I was tired of doing online courses on my own without live support. [The training] was fantastic - the teachers didn't leave a single question unanswered."
               fullname="Rafa Fraga"
               job="Software Engineer"
               youtubeId="hZZksRcqtkc"
@@ -110,7 +110,7 @@ const Page = ({ path, trainings }) => {
               </Li>
               {/* <Li>
                 Familiar with front-end technologies like React (used during the
-                GraphQL part-time training course) and JavaScript?
+                GraphQL part-time training) and JavaScript?
               </Li> */}
               <Li>
                 Taking a step forward to become a GraphQL Specialist to build

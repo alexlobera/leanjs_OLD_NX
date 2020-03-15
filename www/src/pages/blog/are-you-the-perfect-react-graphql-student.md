@@ -2,7 +2,7 @@
 contentType: blog
 title: Are YOU the Perfect React GraphQL Student?
 date: 2019-02-06
-subtitle: Our courses are catered to devs looking to upskill, but is it right for you?!
+subtitle: Our training is catered to devs looking to upskill, but is it right for you?!
 author: richard-moss
 imageUrl: https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2FIMG_0414.jpg?alt=media&
 order: 15
@@ -11,13 +11,13 @@ tags: ['training']
 
 We’ve been teaching since 2016 and in that time we’ve often been asked what makes the perfect React GraphQL Academy student. We’ve been asked what base knowledge you need, especially.
 
-So today we’re going to answer a few FAQs to make sure you get the most out of [React Courses](/react/training/) and [GraphQL Trainings](/graphql/training/) - and we’ll have some snippets from past students along the way!
+So today we’re going to answer a few FAQs to make sure you get the most out of [React Training](/react/training/) and [GraphQL Training](/graphql/training/) - and we’ll have some snippets from past students along the way!
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2Fimage_1.jpg?alt=media&)
 
 ## What do our students learn? <a name="react-bootcamp-syllabus"></a>
 
-To recap what the bootcamps are, they're week-long intensive GraphQL and React training courses. We introduce students to the technology and get them thinking in the React / GraphQL way whilst mentoring students rapidly.
+To recap what the bootcamps are, they're week-long intensive GraphQL and React training. We introduce students to the technology and get them thinking in the React / GraphQL way whilst mentoring students rapidly.
 
 They're deep dives into both technologies and feature our complete curriculums....
 
@@ -59,29 +59,29 @@ They're deep dives into both technologies and feature our complete curriculums..
 
 Obviously, this kind of developer training. It isn’t for the faint-hearted, but we make sure classes are small enough so that students get the most out of their face-to-face React and GraphQL training.
 
-**To get the most out of our courses, you’ve got to be at the right stage in your career and at a certain level of experience.**
+**To get the most out of our training, you’ve got to be at the right stage in your career and at a certain level of experience.**
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/blog%20post%20images%2FperfectReactStudent%2Fimage_2.jpg?alt=media&)
 
 ## How much experience do I need to learn React and GraphQL? <a name="developer-student-level"></a>
 
-As I said above, the Bootcamps are intense and rapid. **We’re not here to introduce you to coding, we’re here to supplement your knowledge and introduce you to a new technology.** So the students who get the most out of our GraphQL and React training courses are experienced developers.
+As I said above, the Bootcamps are intense and rapid. **We’re not here to introduce you to coding, we’re here to supplement your knowledge and introduce you to a new technology.** So the students who get the most out of our GraphQL and React training are experienced developers.
 
 If you’re familiar with JavaScript but want to learn a new, efficient way to use it - and fast! - you’re ready for the React Bootcamp.
 
-Although the courses are intense, it’s worth it. One former student, Polina Stoyanova from tray.io, said she found the course "fantastic".
+Although the training is intense, it’s worth it. One former student, Polina Stoyanova from tray.io, said she found the training "fantastic".
 
 > "It was really tiring, but it was all worth it. [...] Overall, it taught me many things I didn’t know that I didn’t know about React! So I would definitely recommend putting the time and effort in."
 
 <video youtube-id="6hmKu1-vW-8" ></video>
 
-On another note, if you’re a manager the Bootcamp is perfect for levelling out your team. Our training course will get your devs up to speed and enhance the knowledge of your best employees. Everyone will be on the same wavelength afterwards, and that team cohesion will pay dividends for you going forward. Find out more about how team training can level your team’s skills [on our blog](https://reactgraphql.academy/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/).
+On another note, if you’re a manager the Bootcamp is perfect for levelling out your team. Our training will get your devs up to speed and enhance the knowledge of your best employees. Everyone will be on the same wavelength afterwards, and that team cohesion will pay dividends for you going forward. Find out more about how team training can level your team’s skills [on our blog](https://reactgraphql.academy/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/).
 
-<marketingcard text="Check out the latest dates for all our React Training Courses" to="/react/training/" button-text="Learn React with us!"></marketingcard>
+<marketingcard text="Check out the latest dates for all our React Training" to="/react/training/" button-text="Learn React with us!"></marketingcard>
 
 ## Who will get the most out of the React / GraphQL Bootcamps? <a name="passionate-react-developers"></a>
 
-But it isn’t just about experience. **The ideal RJSA student is passionate about their work and loves what they do.** You’ll get the most out of our week-long training course if you engage with the material and are able to pick up new ideas quickly.
+But it isn’t just about experience. **The ideal RJSA student is passionate about their work and loves what they do.** You’ll get the most out of our week-long training if you engage with the material and are able to pick up new ideas quickly.
 
 Similarly, the React training is great for helping you or your team progress in their career. You’ll diversify your skillset to futureproof your career.
 
@@ -105,7 +105,7 @@ Jaron Schulz, a developer from Berlin, had this to say:
 
 <video youtube-id="3ILCb7drlis" ></video>
 
-<marketingcard text="Check out the latest dates for all our GraphQL training Courses" to="/graphql/training/" button-text="Learn GraphQL with us!"></marketingcard>
+<marketingcard text="Check out the latest dates for all our GraphQL training" to="/graphql/training/" button-text="Learn GraphQL with us!"></marketingcard>
 
 ## Why React GraphQL Academy?
 
@@ -117,7 +117,7 @@ There are loads of reasons to choose us - here’s just a few:
 
 - Practical application - you’ll be hands-on coding throughout
 
-- Alumni support following completion of the React training course
+- Alumni support following completion of the React training
   <a name="conclusion"></a>
 
 If you think you’re ready to learn React, [get in touch today](#contact-us)!

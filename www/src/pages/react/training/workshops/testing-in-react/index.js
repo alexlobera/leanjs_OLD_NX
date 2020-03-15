@@ -75,7 +75,7 @@ const AdvancedReactWorkshop = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="As a freelance developer, I was tired of doing online courses on my own without live support. [The training course] was fantastic - the teachers didn't leave a single question unanswered."
+              quote="As a freelance developer, I was tired of doing online courses on my own without live support. [The training] was fantastic - the teachers didn't leave a single question unanswered."
               fullname="Rafa Fraga"
               job="Software Engineer"
               youtubeId="hZZksRcqtkc"

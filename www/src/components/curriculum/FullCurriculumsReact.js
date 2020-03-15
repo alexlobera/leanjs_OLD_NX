@@ -33,7 +33,7 @@ const FullCurriculumsReact = ({ trainings }) => {
     <React.Fragment>
       <Row>
         <Col lg={10} lgOffset={1}>
-          <H4>Choose a React training course</H4>
+          <H4>Choose a React training</H4>
         </Col>
       </Row>
       <Tabs defaultValue={REACT_BOOTCAMP}>

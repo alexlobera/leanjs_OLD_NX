@@ -23,9 +23,9 @@ import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
 const metas = {
-  title: 'React Part Time Training Course | React GraphQL Academy',
+  title: 'React Part-Time Training | React GraphQL Academy',
   description:
-    'Interested in a React training course? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time training course.',
+    'Interested in a React training? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time training.',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -62,7 +62,7 @@ const PartTime = ({ trainings, path }) => {
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['1-month part-time', 'React training course']}
+        titleLines={['1-Month Part-time', 'React Redux Training']}
         subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
         type={REACT_PART_TIME}
         links={header.landingPageLinks.links}
@@ -76,7 +76,7 @@ const PartTime = ({ trainings, path }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="Whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
+              quote="Whatever business you're in, [the training will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
               fullname="Lara Ramey"
               job="Software Developer"
               company="Meredith Corporation"
@@ -85,7 +85,7 @@ const PartTime = ({ trainings, path }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <Link to="#target-audience" name="target-audience" />
-            <H2>Is this React part-time training course right for me?</H2>
+            <H2>Is this React part-time training right for me?</H2>
             <Ul>
               <Li>Meaningful, collaborative learning</Li>
               <Li>
