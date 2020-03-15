@@ -104,7 +104,7 @@ const IndexPage = ({ trainings }) => {
           'Take your dev career further',
           'with React GraphQL Academy',
         ]}
-        subtitle="In-person & remote training and workshops from industry experts. "
+        subtitle="In-person & remote training from industry experts for professional developers. "
         bgImageName={HOME_PAGE}
       />
       <TopSection sx={{ mt: [0, -225] }}>
