@@ -264,7 +264,7 @@ class ReactCurriculum extends React.Component {
                         </Ul>
                         <LinkButton
                           variant="secondary"
-                          to="/react/training/part-time-course/"
+                          to="/react/training/part-time/"
                           className="training-curriculum-clicks"
                         >
                           Part Time
@@ -298,7 +298,7 @@ class ReactCurriculum extends React.Component {
                         </Ul>
                         <LinkButton
                           variant="secondary"
-                          to="/react/training/react-fundamentals/"
+                          to="/react/training/fundamentals/"
                           className="training-curriculum-clicks"
                         >
                           Fundamentals

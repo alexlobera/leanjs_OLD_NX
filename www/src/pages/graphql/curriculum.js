@@ -200,7 +200,7 @@ class GraphQLCurriculum extends React.Component {
                         </Ul>
                         <LinkButton
                           variant="secondary"
-                          to="/graphql/training/part-time-course/"
+                          to="/graphql/training/part-time/"
                           className="training-curriculum-clicks"
                         >
                           GraphQL Part-Time

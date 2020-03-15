@@ -165,10 +165,7 @@ const IndexPage = ({ trainings }) => {
                 for accelerated learning.
               </Li>
               <Li>
-                <Link
-                  to="/react/training/part-time-course/"
-                  className="is-it-for-me"
-                >
+                <Link to="/react/training/part-time/" className="is-it-for-me">
                   Part-time training
                 </Link>{' '}
                 for accelerated learning.

@@ -35,17 +35,17 @@ export const createTrainingPath = ({
   const cityPathI = `${cityPath}/${i}/`
   switch (type) {
     case REACT_PART_TIME:
-      return `/react/training/part-time-course/${cityPathI}`
+      return `/react/training/part-time/${cityPathI}`
     case REACT_BOOTCAMP:
       return `/react/training/bootcamp/${cityPathI}`
     case REACT_FUNDAMENTALS:
-      return `/react/training/react-fundamentals/${cityPathI}`
+      return `/react/training/fundamentals/${cityPathI}`
     case ADVANCED_REACT:
       return `/react/training/advanced/${cityPathI}`
     case GRAPHQL_BOOTCAMP:
       return `/graphql/training/bootcamp/${cityPathI}`
     case GRAPHQL_PART_TIME:
-      return `/graphql/training/part-time-course/${cityPathI}`
+      return `/graphql/training/part-time/${cityPathI}`
     case GRAPHQL_API:
       return `/graphql/training/api/${cityPathI}`
     case GRAPHQL_WORKSHOP:

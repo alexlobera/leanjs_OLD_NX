@@ -209,7 +209,7 @@ On that note, have you ever heard the phrase _favour composition over inheritanc
 
 If you’d like to get started writing React components using the class syntax, check out our article on [thinking in react](https://reactgraphql.academy/react/introduction-to-thinking-in-react/) and it’s[ exercise repo](https://github.com/reactgraphqlacademy/thinking-in-react).
 
-<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ### Template literals
 

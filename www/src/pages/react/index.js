@@ -34,7 +34,7 @@ const trainingList = [
     title: 'React Part-Time Training',
     text: `Maximum React training flexibility that fits around your
     job`,
-    to: 'react/training/part-time-course',
+    to: 'react/training/part-time',
   },
   {
     title: 'React Corporate Training',

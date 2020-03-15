@@ -50,7 +50,7 @@ const ReactFundamentals = ({ path, trainings }) => {
           { to: '/react/training/', label: 'Training' },
           {
             to: path,
-            label: 'React Fundamentals',
+            label: 'Fundamentals',
           },
         ]}
         tech={TECH_REACT}
