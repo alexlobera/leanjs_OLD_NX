@@ -9,9 +9,9 @@ order: 50
 tags: ['graphql', 'beginner']
 ---
 
-At React GraphQL Academy, we’re keen to get more people into the world of the React ecosystem. Our expert developers have been coaching since the inception of the ecosystem, and our React and React Native training courses have gone down really well with developers and companies throughout the EU.
+At React GraphQL Academy, we’re keen to get more people into the world of the React ecosystem. Our expert developers have been coaching since the inception of the ecosystem, and our React and React Native training have gone down really well with developers and companies throughout the EU.
 
-But anyone who knows anything about React will tell you there’s so much more to sink your teeth into! That said, we’re thrilled to be bringing a brand new course to developers. Today, we’re announcing our new [GraphQL Bootcamp](/graphql/training/bootcamp/).
+But anyone who knows anything about React will tell you there’s so much more to sink your teeth into! That said, we’re thrilled to be bringing a brand new training to developers. Today, we’re announcing our new [GraphQL Bootcamp](/graphql/training/bootcamp/).
 
 ## Why GraphQL?
 

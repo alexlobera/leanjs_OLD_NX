@@ -142,7 +142,7 @@ const ReactPage = ({ data, path, trainings }) => {
           <Col md={5} mdOffset={1} order={[2, 1]}>
             <AttendeeQuote
               sx={{ mt: [5, 0] }}
-              quote="I've found it [the course] fantastic, it was really tiring but it was all worth it... it taught me many things I didn't even know I don't know about React"
+              quote="I've found it [the training] fantastic, it was really tiring but it was all worth it... it taught me many things I didn't even know I don't know about React"
               fullname="Polina Stoyanova"
               job="Software Engineer & UX"
               company="tray.io"

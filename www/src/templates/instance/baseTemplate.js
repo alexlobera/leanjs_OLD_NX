@@ -178,7 +178,7 @@ const InstancePage = ({
 
       {trialOfTraingInstance && (
         <LinkButton to={trialOfTraingInstance.training.toPath}>
-          Buy full course
+          Buy full training
         </LinkButton>
       )}
     </>
@@ -215,7 +215,7 @@ const InstancePage = ({
         subtitle={subtitle}
         links={[
           {
-            text: 'Course details',
+            text: 'Training details',
             to: '#curriculum',
           },
           {

@@ -7,7 +7,7 @@ const GraphQLClientConsolidationSession = ({ title }) => (
     <Ul>
       <Li>GraphQL Tooling to speed up front-end development</Li>
       <Li>
-        Bring your own project or use one suggested by the course to
+        Bring your own project or use one suggested by the training to
         consolidate:
         <Ul>
           <Li>Client configuration</Li>

@@ -106,7 +106,7 @@ class ReactCurriculum extends React.Component {
           subtitle="We're proud to say that our curriculum is the most<br />complete and up-to-date on the market - there really is<br />nowhere better to learn React."
           links={[
             {
-              text: 'Differences in our training courses ',
+              text: 'Differences in our React training ',
               to: '#differences',
             },
             { text: 'Full curriculums', to: '#curriculum' },
@@ -131,7 +131,7 @@ class ReactCurriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <H2Ref>
-                  Our training courses - what are the differences?{' '}
+                  Our React training - what are the differences?{' '}
                   <Link to="#differences" name="differences">
                     #
                   </Link>

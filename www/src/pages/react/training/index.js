@@ -66,7 +66,7 @@ const TrainingPage = ({ path, trainings }) => {
         bgColor={BLUE}
         featuredSection={
           <React.Fragment>
-            <P>Our training courses:</P>
+            <P>Our training offerings:</P>
             {[
               {
                 to: '/react/training/bootcamp',
@@ -74,7 +74,7 @@ const TrainingPage = ({ path, trainings }) => {
               },
               {
                 to: '/react/training/part-time-course',
-                children: 'Part time Course',
+                children: 'Part-time React',
               },
               {
                 to: '/react/training/advanced',
@@ -107,15 +107,21 @@ const TrainingPage = ({ path, trainings }) => {
                 {...rest}
               />
             ))}
+            <Link
+              className="training-differences"
+              to="/react/curriculum#differences"
+            >
+              What are the differences?
+            </Link>
           </React.Fragment>
         }
         links={[
           {
-            text: 'Course Outline',
+            text: 'Training Outline',
             to: '#curriculum',
           },
           {
-            text: 'Upcoming Courses',
+            text: 'Upcoming Training',
             to: '#upcoming-courses',
           },
           {
@@ -142,7 +148,7 @@ const TrainingPage = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="I've been a developer for 4 years... [After the React course] my manager is in the works to getting me a promotion. I'm happy with how things have turned out!"
+              quote="I've been a developer for 4 years... [After the React training] my manager is in the works to getting me a promotion. I'm happy with how things have turned out!"
               fullname="Lara Ramey"
               job="Software Developer"
               company="Meredith Corporation"

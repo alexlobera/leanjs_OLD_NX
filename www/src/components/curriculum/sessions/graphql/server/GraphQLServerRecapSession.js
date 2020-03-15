@@ -8,7 +8,7 @@ const GraphQLServerRecapSession = ({ title }) => (
       <Li>GraphQL server-side tooling</Li>
       <Li>
         Build a GraphQL API for your own project or use one suggested by the
-        course to consolidate:
+        training to consolidate:
         <Ul>
           <Li>Server configuration</Li>
           <Li>Schema design</Li>

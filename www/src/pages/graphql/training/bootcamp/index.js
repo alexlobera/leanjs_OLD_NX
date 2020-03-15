@@ -82,7 +82,7 @@ const GraphQL = ({ path, trainings }) => {
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
               type={GRAPHQL_BOOTCAMP}
-              quote="It's nice to have people there who know their stuff. I feel like [the course] has definitely improved my career trajectory"
+              quote="It's nice to have people there who know their stuff. I feel like [the training] has definitely improved my career trajectory"
               fullname="Charlie Wilson"
               job="Software Engineer"
               company="ESG PLC"

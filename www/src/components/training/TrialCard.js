@@ -37,8 +37,8 @@ const TrialCard = ({ trainingInstance, sx = {}, ...rest }) => {
         <Col md={8}>
           <H3>You can try this training first</H3>
           <P>
-            We have scheduled a trial for this course, which corresponds to the
-            first session of this training curriculum.
+            We have scheduled a trial for this training, which corresponds to
+            the first session of this training curriculum.
             <DeductPriceOnPurchase price={price} />
           </P>
         </Col>

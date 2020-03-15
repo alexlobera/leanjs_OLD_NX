@@ -46,13 +46,13 @@ See who else uses GraphQL on our blog ["_Who Uses GraphQL anyway?_"](https://rea
 
 The main thing that has changed is that we’re now delighted to create more [GraphQL Bootcamps](https://reactgraphql.academy/graphql/training/bootcamp/) and [Workshops](https://reactgraphql.academy/graphql/training/workshops/). Developers can now take their career even further with the specialised skills that Development Leads will kill for!
 
-Our React training courses will remain unchanged through our [GraphQL curriculum](https://reactgraphql.academy/graphql/curriculum/). We’ll also be able to keep improving and enhancing our teaching through our expert coaches and by helping to sponsor [meetups](https://reactgraphql.academy/community/meetups/) that helps the community.
+Our React training will remain unchanged through our [GraphQL curriculum](https://reactgraphql.academy/graphql/curriculum/). We’ll also be able to keep improving and enhancing our teaching through our expert coaches and by helping to sponsor [meetups](https://reactgraphql.academy/community/meetups/) that helps the community.
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_ariseRGA-rebranding%2Fimage_2.jpg?alt=media)
 
 React GraphQL Academy founder and head-coach, [Alex Lobera](https://reactgraphql.academy/about-us/#alex-lobera) says:
 
-> "We’re incredibly excited about our new name. After using and teaching GraphQL for a while now, we know it’s a proven technology that all developers could benefit from learning. <br><br>Our experience as React training providers lends itself perfectly to creating in-person, advanced development courses using the latest technologies. We cannot wait to show students how to create the most efficient apps out there!"
+> "We’re incredibly excited about our new name. After using and teaching GraphQL for a while now, we know it’s a proven technology that all developers could benefit from learning. <br><br>Our experience as React training providers lends itself perfectly to creating in-person and remote, advanced development training using the latest technologies. We cannot wait to show students how to create the most efficient apps out there!"
 
 ![image alt text](https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fblog_ariseRGA-rebranding%2Fimage_3.jpg?alt=media)
 
@@ -64,7 +64,7 @@ React GraphQL Academy founder and head-coach, [Alex Lobera](https://reactgraphql
 
 - [React works great with GraphQL](#react-and-graphql)
 
-- Changing our name means [we will be offering more GraphQL training](#react-graphql-academy-rebrand) and improving our React training courses
+- Changing our name means [we will be offering more GraphQL training](#react-graphql-academy-rebrand) and improving our React training.
 
 ## Learn GraphQL with React GraphQL Academy
 

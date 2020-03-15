@@ -36,7 +36,7 @@ function Feedback({ trialPath, articlePath }) {
                 <CheckboxField
                   color={WHITE}
                   name="tooExpensive"
-                  label="The training  course is too expensive"
+                  label="The training is too expensive"
                   elementOnChecked={
                     <Span>
                       {articlePath && (

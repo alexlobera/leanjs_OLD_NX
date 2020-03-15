@@ -26,7 +26,7 @@ import { createMetas } from 'src/components/utils'
 const metas = {
   title: 'GraphQL Part-time Training | React GraphQL Academy',
   description:
-    'Interested in GraphQL part-time training? React GraphQL Academy offers in-person GraphQL part-time training courses from industry experts. Contact us now!',
+    'Interested in GraphQL part-time training? React GraphQL Academy offers in-person GraphQL part-time training from industry experts. Contact us now!',
   image: WHY_GQLU_ACADEMY,
   type: 'website',
 }
@@ -82,7 +82,7 @@ const GraphQL = ({ path, trainings }) => {
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
               type={GRAPHQL_PART_TIME}
-              quote="It's nice to have people there who know their stuff. I feel like [the course] has definitely improved my career trajectory"
+              quote="It's nice to have people there who know their stuff. I feel like [the training] has definitely improved my career trajectory"
               fullname="Charlie Wilson"
               job="Software Engineer"
               company="ESG PLC"

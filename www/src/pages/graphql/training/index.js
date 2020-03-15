@@ -55,7 +55,7 @@ const TrainingPage = ({ path, trainings }) => (
       breadcrumbBgColor={LIGHT_PINK}
       featuredSection={
         <React.Fragment>
-          <P>Our training courses:</P>
+          <P>Our training offerings:</P>
           {[
             {
               to: '/graphql/training/part-time-course/',
@@ -85,15 +85,21 @@ const TrainingPage = ({ path, trainings }) => (
               className="main-cta-buttons"
             />
           ))}
+          <Link
+            className="training-differences"
+            to="/graphql/curriculum#differences"
+          >
+            What are the differences?
+          </Link>
         </React.Fragment>
       }
       links={[
         {
-          text: 'Course outline',
+          text: 'Training outline',
           to: '#curriculum',
         },
         {
-          text: 'Upcoming Courses',
+          text: 'Upcoming Training',
           to: '#upcoming-courses',
         },
         {
@@ -133,7 +139,7 @@ const TrainingPage = ({ path, trainings }) => (
         <Col md={5} mdOffset={1}>
           <AttendeeQuote
             type={TECH_GRAPHQL}
-            quote="I think whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
+            quote="I think whatever business you're in, [the training will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
             fullname="Lara Ramey"
             job="Software Developer"
             company="Meredith Corporation"

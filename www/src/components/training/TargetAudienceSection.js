@@ -12,7 +12,7 @@ const TargetAudienceSection = () => (
       <Row>
         <Col md={5} mdOffset={1}>
           <AttendeeQuote
-            quote="[The course] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
+            quote="[The training] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
             fullname="Jim Plimmer"
             job="Developer"
             company="Conversion.com"

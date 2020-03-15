@@ -76,7 +76,7 @@ const PartTime = ({ trainings, path }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="Whatever business you're in, [the courses will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
+              quote="Whatever business you're in, [the training will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
               fullname="Lara Ramey"
               job="Software Developer"
               company="Meredith Corporation"

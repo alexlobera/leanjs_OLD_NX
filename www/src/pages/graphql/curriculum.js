@@ -98,6 +98,13 @@ class GraphQLCurriculum extends React.Component {
               label: 'Curriculum',
             },
           ]}
+          links={[
+            {
+              text: 'Differences in our GraphQL training ',
+              to: '#differences',
+            },
+            { text: 'Full curriculums', to: '#curriculum' },
+          ]}
           tech={TECH_GRAPHQL}
           breadcrumbBgColor={LIGHT_PINK}
           titleLines={['GraphQL curriculum']}
@@ -109,7 +116,7 @@ class GraphQLCurriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <H2Ref>
-                  Our training courses - what are the differences?{' '}
+                  Our GraphQL training - what are the differences?{' '}
                   <Link to="#differences" name="differences">
                     #
                   </Link>
