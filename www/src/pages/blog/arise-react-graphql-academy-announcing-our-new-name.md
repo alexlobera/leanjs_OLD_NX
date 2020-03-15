@@ -68,6 +68,6 @@ React GraphQL Academy founder and head-coach, [Alex Lobera](https://reactgraphql
 
 ## Learn GraphQL with React GraphQL Academy
 
-Check out our latest training course dates below and visit our GraphQL Curriculum page for much more detail about what you and your team can learn from a GraphQL Bootcamp.
+Check out our latest training dates below and visit our GraphQL Curriculum page for much more detail about what you and your team can learn from a GraphQL Bootcamp.
 
 If you have any questions, don’t hesitate in [contacting us](#contact-us).

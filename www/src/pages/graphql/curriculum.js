@@ -318,8 +318,8 @@ class GraphQLCurriculum extends React.Component {
                   <ContentItem name={GRAPHQL_PART_TIME}>
                     <P>
                       <strong>
-                        On completion of the GraphQL part-time training course
-                        each student will:
+                        On completion of the GraphQL part-time training each
+                        student will:
                       </strong>
                     </P>
                     <PartTimeLearningObjectives />

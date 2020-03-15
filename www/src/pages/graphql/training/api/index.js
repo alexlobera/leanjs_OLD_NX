@@ -86,7 +86,7 @@ const GraphQL = ({ path, trainings }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <H2Ref>
-              Is this GraphQL training course right for me?
+              Is this GraphQL training right for me?
               <Link to="#target-audience" name="target-audience">
                 #
               </Link>

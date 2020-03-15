@@ -53,6 +53,6 @@ When Lara returned to work after the [Bootcamp](https://reactgraphql.academy/rea
 
 Need to upskill you or your dev team’s abilities fast? Do you need to find a better, more efficient way to build apps for your organisation? Then the React Bootcamp is for you.
 
-Over an intensive week-long training course, our experienced coaches train devs quickly in all things React - from the very fundamentals right through to advanced and real-world application.
+Over an intensive week-long training, our experienced coaches train devs quickly in all things React - from the very fundamentals right through to advanced and real-world application.
 
 If you want to learn React, simply [get in touch today](#contact-us)!

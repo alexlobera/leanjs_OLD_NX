@@ -16,7 +16,7 @@ const Page = props => (
     {...props}
     type={REACT_PART_TIME}
     trialTrainingId="5e3854d66bfd23000238647f"
-    typeOfTraining="part-time React training course"
+    typeOfTraining="part-time React training"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

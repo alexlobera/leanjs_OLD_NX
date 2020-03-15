@@ -82,7 +82,7 @@ const ReactFundamentals = ({ path, trainings }) => {
           <Col md={4} mdOffset={1}>
             <H2>
               <Link to="#target-audience" name="target-audience" />
-              Is the React Fundamentals training course right for me?
+              Is the React Fundamentals training right for me?
             </H2>
             <Ul>
               <Li>

@@ -31,7 +31,7 @@ These are just some of the reasons why we’re introducing a new [GraphQL Bootca
 
 ## Is a GraphQL Bootcamp right for me?
 
-If you’re not already familiar with GraphQL, don’t worry. The GraphQL Bootcamp is a comprehensive, week-long training course where you’ll first learn the fundamentals behind GraphQL.
+If you’re not already familiar with GraphQL, don’t worry. The GraphQL Bootcamp is a comprehensive, week-long training where you’ll first learn the fundamentals behind GraphQL.
 
 We’ll then take you through Advanced GraphQL material, and even show you how to apply what you’ve learned to a real scenario by day three’s Real World GraphQL API class.
 
@@ -41,6 +41,6 @@ By the end of the week, you’ll have all you need to build Production-Ready Gra
 
 ## Show your interest in GraphQL training today
 
-We’re really excited about our new GraphQL Bootcamp and can’t wait to bring it to developers throughout the EU. We’re going to be announcing dates very soon so be sure you don’t miss out! If you’d like to learn how to harness the logical power of GraphQL, you can find out more about our GraphQL training course [here](/graphql/training/bootcamp/).
+We’re really excited about our new GraphQL Bootcamp and can’t wait to bring it to developers throughout the EU. We’re going to be announcing dates very soon so be sure you don’t miss out! If you’d like to learn how to harness the logical power of GraphQL, you can find out more about our GraphQL training [here](/graphql/training/bootcamp/).
 
 Questions? If there’s anything you’d like to know, or if you’d like to book a full-stack React and GraphQL training session with your company, don’t hesitate to [contact us today!](/graphql/training/bootcamp/#contact-us)

@@ -346,9 +346,7 @@ class ReactCurriculum extends React.Component {
               <Tabs onChange={this.setActive} active={this.state.active}>
                 <TabList>
                   <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-                  <TabItem name={REACT_PART_TIME}>
-                    Part-time Training Course
-                  </TabItem>
+                  <TabItem name={REACT_PART_TIME}>Part-time Training</TabItem>
                   <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
                   <TabItem name={REACT_FUNDAMENTALS}>
                     React Fundamentals
@@ -377,7 +375,7 @@ class ReactCurriculum extends React.Component {
                       </Li>
                     </Ul>
 
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
                     <Row>
                       <Col lg={1} lgOffset={1} />
                       <Col lg={9}>
@@ -427,7 +425,7 @@ class ReactCurriculum extends React.Component {
                         </Link>
                       </Li>
                     </Ul>
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
 
                     <Row>
                       <Col lg={1} lgOffset={1} />
@@ -480,7 +478,7 @@ class ReactCurriculum extends React.Component {
                       </Li>
                     </Ul>
 
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
                     <Row>
                       <Col lg={1} lgOffset={1} />
                       <Col lg={9}>
@@ -529,7 +527,7 @@ class ReactCurriculum extends React.Component {
                         </Link>
                       </Li>
                     </Ul>
-                    <H4>Full training course curriculum:</H4>
+                    <H4>Full training curriculum:</H4>
                     <Row>
                       <Col lg={1} lgOffset={1} />
                       <Col lg={9}>

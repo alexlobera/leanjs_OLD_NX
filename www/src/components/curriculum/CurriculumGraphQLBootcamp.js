@@ -84,7 +84,7 @@ export const TargetAudienceList = () => (
       building modern data-driven apps?
     </Li>
     <Li>
-      You don't have enough React experience to attend this training course? No
+      You don't have enough React experience to attend this trainings? No
       worries, join our <Link to="/react/training/">React training</Link> if you
       need to upskill in React to attend this training.
     </Li>

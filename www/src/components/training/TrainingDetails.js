@@ -52,7 +52,7 @@ const TrainingDetails = ({
             </Li>
             <Li>
               15-minute video call with each coach for 1-on-1 mentoring during
-              the training course on top of the workshops.
+              the training on top of the workshops.
             </Li>
           </>
         ) : (

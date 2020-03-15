@@ -75,13 +75,13 @@ Although the courses are intense, it’s worth it. One former student, Polina St
 
 <video youtube-id="6hmKu1-vW-8" ></video>
 
-On another note, if you’re a manager the Bootcamp is perfect for levelling out your team. Our training course will get your devs up to speed and enhance the knowledge of your best employees. Everyone will be on the same wavelength afterwards, and that team cohesion will pay dividends for you going forward. Find out more about how team training can level your team’s skills [on our blog](https://reactgraphql.academy/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/).
+On another note, if you’re a manager the Bootcamp is perfect for levelling out your team. Our training will get your devs up to speed and enhance the knowledge of your best employees. Everyone will be on the same wavelength afterwards, and that team cohesion will pay dividends for you going forward. Find out more about how team training can level your team’s skills [on our blog](https://reactgraphql.academy/blog/5-reasons-why-advanced-dev-training-will-keep-your-company-tech-relevant/).
 
 <marketingcard text="Check out the latest dates for all our React Training Courses" to="/react/training/" button-text="Learn React with us!"></marketingcard>
 
 ## Who will get the most out of the React / GraphQL Bootcamps? <a name="passionate-react-developers"></a>
 
-But it isn’t just about experience. **The ideal RJSA student is passionate about their work and loves what they do.** You’ll get the most out of our week-long training course if you engage with the material and are able to pick up new ideas quickly.
+But it isn’t just about experience. **The ideal RJSA student is passionate about their work and loves what they do.** You’ll get the most out of our week-long training if you engage with the material and are able to pick up new ideas quickly.
 
 Similarly, the React training is great for helping you or your team progress in their career. You’ll diversify your skillset to futureproof your career.
 
@@ -117,7 +117,7 @@ There are loads of reasons to choose us - here’s just a few:
 
 - Practical application - you’ll be hands-on coding throughout
 
-- Alumni support following completion of the React training course
+- Alumni support following completion of the React training
   <a name="conclusion"></a>
 
 If you think you’re ready to learn React, [get in touch today](#contact-us)!
