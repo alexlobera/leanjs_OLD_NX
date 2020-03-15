@@ -45,6 +45,21 @@
         "source": "/react/training/part-time-course/online{,/}",
         "destination": "/react/training/part-time-course/remote/",
         "type": 301
+      },
+      {
+        "source": "/react/training/part-time-course/:path*",
+        "destination": "/react/training/part-time/:path",
+        "type": 301
+      },
+      {
+        "source": "/graphql/training/part-time-course/:path*",
+        "destination": "/graphql/training/part-time/:path",
+        "type": 301
+      },
+      {
+        "source": "/react/training/react-fundamentals/:path*",
+        "destination": "/react/training/fundamentals/:path",
+        "type": 301
       }
     ],
     "appAssociation": "AUTO",

@@ -98,7 +98,7 @@ This is a fundamental problem in unit tests, if you test how the code is impleme
 
 That being said, sometimes testing the right way is not easy. In order to write black-box tests we need to make sure that the code we want to test is written in a way that it always produces the same output given the same input. To test that type of code we don’t need to know any implementation detail to assert the code to be tested does **what** it is supposed to do. We only need to set the input parameters, run the code, and assert that the output parameters are the expected ones. We need pure functions.
 
-<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time-course/remote/" button-text="Learn GraphQL"></marketingcard>
+<marketingcard text="🎉 New Remote GraphQL Training! 🎉" to="/graphql/training/part-time/remote/" button-text="Learn GraphQL"></marketingcard>
 
 ## Pure functions <a name="pure-functions"></a>
 

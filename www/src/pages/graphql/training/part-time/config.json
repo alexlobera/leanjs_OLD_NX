@@ -2,7 +2,7 @@
   "instanceTemplate": "graphql-part-time",
   "tech": "GraphQL",
   "breadcrumbTrainingName": "Part-time",
-  "breadcrumbTrainingSlug": "part-time-course",
+  "breadcrumbTrainingSlug": "part-time",
   "trainingId": "5dc6f35fce62530002bd3e92",
   "title": ["GraphQL", "Training"],
   "tagsIn": ["graphql"],

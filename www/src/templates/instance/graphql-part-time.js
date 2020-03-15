@@ -45,7 +45,7 @@ export const query = graphql`
       filter: {
         relativePath: {
           # this image should come from UM API traning instance
-          regex: "/pages/graphql/training/part-time-course/remote.png/"
+          regex: "/pages/graphql/training/part-time/remote.png/"
         }
       }
     ) {
