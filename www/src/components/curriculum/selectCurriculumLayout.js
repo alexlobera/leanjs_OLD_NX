@@ -130,7 +130,7 @@ const selectCurriculumLayout = ({
                 <H3 sx={{ mt: 2 }}>Free learning resources!</H3>
                 <LinkButton
                   className="free-learning-resources-cta"
-                  to="#newsletter"
+                  to="#newsletter-footer"
                 >
                   Sign up now
                 </LinkButton>
