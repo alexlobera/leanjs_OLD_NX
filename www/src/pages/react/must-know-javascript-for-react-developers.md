@@ -328,6 +328,6 @@ A new feature was added in ES8 which builds on top of the idea of promises calle
 
 ### That’s all for now!
 
-Of course there are many more features in ES6 that were not covered here. This article does not aim to be exhaustive, but rather give you a good idea about what we consider to be the **most important ES6 features** you must know to use React well. When we see people struggling with JS on one of our [intensive react developer courses](https://reactgraphql.academy/react/training/bootcamp/) 99% of the time it’s something that was covered here. Of course, in order to get familiar with the language the only way is to practice! We recommend trying out some of [these exercises](https://github.com/reactgraphqlacademy/es6-exercise) to expand your understanding of ES6.
+Of course there are many more features in ES6 that were not covered here. This article does not aim to be exhaustive, but rather give you a good idea about what we consider to be the **most important ES6 features** you must know to use React well. When we see people struggling with JS on one of our [intensive react developer training](https://reactgraphql.academy/react/training/bootcamp/) 99% of the time it’s something that was covered here. Of course, in order to get familiar with the language the only way is to practice! We recommend trying out some of [these exercises](https://github.com/reactgraphqlacademy/es6-exercise) to expand your understanding of ES6.
 
 Looking forward to seeing you soon in a meetup or training ;-)

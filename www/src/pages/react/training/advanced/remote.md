@@ -1,8 +1,8 @@
 ---
 coaches: ['alex-lobera']
-subtitle: For 3 days, expert coaches and developers will work alongside you in Hong Kong on real-world React problems so you return to work as a Senior React developer
+subtitle: For 3 days, expert coaches and developers will work remotely alongside you on real-world React problems so you return to work as a Senior React developer
 videoOneTime: ''
-videoOneId: er9ttTCS86U
+videoOneId: blg40SCle7I
 videoOneQuote: ''
 videoOneFullname: ''
 videoOneJob: ''
@@ -14,5 +14,3 @@ videoTwoFullname: Jim Plimmer
 videoTwoJob: Developer
 videoTwoCompany: Conversion.com
 ---
-
-TODO ADD TEXT

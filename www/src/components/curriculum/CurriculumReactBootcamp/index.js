@@ -72,7 +72,7 @@ const CurriculumReactBootcamp = ({
 
   return (
     <Curriculum
-      title="React Bootcamp Outline"
+      title="React Redux Bootcamp Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}

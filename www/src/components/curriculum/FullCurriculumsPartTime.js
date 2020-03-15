@@ -87,7 +87,10 @@ const FullCurriculumsPartTime = ({ trainings }) => {
           {trainings && <UpcomingTrainingCurriculum trainings={allPartTimes} />}
           <Link name="free-learning-resources" />
           <H3 sx={{ mt: 2 }}>Free learning resources!</H3>
-          <LinkButton className="free-learning-resources-cta" to="#newsletter">
+          <LinkButton
+            className="free-learning-resources-cta"
+            to="#newsletter-footer"
+          >
             Sign up now
           </LinkButton>
           <Link name="corporate-training" />

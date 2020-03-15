@@ -363,21 +363,14 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             )
             let instanceTitle
-            const remote = city === 'remote' ? 'Remote' : ''
             if (Array.isArray(restConfig.title)) {
               const lastInstanceTitleIndex = restConfig.title.length - 1
               instanceTitle = [...restConfig.title]
-              if (remote) {
-                instanceTitle[0] = `${remote} ${instanceTitle[0]}`
-              } else {
-                instanceTitle[
-                  lastInstanceTitleIndex
-                ] = `${instanceTitle[lastInstanceTitleIndex]} ${capitalizedCity}`
-              }
+              instanceTitle[
+                lastInstanceTitleIndex
+              ] = `${instanceTitle[lastInstanceTitleIndex]}: ${capitalizedCity} `
             } else {
-              instanceTitle = `${remote} ${restConfig.title} ${
-                !remote ? capitalizedCity : ''
-              }`
+              instanceTitle = `${restConfig.title} ${capitalizedCity}`
             }
 
             await Promise.all(

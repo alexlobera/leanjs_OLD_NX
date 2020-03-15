@@ -16,7 +16,7 @@ const Newsletter = ({
 
     <P>
       Sign up and learn about cutting-edge React and GraphQL plus the latest
-      news on our training courses...{' '}
+      news on our training...{' '}
     </P>
     {showCTA && (
       <LinkButton

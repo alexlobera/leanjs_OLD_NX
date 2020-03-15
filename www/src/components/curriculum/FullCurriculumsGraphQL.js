@@ -21,7 +21,7 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
     <React.Fragment>
       <Row>
         <Col lg={10} lgOffset={1}>
-          <H4>Choose a GraphQL training course</H4>
+          <H4>Choose a GraphQL training</H4>
         </Col>
       </Row>
       <Tabs defaultValue={GRAPHQL_PART_TIME}>

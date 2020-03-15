@@ -58,11 +58,11 @@ const Footer = () => (
               <Col md={6}>
                 <Ul variant="unstyled" sx={{ pt: 0 }}>
                   {[
-                    { to: '/react/training', txt: 'React Training Courses' },
+                    { to: '/react/training', txt: 'React Training' },
                     { to: '/react/curriculum', txt: 'React Curriculum' },
                     {
                       to: '/graphql/training',
-                      txt: 'GraphQL Training Courses',
+                      txt: 'GraphQL Training',
                     },
                     { to: '/graphql/curriculum', txt: 'GraphQL Curriculum' },
                     { to: '/blog', txt: 'Blog' },

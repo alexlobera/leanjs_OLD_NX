@@ -27,7 +27,7 @@ import { getPostsFromNodes } from 'src/components/blog/utils'
 
 const trainingList = [
   {
-    title: 'GraphQL Part-time Training Course',
+    title: 'GraphQL Part-time Training',
     text: `Maximum GraphQL training flexibility that fits around your`,
     to: '/graphql/training/part-time-course/',
   },

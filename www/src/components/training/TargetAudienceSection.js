@@ -12,7 +12,7 @@ const TargetAudienceSection = () => (
       <Row>
         <Col md={5} mdOffset={1}>
           <AttendeeQuote
-            quote="[The course] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
+            quote="[The training] has changed the way I'm going to approach things. I like the way the coaches don't spoon feed answers, which is key."
             fullname="Jim Plimmer"
             job="Developer"
             company="Conversion.com"
@@ -21,7 +21,7 @@ const TargetAudienceSection = () => (
         </Col>
         <Col md={4} lgOffset={1}>
           <H2Ref>
-            Is this React part-time training course right for me? Are you...{' '}
+            Is this React part-time training right for me? Are you...{' '}
             <Link to="#target-audience" name="target-audience">
               #
             </Link>
@@ -43,8 +43,8 @@ const TargetAudienceSection = () => (
             </Li>
           </Ul>
           <P>
-            If you've said 'yes' to these, our part-time training course could
-            be for you!
+            If you've said 'yes' to these, our part-time training could be for
+            you!
           </P>
           <H3>Not for beginner devs!</H3>
           <P>
