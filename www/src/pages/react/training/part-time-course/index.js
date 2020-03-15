@@ -23,7 +23,7 @@ import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
 const metas = {
-  title: 'React Part Time Training | React GraphQL Academy',
+  title: 'React Part-Time Training | React GraphQL Academy',
   description:
     'Interested in a React training? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time training.',
   image: WHY_REACTJS_ACADEMY,
