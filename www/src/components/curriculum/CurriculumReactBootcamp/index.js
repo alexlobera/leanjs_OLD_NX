@@ -11,7 +11,7 @@ import ReactGraphQLIntroSession from '../sessions/ReactGraphQLIntroSession'
 import TestingIntroSession from '../sessions/TestingIntroSession'
 import TestingInReactSession2 from '../sessions/TestingInReactSession2'
 import AdvancedReactPatternsSession from '../sessions/AdvancedReactPatternsSession'
-// import ReactPerformanceSession from '../sessions/ReactPerformanceSession'
+import AdvancedHooksAndPerfSession from '../sessions/AdvancedHooksAndPerfSession'
 import FundamentalsFinalProject from '../sessions/FundamentalsFinalProject'
 // import AdvancedUIPatterns from '../sessions/AdvancedUIPatterns'
 import DesignSystemSession from '../sessions/DesignSystemSession'
@@ -36,8 +36,7 @@ export const sessionsFirstHalf = [
 export const sessionsSecondHalf = [
   {
     subTitle: 'Advanced React patterns and performance',
-    // comps: [AdvancedReactPatternsSession, ReactPerformanceSession],
-    comps: [AdvancedReactPatternsSession],
+    comps: [AdvancedReactPatternsSession, AdvancedHooksAndPerfSession],
   },
   {
     subTitle: 'Building a UI component library',

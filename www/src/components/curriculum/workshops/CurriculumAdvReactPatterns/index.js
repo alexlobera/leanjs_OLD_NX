@@ -4,9 +4,9 @@ import { REACT_WORKSHOP } from '../../../../config/data'
 import AdvancedReactPatternsSession, {
   titleSession as titleSession1,
 } from '../../sessions/AdvancedReactPatternsSession'
-import ReactPerformanceSession, {
+import AdvancedHooksAndPerfSession, {
   titleSession as titleSession2,
-} from '../../sessions/ReactPerformanceSession'
+} from '../../sessions/AdvancedHooksAndPerfSession'
 import Curriculum from '../../Curriculum'
 
 const CurriculumAdvReactPatterns = ({ showTitle = true, section, ...rest }) => (
@@ -20,7 +20,7 @@ const CurriculumAdvReactPatterns = ({ showTitle = true, section, ...rest }) => (
           <AdvancedReactPatternsSession title="" />
         </Section>
         <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
-          <ReactPerformanceSession title="" />
+          <AdvancedHooksAndPerfSession title="" />
         </Section>
       </React.Fragment>
     }
