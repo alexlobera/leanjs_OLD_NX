@@ -58,7 +58,7 @@ const PartTime = ({ trainings, path }) => {
           { to: '/react/training/', label: 'Training' },
           {
             to: path,
-            label: 'Part Time',
+            label: 'Part-time',
           },
         ]}
         tech={TECH_REACT}
