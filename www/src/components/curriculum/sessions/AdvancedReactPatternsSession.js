@@ -26,4 +26,8 @@ const AdvancedReactPatternsSession = ({ title }) => (
   </Session>
 )
 
+AdvancedReactPatternsSession.defaultProps = {
+  title: titleSession,
+}
+
 export default AdvancedReactPatternsSession

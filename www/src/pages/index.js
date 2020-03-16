@@ -129,11 +129,10 @@ const IndexPage = ({ trainings }) => {
           </Col>
         </Row>
         <Segment sx={{ pt: [4, 7] }}>
-          {selectedTab === TAB_REACT ? (
-            <FullCurriculumsImmersive trainings={trainings} />
-          ) : (
-            <FullCurriculumsPartTime trainings={trainings} />
-          )}
+          {/* {selectedTab === TAB_REACT ? ( */}
+          <FullCurriculumsImmersive trainings={trainings} />
+          {/* ) : ( <FullCurriculumsPartTime trainings={trainings} />
+           )} */}
         </Segment>
       </TopSection>
       <ColSection

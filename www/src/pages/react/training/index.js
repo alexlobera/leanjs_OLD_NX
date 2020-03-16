@@ -66,15 +66,11 @@ const TrainingPage = ({ path, trainings }) => {
         bgColor={BLUE}
         featuredSection={
           <React.Fragment>
-            <P>Our training offerings:</P>
+            {/* <P>Our training offerings:</P> */}
             {[
               {
                 to: '/react/training/bootcamp',
                 children: 'React Bootcamp',
-              },
-              {
-                to: '/react/training/part-time',
-                children: 'Part-time React',
               },
               {
                 to: '/react/training/advanced',
@@ -86,8 +82,16 @@ const TrainingPage = ({ path, trainings }) => {
                 px: 1,
               },
               {
-                to: '/react/training/workshops',
-                children: 'Workshops',
+                to: '/react/training/advanced-part-time',
+                children: 'Full Part-time (PT)',
+              },
+              {
+                to: '/react/training/advanced-part-time',
+                children: 'Advanced PT',
+              },
+              {
+                to: '/react/training/fundamentals-part-time',
+                children: 'Fundamentals PT',
               },
               {
                 to: '/react/training/corporate',

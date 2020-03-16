@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
+import { Tabs, TabList, TabItem, ContentItem } from '../layout/Tabs'
 import CurriculumReactBootcamp from './CurriculumReactBootcamp'
 import CurriculumReactFundamentals from './CurriculumReactFundamentals'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
@@ -49,26 +49,24 @@ const FullCurriculumsReact = ({ trainings }) => {
           <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
         </TabList>
 
-        <TabContent>
-          <ContentItem name={REACT_BOOTCAMP}>
-            <CurriculumReactBootcamp {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={REACT_FUNDAMENTALS}>
-            <CurriculumReactFundamentals {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={ADVANCED_REACT}>
-            <CurriculumAdvancedReact {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={REACT_WORKSHOP}>
-            <CurriculumReactWorkshops
-              trainings={allReactWorkshops}
-              showTitle={false}
-            />
-          </ContentItem>
-          <ContentItem name={GRAPHQL_BOOTCAMP}>
-            <CurriculumGraphQLBootcamp trainings={allGraphQLBootcamps} />
-          </ContentItem>
-        </TabContent>
+        <ContentItem name={REACT_BOOTCAMP}>
+          <CurriculumReactBootcamp {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={REACT_FUNDAMENTALS}>
+          <CurriculumReactFundamentals {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={ADVANCED_REACT}>
+          <CurriculumAdvancedReact {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={REACT_WORKSHOP}>
+          <CurriculumReactWorkshops
+            trainings={allReactWorkshops}
+            showTitle={false}
+          />
+        </ContentItem>
+        <ContentItem name={GRAPHQL_BOOTCAMP}>
+          <CurriculumGraphQLBootcamp trainings={allGraphQLBootcamps} />
+        </ContentItem>
       </Tabs>
     </React.Fragment>
   )

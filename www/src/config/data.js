@@ -20,6 +20,8 @@ export const TECH_REACT = 'react'
 export const TECH_GRAPHQL = 'graphql'
 export const TECH_JAMSTACK = 'jamstack'
 export const GRAPHQL_MINI_CONF = 'GraphQL Mini Conf'
+export const ADVANCED_REACT_PART_TIME = 'Advanced React Part-time'
+export const REACT_FUNDAMENTALS_PART_TIME = 'React Fundamentals Part-time'
 
 /*
 Boocamp prices:

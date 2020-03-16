@@ -37,15 +37,16 @@ export const defaultSessionsSecondHalf = [
   },
 ]
 
+const type = REACT_PART_TIME
+
 const CurriculumReactPartTime = ({
-  toggleNavigateTo = `/react/curriculum?tab=${REACT_PART_TIME}`,
+  toggleNavigateTo = `/react/curriculum?tab=${type}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
   sessionsSecondHalf = defaultSessionsSecondHalf,
   ...rest
 }) => {
-  const type = REACT_PART_TIME
   const initialIndex = 0
 
   const sectionProps = {
@@ -67,7 +68,7 @@ const CurriculumReactPartTime = ({
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}
       secondHalf={sessionsSecondHalf.map(
-        renderSectionWithProps(sessionsSecondHalf.length + initialIndex)
+        renderSectionWithProps(sessionsFirstHalf.length + initialIndex)
       )}
     />
   )

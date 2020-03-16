@@ -26,6 +26,10 @@ const ReactGraphQLIntroSession = ({ title }) => (
   </Session>
 )
 
+ReactGraphQLIntroSession.defaultProps = {
+  title: titleSession,
+}
+
 export const LearningObjectives = ({ showAll = true }) => (
   <>
     <Li>

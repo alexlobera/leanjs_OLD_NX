@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H3 } from '../text'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
+import { Tabs, TabList, TabItem, ContentItem } from '../layout/Tabs'
 import {
   defaultSessionsFirstHalf as reactSessionsFirstHalf,
   defaultSessionsSecondHalf as reactSessionsSecondHalf,
@@ -38,9 +38,7 @@ const renderGraphQLSectionWithProps = renderPartTimeSection({
 const reactSessions = [
   ...reactSessionsFirstHalf.map(renderReactSectionWithProps(initialIndex)),
   ...reactSessionsSecondHalf.map(
-    renderReactSectionWithProps(
-      renderReactSectionWithProps.length + initialIndex
-    )
+    renderReactSectionWithProps(reactSessionsFirstHalf.length + initialIndex)
   ),
 ]
 
@@ -48,7 +46,7 @@ const graphqlSessions = [
   ...graphqlSessionsFirstHalf.map(renderGraphQLSectionWithProps(initialIndex)),
   ...graphqlSessionsSecondHalf.map(
     renderGraphQLSectionWithProps(
-      graphqlSessionsSecondHalf.length + initialIndex
+      graphqlSessionsFirstHalf.length + initialIndex
     )
   ),
 ]
@@ -73,14 +71,12 @@ const FullCurriculumsPartTime = ({ trainings }) => {
               <TabItem name={REACT_PART_TIME}>React curriculum</TabItem>
             </TabList>
 
-            <TabContent>
-              <ContentItem name={GRAPHQL_PART_TIME}>
-                <Flex sx={{ flexDirection: 'column' }}>{graphqlSessions}</Flex>
-              </ContentItem>
-              <ContentItem name={REACT_PART_TIME}>
-                <Flex sx={{ flexDirection: 'column' }}>{reactSessions}</Flex>
-              </ContentItem>
-            </TabContent>
+            <ContentItem name={GRAPHQL_PART_TIME}>
+              <Flex sx={{ flexDirection: 'column' }}>{graphqlSessions}</Flex>
+            </ContentItem>
+            <ContentItem name={REACT_PART_TIME}>
+              <Flex sx={{ flexDirection: 'column' }}>{reactSessions}</Flex>
+            </ContentItem>
           </Tabs>
         </Col>
         <Col md={5} lg={4} mdOffset={1}>

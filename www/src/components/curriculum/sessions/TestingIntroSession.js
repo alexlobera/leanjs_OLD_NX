@@ -15,4 +15,8 @@ const TestingIntroSession = ({ title = titleSession }) => (
   </Session>
 )
 
+TestingIntroSession.defaultProps = {
+  title: titleSession,
+}
+
 export default TestingIntroSession

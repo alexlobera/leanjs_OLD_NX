@@ -2,7 +2,7 @@ import React from 'react'
 import Ul, { Li } from '../../layout/Ul'
 import Session from './Session'
 
-export const titleSession = 'Real-World Testing in React'
+export const titleSession = 'Testing in React & GraphQL'
 
 const TestingInReactSession2 = ({ title = titleSession }) => (
   <Session title={title}>
@@ -15,13 +15,16 @@ const TestingInReactSession2 = ({ title = titleSession }) => (
       <Li>
         Tooling:
         <Ul>
-          <Li>React Testing Library</Li>
+          <Li>React Testing Library Vs. Enzyme</Li>
           <Li>Jest</Li>
-          <Li>Enzyme</Li>
         </Ul>
       </Li>
     </Ul>
   </Session>
 )
+
+TestingInReactSession2.defaultProps = {
+  title: titleSession,
+}
 
 export default TestingInReactSession2

@@ -14,13 +14,16 @@ const TestingInReactSession = ({ title = titleSession }) => (
       <Li>
         Tooling:
         <Ul>
-          <Li>React Testing Library</Li>
+          <Li>React Testing Library Vs. Enzyme</Li>
           <Li>Jest</Li>
-          <Li>Enzyme</Li>
         </Ul>
       </Li>
     </Ul>
   </Session>
 )
+
+TestingInReactSession.defaultProps = {
+  title: titleSession,
+}
 
 export default TestingInReactSession

@@ -32,4 +32,8 @@ const DesignSystemSession = ({ title = titleSession }) => (
   </Session>
 )
 
+DesignSystemSession.defaultProps = {
+  title: titleSession,
+}
+
 export default DesignSystemSession

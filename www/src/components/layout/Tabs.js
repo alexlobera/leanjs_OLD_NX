@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 
@@ -47,25 +47,25 @@ const Ul = styled(Box)`
 
 export const TabList = React.memo(
   ({
-    active,
-    setActive,
-    onChange,
+    // active,
+    // setActive,
+    // onChange,
     children,
     sx = {},
     includeRowCol = true,
     ...rest
   }) => {
-    const compound = React.Children.map(children, child =>
-      React.cloneElement(child, {
-        isActive: child.props.name === active,
-        onClick: child.props.name
-          ? () => {
-              onChange && onChange(child.props.name)
-              setActive(child.props.name)
-            }
-          : undefined,
-      })
-    )
+    // const compound = React.Children.map(children, child =>
+    //   React.cloneElement(child, {
+    //     isActive: child.props.name === active,
+    //     onClick: child.props.name
+    //       ? () => {
+    //           onChange && onChange(child.props.name)
+    //           setActive(child.props.name)
+    //         }
+    //       : undefined,
+    //   })
+    // )
 
     const ul = (
       <Ul
@@ -78,7 +78,7 @@ export const TabList = React.memo(
         {...rest}
         box="ul"
       >
-        {compound}
+        {children}
       </Ul>
     )
 
@@ -127,76 +127,90 @@ const A = styled.a.attrs(props => ({ className: props.className }))`
 
 export const TabItem = React.memo(
   ({
-    children,
-    isActive,
-    onClick,
+    // isActive,
+    // onClick,
     name,
     component,
-    className = 'courses training-curriculum-clicks',
+    className = 'courses training-curriculum-clicks', // todo remove this default
     ...props
   }) => {
+    const { onChange, value } = useTabsContext()
     return (
       <li name={name}>
         <A
           role="button"
-          isActive={isActive}
+          isActive={name === value}
           name={name}
           {...props}
           onClick={e => {
             e.preventDefault()
-            onClick && onClick()
+            // onClick && onClick()
+            onChange(name)
           }}
           className={className}
-        >
-          {children}
-        </A>
+        />
       </li>
     )
   }
 )
+
 TabItem.displayName = 'TabItem'
 
-export const TabContent = React.memo(({ active, children }) =>
-  React.Children.map(children, child =>
-    React.cloneElement(child, {
-      isActive: child.props.name === active,
-    })
-  )
-)
+// TODO REMOVE THIS
+// export const TabContent = React.memo(props => <div {...props} />)
 
 TabContent.displayName = 'TabContent'
 
-export const ContentItem = React.memo(({ isActive, children }) =>
-  isActive ? children : null
-)
+// TODO RENAME TO TabPanel
+// TODO ADD aria-labelledby
+export const ContentItem = React.memo(({ name, ...rest }) => {
+  const { value } = useTabsContext()
 
+  return value === name ? <div role="tabpanel" {...rest} /> : null
+})
+
+//export const ContentItem = () => 'content item'
 ContentItem.displayName = 'ContentItem'
 
-export class Tabs extends React.Component {
-  constructor(props) {
-    super(props)
+const TabsContext = React.createContext()
 
-    this.state = {
-      active: props.defaultValue || props.active,
+export const useTabsContext = () => {
+  const context = useContext(TabsContext)
+
+  if (!context) {
+    throw new Error(
+      `Tab components such as TabList need a parent Tabs component in the component tree`
+    )
+  }
+
+  return context
+}
+
+export const Tabs = ({
+  value: valueProp, // TODO RENAME ACTIVE WITH VALUE
+  defaultValue,
+  onChange: onChangeProp,
+  ...rest
+}) => {
+  const [value, setValue] = useState(defaultValue || valueProp)
+
+  const onChange = value => {
+    onChangeProp && onChangeProp(value)
+    if (!valueProp) {
+      // TODO should we call it value instead of active?
+      setValue(value)
     }
   }
 
-  setActive = active => {
-    this.setState({ active })
-  }
-
-  render() {
-    const { active } = this.state
-    const { setActive } = this
-    const { onChange, active: activeProp } = this.props
-    return React.Children.map(this.props.children, child =>
-      React.cloneElement(child, {
-        active: activeProp || active,
-        setActive,
-        onChange: onChange || this.setActive,
-      })
-    )
-  }
+  return (
+    <TabsContext.Provider
+      value={{
+        onChange,
+        value: valueProp || value,
+      }}
+      {...rest}
+    />
+  )
 }
 
 export default React.memo(Tabs)

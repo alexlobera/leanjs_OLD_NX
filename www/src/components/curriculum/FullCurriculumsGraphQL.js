@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
+import { Tabs, TabList, TabItem, ContentItem } from '../layout/Tabs'
 import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
 import CurriculumGraphQLPartTime from './CurriculumGraphQLPartTime'
 
@@ -30,17 +30,15 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
           <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
         </TabList>
 
-        <TabContent>
-          <ContentItem name={GRAPHQL_BOOTCAMP}>
-            <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={GRAPHQL_PART_TIME}>
-            <CurriculumGraphQLPartTime
-              trainings={allGraphQLPartTimes}
-              showTitle={false}
-            />
-          </ContentItem>
-        </TabContent>
+        <ContentItem name={GRAPHQL_BOOTCAMP}>
+          <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={GRAPHQL_PART_TIME}>
+          <CurriculumGraphQLPartTime
+            trainings={allGraphQLPartTimes}
+            showTitle={false}
+          />
+        </ContentItem>
       </Tabs>
     </React.Fragment>
   )

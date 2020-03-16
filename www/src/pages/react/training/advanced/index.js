@@ -27,7 +27,7 @@ import { createMetas } from 'src/components/utils'
 const metas = {
   title: 'Advanced React Training | React GraphQL Academy',
   description:
-    'Interested in advanced React? Learn advanced React patterns and supercharge your dev skillset with the latest in advanced React trianing. Contact us now!',
+    'Interested in advanced React? Learn advanced React patterns and supercharge your dev skillset with the latest in advanced React training. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }

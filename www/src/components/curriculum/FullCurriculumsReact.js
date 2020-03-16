@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
+import { Tabs, TabList, TabItem, ContentItem } from '../layout/Tabs'
 import CurriculumReactBootcamp from './CurriculumReactBootcamp'
 import CurriculumReactFundamentals from './CurriculumReactFundamentals'
 import CurriculumReactPartTime from './CurriculumReactPartTime'
@@ -33,7 +33,7 @@ const FullCurriculumsReact = ({ trainings }) => {
     <React.Fragment>
       <Row>
         <Col lg={10} lgOffset={1}>
-          <H4>Choose a React training</H4>
+          <H4>Choose a React training course</H4>
         </Col>
       </Row>
       <Tabs defaultValue={REACT_BOOTCAMP}>
@@ -45,26 +45,24 @@ const FullCurriculumsReact = ({ trainings }) => {
           <TabItem name={REACT_WORKSHOP}>Workshops</TabItem>
         </TabList>
 
-        <TabContent>
-          <ContentItem name={REACT_BOOTCAMP}>
-            <CurriculumReactBootcamp {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={REACT_FUNDAMENTALS}>
-            <CurriculumReactFundamentals {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={ADVANCED_REACT}>
-            <CurriculumAdvancedReact {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={REACT_PART_TIME}>
-            <CurriculumReactPartTime {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={REACT_WORKSHOP}>
-            <CurriculumReactWorkshops
-              trainings={allReactWorkshops}
-              showTitle={false}
-            />
-          </ContentItem>
-        </TabContent>
+        <ContentItem name={REACT_BOOTCAMP}>
+          <CurriculumReactBootcamp {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={REACT_FUNDAMENTALS}>
+          <CurriculumReactFundamentals {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={ADVANCED_REACT}>
+          <CurriculumAdvancedReact {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={REACT_PART_TIME}>
+          <CurriculumReactPartTime {...commonCurriculumProps} />
+        </ContentItem>
+        <ContentItem name={REACT_WORKSHOP}>
+          <CurriculumReactWorkshops
+            trainings={allReactWorkshops}
+            showTitle={false}
+          />
+        </ContentItem>
       </Tabs>
     </React.Fragment>
   )

@@ -39,16 +39,16 @@ export const sessionsSecondHalf = [
     comps: [AdvancedReactPatternsSession, AdvancedHooksAndPerfSession],
   },
   {
-    subTitle: 'Building a UI component library',
-    comps: [StylingInReactSession, DesignSystemSession],
-  },
-  {
     subTitle: 'GraphQL 101 & Real-World Testing in React',
     comps: [
       ReactGraphQLIntroSession,
       TestingIntroSession,
       TestingInReactSession2,
     ],
+  },
+  {
+    subTitle: 'Building a UI component library',
+    comps: [StylingInReactSession, DesignSystemSession],
   },
 ]
 
