@@ -46,27 +46,7 @@ const Ul = styled(Box)`
 `
 
 export const TabList = React.memo(
-  ({
-    // active,
-    // setActive,
-    // onChange,
-    children,
-    sx = {},
-    includeRowCol = true,
-    ...rest
-  }) => {
-    // const compound = React.Children.map(children, child =>
-    //   React.cloneElement(child, {
-    //     isActive: child.props.name === active,
-    //     onClick: child.props.name
-    //       ? () => {
-    //           onChange && onChange(child.props.name)
-    //           setActive(child.props.name)
-    //         }
-    //       : undefined,
-    //   })
-    // )
-
+  ({ children, sx = {}, includeRowCol = true, ...rest }) => {
     const ul = (
       <Ul
         sx={{
@@ -127,8 +107,6 @@ const A = styled.a.attrs(props => ({ className: props.className }))`
 
 export const TabItem = React.memo(
   ({
-    // isActive,
-    // onClick,
     name,
     component,
     className = 'courses training-curriculum-clicks', // todo remove this default
@@ -144,7 +122,6 @@ export const TabItem = React.memo(
           {...props}
           onClick={e => {
             e.preventDefault()
-            // onClick && onClick()
             onChange(name)
           }}
           className={className}
@@ -155,11 +132,6 @@ export const TabItem = React.memo(
 )
 
 TabItem.displayName = 'TabItem'
-
-// TODO REMOVE THIS
-// export const TabContent = React.memo(props => <div {...props} />)
-
-TabContent.displayName = 'TabContent'
 
 // TODO RENAME TO TabPanel
 // TODO ADD aria-labelledby
