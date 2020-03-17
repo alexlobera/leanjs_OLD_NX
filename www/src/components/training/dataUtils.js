@@ -23,15 +23,9 @@ export const createTrainingPathFromTrial = ({ type, ...rest }) => {
   }
 }
 
-export const createTrainingPath = ({
-  type,
-  city = '',
-  index,
-  slug,
-  isOnline,
-}) => {
+export const createTrainingPath = ({ type, city = '', index, slug }) => {
   const i = index > 1 ? index : ''
-  const cityPath = isOnline ? 'remote' : city.toLowerCase().replace(' ', '-')
+  const cityPath = city.toLowerCase().replace(' ', '-')
   const cityPathI = `${cityPath}/${i}/`
   switch (type) {
     case REACT_PART_TIME:

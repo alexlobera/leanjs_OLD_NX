@@ -128,10 +128,11 @@ const Layout = ({ children }) => {
   const cityIndex = {}
   const formatTraining = ({ node }) => {
     const { training } = node
-    const { type, slug, description } = training || {}
+    const { type, slug, description, id: trainingId } = training || {}
     const { title = '' } = description || {}
     const { city = '', id, isOnline } = node
-    const key = `${city}${type}${slug}`
+    const remoteOrCity = isOnline ? 'remote' : city
+    const key = `${remoteOrCity}${trainingId}`
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
     return {
@@ -149,7 +150,7 @@ const Layout = ({ children }) => {
       },
       toPath: createTrainingPath({
         type,
-        city,
+        city: remoteOrCity,
         index: cityIndex[key],
         id,
         slug,
