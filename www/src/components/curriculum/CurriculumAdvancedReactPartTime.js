@@ -21,14 +21,6 @@ export const defaultSessionsSecondHalf = [
   { Comp: TestingInReactSession2, group: 2 },
   { Comp: StylingInReactSession, group: 3 },
   { Comp: DesignSystemSession, group: 3 },
-  { Comp: DesignSystemSession, group: 4 },
-  //   { title: 'React Hooks', Comp: HooksSession, group: 3 },
-  //   { title: 'Redux', Comp: IntroReduxSession, group: 4 },
-  //   {
-  //     title: 'Final project and deployment to production',
-  //     Comp: FundamentalsFinalProject,
-  //     group: 4,
-  //   },
 ]
 
 const type = ADVANCED_REACT_PART_TIME

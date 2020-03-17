@@ -20,8 +20,9 @@ import ReactFundamentalsLearningObjectivesList from 'src/components/curriculum/C
 import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
 import ReactBootcampLearningObjectivesList from 'src/components/curriculum/CurriculumReactBootcamp/LearningObjectivesList'
 import CurriculumReactFundamentalsPartTime from 'src/components/curriculum/CurriculumReactFundamentalsPartTime'
-import ReactPartTimeLearningObjectivesList from 'src/components/curriculum/CurriculumReactFundamentalsPartTime/LearningObjectivesList'
+import ReactFundamentalsLearningObjectivesList from 'src/components/curriculum/CurriculumReactFundamentalsPartTime/LearningObjectivesList'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
+import CurriculumAdvancedReactPartTime from 'src/components/curriculum/CurriculumAdvancedReactPartTime'
 import AdvLearningObjectivesList from 'src/components/curriculum/CurriculumAdvancedReact/LearningObjectivesList'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
 import Header from 'src/components/layout/Header'
@@ -36,13 +37,16 @@ import { formatUTC } from 'src/components/utils'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
-  REACT_PART_TIME,
   REACT_FUNDAMENTALS,
+  COMPLETE_REACT_PART_TIME,
+  REACT_ADVANCED_PART_TIME,
+  REACT_FUNDAMENTALS_PART_TIME,
   TECH_REACT,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { BLUE } from '../../config/styles'
 import Card from 'src/components/elements/Card'
+import CurriculumReactCompletePartTime from 'www/src/components/curriculum/CurriculumReactCompletePartTime'
 
 const TdLearningExprience = ({ strong, children }) => (
   <Td verticalAlign="top">
@@ -102,7 +106,7 @@ class ReactCurriculum extends React.Component {
     })
     const trainingPartTime = selectNthTraining({
       trainings,
-      type: REACT_PART_TIME,
+      type: COMPLETE_REACT_PART_TIME,
     })
     const trainingAdvanced = selectNthTraining({
       trainings,
@@ -452,14 +456,23 @@ class ReactCurriculum extends React.Component {
               <TabItem className={tabItemClassName} name={REACT_FUNDAMENTALS}>
                 Fundamentals Immersive
               </TabItem>
-              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
+              <TabItem
+                className={tabItemClassName}
+                name={COMPLETE_REACT_PART_TIME}
+              >
                 Complete Part-Time (PT)
               </TabItem>
-              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
-                Advanced PT
-              </TabItem>
-              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
+              <TabItem
+                className={tabItemClassName}
+                name={REACT_FUNDAMENTALS_PART_TIME}
+              >
                 Fundamentals PT
+              </TabItem>
+              <TabItem
+                className={tabItemClassName}
+                name={REACT_ADVANCED_PART_TIME}
+              >
+                Advanced PT
               </TabItem>
             </TabList>
             <Row>
@@ -531,57 +544,6 @@ class ReactCurriculum extends React.Component {
                   </Row>
                 </TabPanel>
 
-                <TabPanel name={REACT_PART_TIME}>
-                  <P>
-                    <strong>
-                      On completion of the React Part-time training each student
-                      will:
-                    </strong>
-                  </P>
-                  <Ul>
-                    <ReactPartTimeLearningObjectivesList />
-                    <Li>
-                      Not sure if our trainings are right for you? Read our blog{' '}
-                      <Link
-                        className="perfect-course-student"
-                        to="/blog/are-you-the-perfect-react-graphql-student/"
-                      >
-                        <strong>
-                          Are YOU the Perfect React GraphQL Student?
-                        </strong>
-                      </Link>
-                    </Li>
-                  </Ul>
-                  <H4>Training curriculum:</H4>
-
-                  <Row>
-                    <Col lg={1} lgOffset={1} />
-                    <Col lg={9}>
-                      <CurriculumReactFundamentalsPartTime
-                        {...commonCurriculumProps}
-                        marketingCard={
-                          trainingPartTime && (
-                            <MarketingCard
-                              heading="Next React Part time Training"
-                              text={`Don't cut into valuable work-days!`}
-                              className="training-curriculum-next-training-cta"
-                              to={trainingPartTime.toPath}
-                              buttonText={`${
-                                trainingPartTime.isOnline
-                                  ? 'Remote'
-                                  : trainingPartTime.city
-                              } React part-time ${formatUTC(
-                                trainingPartTime.startDate,
-                                trainingPartTime.utcOffset,
-                                'D MMM'
-                              )}  `}
-                            />
-                          )
-                        }
-                      />
-                    </Col>
-                  </Row>
-                </TabPanel>
                 <TabPanel name={REACT_FUNDAMENTALS}>
                   <P>
                     <strong>
@@ -675,6 +637,57 @@ class ReactCurriculum extends React.Component {
                           }
                         />
                       )}
+                    </Col>
+                  </Row>
+                </TabPanel>
+                <TabPanel name={REACT_PART_TIME}>
+                  <P>
+                    <strong>
+                      On completion of the Complete React Part-time training
+                      each student will:
+                    </strong>
+                  </P>
+                  <Ul>
+                    <ReactBootcampLearningObjectivesList />
+                    <Li>
+                      Not sure if our trainings are right for you? Read our blog{' '}
+                      <Link
+                        className="perfect-course-student"
+                        to="/blog/are-you-the-perfect-react-graphql-student/"
+                      >
+                        <strong>
+                          Are YOU the Perfect React GraphQL Student?
+                        </strong>
+                      </Link>
+                    </Li>
+                  </Ul>
+                  <H4>Training curriculum:</H4>
+
+                  <Row>
+                    <Col lg={1} lgOffset={1} />
+                    <Col lg={9}>
+                      <CurriculumReactCompletePartTime
+                        {...commonCurriculumProps}
+                        marketingCard={
+                          trainingPartTime && (
+                            <MarketingCard
+                              heading="Next Complete React Part time Training"
+                              text={`Don't cut into valuable work-days!`}
+                              className="training-curriculum-next-training-cta"
+                              to={trainingPartTime.toPath}
+                              buttonText={`${
+                                trainingPartTime.isOnline
+                                  ? 'Remote'
+                                  : trainingPartTime.city
+                              } React part-time ${formatUTC(
+                                trainingPartTime.startDate,
+                                trainingPartTime.utcOffset,
+                                'D MMM'
+                              )}  `}
+                            />
+                          )
+                        }
+                      />
                     </Col>
                   </Row>
                 </TabPanel>

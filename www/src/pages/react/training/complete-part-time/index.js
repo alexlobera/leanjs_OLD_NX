@@ -15,7 +15,7 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import CurriculumReactFundamentalsPartTime from 'src/components/curriculum/CurriculumReactFundamentalsPartTime'
+import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
 import Header from 'src/components/layout/Header'
 import { REACT_PART_TIME, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -58,18 +58,18 @@ const PartTime = ({ trainings, path }) => {
           { to: '/react/training/', label: 'Training' },
           {
             to: path,
-            label: 'Fundamentals Part-time',
+            label: 'Complete Part-time',
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['React Redux Fundamentals', 'Part-time Training']}
-        subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
+        titleLines={['Complete Part-time React', 'Training']}
+        subtitle="Master the React ecosystem by working with industry experts without having to cut into valuable work-days"
         type={REACT_PART_TIME}
         links={header.landingPageLinks.links}
       />
       <TopSection>
         <Segment>
-          <CurriculumReactFundamentalsPartTime
+          <CurriculumReactCompletePartTime
             trainings={upcomingPartTimeTrainings}
           />
         </Segment>
