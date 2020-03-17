@@ -24,6 +24,9 @@ export const GRAPHQL_MINI_CONF = 'GraphQL Mini Conf'
 export const ADVANCED_REACT_PART_TIME = 'Advanced React Part-time'
 export const REACT_FUNDAMENTALS_PART_TIME = 'React Fundamentals Part-time'
 
+export const REACT_BOOTCAMP_ID = ''
+export const REACT_FUNDAMENTALS_ID = ''
+export const ADVANCED_REACT_ID = ''
 /*
 Boocamp prices:
 1450

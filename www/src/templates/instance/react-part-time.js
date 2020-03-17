@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import BaseTemplate from './baseTemplate'
 import Curriculum from 'src/components/curriculum/CurriculumReactFundamentalsPartTime'
-import TargetAudienceList from 'src/components/curriculum/CurriculumReactFundamentalsPartTime/TargetAudienceList'
+import TargetAudienceList from 'src/components/curriculum/CurriculumReactFundamentals/TargetAudienceList'
 import {
   REACT_FUNDAMENTALS,
   REACT_BOOTCAMP,

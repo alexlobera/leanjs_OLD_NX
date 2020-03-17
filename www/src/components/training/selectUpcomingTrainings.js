@@ -4,6 +4,13 @@ export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
     : trainings
   return typeTrainings.length ? typeTrainings[nth - 1] : undefined
 }
+
+export const selectNthTrainingById = ({ trainings, id, nth = 1 }) => {
+  const filteredTrainings = trainings.filter(filterByTrainingId(id))
+
+  return filteredTrainings.length ? filteredTrainings[nth - 1] : undefined
+}
+
 const trainingByType = type => training => !type || training.type === type
 
 const trainingByTypes = types => training =>
