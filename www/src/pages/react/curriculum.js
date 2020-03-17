@@ -8,18 +8,19 @@ import { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
 import LinkButton from 'src/components/buttons/LinkButton'
+import { tabItemClassName } from '../../components/curriculum/utils'
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
 } from 'src/components/navigation'
-import { Tabs, TabList, TabItem, ContentItem } from 'src/components/layout/Tabs'
+import { Tabs, TabList, TabItem, TabPanel } from 'src/components/layout/Tabs'
 import CurriculumReactFundamentals from 'src/components/curriculum/CurriculumReactFundamentals'
 import ReactFundamentalsLearningObjectivesList from 'src/components/curriculum/CurriculumReactFundamentals/LearningObjectivesList'
 import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
 import ReactBootcampLearningObjectivesList from 'src/components/curriculum/CurriculumReactBootcamp/LearningObjectivesList'
-import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPartTime'
-import ReactPartTimeLearningObjectivesList from 'src/components/curriculum/CurriculumReactPartTime/LearningObjectivesList'
+import CurriculumReactFundamentalsPartTime from 'src/components/curriculum/CurriculumReactFundamentalsPartTime'
+import ReactPartTimeLearningObjectivesList from 'src/components/curriculum/CurriculumReactFundamentalsPartTime/LearningObjectivesList'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
 import AdvLearningObjectivesList from 'src/components/curriculum/CurriculumAdvancedReact/LearningObjectivesList'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
@@ -441,37 +442,47 @@ class ReactCurriculum extends React.Component {
           <Element name="curriculum" />
           <H2>Choose a curriculum:</H2>
           <Tabs onChange={this.setActive} value={this.state.active}>
-            <TabList includeRowCol={false}>
-              <TabItem name={REACT_BOOTCAMP}>Bootcamp</TabItem>
-              <TabItem name={ADVANCED_REACT}>Advanced Immersive</TabItem>
-              <TabItem name={REACT_FUNDAMENTALS}>
+            <TabList>
+              <TabItem className={tabItemClassName} name={REACT_BOOTCAMP}>
+                Bootcamp
+              </TabItem>
+              <TabItem className={tabItemClassName} name={ADVANCED_REACT}>
+                Advanced Immersive
+              </TabItem>
+              <TabItem className={tabItemClassName} name={REACT_FUNDAMENTALS}>
                 Fundamentals Immersive
               </TabItem>
-              <TabItem name={REACT_PART_TIME}>Complete Part-Time (PT)</TabItem>
-              <TabItem name={REACT_PART_TIME}>Advanced PT</TabItem>
-              <TabItem name={REACT_PART_TIME}>Fundamentals PT</TabItem>
+              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
+                Complete Part-Time (PT)
+              </TabItem>
+              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
+                Advanced PT
+              </TabItem>
+              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
+                Fundamentals PT
+              </TabItem>
             </TabList>
             <Row>
               <Col lg={10} lgOffset={1}>
                 {/* <Tabs onChange={this.setActive} active={this.state.active}>
                 <TabList>
-                  <TabItem name={REACT_BOOTCAMP}>Immersive</TabItem>
-                  <TabItem name={REACT_PART_TIME}>Part-Time</TabItem>
+                  <TabItem className={tabItemClassName} name={REACT_BOOTCAMP}>Immersive</TabItem>
+                  <TabItem className={tabItemClassName} name={REACT_PART_TIME}>Part-Time</TabItem>
                 </TabList>
               </Tabs> */}
                 {/* <Tabs onChange={this.setActive} active={this.state.active}> */}
                 {/* <TabList>
-                  <TabItem name={REACT_BOOTCAMP}>Bootcamp</TabItem>
-                  <TabItem name={ADVANCED_REACT}>Advanced Immersive</TabItem>
-                  <TabItem name={REACT_FUNDAMENTALS}>
+                  <TabItem className={tabItemClassName} name={REACT_BOOTCAMP}>Bootcamp</TabItem>
+                  <TabItem className={tabItemClassName} name={ADVANCED_REACT}>Advanced Immersive</TabItem>
+                  <TabItem className={tabItemClassName} name={REACT_FUNDAMENTALS}>
                     Fundamentals Immersive
                   </TabItem>
-                  <TabItem name={REACT_PART_TIME}>Full Part-Time (PT)</TabItem>
-                  <TabItem name={REACT_PART_TIME}>Advanced PT</TabItem>
-                  <TabItem name={REACT_PART_TIME}>Fundamentals PT</TabItem>
+                  <TabItem className={tabItemClassName} name={REACT_PART_TIME}>Full Part-Time (PT)</TabItem>
+                  <TabItem className={tabItemClassName} name={REACT_PART_TIME}>Advanced PT</TabItem>
+                  <TabItem className={tabItemClassName} name={REACT_PART_TIME}>Fundamentals PT</TabItem>
                 </TabList> */}
 
-                <ContentItem name={REACT_BOOTCAMP}>
+                <TabPanel name={REACT_BOOTCAMP}>
                   <P>
                     <strong>
                       On completion of the React Bootcamp each student will:
@@ -518,9 +529,9 @@ class ReactCurriculum extends React.Component {
                       )}
                     </Col>
                   </Row>
-                </ContentItem>
+                </TabPanel>
 
-                <ContentItem name={REACT_PART_TIME}>
+                <TabPanel name={REACT_PART_TIME}>
                   <P>
                     <strong>
                       On completion of the React Part-time training each student
@@ -546,7 +557,7 @@ class ReactCurriculum extends React.Component {
                   <Row>
                     <Col lg={1} lgOffset={1} />
                     <Col lg={9}>
-                      <CurriculumReactPartTime
+                      <CurriculumReactFundamentalsPartTime
                         {...commonCurriculumProps}
                         marketingCard={
                           trainingPartTime && (
@@ -570,8 +581,8 @@ class ReactCurriculum extends React.Component {
                       />
                     </Col>
                   </Row>
-                </ContentItem>
-                <ContentItem name={REACT_FUNDAMENTALS}>
+                </TabPanel>
+                <TabPanel name={REACT_FUNDAMENTALS}>
                   <P>
                     <strong>
                       On completion of the React Fundamentals each student will:
@@ -618,8 +629,8 @@ class ReactCurriculum extends React.Component {
                       )}
                     </Col>
                   </Row>
-                </ContentItem>
-                <ContentItem name={ADVANCED_REACT}>
+                </TabPanel>
+                <TabPanel name={ADVANCED_REACT}>
                   <P>
                     <strong>
                       On completion of the Advanced React Training each student
@@ -666,7 +677,7 @@ class ReactCurriculum extends React.Component {
                       )}
                     </Col>
                   </Row>
-                </ContentItem>
+                </TabPanel>
               </Col>
             </Row>
           </Tabs>

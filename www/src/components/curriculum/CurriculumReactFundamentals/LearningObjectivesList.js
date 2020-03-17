@@ -1,3 +1,3 @@
-import LearningObjectivesList from '../CurriculumReactPartTime/LearningObjectivesList'
+import LearningObjectivesList from '../CurriculumReactFundamentalsPartTime/LearningObjectivesList'
 
 export default LearningObjectivesList

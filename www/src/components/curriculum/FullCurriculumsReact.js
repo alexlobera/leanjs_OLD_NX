@@ -2,11 +2,12 @@ import React from 'react'
 
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
-import { Tabs, TabList, TabItem, ContentItem } from '../layout/Tabs'
+import { Tabs, TabList, TabItem, TabPanel } from '../layout/Tabs'
 import CurriculumReactBootcamp from './CurriculumReactBootcamp'
 import CurriculumReactFundamentals from './CurriculumReactFundamentals'
-import CurriculumReactPartTime from './CurriculumReactPartTime'
+import CurriculumReactFundamentalsPartTime from './CurriculumReactFundamentalsPartTime'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
+import { tabItemClassName } from './utils'
 
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
 import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
@@ -37,32 +38,45 @@ const FullCurriculumsReact = ({ trainings }) => {
         </Col>
       </Row>
       <Tabs defaultValue={REACT_BOOTCAMP}>
-        <TabList lgOffset={1}>
-          <TabItem name={REACT_BOOTCAMP}>React Bootcamp</TabItem>
-          <TabItem name={REACT_PART_TIME}>Part-time Training</TabItem>
-          <TabItem name={ADVANCED_REACT}>Advanced React</TabItem>
-          <TabItem name={REACT_FUNDAMENTALS}>React Fundamentals</TabItem>
-          <TabItem name={REACT_WORKSHOP}>Workshops</TabItem>
-        </TabList>
-
-        <ContentItem name={REACT_BOOTCAMP}>
+        <Row>
+          <Col lgOffset={1} md={11}>
+            <TabList>
+              <TabItem className={tabItemClassName} name={REACT_BOOTCAMP}>
+                React Bootcamp
+              </TabItem>
+              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
+                Part-time Training
+              </TabItem>
+              <TabItem className={tabItemClassName} name={ADVANCED_REACT}>
+                Advanced React
+              </TabItem>
+              <TabItem className={tabItemClassName} name={REACT_FUNDAMENTALS}>
+                React Fundamentals
+              </TabItem>
+              <TabItem className={tabItemClassName} name={REACT_WORKSHOP}>
+                Workshops
+              </TabItem>
+            </TabList>
+          </Col>
+        </Row>
+        <TabPanel name={REACT_BOOTCAMP}>
           <CurriculumReactBootcamp {...commonCurriculumProps} />
-        </ContentItem>
-        <ContentItem name={REACT_FUNDAMENTALS}>
+        </TabPanel>
+        <TabPanel name={REACT_FUNDAMENTALS}>
           <CurriculumReactFundamentals {...commonCurriculumProps} />
-        </ContentItem>
-        <ContentItem name={ADVANCED_REACT}>
+        </TabPanel>
+        <TabPanel name={ADVANCED_REACT}>
           <CurriculumAdvancedReact {...commonCurriculumProps} />
-        </ContentItem>
-        <ContentItem name={REACT_PART_TIME}>
-          <CurriculumReactPartTime {...commonCurriculumProps} />
-        </ContentItem>
-        <ContentItem name={REACT_WORKSHOP}>
+        </TabPanel>
+        <TabPanel name={REACT_PART_TIME}>
+          <CurriculumReactFundamentalsPartTime {...commonCurriculumProps} />
+        </TabPanel>
+        <TabPanel name={REACT_WORKSHOP}>
           <CurriculumReactWorkshops
             trainings={allReactWorkshops}
             showTitle={false}
           />
-        </ContentItem>
+        </TabPanel>
       </Tabs>
     </React.Fragment>
   )

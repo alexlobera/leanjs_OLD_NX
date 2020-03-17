@@ -1,16 +1,17 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H3 } from '../text'
-import { Tabs, TabList, TabItem, ContentItem } from '../layout/Tabs'
+import { Tabs, TabList, TabItem, TabPanel } from '../layout/Tabs'
 import {
   defaultSessionsFirstHalf as reactSessionsFirstHalf,
   defaultSessionsSecondHalf as reactSessionsSecondHalf,
-} from './CurriculumReactPartTime'
+} from './CurriculumReactFundamentalsPartTime'
 import {
   defaultSessionsFirstHalf as graphqlSessionsFirstHalf,
   defaultSessionsSecondtHalf as graphqlSessionsSecondHalf,
 } from './CurriculumGraphQLPartTime'
 import renderPartTimeSection from './renderPartTimeSession'
+import { tabItemClassName } from './utils'
 
 import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
 import { REACT_PART_TIME, GRAPHQL_PART_TIME } from '../../config/data'
@@ -66,17 +67,21 @@ const FullCurriculumsPartTime = ({ trainings }) => {
             <a name="curriculum" />
           </H3>
           <Tabs defaultValue={GRAPHQL_PART_TIME}>
-            <TabList includeRowCol={false} sx={{ mb: 0 }}>
-              <TabItem name={GRAPHQL_PART_TIME}>GraphQL curriculum</TabItem>
-              <TabItem name={REACT_PART_TIME}>React curriculum</TabItem>
+            <TabList sx={{ mb: 0 }}>
+              <TabItem className={tabItemClassName} name={GRAPHQL_PART_TIME}>
+                GraphQL curriculum
+              </TabItem>
+              <TabItem className={tabItemClassName} name={REACT_PART_TIME}>
+                React curriculum
+              </TabItem>
             </TabList>
 
-            <ContentItem name={GRAPHQL_PART_TIME}>
+            <TabPanel name={GRAPHQL_PART_TIME}>
               <Flex sx={{ flexDirection: 'column' }}>{graphqlSessions}</Flex>
-            </ContentItem>
-            <ContentItem name={REACT_PART_TIME}>
+            </TabPanel>
+            <TabPanel name={REACT_PART_TIME}>
               <Flex sx={{ flexDirection: 'column' }}>{reactSessions}</Flex>
-            </ContentItem>
+            </TabPanel>
           </Tabs>
         </Col>
         <Col md={5} lg={4} mdOffset={1}>

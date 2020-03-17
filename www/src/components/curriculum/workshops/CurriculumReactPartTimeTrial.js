@@ -5,7 +5,7 @@ import { REACT_WORKSHOP } from '../../../config/data'
 import ThinkingInReactSession, {
   LearningObjectives as ThinkingInLearningObjectives,
 } from '../sessions/ThinkingInReactSession'
-import TargetAudienceList from '../CurriculumReactPartTime/TargetAudienceList'
+import TargetAudienceList from '../CurriculumReactFundamentalsPartTime/TargetAudienceList'
 import Ul from '../../layout/Ul'
 
 const CurriculumReactPartTimeTrial = ({

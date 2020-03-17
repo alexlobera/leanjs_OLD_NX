@@ -41,6 +41,7 @@ export const theme = {
     },
   },
   // design system
+  breakpoints: ['40em', '52em', '64em'],
   colors: {
     text: DARK_GREY,
     lightText: WHITE,

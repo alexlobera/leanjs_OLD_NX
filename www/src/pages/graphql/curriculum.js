@@ -8,12 +8,14 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
 import { Tick } from 'src/components/icons'
 import LinkButton from 'src/components/buttons/LinkButton'
+import { tabItemClassName } from '../../components/curriculum/utils'
+
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
 } from 'src/components/navigation'
-import { Tabs, TabList, TabItem, ContentItem } from 'src/components/layout/Tabs'
+import { Tabs, TabList, TabItem, TabPanel } from 'src/components/layout/Tabs'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
 import CurriculumGraphQLPartTime, {
   LearningObjectives as PartTimeLearningObjectives,
@@ -267,10 +269,17 @@ class GraphQLCurriculum extends React.Component {
               <H2>Choose a curriculum:</H2>
               <Tabs onChange={this.setActive} value={this.state.active}>
                 <TabList>
-                  <TabItem name={GRAPHQL_PART_TIME}>GraphQL Part-time</TabItem>
-                  <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
+                  <TabItem
+                    className={tabItemClassName}
+                    name={GRAPHQL_PART_TIME}
+                  >
+                    GraphQL Part-time
+                  </TabItem>
+                  <TabItem className={tabItemClassName} name={GRAPHQL_BOOTCAMP}>
+                    GraphQL Bootcamp
+                  </TabItem>
                 </TabList>
-                <ContentItem name={GRAPHQL_BOOTCAMP}>
+                <TabPanel name={GRAPHQL_BOOTCAMP}>
                   <P>
                     <strong>
                       On completion of the GraphQL Bootcamp each student will:
@@ -313,8 +322,8 @@ class GraphQLCurriculum extends React.Component {
                       />
                     </Col>
                   </Row>
-                </ContentItem>
-                <ContentItem name={GRAPHQL_PART_TIME}>
+                </TabPanel>
+                <TabPanel name={GRAPHQL_PART_TIME}>
                   <P>
                     <strong>
                       On completion of the GraphQL part-time training each
@@ -363,7 +372,7 @@ class GraphQLCurriculum extends React.Component {
                       />
                     </Col>
                   </Row>
-                </ContentItem>
+                </TabPanel>
               </Tabs>
             </Col>
           </Row>

@@ -39,7 +39,7 @@ export const defaultSessionsSecondHalf = [
 
 const type = REACT_PART_TIME
 
-const CurriculumReactPartTime = ({
+const CurriculumReactFundamentalsPartTime = ({
   toggleNavigateTo = `/react/curriculum?tab=${type}`,
   training,
   section = {},
@@ -61,7 +61,7 @@ const CurriculumReactPartTime = ({
 
   return (
     <Curriculum
-      title="React Redux Part-time Training Outline"
+      title="React Redux Fundamentals Part-time Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}
@@ -74,4 +74,4 @@ const CurriculumReactPartTime = ({
   )
 }
 
-export default CurriculumReactPartTime
+export default CurriculumReactFundamentalsPartTime
