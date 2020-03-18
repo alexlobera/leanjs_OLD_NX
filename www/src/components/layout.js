@@ -96,13 +96,15 @@ const layoutQuery = graphql`
             mapUrl
             price
             currency
+            title
+            trainingTypeId
             training {
               id
-              type
+              # type
               slug
-              description {
-                title
-              }
+              #   description {
+              #     title
+              #   }
             }
           }
         }
@@ -127,32 +129,34 @@ const Layout = ({ children }) => {
 
   const cityIndex = {}
   const formatTraining = ({ node }) => {
-    const { training } = node
-    const { type, slug, description, id: trainingId } = training || {}
-    const { title = '' } = description || {}
-    const { city = '', id, isOnline } = node
+    const { training, title, trainingTypeId, city = '', isOnline } = node
+    // const { type, slug, description, id: trainingId } = training || {}
+    const { slug, id: trainingId } = training || {}
+    // const { title = '' } = description || {}
     const remoteOrCity = isOnline ? 'remote' : city
-    const key = `${remoteOrCity}${trainingId}`
+    const key = `${remoteOrCity}${slug}${trainingTypeId}`
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
     return {
       ...node,
       shoppingItemEnum: 'training',
       title,
-      type,
+      // type,
       training: {
         ...training,
         toPath: createTrainingPath({
-          type,
-          id,
+          // type,
+          trainingId,
+          trainingTypeId,
           slug,
         }),
       },
       toPath: createTrainingPath({
-        type,
+        // type,
         city: remoteOrCity,
         index: cityIndex[key],
-        id,
+        trainingId,
+        trainingTypeId,
         slug,
         isOnline,
       }),
