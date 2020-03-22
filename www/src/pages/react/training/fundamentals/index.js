@@ -17,6 +17,8 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
+  REACT_FUNDAMENTALS_ID,
+  FULL_TIME_REACT_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { REACT_FUNDAMENTALS, TECH_REACT } from 'src/config/data'
@@ -25,7 +27,8 @@ import BlogSection from 'src/components/blog/BlogSection'
 
 const ReactFundamentals = ({ path, trainings }) => {
   const upcomingFundamentalsTrainings = selectUpcomingTrainings({
-    type: REACT_FUNDAMENTALS,
+    trainingId: REACT_FUNDAMENTALS_ID,
+    trainingTypeId: FULL_TIME_REACT_ID,
     trainings,
   })
   const nextTraining = selectNthTraining({

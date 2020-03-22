@@ -17,6 +17,7 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
   AttendeeQuote,
+  FULL_DAY_REACT_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
@@ -32,10 +33,10 @@ const metas = {
   type: 'website',
 }
 
-const Bootcamps = ({ path, trainings }) => {
+const Workshops = ({ path, trainings }) => {
   const allReactWorkshops = selectUpcomingTrainings({
     trainings,
-    types: [REACT_WORKSHOP],
+    trainingTypeId: FULL_DAY_REACT_ID,
   })
   const nextTraining = selectNthTraining({
     trainings: allReactWorkshops,
@@ -153,4 +154,4 @@ const Bootcamps = ({ path, trainings }) => {
   )
 }
 
-export default Bootcamps
+export default Workshops

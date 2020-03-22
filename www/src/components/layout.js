@@ -59,6 +59,7 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            __typename
             meetup {
               id
             }
@@ -83,6 +84,7 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            __typename
             id
             startDate
             utcOffset
@@ -182,6 +184,7 @@ const Layout = ({ children }) => {
     trainings: [...trainings, ...meetups, ...confs],
   })
 
+  console.log('aaa', trainingAndEvents)
   return (
     <React.Fragment>
       <React.Fragment>

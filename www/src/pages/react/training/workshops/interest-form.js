@@ -14,6 +14,8 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
+  REACT_BOOTCAMP_ID,
+  FULL_TIME_REACT_ID,
 } from 'src/components/training'
 
 import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
@@ -54,7 +56,8 @@ const SessionInterest = ({ path, trainings }) => {
 
   const upcomingBootcamps = selectUpcomingTrainings({
     trainings,
-    type: REACT_BOOTCAMP,
+    trainingId: REACT_BOOTCAMP_ID,
+    trainingTypeId: FULL_TIME_REACT_ID,
   })
   const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
   return (

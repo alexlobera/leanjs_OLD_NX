@@ -29,6 +29,8 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
+  GRAPHQL_API_ID,
+  PART_TIME_GRAPHQL_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { getURLParameter } from 'src/components/utils/url'
@@ -77,11 +79,13 @@ class GraphQLCurriculum extends React.Component {
     }
     const trainingBootcamp = selectNthTraining({
       trainings,
-      type: GRAPHQL_BOOTCAMP,
+      trainingTypeId: 'TODO_FULL_TIME_GRAPHQL_ID',
+      trainingId: 'TODO_GRAPHQL_BOOTCAMP_ID',
     })
     const trainingPartTime = selectNthTraining({
       trainings,
-      type: GRAPHQL_PART_TIME,
+      trainingId: GRAPHQL_API_ID,
+      trainingTypeId: PART_TIME_GRAPHQL_ID,
     })
 
     return (

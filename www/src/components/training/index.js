@@ -4,8 +4,20 @@ export {
   selectTrainingByInstanceId,
   getNextTrainingByTrainingId,
   selectNodeById,
+  TYPENAME_EVENT,
+  TYPENAME_TRAINING_INSTANCE,
 } from './selectUpcomingTrainings'
 export { default as AttendeeQuote } from './AttendeeQuote'
+export {
+  REACT_BOOTCAMP_ID,
+  REACT_FUNDAMENTALS_ID,
+  ADVANCED_REACT_ID,
+  FULL_TIME_REACT_ID,
+  PART_TIME_REACT_ID,
+  FULL_DAY_REACT_ID,
+  FULL_DAY_GRAPHQL_ID,
+  PART_TIME_GRAPHQL_ID,
+} from './dataUtils'
 export { default as TrainingItem } from './TrainingItem'
 export { default as TrustedBySection } from './TrustedBySection'
 export {

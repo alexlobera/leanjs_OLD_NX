@@ -25,7 +25,7 @@ const selectCurriculumLayout = ({
   firstHalf,
   secondHalf,
   layout,
-  type = '',
+  trainingTypeId,
   trainings,
   content,
   curriculumTo,
@@ -47,7 +47,11 @@ const selectCurriculumLayout = ({
   const learningObjectives = LearningObjectives && (
     <React.Fragment>
       <H3>Learning Objectives</H3>
-      <Section isOpen={defaultLearningObjectivesIsOpen} title="" type={type}>
+      <Section
+        isOpen={defaultLearningObjectivesIsOpen}
+        title=""
+        type={trainingTypeId}
+      >
         <Ul>
           <LearningObjectives />
         </Ul>
@@ -119,7 +123,7 @@ const selectCurriculumLayout = ({
               <UpcomingTrainingCurriculum
                 trainingId={trainingId}
                 trainings={trainings}
-                type={type}
+                trainingTypeId={trainingTypeId}
               />
             )}
             {content === null ? null : content ? (
@@ -138,9 +142,11 @@ const selectCurriculumLayout = ({
                 <H3>Training anywhere, anytime?</H3>
                 <LinkButton
                   to={
-                    type.toLowerCase().indexOf('react') < 0
-                      ? `/graphql/training/corporate/`
-                      : '/react/training/corporate/'
+                    // TODO ADD "TECH_TYPE" IN UM AND USE IT HERE
+                    // type.toLowerCase().indexOf('react') < 0
+                    //   ? `/graphql/training/corporate/`
+                    //   : '/react/training/corporate/'
+                    '/react/training/corporate/'
                   }
                   className="corporate-team-training-course-cta"
                 >

@@ -13,6 +13,8 @@ import {
   TrustedBySection,
   selectUpcomingTrainings,
   selectNthTraining,
+  PART_TIME_REACT_ID,
+  REACT_FUNDAMENTALS_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPartTime'
@@ -32,7 +34,8 @@ const metas = {
 
 const PartTime = ({ trainings, path }) => {
   const upcomingPartTimeTrainings = selectUpcomingTrainings({
-    type: REACT_PART_TIME,
+    trainingId: REACT_FUNDAMENTALS_ID,
+    trainingTypeId: PART_TIME_REACT_ID,
     trainings,
   })
   const nextTraining = selectNthTraining({

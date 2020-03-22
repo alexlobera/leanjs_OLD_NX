@@ -17,6 +17,8 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
   AttendeeQuote,
+  REACT_BOOTCAMP_ID,
+  FULL_TIME_REACT_ID,
 } from 'src/components/training'
 import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import { Segment } from 'src/components/elements'
@@ -36,7 +38,8 @@ const metas = {
 
 const Bootcamps = ({ path, trainings }) => {
   const upcomingBootCampTrainings = selectUpcomingTrainings({
-    type: REACT_BOOTCAMP,
+    trainingId: REACT_BOOTCAMP_ID,
+    trainingTypeId: FULL_TIME_REACT_ID,
     trainings,
   })
   const nextTraining = selectNthTraining({

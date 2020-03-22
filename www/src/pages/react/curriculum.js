@@ -33,6 +33,11 @@ import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
+  REACT_BOOTCAMP_ID,
+  REACT_FUNDAMENTALS_ID,
+  ADVANCED_REACT_ID,
+  PART_TIME_REACT_ID,
+  FULL_TIME_REACT_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { Tick } from 'src/components/icons'
@@ -85,19 +90,33 @@ class ReactCurriculum extends React.Component {
 
     const trainingBootcamp = selectNthTraining({
       trainings,
-      type: REACT_BOOTCAMP,
+      trainingId: REACT_BOOTCAMP_ID,
+      trainingTypeId: FULL_TIME_REACT_ID,
+    })
+    const trainingCompletePartTime = selectNthTraining({
+      trainings,
+      trainingId: REACT_BOOTCAMP_ID,
+      trainingTypeId: PART_TIME_REACT_ID,
     })
     const trainingFundamentals = selectNthTraining({
       trainings,
-      type: REACT_FUNDAMENTALS,
+      trainingId: REACT_FUNDAMENTALS_ID,
+      trainingTypeId: FULL_TIME_REACT_ID,
     })
-    const trainingPartTime = selectNthTraining({
+    const trainingFundamentalsPartTime = selectNthTraining({
       trainings,
-      type: REACT_PART_TIME,
+      trainingId: REACT_FUNDAMENTALS_ID,
+      trainingTypeId: PART_TIME_REACT_ID,
     })
     const trainingAdvanced = selectNthTraining({
       trainings,
-      type: ADVANCED_REACT,
+      trainingId: ADVANCED_REACT_ID,
+      trainingTypeId: FULL_TIME_REACT_ID,
+    })
+    const trainingAdvancedPartTime = selectNthTraining({
+      trainings,
+      trainingId: ADVANCED_REACT_ID,
+      trainingTypeId: PART_TIME_REACT_ID,
     })
     return (
       <React.Fragment>
@@ -433,19 +452,19 @@ class ReactCurriculum extends React.Component {
                         <CurriculumReactPartTime
                           {...commonCurriculumProps}
                           marketingCard={
-                            trainingPartTime && (
+                            trainingFundamentalsPartTime && (
                               <MarketingCard
                                 heading="Next React Part time Training"
                                 text={`Don't cut into valuable work-days!`}
                                 className="training-curriculum-next-training-cta"
-                                to={trainingPartTime.toPath}
+                                to={trainingFundamentalsPartTime.toPath}
                                 buttonText={`${
-                                  trainingPartTime.isOnline
+                                  trainingFundamentalsPartTime.isOnline
                                     ? 'Remote'
-                                    : trainingPartTime.city
+                                    : trainingFundamentalsPartTime.city
                                 } React part-time ${formatUTC(
-                                  trainingPartTime.startDate,
-                                  trainingPartTime.utcOffset,
+                                  trainingFundamentalsPartTime.startDate,
+                                  trainingFundamentalsPartTime.utcOffset,
                                   'D MMM'
                                 )}  `}
                               />

@@ -1,13 +1,13 @@
 import {
   REACT_PART_TIME,
-  REACT_BOOTCAMP,
-  REACT_FUNDAMENTALS,
-  ADVANCED_REACT,
-  GRAPHQL_BOOTCAMP,
-  REACT_WORKSHOP,
-  GRAPHQL_API,
+  //   REACT_BOOTCAMP,
+  //   REACT_FUNDAMENTALS,
+  //   ADVANCED_REACT,
+  //   GRAPHQL_BOOTCAMP,
+  //   REACT_WORKSHOP,
+  //   GRAPHQL_API,
   MEETUP,
-  GRAPHQL_WORKSHOP,
+  // GRAPHQL_WORKSHOP,
   GRAPHQL_PART_TIME,
   GRAPHQL_PART_TIME_TRIAL,
   REACT_PART_TIME_TRIAL,
@@ -23,11 +23,15 @@ export const createTrainingPathFromTrial = ({ type, ...rest }) => {
   }
 }
 
-const FULL_TIME_REACT_ID = '5e7153d8340ff73c84dbf14c'
-const PART_TIME_REACT_ID = '5e715373340ff73c84dbf14b'
-const FULL_DAY_REACT_ID = '5e7153f9340ff73c84dbf14d'
-const FULL_DAY_GRAPHQL_ID = '5e724400340ff73c84dbf14e'
-const PART_TIME_GRAPHQL_ID = '5e724426340ff73c84dbf150'
+export const REACT_BOOTCAMP_ID = '5db067d734ca7d0002dfd232'
+export const REACT_FUNDAMENTALS_ID = '5db0681934ca7d0002dfd233'
+export const ADVANCED_REACT_ID = '5db17dcbcfdceb0002083c2f'
+export const GRAPHQL_API_ID = '5e289434817eda00025ce40c'
+export const FULL_TIME_REACT_ID = '5e7153d8340ff73c84dbf14c'
+export const PART_TIME_REACT_ID = '5e715373340ff73c84dbf14b'
+export const FULL_DAY_REACT_ID = '5e7153f9340ff73c84dbf14d'
+export const FULL_DAY_GRAPHQL_ID = '5e724400340ff73c84dbf14e'
+export const PART_TIME_GRAPHQL_ID = '5e724426340ff73c84dbf150'
 
 // export const createTrainingPath = ({ type, city = '', index, slug }) => {
 export const createTrainingPath = ({
