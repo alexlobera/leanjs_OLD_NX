@@ -22,6 +22,9 @@ import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-
 
 raven.config(SENTRY_DSN).install()
 
+export const TRAINING_TYPE_FIELD_ID = '5e74cf154993d031a662905b'
+export const TRAINING_TECH_FIELD_ID = '5e74837b4993d031a65e5446'
+
 const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_400_LATIN_EXT_WOFF2,
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
@@ -59,6 +62,7 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            __typename
             meetup {
               id
             }
@@ -83,6 +87,7 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            __typename
             id
             startDate
             utcOffset
@@ -96,13 +101,19 @@ const layoutQuery = graphql`
             mapUrl
             price
             currency
+            title
             training {
               id
-              type
               slug
-              description {
-                title
+              customFieldsValues {
+                values
+                fieldId
               }
+            }
+            trainingInstanceType {
+              name
+              title
+              id
             }
           }
         }
@@ -127,33 +138,49 @@ const Layout = ({ children }) => {
 
   const cityIndex = {}
   const formatTraining = ({ node }) => {
-    const { training } = node
-    const { type, slug, description } = training || {}
-    const { title = '' } = description || {}
-    const { city = '', id, isOnline } = node
-    const key = `${city}${type}${slug}`
+    const { training, title, trainingInstanceType, city = '', isOnline } = node
+    // const { type, slug, description, id: trainingId } = training || {}
+    const { slug, id: trainingId } = training || {}
+    // const { title = '' } = description || {}
+    const remoteOrCity = isOnline ? 'remote' : city
+    // const type = training && training.customFieldsValues  && training.customFieldsValues.length
+    const type = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
+    ).values[0]
+    const tech = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
+    ).values[0]
+    const trainingInstanceTypeName =
+      trainingInstanceType && trainingInstanceType.name
+    const key = `${remoteOrCity}${slug}${trainingInstanceTypeName}`
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
     return {
       ...node,
+      trainingInstanceTypeName,
       shoppingItemEnum: 'training',
       title,
-      type,
+      type, // rename type with trainingType ??
+      tech,
       training: {
         ...training,
         toPath: createTrainingPath({
-          type,
-          id,
+          trainingId,
           slug,
+          type,
+          tech,
+          trainingInstanceTypeName,
         }),
       },
       toPath: createTrainingPath({
-        type,
-        city,
+        city: remoteOrCity,
         index: cityIndex[key],
-        id,
+        trainingId,
         slug,
-        isOnline,
+        trainingInstanceTypeName,
+        type,
+        tech,
+        // isOnline,
       }),
     }
   }
@@ -177,6 +204,7 @@ const Layout = ({ children }) => {
     trainings: [...trainings, ...meetups, ...confs],
   })
 
+  console.log('aaa', trainingAndEvents)
   return (
     <React.Fragment>
       <React.Fragment>

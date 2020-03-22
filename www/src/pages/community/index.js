@@ -13,9 +13,11 @@ import {
   UpcomingTrainingSection,
   selectNthTraining,
 } from '../../components/training'
-import selectUpcomingTrainings from '../../components/training/selectUpcomingTrainings'
+import selectUpcomingTrainings, {
+  TYPENAME_EVENT,
+} from '../../components/training/selectUpcomingTrainings'
 import { LinkButton } from '../../components/buttons'
-import { MEETUP } from '../../config/data'
+// import { MEETUP } from '../../config/data'
 import { CallToActionRow } from '../../components/layout/CallToActionRow'
 import { Breadcrumb } from '../../components/navigation'
 import { OurMeetupGroups } from './meetups'
@@ -146,7 +148,8 @@ const TwitterWidgetsOnlyOnClientSide = () => {
 const Community = ({ data, path, trainings }) => {
   const upcomingMeetups = selectUpcomingTrainings({
     trainings,
-    type: MEETUP,
+    // type: MEETUP,
+    typename: TYPENAME_EVENT,
   })
   const nextMeetup = selectNthTraining({ trainings: upcomingMeetups }) || {}
 

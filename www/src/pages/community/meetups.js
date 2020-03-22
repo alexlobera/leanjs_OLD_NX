@@ -11,13 +11,14 @@ import { RootHeader as Header } from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
+  TYPENAME_EVENT,
 } from 'src/components/training'
 import Link from 'src/components/navigation/Link'
 import Ul, { Li } from 'src/components/layout/Ul'
 import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import UpcomingTrainings from 'src/components/training/UpcomingTrainings'
 import { LinkButton } from 'src/components/buttons'
-import { MEETUP } from 'src/config/data'
+// import { MEETUP } from 'src/config/data'
 import { BOOTCAMP_RIGHT } from 'src/config/images'
 import { Breadcrumb } from 'src/components/navigation'
 
@@ -80,7 +81,7 @@ export const OurMeetupGroups = () => (
 const Meetups = ({ data, trainings }) => {
   const upcomingMeetups = selectUpcomingTrainings({
     trainings,
-    type: MEETUP,
+    typename: TYPENAME_EVENT,
   })
   const nextMeetup = selectNthTraining({ trainings: upcomingMeetups }) || {}
   const metaTitle = 'React GraphQL Academy community events and meetups'

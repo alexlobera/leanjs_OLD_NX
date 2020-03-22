@@ -36,7 +36,8 @@ const metas = {
 const Bootcamps = ({ path, trainings }) => {
   const allGraphQLWorkshops = selectUpcomingTrainings({
     trainings,
-    types: [GRAPHQL_WORKSHOP],
+    trainingTypeId: 'TODO_FULL_TIME_GRAPHQL_ID',
+    trainingId: 'TODO',
   })
   const nextTraining = selectNthTraining({
     trainings: allGraphQLWorkshops,

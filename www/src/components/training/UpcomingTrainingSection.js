@@ -39,18 +39,18 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
   const allTrainings = selectUpcomingTrainings({
     trainings,
     limit,
-    types: [
-      REACT_BOOTCAMP,
-      ADVANCED_REACT,
-      REACT_PART_TIME,
-      REACT_WORKSHOP,
-      REACT_FUNDAMENTALS,
-      GRAPHQL_BOOTCAMP,
-      GRAPHQL_API,
-      GRAPHQL_WORKSHOP,
-      GRAPHQL_PART_TIME,
-      MEETUP,
-    ],
+    // types: [
+    //   REACT_BOOTCAMP,
+    //   ADVANCED_REACT,
+    //   REACT_PART_TIME,
+    //   REACT_WORKSHOP,
+    //   REACT_FUNDAMENTALS,
+    //   GRAPHQL_BOOTCAMP,
+    //   GRAPHQL_API,
+    //   GRAPHQL_WORKSHOP,
+    //   GRAPHQL_PART_TIME,
+    //   MEETUP,
+    // ],
   })
 
   return (

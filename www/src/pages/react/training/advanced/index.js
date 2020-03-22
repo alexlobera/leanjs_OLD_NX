@@ -17,6 +17,8 @@ import {
   AttendeeQuote,
   UpcomingTrainingSection,
   selectUpcomingTrainings,
+  ADVANCED_REACT_ID,
+  FULL_TIME_REACT_ID,
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
@@ -34,7 +36,8 @@ const metas = {
 
 const AdvancedTraining = ({ path, trainings }) => {
   const upcomingAdvancedTrainings = selectUpcomingTrainings({
-    type: ADVANCED_REACT,
+    trainingId: ADVANCED_REACT_ID,
+    trainingTypeId: FULL_TIME_REACT_ID,
     trainings,
   })
   const nextTraining = selectNthTraining({

@@ -25,11 +25,13 @@ const selectCurriculumLayout = ({
   firstHalf,
   secondHalf,
   layout,
-  type = '',
+  trainingTypeId,
   trainings,
   content,
   curriculumTo,
   title,
+  tech,
+  type,
   trainingId,
   marketingCard,
   curriculumTitle = 'Curriculum',
@@ -47,7 +49,11 @@ const selectCurriculumLayout = ({
   const learningObjectives = LearningObjectives && (
     <React.Fragment>
       <H3>Learning Objectives</H3>
-      <Section isOpen={defaultLearningObjectivesIsOpen} title="" type={type}>
+      <Section
+        isOpen={defaultLearningObjectivesIsOpen}
+        title=""
+        type={trainingTypeId}
+      >
         <Ul>
           <LearningObjectives />
         </Ul>
@@ -56,7 +62,7 @@ const selectCurriculumLayout = ({
   )
 
   const typedMarketingCard = marketingCard
-    ? React.cloneElement(marketingCard, { type })
+    ? React.cloneElement(marketingCard, { type, tech })
     : null
 
   if (layout === LIST_LAYOUT) {
@@ -119,7 +125,7 @@ const selectCurriculumLayout = ({
               <UpcomingTrainingCurriculum
                 trainingId={trainingId}
                 trainings={trainings}
-                type={type}
+                trainingTypeId={trainingTypeId}
               />
             )}
             {content === null ? null : content ? (
@@ -138,9 +144,11 @@ const selectCurriculumLayout = ({
                 <H3>Training anywhere, anytime?</H3>
                 <LinkButton
                   to={
-                    type.toLowerCase().indexOf('react') < 0
-                      ? `/graphql/training/corporate/`
-                      : '/react/training/corporate/'
+                    // TODO ADD "TECH_TYPE" IN UM AND USE IT HERE
+                    // type.toLowerCase().indexOf('react') < 0
+                    //   ? `/graphql/training/corporate/`
+                    //   : '/react/training/corporate/'
+                    '/react/training/corporate/'
                   }
                   className="corporate-team-training-course-cta"
                 >

@@ -10,6 +10,7 @@ import CurriculumReactWorkshops from './CurriculumReactWorkshops'
 
 import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
 import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
+import { FULL_DAY_REACT_ID } from '../training'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
@@ -21,11 +22,11 @@ import {
 const FullCurriculumsReact = ({ trainings }) => {
   const allGraphQLBootcamps = selectUpcomingTrainings({
     trainings,
-    types: [GRAPHQL_BOOTCAMP],
+    types: 'TODO_GRPAHQL_BOOTCAMP',
   })
   const allReactWorkshops = selectUpcomingTrainings({
     trainings,
-    types: [REACT_WORKSHOP],
+    trainingTypeId: FULL_DAY_REACT_ID,
   })
 
   const commonCurriculumProps = {

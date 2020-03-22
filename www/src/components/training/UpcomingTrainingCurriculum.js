@@ -5,7 +5,7 @@ import Link from '../navigation/Link'
 import UpcomingTrainings from './UpcomingTrainings'
 
 const UpcomingTrainingCurriculum = ({
-  type,
+  trainingTypeId,
   trainings,
   trainingId,
   className = 'upcoming-courses-upcoming-dates',
@@ -15,7 +15,7 @@ const UpcomingTrainingCurriculum = ({
       <Link name="upcoming-courses" />
       <H3 sx={{ mt: [4, 0] }}>Upcoming dates</H3>
       <UpcomingTrainings
-        type={type}
+        trainingTypeId={trainingTypeId}
         trainingId={trainingId}
         limit={5}
         curriculum
