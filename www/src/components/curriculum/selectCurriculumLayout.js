@@ -30,6 +30,8 @@ const selectCurriculumLayout = ({
   content,
   curriculumTo,
   title,
+  tech,
+  type,
   trainingId,
   marketingCard,
   curriculumTitle = 'Curriculum',
@@ -60,7 +62,7 @@ const selectCurriculumLayout = ({
   )
 
   const typedMarketingCard = marketingCard
-    ? React.cloneElement(marketingCard, { type })
+    ? React.cloneElement(marketingCard, { type, tech })
     : null
 
   if (layout === LIST_LAYOUT) {

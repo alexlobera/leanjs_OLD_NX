@@ -22,6 +22,9 @@ import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-
 
 raven.config(SENTRY_DSN).install()
 
+export const TRAINING_TYPE_FIELD_ID = '5e74cf154993d031a662905b'
+export const TRAINING_TECH_FIELD_ID = '5e74837b4993d031a65e5446'
+
 const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_400_LATIN_EXT_WOFF2,
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
@@ -99,14 +102,18 @@ const layoutQuery = graphql`
             price
             currency
             title
-            trainingTypeId
             training {
               id
-              # type
               slug
-              #   description {
-              #     title
-              #   }
+              customFieldsValues {
+                values
+                fieldId
+              }
+            }
+            trainingInstanceType {
+              name
+              title
+              id
             }
           }
         }
@@ -131,36 +138,49 @@ const Layout = ({ children }) => {
 
   const cityIndex = {}
   const formatTraining = ({ node }) => {
-    const { training, title, trainingTypeId, city = '', isOnline } = node
+    const { training, title, trainingInstanceType, city = '', isOnline } = node
     // const { type, slug, description, id: trainingId } = training || {}
     const { slug, id: trainingId } = training || {}
     // const { title = '' } = description || {}
     const remoteOrCity = isOnline ? 'remote' : city
-    const key = `${remoteOrCity}${slug}${trainingTypeId}`
+    // const type = training && training.customFieldsValues  && training.customFieldsValues.length
+    const type = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
+    ).values[0]
+    const tech = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
+    ).values[0]
+    const trainingInstanceTypeName =
+      trainingInstanceType && trainingInstanceType.name
+    const key = `${remoteOrCity}${slug}${trainingInstanceTypeName}`
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
     return {
       ...node,
+      trainingInstanceTypeName,
       shoppingItemEnum: 'training',
       title,
-      // type,
+      type, // rename type with trainingType ??
+      tech,
       training: {
         ...training,
         toPath: createTrainingPath({
-          // type,
           trainingId,
-          trainingTypeId,
           slug,
+          type,
+          tech,
+          trainingInstanceTypeName,
         }),
       },
       toPath: createTrainingPath({
-        // type,
         city: remoteOrCity,
         index: cityIndex[key],
         trainingId,
-        trainingTypeId,
         slug,
-        isOnline,
+        trainingInstanceTypeName,
+        type,
+        tech,
+        // isOnline,
       }),
     }
   }

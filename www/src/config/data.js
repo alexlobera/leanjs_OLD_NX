@@ -21,9 +21,6 @@ export const TECH_GRAPHQL = 'graphql'
 export const TECH_JAMSTACK = 'jamstack'
 export const GRAPHQL_MINI_CONF = 'GraphQL Mini Conf'
 
-export const REACT_TAG_ID = '5e73a1e74993d031a652dda9'
-export const GRAPHQL_TAG_ID = '5e73a1f04993d031a652de28'
-
 /*
 Boocamp prices:
 1450
