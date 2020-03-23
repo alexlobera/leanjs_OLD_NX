@@ -12,9 +12,18 @@ import {
   GRAPHQL_PART_TIME_TRIAL,
   REACT_PART_TIME_TRIAL,
   GRAPHQL_MINI_CONF,
+  FULL_TIME,
+  FULL_DAY,
+  PART_TIME,
+  TRAINING_TYPE_WORKSHOP,
+  TRAINING_TYPE_TRIAL,
+  REACT_BOOTCAMP_ID,
+  ADVANCED_REACT_ID,
+  REACT_FUNDAMENTALS_ID,
 } from '../../config/data'
 
 export const createTrainingPathFromTrial = ({ type, ...rest }) => {
+  // TODO REIMPLEMENT THIS USING trainingType, tech, etc
   switch (type) {
     case GRAPHQL_PART_TIME_TRIAL:
       return createTrainingPath({ ...rest, type: GRAPHQL_PART_TIME })
@@ -23,23 +32,12 @@ export const createTrainingPathFromTrial = ({ type, ...rest }) => {
   }
 }
 
-export const REACT_BOOTCAMP_ID = '5db067d734ca7d0002dfd232'
-export const REACT_FUNDAMENTALS_ID = '5db0681934ca7d0002dfd233'
-export const ADVANCED_REACT_ID = '5db17dcbcfdceb0002083c2f'
-export const GRAPHQL_API_ID = '5e289434817eda00025ce40c'
-export const FULL_TIME_REACT_ID = '5e7153d8340ff73c84dbf14c'
+// export const GRAPHQL_API_ID = '5e289434817eda00025ce40c'
+// export const FULL_TIME_REACT_ID = '5e7153d8340ff73c84dbf14c'
 // export const PART_TIME_REACT_ID = '5e715373340ff73c84dbf14b'
-export const FULL_DAY_REACT_ID = '5e7153f9340ff73c84dbf14d'
-export const FULL_DAY_GRAPHQL_ID = '5e724400340ff73c84dbf14e'
-export const PART_TIME_GRAPHQL_ID = '5e724426340ff73c84dbf150'
-
-export const FULL_TIME = 'full-time'
-export const PART_TIME = 'part-time'
-export const FULL_DAY = 'full-day'
-export const TECH_REACT = 'react'
-export const TECH_GRAPHQL = 'graphql'
-export const TRAINING_TYPE_WORKSHOP = 'workshop'
-export const TRAINING_TYPE_TRIAL = 'trial'
+// export const FULL_DAY_REACT_ID = '5e7153f9340ff73c84dbf14d'
+// export const FULL_DAY_GRAPHQL_ID = '5e724400340ff73c84dbf14e'
+// export const PART_TIME_GRAPHQL_ID = '5e724426340ff73c84dbf150'
 
 // export const createTrainingPath = ({ type, city = '', index, slug }) => {
 export const createTrainingPath = ({
@@ -47,7 +45,7 @@ export const createTrainingPath = ({
   city = '',
   index,
   slug,
-  type,
+  trainingType,
   tech,
   trainingInstanceTypeName,
 }) => {
@@ -55,38 +53,38 @@ export const createTrainingPath = ({
   const cityPath = city.toLowerCase().replace(' ', '-')
   const cityPathI = `${cityPath}/${i}/`
   if (
-    trainingId === '5a16f0ea4939a601fe2db701' &&
+    trainingId === REACT_BOOTCAMP_ID &&
     trainingInstanceTypeName === FULL_TIME
   ) {
     return `/react/training/bootcamp/${cityPathI}`
   } else if (
-    trainingId === '5a16f0ea4939a601fe2db701' &&
+    trainingId === REACT_BOOTCAMP_ID &&
     trainingInstanceTypeName === PART_TIME
   ) {
     return `/react/training/complete-part-time/${cityPathI}`
   } else if (
-    trainingId === '5ab6244a88546e46fa2b2601' &&
+    trainingId === ADVANCED_REACT_ID &&
     trainingInstanceTypeName === FULL_TIME
   ) {
     return `/react/training/advanced/${cityPathI}`
   } else if (
-    trainingId === '5ab6244a88546e46fa2b2601' &&
+    trainingId === ADVANCED_REACT_ID &&
     trainingInstanceTypeName === PART_TIME
   ) {
     return `/react/training/advanced-part-time/${cityPathI}`
   } else if (
-    trainingId === '5d0114b706051b7d3bcb0cf9' &&
+    trainingId === REACT_FUNDAMENTALS_ID &&
     trainingInstanceTypeName === FULL_TIME
   ) {
     return `/react/training/fundamentals/${cityPathI}`
   } else if (
-    trainingId === '5d0114b706051b7d3bcb0cf9' &&
+    trainingId === REACT_FUNDAMENTALS_ID &&
     trainingInstanceTypeName === PART_TIME
   ) {
     return `/react/training/fundamentals-part-time/${cityPathI}`
   } else if (
     trainingInstanceTypeName === FULL_DAY &&
-    type === TRAINING_TYPE_WORKSHOP
+    trainingType === TRAINING_TYPE_WORKSHOP
   ) {
     return `/${tech}/training/workshops/${slug}/${cityPathI}`
     //   } else if (
@@ -96,10 +94,10 @@ export const createTrainingPath = ({
     //     return `/graphql/training/part-time/${cityPathI}`
   } else if (
     trainingInstanceTypeName === PART_TIME &&
-    type === TRAINING_TYPE_WORKSHOP
+    trainingType === TRAINING_TYPE_WORKSHOP
   ) {
     return `/${tech}/training/${slug}-part-time/${cityPathI}`
-  } else if (type === TRAINING_TYPE_TRIAL) {
+  } else if (trainingType === TRAINING_TYPE_TRIAL) {
     return `/${tech}/training/${slug}/${cityPathI}`
   }
   /////////
@@ -133,7 +131,7 @@ export function formatMeetup({ node }) {
   return {
     ...node,
     shoppingItemEnum: 'event',
-    type: MEETUP,
+    // type: MEETUP,
     toPath: `/community/meetups/${node.id}`,
   }
 }
@@ -143,7 +141,7 @@ export function formatConf({ node }) {
     ...node,
     shoppingItemEnum: 'event',
     // TODO TYPE SHOULD NOT BE HARDCODED
-    type: GRAPHQL_MINI_CONF,
+    // type: GRAPHQL_MINI_CONF,
     // TODO URL SHOULD NOT BE HARDCODED
     toPath: '/graphql/mini-conference/',
   }

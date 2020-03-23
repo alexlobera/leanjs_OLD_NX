@@ -11,15 +11,17 @@ const MarketingCard = ({
   to,
   heading,
   className = 'blog-article',
-  type,
+  //type,
+  trainingType,
+  tech,
   sx: { mt = 4, mb = 2, ...sxRest } = {},
   ...rest
 }) => (
   <Card
     variant="info"
     sx={{
-      borderStyle: selectBorderStyle(type),
-      borderColor: selectTypeColor(type),
+      borderStyle: selectBorderStyle({ trainingType }),
+      borderColor: selectTypeColor({ tech }),
       mt,
       mb,
       ...sxRest,

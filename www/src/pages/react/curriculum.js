@@ -8,30 +8,26 @@ import { Col, Row } from 'src/components/layout/Grid'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
 import LinkButton from 'src/components/buttons/LinkButton'
+import { tabItemClassName } from '../../components/curriculum/utils'
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
 } from 'src/components/navigation'
-import { Tabs, TabList, TabItem, ContentItem } from 'src/components/layout/Tabs'
+import { Tabs, TabList, TabItem, TabPanel } from 'src/components/layout/Tabs'
 import CurriculumReactFundamentals from 'src/components/curriculum/CurriculumReactFundamentals'
 import ReactFundamentalsLearningObjectivesList from 'src/components/curriculum/CurriculumReactFundamentals/LearningObjectivesList'
 import CurriculumReactBootcamp from 'src/components/curriculum/CurriculumReactBootcamp'
 import ReactBootcampLearningObjectivesList from 'src/components/curriculum/CurriculumReactBootcamp/LearningObjectivesList'
-import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPartTime'
-import ReactPartTimeLearningObjectivesList from 'src/components/curriculum/CurriculumReactPartTime/LearningObjectivesList'
+import CurriculumReactFundamentalsPartTime from 'src/components/curriculum/CurriculumReactFundamentalsPartTime'
 import CurriculumAdvancedReact from 'src/components/curriculum/CurriculumAdvancedReact'
+import CurriculumAdvancedReactPartTime from 'src/components/curriculum/CurriculumAdvancedReactPartTime'
 import AdvLearningObjectivesList from 'src/components/curriculum/CurriculumAdvancedReact/LearningObjectivesList'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
 import Header from 'src/components/layout/Header'
 import {
   UpcomingTrainingSection,
   selectNthTraining,
-  REACT_BOOTCAMP_ID,
-  REACT_FUNDAMENTALS_ID,
-  ADVANCED_REACT_ID,
-  PART_TIME_REACT_ID,
-  FULL_TIME_REACT_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import { Tick } from 'src/components/icons'
@@ -40,13 +36,22 @@ import { formatUTC } from 'src/components/utils'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
-  REACT_PART_TIME,
   REACT_FUNDAMENTALS,
+  COMPLETE_REACT_PART_TIME,
+  ADVANCED_REACT_PART_TIME,
+  REACT_FUNDAMENTALS_PART_TIME,
   TECH_REACT,
+  PART_TIME,
+  FULL_TIME,
+  REACT_BOOTCAMP_ID,
+  ADVANCED_REACT_ID,
+  REACT_FUNDAMENTALS_ID,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { BLUE } from '../../config/styles'
 import Card from 'src/components/elements/Card'
+import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
+import { TRAINING_TYPE_HALF_CURRICULUM } from 'www/src/config/data'
 
 const TdLearningExprience = ({ strong, children }) => (
   <Td verticalAlign="top">
@@ -89,6 +94,7 @@ class ReactCurriculum extends React.Component {
 
   render() {
     const { path, trainings } = this.props
+
     const commonCurriculumProps = {
       section: { enableToggle: true },
       showTitle: false,
@@ -99,33 +105,34 @@ class ReactCurriculum extends React.Component {
     const trainingBootcamp = selectNthTraining({
       trainings,
       trainingId: REACT_BOOTCAMP_ID,
-      trainingTypeId: FULL_TIME_REACT_ID,
+      trainingInstanceTypeName: FULL_TIME,
     })
     const trainingCompletePartTime = selectNthTraining({
       trainings,
       trainingId: REACT_BOOTCAMP_ID,
-      trainingTypeId: PART_TIME_REACT_ID,
+      trainingInstanceTypeName: PART_TIME,
     })
     const trainingFundamentals = selectNthTraining({
       trainings,
       trainingId: REACT_FUNDAMENTALS_ID,
-      trainingTypeId: FULL_TIME_REACT_ID,
+      trainingInstanceTypeName: FULL_TIME,
     })
     const trainingFundamentalsPartTime = selectNthTraining({
       trainings,
       trainingId: REACT_FUNDAMENTALS_ID,
-      trainingTypeId: PART_TIME_REACT_ID,
+      trainingInstanceTypeName: PART_TIME,
     })
     const trainingAdvanced = selectNthTraining({
       trainings,
       trainingId: ADVANCED_REACT_ID,
-      trainingTypeId: FULL_TIME_REACT_ID,
+      trainingInstanceTypeName: FULL_TIME,
     })
     const trainingAdvancedPartTime = selectNthTraining({
       trainings,
       trainingId: ADVANCED_REACT_ID,
-      trainingTypeId: PART_TIME_REACT_ID,
+      trainingInstanceTypeName: PART_TIME,
     })
+
     return (
       <React.Fragment>
         <Header
@@ -170,11 +177,11 @@ class ReactCurriculum extends React.Component {
                 <Table>
                   <Thead>
                     <Tr>
-                      <Th />
-                      <Th type={REACT_BOOTCAMP}>Complete</Th>
+                      <Th>Curriculum</Th>
+                      <Th>Complete</Th>
                       {/* <Th type={REACT_PART_TIME}>Part Time </Th> */}
-                      <Th type={ADVANCED_REACT}>Advanced</Th>
-                      <Th type={REACT_FUNDAMENTALS}>Fundamentals</Th>
+                      <Th>Advanced</Th>
+                      <Th>Fundamentals</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
@@ -460,37 +467,53 @@ class ReactCurriculum extends React.Component {
           <Element name="curriculum" />
           <H2>Choose a curriculum:</H2>
           <Tabs onChange={this.setActive} value={this.state.active}>
-            <TabList includeRowCol={false}>
-              <TabItem name={REACT_BOOTCAMP}>Bootcamp</TabItem>
-              <TabItem name={ADVANCED_REACT}>Advanced Immersive</TabItem>
-              <TabItem name={REACT_FUNDAMENTALS}>
+            <TabList>
+              <TabItem
+                className={tabItemClassName}
+                trainingType={TRAINING_TYPE_FULL_CURRICULUM}
+                name={REACT_BOOTCAMP}
+              >
+                Bootcamp
+              </TabItem>
+              <TabItem
+                className={tabItemClassName}
+                trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                name={REACT_FUNDAMENTALS}
+              >
                 Fundamentals Immersive
               </TabItem>
-              <TabItem name={REACT_PART_TIME}>Complete Part-Time (PT)</TabItem>
-              <TabItem name={REACT_PART_TIME}>Advanced PT</TabItem>
-              <TabItem name={REACT_PART_TIME}>Fundamentals PT</TabItem>
+              <TabItem
+                trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                className={tabItemClassName}
+                name={ADVANCED_REACT}
+              >
+                Advanced Immersive
+              </TabItem>
+              <TabItem
+                className={tabItemClassName}
+                trainingType={TRAINING_TYPE_FULL_CURRICULUM}
+                name={COMPLETE_REACT_PART_TIME}
+              >
+                Complete Part-Time (PT)
+              </TabItem>
+              <TabItem
+                trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                className={tabItemClassName}
+                name={REACT_FUNDAMENTALS_PART_TIME}
+              >
+                Fundamentals PT
+              </TabItem>
+              <TabItem
+                trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                className={tabItemClassName}
+                name={ADVANCED_REACT_PART_TIME}
+              >
+                Advanced PT
+              </TabItem>
             </TabList>
             <Row>
               <Col lg={10} lgOffset={1}>
-                {/* <Tabs onChange={this.setActive} active={this.state.active}>
-                <TabList>
-                  <TabItem name={REACT_BOOTCAMP}>Immersive</TabItem>
-                  <TabItem name={REACT_PART_TIME}>Part-Time</TabItem>
-                </TabList>
-              </Tabs> */}
-                {/* <Tabs onChange={this.setActive} active={this.state.active}> */}
-                {/* <TabList>
-                  <TabItem name={REACT_BOOTCAMP}>Bootcamp</TabItem>
-                  <TabItem name={ADVANCED_REACT}>Advanced Immersive</TabItem>
-                  <TabItem name={REACT_FUNDAMENTALS}>
-                    Fundamentals Immersive
-                  </TabItem>
-                  <TabItem name={REACT_PART_TIME}>Full Part-Time (PT)</TabItem>
-                  <TabItem name={REACT_PART_TIME}>Advanced PT</TabItem>
-                  <TabItem name={REACT_PART_TIME}>Fundamentals PT</TabItem>
-                </TabList> */}
-
-                <ContentItem name={REACT_BOOTCAMP}>
+                <TabPanel name={REACT_BOOTCAMP}>
                   <P>
                     <strong>
                       On completion of the React Bootcamp each student will:
@@ -537,60 +560,9 @@ class ReactCurriculum extends React.Component {
                       )}
                     </Col>
                   </Row>
-                </ContentItem>
+                </TabPanel>
 
-                <ContentItem name={REACT_PART_TIME}>
-                  <P>
-                    <strong>
-                      On completion of the React Part-time training each student
-                      will:
-                    </strong>
-                  </P>
-                  <Ul>
-                    <ReactPartTimeLearningObjectivesList />
-                    <Li>
-                      Not sure if our trainings are right for you? Read our blog{' '}
-                      <Link
-                        className="perfect-course-student"
-                        to="/blog/are-you-the-perfect-react-graphql-student/"
-                      >
-                        <strong>
-                          Are YOU the Perfect React GraphQL Student?
-                        </strong>
-                      </Link>
-                    </Li>
-                  </Ul>
-                  <H4>Training curriculum:</H4>
-
-                  <Row>
-                    <Col lg={1} lgOffset={1} />
-                    <Col lg={9}>
-                      <CurriculumReactPartTime
-                        {...commonCurriculumProps}
-                        marketingCard={
-                          trainingPartTime && (
-                            <MarketingCard
-                              heading="Next React Part time Training"
-                              text={`Don't cut into valuable work-days!`}
-                              className="training-curriculum-next-training-cta"
-                              to={trainingPartTime.toPath}
-                              buttonText={`${
-                                trainingPartTime.isOnline
-                                  ? 'Remote'
-                                  : trainingPartTime.city
-                              } React part-time ${formatUTC(
-                                trainingPartTime.startDate,
-                                trainingPartTime.utcOffset,
-                                'D MMM'
-                              )}  `}
-                            />
-                          )
-                        }
-                      />
-                    </Col>
-                  </Row>
-                </ContentItem>
-                <ContentItem name={REACT_FUNDAMENTALS}>
+                <TabPanel name={REACT_FUNDAMENTALS}>
                   <P>
                     <strong>
                       On completion of the React Fundamentals each student will:
@@ -637,8 +609,8 @@ class ReactCurriculum extends React.Component {
                       )}
                     </Col>
                   </Row>
-                </ContentItem>
-                <ContentItem name={ADVANCED_REACT}>
+                </TabPanel>
+                <TabPanel name={ADVANCED_REACT}>
                   <P>
                     <strong>
                       On completion of the Advanced React Training each student
@@ -685,7 +657,162 @@ class ReactCurriculum extends React.Component {
                       )}
                     </Col>
                   </Row>
-                </ContentItem>
+                </TabPanel>
+                <TabPanel name={COMPLETE_REACT_PART_TIME}>
+                  <P>
+                    <strong>
+                      On completion of the Complete React Part-time training
+                      each student will:
+                    </strong>
+                  </P>
+                  <Ul>
+                    <ReactBootcampLearningObjectivesList />
+                    <Li>
+                      Not sure if our trainings are right for you? Read our blog{' '}
+                      <Link
+                        className="perfect-course-student"
+                        to="/blog/are-you-the-perfect-react-graphql-student/"
+                      >
+                        <strong>
+                          Are YOU the Perfect React GraphQL Student?
+                        </strong>
+                      </Link>
+                    </Li>
+                  </Ul>
+                  <H4>Training curriculum:</H4>
+
+                  <Row>
+                    <Col lg={1} lgOffset={1} />
+                    <Col lg={9}>
+                      <CurriculumReactCompletePartTime
+                        {...commonCurriculumProps}
+                        marketingCard={
+                          trainingCompletePartTime && (
+                            <MarketingCard
+                              heading="Next Complete React Part time Training"
+                              text={`Don't cut into valuable work-days!`}
+                              className="training-curriculum-next-training-cta"
+                              to={trainingCompletePartTime.toPath}
+                              buttonText={`${
+                                trainingCompletePartTime.isOnline
+                                  ? 'Remote'
+                                  : trainingCompletePartTime.city
+                              } React part-time ${formatUTC(
+                                trainingCompletePartTime.startDate,
+                                trainingCompletePartTime.utcOffset,
+                                'D MMM'
+                              )}  `}
+                            />
+                          )
+                        }
+                      />
+                    </Col>
+                  </Row>
+                </TabPanel>
+
+                <TabPanel name={REACT_FUNDAMENTALS_PART_TIME}>
+                  <P>
+                    <strong>
+                      On completion of the React Fundamentals Part-time training
+                      each student will:
+                    </strong>
+                  </P>
+                  <Ul>
+                    <ReactFundamentalsLearningObjectivesList />
+                    <Li>
+                      Not sure if our trainings are right for you? Read our blog{' '}
+                      <Link
+                        className="perfect-course-student"
+                        to="/blog/are-you-the-perfect-react-graphql-student/"
+                      >
+                        <strong>
+                          Are YOU the Perfect React GraphQL Student?
+                        </strong>
+                      </Link>
+                    </Li>
+                  </Ul>
+                  <H4>Training curriculum:</H4>
+
+                  <Row>
+                    <Col lg={1} lgOffset={1} />
+                    <Col lg={9}>
+                      <CurriculumReactFundamentalsPartTime
+                        {...commonCurriculumProps}
+                        marketingCard={
+                          trainingFundamentalsPartTime && (
+                            <MarketingCard
+                              heading="Next React Fundamentals Part time Training"
+                              text={`Don't cut into valuable work-days!`}
+                              className="training-curriculum-next-training-cta"
+                              to={trainingFundamentalsPartTime.toPath}
+                              buttonText={`${
+                                trainingFundamentalsPartTime.isOnline
+                                  ? 'Remote'
+                                  : trainingFundamentalsPartTime.city
+                              } React part-time ${formatUTC(
+                                trainingFundamentalsPartTime.startDate,
+                                trainingFundamentalsPartTime.utcOffset,
+                                'D MMM'
+                              )}  `}
+                            />
+                          )
+                        }
+                      />
+                    </Col>
+                  </Row>
+                </TabPanel>
+
+                <TabPanel name={ADVANCED_REACT_PART_TIME}>
+                  <P>
+                    <strong>
+                      On completion of the Advanced React Part-time training
+                      each student will:
+                    </strong>
+                  </P>
+                  <Ul>
+                    <AdvLearningObjectivesList />
+                    <Li>
+                      Not sure if our trainings are right for you? Read our blog{' '}
+                      <Link
+                        className="perfect-course-student"
+                        to="/blog/are-you-the-perfect-react-graphql-student/"
+                      >
+                        <strong>
+                          Are YOU the Perfect React GraphQL Student?
+                        </strong>
+                      </Link>
+                    </Li>
+                  </Ul>
+                  <H4>Training curriculum:</H4>
+
+                  <Row>
+                    <Col lg={1} lgOffset={1} />
+                    <Col lg={9}>
+                      <CurriculumAdvancedReactPartTime
+                        {...commonCurriculumProps}
+                        marketingCard={
+                          trainingAdvancedPartTime && (
+                            <MarketingCard
+                              heading="Next Advanced React Part time Training"
+                              text={`Don't cut into valuable work-days!`}
+                              className="training-curriculum-next-training-cta"
+                              to={trainingAdvancedPartTime.toPath}
+                              buttonText={`${
+                                trainingAdvancedPartTime.isOnline
+                                  ? 'Remote'
+                                  : trainingAdvancedPartTime.city
+                              } React part-time ${formatUTC(
+                                trainingAdvancedPartTime.startDate,
+                                trainingAdvancedPartTime.utcOffset,
+                                'D MMM'
+                              )}  `}
+                            />
+                          )
+                        }
+                      />
+                    </Col>
+                  </Row>
+                </TabPanel>
               </Col>
             </Row>
           </Tabs>

@@ -14,12 +14,10 @@ const Tr = responsiveTable.Tr
 
 const Th = styled(responsiveTable.Th)`
   text-align: center;
-  ${props =>
-    props.type
-      ? `border-bottom 3px ${selectBorderStyle(props.type)} ${selectTypeColor(
-          props.type
-        )}`
-      : 'border: none;'};
+  ${({ tech, trainingType }) =>
+    `border-bottom 3px ${selectBorderStyle({
+      trainingType,
+    })} ${selectTypeColor({ tech })}`};
 `
 const Td = styled(responsiveTable.Td)`
   text-align: center;

@@ -13,11 +13,9 @@ import {
   TrustedBySection,
   selectUpcomingTrainings,
   selectNthTraining,
-  PART_TIME_REACT_ID,
-  REACT_FUNDAMENTALS_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import CurriculumReactPartTime from 'src/components/curriculum/CurriculumReactPartTime'
+import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
 import Header from 'src/components/layout/Header'
 import { REACT_PART_TIME, TECH_REACT } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
@@ -34,8 +32,7 @@ const metas = {
 
 const PartTime = ({ trainings, path }) => {
   const upcomingPartTimeTrainings = selectUpcomingTrainings({
-    trainingId: REACT_FUNDAMENTALS_ID,
-    trainingTypeId: PART_TIME_REACT_ID,
+    type: REACT_PART_TIME,
     trainings,
   })
   const nextTraining = selectNthTraining({
@@ -61,18 +58,20 @@ const PartTime = ({ trainings, path }) => {
           { to: '/react/training/', label: 'Training' },
           {
             to: path,
-            label: 'Part-time',
+            label: 'Complete Part-time',
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['1-Month Part-time', 'React Redux Training']}
-        subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
+        titleLines={['Complete React Part-time', 'Training']}
+        subtitle="Master the React ecosystem by working with industry experts without having to cut into valuable work-days"
         type={REACT_PART_TIME}
         links={header.landingPageLinks.links}
       />
       <TopSection>
         <Segment>
-          <CurriculumReactPartTime trainings={upcomingPartTimeTrainings} />
+          <CurriculumReactCompletePartTime
+            trainings={upcomingPartTimeTrainings}
+          />
         </Segment>
       </TopSection>
       <Section>

@@ -25,13 +25,14 @@ const selectCurriculumLayout = ({
   firstHalf,
   secondHalf,
   layout,
-  trainingTypeId,
+  trainingInstanceTypeName,
+  trainingType,
   trainings,
   content,
   curriculumTo,
   title,
   tech,
-  type,
+  // type,
   trainingId,
   marketingCard,
   curriculumTitle = 'Curriculum',
@@ -52,7 +53,9 @@ const selectCurriculumLayout = ({
       <Section
         isOpen={defaultLearningObjectivesIsOpen}
         title=""
-        type={trainingTypeId}
+        trainingInstanceTypeName={trainingInstanceTypeName}
+        trainingType={trainingType}
+        tech={tech}
       >
         <Ul>
           <LearningObjectives />
@@ -62,7 +65,11 @@ const selectCurriculumLayout = ({
   )
 
   const typedMarketingCard = marketingCard
-    ? React.cloneElement(marketingCard, { type, tech })
+    ? React.cloneElement(marketingCard, {
+        trainingInstanceTypeName,
+        trainingType,
+        tech,
+      })
     : null
 
   if (layout === LIST_LAYOUT) {
@@ -125,7 +132,9 @@ const selectCurriculumLayout = ({
               <UpcomingTrainingCurriculum
                 trainingId={trainingId}
                 trainings={trainings}
-                trainingTypeId={trainingTypeId}
+                trainingType={trainingType}
+                trainingInstanceTypeName={trainingInstanceTypeName}
+                tech={tech}
               />
             )}
             {content === null ? null : content ? (

@@ -13,10 +13,15 @@ import TestingInReactSession2 from '../sessions/TestingInReactSession2'
 import AdvancedReactPatternsSession from '../sessions/AdvancedReactPatternsSession'
 import AdvancedHooksAndPerfSession from '../sessions/AdvancedHooksAndPerfSession'
 import FundamentalsFinalProject from '../sessions/FundamentalsFinalProject'
-// import AdvancedUIPatterns from '../sessions/AdvancedUIPatterns'
 import DesignSystemSession from '../sessions/DesignSystemSession'
 
-import { REACT_BOOTCAMP } from '../../../config/data'
+import {
+  REACT_BOOTCAMP,
+  FULL_TIME,
+  TECH_REACT,
+  TRAINING_TYPE_FULL_CURRICULUM,
+  REACT_BOOTCAMP_ID,
+} from '../../../config/data'
 import Curriculum, { renderSection } from '../Curriculum'
 
 export const sessionsFirstHalf = [
@@ -52,28 +57,37 @@ export const sessionsSecondHalf = [
   },
 ]
 
+const trainingInstanceTypeName = FULL_TIME
+const tech = TECH_REACT
+const trainingType = TRAINING_TYPE_FULL_CURRICULUM
+const trainingId = REACT_BOOTCAMP_ID
+
 const CurriculumReactBootcamp = ({
   toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
-  training,
+  // training,
   section = {},
   ...rest
 }) => {
-  const type = REACT_BOOTCAMP
   const sectionProps = {
     ...section,
     toggleNavigateTo,
-    type,
+    trainingInstanceTypeName,
+    tech,
+    trainingType,
   }
   const renderSectionArgs = {
-    training,
+    // training,
     sectionProps,
   }
 
   return (
     <Curriculum
       title="React Redux Bootcamp Outline"
-      training={training}
-      type={type}
+      //   training={training}
+      trainingId={trainingId}
+      tech={tech}
+      trainingType={trainingType}
+      trainingInstanceTypeName={trainingInstanceTypeName}
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}

@@ -1,176 +1,116 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { space } from 'styled-system'
+import Ul from './Ul'
 
-import { BLUE } from '../../config/styles'
-import {
-  SCREEN_XS_MAX,
-  SCREEN_SM_MIN,
-  selectTypeColor,
-  selectBorderStyle,
-} from '../utils'
-import { Col, Row } from './Grid'
+import { selectTypeColor, selectBorderStyle } from '../utils'
 import Box from './Box'
+import { TECH_GRAPHQL } from '../../config/data'
 
-const Ul = styled(Box)`
-  a {
-    cursor: pointer;
-  }
-  > li {
-    list-style-type: none;
-    display: inline-block;
-    span,
-    a {
-      display: block;
-      ${space({ p: 2 })}
+export const StyledLi = styled(Box)`
+  list-style-type: none;
+  display: inline-block;
+  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+    ${space({ mx: 2 })}
+    :last-child {
+      margin-right: 0;
+    }
+
+    :first-child {
+      margin-left: 0;
     }
   }
-
-  @media (min-width: ${SCREEN_SM_MIN}) {
-    li {
-      ${space({ mx: 2 })}
-      :last-child {
-        margin-right: 0;
-      }
-
-      :first-child {
-        margin-left: 0;
-      }
-    }
-  }
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    li {
-      display: block;
-    }
+  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+    display: block;
   }
 `
 
-export const TabList = React.memo(
-  ({
-    // active,
-    // setActive,
-    // onChange,
-    children,
-    sx = {},
-    includeRowCol = true,
-    ...rest
-  }) => {
-    // const compound = React.Children.map(children, child =>
-    //   React.cloneElement(child, {
-    //     isActive: child.props.name === active,
-    //     onClick: child.props.name
-    //       ? () => {
-    //           onChange && onChange(child.props.name)
-    //           setActive(child.props.name)
-    //         }
-    //       : undefined,
-    //   })
-    // )
-
-    const ul = (
-      <Ul
-        sx={{
-          p: 0,
-          m: 0,
-          mb: 4,
-          ...sx,
-        }}
-        {...rest}
-        box="ul"
-      >
-        {children}
-      </Ul>
-    )
-
-    return includeRowCol ? (
-      <Row>
-        <Col {...rest} md={11}>
-          {ul}
-        </Col>
-      </Row>
-    ) : (
-      ul
-    )
-  }
-)
+export const TabList = React.memo(({ sx = {}, ...rest }) => (
+  <Ul
+    role="tablist"
+    variants={['inline', 'unstyled']}
+    sx={{
+      p: 0,
+      m: 0,
+      mb: 4,
+      ...sx,
+    }}
+    {...rest}
+  />
+))
 
 TabList.displayName = 'TabList'
 
-const A = styled.a.attrs(props => ({ className: props.className }))`
-  ${props =>
-    props.isActive
-      ? `
-      @media (min-width: ${SCREEN_SM_MIN}) {
-        position:relative;
-        text-align:center;
-      }
-      @media (max-width: ${SCREEN_XS_MAX}) {
-        border: 1px solid ${BLUE};
-      }
-      background: ${selectTypeColor(props.name)};
-    `
-      : ''};
-  ${props =>
-    `border-bottom: 3px ${selectBorderStyle(props.name)} ${selectTypeColor(
-      props.name
-    )}`};
-  ${props => {
-    if (
-      props.isActive &&
-      props.name &&
-      props.name.toLowerCase().indexOf('graphql') > -1
-    ) {
-      return `color: white !important`
-    }
-  }};
+export const StyledA = styled(Box)`
+  cursor: pointer;
 `
 
+const selectTabItemColorFn = ({ isSelected, tech }) =>
+  isSelected && tech === TECH_GRAPHQL ? 'lightText' : undefined
+
+// TODO add aria-controls and tabindex -> https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
 export const TabItem = React.memo(
   ({
-    // isActive,
-    // onClick,
     name,
-    component,
-    className = 'courses training-curriculum-clicks', // todo remove this default
+    sx = {},
+    li: Li = StyledLi,
+    a: A = StyledA,
+    selectTabItemColor = selectTabItemColorFn,
+    tech,
+    trainingType,
     ...props
   }) => {
     const { onChange, value } = useTabsContext()
+    const isSelected = name === value
+    const color = selectTabItemColor({ isSelected, tech })
+
     return (
-      <li name={name}>
+      <Li name={name}>
         <A
-          role="button"
-          isActive={name === value}
+          ariaSelected={isSelected}
+          sx={{
+            color,
+            p: 1,
+            borderStyle: isSelected ? [`1px solid`, ''] : undefined,
+            borderColor: isSelected ? [`react`, ''] : undefined,
+            borderBottom: `3px ${selectBorderStyle({
+              trainingType,
+            })} ${selectTypeColor({
+              tech,
+            })}`,
+            backgroundColor: isSelected ? selectTypeColor({ tech }) : undefined,
+            position: isSelected
+              ? ['relative', 'relative', 'unset']
+              : undefined,
+            textAlign: isSelected ? ['center', 'unset'] : undefined,
+            cursor: 'pointer',
+            display: 'block',
+            ...sx,
+          }}
+          role="tab"
+          isSelected={isSelected}
           name={name}
           {...props}
           onClick={e => {
             e.preventDefault()
-            // onClick && onClick()
             onChange(name)
           }}
-          className={className}
         />
-      </li>
+      </Li>
     )
   }
 )
 
 TabItem.displayName = 'TabItem'
 
-// TODO REMOVE THIS
-// export const TabContent = React.memo(props => <div {...props} />)
-
-TabContent.displayName = 'TabContent'
-
-// TODO RENAME TO TabPanel
-// TODO ADD aria-labelledby
-export const ContentItem = React.memo(({ name, ...rest }) => {
+// TODO ADD aria-labelledby and tabindex -> https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
+export const TabPanel = React.memo(({ name, ...rest }) => {
   const { value } = useTabsContext()
 
   return value === name ? <div role="tabpanel" {...rest} /> : null
 })
 
-//export const ContentItem = () => 'content item'
-ContentItem.displayName = 'ContentItem'
+TabPanel.displayName = 'TabPanel'
 
 const TabsContext = React.createContext()
 
@@ -187,19 +127,17 @@ export const useTabsContext = () => {
 }
 
 export const Tabs = ({
-  value: valueProp, // TODO RENAME ACTIVE WITH VALUE
+  value: valueProp,
   defaultValue,
   onChange: onChangeProp,
   ...rest
 }) => {
-  const [value, setValue] = useState(defaultValue || valueProp)
+  const [value, setValue] = useState(defaultValue)
 
   const onChange = value => {
     onChangeProp && onChangeProp(value)
-    if (!valueProp) {
-      // TODO should we call it value instead of active?
-      setValue(value)
-    }
+    // if it's a controlled component then there is no need to update the state and trigger another rerender
+    !valueProp && setValue(value)
   }
 
   return (

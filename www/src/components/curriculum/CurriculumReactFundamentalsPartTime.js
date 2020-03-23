@@ -1,15 +1,15 @@
 import React from 'react'
-import ES6Session from '../sessions/ES6Session'
-import ThinkingInReactSession from '../sessions/ThinkingInReactSession'
-import RoutingAndDataFetchingSession from '../sessions/RoutingAndDataFetchingSession'
-import ReactFundamentalsRecapSession from '../sessions/ReactFundamentalsRecapSession'
-import FormsAndAuthSession from '../sessions/FormsAndAuthSession'
-import IntroReduxSession from '../sessions/IntroReduxSession'
-import HooksSession from '../sessions/HooksSession'
-import FundamentalsFinalProject from '../sessions/FundamentalsFinalProject'
-import { REACT_PART_TIME } from '../../../config/data'
-import Curriculum from '../Curriculum'
-import renderPartTimeSection from '../renderPartTimeSession'
+import ES6Session from './sessions/ES6Session'
+import ThinkingInReactSession from './sessions/ThinkingInReactSession'
+import RoutingAndDataFetchingSession from './sessions/RoutingAndDataFetchingSession'
+import ReactFundamentalsRecapSession from './sessions/ReactFundamentalsRecapSession'
+import FormsAndAuthSession from './sessions/FormsAndAuthSession'
+import IntroReduxSession from './sessions/IntroReduxSession'
+import HooksSession from './sessions/HooksSession'
+import FundamentalsFinalProject from './sessions/FundamentalsFinalProject'
+import { REACT_PART_TIME } from '../../config/data'
+import Curriculum from './Curriculum'
+import renderPartTimeSection from './renderPartTimeSession'
 
 export const defaultSessionsFirstHalf = [
   { title: 'Thinking in React', Comp: ThinkingInReactSession, group: 1 },
@@ -39,7 +39,7 @@ export const defaultSessionsSecondHalf = [
 
 const type = REACT_PART_TIME
 
-const CurriculumReactPartTime = ({
+const CurriculumReactFundamentalsPartTime = ({
   toggleNavigateTo = `/react/curriculum?tab=${type}`,
   training,
   section = {},
@@ -61,7 +61,7 @@ const CurriculumReactPartTime = ({
 
   return (
     <Curriculum
-      title="React Redux Part-time Training Outline"
+      title="React Redux Fundamentals Part-time Outline"
       training={training}
       type={type}
       curriculumTo={toggleNavigateTo}
@@ -74,4 +74,4 @@ const CurriculumReactPartTime = ({
   )
 }
 
-export default CurriculumReactPartTime
+export default CurriculumReactFundamentalsPartTime

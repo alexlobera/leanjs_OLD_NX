@@ -82,8 +82,8 @@ const TrainingPage = ({ path, trainings }) => {
                 px: 1,
               },
               {
-                to: '/react/training/advanced-part-time',
-                children: 'Full Part-time (PT)',
+                to: '/react/training/part-time',
+                children: 'Complete PT',
               },
               {
                 to: '/react/training/advanced-part-time',

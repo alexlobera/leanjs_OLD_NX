@@ -42,6 +42,8 @@ const Ul = ({ sx = {}, children, ...rest }) => (
   />
 )
 
+const Ol = props => <Ul box="ol" {...props} />
+
 const ulVariantSxProp = {
   inline: {
     m: 0,
@@ -86,5 +88,5 @@ const Li = ({ sx = {}, ...rest }) => (
   />
 )
 
-export { Ul, Li }
+export { Ul, Ol, Li }
 export default Ul

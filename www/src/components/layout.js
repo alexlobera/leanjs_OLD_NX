@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import raven from 'raven-js'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import selectUpcomingTrainings from './training/selectUpcomingTrainings'
+// import selectUpcomingTrainings from './training/selectUpcomingTrainings'
 import {
   createTrainingPath,
   formatMeetup,
@@ -144,7 +144,7 @@ const Layout = ({ children }) => {
     // const { title = '' } = description || {}
     const remoteOrCity = isOnline ? 'remote' : city
     // const type = training && training.customFieldsValues  && training.customFieldsValues.length
-    const type = training.customFieldsValues.find(
+    const trainingType = training.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
     ).values[0]
     const tech = training.customFieldsValues.find(
@@ -160,14 +160,14 @@ const Layout = ({ children }) => {
       trainingInstanceTypeName,
       shoppingItemEnum: 'training',
       title,
-      type, // rename type with trainingType ??
+      trainingType,
       tech,
       training: {
         ...training,
         toPath: createTrainingPath({
           trainingId,
           slug,
-          type,
+          trainingType,
           tech,
           trainingInstanceTypeName,
         }),
@@ -178,7 +178,7 @@ const Layout = ({ children }) => {
         trainingId,
         slug,
         trainingInstanceTypeName,
-        type,
+        trainingType,
         tech,
         // isOnline,
       }),
@@ -200,11 +200,10 @@ const Layout = ({ children }) => {
   const confs = data.upmentoring.eventsConnection.edges
     .filter(({ node: { meetup } }) => !meetup || !meetup.id)
     .map(formatConf)
-  const trainingAndEvents = selectUpcomingTrainings({
-    trainings: [...trainings, ...meetups, ...confs],
-  })
+  const trainingAndEvents = [...trainings, ...meetups, ...confs]
 
-  console.log('aaa', trainingAndEvents)
+  console.log('aaa trainingAndEvents', trainingAndEvents)
+
   return (
     <React.Fragment>
       <React.Fragment>

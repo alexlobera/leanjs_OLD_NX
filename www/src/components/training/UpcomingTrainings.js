@@ -7,7 +7,9 @@ import selectUpcomingTrainings from './selectUpcomingTrainings'
 
 const UpcomingTrainings = ({
   curriculum,
-  trainingTypeId,
+  trainingType,
+  trainingInstanceTypeName,
+  tech,
   city,
   limit,
   trainingId,
@@ -15,7 +17,9 @@ const UpcomingTrainings = ({
   className,
 }) => {
   const filteredTrainings = selectUpcomingTrainings({
-    trainingTypeId,
+    trainingType,
+    trainingInstanceTypeName,
+    tech,
     limit,
     city,
     trainings,

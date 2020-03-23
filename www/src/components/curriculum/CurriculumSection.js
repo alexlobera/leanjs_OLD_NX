@@ -41,7 +41,8 @@ const CurriculumSection = props => {
   const isOpen =
     props.isOpen ||
     (getURLParameter('section') === props.name &&
-      getURLParameter('tab') === props.type)
+      getURLParameter('tab') ===
+        `${props.trainingId}${props.trainingInstanceTypeName}`)
 
   const [isTabOpen, setIsOpen] = useState(isOpen)
 
@@ -61,7 +62,9 @@ const CurriculumSection = props => {
   const {
     title,
     name,
-    type,
+    tech,
+    // type,
+    trainingType,
     subTitle,
     trainingDateTime = '',
     children,
@@ -105,8 +108,8 @@ const CurriculumSection = props => {
 
   return (
     <Card
-      borderStyle={selectBorderStyle(type)}
-      borderColor={selectTypeColor(type)}
+      borderStyle={selectBorderStyle({ trainingType })}
+      borderColor={selectTypeColor({ tech })}
       sx={{
         mt: 4,
         ...sx,
