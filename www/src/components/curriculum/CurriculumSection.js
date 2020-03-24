@@ -5,7 +5,7 @@ import Link from '../navigation/Link'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
-import { selectTypeColor, selectBorderStyle } from '../utils'
+import { selectTechColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
 import Box from '../layout/Box'
 import Card from '../elements/Card'
@@ -107,7 +107,7 @@ const CurriculumSection = props => {
   return (
     <Card
       borderStyle={selectBorderStyle({ trainingType })}
-      borderColor={selectTypeColor({ tech })}
+      borderColor={selectTechColor({ tech })}
       sx={{
         mt: 4,
         ...sx,

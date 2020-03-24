@@ -73,7 +73,7 @@ const CompletePartTime = ({ trainings, path }) => {
         ]}
         tech={TECH_REACT}
         titleLines={['Complete React Part-time', 'Training']}
-        subtitle="Master the React ecosystem by working with industry experts without having to cut into valuable work-days"
+        subtitle="Master the React ecosystem by working with industry experts without having to cut into valuable work"
         trainingType={trainingType}
         links={header.landingPageLinks.links}
       />

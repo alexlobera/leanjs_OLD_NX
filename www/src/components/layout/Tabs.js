@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { space } from 'styled-system'
 import Ul from './Ul'
 
-import { selectTypeColor, selectBorderStyle } from '../utils'
+import { selectTechColor, selectBorderStyle } from '../utils'
 import Box from './Box'
 import { TECH_GRAPHQL } from '../../config/data'
 
@@ -75,10 +75,10 @@ export const TabItem = React.memo(
             borderColor: isSelected ? [`react`, ''] : undefined,
             borderBottom: `3px ${selectBorderStyle({
               trainingType,
-            })} ${selectTypeColor({
+            })} ${selectTechColor({
               tech,
             })}`,
-            backgroundColor: isSelected ? selectTypeColor({ tech }) : undefined,
+            backgroundColor: isSelected ? selectTechColor({ tech }) : undefined,
             position: isSelected
               ? ['relative', 'relative', 'unset']
               : undefined,

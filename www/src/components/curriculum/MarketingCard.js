@@ -4,7 +4,7 @@ import { Col, Row } from '../layout/Grid'
 import { Span, H4 } from '../text'
 import { LinkButton } from '../buttons'
 import Card from '../elements/Card'
-import { selectTypeColor, selectBorderStyle } from '../utils'
+import { selectTechColor, selectBorderStyle } from '../utils'
 
 const MarketingCard = ({
   text,
@@ -21,7 +21,7 @@ const MarketingCard = ({
     variant="info"
     sx={{
       borderStyle: selectBorderStyle({ trainingType }),
-      borderColor: selectTypeColor({ tech }),
+      borderColor: selectTechColor({ tech }),
       mt,
       mb,
       ...sxRest,

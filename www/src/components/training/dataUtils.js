@@ -1,6 +1,5 @@
 import {
   FULL_TIME,
-  FULL_DAY,
   PART_TIME,
   TRAINING_TYPE_WORKSHOP,
   TRAINING_TYPE_TRIAL,
@@ -52,7 +51,7 @@ export const createTrainingPath = ({
   ) {
     return `/react/training/fundamentals-part-time/${cityPathI}`
   } else if (
-    trainingInstanceTypeName === FULL_DAY &&
+    trainingInstanceTypeName === FULL_TIME &&
     trainingType === TRAINING_TYPE_WORKSHOP
   ) {
     return `/${tech}/training/workshops/${slug}/${cityPathI}`

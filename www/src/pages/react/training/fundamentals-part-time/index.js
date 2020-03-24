@@ -70,7 +70,7 @@ const PartTime = ({ trainings, path }) => {
         ]}
         tech={TECH_REACT}
         titleLines={['React Redux Fundamentals', 'Part-time Training']}
-        subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
+        subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work"
         trainingType={TRAINING_TYPE_HALF_CURRICULUM}
         links={header.landingPageLinks.links}
       />

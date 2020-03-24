@@ -23,7 +23,7 @@ import {
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import { selectTypeColor, selectBorderStyle } from '../utils/index.js'
+import { selectTechColor, selectBorderStyle } from '../utils/index.js'
 import { Image } from '../elements'
 import Box from './Box'
 import { LinkButton } from '../buttons'
@@ -259,7 +259,7 @@ const TitleCol = styled(Col)`
     trainingType &&
     `
     height: 100%;
-    border-left: ${selectBorderStyle({ trainingType })} 27px ${selectTypeColor({
+    border-left: ${selectBorderStyle({ trainingType })} 27px ${selectTechColor({
       tech,
     })};
     @media (min-width: ${SCREEN_SM_MIN}) {
@@ -268,7 +268,7 @@ const TitleCol = styled(Col)`
     @media (max-width: ${SCREEN_SM_MAX}) {
       border-left: ${selectBorderStyle({
         trainingType,
-      })} 10px ${selectTypeColor({ tech })};
+      })} 10px ${selectTechColor({ tech })};
     }
     margin-bottom: 1em;
   `};
@@ -280,7 +280,7 @@ const InfoBox = styled(Box)`
   }
   font-size: 0.9rem;
   border: ${({ tech, trainingType }) =>
-    `${selectBorderStyle({ trainingType })} 5px ${selectTypeColor({ tech })}`};
+    `${selectBorderStyle({ trainingType })} 5px ${selectTechColor({ tech })}`};
 `
 const FeaturedSection = ({ sx = {}, ...rest }) => (
   <Box

@@ -32,7 +32,7 @@ import { createMetas } from 'src/components/utils'
 const metas = {
   title: 'Advanced React Part-Time Training | React GraphQL Academy',
   description:
-    'Interested in learning advanced React without cutting into valuable work-days? Learn advanced React and supercharge your dev skillset with the latest in advanced React training. Contact us now!',
+    'Interested in learning advanced React without cutting into valuable work? Learn advanced React and supercharge your dev skillset with the latest in advanced React training. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -75,7 +75,7 @@ const AdvancedTraining = ({ path, trainings }) => {
         ]}
         tech={TECH_REACT}
         titleLines={['Advanced React', 'Part-Time Training']}
-        subtitle="For two and a half weeks, expert coaches and developers will work alongside you to master the React ecosystem without cutting into valuable work-days"
+        subtitle="For two and a half weeks, expert coaches and developers will work alongside you to master the React ecosystem without cutting into valuable work"
         bgImageName={BOOTCAMP}
         trainingType={trainingType}
         links={header.landingPageLinks.links}

@@ -370,7 +370,7 @@ class GraphQLCurriculum extends React.Component {
                           trainingPartTime && (
                             <MarketingCard
                               heading="Next GraphQL part-time training"
-                              text={`Don't cut into valuable work-days!`}
+                              text={`Don't cut into valuable work!`}
                               className="training-curriculum-next-training-cta"
                               to={trainingPartTime && trainingPartTime.toPath}
                               buttonText={`${

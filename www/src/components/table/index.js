@@ -1,7 +1,7 @@
 import * as responsiveTable from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import styled from 'styled-components'
-import { selectTypeColor, selectBorderStyle } from '../utils'
+import { selectTechColor, selectBorderStyle } from '../utils'
 import { FONT_FAMILY } from '../../config/styles'
 
 const Table = styled(responsiveTable.Table)`
@@ -18,7 +18,7 @@ const Th = styled(responsiveTable.Th)`
     tech &&
     `border-bottom 3px ${selectBorderStyle({
       trainingType,
-    })} ${selectTypeColor({ tech })}`};
+    })} ${selectTechColor({ tech })}`};
 `
 const Td = styled(responsiveTable.Td)`
   text-align: center;

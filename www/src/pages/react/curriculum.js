@@ -706,7 +706,7 @@ class ReactCurriculum extends React.Component {
                           trainingCompletePartTime && (
                             <MarketingCard
                               heading="Next Complete React Part time Training"
-                              text={`Don't cut into valuable work-days!`}
+                              text={`Don't cut into valuable work!`}
                               className="training-curriculum-next-training-cta"
                               to={trainingCompletePartTime.toPath}
                               buttonText={`${
@@ -758,7 +758,7 @@ class ReactCurriculum extends React.Component {
                           trainingFundamentalsPartTime && (
                             <MarketingCard
                               heading="Next React Fundamentals Part time Training"
-                              text={`Don't cut into valuable work-days!`}
+                              text={`Don't cut into valuable work!`}
                               className="training-curriculum-next-training-cta"
                               to={trainingFundamentalsPartTime.toPath}
                               buttonText={`${
@@ -810,7 +810,7 @@ class ReactCurriculum extends React.Component {
                           trainingAdvancedPartTime && (
                             <MarketingCard
                               heading="Next Advanced React Part time Training"
-                              text={`Don't cut into valuable work-days!`}
+                              text={`Don't cut into valuable work!`}
                               className="training-curriculum-next-training-cta"
                               to={trainingAdvancedPartTime.toPath}
                               buttonText={`${

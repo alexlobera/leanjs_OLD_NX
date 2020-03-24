@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { P, Span } from '../text'
 import Link from '../navigation/Link'
-import { selectTypeColor, selectBorderStyle } from '../utils'
+import { selectTechColor, selectBorderStyle } from '../utils'
 import Flex from '../layout/Flex'
 import Tag from '../elements/Tag'
 import { formatUTC } from '../utils'
@@ -12,7 +12,7 @@ const Calendar = styled(Link).attrs(props => ({
   className: props.className,
 }))`
   ${({ tech, trainingType }) =>
-    `border: 3px ${selectBorderStyle({ trainingType })} ${selectTypeColor({
+    `border: 3px ${selectBorderStyle({ trainingType })} ${selectTechColor({
       tech,
     })};`}
   padding: 10px;

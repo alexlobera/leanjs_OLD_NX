@@ -1,5 +1,5 @@
 import React from 'react'
-import { selectTypeColor } from '../utils'
+import { selectTechColor } from '../utils'
 
 const Tick = ({ tech }) => (
   <svg
@@ -9,7 +9,7 @@ const Tick = ({ tech }) => (
     viewBox="0 0 35 27"
   >
     <polygon
-      fill={`${selectTypeColor({ tech })}`}
+      fill={`${selectTechColor({ tech })}`}
       fill-rule="evenodd"
       points="0 14.825 3.773 9.937 13.851 18.323 30.413 0 35 4.148 14.494 27"
     />
