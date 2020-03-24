@@ -74,6 +74,7 @@ const CurriculumGraphQLBootcamp = ({
       title="GraphQL Bootcamp Outline"
       trainingId={trainingId}
       tech={tech}
+      training={training}
       trainingType={trainingType}
       trainingInstanceTypeName={trainingInstanceTypeName}
       curriculumTo={toggleNavigateTo}

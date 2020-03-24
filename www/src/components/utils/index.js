@@ -329,7 +329,7 @@ export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
 
 export const trainingTimings = ({ training = {} }) =>
   `${(training.startDate &&
-    formatUTC(training.startDate, training.utcOffset, 'HH:mm')) ||
+    `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`) ||
     '09:00'} - ${(training.endDate &&
     formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
     '18:00'}`

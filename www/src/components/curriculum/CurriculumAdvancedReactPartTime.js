@@ -60,6 +60,7 @@ const CurriculumAdvancedReactPartTime = ({
     <Curriculum
       title="Advanced React Part-time Training Outline"
       tech={tech}
+      training={training}
       trainingType={trainingType}
       trainingInstanceTypeName={trainingInstanceTypeName}
       trainingId={trainingId}

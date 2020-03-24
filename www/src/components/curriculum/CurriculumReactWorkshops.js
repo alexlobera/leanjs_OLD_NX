@@ -21,6 +21,7 @@ const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
     trainingType,
     type,
   }
+
   return (
     <Curriculum
       title="React Workshops"
