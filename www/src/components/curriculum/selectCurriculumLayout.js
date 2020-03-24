@@ -13,10 +13,6 @@ import Box from '../layout/Box'
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
 
-// const SectionCTA = styled(Box)``
-// SectionCTA.defaultProps = {
-//   sx: { pt: 5 },
-// }
 const SectionCTA = ({ sx = {}, ...rest }) => (
   <Box sx={{ pt: 5, ...sx }} {...rest} />
 )
@@ -32,7 +28,6 @@ const selectCurriculumLayout = ({
   curriculumTo,
   title,
   tech,
-  // type,
   trainingId,
   marketingCard,
   curriculumTitle = 'Curriculum',

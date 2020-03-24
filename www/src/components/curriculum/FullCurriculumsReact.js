@@ -23,11 +23,6 @@ import {
 } from '../../config/data'
 
 const FullCurriculumsReact = ({ trainings }) => {
-  //   const allReactWorkshops = selectUpcomingTrainings({
-  //     trainings,
-  //     types: [REACT_WORKSHOP],
-  //   })
-
   const commonCurriculumProps = {
     trainings,
     showTitle: false,
