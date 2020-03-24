@@ -27,6 +27,7 @@ export const ADVANCED_REACT_ID = '5ab6244a88546e46fa2b2601' // 5db17dcbcfdceb000
 export const REACT_FUNDAMENTALS_ID = '5d0114b706051b7d3bcb0cf9' //'5db0681934ca7d0002dfd233'
 export const GRAPHQL_BOOTCAMP_ID = 'to-be-implemented'
 export const GRAPHQL_API_ID = '5dc6f35fce62530002bd3e92'
+export const GRAPHQL_TRIAL_ID = '5e349275778e880002113474'
 
 export const FULL_TIME = 'full-time'
 export const PART_TIME = 'part-time'

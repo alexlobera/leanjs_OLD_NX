@@ -1,14 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import CurriculumGraphQLPartTimeTrial, {
+import CurriculumGraphQLTrial, {
   LearningObjectives,
-} from 'src/components/curriculum/workshops/CurriculumGraphQLPartTimeTrial'
+} from 'src/components/curriculum/CurriculumGraphQLTrial'
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
@@ -18,9 +17,9 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
+import { TECH_GRAPHQL, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
-import { trainingId, breadcrumbWorkshopName } from './config.json'
+import { trainingId, breadcrumbTrainingName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { LIGHT_PINK } from 'src/config/styles'
 
@@ -32,7 +31,7 @@ const metas = {
   type: 'website',
 }
 
-const Page = ({ path, trainings }) => {
+const Page = ({ path, trainings, training }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
@@ -56,10 +55,9 @@ const Page = ({ path, trainings }) => {
           { to: '/', label: 'Home' },
           { to: '/graphql', label: 'GraphQL' },
           { to: '/graphql/training/', label: 'Training' },
-          { to: '/graphql/training/workshops', label: 'Workshops' },
           {
             to: path,
-            label: breadcrumbWorkshopName,
+            label: breadcrumbTrainingName,
           },
         ]}
         tech={TECH_GRAPHQL}
@@ -70,16 +68,14 @@ const Page = ({ path, trainings }) => {
           { text: 'Workshop Agenda', to: '#curriculum' },
           { text: 'Is this right for me?', to: '#target-audience' },
         ]}
-        bgImageName={LONDON_BOOTCAMP}
-        type={GRAPHQL_WORKSHOP}
+        trainingType={TRAINING_TYPE_WORKSHOP}
       />
       <TopSection>
         <Segment>
-          <CurriculumGraphQLPartTimeTrial
+          <CurriculumGraphQLTrial
             trainings={trainings}
-            trainingId={trainingId}
+            training={training}
             enableToggle
-            type={GRAPHQL_WORKSHOP}
             section={{ isOpen: true }}
             learningObjectives={LearningObjectives}
           />
@@ -90,11 +86,12 @@ const Page = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              type={GRAPHQL_WORKSHOP}
+              //   type={GRAPHQL_WORKSHOP}
               quote="As a freelance developer, I was tired of doing online courses on my own without live support. [The training] was fantastic - the teachers didn't leave a single question unanswered."
               fullname="Rafa Fraga"
               job="Software Engineer"
               youtubeId="hZZksRcqtkc"
+              tech={TECH_GRAPHQL}
             />
           </Col>
           <Col md={4} lgOffset={1}>

@@ -97,7 +97,7 @@ const CorporateGraphQLTraining = ({ path, trainings, data }) => {
           <Col md={5} mdOffset={1} order={[2, 1]}>
             <a name="previous-clients" />
             <AttendeeQuote
-              type={TECH_GRAPHQL}
+              tech={TECH_GRAPHQL}
               quote="It's really hard to find good advanced tech training. In house, you standardise the knowledge [in a team] and start doing things the right way."
               fullname="Eber Herrera"
               job="Technical Director"

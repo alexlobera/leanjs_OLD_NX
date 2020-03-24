@@ -7,7 +7,7 @@ import Card from '../elements/Card'
 import { selectTechColor } from '../utils'
 
 const AttendeeQuote = ({
-  type,
+  tech,
   quote,
   fullname,
   company,
@@ -21,7 +21,7 @@ const AttendeeQuote = ({
   ...rest
 }) => (
   <Card
-    sx={{ borderColor: selectTechColor(type), ...sx }}
+    sx={{ borderColor: selectTechColor({ tech }), ...sx }}
     variant="info"
     {...rest}
   >

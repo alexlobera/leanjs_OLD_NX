@@ -1,16 +1,16 @@
 import React from 'react'
 import Section from './CurriculumSection'
 import { LinkButton } from '../buttons'
-import { GRAPHQL_BOOTCAMP } from '../../config/data'
+import { TECH_GRAPHQL } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
 const CurriculumCorporateGraphQL = ({ layout }) => {
-  const type = GRAPHQL_BOOTCAMP
+  const tech = TECH_GRAPHQL
   const commonProps = {
     showLinkToCurriculum: false,
     enableToggle: false,
-    type,
+    tech,
     isOpen: false,
   }
   const firstHalf = (
@@ -57,7 +57,7 @@ const CurriculumCorporateGraphQL = ({ layout }) => {
     firstHalf,
     secondHalf,
     layout,
-    type,
+    tech,
     content: <CorpTrainingFacts />,
     curriculumTitle: 'GraphQL Training Curriculum Example',
   })

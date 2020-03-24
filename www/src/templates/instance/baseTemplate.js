@@ -31,11 +31,7 @@ import Box from 'src/components/layout/Box'
 import ContactForm from 'src/components/form/Contact'
 import FinanceCard from 'src/components/payment/FinanceCard'
 import BlogSection from 'src/components/blog/BlogSection'
-import {
-  REACT_FUNDAMENTALS,
-  REACT_PART_TIME,
-  TECH_GRAPHQL,
-} from '../../config/data'
+import { TECH_GRAPHQL } from '../../config/data'
 import { createMetas, getRandom } from 'src/components/utils'
 import { LIGHT_PINK } from 'src/config/styles'
 
@@ -280,7 +276,7 @@ const InstancePage = ({
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              tech={tech}
+              tech={techLowerCase}
               quote={videoTwoQuote}
               fullname={videoTwoFullname}
               job={videoTwoJob}

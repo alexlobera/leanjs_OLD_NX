@@ -4,18 +4,19 @@ import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
   LearningObjectives,
-} from 'src/components/curriculum/workshops/CurriculumGraphQLPartTimeTrial'
-import { GRAPHQL_WORKSHOP } from 'src/config/data'
+} from 'src/components/curriculum/CurriculumGraphQLTrial'
+import { TRAINING_TYPE_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
 
 const Page = props => (
   <BaseTemplate
     {...props}
     trialOfTheTrainingId="5dc6f35fce62530002bd3e92"
-    type={GRAPHQL_WORKSHOP}
     typeOfTraining="GraphQL trial"
     targetAudienceList={TargetAudienceList}
     learningObjectives={LearningObjectives}
     curriculum={Curriculum}
+    tech={TECH_GRAPHQL}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     curriculumProps={{
       section: { isOpen: true },
     }}
