@@ -104,15 +104,6 @@ export const selectUpcomingTrainings = ({
   limit = 9999,
   onlineOrOffline,
 }) => {
-  // const typesArray = types ? types : type ? [type] : []
-  console.log(
-    'selectUpcomingTrainings',
-    trainingId,
-    trainingInstanceTypeName,
-    tech,
-    city,
-    trainings
-  )
   if (!trainings || !Array.isArray(trainings)) {
     return []
   }

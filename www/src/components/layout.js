@@ -202,8 +202,6 @@ const Layout = ({ children }) => {
     .map(formatConf)
   const trainingAndEvents = [...trainings, ...meetups, ...confs]
 
-  console.log('aaa trainingAndEvents', trainingAndEvents)
-
   return (
     <React.Fragment>
       <React.Fragment>

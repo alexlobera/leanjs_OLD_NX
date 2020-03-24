@@ -31,10 +31,10 @@ const trainingList = [
     to: '/react/training/bootcamp/',
   },
   {
-    title: 'React Part-Time Training',
+    title: 'React Fundamentals Part-Time Training',
     text: `Maximum React training flexibility that fits around your
     job`,
-    to: 'react/training/part-time',
+    to: 'react/training/fundamentals-part-time',
   },
   {
     title: 'React Corporate Training',

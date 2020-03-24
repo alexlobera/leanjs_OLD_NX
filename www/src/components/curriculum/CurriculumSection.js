@@ -63,7 +63,6 @@ const CurriculumSection = props => {
     title,
     name,
     tech,
-    // type,
     trainingType,
     subTitle,
     trainingDateTime = '',
@@ -73,7 +72,6 @@ const CurriculumSection = props => {
     showLinkToCurriculum = true,
     sx = {},
   } = props
-  // const sx = { mt: 4, ...sxWithoutDefaults }
 
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle

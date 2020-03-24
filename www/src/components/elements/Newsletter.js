@@ -22,7 +22,7 @@ const Newsletter = ({
       <LinkButton
         variant={buttonVariant}
         className="free-learning-resources-cta"
-        to="#newsletter"
+        to="#newsletter-footer"
       >
         Sign up now
       </LinkButton>
