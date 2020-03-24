@@ -36,7 +36,6 @@ const CurriculumReactFundamentals = ({
   return (
     <Curriculum
       title="React Fundamentals Training Outline"
-      training={training}
       trainingId={trainingId}
       tech={tech}
       trainingType={trainingType}

@@ -75,7 +75,6 @@ const CurriculumReactFundamentalsPartTime = ({
   return (
     <Curriculum
       title="React Redux Fundamentals Part-time Outline"
-      //   training={training}
       tech={tech}
       trainingType={trainingType}
       trainingInstanceTypeName={trainingInstanceTypeName}

@@ -35,7 +35,6 @@ const CurriculumAdvancedReact = ({
   return (
     <Curriculum
       title="Advanced React Training Outline"
-      training={training}
       trainingId={trainingId}
       tech={tech}
       trainingType={trainingType}

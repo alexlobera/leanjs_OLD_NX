@@ -56,7 +56,6 @@ const CurriculumReactCompletePartTime = ({
   return (
     <Curriculum
       title="Complete React Part-time Training Outline"
-      training={training}
       trainingId={trainingId}
       tech={tech}
       trainingType={trainingType}

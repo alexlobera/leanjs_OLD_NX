@@ -17,12 +17,6 @@ import FederationSession, {
 import HasuraSession, {
   LearningObjectives as HasuraLearningObjectives,
 } from './sessions/graphql/server/HasuraSession'
-// import GraphQLClientFundamentalsSession, {
-//   LearningObjectives as GraphQLClientLearningObjectives,
-// } from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-// import AdvancedApolloClientSession, {
-//   LearningObjectives as AdvancedApolloClientLearningObjectives,
-// } from './sessions/graphql/client/AdvancedApolloClientSession'
 import {
   PART_TIME,
   TECH_GRAPHQL,
@@ -46,8 +40,6 @@ export const defaultSessionsSecondtHalf = [
   { Comp: FederationSession },
   { Comp: SubscriptionsSession },
   { Comp: HasuraSession },
-  //{ Comp: GraphQLClientFundamentalsSession },
-  //{ Comp: AdvancedApolloClientSession },
 ]
 
 const trainingInstanceTypeName = PART_TIME

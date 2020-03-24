@@ -83,7 +83,6 @@ const CurriculumReactBootcamp = ({
   return (
     <Curriculum
       title="React Redux Bootcamp Outline"
-      training={training}
       trainingId={trainingId}
       tech={tech}
       trainingType={trainingType}

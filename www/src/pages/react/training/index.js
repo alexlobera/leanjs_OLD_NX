@@ -73,25 +73,25 @@ const TrainingPage = ({ path, trainings }) => {
                 children: 'React Bootcamp',
               },
               {
-                to: '/react/training/advanced',
-                children: 'Advanced React',
-              },
-              {
                 to: '/react/training/fundamentals/',
                 children: 'React Fundamentals',
                 px: 1,
+              },
+              {
+                to: '/react/training/advanced',
+                children: 'Advanced React',
               },
               {
                 to: '/react/training/complete-part-time',
                 children: 'Complete PT',
               },
               {
-                to: '/react/training/advanced-part-time',
-                children: 'Advanced PT',
-              },
-              {
                 to: '/react/training/fundamentals-part-time',
                 children: 'Fundamentals PT',
+              },
+              {
+                to: '/react/training/advanced-part-time',
+                children: 'Advanced PT',
               },
               {
                 to: '/react/training/corporate',
