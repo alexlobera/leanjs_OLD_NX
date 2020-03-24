@@ -9,24 +9,6 @@ import {
   REACT_FUNDAMENTALS_ID,
 } from '../../config/data'
 
-// export const createTrainingPathFromTrial = ({ type, ...rest }) => {
-//   // TODO REIMPLEMENT THIS USING trainingType, tech, etc
-//   switch (type) {
-//     case GRAPHQL_PART_TIME_TRIAL:
-//       return createTrainingPath({ ...rest, type: GRAPHQL_PART_TIME })
-//     case REACT_PART_TIME_TRIAL:
-//       return createTrainingPath({ ...rest, type: REACT_PART_TIME })
-//   }
-// }
-
-// export const GRAPHQL_API_ID = '5e289434817eda00025ce40c'
-// export const FULL_TIME_REACT_ID = '5e7153d8340ff73c84dbf14c'
-// export const PART_TIME_REACT_ID = '5e715373340ff73c84dbf14b'
-// export const FULL_DAY_REACT_ID = '5e7153f9340ff73c84dbf14d'
-// export const FULL_DAY_GRAPHQL_ID = '5e724400340ff73c84dbf14e'
-// export const PART_TIME_GRAPHQL_ID = '5e724426340ff73c84dbf150'
-
-// export const createTrainingPath = ({ type, city = '', index, slug }) => {
 export const createTrainingPath = ({
   trainingId,
   city = '',
@@ -74,11 +56,6 @@ export const createTrainingPath = ({
     trainingType === TRAINING_TYPE_WORKSHOP
   ) {
     return `/${tech}/training/workshops/${slug}/${cityPathI}`
-    //   } else if (
-    //     trainingId === '5dc6f35fce62530002bd3e92' &&
-    //     trainingInstanceTypeName === PART_TIME_GRAPHQL_ID
-    //   ) {
-    //     return `/graphql/training/part-time/${cityPathI}`
   } else if (
     trainingInstanceTypeName === PART_TIME &&
     trainingType === TRAINING_TYPE_WORKSHOP

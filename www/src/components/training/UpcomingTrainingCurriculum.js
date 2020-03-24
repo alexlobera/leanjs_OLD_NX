@@ -5,7 +5,6 @@ import Link from '../navigation/Link'
 import UpcomingTrainings from './UpcomingTrainings'
 
 const UpcomingTrainingCurriculum = ({
-  //trainingTypeId,
   trainingType,
   trainingInstanceTypeName,
   tech,

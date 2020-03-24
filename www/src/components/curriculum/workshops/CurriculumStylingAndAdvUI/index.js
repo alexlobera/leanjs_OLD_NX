@@ -2,9 +2,6 @@ import React from 'react'
 
 import { REACT_WORKSHOP } from '../../../../config/data'
 import Section from '../../CurriculumSection'
-// import AdvancedUIPatterns, {
-//   titleSession as titleSession1,
-// } from '../../sessions/AdvancedUIPatterns'
 import StylingInReactSession, {
   titleSession as titleSession2,
 } from '../../sessions/StylingInReactSession'
@@ -23,9 +20,6 @@ const CurriculumStylingAndAdvUI = ({ showTitle = true, section, ...rest }) => (
         <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
           <StylingInReactSession title="" />
         </Section>
-        {/* <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
-          <AdvancedUIPatterns title="" />
-        </Section> */}
         <Section title={titleSession3} type={REACT_WORKSHOP} {...section}>
           <DesignSystemSession title="" />
         </Section>

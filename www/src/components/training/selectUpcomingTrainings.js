@@ -1,10 +1,3 @@
-// export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
-//   const typeTrainings = type
-//     ? trainings.filter(trainingByType(type))
-//     : trainings
-//   return typeTrainings.length ? typeTrainings[nth - 1] : undefined
-// }
-
 export const TYPENAME_EVENT = 'UpMentoring_Event'
 export const TYPENAME_TRAINING_INSTANCE = 'UpMentoring_TrainingInstance'
 
@@ -21,23 +14,11 @@ export const selectNthTraining = ({
   return filteredTrainings.length ? filteredTrainings[nth - 1] : undefined
 }
 
-// export const selectNthTrainingById = ({ trainings, id, nth = 1 }) => {
-//   const filteredTrainings = trainings.filter(filterByTrainingId(id))
-
-//   return filteredTrainings.length ? filteredTrainings[nth - 1] : undefined
-// }
-
 const trainingByInstanceTypeName = trainingInstanceTypeName => training =>
   !trainingInstanceTypeName ||
   training.trainingInstanceTypeName === trainingInstanceTypeName
 const trainingByTech = tech => training => !tech || training.tech === tech
 
-// const trainingByType = type => training => !type || training.type === type
-// const trainingByTypeId = trainingTypeId => training =>
-//   !trainingTypeId || training.trainingTypeId === trainingTypeId
-
-// const trainingByTypes = types => training =>
-//   types && types.length ? types.find(type => type === training.type) : true
 const trainingByTypename = typename => training =>
   !typename || training.__typename === typename
 
@@ -86,10 +67,6 @@ export const sortUpcomingTrainings = (a, b) =>
 function REMOVE_EVENTS_UNTIL_COVID_IS_GONE(training) {
   return training.__typename !== TYPENAME_EVENT
 }
-
-// trainingType,
-//   trainingInstanceTypeName,
-//   tech,
 
 export const selectUpcomingTrainings = ({
   city,

@@ -77,7 +77,6 @@ export function getTrainingTimings({ training }) {
 }
 
 const TrainingItem = ({
-  // type,
   trainingType,
   tech,
   title,

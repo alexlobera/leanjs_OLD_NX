@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import raven from 'raven-js'
 import { useStaticQuery, graphql } from 'gatsby'
 
-// import selectUpcomingTrainings from './training/selectUpcomingTrainings'
 import {
   createTrainingPath,
   formatMeetup,
@@ -127,9 +126,8 @@ const Layout = ({ children }) => {
   // let preconnectUrls = ['https://api.upmentoring.com']
   let preconnectUrls = []
   // let scriptUrls = []
-  //if (loadAutopilot) {
   preconnectUrls = [...preconnectUrls, 'https://api.autopilothq.com']
-  //}
+
   const preconnectLinks = preconnectUrls.map(href => ({
     crossorigin: 'crossorigin',
     rel: 'preconnect',
@@ -139,11 +137,8 @@ const Layout = ({ children }) => {
   const cityIndex = {}
   const formatTraining = ({ node }) => {
     const { training, title, trainingInstanceType, city = '', isOnline } = node
-    // const { type, slug, description, id: trainingId } = training || {}
     const { slug, id: trainingId } = training || {}
-    // const { title = '' } = description || {}
     const remoteOrCity = isOnline ? 'remote' : city
-    // const type = training && training.customFieldsValues  && training.customFieldsValues.length
     const trainingType = training.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
     ).values[0]
@@ -180,7 +175,6 @@ const Layout = ({ children }) => {
         trainingInstanceTypeName,
         trainingType,
         tech,
-        // isOnline,
       }),
     }
   }
