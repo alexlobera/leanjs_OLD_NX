@@ -15,6 +15,7 @@ const Tr = responsiveTable.Tr
 const Th = styled(responsiveTable.Th)`
   text-align: center;
   ${({ tech, trainingType }) =>
+    tech &&
     `border-bottom 3px ${selectBorderStyle({
       trainingType,
     })} ${selectTypeColor({ tech })}`};

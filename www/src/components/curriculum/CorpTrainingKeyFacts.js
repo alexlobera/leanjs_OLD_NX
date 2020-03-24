@@ -10,9 +10,10 @@ const CorpTrainingFacts = () => (
     </H3>
     <P>
       As any training progresses and we discover issues your developers have, we
-      quickly adapt our learning methods to ensure meaningful learning. If you
+      quickly adapt our learning methods to ensure meaningful learning.
+      {/* If you
       want to learn using <strong>your</strong> codebase{' '}
-      <Link to="#custom-training">click here.</Link>
+      <Link to="#custom-training">click here.</Link> */}
     </P>
     <a name="dev-level" />
     <H3>Level expertise across your team</H3>

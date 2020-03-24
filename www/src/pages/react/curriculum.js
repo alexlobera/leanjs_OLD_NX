@@ -47,12 +47,12 @@ import {
   ADVANCED_REACT_ID,
   REACT_FUNDAMENTALS_ID,
   TRAINING_TYPE_FULL_CURRICULUM,
+  TRAINING_TYPE_HALF_CURRICULUM,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { BLUE } from '../../config/styles'
 import Card from 'src/components/elements/Card'
 import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
-import { TRAINING_TYPE_HALF_CURRICULUM } from 'src/config/data'
 
 const TdLearningExprience = ({ strong, children }) => (
   <Td verticalAlign="top">
@@ -179,10 +179,25 @@ class ReactCurriculum extends React.Component {
                   <Thead>
                     <Tr>
                       <Th>Curriculum</Th>
-                      <Th>Complete</Th>
+                      <Th
+                        trainingType={TRAINING_TYPE_FULL_CURRICULUM}
+                        tech={TECH_REACT}
+                      >
+                        Complete
+                      </Th>
                       {/* <Th type={REACT_PART_TIME}>Part Time </Th> */}
-                      <Th>Advanced</Th>
-                      <Th>Fundamentals</Th>
+                      <Th
+                        trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                        tech={TECH_REACT}
+                      >
+                        Advanced
+                      </Th>
+                      <Th
+                        trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                        tech={TECH_REACT}
+                      >
+                        Fundamentals
+                      </Th>
                     </Tr>
                   </Thead>
                   <Tbody>

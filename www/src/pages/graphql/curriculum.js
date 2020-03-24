@@ -131,7 +131,7 @@ class GraphQLCurriculum extends React.Component {
                 <Table>
                   <Thead>
                     <Tr>
-                      <Th />
+                      <Th>Curriculum</Th>
                       <Th tech={TECH_GRAPHQL}>GraphQL Part-time</Th>
                       <Th tech={TECH_GRAPHQL}>GraphQL Bootcamp</Th>
                       {/* <Th type={GRAPHQL_API}>GraphQL API</Th> */}
@@ -141,10 +141,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Schema Design</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td>
                               <Tick type={GRAPHQL_API} />
@@ -153,10 +153,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Security & Error Handling</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td>
                               <Tick type={GRAPHQL_API} />
@@ -165,10 +165,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Apollo Federation and Subscriptions</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td /> */}
                     </Tr>
@@ -185,10 +185,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Hasura</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td /> */}
                     </Tr>
@@ -198,7 +198,7 @@ class GraphQLCurriculum extends React.Component {
                         <Ul sx={{ textAlign: 'left' }}>
                           <Li>3 weeks</Li>
                           <Li>Part time</Li>
-                          <Li>Evenings Central European Time</Li>
+                          <Li>Max 9 hours a week</Li>
                           {/* <Li>Starting at £995</Li> */}
                         </Ul>
                         <LinkButton
@@ -274,7 +274,11 @@ class GraphQLCurriculum extends React.Component {
             <Col lg={10} lgOffset={1}>
               <Element name="curriculum" />
               <H2>Choose a curriculum:</H2>
-              <Tabs onChange={this.setActive} value={this.state.active}>
+              <Tabs
+                defaultValue={GRAPHQL_PART_TIME}
+                onChange={this.setActive}
+                value={this.state.active}
+              >
                 <TabList>
                   <TabItem
                     className={tabItemClassName}
