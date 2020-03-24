@@ -3,18 +3,19 @@ import Link from '../../navigation/Link'
 import Section from '../CurriculumSection'
 import Ul, { Li } from '../../layout/Ul'
 import Session from '../sessions/Session'
-import { REACT_WORKSHOP } from '../../../config/data'
+import { TRAINING_TYPE_WORKSHOP } from '../../../config/data'
 import Curriculum from '../Curriculum'
 
 const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? '3-Day React Native Immersive Curriculum' : ''}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     {...rest}
     firstHalf={
       <React.Fragment>
         <Section
           title="Day 1 - Fundamentals"
-          type={REACT_WORKSHOP}
+          trainingType={TRAINING_TYPE_WORKSHOP}
           {...section}
         >
           <Session title="">
@@ -46,7 +47,7 @@ const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
         </Section>
         <Section
           title="Day 2 - Intermediate"
-          type={REACT_WORKSHOP}
+          trainingType={TRAINING_TYPE_WORKSHOP}
           {...section}
         >
           <Session title="">
@@ -77,7 +78,11 @@ const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
             </Ul>
           </Session>
         </Section>
-        <Section title="Day 3 - Advanced" type={REACT_WORKSHOP} {...section}>
+        <Section
+          title="Day 3 - Advanced"
+          trainingType={TRAINING_TYPE_WORKSHOP}
+          {...section}
+        >
           <Session title="">
             <Ul>
               <Li>Overview best practices to scale your apps</Li>

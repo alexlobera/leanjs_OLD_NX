@@ -14,7 +14,13 @@ import {
 import { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
 
-import { GRAPHQL_BOOTCAMP } from '../../config/data'
+import {
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_BOOTCAMP_ID,
+  TECH_GRAPHQL,
+  FULL_TIME,
+  TRAINING_TYPE_FULL_CURRICULUM,
+} from '../../config/data'
 import Curriculum, { renderSection } from './Curriculum'
 
 export const sessionsFirstHalf = [
@@ -39,10 +45,13 @@ export const sessionsSecondHalf = [
   },
 ]
 
-const type = GRAPHQL_BOOTCAMP
+const trainingInstanceTypeName = FULL_TIME
+const tech = TECH_GRAPHQL
+const trainingType = TRAINING_TYPE_FULL_CURRICULUM
+const trainingId = GRAPHQL_BOOTCAMP_ID
 
 const CurriculumGraphQLBootcamp = ({
-  toggleNavigateTo = `/graphql/curriculum?tab=${type}`,
+  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
   training,
   section = {},
   ...rest
@@ -50,7 +59,9 @@ const CurriculumGraphQLBootcamp = ({
   const sectionProps = {
     ...section,
     toggleNavigateTo,
-    type,
+    trainingInstanceTypeName,
+    tech,
+    trainingType,
   }
   const renderSectionArgs = {
     training,
@@ -61,8 +72,11 @@ const CurriculumGraphQLBootcamp = ({
   return (
     <Curriculum
       title="GraphQL Bootcamp Outline"
+      trainingId={trainingId}
+      tech={tech}
       training={training}
-      type={type}
+      trainingType={trainingType}
+      trainingInstanceTypeName={trainingInstanceTypeName}
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}

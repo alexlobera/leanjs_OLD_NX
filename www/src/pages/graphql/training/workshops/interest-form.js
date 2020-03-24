@@ -10,12 +10,8 @@ import { Segment } from 'src/components/elements'
 import { Button } from 'src/components/buttons'
 import Header from 'src/components/layout/Header'
 import Box from 'src/components/layout/Box'
-import {
-  UpcomingTrainingSection,
-  selectNthTraining,
-} from 'src/components/training'
-import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
-import { REACT_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
+import { UpcomingTrainingSection } from 'src/components/training'
+import { TECH_GRAPHQL } from 'src/config/data'
 import { InputField, Form, CheckboxField } from 'src/components/form'
 import {
   composeValidators,
@@ -57,11 +53,17 @@ const SessionInterestGraphQL = ({ path, trainings }) => {
     navigate('/thanks-for-signing-up-for-sessions')
   }
 
-  const upcomingBootcamps = selectUpcomingTrainings({
-    trainings,
-    type: REACT_BOOTCAMP,
-  })
-  const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
+  //   const upcomingBootcamps = selectUpcomingTrainings({
+  //     trainings,
+  //     trainingId: REACT_BOOTCAMP_ID,
+  //   })
+  //   const nextBootcamp =
+  //     selectNthTraining({
+  //       trainings,
+  //       trainingId: REACT_BOOTCAMP_ID,
+  //       trainingTypeId: FULL_TIME_REACT_ID,
+  //     }) || {}
+  const nextBootcamp = undefined
   return (
     <React.Fragment>
       <Header

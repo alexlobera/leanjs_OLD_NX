@@ -1,13 +1,29 @@
-export const selectNthTraining = ({ trainings, type, nth = 1 }) => {
-  const typeTrainings = type
-    ? trainings.filter(trainingByType(type))
-    : trainings
-  return typeTrainings.length ? typeTrainings[nth - 1] : undefined
-}
-const trainingByType = type => training => !type || training.type === type
+export const TYPENAME_EVENT = 'UpMentoring_Event'
+export const TYPENAME_TRAINING_INSTANCE = 'UpMentoring_TrainingInstance'
 
-const trainingByTypes = types => training =>
-  types && types.length ? types.find(type => type === training.type) : true
+export const selectNthTraining = ({
+  trainings,
+  trainingId,
+  trainingInstanceTypeName,
+  nth = 1,
+}) => {
+  const filteredTrainings = trainings
+    .filter(trainingByInstanceTypeName(trainingInstanceTypeName))
+    .filter(filterByTrainingId(trainingId))
+
+  return filteredTrainings.length ? filteredTrainings[nth - 1] : undefined
+}
+
+const trainingByInstanceTypeName = trainingInstanceTypeName => training =>
+  !trainingInstanceTypeName ||
+  training.trainingInstanceTypeName === trainingInstanceTypeName
+const trainingByTech = tech => training => !tech || training.tech === tech
+
+const trainingByTypename = typename => training =>
+  !typename || training.__typename === typename
+
+const trainingByTrainingType = trainingType => training =>
+  !trainingType || training.trainingType === trainingType
 
 const trainingByCity = ({ city, onlineOrOffline = false } = {}) => training => {
   if (!city) {
@@ -48,10 +64,16 @@ export const filterByTrainingId = trainingId => ({ training } = {}) =>
 export const sortUpcomingTrainings = (a, b) =>
   a.startDate > b.startDate ? 1 : -1
 
+function REMOVE_EVENTS_UNTIL_COVID_IS_GONE(training) {
+  return training.__typename !== TYPENAME_EVENT
+}
+
 export const selectUpcomingTrainings = ({
   city,
-  types,
-  type,
+  trainingInstanceTypeName,
+  tech,
+  trainingType,
+  typename,
   trainingId,
   excludeTrainingId,
   excludeInstanceId,
@@ -59,10 +81,16 @@ export const selectUpcomingTrainings = ({
   limit = 9999,
   onlineOrOffline,
 }) => {
-  const typesArray = types ? types : type ? [type] : []
+  if (!trainings || !Array.isArray(trainings)) {
+    return []
+  }
 
   return trainings
-    .filter(trainingByTypes(typesArray))
+    .filter(REMOVE_EVENTS_UNTIL_COVID_IS_GONE)
+    .filter(trainingByTrainingType(trainingType))
+    .filter(trainingByInstanceTypeName(trainingInstanceTypeName))
+    .filter(trainingByTech(tech))
+    .filter(trainingByTypename(typename))
     .filter(trainingByCity({ city, onlineOrOffline }))
     .filter(excludeByInstanceId(excludeInstanceId))
     .filter(filterByTrainingId(trainingId))

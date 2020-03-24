@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import raven from 'raven-js'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import selectUpcomingTrainings from './training/selectUpcomingTrainings'
 import {
   createTrainingPath,
   formatMeetup,
@@ -21,6 +20,9 @@ import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 
 raven.config(SENTRY_DSN).install()
+
+export const TRAINING_TYPE_FIELD_ID = '5e74cf154993d031a662905b'
+export const TRAINING_TECH_FIELD_ID = '5e74837b4993d031a65e5446'
 
 const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_400_LATIN_EXT_WOFF2,
@@ -59,6 +61,7 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            __typename
             meetup {
               id
             }
@@ -83,6 +86,7 @@ const layoutQuery = graphql`
       ) {
         edges {
           node {
+            __typename
             id
             startDate
             utcOffset
@@ -96,13 +100,19 @@ const layoutQuery = graphql`
             mapUrl
             price
             currency
+            title
             training {
               id
-              type
               slug
-              description {
-                title
+              customFieldsValues {
+                values
+                fieldId
               }
+            }
+            trainingInstanceType {
+              name
+              title
+              id
             }
           }
         }
@@ -116,9 +126,8 @@ const Layout = ({ children }) => {
   // let preconnectUrls = ['https://api.upmentoring.com']
   let preconnectUrls = []
   // let scriptUrls = []
-  //if (loadAutopilot) {
   preconnectUrls = [...preconnectUrls, 'https://api.autopilothq.com']
-  //}
+
   const preconnectLinks = preconnectUrls.map(href => ({
     crossorigin: 'crossorigin',
     rel: 'preconnect',
@@ -127,34 +136,45 @@ const Layout = ({ children }) => {
 
   const cityIndex = {}
   const formatTraining = ({ node }) => {
-    const { training } = node
-    const { type, slug, description, id: trainingId } = training || {}
-    const { title = '' } = description || {}
-    const { city = '', id, isOnline } = node
+    const { training, title, trainingInstanceType, city = '', isOnline } = node
+    const { slug, id: trainingId } = training || {}
     const remoteOrCity = isOnline ? 'remote' : city
-    const key = `${remoteOrCity}${trainingId}`
+    const trainingType = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
+    ).values[0]
+    const tech = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
+    ).values[0]
+    const trainingInstanceTypeName =
+      trainingInstanceType && trainingInstanceType.name
+    const key = `${remoteOrCity}${slug}${trainingInstanceTypeName}`
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
     return {
       ...node,
+      trainingInstanceTypeName,
       shoppingItemEnum: 'training',
       title,
-      type,
+      trainingType,
+      tech,
       training: {
         ...training,
         toPath: createTrainingPath({
-          type,
-          id,
+          trainingId,
           slug,
+          trainingType,
+          tech,
+          trainingInstanceTypeName,
         }),
       },
       toPath: createTrainingPath({
-        type,
         city: remoteOrCity,
         index: cityIndex[key],
-        id,
+        trainingId,
         slug,
-        isOnline,
+        trainingInstanceTypeName,
+        trainingType,
+        tech,
       }),
     }
   }
@@ -174,9 +194,7 @@ const Layout = ({ children }) => {
   const confs = data.upmentoring.eventsConnection.edges
     .filter(({ node: { meetup } }) => !meetup || !meetup.id)
     .map(formatConf)
-  const trainingAndEvents = selectUpcomingTrainings({
-    trainings: [...trainings, ...meetups, ...confs],
-  })
+  const trainingAndEvents = [...trainings, ...meetups, ...confs]
 
   return (
     <React.Fragment>

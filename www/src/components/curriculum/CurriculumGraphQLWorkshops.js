@@ -1,21 +1,22 @@
 import React from 'react'
-import Section from './CurriculumSection'
-import { GRAPHQL_WORKSHOP } from '../../config/data'
-import Curriculum from './Curriculum'
 
+import Section from './CurriculumSection'
+import Curriculum from './Curriculum'
+import { TECH_GRAPHQL } from 'src/config/data'
 const workshopBasePath = '/graphql/training/workshops/'
 
+const tech = TECH_GRAPHQL
+
 const CurriculumGraphQLWorkshops = ({ section = {}, ...rest }) => {
-  const type = GRAPHQL_WORKSHOP
   const sectionProps = {
     ...section,
-    type,
+    tech,
   }
   return (
     <Curriculum
       title="GraphQL Workshops"
       curriculumTitle="Workshop offerings"
-      type={type}
+      tech={tech}
       {...rest}
       firstHalf={
         <React.Fragment>

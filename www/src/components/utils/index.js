@@ -2,19 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {
-  REACT_BOOTCAMP,
-  REACT_PART_TIME,
-  ADVANCED_REACT,
-  REACT_WORKSHOP,
-  REACT_FUNDAMENTALS,
-  GRAPHQL_PART_TIME,
-  GRAPHQL_BOOTCAMP,
-  GRAPHQL_API,
-  GRAPHQL_WORKSHOP,
   MEETUP,
   TECH_REACT,
   TECH_GRAPHQL,
   TECH_JAMSTACK,
+  TRAINING_TYPE_FULL_CURRICULUM,
+  TRAINING_TYPE_HALF_CURRICULUM,
+  TRAINING_TYPE_WORKSHOP,
 } from '../../config/data'
 import {
   GRAPHQL_PINK,
@@ -48,19 +42,10 @@ export const getVariantProps = (variants, variantProps) =>
       )
     : variantProps[variants || 'default'] || {}
 
-export const selectTypeColor = type => {
-  switch (type) {
-    case REACT_BOOTCAMP:
-    case REACT_PART_TIME:
-    case ADVANCED_REACT:
-    case REACT_WORKSHOP:
-    case REACT_FUNDAMENTALS:
+export const selectTechColor = ({ tech } = {}) => {
+  switch (tech) {
     case TECH_REACT:
       return BLUE
-    case GRAPHQL_PART_TIME:
-    case GRAPHQL_BOOTCAMP:
-    case GRAPHQL_API:
-    case GRAPHQL_WORKSHOP:
     case TECH_GRAPHQL:
       return GRAPHQL_PINK
     case TECH_JAMSTACK:
@@ -72,24 +57,15 @@ export const selectTypeColor = type => {
   }
 }
 
-export const selectBorderStyle = type => {
-  switch (type) {
-    case REACT_BOOTCAMP:
-    case GRAPHQL_BOOTCAMP:
-      return 'solid'
-    case GRAPHQL_PART_TIME:
-    case REACT_PART_TIME:
-      return 'double'
-    case REACT_FUNDAMENTALS:
-    case ADVANCED_REACT:
-    case GRAPHQL_API:
-      return 'dashed'
-    case MEETUP:
-    case REACT_WORKSHOP:
-    case GRAPHQL_WORKSHOP:
-      return 'dotted'
-    default:
-      return 'solid'
+export const selectBorderStyle = ({ trainingType } = {}) => {
+  if (trainingType === TRAINING_TYPE_FULL_CURRICULUM) {
+    return 'solid'
+  } else if (trainingType === TRAINING_TYPE_HALF_CURRICULUM) {
+    return 'dashed'
+  } else if (trainingType === TRAINING_TYPE_WORKSHOP) {
+    return 'dotted'
+  } else {
+    return 'solid'
   }
 }
 
@@ -307,7 +283,7 @@ export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
 
 export const trainingTimings = ({ training = {} }) =>
   `${(training.startDate &&
-    formatUTC(training.startDate, training.utcOffset, 'HH:mm')) ||
+    `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`) ||
     '09:00'} - ${(training.endDate &&
     formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
     '18:00'}`

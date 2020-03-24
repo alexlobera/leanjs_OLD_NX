@@ -1,12 +1,17 @@
 import React from 'react'
 import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
-import { Tabs, TabList, TabItem, TabContent, ContentItem } from '../layout/Tabs'
+import { Tabs, TabList, TabItem, TabPanel } from '../layout/Tabs'
 import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
 import CurriculumGraphQLPartTime from './CurriculumGraphQLPartTime'
+import { tabItemClassName } from './utils'
 
 import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
-import { GRAPHQL_BOOTCAMP, GRAPHQL_PART_TIME } from '../../config/data'
+import {
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_PART_TIME,
+  TECH_GRAPHQL,
+} from '../../config/data'
 
 const FullCurriculumsGraphQL = ({ trainings }) => {
   const commonCurriculumProps = {
@@ -17,6 +22,7 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
     trainings,
     type: GRAPHQL_PART_TIME,
   })
+
   return (
     <React.Fragment>
       <Row>
@@ -25,22 +31,35 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
         </Col>
       </Row>
       <Tabs defaultValue={GRAPHQL_PART_TIME}>
-        <TabList lgOffset={1}>
-          <TabItem name={GRAPHQL_PART_TIME}>GraphQL Part-time</TabItem>
-          <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
-        </TabList>
-
-        <TabContent>
-          <ContentItem name={GRAPHQL_BOOTCAMP}>
-            <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
-          </ContentItem>
-          <ContentItem name={GRAPHQL_PART_TIME}>
-            <CurriculumGraphQLPartTime
-              trainings={allGraphQLPartTimes}
-              showTitle={false}
-            />
-          </ContentItem>
-        </TabContent>
+        <Row>
+          <Col lgOffset={1} md={11}>
+            <TabList>
+              <TabItem
+                tech={TECH_GRAPHQL}
+                className={tabItemClassName}
+                name={GRAPHQL_PART_TIME}
+              >
+                GraphQL Part-time
+              </TabItem>
+              <TabItem
+                tech={TECH_GRAPHQL}
+                className={tabItemClassName}
+                name={GRAPHQL_BOOTCAMP}
+              >
+                GraphQL Bootcamp
+              </TabItem>
+            </TabList>
+          </Col>
+        </Row>
+        <TabPanel name={GRAPHQL_BOOTCAMP}>
+          <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
+        </TabPanel>
+        <TabPanel name={GRAPHQL_PART_TIME}>
+          <CurriculumGraphQLPartTime
+            trainings={allGraphQLPartTimes}
+            showTitle={false}
+          />
+        </TabPanel>
       </Tabs>
     </React.Fragment>
   )

@@ -16,7 +16,12 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 
-import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
+import {
+  TRAINING_TYPE_FULL_CURRICULUM,
+  TECH_REACT,
+  REACT_BOOTCAMP_ID,
+  FULL_TIME,
+} from 'src/config/data'
 import { InputField, Form, CheckboxField } from 'src/components/form'
 import {
   composeValidators,
@@ -31,6 +36,8 @@ import trackUserBehaviour, {
 } from 'src/components/utils/trackUserBehaviour'
 
 const NameInput = aliasComponent(InputField)
+const trainingType = TRAINING_TYPE_FULL_CURRICULUM
+const tech = TECH_REACT
 
 const SessionInterest = ({ path, trainings }) => {
   const handleFormSubmit = ({ name, email, subscriptions, resources }) => {
@@ -54,9 +61,12 @@ const SessionInterest = ({ path, trainings }) => {
 
   const upcomingBootcamps = selectUpcomingTrainings({
     trainings,
-    type: REACT_BOOTCAMP,
+    trainingId: REACT_BOOTCAMP_ID,
+    trainingType,
+    trainingInstanceTypeName: FULL_TIME,
   })
   const nextBootcamp = selectNthTraining({ trainings: upcomingBootcamps }) || {}
+
   return (
     <React.Fragment>
       <Header
@@ -70,7 +80,7 @@ const SessionInterest = ({ path, trainings }) => {
             label: 'Interest Form',
           },
         ]}
-        tech={TECH_REACT}
+        tech={tech}
         titleLines={['React Workshops']}
         subtitle={[
           'Join the wait and be the first to know about our upcoming 1-day workshops',
@@ -79,7 +89,7 @@ const SessionInterest = ({ path, trainings }) => {
         training={nextBootcamp}
       />
 
-      <TopSection sx={{ mt: `-250` }}>
+      <TopSection>
         <Segment>
           <Row>
             <Col md={10} mdOffset={1}>

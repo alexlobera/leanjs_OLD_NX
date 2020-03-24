@@ -20,21 +20,31 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { ADVANCED_REACT, TECH_REACT } from 'src/config/data'
+import {
+  TECH_REACT,
+  FULL_TIME,
+  ADVANCED_REACT_ID,
+  TRAINING_TYPE_HALF_CURRICULUM,
+} from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
 
 const metas = {
   title: 'Advanced React Training | React GraphQL Academy',
   description:
-    'Interested in advanced React? Learn advanced React patterns and supercharge your dev skillset with the latest in advanced React trianing. Contact us now!',
+    'Interested in advanced React? Learn advanced React patterns and supercharge your dev skillset with the latest in advanced React training. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
 
+const trainingType = TRAINING_TYPE_HALF_CURRICULUM
+const trainingInstanceTypeName = FULL_TIME
+const trainingId = ADVANCED_REACT_ID
+
 const AdvancedTraining = ({ path, trainings }) => {
   const upcomingAdvancedTrainings = selectUpcomingTrainings({
-    type: ADVANCED_REACT,
+    trainingId,
+    trainingInstanceTypeName,
     trainings,
   })
   const nextTraining = selectNthTraining({
@@ -67,7 +77,7 @@ const AdvancedTraining = ({ path, trainings }) => {
         titleLines={['Advanced React Training']}
         subtitle="For 3 days, expert coaches and developers will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
         bgImageName={BOOTCAMP}
-        type={ADVANCED_REACT}
+        trainingType={trainingType}
         links={header.landingPageLinks.links}
       />
       <TopSection>

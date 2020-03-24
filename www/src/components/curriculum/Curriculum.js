@@ -10,7 +10,6 @@ const Curriculum = ({
   curriculumTo,
   showLinkToCurriculum = true,
   trainingId,
-  training,
   title,
   ...rest
 }) => {
@@ -27,7 +26,7 @@ const Curriculum = ({
   return selectCurriculumLayout({
     title: curriculumTitle,
     curriculumTo: showLinkToCurriculum ? curriculumTo : undefined,
-    trainingId: trainingId || (training && training.id),
+    trainingId,
     ...rest,
   })
 }

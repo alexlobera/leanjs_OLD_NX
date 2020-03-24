@@ -1,24 +1,27 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BaseTemplate from './baseTemplate'
-import Curriculum, {
-  TargetAudienceList,
-  LearningObjectives,
-} from 'src/components/curriculum/workshops/CurriculumGraphQLPartTimeTrial'
-import { GRAPHQL_WORKSHOP } from 'src/config/data'
+import Curriculum from 'src/components/curriculum/CurriculumReactFundamentalsPartTime'
+import TargetAudienceList from 'src/components/curriculum/CurriculumReactFundamentals/TargetAudienceList'
+import {
+  REACT_BOOTCAMP,
+  PART_TIME,
+  TRAINING_TYPE_HALF_CURRICULUM,
+} from 'src/config/data'
+
+export const crossSellTypes = [REACT_BOOTCAMP]
 
 const Page = props => (
   <BaseTemplate
     {...props}
-    trialOfTheTrainingId="5dc6f35fce62530002bd3e92"
-    type={GRAPHQL_WORKSHOP}
-    typeOfTraining="GraphQL trial"
+    // TODO REMPLEMENT THIS SINCE THE REACT TRIAL NOW IS FOR DIFFERENT REACT TRAINING
+    // typeOfTraining="part-time React training"
+    trainingInstanceTypeName={PART_TIME}
+    trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+    trialTrainingId="5e3854d66bfd23000238647f"
+    crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
-    learningObjectives={LearningObjectives}
     curriculum={Curriculum}
-    curriculumProps={{
-      section: { isOpen: true },
-    }}
   />
 )
 
@@ -28,7 +31,7 @@ export const query = graphql`
       filter: {
         relativePath: {
           # this image should come from UM traning instance
-          regex: "/pages/graphql/training/workshops/graphql-part-time-trial/remote.png/"
+          regex: "/pages/react/training/part-time/remote.png/"
         }
       }
     ) {

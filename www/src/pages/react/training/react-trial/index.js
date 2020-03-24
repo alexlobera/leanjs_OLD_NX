@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { LONDON_BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -21,13 +20,13 @@ import {
 import Link from 'src/components/navigation/Link'
 import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
-import { trainingId, breadcrumbWorkshopName } from './config.json'
+import { trainingId, breadcrumbTrainingName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
 const metas = {
-  title: 'React Part-Time Trial | React GraphQL Academy',
+  title: 'React Training Trial | React GraphQL Academy',
   description:
-    'Are you not sure yet about buying our React part-time training? With this trial of our React part-time training, you will be able to make an informed decision before purchasing the full training',
+    'Are you not sure yet about buying our React training? With this trial of our React training, you will be able to make an informed decision before purchasing the full training',
   image: BOOTCAMP_COLLAB,
   type: 'website',
 }
@@ -56,10 +55,9 @@ const Page = ({ path, trainings }) => {
           { to: '/', label: 'Home' },
           { to: '/react', label: 'React' },
           { to: '/react/training/', label: 'Training' },
-          { to: '/react/training/workshops', label: 'Workshops' },
           {
             to: path,
-            label: breadcrumbWorkshopName,
+            label: breadcrumbTrainingName,
           },
         ]}
         tech={TECH_REACT}
@@ -69,7 +67,6 @@ const Page = ({ path, trainings }) => {
           { text: 'Workshop Agenda', to: '#curriculum' },
           { text: 'Is this right for me?', to: '#target-audience' },
         ]}
-        bgImageName={LONDON_BOOTCAMP}
         type={REACT_WORKSHOP}
       />
       <TopSection>

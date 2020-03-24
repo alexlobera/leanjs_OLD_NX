@@ -5,7 +5,7 @@ import Link from '../navigation/Link'
 import trackUserBehaviour, {
   CURRICULUM_MORE_DETAILS,
 } from '../utils/trackUserBehaviour'
-import { selectTypeColor, selectBorderStyle } from '../utils'
+import { selectTechColor, selectBorderStyle } from '../utils'
 import { getURLParameter } from '../utils/url'
 import Box from '../layout/Box'
 import Card from '../elements/Card'
@@ -41,7 +41,8 @@ const CurriculumSection = props => {
   const isOpen =
     props.isOpen ||
     (getURLParameter('section') === props.name &&
-      getURLParameter('tab') === props.type)
+      getURLParameter('tab') ===
+        `${props.trainingId}${props.trainingInstanceTypeName}`)
 
   const [isTabOpen, setIsOpen] = useState(isOpen)
 
@@ -61,7 +62,8 @@ const CurriculumSection = props => {
   const {
     title,
     name,
-    type,
+    tech,
+    trainingType,
     subTitle,
     trainingDateTime = '',
     children,
@@ -70,7 +72,6 @@ const CurriculumSection = props => {
     showLinkToCurriculum = true,
     sx = {},
   } = props
-  // const sx = { mt: 4, ...sxWithoutDefaults }
 
   const toogleLinkProps =
     toggleNavigateTo && !enableToggle
@@ -105,8 +106,8 @@ const CurriculumSection = props => {
 
   return (
     <Card
-      borderStyle={selectBorderStyle(type)}
-      borderColor={selectTypeColor(type)}
+      borderStyle={selectBorderStyle({ trainingType })}
+      borderColor={selectTechColor({ tech })}
       sx={{
         mt: 4,
         ...sx,

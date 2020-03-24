@@ -20,7 +20,7 @@ import {
   AttendeeQuote,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
+import { TECH_GRAPHQL } from 'src/config/data'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
@@ -36,7 +36,8 @@ const metas = {
 const Bootcamps = ({ path, trainings }) => {
   const allGraphQLWorkshops = selectUpcomingTrainings({
     trainings,
-    types: [GRAPHQL_WORKSHOP],
+    //trainingType: ''
+    trainingId: 'TODO',
   })
   const nextTraining = selectNthTraining({
     trainings: allGraphQLWorkshops,
@@ -90,7 +91,6 @@ const Bootcamps = ({ path, trainings }) => {
             to: '#target-audience',
           },
         ]}
-        type={GRAPHQL_WORKSHOP}
       />
       <TopSection>
         <Segment>
@@ -101,7 +101,7 @@ const Bootcamps = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              type={GRAPHQL_WORKSHOP}
+              tech={TECH_GRAPHQL}
               quote="Developing at my company for 2 years I hadn't touched React. The Bootcamp works because you're able ask questions - it's better than watching a video."
               fullname="Charlie Wilson"
               job="Software Engineer"

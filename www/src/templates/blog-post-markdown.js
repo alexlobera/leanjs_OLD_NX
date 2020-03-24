@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import rehypeReact from 'rehype-react'
 import { slugify } from '../components/utils/text'
 
-import { blogAuthors } from '../config/data'
 import Ul from '../components/layout/Ul'
 import { H2, H3, H4, H5 } from '../components/text'
 import { Video } from '../components/elements'
@@ -26,6 +25,34 @@ import BlogPost, {
 import { getPostsFromNodes } from '../components/blog/utils'
 import { LIGHT_PINK } from '../config/styles'
 import { TECH_GRAPHQL } from '../config/data'
+
+const blogAuthors = {
+  'richard-moss': {
+    imgSrc:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Frichard.jpg?alt=media',
+    fullname: 'Richard Moss',
+  },
+  'alex-lobera': {
+    imgSrc:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Falex.jpg?alt=media',
+    fullname: 'Alex Lobera',
+  },
+  'horacio-herrera': {
+    imgSrc:
+      'https://firebasestorage.googleapis.com/v0/b/reactjsacademy-react.appspot.com/o/team%2Fhoracio.jpg?alt=media',
+    fullname: 'Horacio Herrera',
+  },
+  'paul-woodley': {
+    imgSrc:
+      'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2FPaul_Profile.jpg?alt=media',
+    fullname: 'Paul Woodley',
+  },
+  'lena-tregub': {
+    imgSrc:
+      'https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/images%2Fabout_us_profilePics%2Flena.jpg?alt=media',
+    fullname: 'Lena Tregub',
+  },
+}
 
 function renderHeadingWithAnchor({ children, Component }) {
   return (

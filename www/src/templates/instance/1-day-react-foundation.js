@@ -6,7 +6,7 @@ import Curriculum, {
 import {
   REACT_FUNDAMENTALS,
   REACT_BOOTCAMP,
-  REACT_WORKSHOP,
+  TRAINING_TYPE_WORKSHOP,
 } from 'src/config/data'
 
 export const crossSellTypes = [REACT_FUNDAMENTALS, REACT_BOOTCAMP]
@@ -14,8 +14,8 @@ export const crossSellTypes = [REACT_FUNDAMENTALS, REACT_BOOTCAMP]
 const Page = props => (
   <BaseTemplate
     {...props}
-    type={REACT_WORKSHOP}
     crossSellTypes={crossSellTypes}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
     curriculumProps={{

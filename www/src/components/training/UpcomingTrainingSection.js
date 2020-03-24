@@ -7,18 +7,6 @@ import UpcomingTrainings from './UpcomingTrainings'
 import Link from '../navigation/Link'
 import selectUpcomingTrainings from './selectUpcomingTrainings'
 import { GREY } from '../../config/styles'
-import {
-  REACT_BOOTCAMP,
-  ADVANCED_REACT,
-  REACT_PART_TIME,
-  REACT_WORKSHOP,
-  REACT_FUNDAMENTALS,
-  GRAPHQL_BOOTCAMP,
-  GRAPHQL_API,
-  GRAPHQL_WORKSHOP,
-  MEETUP,
-  GRAPHQL_PART_TIME,
-} from '../../config/data'
 import Flex from '../layout/Flex'
 
 const CorporateCrossSell = ({ to }) => (
@@ -39,18 +27,6 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
   const allTrainings = selectUpcomingTrainings({
     trainings,
     limit,
-    types: [
-      REACT_BOOTCAMP,
-      ADVANCED_REACT,
-      REACT_PART_TIME,
-      REACT_WORKSHOP,
-      REACT_FUNDAMENTALS,
-      GRAPHQL_BOOTCAMP,
-      GRAPHQL_API,
-      GRAPHQL_WORKSHOP,
-      GRAPHQL_PART_TIME,
-      MEETUP,
-    ],
   })
 
   return (

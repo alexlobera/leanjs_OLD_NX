@@ -8,18 +8,14 @@ import Ul, { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
 import { Tick } from 'src/components/icons'
 import LinkButton from 'src/components/buttons/LinkButton'
+import { tabItemClassName } from '../../components/curriculum/utils'
+
 import {
   Link,
   DEFAULT_SCROLL_OFFSET,
   DEFAULT_SCROLL_DURATION,
 } from 'src/components/navigation'
-import {
-  Tabs,
-  TabList,
-  TabItem,
-  TabContent,
-  ContentItem,
-} from 'src/components/layout/Tabs'
+import { Tabs, TabList, TabItem, TabPanel } from 'src/components/layout/Tabs'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
 import CurriculumGraphQLPartTime, {
   LearningObjectives as PartTimeLearningObjectives,
@@ -36,6 +32,10 @@ import {
   GRAPHQL_BOOTCAMP,
   TECH_GRAPHQL,
   GRAPHQL_PART_TIME,
+  TRAINING_TYPE_HALF_CURRICULUM,
+  PART_TIME,
+  GRAPHQL_API_ID,
+  TRAINING_TYPE_FULL_CURRICULUM,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
@@ -77,11 +77,14 @@ class GraphQLCurriculum extends React.Component {
     }
     const trainingBootcamp = selectNthTraining({
       trainings,
-      type: GRAPHQL_BOOTCAMP,
+      trainingType: TRAINING_TYPE_FULL_CURRICULUM,
+      trainingId: 'TODO_GRAPHQL_BOOTCAMP_ID',
     })
     const trainingPartTime = selectNthTraining({
       trainings,
-      type: GRAPHQL_PART_TIME,
+      trainingId: GRAPHQL_API_ID,
+      trainingType: TRAINING_TYPE_HALF_CURRICULUM,
+      trainingInstanceTypeName: PART_TIME,
     })
 
     return (
@@ -128,9 +131,9 @@ class GraphQLCurriculum extends React.Component {
                 <Table>
                   <Thead>
                     <Tr>
-                      <Th />
-                      <Th type={GRAPHQL_PART_TIME}>GraphQL Part-time</Th>
-                      <Th type={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</Th>
+                      <Th>Curriculum</Th>
+                      <Th tech={TECH_GRAPHQL}>GraphQL Part-time</Th>
+                      <Th tech={TECH_GRAPHQL}>GraphQL Bootcamp</Th>
                       {/* <Th type={GRAPHQL_API}>GraphQL API</Th> */}
                     </Tr>
                   </Thead>
@@ -138,10 +141,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Schema Design</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td>
                               <Tick type={GRAPHQL_API} />
@@ -150,10 +153,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Security & Error Handling</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td>
                               <Tick type={GRAPHQL_API} />
@@ -162,10 +165,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Apollo Federation and Subscriptions</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td /> */}
                     </Tr>
@@ -182,10 +185,10 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Hasura</Td>
                       <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       {/* <Td /> */}
                     </Tr>
@@ -195,7 +198,7 @@ class GraphQLCurriculum extends React.Component {
                         <Ul sx={{ textAlign: 'left' }}>
                           <Li>3 weeks</Li>
                           <Li>Part time</Li>
-                          <Li>Evenings Central European Time</Li>
+                          <Li>Max 9 hours a week</Li>
                           {/* <Li>Starting at £995</Li> */}
                         </Ul>
                         <LinkButton
@@ -271,66 +274,80 @@ class GraphQLCurriculum extends React.Component {
             <Col lg={10} lgOffset={1}>
               <Element name="curriculum" />
               <H2>Choose a curriculum:</H2>
-              <Tabs onChange={this.setActive} active={this.state.active}>
+              <Tabs
+                defaultValue={GRAPHQL_PART_TIME}
+                onChange={this.setActive}
+                value={this.state.active}
+              >
                 <TabList>
-                  <TabItem name={GRAPHQL_PART_TIME}>GraphQL Part-time</TabItem>
-                  <TabItem name={GRAPHQL_BOOTCAMP}>GraphQL Bootcamp</TabItem>
+                  <TabItem
+                    className={tabItemClassName}
+                    name={GRAPHQL_PART_TIME}
+                    tech={TECH_GRAPHQL}
+                  >
+                    GraphQL API Part-time
+                  </TabItem>
+                  <TabItem
+                    tech={TECH_GRAPHQL}
+                    className={tabItemClassName}
+                    name={GRAPHQL_BOOTCAMP}
+                  >
+                    GraphQL Bootcamp
+                  </TabItem>
                 </TabList>
-                <TabContent>
-                  <ContentItem name={GRAPHQL_BOOTCAMP}>
-                    <P>
-                      <strong>
-                        On completion of the GraphQL Bootcamp each student will:
-                      </strong>
-                    </P>
-                    <Ul>
-                      <CurriculumGraphQLBootcamp.LearningObjectivesList />
-                      <Li>
-                        Not sure if our trainings are right for you? Read our
-                        blog{' '}
-                        <Link
-                          className="perfect-course-student"
-                          to="/blog/are-you-the-perfect-react-graphql-student/"
-                        >
-                          <strong>Are YOU the Perfect GraphQL Student?</strong>
-                        </Link>
-                      </Li>
-                    </Ul>
-                    <H4>GraphQL Bootcamp Curriculum:</H4>
-                    <Row>
-                      <Col lg={1} lgOffset={1} />
-                      <Col lg={9}>
-                        <CurriculumGraphQLBootcamp
-                          {...commonCurriculumProps}
-                          marketingCard={
-                            trainingBootcamp && (
-                              <MarketingCard
-                                heading="Next GraphQL Bootcamp"
-                                className="training-curriculum-next-training-cta"
-                                to={trainingBootcamp && trainingBootcamp.toPath}
-                                buttonText={`${
-                                  trainingBootcamp.city
-                                } GraphQL Bootcamp, ${formatUTC(
-                                  trainingBootcamp.startDate,
-                                  trainingBootcamp.utcOffset,
-                                  'D MMM'
-                                )}  `}
-                              />
-                            )
-                          }
-                        />
-                      </Col>
-                    </Row>
-                  </ContentItem>
-                  <ContentItem name={GRAPHQL_PART_TIME}>
-                    <P>
-                      <strong>
-                        On completion of the GraphQL part-time training each
-                        student will:
-                      </strong>
-                    </P>
-                    <PartTimeLearningObjectives />
-                    {/* <P>
+                <TabPanel name={GRAPHQL_BOOTCAMP}>
+                  <P>
+                    <strong>
+                      On completion of the GraphQL Bootcamp each student will:
+                    </strong>
+                  </P>
+                  <Ul>
+                    <CurriculumGraphQLBootcamp.LearningObjectivesList />
+                    <Li>
+                      Not sure if our trainings are right for you? Read our blog{' '}
+                      <Link
+                        className="perfect-course-student"
+                        to="/blog/are-you-the-perfect-react-graphql-student/"
+                      >
+                        <strong>Are YOU the Perfect GraphQL Student?</strong>
+                      </Link>
+                    </Li>
+                  </Ul>
+                  <H4>GraphQL Bootcamp Curriculum:</H4>
+                  <Row>
+                    <Col lg={1} lgOffset={1} />
+                    <Col lg={9}>
+                      <CurriculumGraphQLBootcamp
+                        {...commonCurriculumProps}
+                        marketingCard={
+                          trainingBootcamp && (
+                            <MarketingCard
+                              heading="Next GraphQL Bootcamp"
+                              className="training-curriculum-next-training-cta"
+                              to={trainingBootcamp && trainingBootcamp.toPath}
+                              buttonText={`${
+                                trainingBootcamp.city
+                              } GraphQL Bootcamp, ${formatUTC(
+                                trainingBootcamp.startDate,
+                                trainingBootcamp.utcOffset,
+                                'D MMM'
+                              )}  `}
+                            />
+                          )
+                        }
+                      />
+                    </Col>
+                  </Row>
+                </TabPanel>
+                <TabPanel name={GRAPHQL_PART_TIME}>
+                  <P>
+                    <strong>
+                      On completion of the GraphQL part-time training each
+                      student will:
+                    </strong>
+                  </P>
+                  <PartTimeLearningObjectives />
+                  {/* <P>
                             Not sure if our trainings are right for you? Read
                             our blog{' '}
                             <Link
@@ -343,36 +360,35 @@ class GraphQLCurriculum extends React.Component {
                             </Link>
                           </P> */}
 
-                    <H4>GraphQL part-time Curriculum:</H4>
-                    <Row>
-                      <Col lg={1} lgOffset={1} />
-                      <Col lg={9}>
-                        <CurriculumGraphQLPartTime
-                          {...commonCurriculumProps}
-                          marketingCard={
-                            trainingPartTime && (
-                              <MarketingCard
-                                heading="Next GraphQL part-time training"
-                                text={`Don't cut into valuable work-days!`}
-                                className="training-curriculum-next-training-cta"
-                                to={trainingPartTime && trainingPartTime.toPath}
-                                buttonText={`${
-                                  trainingPartTime.isOnline
-                                    ? 'Remote'
-                                    : trainingPartTime.city
-                                } GraphQL part-time, ${formatUTC(
-                                  trainingPartTime.startDate,
-                                  trainingPartTime.utcOffset,
-                                  'D MMM'
-                                )}  `}
-                              />
-                            )
-                          }
-                        />
-                      </Col>
-                    </Row>
-                  </ContentItem>
-                </TabContent>
+                  <H4>GraphQL part-time Curriculum:</H4>
+                  <Row>
+                    <Col lg={1} lgOffset={1} />
+                    <Col lg={9}>
+                      <CurriculumGraphQLPartTime
+                        {...commonCurriculumProps}
+                        marketingCard={
+                          trainingPartTime && (
+                            <MarketingCard
+                              heading="Next GraphQL part-time training"
+                              text={`Don't cut into valuable work!`}
+                              className="training-curriculum-next-training-cta"
+                              to={trainingPartTime && trainingPartTime.toPath}
+                              buttonText={`${
+                                trainingPartTime.isOnline
+                                  ? 'Remote'
+                                  : trainingPartTime.city
+                              } GraphQL part-time, ${formatUTC(
+                                trainingPartTime.startDate,
+                                trainingPartTime.utcOffset,
+                                'D MMM'
+                              )}  `}
+                            />
+                          )
+                        }
+                      />
+                    </Col>
+                  </Row>
+                </TabPanel>
               </Tabs>
             </Col>
           </Row>

@@ -18,7 +18,7 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
+import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { trainingId, title, breadcrumbWorkshopName } from './config.json'
 
@@ -57,7 +57,7 @@ const AdvancedReactWorkshop = ({ path, trainings }) => {
           { text: 'Is this right for me?', to: '#target-audience' },
         ]}
         bgImageName={BOOTCAMP}
-        type={REACT_WORKSHOP}
+        trainingType={TRAINING_TYPE_WORKSHOP}
       />
       <TopSection>
         <Segment>

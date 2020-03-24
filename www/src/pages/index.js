@@ -104,7 +104,7 @@ const IndexPage = ({ trainings }) => {
           'Take your dev career further',
           'with React GraphQL Academy',
         ]}
-        subtitle="In-person & remote training from industry experts for professional developers. "
+        subtitle="In-person & remote training from industry experts."
         bgImageName={HOME_PAGE}
       />
       <TopSection sx={{ mt: [0, -225] }}>
@@ -123,7 +123,7 @@ const IndexPage = ({ trainings }) => {
               onClick={() => setTab(TAB_GRAPHQL)}
               to="#tab-curriculum"
             >
-              Part-time
+              Part-time (PT)
             </TabItem>
             <a name="tab-curriculum" />
           </Col>

@@ -23,7 +23,7 @@ import {
 import withWidth, { SMALL } from '../utils/WithWidth'
 import { SCREEN_SM_MIN, SCREEN_SM_MAX, SCREEN_XS_MAX } from '../utils'
 import Link, { styleChildLinkColor } from '../navigation/Link'
-import { selectTypeColor, selectBorderStyle } from '../utils/index.js'
+import { selectTechColor, selectBorderStyle } from '../utils/index.js'
 import { Image } from '../elements'
 import Box from './Box'
 import { LinkButton } from '../buttons'
@@ -255,16 +255,20 @@ const Nav = styled.div`
 `
 
 const TitleCol = styled(Col)`
-  ${({ type }) =>
-    type &&
+  ${({ trainingType, tech }) =>
+    trainingType &&
     `
     height: 100%;
-    border-left: ${selectBorderStyle(type)} 27px ${selectTypeColor(type)};
+    border-left: ${selectBorderStyle({ trainingType })} 27px ${selectTechColor({
+      tech,
+    })};
     @media (min-width: ${SCREEN_SM_MIN}) {
       margin-left: 9px;
     }
     @media (max-width: ${SCREEN_SM_MAX}) {
-      border-left: ${selectBorderStyle(type)} 10px ${selectTypeColor(type)};
+      border-left: ${selectBorderStyle({
+        trainingType,
+      })} 10px ${selectTechColor({ tech })};
     }
     margin-bottom: 1em;
   `};
@@ -275,8 +279,8 @@ const InfoBox = styled(Box)`
     font-size: 0.9rem;
   }
   font-size: 0.9rem;
-  border: ${({ type }) =>
-    `${selectBorderStyle(type)} 5px ${selectTypeColor(type)}`};
+  border: ${({ tech, trainingType }) =>
+    `${selectBorderStyle({ trainingType })} 5px ${selectTechColor({ tech })}`};
 `
 const FeaturedSection = ({ sx = {}, ...rest }) => (
   <Box
@@ -308,7 +312,6 @@ const Header = ({
   infoBoxFluidImage,
   featuredSection,
   featuredTraining,
-  type = '',
   titleLines = [],
   subtitle,
   links = [],
@@ -327,10 +330,12 @@ const Header = ({
   bgImageOpacity,
   className = 'course-details-clicks',
   breadcrumbPath,
-  tech,
   breadcrumbBgColor,
   buyLink = '#pricing',
+  ...rest
 }) => {
+  const trainingType = rest.trainingType || (training && training.trainingType)
+  const tech = rest.tech || (training && training.tech)
   const expandCheckout = useExpandCheckout()
   const { dayMonth: featuredDayMonth, duration: featureDuration } =
     getTrainingTimings({
@@ -372,6 +377,7 @@ const Header = ({
         const endDate =
           training.endDate &&
           formatUTC(training.endDate, training.utcOffset, 'D MMM')
+
         const {
           hours: utcHours,
           minutes: utcMinutes,
@@ -414,7 +420,8 @@ const Header = ({
                         ? 8
                         : 12
                     }
-                    type={type}
+                    tech={tech}
+                    trainingType={trainingType}
                   >
                     <H1>
                       {titleLinesArray.map((line, i) => (
@@ -481,7 +488,8 @@ const Header = ({
                         startDay={featuredDayMonth[0]}
                         startMonth={featuredDayMonth[1]}
                         duration={featureDuration}
-                        type={training.type}
+                        trainingType={training.trainingType}
+                        tech={training.tech}
                         title={training.title}
                         path={training.toPath}
                         className={className}
@@ -494,7 +502,11 @@ const Header = ({
                   ) : null}
                   {showInfoBox && (
                     <Col md={3} mdOffset={1}>
-                      <InfoBox type={type} sx={{ p: 1 }}>
+                      <InfoBox
+                        tech={tech}
+                        trainingType={trainingType}
+                        sx={{ p: 1 }}
+                      >
                         {infoBoxFluidImage && (
                           <Image
                             fluid={infoBoxFluidImage.fluid}

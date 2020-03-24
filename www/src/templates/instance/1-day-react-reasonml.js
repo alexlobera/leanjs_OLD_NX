@@ -3,17 +3,21 @@ import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumOneDayReactReason'
-import { REACT_WORKSHOP, ADVANCED_REACT, REACT_BOOTCAMP } from 'src/config/data'
+import {
+  ADVANCED_REACT,
+  REACT_BOOTCAMP,
+  TRAINING_TYPE_WORKSHOP,
+} from 'src/config/data'
 
 export const crossSellTypes = [ADVANCED_REACT, REACT_BOOTCAMP]
 
 const Page = props => (
   <BaseTemplate
     {...props}
-    type={REACT_WORKSHOP}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     typeOfTraining="1-day ReasonML workshop"
     perfectStudentLink={false}
     curriculumProps={{

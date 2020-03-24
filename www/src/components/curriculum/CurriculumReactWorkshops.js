@@ -1,21 +1,34 @@
 import React from 'react'
 import Section from './CurriculumSection'
-import { REACT_WORKSHOP } from '../../config/data'
+import {
+  REACT_WORKSHOP,
+  TECH_REACT,
+  TRAINING_TYPE_WORKSHOP,
+  FULL_TIME,
+} from '../../config/data'
 import Curriculum from './Curriculum'
 
 const workshopBasePath = '/react/training/workshops/'
+
+const trainingInstanceTypeName = FULL_TIME
+const tech = TECH_REACT
+const trainingType = TRAINING_TYPE_WORKSHOP
 
 const CurriculumReactWorkshops = ({ section = {}, ...rest }) => {
   const type = REACT_WORKSHOP
   const sectionProps = {
     ...section,
+    trainingType,
     type,
   }
+
   return (
     <Curriculum
       title="React Workshops"
       curriculumTitle="Workshop offerings"
-      type={type}
+      tech={tech}
+      trainingType={trainingType}
+      trainingInstanceTypeName={trainingInstanceTypeName}
       {...rest}
       firstHalf={
         <React.Fragment>

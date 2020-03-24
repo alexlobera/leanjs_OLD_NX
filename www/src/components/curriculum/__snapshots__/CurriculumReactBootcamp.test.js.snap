@@ -8,10 +8,12 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day1"
         subTitle="Thinking in React, Modern JavaScript, Routing & Data Fetching"
+        tech="react"
         title="Day  1"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
-        type="React Bootcamp"
+        trainingInstanceTypeName="full-time"
+        trainingType="full-curriculum"
       >
         <React.Fragment>
           <ThinkingInReactSession />
@@ -22,10 +24,12 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day2"
         subTitle="Forms, Authentication, and Hooks"
+        tech="react"
         title="Day  2"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
-        type="React Bootcamp"
+        trainingInstanceTypeName="full-time"
+        trainingType="full-curriculum"
       >
         <React.Fragment>
           <FormsAndAuthSession />
@@ -36,10 +40,12 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day3"
         subTitle="Redux Fundamentals, deployment to production"
+        tech="react"
         title="Day  3"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
-        type="React Bootcamp"
+        trainingInstanceTypeName="full-time"
+        trainingType="full-curriculum"
       >
         <React.Fragment>
           <IntroReduxSession />
@@ -53,49 +59,69 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       <CurriculumSection
         name="day4"
         subTitle="Advanced React patterns and performance"
+        tech="react"
         title="Day  4"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
-        type="React Bootcamp"
+        trainingInstanceTypeName="full-time"
+        trainingType="full-curriculum"
       >
         <React.Fragment>
-          <AdvancedReactPatternsSession />
-          <ReactPerformanceSession />
+          <AdvancedReactPatternsSession
+            title="Functional Programming & Advanced React patterns"
+          />
+          <AdvancedHooksAndPerfSession
+            title="Advanced Hooks and Performance"
+          />
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
         name="day5"
-        subTitle="Styling in React and Design Systems"
+        subTitle="GraphQL 101 & Real-World Testing in React"
+        tech="react"
         title="Day  5"
         toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
         trainingDateTime="-  09:00 - 18:00"
-        type="React Bootcamp"
-      >
-        <React.Fragment>
-          <StylingInReactSession />
-          <AdvancedUIPatterns />
-          <DesignSystemSession />
-        </React.Fragment>
-      </CurriculumSection>,
-      <CurriculumSection
-        name="day6"
-        subTitle="GraphQL 101 & Real-World Testing in React"
-        title="Day  6"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
-        trainingDateTime="-  09:00 - 18:00"
-        type="React Bootcamp"
+        trainingInstanceTypeName="full-time"
+        trainingType="full-curriculum"
       >
         <React.Fragment>
           <ReactGraphQLIntroSession
             title="GraphQL in React 101"
           />
-          <TestingIntroSession />
-          <TestingInReactSession2 />
+          <TestingIntroSession
+            title="Testing Foundation in JavaScript"
+          />
+          <TestingInReactSession2
+            title="Testing in React & GraphQL"
+          />
+        </React.Fragment>
+      </CurriculumSection>,
+      <CurriculumSection
+        name="day6"
+        subTitle="Building a UI component library"
+        tech="react"
+        title="Day  6"
+        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
+        trainingDateTime="-  09:00 - 18:00"
+        trainingInstanceTypeName="full-time"
+        trainingType="full-curriculum"
+      >
+        <React.Fragment>
+          <StylingInReactSession
+            title="Styling in React"
+          />
+          <DesignSystemSession
+            title="Design Systems"
+          />
         </React.Fragment>
       </CurriculumSection>,
     ]
   }
+  tech="react"
   title="React Redux Bootcamp Outline"
-  type="React Bootcamp"
+  trainingId="5a16f0ea4939a601fe2db701"
+  trainingInstanceTypeName="full-time"
+  trainingType="full-curriculum"
 />
 `;

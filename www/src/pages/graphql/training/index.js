@@ -17,11 +17,7 @@ import {
 } from 'src/components/training'
 
 import { Segment } from 'src/components/elements'
-import {
-  GRAPHQL_BOOTCAMP,
-  CONVINCE_THE_BOSS_PDF,
-  TECH_GRAPHQL,
-} from 'src/config/data'
+import { CONVINCE_THE_BOSS_PDF, TECH_GRAPHQL } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { GRAPHQL_PINK, LIGHT_PINK } from 'src/config/styles'
@@ -115,7 +111,6 @@ const TrainingPage = ({ path, trainings }) => (
           to: '#student-outcomes',
         },
       ]}
-      type={GRAPHQL_BOOTCAMP}
       tech={TECH_GRAPHQL}
       breadcrumbPath={[
         { to: '/', label: 'Home' },
@@ -138,7 +133,7 @@ const TrainingPage = ({ path, trainings }) => (
       <Row>
         <Col md={5} mdOffset={1}>
           <AttendeeQuote
-            type={TECH_GRAPHQL}
+            tech={TECH_GRAPHQL}
             quote="I think whatever business you're in, [the training will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
             fullname="Lara Ramey"
             job="Software Developer"

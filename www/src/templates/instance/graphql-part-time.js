@@ -10,6 +10,8 @@ import {
   GRAPHQL_API,
   GRAPHQL_PART_TIME,
   GRAPHQL_PART_TIME_TRIAL,
+  GRAPHQL_TRIAL_ID,
+  TECH_GRAPHQL,
 } from 'src/config/data'
 import Feedback from 'src/components/training/Feedback'
 
@@ -24,8 +26,9 @@ export const crossSellTypes = [
 const Page = props => (
   <BaseTemplate
     {...props}
-    trialTrainingId="5e349275778e880002113474"
-    type={GRAPHQL_PART_TIME}
+    trialTrainingId={GRAPHQL_TRIAL_ID}
+    // type={GRAPHQL_PART_TIME}
+    tech={TECH_GRAPHQL}
     feedback={
       <Feedback
         trialPath="/graphql/training/workshops/graphql-part-time-trial/remote/"

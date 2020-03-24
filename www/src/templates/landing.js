@@ -14,12 +14,13 @@ import {
   UpcomingTrainingSection,
   selectUpcomingTrainings,
   selectNthTraining,
+  REACT_BOOTCAMP_ID,
+  FULL_TIME_REACT_ID,
 } from '../components/training'
 import { Breadcrumb } from '../components/navigation'
 import { Link } from '../components/navigation'
 import Ul, { Li } from '../components/layout/Ul'
 import { LinkButton } from '../components/buttons'
-import { REACT_BOOTCAMP } from '../config/data'
 import Newsletter from '../components/elements/Newsletter'
 
 const Landing = ({ data, trainings }) => {
@@ -33,7 +34,8 @@ const Landing = ({ data, trainings }) => {
 
   const bootcampTrainings = selectUpcomingTrainings({
     trainings: trainings,
-    type: REACT_BOOTCAMP,
+    trainingId: REACT_BOOTCAMP_ID,
+    trainingTypeId: FULL_TIME_REACT_ID,
   })
   const nextTraining = selectNthTraining({ trainings: bootcampTrainings }) || {}
   return (

@@ -11,22 +11,25 @@ import ReactNativeNavigationSession, {
 import ReactNativeAnimationsSession, {
   titleSession as titleSession3,
 } from '../sessions/native/ReactNativeAnimationsSession'
-import { REACT_WORKSHOP } from '../../../config/data'
+import { TRAINING_TYPE_WORKSHOP } from '../../../config/data'
 import Curriculum from '../Curriculum'
+
+const trainingType = TRAINING_TYPE_WORKSHOP
 
 const CurriculumReactNative = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? '1-Day React Native Curriculum' : ''}
+    trainingType={trainingType}
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section title={titleSession1} type={REACT_WORKSHOP} {...section}>
+        <Section title={titleSession1} trainingType={trainingType} {...section}>
           <ReactNativeFoundationSession title="" />
         </Section>
-        <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
+        <Section title={titleSession2} trainingType={trainingType} {...section}>
           <ReactNativeNavigationSession title="" />
         </Section>
-        <Section title={titleSession3} type={REACT_WORKSHOP} {...section}>
+        <Section title={titleSession3} trainingType={trainingType} {...section}>
           <ReactNativeAnimationsSession title="" />
         </Section>
       </React.Fragment>

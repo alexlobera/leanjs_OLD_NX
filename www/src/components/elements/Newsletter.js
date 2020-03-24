@@ -11,7 +11,7 @@ const Newsletter = ({
   <React.Fragment>
     <H3 sx={sx}>
       <a name={anchorName} />
-      Join the newsletter
+      Free learning resources
     </H3>
 
     <P>
@@ -22,7 +22,7 @@ const Newsletter = ({
       <LinkButton
         variant={buttonVariant}
         className="free-learning-resources-cta"
-        to="#newsletter"
+        to="#newsletter-footer"
       >
         Sign up now
       </LinkButton>

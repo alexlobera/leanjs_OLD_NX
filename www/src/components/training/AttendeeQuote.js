@@ -4,10 +4,10 @@ import { Video } from '../elements'
 import Box from '../layout/Box'
 import { LinkButton } from '../buttons'
 import Card from '../elements/Card'
-import { selectTypeColor } from '../utils'
+import { selectTechColor } from '../utils'
 
 const AttendeeQuote = ({
-  type,
+  tech,
   quote,
   fullname,
   company,
@@ -21,7 +21,7 @@ const AttendeeQuote = ({
   ...rest
 }) => (
   <Card
-    sx={{ borderColor: selectTypeColor(type), ...sx }}
+    sx={{ borderColor: selectTechColor({ tech }), ...sx }}
     variant="info"
     {...rest}
   >

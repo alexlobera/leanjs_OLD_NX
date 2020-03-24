@@ -19,7 +19,7 @@ import {
   AttendeeQuote,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
+import { TRAINING_TYPE_WORKSHOP, TECH_REACT } from 'src/config/data'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
@@ -32,10 +32,14 @@ const metas = {
   type: 'website',
 }
 
-const Bootcamps = ({ path, trainings }) => {
+const trainingType = TRAINING_TYPE_WORKSHOP
+const tech = TECH_REACT
+
+const Workshops = ({ path, trainings }) => {
   const allReactWorkshops = selectUpcomingTrainings({
     trainings,
-    types: [REACT_WORKSHOP],
+    trainingType,
+    tech,
   })
   const nextTraining = selectNthTraining({
     trainings: allReactWorkshops,
@@ -70,7 +74,8 @@ const Bootcamps = ({ path, trainings }) => {
             label: 'Workshops',
           },
         ]}
-        tech={TECH_REACT}
+        tech={tech}
+        trainingType={trainingType}
         titleLines={['1-Day React Workshops']}
         subtitle="Intense, 1-day workshops that focusses on one specific part of React - all delivered by industry experts"
         bgImageName={BOOTCAMP}
@@ -88,7 +93,6 @@ const Bootcamps = ({ path, trainings }) => {
             to: '#target-audience',
           },
         ]}
-        type={REACT_WORKSHOP}
       />
       <TopSection>
         <Segment>
@@ -153,4 +157,4 @@ const Bootcamps = ({ path, trainings }) => {
   )
 }
 
-export default Bootcamps
+export default Workshops

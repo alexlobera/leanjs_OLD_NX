@@ -1,6 +1,6 @@
 ---
-coaches: ['eva-hoffmann', 'alex-lobera', 'will-voelcker', 'francisco-gomes']
-subtitle: Expert coaches work with you in London to help you master React without having to cut into valuable work-days
+coaches: ['horacio-herrera']
+subtitle: Expert coaches work with you in Barcelona to help you master React without having to cut into valuable work
 videoOneTime: ''
 videoOneId: E_4eQQHjc7A
 videoOneQuote: ''

@@ -3,14 +3,18 @@ import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
 } from 'src/components/curriculum/workshops/CurriculumReactNative3Day'
-import { REACT_WORKSHOP, ADVANCED_REACT } from 'src/config/data'
+import {
+  REACT_WORKSHOP,
+  ADVANCED_REACT,
+  TRAINING_TYPE_WORKSHOP,
+} from 'src/config/data'
 
 export const crossSellTypes = [ADVANCED_REACT, REACT_WORKSHOP]
 
 const Page = props => (
   <BaseTemplate
     {...props}
-    type={REACT_WORKSHOP}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

@@ -17,13 +17,12 @@ import FederationSession, {
 import HasuraSession, {
   LearningObjectives as HasuraLearningObjectives,
 } from './sessions/graphql/server/HasuraSession'
-// import GraphQLClientFundamentalsSession, {
-//   LearningObjectives as GraphQLClientLearningObjectives,
-// } from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-// import AdvancedApolloClientSession, {
-//   LearningObjectives as AdvancedApolloClientLearningObjectives,
-// } from './sessions/graphql/client/AdvancedApolloClientSession'
-import { GRAPHQL_PART_TIME } from '../../config/data'
+import {
+  PART_TIME,
+  TECH_GRAPHQL,
+  TRAINING_TYPE_HALF_CURRICULUM,
+  GRAPHQL_API_ID,
+} from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
 import { TargetAudienceList } from './CurriculumGraphQLBootcamp'
@@ -41,25 +40,29 @@ export const defaultSessionsSecondtHalf = [
   { Comp: FederationSession },
   { Comp: SubscriptionsSession },
   { Comp: HasuraSession },
-  //{ Comp: GraphQLClientFundamentalsSession },
-  //{ Comp: AdvancedApolloClientSession },
 ]
 
-const CurriculumPartTime = ({
-  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_PART_TIME}`,
+const trainingInstanceTypeName = PART_TIME
+const tech = TECH_GRAPHQL
+const trainingType = TRAINING_TYPE_HALF_CURRICULUM
+const trainingId = GRAPHQL_API_ID
+
+const CurriculumGraphQLPartTime = ({
+  toggleNavigateTo = `/graphql/curriculum?tab=${PART_TIME}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
   sessionsSecondtHalf = defaultSessionsSecondtHalf,
   ...rest
 }) => {
-  const type = GRAPHQL_PART_TIME
   const initialIndex = 0
 
   const sectionProps = {
     ...section,
     toggleNavigateTo,
-    type,
+    trainingInstanceTypeName,
+    tech,
+    trainingType,
   }
   const renderSectionWithProps = renderPartTimeSection({
     sectionProps,
@@ -69,8 +72,11 @@ const CurriculumPartTime = ({
   return (
     <Curriculum
       title="GraphQL Part-time Training Outline"
+      trainingId={trainingId}
       training={training}
-      type={type}
+      tech={tech}
+      trainingType={trainingType}
+      trainingInstanceTypeName={trainingInstanceTypeName}
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}
@@ -118,6 +124,6 @@ export const LearningObjectives = ({ showAllButton = true }) => {
   )
 }
 
-CurriculumPartTime.TargetAudienceList = TargetAudienceList
+CurriculumGraphQLPartTime.TargetAudienceList = TargetAudienceList
 
-export default CurriculumPartTime
+export default CurriculumGraphQLPartTime

@@ -17,7 +17,7 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
+import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
@@ -69,7 +69,7 @@ const StylingDesignSystemWorkshop = ({ path, trainings }) => {
           { text: 'Is this right for me?', to: '#target-audience' },
         ]}
         bgImageName={BOOTCAMP}
-        type={REACT_WORKSHOP}
+        trainingType={TRAINING_TYPE_WORKSHOP}
       />
       <TopSection>
         <Segment>
