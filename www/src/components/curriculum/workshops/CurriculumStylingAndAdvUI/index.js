@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { REACT_WORKSHOP } from '../../../../config/data'
+import { TRAINING_TYPE_WORKSHOP } from '../../../../config/data'
 import Section from '../../CurriculumSection'
 import StylingInReactSession, {
   titleSession as titleSession2,
@@ -13,14 +13,22 @@ import Curriculum from '../../Curriculum'
 const CurriculumStylingAndAdvUI = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? '1-Day Styling & Design Systems Curriculum' : ''}
-    type={REACT_WORKSHOP}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section title={titleSession2} type={REACT_WORKSHOP} {...section}>
+        <Section
+          title={titleSession2}
+          trainingType={TRAINING_TYPE_WORKSHOP}
+          {...section}
+        >
           <StylingInReactSession title="" />
         </Section>
-        <Section title={titleSession3} type={REACT_WORKSHOP} {...section}>
+        <Section
+          title={titleSession3}
+          trainingType={TRAINING_TYPE_WORKSHOP}
+          {...section}
+        >
           <DesignSystemSession title="" />
         </Section>
       </React.Fragment>

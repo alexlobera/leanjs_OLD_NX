@@ -1,6 +1,6 @@
 import React from 'react'
 import Section from '../CurriculumSection'
-import { GRAPHQL_WORKSHOP } from '../../../config/data'
+import { TRAINING_TYPE_WORKSHOP, TECH_GRAPHQL } from '../../../config/data'
 
 import GraphQLClientFundamentalsSession from '../sessions/graphql/client/GraphQLClientFundamentalsSession'
 import AdvancedApolloClientSession from '../sessions/graphql/client/AdvancedApolloClientSession'
@@ -11,10 +11,16 @@ import Curriculum from '../Curriculum'
 const CurriculumGraphQLApollo = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? 'GraphQL React Apollo Client' : ''}
+    trainingType={TRAINING_TYPE_WORKSHOP}
+    tech={TECH_GRAPHQL}
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section type={GRAPHQL_WORKSHOP} {...section}>
+        <Section
+          tech={TECH_GRAPHQL}
+          trainingType={TRAINING_TYPE_WORKSHOP}
+          {...section}
+        >
           <GraphQLClientFundamentalsSession />
           <AdvancedApolloClientSession />
           <GraphQLClientRecapSession />

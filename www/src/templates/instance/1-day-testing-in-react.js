@@ -8,6 +8,7 @@ import {
   REACT_WORKSHOP,
   ADVANCED_REACT,
   GRAPHQL_BOOTCAMP,
+  TRAINING_TYPE_WORKSHOP,
 } from 'src/config/data'
 
 export const crossSellTypes = [ADVANCED_REACT, GRAPHQL_BOOTCAMP, REACT_WORKSHOP]
@@ -15,7 +16,7 @@ export const crossSellTypes = [ADVANCED_REACT, GRAPHQL_BOOTCAMP, REACT_WORKSHOP]
 const Page = props => (
   <BaseTemplate
     {...props}
-    type={REACT_WORKSHOP}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     learningObjectives={LearningObjectives}

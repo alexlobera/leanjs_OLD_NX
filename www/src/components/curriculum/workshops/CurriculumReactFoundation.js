@@ -16,6 +16,7 @@ const trainingType = TRAINING_TYPE_WORKSHOP
 const CurriculumReactFoundation = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? '1-Day React Foundation Curriculum' : ''}
+    trainingType={trainingType}
     {...rest}
     firstHalf={
       <React.Fragment>

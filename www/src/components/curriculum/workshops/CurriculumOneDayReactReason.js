@@ -1,6 +1,6 @@
 import React from 'react'
 import Section from '../CurriculumSection'
-import { REACT_WORKSHOP } from '../../../config/data'
+import { TRAINING_TYPE_WORKSHOP } from '../../../config/data'
 import Ul, { Li } from '../../layout/Ul'
 import Curriculum from '../Curriculum'
 import Session from '../sessions/Session'
@@ -8,11 +8,12 @@ import Session from '../sessions/Session'
 const CurriculumReactReasonML = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
     title={showTitle ? 'Working ReasonReact app with GraphQL' : ''}
+    trainingType={TRAINING_TYPE_WORKSHOP}
     {...rest}
     firstHalf={
       <React.Fragment>
         <Section
-          type={REACT_WORKSHOP}
+          trainingType={TRAINING_TYPE_WORKSHOP}
           {...section}
           showLinkToCurriculum={false}
           enableToggle={false}
