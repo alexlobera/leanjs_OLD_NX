@@ -46,12 +46,13 @@ import {
   REACT_BOOTCAMP_ID,
   ADVANCED_REACT_ID,
   REACT_FUNDAMENTALS_ID,
+  TRAINING_TYPE_FULL_CURRICULUM,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { BLUE } from '../../config/styles'
 import Card from 'src/components/elements/Card'
 import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
-import { TRAINING_TYPE_HALF_CURRICULUM } from 'www/src/config/data'
+import { TRAINING_TYPE_HALF_CURRICULUM } from 'src/config/data'
 
 const TdLearningExprience = ({ strong, children }) => (
   <Td verticalAlign="top">

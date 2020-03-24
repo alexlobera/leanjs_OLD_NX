@@ -7,7 +7,13 @@ import FormsAndAuthSession from './sessions/FormsAndAuthSession'
 import IntroReduxSession from './sessions/IntroReduxSession'
 import HooksSession from './sessions/HooksSession'
 import FundamentalsFinalProject from './sessions/FundamentalsFinalProject'
-import { REACT_PART_TIME } from '../../config/data'
+import {
+  REACT_FUNDAMENTALS_PART_TIME,
+  REACT_FUNDAMENTALS_ID,
+  PART_TIME,
+  TECH_REACT,
+  TRAINING_TYPE_HALF_CURRICULUM,
+} from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
 
@@ -37,10 +43,15 @@ export const defaultSessionsSecondHalf = [
   },
 ]
 
-const type = REACT_PART_TIME
+// const type = REACT_PART_TIME
+
+const trainingInstanceTypeName = PART_TIME
+const tech = TECH_REACT
+const trainingType = TRAINING_TYPE_HALF_CURRICULUM
+const trainingId = REACT_FUNDAMENTALS_ID
 
 const CurriculumReactFundamentalsPartTime = ({
-  toggleNavigateTo = `/react/curriculum?tab=${type}`,
+  toggleNavigateTo = `/react/curriculum?tab=${REACT_FUNDAMENTALS_PART_TIME}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
@@ -52,7 +63,9 @@ const CurriculumReactFundamentalsPartTime = ({
   const sectionProps = {
     ...section,
     toggleNavigateTo,
-    type,
+    trainingInstanceTypeName,
+    tech,
+    trainingType,
   }
   const renderSectionWithProps = renderPartTimeSection({
     sectionProps,
@@ -62,8 +75,11 @@ const CurriculumReactFundamentalsPartTime = ({
   return (
     <Curriculum
       title="React Redux Fundamentals Part-time Outline"
-      training={training}
-      type={type}
+      //   training={training}
+      tech={tech}
+      trainingType={trainingType}
+      trainingInstanceTypeName={trainingInstanceTypeName}
+      trainingId={trainingId}
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}

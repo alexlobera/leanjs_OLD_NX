@@ -15,6 +15,7 @@ const Page = props => (
     {...props}
     type={REACT_FUNDAMENTALS}
     typeOfTraining="React fundamentals training"
+    trialTrainingId="5e3854d66bfd23000238647f"
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

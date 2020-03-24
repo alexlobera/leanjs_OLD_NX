@@ -64,7 +64,7 @@ const trainingId = REACT_BOOTCAMP_ID
 
 const CurriculumReactBootcamp = ({
   toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
-  // training,
+  training,
   section = {},
   ...rest
 }) => {
@@ -76,7 +76,7 @@ const CurriculumReactBootcamp = ({
     trainingType,
   }
   const renderSectionArgs = {
-    // training,
+    training,
     sectionProps,
   }
 

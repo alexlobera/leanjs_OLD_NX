@@ -43,7 +43,6 @@ export class Unsubscribe extends React.Component {
           titleLines={['Unsubscribe']}
           subtitle=""
           bgImageName={BOOTCAMP}
-          fullHeight={false}
         />
         <Section>
           <Row>

@@ -25,6 +25,7 @@ const Page = props => (
     type={REACT_BOOTCAMP}
     typeOfTraining="React Bootcamp"
     crossSellTypes={crossSellTypes}
+    trialTrainingId="5e3854d66bfd23000238647f"
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
   />

@@ -1,10 +1,10 @@
 {
   "instanceTemplate": "react-advanced-part-time",
   "tech": "React",
-  "breadcrumbTrainingName": "Advanced Part-Time",
+  "breadcrumbTrainingName": "Advanced Part-time",
   "breadcrumbTrainingSlug": "advanced-part-time",
-  "trainingId": "?????",
-  "title": ["Advanced React Part-Time", "Training"],
+  "trainingId": "5ab6244a88546e46fa2b2601",
+  "title": ["Advanced React", "Part-Time Training"],
   "tagsIn": ["react", "advanced"],
   "tagsNin": "beginner"
 }

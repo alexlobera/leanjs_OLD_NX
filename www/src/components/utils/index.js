@@ -2,22 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import {
-  REACT_BOOTCAMP,
-  REACT_PART_TIME,
-  ADVANCED_REACT,
-  REACT_WORKSHOP,
-  REACT_FUNDAMENTALS,
-  GRAPHQL_PART_TIME,
-  GRAPHQL_BOOTCAMP,
-  GRAPHQL_API,
-  GRAPHQL_WORKSHOP,
   MEETUP,
   TECH_REACT,
   TECH_GRAPHQL,
   TECH_JAMSTACK,
   TRAINING_TYPE_FULL_CURRICULUM,
   TRAINING_TYPE_HALF_CURRICULUM,
-  PART_TIME,
+  TRAINING_TYPE_WORKSHOP,
 } from '../../config/data'
 import {
   GRAPHQL_PINK,
@@ -96,7 +87,7 @@ export const selectBorderStyle = ({
     return 'solid'
   } else if (trainingType === TRAINING_TYPE_HALF_CURRICULUM) {
     return 'dashed'
-  } else if (trainingType === TRAINING_TYPE_HALF_CURRICULUM) {
+  } else if (trainingType === TRAINING_TYPE_WORKSHOP) {
     return 'dotted'
   } else {
     return 'solid'

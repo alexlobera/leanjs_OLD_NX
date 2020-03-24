@@ -17,7 +17,12 @@ import {
 import { Segment } from 'src/components/elements'
 import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
 import Header from 'src/components/layout/Header'
-import { REACT_PART_TIME, TECH_REACT } from 'src/config/data'
+import {
+  TECH_REACT,
+  PART_TIME,
+  REACT_BOOTCAMP_ID,
+  TRAINING_TYPE_FULL_CURRICULUM,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -30,10 +35,15 @@ const metas = {
   type: 'website',
 }
 
-const PartTime = ({ trainings, path }) => {
+const trainingType = TRAINING_TYPE_FULL_CURRICULUM
+const trainingInstanceTypeName = PART_TIME
+const trainingId = REACT_BOOTCAMP_ID
+
+const CompletePartTime = ({ trainings, path }) => {
   const upcomingPartTimeTrainings = selectUpcomingTrainings({
-    type: REACT_PART_TIME,
+    trainingInstanceTypeName,
     trainings,
+    trainingId,
   })
   const nextTraining = selectNthTraining({
     trainings: upcomingPartTimeTrainings,
@@ -64,7 +74,7 @@ const PartTime = ({ trainings, path }) => {
         tech={TECH_REACT}
         titleLines={['Complete React Part-time', 'Training']}
         subtitle="Master the React ecosystem by working with industry experts without having to cut into valuable work-days"
-        type={REACT_PART_TIME}
+        trainingType={trainingType}
         links={header.landingPageLinks.links}
       />
       <TopSection>
@@ -113,4 +123,4 @@ const PartTime = ({ trainings, path }) => {
   )
 }
 
-export default PartTime
+export default CompletePartTime

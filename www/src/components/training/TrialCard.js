@@ -10,7 +10,7 @@ export const DeductPriceOnPurchase = ({ price, trainingInstance }) => (
   <>
     The{' '}
     <strong>
-      {price
+      {/* {price
         ? price
         : trainingInstance
         ? formatPrice(
@@ -18,8 +18,8 @@ export const DeductPriceOnPurchase = ({ price, trainingInstance }) => (
             trainingInstance.price,
             DEFAULT_VAT_RATE
           )
-        : 'price'}{' '}
-      of the trial will be deducted
+        : 'price'}{' '} */}
+      cost of the trial will be deducted
     </strong>{' '}
     from the price when you buy the full training within one week.
   </>

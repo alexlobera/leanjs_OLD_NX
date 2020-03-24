@@ -17,29 +17,36 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
   AttendeeQuote,
-  REACT_BOOTCAMP_ID,
-  FULL_TIME_REACT_ID,
 } from 'src/components/training'
 import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import { Segment } from 'src/components/elements'
-import { REACT_BOOTCAMP, TECH_REACT } from 'src/config/data'
+import {
+  FULL_TIME,
+  TECH_REACT,
+  REACT_BOOTCAMP_ID,
+  TRAINING_TYPE_FULL_CURRICULUM,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
 
 const metas = {
-  title: 'React Bootcamp | React GraphQL Academy',
+  title: '1-Week React Bootcamp | React GraphQL Academy',
   description:
     'Interested in a React bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp.',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
 
+const trainingType = TRAINING_TYPE_FULL_CURRICULUM
+const trainingInstanceTypeName = FULL_TIME
+const trainingId = REACT_BOOTCAMP_ID
+
 const Bootcamps = ({ path, trainings }) => {
   const upcomingBootCampTrainings = selectUpcomingTrainings({
-    trainingId: REACT_BOOTCAMP_ID,
-    trainingTypeId: FULL_TIME_REACT_ID,
+    trainingId,
+    trainingInstanceTypeName,
     trainings,
   })
   const nextTraining = selectNthTraining({
@@ -70,11 +77,11 @@ const Bootcamps = ({ path, trainings }) => {
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['React Redux Bootcamp']}
+        titleLines={['1-Week React Bootcamp']}
         subtitle="For a week, expert coaches and developers will work alongside you to master the React ecosystem so you return to work as a React specialist"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
-        type={REACT_BOOTCAMP}
+        trainingType={trainingType}
       />
       <TopSection>
         <Segment>

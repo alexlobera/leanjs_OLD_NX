@@ -1,5 +1,11 @@
 import React from 'react'
-import { COMPLETE_REACT_PART_TIME } from '../../config/data'
+import {
+  COMPLETE_REACT_PART_TIME,
+  TRAINING_TYPE_FULL_CURRICULUM,
+  TECH_REACT,
+  BOOTCAMP_REACT_ID,
+  PART_TIME,
+} from '../../config/data'
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
 import {
@@ -20,10 +26,13 @@ export const defaultSessionsSecondHalf = [
   ...advDefaultSessionsSecondHalf,
 ]
 
-const type = COMPLETE_REACT_PART_TIME
+const trainingInstanceTypeName = PART_TIME
+const tech = TECH_REACT
+const trainingType = TRAINING_TYPE_FULL_CURRICULUM
+const trainingId = BOOTCAMP_REACT_ID
 
 const CurriculumReactCompletePartTime = ({
-  toggleNavigateTo = `/react/curriculum?tab=${type}`,
+  toggleNavigateTo = `/react/curriculum?tab=${COMPLETE_REACT_PART_TIME}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
@@ -35,7 +44,9 @@ const CurriculumReactCompletePartTime = ({
   const sectionProps = {
     ...section,
     toggleNavigateTo,
-    type,
+    trainingInstanceTypeName,
+    tech,
+    trainingType,
   }
   const renderSectionWithProps = renderPartTimeSection({
     sectionProps,
@@ -44,9 +55,12 @@ const CurriculumReactCompletePartTime = ({
 
   return (
     <Curriculum
-      title="Complete Part-time React Training Outline"
+      title="Complete React Part-time Training Outline"
       training={training}
-      type={type}
+      trainingId={trainingId}
+      tech={tech}
+      trainingType={trainingType}
+      trainingInstanceTypeName={trainingInstanceTypeName}
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSectionWithProps(initialIndex))}

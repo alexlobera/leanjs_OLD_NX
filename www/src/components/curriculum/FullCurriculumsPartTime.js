@@ -16,6 +16,7 @@ import {
   GRAPHQL_API,
   TECH_GRAPHQL,
   TRAINING_TYPE_HALF_CURRICULUM,
+  TRAINING_TYPE_FULL_CURRICULUM,
 } from '../../config/data'
 
 const FullCurriculumsReact = ({ trainings }) => {

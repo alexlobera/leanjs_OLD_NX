@@ -20,7 +20,12 @@ import {
   selectNthTraining,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { ADVANCED_REACT_PART_TIME, TECH_REACT } from 'src/config/data'
+import {
+  TECH_REACT,
+  TRAINING_TYPE_HALF_CURRICULUM,
+  PART_TIME,
+  ADVANCED_REACT_ID,
+} from 'src/config/data'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
 
@@ -32,9 +37,14 @@ const metas = {
   type: 'website',
 }
 
+const trainingType = TRAINING_TYPE_HALF_CURRICULUM
+const trainingInstanceTypeName = PART_TIME
+const trainingId = ADVANCED_REACT_ID
+
 const AdvancedTraining = ({ path, trainings }) => {
   const upcomingAdvancedTrainings = selectUpcomingTrainings({
-    type: ADVANCED_REACT_PART_TIME, // todo replace this with ID in all landing pages
+    trainingInstanceTypeName,
+    trainingId,
     trainings,
   })
   const nextTraining = selectNthTraining({
@@ -67,7 +77,7 @@ const AdvancedTraining = ({ path, trainings }) => {
         titleLines={['Advanced React', 'Part-Time Training']}
         subtitle="For two and a half weeks, expert coaches and developers will work alongside you to master the React ecosystem without cutting into valuable work-days"
         bgImageName={BOOTCAMP}
-        type={ADVANCED_REACT_PART_TIME}
+        trainingType={trainingType}
         links={header.landingPageLinks.links}
       />
       <TopSection>

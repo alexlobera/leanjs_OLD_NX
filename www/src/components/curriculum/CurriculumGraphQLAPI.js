@@ -1,14 +1,23 @@
 import React from 'react'
 import { Li } from '../layout/Ul'
 
-import { GRAPHQL_API } from '../../config/data'
+import {
+  GRAPHQL_API,
+  GRAPHQL_API_ID,
+  TECH_GRAPHQL,
+  PART_TIME,
+  TRAINING_TYPE_HALF_CURRICULUM,
+} from '../../config/data'
 import Curriculum, { renderSection } from './Curriculum'
 import { sessionsFirstHalf } from './CurriculumGraphQLBootcamp'
 
-const type = GRAPHQL_API
+const trainingInstanceTypeName = PART_TIME
+const tech = TECH_GRAPHQL
+const trainingType = TRAINING_TYPE_HALF_CURRICULUM
+const trainingId = GRAPHQL_API_ID
 
 const CurriculumGraphQLAPI = ({
-  toggleNavigateTo = `/graphql/curriculum?tab=${type}`,
+  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_API}`,
   training,
   section = {},
   ...rest
@@ -16,7 +25,9 @@ const CurriculumGraphQLAPI = ({
   const sectionProps = {
     ...section,
     toggleNavigateTo,
-    type,
+    trainingInstanceTypeName,
+    tech,
+    trainingType,
   }
   const renderSectionArgs = {
     training,
@@ -28,7 +39,10 @@ const CurriculumGraphQLAPI = ({
     <Curriculum
       title="GraphQL API Training Outline"
       training={training}
-      type={type}
+      tech={tech}
+      trainingType={trainingType}
+      trainingInstanceTypeName={trainingInstanceTypeName}
+      trainingId={trainingId}
       curriculumTo={toggleNavigateTo}
       {...rest}
       firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}

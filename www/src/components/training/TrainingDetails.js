@@ -47,13 +47,13 @@ const TrainingDetails = ({
       <Ul>
         {training && training.isOnline ? (
           <>
-            <Li>
+            {/* <Li>
               24 hours of remote training with industry experts across 4 weeks.
             </Li>
             <Li>
               15-minute video call with each coach for 1-on-1 mentoring during
               the training on top of the workshops.
-            </Li>
+            </Li> */}
           </>
         ) : (
           <>
@@ -62,7 +62,7 @@ const TrainingDetails = ({
           </>
         )}
         <Li>
-          Hans-on training and progressive curriculum based on our{' '}
+          Hands-on training and progressive curriculum based on our{' '}
           <Link to="/blog/react-graphql-academy-teaching-method/">
             teaching method
           </Link>

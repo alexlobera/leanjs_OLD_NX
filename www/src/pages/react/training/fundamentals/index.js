@@ -18,17 +18,18 @@ import {
   selectUpcomingTrainings,
   selectNthTraining,
   REACT_FUNDAMENTALS_ID,
-  FULL_TIME_REACT_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { REACT_FUNDAMENTALS, TECH_REACT } from 'src/config/data'
+import { TECH_REACT, TRAINING_TYPE_HALF_CURRICULUM } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
+
+const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 
 const ReactFundamentals = ({ path, trainings }) => {
   const upcomingFundamentalsTrainings = selectUpcomingTrainings({
     trainingId: REACT_FUNDAMENTALS_ID,
-    trainingTypeId: FULL_TIME_REACT_ID,
+    trainingType,
     trainings,
   })
   const nextTraining = selectNthTraining({
@@ -61,7 +62,7 @@ const ReactFundamentals = ({ path, trainings }) => {
         subtitle="In 3 days, our coaches will work with you to help you learn the React fundamentals needed to develop React apps the right way"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
-        type={REACT_FUNDAMENTALS}
+        trainingType={trainingType}
       />
       <TopSection>
         <Segment>

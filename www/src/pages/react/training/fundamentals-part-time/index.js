@@ -13,13 +13,16 @@ import {
   TrustedBySection,
   selectUpcomingTrainings,
   selectNthTraining,
-  PART_TIME_REACT_ID,
-  REACT_FUNDAMENTALS_ID,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
 import CurriculumReactFundamentalsPartTime from 'src/components/curriculum/CurriculumReactFundamentalsPartTime'
 import Header from 'src/components/layout/Header'
-import { REACT_PART_TIME, TECH_REACT } from 'src/config/data'
+import {
+  TRAINING_TYPE_HALF_CURRICULUM,
+  PART_TIME,
+  TECH_REACT,
+  REACT_FUNDAMENTALS_ID,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
@@ -35,9 +38,10 @@ const metas = {
 const PartTime = ({ trainings, path }) => {
   const upcomingPartTimeTrainings = selectUpcomingTrainings({
     trainingId: REACT_FUNDAMENTALS_ID,
-    trainingTypeId: PART_TIME_REACT_ID,
+    trainingInstanceTypeName: PART_TIME,
     trainings,
   })
+
   const nextTraining = selectNthTraining({
     trainings: upcomingPartTimeTrainings,
   })
@@ -67,7 +71,7 @@ const PartTime = ({ trainings, path }) => {
         tech={TECH_REACT}
         titleLines={['React Redux Fundamentals', 'Part-time Training']}
         subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work-days"
-        type={REACT_PART_TIME}
+        trainingType={TRAINING_TYPE_HALF_CURRICULUM}
         links={header.landingPageLinks.links}
       />
       <TopSection>

@@ -1,6 +1,6 @@
 ---
 coaches: ['alex-lobera']
-subtitle: For two and a half weeks, expert coaches and developers will work remotely alongside you on real-world React problems a few hours a week so training does not impact too heavily on your work.
+subtitle: Expert coaches and developers will work remotely alongside you on real-world React problems a few hours a week so training does not impact too heavily on your work.
 videoOneTime: ''
 videoOneId: blg40SCle7I
 videoOneQuote: ''

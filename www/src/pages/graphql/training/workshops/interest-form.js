@@ -10,13 +10,7 @@ import { Segment } from 'src/components/elements'
 import { Button } from 'src/components/buttons'
 import Header from 'src/components/layout/Header'
 import Box from 'src/components/layout/Box'
-import {
-  UpcomingTrainingSection,
-  selectNthTraining,
-  REACT_BOOTCAMP_ID,
-  FULL_TIME_REACT_ID,
-} from 'src/components/training'
-// import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
+import { UpcomingTrainingSection } from 'src/components/training'
 import { TECH_GRAPHQL } from 'src/config/data'
 import { InputField, Form, CheckboxField } from 'src/components/form'
 import {
@@ -63,12 +57,13 @@ const SessionInterestGraphQL = ({ path, trainings }) => {
   //     trainings,
   //     trainingId: REACT_BOOTCAMP_ID,
   //   })
-  const nextBootcamp =
-    selectNthTraining({
-      trainings,
-      trainingId: REACT_BOOTCAMP_ID,
-      trainingTypeId: FULL_TIME_REACT_ID,
-    }) || {}
+  //   const nextBootcamp =
+  //     selectNthTraining({
+  //       trainings,
+  //       trainingId: REACT_BOOTCAMP_ID,
+  //       trainingTypeId: FULL_TIME_REACT_ID,
+  //     }) || {}
+  const nextBootcamp = undefined
   return (
     <React.Fragment>
       <Header

@@ -61,10 +61,16 @@ export function getTrainingTimings({ training }) {
       ? '1 week'
       : days < 15
       ? '2 weeks'
-      : days < 24
+      : days < 22
       ? '3 weeks'
-      : days < 40
-      ? '1 month'
+      : days < 30
+      ? '4 weeks'
+      : days < 36
+      ? '5 weeks'
+      : days < 43
+      ? '6 weeks'
+      : days < 50
+      ? '7 weeks'
       : ''
 
   return { duration, dayMonth }
@@ -85,7 +91,12 @@ const TrainingItem = ({
   textSxProps = {},
 }) => (
   <Flex sx={{ flexDirection: 'row', alignItems: 'flex-start', pb: 4 }}>
-    <Calendar className={className} tech={tech} type={trainingType} to={path}>
+    <Calendar
+      className={className}
+      tech={tech}
+      trainingType={trainingType}
+      to={path}
+    >
       {startDay}
       <br />
       {startMonth}

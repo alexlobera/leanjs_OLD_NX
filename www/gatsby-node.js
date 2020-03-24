@@ -370,7 +370,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 lastInstanceTitleIndex
               ] = `${instanceTitle[lastInstanceTitleIndex]}: ${capitalizedCity} `
             } else {
-              instanceTitle = `${restConfig.title} ${capitalizedCity}`
+              instanceTitle = `${restConfig.title}: ${capitalizedCity}`
             }
 
             await Promise.all(

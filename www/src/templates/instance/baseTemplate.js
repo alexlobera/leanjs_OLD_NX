@@ -32,7 +32,6 @@ import ContactForm from 'src/components/form/Contact'
 import FinanceCard from 'src/components/payment/FinanceCard'
 import BlogSection from 'src/components/blog/BlogSection'
 import {
-  REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
   REACT_PART_TIME,
   TECH_GRAPHQL,
@@ -42,7 +41,9 @@ import { LIGHT_PINK } from 'src/config/styles'
 
 const InstancePage = ({
   path,
-  type,
+  // type,
+  trainingInstanceTypeName,
+  trainingType,
   typeOfTraining = '1-day React workshop',
   curriculum: Curriculum,
   targetAudienceList: TargetAudienceList,
@@ -97,6 +98,7 @@ const InstancePage = ({
     trainings,
     trainingId,
     city,
+    trainingInstanceTypeName,
   })
 
   const randomPosts = getRandom(posts, 3)
@@ -227,7 +229,7 @@ const InstancePage = ({
             to: '#pricing',
           },
         ]}
-        type={type}
+        trainingType={trainingType}
         training={training}
         showInfoBox={true}
         infoBoxFluidImage={locationImage}
@@ -240,7 +242,7 @@ const InstancePage = ({
             {...curriculumProps}
             training={training}
             learningObjectives={learningObjectives}
-            type={type}
+            trainingType={trainingType}
             content={
               <React.Fragment>
                 {videoCoachId ? (
@@ -279,7 +281,7 @@ const InstancePage = ({
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              type={type}
+              tech={tech}
               quote={videoTwoQuote}
               fullname={videoTwoFullname}
               job={videoTwoJob}
@@ -308,7 +310,8 @@ const InstancePage = ({
                 </Link>
               </P>
             )}
-            {learnToCodePartners.length > 0 &&
+            {/* TODO REIMPLEMENT THIS */}
+            {/* {learnToCodePartners.length > 0 &&
               (type === REACT_BOOTCAMP ||
                 type === REACT_FUNDAMENTALS ||
                 type === REACT_PART_TIME) && (
@@ -332,7 +335,7 @@ const InstancePage = ({
                     ))}
                   </Row>
                 </React.Fragment>
-              )}
+              )} */}
           </Col>
         </Row>
       </Section>

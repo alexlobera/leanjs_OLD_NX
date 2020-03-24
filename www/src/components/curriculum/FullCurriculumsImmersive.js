@@ -18,6 +18,8 @@ import {
   REACT_WORKSHOP,
   TECH_GRAPHQL,
   TRAINING_TYPE_WORKSHOP,
+  TRAINING_TYPE_FULL_CURRICULUM,
+  TRAINING_TYPE_HALF_CURRICULUM,
 } from '../../config/data'
 
 const FullCurriculumsReact = ({ trainings }) => {

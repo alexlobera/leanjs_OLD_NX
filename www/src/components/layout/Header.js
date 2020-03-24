@@ -256,6 +256,7 @@ const Nav = styled.div`
 
 const TitleCol = styled(Col)`
   ${({ trainingType, tech }) =>
+    trainingType &&
     `
     height: 100%;
     border-left: ${selectBorderStyle({ trainingType })} 27px ${selectTypeColor({
@@ -311,8 +312,6 @@ const Header = ({
   infoBoxFluidImage,
   featuredSection,
   featuredTraining,
-  trainingType,
-  tech,
   titleLines = [],
   subtitle,
   links = [],
@@ -331,10 +330,12 @@ const Header = ({
   bgImageOpacity,
   className = 'course-details-clicks',
   breadcrumbPath,
-  tech,
   breadcrumbBgColor,
   buyLink = '#pricing',
+  ...rest
 }) => {
+  const trainingType = rest.trainingType || (training && training.trainingType)
+  const tech = rest.tech || (training && training.tech)
   const expandCheckout = useExpandCheckout()
   const { dayMonth: featuredDayMonth, duration: featureDuration } =
     getTrainingTimings({
@@ -376,6 +377,7 @@ const Header = ({
         const endDate =
           training.endDate &&
           formatUTC(training.endDate, training.utcOffset, 'D MMM')
+
         const {
           hours: utcHours,
           minutes: utcMinutes,
@@ -418,7 +420,8 @@ const Header = ({
                         ? 8
                         : 12
                     }
-                    type={type}
+                    tech={tech}
+                    trainingType={trainingType}
                   >
                     <H1>
                       {titleLinesArray.map((line, i) => (
@@ -485,7 +488,8 @@ const Header = ({
                         startDay={featuredDayMonth[0]}
                         startMonth={featuredDayMonth[1]}
                         duration={featureDuration}
-                        type={training.type}
+                        trainingType={training.trainingType}
+                        tech={training.tech}
                         title={training.title}
                         path={training.toPath}
                         className={className}
