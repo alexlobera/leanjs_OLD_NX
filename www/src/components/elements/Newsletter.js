@@ -11,7 +11,7 @@ const Newsletter = ({
   <React.Fragment>
     <H3 sx={sx}>
       <a name={anchorName} />
-      Join the newsletter
+      Free learning resources
     </H3>
 
     <P>
