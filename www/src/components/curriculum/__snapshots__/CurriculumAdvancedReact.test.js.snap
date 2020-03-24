@@ -8,49 +8,69 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       <CurriculumSection
         name="day1"
         subTitle="Advanced React patterns and performance"
+        tech="react"
         title="Advanced React Day 1"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingDateTime="-  09:00 - 18:00"
-        type="Advanced React"
+        trainingInstanceTypeName="full-time"
+        trainingType="half-curriculum"
       >
         <React.Fragment>
-          <AdvancedReactPatternsSession />
-          <ReactPerformanceSession />
+          <AdvancedReactPatternsSession
+            title="Functional Programming & Advanced React patterns"
+          />
+          <AdvancedHooksAndPerfSession
+            title="Advanced Hooks and Performance"
+          />
         </React.Fragment>
       </CurriculumSection>,
       <CurriculumSection
         name="day2"
-        subTitle="Styling in React and Design Systems"
+        subTitle="GraphQL 101 & Real-World Testing in React"
+        tech="react"
         title="Advanced React Day 2"
         toggleNavigateTo="/react/curriculum?tab=Advanced React"
         trainingDateTime="-  09:00 - 18:00"
-        type="Advanced React"
-      >
-        <React.Fragment>
-          <StylingInReactSession />
-          <AdvancedUIPatterns />
-          <DesignSystemSession />
-        </React.Fragment>
-      </CurriculumSection>,
-      <CurriculumSection
-        name="day3"
-        subTitle="GraphQL 101 & Real-World Testing in React"
-        title="Advanced React Day 3"
-        toggleNavigateTo="/react/curriculum?tab=Advanced React"
-        trainingDateTime="-  09:00 - 18:00"
-        type="Advanced React"
+        trainingInstanceTypeName="full-time"
+        trainingType="half-curriculum"
       >
         <React.Fragment>
           <ReactGraphQLIntroSession
             title="GraphQL in React 101"
           />
-          <TestingIntroSession />
-          <TestingInReactSession2 />
+          <TestingIntroSession
+            title="Testing Foundation in JavaScript"
+          />
+          <TestingInReactSession2
+            title="Testing in React & GraphQL"
+          />
+        </React.Fragment>
+      </CurriculumSection>,
+      <CurriculumSection
+        name="day3"
+        subTitle="Building a UI component library"
+        tech="react"
+        title="Advanced React Day 3"
+        toggleNavigateTo="/react/curriculum?tab=Advanced React"
+        trainingDateTime="-  09:00 - 18:00"
+        trainingInstanceTypeName="full-time"
+        trainingType="half-curriculum"
+      >
+        <React.Fragment>
+          <StylingInReactSession
+            title="Styling in React"
+          />
+          <DesignSystemSession
+            title="Design Systems"
+          />
         </React.Fragment>
       </CurriculumSection>,
     ]
   }
+  tech="react"
   title="Advanced React Training Outline"
-  type="Advanced React"
+  trainingId="5ab6244a88546e46fa2b2601"
+  trainingInstanceTypeName="full-time"
+  trainingType="half-curriculum"
 />
 `;
