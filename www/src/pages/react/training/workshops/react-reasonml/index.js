@@ -22,7 +22,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 
 import Link from 'src/components/navigation/Link'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
+import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
 import {
   title,
   tech,
@@ -77,7 +77,7 @@ const ReactReasonLanding = ({ path, trainings }) => {
           { text: 'Workshop Agenda', to: '#curriculum' },
           { text: 'Is this right for me?', to: '#target-audience' },
         ]}
-        type={REACT_WORKSHOP}
+        trainingType={TRAINING_TYPE_WORKSHOP}
       />
       <TopSection>
         <Segment>

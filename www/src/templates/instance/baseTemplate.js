@@ -41,7 +41,6 @@ import { LIGHT_PINK } from 'src/config/styles'
 
 const InstancePage = ({
   path,
-  // type,
   trainingInstanceTypeName,
   trainingType,
   typeOfTraining = '1-day React workshop',

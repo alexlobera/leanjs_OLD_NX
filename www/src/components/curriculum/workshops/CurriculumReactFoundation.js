@@ -9,7 +9,9 @@ import RoutingAndDataFetchingSession, {
   titleSession as routingTitle,
 } from '../sessions/RoutingAndDataFetchingSession'
 import { Li } from 'src/components/layout/Ul'
-import { REACT_WORKSHOP } from '../../../config/data'
+import { TRAINING_TYPE_WORKSHOP } from '../../../config/data'
+
+const trainingType = TRAINING_TYPE_WORKSHOP
 
 const CurriculumReactFoundation = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
@@ -17,13 +19,13 @@ const CurriculumReactFoundation = ({ showTitle = true, section, ...rest }) => (
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section title={thinkingTitle} type={REACT_WORKSHOP} {...section}>
+        <Section title={thinkingTitle} trainingType={trainingType} {...section}>
           <ThinkingInReactSession title="" />
         </Section>
-        <Section title={es6Title} type={REACT_WORKSHOP} {...section}>
+        <Section title={es6Title} trainingType={trainingType} {...section}>
           <ES6Session title="" />
         </Section>
-        <Section title={routingTitle} type={REACT_WORKSHOP} {...section}>
+        <Section title={routingTitle} trainingType={trainingType} {...section}>
           <RoutingAndDataFetchingSession title="" />
         </Section>
       </React.Fragment>

@@ -18,7 +18,7 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
+import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { title, trainingId, breadcrumbWorkshopName } from './config.json'
@@ -54,7 +54,7 @@ const ReactNativeBoocamp = ({ path, trainings }) => {
         titleLines={[title]}
         subtitle="3-day React Native Immersive training, <br /> return to work as a React Native specialist"
         bgImageName={BOOTCAMP}
-        type={REACT_WORKSHOP}
+        trainingType={TRAINING_TYPE_WORKSHOP}
         links={header.landingPageLinks.links}
       />
       <TopSection>

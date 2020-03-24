@@ -16,7 +16,11 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { GRAPHQL_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
+import {
+  GRAPHQL_WORKSHOP,
+  TECH_GRAPHQL,
+  TRAINING_TYPE_WORKSHOP,
+} from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { trainingId, breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
@@ -69,7 +73,7 @@ const GraphQLApolloClientWorkshop = ({ path, trainings }) => {
           { text: 'Is this right for me?', to: '#target-audience' },
         ]}
         bgImageName={LONDON_BOOTCAMP}
-        type={GRAPHQL_WORKSHOP}
+        trainingType={TRAINING_TYPE_WORKSHOP}
       />
       <TopSection>
         <Segment>

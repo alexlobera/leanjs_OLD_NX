@@ -14,7 +14,6 @@ export const crossSellTypes = [REACT_WORKSHOP, REACT_BOOTCAMP]
 const Page = props => (
   <BaseTemplate
     {...props}
-    // type={ADVANCED_REACT}
     trainingInstanceTypeName={PART_TIME}
     trainingType={TRAINING_TYPE_HALF_CURRICULUM}
     typeOfTraining="advanced part-time React training"

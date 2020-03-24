@@ -185,7 +185,6 @@ class ReactCurriculum extends React.Component {
                       >
                         Complete
                       </Th>
-                      {/* <Th type={REACT_PART_TIME}>Part Time </Th> */}
                       <Th
                         trainingType={TRAINING_TYPE_HALF_CURRICULUM}
                         tech={TECH_REACT}
@@ -206,9 +205,6 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td>
-                        <Tick type={REACT_PART_TIME} />
-                      </Td> */}
                       <Td />
                       <Td>
                         <Tick type={REACT_FUNDAMENTALS} />
@@ -219,9 +215,6 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td>
-                        <Tick type={REACT_PART_TIME} />
-                      </Td> */}
                       <Td />
                       <Td>
                         <Tick type={REACT_FUNDAMENTALS} />
@@ -232,9 +225,6 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td>
-                        <Tick type={REACT_PART_TIME} />
-                      </Td> */}
                       <Td />
                       <Td>
                         <Tick type={REACT_FUNDAMENTALS} />
@@ -245,9 +235,6 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td>
-                        <Tick type={REACT_PART_TIME} />
-                      </Td> */}
                       <Td />
                       <Td>
                         <Tick type={REACT_FUNDAMENTALS} />
@@ -258,23 +245,16 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td>
-                        <Tick type={REACT_PART_TIME} />
-                      </Td> */}
                       <Td>
                         <Tick type={ADVANCED_REACT} />
                       </Td>
                       <Td />
-                      {/* <Td>
-                        <Tick type={REACT_FUNDAMENTALS} />
-                      </Td> */}
                     </Tr>
                     <Tr>
                       <Td>Testing</Td>
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td /> */}
                       <Td>
                         <Tick type={ADVANCED_REACT} />
                       </Td>
@@ -285,7 +265,6 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td /> */}
                       <Td>
                         <Tick type={ADVANCED_REACT} />
                       </Td>
@@ -296,7 +275,6 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
-                      {/* <Td /> */}
                       <Td>
                         <Tick type={ADVANCED_REACT} />
                       </Td>
@@ -317,27 +295,11 @@ class ReactCurriculum extends React.Component {
                         </LinkButton>
                         <UlLearningExperience>
                           <Li>6 days</Li>
-                          {/* <Li>Full time</Li> */}
                           <Li>9 am to 6 pm</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1630</Li>
                         </UlLearningExperience>
                       </Td>
-                      {/* <Td>
-                        <Ul sx={{ textAlign: 'left' }}>
-                          <Li>1 month</Li>
-                          <Li>Part time</Li>
-                          <Li>Evenings or weekends</Li>
-                          <Li>Starting at £980</Li>
-                        </Ul>
-                        <LinkButton
-                          variant="secondary"
-                          to="/react/training/part-time/"
-                          className="training-curriculum-clicks"
-                        >
-                          Part Time
-                        </LinkButton>
-                      </Td> */}
                       <Td>
                         <LinkButton
                           variant="secondary"
@@ -348,7 +310,6 @@ class ReactCurriculum extends React.Component {
                         </LinkButton>
                         <UlLearningExperience>
                           <Li>3 days</Li>
-                          {/* <Li>Full time</Li> */}
                           <Li>9 am to 6 pm</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1100</Li>
@@ -364,7 +325,6 @@ class ReactCurriculum extends React.Component {
                         </LinkButton>
                         <UlLearningExperience>
                           <Li>3 days</Li>
-                          {/* <Li>Full time</Li> */}
                           <Li>9 am to 6 pm</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £990</Li>
@@ -391,21 +351,6 @@ class ReactCurriculum extends React.Component {
                           <Li>Starting at £1630</Li>
                         </UlLearningExperience>
                       </Td>
-                      {/* <Td>
-                        <Ul sx={{ textAlign: 'left' }}>
-                          <Li>1 month</Li>
-                          <Li>Part time</Li>
-                          <Li>Evenings or weekends</Li>
-                          <Li>Starting at £980</Li>
-                        </Ul>
-                        <LinkButton
-                          variant="secondary"
-                          to="/react/training/part-time/"
-                          className="training-curriculum-clicks"
-                        >
-                          Part Time
-                        </LinkButton>
-                      </Td> */}
                       <Td>
                         <LinkButton
                           variant="secondary"

@@ -14,7 +14,6 @@ export const crossSellTypes = [ADVANCED_REACT, GRAPHQL_BOOTCAMP, REACT_WORKSHOP]
 const Page = props => (
   <BaseTemplate
     {...props}
-    type={REACT_WORKSHOP}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     learningObjectives={LearningObjectives}

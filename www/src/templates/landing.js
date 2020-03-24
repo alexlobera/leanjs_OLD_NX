@@ -21,7 +21,6 @@ import { Breadcrumb } from '../components/navigation'
 import { Link } from '../components/navigation'
 import Ul, { Li } from '../components/layout/Ul'
 import { LinkButton } from '../components/buttons'
-// import { REACT_BOOTCAMP } from '../config/data'
 import Newsletter from '../components/elements/Newsletter'
 
 const Landing = ({ data, trainings }) => {
