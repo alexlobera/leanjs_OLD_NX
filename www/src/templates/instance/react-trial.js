@@ -5,13 +5,13 @@ import Curriculum, {
   LearningObjectives,
 } from 'src/components/curriculum/workshops/CurriculumReactTrial'
 
-import { REACT_WORKSHOP } from 'src/config/data'
+import { TRAINING_TYPE_TRIAL } from 'src/config/data'
 
 const Page = props => (
   <BaseTemplate
     {...props}
     trialOfTheTrainingId="5aa2ab2a7dcc782348ea2011"
-    type={REACT_WORKSHOP}
+    trainingType={TRAINING_TYPE_TRIAL}
     typeOfTraining="React trial"
     targetAudienceList={TargetAudienceList}
     learningObjectives={LearningObjectives}

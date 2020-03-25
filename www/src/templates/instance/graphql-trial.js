@@ -5,7 +5,7 @@ import Curriculum, {
   TargetAudienceList,
   LearningObjectives,
 } from 'src/components/curriculum/CurriculumGraphQLTrial'
-import { TRAINING_TYPE_WORKSHOP, TECH_GRAPHQL } from 'src/config/data'
+import { TRAINING_TYPE_TRIAL, TECH_GRAPHQL } from 'src/config/data'
 
 const Page = props => (
   <BaseTemplate
@@ -16,7 +16,7 @@ const Page = props => (
     learningObjectives={LearningObjectives}
     curriculum={Curriculum}
     tech={TECH_GRAPHQL}
-    trainingType={TRAINING_TYPE_WORKSHOP}
+    trainingType={TRAINING_TYPE_TRIAL}
     curriculumProps={{
       section: { isOpen: true },
     }}
