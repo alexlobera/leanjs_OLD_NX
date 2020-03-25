@@ -1,24 +1,28 @@
 import React from 'react'
-import styled from 'styled-components'
-import { WHITE, BROWN, DARK_GREY, DARK_BLUE, PINK } from '../../config/styles'
 import Box from '../layout/Box'
 import Label from '../text/Label'
 
-// TODOSX MOVE ALL THIS CSS TO SX PROP
-const InputForm = styled(Box)`
-  background-color: ${WHITE};
-  display: block;
-  width: 100%;
-  color: ${DARK_GREY};
-  background-clip: padding-box;
-  border: 1px solid ${BROWN};
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-`
+const InputForm = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      backgroundColor: 'background',
+      display: 'block',
+      width: '100%',
+      color: 'text',
+      backgroundClip: 'padding-box',
+      border: '1px solid',
+      borderColor: 'secondary',
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
 const defaultInputSxProp = {
   fontSize: 2,
   lineHeight: 2,
   p: 1,
+  maxWidth: '100%',
 }
 
 export const ErrorMessage = ({ sx = {}, ...rest }) => (
@@ -26,8 +30,8 @@ export const ErrorMessage = ({ sx = {}, ...rest }) => (
     sx={{
       m: 0,
       fontWeight: 'bold',
-      backgroundColor: PINK,
-      color: DARK_BLUE,
+      backgroundColor: 'danger',
+      color: 'secondary',
       py: 0,
       px: 1,
       fontSize: 0,
@@ -42,6 +46,7 @@ export const FormGroup = ({ sx = {}, ...rest }) => (
     sx={{
       py: 1,
       display: 'block',
+      maxWidth: '100%',
       ...sx,
     }}
     {...rest}
@@ -56,6 +61,7 @@ const Input = ({
   meta = {},
   color,
   sx = {},
+  formGroupSx = {},
   ...props
 }) => {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta
@@ -67,7 +73,7 @@ const Input = ({
   const extendedSx = { ...defaultInputSxProp, ...sx }
 
   return (
-    <FormGroup>
+    <FormGroup sx={formGroupSx}>
       {label && input.name ? (
         <React.Fragment>
           <Label sx={{ color }}>

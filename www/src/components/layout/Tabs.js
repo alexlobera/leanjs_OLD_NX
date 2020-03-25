@@ -24,6 +24,9 @@ export const StyledLi = styled(Box)`
     display: block;
   }
 `
+StyledLi.defaultProps = {
+  box: 'li',
+}
 
 export const TabList = React.memo(({ sx = {}, ...rest }) => (
   <Ul
@@ -44,6 +47,9 @@ TabList.displayName = 'TabList'
 export const StyledA = styled(Box)`
   cursor: pointer;
 `
+// StyledA.defaultProps = {
+//   box: 'a',
+// }
 
 const selectTabItemColorFn = ({ isSelected, tech }) =>
   isSelected && tech === TECH_GRAPHQL ? 'lightText' : undefined
