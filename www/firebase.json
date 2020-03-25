@@ -47,13 +47,23 @@
         "type": 301
       },
       {
-        "source": "/react/training/part-time-course/:path*",
-        "destination": "/react/training/part-time/:path",
+        "source": "/react/training/react-fundamentals/:path*",
+        "destination": "/react/training/fundamentals/:path",
+        "type": 301
+      },
+      {
+        "source": "/react/training/react-fundamentals{,/}",
+        "destination": "/react/training/fundamentals/",
         "type": 301
       },
       {
         "source": "/react/training/part-time-course{,/}",
-        "destination": "/react/training/part-time/",
+        "destination": "/react/training/fundamentals-part-time/",
+        "type": 301
+      },
+      {
+        "source": "/react/training/part-time-course/:path*",
+        "destination": "/react/training/fundamentals-part-time/:path",
         "type": 301
       },
       {
@@ -64,16 +74,6 @@
       {
         "source": "/graphql/training/part-time-course{,/}",
         "destination": "/graphql/training/part-time/",
-        "type": 301
-      },
-      {
-        "source": "/react/training/react-fundamentals/:path*",
-        "destination": "/react/training/fundamentals/:path",
-        "type": 301
-      },
-      {
-        "source": "/react/training/react-fundamentals{,/}",
-        "destination": "/react/training/fundamentals/",
         "type": 301
       }
     ],
