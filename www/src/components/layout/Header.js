@@ -482,16 +482,16 @@ const Header = ({
                         Featured Training
                       </FeaturedTrainingTitle>
                       <TrainingItem
-                        key={training.id}
-                        isOnline={training.isOnline}
-                        cityCountry={training.cityCountry}
+                        key={featuredTraining.id}
+                        isOnline={featuredTraining.isOnline}
+                        cityCountry={featuredTraining.cityCountry}
                         startDay={featuredDayMonth[0]}
                         startMonth={featuredDayMonth[1]}
                         duration={featureDuration}
-                        trainingType={training.trainingType}
-                        tech={training.tech}
-                        title={training.title}
-                        path={training.toPath}
+                        trainingType={featuredTraining.trainingType}
+                        tech={featuredTraining.tech}
+                        title={featuredTraining.title}
+                        path={featuredTraining.toPath}
                         className={className}
                         textSxProps={{
                           color: WHITE,

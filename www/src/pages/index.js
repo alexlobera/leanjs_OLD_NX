@@ -82,7 +82,7 @@ const IndexPage = ({ trainings }) => {
 
   const featuredTraining = selectTrainingByInstanceId({
     trainings,
-    id: '5e289434817eda00025ce40c',
+    id: '5e78d9c7df87310002e6145c',
   })
 
   return (
