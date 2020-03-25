@@ -4,24 +4,29 @@ import styled from 'styled-components'
 
 import Label from '../text/label'
 import Flex from '../layout/Flex'
+import Box from '../layout/Box'
 import ArrowIcon from '../icons/ArrowIcon'
 import Input from './Input'
 
 const Select = ({
   input = {},
+  value,
   label,
   meta,
   placeholder,
   items = [],
   sx = {},
   sxInput = {},
+  sxLabel = {},
+  sxMenu = {},
   onChange,
   ...rest
 }) => {
+  const inputValue = (input && input.value) || value
   const selectedItem =
     items &&
     items.find(
-      item => item && (item === input.value || item.value === input.value)
+      item => item && (item === inputValue || item.value === inputValue)
     )
 
   const inputText = selectedItem
@@ -37,7 +42,7 @@ const Select = ({
         input.onChange && input.onChange(inputValue)
         onChange && onChange(inputValue)
       }}
-      selectedItem={input.value}
+      selectedItem={inputValue}
     >
       {({
         getInputProps,
@@ -48,59 +53,74 @@ const Select = ({
         isOpen,
         highlightedIndex,
         selectedItem,
-      }) => (
-        <div>
-          <Flex sx={{ ...sx, mt: 1, flexDirection: 'column' }}>
-            {label && (
-              <Label sx={{ mb: 3 }} {...getLabelProps()} htmlFor={input.name}>
-                {label}
-              </Label>
-            )}
-            <InputWrapper isOpen={isOpen}>
-              <Input
-                formGroupSx={{ pt: 0, pb: 0 }}
-                readOnly={true}
-                placeholder="Please select"
-                {...getInputProps({
-                  name: input.name,
-                  value: inputText,
-                  placeholder,
-                })}
-              />
-              <button {...getToggleButtonProps()}>
-                <ArrowIcon width={20} />
-              </button>
-            </InputWrapper>
-          </Flex>
-          {isOpen && (
-            <Menu {...getMenuProps()}>
-              {items.map((item, index) => {
-                let value, title
-                if (typeof item === 'string') {
-                  title = value = item
-                } else {
-                  value = item.value
-                  title = item.title
-                }
+        toggleMenu,
+      }) => {
+        return (
+          <div>
+            <Flex
+              sx={{
+                mt: 1,
+                flexDirection: 'column',
+                alignItems: 'center',
+                ...sx,
+              }}
+            >
+              {label && (
+                <Label
+                  sx={{ mb: 3, ...sxLabel }}
+                  {...getLabelProps()}
+                  htmlFor={input.name}
+                >
+                  {label}
+                </Label>
+              )}
+              <InputWrapper isOpen={isOpen}>
+                <Input
+                  onClick={toggleMenu}
+                  formGroupSx={{ pt: 0, pb: 0 }}
+                  readOnly={true}
+                  placeholder="Please select"
+                  {...getInputProps({
+                    name: input.name,
+                    value: inputText,
+                    placeholder,
+                  })}
+                />
+                <button {...getToggleButtonProps()}>
+                  <ArrowIcon width={20} />
+                </button>
+              </InputWrapper>
+            </Flex>
+            {isOpen && (
+              <Menu {...getMenuProps()} {...sxMenu}>
+                {items.map((item, index) => {
+                  let value, title
+                  if (typeof item === 'string') {
+                    title = value = item
+                  } else {
+                    value = item.value
+                    title = item.title
+                  }
 
-                return (
-                  <Items
-                    highlighted={highlightedIndex === index}
-                    selected={selectedItem === value}
-                    {...getItemProps({
-                      key: title,
-                      index,
-                      item: value,
-                    })}
-                  >
-                    {title}
-                  </Items>
-                )
-              })}
-            </Menu>
-          )}
-        </div>
-      )}
+                  return (
+                    <Items
+                      highlighted={highlightedIndex === index}
+                      selected={selectedItem === value}
+                      {...getItemProps({
+                        key: title,
+                        index,
+                        item: value,
+                      })}
+                    >
+                      {title}
+                    </Items>
+                  )
+                })}
+              </Menu>
+            )}
+          </div>
+        )
+      }}
     </Downshift>
   )
 }
@@ -109,6 +129,9 @@ const InputWrapper = styled.div`
   position: relative;
   display: flex;
   max-width: 100%;
+  input {
+    cursor: pointer;
+  }
   button {
     margin-left: -40px;
     border: none;
@@ -129,16 +152,33 @@ const InputWrapper = styled.div`
   }
 `
 
-const Menu = styled.ul`
-  width: 198px;
-  border: 1px solid #222;
-  margin: 0px;
-  margin-top: 2px;
-  padding: 0px;
-  position: absolute;
-  z-index: 9;
-  background-color: white;
-`
+// const Menu = styled(Box)`
+//   width: 198px;
+//   border: 1px solid #222;
+//   margin: 0px;
+//   margin-top: 2px;
+//   padding: 0px;
+//   position: absolute;
+//   z-index: 9;
+//   background-color: white;
+// `
+const Menu = ({ sx = {}, ...rest }) => (
+  <Box
+    sx={{
+      zIndex: 9,
+      backgroundColor: 'background',
+      width: ['auto', '198px'],
+      border: ['none', '1px solid'],
+      borderColor: 'secondary',
+      m: 0,
+      mt: '2px',
+      p: 0,
+      position: ['inherit', 'absolute'],
+      ...sx,
+    }}
+    {...rest}
+  />
+)
 
 const Items = styled.li`
   ${({ highlighted, selected }) => {

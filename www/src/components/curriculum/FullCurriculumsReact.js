@@ -11,6 +11,7 @@ import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 import CurriculumAdvancedReactPartTime from './CurriculumAdvancedReactPartTime'
 import { tabItemClassName } from './utils'
 import Select from 'src/components/form/Select'
+import { getURLParameter } from 'src/components/utils/url'
 
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
 import {
@@ -26,9 +27,23 @@ import {
   TRAINING_TYPE_WORKSHOP,
 } from '../../config/data'
 
-const FullCurriculumsReact = ({ trainings }) => {
-  const [selectedTime, setSelectedTime] = useState('Full-time')
+const FULL_TIME = 'Full-time'
+const PART_TIME = 'Part-time'
 
+function getDefaultTabValue(time) {
+  return time === FULL_TIME ? REACT_BOOTCAMP : COMPLETE_REACT_PART_TIME
+}
+
+const FullCurriculumsReact = ({ trainings }) => {
+  const defaultSelectedTime =
+    getURLParameter('trainingInstanceType') || FULL_TIME
+  const defaultTabValule = getDefaultTabValue(defaultSelectedTime)
+  const [selectedTime, setSelectedTime] = useState(defaultSelectedTime)
+  const [tabsValue, setTabsValue] = useState(defaultTabValule)
+  const onSelectChange = time => {
+    setSelectedTime(time)
+    setTabsValue(getDefaultTabValue(time))
+  }
   const commonCurriculumProps = {
     trainings,
     showTitle: false,
@@ -36,12 +51,12 @@ const FullCurriculumsReact = ({ trainings }) => {
 
   return (
     <React.Fragment>
-      <Tabs defaultValue={REACT_BOOTCAMP}>
-        <Row>
+      <Tabs value={tabsValue} onChange={setTabsValue}>
+        <Row sx={{ flexDirection: ['column-reverse', 'row'] }}>
           <Col lgOffset={1} md={8}>
             <H4>Choose a React training course</H4>
-            <TabList sx={{ display: 'inline-block' }}>
-              {selectedTime === 'Full-time' ? (
+            <TabList sx={{ display: 'inline-block', width: 1 }}>
+              {selectedTime === FULL_TIME ? (
                 <React.Fragment>
                   <TabItem
                     trainingType={TRAINING_TYPE_FULL_CURRICULUM}
@@ -99,11 +114,15 @@ const FullCurriculumsReact = ({ trainings }) => {
               )}
             </TabList>
           </Col>
-          <Col md={2}>
+          <Col md={2} sx={{ pt: '5px', pb: 1 }}>
             <Select
-              onChange={setSelectedTime}
-              label="Select time"
-              items={['Part-time', 'Full-time']}
+              onChange={onSelectChange}
+              sx={{ flexDirection: ['row', 'column'] }}
+              sxLabel={{ mr: 'auto', mb: [0, 3] }}
+              sxMenu={{ right: ['0', 'auto'] }}
+              label="Select training time"
+              value={selectedTime}
+              items={[PART_TIME, FULL_TIME]}
             />
           </Col>
         </Row>
@@ -119,7 +138,6 @@ const FullCurriculumsReact = ({ trainings }) => {
         <TabPanel name={REACT_WORKSHOP}>
           <CurriculumReactWorkshops {...commonCurriculumProps} />
         </TabPanel>
-
         <TabPanel name={COMPLETE_REACT_PART_TIME}>
           <CurriculumReactCompletePartTime {...commonCurriculumProps} />
         </TabPanel>
