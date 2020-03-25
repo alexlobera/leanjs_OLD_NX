@@ -5,17 +5,18 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
 import Ul from 'src/components/layout/Ul'
-import CurriculumReactPartTimeTrial, {
+import CurriculumReactTrial, {
   LearningObjectives,
   TargetAudienceList,
-} from 'src/components/curriculum/workshops/CurriculumReactPartTimeTrial'
+} from 'src/components/curriculum/workshops/CurriculumReactTrial'
 import { Segment } from 'src/components/elements'
 import Header from 'src/components/layout/Header'
 import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  getNextTrainingByTrainingId,
+  selectNthTraining,
+  selectUpcomingTrainings,
 } from 'src/components/training'
 import Link from 'src/components/navigation/Link'
 import { REACT_WORKSHOP, TECH_REACT } from 'src/config/data'
@@ -32,9 +33,13 @@ const metas = {
 }
 
 const Page = ({ path, trainings }) => {
-  const nextTraining = getNextTrainingByTrainingId({
-    trainings,
+  const upcomingTrials = selectUpcomingTrainings({
     trainingId,
+    trainings,
+  })
+
+  const nextTraining = selectNthTraining({
+    trainings: upcomingTrials,
   })
 
   return (
@@ -71,11 +76,10 @@ const Page = ({ path, trainings }) => {
       />
       <TopSection>
         <Segment>
-          <CurriculumReactPartTimeTrial
-            trainings={trainings}
+          <CurriculumReactTrial
+            trainings={upcomingTrials}
             trainingId={trainingId}
             enableToggle
-            type={REACT_WORKSHOP}
             section={{ isOpen: true }}
             learningObjectives={LearningObjectives}
           />

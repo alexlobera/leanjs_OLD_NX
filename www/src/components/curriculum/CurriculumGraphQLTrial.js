@@ -2,7 +2,7 @@ import React from 'react'
 import Section from './CurriculumSection'
 import Curriculum from './Curriculum'
 import {
-  TRAINING_TYPE_WORKSHOP,
+  TRAINING_TYPE_TRIAL,
   GRAPHQL_TRIAL_ID,
   TECH_GRAPHQL,
 } from '../../config/data'
@@ -23,13 +23,13 @@ const CurriculumGraphQLTrial = ({
     title={showTitle ? 'GraphQL Trial Outline' : ''}
     defaultLearningObjectivesIsOpen
     trainingId={trainingId}
-    trainingType={TRAINING_TYPE_WORKSHOP}
+    trainingType={TRAINING_TYPE_TRIAL}
     tech={TECH_GRAPHQL}
     {...rest}
     firstHalf={
       <Section
         tech={TECH_GRAPHQL}
-        trainingType={TRAINING_TYPE_WORKSHOP}
+        trainingType={TRAINING_TYPE_TRIAL}
         {...section}
       >
         <ThinkingInGraphQLSession title="" />

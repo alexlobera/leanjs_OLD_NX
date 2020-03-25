@@ -3,7 +3,7 @@ import BaseTemplate from './baseTemplate'
 import Curriculum, {
   TargetAudienceList,
   LearningObjectives,
-} from 'src/components/curriculum/workshops/CurriculumReactPartTimeTrial'
+} from 'src/components/curriculum/workshops/CurriculumReactTrial'
 
 import { REACT_WORKSHOP } from 'src/config/data'
 
