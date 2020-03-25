@@ -9,6 +9,7 @@ import {
   TRAINING_TYPE_FULL_CURRICULUM,
   TRAINING_TYPE_HALF_CURRICULUM,
   TRAINING_TYPE_WORKSHOP,
+  TRAINING_TYPE_TRIAL,
 } from '../../config/data'
 import {
   GRAPHQL_PINK,
@@ -62,7 +63,10 @@ export const selectBorderStyle = ({ trainingType } = {}) => {
     return 'solid'
   } else if (trainingType === TRAINING_TYPE_HALF_CURRICULUM) {
     return 'dashed'
-  } else if (trainingType === TRAINING_TYPE_WORKSHOP) {
+  } else if (
+    trainingType === TRAINING_TYPE_WORKSHOP ||
+    trainingType === TRAINING_TYPE_TRIAL
+  ) {
     return 'dotted'
   } else {
     return 'solid'

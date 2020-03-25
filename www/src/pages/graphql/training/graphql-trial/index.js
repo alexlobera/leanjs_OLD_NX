@@ -14,7 +14,8 @@ import { BOOTCAMP_COLLAB } from 'src/config/images'
 import {
   UpcomingTrainingSection,
   AttendeeQuote,
-  getNextTrainingByTrainingId,
+  selectUpcomingTrainings,
+  selectNthTraining,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
 import { TECH_GRAPHQL, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
@@ -32,9 +33,13 @@ const metas = {
 }
 
 const Page = ({ path, trainings, training }) => {
-  const nextTraining = getNextTrainingByTrainingId({
-    trainings,
+  const upcomingTrials = selectUpcomingTrainings({
     trainingId,
+    trainings,
+  })
+
+  const nextTraining = selectNthTraining({
+    trainings: upcomingTrials,
   })
 
   return (
@@ -73,7 +78,7 @@ const Page = ({ path, trainings, training }) => {
       <TopSection>
         <Segment>
           <CurriculumGraphQLTrial
-            trainings={trainings}
+            trainings={upcomingTrials}
             training={training}
             enableToggle
             section={{ isOpen: true }}
@@ -86,7 +91,6 @@ const Page = ({ path, trainings, training }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              //   type={GRAPHQL_WORKSHOP}
               quote="As a freelance developer, I was tired of doing online courses on my own without live support. [The training] was fantastic - the teachers didn't leave a single question unanswered."
               fullname="Rafa Fraga"
               job="Software Engineer"
