@@ -29,7 +29,7 @@ import {
 } from '../../utils/card'
 import { getComponentAliaser } from '../../utils/aliasComponent'
 import Flex from '../../layout/Flex'
-import Loader from '../../form/Loader'
+import Spinner from '../../form/Spinner'
 
 // These aliases enable the relevant elements to be selected by Enzyme for testing
 // Have caution when updating these names as you will then need to update the tests as well.
@@ -540,7 +540,7 @@ class CheckoutForm extends React.Component {
                     onClick={this.onSubmitClicked}
                     disabled={submitting || isPaymentInProgress}
                   >
-                    {submitting ? <Loader /> : ' Buy now'}
+                    {submitting ? <Spinner /> : ' Buy now'}
                   </SubmitPaymentFormButton>
                 </RowBuy>
               </form>
