@@ -104,121 +104,128 @@ const BlogPost = ({
   contents,
   trainings,
   breadcrumbBgColor,
-}) => (
-  <RunkitProvider>
-    <Helmet title={title}>
-      {createMetas({
-        title,
-        description: metaDescription,
-        imageFullPublicUrl: metaImageFullPublicUrl,
-        subtitle,
-        ogType: 'article',
-        twitterSite: '@reactgqlacademy',
-        authorTwitter,
-      })}
-    </Helmet>
-    <Breadcrumb
-      path={[
-        { to: '/', label: 'Home' },
-        {
-          to: `/${postTypePath}`,
-          label: postTypeLabel,
-        },
-        { to: slug, label: title },
-      ]}
-      bgColor={breadcrumbBgColor}
-    />
-    <Header
-      titleLines={title.split('<br />')}
-      fullHeight={false}
-      paddingBottom={80}
-      bgImgUrl={mainImagePublicUrl}
-      bgImageOpacity={0.3}
-    >
-      <PostMeta
-        date={date}
-        authorFullname={authorFullname}
-        authorImageUrl={authorImageUrl}
-        authorFixedImg={authorFixedImg}
-        authorSlug={authorSlug}
-        timeToRead={timeToRead}
+}) => {
+  const seoSuffix = '- React GraphQL Academy'
+  const seoTitle =
+    title.endsWith && !title.endsWith(seoSuffix)
+      ? `${title} ${seoSuffix}`
+      : title
+  return (
+    <RunkitProvider>
+      <Helmet title={seoTitle}>
+        {createMetas({
+          title: seoTitle,
+          description: metaDescription,
+          imageFullPublicUrl: metaImageFullPublicUrl,
+          subtitle,
+          ogType: 'article',
+          twitterSite: '@reactgqlacademy',
+          authorTwitter,
+        })}
+      </Helmet>
+      <Breadcrumb
+        path={[
+          { to: '/', label: 'Home' },
+          {
+            to: `/${postTypePath}`,
+            label: postTypeLabel,
+          },
+          { to: slug, label: title },
+        ]}
+        bgColor={breadcrumbBgColor}
       />
-    </Header>
-    <GridContent as="article">
-      <Row>
-        <Col md={7}>
-          {subtitle ? <H2>{subtitle}</H2> : null}
-          {contents && (
-            <React.Fragment>
-              <BlogPostP>On this page:</BlogPostP>
-              <Ul>
-                {contents.map(({ slug, text }) => (
-                  <BlogPostLi>
-                    <Link to={slug}>{text}</Link>
-                  </BlogPostLi>
+      <Header
+        titleLines={title.split('<br />')}
+        fullHeight={false}
+        paddingBottom={80}
+        bgImgUrl={mainImagePublicUrl}
+        bgImageOpacity={0.3}
+      >
+        <PostMeta
+          date={date}
+          authorFullname={authorFullname}
+          authorImageUrl={authorImageUrl}
+          authorFixedImg={authorFixedImg}
+          authorSlug={authorSlug}
+          timeToRead={timeToRead}
+        />
+      </Header>
+      <GridContent as="article">
+        <Row>
+          <Col md={7}>
+            {subtitle ? <H2>{subtitle}</H2> : null}
+            {contents && (
+              <React.Fragment>
+                <BlogPostP>On this page:</BlogPostP>
+                <Ul>
+                  {contents.map(({ slug, text }) => (
+                    <BlogPostLi>
+                      <Link to={slug}>{text}</Link>
+                    </BlogPostLi>
+                  ))}
+                </Ul>
+              </React.Fragment>
+            )}
+            {body}
+          </Col>
+          <Col md={4} mdOffset={1}>
+            {relatedPosts.length ? (
+              <Segment small sx={{ mt: 4, border: 'shadow' }}>
+                <H4>Related articles</H4>
+                {relatedPosts.splice(0, 5).map((post, index) => (
+                  <React.Fragment key={index}>
+                    <Link to={post.path} className="blog-article">
+                      {formatPostTitle(post.title)}
+                    </Link>
+                    <P>{formatUTC(post.date || post.publishedAt)}</P>
+                  </React.Fragment>
                 ))}
-              </Ul>
-            </React.Fragment>
-          )}
-          {body}
-        </Col>
-        <Col md={4} mdOffset={1}>
-          {relatedPosts.length ? (
-            <Segment small sx={{ mt: 4, border: 'shadow' }}>
-              <H4>Related articles</H4>
-              {relatedPosts.splice(0, 5).map((post, index) => (
-                <React.Fragment key={index}>
-                  <Link to={post.path} className="blog-article">
-                    {formatPostTitle(post.title)}
-                  </Link>
-                  <P>{formatUTC(post.date || post.publishedAt)}</P>
-                </React.Fragment>
-              ))}
-            </Segment>
-          ) : null}
-          <StickyBox offsetTop={120}>
-            <Segment small sx={{ mt: 3 }}>
-              <BlogNewsletter to="#newsletter-footer" />
-            </Segment>
-          </StickyBox>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={6} sx={{ mt: 4 }}>
-          <P>Share this on: </P>
-          <ShareButtons path={location.pathname} />
-          <Hr />
-          <P>
-            This website is built using Gatsbyjs. Curious about how this blog is
-            implemented? It's open source so you can{' '}
-            <Link
-              to="https://github.com/reactgraphqlacademy/reactgraphqlacademy"
-              className="blog-article"
-            >
-              check the source code
-            </Link>
-          </P>
-        </Col>
-      </Row>
+              </Segment>
+            ) : null}
+            <StickyBox offsetTop={120}>
+              <Segment small sx={{ mt: 3 }}>
+                <BlogNewsletter to="#newsletter-footer" />
+              </Segment>
+            </StickyBox>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6} sx={{ mt: 4 }}>
+            <P>Share this on: </P>
+            <ShareButtons path={location.pathname} />
+            <Hr />
+            <P>
+              This website is built using Gatsbyjs. Curious about how this blog
+              is implemented? It's open source so you can{' '}
+              <Link
+                to="https://github.com/reactgraphqlacademy/reactgraphqlacademy"
+                className="blog-article"
+              >
+                check the source code
+              </Link>
+            </P>
+          </Col>
+        </Row>
 
-      <Row>
-        <Col md={6}>
-          <Hr />
-          <P>
-            Comments? Shoot me a{' '}
-            <Link
-              to={`http://twitter.com/${authorTwitter}`}
-              className="blog-article"
-            >
-              tweet {`@${authorTwitter}`}
-            </Link>{' '}
-            !
-          </P>
-        </Col>
-      </Row>
-    </GridContent>
-    <UpcomingTrainingSection trainings={trainings} />
-  </RunkitProvider>
-)
+        <Row>
+          <Col md={6}>
+            <Hr />
+            <P>
+              Comments? Shoot me a{' '}
+              <Link
+                to={`http://twitter.com/${authorTwitter}`}
+                className="blog-article"
+              >
+                tweet {`@${authorTwitter}`}
+              </Link>{' '}
+              !
+            </P>
+          </Col>
+        </Row>
+      </GridContent>
+      <UpcomingTrainingSection trainings={trainings} />
+    </RunkitProvider>
+  )
+}
 
 export default BlogPost
