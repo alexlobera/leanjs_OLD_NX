@@ -2,7 +2,7 @@
 
 exports[`<CurriculumAdvancedReact /> should render component 1`] = `
 <Curriculum
-  curriculumTo="/react/curriculum?tab=Advanced React"
+  curriculumTo="/react/curriculum?tab=5ab6244a88546e46fa2b2601full-time"
   firstHalf={
     Array [
       <CurriculumSection
@@ -10,8 +10,9 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Advanced React patterns and performance"
         tech="react"
         title="Advanced React Day 1"
-        toggleNavigateTo="/react/curriculum?tab=Advanced React"
+        toggleNavigateTo="/react/curriculum?tab=5ab6244a88546e46fa2b2601full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5ab6244a88546e46fa2b2601"
         trainingInstanceTypeName="full-time"
         trainingType="half-curriculum"
       >
@@ -29,8 +30,9 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="GraphQL 101 & Real-World Testing in React"
         tech="react"
         title="Advanced React Day 2"
-        toggleNavigateTo="/react/curriculum?tab=Advanced React"
+        toggleNavigateTo="/react/curriculum?tab=5ab6244a88546e46fa2b2601full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5ab6244a88546e46fa2b2601"
         trainingInstanceTypeName="full-time"
         trainingType="half-curriculum"
       >
@@ -51,8 +53,9 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         subTitle="Building a UI component library"
         tech="react"
         title="Advanced React Day 3"
-        toggleNavigateTo="/react/curriculum?tab=Advanced React"
+        toggleNavigateTo="/react/curriculum?tab=5ab6244a88546e46fa2b2601full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5ab6244a88546e46fa2b2601"
         trainingInstanceTypeName="full-time"
         trainingType="half-curriculum"
       >

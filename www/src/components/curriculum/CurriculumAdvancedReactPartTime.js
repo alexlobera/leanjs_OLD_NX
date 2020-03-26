@@ -33,12 +33,7 @@ const tech = TECH_REACT
 const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingId = ADVANCED_REACT_ID
 
-// function createTrainingTabName({ trainingId, trainingInstanceTypeName }) {
-//   return `${trainingId}${trainingInstanceTypeName}`
-// }
-
 const CurriculumAdvancedReactPartTime = ({
-  // toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT_PART_TIME}`,
   toggleNavigateTo = `/react/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},

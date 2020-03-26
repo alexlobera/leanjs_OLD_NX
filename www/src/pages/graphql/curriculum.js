@@ -36,13 +36,12 @@ import {
   GRAPHQL_API_ID,
   GRAPHQL_BOOTCAMP_ID,
   TRAINING_TYPE_FULL_CURRICULUM,
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_PART_TIME,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
 import { GRAPHQL_PINK, LIGHT_PINK } from '../../config/styles'
-
-const GRAPHQL_BOOTCAMP = `${GRAPHQL_BOOTCAMP_ID}${FULL_TIME}`
-const GRAPHQL_PART_TIME = `${GRAPHQL_API_ID}${PART_TIME}`
 
 class GraphQLCurriculum extends React.Component {
   state = {

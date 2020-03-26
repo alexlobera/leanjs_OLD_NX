@@ -2,7 +2,7 @@
 
 exports[`<CurriculumReactBootcamp /> should render component 1`] = `
 <Curriculum
-  curriculumTo="/react/curriculum?tab=React Bootcamp"
+  curriculumTo="/react/curriculum?tab=5a16f0ea4939a601fe2db701full-time"
   firstHalf={
     Array [
       <CurriculumSection
@@ -10,8 +10,9 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Thinking in React, Modern JavaScript, Routing & Data Fetching"
         tech="react"
         title="Day  1"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
+        toggleNavigateTo="/react/curriculum?tab=5a16f0ea4939a601fe2db701full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5a16f0ea4939a601fe2db701"
         trainingInstanceTypeName="full-time"
         trainingType="full-curriculum"
       >
@@ -26,8 +27,9 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Forms, Authentication, and Hooks"
         tech="react"
         title="Day  2"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
+        toggleNavigateTo="/react/curriculum?tab=5a16f0ea4939a601fe2db701full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5a16f0ea4939a601fe2db701"
         trainingInstanceTypeName="full-time"
         trainingType="full-curriculum"
       >
@@ -42,8 +44,9 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Redux Fundamentals, deployment to production"
         tech="react"
         title="Day  3"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
+        toggleNavigateTo="/react/curriculum?tab=5a16f0ea4939a601fe2db701full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5a16f0ea4939a601fe2db701"
         trainingInstanceTypeName="full-time"
         trainingType="full-curriculum"
       >
@@ -61,8 +64,9 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Advanced React patterns and performance"
         tech="react"
         title="Day  4"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
+        toggleNavigateTo="/react/curriculum?tab=5a16f0ea4939a601fe2db701full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5a16f0ea4939a601fe2db701"
         trainingInstanceTypeName="full-time"
         trainingType="full-curriculum"
       >
@@ -80,8 +84,9 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="GraphQL 101 & Real-World Testing in React"
         tech="react"
         title="Day  5"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
+        toggleNavigateTo="/react/curriculum?tab=5a16f0ea4939a601fe2db701full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5a16f0ea4939a601fe2db701"
         trainingInstanceTypeName="full-time"
         trainingType="full-curriculum"
       >
@@ -102,8 +107,9 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         subTitle="Building a UI component library"
         tech="react"
         title="Day  6"
-        toggleNavigateTo="/react/curriculum?tab=React Bootcamp"
+        toggleNavigateTo="/react/curriculum?tab=5a16f0ea4939a601fe2db701full-time"
         trainingDateTime="-  09:00 - 18:00"
+        trainingId="5a16f0ea4939a601fe2db701"
         trainingInstanceTypeName="full-time"
         trainingType="full-curriculum"
       >
