@@ -29,17 +29,20 @@ import {
 import { Segment } from 'src/components/elements'
 import { getURLParameter } from 'src/components/utils/url'
 import {
-  GRAPHQL_BOOTCAMP,
   TECH_GRAPHQL,
-  GRAPHQL_PART_TIME,
   TRAINING_TYPE_HALF_CURRICULUM,
   PART_TIME,
+  FULL_TIME,
   GRAPHQL_API_ID,
+  GRAPHQL_BOOTCAMP_ID,
   TRAINING_TYPE_FULL_CURRICULUM,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
 import { GRAPHQL_PINK, LIGHT_PINK } from '../../config/styles'
+
+const GRAPHQL_BOOTCAMP = `${GRAPHQL_BOOTCAMP_ID}${FULL_TIME}`
+const GRAPHQL_PART_TIME = `${GRAPHQL_API_ID}${PART_TIME}`
 
 class GraphQLCurriculum extends React.Component {
   state = {

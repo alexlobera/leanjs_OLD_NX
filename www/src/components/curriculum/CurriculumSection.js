@@ -43,7 +43,13 @@ const CurriculumSection = props => {
     (getURLParameter('section') === props.name &&
       getURLParameter('tab') ===
         `${props.trainingId}${props.trainingInstanceTypeName}`)
-
+  console.log(
+    'aaaa',
+    isOpen,
+    props.name,
+    props.trainingId,
+    props.trainingInstanceTypeName
+  )
   const [isTabOpen, setIsOpen] = useState(isOpen)
 
   const toggleSubSection = () => {

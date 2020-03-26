@@ -8,7 +8,6 @@ import IntroReduxSession from './sessions/IntroReduxSession'
 import HooksSession from './sessions/HooksSession'
 import FundamentalsFinalProject from './sessions/FundamentalsFinalProject'
 import {
-  REACT_FUNDAMENTALS_PART_TIME,
   REACT_FUNDAMENTALS_ID,
   PART_TIME,
   TECH_REACT,
@@ -43,15 +42,13 @@ export const defaultSessionsSecondHalf = [
   },
 ]
 
-// const type = REACT_PART_TIME
-
 const trainingInstanceTypeName = PART_TIME
 const tech = TECH_REACT
 const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingId = REACT_FUNDAMENTALS_ID
 
 const CurriculumReactFundamentalsPartTime = ({
-  toggleNavigateTo = `/react/curriculum?tab=${REACT_FUNDAMENTALS_PART_TIME}`,
+  toggleNavigateTo = `/react/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
@@ -66,6 +63,7 @@ const CurriculumReactFundamentalsPartTime = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionWithProps = renderPartTimeSection({
     sectionProps,

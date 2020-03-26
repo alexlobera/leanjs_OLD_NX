@@ -5,6 +5,7 @@ import { trainingDateTime, convertMinutesToHoursAndMinutes } from '../utils'
 const renderPartTimeSection = ({
   sectionProps = {},
   training,
+  trainingId,
 } = {}) => initialIndex => ({ title, Comp, group }, index) => {
   let dayOffset = index + initialIndex
   const sectionNum = index + initialIndex + 1
@@ -33,6 +34,7 @@ const renderPartTimeSection = ({
       title={`Session ${sectionNum} - ${title ||
         (Comp.defaultProps && Comp.defaultProps.title)}`}
       name={`session${sectionNum}`}
+      trainingId={trainingId}
       trainingDateTime={
         training && (
           <React.Fragment>

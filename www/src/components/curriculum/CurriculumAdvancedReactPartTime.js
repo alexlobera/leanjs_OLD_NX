@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  ADVANCED_REACT_PART_TIME,
   ADVANCED_REACT_ID,
   PART_TIME,
   TECH_REACT,
@@ -34,8 +33,13 @@ const tech = TECH_REACT
 const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingId = ADVANCED_REACT_ID
 
+// function createTrainingTabName({ trainingId, trainingInstanceTypeName }) {
+//   return `${trainingId}${trainingInstanceTypeName}`
+// }
+
 const CurriculumAdvancedReactPartTime = ({
-  toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT_PART_TIME}`,
+  // toggleNavigateTo = `/react/curriculum?tab=${ADVANCED_REACT_PART_TIME}`,
+  toggleNavigateTo = `/react/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
@@ -50,6 +54,7 @@ const CurriculumAdvancedReactPartTime = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionWithProps = renderPartTimeSection({
     sectionProps,

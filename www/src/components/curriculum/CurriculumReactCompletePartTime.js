@@ -1,9 +1,8 @@
 import React from 'react'
 import {
-  COMPLETE_REACT_PART_TIME,
   TRAINING_TYPE_FULL_CURRICULUM,
   TECH_REACT,
-  BOOTCAMP_REACT_ID,
+  REACT_BOOTCAMP_ID,
   PART_TIME,
 } from '../../config/data'
 import Curriculum from './Curriculum'
@@ -29,10 +28,10 @@ export const defaultSessionsSecondHalf = [
 const trainingInstanceTypeName = PART_TIME
 const tech = TECH_REACT
 const trainingType = TRAINING_TYPE_FULL_CURRICULUM
-const trainingId = BOOTCAMP_REACT_ID
+const trainingId = REACT_BOOTCAMP_ID
 
 const CurriculumReactCompletePartTime = ({
-  toggleNavigateTo = `/react/curriculum?tab=${COMPLETE_REACT_PART_TIME}`,
+  toggleNavigateTo = `/react/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
@@ -47,6 +46,7 @@ const CurriculumReactCompletePartTime = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionWithProps = renderPartTimeSection({
     sectionProps,

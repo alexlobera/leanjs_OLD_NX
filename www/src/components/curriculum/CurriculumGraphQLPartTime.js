@@ -48,7 +48,7 @@ const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingId = GRAPHQL_API_ID
 
 const CurriculumGraphQLPartTime = ({
-  toggleNavigateTo = `/graphql/curriculum?tab=${PART_TIME}`,
+  toggleNavigateTo = `/graphql/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   sessionsFirstHalf = defaultSessionsFirstHalf,
@@ -63,6 +63,7 @@ const CurriculumGraphQLPartTime = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionWithProps = renderPartTimeSection({
     sectionProps,
