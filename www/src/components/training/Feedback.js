@@ -5,7 +5,7 @@ import Button from 'src/components/buttons/Button'
 import { Form, CheckboxField, InputField } from 'src/components/form'
 import { WHITE } from '../../config/styles'
 import { sendFeedback } from '../../api/rest'
-import Loader from '../form/Loader'
+import Spinner from '../form/Spinner'
 
 function Feedback() {
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -69,7 +69,7 @@ function Feedback() {
                     disabled={submitting || pristine}
                     sx={{ mt: 3 }}
                   >
-                    {submitting ? <Loader /> : 'Submit feedback'}
+                    {submitting ? <Spinner /> : 'Submit feedback'}
                   </Button>
                 </Li>
               </Ul>
