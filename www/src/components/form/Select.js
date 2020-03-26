@@ -2,7 +2,7 @@ import React from 'react'
 import Downshift from 'downshift'
 import styled from 'styled-components'
 
-import Label from '../text/label'
+import Label from '../text/Label'
 import Flex from '../layout/Flex'
 import Box from '../layout/Box'
 import ArrowIcon from '../icons/ArrowIcon'
