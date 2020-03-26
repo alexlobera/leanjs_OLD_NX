@@ -2,7 +2,6 @@ import React from 'react'
 import { Li } from '../layout/Ul'
 
 import {
-  GRAPHQL_API,
   GRAPHQL_API_ID,
   TECH_GRAPHQL,
   PART_TIME,
@@ -17,7 +16,7 @@ const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingId = GRAPHQL_API_ID
 
 const CurriculumGraphQLAPI = ({
-  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_API}`,
+  toggleNavigateTo = `/graphql/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   ...rest
@@ -28,6 +27,7 @@ const CurriculumGraphQLAPI = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionArgs = {
     training,

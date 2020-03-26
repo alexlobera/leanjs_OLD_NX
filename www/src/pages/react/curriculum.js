@@ -69,7 +69,7 @@ const UlLearningExperience = ({ children }) => (
 )
 class ReactCurriculum extends React.Component {
   state = {
-    active: REACT_BOOTCAMP,
+    active: `${REACT_BOOTCAMP_ID}${FULL_TIME}`,
   }
 
   componentDidMount() {

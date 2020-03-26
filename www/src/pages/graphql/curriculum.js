@@ -29,13 +29,14 @@ import {
 import { Segment } from 'src/components/elements'
 import { getURLParameter } from 'src/components/utils/url'
 import {
-  GRAPHQL_BOOTCAMP,
   TECH_GRAPHQL,
-  GRAPHQL_PART_TIME,
   TRAINING_TYPE_HALF_CURRICULUM,
   PART_TIME,
   GRAPHQL_API_ID,
+  GRAPHQL_BOOTCAMP_ID,
   TRAINING_TYPE_FULL_CURRICULUM,
+  GRAPHQL_BOOTCAMP,
+  GRAPHQL_PART_TIME,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
@@ -78,7 +79,7 @@ class GraphQLCurriculum extends React.Component {
     const trainingBootcamp = selectNthTraining({
       trainings,
       trainingType: TRAINING_TYPE_FULL_CURRICULUM,
-      trainingId: 'TODO_GRAPHQL_BOOTCAMP_ID',
+      trainingId: GRAPHQL_BOOTCAMP_ID,
     })
     const trainingPartTime = selectNthTraining({
       trainings,

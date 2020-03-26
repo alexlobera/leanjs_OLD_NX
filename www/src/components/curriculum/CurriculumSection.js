@@ -17,33 +17,12 @@ export const curriedToggleNavigateTo = to => section =>
 export const navigateToSection = (to, section) =>
   section ? `${to}&section=${section}` : to
 
-// Feedback disabled temporarly.
-// const StyledFeedback = styled(Flex)`
-//   border: 2px dashed ${PINK};
-//   max-width: 320px;
-// `
-// StyledFeedback.defaultProps = {
-//   p: 3,
-//   my: 3,
-//   jc: 'center',
-// }
-
-// const Feedback = () => (
-//   <StyledFeedback>
-//     Any questions?
-//     <Link className="training-curriculum-link-clicks" ml={1} to="#contact-us">
-//       Contact us
-//     </Link>
-//   </StyledFeedback>
-// )
-
 const CurriculumSection = props => {
   const isOpen =
     props.isOpen ||
     (getURLParameter('section') === props.name &&
       getURLParameter('tab') ===
         `${props.trainingId}${props.trainingInstanceTypeName}`)
-
   const [isTabOpen, setIsOpen] = useState(isOpen)
 
   const toggleSubSection = () => {

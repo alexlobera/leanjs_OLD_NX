@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {
-  REACT_FUNDAMENTALS,
   FULL_TIME,
   TECH_REACT,
   TRAINING_TYPE_HALF_CURRICULUM,
@@ -16,7 +15,7 @@ const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingId = REACT_FUNDAMENTALS_ID
 
 const CurriculumReactFundamentals = ({
-  toggleNavigateTo = `/react/curriculum?tab=${REACT_FUNDAMENTALS}`,
+  toggleNavigateTo = `/react/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   ...rest
@@ -27,6 +26,7 @@ const CurriculumReactFundamentals = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionArgs = {
     training,

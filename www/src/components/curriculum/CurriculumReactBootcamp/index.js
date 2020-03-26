@@ -16,7 +16,6 @@ import FundamentalsFinalProject from '../sessions/FundamentalsFinalProject'
 import DesignSystemSession from '../sessions/DesignSystemSession'
 
 import {
-  REACT_BOOTCAMP,
   FULL_TIME,
   TECH_REACT,
   TRAINING_TYPE_FULL_CURRICULUM,
@@ -63,7 +62,7 @@ const trainingType = TRAINING_TYPE_FULL_CURRICULUM
 const trainingId = REACT_BOOTCAMP_ID
 
 const CurriculumReactBootcamp = ({
-  toggleNavigateTo = `/react/curriculum?tab=${REACT_BOOTCAMP}`,
+  toggleNavigateTo = `/react/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   ...rest
@@ -74,6 +73,7 @@ const CurriculumReactBootcamp = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionArgs = {
     training,

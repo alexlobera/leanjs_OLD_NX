@@ -1,16 +1,13 @@
 import React from 'react'
 import Section from './CurriculumSection'
 import { LinkButton } from '../buttons'
-import { REACT_BOOTCAMP } from '../../config/data'
 import selectCurriculumLayout from './selectCurriculumLayout'
 import CorpTrainingFacts from './CorpTrainingKeyFacts'
 
 const CurriculumCorporateReact = ({ layout }) => {
-  const type = REACT_BOOTCAMP
   const commonProps = {
     showLinkToCurriculum: false,
     enableToggle: false,
-    type,
     isOpen: false,
   }
   const firstHalf = (
@@ -57,7 +54,6 @@ const CurriculumCorporateReact = ({ layout }) => {
     firstHalf,
     secondHalf,
     layout,
-    type,
     content: <CorpTrainingFacts />,
     curriculumTitle: 'React Training Schedule Example',
   })

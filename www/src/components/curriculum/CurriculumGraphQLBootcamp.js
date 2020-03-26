@@ -15,7 +15,6 @@ import { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
 
 import {
-  GRAPHQL_BOOTCAMP,
   GRAPHQL_BOOTCAMP_ID,
   TECH_GRAPHQL,
   FULL_TIME,
@@ -51,7 +50,7 @@ const trainingType = TRAINING_TYPE_FULL_CURRICULUM
 const trainingId = GRAPHQL_BOOTCAMP_ID
 
 const CurriculumGraphQLBootcamp = ({
-  toggleNavigateTo = `/graphql/curriculum?tab=${GRAPHQL_BOOTCAMP}`,
+  toggleNavigateTo = `/graphql/curriculum?tab=${trainingId}${trainingInstanceTypeName}`,
   training,
   section = {},
   ...rest
@@ -62,6 +61,7 @@ const CurriculumGraphQLBootcamp = ({
     trainingInstanceTypeName,
     tech,
     trainingType,
+    trainingId,
   }
   const renderSectionArgs = {
     training,
