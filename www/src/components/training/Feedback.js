@@ -3,7 +3,7 @@ import { H3, P } from '../text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Button from 'src/components/buttons/Button'
 import { Form, CheckboxField, InputField } from 'src/components/form'
-import { WHITE } from '../../config/styles'
+import { WHITE, DARK_GREY } from '../../config/styles'
 import { sendFeedback } from '../../api/rest'
 import Spinner from '../form/Spinner'
 
@@ -69,7 +69,11 @@ function Feedback() {
                     disabled={submitting || pristine}
                     sx={{ mt: 3 }}
                   >
-                    {submitting ? <Spinner /> : 'Submit feedback'}
+                    {submitting ? (
+                      <Spinner color={DARK_GREY} />
+                    ) : (
+                      'Submit feedback'
+                    )}
                   </Button>
                 </Li>
               </Ul>
