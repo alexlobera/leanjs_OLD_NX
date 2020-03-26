@@ -54,13 +54,6 @@ import { BLUE } from '../../config/styles'
 import Card from 'src/components/elements/Card'
 import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
 
-// const REACT_BOOTCAMP = `${REACT_BOOTCAMP_ID}${FULL_TIME}`
-// const ADVANCED_REACT = `${ADVANCED_REACT_ID}${FULL_TIME}`
-// const REACT_FUNDAMENTALS = `${REACT_FUNDAMENTALS_ID}${FULL_TIME}`
-// const COMPLETE_REACT_PART_TIME = `${REACT_BOOTCAMP_ID}${PART_TIME}`
-// const ADVANCED_REACT_PART_TIME = `${ADVANCED_REACT_ID}${PART_TIME}`
-// const REACT_FUNDAMENTALS_PART_TIME = `${REACT_FUNDAMENTALS_ID}${PART_TIME}`
-
 const TdLearningExprience = ({ strong, children }) => (
   <Td verticalAlign="top">
     <strong style={{ marginTop: '8px', display: 'inline-block' }}>

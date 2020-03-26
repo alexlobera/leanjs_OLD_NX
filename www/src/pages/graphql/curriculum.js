@@ -32,7 +32,6 @@ import {
   TECH_GRAPHQL,
   TRAINING_TYPE_HALF_CURRICULUM,
   PART_TIME,
-  FULL_TIME,
   GRAPHQL_API_ID,
   GRAPHQL_BOOTCAMP_ID,
   TRAINING_TYPE_FULL_CURRICULUM,
@@ -80,7 +79,7 @@ class GraphQLCurriculum extends React.Component {
     const trainingBootcamp = selectNthTraining({
       trainings,
       trainingType: TRAINING_TYPE_FULL_CURRICULUM,
-      trainingId: 'TODO_GRAPHQL_BOOTCAMP_ID',
+      trainingId: GRAPHQL_BOOTCAMP_ID,
     })
     const trainingPartTime = selectNthTraining({
       trainings,
