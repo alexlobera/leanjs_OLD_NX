@@ -7,12 +7,13 @@ import Link from 'src/components/navigation/Link'
 import { Form, CheckboxField, InputField } from 'src/components/form'
 import { WHITE } from '../../config/styles'
 import { sendFeedback } from '../../api/rest'
+import Loader from '../form/Loader'
 
-function Feedback({ trialPath, articlePath }) {
+function Feedback() {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const handleFormSubmit = async feedback => {
     await sendFeedback({
-      'feedback from': 'GraphQL part-time checkout',
+      'feedback from': 'Training instance default feedback form',
       ...feedback,
     })
     setFormSubmitted(true)
@@ -23,127 +24,61 @@ function Feedback({ trialPath, articlePath }) {
   ) : (
     <Form
       onSubmit={handleFormSubmit}
-      render={({ pristine, handleSubmit }) => (
-        <>
-          <H3>You can give us feedback</H3>
-          <P>
-            If you are not going to book a spot on the training, you can tell us
-            why to help us improve :)
-          </P>
-          <form onSubmit={handleSubmit}>
-            <Ul variant="unstyled">
-              <Li>
-                <CheckboxField
-                  color={WHITE}
-                  name="tooExpensive"
-                  label="The training is too expensive"
-                  elementOnChecked={
-                    <Span>
-                      {articlePath && (
-                        <>
-                          Have you read the{' '}
-                          <Link to={articlePath}>full value proposition</Link>?
-                        </>
-                      )}
-
-                      {trialPath && (
-                        <>
-                          {` `}If you think it's not good value for money,{' '}
-                          <Link to={trialPath}>try it first</Link>!
-                        </>
-                      )}
-                    </Span>
-                  }
-                />
-              </Li>
-              <Li>
-                <CheckboxField
-                  color={WHITE}
-                  name="tooLong"
-                  label="The training is too long"
-                  elementOnChecked={
-                    <InputField
-                      name="tooLong.expand"
-                      placeholder="How long should it be?"
-                    />
-                  }
-                />
-              </Li>
-              <Li>
-                <CheckboxField
-                  color={WHITE}
-                  name="timingsNotGood"
-                  label="Timings are not good"
-                  elementOnChecked={
-                    <Ul variant="unstyled" sx={{ ml: 5 }}>
-                      <Li>When does work best work for you?</Li>
-                      <Li>
-                        <CheckboxField
-                          color={WHITE}
-                          name="timingsNotGood.morningEU "
-                          label="Mornings EU"
-                        />
-                      </Li>
-                      <Li>
-                        <CheckboxField
-                          color={WHITE}
-                          name="timingsNotGood.eveningsUSAWestCoast"
-                          label="Evenings USA West Coast"
-                        />
-                      </Li>
-                      <Li>
-                        <CheckboxField
-                          color={WHITE}
-                          name="timingsNotGood.eveningsUSAWestCoast"
-                          label="Evenings USA Est Coast"
-                        />
-                      </Li>
-                      <Li>
-                        <CheckboxField
-                          color={WHITE}
-                          name="timingsNotGood.weekends"
-                          label="Weekends"
-                        />
-                      </Li>
-                    </Ul>
-                  }
-                />
-              </Li>
-              <Li>
-                <CheckboxField
-                  color={WHITE}
-                  name="curriculumNotGood"
-                  label="I don't like the curriculum"
-                  elementOnChecked={
-                    <InputField
-                      name="curriculumNotGood.expand"
-                      placeholder="What would you change?"
-                    />
-                  }
-                />
-              </Li>
-              <Li>
-                <CheckboxField
-                  color={WHITE}
-                  name="other"
-                  label="Other"
-                  elementOnChecked={
-                    <InputField
-                      name="other.expand"
-                      placeholder="Could please explain a bit?"
-                    />
-                  }
-                />
-              </Li>
-              <Li>
-                <Button type="submit" disabled={pristine} sx={{ mt: 3 }}>
-                  Submit feedback
-                </Button>
-              </Li>
-            </Ul>
-          </form>
-        </>
-      )}
+      render={({ pristine, handleSubmit, submitting, ...rest }) => {
+        return (
+          <>
+            <H3>Tell us about yourself</H3>
+            <P>What are your main interests in a React training?</P>
+            <form onSubmit={handleSubmit}>
+              <Ul variant="unstyled">
+                <Li>
+                  <CheckboxField
+                    color={WHITE}
+                    name="certification"
+                    label="To become a certified React Developer"
+                    elementOnChecked={
+                      <InputField
+                        name="certification.expand"
+                        placeholder="How would you like us to asses your skills?"
+                      />
+                    }
+                  />
+                </Li>
+                <Li>
+                  <CheckboxField
+                    color={WHITE}
+                    name="networking"
+                    label="Networking opportunities"
+                  />
+                </Li>
+                <Li>
+                  <CheckboxField
+                    color={WHITE}
+                    name="workingWithOtherDevs"
+                    label="Working on real-world problems with other devs"
+                  />
+                </Li>
+                <Li>
+                  <CheckboxField
+                    color={WHITE}
+                    name="discussingWithExperts"
+                    label="Discussing real-world problems with industry experts"
+                  />
+                </Li>
+                <Li>
+                  <Button
+                    type="submit"
+                    disabled={submitting || pristine}
+                    sx={{ mt: 3 }}
+                  >
+                    {submitting ? <Loader /> : 'Submit feedback'}
+                  </Button>
+                </Li>
+              </Ul>
+            </form>
+          </>
+        )
+      }}
     />
   )
 }

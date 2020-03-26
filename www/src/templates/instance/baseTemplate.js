@@ -9,7 +9,7 @@ import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P, Blockquote } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import { Segment, Video } from 'src/components/elements'
-import { Image } from 'src/components/elements'
+import Feedback from 'src/components/training/Feedback'
 import LinkButton from 'src/components/buttons/LinkButton'
 import Header from 'src/components/layout/Header'
 import {
@@ -28,7 +28,7 @@ import TrialOfCard from 'src/components/training/TrialOfCard'
 import PaymentSection from 'src/components/payment/PaymentSection'
 import { Link } from 'src/components/navigation'
 import Box from 'src/components/layout/Box'
-import ContactForm from 'src/components/form/Contact'
+// import ContactForm from 'src/components/form/Contact'
 import FinanceCard from 'src/components/payment/FinanceCard'
 import BlogSection from 'src/components/blog/BlogSection'
 import { TECH_GRAPHQL } from '../../config/data'
@@ -349,10 +349,11 @@ const InstancePage = ({
                 {feedback}
               </StickyBox>
             ) : (
-              <ContactForm
-                variant={training ? 'default' : 'primary'}
-                simplified
-              />
+              //   <ContactForm
+              //     variant={training ? 'default' : 'primary'}
+              //     simplified
+              //   />
+              <Feedback />
             )}
           </Col>
           {training &&
