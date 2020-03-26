@@ -24,6 +24,9 @@ export const StyledLi = styled(Box)`
     display: block;
   }
 `
+StyledLi.defaultProps = {
+  box: 'li',
+}
 
 export const TabList = React.memo(({ sx = {}, ...rest }) => (
   <Ul

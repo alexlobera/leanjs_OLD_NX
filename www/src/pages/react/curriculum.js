@@ -472,6 +472,7 @@ class ReactCurriculum extends React.Component {
                 Advanced PT
               </TabItem>
             </TabList>
+
             <Row>
               <Col lg={10} lgOffset={1}>
                 <TabPanel name={REACT_BOOTCAMP}>
