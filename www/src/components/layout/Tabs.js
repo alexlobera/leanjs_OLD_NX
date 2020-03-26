@@ -47,9 +47,6 @@ TabList.displayName = 'TabList'
 export const StyledA = styled(Box)`
   cursor: pointer;
 `
-// StyledA.defaultProps = {
-//   box: 'a',
-// }
 
 const selectTabItemColorFn = ({ isSelected, tech }) =>
   isSelected && tech === TECH_GRAPHQL ? 'lightText' : undefined
