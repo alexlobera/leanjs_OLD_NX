@@ -3,6 +3,7 @@ import { H3 } from '../text'
 import Ul, { Li } from 'src/components/layout/Ul'
 import Button from 'src/components/buttons/Button'
 import { Form, CheckboxField } from 'src/components/form'
+import Spinner from 'src/components/form/Spinner'
 import { sendFeedback } from '../../api/rest'
 
 function SanityForm({ data }) {
@@ -17,7 +18,7 @@ function SanityForm({ data }) {
   ) : (
     <Form
       onSubmit={handleFormSubmit}
-      render={({ pristine, handleSubmit }) => (
+      render={({ pristine, handleSubmit, submitting }) => (
         <>
           <H3>{data.title}</H3>
           <form onSubmit={handleSubmit}>
@@ -38,7 +39,7 @@ function SanityForm({ data }) {
                   disabled={pristine}
                   sx={{ mt: 3 }}
                 >
-                  Submit feedback
+                  {submitting ? <Spinner /> : 'Submit feedback'}
                 </Button>
               </Li>
             </Ul>

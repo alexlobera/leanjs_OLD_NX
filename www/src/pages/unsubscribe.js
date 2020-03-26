@@ -14,6 +14,7 @@ import {
   required,
   mustBeEmail,
 } from '../components/form/validations'
+import Spinner from '../components/form/Spinner'
 
 const aliasInput = getComponentAliaser(InputField)
 export const EmailInput = aliasInput()
@@ -53,7 +54,7 @@ export class Unsubscribe extends React.Component {
               </P>
               <Form
                 onSubmit={this.handleFormSubmit}
-                render={({ handleSubmit, valid }) => {
+                render={({ handleSubmit, valid, submitting }) => {
                   return (
                     <form
                       onSubmit={handleSubmit}
@@ -66,7 +67,7 @@ export class Unsubscribe extends React.Component {
                         placeholder="eg. steve@jobs.com"
                       />
                       <Button variant="primary" type="submit" disabled={!valid}>
-                        Submit email
+                        {submitting ? <Spinner /> : 'Submit email'}
                       </Button>
                     </form>
                   )
