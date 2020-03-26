@@ -31,7 +31,7 @@ const StyledCheckbox = styled.div`
   margin: 0.4rem 0.8rem 0.4rem 0;
   border: 1px solid ${({ color }) => (color ? color : DARK_GREY)};
   height: ${props => (props.size ? props.size : defaultSize)}em;
-  width: ${props => (props.size ? props.size : defaultSize)}em;
+  min-width: ${props => (props.size ? props.size : defaultSize)}em;
   ${HiddenCheckbox}:focus + & {
     box-shadow: 0 0 0 3px pink;
   } // RM: focus needs to be fixed, it works with simple styled input
