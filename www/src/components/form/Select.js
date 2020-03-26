@@ -152,16 +152,6 @@ const InputWrapper = styled.div`
   }
 `
 
-// const Menu = styled(Box)`
-//   width: 198px;
-//   border: 1px solid #222;
-//   margin: 0px;
-//   margin-top: 2px;
-//   padding: 0px;
-//   position: absolute;
-//   z-index: 9;
-//   background-color: white;
-// `
 const Menu = ({ sx = {}, ...rest }) => (
   <Box
     sx={{

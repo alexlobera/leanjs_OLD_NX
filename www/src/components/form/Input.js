@@ -81,7 +81,7 @@ const Input = ({
             <InputForm
               {...props}
               {...input}
-              sx={extendedSx}
+              sx={{ mt: 1, ...extendedSx }}
               onChange={onChange}
               type={type}
               name={name}
