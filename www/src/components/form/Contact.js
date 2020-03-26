@@ -29,9 +29,9 @@ const ContactForm = ({
   newsletterAnchorName,
 }) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const handleFormSubmit = ({ email }) => {
+  const handleFormSubmit = async ({ email }) => {
     setFormSubmitted(prevState => !prevState)
-    triggerSubscribe({ email })
+    await triggerSubscribe({ email })
     navigate('/thanks-for-signing-up')
   }
 
