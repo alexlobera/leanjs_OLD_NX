@@ -11,6 +11,7 @@ import { getComponentAliaser } from '../utils/aliasComponent'
 import { composeValidators, required, mustBeEmail } from './validations'
 import { triggerSubscribe } from '../../api/rest'
 import { Newsletter } from '../elements'
+import Spinner from '../form/Spinner'
 
 const aliasInput = getComponentAliaser(InputField)
 const aliasH3 = getComponentAliaser(H3)
@@ -88,7 +89,7 @@ const ContactForm = ({
         <Col>
           <Form
             onSubmit={handleFormSubmit}
-            render={({ handleSubmit, valid, formSubmitted }) => {
+            render={({ handleSubmit, valid, formSubmitted, submitting }) => {
               return (
                 <form
                   onSubmit={handleSubmit}
@@ -107,7 +108,7 @@ const ContactForm = ({
                     disabled={!valid}
                     className="newsletter-submit-button"
                   >
-                    Submit email
+                    {submitting ? <Spinner /> : 'Submit email'}
                   </Button>
                 </form>
               )
