@@ -521,8 +521,16 @@ const Header = ({
                           <Li>
                             <strong>Date</strong>:{' '}
                             {startDate ? startDate : 'TBD'}
-                            {startDate === endDate ? '' : ` - ${endDate}`}
+                            {startDate === endDate ? '' : ` to ${endDate}`}
                           </Li>
+                          {training &&
+                            training.daysOfTheWeek &&
+                            training.daysOfTheWeek.length && (
+                              <Li>
+                                <strong>Days</strong>:{' '}
+                                {training.daysOfTheWeek.join(', ')}
+                              </Li>
+                            )}
                           <Li>
                             <strong>Timings</strong>:{' '}
                             {`${(training.startDate &&
