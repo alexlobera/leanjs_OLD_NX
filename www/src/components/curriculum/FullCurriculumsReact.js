@@ -54,7 +54,7 @@ const FullCurriculumsReact = ({ trainings }) => {
       <Tabs value={tabsValue} onChange={setTabsValue}>
         <Row sx={{ flexDirection: ['column-reverse', 'row'] }}>
           <Col lgOffset={1} md={8}>
-            <H4>Choose a React training course</H4>
+            <H4>Choose a React training</H4>
             <TabList sx={{ display: 'inline-block', width: 1 }}>
               {selectedTime === FULL_TIME ? (
                 <React.Fragment>
