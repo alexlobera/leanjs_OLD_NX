@@ -55,7 +55,7 @@ const layoutQuery = graphql`
       }
     }
     upmentoring {
-      eventsConnection(
+      events(
         filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
         orderBy: { sort: startDate, direction: ASC }
       ) {
@@ -80,7 +80,7 @@ const layoutQuery = graphql`
           }
         }
       }
-      trainingInstancesConnection(
+      trainingInstances(
         filter: { ownerId: "5aaa9b07f146e5cfafad189e", startDate: future }
         orderBy: { sort: startDate, direction: ASC }
       ) {
@@ -182,16 +182,15 @@ const Layout = ({ children }) => {
   const data = useStaticQuery(layoutQuery)
 
   const trainings = useMemo(
-    () =>
-      data.upmentoring.trainingInstancesConnection.edges.map(formatTraining),
+    () => data.upmentoring.trainingInstances.edges.map(formatTraining),
     [data]
   )
 
-  const meetups = data.upmentoring.eventsConnection.edges
+  const meetups = data.upmentoring.events.edges
     // HEADSUP remove this when we deploy gql mini conf
     .filter(({ node: { meetup } }) => meetup && meetup.id)
     .map(formatMeetup)
-  const confs = data.upmentoring.eventsConnection.edges
+  const confs = data.upmentoring.events.edges
     .filter(({ node: { meetup } }) => !meetup || !meetup.id)
     .map(formatConf)
   const trainingAndEvents = [...trainings, ...meetups, ...confs]

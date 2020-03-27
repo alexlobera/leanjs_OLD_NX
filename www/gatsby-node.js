@@ -160,10 +160,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
 
         upmentoring {
-          eventsConnection(
-            first: 1000
-            filter: { ownerId: "5aaa9b07f146e5cfafad189e" }
-          ) {
+          events(first: 1000, filter: { ownerId: "5aaa9b07f146e5cfafad189e" }) {
             edges {
               node {
                 id
@@ -260,7 +257,7 @@ exports.createPages = async ({ graphql, actions }) => {
       )
 
       await Promise.all(
-        result.data.upmentoring.eventsConnection.edges.map(({ node }) => {
+        result.data.upmentoring.events.edges.map(({ node }) => {
           const locationImage = getLocationImage(result, node.city)
           return createPage({
             path: `/community/meetups/${node.id}`,
