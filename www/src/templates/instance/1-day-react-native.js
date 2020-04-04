@@ -7,6 +7,7 @@ import {
   REACT_WORKSHOP,
   ADVANCED_REACT,
   TRAINING_TYPE_WORKSHOP,
+  REACT_WORKSHOP_REACT_NATIVE_ID,
 } from 'src/config/data'
 
 export const crossSellTypes = [ADVANCED_REACT, REACT_WORKSHOP]
@@ -14,6 +15,7 @@ export const crossSellTypes = [ADVANCED_REACT, REACT_WORKSHOP]
 const Page = props => (
   <BaseTemplate
     {...props}
+    trainingId={REACT_WORKSHOP_REACT_NATIVE_ID}
     trainingType={TRAINING_TYPE_WORKSHOP}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}

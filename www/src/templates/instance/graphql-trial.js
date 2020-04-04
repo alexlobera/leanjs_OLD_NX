@@ -5,11 +5,16 @@ import Curriculum, {
   TargetAudienceList,
   LearningObjectives,
 } from 'src/components/curriculum/CurriculumGraphQLTrial'
-import { TRAINING_TYPE_TRIAL, TECH_GRAPHQL } from 'src/config/data'
+import {
+  TRAINING_TYPE_TRIAL,
+  TECH_GRAPHQL,
+  GRAPHQL_TRIAL_ID,
+} from 'src/config/data'
 
 const Page = props => (
   <BaseTemplate
     {...props}
+    trainingId={GRAPHQL_TRIAL_ID}
     trialOfTheTrainingId="5dc6f35fce62530002bd3e92"
     typeOfTraining="GraphQL trial"
     targetAudienceList={TargetAudienceList}

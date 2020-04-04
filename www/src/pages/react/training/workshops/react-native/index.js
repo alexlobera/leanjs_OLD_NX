@@ -18,10 +18,16 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Segment } from 'src/components/elements'
-import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
+import {
+  TECH_REACT,
+  TRAINING_TYPE_WORKSHOP,
+  REACT_WORKSHOP_REACT_NATIVE_ID,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { title, trainingId, breadcrumbWorkshopName } from './config.json'
+import { title, breadcrumbWorkshopName } from './config.json'
+
+const trainingId = REACT_WORKSHOP_REACT_NATIVE_ID
 
 const ReactNativeBoocamp = ({ path, trainings }) => {
   const nextTraining = getNextTrainingByTrainingId({

@@ -8,6 +8,7 @@ import {
   GRAPHQL_API,
   GRAPHQL_PART_TIME,
   GRAPHQL_BOOTCAMP,
+  GRAPHQL_WORKSHOP_APOLLO_CLIENT_ID,
 } from 'src/config/data'
 
 export const crossSellTypes = [GRAPHQL_API, GRAPHQL_PART_TIME, GRAPHQL_BOOTCAMP]
@@ -15,6 +16,7 @@ export const crossSellTypes = [GRAPHQL_API, GRAPHQL_PART_TIME, GRAPHQL_BOOTCAMP]
 const Page = props => (
   <BaseTemplate
     {...props}
+    trainingId={GRAPHQL_WORKSHOP_APOLLO_CLIENT_ID}
     type={GRAPHQL_WORKSHOP}
     typeOfTraining="GraphQL client workshop"
     crossSellTypes={crossSellTypes}

@@ -18,9 +18,15 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
+import {
+  TECH_REACT,
+  TRAINING_TYPE_WORKSHOP,
+  REACT_WORKSHOP_ADVANCED_PATTERNS_ID,
+} from 'src/config/data'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { trainingId, title, breadcrumbWorkshopName } from './config.json'
+import { title, breadcrumbWorkshopName } from './config.json'
+
+const trainingId = REACT_WORKSHOP_ADVANCED_PATTERNS_ID
 
 const AdvancedReactWorkshop = ({ path, trainings }) => {
   const nextTraining = getNextTrainingByTrainingId({
