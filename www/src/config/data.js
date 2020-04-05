@@ -39,6 +39,11 @@ export const GRAPHQL_WORKSHOP_APOLLO_CLIENT_ID =
 export const REACT_WORKSHOP_REACT_REASON_ID =
   '@VFJBOjVkN2ExNmRmYTllY2ZhNjcyMzNiYzhiMQ=='
 
+export const TRAINING_TYPE_FIELD_ID =
+  '@RklFOjVlNzRjZjE1NDk5M2QwMzFhNjYyOTA1Yg=='
+export const TRAINING_TECH_FIELD_ID =
+  '@RklFOjVlNzQ4MzdiNDk5M2QwMzFhNjVlNTQ0Ng=='
+
 export const FULL_TIME = 'full-time'
 export const PART_TIME = 'part-time'
 export const TRAINING_TYPE_WORKSHOP = 'workshop'

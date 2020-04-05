@@ -1,5 +1,5 @@
 ---
-coaches: ['horacio-herrera']
+coaches: ['alex-lobera', 'horacio-herrera']
 subtitle: Learn in 3 days in Barcelona the React fundamentals needed to develop React apps the right way
 videoOneTime: ''
 videoOneId: zRa5-FyWbK8
