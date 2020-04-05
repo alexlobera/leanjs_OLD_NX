@@ -20,7 +20,7 @@ import {
 import { Link } from 'src/components/navigation'
 import { TECH_GRAPHQL, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
 import { createMetas } from 'src/components/utils'
-import { trainingId, breadcrumbTrainingName } from './config.json'
+import { breadcrumbTrainingName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { LIGHT_PINK } from 'src/config/styles'
 
@@ -31,6 +31,8 @@ const metas = {
   image: BOOTCAMP_COLLAB,
   type: 'website',
 }
+
+const trainingId = GRAPHQL_TRIAL_ID
 
 const Page = ({ path, trainings, training }) => {
   const upcomingTrials = selectUpcomingTrainings({

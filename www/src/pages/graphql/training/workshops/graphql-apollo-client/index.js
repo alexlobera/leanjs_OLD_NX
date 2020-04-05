@@ -16,7 +16,11 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { TECH_GRAPHQL, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
+import {
+  TECH_GRAPHQL,
+  TRAINING_TYPE_WORKSHOP,
+  GRAPHQL_WORKSHOP_APOLLO_CLIENT_ID,
+} from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { breadcrumbWorkshopName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'

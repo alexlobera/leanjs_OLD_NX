@@ -11,6 +11,8 @@ import {
   REACT_WORKSHOP,
   REACT_TRIAL_ID,
   REACT_BOOTCAMP_ID,
+  TRAINING_TYPE_FULL_CURRICULUM,
+  FULL_TIME,
 } from 'src/config/data'
 
 export const crossSellTypes = [
@@ -26,7 +28,9 @@ const Page = props => (
     {...props}
     type={REACT_BOOTCAMP}
     trainingId={REACT_BOOTCAMP_ID}
+    trainingType={TRAINING_TYPE_FULL_CURRICULUM}
     typeOfTraining="React Bootcamp"
+    trainingInstanceTypeName={FULL_TIME}
     crossSellTypes={crossSellTypes}
     trialTrainingId={REACT_TRIAL_ID}
     targetAudienceList={TargetAudienceList}
