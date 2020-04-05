@@ -12,6 +12,7 @@ import {
 import './reset.css'
 import './layout.css'
 import { SENTRY_DSN } from '../config/apps'
+import { TRAINING_TYPE_FIELD_ID, TRAINING_TECH_FIELD_ID } from '../config/data'
 import Menu from '../components/navigation/menu'
 import Footer from '../components/layout/Footer'
 import favicon from './favicon.ico'
@@ -20,9 +21,6 @@ import FONT_BARLOW_400_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-
 import FONT_BARLOW_800_LATIN_EXT_WOFF2 from '../fonts/barlow-v3-latin_latin-ext-800.woff2'
 
 raven.config(SENTRY_DSN).install()
-
-export const TRAINING_TYPE_FIELD_ID = '5e74cf154993d031a662905b'
-export const TRAINING_TECH_FIELD_ID = '5e74837b4993d031a65e5446'
 
 const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_400_LATIN_EXT_WOFF2,
@@ -139,12 +137,18 @@ const Layout = ({ children }) => {
     const { training, title, trainingInstanceType, city = '', isOnline } = node
     const { slug, id: trainingId } = training || {}
     const remoteOrCity = isOnline ? 'remote' : city
-    const trainingType = training.customFieldsValues.find(
+    const customFieldTrainingType = training.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
-    ).values[0]
-    const tech = training.customFieldsValues.find(
+    )
+    const trainingType = customFieldTrainingType
+      ? customFieldTrainingType.values[0]
+      : undefined
+    const customFieldTech = training.customFieldsValues.find(
       ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
-    ).values[0]
+    )
+
+    const tech = customFieldTech ? customFieldTech.values[0] : undefined
+
     const trainingInstanceTypeName =
       trainingInstanceType && trainingInstanceType.name
     const key = `${remoteOrCity}${slug}${trainingInstanceTypeName}`
