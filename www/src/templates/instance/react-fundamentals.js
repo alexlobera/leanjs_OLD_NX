@@ -6,6 +6,8 @@ import {
   REACT_PART_TIME,
   REACT_BOOTCAMP,
   REACT_FUNDAMENTALS,
+  REACT_TRIAL_ID,
+  REACT_FUNDAMENTALS_ID,
 } from 'src/config/data'
 
 export const crossSellTypes = [REACT_PART_TIME, REACT_BOOTCAMP]
@@ -14,8 +16,9 @@ const Page = props => (
   <BaseTemplate
     {...props}
     type={REACT_FUNDAMENTALS}
+    trainingId={REACT_FUNDAMENTALS_ID}
     typeOfTraining="React fundamentals training"
-    trialTrainingId="5e3854d66bfd23000238647f"
+    trialTrainingId={REACT_TRIAL_ID}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}

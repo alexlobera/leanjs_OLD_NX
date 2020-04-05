@@ -22,16 +22,21 @@ import BlogSection from 'src/components/blog/BlogSection'
 
 import Link from 'src/components/navigation/Link'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
+import {
+  TECH_REACT,
+  TRAINING_TYPE_WORKSHOP,
+  REACT_WORKSHOP_REACT_REASON_ID,
+} from 'src/config/data'
 import {
   title,
   tech,
-  trainingId,
   breadcrumbTrainingName,
   breadcrumbWorkshopName,
   tags,
 } from './config.json'
 import { crossSellTypes } from 'src/templates/instance/1-day-react-reasonml'
+
+const trainingId = REACT_WORKSHOP_REACT_REASON_ID
 
 const ReactReasonLanding = ({ path, trainings }) => {
   const nextTraining = getNextTrainingByTrainingId({

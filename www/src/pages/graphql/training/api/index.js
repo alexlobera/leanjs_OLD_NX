@@ -18,7 +18,12 @@ import {
 import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
-import { GRAPHQL_API, TECH_GRAPHQL } from 'src/config/data'
+import {
+  GRAPHQL_API,
+  TECH_GRAPHQL,
+  GRAPHQL_API_ID,
+  FULL_TIME,
+} from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createMetas } from 'src/components/utils'
 
@@ -30,11 +35,16 @@ const metas = {
   type: 'website',
 }
 
+const trainingId = GRAPHQL_API_ID
+const trainingInstanceTypeName = FULL_TIME
+
 const GraphQL = ({ path, trainings }) => {
   const upcomingGraphQLTrainings = selectUpcomingTrainings({
+    trainingId,
+    trainingInstanceTypeName,
     trainings,
-    type: GRAPHQL_API,
   })
+
   return (
     <React.Fragment>
       <Helmet

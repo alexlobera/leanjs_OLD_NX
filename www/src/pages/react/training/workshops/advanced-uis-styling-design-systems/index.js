@@ -17,11 +17,17 @@ import {
   getNextTrainingByTrainingId,
 } from 'src/components/training'
 import { Link } from 'src/components/navigation'
-import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
+import {
+  TECH_REACT,
+  TRAINING_TYPE_WORKSHOP,
+  REACT_WORKSHOP_DESIGN_SYSTEMS_ID,
+} from 'src/config/data'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
-import { trainingId, breadcrumbWorkshopName } from './config.json'
+import { breadcrumbWorkshopName } from './config.json'
+
+const trainingId = REACT_WORKSHOP_DESIGN_SYSTEMS_ID
 
 const metas = {
   title: `Styling in React and Design Systems Workshop | React GraphQL Academy`,
