@@ -18,10 +18,15 @@ import {
 } from 'src/components/training'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { Link } from 'src/components/navigation'
-import { TECH_REACT, TRAINING_TYPE_WORKSHOP } from 'src/config/data'
+import {
+  TECH_REACT,
+  TRAINING_TYPE_WORKSHOP,
+  REACT_WORKSHOP_FOUNDATION_ID,
+} from 'src/config/data'
 import { title, breadcrumbWorkshopName } from './config.json'
 
 const trainingId = REACT_WORKSHOP_FOUNDATION_ID
+
 const Workshop = ({ path, trainings }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
