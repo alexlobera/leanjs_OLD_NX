@@ -137,20 +137,18 @@ const Layout = ({ children }) => {
     const { training, title, trainingInstanceType, city = '', isOnline } = node
     const { slug, id: trainingId } = training || {}
     const remoteOrCity = isOnline ? 'remote' : city
-    const customFieldTrainingType = training.customFieldsValues.find(
-      ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
-    )
-    const trainingType = customFieldTrainingType
-      ? customFieldTrainingType.values[0]
-      : undefined
-    const customFieldTech = training.customFieldsValues.find(
-      ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
-    )
 
-    const tech = customFieldTech ? customFieldTech.values[0] : undefined
+    const trainingType = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TYPE_FIELD_ID
+    ).values[0]
+
+    const tech = training.customFieldsValues.find(
+      ({ fieldId }) => fieldId === TRAINING_TECH_FIELD_ID
+    ).values[0]
 
     const trainingInstanceTypeName =
       trainingInstanceType && trainingInstanceType.name
+
     const key = `${remoteOrCity}${slug}${trainingInstanceTypeName}`
     cityIndex[key] = cityIndex[key] ? cityIndex[key] + 1 : 1
 
