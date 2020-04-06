@@ -12,7 +12,6 @@ const AdvancedReactPatternsSession = ({ title }) => (
         <Ul>
           <Li>Closure</Li>
           <Li>Memoization</Li>
-          <Li>Composition</Li>
         </Ul>
       </Li>
       <Li>
