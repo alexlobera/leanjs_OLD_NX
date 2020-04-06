@@ -27,7 +27,7 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
       </CurriculumSection>,
       <CurriculumSection
         name="day2"
-        subTitle="GraphQL 101 & Real-World Testing in React"
+        subTitle="Real-World Testing in React"
         tech="react"
         title="Advanced React Day 2"
         toggleNavigateTo="/react/curriculum?tab=@VFJBOjVhYjYyNDRhODg1NDZlNDZmYTJiMjYwMQ==full-time"
@@ -37,9 +37,6 @@ exports[`<CurriculumAdvancedReact /> should render component 1`] = `
         trainingType="half-curriculum"
       >
         <React.Fragment>
-          <ReactGraphQLIntroSession
-            title="GraphQL in React 101"
-          />
           <TestingIntroSession
             title="Testing Foundation in JavaScript"
           />
