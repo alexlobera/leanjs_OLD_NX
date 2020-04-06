@@ -7,7 +7,6 @@ import FormsAndAuthSession from '../sessions/FormsAndAuthSession'
 import StylingInReactSession from '../sessions/StylingInReactSession'
 import HooksSession from '../sessions/HooksSession'
 import IntroReduxSession from '../sessions/IntroReduxSession'
-import ReactGraphQLIntroSession from '../sessions/ReactGraphQLIntroSession'
 import TestingIntroSession from '../sessions/TestingIntroSession'
 import TestingInReactSession2 from '../sessions/TestingInReactSession2'
 import AdvancedReactPatternsSession from '../sessions/AdvancedReactPatternsSession'
@@ -43,12 +42,8 @@ export const sessionsSecondHalf = [
     comps: [AdvancedReactPatternsSession, AdvancedHooksAndPerfSession],
   },
   {
-    subTitle: 'GraphQL 101 & Real-World Testing in React',
-    comps: [
-      ReactGraphQLIntroSession,
-      TestingIntroSession,
-      TestingInReactSession2,
-    ],
+    subTitle: 'Real-World Testing in React',
+    comps: [TestingIntroSession, TestingInReactSession2],
   },
   {
     subTitle: 'Building a UI component library',

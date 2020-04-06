@@ -7,25 +7,16 @@ import TestingIntroSession, {
 import TestingInReactSession2, {
   titleSession as reactTitle,
 } from '../../sessions/TestingInReactSession2'
-import ReactGraphQLIntroSession, {
-  titleSession as graphqlTitle,
-} from '../../sessions/ReactGraphQLIntroSession'
+
 import Curriculum from '../../Curriculum'
 
 const CurriculumTestingInReact = ({ showTitle = true, section, ...rest }) => (
   <Curriculum
-    title={showTitle ? 'GraphQL 101 & Real-World Testing in React' : ''}
+    title={showTitle ? 'Real-World Testing in React' : ''}
     trainingType={TRAINING_TYPE_WORKSHOP}
     {...rest}
     firstHalf={
       <React.Fragment>
-        <Section
-          title={graphqlTitle}
-          trainingType={TRAINING_TYPE_WORKSHOP}
-          {...section}
-        >
-          <ReactGraphQLIntroSession title="" />
-        </Section>
         <Section
           title={introTitle}
           trainingType={TRAINING_TYPE_WORKSHOP}

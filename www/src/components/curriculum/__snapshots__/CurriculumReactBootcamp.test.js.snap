@@ -81,7 +81,7 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
       </CurriculumSection>,
       <CurriculumSection
         name="day5"
-        subTitle="GraphQL 101 & Real-World Testing in React"
+        subTitle="Real-World Testing in React"
         tech="react"
         title="Day  5"
         toggleNavigateTo="/react/curriculum?tab=@VFJBOjVhMTZmMGVhNDkzOWE2MDFmZTJkYjcwMQ==full-time"
@@ -91,9 +91,6 @@ exports[`<CurriculumReactBootcamp /> should render component 1`] = `
         trainingType="full-curriculum"
       >
         <React.Fragment>
-          <ReactGraphQLIntroSession
-            title="GraphQL in React 101"
-          />
           <TestingIntroSession
             title="Testing Foundation in JavaScript"
           />
