@@ -360,8 +360,8 @@ class ReactCurriculum extends React.Component {
                           Advanced PT
                         </LinkButton>
                         <UlLearningExperience>
-                          <Li>Between 2 and 3 weeks</Li>
-                          <Li>Max 9 hours a week</Li>
+                          <Li>3 weeks</Li>
+                          <Li>8 hours a week</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1100</Li>
                         </UlLearningExperience>
