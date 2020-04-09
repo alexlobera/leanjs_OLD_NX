@@ -7,6 +7,7 @@ import UpcomingTrainings from './UpcomingTrainings'
 import Link from '../navigation/Link'
 import selectUpcomingTrainings from './selectUpcomingTrainings'
 import { GREY } from '../../config/styles'
+import { TRAINING_TYPE_WORKSHOP } from '../../config/data'
 import Flex from '../layout/Flex'
 
 const CorporateCrossSell = ({ to }) => (
@@ -27,6 +28,7 @@ export const UpcomingTrainingTabs = ({ trainings, limit = 15 }) => {
   const allTrainings = selectUpcomingTrainings({
     trainings,
     limit,
+    excludeTrainingType: TRAINING_TYPE_WORKSHOP,
   })
 
   return (
@@ -45,7 +47,7 @@ export const UpcomingTrainingSection = ({ trainings, limit = 15 }) => (
     <Row>
       <Col md={11} mdOffset={1}>
         <H2Ref>
-          Upcoming - All Events
+          Upcoming Training
           <Link to="#upcoming" name="upcoming">
             #
           </Link>
