@@ -7,7 +7,7 @@ import {
 } from '../../config/data'
 import Curriculum, { renderSection } from './Curriculum'
 // import renderPartTimeSection from './renderPartTimeSession'
-import { sessionsSecondHalf as sessionsSecondHalfBootcamp } from './CurriculumReactBootcamp'
+import { sessionsSecondHalf as sessionsSecondHalfBootcamp } from './CurriculumReactBootcamp/sessions'
 
 // import AdvancedReactPatternsSession from './sessions/AdvancedReactPatternsSession'
 // import AdvancedHooksAndPerfSession from './sessions/AdvancedHooksAndPerfSession'

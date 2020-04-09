@@ -7,7 +7,7 @@ import {
   REACT_FUNDAMENTALS_ID,
 } from '../../../config/data'
 import Curriculum, { renderSection } from '../Curriculum'
-import { sessionsFirstHalf as sessionsFirstHalfBootcamp } from '../CurriculumReactBootcamp'
+import { sessionsFirstHalf as sessionsFirstHalfBootcamp } from '../CurriculumReactBootcamp/sessions'
 
 const trainingInstanceTypeName = FULL_TIME
 const tech = TECH_REACT

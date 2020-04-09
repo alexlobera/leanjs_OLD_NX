@@ -5,7 +5,7 @@ import {
   TRAINING_TYPE_HALF_CURRICULUM,
   ADVANCED_REACT_ID,
 } from '../../../config/data'
-import { sessionsSecondHalf as sessionsSecondHalfBootcamp } from '../CurriculumReactBootcamp'
+import { sessionsSecondHalf as sessionsSecondHalfBootcamp } from '../CurriculumReactBootcamp/sessions'
 import Curriculum, { renderSection } from '../Curriculum'
 
 const trainingInstanceTypeName = FULL_TIME

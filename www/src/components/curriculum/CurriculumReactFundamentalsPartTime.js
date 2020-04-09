@@ -36,7 +36,7 @@ export const defaultSessionsSecondHalf = [
   { title: 'React Hooks', Comp: HooksSession, group: 3 },
   { title: 'Redux', Comp: IntroReduxSession, group: 4 },
   {
-    title: 'Final project and deployment to production',
+    title: 'Fundamentals project and deployment to production',
     Comp: FundamentalsFinalProject,
     group: 4,
   },
