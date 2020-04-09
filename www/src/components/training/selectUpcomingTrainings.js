@@ -58,6 +58,9 @@ export const excludeByTrainingId = trainingId => ({ training }) =>
 export const excludeByInstanceId = instanceId => instance =>
   !instance || !instance.id || instance.id !== instanceId
 
+export const excludeByTrainingType = trainingType => instance =>
+  instance && !(trainingType && instance.trainingType === trainingType)
+
 export const filterByTrainingId = trainingId => ({ training } = {}) =>
   !trainingId || (training && training.id && training.id === trainingId)
 
@@ -77,6 +80,7 @@ export const selectUpcomingTrainings = ({
   trainingId,
   excludeTrainingId,
   excludeInstanceId,
+  excludeTrainingType,
   trainings = [],
   limit = 9999,
   onlineOrOffline,
@@ -95,6 +99,7 @@ export const selectUpcomingTrainings = ({
     .filter(excludeByInstanceId(excludeInstanceId))
     .filter(filterByTrainingId(trainingId))
     .filter(excludeByTrainingId(excludeTrainingId))
+    .filter(excludeByTrainingType(excludeTrainingType))
     .sort(sortUpcomingTrainings)
     .slice(0, limit)
 }

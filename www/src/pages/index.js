@@ -16,7 +16,10 @@ import FullCurriculumsImmersive from '../components/curriculum/FullCurriculumsIm
 import FullCurriculumsPartTime from '../components/curriculum/FullCurriculumsPartTime'
 import { createMetas } from '../components/utils'
 import { RootHeader as Header } from '../components/layout/Header'
-import { selectTrainingByInstanceId } from '../components/training/selectUpcomingTrainings'
+import {
+  selectTrainingByInstanceId,
+  getNextTrainingByTrainingId,
+} from '../components/training/selectUpcomingTrainings'
 import Segment from '../components/elements/Segment'
 import TrustedBySection from '../components/training/TrustedBySection'
 import UpcomingTrainingSection from '../components/training/UpcomingTrainingSection'
@@ -80,10 +83,16 @@ const TAB_GRAPHQL = 'graphql'
 const IndexPage = ({ trainings }) => {
   const [selectedTab, setTab] = useState(TAB_REACT)
 
-  const featuredTraining = selectTrainingByInstanceId({
-    trainings,
-    id: '5e78d9c7df87310002e6145c',
-  })
+  const featuredTrainings = [
+    selectTrainingByInstanceId({
+      trainings,
+      id: '@VElOOjVlNzhkOWM3ZGY4NzMxMDAwMmU2MTQ1Yw==',
+    }),
+    getNextTrainingByTrainingId({
+      trainings,
+      trainingId: '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg==',
+    }),
+  ].filter(t => t)
 
   return (
     <React.Fragment>
@@ -99,7 +108,7 @@ const IndexPage = ({ trainings }) => {
         {createMetas(metas)}
       </Helmet>
       <Header
-        featuredTraining={featuredTraining}
+        featuredTrainings={featuredTrainings}
         titleLines={[
           'Take your dev career further',
           'with React GraphQL Academy',
