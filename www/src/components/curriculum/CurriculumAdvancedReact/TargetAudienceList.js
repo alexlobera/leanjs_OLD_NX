@@ -18,8 +18,11 @@ const TargetAudienceList = () => (
     </Li>
     <Li>
       Ideal for{' '}
-      <strong>React developers with 1+ year of profesional experience</strong>.
-      Not for React beginners!
+      <strong>
+        developers with 1 year to 2 years of profesional experience working with
+        React
+      </strong>
+      . Not for React beginners!
     </Li>
   </React.Fragment>
 )
