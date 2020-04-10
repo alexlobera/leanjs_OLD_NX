@@ -1,6 +1,7 @@
 import React from 'react'
 import Section from './CurriculumSection'
 import { trainingDateTime, convertMinutesToHoursAndMinutes } from '../utils'
+import Tag from 'src/components/elements/Tag'
 
 const renderPartTimeSection = ({
   sectionProps = {},
@@ -40,7 +41,14 @@ const renderPartTimeSection = ({
         training && (
           <React.Fragment>
             <br />
-            {trainingDateTime({ dayOffset, training })}
+            {comps && comps.length > 1 ? (
+              <React.Fragment>
+                <Tag>Full-day</Tag>
+                {` `} 9:00 - 18:00
+              </React.Fragment>
+            ) : (
+              trainingDateTime({ dayOffset, training })
+            )}
             {gmt && (
               <small>
                 {` `}
