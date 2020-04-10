@@ -1,0 +1,9 @@
+{
+  "instanceTemplate": "react-part-time-bundle",
+  "tech": "React",
+  "breadcrumbTrainingName": "Part-time Bundle",
+  "breadcrumbTrainingSlug": "part-time-bundle",
+  "title": ["React Part-time Bundle", "Fundamentals + Advanced"],
+  "tagsIn": ["react", "beginner"],
+  "tagsNin": "advanced"
+}

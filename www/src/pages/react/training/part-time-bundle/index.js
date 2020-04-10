@@ -68,11 +68,11 @@ const CompletePartTime = ({ trainings, path }) => {
           { to: '/react/training/', label: 'Training' },
           {
             to: path,
-            label: 'Complete Part-time',
+            label: 'Part-time Bundle',
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['Complete React Part-time', 'Training']}
+        titleLines={['React Part-time Bundle', 'Fundamentals + Advanced']}
         subtitle="Master the React ecosystem by working with industry experts without having to cut into valuable work"
         trainingType={trainingType}
         links={header.landingPageLinks.links}

@@ -208,6 +208,7 @@ const InstancePage = ({
         breadcrumbBgColor={
           techLowerCase === TECH_GRAPHQL.toLowerCase() ? LIGHT_PINK : undefined
         }
+        city={city}
         titleLines={instanceTitle}
         subtitle={subtitle}
         links={[

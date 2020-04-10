@@ -11,6 +11,7 @@ import {
   GRAPHQL_PART_TIME,
   GRAPHQL_PART_TIME_TRIAL,
   GRAPHQL_TRIAL_ID,
+  GRAPHQL_API_ID,
   TECH_GRAPHQL,
 } from 'src/config/data'
 import Feedback from 'src/components/training/FeedbackGQL'
@@ -26,6 +27,7 @@ export const crossSellTypes = [
 const Page = props => (
   <BaseTemplate
     {...props}
+    trainingId={GRAPHQL_API_ID}
     trialTrainingId={GRAPHQL_TRIAL_ID}
     tech={TECH_GRAPHQL}
     feedback={

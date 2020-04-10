@@ -73,7 +73,7 @@ export function getTrainingTimings({ training }) {
       ? '7 weeks'
       : ''
 
-  return { duration, dayMonth }
+  return { duration, dayMonth, days }
 }
 
 const TrainingItem = ({
