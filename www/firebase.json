@@ -93,7 +93,7 @@
       },
       {
         "source": "/react/training/complete-part-time/:path*",
-        "destination": "/graphql/training/part-time-bundle/:path",
+        "destination": "/react/training/part-time-bundle/:path",
         "type": 301
       }
     ],
