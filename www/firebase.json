@@ -92,7 +92,7 @@
         "type": 301
       },
       {
-        "source": "/graphql/training/complete-part-time/:path*",
+        "source": "/react/training/complete-part-time/:path*",
         "destination": "/graphql/training/part-time-bundle/:path",
         "type": 301
       }
