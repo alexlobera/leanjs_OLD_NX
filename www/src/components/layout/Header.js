@@ -327,6 +327,7 @@ const Header = ({
   linkToGallery,
   downloadVenuePDF,
   width,
+  city,
   bgImageOpacity,
   className = 'course-details-clicks',
   breadcrumbPath,
@@ -337,6 +338,10 @@ const Header = ({
   const trainingType = rest.trainingType || (training && training.trainingType)
   const tech = rest.tech || (training && training.tech)
   const expandCheckout = useExpandCheckout()
+  const { days: trainingDays } =
+    getTrainingTimings({
+      training,
+    }) || {}
 
   return (
     <StaticQuery
@@ -538,24 +543,26 @@ const Header = ({
                               {training.daysOfTheWeek.join(', ')}
                             </Li>
                           ) : null}
-                          <Li>
-                            <strong>Timings</strong>:{' '}
-                            {`${(training.startDate &&
-                              formatUTC(
-                                training.startDate,
-                                training.utcOffset,
-                                'HH:mm'
-                              )) ||
-                              '9am'}-${(training.endDate &&
-                              formatUTC(
-                                training.endDate,
-                                training.utcOffset,
-                                'HH:mm'
-                              )) ||
-                              '6:00pm'}`}
-                            {training.isOnline &&
-                              ` GMT${utcHours}:${utcMinutes}`}
-                          </Li>
+                          {trainingDays && trainingDays < 32 ? (
+                            <Li>
+                              <strong>Timings</strong>:{' '}
+                              {`${(training.startDate &&
+                                formatUTC(
+                                  training.startDate,
+                                  training.utcOffset,
+                                  'HH:mm'
+                                )) ||
+                                '9am'}-${(training.endDate &&
+                                formatUTC(
+                                  training.endDate,
+                                  training.utcOffset,
+                                  'HH:mm'
+                                )) ||
+                                '6:00pm'}`}
+                              {training.isOnline &&
+                                ` GMT${utcHours}:${utcMinutes}`}
+                            </Li>
+                          ) : null}
                           {training.isOnline ? (
                             <>
                               <Li>
@@ -582,14 +589,14 @@ const Header = ({
                                 </>
                               )}
                             </Li>
-                          ) : (
+                          ) : !city || city.toLowerCase() !== 'remote' ? (
                             <Li>
                               <strong>Venue</strong>: TBC. {` `}
                               <Link to="/blog/4-reasons-why-you-should-host-our-react-graphql-training/">
                                 Host it and get exclusive promotions
                               </Link>
                             </Li>
-                          )}
+                          ) : null}
                           {linkToGallery && (
                             <Li>
                               <Link to={`#${linkToGallery}`}>

@@ -29,7 +29,7 @@ export const createTrainingPath = ({
     trainingId === REACT_BOOTCAMP_ID &&
     trainingInstanceTypeName === PART_TIME
   ) {
-    return `/react/training/complete-part-time/${cityPathI}`
+    return `/react/training/part-time-bundle/${cityPathI}`
   } else if (
     trainingId === ADVANCED_REACT_ID &&
     trainingInstanceTypeName === FULL_TIME

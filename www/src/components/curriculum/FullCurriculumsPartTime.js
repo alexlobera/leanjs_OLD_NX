@@ -41,7 +41,7 @@ const FullCurriculumsReact = ({ trainings }) => {
                 trainingType={TRAINING_TYPE_FULL_CURRICULUM}
                 name={COMPLETE_REACT_PART_TIME}
               >
-                Complete React PT
+                React Part-time Bundle
               </TabItem>
               <TabItem
                 trainingType={TRAINING_TYPE_HALF_CURRICULUM}

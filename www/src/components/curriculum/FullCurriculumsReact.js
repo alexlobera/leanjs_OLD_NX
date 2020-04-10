@@ -94,7 +94,7 @@ const FullCurriculumsReact = ({ trainings }) => {
                     className={tabItemClassName}
                     name={COMPLETE_REACT_PART_TIME}
                   >
-                    Complete React PT
+                    React PT Bundle
                   </TabItem>
                   <TabItem
                     trainingType={TRAINING_TYPE_HALF_CURRICULUM}

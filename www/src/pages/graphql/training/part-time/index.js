@@ -34,6 +34,7 @@ const metas = {
 const GraphQL = ({ path, trainings }) => {
   const upcomingGraphQLTrainings = selectUpcomingTrainings({
     trainings,
+    // TODO UPDATE THE ARGUMENTS
     type: GRAPHQL_PART_TIME,
   })
   return (
@@ -81,7 +82,7 @@ const GraphQL = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              type={GRAPHQL_PART_TIME}
+              tech={TECH_GRAPHQL}
               quote="It's nice to have people there who know their stuff. I feel like [the training] has definitely improved my career trajectory"
               fullname="Charlie Wilson"
               job="Software Engineer"

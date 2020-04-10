@@ -339,13 +339,14 @@ class ReactCurriculum extends React.Component {
                       <Td>
                         <LinkButton
                           variant="secondary"
-                          to="/react/training/complete-part-time"
+                          to="/react/training/part-time-bundle"
                           className="training-curriculum-clicks"
                         >
-                          Complete Part-time
+                          Part-time bundle
                         </LinkButton>
                         <UlLearningExperience>
                           <Li>Between 5 and 7 weeks</Li>
+                          <Li>Fundamentals + Advanced</Li>
                           <Li>Max 9 hours a week</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1630</Li>
@@ -455,7 +456,7 @@ class ReactCurriculum extends React.Component {
                 trainingType={TRAINING_TYPE_FULL_CURRICULUM}
                 name={COMPLETE_REACT_PART_TIME}
               >
-                Complete Part-Time (PT)
+                Part-Time (PT) Bundle
               </TabItem>
               <TabItem
                 trainingType={TRAINING_TYPE_HALF_CURRICULUM}
@@ -623,8 +624,8 @@ class ReactCurriculum extends React.Component {
                 <TabPanel name={COMPLETE_REACT_PART_TIME}>
                   <P>
                     <strong>
-                      On completion of the Complete React Part-time training
-                      each student will:
+                      On completion of the React Part-time Bundle each student
+                      will:
                     </strong>
                   </P>
                   <Ul>
@@ -651,7 +652,7 @@ class ReactCurriculum extends React.Component {
                         marketingCard={
                           trainingCompletePartTime && (
                             <MarketingCard
-                              heading="Next Complete React Part time Training"
+                              heading="Next React Part-time Bundle"
                               text={`Don't cut into valuable work!`}
                               className="training-curriculum-next-training-cta"
                               to={trainingCompletePartTime.toPath}

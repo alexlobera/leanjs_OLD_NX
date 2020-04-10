@@ -85,6 +85,16 @@
         "source": "/graphql/training/part-time-course{,/}",
         "destination": "/graphql/training/part-time/",
         "type": 301
+      },
+      {
+        "source": "/react/training/complete-part-time{,/}",
+        "destination": "/react/training/part-time-bundle/",
+        "type": 301
+      },
+      {
+        "source": "/graphql/training/complete-part-time/:path*",
+        "destination": "/graphql/training/part-time-bundle/:path",
+        "type": 301
       }
     ],
     "appAssociation": "AUTO",
