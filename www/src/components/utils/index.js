@@ -63,11 +63,10 @@ export const selectBorderStyle = ({ trainingType } = {}) => {
     return 'solid'
   } else if (trainingType === TRAINING_TYPE_HALF_CURRICULUM) {
     return 'dashed'
-  } else if (
-    trainingType === TRAINING_TYPE_WORKSHOP ||
-    trainingType === TRAINING_TYPE_TRIAL
-  ) {
+  } else if (trainingType === TRAINING_TYPE_WORKSHOP) {
     return 'dotted'
+  } else if (trainingType === TRAINING_TYPE_TRIAL) {
+    return 'double'
   } else {
     return 'solid'
   }
