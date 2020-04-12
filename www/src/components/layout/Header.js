@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { formatUTC, convertMinutesToHoursAndMinutes } from '../utils'
+import {
+  formatUTC,
+  convertMinutesToHoursAndMinutes,
+  dayToPlural,
+  dayOfTheWeekFromDate,
+} from '../utils'
 import Section from './Section'
 import { Col, Row } from './Grid'
 import Ul, { Li } from './Ul'
@@ -372,10 +377,10 @@ const Header = ({
         const bgImage = removeBgImage
           ? undefined
           : bgImgUrl || getBackgroundImageSrc(data, bgImageName)
-        const startDate =
+        const formatedStartDate =
           training.startDate &&
           formatUTC(training.startDate, training.utcOffset, 'D MMM')
-        const endDate =
+        const formatedEndDate =
           training.endDate &&
           formatUTC(training.endDate, training.utcOffset, 'D MMM')
 
@@ -385,6 +390,8 @@ const Header = ({
         } = convertMinutesToHoursAndMinutes(training.utcOffset)
         const titleLinesArray =
           typeof titleLines === 'string' ? [titleLines] : titleLines
+
+        const { daysOfTheWeek } = training || {}
 
         return (
           <React.Fragment>
@@ -532,15 +539,19 @@ const Header = ({
                         <Ul variant="unstyled" sx={{ mb: 1, pl: 0, pr: 0 }}>
                           <Li>
                             <strong>Date</strong>:{' '}
-                            {startDate ? startDate : 'TBD'}
-                            {startDate === endDate ? '' : ` to ${endDate}`}
+                            {formatedStartDate ? formatedStartDate : 'TBD'}
+                            {formatedStartDate === formatedEndDate
+                              ? `, ${dayOfTheWeekFromDate(training.startDate)}`
+                              : ` to ${formatedEndDate}`}
                           </Li>
-                          {training &&
-                          training.daysOfTheWeek &&
-                          training.daysOfTheWeek.length ? (
+                          {daysOfTheWeek &&
+                          daysOfTheWeek.length &&
+                          trainingDays > 1 ? (
                             <Li>
                               <strong>Days</strong>:{' '}
-                              {training.daysOfTheWeek.join(', ')}
+                              {daysOfTheWeek.length > 1
+                                ? daysOfTheWeek.join(', ')
+                                : dayToPlural(daysOfTheWeek[0])}
                             </Li>
                           ) : null}
                           {trainingDays && trainingDays < 32 ? (

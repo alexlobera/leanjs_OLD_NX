@@ -314,6 +314,42 @@ export const trainingDateTime = ({
       : trainingTimings({ training })
   }`
 
+const daysOfTheWeekEnglish = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+]
+
+export function dayOfTheWeekFromDate(dateString) {
+  const date = new Date(dateString)
+  const dayOfTheWeek = daysOfTheWeekEnglish[date.getDay()]
+
+  return dayOfTheWeek || ''
+}
+
+export function dayToPlural(dayOfTheWeek) {
+  switch (dayOfTheWeek) {
+    case 'Mon':
+      return `${daysOfTheWeekEnglish[1]}s`
+    case 'Tue':
+      return `${daysOfTheWeekEnglish[2]}s`
+    case 'Wed':
+      return `${daysOfTheWeekEnglish[3]}s`
+    case 'Thu':
+      return `${daysOfTheWeekEnglish[4]}s`
+    case 'Fri':
+      return `${daysOfTheWeekEnglish[5]}s`
+    case 'Sat':
+      return `${daysOfTheWeekEnglish[6]}s`
+    case 'Sun':
+      return `${daysOfTheWeekEnglish[0]}s`
+  }
+}
+
 export function convertMinutesToHoursAndMinutes(
   totalMinutes,
   useTwoDigits = true
