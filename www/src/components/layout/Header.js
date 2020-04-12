@@ -540,7 +540,9 @@ const Header = ({
                           <Li>
                             <strong>Date</strong>:{' '}
                             {formatedStartDate ? formatedStartDate : 'TBD'}
-                            {formatedStartDate === formatedEndDate
+                            {!formatedEndDate
+                              ? ''
+                              : formatedStartDate === formatedEndDate
                               ? `, ${dayOfTheWeekFromDate(training.startDate)}`
                               : ` to ${formatedEndDate}`}
                           </Li>
