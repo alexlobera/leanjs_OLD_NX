@@ -17,9 +17,9 @@ export const createTrainingPath = ({
   tech,
   trainingInstanceTypeName,
 }) => {
-  const i = index > 1 ? index : ''
-  const cityPath = city.toLowerCase().replace(' ', '-')
-  const cityPathI = `${cityPath}/${i}/`
+  const indexPath = index > 1 ? `${index}/` : ''
+  const cityPath = city ? `${city.toLowerCase().replace(' ', '-')}/` : ''
+  const cityPathI = `${cityPath}${indexPath}`
   if (
     trainingId === REACT_BOOTCAMP_ID &&
     trainingInstanceTypeName === FULL_TIME

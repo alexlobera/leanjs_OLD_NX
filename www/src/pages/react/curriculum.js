@@ -336,7 +336,7 @@ class ReactCurriculum extends React.Component {
                         For minimum <br />
                         work disruption
                       </TdLearningExprience>
-                      <Td>
+                      <Td verticalAlign="top">
                         <LinkButton
                           variant="secondary"
                           to="/react/training/part-time-bundle"
@@ -352,7 +352,7 @@ class ReactCurriculum extends React.Component {
                           <Li>Starting at £1630</Li>
                         </UlLearningExperience>
                       </Td>
-                      <Td>
+                      <Td verticalAlign="top">
                         <LinkButton
                           variant="secondary"
                           to="/react/training/advanced-part-time/"
@@ -367,7 +367,7 @@ class ReactCurriculum extends React.Component {
                           <Li>Starting at £1100</Li>
                         </UlLearningExperience>
                       </Td>
-                      <Td>
+                      <Td verticalAlign="top">
                         <LinkButton
                           variant="secondary"
                           to="/react/training/fundamentals-part-time/"

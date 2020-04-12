@@ -89,12 +89,15 @@ const InstancePage = ({
   const pathTraining = `${pathTech}training/`
   const pathTrainingType = `${pathTraining}${breadcrumbTrainingSlug}/`
   const pathWorkshopType = `${pathTrainingType}${breadcrumbWorkshopSlug}/`
-  const upcomingTrainings = selectUpcomingTrainings({
-    trainings,
-    trainingId,
-    city,
-    trainingInstanceTypeName,
-  })
+  const upcomingTrainings = trainingId
+    ? selectUpcomingTrainings({
+        trainings,
+        trainingId,
+        city,
+        trainingInstanceTypeName,
+        onlineOrOffline: true,
+      })
+    : null
 
   const randomPosts = getRandom(posts, 3)
 
