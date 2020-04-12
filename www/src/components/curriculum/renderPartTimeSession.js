@@ -38,7 +38,7 @@ const renderPartTimeSection = ({
       name={`session${sectionNum}`}
       trainingId={trainingId}
       trainingDateTime={
-        training && (
+        training ? (
           <React.Fragment>
             <br />
             {comps && comps.length > 1 ? (
@@ -56,6 +56,19 @@ const renderPartTimeSection = ({
               </small>
             )}
             {coachName && ` by ${coachName}`}
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <br />
+            {comps && comps.length > 1 ? (
+              <React.Fragment>
+                {' '}
+                <Tag>Full-day</Tag>
+                {` `}8-hour training
+              </React.Fragment>
+            ) : (
+              '3-hour training'
+            )}
           </React.Fragment>
         )
       }

@@ -5,7 +5,7 @@ import TargetAudienceList from 'src/components/curriculum/CurriculumReactFundame
 import {
   REACT_PART_TIME,
   REACT_BOOTCAMP,
-  REACT_FUNDAMENTALS,
+  TRAINING_TYPE_HALF_CURRICULUM,
   REACT_TRIAL_ID,
   REACT_FUNDAMENTALS_ID,
   FULL_TIME,
@@ -17,8 +17,9 @@ const Page = props => (
   <BaseTemplate
     {...props}
     trainingInstanceTypeName={FULL_TIME}
+    trainingType={TRAINING_TYPE_HALF_CURRICULUM}
     trainingId={REACT_FUNDAMENTALS_ID}
-    typeOfTraining="React fundamentals training"
+    typeOfTraining="React Fundamentals training"
     trialTrainingId={REACT_TRIAL_ID}
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
