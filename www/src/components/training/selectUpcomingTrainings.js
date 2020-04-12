@@ -7,6 +7,10 @@ export const selectNthTraining = ({
   trainingInstanceTypeName,
   nth = 1,
 }) => {
+  if (!trainings) {
+    return
+  }
+
   const filteredTrainings = trainings
     .filter(trainingByInstanceTypeName(trainingInstanceTypeName))
     .filter(filterByTrainingId(trainingId))
