@@ -62,7 +62,6 @@ const CurriculumSection = props => {
   const subsection = isTabOpen ? (
     <Box sx={{ pt: 1 }}>
       {children}
-      {/* <Feedback /> */}
       {enableToggle || showLinkToCurriculum ? (
         <Link
           className="training-curriculum-link-clicks"
@@ -76,6 +75,7 @@ const CurriculumSection = props => {
     </Box>
   ) : enableToggle || showLinkToCurriculum ? (
     <Link
+      sx={{ display: 'block', pt: subTitle ? 1 : 0 }}
       className="curriculum training-curriculum-link-clicks"
       {...toogleLinkProps}
     >
@@ -100,7 +100,7 @@ const CurriculumSection = props => {
       ) : (
         ''
       )}
-      <Box sx={{ m: 0, pb: 3, lineHeight: 2 }}>
+      <Box sx={{ m: 0, pb: 1, lineHeight: 2 }}>
         {addFullStopAtTheEnd(subTitle)} {` `}
         {subsection}
       </Box>
