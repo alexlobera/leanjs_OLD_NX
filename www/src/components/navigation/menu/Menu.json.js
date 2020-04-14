@@ -37,10 +37,10 @@ export default [
         to: '/graphql/curriculum',
         text: 'GraphQL Curriculum',
       },
-      {
-        to: '/graphql/mini-conference',
-        text: 'GraphQL MiniConf',
-      },
+      //   {
+      //     to: '/graphql/mini-conference',
+      //     text: 'GraphQL MiniConf',
+      //   },
     ],
   },
   //   {
@@ -70,6 +70,10 @@ export default [
       {
         to: '/about-us',
         text: 'The Academy',
+      },
+      {
+        to: '/reviews',
+        text: 'Reviews',
       },
       {
         to: '/partners',
