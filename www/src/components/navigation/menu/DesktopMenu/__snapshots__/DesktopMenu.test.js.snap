@@ -45,10 +45,6 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
             "text": "GraphQL Curriculum",
             "to": "/graphql/curriculum",
           },
-          Object {
-            "text": "GraphQL MiniConf",
-            "to": "/graphql/mini-conference",
-          },
         ]
       }
       text="GraphQL"
@@ -61,6 +57,10 @@ exports[`<DesktopMenu /> should render the list of menu items 1`] = `
           Object {
             "text": "The Academy",
             "to": "/about-us",
+          },
+          Object {
+            "text": "Reviews",
+            "to": "/reviews",
           },
           Object {
             "hideOnMobile": true,
