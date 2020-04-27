@@ -17,27 +17,27 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
-function getAutomaticVoucherFromData(data) {
-  let discount
-  const item =
-    data && data.trainingInstance
-      ? data.trainingInstance
-      : data && data.event
-      ? data.event
-      : null
-  if (
-    item &&
-    item.upcomingAutomaticDiscounts &&
-    item.upcomingAutomaticDiscounts.edges
-  ) {
-    const { edges } = item.upcomingAutomaticDiscounts
-    if (edges.length) {
-      discount = edges[0].node
-    }
-  }
+// function getAutomaticVoucherFromData(data) {
+//   let discount
+//   const item =
+//     data && data.trainingInstance
+//       ? data.trainingInstance
+//       : data && data.event
+//       ? data.event
+//       : null
+//   if (
+//     item &&
+//     item.upcomingAutomaticDiscounts &&
+//     item.upcomingAutomaticDiscounts.edges
+//   ) {
+//     const { edges } = item.upcomingAutomaticDiscounts
+//     if (edges.length) {
+//       discount = edges[0].node
+//     }
+//   }
 
-  return discount
-}
+//   return discount
+// }
 
 export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
@@ -192,17 +192,23 @@ class PaymentSection extends React.Component {
         parseInt(ticketsLeft) <= 0
       )
       price = item.price
+
+      const discountPriceItem =
+        data && data.trainingInstance
+          ? data.trainingInstance
+          : data && data.event
+          ? data.event
+          : {}
+
+      discountPrice = discountPriceItem.discountPrice
       currency = item.currency || 'gbp'
 
-      let discount = getAutomaticVoucherFromData(data)
+      // let discount = getAutomaticVoucherFromData(data)
 
-      if (discount) {
+      if (discountPrice) {
         title = 'Discounted Ticket'
-        const { expiresAt, discountAmount, discountPercentage } = discount
-        priceGoesUpOn = new Date(expiresAt)
-        discountPrice = discountPercentage
-          ? price - price * (discountPercentage / 100)
-          : price - discountAmount
+        // const { expiresAt, discountAmount, discountPercentage } = discount
+        // priceGoesUpOn = new Date(expiresAt)
       }
     }
 
@@ -330,38 +336,17 @@ PaymentSection.defaultProps = {
 }
 
 export const QUERY_UPCOMING_TRAINING_VOUCHERS = `
-query upcomingAutomaticDiscounts($trainingInstanceId: ID!) {
+query instanceDiscountPrice($trainingInstanceId: ID!) {
   trainingInstance(id: $trainingInstanceId) {
-    ticketsLeft
-    upcomingAutomaticDiscounts {
-      edges {
-        node {
-          code
-          id
-          discountPercentage
-          startsAt
-          expiresAt
-        }
-      }
-    }
+    discountPrice
   }
 }
 `
 
 export const QUERY_UPCOMING_EVENT_VOUCHERS = `
-query upcomingAutomaticDiscounts($eventId: ID!) {
+query eventDiscountPrice($eventId: ID!) {
   event(id: $eventId) {
-    upcomingAutomaticDiscounts {
-        edges {
-          node {
-            code
-            id
-            discountPercentage
-            startsAt
-            expiresAt
-          }
-        }
-      }
+    discountPrice
   }
 }
 `
