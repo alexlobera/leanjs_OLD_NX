@@ -204,6 +204,7 @@ export class CheckoutContainer extends React.Component {
                 email,
                 makePayment: data.makePayment,
                 itemId,
+                shoppingItemEnum,
               })
             } else {
               this.processPaymentError(error)

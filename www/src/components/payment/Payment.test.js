@@ -151,7 +151,8 @@ describe('<PaymentSection />', () => {
         expect(navigate).toHaveBeenCalledWith('/payment-confirmation', {
           email: 'test@example.com',
           makePayment: result.data.makePayment,
-          trainingInstanceId: request.variables.itemId,
+          itemId: request.variables.itemId,
+          shoppingItemEnum: request.variables.shoppingItemEnum,
         })
       })
     })
