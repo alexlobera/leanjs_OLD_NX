@@ -203,7 +203,7 @@ export class CheckoutContainer extends React.Component {
               navigate('/payment-confirmation', {
                 email,
                 makePayment: data.makePayment,
-                trainingInstanceId,
+                itemId,
               })
             } else {
               this.processPaymentError(error)
