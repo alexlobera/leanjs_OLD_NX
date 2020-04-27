@@ -178,16 +178,12 @@ class PaymentSection extends React.Component {
     } else if (new Date(item.endDate) < new Date()) {
       title = 'The event has ended'
     } else {
-      title = 'Standard priced ticket'
+      title = 'Standard price ticket'
       trainingType = item.type
       let ticketsLeft
       if (item.shoppingItemEnum === 'event') {
         eventId = item.id
         ticketsLeft = item.ticketsLeft
-      } else if (item.shoppingItemEnum === 'training') {
-        trainingInstanceId = item.id
-        ticketsLeft =
-          data && data.trainingInstance && data.trainingInstance.ticketsLeft
       }
 
       notSoldOut = !(
