@@ -52,8 +52,7 @@ export const VALIDATE_VOUCHER_QUERY = `
       quantity: $quantity
       voucherCode: $voucherCode
     ) {
-      netPrice
-      totalDiscount
+      discountPrice
     }
   }
 `
@@ -63,7 +62,7 @@ class PaymentSection extends React.Component {
     isVoucherValid: null,
     isVoucherValidationInProgress: false,
     voucher: '',
-    netPrice: null,
+    discountCodePrice: null,
     vatRate: DEFAULT_VAT_RATE,
   }
 
@@ -104,11 +103,11 @@ class PaymentSection extends React.Component {
         },
       })
       .then(({ data = {} }) => {
-        const { netPrice } = data.redeemVoucher || {}
+        const { discountPrice } = data.redeemVoucher || {}
         this.setVoucherInProgress(false)
         this.setState({
-          isVoucherValid: !!netPrice,
-          netPrice,
+          isVoucherValid: !!discountPrice,
+          discountCodePrice: discountPrice,
         })
       })
       .catch(error => {
@@ -124,7 +123,7 @@ class PaymentSection extends React.Component {
     this.setState({
       isVoucherValid: null,
       voucher,
-      netPrice: null,
+      discountCodePrice: null,
     })
   }
 
@@ -214,14 +213,14 @@ class PaymentSection extends React.Component {
     const {
       quantity,
       vatRate,
-      netPrice,
+      discountCodePrice,
       voucher,
       isVoucherValid,
       isVoucherValidationInProgress,
     } = this.state
     const priceQuantity = price * quantity
-    const currentPriceQuantity = netPrice
-      ? netPrice
+    const currentPriceQuantity = discountCodePrice
+      ? discountCodePrice
       : discountPrice
       ? discountPrice * quantity
       : priceQuantity
