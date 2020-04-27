@@ -184,6 +184,8 @@ class PaymentSection extends React.Component {
       if (item.shoppingItemEnum === 'event') {
         eventId = item.id
         ticketsLeft = item.ticketsLeft
+      } else {
+        trainingInstanceId = item.id
       }
 
       notSoldOut = !(

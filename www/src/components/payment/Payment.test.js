@@ -134,27 +134,27 @@ describe('<PaymentSection />', () => {
       })
     }
 
-    // it('should make a payment', async () => {
-    //   const navigate = jest.fn(() => {})
-    //   const { getByText, getByLabelText } = mountPaymentSection({
-    //     paymentMutation: { request, result },
-    //     navigate,
-    //   })
+    it('should make a payment', async () => {
+      const navigate = jest.fn(() => {})
+      const { getByText, getByLabelText } = mountPaymentSection({
+        paymentMutation: { request, result },
+        navigate,
+      })
 
-    //   await act(async () => {
-    //     await fillPaymentForm({ getByText, getByLabelText })
-    //   })
+      await act(async () => {
+        await fillPaymentForm({ getByText, getByLabelText })
+      })
 
-    //   fireEvent.click(getByText(/Buy now/i))
+      fireEvent.click(getByText(/Buy now/i))
 
-    //   await waitForExpect(() => {
-    //     expect(navigate).toHaveBeenCalledWith('/payment-confirmation', {
-    //       email: 'test@example.com',
-    //       makePayment: result.data.makePayment,
-    //       itemId: request.variables.itemId,
-    //     })
-    //   })
-    // })
+      await waitForExpect(() => {
+        expect(navigate).toHaveBeenCalledWith('/payment-confirmation', {
+          email: 'test@example.com',
+          makePayment: result.data.makePayment,
+          trainingInstanceId: request.variables.itemId,
+        })
+      })
+    })
 
     it('should not show the checkout if the event has endend', async () => {
       const navigate = jest.fn(() => {})
