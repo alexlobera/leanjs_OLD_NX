@@ -202,15 +202,15 @@ class PaymentSection extends React.Component {
           ? data.event
           : {}
 
-      discountPrice = discountPriceItem.discountPrice
+      const discountPriceObject = discountPriceItem.discountPrice
       currency = item.currency || 'gbp'
 
-      // let discount = getAutomaticVoucherFromData(data)
-
-      if (discountPrice) {
+      if (discountPriceObject) {
         title = 'Discounted Ticket'
-        // const { expiresAt, discountAmount, discountPercentage } = discount
-        // priceGoesUpOn = new Date(expiresAt)
+        priceGoesUpOn = discountPriceObject.endsOn
+          ? new Date(discountPriceObject.endsOn)
+          : null
+        discountPrice = discountPriceObject.discountPrice
       }
     }
 
@@ -340,7 +340,10 @@ PaymentSection.defaultProps = {
 export const QUERY_UPCOMING_TRAINING_VOUCHERS = `
 query instanceDiscountPrice($trainingInstanceId: ID!) {
   trainingInstance(id: $trainingInstanceId) {
-    discountPrice
+    discountPrice {
+        discountPrice
+        endsOn
+    }
   }
 }
 `
@@ -348,7 +351,10 @@ query instanceDiscountPrice($trainingInstanceId: ID!) {
 export const QUERY_UPCOMING_EVENT_VOUCHERS = `
 query eventDiscountPrice($eventId: ID!) {
   event(id: $eventId) {
-    discountPrice
+    discountPrice {
+        discountPrice
+        endsOn
+    }
   }
 }
 `
