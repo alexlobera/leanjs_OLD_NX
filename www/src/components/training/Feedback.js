@@ -64,6 +64,13 @@ function Feedback() {
                   />
                 </Li>
                 <Li>
+                  <CheckboxField
+                    color={WHITE}
+                    name="upToDateStructuredCurriculum"
+                    label="Structured curriculum and up-to-date program"
+                  />
+                </Li>
+                <Li>
                   <Button
                     type="submit"
                     disabled={submitting || pristine}
