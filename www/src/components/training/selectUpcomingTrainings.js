@@ -29,7 +29,7 @@ const trainingByTypename = typename => training =>
 const trainingByTrainingType = trainingType => training =>
   !trainingType || training.trainingType === trainingType
 
-const trainingByCity = ({ city, onlineOrOffline = false } = {}) => training => {
+const trainingByCity = ({ city } = {}) => training => {
   if (!city) {
     return true
   }
@@ -38,9 +38,7 @@ const trainingByCity = ({ city, onlineOrOffline = false } = {}) => training => {
   const isSameCity =
     training && training.city && training.city.toLowerCase() === cityLowerCase
 
-  return onlineOrOffline && (training.isOnline || isSameCity)
-    ? true
-    : cityLowerCase === 'remote' && training.isOnline
+  return cityLowerCase === 'remote' && training.isOnline
     ? true
     : cityLowerCase !== 'remote' && isSameCity && !training.isOnline
     ? true
@@ -87,7 +85,6 @@ export const selectUpcomingTrainings = ({
   excludeTrainingType,
   trainings = [],
   limit = 9999,
-  onlineOrOffline,
 }) => {
   if (!trainings || !Array.isArray(trainings)) {
     return []
@@ -99,7 +96,7 @@ export const selectUpcomingTrainings = ({
     .filter(trainingByInstanceTypeName(trainingInstanceTypeName))
     .filter(trainingByTech(tech))
     .filter(trainingByTypename(typename))
-    .filter(trainingByCity({ city, onlineOrOffline }))
+    .filter(trainingByCity({ city }))
     .filter(excludeByInstanceId(excludeInstanceId))
     .filter(filterByTrainingId(trainingId))
     .filter(excludeByTrainingId(excludeTrainingId))
