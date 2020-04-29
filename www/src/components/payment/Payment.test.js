@@ -414,8 +414,10 @@ describe('<PaymentSection />', () => {
       const graphqlValidVoucherResponse = {
         data: {
           redeemVoucher: {
-            netPrice: 10,
-            discountPrice: 1,
+            standardPrice: 10,
+            discountPrice: {
+              currentPrice: 1,
+            },
           },
         },
       }
