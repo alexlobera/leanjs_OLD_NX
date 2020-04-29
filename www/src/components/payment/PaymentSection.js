@@ -175,7 +175,7 @@ class PaymentSection extends React.Component {
         ticketsLeft !== null &&
         parseInt(ticketsLeft) <= 0
       )
-      price = item.price
+      price = item.standardPrice
 
       const dataItem =
         data && data.trainingInstance
