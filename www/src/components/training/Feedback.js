@@ -32,14 +32,8 @@ function Feedback() {
                 <Li>
                   <CheckboxField
                     color={WHITE}
-                    name="certification"
-                    label="To become a certified React Developer"
-                    elementOnChecked={
-                      <InputField
-                        name="certification.expand"
-                        placeholder="How would you like us to asses your skills?"
-                      />
-                    }
+                    name="discussingWithExperts"
+                    label="Discussing real-world problems with industry experts"
                   />
                 </Li>
                 <Li>
@@ -59,8 +53,14 @@ function Feedback() {
                 <Li>
                   <CheckboxField
                     color={WHITE}
-                    name="discussingWithExperts"
-                    label="Discussing real-world problems with industry experts"
+                    name="certification"
+                    label="To become a certified React Developer"
+                    elementOnChecked={
+                      <InputField
+                        name="certification.expand"
+                        placeholder="How would you like us to asses your skills?"
+                      />
+                    }
                   />
                 </Li>
                 <Li>

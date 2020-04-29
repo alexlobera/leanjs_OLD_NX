@@ -346,17 +346,17 @@ const InstancePage = ({
             />
           </Col>
           <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
-            {feedback ? (
-              <StickyBox offsetBottom={15} offsetTop={120}>
-                {feedback}
-              </StickyBox>
-            ) : (
-              //   <ContactForm
-              //     variant={training ? 'default' : 'primary'}
-              //     simplified
-              //   />
-              <Feedback />
-            )}
+            <StickyBox offsetBottom={15} offsetTop={120}>
+              {feedback ? (
+                { feedback }
+              ) : (
+                //   <ContactForm
+                //     variant={training ? 'default' : 'primary'}
+                //     simplified
+                //   />
+                <Feedback />
+              )}
+            </StickyBox>
           </Col>
           {training &&
             (financeAvailable ||
