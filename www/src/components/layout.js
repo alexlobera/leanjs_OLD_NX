@@ -65,7 +65,7 @@ const layoutQuery = graphql`
             }
             id
             title
-            price
+            standardPrice
             currency
             startDate
             utcOffset
@@ -96,7 +96,7 @@ const layoutQuery = graphql`
             address
             venueName
             mapUrl
-            price
+            standardPrice
             currency
             title
             training {
