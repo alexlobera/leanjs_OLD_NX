@@ -17,28 +17,6 @@ import trackUserBehaviour, {
 import { MEETUP } from '../../config/data'
 import Countdown from './Countdown'
 
-// function getAutomaticVoucherFromData(data) {
-//   let discount
-//   const item =
-//     data && data.trainingInstance
-//       ? data.trainingInstance
-//       : data && data.event
-//       ? data.event
-//       : null
-//   if (
-//     item &&
-//     item.upcomingAutomaticDiscounts &&
-//     item.upcomingAutomaticDiscounts.edges
-//   ) {
-//     const { edges } = item.upcomingAutomaticDiscounts
-//     if (edges.length) {
-//       discount = edges[0].node
-//     }
-//   }
-
-//   return discount
-// }
-
 export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
     $itemId: ID!
@@ -52,7 +30,10 @@ export const VALIDATE_VOUCHER_QUERY = `
       quantity: $quantity
       voucherCode: $voucherCode
     ) {
-      discountPrice
+      discountPrice {
+        endsOn
+        currentPrice
+      }
     }
   }
 `
@@ -104,10 +85,11 @@ class PaymentSection extends React.Component {
       })
       .then(({ data = {} }) => {
         const { discountPrice } = data.redeemVoucher || {}
+        const { currentPrice } = discountPrice || {}
         this.setVoucherInProgress(false)
         this.setState({
-          isVoucherValid: !!discountPrice,
-          discountCodePrice: discountPrice,
+          isVoucherValid: !!currentPrice,
+          discountCodePrice: currentPrice,
         })
       })
       .catch(error => {
@@ -165,7 +147,7 @@ class PaymentSection extends React.Component {
       currency,
       title,
       priceGoesUpOn,
-      discountPrice,
+      currentDiscountPrice,
       trainingType,
       notSoldOut = true
 
@@ -195,22 +177,22 @@ class PaymentSection extends React.Component {
       )
       price = item.price
 
-      const discountPriceItem =
+      const dataItem =
         data && data.trainingInstance
           ? data.trainingInstance
           : data && data.event
           ? data.event
           : {}
 
-      const discountPriceObject = discountPriceItem.discountPrice
+      const { discountPrice } = dataItem
       currency = item.currency || 'gbp'
 
-      if (discountPriceObject) {
-        title = 'Discounted Ticket'
-        priceGoesUpOn = discountPriceObject.endsOn
-          ? new Date(discountPriceObject.endsOn)
+      if (discountPrice) {
+        title = 'Discount Ticket'
+        priceGoesUpOn = discountPrice.endsOn
+          ? new Date(discountPrice.endsOn)
           : null
-        discountPrice = discountPriceObject.discountPrice
+        currentDiscountPrice = discountPrice.currentPrice
       }
     }
 
@@ -225,8 +207,8 @@ class PaymentSection extends React.Component {
     const priceQuantity = price * quantity
     const currentPriceQuantity = discountCodePrice
       ? discountCodePrice
-      : discountPrice
-      ? discountPrice * quantity
+      : currentDiscountPrice
+      ? currentDiscountPrice * quantity
       : priceQuantity
 
     const showSubscribeToNewsletter = trainingType === MEETUP
@@ -268,7 +250,7 @@ class PaymentSection extends React.Component {
             </H3>
             {notSoldOut && (
               <React.Fragment>
-                {discountPrice ? (
+                {currentDiscountPrice ? (
                   <Ribbon>
                     <strong>
                       SAVE{' '}
@@ -297,7 +279,7 @@ class PaymentSection extends React.Component {
                     vatRate={vatRate}
                     updateVatRate={this.updateVatRate}
                     price={price}
-                    discountPrice={discountPrice}
+                    discountPrice={currentDiscountPrice}
                     currency={currency}
                     quantity={this.state.quantity}
                     removeCourse={this.removeCourse}
@@ -339,23 +321,23 @@ PaymentSection.defaultProps = {
 
 export const QUERY_UPCOMING_TRAINING_VOUCHERS = `
 query instanceDiscountPrice($trainingInstanceId: ID!) {
-  trainingInstance(id: $trainingInstanceId) {
-    discountPrice {
-        discountPrice
-        endsOn
+    trainingInstance(id: $trainingInstanceId) {
+        discountPrice {
+            currentPrice
+            endsOn
+        }
     }
-  }
 }
 `
 
 export const QUERY_UPCOMING_EVENT_VOUCHERS = `
 query eventDiscountPrice($eventId: ID!) {
-  event(id: $eventId) {
-    discountPrice {
-        discountPrice
-        endsOn
+    event(id: $eventId) {
+        discountPrice {
+            currentPrice
+            endsOn
+        }
     }
-  }
 }
 `
 
