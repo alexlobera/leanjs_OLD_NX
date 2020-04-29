@@ -95,7 +95,6 @@ const InstancePage = ({
         trainingId,
         city,
         trainingInstanceTypeName,
-        onlineOrOffline: true,
       })
     : null
 
@@ -111,7 +110,6 @@ const InstancePage = ({
     types: crossSellTypes,
     excludeInstanceId: training && training.id,
     city,
-    onlineOrOffline: true,
   })
 
   const trialTraingInstance = getNextTrainingByTrainingId({
