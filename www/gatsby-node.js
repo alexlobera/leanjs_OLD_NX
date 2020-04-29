@@ -165,7 +165,7 @@ exports.createPages = async ({ graphql, actions }) => {
               node {
                 id
                 title
-                price
+                standardPrice
                 city
                 currency
                 description
