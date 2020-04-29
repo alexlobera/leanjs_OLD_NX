@@ -348,7 +348,7 @@ const InstancePage = ({
           <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
             <StickyBox offsetBottom={15} offsetTop={120}>
               {feedback ? (
-                { feedback }
+                feedback
               ) : (
                 //   <ContactForm
                 //     variant={training ? 'default' : 'primary'}
