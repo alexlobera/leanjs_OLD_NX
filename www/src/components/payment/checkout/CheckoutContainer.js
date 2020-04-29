@@ -198,8 +198,8 @@ export class CheckoutContainer extends React.Component {
             query: PAY_MUTATION,
             variables,
           })
-          .then(({ data, error }) => {
-            if (!error) {
+          .then(({ data, errors }) => {
+            if (!errors) {
               navigate('/payment-confirmation', {
                 email,
                 makePayment: data.makePayment,
