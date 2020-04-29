@@ -28,7 +28,7 @@ export const DeductPriceOnPurchase = ({ price, trainingInstance }) => (
 const TrialCard = ({ trainingInstance, sx = {}, ...rest }) => {
   const price = formatPrice(
     trainingInstance.currency,
-    trainingInstance.price,
+    trainingInstance.standardPrice,
     DEFAULT_VAT_RATE
   )
   return (
