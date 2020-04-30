@@ -94,13 +94,17 @@ const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
               >
                 {description || ''}
               </Markdown>
-              {/* <Hr />
-              <Link
-                to={`https://www.meetup.com/JavaScript-${city}/`}
-                className="meetup-details-clicks"
-              >
-                JavaScript {city}
-              </Link> */}
+              {!isOnline && (
+                <React.Fragment>
+                  <Hr />
+                  <Link
+                    to={`https://www.meetup.com/JavaScript-${city}/`}
+                    className="meetup-details-clicks"
+                  >
+                    JavaScript {city}
+                  </Link>
+                </React.Fragment>
+              )}
             </Col>
             <Col md={6} lg={5} lgOffset={1}>
               <PaymentSection item={meetup} />
