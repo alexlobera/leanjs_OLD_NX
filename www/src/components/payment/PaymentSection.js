@@ -160,8 +160,9 @@ class PaymentSection extends React.Component {
     } else if (new Date(item.endDate) < new Date()) {
       title = 'The event has ended'
     } else {
-      title = 'Standard price ticket'
       trainingType = item.type
+      title =
+        trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket'
       let ticketsLeft
       if (item.shoppingItemEnum === 'event') {
         eventId = item.id
@@ -212,14 +213,17 @@ class PaymentSection extends React.Component {
       : priceQuantity
 
     const showSubscribeToNewsletter = trainingType === MEETUP
+    const isNominalFee = trainingType === MEETUP
+    const isDonationTicket = trainingType === MEETUP
 
     return (
       <React.Fragment>
         <React.Fragment>
           <H2>
-            Prices <a to="#pricing" name="pricing" />
+            {isNominalFee ? 'Nominal Fee' : 'Prices'}{' '}
+            <a to="#pricing" name="pricing" />
           </H2>
-          {trainingType === MEETUP && (
+          {isNominalFee && (
             <React.Fragment>
               <P>
                 <strong>Why do we charge a nominal fee?</strong>
@@ -268,10 +272,11 @@ class PaymentSection extends React.Component {
                     <Countdown date={priceGoesUpOn} />
                   </React.Fragment>
                 ) : null}
-                {parseInt(price, 10) > 0 && (
+                {isNaN(price) === false && price > 0 && (
                   <Checkout
                     {...this.props}
                     trialTraingInstance={trialTraingInstance}
+                    isDonationTicket={isDonationTicket}
                     city={city}
                     navigate={navigate}
                     trainingInstanceId={trainingInstanceId}
@@ -333,6 +338,7 @@ query instanceDiscountPrice($trainingInstanceId: ID!) {
 export const QUERY_UPCOMING_EVENT_VOUCHERS = `
 query eventDiscountPrice($eventId: ID!) {
     event(id: $eventId) {
+        ticketsLeft
         discountPrice {
             currentPrice
             endsOn

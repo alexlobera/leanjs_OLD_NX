@@ -31,9 +31,11 @@ function getFirstPathFromSlug(slug) {
   return slugArray[1]
 }
 
-function getLocationImage(result, city) {
+function getLocationImage(result, city, isOnline) {
+  const imageName = isOnline ? 'remote' : city
+
   return result.data.locationImages.nodes.find(
-    image => image.name.toLowerCase() === city.toLowerCase()
+    image => image.name.toLowerCase() === imageName.toLowerCase()
   )
 }
 
@@ -176,6 +178,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 startDate
                 endDate
                 ticketsLeft
+                isOnline
               }
             }
           }
@@ -258,7 +261,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
       await Promise.all(
         result.data.upmentoring.events.edges.map(({ node }) => {
-          const locationImage = getLocationImage(result, node.city)
+          const locationImage = getLocationImage(
+            result,
+            node.city,
+            node.isOnline
+          )
           return createPage({
             path: `/community/meetups/${node.id}`,
             component: path.resolve(`./src/templates/meetup.js`),

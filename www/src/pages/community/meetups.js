@@ -83,6 +83,7 @@ const Meetups = ({ data, trainings }) => {
     trainings,
     typename: TYPENAME_EVENT,
   })
+
   const nextMeetup = selectNthTraining({ trainings: upcomingMeetups }) || {}
   const metaTitle = 'React GraphQL Academy community events and meetups'
   const metaDescription =

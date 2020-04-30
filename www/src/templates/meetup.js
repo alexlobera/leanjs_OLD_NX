@@ -15,7 +15,7 @@ import { MEETUP } from 'src/config/data'
 
 const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
   meetup.type = MEETUP
-  const { city, title, description } = meetup
+  const { city, title, description, isOnline } = meetup
   const excerpt =
     description &&
     description.substr(0, description.lastIndexOf(' ', 120)) + '...'
@@ -59,10 +59,12 @@ const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
           { text: 'Meetup Details', to: '#details' },
           { text: 'Buy tickets', to: '#pricing' },
         ]}
+        bgImageName={isOnline ? 'zoom-event' : undefined}
         training={meetup}
         infoBoxFluidImage={locationImage}
         showInfoBox={true}
-        type={MEETUP}
+        tech={MEETUP}
+        city={city}
         className="meetup-details-clicks"
       />
       <TopSection variant="darkMob">
@@ -92,13 +94,13 @@ const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
               >
                 {description || ''}
               </Markdown>
-              <Hr />
+              {/* <Hr />
               <Link
                 to={`https://www.meetup.com/JavaScript-${city}/`}
                 className="meetup-details-clicks"
               >
                 JavaScript {city}
-              </Link>
+              </Link> */}
             </Col>
             <Col md={6} lg={5} lgOffset={1}>
               <PaymentSection item={meetup} />

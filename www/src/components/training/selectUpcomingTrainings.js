@@ -69,10 +69,6 @@ export const filterByTrainingId = trainingId => ({ training } = {}) =>
 export const sortUpcomingTrainings = (a, b) =>
   a.startDate > b.startDate ? 1 : -1
 
-function REMOVE_EVENTS_UNTIL_COVID_IS_GONE(training) {
-  return training.__typename !== TYPENAME_EVENT
-}
-
 export const selectUpcomingTrainings = ({
   city,
   trainingInstanceTypeName,
@@ -91,7 +87,6 @@ export const selectUpcomingTrainings = ({
   }
 
   return trainings
-    .filter(REMOVE_EVENTS_UNTIL_COVID_IS_GONE)
     .filter(trainingByTrainingType(trainingType))
     .filter(trainingByInstanceTypeName(trainingInstanceTypeName))
     .filter(trainingByTech(tech))
