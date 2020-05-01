@@ -16,6 +16,7 @@ import { MEETUP } from 'src/config/data'
 import NewLayout from './meetup-layout'
 import { MEETUP_RED, GRAPHQL_PINK } from 'src/config/styles'
 import { getPostsFromNodes } from 'src/components/blog/utils'
+import { CheckoutProvider } from 'src/components/payment/checkout'
 
 const OldLayout = ({ description, isOnline, meetup, city }) => (
   <TopSection variant="darkMob">
@@ -90,7 +91,7 @@ const Meetup = ({
   })
 
   return (
-    <>
+    <CheckoutProvider>
       <Helmet
         title={title}
         meta={[
@@ -154,7 +155,7 @@ const Meetup = ({
         />
       )}
       <UpcomingTrainingSection trainings={trainings} />
-    </>
+    </CheckoutProvider>
   )
 }
 
