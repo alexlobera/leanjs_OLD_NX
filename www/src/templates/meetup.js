@@ -126,7 +126,8 @@ const Meetup = ({
       <Header
         titleLines={[title || '...loading']}
         links={[
-          { text: 'Meetup Details', to: '#details' },
+          { text: 'Speakers', to: '#speakers' },
+          { text: 'Agenda', to: '#agenda' },
           { text: 'Buy tickets', to: '#pricing' },
         ]}
         bgImageName={isOnline ? 'zoom-event' : undefined}
