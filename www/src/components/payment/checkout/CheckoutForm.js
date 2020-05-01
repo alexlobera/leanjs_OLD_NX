@@ -198,6 +198,7 @@ class CheckoutForm extends React.Component {
       paymentErrorMessage,
       showSubscribeToNewsletter,
       trialTraingInstance,
+      isDonationTicket,
     } = this.props
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state
     const discount = priceQuantity - currentPriceQuantity
@@ -218,7 +219,9 @@ class CheckoutForm extends React.Component {
         />
         <Row>
           <Col xs={6}>
-            <Span>Number of tickets:</Span>
+            <Span>
+              {isDonationTicket ? 'Increase donation' : 'Number of tickets:'}
+            </Span>
             <RowNumTickets>
               <QuantityActions>
                 <QuantityButton
@@ -236,7 +239,9 @@ class CheckoutForm extends React.Component {
             </RowNumTickets>
           </Col>
           <Col xs={6}>
-            <TotalPrice>Price</TotalPrice>
+            <TotalPrice>
+              {isDonationTicket ? 'Donation amount' : 'Price'}
+            </TotalPrice>
             <P sx={{ textAlign: 'center' }}>
               <Price sx={{ mr: 1, mt: 1 }}>
                 {formatPrice(currency, currentPriceQuantity, vatRate)}
@@ -251,6 +256,20 @@ class CheckoutForm extends React.Component {
             </P>
           </Col>
         </Row>
+        {isDonationTicket && (
+          <Row>
+            <Col sx={{ pb: 3 }}>
+              <P>
+                The ticket only grants access to one person to the event. More
+                about the donation{' '}
+                <Link to="/blog/join-our-meetups-and-support-minorities-in-tech#why_we_charge_a_nominal_fee">
+                  here
+                </Link>
+                .
+              </P>
+            </Col>
+          </Row>
+        )}
 
         {trialTraingInstance && (
           <Box mb={3}>

@@ -231,6 +231,7 @@ export class CheckoutContainer extends React.Component {
       isVoucherValidationInProgress,
       showSubscribeToNewsletter,
       trialTraingInstance,
+      isDonationTicket,
     } = this.props
     const {
       isViesValidationInProgress,
@@ -247,6 +248,7 @@ export class CheckoutContainer extends React.Component {
 
     return (
       <CheckoutForm
+        isDonationTicket={isDonationTicket}
         trialTraingInstance={trialTraingInstance}
         quantity={quantity}
         removeCourse={this.removeCourse}

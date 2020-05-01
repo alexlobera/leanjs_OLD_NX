@@ -189,7 +189,6 @@ const Layout = ({ children }) => {
   )
 
   const meetups = data.upmentoring.events.edges
-    // HEADSUP remove this when we deploy gql mini conf
     .filter(({ node: { meetup } }) => meetup && meetup.id)
     .map(formatMeetup)
   const confs = data.upmentoring.events.edges
