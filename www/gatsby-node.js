@@ -179,6 +179,29 @@ exports.createPages = async ({ graphql, actions }) => {
                 endDate
                 ticketsLeft
                 isOnline
+                overview
+                sponsors {
+                  url
+                  imageUrl
+                }
+                speakers {
+                  fullName
+                  bio
+                  profilePicUrl
+                  jobTitle
+                  companyName
+                  links {
+                    name
+                    url
+                  }
+                }
+                agenda {
+                  title
+                  sessions {
+                    title
+                    description
+                  }
+                }
               }
             }
           }

@@ -259,7 +259,14 @@ class CheckoutForm extends React.Component {
         {isDonationTicket && (
           <Row>
             <Col sx={{ pb: 3 }}>
-              <P>The ticket only grants access to one person to the event</P>
+              <P>
+                The ticket only grants access to one person to the event. More
+                about the donation{' '}
+                <Link to="/blog/join-our-meetups-and-support-minorities-in-tech#why_we_charge_a_nominal_fee">
+                  here
+                </Link>
+                .
+              </P>
             </Col>
           </Row>
         )}

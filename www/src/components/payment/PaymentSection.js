@@ -213,13 +213,17 @@ class PaymentSection extends React.Component {
       : priceQuantity
 
     const showSubscribeToNewsletter = trainingType === MEETUP
-    const isNominalFee = trainingType === MEETUP
+    // const isNominalFee = trainingType === MEETUP
     const isDonationTicket = trainingType === MEETUP
 
     return (
       <React.Fragment>
         <React.Fragment>
           <H2>
+            Prices
+            <a to="#pricing" name="pricing" />
+          </H2>
+          {/* <H2>
             {isNominalFee ? 'Nominal Fee' : 'Prices'}{' '}
             <a to="#pricing" name="pricing" />
           </H2>
@@ -246,8 +250,7 @@ class PaymentSection extends React.Component {
                 .
               </P>
               <P>The payment confirmation email is your ticket.</P>
-            </React.Fragment>
-          )}
+            </React.Fragment> */}
           <Card variant="secondary">
             <H3>
               <strong>{notSoldOut ? title : 'Sold out!'}</strong>

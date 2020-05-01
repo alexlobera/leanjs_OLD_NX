@@ -1,6 +1,7 @@
 import React from 'react'
 import Markdown from 'markdown-to-jsx'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import { TopSection } from 'src/components/layout/Section'
 import { Ul, Li } from 'src/components/layout/Ul'
@@ -12,14 +13,81 @@ import { UpcomingTrainingSection } from 'src/components/training'
 import { PaymentSection } from 'src/components/payment'
 import { Link, Breadcrumb } from 'src/components/navigation'
 import { MEETUP } from 'src/config/data'
+import NewLayout from './meetup-layout'
+import { MEETUP_RED, GRAPHQL_PINK } from 'src/config/styles'
+import { getPostsFromNodes } from 'src/components/blog/utils'
 
-const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
+const OldLayout = ({ description, isOnline, meetup, city }) => (
+  <TopSection variant="darkMob">
+    <Segment variant="primary">
+      <Row>
+        <Col md={6} lg={4} lgOffset={1}>
+          <H2Ref>
+            Meetup details
+            <Link to="#details" name="details">
+              #
+            </Link>
+          </H2Ref>
+          <Markdown
+            options={{
+              overrides: {
+                h2: H2,
+                h3: H3,
+                h4: H4,
+                h5: H5,
+                p: P,
+                a: Link,
+                ul: Ul,
+                li: Li,
+                span: Span,
+              },
+            }}
+          >
+            {description || ''}
+          </Markdown>
+          {!isOnline && (
+            <React.Fragment>
+              <Hr />
+              <Link
+                to={`https://www.meetup.com/JavaScript-${city}/`}
+                className="meetup-details-clicks"
+              >
+                JavaScript {city}
+              </Link>
+            </React.Fragment>
+          )}
+        </Col>
+        <Col md={6} lg={5} lgOffset={1}>
+          <PaymentSection item={meetup} />
+        </Col>
+      </Row>
+    </Segment>
+  </TopSection>
+)
+
+const Meetup = ({
+  trainings,
+  data,
+  pageContext: { meetup = {}, locationImage },
+}) => {
   meetup.type = MEETUP
-  const { city, title, description, isOnline } = meetup
+  const {
+    city,
+    title,
+    description,
+    isOnline,
+    speakers,
+    agenda,
+    sponsors,
+  } = meetup
   const excerpt =
     description &&
     description.substr(0, description.lastIndexOf(' ', 120)) + '...'
   const defaultMetaText = 'Meetup by React GraphQL Academy'
+  // TODO MEMOIZE getPostsFromNodes
+  const posts = getPostsFromNodes({
+    sanityNodes: (data.sanityNodes && data.sanityNodes.nodes) || [],
+  })
 
   return (
     <>
@@ -43,6 +111,7 @@ const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
         <meta name="twitter:creator" content="@reactgqlacademy" />
       </Helmet>
       <Breadcrumb
+        bgColor={MEETUP_RED}
         path={[
           { to: '/', label: 'Home' },
           { to: '/community', label: 'Community' },
@@ -61,60 +130,45 @@ const Meetup = ({ trainings, pageContext: { meetup = {}, locationImage } }) => {
         ]}
         bgImageName={isOnline ? 'zoom-event' : undefined}
         training={meetup}
+        bgColors={[MEETUP_RED, GRAPHQL_PINK]}
         infoBoxFluidImage={locationImage}
         showInfoBox={true}
         tech={MEETUP}
         city={city}
         className="meetup-details-clicks"
       />
-      <TopSection variant="darkMob">
-        <Segment variant="primary">
-          <Row>
-            <Col md={6} lg={4} lgOffset={1}>
-              <H2Ref>
-                Meetup details
-                <Link to="#details" name="details">
-                  #
-                </Link>
-              </H2Ref>
-              <Markdown
-                options={{
-                  overrides: {
-                    h2: H2,
-                    h3: H3,
-                    h4: H4,
-                    h5: H5,
-                    p: P,
-                    a: Link,
-                    ul: Ul,
-                    li: Li,
-                    span: Span,
-                  },
-                }}
-              >
-                {description || ''}
-              </Markdown>
-              {!isOnline && (
-                <React.Fragment>
-                  <Hr />
-                  <Link
-                    to={`https://www.meetup.com/JavaScript-${city}/`}
-                    className="meetup-details-clicks"
-                  >
-                    JavaScript {city}
-                  </Link>
-                </React.Fragment>
-              )}
-            </Col>
-            <Col md={6} lg={5} lgOffset={1}>
-              <PaymentSection item={meetup} />
-            </Col>
-          </Row>
-        </Segment>
-      </TopSection>
+      {speakers && speakers.length ? (
+        <NewLayout
+          posts={posts}
+          speakers={speakers}
+          agenda={agenda}
+          sponsors={sponsors}
+          event={meetup}
+        />
+      ) : (
+        <OldLayout
+          city={city}
+          meetup={meetup}
+          isOnline={isOnline}
+          description={description}
+        />
+      )}
       <UpcomingTrainingSection trainings={trainings} />
     </>
   )
 }
+
+export const query = graphql`
+  query {
+    sanityNodes: allSanityPost(
+      filter: { tags: { elemMatch: { name: { glob: "graphql" } } } }
+      limit: 3
+    ) {
+      nodes {
+        ...SanityPostItemFragment
+      }
+    }
+  }
+`
 
 export default Meetup
