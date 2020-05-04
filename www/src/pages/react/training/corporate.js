@@ -4,14 +4,12 @@ import Helmet from 'react-helmet'
 import { BLUE } from 'src/config/styles'
 import { CORP_TRAINING } from 'src/../images/imageNames'
 import TrustedBySection from 'src/components/training/TrustedBySection'
-import { LinkButton } from 'src/components/buttons'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2, P } from 'src/components/text'
+import { H2 } from 'src/components/text'
 import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
 import TrustedByLogoList2 from 'src/components/training/TrustedByLogoList2'
 import Header from 'src/components/layout/Header'
-import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Segment } from 'src/components/elements'
 import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
 import { createMetas } from 'src/components/utils'
@@ -23,7 +21,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 const metas = {
   title: 'React Corporte Training | React GraphQL Academy',
   description:
-    'Interested in React corporate training? We offer corporate React team training, located in your offices anywhere in the world. Contact us now!',
+    'Interested in React corporate training? We offer corporate private React team training, located in your offices anywhere in the world, or remotely. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
