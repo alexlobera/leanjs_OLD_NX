@@ -1,16 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { BLUE } from 'src/config/styles'
 import { CORP_TRAINING } from 'src/../images/imageNames'
 import TrustedBySection from 'src/components/training/TrustedBySection'
-import { LinkButton } from 'src/components/buttons'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2 } from 'src/components/text'
 import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
 import TrustedByLogoList2 from 'src/components/training/TrustedByLogoList2'
 import Header from 'src/components/layout/Header'
-import { CallToActionRow } from 'src/components/layout/CallToActionRow'
 import { Segment } from 'src/components/elements'
 import CurriculumCorporateReact from 'src/components/curriculum/CurriculumCorporateReact'
 import { createMetas } from 'src/components/utils'
@@ -22,7 +21,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 const metas = {
   title: 'React Corporte Training | React GraphQL Academy',
   description:
-    'Interested in React corporate training? We offer corporate React team training, located in your offices anywhere in the world. Contact us now!',
+    'Interested in React corporate training? We offer corporate private React team training, located in your offices anywhere in the world, or remotely. Contact us now!',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
@@ -62,28 +61,19 @@ const CorporateReactTraining = ({ path, trainings, data }) => {
           },
         ]}
         tech={TECH_REACT}
+        bgColor={BLUE}
         titleLines={['Corporate React team training']}
-        subtitle="Private team training, located in your offices anywhere in the world, based on our proven React curriculum."
+        subtitle="Private team training, located in your offices anywhere in the world or remotely, based on our proven React curriculum."
         links={[
-          { text: 'Training schedule', to: '#schedule' },
+          { text: 'Training curriculum', to: '#curriculum' },
           { text: 'How tailored', to: '#how-tailored' },
+          { text: 'Locations', to: '#location' },
           { text: 'Pricing', to: '#pricing' },
           { text: 'Previous clients', to: '#previous-clients' },
-          { text: 'Custom training', to: '#custom-training' },
         ]}
         bgImageName={CORP_TRAINING}
       />
       <TopSection>
-        <CallToActionRow>
-          <Col mdOffset={1} md={4}>
-            <LinkButton
-              variant="primary"
-              to="https://firebasestorage.googleapis.com/v0/b/reactgraphqlacademy.appspot.com/o/pdfs%2FCorporate%20Team%20Training%20with%20React%20GraphQL%20Academy.pdf?alt=media&"
-              children="Team Training - Key Facts (PDF)"
-            />
-          </Col>
-          <Col mdOffset={1} md={6} />
-        </CallToActionRow>
         <a name="schedule" />
         <Segment>
           <CurriculumCorporateReact />
