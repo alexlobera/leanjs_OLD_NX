@@ -2,6 +2,9 @@ const fetch = require("node-fetch");
 const express = require("express");
 const { WebClient } = require("@slack/web-api");
 
+const slackBotIconUrl =
+  "https://avatars.slack-edge.com/2017-05-14/183274846643_04a16c14f97d4f0554a6_44.png";
+
 const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
   const api = express();
   const RESOURCES_SINGED_UP = "boolean--Resources-SingedUp";
@@ -9,27 +12,56 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
 
   api.use(setOptions);
   api.post("/sendFeedback", sendFeedback);
+  api.post("/requestQuote", requestQuote);
   api.post("/unsubscribe", requireBodyEmail, unsubscribe);
   api.post("/sessionSubscribe", requireBodyEmail, sessionSubscribe);
   api.post("/subscribe", requireBodyEmail, subscribe);
+  api.get("/status", status);
 
   async function sendFeedback(request, response, next) {
     const feedback = request && request.body;
+    //eg. mention user by id <@U5E4C0UAJ>
+    const mention = feedback.mention;
+    delete feedback.mention;
+
     if (!feedback) {
       response.status(401).send("no feedback");
     }
-    console.log("Feedback", feedback);
 
     const web = new WebClient(slackToken);
-    const feedbackWebChannelId = "CTX1B2UJC";
-
     // See: https://api.slack.com/methods/chat.postMessage
     const res = await web.chat.postMessage({
-      channel: feedbackWebChannelId,
-      text: JSON.stringify(feedback)
+      channel: "CTX1B2UJC",
+      icon_url: slackBotIconUrl,
+      text: `${mention ? mention : ""} \`\`\`
+          ${JSON.stringify(feedback, null, " ")}
+          \`\`\`
+          `
     });
 
     response.status(200).send("feedback submited");
+  }
+
+  async function requestQuote(request, response) {
+    const fields = request && request.body;
+    if (!fields) {
+      response.status(401).send("no message");
+    }
+
+    const web = new WebClient(slackToken);
+
+    // See: https://api.slack.com/methods/chat.postMessage
+    const res = await web.chat.postMessage({
+      channel: "C8MTKU3NC",
+      icon_url: slackBotIconUrl,
+      text: `:fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire:
+NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
+        key => `\n\n*${key}*: ${fields[key]}`
+      )}
+            `
+    });
+
+    response.status(200).send("request submited");
   }
 
   function requireBodyEmail(request, response, next) {
@@ -112,6 +144,10 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
       }
     });
     response.status(200).send("it worked");
+  }
+
+  async function status(request, response) {
+    response.status(200).send("it works");
   }
 
   return api;
