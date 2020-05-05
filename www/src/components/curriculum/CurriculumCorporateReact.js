@@ -181,7 +181,13 @@ const CurriculumCorporateReact = () => {
           <Section
             {...commonProps}
             title="Day 4"
-            name="day4"
+            name="day 4"
+            subTitle="Advanced React patterns and performance"
+          />
+          <Section
+            {...commonProps}
+            title="Day 5"
+            name="day5"
             subTitle="Real-world testing in React"
           />
 
@@ -192,9 +198,11 @@ const CurriculumCorporateReact = () => {
             Yes, you can. That being said, our proven{' '}
             <Link to="/react/curriculum/">React curriculum</Link> builds up
             progressively, and every piece of it has been carefully placed and
-            tested in the right order. If you have a particular interest, we can
-            adjust our curriculum to your specific needs and advise you of any
-            potential downside in the learning outcome of your team.
+            tested in the right order. You can extend the Curriculum with extra
+            days. If you have a particular interest, we can also adjust our
+            curriculum to your specific needs to some extent.{' '}
+            <Link to="#contact-us">Contact us</Link> to request a Proposal for
+            details.
           </Card>
           <LinkButton variant="primary" sx={{ mt: 6 }} to="#free-trial">
             Request free trial

@@ -14,8 +14,13 @@ export default {
     },
     {
       name: "answer",
-      type: "richNoBulletPoints",
-      title: "Answer"
+      title: "Answer",
+      type: "richNoBulletPoints"
+    },
+    {
+      name: "featured",
+      title: "Featured",
+      type: "boolean"
     }
   ],
   preview: {
