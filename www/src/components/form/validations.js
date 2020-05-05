@@ -45,3 +45,13 @@ export const mustBeEuVat = (vatNumber = '') => {
     ? undefined
     : 'EU VAT number is not correct'
 }
+
+export const onlyPositiveNumbers = value => {
+  const numbers = /^[0-9]+$/
+  return !value || (numbers.test(value) && parseInt(value, 10) > 0)
+    ? undefined
+    : 'Please use positive numbers only'
+}
+
+export const parseToInt = value =>
+  isNaN(parseInt(value, 10)) ? '' : parseInt(value, 10)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 
 import { BLUE } from 'src/config/styles'
@@ -6,7 +6,7 @@ import { CORP_TRAINING } from 'src/../images/imageNames'
 import TrustedBySection from 'src/components/training/TrustedBySection'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import { H2 } from 'src/components/text'
+import { H2, P } from 'src/components/text'
 import { UpcomingTrainingSection, AttendeeQuote } from 'src/components/training'
 import TrustedByLogoList2 from 'src/components/training/TrustedByLogoList2'
 import Header from 'src/components/layout/Header'
@@ -17,6 +17,18 @@ import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { TECH_REACT } from 'src/config/data'
 import { getPostsFromNodes } from 'src/components/blog/utils'
 import BlogSection from 'src/components/blog/BlogSection'
+import Image from 'src/components/elements/Image'
+import Button from 'src/components/buttons/Button'
+import { InputField, Form } from 'src/components/form'
+import {
+  composeValidators,
+  required,
+  mustBeEmail,
+  onlyPositiveNumbers,
+  parseToInt,
+} from 'src/components/form/validations'
+import Spinner from 'src/components/form/Spinner'
+import { requestQuote } from 'src/api/rest'
 
 const metas = {
   title: 'React Corporte Training | React GraphQL Academy',
@@ -26,10 +38,74 @@ const metas = {
   type: 'website',
 }
 
+const RequestTrialForm = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false)
+  const handleFormSubmit = async data => {
+    await requestQuote(data)
+
+    setFormSubmitted(true)
+  }
+
+  return (
+    <React.Fragment>
+      <Form
+        onSubmit={handleFormSubmit}
+        render={({ handleSubmit, valid, formSubmitted, submitting }) => {
+          return (
+            <form
+              onSubmit={handleSubmit}
+              style={formSubmitted ? { display: 'none' } : {}}
+            >
+              <InputField
+                validate={composeValidators(mustBeEmail, required)}
+                label="Your email address"
+                name="email"
+                placeholder="eg. steve@jobs.com"
+              />
+              <InputField
+                validate={composeValidators(onlyPositiveNumbers, required)}
+                label="How many developers you'd like to train?"
+                name="participants"
+                placeholder="eg. 8"
+                parse={parseToInt}
+              />
+              <InputField
+                validate={required}
+                label="Location/ timezone"
+                name="location"
+                placeholder="eg. London"
+              />
+              <P>
+                <Button
+                  sx={{ mt: 3 }}
+                  variant={'primary'}
+                  type="submit"
+                  disabled={!valid}
+                  className="newsletter-submit-button"
+                >
+                  {submitting ? <Spinner /> : 'Submit request'}
+                </Button>{' '}
+              </P>
+            </form>
+          )
+        }}
+      />
+
+      {formSubmitted && 'Thanks for submitting your request'}
+      <P>
+        Our sales team will contact you as soon as possible to discuss further
+        details.
+      </P>
+    </React.Fragment>
+  )
+}
+
 const CorporateReactTraining = ({ path, trainings, data }) => {
   const posts = getPostsFromNodes({
     sanityNodes: data.allSanityPost.nodes,
   }).slice(0, 3)
+
+  const remoteTrainingImageFluid = data.file.childImageSharp.fluid
 
   return (
     <React.Fragment>
@@ -100,11 +176,33 @@ const CorporateReactTraining = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
+
+      <Section>
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <H2>
+              <a name="free-trial" />
+              Request a free trial
+            </H2>
+            <P>
+              Level expertise across your team/s and stay competitive without
+              taking risks. Request now a free 3-hour remote private React
+              training for your team.
+            </P>
+            <RequestTrialForm />
+          </Col>
+          <Col mdOffset={1} md={5}>
+            <Image
+              fluid={remoteTrainingImageFluid}
+              sx={{
+                mt: [3, 0],
+              }}
+              alt="React GraphQL Academy remote training"
+            />
+          </Col>
+        </Row>
+      </Section>
       <TrustedBySection type="contact" showContent />
-      {/* <Section>
-        <a name="custom-training" />
-        <LeanJSsprints />
-      </Section> */}
       <BlogSection title="From our blog" posts={posts} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
@@ -113,6 +211,14 @@ const CorporateReactTraining = ({ path, trainings, data }) => {
 
 export const query = graphql`
   query {
+    file(absolutePath: { regex: "/react-remote-training/" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
     allSanityPost(
       limit: 3
       filter: {

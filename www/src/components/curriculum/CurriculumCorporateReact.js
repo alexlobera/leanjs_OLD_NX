@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Section from './CurriculumSection'
 import { H3, H2, P } from '../text'
 
+import LinkButton from '../buttons/LinkButton'
 import Card from '../elements/Card'
 import Ul, { Li } from '../layout/Ul'
 import Link from '../navigation/Link'
@@ -21,6 +22,9 @@ const validateContactMe = composeValidators(mustBeEmail, required)
 function Feedback() {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const handleFormSubmit = async feedback => {
+    if (feedback['contact-me']) {
+      feedback.mention = '<@U9S7MA8KV>'
+    }
     await sendFeedback({
       'feedback from': 'React Corporate Training',
       ...feedback,
@@ -142,9 +146,10 @@ const CurriculumCorporateReact = () => {
             <P>
               We provide private React training for your team,{' '}
               <strong>in-person or remotely</strong>, anywhere in the world.
-              Your employees can now try the training live remotely, and test if
-              it could be a good fit for them before you purchase the full
-              in-person or remote package.
+              Your employees can now{' '}
+              <Link to="#free-trial">try the training</Link> live remotely, and
+              test if it could be a good fit for them before you purchase the
+              full in-person or remote package.
             </P>
           </Box>
         </Col>
@@ -179,8 +184,9 @@ const CurriculumCorporateReact = () => {
             name="day4"
             subTitle="Real-world testing in React"
           />
+
           <H3 sx={{ pt: 5 }}>
-            Can I customize the schedule? <a name="how-tailored" />
+            Can I customize the curriculum? <a name="how-tailored" />
           </H3>
           <Card>
             Yes, you can. That being said, our proven{' '}
@@ -190,6 +196,9 @@ const CurriculumCorporateReact = () => {
             adjust our curriculum to your specific needs and advise you of any
             potential downside in the learning outcome of your team.
           </Card>
+          <LinkButton variant="primary" sx={{ mt: 6 }} to="#free-trial">
+            Request free trial
+          </LinkButton>
         </Col>
         <Col md={5} lg={5} mdOffset={1}>
           <H3 sx={{ pt: [6, 0] }}>

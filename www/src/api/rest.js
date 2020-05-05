@@ -3,6 +3,13 @@ import trackUserBehaviour from '../components/utils/trackUserBehaviour'
 const apiBaseUrl =
   'https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/'
 
+const defaultOptions = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+}
+
 export const triggerSessionSubscribe = ({
   name,
   email,
@@ -11,10 +18,7 @@ export const triggerSessionSubscribe = ({
   pathname = '1-day workshops form',
 }) =>
   fetch(`${apiBaseUrl}sessionSubscribe`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    ...defaultOptions,
     body: JSON.stringify({
       name,
       email,
@@ -30,10 +34,7 @@ export const triggerSessionSubscribe = ({
 
 export const triggerUnsubscribe = ({ email }) =>
   fetch(`${apiBaseUrl}unsubscribe`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    ...defaultOptions,
     body: JSON.stringify({
       email,
     }),
@@ -58,10 +59,7 @@ export const triggerSubscribe = ({
     path,
   }
   return fetch(`${apiBaseUrl}subscribe`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    ...defaultOptions,
     body: JSON.stringify(payload),
   }).then(() => {
     trackUserBehaviour({
@@ -73,9 +71,12 @@ export const triggerSubscribe = ({
 
 export const sendFeedback = feedback =>
   fetch(`${apiBaseUrl}sendFeedback`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    ...defaultOptions,
     body: JSON.stringify(feedback),
+  })
+
+export const requestQuote = message =>
+  fetch(`${apiBaseUrl}requestQuote`, {
+    ...defaultOptions,
+    body: JSON.stringify(message),
   })
