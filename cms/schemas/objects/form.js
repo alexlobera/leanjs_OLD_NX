@@ -19,8 +19,5 @@ export default {
     select: {
       title: "title"
     }
-    // component: ({ value: { videoId, startSecond } }) => (
-    //     <Video time={startSecond} youtubeId={videoId} />
-    //   )
   }
 };

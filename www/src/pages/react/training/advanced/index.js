@@ -50,6 +50,7 @@ const AdvancedTraining = ({ path, trainings }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingAdvancedTrainings,
   })
+
   return (
     <React.Fragment>
       <Helmet
