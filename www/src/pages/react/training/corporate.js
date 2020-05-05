@@ -72,7 +72,7 @@ const RequestTrialForm = () => {
                 />
                 <InputField
                   validate={composeValidators(onlyPositiveNumbers, required)}
-                  label="How many developers you'd like to train?"
+                  label="how many developers would you like to train?"
                   name="participants"
                   placeholder="eg. 8"
                   parse={parseToInt}
