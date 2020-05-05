@@ -53,7 +53,7 @@ const RequestTrialForm = () => {
       ) : (
         <Form
           onSubmit={handleFormSubmit}
-          render={({ handleSubmit, valid, formSubmitted, submitting }) => {
+          render={({ handleSubmit, formSubmitted, submitting }) => {
             return (
               <form
                 onSubmit={handleSubmit}
