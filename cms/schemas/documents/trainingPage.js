@@ -39,5 +39,10 @@ export default {
       type: "array",
       of: [{ type: "faqPage" }]
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "path"
+    }
+  }
 };
