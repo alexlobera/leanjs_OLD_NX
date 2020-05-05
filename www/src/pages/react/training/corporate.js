@@ -88,7 +88,6 @@ const RequestTrialForm = () => {
                     sx={{ mt: 3 }}
                     variant={'primary'}
                     type="submit"
-                    disabled={!valid}
                     className="newsletter-submit-button"
                   >
                     {submitting ? <Spinner /> : 'Submit request'}
