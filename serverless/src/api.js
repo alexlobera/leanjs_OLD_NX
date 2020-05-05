@@ -54,7 +54,7 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
     const res = await web.chat.postMessage({
       channel: "C8MTKU3NC",
       icon_url: slackBotIconUrl,
-      text: `:fire: New private training trial request :fire:
+      text: `:fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire:\n\n NEW PRIVATE TRAINING TRIAL REQUEST :tada:
       ${Object.keys(fields).map(key => `\n\n*${key}*: ${fields[key]}`)}
             `
     });

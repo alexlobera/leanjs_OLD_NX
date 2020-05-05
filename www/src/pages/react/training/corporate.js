@@ -48,50 +48,57 @@ const RequestTrialForm = () => {
 
   return (
     <React.Fragment>
-      <Form
-        onSubmit={handleFormSubmit}
-        render={({ handleSubmit, valid, formSubmitted, submitting }) => {
-          return (
-            <form
-              onSubmit={handleSubmit}
-              style={formSubmitted ? { display: 'none' } : {}}
-            >
-              <InputField
-                validate={composeValidators(mustBeEmail, required)}
-                label="Your email address"
-                name="email"
-                placeholder="eg. steve@jobs.com"
-              />
-              <InputField
-                validate={composeValidators(onlyPositiveNumbers, required)}
-                label="How many developers you'd like to train?"
-                name="participants"
-                placeholder="eg. 8"
-                parse={parseToInt}
-              />
-              <InputField
-                validate={required}
-                label="Location/ timezone"
-                name="location"
-                placeholder="eg. London"
-              />
-              <P>
-                <Button
-                  sx={{ mt: 3 }}
-                  variant={'primary'}
-                  type="submit"
-                  disabled={!valid}
-                  className="newsletter-submit-button"
-                >
-                  {submitting ? <Spinner /> : 'Submit request'}
-                </Button>{' '}
-              </P>
-            </form>
-          )
-        }}
-      />
-
-      {formSubmitted && 'Thanks for submitting your request'}
+      {formSubmitted ? (
+        <strong>Thanks for submitting your request</strong>
+      ) : (
+        <Form
+          onSubmit={handleFormSubmit}
+          render={({ handleSubmit, valid, formSubmitted, submitting }) => {
+            return (
+              <form
+                onSubmit={handleSubmit}
+                style={formSubmitted ? { display: 'none' } : {}}
+              >
+                <P>
+                  Level expertise across your team/s and stay competitive
+                  without taking risks. Request now a free 3-hour remote private
+                  React training for your team.
+                </P>
+                <InputField
+                  validate={composeValidators(mustBeEmail, required)}
+                  label="Your email address"
+                  name="email"
+                  placeholder="eg. steve@jobs.com"
+                />
+                <InputField
+                  validate={composeValidators(onlyPositiveNumbers, required)}
+                  label="How many developers you'd like to train?"
+                  name="participants"
+                  placeholder="eg. 8"
+                  parse={parseToInt}
+                />
+                <InputField
+                  validate={required}
+                  label="Location/ timezone"
+                  name="location"
+                  placeholder="eg. London"
+                />
+                <P>
+                  <Button
+                    sx={{ mt: 3 }}
+                    variant={'primary'}
+                    type="submit"
+                    disabled={!valid}
+                    className="newsletter-submit-button"
+                  >
+                    {submitting ? <Spinner /> : 'Submit request'}
+                  </Button>{' '}
+                </P>
+              </form>
+            )
+          }}
+        />
+      )}
       <P>
         Our sales team will contact you as soon as possible to discuss further
         details.
@@ -184,11 +191,6 @@ const CorporateReactTraining = ({ path, trainings, data }) => {
               <a name="free-trial" />
               Request a free trial
             </H2>
-            <P>
-              Level expertise across your team/s and stay competitive without
-              taking risks. Request now a free 3-hour remote private React
-              training for your team.
-            </P>
             <RequestTrialForm />
           </Col>
           <Col mdOffset={1} md={5}>
