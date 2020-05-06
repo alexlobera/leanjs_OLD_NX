@@ -89,11 +89,14 @@ export const FAQSection = ({ pageData }) => {
               faq._rawAnswer.length &&
               faq._rawAnswer[faq._rawAnswer.length - 1].children
             ) {
-              faq._rawAnswer[faq._rawAnswer.length - 1].children.push({
-                _key: Math.random(),
-                _type: 'span',
-                text: extendAnswer,
-              })
+              faq._rawAnswer[faq._rawAnswer.length - 1].children = [
+                ...faq._rawAnswer[faq._rawAnswer.length - 1].children,
+                {
+                  _key: Math.random(),
+                  _type: 'span',
+                  text: extendAnswer,
+                },
+              ]
             }
 
             return <Answer faq={faq} />

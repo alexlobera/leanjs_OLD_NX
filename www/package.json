@@ -116,7 +116,7 @@
     "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.4",
     "gatsby-source-sanity": "^5.0.2",
-    "gatsby-source-sanity-transform-images": "^0.0.4",
+    "gatsby-source-sanity-transform-images": "^0.0.7",
     "gatsby-transform-portable-text": "^0.0.2",
     "gatsby-transformer-sharp": "^2.3.0",
     "husky": "^1.0.0-rc.13",
