@@ -13,14 +13,21 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: "answer",
-      title: "Answer",
-      type: "richNoBulletPoints"
-    },
-    {
       name: "featured",
       title: "Featured",
       type: "boolean"
+    },
+    {
+      name: "extendAnswer",
+      title: "Extend answer",
+      type: "text",
+      validation: Rule => {
+        return Rule.custom((value, context) =>
+          context.parent && context.parent.featured === true && !value
+            ? "Extended text is required if the question is featured"
+            : true
+        );
+      }
     }
   ],
   preview: {

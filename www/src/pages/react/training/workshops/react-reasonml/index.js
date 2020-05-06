@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -38,7 +39,7 @@ import { crossSellTypes } from 'src/templates/instance/1-day-react-reasonml'
 
 const trainingId = REACT_WORKSHOP_REACT_REASON_ID
 
-const ReactReasonLanding = ({ path, trainings }) => {
+const ReactReasonLanding = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
@@ -90,6 +91,7 @@ const ReactReasonLanding = ({ path, trainings }) => {
             section={{ isOpen: true }}
             trainings={trainings}
             trainingId={trainingId}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -130,5 +132,13 @@ const ReactReasonLanding = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactReasonWorkshop($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default ReactReasonLanding

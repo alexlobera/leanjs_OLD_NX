@@ -1,6 +1,8 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -43,7 +45,7 @@ const trainingType = TRAINING_TYPE_FULL_CURRICULUM
 const trainingInstanceTypeName = FULL_TIME
 const trainingId = REACT_BOOTCAMP_ID
 
-const Bootcamps = ({ path, trainings }) => {
+const Bootcamps = ({ path, trainings, data }) => {
   const upcomingBootCampTrainings = selectUpcomingTrainings({
     trainingId,
     trainingInstanceTypeName,
@@ -85,7 +87,10 @@ const Bootcamps = ({ path, trainings }) => {
       />
       <TopSection>
         <Segment>
-          <CurriculumReactBootcamp trainings={upcomingBootCampTrainings} />
+          <CurriculumReactBootcamp
+            trainings={upcomingBootCampTrainings}
+            pageData={data.sanityTrainingPage}
+          />
         </Segment>
       </TopSection>
       <Section>
@@ -138,6 +143,13 @@ const Bootcamps = ({ path, trainings }) => {
       </Section>
       <Section>
         <Row>
+          <Col md={10} mdOffset={1}>
+            <FAQ faqs={data.faqs} />
+          </Col>
+        </Row>
+      </Section>
+      <Section>
+        <Row>
           <Col lg={10} lgOffset={1}>
             <AlternativeBootcampTrainings trainings={trainings} />
           </Col>
@@ -149,5 +161,13 @@ const Bootcamps = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactBootcamp($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default Bootcamps

@@ -327,10 +327,7 @@ const PrivacyPolicy = ({ data, trainings }) => {
 
 export const query = graphql`
   query {
-    allSanityPost(
-      limit: 10
-      sort: { fields: [order, publishedAt], order: [ASC, DESC] }
-    ) {
+    allSanityPost(limit: 10, sort: { fields: [publishedAt], order: [DESC] }) {
       nodes {
         ...SanityPostItemFragment
       }

@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -32,7 +33,7 @@ const metas = {
   type: 'website',
 }
 
-const Page = ({ path, trainings }) => {
+const Page = ({ path, trainings, data }) => {
   const upcomingTrials = selectUpcomingTrainings({
     trainingId,
     trainings,
@@ -82,6 +83,7 @@ const Page = ({ path, trainings }) => {
             enableToggle
             section={{ isOpen: true }}
             learningObjectives={LearningObjectives}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -120,5 +122,13 @@ const Page = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactTrial($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default Page

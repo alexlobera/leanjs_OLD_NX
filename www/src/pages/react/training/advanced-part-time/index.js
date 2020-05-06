@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -41,7 +42,7 @@ const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingInstanceTypeName = PART_TIME
 const trainingId = ADVANCED_REACT_ID
 
-const AdvancedTraining = ({ path, trainings }) => {
+const AdvancedTraining = ({ path, trainings, data }) => {
   const upcomingAdvancedTrainings = selectUpcomingTrainings({
     trainingInstanceTypeName,
     trainingId,
@@ -84,6 +85,7 @@ const AdvancedTraining = ({ path, trainings }) => {
         <Segment>
           <CurriculumAdvancedReactPartTime
             trainings={upcomingAdvancedTrainings}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -127,5 +129,13 @@ const AdvancedTraining = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query advancedReactPartTime($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default AdvancedTraining

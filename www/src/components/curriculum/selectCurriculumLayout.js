@@ -9,6 +9,7 @@ import { Col, Row } from '../layout/Grid'
 import UpcomingTrainingCurriculum from '../training/UpcomingTrainingCurriculum'
 import Flex from '../layout/Flex'
 import Box from '../layout/Box'
+import { Overview } from 'src/components/training/PageContent'
 
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
@@ -33,6 +34,7 @@ const selectCurriculumLayout = ({
   curriculumTitle = 'Curriculum',
   learningObjectives: LearningObjectives,
   defaultLearningObjectivesIsOpen = false,
+  pageData,
 }) => {
   const curriculumButtonSection = (
     <SectionCTA>
@@ -67,10 +69,18 @@ const selectCurriculumLayout = ({
       })
     : null
 
+  const heading = (
+    <React.Fragment>
+      {title}
+      {pageData && pageData._rawOverview && (
+        <Overview _rawOverview={pageData._rawOverview} />
+      )}
+    </React.Fragment>
+  )
   if (layout === LIST_LAYOUT) {
     return (
       <React.Fragment>
-        {title}
+        {heading}
         <Flex sx={{ flexDirection: 'column' }}>
           {firstHalf}
           {firstHalf.length > 2 && typedMarketingCard}
@@ -84,7 +94,7 @@ const selectCurriculumLayout = ({
   } else if (layout === LIST_TWO_COL) {
     return (
       <React.Fragment>
-        {title}
+        {heading}
         <Flex sx={{ flexDirection: 'column' }}>
           <Row>
             <Col md={6} lg={5}>
@@ -106,7 +116,7 @@ const selectCurriculumLayout = ({
         {title && (
           <Row>
             <Col lg={10} lgOffset={1}>
-              {title}
+              {heading}
             </Col>
           </Row>
         )}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -27,7 +28,7 @@ import { title, breadcrumbWorkshopName } from './config.json'
 
 const trainingId = REACT_WORKSHOP_TESTING_ID
 
-const AdvancedReactWorkshop = ({ path, trainings }) => {
+const AdvancedReactWorkshop = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
@@ -74,6 +75,7 @@ const AdvancedReactWorkshop = ({ path, trainings }) => {
             trainings={trainings}
             trainingId={trainingId}
             learningObjectives={LearningObjectives}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -110,5 +112,13 @@ const AdvancedReactWorkshop = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query testingInReactWorkshop($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default AdvancedReactWorkshop

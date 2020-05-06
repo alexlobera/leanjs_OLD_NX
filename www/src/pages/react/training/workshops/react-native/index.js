@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -29,11 +30,12 @@ import { title, breadcrumbWorkshopName } from './config.json'
 
 const trainingId = REACT_WORKSHOP_REACT_NATIVE_ID
 
-const ReactNativeBoocamp = ({ path, trainings }) => {
+const ReactNativeBoocamp = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
   })
+
   return (
     <React.Fragment>
       <Helmet
@@ -62,6 +64,7 @@ const ReactNativeBoocamp = ({ path, trainings }) => {
         bgImageName={BOOTCAMP}
         trainingType={TRAINING_TYPE_WORKSHOP}
         links={header.landingPageLinks.links}
+        pageData={data.sanityTrainingPage}
       />
       <TopSection>
         <Segment>
@@ -96,5 +99,13 @@ const ReactNativeBoocamp = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactNativeWorkshop($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default ReactNativeBoocamp

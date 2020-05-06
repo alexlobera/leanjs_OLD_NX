@@ -226,7 +226,7 @@ export const query = graphql`
         category: { in: ["react", "blog"] }
         tags: { elemMatch: { name: { in: ["business"] } } }
       }
-      sort: { fields: [order, publishedAt], order: [ASC, DESC] }
+      sort: { fields: [publishedAt], order: [DESC] }
     ) {
       nodes {
         ...SanityPostItemFragment

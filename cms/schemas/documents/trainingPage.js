@@ -8,7 +8,14 @@ export default {
       title: "Path",
       type: "string",
       placeholder: "eg. /react/training/bootcamp/",
-      validation: Rule => Rule.required()
+      validation: Rule =>
+        Rule.custom(value =>
+          !value
+            ? "Path is required"
+            : value.endsWith("/")
+            ? true
+            : "The path must end with /"
+        )
     },
     {
       name: "metaTitle",
@@ -23,18 +30,13 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: "metaImage",
-      title: "Meta image",
-      type: "image"
-    },
-    {
       name: "overview",
       title: "Overview",
       type: "richNoBulletPoints",
       validation: Rule => Rule.required()
     },
     {
-      name: "faq",
+      name: "faqs",
       title: "FAQs",
       type: "array",
       of: [{ type: "faqPage" }]

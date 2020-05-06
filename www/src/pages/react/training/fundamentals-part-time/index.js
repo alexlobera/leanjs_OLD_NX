@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import { Link } from 'src/components/navigation'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -35,7 +36,7 @@ const metas = {
   type: 'website',
 }
 
-const PartTime = ({ trainings, path }) => {
+const PartTime = ({ trainings, path, data }) => {
   const upcomingPartTimeTrainings = selectUpcomingTrainings({
     trainingId: REACT_FUNDAMENTALS_ID,
     trainingInstanceTypeName: PART_TIME,
@@ -45,6 +46,7 @@ const PartTime = ({ trainings, path }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingPartTimeTrainings,
   })
+
   return (
     <React.Fragment>
       <Helmet
@@ -78,6 +80,7 @@ const PartTime = ({ trainings, path }) => {
         <Segment>
           <CurriculumReactFundamentalsPartTime
             trainings={upcomingPartTimeTrainings}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -119,5 +122,13 @@ const PartTime = ({ trainings, path }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactFundamentalsPartTime($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default PartTime

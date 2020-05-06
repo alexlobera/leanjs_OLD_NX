@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { FAQ } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -26,7 +27,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 
 const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 
-const ReactFundamentals = ({ path, trainings }) => {
+const ReactFundamentals = ({ path, trainings, data }) => {
   const upcomingFundamentalsTrainings = selectUpcomingTrainings({
     trainingId: REACT_FUNDAMENTALS_ID,
     trainingType,
@@ -68,6 +69,7 @@ const ReactFundamentals = ({ path, trainings }) => {
         <Segment>
           <CurriculumReactFundamentals
             trainings={upcomingFundamentalsTrainings}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -123,5 +125,13 @@ const ReactFundamentals = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactFundamentals($path: String) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default ReactFundamentals
