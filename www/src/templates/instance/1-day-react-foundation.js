@@ -26,4 +26,12 @@ const Page = props => (
   />
 )
 
+export const query = graphql`
+  query($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
+
 export default Page

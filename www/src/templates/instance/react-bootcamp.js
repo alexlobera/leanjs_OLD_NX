@@ -38,12 +38,19 @@ const Page = props => (
   />
 )
 
+// export const query = graphql`
+//   query($usernames: [String!] = []) {
+//     allSanityPerson(filter: { username: { current: { in: $usernames } } }) {
+//       nodes {
+//         ...CoachInstance
+//       }
+//     }
+//   }
+// `
 export const query = graphql`
-  query($usernames: [String!] = []) {
-    allSanityPerson(filter: { username: { current: { in: $usernames } } }) {
-      nodes {
-        ...CoachInstance
-      }
+  query trainingInstancePage($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
     }
   }
 `

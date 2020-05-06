@@ -20,7 +20,7 @@ import {
   selectNthTraining,
   AttendeeQuote,
 } from 'src/components/training'
-import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
+// import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import { Segment } from 'src/components/elements'
 import {
   FULL_TIME,
@@ -59,17 +59,7 @@ const Bootcamps = ({ path, trainings, data }) => {
 
   return (
     <React.Fragment>
-      <Helmet
-        title={metas.title}
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },

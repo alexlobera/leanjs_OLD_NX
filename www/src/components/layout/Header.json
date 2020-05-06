@@ -26,6 +26,10 @@
         "to": "#target-audience"
       },
       {
+        "text": "FAQs",
+        "to": "#faqs"
+      },
+      {
         "text": "Upcoming courses",
         "to": "#upcoming-courses"
       }

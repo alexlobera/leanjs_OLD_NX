@@ -69,8 +69,8 @@ const Answer = ({
   )
 }
 
-export const FAQSection = ({ pageData }) => {
-  if (!pageData || !pageData.faqs) {
+export const FAQSection = React.memo(({ pageData }) => {
+  if (!(pageData && pageData.faqs && pageData.faqs.length)) {
     return null
   }
 
@@ -81,7 +81,10 @@ export const FAQSection = ({ pageData }) => {
     <Section>
       <Row>
         <Col md={10} mdOffset={1}>
-          <H2>Frequently asked Questions</H2>
+          <H2>
+            <a name="faqs" />
+            Frequently Asked Questions
+          </H2>
           {featuredFaqs.map(({ extendAnswer, faq }) => {
             if (
               extendAnswer &&
@@ -108,7 +111,7 @@ export const FAQSection = ({ pageData }) => {
       </Row>
     </Section>
   )
-}
+})
 
 export const query = graphql`
   fragment sanityTrainingPageFragment on SanityTrainingPage {
@@ -121,7 +124,7 @@ export const query = graphql`
       featured
       faq {
         question
-        _rawAnswer
+        _rawAnswer(resolveReferences: { maxDepth: 5 })
       }
     }
   }
