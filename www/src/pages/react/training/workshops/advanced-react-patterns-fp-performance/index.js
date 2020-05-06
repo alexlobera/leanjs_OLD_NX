@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
-import { FAQ } from 'src/components/training/PageContent'
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -26,25 +27,36 @@ import {
 } from 'src/config/data'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { title, breadcrumbWorkshopName } from './config.json'
+import { createMetas } from 'src/components/utils'
 
 const trainingId = REACT_WORKSHOP_ADVANCED_PATTERNS_ID
+
+const defaultMetas = {
+  title: 'Advanced React patterns | React GraphQL Academy',
+  type: 'website',
+}
 
 const AdvancedReactWorkshop = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
-        title={title.join()}
+        title={metas.title}
         meta={[
           {
             name: 'description',
-            content: title,
+            content: metas.description,
           },
         ]}
-      />
+      >
+        {createMetas(metas)}
+      </Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -107,13 +119,14 @@ const AdvancedReactWorkshop = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
 
 export const query = graphql`
-  query advancedReactPatternsWorkshop($path: String) {
+  query advancedReactPatternsWorkshop($path: String!) {
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }

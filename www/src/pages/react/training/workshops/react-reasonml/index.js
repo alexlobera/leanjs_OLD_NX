@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
-import { FAQ } from 'src/components/training/PageContent'
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -36,8 +37,14 @@ import {
   tags,
 } from './config.json'
 import { crossSellTypes } from 'src/templates/instance/1-day-react-reasonml'
+import { createMetas } from 'src/components/utils'
 
 const trainingId = REACT_WORKSHOP_REACT_REASON_ID
+
+const defaultMetas = {
+  title: `React Reason Workshop | React GraphQL Academy`,
+  type: 'website',
+}
 
 const ReactReasonLanding = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
@@ -51,17 +58,21 @@ const ReactReasonLanding = ({ path, trainings, data }) => {
     excludeTrainingId: trainingId,
   })
 
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
-        title="React ReasonML Workshop"
+        title={metas.title}
         meta={[
           {
             name: 'description',
-            content: title,
+            content: metas.description,
           },
         ]}
-      />
+      >
+        {createMetas(metas)}
+      </Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -125,6 +136,7 @@ const ReactReasonLanding = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <AlternativeTrainingSection trainings={crossSellTrainings} />
       <TrustedBySection />
       <BlogSection tags={tags} />
@@ -134,7 +146,7 @@ const ReactReasonLanding = ({ path, trainings, data }) => {
 }
 
 export const query = graphql`
-  query reactReasonWorkshop($path: String) {
+  query reactReasonWorkshop($path: String!) {
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }

@@ -1,8 +1,8 @@
-import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
-import { FAQ } from 'src/components/training/PageContent'
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -33,7 +33,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
 
-const metas = {
+const defaultMetas = {
   title: '1-Week React Bootcamp | React GraphQL Academy',
   description:
     'Interested in a React bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp.',
@@ -54,6 +54,8 @@ const Bootcamps = ({ path, trainings, data }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingBootCampTrainings,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
 
   return (
     <React.Fragment>
@@ -141,20 +143,7 @@ const Bootcamps = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
-      <Section>
-        <Row>
-          <Col md={10} mdOffset={1}>
-            <FAQ faqs={data.faqs} />
-          </Col>
-        </Row>
-      </Section>
-      <Section>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <AlternativeBootcampTrainings trainings={trainings} />
-          </Col>
-        </Row>
-      </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <BlogSection tags={['react', 'beginner']} />
       <UpcomingTrainingSection trainings={trainings} />
@@ -163,7 +152,7 @@ const Bootcamps = ({ path, trainings, data }) => {
 }
 
 export const query = graphql`
-  query reactBootcamp($path: String) {
+  query reactBootcamp($path: String!) {
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }

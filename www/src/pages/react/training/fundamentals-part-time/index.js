@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
-import { FAQ } from 'src/components/training/PageContent'
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { Link } from 'src/components/navigation'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -28,8 +29,8 @@ import header from 'src/components/layout/Header.json'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
-const metas = {
-  title: 'React Part-Time Training | React GraphQL Academy',
+const defaultMetas = {
+  title: 'React Fundamentals Part-Time Training | React GraphQL Academy',
   description:
     'Interested in a React training? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time training.',
   image: WHY_REACTJS_ACADEMY,
@@ -46,6 +47,8 @@ const PartTime = ({ trainings, path, data }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingPartTimeTrainings,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
 
   return (
     <React.Fragment>
@@ -115,16 +118,15 @@ const PartTime = ({ trainings, path, data }) => {
           </Col>
         </Row>
       </Section>
-
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
-
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
 
 export const query = graphql`
-  query reactFundamentalsPartTime($path: String) {
+  query reactFundamentalsPartTime($path: String!) {
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }

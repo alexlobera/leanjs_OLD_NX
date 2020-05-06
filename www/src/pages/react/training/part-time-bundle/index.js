@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 import Link from 'src/components/navigation/Link'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
@@ -26,9 +27,9 @@ import {
 import header from 'src/components/layout/Header.json'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
-import { FAQ } from 'src/components/training/PageContent'
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 
-const metas = {
+const defaultMetas = {
   title: 'React Part-Time Training | React GraphQL Academy',
   description:
     'Interested in a React training? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time training.',
@@ -49,7 +50,9 @@ const CompletePartTime = ({ trainings, path, data }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingPartTimeTrainings,
   })
-  console.log('ddddd', path, data)
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
@@ -118,16 +121,15 @@ const CompletePartTime = ({ trainings, path, data }) => {
           </Col>
         </Row>
       </Section>
-
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
-
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
 
 export const query = graphql`
-  query reactPartTimeBundle($path: String) {
+  query reactPartTimeBundle($path: String!) {
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }

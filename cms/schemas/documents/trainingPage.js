@@ -12,9 +12,11 @@ export default {
         Rule.custom(value =>
           !value
             ? "Path is required"
-            : value.endsWith("/")
-            ? true
-            : "The path must end with /"
+            : !value.endsWith("/")
+            ? "The path must end with /"
+            : !value.startsWith("/")
+            ? "The path must start with /"
+            : true
         )
     },
     {

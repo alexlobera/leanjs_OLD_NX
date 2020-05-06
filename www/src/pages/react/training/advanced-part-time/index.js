@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
-import { FAQ } from 'src/components/training/PageContent'
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -30,7 +31,7 @@ import {
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
 
-const metas = {
+const defaultMetas = {
   title: 'Advanced React Part-Time Training | React GraphQL Academy',
   description:
     'Interested in learning advanced React without cutting into valuable work? Learn advanced React and supercharge your dev skillset with the latest in advanced React training. Contact us now!',
@@ -51,6 +52,9 @@ const AdvancedTraining = ({ path, trainings, data }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingAdvancedTrainings,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
@@ -124,6 +128,7 @@ const AdvancedTraining = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
@@ -131,7 +136,7 @@ const AdvancedTraining = ({ path, trainings, data }) => {
 }
 
 export const query = graphql`
-  query advancedReactPartTime($path: String) {
+  query advancedReactPartTime($path: String!) {
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }
