@@ -29,30 +29,38 @@ const Page = props => (
 )
 
 export const query = graphql`
-  query($usernames: [String!] = []) {
-    instanceImage: allFile(
-      filter: {
-        relativePath: {
-          # this image should come from UM traning instance
-          regex: "/pages/graphql/training/workshops/graphql-part-time-trial/remote.png/"
-        }
-      }
-    ) {
-      nodes {
-        name
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            src
-          }
-        }
-      }
-    }
-    allSanityPerson(filter: { username: { current: { in: $usernames } } }) {
-      nodes {
-        ...CoachInstance
-      }
+  query($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
     }
   }
 `
+
+// export const query = graphql`
+//   query($usernames: [String!] = []) {
+//     instanceImage: allFile(
+//       filter: {
+//         relativePath: {
+//           # this image should come from UM traning instance
+//           regex: "/pages/graphql/training/workshops/graphql-part-time-trial/remote.png/"
+//         }
+//       }
+//     ) {
+//       nodes {
+//         name
+//         childImageSharp {
+//           fluid(maxWidth: 600) {
+//             src
+//           }
+//         }
+//       }
+//     }
+//     allSanityPerson(filter: { username: { current: { in: $usernames } } }) {
+//       nodes {
+//         ...CoachInstance
+//       }
+//     }
+//   }
+// `
 
 export default Page
