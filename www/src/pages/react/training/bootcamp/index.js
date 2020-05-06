@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -31,7 +33,7 @@ import BlogSection from 'src/components/blog/BlogSection'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
 
-const metas = {
+const defaultMetas = {
   title: '1-Week React Bootcamp | React GraphQL Academy',
   description:
     'Interested in a React bootcamp? Take a deep dive into the React ecosystem and become a confident React developer with our React bootcamp.',
@@ -43,7 +45,7 @@ const trainingType = TRAINING_TYPE_FULL_CURRICULUM
 const trainingInstanceTypeName = FULL_TIME
 const trainingId = REACT_BOOTCAMP_ID
 
-const Bootcamps = ({ path, trainings }) => {
+const Bootcamps = ({ path, trainings, data }) => {
   const upcomingBootCampTrainings = selectUpcomingTrainings({
     trainingId,
     trainingInstanceTypeName,
@@ -52,6 +54,8 @@ const Bootcamps = ({ path, trainings }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingBootCampTrainings,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
 
   return (
     <React.Fragment>
@@ -85,7 +89,10 @@ const Bootcamps = ({ path, trainings }) => {
       />
       <TopSection>
         <Segment>
-          <CurriculumReactBootcamp trainings={upcomingBootCampTrainings} />
+          <CurriculumReactBootcamp
+            trainings={upcomingBootCampTrainings}
+            pageData={data.sanityTrainingPage}
+          />
         </Segment>
       </TopSection>
       <Section>
@@ -136,18 +143,20 @@ const Bootcamps = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
-      <Section>
-        <Row>
-          <Col lg={10} lgOffset={1}>
-            <AlternativeBootcampTrainings trainings={trainings} />
-          </Col>
-        </Row>
-      </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <BlogSection tags={['react', 'beginner']} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactBootcamp($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default Bootcamps

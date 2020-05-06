@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -23,10 +25,18 @@ import { Segment } from 'src/components/elements'
 import { TECH_REACT, TRAINING_TYPE_HALF_CURRICULUM } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
+import { createMetas } from 'src/components/utils'
 
 const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 
-const ReactFundamentals = ({ path, trainings }) => {
+const defaultMetas = {
+  title: 'React Fundamentals| React GraphQL Academy',
+  description:
+    'React Fundamentals - learn in 3 days the React fundamentals needed to develop React apps the right way',
+  type: 'website',
+}
+
+const ReactFundamentals = ({ path, trainings, data }) => {
   const upcomingFundamentalsTrainings = selectUpcomingTrainings({
     trainingId: REACT_FUNDAMENTALS_ID,
     trainingType,
@@ -35,18 +45,22 @@ const ReactFundamentals = ({ path, trainings }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingFundamentalsTrainings,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
-        title="React Fundamentals"
+        title=""
         meta={[
           {
             name: 'description',
-            content:
-              'React Fundamentals - learn in 3 days the React fundamentals needed to develop React apps the right way',
+            content: metas.description,
           },
         ]}
-      />
+      >
+        {createMetas(metas)}
+      </Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -68,6 +82,7 @@ const ReactFundamentals = ({ path, trainings }) => {
         <Segment>
           <CurriculumReactFundamentals
             trainings={upcomingFundamentalsTrainings}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -116,6 +131,7 @@ const ReactFundamentals = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <BlogSection tags={['react', 'beginner']} />
 
@@ -123,5 +139,13 @@ const ReactFundamentals = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactFundamentals($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default ReactFundamentals

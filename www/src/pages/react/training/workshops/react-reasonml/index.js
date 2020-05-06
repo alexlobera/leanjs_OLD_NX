@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -35,10 +37,16 @@ import {
   tags,
 } from './config.json'
 import { crossSellTypes } from 'src/templates/instance/1-day-react-reasonml'
+import { createMetas } from 'src/components/utils'
 
 const trainingId = REACT_WORKSHOP_REACT_REASON_ID
 
-const ReactReasonLanding = ({ path, trainings }) => {
+const defaultMetas = {
+  title: `React Reason Workshop | React GraphQL Academy`,
+  type: 'website',
+}
+
+const ReactReasonLanding = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
@@ -50,17 +58,21 @@ const ReactReasonLanding = ({ path, trainings }) => {
     excludeTrainingId: trainingId,
   })
 
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
-        title="React ReasonML Workshop"
+        title={metas.title}
         meta={[
           {
             name: 'description',
-            content: title,
+            content: metas.description,
           },
         ]}
-      />
+      >
+        {createMetas(metas)}
+      </Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -90,6 +102,7 @@ const ReactReasonLanding = ({ path, trainings }) => {
             section={{ isOpen: true }}
             trainings={trainings}
             trainingId={trainingId}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -123,6 +136,7 @@ const ReactReasonLanding = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <AlternativeTrainingSection trainings={crossSellTrainings} />
       <TrustedBySection />
       <BlogSection tags={tags} />
@@ -130,5 +144,13 @@ const ReactReasonLanding = ({ path, trainings }) => {
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactReasonWorkshop($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default ReactReasonLanding

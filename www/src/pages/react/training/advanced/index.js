@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import { formatUTC } from 'src/components/utils'
 import { LinkButton } from 'src/components/buttons'
@@ -29,7 +31,7 @@ import {
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 import { createMetas } from 'src/components/utils'
 
-const metas = {
+const defaultMetas = {
   title: 'Advanced React Training | React GraphQL Academy',
   description:
     'Interested in advanced React? Learn advanced React patterns and supercharge your dev skillset with the latest in advanced React training. Contact us now!',
@@ -41,7 +43,7 @@ const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingInstanceTypeName = FULL_TIME
 const trainingId = ADVANCED_REACT_ID
 
-const AdvancedTraining = ({ path, trainings }) => {
+const AdvancedTraining = ({ path, trainings, data }) => {
   const upcomingAdvancedTrainings = selectUpcomingTrainings({
     trainingId,
     trainingInstanceTypeName,
@@ -50,6 +52,8 @@ const AdvancedTraining = ({ path, trainings }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingAdvancedTrainings,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
 
   return (
     <React.Fragment>
@@ -83,7 +87,10 @@ const AdvancedTraining = ({ path, trainings }) => {
       />
       <TopSection>
         <Segment>
-          <CurriculumAdvancedReact trainings={upcomingAdvancedTrainings} />
+          <CurriculumAdvancedReact
+            trainings={upcomingAdvancedTrainings}
+            pageData={data.sanityTrainingPage}
+          />
         </Segment>
       </TopSection>
       <Section>
@@ -121,10 +128,19 @@ const AdvancedTraining = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query advancedReact($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default AdvancedTraining

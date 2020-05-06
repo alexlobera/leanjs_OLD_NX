@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -26,25 +28,36 @@ import {
 import header from 'src/components/layout/Header.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import { title, breadcrumbWorkshopName } from './config.json'
+import { createMetas } from 'src/components/utils'
 
 const trainingId = REACT_WORKSHOP_REACT_NATIVE_ID
 
-const ReactNativeBoocamp = ({ path, trainings }) => {
+const defaultMetas = {
+  title: `React Native Workshop | React GraphQL Academy`,
+  type: 'website',
+}
+
+const ReactNativeBoocamp = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
-        title={title}
+        title={metas.title}
         meta={[
           {
             name: 'description',
-            content: title,
+            content: metas.description,
           },
         ]}
-      />
+      >
+        {createMetas(metas)}
+      </Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -62,6 +75,7 @@ const ReactNativeBoocamp = ({ path, trainings }) => {
         bgImageName={BOOTCAMP}
         trainingType={TRAINING_TYPE_WORKSHOP}
         links={header.landingPageLinks.links}
+        pageData={data.sanityTrainingPage}
       />
       <TopSection>
         <Segment>
@@ -91,10 +105,19 @@ const ReactNativeBoocamp = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactNativeWorkshop($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default ReactNativeBoocamp

@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -29,7 +31,7 @@ import { breadcrumbWorkshopName } from './config.json'
 
 const trainingId = REACT_WORKSHOP_DESIGN_SYSTEMS_ID
 
-const metas = {
+const defaultMetas = {
   title: `Styling in React and Design Systems Workshop | React GraphQL Academy`,
   description:
     'Interested in Design Systems? React GraphQL Academy offers Design Systems in React workshops, focussing on the design part of the React ecosystem. Contact us now!',
@@ -37,11 +39,13 @@ const metas = {
   type: 'website',
 }
 
-const StylingDesignSystemWorkshop = ({ path, trainings }) => {
+const StylingDesignSystemWorkshop = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
 
   return (
     <React.Fragment>
@@ -84,6 +88,7 @@ const StylingDesignSystemWorkshop = ({ path, trainings }) => {
             trainings={trainings}
             section={{ isOpen: true }}
             learningObjectives={LearningObjectives}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -116,9 +121,18 @@ const StylingDesignSystemWorkshop = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query designSystemsWorkshop($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default StylingDesignSystemWorkshop

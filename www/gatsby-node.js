@@ -116,7 +116,7 @@ exports.createPages = async ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allSanityPost(sort: { order: ASC, fields: order }) {
+        allSanityPost(sort: { order: ASC, fields: publishedAt }) {
           nodes {
             _rawBody(resolveReferences: { maxDepth: 5 })
             readingTimeInMinutes

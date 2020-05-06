@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { Link } from 'src/components/navigation'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 import Section, { TopSection } from 'src/components/layout/Section'
@@ -27,15 +29,15 @@ import header from 'src/components/layout/Header.json'
 import { createMetas } from 'src/components/utils'
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js'
 
-const metas = {
-  title: 'React Part-Time Training | React GraphQL Academy',
+const defaultMetas = {
+  title: 'React Fundamentals Part-Time Training | React GraphQL Academy',
   description:
     'Interested in a React training? Learn the main libraries of the React ecosystem and become a confident React developer with our React part-time training.',
   image: WHY_REACTJS_ACADEMY,
   type: 'website',
 }
 
-const PartTime = ({ trainings, path }) => {
+const PartTime = ({ trainings, path, data }) => {
   const upcomingPartTimeTrainings = selectUpcomingTrainings({
     trainingId: REACT_FUNDAMENTALS_ID,
     trainingInstanceTypeName: PART_TIME,
@@ -45,6 +47,9 @@ const PartTime = ({ trainings, path }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingPartTimeTrainings,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
@@ -78,6 +83,7 @@ const PartTime = ({ trainings, path }) => {
         <Segment>
           <CurriculumReactFundamentalsPartTime
             trainings={upcomingPartTimeTrainings}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -112,12 +118,19 @@ const PartTime = ({ trainings, path }) => {
           </Col>
         </Row>
       </Section>
-
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
-
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactFundamentalsPartTime($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default PartTime

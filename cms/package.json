@@ -9,7 +9,7 @@
   "scripts": {
     "start": "sanity start",
     "deploy": "sanity deploy",
-    "deploy:schema:production": "sanity graphql deploy --generation gen --dataset production",
+    "deploy:schema:production": "sanity graphql deploy --generation gen1 --dataset production",
     "deploy:schema:development": "sanity graphql deploy --generation gen2 --dataset development",
     "test": "sanity check"
   },

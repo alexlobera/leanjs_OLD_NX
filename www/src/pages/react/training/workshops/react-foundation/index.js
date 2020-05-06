@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { BOOTCAMP } from 'src/../images/imageNames'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -24,26 +26,36 @@ import {
   REACT_WORKSHOP_FOUNDATION_ID,
 } from 'src/config/data'
 import { title, breadcrumbWorkshopName } from './config.json'
+import { createMetas } from 'src/components/utils'
 
 const trainingId = REACT_WORKSHOP_FOUNDATION_ID
 
-const Workshop = ({ path, trainings }) => {
+const defaultMetas = {
+  title: `React Foundation Workshop | React GraphQL Academy`,
+  type: 'website',
+}
+
+const Workshop = ({ path, trainings, data }) => {
   const nextTraining = getNextTrainingByTrainingId({
     trainings,
     trainingId,
   })
 
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <React.Fragment>
       <Helmet
-        title={title}
+        title={metas.title}
         meta={[
           {
             name: 'description',
-            content: title,
+            content: metas.description,
           },
         ]}
-      />
+      >
+        {createMetas(metas)}
+      </Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -71,6 +83,7 @@ const Workshop = ({ path, trainings }) => {
             section={{ isOpen: true }}
             trainings={trainings}
             trainingId={trainingId}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -100,9 +113,18 @@ const Workshop = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactFoundationWorkshop($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default Workshop

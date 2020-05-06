@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2Ref, H3, P } from 'src/components/text'
@@ -24,7 +26,7 @@ import { createMetas } from 'src/components/utils'
 import { trainingId, breadcrumbTrainingName } from './config.json'
 import NextTrainingButton from 'src/components/training/NextTrainingButton'
 
-const metas = {
+const defaultMetas = {
   title: 'React Training Trial | React GraphQL Academy',
   description:
     'Are you not sure yet about buying our React training? With this trial of our React training, you will be able to make an informed decision before purchasing the full training',
@@ -32,7 +34,7 @@ const metas = {
   type: 'website',
 }
 
-const Page = ({ path, trainings }) => {
+const Page = ({ path, trainings, data }) => {
   const upcomingTrials = selectUpcomingTrainings({
     trainingId,
     trainings,
@@ -41,6 +43,8 @@ const Page = ({ path, trainings }) => {
   const nextTraining = selectNthTraining({
     trainings: upcomingTrials,
   })
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
 
   return (
     <React.Fragment>
@@ -82,6 +86,7 @@ const Page = ({ path, trainings }) => {
             enableToggle
             section={{ isOpen: true }}
             learningObjectives={LearningObjectives}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
@@ -115,10 +120,18 @@ const Page = ({ path, trainings }) => {
           </Col>
         </Row>
       </Section>
-
+      <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   )
 }
+
+export const query = graphql`
+  query reactTrial($path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
+  }
+`
 
 export default Page
