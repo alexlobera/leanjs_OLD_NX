@@ -9,7 +9,7 @@ import { Col, Row } from '../layout/Grid'
 import UpcomingTrainingCurriculum from '../training/UpcomingTrainingCurriculum'
 import Flex from '../layout/Flex'
 import Box from '../layout/Box'
-import { Overview } from 'src/components/training/PageContent'
+import { Overview } from '../training/PageContent'
 
 export const LIST_LAYOUT = 'list'
 export const LIST_TWO_COL = 'listTwoCol'
