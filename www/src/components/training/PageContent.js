@@ -2,12 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '@sanity/block-content-to-react'
 
-import { Col, Row } from 'src/components/layout/Grid'
-import Link from 'src/components/navigation/Link'
-import Box from 'src/components/layout/Box'
-import Section from 'src/components/layout/Section'
-import { H2, H3 } from 'src/components/text'
-import { internalLinkTo } from 'src/components/utils/sanitySerializers'
+import { Col, Row } from '../layout/Grid'
+import Link from '../navigation/Link'
+import Box from '../layout/Box'
+import Section from '../layout/Section'
+import { H2, H3 } from '../text'
+import { internalLinkTo } from '../utils/sanitySerializers'
 
 export function getMetaData({ defaultMetas, metaData }) {
   let metas = defaultMetas ? { ...defaultMetas } : {}
