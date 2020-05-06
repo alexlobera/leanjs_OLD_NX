@@ -48,17 +48,7 @@ const Page = ({ path, trainings, data }) => {
 
   return (
     <React.Fragment>
-      <Helmet
-        title={metas.title}
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },

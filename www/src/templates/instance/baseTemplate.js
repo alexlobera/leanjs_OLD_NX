@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import StickyBox from 'react-sticky-box'
 import { graphql } from 'gatsby'
 
+import { FAQSection, getMetaData } from 'src/components/training/PageContent'
 import { CheckoutProvider } from 'src/components/payment/checkout'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -184,6 +185,16 @@ const InstancePage = ({
     undefined
   )
 
+  const defaultMetas = {
+    title: instanceTitle,
+    imageFullPublicUrl: instanceImageUrl,
+    subtitle,
+    ogType: 'website',
+    twitterSite: '@reactgqlacademy',
+  }
+
+  const metas = getMetaData({ defaultMetas, metaData: data.sanityTrainingPage })
+
   return (
     <CheckoutProvider>
       <Helmet
@@ -195,13 +206,7 @@ const InstancePage = ({
           },
         ]}
       >
-        {createMetas({
-          title: instanceTitle,
-          imageFullPublicUrl: instanceImageUrl,
-          subtitle,
-          ogType: 'website',
-          twitterSite: '@reactgqlacademy',
-        })}
+        {createMetas(metas)}
       </Helmet>
       <Header
         breadcrumbPath={breadcrumb}
@@ -225,6 +230,10 @@ const InstancePage = ({
             text: 'Pricing',
             to: '#pricing',
           },
+          {
+            text: 'FAQs',
+            to: '#faqs',
+          },
         ]}
         trainingType={trainingType}
         training={training}
@@ -240,6 +249,7 @@ const InstancePage = ({
             training={training}
             learningObjectives={learningObjectives}
             trainingType={trainingType}
+            pageData={data && data.sanityTrainingPage}
             content={
               <React.Fragment>
                 {videoCoachId ? (
@@ -336,6 +346,7 @@ const InstancePage = ({
           </Col>
         </Row>
       </Section>
+
       <Section variant="dark">
         <Row>
           <Col md={5} mdOffset={1}>
@@ -374,6 +385,7 @@ const InstancePage = ({
             )}
         </Row>
       </Section>
+      <FAQSection pageData={data && data.sanityTrainingPage} />
       {!training || (!trialTraingInstance && !trialOfTheTrainingId) ? (
         <AlternativeTrainingSection trainings={crossSellTrainings} />
       ) : null}

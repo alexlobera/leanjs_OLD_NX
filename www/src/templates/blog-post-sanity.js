@@ -24,6 +24,7 @@ import { slugify } from '../components/utils/text'
 import SanityForm from '../components/blog/SanityForm'
 import { LIGHT_PINK } from '../config/styles'
 import { TECH_GRAPHQL } from '../config/data'
+import { internalLinkTo } from '../components/utils/sanitySerializers'
 
 function renderHeadingWithAnchor({ children, Component }) {
   const formatedChildren = (Array.isArray(children) ? children : [children])
@@ -72,6 +73,11 @@ const Page = ({ data, location, ...rest }) => {
       link: ({ mark: { href }, children }) => (
         <BlogPostLink to={href} children={children} />
       ),
+      internalLink: ({ mark = {}, children }) => {
+        return (
+          <BlogPostLink to={internalLinkTo({ mark })}>{children}</BlogPostLink>
+        )
+      },
     },
     list: ({ children }) => <Ul children={children} />,
     listItem: ({ children = {} }) => <BlogPostLi children={children} />,

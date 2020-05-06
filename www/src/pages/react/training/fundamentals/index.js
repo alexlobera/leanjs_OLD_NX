@@ -50,17 +50,7 @@ const ReactFundamentals = ({ path, trainings, data }) => {
 
   return (
     <React.Fragment>
-      <Helmet
-        title=""
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
