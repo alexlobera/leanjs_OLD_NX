@@ -24,10 +24,6 @@ const CurriculumReactTrial = ({ showTitle = true, section = {}, ...rest }) => (
 
 export { TargetAudienceList }
 
-export const LearningObjectives = () => (
-  <Ul>
-    <ThinkingInLearningObjectives showAll />
-  </Ul>
-)
+export const LearningObjectives = () => <ThinkingInLearningObjectives showAll />
 
 export default CurriculumReactTrial
