@@ -70,7 +70,7 @@ const Answer = ({
 }
 
 export const FAQSection = React.memo(({ pageData }) => {
-  if (!pageData || !pageData.faqs) {
+  if (!(pageData && pageData.faqs && pageData.faqs.length)) {
     return null
   }
 
