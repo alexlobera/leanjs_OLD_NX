@@ -1,7 +1,8 @@
 import React from 'react'
 import StickyBox from 'react-sticky-box'
 
-import { Link } from 'src/components/navigation'
+import Link from 'src/components/navigation/Link'
+import LinkButton from 'src/components/buttons/LinkButton'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import Box from 'src/components/layout/Box'
@@ -41,7 +42,14 @@ function renderIcon(url = '') {
   return Icon ? <Icon fill={GREY} /> : null
 }
 
-const MeetupPage = ({ posts, speakers = [], sponsors = [], agenda, event }) => {
+const MeetupPage = ({
+  posts,
+  speakers = [],
+  sponsors = [],
+  agenda,
+  event,
+  callForPapersUrl,
+}) => {
   return (
     <>
       <TopSection>
@@ -96,13 +104,17 @@ const MeetupPage = ({ posts, speakers = [], sponsors = [], agenda, event }) => {
                   </Flex>
                 )
               )}
-              {/* <H3>
-                <a name="speakers" />
-                Call For Papers
-              </H3>
-              <LinkButton sx={{ mb: [6, 0] }} to={callForPapersLink}>
-                Submit your talk
-              </LinkButton> */}
+              {callForPapersUrl && (
+                <React.Fragment>
+                  <H3>
+                    <a name="speakers" />
+                    Call For Papers
+                  </H3>
+                  <LinkButton sx={{ mb: [6, 0] }} to={callForPapersUrl}>
+                    Submit your talk
+                  </LinkButton>
+                </React.Fragment>
+              )}
             </Col>
             <Col md={4}>
               <H3 sx={{ mb: 6, pt: 2 }}>Sponsors</H3>

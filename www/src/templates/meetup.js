@@ -80,7 +80,9 @@ const Meetup = ({
     speakers,
     agenda,
     sponsors,
+    callForPapersUrl,
   } = meetup
+
   const excerpt =
     description &&
     description.substr(0, description.lastIndexOf(' ', 120)) + '...'
@@ -146,6 +148,7 @@ const Meetup = ({
           agenda={agenda}
           sponsors={sponsors}
           event={meetup}
+          callForPapersUrl={callForPapersUrl}
         />
       ) : (
         <OldLayout
