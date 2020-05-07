@@ -35,7 +35,7 @@ function getLocationImage(result, city, isOnline) {
   const imageName = isOnline ? 'remote' : city
 
   return result.data.locationImages.nodes.find(
-    image => image.name.toLowerCase() === imageName.toLowerCase()
+    (image) => image.name.toLowerCase() === imageName.toLowerCase()
   )
 }
 
@@ -184,6 +184,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   url
                   imageUrl
                 }
+                callForPapersUrl
                 speakers {
                   fullName
                   bio
@@ -264,7 +265,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    `).then(async result => {
+    `).then(async (result) => {
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|remote).*/
       const citiesFinanceAvailable = ['london']
@@ -319,7 +320,7 @@ exports.createPages = async ({ graphql, actions }) => {
               []
             )
             const tagsNoDuplicates = [
-              ...new Set([...tags.map(t => t.name), category]),
+              ...new Set([...tags.map((t) => t.name), category]),
             ]
 
             await createPage({
@@ -355,7 +356,7 @@ exports.createPages = async ({ graphql, actions }) => {
               ...restConfig
             } = require(pathConfig)
             const financeAvailable = !!citiesFinanceAvailable.find(
-              c => city.toLowerCase() === c.toLowerCase()
+              (c) => city.toLowerCase() === c.toLowerCase()
             )
             const tagsInNoDuplicates = [
               ...new Set([...tagsIn, restConfig.tech.toLowerCase()]),
@@ -381,10 +382,10 @@ exports.createPages = async ({ graphql, actions }) => {
               instanceTemplate: overrideInstanceTemplate,
             } = node.frontmatter
             const learnToCodePartners = result.data.partners.nodes.filter(
-              partner => {
+              (partner) => {
                 const locations = partner.locations || []
                 return (
-                  locations.find(location => location === city) &&
+                  locations.find((location) => location === city) &&
                   partner.featured
                 )
               }
@@ -401,13 +402,14 @@ exports.createPages = async ({ graphql, actions }) => {
             }
 
             await Promise.all(
-              instancesToCreate.map(async nth => {
+              instancesToCreate.map(async (nth) => {
                 const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
                 await createPage({
                   path: pagePath,
                   component: path.resolve(
-                    `./src/templates/instance/${overrideInstanceTemplate ||
-                      instanceTemplate}.js`
+                    `./src/templates/instance/${
+                      overrideInstanceTemplate || instanceTemplate
+                    }.js`
                   ),
                   context: {
                     siteUrl,
