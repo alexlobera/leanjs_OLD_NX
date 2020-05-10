@@ -12,9 +12,14 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "mux-input"
   ],
   "parts": [
+    {
+      "implements": "part:@sanity/base/root",
+      "path": "components/DefaultLayoutContainer"
+    },
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"

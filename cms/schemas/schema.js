@@ -9,6 +9,8 @@ import person from "./documents/person";
 import partner from "./documents/partner";
 import faq from "./documents/faq";
 import trainingPage from "./documents/trainingPage";
+import video from "./documents/video";
+import training from "./documents/training";
 import job from "./objects/job";
 import youtube from "./objects/youtube";
 import faqPage from "./objects/faqPage";
@@ -20,6 +22,7 @@ import richNoBulletPoints from "./arrays/richNoBulletPoints";
 import tedvideo from "./objects/tedvideo";
 import form from "./objects/form";
 import formType from "./objects/formType";
+//import upmentoringTraining from "../plugins/upmentoring-training";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -30,12 +33,15 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+    //upmentoringTraining,
     post,
     person,
     partner,
     tag,
     trainingPage,
     faq,
+    training,
+    video,
     job,
     youtube,
     tweet,
