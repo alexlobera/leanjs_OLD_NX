@@ -8,7 +8,7 @@ export default S.listItem()
   .schemaType("training")
   .child(
     S.documentTypeList("training")
-      .title("Training List")
+      // .title("Training List")
       .child((documentId, b) =>
         S.document()
           .documentId(documentId)

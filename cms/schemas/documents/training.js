@@ -1,6 +1,5 @@
 import TrainingInput from "../../components/TrainingInput";
 import { VIDEO_TYPE_TRAINING } from "./video";
-// import TrainingPreview from "../../components/TrainingPreview";
 
 export default {
   name: "training",
@@ -15,7 +14,6 @@ export default {
         title: `queryNodeId=${trainingId}`,
       };
     },
-    // component: TrainingPreview,
   },
   fields: [
     {
