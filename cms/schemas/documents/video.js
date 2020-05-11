@@ -1,5 +1,6 @@
 export const VIDEO_TYPE_TRAINING = "VIDEO_TYPE_TRAINING";
 export const VIDEO_TYPE_TESTIMONIAL = "VIDEO_TYPE_TESTIMONIAL";
+export const VIDEO_TYPE_PRODUCT_EXPLAINER = "VIDEO_TYPE_PRODUCT_EXPLAINER";
 
 export default {
   name: "video",
@@ -19,6 +20,7 @@ export default {
       options: {
         list: [
           { title: "Training", value: VIDEO_TYPE_TRAINING },
+          { title: "Product explainer", value: VIDEO_TYPE_PRODUCT_EXPLAINER },
           { title: "Testimonial", value: VIDEO_TYPE_TESTIMONIAL },
         ],
       },

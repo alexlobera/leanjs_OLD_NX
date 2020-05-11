@@ -1,14 +1,23 @@
 import S from "@sanity/desk-tool/structure-builder";
 
 import training from "./training";
+// import trainingPage from "./trainingPage";
 
 // Hide document types that we already have a structure definition for
-const hiddenDocTypes = (listItem) => !["training"].includes(listItem.getId());
+const hiddenDocTypes = (listItem) =>
+  ![
+    "training",
+    // "trainingPage"
+  ].includes(listItem.getId());
 
 export default () =>
   S.list()
     .title("Content")
-    .items([...S.documentTypeListItems().filter(hiddenDocTypes), training]);
+    .items([
+      ...S.documentTypeListItems().filter(hiddenDocTypes),
+      // trainingPage,
+      training,
+    ]);
 
 // export const getDefaultDocumentNode = (props) => {
 //   /**
