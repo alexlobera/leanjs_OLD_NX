@@ -5,17 +5,24 @@ import DefaultSelect from "part:@sanity/components/selects/default";
 import PatchEvent, { set, unset } from "part:@sanity/form-builder/patch-event";
 import { gql } from "apollo-boost";
 import { graphql } from "@apollo/react-hoc";
+import client from "part:@sanity/base/client";
 
-const createPatchFrom = value =>
+const createPatchFrom = (value) =>
   PatchEvent.from(value === "" ? unset() : set(value));
 
 class TrainingInput extends React.Component {
   static propTypes = {
     type: PropTypes.shape({
-      title: PropTypes.string
+      title: PropTypes.string,
     }).isRequired,
     value: PropTypes.string,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+  };
+
+  state = {
+    sanityLoading: true,
+    sanityData: null,
+    sanityError: null,
   };
 
   // this is called by the form builder whenever this input should receive focus
@@ -23,24 +30,42 @@ class TrainingInput extends React.Component {
   //     this._inputElement && this._inputElement.focus();
   //   }
 
+  componentDidMount = () => {
+    client
+      .fetch(
+        `*[_type == "training"]{ 
+          trainingId 
+        }`
+      )
+      .then((sanityData) => {
+        console.info("RESPONSE", sanityData);
+        this.setState({ sanityLoading: false, sanityData });
+      })
+      .catch((error) => {
+        this.setState({ sanityError: error.message, sanityLoading: false });
+      });
+  };
+
   render() {
     const { type, value, onChange, disabled, data } = this.props;
+    const { sanityLoading, sanityError } = this.state;
+    const { loading: graphqlLoading, error: graphqlError } = data;
 
-    if (data.loading) {
+    if (graphqlLoading || sanityLoading) {
       return <Spinner />;
     }
 
-    if (data.error) {
+    if (graphqlError || sanityError) {
       return <h3>Error</h3>;
     }
 
-    const items = data.trainings.edges
+    const allTraining = data.trainings.edges
       .map(({ node: { id, title } }) => ({
         key: id,
         title,
-        id
+        id,
       }))
-      .sort(function(a, b) {
+      .sort(function (a, b) {
         if (a.title < b.title) {
           return -1;
         }
@@ -50,7 +75,13 @@ class TrainingInput extends React.Component {
         return 0;
       });
 
-    const selectedItem = items.find(item => item.id === value);
+    const sanityData = this.state.sanityData || [];
+    const selectedItem = allTraining.find((training) => training.id === value);
+    const items = allTraining.filter(
+      (training) =>
+        training.id === value ||
+        !sanityData.find((doc) => doc.trainingId === training.id)
+    );
 
     return (
       <div>
@@ -58,7 +89,7 @@ class TrainingInput extends React.Component {
         <DefaultSelect
           label="Select training"
           placeholder="A training is required"
-          onChange={event => {
+          onChange={(event) => {
             onChange(createPatchFrom(event.id));
           }}
           items={items}

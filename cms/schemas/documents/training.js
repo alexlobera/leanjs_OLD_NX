@@ -1,7 +1,6 @@
-import React from "react";
 import TrainingInput from "../../components/TrainingInput";
 import { VIDEO_TYPE_TRAINING } from "./video";
-import TrainingPreview from "../../components/TrainingPreview";
+// import TrainingPreview from "../../components/TrainingPreview";
 
 export default {
   name: "training",
@@ -9,14 +8,14 @@ export default {
   type: "document",
   preview: {
     select: {
-      title: "trainingId"
+      trainingId: "trainingId",
     },
-    prepare: value => {
+    prepare({ trainingId }) {
       return {
-        title: value.title,
-        extendedPreview: <TrainingPreview value={value} />
+        title: `queryNodeId=${trainingId}`,
       };
-    }
+    },
+    // component: TrainingPreview,
   },
   fields: [
     {
@@ -24,7 +23,7 @@ export default {
       title: "Training",
       type: "string",
       inputComponent: TrainingInput,
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "videos",
@@ -36,10 +35,10 @@ export default {
           to: { type: "video" },
           options: {
             filter: `type == $type`,
-            filterParams: { type: VIDEO_TYPE_TRAINING }
-          }
-        }
-      ]
-    }
-  ]
+            filterParams: { type: VIDEO_TYPE_TRAINING },
+          },
+        },
+      ],
+    },
+  ],
 };
