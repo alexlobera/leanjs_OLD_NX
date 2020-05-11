@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Spinner from "part:@sanity/components/loading/spinner";
 import DefaultSelect from "part:@sanity/components/selects/default";
 import PatchEvent, { set, unset } from "part:@sanity/form-builder/patch-event";
-import { gql } from "apollo-boost";
+import gql from "graphql-tag";
 import { graphql } from "@apollo/react-hoc";
 import client from "part:@sanity/base/client";
 
