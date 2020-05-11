@@ -17,24 +17,32 @@
     "sanity"
   ],
   "dependencies": {
+    "@apollo/react-hoc": "^3.1.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-regular-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@sanity/base": "^1.148.5",
-    "@sanity/code-input": "^1.148.1",
-    "@sanity/components": "^1.148.5",
-    "@sanity/core": "^1.148.5",
-    "@sanity/default-layout": "^1.148.5",
-    "@sanity/default-login": "^1.148.1",
-    "@sanity/desk-tool": "^1.148.6",
+    "@sanity/base": "^1.149.10",
+    "@sanity/code-input": "^1.149.7",
+    "@sanity/components": "^1.149.10",
+    "@sanity/core": "^1.149.12",
+    "@sanity/default-layout": "^1.149.10",
+    "@sanity/default-login": "^1.149.11",
+    "@sanity/desk-tool": "^1.149.10",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.9",
+    "apollo-link": "^1.2.14",
+    "apollo-link-batch-http": "^1.2.14",
+    "graphql": "^15.0.0",
+    "graphql-tag": "^2.10.3",
     "prop-types": "^15.6",
     "react": "^16.12",
-    "react-dom": "^16.12"
+    "react-dom": "^16.12",
+    "sanity-plugin-mux-input": "^0.2.1"
   },
   "devDependencies": {
-    "@sanity/cli": "^1.148.6"
+    "@sanity/cli": "^1.149.9"
   },
   "repository": {
     "type": "git",
