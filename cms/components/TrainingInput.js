@@ -38,7 +38,6 @@ class TrainingInput extends React.Component {
         }`
       )
       .then((sanityData) => {
-        console.info("RESPONSE", sanityData);
         this.setState({ sanityLoading: false, sanityData });
       })
       .catch((error) => {
