@@ -414,7 +414,7 @@ class CheckoutForm extends React.Component {
                       label="Discount voucher:"
                       name="voucher"
                       placeholder="Type your code here"
-                      onChange={e => resetVoucher(e.target.value)}
+                      onChange={(e) => resetVoucher(e.target.value)}
                       value={voucher}
                       meta={{
                         pristine: !(isVoucherValid === false),
@@ -526,7 +526,7 @@ class CheckoutForm extends React.Component {
                   </Col>
                 </Row>
                 <RowBuy>
-                  <P sm>
+                  <P>
                     By purchasing a training, you agree to our{' '}
                     <Link target="_blank" to="/terms-of-service">
                       Terms of Service
@@ -562,7 +562,7 @@ class CheckoutForm extends React.Component {
                     {submitting || isPaymentInProgress ? (
                       <Spinner />
                     ) : (
-                      'Buy now'
+                      'Place Order'
                     )}
                   </SubmitPaymentFormButton>
                 </RowBuy>
