@@ -89,8 +89,7 @@
     "pre-commit": "^1.2.2",
     "react-storybook-decorator-background": "^1.0.5",
     "react-test-renderer": "^16.5.0",
-    "start-server-and-test": "^1.7.1",
-    "wait-for-expect": "^1.1.0"
+    "start-server-and-test": "^1.7.1"
   },
   "repository": {
     "type": "git",
