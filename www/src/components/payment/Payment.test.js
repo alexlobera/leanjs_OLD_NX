@@ -1,7 +1,6 @@
 import React from 'react'
-import waitForExpect from 'wait-for-expect'
 import { act } from 'react-dom/test-utils'
-import { render, fireEvent, wait } from '@testing-library/react'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 
 import { MEETUP } from '../../config/data'
 import Root from '../../../test/utils/Root'
@@ -66,7 +65,7 @@ const mountPaymentSection = ({
     autoVoucherQuery,
     validateVoucherQuery,
     validateVatQuery,
-  ].filter(obj => obj)
+  ].filter((obj) => obj)
 
   return render(
     <Root graphQlMocks={mocks}>
@@ -114,24 +113,23 @@ describe('<PaymentSection />', () => {
       getByText,
       showSubscribeToNewsletter,
     }) => {
-      await wait(() => {
+      const change = (text, value) =>
+        fireEvent.change(getByLabelText(text), {
+          target: { value },
+        })
+      await waitFor(() => {
         fireEvent.click(getByText(/Buy now/i))
-
-        const change = (text, value) =>
-          fireEvent.change(getByLabelText(text), {
-            target: { value },
-          })
-
-        change(/Your name:/i, 'Joe Bloggs')
-        change(/Your email address:/i, 'test@example.com')
-        if (showSubscribeToNewsletter) {
-          fireEvent.click(getByLabelText(/Subscribe me/i))
-        }
-        change(/Name on card:/i, 'Mr J Bloggs')
-        change(/Card number:/i, '4242424242424242')
-        change(/Expiry date:/i, '12/99')
-        change(/CVC:/i, '123')
       })
+      change(/Your name:/i, 'Joe Bloggs')
+      change(/Your email address:/i, 'test@example.com')
+      if (showSubscribeToNewsletter) {
+        const checkbox = getByLabelText(/Subscribe me/i)
+        fireEvent.click(checkbox)
+      }
+      change(/Name on card:/i, 'Mr J Bloggs')
+      change(/Card number:/i, '4242424242424242')
+      change(/Expiry date:/i, '12/99')
+      change(/CVC:/i, '123')
     }
 
     it('should make a payment', async () => {
@@ -145,9 +143,9 @@ describe('<PaymentSection />', () => {
         await fillPaymentForm({ getByText, getByLabelText })
       })
 
-      fireEvent.click(getByText(/Buy now/i))
+      fireEvent.click(getByText(/Place Order/i))
 
-      await waitForExpect(() => {
+      await waitFor(() => {
         expect(navigate).toHaveBeenCalledWith('/payment-confirmation', {
           email: 'test@example.com',
           makePayment: result.data.makePayment,
@@ -177,7 +175,7 @@ describe('<PaymentSection />', () => {
         },
       })
 
-      await waitForExpect(() => {
+      await waitFor(() => {
         expect(getByText('The event has ended')).toBeTruthy()
       })
     })
@@ -209,9 +207,9 @@ describe('<PaymentSection />', () => {
         showSubscribeToNewsletter: true,
       })
 
-      fireEvent.click(getByText(/Buy now/i))
+      fireEvent.click(getByText(/Place Order/i))
 
-      await waitForExpect(() => {
+      await waitFor(() => {
         expect(triggerSubscribe).toHaveBeenCalledWith({
           email: 'test@example.com',
           form: 'checkout',
@@ -239,9 +237,9 @@ describe('<PaymentSection />', () => {
       const getNumWarnings = () => queryAllByTestId('danger-alert')
 
       expect(getNumWarnings().length).toBe(0)
-      fireEvent.click(getByText(/Buy now/i))
+      fireEvent.click(getByText(/Place order/i))
 
-      await waitForExpect(() => {
+      await waitFor(() => {
         expect(getNumWarnings().length).toBe(1)
       })
     })
@@ -269,9 +267,11 @@ describe('<PaymentSection />', () => {
         paymentMutation: { request, result },
       })
       const { getByText, getByLabelText } = helpers
-      await wait(() => {
+
+      await waitFor(() => {
         fireEvent.click(getByText(/Buy now/i))
       })
+
       fireEvent.click(getByText(/Add company details/i))
 
       const change = (text, value) =>
@@ -290,52 +290,53 @@ describe('<PaymentSection />', () => {
         const INVALID_EU_VAT_NUMBER = 'XYZ123'
         const {
           change,
-          getAllByText,
-          findAllByText,
+          getByText,
+          queryAllByText,
         } = await mountCompanyDetailsSection()
+
         expect(
-          findAllByText(/EU VAT number is not correct/i).length
+          queryAllByText(/EU VAT number is not correct/i).length
         ).toBeFalsy()
+
         change(/EU VAT number:/i, INVALID_EU_VAT_NUMBER)
 
-        expect(getAllByText(/EU VAT number is not correct/i).length).toBe(1)
+        getByText(/EU VAT number is not correct/i)
       })
 
       it('should not flag-up valid-format EU vat numbers', async () => {
         const VALID_EU_VAT_NUMBER = 'GB999 9999 73'
-        const { change, findAllByText } = await mountCompanyDetailsSection()
+        const { change, queryAllByText } = await mountCompanyDetailsSection()
         expect(
-          findAllByText(/EU VAT number is not correct/i).length
+          queryAllByText(/EU VAT number is not correct/i).length
         ).toBeFalsy()
         change(/EU VAT number:/i, VALID_EU_VAT_NUMBER)
 
         expect(
-          findAllByText(/EU VAT number is not correct/i).length
+          queryAllByText(/EU VAT number is not correct/i).length
         ).toBeFalsy()
       })
     })
 
     describe('Server-side validation', () => {
       it('should show an ellipsis while graphql is validating the vat number', async () => {
-        const {
-          change,
-          getAllByText,
-          getByText,
-        } = await mountCompanyDetailsSection()
+        const { change, getByText } = await mountCompanyDetailsSection()
 
         change(/EU VAT number:/i, 'GB999 9999 73')
+
         fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
-        expect(getAllByText(/Validating.../i).length).toBe(1)
+
+        getByText(/Validating.../i)
       })
 
       it('should show an appropriate message in the validate-VAT-number button', async () => {
         const { change, getByText } = await mountCompanyDetailsSection()
 
         change(/EU VAT number:/i, 'GB999 9999 73')
+
         fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
 
-        await wait(() => {
-          expect(getByText(/VAT number validated/i)).toBeTruthy()
+        await waitFor(() => {
+          getByText(/VAT number validated/i)
         })
       })
 
@@ -345,19 +346,15 @@ describe('<PaymentSection />', () => {
             isVatNumberValid: false,
           },
         }
-        const {
-          change,
-          getByText,
-          getAllByText,
-        } = await mountCompanyDetailsSection()
+        const { change, getByText } = await mountCompanyDetailsSection()
 
         change(/EU VAT number:/i, 'GB999 9999 73')
         fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
 
-        expect(getAllByText(/Validating.../i).length).toBe(1)
+        getByText(/Validating.../i)
 
-        await wait(() => {
-          expect(getByText(/Validate EU VAT and update taxes/i)).toBeTruthy()
+        await waitFor(() => {
+          getByText(/Validate EU VAT and update taxes/i)
         })
       })
     })
@@ -378,17 +375,19 @@ describe('<PaymentSection />', () => {
         validateVoucherQuery: { request, result },
       })
       const { getByText, getAllByText, getByLabelText } = helpers
-      await wait(() => {
+
+      await waitFor(() => {
         fireEvent.click(getByText(/Buy now/i))
-        expect(getAllByText(/£1194/i).length).toBe(2)
-
-        fireEvent.click(getByText(/Add discount voucher/i))
-        fireEvent.change(getByLabelText(/Discount voucher:/i), {
-          target: { value: 'asd' },
-        })
-
-        expect(getByText(/Validate voucher/i)).toBeTruthy()
       })
+
+      expect(getAllByText(/£1194/i).length).toBe(2)
+
+      fireEvent.click(getByText(/Add discount voucher/i))
+
+      fireEvent.change(getByLabelText(/Discount voucher:/i), {
+        target: { value: 'asd' },
+      })
+      fireEvent.click(getByText(/Validate voucher/i))
 
       return helpers
     }
@@ -399,14 +398,14 @@ describe('<PaymentSection />', () => {
           redeemVoucher: null,
         },
       }
-      const { findByText } = await mountVoucherSection(
+      const { findAllByText, getByText } = await mountVoucherSection(
         graphqlRequest,
         graphqlInvalidVoucherResult
       )
 
-      await wait(() => {
-        expect(findByText('£1194'))
-        expect(findByText(/The voucher is not valid/i)).toBeTruthy()
+      await findAllByText('£1194')
+      await waitFor(() => {
+        getByText(/The voucher is not valid/i)
       })
     })
 
@@ -422,14 +421,12 @@ describe('<PaymentSection />', () => {
         },
       }
 
-      const { getByText, findAllByText } = await mountVoucherSection(
+      const { findAllByText } = await mountVoucherSection(
         graphqlRequest,
         graphqlValidVoucherResponse
       )
 
-      fireEvent.click(getByText(/Validate voucher/i))
-
-      await waitForExpect(async () => {
+      await waitFor(async () => {
         const price = await findAllByText(/£1.2/i)
         expect(price.length).toBe(2)
       })
@@ -468,18 +465,21 @@ describe('<PaymentSection />', () => {
     const VAT_NUMBER_GB = 'GB999 9999 73'
     const VAT_NUMBER_FR = 'FR999 9999 73'
 
-    const showCompanyDetailsSection = async ({ getByText, getByLabelText }) => {
-      await wait(() => {
+    const showCompanyDetailsSection = async (
+      { getByText, getByLabelText },
+      vatNumber
+    ) => {
+      await waitFor(() => {
         fireEvent.click(getByText(/Buy now/i))
-        fireEvent.click(getByText(/Add company details/i))
       })
 
-      const changeVatNumber = value =>
-        fireEvent.change(getByLabelText(/EU VAT number:/i), {
-          target: { value },
-        })
+      fireEvent.click(getByText(/Add company details/i))
 
-      return { changeVatNumber }
+      if (vatNumber) {
+        fireEvent.change(getByLabelText(/EU VAT number:/i), {
+          target: { value: vatNumber },
+        })
+      }
     }
 
     it('should use 1.2 as the VAT rate before the form is submitted', async () => {
@@ -492,10 +492,7 @@ describe('<PaymentSection />', () => {
 
       await showCompanyDetailsSection(helpers)
 
-      await waitForExpect(() => {
-        const price = helpers.findAllByText(/VAT (20%):/i)
-        expect(price).toBeTruthy()
-      })
+      helpers.getAllByText(/VAT \(20%\):/i)
     })
 
     it('should show an ellipsis while graphql is validating the VAT number', async () => {
@@ -506,12 +503,12 @@ describe('<PaymentSection />', () => {
         },
       })
 
-      const { changeVatNumber } = await showCompanyDetailsSection(helpers)
-      const { getAllByText, getByText } = helpers
+      await showCompanyDetailsSection(helpers, VAT_NUMBER_GB)
+      const { getByText } = helpers
 
-      changeVatNumber(VAT_NUMBER_GB)
       fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
-      expect(getAllByText(/Validating.../i).length).toBe(1)
+
+      getByText(/Validating.../i)
     })
 
     it('should show the word "validated" in the validate-VAT-number button if the VAT number could be validated successfully', async () => {
@@ -522,14 +519,13 @@ describe('<PaymentSection />', () => {
         },
       })
 
-      const { changeVatNumber } = await showCompanyDetailsSection(helpers)
-      const { getAllByText, getByText } = helpers
+      await showCompanyDetailsSection(helpers, VAT_NUMBER_GB)
+      const { getByText } = helpers
 
-      changeVatNumber(VAT_NUMBER_GB)
       fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
 
-      await waitForExpect(() => {
-        expect(getAllByText(/VAT number validated/i).length).toBe(1)
+      await waitFor(() => {
+        getByText(/VAT number validated/i)
       })
     })
 
@@ -541,14 +537,13 @@ describe('<PaymentSection />', () => {
         },
       })
 
-      const { changeVatNumber } = await showCompanyDetailsSection(helpers)
-      const { getAllByText, getByText } = helpers
+      await showCompanyDetailsSection(helpers, VAT_NUMBER_GB)
+      const { getByText } = helpers
 
-      changeVatNumber(VAT_NUMBER_GB)
       fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
 
-      await wait(() => {
-        expect(getAllByText(/Validate EU VAT and update taxes/i).length).toBe(1)
+      await waitFor(() => {
+        getByText(/Validate EU VAT and update taxes/i)
       })
     })
 
@@ -560,16 +555,16 @@ describe('<PaymentSection />', () => {
         },
       })
 
-      const { changeVatNumber } = await showCompanyDetailsSection(helpers)
-      const { getAllByText, getByText, findAllByText } = helpers
+      await showCompanyDetailsSection(helpers, VAT_NUMBER_GB)
+      const { getAllByText, getByText } = helpers
 
-      changeVatNumber(VAT_NUMBER_GB)
       fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
 
-      await wait(() => {
-        expect(getAllByText(/Validate EU VAT and update taxes/i).length).toBe(1)
-        const price = findAllByText(/VAT (20%):/i)
-        expect(price).toBeTruthy()
+      getByText(/Validating.../i)
+
+      await waitFor(() => {
+        getAllByText(/£199/i)
+        getAllByText(/VAT \(20%\)/i)
       })
     })
 
@@ -581,16 +576,16 @@ describe('<PaymentSection />', () => {
         },
       })
 
-      const { changeVatNumber } = await showCompanyDetailsSection(helpers)
-      const { getAllByText, getByText, findAllByText } = helpers
+      await showCompanyDetailsSection(helpers, VAT_NUMBER_GB)
+      const { getByText } = helpers
 
-      changeVatNumber(VAT_NUMBER_GB)
       fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
 
-      await waitForExpect(() => {
-        expect(getAllByText(/VAT number validated/i).length).toBe(1)
-        const price = findAllByText(/VAT (20%):/i)
-        expect(price).toBeTruthy()
+      getByText(/Validating.../i)
+
+      await waitFor(() => {
+        getByText(/VAT number validated/i)
+        getByText(/VAT \(20%\):/i)
       })
     })
 
@@ -602,16 +597,14 @@ describe('<PaymentSection />', () => {
         },
       })
 
-      const { changeVatNumber } = await showCompanyDetailsSection(helpers)
-      const { getAllByText, getByText, findAllByText } = helpers
+      await showCompanyDetailsSection(helpers, VAT_NUMBER_FR)
+      const { getByText } = helpers
 
-      changeVatNumber(VAT_NUMBER_FR)
       fireEvent.click(getByText(/Validate EU VAT and update taxes/i))
 
-      await waitForExpect(() => {
-        expect(getAllByText(/VAT number validated/i).length).toBe(1)
-        const price = findAllByText(/VAT (0%):/i)
-        expect(price).toBeTruthy()
+      await waitFor(() => {
+        getByText(/VAT number validated/i)
+        getByText(/VAT \(0%\):/i)
       })
     })
   })
