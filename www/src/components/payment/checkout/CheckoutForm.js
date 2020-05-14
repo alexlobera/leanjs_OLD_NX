@@ -271,18 +271,29 @@ class CheckoutForm extends React.Component {
           </Row>
         )}
 
-        {trialTraingInstance && (
+        {trialTraingInstance || priceQuantity > 200 ? (
           <Box mb={3}>
-            <H5 sx={{ mb: 1, borderBottom: 'none' }}>Not ready to buy yet?</H5>
-            <LinkButton
-              sx={{ mb: 2 }}
-              to={trialTraingInstance.toPath}
-              variant="primary"
-            >
-              Try first
-            </LinkButton>
+            <H5 sx={{ mb: 1, borderBottom: 'none' }}>Not ready to buy?</H5>
+            {trialTraingInstance && (
+              <LinkButton
+                sx={{ mb: 2, mr: 3 }}
+                to={trialTraingInstance.toPath}
+                variant="primary"
+              >
+                Try first
+              </LinkButton>
+            )}
+
+            {priceQuantity > 200 && (
+              <LinkButton
+                sx={{ mb: 2 }}
+                to="mailto:lena@leanjs.com?subject=Pay in installments&body=Hi Lena,%0D%0A%0D%0APlease, let me know how I could spread the cost of the training and pay in installments.%0D%0A%0D%0AThank you!"
+              >
+                Pay in installments
+              </LinkButton>
+            )}
           </Box>
-        )}
+        ) : null}
         <Form
           onSubmit={pay}
           render={({
