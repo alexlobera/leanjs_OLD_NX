@@ -9,6 +9,8 @@ import {
   formatConf,
 } from './training/dataUtils'
 
+import { setCookie, getCookie } from './utils/store'
+import { getURLParameter } from './utils/url'
 import './reset.css'
 import './layout.css'
 import { SENTRY_DSN } from '../config/apps'
@@ -27,7 +29,7 @@ const makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem = [
   FONT_BARLOW_800_LATIN_EXT_WOFF2,
 ]
 const preloadUrls = makeSureTheseFontsAreUsedOnTheWebsiteIfYouArePreloadingThem.map(
-  url => ({
+  (url) => ({
     rel: 'preload',
     href: url,
     as: 'font',
@@ -39,7 +41,7 @@ let prefetchDnsUrls = [
   'https://connect.facebook.net',
   'https://www.google-analytics.com',
 ]
-const prefetchDnsLinks = prefetchDnsUrls.map(href => ({
+const prefetchDnsLinks = prefetchDnsUrls.map((href) => ({
   rel: 'dns-prefetch',
   href,
 }))
@@ -126,11 +128,19 @@ const Layout = ({ children }) => {
   // let scriptUrls = []
   preconnectUrls = [...preconnectUrls, 'https://api.autopilothq.com']
 
-  const preconnectLinks = preconnectUrls.map(href => ({
+  const preconnectLinks = preconnectUrls.map((href) => ({
     crossorigin: 'crossorigin',
     rel: 'preconnect',
     href,
   }))
+
+  React.useEffect(() => {
+    const utm_source_cookie = getCookie('utm_source')
+    const utm_source_url = getURLParameter('utm_source')
+    if (!utm_source_cookie && utm_source_url) {
+      setCookie('utm_source', utm_source_url)
+    }
+  }, [])
 
   const cityIndex = {}
   const formatTraining = ({ node }) => {
@@ -224,7 +234,7 @@ const Layout = ({ children }) => {
           {/* {scriptTags} */}
         </Helmet>
         <Menu />
-        {React.Children.map(children, child =>
+        {React.Children.map(children, (child) =>
           React.cloneElement(child, {
             trainings: trainingAndEvents,
           })

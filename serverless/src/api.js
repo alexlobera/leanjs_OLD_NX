@@ -8,7 +8,7 @@ const slackBotIconUrl =
 const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
   const api = express();
   const RESOURCES_SINGED_UP = "boolean--Resources-SingedUp";
-  middlewares.map(middleware => api.use(middleware));
+  middlewares.map((middleware) => api.use(middleware));
 
   api.use(setOptions);
   api.post("/sendFeedback", sendFeedback);
@@ -36,7 +36,7 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
       text: `${mention ? mention : ""} \`\`\`
           ${JSON.stringify(feedback, null, " ")}
           \`\`\`
-          `
+          `,
     });
 
     response.status(200).send("feedback submited");
@@ -56,9 +56,9 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
       icon_url: slackBotIconUrl,
       text: `:fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire: :fire:
 NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
-        key => `\n\n*${key}*: ${fields[key]}`
+        (key) => `\n\n*${key}*: ${fields[key]}`
       )}
-            `
+            `,
     });
 
     response.status(200).send("request submited");
@@ -78,9 +78,9 @@ NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
     const res = await fetch(`https://api2.autopilothq.com/v1/${endpoint}`, {
       method: "POST",
       headers: {
-        autopilotapikey
+        autopilotapikey,
       },
-      body: jsonBody ? JSON.stringify(jsonBody) : undefined
+      body: jsonBody ? JSON.stringify(jsonBody) : undefined,
     });
     const json = await res.json();
     console.log("response:", JSON.stringify(json));
@@ -124,24 +124,25 @@ NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
         Email: email,
         LeadSource: pathname,
         _autopilot_list: "contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C",
-        custom
-      }
+        custom,
+      },
     });
     response.status(200).send("it worked");
   }
 
   async function subscribe(request, response) {
     const data = request && request.body;
-    const { email, form, city, path, resources } = data;
+    const { email, form, city, path, resources, utm_source } = data;
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
         LeadSource: `${form} form in ${path}`,
         custom: {
           "string--From--City": city,
-          [RESOURCES_SINGED_UP]: resources
-        }
-      }
+          "string--UTM--Source": utm_source,
+          [RESOURCES_SINGED_UP]: resources,
+        },
+      },
     });
     response.status(200).send("it worked");
   }

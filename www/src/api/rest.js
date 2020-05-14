@@ -1,4 +1,5 @@
 import trackUserBehaviour from '../components/utils/trackUserBehaviour'
+import { getCookie } from '../components/utils/store'
 
 const apiBaseUrl =
   'https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/'
@@ -25,6 +26,7 @@ export const triggerSessionSubscribe = ({
       subscriptions,
       resources,
       pathname,
+      utm_source: getCookie('utm_source'),
     }),
   }).then(() => {
     trackUserBehaviour({
@@ -50,6 +52,8 @@ export const triggerSubscribe = ({
   city = 'unknown',
   resources = true,
 }) => {
+  const utm_source = getCookie('utm_source')
+
   const path = typeof window !== 'undefined' ? window.location.pathname : ''
   const payload = {
     email,
@@ -57,6 +61,7 @@ export const triggerSubscribe = ({
     city,
     resources,
     path,
+    utm_source,
   }
   return fetch(`${apiBaseUrl}subscribe`, {
     ...defaultOptions,
@@ -69,13 +74,13 @@ export const triggerSubscribe = ({
   })
 }
 
-export const sendFeedback = feedback =>
+export const sendFeedback = (feedback) =>
   fetch(`${apiBaseUrl}sendFeedback`, {
     ...defaultOptions,
     body: JSON.stringify(feedback),
   })
 
-export const requestQuote = message =>
+export const requestQuote = (message) =>
   fetch(`${apiBaseUrl}requestQuote`, {
     ...defaultOptions,
     body: JSON.stringify(message),
