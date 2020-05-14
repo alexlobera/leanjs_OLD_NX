@@ -30,8 +30,8 @@ const ContactForm = ({
 }) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const handleFormSubmit = async ({ email }) => {
-    setFormSubmitted(prevState => !prevState)
     await triggerSubscribe({ email })
+    setFormSubmitted((prevState) => !prevState)
     navigate('/thanks-for-signing-up')
   }
 
