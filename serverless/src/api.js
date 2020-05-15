@@ -112,7 +112,7 @@ NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
 
   async function sessionSubscribe(request, response) {
     const data = request && request.body;
-    const { name, email, subscriptions, resources, pathname } = data;
+    const { name, email, subscriptions, resources, utm_source } = data;
     const custom = subscriptions.reduce((acc, subscription) => {
       acc[`boolean--${subscription}--Session`] = true;
       return acc;
@@ -122,7 +122,7 @@ NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
       contact: {
         FirstName: name,
         Email: email,
-        LeadSource: pathname,
+        LeadSource: utm_source,
         _autopilot_list: "contactlist_37B9CE06-F48D-4F7B-A119-4725B474EF2C",
         custom,
       },
@@ -136,10 +136,10 @@ NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
     await postToAutopilot(`/contact`, {
       contact: {
         Email: email,
-        LeadSource: `${form} form in ${path}`,
+        LeadSource: utm_source,
         custom: {
           "string--From--City": city,
-          "string--UTM--Source": utm_source,
+          "string--Website--Source": `${form} form in ${path}`,
           [RESOURCES_SINGED_UP]: resources,
         },
       },
