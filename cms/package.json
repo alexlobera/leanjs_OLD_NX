@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Alex Lobera <alex.lobera@gmail.com>",
-  "license": "UNLICENSED",
+  "author": "React GraphQL Academy <hello@reactgraphql.academy>",
+  "license": "MIT",
   "scripts": {
     "start": "sanity start",
     "deploy": "sanity deploy",
@@ -37,12 +37,12 @@
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "prop-types": "^15.6",
-    "react": "^16.12",
-    "react-dom": "^16.12",
     "sanity-plugin-mux-input": "^0.2.1"
   },
   "devDependencies": {
-    "@sanity/cli": "^1.149.9"
+    "@sanity/cli": "^1.149.9",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "repository": {
     "type": "git",

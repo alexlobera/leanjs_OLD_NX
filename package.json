@@ -38,7 +38,7 @@
     "typescript": "^3.7.5"
   },
   "keywords": [
-    "gatsby"
+    "leanjs"
   ],
   "license": "MIT",
   "scripts": {
@@ -50,6 +50,7 @@
     "build:packages": "lerna run build:package",
     "watch:lib": "lerna run --stream watch:lib",
     "prestart": "yarn build:packages",
+    "start:leanjs.com": "yarn watch:lib & lerna run start --scope=leanjs.com --stream",
     "start": "yarn watch:lib & lerna run start --scope=rga-www --stream",
     "start:cms": "yarn build:packages && yarn watch:lib & lerna run start --scope=rga-cms --stream",
     "start:docs": "yarn build:packages && yarn watch:lib & lerna run start --scope=@leanui/docs --stream"
@@ -87,6 +88,7 @@
     "lint-staged": "^9.4.2",
     "node-fetch": "^2.2.0",
     "pre-commit": "^1.2.2",
+    "prettier": "2.0.5",
     "react-storybook-decorator-background": "^1.0.5",
     "react-test-renderer": "^16.5.0",
     "start-server-and-test": "^1.7.1"
@@ -145,6 +147,7 @@
   "workspaces": [
     "packages/*",
     "www",
+    "leanjs.com",
     "cms"
   ]
 }

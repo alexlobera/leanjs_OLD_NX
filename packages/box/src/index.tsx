@@ -15,7 +15,7 @@ import {
   LayoutProps,
   position,
   PositionProps,
-  compose
+  compose,
 } from "styled-system";
 
 export type StyleProps = SpaceProps &
@@ -26,17 +26,17 @@ export type StyleProps = SpaceProps &
   LayoutProps &
   PositionProps;
 
-export interface BoxProps {
-  type?: string; // TODO REPLACE THIS WITH A GENERIC INTERFACE FOR ANY INPUT PROPS (PLACEHOLDER, ETC)
+export type BoxProps<T = {}> = T & {
+  // type?: string; // TODO REPLACE THIS WITH A GENERIC INTERFACE FOR ANY INPUT PROPS (PLACEHOLDER, ETC)
   sx?: StyleProps;
   children?: ReactNode;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
-}
+};
 
-interface StyledBoxProps extends BoxProps {
+export type StyledBoxProps<T = {}> = BoxProps<T> & {
   variant?: string;
   ref?: React.Ref<HTMLElement>;
-}
+};
 
 const css = compose(space, color, typography, border, shadow, layout, position);
 
@@ -46,22 +46,35 @@ const StyledBox: FunctionComponent<StyledBoxProps> = React.memo(
   ))(({ sx, theme }) => css({ ...sx, theme }))
 );
 
-const Box = React.forwardRef<HTMLElement, BoxProps>(
-  ({ sx = {}, ...rest }, ref) => (
+function Box<T = {}>({ sx = {}, ...rest }: BoxProps<T>) {
+  return (
     <StyledBox
       sx={{
         fontFamily: "barlow",
         fontWeight: "normal",
         color: "text",
-        ...sx
+        ...sx,
       }}
       {...rest}
-      ref={ref}
     />
-  )
-);
+  );
+}
+
+// const Box = React.forwardRef<HTMLElement, BoxProps>(
+//   ({ sx = {}, ...rest }, ref) => (
+//     <StyledBox
+//       sx={{
+//         fontFamily: "barlow",
+//         fontWeight: "normal",
+//         color: "text",
+//         ...sx,
+//       }}
+//       {...rest}
+//       ref={ref}
+//     />
+//   )
+// );
 
 Box.displayName = "Box";
 
-export default React.memo(Box);
-export { Box };
+export default Box;

@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": "public",
+    "redirects": [
+      {
+        "source": "/training/private-react-redux-graphql-training",
+        "destination": "/training",
+        "type": 301
+      }
+    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

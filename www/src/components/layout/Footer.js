@@ -19,7 +19,7 @@ import {
 import { fontColor } from '../text'
 import Box from './Box'
 
-const FooterWrapper = React.memo(props => (
+const FooterWrapper = React.memo((props) => (
   <Box
     sx={{
       backgroundColor: [DARK_BLUE, 'transparent'],
