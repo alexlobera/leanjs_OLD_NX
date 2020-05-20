@@ -64,7 +64,7 @@ class GraphQLCurriculum extends React.Component {
     }
   }
 
-  setActive = active => {
+  setActive = (active) => {
     this.setState({ active })
   }
 

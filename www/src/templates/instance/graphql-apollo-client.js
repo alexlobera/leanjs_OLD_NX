@@ -13,7 +13,7 @@ import {
 
 export const crossSellTypes = [GRAPHQL_API, GRAPHQL_PART_TIME, GRAPHQL_BOOTCAMP]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     trainingId={GRAPHQL_WORKSHOP_APOLLO_CLIENT_ID}

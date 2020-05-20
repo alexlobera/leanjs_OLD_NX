@@ -24,7 +24,7 @@ export const SubmenuButton = styled.i`
   display: inline-block;
   margin-left: 9px;
   padding-bottom: 2px;
-  ${props =>
+  ${(props) =>
     props.open
       ? `border-bottom: 8px solid ${WHITE};`
       : `border-top: 8px solid ${WHITE};`};
@@ -52,7 +52,7 @@ class ItemSubmenu extends React.Component {
     document.removeEventListener('mousedown', this.handleClickOutside)
   }
 
-  handleClickOutside = event => {
+  handleClickOutside = (event) => {
     if (
       this.wrapperRef &&
       !this.wrapperRef.current.contains(event.target) &&
@@ -70,7 +70,7 @@ class ItemSubmenu extends React.Component {
     this.setState({ isOpen: !this.state.isOpen })
   }
 
-  onToggleSubmenuClicked = event => {
+  onToggleSubmenuClicked = (event) => {
     event.preventDefault()
     this.toggle()
   }
@@ -91,7 +91,7 @@ class ItemSubmenu extends React.Component {
         </Link>
         {isOpen ? (
           <Ul>
-            {items.map(child => (
+            {items.map((child) => (
               <DesktopMenuItem text={child.text} key={child.to} to={child.to} />
             ))}
           </Ul>

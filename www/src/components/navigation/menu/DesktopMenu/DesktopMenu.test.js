@@ -16,11 +16,7 @@ describe('<DesktopMenu />', () => {
     const wrapper = shallow(<DesktopMenu />)
 
     expect(
-      wrapper
-        .find(DesktopMenuItem)
-        .first()
-        .props()
-        .to.toLowerCase()
+      wrapper.find(DesktopMenuItem).first().props().to.toLowerCase()
     ).toMatch(/react/)
   })
 

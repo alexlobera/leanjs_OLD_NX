@@ -67,7 +67,7 @@ const Landing = ({ data, trainings }) => {
                   <H2>
                     React Redux GraphQL in {city}, {country}.
                   </H2>
-                  {paragraphs.map(paragraph => (
+                  {paragraphs.map((paragraph) => (
                     <P>
                       <div dangerouslySetInnerHTML={{ __html: paragraph }} />
                     </P>

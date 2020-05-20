@@ -11,13 +11,13 @@ import Box from '../layout/Box'
 import Card from '../elements/Card'
 
 // DELETE NEXT FUNCTION AFTER GRAPHQL REFACTORING
-export const curriedToggleNavigateTo = to => section =>
+export const curriedToggleNavigateTo = (to) => (section) =>
   to ? `${to}&section=${section}` : false
 
 export const navigateToSection = (to, section) =>
   section ? `${to}&section=${section}` : to
 
-const CurriculumSection = props => {
+const CurriculumSection = (props) => {
   const isOpen =
     props.isOpen ||
     (getURLParameter('section') === props.name &&
@@ -26,7 +26,7 @@ const CurriculumSection = props => {
   const [isTabOpen, setIsOpen] = useState(isOpen)
 
   const toggleSubSection = () => {
-    setIsOpen(prevState => !prevState)
+    setIsOpen((prevState) => !prevState)
   }
 
   useEffect(() => {
@@ -108,7 +108,7 @@ const CurriculumSection = props => {
   )
 }
 
-const addFullStopAtTheEnd = text =>
+const addFullStopAtTheEnd = (text) =>
   text && text.replace ? text.replace(/([^.])$/, '$1.') : ''
 
 // CurriculumSection.defaultProps = {

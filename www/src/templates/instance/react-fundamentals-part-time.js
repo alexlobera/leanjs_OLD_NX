@@ -13,7 +13,7 @@ import {
 
 export const crossSellTypes = [REACT_BOOTCAMP]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     // TODO REMPLEMENT THIS SINCE THE REACT TRIAL NOW IS FOR DIFFERENT REACT TRAINING

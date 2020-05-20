@@ -44,7 +44,7 @@ export const useExpandCheckout = () => {
   return checkoutContext && checkoutContext.expandCheckout
 }
 
-const Checkout = props => {
+const Checkout = (props) => {
   const [isOpen, setIsOpen] = useState(false)
   const checkoutContext = React.useContext(CheckoutContext)
   const isCheckoutOpen = (checkoutContext && checkoutContext.isOpen) || isOpen

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const QuestionMarkIcon = props => (
+const QuestionMarkIcon = (props) => (
   <svg
     width="20"
     height="20"

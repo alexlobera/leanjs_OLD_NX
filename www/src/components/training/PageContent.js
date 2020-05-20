@@ -60,7 +60,7 @@ const Answer = ({
           <BlockContent blocks={faq._rawAnswer} serializers={serializers} />
         )}
         {showToggle && (
-          <Link onClick={() => setIsDisplayed(state => !state)}>
+          <Link onClick={() => setIsDisplayed((state) => !state)}>
             {isDisplayed ? 'Hide' : 'Show'}
           </Link>
         )}
@@ -74,8 +74,8 @@ export const FAQSection = React.memo(({ pageData }) => {
     return null
   }
 
-  const featuredFaqs = pageData.faqs.filter(faq => faq.featured)
-  const nofeaturedFaqs = pageData.faqs.filter(faq => !faq.featured)
+  const featuredFaqs = pageData.faqs.filter((faq) => faq.featured)
+  const nofeaturedFaqs = pageData.faqs.filter((faq) => !faq.featured)
 
   return (
     <Section>

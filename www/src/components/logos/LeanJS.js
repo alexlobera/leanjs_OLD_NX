@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LeanJS = props => (
+const LeanJS = (props) => (
   <svg {...props} viewBox={`0 0 225.639 212.844`}>
     <path
       fill={props.color || '#515151'}

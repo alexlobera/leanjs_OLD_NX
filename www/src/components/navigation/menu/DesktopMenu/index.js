@@ -46,7 +46,7 @@ const Item = ({
   )
 }
 
-export const DesktopMenuItem = styled(Item).attrs(props => ({
+export const DesktopMenuItem = styled(Item).attrs((props) => ({
   className: 'navigation',
 }))`
   margin: 0 0 0 6px;

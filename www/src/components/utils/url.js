@@ -1,4 +1,4 @@
-export const getURLParameter = name => {
+export const getURLParameter = (name) => {
   if (typeof window === 'undefined') return
 
   return (

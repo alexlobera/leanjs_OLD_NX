@@ -30,7 +30,7 @@ const TrainingDetails = ({
       <React.Fragment>
         <H3>Coaches</H3>
         <Ul>
-          {coaches.map(coachKey => (
+          {coaches.map((coachKey) => (
             <CoachItem
               key={coachKey}
               path={coachKey}

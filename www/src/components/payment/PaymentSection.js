@@ -55,7 +55,7 @@ class PaymentSection extends React.Component {
     }
   }
 
-  validateVoucher = voucher => {
+  validateVoucher = (voucher) => {
     const {
       statelessClient,
       item: { id: itemId, shoppingItemEnum },
@@ -92,12 +92,12 @@ class PaymentSection extends React.Component {
           discountCodePrice: currentPrice,
         })
       })
-      .catch(error => {
+      .catch((error) => {
         this.setVoucherInProgress(false)
       })
   }
 
-  setVoucherInProgress = isVoucherValidationInProgress => {
+  setVoucherInProgress = (isVoucherValidationInProgress) => {
     this.setState({ isVoucherValidationInProgress })
   }
 
@@ -110,20 +110,20 @@ class PaymentSection extends React.Component {
   }
 
   removeCourse = () => {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       quantity: prevState.quantity - 1 <= 0 ? 1 : prevState.quantity - 1,
     }))
     this.resetVoucher()
   }
 
   addCourse = () => {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       quantity: prevState.quantity + 1 > 30 ? 30 : prevState.quantity + 1,
     }))
     this.resetVoucher()
   }
 
-  updateVatRate = vatRate => {
+  updateVatRate = (vatRate) => {
     this.setState({ vatRate })
   }
 
@@ -350,7 +350,7 @@ query eventDiscountPrice($eventId: ID!) {
 }
 `
 
-const memoizedTrainingOptions = memoize(item => ({
+const memoizedTrainingOptions = memoize((item) => ({
   variables: { trainingInstanceId: item.id },
 }))
 
@@ -359,7 +359,7 @@ const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
   skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
 })
 
-const memoizedEventOptions = memoize(item => ({
+const memoizedEventOptions = memoize((item) => ({
   variables: { eventId: item.id },
 }))
 

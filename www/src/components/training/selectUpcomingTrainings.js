@@ -18,18 +18,18 @@ export const selectNthTraining = ({
   return filteredTrainings.length ? filteredTrainings[nth - 1] : undefined
 }
 
-const trainingByInstanceTypeName = trainingInstanceTypeName => training =>
+const trainingByInstanceTypeName = (trainingInstanceTypeName) => (training) =>
   !trainingInstanceTypeName ||
   training.trainingInstanceTypeName === trainingInstanceTypeName
-const trainingByTech = tech => training => !tech || training.tech === tech
+const trainingByTech = (tech) => (training) => !tech || training.tech === tech
 
-const trainingByTypename = typename => training =>
+const trainingByTypename = (typename) => (training) =>
   !typename || training.__typename === typename
 
-const trainingByTrainingType = trainingType => training =>
+const trainingByTrainingType = (trainingType) => (training) =>
   !trainingType || training.trainingType === trainingType
 
-const trainingByCity = ({ city } = {}) => training => {
+const trainingByCity = ({ city } = {}) => (training) => {
   if (!city) {
     return true
   }
@@ -49,21 +49,21 @@ export const getNextTrainingByTrainingId = ({ trainings, trainingId }) =>
   trainings.find(({ training } = {}) => training && training.id === trainingId)
 
 export const selectTrainingByInstanceId = ({ trainings, id }) =>
-  trainings.find(training => training.id === id)
+  trainings.find((training) => training.id === id)
 
 export const selectNodeById = ({ nodes, id }) =>
-  nodes.find(node => node.id === id)
+  nodes.find((node) => node.id === id)
 
-export const excludeByTrainingId = trainingId => ({ training }) =>
+export const excludeByTrainingId = (trainingId) => ({ training }) =>
   !training || !training.id || training.id !== trainingId
 
-export const excludeByInstanceId = instanceId => instance =>
+export const excludeByInstanceId = (instanceId) => (instance) =>
   !instance || !instance.id || instance.id !== instanceId
 
-export const excludeByTrainingType = trainingType => instance =>
+export const excludeByTrainingType = (trainingType) => (instance) =>
   instance && !(trainingType && instance.trainingType === trainingType)
 
-export const filterByTrainingId = trainingId => ({ training } = {}) =>
+export const filterByTrainingId = (trainingId) => ({ training } = {}) =>
   !trainingId || (training && training.id && training.id === trainingId)
 
 export const sortUpcomingTrainings = (a, b) =>

@@ -10,7 +10,7 @@ const computeProps = (config, props) => {
 const memoizedComputeProps = memoize(computeProps)
 
 export function graphql(query, config = {}) {
-  return Component => props => {
+  return (Component) => (props) => {
     if (config.skip && config.skip(props)) {
       return <Component {...props} />
     }
@@ -48,7 +48,7 @@ async function postQuery({ query, variables }) {
   return response.json()
 }
 
-export const withStatelessClient = Component => props => {
+export const withStatelessClient = (Component) => (props) => {
   const { client } = useClient()
   return <Component {...props} statelessClient={client} />
 }

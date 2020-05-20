@@ -63,7 +63,7 @@ const queries = [
   {
     query: postsQuery,
     transformer: ({ data }) => {
-      const sanityPosts = data.allSanityPost.nodes.map(node => {
+      const sanityPosts = data.allSanityPost.nodes.map((node) => {
         const { author, tags, _rawBody, ...rest } = node
         const {
           _rawBody: removeRawBody,
@@ -79,7 +79,7 @@ const queries = [
         }
       })
 
-      const markdownPosts = data.allMarkdownRemark.nodes.map(node => {
+      const markdownPosts = data.allMarkdownRemark.nodes.map((node) => {
         const {
           frontmatter: { author, ...frontmatterRest },
           fields,

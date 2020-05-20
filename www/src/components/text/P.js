@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import Box from '../layout/Box'
 
 const StyledP = styled(Box)`
-  text-align: ${props => props.align || 'left'};
-  ${props => props.small && `font-size 0.9rem`};
+  text-align: ${(props) => props.align || 'left'};
+  ${(props) => props.small && `font-size 0.9rem`};
   > a {
-    ${props => props.small && `font-size 0.9rem`};
+    ${(props) => props.small && `font-size 0.9rem`};
   }
 `
 const P = ({ sx = {}, ...rest }) => (

@@ -32,6 +32,7 @@
     "lodash.isequal": "^4.5.0",
     "markdown-to-jsx": "^6.10.2",
     "payment": "^2.3.0",
+    "prettier": "^2.0.5",
     "prismjs": "^1.20.0",
     "raven-js": "^3.26.4",
     "react-final-form": "^6.4.0",

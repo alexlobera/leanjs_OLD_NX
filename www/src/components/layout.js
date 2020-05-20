@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import raven from 'raven-js'
 import { useStaticQuery, graphql } from 'gatsby'
 

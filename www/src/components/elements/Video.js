@@ -8,7 +8,7 @@ const IframeWrapper = styled(Box)`
   > iframe {
     border: 0;
     margin-bottom: 0;
-    ${props => `height: ${props.height}px;`}
+    ${(props) => `height: ${props.height}px;`}
   }
 `
 
@@ -20,10 +20,9 @@ const Video = ({ youtubeId, time, description, height = '390', ...rest }) => (
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen
-      src={`https://www.youtube-nocookie.com/embed/${youtubeId ||
-        rest['youtube-id']}?rel=0&showinfo=0&wmode=opaque${
-        time ? `&start=${time}` : ''
-      }`}
+      src={`https://www.youtube-nocookie.com/embed/${
+        youtubeId || rest['youtube-id']
+      }?rel=0&showinfo=0&wmode=opaque${time ? `&start=${time}` : ''}`}
     />
     {description ? <div>{description}</div> : null}
   </IframeWrapper>

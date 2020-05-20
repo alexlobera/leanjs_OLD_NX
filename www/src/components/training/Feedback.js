@@ -9,7 +9,7 @@ import Spinner from '../form/Spinner'
 
 function Feedback() {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const handleFormSubmit = async feedback => {
+  const handleFormSubmit = async (feedback) => {
     await sendFeedback({
       'feedback from': 'Training instance default feedback form',
       ...feedback,

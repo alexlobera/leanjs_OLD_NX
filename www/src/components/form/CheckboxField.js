@@ -13,7 +13,7 @@ const Icon = styled.svg`
   stroke: ${({ color = DARK_GREY }) => color};
   stroke-width: 2px;
 `
-const HiddenCheckbox = styled.input.attrs(props => ({
+const HiddenCheckbox = styled.input.attrs((props) => ({
   type: 'checkbox',
 }))`
   clip: rect(0 0 0 0);
@@ -30,19 +30,19 @@ const HiddenCheckbox = styled.input.attrs(props => ({
 const StyledCheckbox = styled.div`
   margin: 0.4rem 0.8rem 0.4rem 0;
   border: 1px solid ${({ color }) => (color ? color : DARK_GREY)};
-  height: ${props => (props.size ? props.size : defaultSize)}em;
-  min-width: ${props => (props.size ? props.size : defaultSize)}em;
+  height: ${(props) => (props.size ? props.size : defaultSize)}em;
+  min-width: ${(props) => (props.size ? props.size : defaultSize)}em;
   ${HiddenCheckbox}:focus + & {
     box-shadow: 0 0 0 3px pink;
   } // RM: focus needs to be fixed, it works with simple styled input
   ${Icon} {
-    visibility: ${props => (props.checked ? 'visible' : 'hidden')};
+    visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
   }
 `
 const CheckboxSpan = ({ sx, ...rest }) => <Flex box="span" sx={sx} {...rest} />
 
 const Checkbox = ({ checked, input, onChange, color, ...props }) => {
-  const newOnChange = e => {
+  const newOnChange = (e) => {
     input && input.onChange && input.onChange(e)
     onChange && onChange(e)
   }
@@ -64,7 +64,7 @@ const LabeledCheckbox = ({ defaultValue, elementOnChecked, ...props }) => {
     defaultValue || (props.input && props.input.checked) || false
   )
 
-  const handleCheckboxChange = event => {
+  const handleCheckboxChange = (event) => {
     setChecked(event.target.checked)
   }
 
@@ -91,7 +91,7 @@ const LabeledCheckbox = ({ defaultValue, elementOnChecked, ...props }) => {
   )
 }
 
-const LabeledCheckboxField = props => (
+const LabeledCheckboxField = (props) => (
   <Field {...props} type="checkbox" component={LabeledCheckbox} />
 )
 

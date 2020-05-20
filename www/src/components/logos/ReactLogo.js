@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ReactLogo = props => (
+const ReactLogo = (props) => (
   <svg viewBox="0 0 1210 1321" preserveAspectRatio="xMidYMid meet">
     <defs>
       <path

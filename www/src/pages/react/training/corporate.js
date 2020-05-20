@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import { BLUE } from 'src/config/styles'
 import { CORP_TRAINING } from 'src/../images/imageNames'
@@ -40,7 +40,7 @@ const metas = {
 
 const RequestTrialForm = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const handleFormSubmit = async data => {
+  const handleFormSubmit = async (data) => {
     await requestQuote(data)
 
     setFormSubmitted(true)

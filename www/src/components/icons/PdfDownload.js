@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '../layout/Box'
 
-const PdfDownload = props => (
+const PdfDownload = (props) => (
   <svg
     height="42"
     viewBox="0 0 37 42"
@@ -17,6 +17,6 @@ const PdfDownload = props => (
   </svg>
 )
 
-const StyledPdfDownload = props => <Box box={PdfDownload} {...props} />
+const StyledPdfDownload = (props) => <Box box={PdfDownload} {...props} />
 
 export default StyledPdfDownload

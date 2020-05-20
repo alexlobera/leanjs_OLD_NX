@@ -5,32 +5,32 @@ import {
   formatCVC,
 } from '../utils/card'
 
-export const composeValidators = (...validators) => value =>
+export const composeValidators = (...validators) => (value) =>
   validators.reduceRight(
     (error, validator) => error || validator(value),
     undefined
   )
 
-export const required = value => (value ? undefined : 'Required')
+export const required = (value) => (value ? undefined : 'Required')
 
-export const mustBeEmail = value => {
+export const mustBeEmail = (value) => {
   const reEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return reEmail.test(value) ? undefined : 'Email format is not correct'
 }
 
-export const mustBeCardNumber = number =>
+export const mustBeCardNumber = (number) =>
   PaymentLib.fns.validateCardNumber(number)
     ? undefined
     : 'Card number is not correct'
 
-export const mustBeCvc = cvc => {
+export const mustBeCvc = (cvc) => {
   const formatedCvc = formatCVC(cvc)
   return PaymentLib.fns.validateCardCVC(formatedCvc)
     ? undefined
     : 'CVC number is not correct'
 }
 
-export const mustBeCardDate = expirationDate => {
+export const mustBeCardDate = (expirationDate) => {
   const month = getMonthFromCardDate(expirationDate)
   const year = getYearFromCardDate(expirationDate)
   return PaymentLib.fns.validateCardExpiry(month, year)
@@ -46,12 +46,12 @@ export const mustBeEuVat = (vatNumber = '') => {
     : 'EU VAT number is not correct'
 }
 
-export const onlyPositiveNumbers = value => {
+export const onlyPositiveNumbers = (value) => {
   const numbers = /^[0-9]+$/
   return !value || (numbers.test(value) && parseInt(value, 10) > 0)
     ? undefined
     : 'Please use positive numbers only'
 }
 
-export const parseToInt = value =>
+export const parseToInt = (value) =>
   isNaN(parseInt(value, 10)) ? '' : parseInt(value, 10)

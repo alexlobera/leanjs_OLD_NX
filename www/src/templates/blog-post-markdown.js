@@ -88,9 +88,9 @@ const renderAst = new rehypeReact({
     code: Code,
     span: BlogPostSpan,
     tweet: Tweet,
-    blockquote: props => {
+    blockquote: (props) => {
       const text = props.children.find(
-        child => child && child.props && child.props.children
+        (child) => child && child.props && child.props.children
       )
 
       return <Blockquote children={text && text.props.children} />

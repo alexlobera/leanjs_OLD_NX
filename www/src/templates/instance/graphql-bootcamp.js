@@ -12,7 +12,7 @@ import {
 
 export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_PART_TIME, GRAPHQL_API]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     type={GRAPHQL_BOOTCAMP}

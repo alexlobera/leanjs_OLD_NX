@@ -1,6 +1,6 @@
 function titleCase(txt) {
   return txt
-    ? txt.replace(/\w\S*/g, function(txt) {
+    ? txt.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
       })
     : ''
@@ -22,7 +22,7 @@ function capitalize(text) {
     : text
         .toLowerCase()
         .split(' ')
-        .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
         .join(' ')
 }
 
@@ -34,7 +34,7 @@ function portableTextToPlainText(blocks = []) {
   return (
     blocks
       // loop through each block
-      .map(block => {
+      .map((block) => {
         // if it's not a text block with children,
         // return nothing
         if (block._type !== 'block' || !block.children) {
@@ -42,7 +42,7 @@ function portableTextToPlainText(blocks = []) {
         }
         // loop through the children spans, and join the
         // text strings
-        return block.children.map(child => child.text).join('')
+        return block.children.map((child) => child.text).join('')
       })
       // join the parapgraphs leaving split by two linebreaks
       .join('\n\n')

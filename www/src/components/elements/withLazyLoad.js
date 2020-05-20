@@ -4,7 +4,7 @@ import LazyLoad from 'react-lazyload'
 const withLazyLoad = ({
   defaultConfig = {},
   lazyLoadByDefault = true,
-} = {}) => Component => ({
+} = {}) => (Component) => ({
   lazyLoad = lazyLoadByDefault,
   placeholderHeight,
   ...rest

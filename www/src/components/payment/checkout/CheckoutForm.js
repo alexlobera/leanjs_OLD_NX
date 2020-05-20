@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import { Span, P, H4, H5 } from '../../text'
 import { Button, LinkButton } from '../../buttons'

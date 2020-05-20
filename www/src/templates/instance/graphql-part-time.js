@@ -24,7 +24,7 @@ export const crossSellTypes = [
   GRAPHQL_PART_TIME_TRIAL,
 ]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     trainingId={GRAPHQL_API_ID}

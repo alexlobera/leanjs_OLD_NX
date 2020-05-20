@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import StickyBox from 'react-sticky-box'
 import { graphql } from 'gatsby'
 
@@ -181,9 +181,7 @@ const InstancePage = ({
         </LinkButton>
       )}
     </>
-  ) : (
-    undefined
-  )
+  ) : undefined
 
   const defaultMetas = {
     title: instanceTitle,

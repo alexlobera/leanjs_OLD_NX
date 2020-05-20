@@ -5,12 +5,12 @@ import { getVariantProps } from '../utils'
 
 const StyledUl = styled(Box)`
   ${({ variant, variants = [] }) =>
-    (variant === 'unstyled' || variants.find(v => v === 'unstyled')) &&
+    (variant === 'unstyled' || variants.find((v) => v === 'unstyled')) &&
     `
     list-style-type: none;
   `};
   ${({ variant, variants = [] }) =>
-    (variant === 'inline' || variants.find(v => v === 'inline')) &&
+    (variant === 'inline' || variants.find((v) => v === 'inline')) &&
     `
     > li {
       :first-child {
@@ -31,7 +31,7 @@ const Ul = ({ sx = {}, children, ...rest }) => (
       ...sx,
     }}
     {...rest}
-    children={React.Children.map(children, child =>
+    children={React.Children.map(children, (child) =>
       child && typeof child === 'object'
         ? React.cloneElement(child, {
             variant: rest.variant,
@@ -42,7 +42,7 @@ const Ul = ({ sx = {}, children, ...rest }) => (
   />
 )
 
-const Ol = props => <Ul box="ol" {...props} />
+const Ol = (props) => <Ul box="ol" {...props} />
 
 const ulVariantSxProp = {
   inline: {

@@ -26,7 +26,7 @@ const Select = ({
   const selectedItem =
     items &&
     items.find(
-      item => item && (item === inputValue || item.value === inputValue)
+      (item) => item && (item === inputValue || item.value === inputValue)
     )
 
   const inputText = selectedItem
@@ -38,7 +38,7 @@ const Select = ({
   return (
     <Downshift
       {...input}
-      onInputValueChange={inputValue => {
+      onInputValueChange={(inputValue) => {
         input.onChange && input.onChange(inputValue)
         onChange && onChange(inputValue)
       }}

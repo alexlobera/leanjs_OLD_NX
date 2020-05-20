@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Embed from 'react-runkit'
 import styled from 'styled-components'
 
@@ -50,7 +50,7 @@ export class RunkitProvider extends React.Component {
 
 // TODO add some SVG that looks like code?
 const CodePlaceholder = styled.div`
-  height: ${props => props.height || '200px'};
+  height: ${(props) => props.height || '200px'};
   width: 100%;
 `
 

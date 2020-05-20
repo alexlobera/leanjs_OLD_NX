@@ -28,12 +28,12 @@ import { internalLinkTo } from '../components/utils/sanitySerializers'
 
 function renderHeadingWithAnchor({ children, Component }) {
   const formatedChildren = (Array.isArray(children) ? children : [children])
-    .map(child =>
+    .map((child) =>
       typeof child === 'string'
         ? child
         : child && child.props && child.props.node && child.props.node.children
     )
-    .filter(child => child)
+    .filter((child) => child)
     .join(' ')
 
   return (
@@ -129,7 +129,7 @@ const Page = ({ data, location, ...rest }) => {
         <TedVideo embedUrl={node.embedUrl} description={node.description} />
       ),
       codesandbox: ({ node }) => <Codesandbox id={node.id} />,
-      image: props => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
+      image: (props) => <Img src={bodyImagePublicURLs[props.node.asset.id]} />,
     },
   }
 

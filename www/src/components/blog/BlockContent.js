@@ -22,7 +22,7 @@ function getEditor({ noInline, code }) {
   )
 }
 
-export const Code = props => {
+export const Code = (props) => {
   const { children } = props
   if (props.className === 'language-runkit') {
     return <EmbedRunkit {...props} source={children && children.toString()} />

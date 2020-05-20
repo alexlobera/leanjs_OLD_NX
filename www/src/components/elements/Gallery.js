@@ -26,7 +26,7 @@ const Photo = ({
     imgStyle.top = top
   }
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     onClick(event, { photo, index })
   }
 
@@ -59,21 +59,21 @@ const Gallery = ({
   const paginatedPhotos = photos.slice(0, lastImage)
 
   const openLightbox = (event, obj) => {
-    setImageState(prevState => ({ ...prevState, currentImage: obj.index }))
+    setImageState((prevState) => ({ ...prevState, currentImage: obj.index }))
     setLightboxIsOpen(true)
   }
   const closeLightbox = () => {
-    setImageState(prevState => ({ ...prevState, currentImage: 0 }))
+    setImageState((prevState) => ({ ...prevState, currentImage: 0 }))
     setLightboxIsOpen(false)
   }
   const gotoPrevious = () => {
-    setImageState(prevState => ({
+    setImageState((prevState) => ({
       ...prevState,
       currentImage: currentImage - 1,
     }))
   }
   const gotoNext = () => {
-    setImageState(prevState => ({
+    setImageState((prevState) => ({
       ...prevState,
       currentImage: currentImage + 1,
     }))
@@ -81,7 +81,7 @@ const Gallery = ({
   const hasMorePictures = () => lastImage < photos.length
   const loadMore = () => {
     if (hasMorePictures()) {
-      setImageState(prevState => ({
+      setImageState((prevState) => ({
         ...prevState,
         lastImage: lastImage + pageLimit,
       }))
@@ -125,11 +125,11 @@ const Gallery = ({
         )}
       </Row>
       <Width>
-        {width =>
+        {(width) =>
           width && width > SMALL ? (
             <Lightbox
               backdropClosesModal={true}
-              images={paginatedPhotos.map(photo => ({
+              images={paginatedPhotos.map((photo) => ({
                 src: photo.srcLarge,
               }))}
               onClose={closeLightbox}

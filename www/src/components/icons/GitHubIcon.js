@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GitHubIcon = props => {
+const GitHubIcon = (props) => {
   const { fill = '#FFF' } = props
   return (
     <svg focusable="false" width={24} height={24} fill={fill} {...props}>

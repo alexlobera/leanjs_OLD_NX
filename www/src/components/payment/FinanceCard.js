@@ -4,7 +4,7 @@ import Segment from '../elements/Segment'
 import CourseBud from '../logos/CourseBud'
 import { Link } from '../navigation'
 
-const FinanceCard = props => (
+const FinanceCard = (props) => (
   <Segment small variant="primary" sx={{ my: 5 }} {...props}>
     <H3>Financial Support</H3>
     <P>
