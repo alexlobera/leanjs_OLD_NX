@@ -84,13 +84,17 @@ const IndexPage = ({ trainings }) => {
   const [selectedTab, setTab] = useState(TAB_REACT)
 
   const featuredTrainings = [
-    selectTrainingByInstanceId({
-      trainings,
-      id: '@VElOOjVlNzhkOWM3ZGY4NzMxMDAwMmU2MTQ1Yw==',
-    }),
+    // selectTrainingByInstanceId({
+    //   trainings,
+    //   id: '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg==',
+    // }),
     getNextTrainingByTrainingId({
       trainings,
       trainingId: '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg==',
+    }),
+    getNextTrainingByTrainingId({
+      trainings,
+      trainingId: '@VFJBOjVlMzQ5Mjc1Nzc4ZTg4MDAwMjExMzQ3NA==',
     }),
   ].filter((t) => t)
 
