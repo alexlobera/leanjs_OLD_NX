@@ -11,6 +11,8 @@ import { SPACING_MEDIUM, SPACING_STANDARD } from "../config/styles"
 import LinkButton from "../components/buttons/LinkButton"
 import Grid, { Col, Row } from "../components/layout/Grid"
 import { H2, H4, H3a, P, SupportingText } from "../components/text"
+import Arrow from "../resources/Arrow"
+import Box from "../components/layout/Box"
 
 const SprintCard = styled.div`
   border: 1px solid #ddd;
@@ -139,6 +141,9 @@ const IndexPage = () => (
             </SprintCard>
           </Col>
         </Row>
+        <Box sx={{ textAlign: "center", mt: [0, "-100px"] }}>
+          <Arrow />
+        </Box>
       </Grid>
     </Section>
     <Link to="#about-us" name="about-us" />
