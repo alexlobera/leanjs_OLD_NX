@@ -2,15 +2,8 @@ import React from 'react'
 import { stripIndent } from 'common-tags'
 export { wrapRootElement, wrapPageElement } from './gatsby-browser'
 
-const pluginOptions = {
-  includeInDevelopment: true,
-}
-
 export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
-  if (
-    process.env.NODE_ENV === `production` ||
-    pluginOptions.includeInDevelopment
-  ) {
+  if (process.env.NODE_ENV === `production`) {
     setHeadComponents([
       <script
         key="plugin-autopilot"
