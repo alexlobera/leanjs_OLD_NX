@@ -3,8 +3,18 @@
     "public": "public",
     "redirects": [
       {
-        "source": "/training/private-react-redux-graphql-training",
-        "destination": "/training",
+        "source": "/training/private-react-redux-graphql-training{,/}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/case-studies{,/}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/team{,/}",
+        "destination": "/",
         "type": 301
       }
     ],

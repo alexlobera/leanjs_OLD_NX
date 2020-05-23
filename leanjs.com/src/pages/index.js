@@ -13,12 +13,10 @@ import Grid, { Col, Row } from "../components/layout/Grid"
 import { H2, H4, H3a, P, SupportingText } from "../components/text"
 import Arrow from "../resources/Arrow"
 import Box from "../components/layout/Box"
-import RGALogo from "../components/logos/RGAWhiteLogo"
 import Trainline from "../components/logos/Trainline"
 import NetAPorter from "../components/logos/NetAPorter"
 import Nationwide from "../components/logos/Nationwide"
 import JohnLewis from "../components/logos/JohnLewis"
-import ASOS from "../components/logos/ASOS"
 import Capgemini from "../components/logos/Capgemini"
 
 const SprintCard = styled.div`
@@ -226,7 +224,6 @@ const IndexPage = () => (
             </LinkButton>
           </Col>
           <Col md={4} mdOffset={1}>
-            {/* <img src="https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/alex_teaching.jpg?alt=media" /> */}
             <Trainline />
             <NetAPorter sx={{ mt: 2, mb: 2 }} />
             <JohnLewis width={"80%"} />
