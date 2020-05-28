@@ -82,15 +82,17 @@ workflows:
           filters:
             branches:
               only: master
-      - e2e-tests:
+      # - e2e-tests:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: master
+      - deploy-prod:
+          # requires:
+          #   - e2e-tests
           requires:
             - build
-          filters:
-            branches:
-              only: master
-      - deploy-prod:
-          requires:
-            - e2e-tests
           filters:
             branches:
               only: master
