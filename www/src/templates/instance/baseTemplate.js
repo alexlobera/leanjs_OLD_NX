@@ -9,7 +9,8 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P, Blockquote } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { Segment, Video } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
+import VideoPlayer from 'src/components/elements/VideoPlayer'
 import Feedback from 'src/components/training/Feedback'
 import LinkButton from 'src/components/buttons/LinkButton'
 import Header from 'src/components/layout/Header'
@@ -86,7 +87,6 @@ const InstancePage = ({
     siteUrl,
   },
 }) => {
-  console.log('videoProduct', videoProduct)
   const techLowerCase = tech.toLowerCase()
   const pathTech = `/${techLowerCase}/`
   const pathTraining = `${pathTech}training/`
@@ -252,6 +252,17 @@ const InstancePage = ({
             pageData={data && data.sanityTrainingPage}
             content={
               <React.Fragment>
+                {videoProduct && (
+                  <>
+                    {videoProduct && videoProduct.title && (
+                      <H3>{videoProduct.title}</H3>
+                    )}
+                    <VideoPlayer
+                      playbackId={videoProduct.video.asset.playbackId}
+                      thumbnailSecond={videoProduct.defaultThumbnailSecond}
+                    />
+                  </>
+                )}
                 {/* {videoCoachId ? (
                   <React.Fragment>
                     <H3>Meet the coach</H3>
