@@ -95,6 +95,11 @@
         "source": "/react/training/complete-part-time/:path*",
         "destination": "/react/training/part-time-bundle/:path",
         "type": 301
+      },
+      {
+        "source": "/graphql/training/workshops/graphql-apollo-client{,/}",
+        "destination": "/graphql/training/workshops/apollo-client/",
+        "type": 301
       }
     ],
     "appAssociation": "AUTO",

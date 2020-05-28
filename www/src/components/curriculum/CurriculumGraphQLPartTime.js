@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
+import SpecificationSession, {
+  LearningObjectives as SpecsLearningObjectives,
+} from './sessions/graphql/server/SpecificationSession'
 import ThinkingInGraphQLSession, {
   LearningObjectives as ThinkingInLearningObjectives,
 } from './sessions/graphql/server/ThinkingInGraphQLSession'
 import SchemaDesignSession, {
   LearningObjectives as SchemaDesignLearningObjectives,
 } from './sessions/graphql/server/SchemaDesignSession'
-import ErrorAndSecuritySession, {
-  LearningObjectives as ErrorAndSecurityLearningObjectives,
-} from './sessions/graphql/server/ErrorAndSecuritySession'
-import SubscriptionsSession, {
-  LearningObjectives as SubscriptionsLearningObjectives,
-} from './sessions/graphql/server/SubscriptionsSession'
 import FederationSession, {
   LearningObjectives as FederationLearningObjectives,
 } from './sessions/graphql/server/FederationSession'
+import ToolingAndPracticesSession, {
+  LearningObjectives as ToolingAndPracticesSessionLearningObjectives,
+} from './sessions/graphql/server/ToolingAndPracticesSession'
 import HasuraSession, {
   LearningObjectives as HasuraLearningObjectives,
 } from './sessions/graphql/server/HasuraSession'
@@ -26,20 +26,18 @@ import {
 import Curriculum from './Curriculum'
 import renderPartTimeSection from './renderPartTimeSession'
 import { TargetAudienceList } from './CurriculumGraphQLBootcamp'
-import Ul from '../layout/Ul'
-import P from '../text/P'
-import Button from '../buttons/Button'
+import LearningObjectivesUl from './LearningObjectivesUl'
 
 export const defaultSessionsFirstHalf = [
   { Comp: ThinkingInGraphQLSession },
+  { Comp: SpecificationSession },
   { Comp: SchemaDesignSession },
-  { Comp: ErrorAndSecuritySession },
 ]
 
 export const defaultSessionsSecondtHalf = [
   { Comp: FederationSession },
-  { Comp: SubscriptionsSession },
   { Comp: HasuraSession },
+  { Comp: ToolingAndPracticesSession },
 ]
 
 const trainingInstanceTypeName = PART_TIME
@@ -90,40 +88,16 @@ const CurriculumGraphQLPartTime = ({
 
 export { TargetAudienceList }
 
-export const LearningObjectives = ({ showAllButton = true }) => {
-  const [showAll, setShowAll] = useState(!showAllButton)
-  const toggleShowAll = () => {
-    setShowAll(!showAll)
-  }
-
-  return (
-    <>
-      <Ul>
-        <ThinkingInLearningObjectives showAll={showAll} />
-        <SchemaDesignLearningObjectives showAll={showAll} />
-        <ErrorAndSecurityLearningObjectives showAll={showAll} />
-        <SubscriptionsLearningObjectives showAll={showAll} />
-        <FederationLearningObjectives showAll={showAll} />
-        <HasuraLearningObjectives showAll={showAll} />
-        {/* <GraphQLClientLearningObjectives showAll={showAll} />
-        <AdvancedApolloClientLearningObjectives showAll={showAll} /> */}
-      </Ul>
-
-      {showAllButton && (
-        <P>
-          <Button
-            className="show-all-learning-objectives"
-            onClick={toggleShowAll}
-          >
-            {showAll
-              ? `Hide learning objectives`
-              : `Show all the learning objectives`}
-          </Button>
-        </P>
-      )}
-    </>
-  )
-}
+export const LearningObjectives = (props) => (
+  <LearningObjectivesUl {...props}>
+    <ThinkingInLearningObjectives />
+    <SpecsLearningObjectives />
+    <SchemaDesignLearningObjectives />
+    <FederationLearningObjectives />
+    <HasuraLearningObjectives />
+    <ToolingAndPracticesSessionLearningObjectives />
+  </LearningObjectivesUl>
+)
 
 CurriculumGraphQLPartTime.TargetAudienceList = TargetAudienceList
 

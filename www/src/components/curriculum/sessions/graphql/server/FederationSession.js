@@ -30,10 +30,6 @@ export const LearningObjectives = ({ showAll = true }) => (
     {showAll && (
       <>
         <Li>Scale your graph across teams</Li>
-        <Li>
-          Incorporate developer tools to encourage team collaboration and code
-          quality
-        </Li>
       </>
     )}
   </>

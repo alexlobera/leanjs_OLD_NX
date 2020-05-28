@@ -41,6 +41,10 @@ import {
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
 import { GRAPHQL_PINK, LIGHT_PINK } from '../../config/styles'
+import {
+  TdLearningExprience,
+  UlLearningExperience,
+} from 'src/components/curriculum/LearningExperienceElements'
 
 class GraphQLCurriculum extends React.Component {
   state = {
@@ -133,9 +137,19 @@ class GraphQLCurriculum extends React.Component {
                   <Thead>
                     <Tr>
                       <Th>Curriculum</Th>
-                      <Th tech={TECH_GRAPHQL}>GraphQL Part-time</Th>
-                      <Th tech={TECH_GRAPHQL}>GraphQL Bootcamp</Th>
-                      {/* <Th type={GRAPHQL_API}>GraphQL API</Th> */}
+                      <Th tech={TECH_GRAPHQL}>Complete</Th>
+                      <Th
+                        tech={TECH_GRAPHQL}
+                        trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                      >
+                        API
+                      </Th>
+                      <Th
+                        tech={TECH_GRAPHQL}
+                        trainingType={TRAINING_TYPE_HALF_CURRICULUM}
+                      >
+                        Client
+                      </Th>
                     </Tr>
                   </Thead>
                   <Tbody>
@@ -147,9 +161,7 @@ class GraphQLCurriculum extends React.Component {
                       <Td>
                         <Tick tech={TECH_GRAPHQL} />
                       </Td>
-                      {/* <Td>
-                              <Tick type={GRAPHQL_API} />
-                            </Td> */}
+                      <Td />
                     </Tr>
                     <Tr>
                       <Td>Security & Error Handling</Td>
@@ -159,30 +171,19 @@ class GraphQLCurriculum extends React.Component {
                       <Td>
                         <Tick tech={TECH_GRAPHQL} />
                       </Td>
-                      {/* <Td>
-                              <Tick type={GRAPHQL_API} />
-                            </Td> */}
+                      <Td />
                     </Tr>
                     <Tr>
-                      <Td>Apollo Federation and Subscriptions</Td>
+                      <Td>Apollo Federation</Td>
                       <Td>
                         <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
                         <Tick tech={TECH_GRAPHQL} />
-                      </Td>
-                      {/* <Td /> */}
-                    </Tr>
-                    {/* <Tr>
-                      <Td>Data-Driven application</Td>
-                      <Td>
-                        <Tick type={GRAPHQL_BOOTCAMP} />
-                      </Td>
-                      <Td>
-                        <Tick type={GRAPHQL_PART_TIME} />
                       </Td>
                       <Td />
-                    </Tr> */}
+                    </Tr>
+
                     <Tr>
                       <Td>Hasura</Td>
                       <Td>
@@ -191,56 +192,148 @@ class GraphQLCurriculum extends React.Component {
                       <Td>
                         <Tick tech={TECH_GRAPHQL} />
                       </Td>
-                      {/* <Td /> */}
+                      <Td />
                     </Tr>
                     <Tr>
-                      <Td verticalAlign="top">Timings</Td>
+                      <Td>Tooling and best practices</Td>
                       <Td>
-                        <Ul sx={{ textAlign: 'left' }}>
-                          <Li>3 weeks</Li>
-                          <Li>Part time</Li>
-                          <Li>Max 9 hours a week</Li>
-                          {/* <Li>Starting at £995</Li> */}
-                        </Ul>
-                        <LinkButton
-                          variant="secondary"
-                          to="/graphql/training/part-time/"
-                          className="training-curriculum-clicks"
-                        >
-                          GraphQL Part-Time
-                        </LinkButton>
+                        <Tick tech={TECH_GRAPHQL} />
                       </Td>
                       <Td>
-                        <Ul sx={{ textAlign: 'left' }}>
-                          <Li>3 days</Li>
-                          <Li>Full time</Li>
-                          <Li>9 am to 6 pm</Li>
-                          {/* <Li>Starting at £995</Li> */}
-                        </Ul>
+                        <Tick tech={TECH_GRAPHQL} />
+                      </Td>
+                      <Td />
+                    </Tr>
+                    <Tr>
+                      <Td>Apollo Client</Td>
+                      <Td>
+                        <Tick tech={TECH_GRAPHQL} />
+                      </Td>
+                      <Td />
+                      <Td>
+                        <Tick tech={TECH_GRAPHQL} />
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Caching and performance</Td>
+                      <Td>
+                        <Tick tech={TECH_GRAPHQL} />
+                      </Td>
+                      <Td />
+                      <Td>
+                        <Tick tech={TECH_GRAPHQL} />
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <TdLearningExprience strong="Immersive">
+                        For accelerated <br />
+                        learning
+                      </TdLearningExprience>
+                      <Td verticalAlign="top">
                         <LinkButton
                           variant="secondary"
                           to="/graphql/training/bootcamp"
                           className="training-curriculum-clicks"
                         >
-                          GraphQL Bootcamp
+                          Bootcamp
                         </LinkButton>
+                        <UlLearningExperience>
+                          <Li>4 days</Li>
+                          <Li>9 am to 6 pm</Li>
+                          <Li>In-person and remote</Li>
+                          <Li>Starting at £1390</Li>
+                          <Li>API + Client</Li>
+                        </UlLearningExperience>
                       </Td>
-                      {/* <Td>
-                              <Ul textAlign="left">
-                                <Li>2 days</Li>
-                                <Li>Full time</Li>
-                                <Li>9 am to 6 pm</Li>
-                                <Li>£795</Li>
-                              </Ul>
-                              <LinkButton
-                                variant="secondary"
-                                to="/graphql/training/api"
-                                className="training-curriculum-clicks"
-                              >
-                                GraphQL API
-                              </LinkButton>
-                            </Td> */}
+                      <Td verticalAlign="top">
+                        <LinkButton
+                          variant="secondary"
+                          to="/graphql/training/api"
+                          className="training-curriculum-clicks"
+                        >
+                          API
+                        </LinkButton>
+                        <UlLearningExperience>
+                          <Li>3 days</Li>
+                          <Li>9 am to 6 pm</Li>
+                          <Li>In-person and remote</Li>
+                          <Li>Starting at £995</Li>
+                        </UlLearningExperience>
+                      </Td>
+                      <Td verticalAlign="top">
+                        <LinkButton
+                          variant="secondary"
+                          to="/graphql/training/workshops/apollo-client"
+                          className="training-curriculum-clicks"
+                        >
+                          Client
+                        </LinkButton>
+                        <UlLearningExperience>
+                          <Li>1 day</Li>
+                          <Li>9 am to 6 pm</Li>
+                          <Li>In-person and remote</Li>
+                          <Li>Starting at £395</Li>
+                        </UlLearningExperience>
+                      </Td>
                     </Tr>
+                    {/* <Tr>
+                      <TdLearningExprience strong="Part-time (PT)">
+                        For minimum <br />
+                        work disruption
+                      </TdLearningExprience>
+                      <Td verticalAlign="top">
+                        <LinkButton
+                          variant="secondary"
+                          to="/graphql/training/part-time-bundle"
+                          className="training-curriculum-clicks"
+                        >
+                          Part-time Bundle
+                        </LinkButton>
+                        <UlLearningExperience>
+                          <Li>4 weeks</Li>
+                          <Li>
+                            <strong>6 hours a week</strong>
+                          </Li>
+                          <Li>In-person and remote</Li>
+                          <Li>Starting at £1395</Li>
+                          <Li>API + Client</Li>
+                        </UlLearningExperience>
+                      </Td>
+                      <Td verticalAlign="top">
+                        <LinkButton
+                          variant="secondary"
+                          to="/graphql/training/api-part-time/"
+                          className="training-curriculum-clicks"
+                        >
+                          API Part-time
+                        </LinkButton>
+                        <UlLearningExperience>
+                          <Li>3 weeks</Li>
+                          <Li>
+                            <strong>6 hours a week</strong>
+                          </Li>
+                          <Li>In-person and remote</Li>
+                          <Li>Starting at £995</Li>
+                        </UlLearningExperience>
+                      </Td>
+                      <Td verticalAlign="top">
+                        <LinkButton
+                          variant="secondary"
+                          to="/graphql/training/workshops/apollo-client"
+                          className="training-curriculum-clicks"
+                        >
+                          Client Part-time
+                        </LinkButton>
+                        <UlLearningExperience>
+                          <Li>1 week</Li>
+                          <Li>
+                            <strong>6 hours a week</strong>
+                          </Li>
+                          <Li>In-person and remote</Li>
+                          <Li>Starting at £395</Li>
+                        </UlLearningExperience>
+                      </Td>
+                    </Tr> */}
                   </Tbody>
                 </Table>
                 <H5>Also available...</H5>
@@ -302,18 +395,7 @@ class GraphQLCurriculum extends React.Component {
                       On completion of the GraphQL Bootcamp each student will:
                     </strong>
                   </P>
-                  <Ul>
-                    <CurriculumGraphQLBootcamp.LearningObjectivesList />
-                    <Li>
-                      Not sure if our trainings are right for you? Read our blog{' '}
-                      <Link
-                        className="perfect-course-student"
-                        to="/blog/are-you-the-perfect-react-graphql-student/"
-                      >
-                        <strong>Are YOU the Perfect GraphQL Student?</strong>
-                      </Link>
-                    </Li>
-                  </Ul>
+                  <CurriculumGraphQLBootcamp.LearningObjectivesList />
                   <H4>GraphQL Bootcamp Curriculum:</H4>
                   <Row>
                     <Col lg={1} lgOffset={1} />
@@ -348,18 +430,6 @@ class GraphQLCurriculum extends React.Component {
                     </strong>
                   </P>
                   <PartTimeLearningObjectives />
-                  {/* <P>
-                            Not sure if our trainings are right for you? Read
-                            our blog{' '}
-                            <Link
-                              className="perfect-course-student"
-                              to="/blog/are-you-the-perfect-react-graphql-student/"
-                            >
-                              <strong>
-                                Are YOU the Perfect GraphQL Student?
-                              </strong>
-                            </Link>
-                          </P> */}
 
                   <H4>GraphQL part-time Curriculum:</H4>
                   <Row>

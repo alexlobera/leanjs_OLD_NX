@@ -20,7 +20,7 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
   }
   const allGraphQLPartTimes = selectUpcomingTrainings({
     trainings,
-    type: GRAPHQL_PART_TIME,
+    type: GRAPHQL_BOOTCAMP,
   })
 
   return (
@@ -37,16 +37,16 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
               <TabItem
                 tech={TECH_GRAPHQL}
                 className={tabItemClassName}
-                name={GRAPHQL_PART_TIME}
+                name={GRAPHQL_BOOTCAMP}
               >
-                GraphQL Part-time
+                GraphQL Bootcamp
               </TabItem>
               <TabItem
                 tech={TECH_GRAPHQL}
                 className={tabItemClassName}
-                name={GRAPHQL_BOOTCAMP}
+                name={GRAPHQL_PART_TIME}
               >
-                GraphQL Bootcamp
+                GraphQL Part-time
               </TabItem>
             </TabList>
           </Col>

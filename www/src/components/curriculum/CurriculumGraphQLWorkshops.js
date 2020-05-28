@@ -24,7 +24,7 @@ const CurriculumGraphQLWorkshops = ({ section = {}, ...rest }) => {
             {...sectionProps}
             title="GraphQL Apollo Client"
             subTitle="Create production-ready React applications with the most community-driven GraphQL client"
-            toggleNavigateTo={`${workshopBasePath}graphql-apollo-client/`}
+            toggleNavigateTo={`${workshopBasePath}apollo-client/`}
           />
           <Section
             {...sectionProps}

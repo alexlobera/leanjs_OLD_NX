@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react'
 import * as Hls from 'hls.js'
-//import Plyr from 'plyr'
 import 'plyr/dist/plyr.css'
 import { createGlobalStyle } from 'styled-components'
 

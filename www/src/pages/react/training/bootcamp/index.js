@@ -20,7 +20,6 @@ import {
   selectNthTraining,
   AttendeeQuote,
 } from 'src/components/training'
-// import { AlternativeBootcampTrainings } from 'src/components/training/AlternativeTrainings'
 import { Segment } from 'src/components/elements'
 import {
   FULL_TIME,

@@ -4,13 +4,55 @@ import { Li } from '../layout/Ul'
 import {
   GRAPHQL_API_ID,
   TECH_GRAPHQL,
-  PART_TIME,
+  FULL_TIME,
   TRAINING_TYPE_HALF_CURRICULUM,
 } from '../../config/data'
 import Curriculum, { renderSection } from './Curriculum'
-import { sessionsFirstHalf } from './CurriculumGraphQLBootcamp'
+import SpecificationSession, {
+  LearningObjectives as SpecsLearningObjectives,
+} from './sessions/graphql/server/SpecificationSession'
+import ThinkingInGraphQLSession, {
+  LearningObjectives as ThinkingInLearningObjectives,
+} from './sessions/graphql/server/ThinkingInGraphQLSession'
+import SchemaDesignSession, {
+  LearningObjectives as SchemaDesignLearningObjectives,
+} from './sessions/graphql/server/SchemaDesignSession'
+import GraphQLServerConsoliationOneSession from './sessions/graphql/server/GraphQLServerConsoliationOneSession'
+import GraphQLServerConsoliationTwoSession from './sessions/graphql/server/GraphQLServerConsoliationTwoSession'
+import FederationSession, {
+  LearningObjectives as FederationLearningObjectives,
+} from './sessions/graphql/server/FederationSession'
+import ToolingAndPracticesSession, {
+  LearningObjectives as ToolingAndPracticesSessionLearningObjectives,
+} from './sessions/graphql/server/ToolingAndPracticesSession'
+import HasuraSession, {
+  LearningObjectives as HasuraLearningObjectives,
+} from './sessions/graphql/server/HasuraSession'
 
-const trainingInstanceTypeName = PART_TIME
+export const sessions = [
+  {
+    subTitle: ' Thinking in GraphQL, and GraphQL Specs',
+    comps: [ThinkingInGraphQLSession, SpecificationSession],
+  },
+  {
+    subTitle: 'Consolidation part 1, Schema design, and Apollo Federation',
+    comps: [
+      GraphQLServerConsoliationOneSession,
+      SchemaDesignSession,
+      FederationSession,
+    ],
+  },
+  {
+    subTitle: 'Consolidation part 2, Hasura, and Advanced tooling & practices',
+    comps: [
+      GraphQLServerConsoliationTwoSession,
+      HasuraSession,
+      ToolingAndPracticesSession,
+    ],
+  },
+]
+
+const trainingInstanceTypeName = FULL_TIME
 const tech = TECH_GRAPHQL
 const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 const trainingId = GRAPHQL_API_ID
@@ -45,24 +87,12 @@ const CurriculumGraphQLAPI = ({
       trainingId={trainingId}
       curriculumTo={toggleNavigateTo}
       {...rest}
-      firstHalf={sessionsFirstHalf.map(renderSection(renderSectionArgs))}
+      firstHalf={sessions.map(renderSection(renderSectionArgs))}
     />
   )
 }
 
 export const TargetAudienceList = () => (
-  <React.Fragment>
-    <Li>
-      A front-end developer or full-stack developer familiar with JavaScript
-      that wants to build real-world GraphQL APIs?
-    </Li>
-    <Li>
-      Perfect for developers with 6+ months building backends and REST APIs
-    </Li>
-  </React.Fragment>
-)
-
-export const LearningObjectivesList = () => (
   <React.Fragment>
     <Li>Learn the best practices to expose data using GraphQL schemas</Li>
     <Li>
@@ -70,10 +100,25 @@ export const LearningObjectivesList = () => (
       way
     </Li>
     <Li>Comprehend how to effectively run a GraphQL API in production</Li>
+    <Li>
+      You are JS developer interested in building modern APIs that enable faster
+      product development at scale.
+    </Li>
   </React.Fragment>
 )
 
-CurriculumGraphQLAPI.LearningObjectivesList = LearningObjectivesList
+export const learningObjectivesList = (
+  <React.Fragment>
+    <ThinkingInLearningObjectives />
+    <SpecsLearningObjectives />
+    <SchemaDesignLearningObjectives />
+    <FederationLearningObjectives />
+    <HasuraLearningObjectives />
+    <ToolingAndPracticesSessionLearningObjectives />
+  </React.Fragment>
+)
+
+CurriculumGraphQLAPI.LearningObjectivesList = learningObjectivesList
 CurriculumGraphQLAPI.TargetAudienceList = TargetAudienceList
 
 export default CurriculumGraphQLAPI
