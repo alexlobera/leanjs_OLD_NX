@@ -58,7 +58,6 @@ const InstancePage = ({
     locationImage,
     posts,
     subtitle,
-    // financeAvailable,
     coaches,
     breadcrumbTrainingName,
     breadcrumbTrainingSlug,
@@ -66,16 +65,8 @@ const InstancePage = ({
     breadcrumbWorkshopSlug,
     instanceTitle,
     city,
-    // learnToCodePartners = [],
     canonical,
     nth = 1,
-    // videoOneTime,
-    // videoOneId,
-    // videoOneQuote,
-    // videoCoachId,
-    // videoOneFullname,
-    // videoOneJob,
-    // videoOneCompany,
     videoProduct,
     videoTwoTime,
     videoTwoId,
@@ -263,28 +254,6 @@ const InstancePage = ({
                     />
                   </>
                 )}
-                {/* {videoCoachId ? (
-                  <React.Fragment>
-                    <H3>Meet the coach</H3>
-                    <Video youtubeId={videoCoachId} />
-                  </React.Fragment>
-                ) : videoOneId ? (
-                  <React.Fragment>
-                    <H3>Attendee testimonial</H3>
-                    <Video time={videoOneTime} youtubeId={videoOneId} />
-                    <Box sx={{ px: 1 }}>
-                      {videoOneQuote && (
-                        <Blockquote>{videoOneQuote}</Blockquote>
-                      )}
-                      {videoOneFullname && (
-                        <P sx={{ pt: 2 }}>
-                          {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
-                          {videoOneCompany || 'Freelance'}{' '}
-                        </P>
-                      )}
-                    </Box>
-                  </React.Fragment>
-                ) : null} */}
                 <TrainingDetails
                   coaches={coaches}
                   training={training}

@@ -274,13 +274,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 subtitle
                 author
                 tags
-                # videoCoachId
-                # videoOneTime
-                # videoOneId
-                # videoOneQuote
-                # videoOneFullname
-                # videoOneJob
-                # videoOneCompany
                 videoTwoTime
                 videoTwoId
                 videoTwoQuote
@@ -405,13 +398,6 @@ exports.createPages = async ({ graphql, actions }) => {
               tagsNin,
             })
             const {
-              //   videoOneTime,
-              //   videoOneId,
-              //   videoCoachId,
-              //   videoOneQuote,
-              //   videoOneFullname,
-              //   videoOneJob,
-              //   videoOneCompany,
               videoTwoTime,
               videoTwoId,
               videoTwoQuote,
@@ -474,13 +460,6 @@ exports.createPages = async ({ graphql, actions }) => {
                     locationImage:
                       locationImage && locationImage.childImageSharp,
                     videoProduct,
-                    // videoCoachId,
-                    // videoOneTime,
-                    // videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',
-                    // videoOneQuote,
-                    // videoOneFullname,
-                    // videoOneJob,
-                    // videoOneCompany,
                     videoTwoTime,
                     videoTwoId: videoTwoId ? videoTwoId : 'blg40SCle7I',
                     videoTwoQuote: videoTwoQuote
@@ -497,7 +476,6 @@ exports.createPages = async ({ graphql, actions }) => {
                       : 'Meredith Corporation',
                     posts,
                     city: capitalizedCity,
-                    // financeAvailable,
                     instanceTitle,
                     nth,
                     coaches:
