@@ -3,7 +3,6 @@ export const LISBON = 'Lisbon'
 export const BARCELONA = 'Barcelona'
 export const AMSTERDAM = 'Amsterdam'
 export const BERLIN = 'Berlin'
-export const GRAPHQL_API = 'GraphQL API'
 export const GRAPHQL_PART_TIME_TRIAL = 'GraphQL Part-time Trial'
 export const GRAPHQL_WORKSHOP = 'GraphQL Worskhop'
 export const REACT_WORKSHOP = 'React Worskhop'
@@ -52,7 +51,7 @@ export const TRAINING_TYPE_FULL_CURRICULUM = 'full-curriculum'
 export const TRAINING_TYPE_HALF_CURRICULUM = 'half-curriculum'
 
 export const GRAPHQL_BOOTCAMP = `${GRAPHQL_BOOTCAMP_ID}${FULL_TIME}`
-export const GRAPHQL_PART_TIME = `${GRAPHQL_API_ID}${PART_TIME}`
+export const GRAPHQL_API = `${GRAPHQL_API_ID}${FULL_TIME}`
 
 export const REACT_BOOTCAMP = `${REACT_BOOTCAMP_ID}${FULL_TIME}`
 export const REACT_FUNDAMENTALS = `${REACT_FUNDAMENTALS_ID}${FULL_TIME}`

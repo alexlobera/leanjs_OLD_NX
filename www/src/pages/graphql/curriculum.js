@@ -36,7 +36,7 @@ import {
   GRAPHQL_BOOTCAMP_ID,
   TRAINING_TYPE_FULL_CURRICULUM,
   GRAPHQL_BOOTCAMP,
-  GRAPHQL_PART_TIME,
+  GRAPHQL_API,
 } from 'src/config/data'
 import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { formatUTC } from 'src/components/utils'
@@ -48,7 +48,7 @@ import {
 
 class GraphQLCurriculum extends React.Component {
   state = {
-    active: GRAPHQL_PART_TIME,
+    active: GRAPHQL_API,
   }
 
   componentDidMount() {
@@ -369,17 +369,17 @@ class GraphQLCurriculum extends React.Component {
               <Element name="curriculum" />
               <H2>Choose a curriculum:</H2>
               <Tabs
-                defaultValue={GRAPHQL_PART_TIME}
+                defaultValue={GRAPHQL_API}
                 onChange={this.setActive}
                 value={this.state.active}
               >
                 <TabList>
                   <TabItem
                     className={tabItemClassName}
-                    name={GRAPHQL_PART_TIME}
+                    name={GRAPHQL_API}
                     tech={TECH_GRAPHQL}
                   >
-                    GraphQL API Part-time
+                    GraphQL API
                   </TabItem>
                   <TabItem
                     tech={TECH_GRAPHQL}
@@ -422,7 +422,7 @@ class GraphQLCurriculum extends React.Component {
                     </Col>
                   </Row>
                 </TabPanel>
-                <TabPanel name={GRAPHQL_PART_TIME}>
+                <TabPanel name={GRAPHQL_API}>
                   <P>
                     <strong>
                       On completion of the GraphQL part-time training each
