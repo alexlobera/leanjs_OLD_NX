@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import StickyBox from 'react-sticky-box'
 
 import { RunkitProvider } from '../blog/Runkit'
@@ -18,7 +18,7 @@ import { Segment } from '../elements'
 import ShareButtons from './ShareButtons'
 import { createMetas } from '../utils'
 
-export const formatPostTitle = title =>
+export const formatPostTitle = (title) =>
   title ? title.replace(/(<([^>]+)>)/gi, ' ') : ''
 
 const StyledAuthor = styled.div`
@@ -77,10 +77,10 @@ const GridContent = styled(Grid)`
 `
 
 const textProps = { lineHeight: 3, fontSize: 3 }
-export const BlogPostP = props => <P {...textProps} {...props} />
-export const BlogPostLi = props => <Li {...textProps} {...props} />
-export const BlogPostLink = props => <Link {...textProps} {...props} />
-export const BlogPostSpan = props => <Span {...textProps} {...props} />
+export const BlogPostP = (props) => <P {...textProps} {...props} />
+export const BlogPostLi = (props) => <Li {...textProps} {...props} />
+export const BlogPostLink = (props) => <Link {...textProps} {...props} />
+export const BlogPostSpan = (props) => <Span {...textProps} {...props} />
 
 const BlogPost = ({
   location,

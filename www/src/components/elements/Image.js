@@ -18,7 +18,7 @@ const StyledGatsbyImage = ({ circle, sx = {}, ...rest }) => {
   return <Box sx={sx} box={GatsbyImage} {...rest} />
 }
 
-export default props => {
+export default (props) => {
   const Component = !(props.fluid || props.fixed) ? Image : StyledGatsbyImage
 
   return <Component {...props} />

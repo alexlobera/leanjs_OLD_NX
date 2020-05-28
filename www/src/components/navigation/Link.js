@@ -80,7 +80,7 @@ class Link extends React.Component {
 
       return (
         <StyledLink
-          onClick={e => {
+          onClick={(e) => {
             onClick && onClick(e)
           }}
           to={toHref.substr(1)}

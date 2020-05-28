@@ -1,0 +1,50 @@
+{
+  "name": "leanjs.com",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "LeanJS <hello@leanjs.com>",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "npm run deploy-hosting",
+    "deploy-hosting": "./node_modules/.bin/firebase deploy --only hosting",
+    "prestart": "cd .. && yarn build:packages",
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "@leanui/box": "0.0.1",
+    "@leanui/form": "0.0.1",
+    "@leanui/input": "0.0.1",
+    "common-tags": "^1.8.0",
+    "firebase": "^7.14.4",
+    "gatsby": "^2.21.37",
+    "gatsby-plugin-google-tagmanager": "^2.3.3",
+    "react-burger-menu": "^2.6.13",
+    "react-cookie": "^4.0.3",
+    "react-helmet": "^6.0.0",
+    "react-scroll": "^1.7.16",
+    "react-styled-flexboxgrid": "^3.2.1",
+    "react-width": "^0.1.8"
+  },
+  "devDependencies": {
+    "gatsby-plugin-styled-components": "^3.3.2"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

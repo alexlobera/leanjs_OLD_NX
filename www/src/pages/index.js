@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import { WHITE, DARK_GREY, DARK_BLUE } from '../config/styles'
 import { WHY_REACTJS_ACADEMY } from '../config/images.js'
@@ -33,7 +33,7 @@ const metas = {
   type: 'website',
 }
 
-const StyledTabItem = styled(Link).attrs(props => ({
+const StyledTabItem = styled(Link).attrs((props) => ({
   className: 'select-technology',
 }))`
   &:first-child {
@@ -84,15 +84,19 @@ const IndexPage = ({ trainings }) => {
   const [selectedTab, setTab] = useState(TAB_REACT)
 
   const featuredTrainings = [
-    selectTrainingByInstanceId({
-      trainings,
-      id: '@VElOOjVlNzhkOWM3ZGY4NzMxMDAwMmU2MTQ1Yw==',
-    }),
+    // selectTrainingByInstanceId({
+    //   trainings,
+    //   id: '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg==',
+    // }),
     getNextTrainingByTrainingId({
       trainings,
       trainingId: '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg==',
     }),
-  ].filter(t => t)
+    getNextTrainingByTrainingId({
+      trainings,
+      trainingId: '@VFJBOjVlMzQ5Mjc1Nzc4ZTg4MDAwMjExMzQ3NA==',
+    }),
+  ].filter((t) => t)
 
   return (
     <React.Fragment>

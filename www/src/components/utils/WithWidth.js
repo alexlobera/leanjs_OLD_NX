@@ -81,7 +81,7 @@ export class Width extends React.Component {
   }
 }
 
-const withWidth = (options = {}) => OuterComponent => {
+const withWidth = (options = {}) => (OuterComponent) => {
   const {
     extraLargeWidth,
     largeWidth,

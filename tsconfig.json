@@ -4,7 +4,10 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@leanui/box": ["packages/box/src"]
+      "@leanui/box": ["packages/box/src"],
+      "@leanui/flex": ["packages/flex/src"],
+      "@leanui/label": ["packages/label/src"],
+      "@leanui/form": ["packages/form/src"]
     }
   }
 }

@@ -16,7 +16,6 @@
     "final-form": "^4.9.1",
     "firebase": "^6.0.2",
     "firebase-admin": "^8.5.0",
-    "firebase-functions": "^3.2.0",
     "gatsby": "^2.21.23",
     "gatsby-plugin-create-client-paths": "^2.0.5",
     "gatsby-plugin-feed": "^2.3.25",
@@ -33,10 +32,11 @@
     "lodash.isequal": "^4.5.0",
     "markdown-to-jsx": "^6.10.2",
     "payment": "^2.3.0",
+    "prettier": "^2.0.5",
     "prismjs": "^1.20.0",
     "raven-js": "^3.26.4",
     "react-final-form": "^6.4.0",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "^6.0.0",
     "react-images": "^0.5.19",
     "react-lazyload": "^2.3.0",
     "react-live": "^2.1.2",
@@ -49,8 +49,12 @@
     "react-super-responsive-table": "^5.0.0",
     "react-twitter-embed": "^2.0.8",
     "rehype-react": "^4.0.1",
-    "styled-components": "^5.0.0",
     "styled-system": "^5.0.5"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.0.0"
   },
   "keywords": [
     "gatsby"
@@ -126,7 +130,6 @@
     "lint-staged": "^9.4.2",
     "node-fetch": "^2.2.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.0.5",
     "react-storybook-decorator-background": "^1.0.5",
     "react-test-renderer": "^16.5.0",
     "start-server-and-test": "^1.7.1",

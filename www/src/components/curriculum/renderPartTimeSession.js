@@ -7,7 +7,10 @@ const renderPartTimeSection = ({
   sectionProps = {},
   training,
   trainingId,
-} = {}) => initialIndex => ({ title, subTitle, Comp, comps, group }, index) => {
+} = {}) => (initialIndex) => (
+  { title, subTitle, Comp, comps, group },
+  index
+) => {
   let dayOffset = index + initialIndex
   const sectionNum = index + initialIndex + 1
 
@@ -32,9 +35,11 @@ const renderPartTimeSection = ({
 
   return (
     <Section
-      title={`Day ${sectionNum} - ${title ||
+      title={`Day ${sectionNum} - ${
+        title ||
         (Comp && Comp.defaultProps && Comp.defaultProps.title) ||
-        subTitle}`}
+        subTitle
+      }`}
       name={`session${sectionNum}`}
       trainingId={trainingId}
       trainingDateTime={

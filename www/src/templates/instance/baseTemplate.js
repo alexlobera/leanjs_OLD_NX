@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import StickyBox from 'react-sticky-box'
 import { graphql } from 'gatsby'
 
@@ -57,7 +57,7 @@ const InstancePage = ({
     locationImage,
     posts,
     subtitle,
-    financeAvailable,
+    // financeAvailable,
     coaches,
     breadcrumbTrainingName,
     breadcrumbTrainingSlug,
@@ -68,13 +68,14 @@ const InstancePage = ({
     // learnToCodePartners = [],
     canonical,
     nth = 1,
-    videoOneTime,
-    videoOneId,
-    videoOneQuote,
-    videoCoachId,
-    videoOneFullname,
-    videoOneJob,
-    videoOneCompany,
+    // videoOneTime,
+    // videoOneId,
+    // videoOneQuote,
+    // videoCoachId,
+    // videoOneFullname,
+    // videoOneJob,
+    // videoOneCompany,
+    videoProduct,
     videoTwoTime,
     videoTwoId,
     videoTwoQuote,
@@ -85,6 +86,7 @@ const InstancePage = ({
     siteUrl,
   },
 }) => {
+  console.log('videoProduct', videoProduct)
   const techLowerCase = tech.toLowerCase()
   const pathTech = `/${techLowerCase}/`
   const pathTraining = `${pathTech}training/`
@@ -181,9 +183,7 @@ const InstancePage = ({
         </LinkButton>
       )}
     </>
-  ) : (
-    undefined
-  )
+  ) : undefined
 
   const defaultMetas = {
     title: instanceTitle,
@@ -252,7 +252,7 @@ const InstancePage = ({
             pageData={data && data.sanityTrainingPage}
             content={
               <React.Fragment>
-                {videoCoachId ? (
+                {/* {videoCoachId ? (
                   <React.Fragment>
                     <H3>Meet the coach</H3>
                     <Video youtubeId={videoCoachId} />
@@ -273,7 +273,7 @@ const InstancePage = ({
                       )}
                     </Box>
                   </React.Fragment>
-                ) : null}
+                ) : null} */}
                 <TrainingDetails
                   coaches={coaches}
                   training={training}
@@ -369,20 +369,15 @@ const InstancePage = ({
               )}
             </StickyBox>
           </Col>
-          {training &&
-            (financeAvailable ||
-              trialTraingInstance ||
-              trialOfTraingInstance) && (
-              <Col md={10} mdOffset={1}>
-                {trialTraingInstance ? (
-                  <TrialCard trainingInstance={trialTraingInstance} />
-                ) : trialOfTraingInstance ? (
-                  <TrialOfCard trainingInstance={trialOfTraingInstance} />
-                ) : financeAvailable ? (
-                  <FinanceCard />
-                ) : null}
-              </Col>
-            )}
+          {training && (trialTraingInstance || trialOfTraingInstance) && (
+            <Col md={10} mdOffset={1}>
+              {trialTraingInstance ? (
+                <TrialCard trainingInstance={trialTraingInstance} />
+              ) : trialOfTraingInstance ? (
+                <TrialOfCard trainingInstance={trialOfTraingInstance} />
+              ) : null}
+            </Col>
+          )}
         </Row>
       </Section>
       <FAQSection pageData={data && data.sanityTrainingPage} />

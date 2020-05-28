@@ -10,7 +10,7 @@ import { sendFeedback } from '../../api/rest'
 
 function Feedback({ trialPath, articlePath }) {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const handleFormSubmit = async feedback => {
+  const handleFormSubmit = async (feedback) => {
     await sendFeedback({
       'feedback from': 'GraphQL part-time checkout',
       ...feedback,

@@ -183,8 +183,9 @@ const Community = ({ data, path, trainings }) => {
             <LinkButton
               variant="primary"
               to={nextMeetup && nextMeetup.toPath}
-              children={`Next Meetup: ${nextMeetupStartDate}, ${nextMeetup &&
-                nextMeetup.city}`}
+              children={`Next Meetup: ${nextMeetupStartDate}, ${
+                nextMeetup && nextMeetup.city
+              }`}
             />
           </Col>
         </CallToActionRow>

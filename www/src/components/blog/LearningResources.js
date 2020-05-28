@@ -9,7 +9,7 @@ const LearningResources = ({ posts = [], type = '' }) => {
     <React.Fragment>
       <H2>Latest {type} Blogs</H2>
       <Box sx={{ mt: 5 }}>
-        {posts.slice(0, 3).map(post => (
+        {posts.slice(0, 3).map((post) => (
           <PostCard
             post={post}
             imageProps={{

@@ -11,7 +11,7 @@ import {
   GRAPHQL_TRIAL_ID,
 } from 'src/config/data'
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     trainingId={GRAPHQL_TRIAL_ID}

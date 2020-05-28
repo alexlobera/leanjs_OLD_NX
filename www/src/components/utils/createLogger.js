@@ -11,19 +11,19 @@ const createRavenLogger = () => {
   raven.config(SENTRY_DSN).install()
 
   return {
-    debug: message => {
+    debug: (message) => {
       raven.captureMessage(message, { level: DEBUG })
     },
-    info: message => {
+    info: (message) => {
       raven.captureMessage(message, { level: INFO })
     },
-    warn: message => {
+    warn: (message) => {
       raven.captureMessage(message, { level: WARNING })
     },
-    error: message => {
+    error: (message) => {
       raven.captureMessage(message, { level: ERROR })
     },
-    fatal: message => {
+    fatal: (message) => {
       raven.captureMessage(message, { level: FATAL })
     },
   }

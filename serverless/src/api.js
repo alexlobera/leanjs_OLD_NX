@@ -11,12 +11,33 @@ const setupApi = ({ autopilotapikey, slackToken, middlewares = [] }) => {
   middlewares.map((middleware) => api.use(middleware));
 
   api.use(setOptions);
+  api.post("/contactLeanJS", contactLeanJS);
   api.post("/sendFeedback", sendFeedback);
   api.post("/requestQuote", requestQuote);
   api.post("/unsubscribe", requireBodyEmail, unsubscribe);
   api.post("/sessionSubscribe", requireBodyEmail, sessionSubscribe);
   api.post("/subscribe", requireBodyEmail, subscribe);
   api.get("/status", status);
+
+  function postMessageToSlack({ message, title, channel, response }) {
+    if (!message) {
+      s;
+      response.status(401).send("no message");
+    }
+
+    const web = new WebClient(slackToken);
+    // See: https://api.slack.com/methods/chat.postMessage
+    web.chat.postMessage({
+      channel,
+      icon_url: slackBotIconUrl,
+      text: `${title} ${Object.keys(message).map(
+        (key) => `\n\n*${key}*: ${message[key]}`
+      )}
+                  `,
+    });
+
+    response.status(200).send("message sent");
+  }
 
   async function sendFeedback(request, response, next) {
     const feedback = request && request.body;
@@ -62,6 +83,16 @@ NEW PRIVATE TRAINING TRIAL REQUEST ${Object.keys(fields).map(
     });
 
     response.status(200).send("request submited");
+  }
+
+  async function contactLeanJS(request, response) {
+    await postMessageToSlack({
+      message: request.body,
+      title:
+        ":tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: LeanJS lead",
+      channel: "C8MTKU3NC",
+      response,
+    });
   }
 
   function requireBodyEmail(request, response, next) {

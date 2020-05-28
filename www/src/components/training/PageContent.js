@@ -60,7 +60,7 @@ const Answer = ({
           <BlockContent blocks={faq._rawAnswer} serializers={serializers} />
         )}
         {showToggle && (
-          <Link onClick={() => setIsDisplayed(state => !state)}>
+          <Link onClick={() => setIsDisplayed((state) => !state)}>
             {isDisplayed ? 'Hide' : 'Show'}
           </Link>
         )}
@@ -74,8 +74,8 @@ export const FAQSection = React.memo(({ pageData }) => {
     return null
   }
 
-  const featuredFaqs = pageData.faqs.filter(faq => faq.featured)
-  const nofeaturedFaqs = pageData.faqs.filter(faq => !faq.featured)
+  const featuredFaqs = pageData.faqs.filter((faq) => faq.featured)
+  const nofeaturedFaqs = pageData.faqs.filter((faq) => !faq.featured)
 
   return (
     <Section>
@@ -86,23 +86,30 @@ export const FAQSection = React.memo(({ pageData }) => {
             Frequently Asked Questions
           </H2>
           {featuredFaqs.map(({ extendAnswer, faq }) => {
+            let extendedFaq
             if (
               extendAnswer &&
               faq._rawAnswer &&
               faq._rawAnswer.length &&
               faq._rawAnswer[faq._rawAnswer.length - 1].children
             ) {
-              faq._rawAnswer[faq._rawAnswer.length - 1].children = [
-                ...faq._rawAnswer[faq._rawAnswer.length - 1].children,
-                {
-                  _key: Math.random(),
-                  _type: 'span',
-                  text: extendAnswer,
-                },
-              ]
+              extendedFaq = {
+                ...faq,
+                _rawAnswer: faq._rawAnswer.map((rawAnswer) => ({
+                  ...rawAnswer,
+                  children: [
+                    ...rawAnswer.children,
+                    {
+                      _key: Math.random(),
+                      _type: 'span',
+                      text: ` ${extendAnswer}`,
+                    },
+                  ],
+                })),
+              }
             }
 
-            return <Answer faq={faq} />
+            return <Answer faq={extendedFaq} />
           })}
           {nofeaturedFaqs.map(({ faq }) => {
             return <Answer faq={faq} showToggle={true} display={false} />

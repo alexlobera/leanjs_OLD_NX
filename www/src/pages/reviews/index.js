@@ -322,7 +322,7 @@ const ReviewsPage = ({ data, trainings }) => (
               {data.badges.nodes.map(({ name, childImageSharp }) => (
                 <Col md={4} sx={{ textAlign: 'center', pb: 4 }}>
                   <Image
-                    title={name.replace(/^\w/, c => c.toUpperCase())}
+                    title={name.replace(/^\w/, (c) => c.toUpperCase())}
                     fluid={childImageSharp.fluid}
                   />
                 </Col>

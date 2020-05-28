@@ -66,7 +66,7 @@ const Input = ({
 }) => {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta
   const name = props.name || input.name
-  const onChange = e => {
+  const onChange = (e) => {
     input.onChange && input.onChange(e)
     props.onChange && props.onChange(e)
   }

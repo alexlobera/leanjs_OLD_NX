@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LinkedinIcon = props => {
+const LinkedinIcon = (props) => {
   const { fill = '#FFF' } = props
   return (
     <svg focusable="false" width={20} height={20} fill={fill} {...props}>

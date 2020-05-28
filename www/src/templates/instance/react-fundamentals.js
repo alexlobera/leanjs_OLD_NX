@@ -13,7 +13,7 @@ import {
 
 export const crossSellTypes = [REACT_PART_TIME, REACT_BOOTCAMP]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     trainingInstanceTypeName={FULL_TIME}

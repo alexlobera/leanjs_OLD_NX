@@ -16,7 +16,7 @@ export const crossSellTypes = [
   GRAPHQL_BOOTCAMP,
 ]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     type={GRAPHQL_API}

@@ -28,7 +28,7 @@ const BlogSection = ({ posts, variant, title = 'Related articles' }) => {
         </Col>
       </Row>
       <Row>
-        {posts.slice(0, 3).map(post => (
+        {posts.slice(0, 3).map((post) => (
           <Col md={4} key={post.slug}>
             <PostCard small post={post} />
           </Col>

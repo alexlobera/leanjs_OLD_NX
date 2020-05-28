@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { H3 } from '../text'
+import { H2 } from '../text'
 import UpcomingTrainings from './UpcomingTrainings'
 import selectUpcomingTrainings from './selectUpcomingTrainings'
 import { LinkButton } from '../buttons'
@@ -25,7 +25,7 @@ const AlternativeTrainings = ({
 }) =>
   trainings && trainings.length ? (
     <React.Fragment>
-      <H3>{titleText}</H3>
+      <H2>{titleText}</H2>
       <Row>
         <UpcomingTrainings
           className="suggested-courses"

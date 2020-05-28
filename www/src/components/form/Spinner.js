@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Spinner = props => (
+const Spinner = (props) => (
   <StyledSpinner viewBox="0 0 50 50" {...props}>
     <circle
       className="path"

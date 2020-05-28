@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InstagramIcon = props => {
+const InstagramIcon = (props) => {
   const { fill = '#FFF' } = props
   return (
     <svg focusable="false" width={24} height={24} fill={fill} {...props}>

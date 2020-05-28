@@ -10,7 +10,7 @@ import { TECH_GRAPHQL } from '../../config/data'
 export const StyledLi = styled(Box)`
   list-style-type: none;
   display: inline-block;
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+  @media (min-width: ${(props) => props.theme.breakpoints[0]}) {
     ${space({ mx: 2 })}
     :last-child {
       margin-right: 0;
@@ -20,7 +20,7 @@ export const StyledLi = styled(Box)`
       margin-left: 0;
     }
   }
-  @media (max-width: ${props => props.theme.breakpoints[0]}) {
+  @media (max-width: ${(props) => props.theme.breakpoints[0]}) {
     display: block;
   }
 `
@@ -94,7 +94,7 @@ export const TabItem = React.memo(
           isSelected={isSelected}
           name={name}
           {...props}
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault()
             onChange(name)
           }}
@@ -137,7 +137,7 @@ export const Tabs = ({
 }) => {
   const [value, setValue] = useState(defaultValue)
 
-  const onChange = value => {
+  const onChange = (value) => {
     onChangeProp && onChangeProp(value)
     // if it's a controlled component then there is no need to update the state and trigger another rerender
     !valueProp && setValue(value)

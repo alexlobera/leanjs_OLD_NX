@@ -8,7 +8,7 @@ import Tag from '../elements/Tag'
 import { formatUTC } from '../utils'
 import { WHITE } from '../../config/styles'
 
-const Calendar = styled(Link).attrs(props => ({
+const Calendar = styled(Link).attrs((props) => ({
   className: props.className,
 }))`
   ${({ tech, trainingType }) =>

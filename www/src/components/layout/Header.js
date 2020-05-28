@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import {
   formatUTC,
@@ -231,7 +231,8 @@ const Nav = styled.div`
   ${FONT_FAMILY}
   ${TEXT_SIZE({ lg: true })}
   ${HEADER_SUBSECTION_PADDING_LEFT_RIGHT}
-  background-color: ${props => (props.quickLinks ? DARK_BLUE_075 : LIGHT_BLUE)};
+  background-color: ${(props) =>
+    props.quickLinks ? DARK_BLUE_075 : LIGHT_BLUE};
   color: ${WHITE};
   > div {
     color: ${WHITE};
@@ -373,7 +374,7 @@ const Header = ({
           }
         }
       `}
-      render={data => {
+      render={(data) => {
         const bgImage = removeBgImage
           ? undefined
           : bgImgUrl || getBackgroundImageSrc(data, bgImageName)
@@ -489,7 +490,7 @@ const Header = ({
                       <FeaturedTrainingTitle>
                         Featured Training
                       </FeaturedTrainingTitle>
-                      {featuredTrainings.map(featuredTraining => {
+                      {featuredTrainings.map((featuredTraining) => {
                         const {
                           dayMonth: featuredDayMonth,
                           duration: featureDuration,
@@ -559,19 +560,23 @@ const Header = ({
                           {trainingDays && trainingDays < 32 ? (
                             <Li>
                               <strong>Timings</strong>:{' '}
-                              {`${(training.startDate &&
-                                formatUTC(
-                                  training.startDate,
-                                  training.utcOffset,
-                                  'HH:mm'
-                                )) ||
-                                '9am'}-${(training.endDate &&
-                                formatUTC(
-                                  training.endDate,
-                                  training.utcOffset,
-                                  'HH:mm'
-                                )) ||
-                                '6:00pm'}`}
+                              {`${
+                                (training.startDate &&
+                                  formatUTC(
+                                    training.startDate,
+                                    training.utcOffset,
+                                    'HH:mm'
+                                  )) ||
+                                '9am'
+                              }-${
+                                (training.endDate &&
+                                  formatUTC(
+                                    training.endDate,
+                                    training.utcOffset,
+                                    'HH:mm'
+                                  )) ||
+                                '6:00pm'
+                              }`}
                               {training.isOnline &&
                                 ` GMT${utcHours}:${utcMinutes}`}
                             </Li>
@@ -650,7 +655,7 @@ const Header = ({
   )
 }
 
-export const RootHeader = props => (
+export const RootHeader = (props) => (
   <Header bgColors={[GRAPHQL_PINK, BLUE]} bgImageOpacity={0.3} {...props} />
 )
 

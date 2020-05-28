@@ -1,9 +1,9 @@
 import Payment from 'payment'
 
-export const getMonthFromCardDate = cardDate =>
+export const getMonthFromCardDate = (cardDate) =>
   cardDate && parseInt(cardDate.substring(0, cardDate.lastIndexOf('/')), 10)
 
-export const getYearFromCardDate = cardDate =>
+export const getYearFromCardDate = (cardDate) =>
   cardDate &&
   parseInt(
     clearNumber(

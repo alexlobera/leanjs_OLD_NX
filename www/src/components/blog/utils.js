@@ -73,7 +73,7 @@ function getContents({ rawBody, path }) {
 
 function getHeadings({ rawBody, types = ['h2', 'h3'] }) {
   return rawBody.reduce((accHeadings, currentBlock) => {
-    if (types.find(type => type === currentBlock.style)) {
+    if (types.find((type) => type === currentBlock.style)) {
       const text = currentBlock.children
         .map(({ text }) => text)
         .join(' ')
@@ -263,10 +263,10 @@ function postToHtml({ node, bodyImagePublicURLs = {}, siteUrl = '' }) {
 
 // TODO ADD A E2E TO TEST THIS. Probably checking the /rss.xml feed
 function postsToHtml({ posts, bodyImagePublicURLs, siteUrl }) {
-  return posts.map(node => postToHtml({ node, bodyImagePublicURLs, siteUrl }))
+  return posts.map((node) => postToHtml({ node, bodyImagePublicURLs, siteUrl }))
 }
 
-const findIndexFromTagName = tagName => (acc, { name: tag }) => {
+const findIndexFromTagName = (tagName) => (acc, { name: tag }) => {
   if (acc) {
     return acc
   }
@@ -276,7 +276,7 @@ const findIndexFromTagName = tagName => (acc, { name: tag }) => {
   }
 }
 
-const sortingPostsByTag = tagName => (a, b) => {
+const sortingPostsByTag = (tagName) => (a, b) => {
   const featuredA = a.tags.reduce(findIndexFromTagName(tagName), null)
   const featuredB = b.tags.reduce(findIndexFromTagName(tagName), null)
 

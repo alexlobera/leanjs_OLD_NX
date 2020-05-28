@@ -30,7 +30,7 @@ const UpcomingTrainings = ({
     return <P>Sorry! There are no training dates confirmed.</P>
   }
 
-  return filteredTrainings.map(training => {
+  return filteredTrainings.map((training) => {
     const { dayMonth, duration } = getTrainingTimings({ training })
     const trainingInstance = (
       <TrainingItem

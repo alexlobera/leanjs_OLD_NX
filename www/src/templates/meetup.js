@@ -1,6 +1,6 @@
 import React from 'react'
 import Markdown from 'markdown-to-jsx'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import { TopSection } from 'src/components/layout/Section'

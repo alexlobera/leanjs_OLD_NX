@@ -8,7 +8,7 @@ import MenuData from '../Menu.json'
 import RGALogo from '../../../logos/RGALogo'
 import ToggleButton from './ToggleButton'
 
-const Item = props => <Link {...props} />
+const Item = (props) => <Link {...props} />
 
 export const PhoneMenuItem = styled(Item)`
   display: block;
@@ -60,7 +60,7 @@ const PhoneMenu = ({ width, defaultIsOpen = false }) => {
         ...(currentItem.showOnMobile
           ? [{ to: currentItem.to, text: currentItem.text }]
           : []),
-        ...currentItem.children.filter(i => !i.hideOnMobile),
+        ...currentItem.children.filter((i) => !i.hideOnMobile),
       ]
     } else if (!currentItem.hideOnMobile) {
       return [...accumulatedItems, currentItem]
@@ -79,7 +79,7 @@ const PhoneMenu = ({ width, defaultIsOpen = false }) => {
       {isOpen && <Overlay onClick={toggleMenu} />}
       <MenuContent width={width} isOpen={isOpen}>
         <RGALogo sx={{ mb: 5, display: 'inline-block' }} />
-        {items.map(item => (
+        {items.map((item) => (
           <PhoneMenuItem onClick={toggleMenu} key={item.to} to={item.to}>
             {item.text}
           </PhoneMenuItem>

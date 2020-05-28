@@ -13,7 +13,7 @@ import {
 
 export const crossSellTypes = [ADVANCED_REACT, GRAPHQL_BOOTCAMP, REACT_WORKSHOP]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     trainingId={REACT_WORKSHOP_ADVANCED_PATTERNS_ID}

@@ -31,7 +31,7 @@ const FEATURED_TAG = 'featured-blog-page-'
 // TODO memoize getPostsInitialState
 function getPostsInitialState(data) {
   const nonFeaturedSanityPosts = (data.allSanityPost.nodes || []).filter(
-    post => !post.tags.reduce(findIndexFromTagName(FEATURED_TAG), null)
+    (post) => !post.tags.reduce(findIndexFromTagName(FEATURED_TAG), null)
   )
   const featuredSanityPosts = data.featuredSanityPosts.nodes || []
 
@@ -48,12 +48,12 @@ const Blog = ({ data, path, trainings }) => {
   const postsInitialState = getPostsInitialState(data)
   const [posts, setPosts] = useState(postsInitialState)
 
-  const searchPosts = e => {
+  const searchPosts = (e) => {
     const term = e.target.value
     if (!term) {
       setPosts(postsInitialState)
     } else {
-      algoliaPostsIndex.search(term).then(results => {
+      algoliaPostsIndex.search(term).then((results) => {
         setSearchTerm(term)
         setPosts(results.hits)
       })
@@ -89,7 +89,7 @@ const Blog = ({ data, path, trainings }) => {
       <TopSection>
         {posts.length ? (
           <Row>
-            {posts.map(post => (
+            {posts.map((post) => (
               <Col lg={4} key={post.path}>
                 <PostCard post={post} />
               </Col>

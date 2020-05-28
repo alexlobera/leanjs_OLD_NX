@@ -89,7 +89,7 @@ class ReactCurriculum extends React.Component {
     }
   }
 
-  setActive = active => {
+  setActive = (active) => {
     this.setState({ active })
   }
 

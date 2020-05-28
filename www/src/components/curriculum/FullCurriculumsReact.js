@@ -40,7 +40,7 @@ const FullCurriculumsReact = ({ trainings }) => {
   const defaultTabValule = getDefaultTabValue(defaultSelectedTime)
   const [selectedTime, setSelectedTime] = useState(defaultSelectedTime)
   const [tabsValue, setTabsValue] = useState(defaultTabValule)
-  const onSelectChange = time => {
+  const onSelectChange = (time) => {
     setSelectedTime(time)
     setTabsValue(getDefaultTabValue(time))
   }

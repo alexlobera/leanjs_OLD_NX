@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import StickyBox from 'react-sticky-box'
 
 import LinkButton from 'src/components/buttons/LinkButton'
@@ -174,7 +174,7 @@ const GraphQLPage = ({
 
   const crossSellTrainings = relatedTrainingInstance
     .map(getNextTrainingByTrainingId)
-    .filter(t => t)
+    .filter((t) => t)
 
   const conference = selectNodeById({
     nodes: trainings,

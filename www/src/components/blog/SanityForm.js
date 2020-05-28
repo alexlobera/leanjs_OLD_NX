@@ -8,7 +8,7 @@ import { sendFeedback } from '../../api/rest'
 
 function SanityForm({ data }) {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const handleFormSubmit = async feedback => {
+  const handleFormSubmit = async (feedback) => {
     await sendFeedback({ 'feedback from': data.title, ...feedback })
     setFormSubmitted(true)
   }
@@ -23,7 +23,7 @@ function SanityForm({ data }) {
           <H3>{data.title}</H3>
           <form onSubmit={handleSubmit}>
             <Ul variant="unstyled">
-              {data.questions.map(question => (
+              {data.questions.map((question) => (
                 <Li>
                   <CheckboxField
                     name={question.inputLabel}

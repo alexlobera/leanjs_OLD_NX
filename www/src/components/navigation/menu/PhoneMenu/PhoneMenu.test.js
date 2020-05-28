@@ -11,10 +11,7 @@ describe('<PhoneMenu />', () => {
     expect(wrapper.find(MenuContent).props().isOpen).toBe(true)
     expect(wrapper.find(Overlay)).toBeTruthy()
 
-    wrapper
-      .find(PhoneMenuItem)
-      .first()
-      .simulate('click')
+    wrapper.find(PhoneMenuItem).first().simulate('click')
 
     expect(wrapper.find(MenuContent).props().isOpen).toBe(false)
     expect(wrapper.find(Overlay).length).toBe(0)

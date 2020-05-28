@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import BlockContent from '@sanity/block-content-to-react'
 
 import Link from '../components/navigation/Link'
@@ -97,8 +97,9 @@ const TeamMember = ({ data, trainings }) => {
 
   const linkName = username.current || 'username'
   const job1 = jobs && jobs.length ? jobs[0] : null
-  const pageTitle = `${fullname} - ${job1 &&
-    job1.title} | React GraphQL Academy`
+  const pageTitle = `${fullname} - ${
+    job1 && job1.title
+  } | React GraphQL Academy`
   const metas = {
     title: pageTitle,
     image: coachImgSrc,

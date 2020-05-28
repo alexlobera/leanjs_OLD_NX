@@ -79,15 +79,15 @@ export class CheckoutContainer extends React.Component {
     }
   }
 
-  addCourse = e => {
+  addCourse = (e) => {
     return this.props.addCourse(e)
   }
 
-  removeCourse = e => {
+  removeCourse = (e) => {
     return this.props.removeCourse(e)
   }
 
-  validateVies = fullVatNumber => {
+  validateVies = (fullVatNumber) => {
     if (!fullVatNumber || !fullVatNumber.length > 3) {
       return
     }
@@ -120,12 +120,12 @@ export class CheckoutContainer extends React.Component {
       })
   }
 
-  processPaymentError = error => {
+  processPaymentError = (error) => {
     this.setState({ paymentErrorMessage: true, isPaymentInProgress: false })
     createLogger().error(error)
   }
 
-  pay = values => {
+  pay = (values) => {
     if (this.state.isPaymentInProgress) {
       return
     }
@@ -210,7 +210,7 @@ export class CheckoutContainer extends React.Component {
               this.processPaymentError(error)
             }
           })
-          .catch(error => {
+          .catch((error) => {
             this.processPaymentError(error)
           })
       }

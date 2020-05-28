@@ -3,12 +3,12 @@ import memoize from './memoize'
 const RECEIVE_DATA = 'RECEIVE_DATA'
 const SET_ERROR = 'SET_ERROR'
 
-export const receiveData = data => ({
+export const receiveData = (data) => ({
   type: RECEIVE_DATA,
   data,
 })
 
-export const setErrors = error => ({
+export const setErrors = (error) => ({
   type: SET_ERROR,
   error,
 })
@@ -55,7 +55,7 @@ const GraphQLProvider = ({
 function hashGql(query, variables) {
   const body = JSON.stringify({ query, variables })
 
-  return body.split('').reduce(function(a, b) {
+  return body.split('').reduce(function (a, b) {
     a = (a << 5) - a + b.charCodeAt(0)
     return a & a
   }, 0)
@@ -83,7 +83,7 @@ export const useQuery = (query, { variables }) => {
           payload: { [cacheKey]: data, error },
         })
       })
-      .catch(error =>
+      .catch((error) =>
         dispatch({
           type: SET_ERROR,
           error,

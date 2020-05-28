@@ -26,7 +26,7 @@ export const SCREEN_MD_MAX = '1199px'
 export const SCREEN_LG_MIN = '1200px'
 
 const Components = ({ children, ...props }) =>
-  React.Children.map(children, child =>
+  React.Children.map(children, (child) =>
     React.cloneElement(child, {
       className: props.className,
     })
@@ -114,11 +114,11 @@ export const createMetas = ({
         content={authorTwitter}
       />
     ) : null,
-  ].filter(m => m)
+  ].filter((m) => m)
 }
 
 export const HideComponentsUsingCss = styled(Components)`
-    ${props =>
+    ${(props) =>
       props.xs
         ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
@@ -126,7 +126,7 @@ export const HideComponentsUsingCss = styled(Components)`
         }
     `
         : ''}
-    ${props =>
+    ${(props) =>
       props.sm
         ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
@@ -134,7 +134,7 @@ export const HideComponentsUsingCss = styled(Components)`
         }
     `
         : ''}
-    ${props =>
+    ${(props) =>
       props.md
         ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
@@ -142,7 +142,7 @@ export const HideComponentsUsingCss = styled(Components)`
         }
     `
         : ''}
-    ${props =>
+    ${(props) =>
       props.lg
         ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
@@ -154,7 +154,7 @@ export const HideComponentsUsingCss = styled(Components)`
 
 export const DisplayComponentsUsingCss = styled(Components)`
     display:none !important;
-    ${props =>
+    ${(props) =>
       props.xs
         ? `
         @media (max-width: ${SCREEN_XS_MAX}) {
@@ -162,7 +162,7 @@ export const DisplayComponentsUsingCss = styled(Components)`
         }
     `
         : ''}
-    ${props =>
+    ${(props) =>
       props.sm
         ? `
         @media (min-width:${SCREEN_SM_MIN}) and (max-width: ${SCREEN_SM_MAX}) {
@@ -170,7 +170,7 @@ export const DisplayComponentsUsingCss = styled(Components)`
         }
     `
         : ''}
-    ${props =>
+    ${(props) =>
       props.md
         ? `
         @media (min-width: ${SCREEN_MD_MIN}) and (max-width: ${SCREEN_MD_MAX}) {
@@ -178,7 +178,7 @@ export const DisplayComponentsUsingCss = styled(Components)`
         }
     `
         : ''}
-    ${props =>
+    ${(props) =>
       props.lg
         ? `
        @media (min-width: ${SCREEN_LG_MIN}) {
@@ -262,7 +262,7 @@ const days = {
 export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
   let daysOfTheWeek
   if (training.daysOfTheWeek && training.daysOfTheWeek.length) {
-    daysOfTheWeek = new Set(training.daysOfTheWeek.map(day => days[day]))
+    daysOfTheWeek = new Set(training.daysOfTheWeek.map((day) => days[day]))
   }
   if (daysOfTheWeek) {
     let validDaysCounter = 0
@@ -285,11 +285,15 @@ export const trainingDateByDay = ({ training = {}, dayOffset = 0 }) => {
 }
 
 export const trainingTimings = ({ training = {} }) =>
-  `${(training.startDate &&
-    `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`) ||
-    '09:00'} - ${(training.endDate &&
-    formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
-    '18:00'}`
+  `${
+    (training.startDate &&
+      `, ${formatUTC(training.startDate, training.utcOffset, 'HH:mm')}`) ||
+    '09:00'
+  } - ${
+    (training.endDate &&
+      formatUTC(training.endDate, training.utcOffset, 'HH:mm')) ||
+    '18:00'
+  }`
 
 function twoDigits(number, includeSymbol = false) {
   const intNumber = parseInt(number)

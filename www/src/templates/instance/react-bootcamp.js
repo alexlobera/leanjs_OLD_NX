@@ -23,7 +23,7 @@ export const crossSellTypes = [
   REACT_WORKSHOP,
 ]
 
-const Page = props => (
+const Page = (props) => (
   <BaseTemplate
     {...props}
     type={REACT_BOOTCAMP}

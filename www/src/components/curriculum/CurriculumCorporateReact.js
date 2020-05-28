@@ -21,7 +21,7 @@ const validateContactMe = composeValidators(mustBeEmail, required)
 
 function Feedback() {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const handleFormSubmit = async feedback => {
+  const handleFormSubmit = async (feedback) => {
     if (feedback['contact-me']) {
       feedback.mention = '<@U9S7MA8KV>'
     }

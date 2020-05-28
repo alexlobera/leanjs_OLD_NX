@@ -13,6 +13,27 @@ export default {
       type: "string",
     },
     {
+      name: "defaultStartSecond",
+      title: "Default start second",
+      type: "number",
+    },
+    {
+      name: "defaultThumbnailSecond",
+      title: "Default thumbnail second",
+      type: "number",
+    },
+    {
+      name: "privateDescription",
+      title: "Private description",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "publicDescription",
+      title: "Public description",
+      type: "string",
+    },
+    {
       name: "type",
       title: "Type",
       type: "string",
@@ -31,4 +52,10 @@ export default {
       type: "mux.video",
     },
   ],
+  preview: {
+    select: {
+      title: "title",
+      subtitle: "privateDescription",
+    },
+  },
 };
