@@ -208,6 +208,33 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
+        allSanityVideo {
+          nodes {
+            type
+            title
+            defaultStartSecond
+            defaultThumbnailSecond
+            video {
+              asset {
+                playbackId
+              }
+            }
+          }
+        }
+
+        allSanityTrainingPage {
+          nodes {
+            path
+            trainingVideo {
+              video {
+                asset {
+                  playbackId
+                }
+              }
+            }
+          }
+        }
+
         partners: allSanityPartner {
           nodes {
             name
@@ -247,13 +274,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 subtitle
                 author
                 tags
-                videoCoachId
-                videoOneTime
-                videoOneId
-                videoOneQuote
-                videoOneFullname
-                videoOneJob
-                videoOneCompany
                 videoTwoTime
                 videoTwoId
                 videoTwoQuote
@@ -268,7 +288,6 @@ exports.createPages = async ({ graphql, actions }) => {
     `).then(async (result) => {
       const locationPath = /^\/locations\//g
       const instancePath = /^\/(react|graphql)\/training\/.*(london|berlin|amsterdam|lisbon|barcelona|paris|hong-kong|remote).*/
-      const citiesFinanceAvailable = ['london']
       const siteUrl = removeTrailingSlash(result.data.site.siteMetadata.siteUrl)
 
       await Promise.all(
@@ -282,6 +301,22 @@ exports.createPages = async ({ graphql, actions }) => {
           })
         )
       )
+
+      function findVideoByPlaybackId(playbackId, videoNodes) {
+        return videoNodes.find((node) => {
+          return (
+            node.video &&
+            node.video.asset &&
+            node.video.asset.playbackId === playbackId
+          )
+        })
+      }
+
+      function findTrainingPageByPath(path, trainingPageNodes) {
+        return trainingPageNodes.find(
+          (trainingPage) => trainingPage.path === path
+        )
+      }
 
       await Promise.all(
         result.data.upmentoring.events.edges.map(({ node }) => {
@@ -355,9 +390,6 @@ exports.createPages = async ({ graphql, actions }) => {
               tagsNin = '',
               ...restConfig
             } = require(pathConfig)
-            const financeAvailable = !!citiesFinanceAvailable.find(
-              (c) => city.toLowerCase() === c.toLowerCase()
-            )
             const tagsInNoDuplicates = [
               ...new Set([...tagsIn, restConfig.tech.toLowerCase()]),
             ]
@@ -366,13 +398,6 @@ exports.createPages = async ({ graphql, actions }) => {
               tagsNin,
             })
             const {
-              videoOneTime,
-              videoOneId,
-              videoCoachId,
-              videoOneQuote,
-              videoOneFullname,
-              videoOneJob,
-              videoOneCompany,
               videoTwoTime,
               videoTwoId,
               videoTwoQuote,
@@ -401,6 +426,24 @@ exports.createPages = async ({ graphql, actions }) => {
               instanceTitle = `${restConfig.title}: ${capitalizedCity}`
             }
 
+            const trainingPage = findTrainingPageByPath(
+              slug,
+              result.data.allSanityTrainingPage.nodes
+            )
+            let videoProduct
+
+            if (
+              trainingPage &&
+              trainingPage.trainingVideo &&
+              trainingPage.trainingVideo.video &&
+              trainingPage.trainingVideo.video.asset
+            ) {
+              videoProduct = findVideoByPlaybackId(
+                trainingPage.trainingVideo.video.asset.playbackId,
+                result.data.allSanityVideo.nodes
+              )
+            }
+
             await Promise.all(
               instancesToCreate.map(async (nth) => {
                 const pagePath = `${slug}${nth > 1 ? `${nth}/` : ''}`
@@ -416,13 +459,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     learnToCodePartners,
                     locationImage:
                       locationImage && locationImage.childImageSharp,
-                    videoCoachId,
-                    videoOneTime,
-                    videoOneId: videoOneId ? videoOneId : '6hmKu1-vW-8',
-                    videoOneQuote,
-                    videoOneFullname,
-                    videoOneJob,
-                    videoOneCompany,
+                    videoProduct,
                     videoTwoTime,
                     videoTwoId: videoTwoId ? videoTwoId : 'blg40SCle7I',
                     videoTwoQuote: videoTwoQuote
@@ -439,7 +476,6 @@ exports.createPages = async ({ graphql, actions }) => {
                       : 'Meredith Corporation',
                     posts,
                     city: capitalizedCity,
-                    financeAvailable,
                     instanceTitle,
                     nth,
                     coaches:

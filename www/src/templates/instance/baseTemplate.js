@@ -9,7 +9,8 @@ import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
 import { H2, H3, P, Blockquote } from 'src/components/text'
 import Ul, { Li } from 'src/components/layout/Ul'
-import { Segment, Video } from 'src/components/elements'
+import { Segment } from 'src/components/elements'
+import VideoPlayer from 'src/components/elements/VideoPlayer'
 import Feedback from 'src/components/training/Feedback'
 import LinkButton from 'src/components/buttons/LinkButton'
 import Header from 'src/components/layout/Header'
@@ -57,7 +58,6 @@ const InstancePage = ({
     locationImage,
     posts,
     subtitle,
-    financeAvailable,
     coaches,
     breadcrumbTrainingName,
     breadcrumbTrainingSlug,
@@ -65,16 +65,9 @@ const InstancePage = ({
     breadcrumbWorkshopSlug,
     instanceTitle,
     city,
-    // learnToCodePartners = [],
     canonical,
     nth = 1,
-    videoOneTime,
-    videoOneId,
-    videoOneQuote,
-    videoCoachId,
-    videoOneFullname,
-    videoOneJob,
-    videoOneCompany,
+    videoProduct,
     videoTwoTime,
     videoTwoId,
     videoTwoQuote,
@@ -250,28 +243,17 @@ const InstancePage = ({
             pageData={data && data.sanityTrainingPage}
             content={
               <React.Fragment>
-                {videoCoachId ? (
-                  <React.Fragment>
-                    <H3>Meet the coach</H3>
-                    <Video youtubeId={videoCoachId} />
-                  </React.Fragment>
-                ) : videoOneId ? (
-                  <React.Fragment>
-                    <H3>Attendee testimonial</H3>
-                    <Video time={videoOneTime} youtubeId={videoOneId} />
-                    <Box sx={{ px: 1 }}>
-                      {videoOneQuote && (
-                        <Blockquote>{videoOneQuote}</Blockquote>
-                      )}
-                      {videoOneFullname && (
-                        <P sx={{ pt: 2 }}>
-                          {videoOneFullname || ''}, {videoOneJob || ''} -{' '}
-                          {videoOneCompany || 'Freelance'}{' '}
-                        </P>
-                      )}
-                    </Box>
-                  </React.Fragment>
-                ) : null}
+                {videoProduct && (
+                  <>
+                    {videoProduct && videoProduct.title && (
+                      <H3>{videoProduct.title}</H3>
+                    )}
+                    <VideoPlayer
+                      playbackId={videoProduct.video.asset.playbackId}
+                      thumbnailSecond={videoProduct.defaultThumbnailSecond}
+                    />
+                  </>
+                )}
                 <TrainingDetails
                   coaches={coaches}
                   training={training}
@@ -367,20 +349,15 @@ const InstancePage = ({
               )}
             </StickyBox>
           </Col>
-          {training &&
-            (financeAvailable ||
-              trialTraingInstance ||
-              trialOfTraingInstance) && (
-              <Col md={10} mdOffset={1}>
-                {trialTraingInstance ? (
-                  <TrialCard trainingInstance={trialTraingInstance} />
-                ) : trialOfTraingInstance ? (
-                  <TrialOfCard trainingInstance={trialOfTraingInstance} />
-                ) : financeAvailable ? (
-                  <FinanceCard />
-                ) : null}
-              </Col>
-            )}
+          {training && (trialTraingInstance || trialOfTraingInstance) && (
+            <Col md={10} mdOffset={1}>
+              {trialTraingInstance ? (
+                <TrialCard trainingInstance={trialTraingInstance} />
+              ) : trialOfTraingInstance ? (
+                <TrialOfCard trainingInstance={trialOfTraingInstance} />
+              ) : null}
+            </Col>
+          )}
         </Row>
       </Section>
       <FAQSection pageData={data && data.sanityTrainingPage} />
