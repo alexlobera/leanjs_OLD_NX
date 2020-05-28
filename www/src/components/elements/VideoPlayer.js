@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useImperativeHandle } from 'react'
 import * as Hls from 'hls.js'
-import Plyr from 'plyr'
+//import Plyr from 'plyr'
 import 'plyr/dist/plyr.css'
 import { createGlobalStyle } from 'styled-components'
 
@@ -33,6 +33,8 @@ function useHls({ url, autoplay = false, autoload = true, onClick, ref }) {
   useEffect(() => {
     function initPlayer() {
       if (Hls.isSupported()) {
+        // import Plyr from 'plyr' breaks on SSR, to we require it on the client
+        const Plyr = require('plyr')
         const plyr = new Plyr(videoRef.current, {
           autoplay,
           controls: [
