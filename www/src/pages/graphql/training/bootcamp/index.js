@@ -2,6 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import { BOOTCAMP } from 'src/../images/imageNames'
+import { LinkButton } from 'src/components/buttons'
+import { formatUTC } from 'src/components/utils'
 import { Link } from 'src/components/navigation'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
@@ -13,15 +15,21 @@ import { LIGHT_PINK } from 'src/config/styles'
 import {
   TrustedBySection,
   UpcomingTrainingSection,
+  selectUpcomingTrainings,
+  selectNthTraining,
   AttendeeQuote,
 } from 'src/components/training'
-import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
-import { GRAPHQL_BOOTCAMP, TECH_GRAPHQL } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 import { createMetas } from 'src/components/utils'
+import {
+  FULL_TIME,
+  TECH_GRAPHQL,
+  GRAPHQL_BOOTCAMP_ID,
+  TRAINING_TYPE_FULL_CURRICULUM,
+} from 'src/config/data'
 
 const metas = {
   title: 'GraphQL Bootcamp | React GraphQL Academy',
@@ -31,10 +39,18 @@ const metas = {
   type: 'website',
 }
 
+const trainingType = TRAINING_TYPE_FULL_CURRICULUM
+const trainingInstanceTypeName = FULL_TIME
+const trainingId = GRAPHQL_BOOTCAMP_ID
+
 const GraphQL = ({ path, trainings }) => {
-  const upcomingGraphQLTrainings = selectUpcomingTrainings({
+  const upcomingBootcampTrainings = selectUpcomingTrainings({
+    trainingId,
+    trainingInstanceTypeName,
     trainings,
-    type: GRAPHQL_BOOTCAMP,
+  })
+  const nextTraining = selectNthTraining({
+    trainings: upcomingBootcampTrainings,
   })
   return (
     <React.Fragment>
@@ -65,12 +81,12 @@ const GraphQL = ({ path, trainings }) => {
         subtitle="In-person GraphQL bootcamp from industry experts"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
-        type={GRAPHQL_BOOTCAMP}
+        trainingType={trainingType}
       />
       <TopSection>
         <Segment>
           <CurriculumGraphQLBootcamp
-            trainings={upcomingGraphQLTrainings}
+            trainings={upcomingBootcampTrainings}
             enableToggle
             isOpen={false}
           />
@@ -81,7 +97,7 @@ const GraphQL = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              type={GRAPHQL_BOOTCAMP}
+              tech={TECH_GRAPHQL}
               quote="It's nice to have people there who know their stuff. I feel like [the training] has definitely improved my career trajectory"
               fullname="Charlie Wilson"
               job="Software Engineer"
@@ -107,14 +123,22 @@ const GraphQL = ({ path, trainings }) => {
                 <strong>Build production ready</strong> apps leverging GraphQL.
               </Li>
               <Li>
-                Expert coaches who are <strong>working developers</strong>
+                Experienced coaches who are <strong>industry experts</strong>
               </Li>
               <Li>
                 Learn <strong>best practices</strong>.
               </Li>
-              <Li>
-                Alumni <strong>community</strong>.
-              </Li>
+              {nextTraining && (
+                <LinkButton variant="primary" to={nextTraining.toPath}>
+                  Next bootcamp:{' '}
+                  {formatUTC(
+                    nextTraining.startDate,
+                    nextTraining.utcOffset,
+                    'D MMM'
+                  )}
+                  , {nextTraining.city}
+                </LinkButton>
+              )}
             </Ul>
             <P />
           </Col>

@@ -1,18 +1,6 @@
 import React from 'react'
-import NodejsSession from './sessions/graphql/server/NodejsSession'
-import SchemaDesignSession from './sessions/graphql/server/SchemaDesignSession'
-import ThinkingInGraphQLSession from './sessions/graphql/server/ThinkingInGraphQLSession'
-import ErrorAndSecuritySession from './sessions/graphql/server/ErrorAndSecuritySession'
-import GraphQLServerRecapSession from './sessions/graphql/server/GraphQLServerRecapSession'
-import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
-import AdvancedApolloClientSession from './sessions/graphql/client/AdvancedApolloClientSession'
-import GraphQLClientRecapSession from './sessions/graphql/client/GraphQLClientRecapSession'
-import {
-  LearningObjectivesList as LearningObjectivesListAPI,
-  TargetAudienceList as TargetAudienceListAPI,
-} from './CurriculumGraphQLAPI'
-import { Li } from '../layout/Ul'
-import Link from '../navigation/Link'
+
+import LearningObjectivesUl from './LearningObjectivesUl'
 
 import {
   GRAPHQL_BOOTCAMP_ID,
@@ -21,21 +9,19 @@ import {
   TRAINING_TYPE_FULL_CURRICULUM,
 } from '../../config/data'
 import Curriculum, { renderSection } from './Curriculum'
+import {
+  sessions as sessionsApi,
+  learningObjectives as learningObjectivesApi,
+} from './CurriculumGraphQLAPI'
+import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
+import AdvancedApolloClientSession from './sessions/graphql/client/AdvancedApolloClientSession'
+import GraphQLClientRecapSession from './sessions/graphql/client/GraphQLClientRecapSession'
 
-export const sessionsFirstHalf = [
-  {
-    subTitle: 'Node.js and cloud, Thinking in GraphQL, and Schema design',
-    comps: [NodejsSession, ThinkingInGraphQLSession, SchemaDesignSession],
-  },
-  {
-    subTitle: 'Error handling, Security design, and Consolidation Project',
-    comps: [ErrorAndSecuritySession, GraphQLServerRecapSession],
-  },
-]
+const sessionsFirstHalf = sessionsApi
+
 export const sessionsSecondHalf = [
   {
-    subTitle:
-      'GraphQL client fundamentals, Advanced queries and mutations, and Consolidation Project',
+    subTitle: 'GraphQL Apollo Client',
     comps: [
       GraphQLClientFundamentalsSession,
       AdvancedApolloClientSession,
@@ -90,29 +76,12 @@ const CurriculumGraphQLBootcamp = ({
   )
 }
 
-export const TargetAudienceList = () => (
-  <React.Fragment>
-    <TargetAudienceListAPI />
-    <Li>
-      A developer with some experience developing React apps interested in
-      building modern data-driven apps?
-    </Li>
-    <Li>
-      You don't have enough React experience to attend this training? No
-      worries, join our <Link to="/react/training/">React training</Link> if you
-      need to upskill in React to attend this training.
-    </Li>
-  </React.Fragment>
-)
+export const TargetAudienceList = () => <React.Fragment></React.Fragment>
 
-export const LearningObjectivesList = () => (
-  <React.Fragment>
-    <LearningObjectivesListAPI />
-    <Li>
-      Learn how to build data-driven React apps efficiently and rapidly using
-      GraphQL
-    </Li>
-  </React.Fragment>
+export const LearningObjectivesList = (props) => (
+  <LearningObjectivesUl {...props}>
+    {learningObjectivesApi}
+  </LearningObjectivesUl>
 )
 
 CurriculumGraphQLBootcamp.LearningObjectivesList = LearningObjectivesList

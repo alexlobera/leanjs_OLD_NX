@@ -6,6 +6,7 @@ import {
   REACT_BOOTCAMP_ID,
   ADVANCED_REACT_ID,
   REACT_FUNDAMENTALS_ID,
+  GRAPHQL_API_ID,
 } from '../../config/data'
 
 export const createTrainingPath = ({
@@ -62,6 +63,11 @@ export const createTrainingPath = ({
     return `/${tech}/training/${slug}-part-time/${cityPathI}`
   } else if (trainingType === TRAINING_TYPE_TRIAL) {
     return `/${tech}/training/${slug}/${cityPathI}`
+  } else if (
+    trainingId === GRAPHQL_API_ID &&
+    trainingInstanceTypeName === FULL_TIME
+  ) {
+    return `/graphql/training/api/${cityPathI}`
   }
 }
 

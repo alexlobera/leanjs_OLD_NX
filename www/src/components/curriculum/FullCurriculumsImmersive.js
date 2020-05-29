@@ -8,19 +8,18 @@ import CurriculumReactFundamentals from './CurriculumReactFundamentals'
 import CurriculumAdvancedReact from './CurriculumAdvancedReact'
 import CurriculumReactWorkshops from './CurriculumReactWorkshops'
 import { tabItemClassName } from './utils'
-
-import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
 import {
   REACT_BOOTCAMP,
   ADVANCED_REACT,
   REACT_FUNDAMENTALS,
-  GRAPHQL_BOOTCAMP,
+  GRAPHQL_API,
   REACT_WORKSHOP,
   TECH_GRAPHQL,
   TRAINING_TYPE_WORKSHOP,
   TRAINING_TYPE_FULL_CURRICULUM,
   TRAINING_TYPE_HALF_CURRICULUM,
 } from '../../config/data'
+import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 
 const FullCurriculumsReact = ({ trainings }) => {
   const commonCurriculumProps = {
@@ -67,12 +66,19 @@ const FullCurriculumsReact = ({ trainings }) => {
               >
                 Workshops
               </TabItem>
-              <TabItem
+              {/* <TabItem
                 className={tabItemClassName}
                 tech={TECH_GRAPHQL}
                 name={GRAPHQL_BOOTCAMP}
               >
                 GraphQL Bootcamp
+              </TabItem> */}
+              <TabItem
+                className={tabItemClassName}
+                tech={TECH_GRAPHQL}
+                name={GRAPHQL_API}
+              >
+                GraphQL API
               </TabItem>
             </TabList>
           </Col>
@@ -90,8 +96,8 @@ const FullCurriculumsReact = ({ trainings }) => {
         <TabPanel name={REACT_WORKSHOP}>
           <CurriculumReactWorkshops {...commonCurriculumProps} />
         </TabPanel>
-        <TabPanel name={GRAPHQL_BOOTCAMP}>
-          <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
+        <TabPanel name={GRAPHQL_API}>
+          <CurriculumGraphQLAPI {...commonCurriculumProps} />
         </TabPanel>
       </Tabs>
     </React.Fragment>

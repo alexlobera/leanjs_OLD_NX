@@ -18,7 +18,7 @@ import {
 import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrainings'
 import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
-import { GRAPHQL_PART_TIME, TECH_GRAPHQL } from 'src/config/data'
+import { GRAPHQL_API, TECH_GRAPHQL } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import BlogSection from 'src/components/blog/BlogSection'
 import { createMetas } from 'src/components/utils'
@@ -35,7 +35,7 @@ const GraphQL = ({ path, trainings }) => {
   const upcomingGraphQLTrainings = selectUpcomingTrainings({
     trainings,
     // TODO UPDATE THE ARGUMENTS
-    type: GRAPHQL_PART_TIME,
+    type: GRAPHQL_API,
   })
   return (
     <React.Fragment>
@@ -66,7 +66,7 @@ const GraphQL = ({ path, trainings }) => {
         subtitle="In-person GraphQL part-time training from industry experts"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
-        type={GRAPHQL_PART_TIME}
+        type={GRAPHQL_API}
       />
       <TopSection>
         <Segment>

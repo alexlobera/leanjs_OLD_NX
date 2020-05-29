@@ -19,10 +19,10 @@ import selectUpcomingTrainings from 'src/components/training/selectUpcomingTrain
 import { Segment } from 'src/components/elements'
 import { WHY_GQLU_ACADEMY } from 'src/config/images.js'
 import {
-  GRAPHQL_API,
   TECH_GRAPHQL,
   GRAPHQL_API_ID,
   FULL_TIME,
+  TRAINING_TYPE_HALF_CURRICULUM,
 } from 'src/config/data'
 import header from 'src/components/layout/Header.json'
 import { createMetas } from 'src/components/utils'
@@ -37,6 +37,7 @@ const metas = {
 
 const trainingId = GRAPHQL_API_ID
 const trainingInstanceTypeName = FULL_TIME
+const trainingType = TRAINING_TYPE_HALF_CURRICULUM
 
 const GraphQL = ({ path, trainings }) => {
   const upcomingGraphQLTrainings = selectUpcomingTrainings({
@@ -71,7 +72,7 @@ const GraphQL = ({ path, trainings }) => {
         subtitle="In-person GraphQL API training from industry experts"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
-        type={GRAPHQL_API}
+        trainingType={trainingType}
       />
       <TopSection>
         <Segment>
@@ -86,7 +87,7 @@ const GraphQL = ({ path, trainings }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              type={GRAPHQL_API}
+              tech={TECH_GRAPHQL}
               quote="[The coaches] are very important - they're able to explain things in a way we can understand."
               fullname="Jim Plimmer"
               job="Developer"

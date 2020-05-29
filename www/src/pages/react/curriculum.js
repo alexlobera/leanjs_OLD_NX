@@ -53,20 +53,11 @@ import { LIST_LAYOUT } from 'src/components/curriculum/selectCurriculumLayout'
 import { BLUE } from '../../config/styles'
 import Card from 'src/components/elements/Card'
 import CurriculumReactCompletePartTime from 'src/components/curriculum/CurriculumReactCompletePartTime'
+import {
+  TdLearningExprience,
+  UlLearningExperience,
+} from 'src/components/curriculum/LearningExperienceElements'
 
-const TdLearningExprience = ({ strong, children }) => (
-  <Td verticalAlign="top">
-    <strong style={{ marginTop: '8px', display: 'inline-block' }}>
-      {strong}
-    </strong>
-    <br />
-    {children}
-  </Td>
-)
-
-const UlLearningExperience = ({ children }) => (
-  <Ul sx={{ textAlign: 'left', mt: 3 }}>{children}</Ul>
-)
 class ReactCurriculum extends React.Component {
   state = {
     active: `${REACT_BOOTCAMP_ID}${FULL_TIME}`,
@@ -201,7 +192,7 @@ class ReactCurriculum extends React.Component {
                   </Thead>
                   <Tbody>
                     <Tr>
-                      <Td>ES6 & ESNEXT</Td>
+                      <Td>Modern JavaScript</Td>
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
@@ -261,7 +252,7 @@ class ReactCurriculum extends React.Component {
                       <Td />
                     </Tr>
                     <Tr>
-                      <Td>React Patterns and Perf</Td>
+                      <Td>Patterns and Performance</Td>
                       <Td>
                         <Tick type={REACT_BOOTCAMP} />
                       </Td>
@@ -285,7 +276,7 @@ class ReactCurriculum extends React.Component {
                         For accelerated <br />
                         learning
                       </TdLearningExprience>
-                      <Td>
+                      <Td verticalAlign="top">
                         <LinkButton
                           variant="secondary"
                           to="/react/training/bootcamp"
@@ -298,9 +289,10 @@ class ReactCurriculum extends React.Component {
                           <Li>9 am to 6 pm</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1630</Li>
+                          <Li>Fundamentals + Advanced</Li>
                         </UlLearningExperience>
                       </Td>
-                      <Td>
+                      <Td verticalAlign="top">
                         <LinkButton
                           variant="secondary"
                           to="/react/training/advanced"
@@ -315,7 +307,7 @@ class ReactCurriculum extends React.Component {
                           <Li>Starting at £1100</Li>
                         </UlLearningExperience>
                       </Td>
-                      <Td>
+                      <Td verticalAlign="top">
                         <LinkButton
                           variant="secondary"
                           to="/react/training/fundamentals/"
@@ -342,14 +334,14 @@ class ReactCurriculum extends React.Component {
                           to="/react/training/part-time-bundle"
                           className="training-curriculum-clicks"
                         >
-                          Part-time bundle
+                          Part-time Bundle
                         </LinkButton>
                         <UlLearningExperience>
                           <Li>Between 5 and 7 weeks</Li>
-                          <Li>Fundamentals + Advanced</Li>
                           <Li>Max 9 hours a week</Li>
                           <Li>In-person and remote</Li>
                           <Li>Starting at £1630</Li>
+                          <Li>Fundamentals + Advanced</Li>
                         </UlLearningExperience>
                       </Td>
                       <Td verticalAlign="top">

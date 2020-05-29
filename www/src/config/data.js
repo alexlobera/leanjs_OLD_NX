@@ -3,7 +3,6 @@ export const LISBON = 'Lisbon'
 export const BARCELONA = 'Barcelona'
 export const AMSTERDAM = 'Amsterdam'
 export const BERLIN = 'Berlin'
-export const GRAPHQL_API = 'GraphQL API'
 export const GRAPHQL_PART_TIME_TRIAL = 'GraphQL Part-time Trial'
 export const GRAPHQL_WORKSHOP = 'GraphQL Worskhop'
 export const REACT_WORKSHOP = 'React Worskhop'
@@ -18,7 +17,7 @@ export const REACT_BOOTCAMP_ID = '@VFJBOjVhMTZmMGVhNDkzOWE2MDFmZTJkYjcwMQ==' // 
 export const ADVANCED_REACT_ID = '@VFJBOjVhYjYyNDRhODg1NDZlNDZmYTJiMjYwMQ==' //'5ab6244a88546e46fa2b2601'
 export const REACT_FUNDAMENTALS_ID = '@VFJBOjVkMDExNGI3MDYwNTFiN2QzYmNiMGNmOQ==' //'5d0114b706051b7d3bcb0cf9'
 export const REACT_TRIAL_ID = '@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg=='
-export const GRAPHQL_BOOTCAMP_ID = 'to-be-implemented'
+export const GRAPHQL_BOOTCAMP_ID = '@VFJBOjVjYWNiNWI5ODBjMTU3N2UzNzk4MTBkZQ=='
 export const GRAPHQL_API_ID = '@VFJBOjVkYzZmMzVmY2U2MjUzMDAwMmJkM2U5Mg==' // '5dc6f35fce62530002bd3e92'
 export const GRAPHQL_TRIAL_ID = '@VFJBOjVlMzQ5Mjc1Nzc4ZTg4MDAwMjExMzQ3NA=='
 
@@ -52,7 +51,7 @@ export const TRAINING_TYPE_FULL_CURRICULUM = 'full-curriculum'
 export const TRAINING_TYPE_HALF_CURRICULUM = 'half-curriculum'
 
 export const GRAPHQL_BOOTCAMP = `${GRAPHQL_BOOTCAMP_ID}${FULL_TIME}`
-export const GRAPHQL_PART_TIME = `${GRAPHQL_API_ID}${PART_TIME}`
+export const GRAPHQL_API = `${GRAPHQL_API_ID}${FULL_TIME}`
 
 export const REACT_BOOTCAMP = `${REACT_BOOTCAMP_ID}${FULL_TIME}`
 export const REACT_FUNDAMENTALS = `${REACT_FUNDAMENTALS_ID}${FULL_TIME}`
