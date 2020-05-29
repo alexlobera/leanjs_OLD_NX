@@ -425,8 +425,8 @@ class GraphQLCurriculum extends React.Component {
                 <TabPanel name={GRAPHQL_API}>
                   <P>
                     <strong>
-                      On completion of the GraphQL part-time training each
-                      student will:
+                      On completion of the GraphQL API training each student
+                      will:
                     </strong>
                   </P>
                   <GraphQLAPILearningObjectives />
