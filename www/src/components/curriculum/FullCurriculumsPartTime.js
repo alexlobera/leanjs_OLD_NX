@@ -57,14 +57,14 @@ const FullCurriculumsReact = ({ trainings }) => {
               >
                 Advanced React PT
               </TabItem>
-              <TabItem
+              {/* <TabItem
                 className={tabItemClassName}
                 trainingType={TRAINING_TYPE_HALF_CURRICULUM}
                 name={GRAPHQL_API}
                 tech={TECH_GRAPHQL}
               >
                 GraphQL API PT
-              </TabItem>
+              </TabItem> */}
             </TabList>
           </Col>
         </Row>
@@ -78,9 +78,9 @@ const FullCurriculumsReact = ({ trainings }) => {
         <TabPanel name={ADVANCED_REACT_PART_TIME}>
           <CurriculumAdvancedReactPartTime {...commonCurriculumProps} />
         </TabPanel>
-        <TabPanel name={GRAPHQL_API}>
+        {/* <TabPanel name={GRAPHQL_API}>
           <CurriculumGraphQLPartTime {...commonCurriculumProps} />
-        </TabPanel>
+        </TabPanel> */}
       </Tabs>
     </React.Fragment>
   )

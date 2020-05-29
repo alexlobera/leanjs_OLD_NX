@@ -11,7 +11,7 @@ import {
 import Curriculum, { renderSection } from './Curriculum'
 import {
   sessions as sessionsApi,
-  learningObjectivesList as learningObjectivesListApi,
+  learningObjectives as learningObjectivesApi,
 } from './CurriculumGraphQLAPI'
 import GraphQLClientFundamentalsSession from './sessions/graphql/client/GraphQLClientFundamentalsSession'
 import AdvancedApolloClientSession from './sessions/graphql/client/AdvancedApolloClientSession'
@@ -19,28 +19,6 @@ import GraphQLClientRecapSession from './sessions/graphql/client/GraphQLClientRe
 
 const sessionsFirstHalf = sessionsApi
 
-// export const sessionsFirstHalf = [
-//   {
-//     subTitle: ' Thinking in GraphQL, and GraphQL Specs',
-//     comps: [ThinkingInGraphQLSession, SpecificationSession],
-//   },
-//   {
-//     subTitle: 'Consolidation part 1, Schema design, and Apollo Federation',
-//     comps: [
-//       GraphQLServerConsoliationOneSession,
-//       SchemaDesignSession,
-//       FederationSession,
-//     ],
-//   },
-//   {
-//     subTitle: 'Consolidation part 2, Hasura, and Advanced tooling & practices',
-//     comps: [
-//       GraphQLServerConsoliationTwoSession,
-//       HasuraSession,
-//       ToolingAndPracticesSession,
-//     ],
-//   },
-// ]
 export const sessionsSecondHalf = [
   {
     subTitle: 'GraphQL Apollo Client',
@@ -102,7 +80,7 @@ export const TargetAudienceList = () => <React.Fragment></React.Fragment>
 
 export const LearningObjectivesList = (props) => (
   <LearningObjectivesUl {...props}>
-    {learningObjectivesListApi}
+    {learningObjectivesApi}
   </LearningObjectivesUl>
 )
 

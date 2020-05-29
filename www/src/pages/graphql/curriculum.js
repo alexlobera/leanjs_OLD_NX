@@ -4,7 +4,7 @@ import { Element, scroller } from 'react-scroll'
 import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table'
 import Section, { TopSection } from 'src/components/layout/Section'
 import { Col, Row } from 'src/components/layout/Grid'
-import Ul, { Li } from 'src/components/layout/Ul'
+import { Li } from 'src/components/layout/Ul'
 import { H2Ref, H2, P, H4, H5 } from 'src/components/text'
 import { Tick } from 'src/components/icons'
 import LinkButton from 'src/components/buttons/LinkButton'
@@ -17,9 +17,9 @@ import {
 } from 'src/components/navigation'
 import { Tabs, TabList, TabItem, TabPanel } from 'src/components/layout/Tabs'
 import MarketingCard from 'src/components/curriculum/MarketingCard'
-import CurriculumGraphQLPartTime, {
-  LearningObjectives as PartTimeLearningObjectives,
-} from 'src/components/curriculum/CurriculumGraphQLPartTime'
+import CurriculumGraphQLAPI, {
+  LearningObjectivesList as GraphQLAPILearningObjectives,
+} from 'src/components/curriculum/CurriculumGraphQLAPI'
 import CurriculumGraphQLBootcamp from 'src/components/curriculum/CurriculumGraphQLBootcamp'
 import Header from 'src/components/layout/Header'
 import {
@@ -31,7 +31,7 @@ import { getURLParameter } from 'src/components/utils/url'
 import {
   TECH_GRAPHQL,
   TRAINING_TYPE_HALF_CURRICULUM,
-  PART_TIME,
+  FULL_TIME,
   GRAPHQL_API_ID,
   GRAPHQL_BOOTCAMP_ID,
   TRAINING_TYPE_FULL_CURRICULUM,
@@ -89,7 +89,7 @@ class GraphQLCurriculum extends React.Component {
       trainings,
       trainingId: GRAPHQL_API_ID,
       trainingType: TRAINING_TYPE_HALF_CURRICULUM,
-      trainingInstanceTypeName: PART_TIME,
+      trainingInstanceTypeName: FULL_TIME,
     })
 
     return (
@@ -429,30 +429,30 @@ class GraphQLCurriculum extends React.Component {
                       student will:
                     </strong>
                   </P>
-                  <PartTimeLearningObjectives />
+                  <GraphQLAPILearningObjectives />
 
-                  <H4>GraphQL part-time Curriculum:</H4>
+                  <H4>GraphQL API Curriculum:</H4>
                   <Row>
                     <Col lg={1} lgOffset={1} />
                     <Col lg={9}>
-                      <CurriculumGraphQLPartTime
+                      <CurriculumGraphQLAPI
                         {...commonCurriculumProps}
                         marketingCard={
                           trainingPartTime && (
                             <MarketingCard
-                              heading="Next GraphQL part-time training"
-                              text={`Don't cut into valuable work!`}
+                              heading="Next GraphQL API training"
+                              text={`Learn from the best from anywhere!`}
                               className="training-curriculum-next-training-cta"
                               to={trainingPartTime && trainingPartTime.toPath}
-                              buttonText={`${
-                                trainingPartTime.isOnline
-                                  ? 'Remote'
-                                  : trainingPartTime.city
-                              } GraphQL part-time, ${formatUTC(
+                              buttonText={`${formatUTC(
                                 trainingPartTime.startDate,
                                 trainingPartTime.utcOffset,
                                 'D MMM'
-                              )}  `}
+                              )}, ${
+                                trainingPartTime.isOnline
+                                  ? 'remote'
+                                  : trainingPartTime.city
+                              }`}
                             />
                           )
                         }

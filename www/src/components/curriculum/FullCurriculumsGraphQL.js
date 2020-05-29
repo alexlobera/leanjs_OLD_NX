@@ -42,7 +42,7 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
                 className={tabItemClassName}
                 name={GRAPHQL_API}
               >
-                GraphQL Part-time
+                GraphQL API
               </TabItem>
             </TabList>
           </Col>

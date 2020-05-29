@@ -14,7 +14,9 @@ const LearningObjectivesUl = ({ children, showAllButton = true }) => {
     <>
       <Ul>
         {React.Children.map(children, (child) =>
-          React.cloneElement(child, { showAll })
+          React.cloneElement(child, {
+            showAll,
+          })
         )}
       </Ul>
       {showAllButton && (

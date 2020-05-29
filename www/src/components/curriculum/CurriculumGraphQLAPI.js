@@ -1,6 +1,7 @@
 import React from 'react'
 import { Li } from '../layout/Ul'
 
+import LearningObjectivesUl from './LearningObjectivesUl'
 import {
   GRAPHQL_API_ID,
   TECH_GRAPHQL,
@@ -107,18 +108,20 @@ export const TargetAudienceList = () => (
   </React.Fragment>
 )
 
-export const learningObjectivesList = (
-  <React.Fragment>
-    <ThinkingInLearningObjectives />
-    <SpecsLearningObjectives />
-    <SchemaDesignLearningObjectives />
-    <FederationLearningObjectives />
-    <HasuraLearningObjectives />
-    <ToolingAndPracticesSessionLearningObjectives />
-  </React.Fragment>
+export const learningObjectives = [
+  <ThinkingInLearningObjectives />,
+  <SpecsLearningObjectives />,
+  <SchemaDesignLearningObjectives />,
+  <FederationLearningObjectives />,
+  <HasuraLearningObjectives />,
+  <ToolingAndPracticesSessionLearningObjectives />,
+]
+
+export const LearningObjectivesList = (props) => (
+  <LearningObjectivesUl {...props}>{learningObjectives}</LearningObjectivesUl>
 )
 
-CurriculumGraphQLAPI.LearningObjectivesList = learningObjectivesList
+CurriculumGraphQLAPI.LearningObjectivesList = LearningObjectivesList
 CurriculumGraphQLAPI.TargetAudienceList = TargetAudienceList
 
 export default CurriculumGraphQLAPI
