@@ -3,11 +3,11 @@ import { Col, Row } from '../layout/Grid'
 import { H4 } from '../text'
 import { Tabs, TabList, TabItem, TabPanel } from '../layout/Tabs'
 import CurriculumGraphQLBootcamp from './CurriculumGraphQLBootcamp'
-import CurriculumGraphQLPartTime from './CurriculumGraphQLPartTime'
 import { tabItemClassName } from './utils'
 
 import selectUpcomingTrainings from '../training/selectUpcomingTrainings'
 import { GRAPHQL_BOOTCAMP, GRAPHQL_API, TECH_GRAPHQL } from '../../config/data'
+import CurriculumGraphQLAPI from './CurriculumGraphQLAPI'
 
 const FullCurriculumsGraphQL = ({ trainings }) => {
   const commonCurriculumProps = {
@@ -33,16 +33,16 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
               <TabItem
                 tech={TECH_GRAPHQL}
                 className={tabItemClassName}
-                name={GRAPHQL_BOOTCAMP}
+                name={GRAPHQL_API}
               >
-                GraphQL Bootcamp
+                GraphQL API
               </TabItem>
               <TabItem
                 tech={TECH_GRAPHQL}
                 className={tabItemClassName}
-                name={GRAPHQL_API}
+                name={GRAPHQL_BOOTCAMP}
               >
-                GraphQL API
+                GraphQL Bootcamp
               </TabItem>
             </TabList>
           </Col>
@@ -51,7 +51,7 @@ const FullCurriculumsGraphQL = ({ trainings }) => {
           <CurriculumGraphQLBootcamp {...commonCurriculumProps} />
         </TabPanel>
         <TabPanel name={GRAPHQL_API}>
-          <CurriculumGraphQLPartTime
+          <CurriculumGraphQLAPI
             trainings={allGraphQLPartTimes}
             showTitle={false}
           />
