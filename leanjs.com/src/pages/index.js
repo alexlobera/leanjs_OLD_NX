@@ -7,7 +7,11 @@ import Section from "../components/layout/Section"
 import Ul, { Li } from "../components/layout/Ul.js"
 import ValueBullet from "../components/bullets/ValueBullet"
 import SmallIconAndSentences from "../components/bulletedsections/SmallIconAndSentences"
-import { SPACING_MEDIUM, SPACING_STANDARD } from "../config/styles"
+import {
+  SPACING_MEDIUM,
+  SPACING_STANDARD,
+  LINE_HEIGHT_LARGE,
+} from "../config/styles"
 import LinkButton from "../components/buttons/LinkButton"
 import Grid, { Col, Row } from "../components/layout/Grid"
 import { H2, H4, H3a, P, SupportingText } from "../components/text"
@@ -30,47 +34,66 @@ const SprintCard = styled.div`
   }
 `
 
+const HeaderSupportingText = styled.div`
+  font-size: 22px;
+  line-height: ${LINE_HEIGHT_LARGE};
+  color: white;
+  margin-bottom: 20px;
+`
+
 const IndexPage = () => (
   <React.Fragment>
     <Header
       titleLines={["LeanJS"]}
       subtitle="Optimize software for change, reduce waste & move faster!"
-      bulletPoints={[
-        {
-          icon: "development",
-          sentence:
-            "Our series of sprints can help you cut business costs & speed up the development process by introducing modern Web technology incrementally",
-          button: {
-            to: "#sprints",
-            text: "How it works",
-          },
-        },
-      ]}
+      supportingText={
+        <Col md={7}>
+          <HeaderSupportingText>
+            Our series of sprints can help you cut business costs & speed up the
+            development process by introducing modern Web technology
+            incrementally
+          </HeaderSupportingText>
+
+          <LinkButton className="header-button" to="#sprints">
+            How it works
+          </LinkButton>
+        </Col>
+      }
     />
     <Link to="#sprints" name="sprints" />
     <Section>
       <Grid>
         <Row>
-          <H2>Maximum efficiency, minimum risk</H2>
+          <Col>
+            <H2 style={{ marginBottom: "10px" }}>
+              Maximum efficiency, minimum risk
+            </H2>
+          </Col>
         </Row>
         <Row>
           <Col md={7}>
             <SupportingText>
-              The LeanJS <strong>Full Stack Sprint</strong> series brings you
-              the efficiency of proven cutting-edge technology, helping you
+              The LeanJS <strong>Full Stack Sprint</strong> series helps you
               improve project tech & processes in the Leanest way possible.
             </SupportingText>
-            <P>
-              We base our sprints around a real problem you're experiencing in
-              your tech products. From increasing product development speed to
-              tech stack optimization, we offer our experts if they can make a
-              real difference.
-            </P>
-            <H3a> How it works</H3a>
-            <P>
+            <SupportingText>
+              We base our Sprints around a real problem you're experiencing.
+              From increasing product development speed to tech stack
+              optimization, we offer our experts to help you solve it.
+            </SupportingText>
+            <SupportingText>
+              Optimize your JavaScript stack to:
+              <Ul>
+                <Li>Build more features in less time with a smaller team</Li>
+                <Li>Increase performance and deliver great user experiences</Li>
+                <Li>Get new products to market faster and with quality</Li>
+              </Ul>
+            </SupportingText>
+            <H2 style={{ marginTop: "30px" }}> How it works</H2>
+            <SupportingText>
               Start incrementally. Stop at any step. Optimize tech and processes
               and increase competitive advantage in 3 low-risk steps:
-            </P>
+            </SupportingText>
           </Col>
           <Col md={1} />
           <Col md={4}>
@@ -81,7 +104,7 @@ const IndexPage = () => (
         <Row>
           <Col md={4}>
             <SprintCard>
-              <H3a>1. Value Proposition</H3a>
+              <H3a>Step 1. Value Proposition</H3a>
               <H4>1/2 Day</H4>
               <Ul>
                 <Li>Stakeholders research: Tech Lead/s and/or CTO</Li>
@@ -101,7 +124,7 @@ const IndexPage = () => (
           </Col>
           <Col md={4}>
             <SprintCard>
-              <H3a>2. Proof Of Concept</H3a>
+              <H3a>Step 2. Proof Of Concept</H3a>
               <H4>1-Week Sprint</H4>
               <Ul>
                 <Li>Sprint goal</Li>
@@ -110,19 +133,11 @@ const IndexPage = () => (
                 <Li>Prototyping and coding with your team</Li>
                 <Li>Findings, Conclusions, and Recommendations</Li>
               </Ul>
-              <LinkButton
-                className="sprint-contact-2"
-                to="#contact"
-                hasArrows
-                dark
-              >
-                Contact us
-              </LinkButton>
             </SprintCard>
           </Col>
           <Col md={4}>
             <SprintCard>
-              <H3a>3. Production-ready Code</H3a>
+              <H3a>Step 3. Production-ready Code</H3a>
               <H4>2-Week Sprint</H4>
               <Ul>
                 <Li>Sprint goal</Li>
@@ -135,14 +150,6 @@ const IndexPage = () => (
                 <Li>Deployment & measurement plan</Li>
                 <Li>Validated learning and roll-out plan</Li>
               </Ul>
-              <LinkButton
-                className="sprint-contact-3"
-                to="#contact"
-                hasArrows
-                dark
-              >
-                Contact us
-              </LinkButton>
             </SprintCard>
           </Col>
         </Row>
@@ -207,11 +214,12 @@ const IndexPage = () => (
               Upskill your team/s in the most effective way for your company
             </SupportingText>
             <P>
-              The Academy is offering in-person and remote training which can
-              adapt to any company regardless of the size or budget. From
-              in-person private team training to public bootcamps, your
-              developers work alongside our coaches on real-world problems.
-              Part-time or short time accelerated formats available.
+              React GraphQL Academy is a LeanJS product. The Academy is offering
+              in-person and remote training which can adapt to any company
+              regardless of the size or budget. From in-person private team
+              training to public bootcamps, your developers work alongside our
+              coaches on real-world problems. Part-time or short time
+              accelerated formats available.
             </P>
 
             <LinkButton

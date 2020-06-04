@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 import {
   FONT_FAMILY,
   FONT_SIZE_STANDARD,
@@ -12,9 +12,9 @@ import {
   FONT_WEIGHT_MEDIUMBOLD,
   FONT_WEIGHT_BOLD,
   LINE_HEIGHT_EXTRALARGE,
-} from '../../config/styles'
+} from "../../config/styles"
 
-import P from './P'
+import P from "./P"
 
 const REF = `
     :hover {
@@ -69,6 +69,7 @@ export const H3a = styled.h3`
   ${FONT_FAMILY};
   font-weight: ${FONT_WEIGHT_BOLD};
   font-size: ${FONT_SIZE_LOWERQUARTILE};
+  line-height: 30px;
 `
 
 export const H3Ref = styled(H3)`
@@ -99,7 +100,9 @@ export const H5a = styled(H5)`
   margin-bottom: ${SPACING_SMALL};
 `
 
-export const SupportingText = styled(P)`
-  font-size: ${FONT_SIZE_LOWERQUARTILE};
+export const SupportingText = styled.div`
+  font-size: 22px !important;
   line-height: 2rem;
+  ${FONT_FAMILY}
+  padding-bottom: 18px;
 `

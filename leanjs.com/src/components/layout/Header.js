@@ -10,7 +10,6 @@ import { H1 as BaseH1, H2 as BaseH2 } from "../text"
 import {
   WHITE,
   EXTRADARKGREY,
-  FONT_SIZE_MEDIUM,
   LINE_HEIGHT_LARGE,
   FONT_SIZE_EXTRALARGE,
   SPACING_STANDARD,
@@ -131,13 +130,13 @@ const BulletPointsDiv = ({
 )
 
 const SupportingText = styled.div`
-  font-size: ${FONT_SIZE_MEDIUM};
+  font-size: 22px;
   line-height: ${LINE_HEIGHT_LARGE};
 `
 
 const BulletPoint = props => {
   return (
-    <Col md={5}>
+    <Col md={7}>
       {props.includeSentence ? (
         <SupportingText>{props.sentence}</SupportingText>
       ) : null}
@@ -196,8 +195,9 @@ const Header = ({
   subtitle,
   intro,
   links = [],
-  bulletPoints,
+  supportingText = null,
   imageName = "blue",
+
   ...props
 }) => {
   return (
@@ -209,27 +209,19 @@ const Header = ({
             <BackgroundZigZag imageName={imageName} />
           </BackgroundCircles>
           <Grid>
-            <Row>
-              <Col>
-                <H1 style={{ marginTop: "100px" }}>
-                  {titleLines.map((line, i) => (
-                    <TitleBackground key={i} children={line} />
-                  ))}
-                </H1>
+            <H1 style={{ marginTop: "120px" }}>
+              {titleLines.map((line, i) => (
+                <TitleBackground key={i} children={line} />
+              ))}
+            </H1>
 
-                {subtitle ? (
-                  <SubTitleBackground>
-                    <Subtitle>{subtitle}</Subtitle>
-                  </SubTitleBackground>
-                ) : (
-                  ""
-                )}
-              </Col>
-            </Row>
-
-            <Row>
-              <Col md={7}>{intro ? <Intro>{intro}</Intro> : ""}</Col>
-            </Row>
+            {subtitle ? (
+              <SubTitleBackground>
+                <Subtitle>{subtitle}</Subtitle>
+              </SubTitleBackground>
+            ) : (
+              ""
+            )}
           </Grid>
         </HeaderTop>
         <Grid>
@@ -250,8 +242,9 @@ const Header = ({
                 ""
               )}
 
+              {supportingText}
               {/* TODO:WV:20190924:Remove pointless components and props - this was overengineered and is now simpler but needs more work*/}
-              {bulletPoints ? (
+              {/* {bulletPoints ? ( 
                 <BulletPointsWrapper>
                   <BulletPointsDiv
                     includeButton={true}
@@ -259,7 +252,7 @@ const Header = ({
                     points={bulletPoints}
                   />
                 </BulletPointsWrapper>
-              ) : null}
+              ) : null} */}
 
               <Dots />
             </Col>
