@@ -27,7 +27,6 @@ export type StyleProps = SpaceProps &
   PositionProps;
 
 export type BoxProps<T = {}> = T & {
-  // type?: string; // TODO REPLACE THIS WITH A GENERIC INTERFACE FOR ANY INPUT PROPS (PLACEHOLDER, ETC)
   sx?: StyleProps;
   children?: ReactNode;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
@@ -59,21 +58,6 @@ function Box<T = {}>({ sx = {}, ...rest }: BoxProps<T>) {
     />
   );
 }
-
-// const Box = React.forwardRef<HTMLElement, BoxProps>(
-//   ({ sx = {}, ...rest }, ref) => (
-//     <StyledBox
-//       sx={{
-//         fontFamily: "barlow",
-//         fontWeight: "normal",
-//         color: "text",
-//         ...sx,
-//       }}
-//       {...rest}
-//       ref={ref}
-//     />
-//   )
-// );
 
 Box.displayName = "Box";
 
