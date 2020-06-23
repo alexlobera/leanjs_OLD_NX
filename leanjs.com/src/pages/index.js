@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import ContactSection from "../components/layout/ContactSection"
 import Link from "../components/navigation/Link"
 import Header from "../components/layout/Header"
 import Section from "../components/layout/Section"
@@ -11,6 +12,9 @@ import {
   SPACING_MEDIUM,
   SPACING_STANDARD,
   LINE_HEIGHT_LARGE,
+  EXTRADARKGREY,
+  WHITE,
+  BLACK,
 } from "../config/styles"
 import LinkButton from "../components/buttons/LinkButton"
 import Grid, { Col, Row } from "../components/layout/Grid"
@@ -112,14 +116,6 @@ const IndexPage = () => (
                 <Li>Overview of the software architecture and code</Li>
                 <Li>Value proposition and recommendations</Li>
               </Ul>
-              <LinkButton
-                className="sprint-contact-1"
-                to="#contact"
-                hasArrows
-                dark
-              >
-                Contact us
-              </LinkButton>
             </SprintCard>
           </Col>
           <Col md={4}>
@@ -155,6 +151,11 @@ const IndexPage = () => (
         </Row>
         <Box sx={{ textAlign: "center", mt: [0, "-100px"] }}>
           <Arrow />
+        </Box>
+        <Box sx={{ textAlign: "center" }}>
+          <LinkButton className="sprint-contact-1" to="#contact" hasArrows dark>
+            Contact us
+          </LinkButton>
         </Box>
       </Grid>
     </Section>
@@ -241,6 +242,38 @@ const IndexPage = () => (
         </Row>
       </Grid>
     </Section>
+
+    <ContactSection />
+    <Box
+      sx={{
+        backgroundColor: EXTRADARKGREY,
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        py: 0,
+        color: WHITE,
+        borderTopStyle: "solid",
+        borderTopColor: BLACK,
+        borderTopWidth: 1,
+        zIndex: 999,
+        textAlign: "center",
+      }}
+    >
+      <Grid>
+        <span style={{ paddingTop: "8px", display: "inline-block" }}>
+          Attend our free webinar: JavaScript Architecture For Business
+          Optimization
+        </span>
+        <LinkButton
+          style={{ marginLeft: "10px", marginTop: "8px", marginBottom: "8px" }}
+          className="header-button"
+          to="/javascript-architecture-for-business-optimization-webinar"
+        >
+          More info
+        </LinkButton>
+      </Grid>
+    </Box>
   </React.Fragment>
 )
 

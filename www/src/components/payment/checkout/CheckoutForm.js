@@ -321,9 +321,10 @@ class CheckoutForm extends React.Component {
                 {showSubscribeToNewsletter && (
                   <Fragment>
                     <P>
-                      Sign me up to learn about cutting-edge React thinking plus
-                      the latest news on our courses. We won't spam you, as per
-                      our <Link to="/privacy-policy">Privacy Policy</Link>.
+                      Sign me up to learn about cutting-edge React & GraphQL
+                      thinking plus the latest news on our courses. We won't
+                      spam you, as per our{' '}
+                      <Link to="/privacy-policy">Privacy Policy</Link>.
                     </P>
                     <NewsletterCheckbox
                       name="meetupSubscribe"

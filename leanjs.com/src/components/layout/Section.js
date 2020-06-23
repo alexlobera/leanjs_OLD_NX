@@ -19,13 +19,14 @@ import {
   LAYOUT_SPACING_MEDIUM,
   LINE_HEIGHT_STANDARD,
 } from "../../config/styles"
+import Box from "./Box"
 
 const getHorizontalPadding = padding => `
   padding-left:${padding};
   padding-right:${padding};
 `
 
-const Section = styled.section`
+const Section = styled(Box)`
   ${FONT_FAMILY}
   padding-top: ${props => (props.top ? "0" : SPACING_XXLARGE)};
   padding-bottom: ${props =>
@@ -68,5 +69,8 @@ const Section = styled.section`
 `
 
 Section.displayName = "Section"
+Section.defaultProps = {
+  box: "section",
+}
 
 export default Section

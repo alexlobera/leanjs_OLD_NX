@@ -50,13 +50,7 @@ const ContactSection = () => (
             <Li>
               <Link to="https://twitter.com/leanjscom">
                 <ContactUsBullet image="twitter" />
-                Tweet us @leanjscom
-              </Link>
-            </Li>
-            <Li>
-              <Link to="https://www.instagram.com/leanjscom/">
-                <ContactUsBullet image="instagram" />
-                Instagram us @leanjscom
+                Tweet us @leanjs
               </Link>
             </Li>
             <Li>

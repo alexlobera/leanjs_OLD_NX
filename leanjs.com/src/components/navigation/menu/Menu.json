@@ -1,16 +1,16 @@
 [
   {
-    "to": "#sprints",
+    "to": "/#sprints",
     "text": "Sprints",
     "onlyOn": null
   },
   {
-    "to": "#about-us",
+    "to": "/#about-us",
     "text": "About Us",
     "onlyOn": null
   },
   {
-    "to": "#academy",
+    "to": "/#academy",
     "text": "Academy",
     "onlyOn": null
   },
