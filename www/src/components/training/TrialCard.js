@@ -39,7 +39,7 @@ const TrialCard = ({ trainingInstance, sx = {}, ...rest }) => {
           <P>
             We have scheduled a trial for this training, which corresponds to
             the first session of this training curriculum.
-            <DeductPriceOnPurchase price={price} />
+            {/* <DeductPriceOnPurchase price={price} /> */}
           </P>
         </Col>
         <Col md={4} sx={{ textAlign: 'center' }}>

@@ -29,6 +29,7 @@ const REF = `
 `
 export const H1 = styled.h1`
   ${FONT_FAMILY};
+  line-height: 1.4;
 `
 
 export const H1Ref = styled(H1)`

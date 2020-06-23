@@ -23,9 +23,7 @@ import {
   AttendeeQuote,
   getNextTrainingByTrainingId,
 } from 'src/components/training'
-import TrialCard, {
-  DeductPriceOnPurchase,
-} from 'src/components/training/TrialCard'
+import TrialCard from 'src/components/training/TrialCard' // DeductPriceOnPurchase,
 import TrialOfCard from 'src/components/training/TrialOfCard'
 import PaymentSection from 'src/components/payment/PaymentSection'
 import { Link } from 'src/components/navigation'
@@ -163,9 +161,9 @@ const InstancePage = ({
             </Link>
           </Li>
         )}
-        <Li>
+        {/* <Li>
           <DeductPriceOnPurchase trainingInstance={training} />
-        </Li>
+        </Li> */}
       </Ul>
 
       {trialOfTraingInstance && (

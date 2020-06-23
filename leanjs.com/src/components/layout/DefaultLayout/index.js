@@ -4,7 +4,6 @@ import { CookiesProvider } from "react-cookie"
 
 import favicon from "./favicon.ico"
 import Footer from "../Footer"
-import ContactSection from "../ContactSection"
 import "./index.css"
 import "./reset.css"
 
@@ -24,7 +23,6 @@ const Layout = ({ children }) => (
       />
 
       {children}
-      <ContactSection />
       <Footer />
     </React.Fragment>
   </CookiesProvider>
