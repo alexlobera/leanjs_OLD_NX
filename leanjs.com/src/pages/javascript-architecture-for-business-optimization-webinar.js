@@ -78,7 +78,7 @@ const IndexPage = () => (
             <SupportingText>10:00 CEST</SupportingText>
             <SupportingText>This event is remote</SupportingText>
             <P>
-              These are are challenging times for tech leaders. The future is no
+              These are challenging times for tech leaders. The future is no
               more uncertain than the present. We have to build and/or customize
               products, company websites, CMSes, marketing tools, APIs, etc in a
               global environment that demands more speed and agility, with
