@@ -15,6 +15,11 @@
     "onlyOn": null
   },
   {
+    "to": "/javascript-architecture-for-business-optimization-webinar/",
+    "text": "Webinar",
+    "onlyOn": null
+  },
+  {
     "to": "https://medium.com/leanjs",
     "text": "Blog",
     "onlyOn": null
