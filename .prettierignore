@@ -1,0 +1,20 @@
+# Add files here to ignore them from prettier formatting
+
+/dist
+/coverage
+
+/apps/leanjs.com/node_modules
+/apps/leanjs.com/public
+/apps/leanjs.com/.cache
+
+/apps/reactgraphql.academy/node_modules
+/apps/reactgraphql.academy/public
+/apps/reactgraphql.academy/.cache
+
+/apps/leanjs.com2/node_modules
+/apps/leanjs.com2/public
+/apps/leanjs.com2/.cache
+
+/apps/reactgraphql.academy/node_modules
+/apps/reactgraphql.academy/public
+/apps/reactgraphql.academy/.cache

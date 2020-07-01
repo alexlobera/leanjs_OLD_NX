@@ -1,0 +1,49 @@
+{
+  "npmScope": "leanjs",
+  "workspaceLayout": {
+    "libsDir": "packages"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "leanjs.com": {
+      "tags": []
+    },
+    "ui-core": {
+      "tags": []
+    },
+    "ui-final-form": {
+      "tags": []
+    },
+    "reactgraphql.academy": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "leanjs.com-e2e": {
+      "tags": [],
+      "implicitDependencies": ["leanjs.com"]
+    },
+    "reactgraphql.academy-e2e": {
+      "tags": [],
+      "implicitDependencies": ["reactgraphql.academy"]
+    }
+  }
+}

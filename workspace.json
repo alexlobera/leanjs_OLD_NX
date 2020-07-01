@@ -1,0 +1,385 @@
+{
+  "version": 1,
+  "projects": {
+    "leanjs.com": {
+      "root": "apps/leanjs.com",
+      "sourceRoot": "apps/leanjs.com/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/leanjs.com",
+            "parallel": false,
+            "commands": [
+              "cp ../../apps/leanjs.com/firebase.json .",
+              "npx firebase deploy --project=leanjscom-web --only hosting --token=$FIREBASE_CI_TOKEN"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "leanjs.com:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "leanjs.com:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/leanjs.com/tsconfig.json",
+              "apps/leanjs.com/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/leanjs.com/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/leanjs.com/jest.config.js",
+            "tsConfig": "apps/leanjs.com/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "leanjs.com-e2e": {
+      "root": "apps/leanjs.com-e2e",
+      "sourceRoot": "apps/leanjs.com-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/leanjs.com-e2e/cypress.json",
+            "tsConfig": "apps/leanjs.com-e2e/tsconfig.e2e.json",
+            "devServerTarget": "leanjs.com:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "leanjs.com:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": ["apps/leanjs.com-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/leanjs.com-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "ui-core": {
+      "root": "packages/ui-core",
+      "sourceRoot": "packages/ui-core/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "packages/ui-core/tsconfig.lib.json",
+              "packages/ui-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/ui-core/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/ui-core/jest.config.js",
+            "tsConfig": "packages/ui-core/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-final-form": {
+      "root": "packages/ui-final-form",
+      "sourceRoot": "packages/ui-final-form/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "packages/ui-final-form/tsconfig.lib.json",
+              "packages/ui-final-form/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/ui-final-form/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/ui-final-form/jest.config.js",
+            "tsConfig": "packages/ui-final-form/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "reactgraphql.academy": {
+      "root": "apps/reactgraphql.academy",
+      "sourceRoot": "apps/reactgraphql.academy/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/reactgraphql.academy",
+            "parallel": false,
+            "commands": [
+              "cp ../../apps/reactgraphql.academy/firebase.json .",
+              "npx firebase deploy --project=reactgraphqlacademy --only hosting --token=$FIREBASE_CI_TOKEN"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "reactgraphql.academy:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "reactgraphql.academy:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/reactgraphql.academy/tsconfig.json",
+              "apps/reactgraphql.academy/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/reactgraphql.academy/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/reactgraphql.academy/jest.config.js",
+            "tsConfig": "apps/reactgraphql.academy/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "reactgraphql.academy-e2e": {
+      "root": "apps/reactgraphql.academy-e2e",
+      "sourceRoot": "apps/reactgraphql.academy-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/reactgraphql.academy-e2e/cypress.json",
+            "tsConfig": "apps/reactgraphql.academy-e2e/tsconfig.e2e.json",
+            "devServerTarget": "reactgraphql.academy:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "reactgraphql.academy:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "tsConfig": ["apps/reactgraphql.academy-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/reactgraphql.academy-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/apps/api",
+            "parallel": false,
+            "commands": [
+              "echo \"deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main\" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list",
+              "curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -",
+              "sudo apt-get update && sudo apt-get install google-cloud-sdk",
+              "echo \"$GCLOUD_SERVICE_KEY\"| base64 --decode > $HOME/google-key.json",
+              "gcloud auth activate-service-account --key-file=\"$HOME/google-key.json\"",
+              "gcloud --quiet config set project ${GOOGLE_PROJECT_ID}",
+              "gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}",
+              "cp ../../../package.json .",
+              "cp ../../../yarn.lock .",
+              "cp ../../../apps/api/Dockerfile .",
+              "gcloud builds submit --tag gcr.io/leanjscom-web/leanjscom-web-api --timeout=1200s",
+              "gcloud beta run deploy leanjscom-web-api --image gcr.io/leanjscom-web/leanjscom-web-api --platform managed --region europe-west1"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/api/tsconfig.app.json",
+              "apps/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint",
+        "babel": true
+      },
+      "library": {
+        "style": "styled-components",
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      },
+      "component": {
+        "style": "styled-components"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/gatsby": {
+      "application": {}
+    }
+  },
+  "defaultProject": "reactgraphql.academy"
+}

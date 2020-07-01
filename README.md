@@ -1,76 +1,92 @@
-# React GraphQL Academy
+<!-- yarn add downshift gatsby-plugin-feed gatsby-plugin-google-tagmanager gatsby-plugin-react-helmet gatsby-plugin-robots-txt gatsby-plugin-sitemap gatsby-plugin-styled-components gatsby-remark-images gatsby-source-filesystem gatsby-source-graphql gatsby-transformer-remark hls.js lodash.isequal markdown-to-jsx payment plyr prismjs raven-js react-images react-helmet react-lazyload react-live react-photo-gallery react-runkit react-scroll react-share react-sticky-box react-styled-flexboxgrid react-super-responsive-table react-twitter-embed rehype-react -->
 
-This repository contains multiple packages managed with [lerna.js](https://lerna.js.org/) and [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/). This is the root repository for the React GraphQL Academy:
+# Leanjs
 
-- [Website](#website)
-- [CMS](#cms)
-- [UI Component Library](#ui-component-library)
-- [Serverless Functions](#serverless)
+This project was generated using [Nx](https://nx.dev).
 
-## Getting Started
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-First, install all the dependencies. ⚠️ Don't do `yarn` or `npm install`, instead run:
+🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-```console
-yarn bootstrap
-```
+## Adding capabilities to your workspace
 
-This will run lerna and install all the dependencies of all the repositories
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-## Website
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-The website is under the www folder. The website is built with Gatsby.js.
+Below are our core plugins:
 
-### Running the website
+- [React](https://reactjs.org)
+  - `npm install --save-dev @nrwl/react`
+- Web (no framework frontends)
+  - `npm install --save-dev @nrwl/web`
+- [Angular](https://angular.io)
+  - `npm install --save-dev @nrwl/angular`
+- [Nest](https://nestjs.com)
+  - `npm install --save-dev @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `npm install --save-dev @nrwl/express`
+- [Node](https://nodejs.org)
+  - `npm install --save-dev @nrwl/node`
 
-After [installing the dependencies](#getting-started), from the root repository (meaning, this folder) run:
+There are also many [community plugins](https://nx.dev/nx-community) you could add.
 
-```console
-yarn start
-```
+## Generate an application
 
-More info about the website [here](/www)
+Run `nx g @nrwl/react:app my-app` to generate an application.
 
-## CMS
+> You can use any of the plugins above to generate applications as well.
 
-The CMS is under the /cms folder. The CMS is built with Sanity.io.
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
-### Running the CMS
+## Generate a library
 
-After [installing the dependencies](#getting-started), from the root repository (meaning, this folder) run:
+Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
-```console
-yarn start:cms
-```
+> You can also use any of the plugins above to generate libraries as well.
 
-More info about the CMS [here](/cms)
+Libraries are sharable across libraries and applications. They can be imported from `@leanjs/mylib`.
 
-## UI Component Library
+## Development server
 
-Our design system is implemented in a UI component library under the packages folder. It's built with Lerna (1 package per component), TypeScript, and styled-system. It's documented with Docz + Gatsby under /packages/docs.
+Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-### Running the UI Component Library
+## Code scaffolding
 
-After [installing the dependencies](#getting-started), from the root repository (meaning, this folder) run:
+Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
 
-```console
-yarn start:docs
-```
+## Build
 
-More info about the design system documentation [here](/packages)
+Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Serverless
+## Running unit tests
 
-The serverless functions are under the /serverless folder. It uses Google Cloud Functions.
+Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
 
-### Running the serverless functions
+Run `nx affected:test` to execute the unit tests affected by a change.
 
-⚠️ The serverless package is not using Lerna at the moment because it requires Node.js v8 due to Google Cloud Functions and the other packages use Node.js v10+
+## Running end-to-end tests
 
-First install the dependencies from the serverless folder: `cd serverless && yarn`.
+Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
-```console
-cd serverless && yarn dev
-```
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
-More info about the Serverless [here](/serverless)
+## Understand your workspace
+
+Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+
+## Further help
+
+Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+## ☁ Nx Cloud
+
+### Computation Memoization in the Cloud
+
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+
+Visit [Nx Cloud](https://nx.app/) to learn more.

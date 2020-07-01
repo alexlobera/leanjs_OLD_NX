@@ -1,13 +1,24 @@
 {
-  "extends": "./tsconfig.build.json",
+  "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@leanui/box": ["packages/box/src"],
-      "@leanui/flex": ["packages/flex/src"],
-      "@leanui/label": ["packages/label/src"],
-      "@leanui/form": ["packages/form/src"]
+      "@leanjs/ui-core": ["packages/ui-core/src/index.ts"],
+      "@leanjs/ui-final-form": ["packages/ui-final-form/src/index.ts"]
     }
-  }
+  },
+  "exclude": ["node_modules", "tmp"]
 }

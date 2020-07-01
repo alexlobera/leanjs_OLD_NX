@@ -1,16 +1,57 @@
-# Project dependencies
-.cache
-node_modules
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
 yarn-error.log
-package.lock
-package-lock.json
-yarn-error.log
+testem.log
+/typings
+
+# System Files
 .DS_Store
+Thumbs.db
 
-# bundled files
-/packages/*/dist
+/apps/leanjs.com/node_modules
+/apps/leanjs.com/public
+/apps/leanjs.com/.cache
 
-# build
-*/**/tsconfig.build.tsbuildinfo
-*/**/*.docz
+/apps/reactgraphql.academy/node_modules
+/apps/reactgraphql.academy/public
+/apps/reactgraphql.academy/.cache
 
+.env
+
+/apps/leanjs.com2/node_modules
+/apps/leanjs.com2/public
+/apps/leanjs.com2/.cache
+
+/apps/reactgraphql.academy/node_modules
+/apps/reactgraphql.academy/public
+/apps/reactgraphql.academy/.cache

@@ -1,0 +1,10 @@
+{
+  "name": "reactgraphql-academy",
+  "private": true,
+  "description": "React GraphQL Academy Gatsby Website",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "gatsby": "*"
+  }
+}
