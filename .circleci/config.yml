@@ -1,98 +1,197 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
 version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:12.9.1-stretch
+
+set_env: &set_env
+  name: Setup Environment Variables
+  command: |
+    if [[ $CIRCLE_PULL_REQUEST ]]
+    then
+      echo 'Fetching Base Commit from GitHub'
+      echo 'export CIRCLE_PR_NUMBER="${CIRCLE_PR_NUMBER:-${CIRCLE_PULL_REQUEST##*/}}"' >> $BASH_ENV
+      source $BASH_ENV
+      echo "export CIRCLE_PR_BASE_SHA=`curl -s https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/pulls/${CIRCLE_PR_NUMBER} | jq -r '.base.sha'`" >> $BASH_ENV
+      echo 'export AFFECTED_ARGS="--base ${CIRCLE_PR_BASE_SHA}"' >> $BASH_ENV
+    else
+      echo 'Fetching Base Commit from Deploy Cache'
+      if [[ ! -f dist/last-deploy.txt ]]
+      then
+        mkdir dist && git rev-parse HEAD~1 > dist/last-deploy.txt
+      fi
+      echo 'export AFFECTED_ARGS="--base $(cat dist/last-deploy.txt)"' >> $BASH_ENV
+    fi
+    source $BASH_ENV
+    echo $AFFECTED_ARGS
+yarn_cache: &yarn_cache
+  keys:
+    - node-deps-node12-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+    # fallback to using the latest cache if no exact match is found
+    - node-deps-node12-
+
+deploy_cache: &deploy_cache
+  key: last-deploy-sha
+
+yarn_install: &yarn_install
+  name: Install Dependencies
+  command: yarn install --frozen-lockfile --non-interactive
+
 jobs:
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *yarn_cache
+      - run:
+          <<: *yarn_install
+      - save_cache:
+          key: node-deps-node12-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache
+            - node_modules
+  check-formatting:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *deploy_cache
+      - run:
+          <<: *set_env
+      - restore_cache:
+          <<: *yarn_cache
+      - run: yarn format:check ${AFFECTED_ARGS}
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *deploy_cache
+      - run:
+          <<: *set_env
+      - restore_cache:
+          <<: *yarn_cache
+      - run: ./node_modules/.bin/nx workspace-lint
+      - run: yarn affected:lint ${AFFECTED_ARGS} --parallel
   build:
-    docker:
-      - image: circleci/node:10.18.1-stretch
-    working_directory: ~/repo
+    <<: *defaults
     steps:
       - checkout
-      # Download and cache dependencies
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      # - run: yarn install
-      - run: yarn bootstrap
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn build:packages
-      - run: cd www && yarn test
-      - run: sudo apt-get update && sudo apt-get install -y gettext-base
-      - run: cd www && envsubst < ".env.ci" > ".env.production"
-      - run: cd www && yarn build
-      - persist_to_workspace:
-          root: .
-          paths:
-            - www/public
-  deploy-prod:
-    docker:
-      - image: circleci/node:10.18.1-stretch
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: ls -l www/public
+          <<: *deploy_cache
       - run:
-          name: Install Firebase locally
-          command: cd www && npm install --save-dev firebase-tools
-      - run:
-          name: Deploy Master to Firebase
-          command: cd www && npm run deploy-hosting -- --token=$FIREBASE_DEPLOY_TOKEN
-  e2e-tests:
-    docker:
-      # the Docker image with Cypress dependencies
-      - image: cypress/base:10.18.1
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/repo
-    steps:
-      - checkout
-      # Download and cache dependencies
+          <<: *set_env
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run: yarn bootstrap
+          <<: *yarn_cache
+      - run: yarn affected:build -- ${AFFECTED_ARGS} --configuration production --max-old-space-size=3584  --maxWorkers=1
       - save_cache:
+          key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn build:packages
+            - dist
+      - store_artifacts:
+          path: dist
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *deploy_cache
       - run:
-          name: Running E2E tests
-          command: cd www && yarn ci:e2e
-      - store_test_results:
-          path: e2e-results
+          <<: *set_env
+      - restore_cache:
+          <<: *yarn_cache
+      - run: yarn affected:test -- ${AFFECTED_ARGS} -- --ci --code-coverage --maxWorkers=1
+  e2e:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *deploy_cache
+      - run:
+          <<: *set_env
+      - restore_cache:
+          <<: *yarn_cache
+      - run: yarn affected:e2e -- ${AFFECTED_ARGS}
       - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
+          path: dist/cypress
+
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          <<: *deploy_cache
+      - run:
+          <<: *set_env
+      - restore_cache:
+          <<: *yarn_cache
+      - restore_cache:
+          key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
+      - run: yarn affected -- --target deploy ${AFFECTED_ARGS}
+      - run: git rev-parse HEAD > dist/last-deploy.txt
+      - save_cache:
+          key: last-deploy-sha
+          paths:
+            - dist/last-deploy.txt
 
 workflows:
   version: 2
-  build-deploy:
+  pr_check:
     jobs:
+      - install:
+          filters:
+            branches:
+              only:
+                - master
+      - check-formatting:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - install
+      - lint:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - install
+      - test:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - install
       - build:
           filters:
             branches:
-              only: master
-      # - e2e-tests:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: master
-      - deploy-prod:
-          # requires:
-          #   - e2e-tests
+              only:
+                - master
           requires:
-            - build
+            - install
+      - e2e:
           filters:
             branches:
-              only: master
+              only:
+                - master
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - check-formatting
+            - lint
+            - test
+            - build
+            - e2e
