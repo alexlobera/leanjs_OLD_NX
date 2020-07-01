@@ -1,12 +1,13 @@
-<!-- yarn add downshift gatsby-plugin-feed gatsby-plugin-google-tagmanager gatsby-plugin-react-helmet gatsby-plugin-robots-txt gatsby-plugin-sitemap gatsby-plugin-styled-components gatsby-remark-images gatsby-source-filesystem gatsby-source-graphql gatsby-transformer-remark hls.js lodash.isequal markdown-to-jsx payment plyr prismjs raven-js react-images react-helmet react-lazyload react-live react-photo-gallery react-runkit react-scroll react-share react-sticky-box react-styled-flexboxgrid react-super-responsive-table react-twitter-embed rehype-react -->
+# LeanJS
 
-# Leanjs
+This project is a monorepo that contains the following LeanJS projects:
 
-This project was generated using [Nx](https://nx.dev).
+- [leanjs.com](https://leanjs.com/)
+- [reactgraphql.academy](reactgraphql.academy/)
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+This project was generated using [<img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45">](https://nx.dev).
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+<p align="center"></p>
 
 ## Adding capabilities to your workspace
 
