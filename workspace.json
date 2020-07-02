@@ -308,6 +308,22 @@
           }
         }
       }
+    },
+    "rga.studio": {
+      "root": "apps/rga.studio",
+      "sourceRoot": "apps/rga.studio/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "serve": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/rga.studio",
+            "parallel": false,
+            "commands": ["sanity start"]
+          }
+        }
+      }
     }
   },
   "cli": {
