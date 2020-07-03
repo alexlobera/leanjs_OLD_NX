@@ -1,0 +1,9 @@
+{
+  "name": "mysanityproject",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Alex Lobera <alex.lobera@gmail.com>",
+  "license": "UNLICENSED"
+}

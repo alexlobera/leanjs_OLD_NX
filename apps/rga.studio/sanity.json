@@ -1,0 +1,41 @@
+{
+  "root": true,
+  "project": {
+    "name": "RGA Sanity Studio"
+  },
+  "api": {
+    "projectId": "3x4p2vjc",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "mux-input"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "implements": "part:@sanity/base/root",
+      "path": "components/DefaultLayoutContainer"
+    },
+    {
+      "implements": "part:@sanity/components/previews/default",
+      "path": "./components/previews/DefaultPreview.js"
+    },
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure/index.js"
+    }
+  ]
+}
