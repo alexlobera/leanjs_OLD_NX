@@ -20,16 +20,12 @@ const ThinkingInReactSession = ({ title = titleSession }) => (
 
 export const LearningObjectives = ({ showAll = true }) => (
   <>
-    <Li>
-      Understand the difference between declarative and imperative programming
-    </Li>
+    <Li>Differentiate between declarative and imperative programming</Li>
     {showAll && (
       <>
-        <Li>Learn how to breaking down your UI into components.</Li>
-        <Li>
-          Comprehend what's state, which components should hold it, and when to
-          lift it up
-        </Li>
+        <Li>Break down a UI into components.</Li>
+        <Li>Identify what's state and which components should hold it</Li>
+        <Li>Determine when to lift the state up</Li>
       </>
     )}
   </>
