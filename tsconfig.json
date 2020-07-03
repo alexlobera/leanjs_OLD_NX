@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@leanjs/ui-core": ["packages/ui-core/src/index.ts"],
-      "@leanjs/ui-final-form": ["packages/ui-final-form/src/index.ts"]
+      "@leanjs/ui-final-form": ["packages/ui-final-form/src/index.ts"],
+      "@leanjs/ui-twitter-embed": ["packages/ui-twitter-embed/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
