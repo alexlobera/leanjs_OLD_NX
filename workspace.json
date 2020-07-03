@@ -308,6 +308,65 @@
           }
         }
       }
+    },
+    "rga.studio": {
+      "root": "apps/rga.studio",
+      "sourceRoot": "apps/rga.studio/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "serve": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/rga.studio",
+            "parallel": false,
+            "commands": ["sanity start"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/rga.studio",
+            "parallel": false,
+            "commands": ["sanity check"]
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/rga.studio",
+            "parallel": false,
+            "commands": ["sanity deploy"]
+          }
+        }
+      }
+    },
+    "ui-twitter-embed": {
+      "root": "packages/ui-twitter-embed",
+      "sourceRoot": "packages/ui-twitter-embed/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "packages/ui-twitter-embed/tsconfig.lib.json",
+              "packages/ui-twitter-embed/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/ui-twitter-embed/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/ui-twitter-embed/jest.config.js",
+            "tsConfig": "packages/ui-twitter-embed/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -44,6 +44,12 @@
     "reactgraphql.academy-e2e": {
       "tags": [],
       "implicitDependencies": ["reactgraphql.academy"]
+    },
+    "rga.studio": {
+      "tags": []
+    },
+    "ui-twitter-embed": {
+      "tags": []
     }
   }
 }
