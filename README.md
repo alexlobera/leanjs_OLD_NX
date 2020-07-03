@@ -2,8 +2,9 @@
 
 This project is a monorepo that contains the following LeanJS projects:
 
-- [leanjs.com](https://leanjs.com/)
-- [reactgraphql.academy](reactgraphql.academy/)
+- [leanjs.com](https://leanjs.com/) -> `yarn start leanjs.com`
+- [reactgraphql.academy](reactgraphql.academy/) -> `yarn start reactgraphql.academy`
+- [rga.sanity.studio](https://rga.sanity.studio/) -> `yarn start rga.studio`
 
 This project was generated using [<img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45">](https://nx.dev).
 
