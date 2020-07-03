@@ -1,4 +1,14 @@
 {
-  "presets": ["@nrwl/react/babel"],
-  "plugins": [["styled-components", { "pure": true, "ssr": true }]]
+  "presets": ["@nrwl/react/babel", "@babel/preset-typescript"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@leanjs/ui-twitter-embed": "../../packages/ui-twitter-embed/src/index.ts"
+        }
+      }
+    ]
+  ]
 }

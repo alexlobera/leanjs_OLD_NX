@@ -117,6 +117,7 @@
     "@nrwl/gatsby": "^0.950.0",
     "@nrwl/jest": "9.5.0",
     "@nrwl/node": "9.5.0",
+    "@nrwl/nx-plugin": "^9.5.1",
     "@nrwl/react": "9.5.0",
     "@nrwl/web": "9.5.0",
     "@nrwl/workspace": "9.5.0",
