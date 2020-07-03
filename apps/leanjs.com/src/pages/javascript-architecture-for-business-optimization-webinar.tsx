@@ -75,8 +75,8 @@ const IndexPage = () => (
           <Col md={7}>
             <H1>JavaScript Architecture For Business Optimization Webinar</H1>
             <SupportingText>July 14, 2020</SupportingText>
-            <SupportingText>10:00 CEST</SupportingText>
-            <SupportingText>This event is remote</SupportingText>
+            <SupportingText>10:00 - 11:00 CEST</SupportingText>
+            <SupportingText>This event is remote & free</SupportingText>
             <P>
               These are challenging times for tech leaders. The future is no
               more uncertain than the present. We have to build and/or customize
