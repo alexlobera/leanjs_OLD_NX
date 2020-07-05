@@ -224,6 +224,7 @@
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
+            "linter": "eslint",
             "tsConfig": ["apps/reactgraphql.academy-e2e/tsconfig.e2e.json"],
             "exclude": [
               "**/node_modules/**",
