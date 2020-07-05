@@ -184,6 +184,8 @@ workflows:
             branches:
               only:
                 - master
+          requires:
+            - install
       - deploy:
           filters:
             branches:
