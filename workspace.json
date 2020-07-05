@@ -321,7 +321,7 @@
           "options": {
             "cwd": "apps/rga.studio",
             "parallel": false,
-            "commands": ["sanity start"]
+            "commands": ["npx sanity start"]
           }
         },
         "test": {
@@ -329,7 +329,7 @@
           "options": {
             "cwd": "apps/rga.studio",
             "parallel": false,
-            "commands": ["sanity check"]
+            "commands": ["npx sanity check"]
           }
         },
         "deploy": {
@@ -337,7 +337,7 @@
           "options": {
             "cwd": "apps/rga.studio",
             "parallel": false,
-            "commands": ["sanity deploy"]
+            "commands": ["npx sanity deploy"]
           }
         }
       }
