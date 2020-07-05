@@ -337,7 +337,7 @@
           "options": {
             "cwd": "apps/rga.studio",
             "parallel": false,
-            "commands": ["npx sanity deploy"]
+            "commands": ["echo 'WIP: deploy to Firebase'"]
           }
         }
       }
