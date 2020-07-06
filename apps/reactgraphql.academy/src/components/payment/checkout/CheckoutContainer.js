@@ -70,6 +70,7 @@ export class CheckoutContainer extends React.Component {
     paymentErrorMessage: null,
     isViesValidationInProgress: false,
     isViesValid: null,
+    xxx: STRIPE_PUBLIC_KEY,
   };
 
   resetVatRate = () => {
@@ -276,5 +277,7 @@ CheckoutContainer.defaultProps = {
   trackUserBehaviour,
   triggerSubscribe,
 };
+
+CheckoutContainer.displayName = 'CheckoutContainer';
 
 export default withStatelessClient(CheckoutContainer);
