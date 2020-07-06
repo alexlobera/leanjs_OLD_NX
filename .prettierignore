@@ -18,3 +18,7 @@
 /apps/reactgraphql.academy/node_modules
 /apps/reactgraphql.academy/public
 /apps/reactgraphql.academy/.cache
+
+/apps/online.reactgraphql.academy/node_modules
+/apps/online.reactgraphql.academy/public
+/apps/online.reactgraphql.academy/.cache

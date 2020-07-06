@@ -50,6 +50,16 @@
     },
     "ui-twitter-embed": {
       "tags": []
+    },
+    "online.reactgraphql.academy": {
+      "tags": []
+    },
+    "online.reactgraphql.academy-e2e": {
+      "tags": [],
+      "implicitDependencies": ["online.reactgraphql.academy"]
+    },
+    "ui-hls": {
+      "tags": []
     }
   }
 }
