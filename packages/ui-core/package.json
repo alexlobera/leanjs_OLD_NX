@@ -6,5 +6,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/leanjsorg/leanjs"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "styled-components": "*"
   }
 }
