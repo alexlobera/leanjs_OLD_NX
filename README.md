@@ -2,6 +2,7 @@
 
 This project is a monorepo that contains the following LeanJS projects:
 
+- [Lean UI](https://ui.leanjs.com/) -> `yarn start leanui-docz`
 - [leanjs.com](https://leanjs.com/) -> `yarn start leanjs.com`
 - [reactgraphql.academy](reactgraphql.academy/) -> `yarn start reactgraphql.academy`
 - [rga.sanity.studio (WIP)](https://rga.sanity.studio/) -> `yarn start rga.studio`

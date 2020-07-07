@@ -50,6 +50,9 @@
     },
     "ui-twitter-embed": {
       "tags": []
+    },
+    "leanui-docz": {
+      "tags": []
     }
   }
 }

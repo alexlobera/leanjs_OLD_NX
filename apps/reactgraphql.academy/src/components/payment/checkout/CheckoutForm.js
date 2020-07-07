@@ -561,7 +561,7 @@ class CheckoutForm extends React.Component {
                   <SubmitPaymentFormButton
                     type="submit"
                     variant="primary"
-                    sx={{ width: 1 }}
+                    sx={{ width: '100%' }}
                     onClick={this.onSubmitClicked}
                     disabled={submitting || isPaymentInProgress}
                   >

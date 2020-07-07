@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import { space } from 'styled-system';
+import { space } from '@styled-system/space';
 import Ul from './Ul';
 
 import { selectTechColor, selectBorderStyle } from '../utils';

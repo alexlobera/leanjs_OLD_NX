@@ -1,0 +1,23 @@
+---
+name: Flex
+menu: Components
+route: /flex
+---
+
+import { Playground, Props } from 'docz';
+import { Flex, Box } from '@leanjs/ui-core';
+
+# Flex
+
+## Properties
+
+<Props of={Flex} />
+
+## Basic usage
+
+<Playground>
+  <Flex sx={{ flexDirection: 'column' }}>
+    <Box sx={{ backgroundColor: 'red' }}>Row 1</Box>
+    <Box sx={{ backgroundColor: 'blue' }}>Row 2</Box>
+  </Flex>
+</Playground>

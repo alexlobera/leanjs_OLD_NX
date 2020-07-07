@@ -55,3 +55,7 @@ Thumbs.db
 /apps/reactgraphql.academy/node_modules
 /apps/reactgraphql.academy/public
 /apps/reactgraphql.academy/.cache
+
+/apps/leanui-docz/node_modules
+/apps/leanui-docz/public
+/apps/leanui-docz/.cache

@@ -95,6 +95,25 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/ui-core",
+            "tsConfig": "packages/ui-core/tsconfig.lib.json",
+            "project": "packages/ui-core/package.json",
+            "entryFile": "packages/ui-core/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
@@ -364,6 +383,55 @@
           "options": {
             "jestConfig": "packages/ui-twitter-embed/jest.config.js",
             "tsConfig": "packages/ui-twitter-embed/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "leanui-docz": {
+      "root": "apps/leanui-docz",
+      "sourceRoot": "apps/leanui-docz/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "leanui-docz:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "leanui-docz:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/leanui-docz/tsconfig.json",
+              "apps/leanui-docz/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/leanui-docz/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/leanui-docz/jest.config.js",
+            "tsConfig": "apps/leanui-docz/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
