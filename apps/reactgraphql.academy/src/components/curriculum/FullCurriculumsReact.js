@@ -61,7 +61,7 @@ const FullCurriculumsReact = ({ trainings, pageData }) => {
             )}
             <H4>Choose a React training</H4>
 
-            <TabList sx={{ display: 'inline-block', width: 1 }}>
+            <TabList sx={{ display: 'inline-block', width: '100%' }}>
               {selectedTime === FULL_TIME ? (
                 <React.Fragment>
                   <TabItem

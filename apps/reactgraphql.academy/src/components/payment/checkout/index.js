@@ -89,7 +89,7 @@ const Checkout = (props) => {
           <Fragment>
             {currentPriceQuantity ? (
               <PriceAndDiscount>
-                <Price sx={{ width: 1, textAlign: 'center', pt: 1, pb: 1 }}>
+                <Price sx={{ textAlign: 'center', pt: 1, pb: 1 }}>
                   {formatPrice(currency, currentPriceQuantity, vatRate)}
                 </Price>
                 <P>

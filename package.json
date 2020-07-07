@@ -44,6 +44,8 @@
     "@sanity/desk-tool": "^1.149.16",
     "@sanity/vision": "^1.149.16",
     "@slack/web-api": "^5.10.0",
+    "@styled-system/css": "^5.1.5",
+    "@styled-system/space": "^5.1.2",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
@@ -51,6 +53,7 @@
     "axios": "^0.19.2",
     "common-tags": "^1.8.0",
     "document-register-element": "1.13.1",
+    "docz": "^2.3.2-alpha.0",
     "downshift": "^5.4.5",
     "express": "4.17.1",
     "final-form": "4.9.1",
@@ -69,6 +72,7 @@
     "gatsby-remark-images": "^3.3.13",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-source-graphql": "^2.5.7",
+    "gatsby-theme-docz": "^2.3.1-alpha.0",
     "gatsby-transformer-remark": "^2.8.19",
     "gatsby-transformer-sharp": "2.5.5",
     "graphql-tag": "^2.10.3",
@@ -102,8 +106,7 @@
     "react-width": "^0.1.8",
     "rehype-react": "^6.0.0",
     "sanity-plugin-mux-input": "^0.2.1",
-    "styled-components": "5.1.0",
-    "styled-system": "^5.1.5"
+    "styled-components": "5.1.0"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "10.0.0",

@@ -22,6 +22,8 @@ const StyledCookiesNotification = ({ sx = {}, ...rest }) => (
       backgroundColor: DARK_BLUE_075,
       color: WHITE,
       fontSize: 0,
+      // display: 'flex',
+      flexDirection: 'column',
       ...sx,
     }}
     {...rest}
@@ -34,7 +36,7 @@ const CookiesNotificationWrapper = ({ sx = {}, ...rest }) => (
       position: 'fixed',
       bottom: 0,
       left: 0,
-      width: 1,
+      width: '100%',
       zIndex: Z_INDEX_TOP,
       ...sx,
     }}
@@ -64,7 +66,7 @@ const AcceptCookies = () => {
           onClick={handleClick}
           variant="secondary"
         >
-          Close
+          X
         </Button>
         <div>
           Using our site means you consent to our use of cookies. Find out more

@@ -1,0 +1,77 @@
+{
+  "config": {
+    "title": "Gatsby Starter Default",
+    "description": "A simple starter to get up and developing quickly with Gatsby",
+    "menu": [],
+    "version": "0.0.0",
+    "repository": null,
+    "native": false,
+    "themeConfig": {},
+    "separator": "-"
+  },
+  "entries": [
+    {
+      "key": "README.md",
+      "value": {
+        "id": "04c6e90faac2675aa89e2176d2eec7d8",
+        "filepath": "README.md",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/README.md",
+        "link": "",
+        "hidden": false,
+        "slug": "readme",
+        "route": "/readme",
+        "name": "Readme",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "-quick-start",
+            "depth": 2,
+            "value": "🚀 Quick start"
+          },
+          {
+            "slug": "🧐-whats-inside",
+            "depth": 2,
+            "value": "🧐 What's inside?"
+          },
+          {
+            "slug": "-learning-gatsby",
+            "depth": 2,
+            "value": "🎓 Learning Gatsby"
+          },
+          {
+            "slug": "-deploy",
+            "depth": 2,
+            "value": "💫 Deploy"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/index.mdx",
+      "value": {
+        "name": "Home",
+        "route": "/",
+        "id": "522b7407e210088f3588b943aec44115",
+        "filepath": "src/pages/index.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/index.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "home",
+            "depth": 1,
+            "value": "Home"
+          },
+          {
+            "slug": "consistency",
+            "depth": 2,
+            "value": "Consistency"
+          }
+        ]
+      }
+    }
+  ],
+  "props": []
+}

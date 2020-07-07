@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fontSize } from 'styled-system';
 
 import Box from '../layout/Box';
+
+const fontSize = ({ fontSize }) => ({ theme }) =>
+  `font-size: ${theme.fontSizes[fontSize]};`;
 
 const REF = `
   :hover {
