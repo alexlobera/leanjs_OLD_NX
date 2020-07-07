@@ -1,47 +1,120 @@
 {
   "config": {
-    "title": "Gatsby Starter Default",
+    "title": "Lean UI",
     "description": "A simple starter to get up and developing quickly with Gatsby",
-    "menu": [],
+    "menu": [
+      "Getting Started",
+      "Motivation",
+      "Principles",
+      "Components",
+      "Support us"
+    ],
     "version": "0.0.0",
-    "repository": null,
+    "repository": "https://github.com/leanjsorg/leanjs",
     "native": false,
     "themeConfig": {},
-    "separator": "-"
+    "separator": "-",
+    "ignore": [
+      "README.md"
+    ],
+    "typescript": true
   },
   "entries": [
     {
-      "key": "README.md",
+      "key": "CONTRIBUTING.md",
       "value": {
-        "id": "04c6e90faac2675aa89e2176d2eec7d8",
-        "filepath": "README.md",
-        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/README.md",
+        "id": "6a3371457528722a734f3c51d9238c13",
+        "filepath": "CONTRIBUTING.md",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/CONTRIBUTING.md",
         "link": "",
         "hidden": false,
-        "slug": "readme",
-        "route": "/readme",
-        "name": "Readme",
+        "slug": "contributing",
+        "route": "/contributing",
+        "name": "Contributing",
         "menu": "",
         "headings": [
           {
-            "slug": "-quick-start",
-            "depth": 2,
-            "value": "🚀 Quick start"
+            "slug": "how-to-contribute",
+            "depth": 1,
+            "value": "How to contribute"
           },
           {
-            "slug": "🧐-whats-inside",
+            "slug": "monorepo",
             "depth": 2,
-            "value": "🧐 What's inside?"
+            "value": "Monorepo"
           },
           {
-            "slug": "-learning-gatsby",
+            "slug": "how-to-run-the-tests",
             "depth": 2,
-            "value": "🎓 Learning Gatsby"
+            "value": "How to run the tests"
           },
           {
-            "slug": "-deploy",
+            "slug": "pull-requests",
             "depth": 2,
-            "value": "💫 Deploy"
+            "value": "Pull Requests"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/_motivation.mdx",
+      "value": {
+        "name": "Motivation",
+        "route": "/motivation",
+        "id": "0f10c48a040a3f5188052272ce2f9e74",
+        "filepath": "src/pages/_motivation.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/_motivation.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-motivation",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "motivation",
+            "depth": 1,
+            "value": "Motivation"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/_principles.mdx",
+      "value": {
+        "name": "Principles",
+        "route": "/principles",
+        "id": "8a3943fdb1ae5a002bec294f5e8a3802",
+        "filepath": "src/pages/_principles.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/_principles.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-principles",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "principles",
+            "depth": 1,
+            "value": "Principles"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/_support-us.mdx",
+      "value": {
+        "name": "Support us",
+        "route": "/support-us",
+        "id": "a0f33b86abd4c57c449bd3e6a2b05f08",
+        "filepath": "src/pages/_support-us.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/_support-us.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-support-us",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "support-us",
+            "depth": 1,
+            "value": "Support us"
           }
         ]
       }
@@ -49,7 +122,7 @@
     {
       "key": "src/pages/index.mdx",
       "value": {
-        "name": "Home",
+        "name": "Getting Started",
         "route": "/",
         "id": "522b7407e210088f3588b943aec44115",
         "filepath": "src/pages/index.mdx",
@@ -60,14 +133,251 @@
         "menu": "",
         "headings": [
           {
-            "slug": "home",
+            "slug": "getting-started",
             "depth": 1,
-            "value": "Home"
+            "value": "Getting started"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/components/_Alert.mdx",
+      "value": {
+        "name": "Alert",
+        "menu": "Components",
+        "route": "/alert",
+        "id": "edf3c99a47b79c1b84fa89237134faeb",
+        "filepath": "src/pages/components/_Alert.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/components/_Alert.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-components-alert",
+        "headings": [
+          {
+            "slug": "alert",
+            "depth": 1,
+            "value": "Alert"
           },
           {
-            "slug": "consistency",
+            "slug": "properties",
             "depth": 2,
-            "value": "Consistency"
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          },
+          {
+            "slug": "variants",
+            "depth": 2,
+            "value": "Variants"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/components/_Box.mdx",
+      "value": {
+        "name": "Box",
+        "menu": "Components",
+        "route": "/box",
+        "id": "11c33df3c9576162dd5f3eecb1ba38f5",
+        "filepath": "src/pages/components/_Box.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/components/_Box.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-components-box",
+        "headings": [
+          {
+            "slug": "box",
+            "depth": 1,
+            "value": "Box"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          },
+          {
+            "slug": "using-sx-prop",
+            "depth": 2,
+            "value": "Using sx prop"
+          },
+          {
+            "slug": "spacing",
+            "depth": 3,
+            "value": "Spacing"
+          },
+          {
+            "slug": "colors",
+            "depth": 3,
+            "value": "Colors"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/components/_Button.mdx",
+      "value": {
+        "name": "Button",
+        "menu": "Components",
+        "route": "/button",
+        "id": "4050fda1aa80d4aad6aaccfcc7b2dea5",
+        "filepath": "src/pages/components/_Button.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/components/_Button.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-components-button",
+        "headings": [
+          {
+            "slug": "button",
+            "depth": 1,
+            "value": "Button"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          },
+          {
+            "slug": "variants",
+            "depth": 2,
+            "value": "Variants"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/components/_Flex.mdx",
+      "value": {
+        "name": "Flex",
+        "menu": "Components",
+        "route": "/flex",
+        "id": "ff3e9ddbcb93a6d5cbd477f5f847b35a",
+        "filepath": "src/pages/components/_Flex.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/components/_Flex.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-components-flex",
+        "headings": [
+          {
+            "slug": "flex",
+            "depth": 1,
+            "value": "Flex"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/components/_Input.mdx",
+      "value": {
+        "name": "Input",
+        "menu": "Components",
+        "route": "/input",
+        "id": "3a3f464c89f24d18ba91eeab62a9c814",
+        "filepath": "src/pages/components/_Input.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/components/_Input.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-components-input",
+        "headings": [
+          {
+            "slug": "input",
+            "depth": 1,
+            "value": "Input"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/components/_Label.mdx",
+      "value": {
+        "name": "Label",
+        "menu": "Components",
+        "route": "/label",
+        "id": "d2eee38623d0041835a790941df14abc",
+        "filepath": "src/pages/components/_Label.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/components/_Label.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-components-label",
+        "headings": [
+          {
+            "slug": "label",
+            "depth": 1,
+            "value": "Label"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/pages/components/_Ul.mdx",
+      "value": {
+        "name": "Ul",
+        "menu": "Components",
+        "route": "/ul",
+        "id": "274b6ff8752f34448fb40a9934e90367",
+        "filepath": "src/pages/components/_Ul.mdx",
+        "fullpath": "/Users/alexlobera/projects/leanjsorg/leanjs/apps/leanui-docz/src/pages/components/_Ul.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-pages-components-ul",
+        "headings": [
+          {
+            "slug": "ul",
+            "depth": 1,
+            "value": "Ul"
+          },
+          {
+            "slug": "properties",
+            "depth": 2,
+            "value": "Properties"
+          },
+          {
+            "slug": "basic-usage",
+            "depth": 2,
+            "value": "Basic usage"
           }
         ]
       }

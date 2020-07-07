@@ -97,7 +97,7 @@ export const Input = ({
 
   return (
     <FormGroup sx={formGroupSx}>
-      {label && input.name ? (
+      {label ? (
         <React.Fragment>
           <Label sx={{ color }}>
             {label}
