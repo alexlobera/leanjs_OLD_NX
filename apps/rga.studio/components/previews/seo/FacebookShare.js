@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unused-prop-types, react/no-multi-comp, react/no-did-mount-set-state, react/forbid-prop-types */
-import React from "react";
-import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import sanityClient from "part:@sanity/base/client";
-import { toPlainText } from "./frontendUtils";
-import styles from "./FacebookShare.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import imageUrlBuilder from '@sanity/image-url';
+import sanityClient from 'part:@sanity/base/client';
+import { toPlainText } from './frontendUtils';
+import styles from './FacebookShare.css';
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -30,8 +30,8 @@ class FacebookShare extends React.PureComponent {
       excerpt: description = [],
       mainImage: openGraphImage,
     } = document;
-    const websiteUrl = "http://localhost:3000";
-    const websiteUrlWithoutProtocol = websiteUrl.split("://")[1];
+    const websiteUrl = 'http://localhost:3000';
+    const websiteUrlWithoutProtocol = websiteUrl.split('://')[1];
 
     return (
       <div className={styles.seoItem}>

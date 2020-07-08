@@ -22,3 +22,6 @@
 /apps/leanui-docz/node_modules
 /apps/leanui-docz/public
 /apps/leanui-docz/.cache
+/apps/leanui-docz/.docz
+
+/apps/rga.studio/dist
