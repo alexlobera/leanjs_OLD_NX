@@ -60,6 +60,9 @@
     },
     "ui-hls": {
       "tags": []
+    },
+    "leanui-docz": {
+      "tags": []
     }
   }
 }

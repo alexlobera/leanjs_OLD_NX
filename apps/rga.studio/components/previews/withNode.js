@@ -1,12 +1,12 @@
-import gql from "graphql-tag";
-import { graphql } from "@apollo/react-hoc";
+import gql from 'graphql-tag';
+import { graphql } from '@apollo/react-hoc';
 
 function getNodeId(props) {
   const splitTitle =
     props.value &&
     props.value.title &&
     props.value.title.split &&
-    props.value.title.split("queryNodeId=");
+    props.value.title.split('queryNodeId=');
   const nodeId = splitTitle && splitTitle.length === 2 ? splitTitle[1] : null;
 
   return nodeId;

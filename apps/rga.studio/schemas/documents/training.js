@@ -1,13 +1,13 @@
-import TrainingInput from "../../components/TrainingInput";
-import { VIDEO_TYPE_TRAINING } from "./video";
+import TrainingInput from '../../components/TrainingInput';
+import { VIDEO_TYPE_TRAINING } from './video';
 
 export default {
-  name: "training",
-  title: "Training",
-  type: "document",
+  name: 'training',
+  title: 'Training',
+  type: 'document',
   preview: {
     select: {
-      trainingId: "trainingId",
+      trainingId: 'trainingId',
     },
     prepare({ trainingId }) {
       return {
@@ -17,20 +17,20 @@ export default {
   },
   fields: [
     {
-      name: "trainingId",
-      title: "Training",
-      type: "string",
+      name: 'trainingId',
+      title: 'Training',
+      type: 'string',
       inputComponent: TrainingInput,
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "videos",
-      title: "Videos",
-      type: "array",
+      name: 'videos',
+      title: 'Videos',
+      type: 'array',
       of: [
         {
-          type: "reference",
-          to: { type: "video" },
+          type: 'reference',
+          to: { type: 'video' },
           options: {
             filter: `type == $type`,
             filterParams: { type: VIDEO_TYPE_TRAINING },

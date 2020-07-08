@@ -1,0 +1,18 @@
+---
+name: Motivation
+route: /motivation
+---
+
+# Motivation
+
+Design systems enable teams to build better products faster by making design reusable and consistent. A good UI requires a good design system and a good implementation.
+
+Over the years I've been answering the following question many times "should we use a component library, such as Material UI, or build it ourselves?". The answer has always been, it depends.
+
+There are typically two tensions when we build a UI: speed vs customization. If we build our UI component library from scratch, we can make it (customize it) for any design and use case we think of. However, that can take a lot of time. A faster approach is to reuse a component library that effectively implements good patterns. The next key question is, how difficult will it be to customize a third party component library with future requirements?
+
+At present, July 2020, there are many great component libraries that are very customizable and implement cutting edge design system principles. Some examples are: Theme UI, Chakra UI, Material UI, etc. However, not many of those component libraries use `styled-components`.
+
+`styled-components` is the most popular CSS-in-JS library (currently 3x more GitHub stars than Emotion). At [LeanJS](https://leanjs.com/), we've helped clients build products faster by refactoring their `styled-components` based applications into consistent & reusable components guided by clear standards. We've put this experience into this component library.
+
+The goal of this component library is to help React projects that use `styled-components` and want to implement a design system incrementally without the overhead of adding another CSS-in-JS library.

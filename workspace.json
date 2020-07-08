@@ -95,6 +95,25 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/packages/ui-core",
+            "tsConfig": "packages/ui-core/tsconfig.lib.json",
+            "project": "packages/ui-core/package.json",
+            "entryFile": "packages/ui-core/src/index.ts",
+            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
@@ -369,9 +388,15 @@
         }
       }
     },
+<<<<<<< HEAD
     "online.reactgraphql.academy": {
       "root": "apps/online.reactgraphql.academy",
       "sourceRoot": "apps/online.reactgraphql.academy/src",
+=======
+    "leanui-docz": {
+      "root": "apps/leanui-docz",
+      "sourceRoot": "apps/leanui-docz/src",
+>>>>>>> master
       "projectType": "application",
       "schematics": {},
       "architect": {
@@ -389,11 +414,19 @@
         "serve": {
           "builder": "@nrwl/gatsby:server",
           "options": {
+<<<<<<< HEAD
             "buildTarget": "online.reactgraphql.academy:build"
           },
           "configurations": {
             "production": {
               "buildTarget": "online.reactgraphql.academy:build:production"
+=======
+            "buildTarget": "leanui-docz:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "leanui-docz:build:production"
+>>>>>>> master
             }
           }
         },
@@ -402,6 +435,7 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
+<<<<<<< HEAD
               "apps/online.reactgraphql.academy/tsconfig.json",
               "apps/online.reactgraphql.academy/tsconfig.spec.json"
             ],
@@ -409,11 +443,18 @@
               "**/node_modules/**",
               "!apps/online.reactgraphql.academy/**/*"
             ]
+=======
+              "apps/leanui-docz/tsconfig.json",
+              "apps/leanui-docz/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/leanui-docz/**/*"]
+>>>>>>> master
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
+<<<<<<< HEAD
             "jestConfig": "apps/online.reactgraphql.academy/jest.config.js",
             "tsConfig": "apps/online.reactgraphql.academy/tsconfig.spec.json",
             "passWithNoTests": true
@@ -475,6 +516,10 @@
           "options": {
             "jestConfig": "packages/ui-hls/jest.config.js",
             "tsConfig": "packages/ui-hls/tsconfig.spec.json",
+=======
+            "jestConfig": "apps/leanui-docz/jest.config.js",
+            "tsConfig": "apps/leanui-docz/tsconfig.spec.json",
+>>>>>>> master
             "passWithNoTests": true
           }
         }

@@ -1,6 +1,7 @@
 {
-  "presets": [
-    "@nrwl/web/babel",
+  "presets": ["@nrwl/web/babel"],
+  "babelrcRoots": ["*"],
+  "plugins": [
     [
       "prismjs",
       {
@@ -17,6 +18,5 @@
         "css": true
       }
     ]
-  ],
-  "babelrcRoots": ["*"]
+  ]
 }
