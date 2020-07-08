@@ -1,14 +1,14 @@
-import React from "react";
-import sanityClient from "part:@sanity/base/client";
-import Spinner from "part:@sanity/components/loading/spinner";
-import { withApollo } from "@apollo/react-hoc";
+import React from 'react';
+import sanityClient from 'part:@sanity/base/client';
+import Spinner from 'part:@sanity/components/loading/spinner';
+import { withApollo } from '@apollo/react-hoc';
 
-import { QUERY_NODE } from "./previews/withNode";
+import { QUERY_NODE } from './previews/withNode';
 
 const TrainingTitle = ({ documentId = `"0"`, client: apolloClient }) => {
   const [title, setTitle] = React.useState();
   function setDefaultTitle() {
-    setTitle("Training Details");
+    setTitle('Training Details');
   }
 
   React.useEffect(() => {

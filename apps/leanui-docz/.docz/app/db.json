@@ -14,9 +14,7 @@
     "native": false,
     "themeConfig": {},
     "separator": "-",
-    "ignore": [
-      "README.md"
-    ],
+    "ignore": ["README.md"],
     "typescript": true
   },
   "entries": [

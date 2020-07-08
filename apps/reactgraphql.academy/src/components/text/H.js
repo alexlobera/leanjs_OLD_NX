@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import Box from '../layout/Box';
 
-const fontSize = ({ fontSize }) => ({ theme }) =>
-  `font-size: ${theme.fontSizes[fontSize]};`;
+const fontSize = ({ fontSize }) => ({ theme: { fontSizes = [] } = {} }) =>
+  `font-size: ${fontSizes[fontSize]};`;
 
 const REF = `
   :hover {

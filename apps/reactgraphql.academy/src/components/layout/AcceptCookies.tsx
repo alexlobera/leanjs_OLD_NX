@@ -22,8 +22,6 @@ const StyledCookiesNotification = ({ sx = {}, ...rest }) => (
       backgroundColor: DARK_BLUE_075,
       color: WHITE,
       fontSize: 0,
-      // display: 'flex',
-      flexDirection: 'column',
       ...sx,
     }}
     {...rest}
