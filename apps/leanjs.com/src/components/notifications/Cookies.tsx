@@ -36,7 +36,7 @@ const CookiesNotificationWrapper = ({ sx = {}, ...rest }) => (
       position: 'fixed',
       bottom: 0,
       left: 0,
-      width: 1,
+      width: '100%',
       zIndex: 9999,
       ...sx,
     }}
@@ -59,19 +59,6 @@ const AcceptCookies = () => {
   return hideAcceptCookies ? null : (
     <CookiesNotificationWrapper>
       <StyledCookiesNotification>
-        <Button
-          style={{
-            fontSize: '30px',
-            padding: '15px',
-            marginLeft: '20px',
-            float: 'right',
-            marginTop: '2px',
-            paddingTop: '10px',
-          }}
-          onClick={handleClick}
-        >
-          x
-        </Button>
         <div>
           Using our site means you consent to our use of cookies. Find out more
           in our{' '}
@@ -80,6 +67,19 @@ const AcceptCookies = () => {
           </Link>
           .
         </div>
+        <a
+          style={{
+            fontSize: '30px',
+            padding: '15px',
+            marginLeft: '0',
+            marginTop: '2px',
+            paddingTop: '10px',
+            cursor: 'pointer',
+          }}
+          onClick={handleClick}
+        >
+          x
+        </a>
       </StyledCookiesNotification>
     </CookiesNotificationWrapper>
   );
