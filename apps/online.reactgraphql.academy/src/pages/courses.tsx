@@ -1,6 +1,6 @@
 function CoursesPages({ navigate }) {
   if (typeof window !== 'undefined') {
-    navigate('/courses/react-fundamentals/');
+    navigate('/courses/react-redux-fundamentals/');
   }
   return null;
 }
