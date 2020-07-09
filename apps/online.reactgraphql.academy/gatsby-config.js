@@ -53,8 +53,8 @@ module.exports = {
       options: {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
-        //url: 'https://api2.upmentoring.com/graphql',
-        url: 'http://localhost:3334/graphql',
+        url: 'https://api2.upmentoring.com/graphql',
+        // url: 'http://localhost:3334/graphql',
       },
     },
     {
