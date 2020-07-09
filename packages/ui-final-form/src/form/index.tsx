@@ -40,11 +40,11 @@ export const Form = ({
     <StateForm
       {...rest}
       render={({ handleSubmit, ...renderRest }) => (
-        <Box<ExtendedBoxProps>
+        <Box
           autoComplete={autoComplete}
           noValidate={noValidate}
           sx={sx}
-          box="form"
+          as="form"
           name={name}
           onSubmit={handleSubmit}
         >

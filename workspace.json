@@ -454,6 +454,17 @@
             }
           }
         },
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:lint",
           "options": {
@@ -497,8 +508,9 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:lint",
           "options": {
+            "linter": "eslint",
             "tsConfig": [
               "apps/online.reactgraphql.academy-e2e/tsconfig.e2e.json"
             ],
