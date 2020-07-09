@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
 } = require('../rga.studio/sanity.json');
