@@ -19,9 +19,14 @@
 /apps/reactgraphql.academy/public
 /apps/reactgraphql.academy/.cache
 
+/apps/online.reactgraphql.academy/node_modules
+/apps/online.reactgraphql.academy/public
+/apps/online.reactgraphql.academy/.cache
+
 /apps/leanui-docz/node_modules
 /apps/leanui-docz/public
 /apps/leanui-docz/.cache
 /apps/leanui-docz/.docz
 
 /apps/rga.studio/dist
+
