@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import { space } from '@styled-system/space';
+// import { space } from '@styled-system/space';
 import Ul from './Ul';
 
 import { selectTechColor, selectBorderStyle } from '../utils';
@@ -11,7 +11,7 @@ export const StyledLi = styled(Box)`
   list-style-type: none;
   display: inline-block;
   @media (min-width: ${(props) => props.theme.breakpoints[0]}) {
-    ${space({ mx: 2 })}
+    margin: 0 8px 14px;
     :last-child {
       margin-right: 0;
     }

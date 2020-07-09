@@ -437,6 +437,66 @@
         }
       }
     },
+    "online.reactgraphql.academy": {
+      "root": "apps/online.reactgraphql.academy",
+      "sourceRoot": "apps/online.reactgraphql.academy/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "dist/online.reactgraphql.academy",
+            "parallel": false,
+            "commands": ["ls"]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "online.reactgraphql.academy:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "online.reactgraphql.academy:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/online.reactgraphql.academy/tsconfig.json",
+              "apps/online.reactgraphql.academy/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/online.reactgraphql.academy/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/online.reactgraphql.academy/jest.config.js",
+            "tsConfig": "apps/online.reactgraphql.academy/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "online.reactgraphql.academy-e2e": {
       "root": "apps/online.reactgraphql.academy-e2e",
       "sourceRoot": "apps/online.reactgraphql.academy-e2e/src",

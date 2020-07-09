@@ -6,6 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `online.reactgraphql.academy`,
     description: `This is a gatsby application created by Nx.`,
+    siteUrl: `https://online.reactgraphql.academy/`,
   },
   plugins: [
     'gatsby-plugin-styled-components',
