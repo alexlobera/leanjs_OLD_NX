@@ -1,23 +1,32 @@
-import React, { ReactNode, FunctionComponent } from 'react';
-import styled from 'styled-components';
-import { css, ThemeUIExtendedCSSProperties } from '@theme-ui/css';
+import React, { ReactNode } from 'react';
+import styled, { ThemeProps } from 'styled-components';
+import { css, ThemeUIExtendedCSSProperties, Theme } from '@theme-ui/css';
 
 export type BoxProps<T = {}> = T & {
   sx?: ThemeUIExtendedCSSProperties;
   children?: ReactNode;
+  variant?: string;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
 };
 
-export type StyledBoxProps<T = {}> = BoxProps<T> & {
-  variant?: string;
-  ref?: React.Ref<HTMLElement>;
-};
-
-export const Box: FunctionComponent<StyledBoxProps> = React.memo(
-  styled(({ sx, variant, box: Component = 'div', ...rest }) => (
-    <Component {...rest} />
-  ))(({ sx = {}, theme }) =>
+export const Box = styled(
+  (
+    { sx, variant, box: Component = 'div', ...rest }: BoxProps,
+    ref?: React.Ref<HTMLElement>
+  ) => (
+    <Component
+      {...rest}
+      ref={
+        ref && Object.prototype.hasOwnProperty.call(ref, 'current') ? ref : null
+      }
+    />
+  )
+)<BoxProps>(
+  ({
+    sx = {},
+    theme,
+  }: ThemeProps<Theme> & { sx?: ThemeUIExtendedCSSProperties }) =>
     css({
       fontFamily: 'barlow',
       fontWeight: 'normal',
@@ -27,23 +36,6 @@ export const Box: FunctionComponent<StyledBoxProps> = React.memo(
       theme,
       ...sx,
     })
-  )
 );
-
-// export function Box<T = {}>({ sx = {}, ...rest }: BoxProps<T>) {
-//   return (
-//     <StyledBox
-//       sx={{
-//         fontFamily: 'barlow',
-//         fontWeight: 'normal',
-//         color: 'text',
-//         boxSizing: 'border-box',
-//         minWidth: 0,
-//         ...sx,
-//       }}
-//       {...rest}
-//     />
-//   );
-// }
 
 Box.displayName = 'Box';

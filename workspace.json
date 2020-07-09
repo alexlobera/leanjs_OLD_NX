@@ -443,25 +443,6 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
-        "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "cwd": "dist/online.reactgraphql.academy",
-            "parallel": false,
-            "commands": ["ls"]
-          }
-        },
-        "build": {
-          "builder": "@nrwl/gatsby:build",
-          "options": {
-            "uglify": true,
-            "color": true,
-            "profile": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
         "serve": {
           "builder": "@nrwl/gatsby:server",
           "options": {

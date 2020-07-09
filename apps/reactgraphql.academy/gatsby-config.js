@@ -1,11 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-// TODO ADD CMS
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
 } = require('../rga.studio/sanity.json');
-// const sanityProjectId = '3x4p2vjc';
-// const sanityDataset = 'production';
 
 // `hyperscript` is a way to build HTML known as hyperscript
 // See https://github.com/hyperhype/hyperscript for more info
