@@ -18,8 +18,8 @@ import ThinkingInGraphQLSession, {
 import SchemaDesignSession, {
   LearningObjectives as SchemaDesignLearningObjectives,
 } from './sessions/graphql/server/SchemaDesignSession';
-import GraphQLServerConsoliationOneSession from './sessions/graphql/server/GraphQLServerConsoliationOneSession';
-import GraphQLServerConsoliationTwoSession from './sessions/graphql/server/GraphQLServerConsoliationTwoSession';
+// import GraphQLServerConsoliationOneSession from './sessions/graphql/server/GraphQLServerConsoliationOneSession';
+// import GraphQLServerConsoliationTwoSession from './sessions/graphql/server/GraphQLServerConsoliationTwoSession';
 import FederationSession, {
   LearningObjectives as FederationLearningObjectives,
 } from './sessions/graphql/server/FederationSession';
@@ -29,6 +29,7 @@ import ToolingAndPracticesSession, {
 import HasuraSession, {
   LearningObjectives as HasuraLearningObjectives,
 } from './sessions/graphql/server/HasuraSession';
+import HackathonSession from './sessions/graphql/server/HackathonSession';
 
 export const sessions = [
   {
@@ -36,20 +37,24 @@ export const sessions = [
     comps: [ThinkingInGraphQLSession, SpecificationSession],
   },
   {
-    subTitle: 'Consolidation part 1, Schema design, and Apollo Federation',
+    subTitle: 'Schema design, and Apollo Federation',
     comps: [
-      GraphQLServerConsoliationOneSession,
+      // GraphQLServerConsoliationOneSession,
       SchemaDesignSession,
       FederationSession,
     ],
   },
   {
-    subTitle: 'Consolidation part 2, Hasura, and Advanced tooling & practices',
+    subTitle: 'Hasura, and Advanced tooling & practices',
     comps: [
-      GraphQLServerConsoliationTwoSession,
+      // GraphQLServerConsoliationTwoSession,
       HasuraSession,
       ToolingAndPracticesSession,
     ],
+  },
+  {
+    subTitle: 'Hackathon (optional day)',
+    comps: [HackathonSession],
   },
 ];
 
