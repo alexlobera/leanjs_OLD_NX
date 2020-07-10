@@ -446,7 +446,8 @@
         "serve": {
           "builder": "@nrwl/gatsby:server",
           "options": {
-            "buildTarget": "online.reactgraphql.academy:build"
+            "buildTarget": "online.reactgraphql.academy:build",
+            "port": 4201
           },
           "configurations": {
             "production": {
