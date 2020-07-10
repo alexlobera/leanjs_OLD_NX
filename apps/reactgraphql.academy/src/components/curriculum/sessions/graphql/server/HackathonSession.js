@@ -6,7 +6,7 @@ const HackathonSession = () => (
   <Session>
     <Ul>
       <Li>
-        Consolidate your GraphQL API knowleadge by building a real-world project
+        Consolidate your GraphQL API knowledge by building a real-world project
         from scratch
       </Li>
       <Li>Get advice and guidance from our GraphQL mentors</Li>
