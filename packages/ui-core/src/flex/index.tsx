@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box } from '../box';
+import { Box, BoxProps } from '../box';
 
-const Flex = ({ sx, ...rest }) => (
+const Flex = ({ sx, ...rest }: BoxProps) => (
   <Box sx={{ display: 'flex', ...sx }} {...rest} />
 );
 
