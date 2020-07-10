@@ -100,15 +100,21 @@ const CurriculumGraphQLAPI = ({
 
 export const TargetAudienceList = () => (
   <React.Fragment>
-    <Li>Learn the best practices to expose data using GraphQL schemas</Li>
     <Li>
-      Understand how to connect GraphQL to different data sources in a secure
-      way
+      A JavaScript developer interested in learning the best practices to build
+      production-ready GraphQL APIs.
     </Li>
-    <Li>Comprehend how to effectively run a GraphQL API in production</Li>
     <Li>
-      You are JS developer interested in building modern APIs that enable faster
-      product development at scale.
+      You are interested in how to connect GraphQL to different data sources in
+      a secure and efficient way.
+    </Li>
+    <Li>
+      You are a tech lead or architect responsible for running a GraphQL API in
+      production.
+    </Li>
+    <Li>
+      You are a full-stack developer interested in building modern APIs that
+      enable faster product development.
     </Li>
   </React.Fragment>
 );
