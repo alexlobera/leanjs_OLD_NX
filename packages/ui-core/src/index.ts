@@ -1,4 +1,4 @@
-export * from './box';
+export * from './Box';
 export { default as Flex } from './Flex';
 export * from './Alert';
 export * from './Button';

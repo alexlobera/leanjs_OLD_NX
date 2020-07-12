@@ -5,6 +5,7 @@ import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container } from '../components/layout';
 import Layout from '../components/layout/Layout';
 import { Heading, H1, H2, H3, H4, H5, H6, P } from '../components/display';
+import { Form, Input } from '../components/form';
 
 interface LessonPageProps {
   data: any;
@@ -21,6 +22,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <Box sx={{ bg: 'red' }}>Box</Box>
         <Box>Box</Box>
       </Grid>
+
+      <Input label="asdf" />
 
       <Heading variant="h1">Heading H1</Heading>
       <H1 variant="h2"> H1</H1>

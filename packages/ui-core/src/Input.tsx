@@ -1,20 +1,20 @@
 import React from 'react';
-// import { Box, Label } from '@leanjs/ui-core';
-import { Box } from './Box';
+import { Box, BoxProps } from './Box';
 import { Label } from './Label';
 
-const InputForm = ({ sx = {}, ...rest }) => (
+const InputForm = ({ as = 'input', sx = {}, ...rest }: BoxProps) => (
   <Box
     sx={{
       backgroundColor: 'background',
       display: 'block',
       width: '100%',
       color: 'text',
-      // backgroundClip: "padding-box",
+      backgroundClip: 'padding-box',
       border: '1px solid',
       borderColor: 'secondary',
       ...sx,
     }}
+    as={as}
     {...rest}
   />
 );
@@ -126,8 +126,4 @@ export const Input = ({
       ) : null}
     </FormGroup>
   );
-};
-
-Input.defaultProps = {
-  box: 'input',
 };
