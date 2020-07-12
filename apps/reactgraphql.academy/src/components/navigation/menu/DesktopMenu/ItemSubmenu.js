@@ -83,7 +83,6 @@ class ItemSubmenu extends React.Component {
       <div ref={this.wrapperRef}>
         <Link
           {...props}
-          sx={{ display: 'inline-block' }}
           className={className}
           onClick={this.onToggleSubmenuClicked}
         >

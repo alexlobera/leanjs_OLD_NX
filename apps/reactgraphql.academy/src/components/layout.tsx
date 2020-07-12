@@ -11,7 +11,6 @@ import {
 
 import { setCookie, getCookie } from './utils/store';
 import { getURLParameter } from './utils/url';
-// import './reset.css';
 import 'normalize.css';
 import './layout.css';
 import { SENTRY_DSN } from '../config/apps';

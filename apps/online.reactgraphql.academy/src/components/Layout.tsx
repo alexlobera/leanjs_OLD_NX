@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 function Layout({ children }) {
   return (
     <React.Fragment>
-      <CSSReset />
       <Helmet
         htmlAttributes={{
           lang: 'en',

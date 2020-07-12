@@ -56,7 +56,7 @@ const Footer = () => (
                 <H3>Site links</H3>
               </Col>
               <Col md={6}>
-                <Ul variant="unstyled" sx={{ pt: 0, ml: 0, pl: 0 }}>
+                <Ul variant="unstyled" sx={{ pt: 0 }}>
                   {[
                     { to: '/react/training', txt: 'React Training' },
                     { to: '/react/curriculum', txt: 'React Curriculum' },
