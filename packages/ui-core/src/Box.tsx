@@ -1,9 +1,15 @@
 import React, { ReactNode } from 'react';
 import styled, { ThemeProps } from 'styled-components';
-import { css, ThemeUIExtendedCSSProperties, Theme } from '@theme-ui/css';
+import {
+  css,
+  ThemeUIExtendedCSSProperties as SxProp,
+  Theme,
+} from '@theme-ui/css';
+
+export { SxProp };
 
 export type BoxProps<T = {}> = T & {
-  sx?: ThemeUIExtendedCSSProperties;
+  sx?: SxProp;
   children?: ReactNode;
   variant?: string;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, BoxProps } from './Box';
+import React, { FunctionComponent } from 'react';
+import { Box, BoxProps, SxProp } from './Box';
 import { Label } from './Label';
 
 const InputForm = ({ as = 'input', sx = {}, ...rest }: BoxProps) => (
@@ -54,29 +54,28 @@ export const FormGroup = ({ sx = {}, ...rest }) => (
   />
 );
 
-interface InputProps {
-  label: string;
+interface InputProps extends BoxProps {
   name: string;
-  type: string;
-  checked: boolean;
+  label: string;
+  type?: string;
+  checked?: boolean;
   onChange?: (args: any) => void;
-  input: {
+  input?: {
     name?: string;
     onChange?: (args: any) => void;
   };
-  meta: {
+  meta?: {
     invalid?: boolean;
     pristine?: boolean;
     error?: any;
     submitFailed?: boolean;
     submitSucceeded?: boolean;
   };
-  color: string;
-  sx: any;
-  formGroupSx: any;
+  color?: string;
+  formGroupSx?: SxProp;
 }
 
-export const Input = ({
+export const Input: FunctionComponent<InputProps> = ({
   label,
   type = 'text',
   checked = false,
@@ -86,7 +85,7 @@ export const Input = ({
   sx = {},
   formGroupSx = {},
   ...props
-}: InputProps) => {
+}) => {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta;
   const name = props.name || input.name;
   const onChange = (e: Event) => {
