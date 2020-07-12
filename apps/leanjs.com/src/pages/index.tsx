@@ -17,6 +17,7 @@ import {
   BLACK,
 } from '../config/styles';
 import LinkButton from '../components/buttons/LinkButton';
+import Image from '../components/elements/Image';
 import Grid, { Col, Row } from '../components/layout/Grid';
 import { H2, H4, H3a, P, SupportingText } from '../components/text';
 import Arrow from '../resources/Arrow';
@@ -101,7 +102,7 @@ const IndexPage = () => (
           </Col>
           <Col md={1} />
           <Col md={4}>
-            <img src="https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/full_stack_sprint_illustrations%2FFullStackSprint.jpg?alt=media" />
+            <Image src="https://firebasestorage.googleapis.com/v0/b/leanjscom-web.appspot.com/o/full_stack_sprint_illustrations%2FFullStackSprint.jpg?alt=media" />
           </Col>
         </Row>
 
