@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import favicon from './favicon.ico';
 import Footer from '../Footer';
 import './index.css';
-// import './reset.css';
 import 'normalize.css';
 
 const Layout = ({ children }) => (
