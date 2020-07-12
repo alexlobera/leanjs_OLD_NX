@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Box, Label } from '@leanjs/ui-core';
-import { Box } from '../box';
-import { Label } from '../label';
+import { Box } from './Box';
+import { Label } from './Label';
 
 const InputForm = ({ sx = {}, ...rest }) => (
   <Box

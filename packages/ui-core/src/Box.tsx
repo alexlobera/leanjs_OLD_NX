@@ -8,6 +8,8 @@ export type BoxProps<T = {}> = T & {
   variant?: string;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  ref?: React.Ref<HTMLElement>;
+  __themeKey?: string;
 };
 
 export const Box = styled(
@@ -25,8 +27,10 @@ export const Box = styled(
 )<BoxProps>(
   ({
     sx = {},
+    __themeKey = 'variants',
     theme,
-  }: ThemeProps<Theme> & { sx?: ThemeUIExtendedCSSProperties }) =>
+    variant,
+  }: ThemeProps<Theme> & BoxProps) =>
     css({
       fontFamily: 'barlow',
       fontWeight: 'normal',
@@ -34,6 +38,7 @@ export const Box = styled(
       boxSizing: 'border-box',
       minWidth: 0,
       theme,
+      ...(variant && theme[__themeKey] ? theme[__themeKey][variant] || {} : {}),
       ...sx,
     })
 );

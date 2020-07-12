@@ -41,9 +41,7 @@ const CurriculumGraphQLTrial = ({
 export { TargetAudienceList };
 
 export const LearningObjectives = () => (
-  <Ul>
-    <ThinkingInLearningObjectives showAll />
-  </Ul>
+  <ThinkingInLearningObjectives showAll />
 );
 
 export default CurriculumGraphQLTrial;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BoxProps } from '../box';
+import { Box, BoxProps } from './Box';
 
 export const Container = React.forwardRef(
   ({ sx = {}, ...rest }: BoxProps, ref) => (

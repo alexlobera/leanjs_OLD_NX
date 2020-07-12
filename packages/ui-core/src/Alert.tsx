@@ -1,6 +1,6 @@
 import React from 'react';
 //import { Box, BoxProps } from '@leanjs/ui-core';
-import { Box, BoxProps } from '../box';
+import { Box, BoxProps } from './Box';
 
 interface AlertProps extends BoxProps {
   variant?: keyof typeof alertVariants;

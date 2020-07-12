@@ -1,6 +1,6 @@
 import React, { ReactNode, MouseEvent } from 'react';
 // import { Box, BoxProps } from '@leanjs/ui-core';
-import { Box, BoxProps } from '../box';
+import { Box, BoxProps } from './Box';
 
 interface ButtonProps extends BoxProps {
   variant?: keyof typeof buttonVariantProps;

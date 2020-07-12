@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BoxProps } from '../box';
+import { Box, BoxProps } from './Box';
 
 const px = (n) => (typeof n === 'number' ? n + 'px' : n);
 
