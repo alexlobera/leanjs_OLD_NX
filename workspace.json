@@ -32,7 +32,8 @@
         "serve": {
           "builder": "@nrwl/gatsby:server",
           "options": {
-            "buildTarget": "leanjs.com:build"
+            "buildTarget": "leanjs.com:build",
+            "port": 4200
           },
           "configurations": {
             "production": {
@@ -193,7 +194,8 @@
         "serve": {
           "builder": "@nrwl/gatsby:server",
           "options": {
-            "buildTarget": "reactgraphql.academy:build"
+            "buildTarget": "reactgraphql.academy:build",
+            "port": 4201
           },
           "configurations": {
             "production": {
@@ -447,7 +449,7 @@
           "builder": "@nrwl/gatsby:server",
           "options": {
             "buildTarget": "online.reactgraphql.academy:build",
-            "port": 4201
+            "port": 4202
           },
           "configurations": {
             "production": {
