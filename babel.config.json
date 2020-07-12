@@ -1,22 +1,4 @@
 {
   "presets": ["@nrwl/web/babel"],
-  "babelrcRoots": ["*"],
-  "plugins": [
-    [
-      "prismjs",
-      {
-        "languages": [
-          "javascript",
-          "typescript",
-          "json",
-          "bash",
-          "jsx",
-          "graphql"
-        ],
-        "plugins": ["show-language"],
-        "theme": "okaidia",
-        "css": true
-      }
-    ]
-  ]
+  "babelrcRoots": ["*"]
 }
