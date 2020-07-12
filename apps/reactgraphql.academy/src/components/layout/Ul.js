@@ -27,6 +27,7 @@ const Ul = ({ sx = {}, children, ...rest }) => (
   <StyledUl
     box="ul"
     sx={{
+      mt: 0,
       ...getVariantProps(rest.variant || rest.variants, ulVariantSxProp),
       ...sx,
     }}
@@ -51,6 +52,7 @@ const ulVariantSxProp = {
   },
   unstyled: {
     ml: 0,
+    pl: 0,
   },
 };
 
@@ -81,6 +83,7 @@ const Li = ({ sx = {}, ...rest }) => (
   <Box
     box="li"
     sx={{
+      mb: 2,
       ...getVariantProps(rest.variant || rest.variants, liVariantSxProp),
       ...sx,
     }}

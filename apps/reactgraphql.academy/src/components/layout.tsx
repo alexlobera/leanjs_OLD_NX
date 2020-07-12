@@ -11,7 +11,8 @@ import {
 
 import { setCookie, getCookie } from './utils/store';
 import { getURLParameter } from './utils/url';
-import './reset.css';
+// import './reset.css';
+import 'normalize.css';
 import './layout.css';
 import { SENTRY_DSN } from '../config/apps';
 import { TRAINING_TYPE_FIELD_ID, TRAINING_TECH_FIELD_ID } from '../config/data';
@@ -208,40 +209,38 @@ const Layout = ({ children }) => {
 
   return (
     <React.Fragment>
-      <React.Fragment>
-        <Helmet
-          htmlAttributes={{
-            lang: 'en',
-          }}
-          title={data && data.site && data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: data && data.site && data.site.siteMetadata.description,
-            },
-          ]}
-          link={[
-            ...preloadUrls,
-            ...prefetchDnsLinks,
-            ...preconnectLinks,
-            {
-              rel: 'icon',
-              type: 'image/x-icon',
-              href: `${favicon}`,
-            },
-          ]}
-        >
-          {/* {scriptTags} */}
-        </Helmet>
-        <Menu />
-        {React.Children.map(children, (child) =>
-          React.cloneElement(child, {
-            trainings: trainingAndEvents,
-          })
-        )}
-        <Footer />
-        <AcceptCookies />
-      </React.Fragment>
+      <Helmet
+        htmlAttributes={{
+          lang: 'en',
+        }}
+        title={data && data.site && data.site.siteMetadata.title}
+        meta={[
+          {
+            name: 'description',
+            content: data && data.site && data.site.siteMetadata.description,
+          },
+        ]}
+        link={[
+          ...preloadUrls,
+          ...prefetchDnsLinks,
+          ...preconnectLinks,
+          {
+            rel: 'icon',
+            type: 'image/x-icon',
+            href: `${favicon}`,
+          },
+        ]}
+      >
+        {/* {scriptTags} */}
+      </Helmet>
+      <Menu />
+      {React.Children.map(children, (child) =>
+        React.cloneElement(child, {
+          trainings: trainingAndEvents,
+        })
+      )}
+      <Footer />
+      <AcceptCookies />
     </React.Fragment>
   );
 };

@@ -5,6 +5,7 @@ import withLazyLoad from './withLazyLoad';
 import Box from '../layout/Box';
 
 const Image = withLazyLoad()(styled(Box)`
+  max-width: 100%;
   ${({ circle }) => (circle ? `border-radius: 50%;` : null)};
   ${({ objectFit }) => (objectFit ? `object-fit: ${objectFit}` : '')}
 `);
@@ -15,7 +16,7 @@ const StyledGatsbyImage = ({ circle, sx = {}, ...rest }) => {
   if (circle) {
     sx.borderRadius = '50%';
   }
-  return <Box sx={sx} box={GatsbyImage} {...rest} />;
+  return <Box sx={{ maxWidth: '100%', ...sx }} box={GatsbyImage} {...rest} />;
 };
 
 export default (props) => {

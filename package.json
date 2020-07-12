@@ -81,6 +81,7 @@
     "lodash.isequal": "^4.5.0",
     "markdown-to-jsx": "^6.11.4",
     "node-fetch": "^2.6.0",
+    "normalize.css": "^8.0.1",
     "payment": "^2.3.0",
     "plyr": "^3.6.2",
     "prismjs": "^1.20.0",

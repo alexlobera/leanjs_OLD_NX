@@ -9,7 +9,7 @@ export const Ul = styled(DefaultUl)`
   background-color: ${DARK_BLUE_075};
   position: absolute;
   list-style: none;
-  margin: 33px 0 0 -18px !important;
+  margin: 32px 0 0 -18px !important;
   padding: 18px 18px 36px 18px;
   li {
     padding-left: 0;
@@ -83,6 +83,7 @@ class ItemSubmenu extends React.Component {
       <div ref={this.wrapperRef}>
         <Link
           {...props}
+          sx={{ display: 'inline-block' }}
           className={className}
           onClick={this.onToggleSubmenuClicked}
         >

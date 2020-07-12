@@ -23,6 +23,7 @@ export const H1 = ({ sx = {}, ...rest }) => (
     sx={{
       fontWeight: 'bold',
       fontSize: 8,
+      mt: 0,
       ...sx,
     }}
     box="h1"
@@ -44,7 +45,15 @@ const StyledH2 = styled(Box)`
 `;
 export const H2 = ({ sx = {}, ...rest }) => (
   <StyledH2
-    sx={{ fontWeight: 'bold', lineHeight: 6, fontSize: 6, mb: 5, pt: 5, ...sx }}
+    sx={{
+      fontWeight: 'bold',
+      lineHeight: 6,
+      fontSize: 6,
+      mt: 0,
+      mb: 5,
+      pt: 5,
+      ...sx,
+    }}
     box="h2"
     {...rest}
   />
