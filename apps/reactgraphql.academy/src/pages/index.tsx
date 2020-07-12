@@ -17,10 +17,7 @@ import FullCurriculumsImmersive from '../components/curriculum/FullCurriculumsIm
 import FullCurriculumsPartTime from '../components/curriculum/FullCurriculumsPartTime';
 import { createMetas } from '../components/utils';
 import { RootHeader as Header } from '../components/layout/Header';
-import {
-  // selectTrainingByInstanceId,
-  getNextTrainingByTrainingId,
-} from '../components/training/selectUpcomingTrainings';
+import { getNextTrainingByTrainingId } from '../components/training/selectUpcomingTrainings';
 import Segment from '../components/elements/Segment';
 import TrustedBySection from '../components/training/TrustedBySection';
 import UpcomingTrainingSection from '../components/training/UpcomingTrainingSection';
