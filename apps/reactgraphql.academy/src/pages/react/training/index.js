@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { graphql } from 'gatsby';
 
 import { BLUE } from 'src/config/styles';
 import { BOOTCAMP } from 'src/../images/imageNames';

@@ -45,7 +45,7 @@ const BreadcrumbContainer = React.memo(styled(Box)`
 const Breadcrumb = ({ path, bgColor }) =>
   path && path.length ? (
     <BreadcrumbContainer
-      sx={{ top: ['68px', '91px'] }}
+      sx={{ top: ['67px', '90px'] }}
       box="nav"
       bgColor={bgColor}
       ariaLabel="Breadcrumb"

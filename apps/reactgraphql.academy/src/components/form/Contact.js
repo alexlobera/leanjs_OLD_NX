@@ -110,7 +110,7 @@ const ContactForm = ({
               )
             }
           </Form>
-          <P>
+          <P sx={{ pt: 3 }}>
             We won't spam you as per our{' '}
             <Link className="footer-privacy-policy" to="/privacy-policy">
               Privacy Policy

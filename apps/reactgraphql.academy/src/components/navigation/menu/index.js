@@ -18,7 +18,6 @@ const MenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding: 12px 20px;
   position: relative;
   z-index: ${Z_INDEX_SMALL};

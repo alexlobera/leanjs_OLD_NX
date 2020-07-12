@@ -100,5 +100,6 @@ export default [
     to: '#contact-us',
     text: 'Contact',
     component: LinkButton,
+    sx: { height: '50px' },
   },
 ];

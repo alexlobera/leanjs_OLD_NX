@@ -5,7 +5,7 @@ const Session = ({ children, title }) =>
   !title ? (
     children
   ) : (
-    <Ul>
+    <Ul sx={{ mt: 1 }}>
       <Li>{title}</Li>
       {children}
     </Ul>

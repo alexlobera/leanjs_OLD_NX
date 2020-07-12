@@ -1,7 +1,13 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react';
+import { ThemeProvider } from '@leanjs/ui-core';
 
-// You can delete this file if you're not using it
+import { theme } from 'src/config/styles';
+import Layout from './src/components/layout';
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+);
+
+export const wrapPageElement = ({ element, props }) => (
+  <Layout {...props}>{element}</Layout>
+);

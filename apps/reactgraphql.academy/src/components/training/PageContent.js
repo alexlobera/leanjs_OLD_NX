@@ -61,7 +61,7 @@ const Answer = ({
         )}
         {showToggle && (
           <Link onClick={() => setIsDisplayed((state) => !state)}>
-            {isDisplayed ? 'Hide' : 'Show'}
+            {isDisplayed ? 'Hide answer' : 'Show answer'}
           </Link>
         )}
       </Box>

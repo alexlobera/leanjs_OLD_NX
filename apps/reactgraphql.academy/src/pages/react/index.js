@@ -184,7 +184,7 @@ const ReactPage = ({ data, path, trainings }) => {
                 It's growing at a fast pace and the community is fantastic!
               </Li>
             </Ul>
-            <P>
+            <P sx={{ pt: 1 }}>
               <LinkButton to="/react/top-10-reasons-to-learn-react/">
                 Blog: Why You Should Learn React Right Now
               </LinkButton>
