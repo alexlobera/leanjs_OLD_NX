@@ -27,7 +27,7 @@ import NetAPorter from '../components/logos/NetAPorter';
 import Nationwide from '../components/logos/Nationwide';
 import JohnLewis from '../components/logos/JohnLewis';
 import Capgemini from '../components/logos/Capgemini';
-//
+
 const SprintCard = styled.div`
   border: 1px solid #ddd;
   padding: ${SPACING_MEDIUM};

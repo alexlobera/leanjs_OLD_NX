@@ -14,12 +14,16 @@ import { WHITE, DARKGREY } from '../../config/styles';
 import ContactUsBullet from '../bullets/ContactUsBullet';
 import { H2, H4, P } from '../text';
 import { Ul, Li } from './Ul';
+import { GitHubIcon } from '../../resources/icons';
 
 const LinkList = styled(Ul)`
   padding-left: 0;
   list-style: none;
   margin-left: 0;
   ${styleChildLinkColor(WHITE)};
+  > li {
+    padding: 5px 0;
+  }
 `;
 
 const ContactSection = () => (
@@ -48,9 +52,15 @@ const ContactSection = () => (
               </MailtoLink>
             </Li>
             <Li>
-              <Link to="https://twitter.com/leanjscom">
+              <Link to="https://twitter.com/leanjs">
                 <ContactUsBullet image="twitter" />
                 Tweet us @leanjs
+              </Link>
+            </Li>
+            <Li>
+              <Link to="https://github.com/leanjs">
+                <GitHubIcon sx={{ m: '0px 7px -8px 8px ' }} />
+                Follow us on GitHub/leanjs
               </Link>
             </Li>
             <Li>

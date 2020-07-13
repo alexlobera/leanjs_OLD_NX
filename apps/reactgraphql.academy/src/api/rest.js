@@ -85,3 +85,21 @@ export const requestQuote = (message) =>
     ...defaultOptions,
     body: JSON.stringify(message),
   });
+
+export const contactLeanJS = (message) =>
+  fetch(`${apiBaseUrl}contactLeanJS`, {
+    ...defaultOptions,
+    body: JSON.stringify(message),
+  });
+
+// export const sendMessage = async (message) => {
+//   const result = await axios({
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     responseType: 'text',
+//     method: 'POST',
+//     url: `${apiBaseUrl}contactLeanJS`,
+//     data: message,
+//   });
+// };

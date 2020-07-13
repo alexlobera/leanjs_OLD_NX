@@ -130,7 +130,7 @@ const Meetup = ({
         links={[
           { text: 'Speakers', to: '#speakers' },
           { text: 'Agenda', to: '#agenda' },
-          { text: 'Buy tickets', to: '#pricing' },
+          { text: 'Tickets', to: '#pricing' },
         ]}
         bgImageName={isOnline ? 'zoom-event' : undefined}
         training={meetup}
