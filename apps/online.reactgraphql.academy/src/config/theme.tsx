@@ -6,7 +6,25 @@ const heading = {
 };
 
 export const theme = {
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [
+    '0', // 0
+    '0.25rem', // 1
+    '0.5rem', // 2
+    '0.75rem', // 3
+    '1rem', // 4
+    '1.25rem', // 5
+    '1.5rem', // 6
+    '2rem', // 7
+    '3rem', // 8
+    '4rem', // 9
+    '5rem', // 10
+    '6rem', // 11
+    '8rem', // 12
+    '10rem', // 13
+    '12rem', // 14
+    '14rem', // 15
+    '16rem', // 16
+  ],
   fonts: {
     body: `'Barlow', sans-serif`,
     heading: 'inherit',
@@ -31,6 +49,21 @@ export const theme = {
   },
   sizes: {
     container: '64rem',
+  },
+  zIndices: {
+    hide: -1,
+    auto: 'auto',
+    base: 0,
+    docked: 10,
+    dropdown: 1000,
+    sticky: 1100,
+    banner: 1200,
+    overlay: 1300,
+    modal: 1400,
+    popover: 1500,
+    skipLink: 1600,
+    toast: 1700,
+    tooltip: 1800,
   },
   styles: {
     root: {

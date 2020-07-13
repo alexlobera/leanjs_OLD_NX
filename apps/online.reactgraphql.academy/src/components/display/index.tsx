@@ -8,4 +8,5 @@ export {
   H6,
   P,
   Blockquote,
+  SVG,
 } from '@leanjs/ui-core';

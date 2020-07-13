@@ -30,7 +30,8 @@ export const Box = styled(
       }
     />
   )
-)<BoxProps>(
+  // )<BoxProps>(
+)(
   ({
     sx = {},
     __themeKey = 'variants',
@@ -38,7 +39,7 @@ export const Box = styled(
     variant,
   }: ThemeProps<Theme> & BoxProps) =>
     css({
-      fontFamily: 'barlow',
+      fontFamily: 'body',
       fontWeight: 'normal',
       color: 'text',
       boxSizing: 'border-box',

@@ -8,5 +8,6 @@ export * from './List';
 export * from './Input';
 export * from './Typography';
 export * from './Grid';
+export * from './SVG';
 export * from './Container';
 export * from './ThemeProvider';

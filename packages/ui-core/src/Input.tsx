@@ -2,7 +2,14 @@ import React, { FunctionComponent } from 'react';
 import { Box, BoxProps, SxProp } from './Box';
 import { Label } from './Label';
 
-const InputForm = ({ as = 'input', sx = {}, ...rest }: BoxProps) => (
+interface InputFormProps extends BoxProps {
+  onChange?: (args: any) => void;
+  type?: string;
+  name: string;
+  checked?: boolean;
+}
+
+const InputForm = ({ as = 'input', sx = {}, ...rest }: InputFormProps) => (
   <Box
     sx={{
       backgroundColor: 'background',

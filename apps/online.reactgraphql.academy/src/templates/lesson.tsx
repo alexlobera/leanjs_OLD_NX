@@ -23,25 +23,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
         <Box>Box</Box>
       </Grid>
 
-      <Input label="asdf" />
-
-      <Heading variant="h1">Heading H1</Heading>
-      <H1 variant="h2"> H1</H1>
-      <H1 variant="h2"> H1</H1>
-      <Heading variant="h3">Heading H3</Heading>
-      <H2> H2</H2>
-      <Heading>Heading default H2</Heading>
-      <H3> H3</H3>
-      <H4> H4</H4>
-      <H5> H5</H5>
-      <H1> H6</H1>
-      <H1> H1</H1>
-      <H3> H3</H3>
-      <P>PPPPPPP</P>
-      <Heading variant="h3">
-        Lesson {pageContext.videoIndex}: {data.upmentoring.video.title}
-      </Heading>
-      <H3> H3</H3>
       <VideoPlayer url={data.upmentoring.video.asset.url} />
     </Container>
   </Layout>
