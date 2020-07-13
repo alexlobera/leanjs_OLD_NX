@@ -7,7 +7,6 @@ import {
   EMAIL,
   LOGO_TWITTER,
   LOGO_INSTAGRAM,
-  LOGO_GITHUB,
   LOGO_GOOGLE_HANGOUTS,
   OFFICE,
 } from '../../resources/icons';
@@ -18,7 +17,6 @@ export const validImages = {
   twitter: LOGO_TWITTER,
   instagram: LOGO_INSTAGRAM,
   hangouts: LOGO_GOOGLE_HANGOUTS,
-  github: LOGO_GITHUB,
   office: OFFICE,
 };
 

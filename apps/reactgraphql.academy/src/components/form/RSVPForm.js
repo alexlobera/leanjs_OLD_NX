@@ -26,13 +26,6 @@ const RSVPForm = ({ sx = {}, ...rest }) => (
         </>
       ) : (
         <>
-          {/* <EmailInput
-            validate={composeValidators(mustBeEmail, required)}
-            label="Your email address:"
-            name="email"
-            placeholder="eg. steve@jobs.com"
-            color={WHITE}
-          /> */}
           <InputField
             color={WHITE}
             label="Full name (required)"
