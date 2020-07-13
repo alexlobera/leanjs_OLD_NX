@@ -85,3 +85,9 @@ export const requestQuote = (message) =>
     ...defaultOptions,
     body: JSON.stringify(message),
   });
+
+export const contactLeanJS = (message) =>
+  fetch(`${apiBaseUrl}contactLeanJS`, {
+    ...defaultOptions,
+    body: JSON.stringify(message),
+  });

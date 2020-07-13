@@ -49,11 +49,15 @@ export const renderSection = ({
       subTitle={subTitle}
       name={`day${curriculumDay}`}
       trainingId={trainingId}
-      trainingDateTime={`- ${trainingDateTime({
-        dayOffset,
-        training,
-        preEvening,
-      })}`}
+      trainingDateTime={
+        training && training.startDate
+          ? ` - ${trainingDateTime({
+              dayOffset,
+              training,
+              preEvening,
+            })}`
+          : ''
+      }
       {...sectionProps}
       key={title}
     >

@@ -32,28 +32,11 @@ import {
 import Box from '../components/layout/Box';
 import Flex from '../components/layout/Flex';
 import Link from '../components/navigation/Link';
+import { GitHubIcon, TwitterIcon } from '../resources/icons';
 
 const H2 = styled(StyledH2)`
   margin-top: 50px;
 `;
-
-const GitHubIcon = (props) => {
-  const { fill = '#FFF' } = props;
-  return (
-    <svg focusable="false" width={24} height={24} fill={fill} {...props}>
-      <path d="M10.5 0C4.7 0 0 4.6 0 10.25c0 4.53 3 8.38 7.18 9.73.53.1.72-.22.72-.5l-.02-1.9c-2.92.62-3.53-1.21-3.53-1.21-.48-1.18-1.17-1.5-1.17-1.5-.95-.63.07-.62.07-.62 1.06.07 1.61 1.05 1.61 1.05.94 1.57 2.46 1.12 3.06.86.1-.67.36-1.12.66-1.37-2.33-.26-4.78-1.14-4.78-5.07 0-1.12.41-2.04 1.08-2.75-.1-.26-.47-1.3.1-2.72 0 0 .89-.27 2.9 1.05a10.22 10.22 0 0 1 5.25 0c2-1.32 2.88-1.05 2.88-1.05a3.6 3.6 0 0 1 .1 2.72 3.9 3.9 0 0 1 1.09 2.75c0 3.94-2.46 4.8-4.8 5.06.38.32.72.94.72 1.9l-.02 2.8c0 .28.2.6.72.5A10.28 10.28 0 0 0 21 10.25C21 4.6 16.3 0 10.5 0z" />
-    </svg>
-  );
-};
-GitHubIcon.title = 'GitHub';
-
-const TwitterIcon = ({ fill = '#FFF', width = 24, height = 24, ...rest }) => (
-  <svg focusable="false" width={width} height={height} fill={fill} {...rest}>
-    <path d="M22.46 5.63c0-.21 0-.43-.02-.65 1-.71 1.87-1.6 2.56-2.61-.92.4-1.9.67-2.95.8a5.08 5.08 0 0 0 2.26-2.8c-1 .58-2.09 1-3.26 1.23a5.16 5.16 0 0 0-8.87 3.45c0 .4.04.78.13 1.15A14.64 14.64 0 0 1 1.74.92a4.98 4.98 0 0 0 1.59 6.74A5.15 5.15 0 0 1 1 7.03v.07a5.07 5.07 0 0 0 4.12 4.95 5.21 5.21 0 0 1-2.32.08 5.134 5.134 0 0 0 4.8 3.51 10.4 10.4 0 0 1-7.6 2.1A14.69 14.69 0 0 0 7.86 20c9.44 0 14.6-7.7 14.6-14.37z" />
-  </svg>
-);
-
-TwitterIcon.title = 'Twitter';
 
 function renderIcon(url = '') {
   let Icon;

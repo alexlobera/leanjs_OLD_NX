@@ -642,7 +642,9 @@ const Header = ({
                             className="header-buy-tickets"
                             variant="primary"
                           >
-                            Buy tickets
+                            {training && training.standardPrice === 0
+                              ? 'RSVP'
+                              : 'Buy tickets'}
                           </LinkButton>
                         </Box>
                       </InfoBox>
