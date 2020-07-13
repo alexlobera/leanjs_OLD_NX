@@ -64,14 +64,7 @@ const Input = ({
   formGroupSx = {},
   ...props
 }) => {
-  const {
-    invalid,
-    touched,
-    error,
-    submitFailed,
-    submitSucceeded,
-    ...rest
-  } = meta;
+  const { invalid, pristine, error, submitFailed, submitSucceeded } = meta;
   const name = props.name || input.name;
   const onChange = (e) => {
     input.onChange && input.onChange(e);
@@ -105,7 +98,7 @@ const Input = ({
           type={type}
         />
       )}
-      {(invalid && touched) || (submitFailed && !submitSucceeded) ? (
+      {(invalid && !pristine) || (submitFailed && !submitSucceeded) ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : null}
     </FormGroup>
