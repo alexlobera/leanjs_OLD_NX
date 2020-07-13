@@ -28,7 +28,7 @@ export const theme = {
   fonts: {
     body: `'Barlow', sans-serif`,
     heading: 'inherit',
-    monospace: 'Courier New,Courier,monospace; ',
+    monospace: 'Courier New,Courier,monospace;',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
@@ -41,7 +41,7 @@ export const theme = {
     heading: 1.125,
   },
   colors: {
-    text: '#000',
+    text: '#4a4a4a',
     background: '#fff',
     primary: '#07c',
     secondary: '#30c',
@@ -64,6 +64,15 @@ export const theme = {
     skipLink: 1600,
     toast: 1700,
     tooltip: 1800,
+  },
+  fontShadows: {
+    light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
+  },
+  shadows: {
+    thin: '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
+    light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
+    bold: 'rgb(74, 74, 74) 0px 0px 1px',
+    box: '0 -2px 24px 0 rgba(0, 0, 0, 0.24), 0 2px 24px 0 rgba(0, 0, 0, 0.12)',
   },
   styles: {
     root: {
@@ -102,7 +111,19 @@ export const theme = {
       lineHeight: 'body',
     },
     a: {
-      color: 'primary',
+      color: 'text',
+      '&:link': {
+        color: 'text',
+      },
+      '&:visited': {
+        color: 'text',
+      },
+      '&:active': {
+        color: 'text',
+      },
+      '&:hover': {
+        color: 'text',
+      },
     },
     pre: {
       fontFamily: 'monospace',

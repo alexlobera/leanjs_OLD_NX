@@ -6,8 +6,11 @@ import RGALogo from '../logos/RGALogo';
 
 const Navbar: FunctionComponent<BoxProps> = ({ children, sx = {} }) => {
   return (
-    <Box sx={{ position: 'fix', zIndex: 'sticky', ...sx }}>
-      <Container sx={{ p: 4 }}>
+    <Box
+      box="nav"
+      sx={{ position: 'absolute', width: '100%', zIndex: 'sticky', ...sx }}
+    >
+      <Container sx={{ p: 4, bg: 'rgba(256,256,256, 0.9)' }}>
         <Flex>
           <Link
             className={`navigation-logo`}

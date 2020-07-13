@@ -1,5 +1,5 @@
 export * from './Box';
-export { default as Flex } from './Flex';
+export * from './Flex';
 export * from './Alert';
 export * from './Button';
 export * from './Label';
@@ -10,4 +10,5 @@ export * from './Typography';
 export * from './Grid';
 export * from './SVG';
 export * from './Container';
+export * from './Link';
 export * from './ThemeProvider';
