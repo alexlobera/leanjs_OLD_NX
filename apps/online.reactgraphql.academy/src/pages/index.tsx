@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
 import Section from '../components/layout/Section';
@@ -13,7 +14,7 @@ const Image = ({ sx, ...rest }) => (
   <Box sx={{ maxWidth: '100%', ...sx }} box="img" {...rest} />
 );
 
-const Card: FunctionComponent<BoxProps> = ({ sx, ...rest }) => (
+const Card = ({ sx, ...rest }) => (
   <Box sx={{ boxShadow: 'box', ...sx }} {...rest} />
 );
 
@@ -36,7 +37,7 @@ function Page({ data }: PageProps) {
               data.upmentoring.trainings.edges.map(({ node: course }: any) => (
                 <Card sx={{ mb: 5 }}>
                   <Link
-                    to={`/online-course-${course.slug}`}
+                    to={`/${course.slug}-course`}
                     className="articles-summary"
                   >
                     <Image
@@ -46,7 +47,8 @@ function Page({ data }: PageProps) {
                   </Link>
                   <Box sx={{ p: 2 }}>
                     <Link
-                      to={`/online-course-${course.slug}`}
+                      to={`/${course.slug}-course`}
+                      as={GatsbyLink}
                       className="course-list"
                     >
                       <H3>{course.title}</H3>
@@ -54,7 +56,7 @@ function Page({ data }: PageProps) {
                     <P>Bla bla bal bal</P>
                     <P>
                       <Link
-                        to={`/online-course-${course.slug}`}
+                        to={`/${course.slug}-course`}
                         className="course-list"
                       >
                         Read more

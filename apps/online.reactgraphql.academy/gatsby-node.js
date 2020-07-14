@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-//
+
 const path = require('path');
 const fs = require('fs');
 
@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   result.data.upmentoring.trainings.edges.forEach(({ node: training }) => {
-    const coursePath = `courses/${training.slug}`;
+    const coursePath = `${training.slug}-course`;
     createPage({
       path: coursePath,
       component: courseTemplate,

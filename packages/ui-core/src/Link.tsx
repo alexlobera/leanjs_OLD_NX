@@ -1,10 +1,12 @@
-import React, { FunctionComponent } from 'react';
-import { Box, BoxProps } from './Box';
+import React from 'react';
+import { Box, LeanProps, As } from './Box';
 
-export interface LinkProps extends BoxProps {}
+export interface LinkProps {}
 
-export const Link: FunctionComponent<
-  LinkProps & React.HTMLProps<HTMLLinkElement>
-> = ({ sx, as = 'a', ...rest }) => (
-  <Box variant="a" __themeKey="styles" as={as} sx={sx} {...rest} />
-);
+export function Link<T extends As = 'a'>({
+  sx,
+  as = 'a',
+  ...rest
+}: LeanProps<T, LinkProps>) {
+  return <Box as={as} sx={sx} variant="a" __themeKey="styles" {...rest} />;
+}

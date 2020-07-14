@@ -1,8 +1,8 @@
 import React, { ReactNode, MouseEvent } from 'react';
 // import { Box, BoxProps } from '@leanjs/ui-core';
-import { Box, BoxProps } from './Box';
+import { Box, LeanProps, As } from './Box';
 
-interface ButtonProps extends BoxProps {
+interface ButtonProps {
   variant?: keyof typeof buttonVariantProps;
   loadingElement?: ReactNode;
   disabled?: boolean;
@@ -45,35 +45,34 @@ export const buttonVariantProps = {
   },
 };
 
-export const Button = React.memo(
-  ({
-    children,
-    loadingElement,
-    onClick,
-    variant = 'default',
-    sx = {},
-    ...rest
-  }: ButtonProps) => {
-    const extendedProps = {
-      ...rest,
-      onClick: rest.disabled ? undefined : onClick,
-    };
+export const Button = React.memo(function <T extends As = 'button'>({
+  children,
+  loadingElement,
+  onClick,
+  variant = 'default',
+  sx = {},
+  as = 'button',
+  ...rest
+}: LeanProps<T, ButtonProps>) {
+  const extendedProps = {
+    ...rest,
+    onClick: rest.disabled ? undefined : onClick,
+  };
 
-    return (
-      <Box
-        type="button"
-        box="button"
-        sx={{
-          ...buttonDefaultSxProp,
-          ...(buttonVariantProps[variant] || {}),
-          ...sx,
-        }}
-        {...extendedProps}
-      >
-        {loadingElement ? loadingElement : children}
-      </Box>
-    );
-  }
-);
+  return (
+    <Box
+      type="button"
+      box="button"
+      sx={{
+        ...buttonDefaultSxProp,
+        ...(buttonVariantProps[variant] || {}),
+        ...sx,
+      }}
+      {...extendedProps}
+    >
+      {loadingElement ? loadingElement : children}
+    </Box>
+  );
+});
 
 Button.displayName = 'Button';
