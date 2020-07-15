@@ -49,7 +49,6 @@ const renderPartTimeSection = ({
             {comps && comps.length > 1 ? (
               <React.Fragment>
                 <Tag>Full-day</Tag>
-                {` `} 9:00 - 18:00
               </React.Fragment>
             ) : (
               trainingDateTime({ dayOffset, training })

@@ -17,6 +17,7 @@ import { PaymentSection } from 'src/components/payment';
 import { Segment, Image } from 'src/components/elements';
 import { MEETUP_RED, GREY } from 'src/config/styles';
 import Card from 'src/components/elements/Card';
+import RSVPForm from 'src/components/form/RSVPForm';
 
 // const callForPapersLink =
 //   'https://docs.google.com/forms/d/e/1FAIpQLScIvHytKvbO0VjtHeP8ljLg0c9J9IpfDBn8CEllgIgdxhh-cA/viewform'
@@ -164,35 +165,47 @@ const MeetupPage = ({
       )}
       <Section variant="dark">
         <Row>
-          <Col md={6} lg={5} lgOffset={1}>
-            <PaymentSection item={event} />
-          </Col>
-          <Col md={6} lg={4} lgOffset={1}>
-            <StickyBox offsetBottom={15} offsetTop={120}>
-              <H2>Nominal Fee</H2>
-              <P>
-                <strong>Why do we charge a nominal fee?</strong>
-              </P>
-              <P>
-                We charge a nominal fee for community events in order to confirm
-                attendance to ensure we have an accurate RSVP list. Our meetups
-                are always over-subscribed so when people don't show it stops
-                somone else attending.
-              </P>
-              <P>
-                <strong>What do we do with the fee?</strong>
-              </P>
-              <P>
-                By paying for the nominal fee you're supporting minorities in
-                tech. You can read more about it in this{' '}
-                <Link to="/blog/join-our-meetups-and-support-minorities-in-tech#why_we_charge_a_nominal_fee">
-                  link
-                </Link>
-                .
-              </P>
-              <P>The payment confirmation email is your ticket.</P>
-            </StickyBox>
-          </Col>
+          {event.standardPrice === 0 ? (
+            <Col md={6} lg={5} lgOffset={1}>
+              <H2>
+                <a to="#pricing" name="pricing" />
+                Get your free ticket
+              </H2>
+              <RSVPForm />
+            </Col>
+          ) : (
+            <React.Fragment>
+              <Col md={6} lg={5} lgOffset={1}>
+                <PaymentSection item={event} />
+              </Col>
+              <Col md={6} lg={4} lgOffset={1}>
+                <StickyBox offsetBottom={15} offsetTop={120}>
+                  <H2>Nominal Fee</H2>
+                  <P>
+                    <strong>Why do we charge a nominal fee?</strong>
+                  </P>
+                  <P>
+                    We charge a nominal fee for community events in order to
+                    confirm attendance to ensure we have an accurate RSVP list.
+                    Our meetups are always over-subscribed so when people don't
+                    show it stops somone else attending.
+                  </P>
+                  <P>
+                    <strong>What do we do with the fee?</strong>
+                  </P>
+                  <P>
+                    By paying for the nominal fee you're supporting minorities
+                    in tech. You can read more about it in this{' '}
+                    <Link to="/blog/join-our-meetups-and-support-minorities-in-tech#why_we_charge_a_nominal_fee">
+                      link
+                    </Link>
+                    .
+                  </P>
+                  <P>The payment confirmation email is your ticket.</P>
+                </StickyBox>
+              </Col>
+            </React.Fragment>
+          )}
         </Row>
       </Section>
       <BlogSection title="From our blog" posts={posts} />

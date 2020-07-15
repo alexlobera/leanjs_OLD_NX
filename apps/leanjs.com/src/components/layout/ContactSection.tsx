@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Form, { required } from '../form/Form';
 import InputField from '../form/InputField';
+import CheckboxField from '../form/CheckboxField';
+
 import Link, { styleChildLinkColor, MailtoLink } from '../navigation/Link';
 import Grid, { Col, Row } from './Grid';
 import Section from './Section';
@@ -14,12 +16,16 @@ import { WHITE, DARKGREY } from '../../config/styles';
 import ContactUsBullet from '../bullets/ContactUsBullet';
 import { H2, H4, P } from '../text';
 import { Ul, Li } from './Ul';
+import { GitHubIcon } from '../../resources/icons';
 
 const LinkList = styled(Ul)`
   padding-left: 0;
   list-style: none;
   margin-left: 0;
   ${styleChildLinkColor(WHITE)};
+  > li {
+    padding: 5px 0;
+  }
 `;
 
 const ContactSection = () => (
@@ -48,9 +54,15 @@ const ContactSection = () => (
               </MailtoLink>
             </Li>
             <Li>
-              <Link to="https://twitter.com/leanjscom">
+              <Link to="https://twitter.com/leanjs">
                 <ContactUsBullet image="twitter" />
                 Tweet us @leanjs
+              </Link>
+            </Li>
+            <Li>
+              <Link to="https://github.com/leanjs">
+                <GitHubIcon sx={{ m: '0px 7px -8px 8px ' }} />
+                Follow us on GitHub/leanjs
               </Link>
             </Li>
             <Li>
@@ -91,6 +103,21 @@ const ContactSection = () => (
                     label="Would you like to give more detail? Feel free!"
                     name="message"
                   />
+                  {/* <CheckboxField
+                    color={WHITE}
+                    name="sign-up-newsletter"
+                    label="Sign up to the LeanJS newsletter"
+                  />
+                  <P sx={{ color: WHITE }}>
+                    We won't spam you as per our{' '}
+                    <Link
+                      className="footer-privacy-policy"
+                      to="/privacy-policy"
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
+                  </P> */}
                   <Button type="submit">
                     {submitting ? <Spinner color={DARKGREY} /> : 'Submit'}
                   </Button>
