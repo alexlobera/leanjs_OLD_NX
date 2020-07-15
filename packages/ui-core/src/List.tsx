@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 // import { Box, getVariantProps } from '@leanjs/ui-core';
-import { Box } from '../box';
-import { getVariantProps } from '../utils';
+import { Box } from './Box';
+import { getVariantProps } from './utils';
 
 interface UlProps {
   variant?: string;
@@ -67,9 +67,9 @@ const liVariantSxProp = {
     m: 0,
     display: 'inline-block',
     // TODO the following doesn't work, should we create a styled system function?
-    // '> li': {
-    //   backgroundColor: 'red',
-    // },
+    '> li': {
+      backgroundColor: 'red',
+    },
     // should we instead create a function for
     // firstChildML : 0
     // should we instead create a function for

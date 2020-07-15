@@ -1,23 +1,34 @@
-import React from 'react';
-// import { Box, Label } from '@leanjs/ui-core';
-import { Box } from '../box';
-import { Label } from '../label';
+import React, { FunctionComponent } from 'react';
+import { Box, BoxProps, SxProp, LeanProps, As } from './Box';
+import { Label } from './Label';
 
-const InputForm = ({ sx = {}, ...rest }) => (
-  <Box
-    sx={{
-      backgroundColor: 'background',
-      display: 'block',
-      width: '100%',
-      color: 'text',
-      // backgroundClip: "padding-box",
-      border: '1px solid',
-      borderColor: 'secondary',
-      ...sx,
-    }}
-    {...rest}
-  />
-);
+interface InputFormProps {
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
+  type?: string;
+  name: string;
+  checked?: boolean;
+}
+
+function InputForm<T extends As = 'input'>(
+  props: LeanProps<T, InputFormProps>
+) {
+  return (
+    <Box
+      {...props}
+      sx={{
+        backgroundColor: 'background',
+        display: 'block',
+        width: '100%',
+        color: 'text',
+        backgroundClip: 'padding-box',
+        border: '1px solid',
+        borderColor: 'secondary',
+        ...(props.sx || {}),
+      }}
+      as={props.as || 'input'}
+    />
+  );
+}
 
 const defaultInputSxProp = {
   fontSize: 2,
@@ -55,28 +66,27 @@ export const FormGroup = ({ sx = {}, ...rest }) => (
 );
 
 interface InputProps {
-  label: string;
   name: string;
-  type: string;
-  checked: boolean;
+  label: string;
+  type?: string;
+  checked?: boolean;
   onChange?: (args: any) => void;
-  input: {
+  input?: {
     name?: string;
     onChange?: (args: any) => void;
   };
-  meta: {
+  meta?: {
     invalid?: boolean;
     pristine?: boolean;
     error?: any;
     submitFailed?: boolean;
     submitSucceeded?: boolean;
   };
-  color: string;
-  sx: any;
-  formGroupSx: any;
+  color?: string;
+  formGroupSx?: SxProp;
 }
 
-export const Input = ({
+export function Input<T extends As>({
   label,
   type = 'text',
   checked = false,
@@ -86,10 +96,10 @@ export const Input = ({
   sx = {},
   formGroupSx = {},
   ...props
-}: InputProps) => {
+}: LeanProps<T>) {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta;
   const name = props.name || input.name;
-  const onChange = (e: Event) => {
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     input.onChange && input.onChange(e);
     props.onChange && props.onChange(e);
   };
@@ -126,8 +136,7 @@ export const Input = ({
       ) : null}
     </FormGroup>
   );
-};
+}
 
-Input.defaultProps = {
-  box: 'input',
-};
+// ❌ this doesn't work even without spreading {...props}
+// const B = (props) => <Input fff id="aad" onClick={(e) => {}} />;

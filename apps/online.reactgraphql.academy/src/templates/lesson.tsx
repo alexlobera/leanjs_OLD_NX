@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
 import { VideoPlayer } from '../components/display/VideoPlayer';
-import { Box } from '../components/layout/Box';
-import { Grid } from '../components/layout/Grid';
-import { Container } from '../components/layout/Container';
+import { Box, Grid, Container } from '../components/layout';
+import Layout from '../components/layout/Layout';
+import { Heading, H1, H2, H3, H4, H5, H6, P } from '../components/display';
+import { Form, Input } from '../components/form';
 
-function LessonPage({ data, pageContext }) {
-  return (
+interface LessonPageProps {
+  data: any;
+  pageContext: any;
+}
+
+const LessonPage: FunctionComponent<LessonPageProps> = ({
+  data,
+  pageContext,
+}) => (
+  <Layout>
     <Container>
-      <Grid columns={{ minWidth: 600 }}>
+      <Grid columns={2}>
         <Box sx={{ bg: 'red' }}>Box</Box>
-        <Box bg="muted">Box</Box>
+        <Box>Box</Box>
       </Grid>
-      <h1>
-        Lesson {pageContext.videoIndex}: {data.upmentoring.video.title}
-      </h1>
+
       <VideoPlayer url={data.upmentoring.video.asset.url} />
     </Container>
-  );
-}
+  </Layout>
+);
 
 export const query = graphql`
   query getVideo($videoId: ID!) {

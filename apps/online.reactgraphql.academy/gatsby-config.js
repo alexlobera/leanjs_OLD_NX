@@ -6,8 +6,8 @@ const {
 
 module.exports = {
   siteMetadata: {
-    title: `online.reactgraphql.academy`,
-    description: `This is a gatsby application created by Nx.`,
+    title: 'Online Courses | React GraphQL Academy',
+    description: 'Online React and GraphQL courses by React GraphQL Academy',
     siteUrl: `https://online.reactgraphql.academy/`,
   },
   plugins: [
@@ -40,12 +40,9 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `online.reactgraphql.academy`,
-        short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
         icon: `src/images/logo.png`,
+        lang: `en`,
       },
     },
     {
@@ -53,8 +50,8 @@ module.exports = {
       options: {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
-        url: 'https://api2.upmentoring.com/graphql',
-        // url: 'http://localhost:3334/graphql',
+        // url: 'https://api2.upmentoring.com/graphql',
+        url: 'http://localhost:3334/graphql',
       },
     },
     {
