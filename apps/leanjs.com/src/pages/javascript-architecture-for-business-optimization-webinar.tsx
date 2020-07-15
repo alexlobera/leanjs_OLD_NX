@@ -57,7 +57,8 @@ const IndexPage = () => (
             <P>
               <Box as="em" sx={{ pr: 1, color: WHITE }}>
                 This webinar is part 1 of our series of webinars about
-                JavaScript architecture. Are you interested in the next one?
+                JavaScript architecture. Are you interested in attending the
+                next one?
               </Box>
               Visit{' '}
               <Link to="/javascript-architecture-for-business-optimization-webinar-part-2">
