@@ -1,17 +1,17 @@
 import React from 'react';
-import { Box, BoxProps } from './Box';
+import { Box, BoxProps, As } from './Box';
 
 export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-interface HeadingProps extends BoxProps {
+interface HeadingProps {
   variant?: HeadingVariant;
 }
 
 type TextVariant = 'p' | 'blockquote';
-interface TextProps extends BoxProps {
+interface TextProps {
   variant?: TextVariant;
 }
 
-function createTypography<T extends BoxProps, Variant>(variant: Variant) {
+function createTypography<T extends As, Variant>(variant: Variant) {
   return React.forwardRef((props: T, ref: React.Ref<HTMLHeadingElement>) => (
     <Box
       ref={ref}

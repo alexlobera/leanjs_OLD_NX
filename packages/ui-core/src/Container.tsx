@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, BoxProps } from './Box';
+import { Box, LeanProps, As } from './Box';
 
 export const Container = React.forwardRef(
-  ({ sx = {}, ...rest }: BoxProps, ref) => (
+  <T extends As>({ sx = {}, ...rest }: LeanProps<T>, ref) => (
     <Box
       ref={ref}
       {...rest}

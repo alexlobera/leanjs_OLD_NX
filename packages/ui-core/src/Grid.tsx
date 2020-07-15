@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BoxProps } from './Box';
+import { Box, LeanProps, As } from './Box';
 
 const px = (n) => (typeof n === 'number' ? n + 'px' : n);
 
@@ -15,13 +15,17 @@ const countToColumns = (n) =>
 
 type Column = string | number | string[] | number[];
 type ColumnWidth = { minWidth: Column };
-interface GridProps extends BoxProps {
+
+interface GridProps {
   columns?: Column | ColumnWidth;
   gap?: number;
 }
 
 export const Grid = React.forwardRef(
-  ({ columns = 3, gap = 3, ...props }: GridProps, ref) => {
+  <T extends As = 'div'>(
+    { columns = 3, gap = 3, ...props }: LeanProps<T, GridProps>,
+    ref
+  ) => {
     const gridTemplateColumns =
       typeof columns === 'object'
         ? widthToColumns((columns as ColumnWidth).minWidth)

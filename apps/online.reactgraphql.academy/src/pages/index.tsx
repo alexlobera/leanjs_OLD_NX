@@ -11,7 +11,7 @@ import { H3, P } from '../components/display';
 // import { Image } from '../components/display';
 
 const Image = ({ sx, ...rest }) => (
-  <Box sx={{ maxWidth: '100%', ...sx }} box="img" {...rest} />
+  <Box sx={{ maxWidth: '100%', ...sx }} as="img" {...rest} />
 );
 
 const Card = ({ sx, ...rest }) => (
@@ -41,6 +41,7 @@ function Page({ data }: PageProps) {
                     className="articles-summary"
                   >
                     <Image
+                      dsfa
                       src="https://reactgraphql.academy/static/13db5a93e9bf9e56ec7a820511569d97/0f3a1/6681c0c80cbeef496e576694938428589bffd319-1920x1654.jpg"
                       sx={{ mb: 0 }}
                     />

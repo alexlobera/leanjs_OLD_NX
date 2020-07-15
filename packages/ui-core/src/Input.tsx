@@ -1,30 +1,35 @@
 import React, { FunctionComponent } from 'react';
-import { Box, BoxProps, SxProp } from './Box';
+import { Box, BoxProps, SxProp, LeanProps, As } from './Box';
 import { Label } from './Label';
 
-interface InputFormProps extends BoxProps {
-  onChange?: (args: any) => void;
+interface InputFormProps {
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
   type?: string;
   name: string;
   checked?: boolean;
 }
 
-const InputForm = ({ as = 'input', sx = {}, ...rest }: InputFormProps) => (
-  <Box
-    sx={{
-      backgroundColor: 'background',
-      display: 'block',
-      width: '100%',
-      color: 'text',
-      backgroundClip: 'padding-box',
-      border: '1px solid',
-      borderColor: 'secondary',
-      ...sx,
-    }}
-    as={as}
-    {...rest}
-  />
-);
+function InputForm<T extends As = 'input'>({
+  sx = {},
+  ...rest
+}: LeanProps<T, InputFormProps>) {
+  return (
+    <Box
+      sx={{
+        backgroundColor: 'background',
+        display: 'block',
+        width: '100%',
+        color: 'text',
+        backgroundClip: 'padding-box',
+        border: '1px solid',
+        borderColor: 'secondary',
+        ...sx,
+      }}
+      as="input"
+      {...rest}
+    />
+  );
+}
 
 const defaultInputSxProp = {
   fontSize: 2,
@@ -61,7 +66,7 @@ export const FormGroup = ({ sx = {}, ...rest }) => (
   />
 );
 
-interface InputProps extends BoxProps {
+interface InputProps {
   name: string;
   label: string;
   type?: string;
@@ -82,7 +87,7 @@ interface InputProps extends BoxProps {
   formGroupSx?: SxProp;
 }
 
-export const Input: FunctionComponent<InputProps> = ({
+export function Input<T extends As>({
   label,
   type = 'text',
   checked = false,
@@ -92,10 +97,10 @@ export const Input: FunctionComponent<InputProps> = ({
   sx = {},
   formGroupSx = {},
   ...props
-}) => {
+}: LeanProps<T>) {
   const { invalid, pristine, error, submitFailed, submitSucceeded } = meta;
   const name = props.name || input.name;
-  const onChange = (e: Event) => {
+  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
     input.onChange && input.onChange(e);
     props.onChange && props.onChange(e);
   };
@@ -132,4 +137,4 @@ export const Input: FunctionComponent<InputProps> = ({
       ) : null}
     </FormGroup>
   );
-};
+}

@@ -1,5 +1,4 @@
 import React, { ReactNode, MouseEvent } from 'react';
-// import { Box, BoxProps } from '@leanjs/ui-core';
 import { Box, LeanProps, As } from './Box';
 
 interface ButtonProps {
@@ -52,6 +51,7 @@ export const Button = React.memo(function <T extends As = 'button'>({
   variant = 'default',
   sx = {},
   as = 'button',
+  ref,
   ...rest
 }: LeanProps<T, ButtonProps>) {
   const extendedProps = {
@@ -62,7 +62,7 @@ export const Button = React.memo(function <T extends As = 'button'>({
   return (
     <Box
       type="button"
-      box="button"
+      as={as}
       sx={{
         ...buttonDefaultSxProp,
         ...(buttonVariantProps[variant] || {}),
