@@ -57,7 +57,8 @@ const IndexPage = () => (
             <P>
               <Box as="em" sx={{ pr: 1, color: WHITE }}>
                 This webinar is part 2 of our series of webinars about
-                JavaScript architecture. Are you interested in the previous one?
+                JavaScript architecture. Are you interested in attending the
+                previous one?
               </Box>
               Visit{' '}
               <Link to="/javascript-architecture-for-business-optimization-webinar">
@@ -66,20 +67,22 @@ const IndexPage = () => (
               to RSVP for part 1.
             </P>
             <P>
-              In the previous webinar we explored the tension between
-              centralizing and decentralizing. In this webinar we'll explore the
-              tension between concreteness and abstraction and how it can affect
-              the achitecture of Web-based software.
+              Many of the products and tools that support businesses nowadays
+              rely heavily on JavaScript. In our previous webinar, we were
+              discussing different software, architectures, and processes to
+              optimize the JavaScript of our organizations, exploring the
+              tension between centralizing and decentralizing.
             </P>
             <P>
-              Many problems in the acthitecture arise from a bad understanding
-              of where we should be in the different levels of abstraction.
-              Building software is complex, and the level of abstraction varies
-              between organizations/ teams, and individulas.
+              This time we’ll discuss the tension between concreteness and
+              abstraction and how it can affect the architecture of Web-based
+              software. Many problems in the acthitecture arise from a bad
+              understanding of where we should be in the different levels of
+              abstraction.
             </P>
             <P>
               To be more concrete, we'll explore these ideas in the space of
-              JAMstack. The JAMstack ecosystem is growking rapidly. There are a
+              JAMstack. The JAMstack ecosystem is growing rapidly. There are a
               variaty of frameworks, tools, and services that we can use to
               optimize products in varies ways.
             </P>
