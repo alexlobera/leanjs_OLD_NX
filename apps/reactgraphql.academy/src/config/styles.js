@@ -63,7 +63,7 @@ export const theme = {
     '4rem', // 7
   ],
   fonts: {
-    barlow: `'Barlow', sans-serif`,
+    body: `'Barlow', sans-serif`,
   },
   fontShadows: {
     light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
