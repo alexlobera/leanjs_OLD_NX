@@ -6,7 +6,7 @@ import {
   Theme,
   // ThemeUIExtendedCSSProperties as SxProp,
 } from '@theme-ui/css';
-export const SxProp = any;
+export type SxProp = any;
 
 type WithAs<P, T extends As> = P &
   Omit<PropsOf<T>, 'as'> & {
