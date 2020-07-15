@@ -1,15 +1,13 @@
 import React from 'react';
-import { Box, LeanComponent, LeanProps, As } from './Box';
+import { Box, LeanProps, As } from './Box';
 
-// export function Flex<T extends As = 'div'>({ sx, ref, ...rest }: LeanProps<T>) {
-//   return <Box sx={{ display: 'flex', ...sx }} {...rest} />;
-// }
+export const Flex = React.forwardRef(function <T extends As = 'div'>(
+  props: LeanProps<T>,
+  ref
+) {
+  const { sx = {} } = props;
+  return <Box {...props} ref={ref} sx={{ display: 'flex', ...sx }} />;
+});
 
-export const Flex: LeanComponent = (props) => {
-  const { sx = {}, ref, ...rest } = props;
-  return <Box {...props} sx={{ display: 'flex', ...sx }} />;
-};
-
-const B2: LeanComponent = ({ sx = {}, ...rest }) => (
-  <Flex {...rest} id="dd" sx={{ display: 'flex', ...sx }} />
-);
+// ❌ this fails since it doesnt fail even without spreading {...props}. -> React.forwardRef
+// const B = (props) => <Flex asss sx={{ m: 1 }} />;

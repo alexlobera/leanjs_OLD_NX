@@ -1,17 +1,23 @@
 import React from 'react';
 import { Box, LeanProps, As } from './Box';
 
-export const Container = React.forwardRef(
-  <T extends As>({ sx = {}, ...rest }: LeanProps<T>, ref) => (
+export const Container = React.forwardRef(function <T extends As>(
+  props: LeanProps<T>,
+  ref
+) {
+  return (
     <Box
       ref={ref}
-      {...rest}
+      {...props}
       sx={{
         width: '100%',
         maxWidth: 'container',
         mx: 'auto',
-        ...sx,
+        ...(props.sx || {}),
       }}
     />
-  )
-);
+  );
+});
+
+// ❌
+// const B = (props) => <Container ddd {...props} sx={{ m: 1 }} />;

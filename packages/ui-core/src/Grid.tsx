@@ -21,26 +21,28 @@ interface GridProps {
   gap?: number;
 }
 
-export const Grid = React.forwardRef(
-  <T extends As = 'div'>(
-    { columns = 3, gap = 3, ...props }: LeanProps<T, GridProps>,
-    ref
-  ) => {
-    const gridTemplateColumns =
-      typeof columns === 'object'
-        ? widthToColumns((columns as ColumnWidth).minWidth)
-        : countToColumns(columns);
+export const Grid = <T extends As>(props: LeanProps<T, GridProps>, ref) => {
+  const { columns = 3, gap = 3, sx = {} } = props;
+  const gridTemplateColumns =
+    typeof columns === 'object'
+      ? widthToColumns((columns as ColumnWidth).minWidth)
+      : countToColumns(columns);
 
-    return (
-      <Box
-        ref={ref}
-        {...props}
-        sx={{
-          display: 'grid',
-          gridGap: gap,
-          gridTemplateColumns,
-        }}
-      />
-    );
-  }
-);
+  return (
+    <Box
+      ref={ref}
+      {...props}
+      sx={{
+        display: 'grid',
+        gridGap: gap,
+        gridTemplateColumns,
+        ...sx,
+      }}
+    />
+  );
+};
+
+// 🎉 works well, fff fails
+// const B = (props) => <Button fff id="aad" onClick={(e) => {}} />;
+// ❌ this doesn't work since it doesnt fail when spreading {...props}
+// const B = (props) => <Grid fff sx={{ m: 1 }} />;

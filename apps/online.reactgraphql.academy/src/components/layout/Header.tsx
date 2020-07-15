@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { Container, Box, BoxProps, Flex } from '.';
-import { HeadingVariant } from '../display';
+import { Container, Box, BoxProps, LeanProps, As, LeanComponent } from '.';
+import { Heading } from '../display';
 
 const Z_INDEX_BG = -2;
 const SCREEN_SM_MIN = '768px';
@@ -126,20 +126,17 @@ const TechLogo = styled<FunctionComponent<TechLogoProps>>(Box)`
 
 TechLogo.displayName = 'TechLogo';
 
-interface TitleProps extends BoxProps {
-  variant: HeadingVariant;
-}
-const Title = ({ sx, ...rest }: TitleProps) => (
-  <Box
+//const Title = <T extends As = 'h2'>(props: LeanProps<T>) => (
+const Title: LeanComponent = (props) => (
+  <Heading
+    {...props}
     __themeKey="styles"
     sx={{
       bg: WHITE,
       color: 'rgb(38, 114, 128)',
       display: 'table',
-      // textShadow: '1px -1px 10px rgba(38,114,128, 0.3)',
-      ...sx,
+      ...(props.sx || {}),
     }}
-    {...rest}
   />
 );
 
@@ -148,7 +145,7 @@ const Header: FunctionComponent = ({ children }) => (
     <TechLogo tech={TECH_REACT}>
       <Container>
         <Box sx={{ width: ['100%', '50%'] }}>
-          <Title variant="h1" sx={{ px: 2, py: 3 }}>
+          <Title as="h1" sx={{ px: 2, py: 3 }}>
             Online React & GraphQL Courses
           </Title>
           <Title variant="h2" sx={{ pt: 2, px: 2, py: 3, lineHeight: 1.5 }}>

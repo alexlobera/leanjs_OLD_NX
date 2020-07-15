@@ -1,37 +1,33 @@
 import React from 'react';
-import { Box, BoxProps, As } from './Box';
+import { Box, LeanProps, As } from './Box';
 
-export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-interface HeadingProps {
-  variant?: HeadingVariant;
+function createTypography(variant: string) {
+  return React.forwardRef(
+    <T extends As & string = 'h2'>(props: LeanProps<T>, ref) => (
+      <Box
+        {...props}
+        ref={ref}
+        as={props.as || props.variant || variant}
+        variant={
+          props.variant
+            ? props.variant
+            : typeof props.as === 'string'
+            ? props.as
+            : variant
+        }
+        __themeKey="styles"
+      />
+    )
+  );
 }
 
-type TextVariant = 'p' | 'blockquote';
-interface TextProps {
-  variant?: TextVariant;
-}
-
-function createTypography<T extends As, Variant>(variant: Variant) {
-  return React.forwardRef((props: T, ref: React.Ref<HTMLHeadingElement>) => (
-    <Box
-      ref={ref}
-      as={props.as || props.variant || variant}
-      variant={props.variant || variant}
-      {...props}
-      __themeKey="styles"
-    />
-  ));
-}
-
-export const H1 = createTypography<HeadingProps, HeadingVariant>('h1');
-export const H2 = createTypography<HeadingProps, HeadingVariant>('h2');
-export const H3 = createTypography<HeadingProps, HeadingVariant>('h3');
-export const H4 = createTypography<HeadingProps, HeadingVariant>('h4');
-export const H5 = createTypography<HeadingProps, HeadingVariant>('h5');
-export const H6 = createTypography<HeadingProps, HeadingVariant>('h6');
+export const H1 = createTypography('h1');
+export const H2 = createTypography('h2');
+export const H3 = createTypography('h3');
+export const H4 = createTypography('h4');
+export const H5 = createTypography('h5');
+export const H6 = createTypography('h6');
 export const Heading = H2;
 
-export const P = createTypography<TextProps, TextVariant>('p');
-export const Blockquote = createTypography<TextProps, TextVariant>(
-  'blockquote'
-);
+export const P = createTypography('p');
+export const Blockquote = createTypography('blockquote');

@@ -1,13 +1,11 @@
 import React from 'react';
 import styled, { ThemeProps } from 'styled-components';
-import { Link as GatsbyLink } from 'gatsby';
 
 import {
   css,
   Theme,
   ThemeUIExtendedCSSProperties as SxProp,
 } from '@theme-ui/css';
-// import { ThemeUIExtendedCSSProperties as SxProp } from './ThemeUI'; // TODO ASK THEME-UI TO EXPORT THE TYPES ON NPM
 export { SxProp };
 
 // type WithAs<P, T extends As> = P &
@@ -20,63 +18,8 @@ type WithAs<P, T extends As> = P &
     as?: T;
   };
 
-// type WithAs<T extends As> = Omit<PropsOf<T>, 'as'> & {
-//   as?: T;
-// };
-
-// interface PP {
-//   aaaa22: {
-//     a: number;
-//   };
-//   // as: string;
-// }
-
-// SIMPLEST CASE (WORKS)
-// type Tess = 'button';
-// type aa = WithAs<PP, Tess>;
-
-// const C = function ({ id, placeholder, ...rest }: aa) {
-//   return <button aaaa22={{ d: false }} {...rest} />;
-// };
-
-// const D = function ({ as, id, placeholder, ...rest }: aa) {
-//   return <C {...rest} as="button" />;
-// };
-
-// type aa<T extends As, Props = PP> = WithAs<Props, T> & Props;
-
-type aa<T extends As, Props = {}> = WithAs<Props, T>;
-
-const BoxWorks = function <T extends As = 'div'>({
-  id,
-  placeholder,
-  dddd,
-  ...rest
-}: aa<T, { dddd?: boolean }>) {
-  return <div {...rest} />;
-};
-
-// // can I in chackra do <Box as="div" onSubmit={() => {}}> ???
-// const D = function ({ as, id, placeholder, ...rest }) {
-//   return <BoxWorks {...rest} as="div" onSubmit={() => {}} aaaa22={{ a: 1 }} />;
-// };
-
-// const E = function ({ as, id, placeholder, ...rest }) {
-//   return (
-//     <BoxWorks
-//       {...rest}
-//       to="ad"
-//       ddf34s
-//       dddd
-//       as={GatsbyLink}
-//       onSubmit={() => {}}
-//       // aaaa22={{ a: 1 }}
-//     />
-//   );
-// };
-
 export type BoxProps<T extends As = 'div'> = {
-  sx?: any; //SxProp;
+  sx?: SxProp;
   variant?: string;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   children?: React.ReactNode;
@@ -88,7 +31,14 @@ export type BoxProps<T extends As = 'div'> = {
   __themeKey?: string;
 };
 
-// type aa<T extends As, Props = {}> = WithAs<Props, T>;
+export type LeanComponent<P = {}, TT extends As = 'div'> = <T extends As = TT>(
+  props: LeanProps<T, P>
+) => JSX.Element;
+// & {
+//   displayName?: string;
+//   propTypes?: React.WeakValidationMap<P>;
+//   defaultProps?: Partial<P>;
+// };
 
 export type LeanProps<T extends As = 'div', P = {}> = WithAs<P, T> &
   BoxProps<T>;
@@ -143,37 +93,33 @@ export const Box: LeanComponent = styled(
 //   return <StyledBox {...props} />;
 // };
 
-const B = ({ ...rest }) => <Box sx={{ m: 1 }} as="p" {...rest} />;
+// const B = ({ ...rest }) => <Box sx={{ m: 1 }} as="p" {...rest} />;
 
-const B2 = <T extends As = 'div'>({ ...rest }: LeanProps<T>) => (
-  <Box {...rest} sx={{ m: 1, ...(rest.sx || {}) }} />
-);
+// const B2 = <T extends As = 'div'>({ ...rest }: LeanProps<T>) => (
+//   <Box {...rest} sx={{ m: 1, ...(rest.sx || {}) }} />
+// );
 
-const B3 = <T extends As>({ sx, ...rest }: LeanProps<T>) => (
-  <B2 to="adf" adfds as={GatsbyLink} sx={{ m: 1 }} />
-);
+// const B3 = <T extends As>({ sx, ...rest }: LeanProps<T>) => (
+//   <B2 to="adf" adfds as={GatsbyLink} sx={{ m: 1 }} />
+// );
 
 // works
 // const B4: LeanComponent = (props) => (
 //   <B2 {...props} sx={{ m: 1, ...props.sx }} />
 // );
 
-export type LeanComponent<P = {}> = <T extends As>(
-  props: LeanProps<T, P>
-) => JSX.Element;
+// const B4: LeanComponent<{ ddddd: boolean }> = ({ sx, ...rest }) => (
+//   <Box {...rest} box="div" sx={{ m: 1, ...sx }} />
+// );
 
-const B4: LeanComponent<{ ddddd: boolean }> = ({ sx, ...rest }) => (
-  <Box {...rest} box="div" sx={{ m: 1, ...sx }} />
-);
+// const B42: LeanComponent<{ ddddd: boolean }> = (props) => {
+//   const { sx = {}, ...rest } = props;
+//   return <Box {...props} ff as="div" sx={{ m: 1, ...sx }} />;
+// };
 
-const B42: LeanComponent<{ ddddd: boolean }> = (props) => {
-  const { sx = {}, ...rest } = props;
-  return <Box {...rest} as="div" sx={{ m: 1, ...sx }} />;
-};
-
-const B5: LeanComponent = (props) => (
-  <B4 to="afadsf" ddddd as={GatsbyLink} sx={{ m: 1 }} />
-);
+// const B5: LeanComponent = (props) => (
+//   <B4 to="afadsf" ddddd as={GatsbyLink} sx={{ m: 1 }} />
+// );
 
 /*
 *** ({ sx, ...rest }) => (

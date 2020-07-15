@@ -9,12 +9,12 @@ interface InputFormProps {
   checked?: boolean;
 }
 
-function InputForm<T extends As = 'input'>({
-  sx = {},
-  ...rest
-}: LeanProps<T, InputFormProps>) {
+function InputForm<T extends As = 'input'>(
+  props: LeanProps<T, InputFormProps>
+) {
   return (
     <Box
+      {...props}
       sx={{
         backgroundColor: 'background',
         display: 'block',
@@ -23,10 +23,9 @@ function InputForm<T extends As = 'input'>({
         backgroundClip: 'padding-box',
         border: '1px solid',
         borderColor: 'secondary',
-        ...sx,
+        ...(props.sx || {}),
       }}
-      as="input"
-      {...rest}
+      as={props.as || 'input'}
     />
   );
 }
@@ -138,3 +137,6 @@ export function Input<T extends As>({
     </FormGroup>
   );
 }
+
+// ❌ this doesn't work even without spreading {...props}
+// const B = (props) => <Input fff id="aad" onClick={(e) => {}} />;

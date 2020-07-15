@@ -1,14 +1,13 @@
 import React from 'react';
 import { Box, LeanProps, As } from './Box';
 
-// import { Flex } from './Flex';
-
-export function Label<T extends As>(props: LeanProps<T>) {
+export function Label<T extends As = 'label'>(props: LeanProps<T>) {
   return <Box as="label" {...props} />;
 }
 
-// export function FlexLabel<T extends As>(props: LeanProps<T>) {
-//   return <Flex box="label" {...props} />;
-// }
-
 export default Label;
+
+// 🎉 works well, fff fails. The type requires the As = 'default' <T extends As = 'label'> so it works here
+// const B = (props) => <Label fff />;
+// ❌ this doesn't work since it doesnt fail when spreading {...props}
+// const B = (props) => <Label {...props} fff />;

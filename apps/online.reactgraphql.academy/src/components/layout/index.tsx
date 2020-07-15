@@ -1,1 +1,20 @@
-export { Box, Flex, Container, Grid, Ul, Li, BoxProps } from '@leanjs/ui-core';
+export {
+  Box,
+  Flex,
+  Container,
+  Grid,
+  Ul,
+  Li,
+  BoxProps,
+  LeanProps,
+  As,
+  LeanComponent,
+  Heading,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  P,
+} from '@leanjs/ui-core';

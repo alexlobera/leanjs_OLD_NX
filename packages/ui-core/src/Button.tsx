@@ -1,12 +1,13 @@
 import React, { ReactNode, MouseEvent } from 'react';
 import { Box, LeanProps, As } from './Box';
+import { Link } from 'gatsby';
 
 interface ButtonProps {
-  variant?: keyof typeof buttonVariantProps;
+  // variant?: keyof typeof buttonVariantProps;
   loadingElement?: ReactNode;
-  disabled?: boolean;
-  type?: string;
-  onClick?: (e: MouseEvent<HTMLElement>) => void;
+  //   disabled?: boolean;
+  //   type?: string;
+  // onClick?: (e: MouseEvent<HTMLElement>) => void;
 }
 
 export const buttonDefaultSxProp = {
@@ -44,35 +45,38 @@ export const buttonVariantProps = {
   },
 };
 
-export const Button = React.memo(function <T extends As = 'button'>({
-  children,
-  loadingElement,
-  onClick,
-  variant = 'default',
-  sx = {},
-  as = 'button',
-  ref,
-  ...rest
-}: LeanProps<T, ButtonProps>) {
-  const extendedProps = {
-    ...rest,
-    onClick: rest.disabled ? undefined : onClick,
-  };
-
+export const Button = function <T extends As = 'button'>(
+  props: LeanProps<T, ButtonProps>
+) {
+  const {
+    children,
+    loadingElement,
+    onClick,
+    variant = 'default',
+    sx = {},
+    as = 'button',
+    ref,
+    ...rest
+  } = props;
   return (
     <Box
       type="button"
       as={as}
+      {...props}
       sx={{
         ...buttonDefaultSxProp,
         ...(buttonVariantProps[variant] || {}),
         ...sx,
       }}
-      {...extendedProps}
-    >
-      {loadingElement ? loadingElement : children}
-    </Box>
+      onClick={rest.disabled ? undefined : onClick}
+      children={loadingElement ? loadingElement : children}
+    />
   );
-});
+};
+
+// 🎉 works well, fff fails
+// const B = (props) => <Button fff id="aad" onClick={(e) => {}} />;
+// ❌ this doesn't work since it doesnt fail when spreading {...props}
+// const B = (props) => <Button {...props} fff id="aad" onClick={(e) => {}} />;
 
 Button.displayName = 'Button';
