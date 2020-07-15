@@ -17,10 +17,19 @@ export default [
     onlyOn: null,
   },
   {
-    to: '/javascript-architecture-for-business-optimization-webinar/',
-    text: 'Webinar',
+    text: 'Webinars',
     onlyOn: null,
-    color: MUSTARD,
+    children: [
+      {
+        to: '/javascript-architecture-for-business-optimization-webinar/',
+        text: 'JS architecture Part 1',
+      },
+      {
+        to:
+          '/javascript-architecture-for-business-optimization-webinar-part-2/',
+        text: 'JS architecture Part 2',
+      },
+    ],
   },
   {
     to: 'https://medium.com/leanjs',

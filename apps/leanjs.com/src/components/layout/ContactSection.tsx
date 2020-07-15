@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Form, { required } from '../form/Form';
 import InputField from '../form/InputField';
+import CheckboxField from '../form/CheckboxField';
+
 import Link, { styleChildLinkColor, MailtoLink } from '../navigation/Link';
 import Grid, { Col, Row } from './Grid';
 import Section from './Section';
@@ -101,6 +103,21 @@ const ContactSection = () => (
                     label="Would you like to give more detail? Feel free!"
                     name="message"
                   />
+                  {/* <CheckboxField
+                    color={WHITE}
+                    name="sign-up-newsletter"
+                    label="Sign up to the LeanJS newsletter"
+                  />
+                  <P sx={{ color: WHITE }}>
+                    We won't spam you as per our{' '}
+                    <Link
+                      className="footer-privacy-policy"
+                      to="/privacy-policy"
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
+                  </P> */}
                   <Button type="submit">
                     {submitting ? <Spinner color={DARKGREY} /> : 'Submit'}
                   </Button>

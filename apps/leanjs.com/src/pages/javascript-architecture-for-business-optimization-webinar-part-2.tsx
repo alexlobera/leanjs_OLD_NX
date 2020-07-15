@@ -5,7 +5,7 @@ import StickyBox from 'react-sticky-box';
 import Menu from '../components/navigation/menu';
 import Section from '../components/layout/Section';
 import Ul, { Li } from '../components/layout/Ul';
-import { WHITE, MUSTARD, LIGHTGREY } from '../config/styles';
+import { WHITE, LIGHTGREY, MUSTARD } from '../config/styles';
 import Grid, { Col, Row } from '../components/layout/Grid';
 import Image from '../components/elements/Image';
 import {
@@ -48,35 +48,40 @@ const IndexPage = () => (
             <H1>
               JavaScript Architecture For Business Optimization Webinar
               <Box sx={{ color: `${MUSTARD} !important`, ml: 2 }} as="span">
-                PART 1
+                PART 2
               </Box>
             </H1>
-            <SupportingText>July 31, 2020</SupportingText>
+            <SupportingText>August 20, 2020</SupportingText>
             <SupportingText>10:00 - 11:00 CEST</SupportingText>
             <SupportingText>This event is remote & free</SupportingText>
             <P>
               <Box as="em" sx={{ pr: 1, color: WHITE }}>
-                This webinar is part 1 of our series of webinars about
-                JavaScript architecture. Are you interested in the next one?
+                This webinar is part 2 of our series of webinars about
+                JavaScript architecture. Are you interested in the previous one?
               </Box>
               Visit{' '}
-              <Link to="/javascript-architecture-for-business-optimization-webinar-part-2">
+              <Link to="/javascript-architecture-for-business-optimization-webinar">
                 this page
               </Link>{' '}
-              to RSVP for part 2.
+              to RSVP for part 1.
             </P>
             <P>
-              These are challenging times for tech leaders. The future is no
-              more uncertain than the present. We have to build and/or customize
-              products, company websites, CMSes, marketing tools, APIs, etc in a
-              global environment that demands more speed and agility, with
-              sometimes fewer resources.
+              In the previous webinar we explored the tension between
+              centralizing and decentralizing. In this webinar we'll explore the
+              tension between concreteness and abstraction and how it can affect
+              the achitecture of Web-based software.
             </P>
-            <P sx={{ paddingBottom: 0 }}>
-              Many of the products and tools that support businesses nowadays
-              rely heavily on JavaScript. In this webinar, we'll be discussing
-              different software, architectures, and processes to optimize the
-              JavaScript of our organizations.
+            <P>
+              Many problems in the acthitecture arise from a bad understanding
+              of where we should be in the different levels of abstraction.
+              Building software is complex, and the level of abstraction varies
+              between organizations/ teams, and individulas.
+            </P>
+            <P>
+              To be more concrete, we'll explore these ideas in the space of
+              JAMstack. The JAMstack ecosystem is growking rapidly. There are a
+              variaty of frameworks, tools, and services that we can use to
+              optimize products in varies ways.
             </P>
             <H2>Who should attend this</H2>
             <Ul>
@@ -149,7 +154,7 @@ const IndexPage = () => (
           </Col>
           <Col mdOffset={1} md={4}>
             <StickyBox offsetTop={120}>
-              <WebinarForm name="webinar-1" />
+              <WebinarForm name="webinar-2" />
             </StickyBox>
           </Col>
         </Row>
