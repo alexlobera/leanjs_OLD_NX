@@ -21,10 +21,10 @@ set_env: &set_env
       echo 'export AFFECTED_ARGS="--base ${CIRCLE_PR_BASE_SHA}"' >> $BASH_ENV
     else
       echo 'Fetching Base Commit from Deploy Cache'
-      # if [[ ! -f dist/last-deploy.txt ]]
-      # then
+      if [[ ! -f dist/last-deploy.txt ]]
+      then
         mkdir dist && git rev-parse HEAD~1 > dist/last-deploy.txt
-      # fi
+      fi
       echo 'export AFFECTED_ARGS="--base $(cat dist/last-deploy.txt)"' >> $BASH_ENV
     fi
     source $BASH_ENV
@@ -136,6 +136,7 @@ jobs:
       - restore_cache:
           key: build-{{ .Environment.CIRCLE_WORKFLOW_ID }}
       - run: yarn affected -- --target deploy ${AFFECTED_ARGS}
+      - run: rm -rf dist/last-deploy.txt
       - run: git rev-parse HEAD > dist/last-deploy.txt
       - save_cache:
           key: last-deploy-sha
