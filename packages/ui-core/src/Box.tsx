@@ -48,7 +48,7 @@ export type LeanProps<T extends As = 'div', P = {}> = WithAs<P, T> &
 export type As = React.ElementType<any>; // keyof JSX.IntrinsicElements | React.ComponentType<any>;
 export type PropsOf<T extends As> = React.ComponentPropsWithRef<T>;
 
-export const Box: LeanComponent = styled(
+export const Box: LeanComponent<{}, 'div'> = styled(
   ({ sx, variant, box: Component = 'div', ...rest }, ref) => (
     <Component
       {...rest}
@@ -57,8 +57,8 @@ export const Box: LeanComponent = styled(
       }
     />
   )
-)<BoxProps>(
-  // )(
+  //)<BoxProps>(
+)(
   ({
     sx = {},
     __themeKey = 'variants',
