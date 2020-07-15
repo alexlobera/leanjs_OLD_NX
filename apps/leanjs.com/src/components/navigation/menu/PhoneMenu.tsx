@@ -62,6 +62,15 @@ class PhoneMenu extends React.Component {
     const { isOpen } = this.state;
     const { closeMenu } = this;
 
+    const items = MenuData.reduce((acc, item) => {
+      if (item.children) {
+        acc = [...acc, ...item.children];
+      } else {
+        acc = [...acc, item];
+      }
+      return acc;
+    }, []);
+
     return (
       <Menu
         isOpen={isOpen}
@@ -74,7 +83,7 @@ class PhoneMenu extends React.Component {
           </span>
         }
       >
-        {MenuData.map((item, i) => (
+        {items.map((item, i) => (
           <PhoneMenuItem
             className="menu-item-mobile"
             onClick={closeMenu}

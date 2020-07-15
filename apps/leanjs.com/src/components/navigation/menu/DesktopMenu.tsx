@@ -6,6 +6,7 @@ import MenuData from './Menu';
 import { HideSingleComponentUsingCss } from '../../utils';
 import { WHITE } from '../../../config/styles';
 import ContactButton from '../../buttons/ContactButton';
+import ItemSubmenu from './ItemSubmenu';
 
 const Ul = styled(DefaultUl)`
   > li {
@@ -28,7 +29,17 @@ const Item = ({
   const Component = component || Link;
   return (
     <Li variant={variant} variants={variants}>
-      <Component {...rest}>{text}</Component>
+      {submenuItems ? (
+        <ItemSubmenu
+          className="navigation"
+          items={submenuItems}
+          text={text}
+          to={rest.to}
+          {...rest}
+        />
+      ) : (
+        <Component {...rest}>{text}</Component>
+      )}
     </Li>
   );
 };
@@ -36,15 +47,15 @@ const Item = ({
 export const DesktopMenuItem = styled(Item).attrs((props) => ({
   className: 'navigation',
 }))`
-  margin: 0 0 0 6px;
+  margin: 0 6px 0 6px;
 `;
 DesktopMenuItem.displayName = 'DesktopMenuItem';
 
 const DesktopMenu = () => (
   <HideSingleComponentUsingCss xs sm>
     <Ul variant="inline" sx={{ my: '0.5rem' }}>
-      {MenuData.map(({ to, color, ...rest }) => (
-        <DesktopMenuItem key={to} sx={color} to={to} {...rest} />
+      {MenuData.map(({ to, children, ...rest }) => (
+        <DesktopMenuItem key={to} to={to} submenuItems={children} {...rest} />
       ))}
       <Li>
         <ContactButton className="menu-contact-desktop" />
