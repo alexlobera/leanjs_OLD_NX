@@ -4,9 +4,9 @@ import styled, { ThemeProps } from 'styled-components';
 import {
   css,
   Theme,
-  ThemeUIExtendedCSSProperties as SxProp,
+  // ThemeUIExtendedCSSProperties as SxProp,
 } from '@theme-ui/css';
-export { SxProp };
+export const SxProp = any;
 
 type WithAs<P, T extends As> = P &
   Omit<PropsOf<T>, 'as'> & {
