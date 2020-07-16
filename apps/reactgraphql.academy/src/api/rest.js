@@ -1,7 +1,7 @@
 import trackUserBehaviour from '../components/utils/trackUserBehaviour';
 import { getCookie } from '../components/utils/store';
 
-const apiBaseUrl = 'http://localhost:3335/';
+const apiBaseUrl = 'https://api.leanjs.com/'; //'http://localhost:3335/';
 
 const defaultOptions = {
   method: 'POST',

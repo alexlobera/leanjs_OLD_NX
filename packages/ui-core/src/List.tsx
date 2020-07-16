@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-// import { Box, getVariantProps } from '@leanjs/ui-core';
 import { Box } from './Box';
 import { getVariantProps } from './utils';
 
@@ -8,27 +6,6 @@ interface UlProps {
   variant?: string;
   variants?: string[];
 }
-
-// const StyledUl = styled(Box)<UlProps>`
-//   ${({ variant, variants = [] }) =>
-//     (variant === 'unstyled' || variants.find((v) => v === 'unstyled')) &&
-//     `
-//     list-style-type: none;
-//   `};
-//   ${({ variant, variants = [] }) =>
-//     (variant === 'inline' || variants.find((v) => v === 'inline')) &&
-//     `
-//     display: 'inline-block'
-//     > li {
-//       :first-child {
-//         padding-left: 0;
-//       }
-//       :last-child {
-//         padding-right: 0;
-//       }
-//     }
-//   `};
-// `;
 
 const Ul = ({ sx = {}, children, ...rest }) => (
   <Box

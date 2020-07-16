@@ -1,21 +1,7 @@
 import axios from 'axios';
 
-const apiBaseUrl =
-  // 'https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/';
-  'http://localhost:3335/';
-
-// const defaultOptions = {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-// };
-
-// export const sendMessage = (message) =>
-//   fetch(`${apiBaseUrl}contactLeanJS`, {
-//     ...defaultOptions,
-//     body: JSON.stringify(message),
-//   });
+const apiBaseUrl = 'https://api.leanjs.com/';
+//'http://localhost:3335/';
 
 export const sendMessage = async (message) => {
   await axios({

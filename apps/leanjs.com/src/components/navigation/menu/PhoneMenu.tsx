@@ -7,12 +7,6 @@ import MenuData from './Menu';
 import './PhoneMenu.css';
 import { SPACING_SMALL } from '../../../config/styles';
 
-// const Item = (props) => {
-//   const LinkType = scroll ? ScrollingLink : Link;
-//   //const props = scroll ? { smooth: true, duration: 500, ...rest } : rest;
-//   return <Link {...props} />;
-// };
-
 const PhoneMenuItem = styled(Link)`
   display: block;
   padding-top: ${SPACING_SMALL};

@@ -54,9 +54,6 @@ const RouterLink = styled(GatsbyLink)`
 interface LinkProps {
   to?: string;
   name?: string;
-  //   href?: string;
-  //   target?: string;
-  //   className?: string;
 }
 
 function Link<T extends As = 'a'>(props: LeanProps<T, LinkProps>) {
@@ -125,11 +122,3 @@ export const ScrollingLink = styled((props) => {
 `;
 
 export default Link;
-
-// interface LinkBoxProps extends LinkProps, BoxProps {
-//   className?: string;
-// }
-
-// export default function ({ box = Link, ...rest }: LinkBoxProps) {
-//   return <Box box={box} {...rest} />;
-// }
