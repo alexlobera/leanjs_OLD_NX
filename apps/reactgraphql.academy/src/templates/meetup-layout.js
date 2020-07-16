@@ -94,7 +94,9 @@ const MeetupPage = ({
                           <Ul variants={['inline', 'unstyled']}>
                             {links.map(({ url }) => (
                               <Li>
-                                <Link to={url}>{renderIcon(url)}</Link>
+                                <Link sx={{ mr: 2 }} to={url}>
+                                  {renderIcon(url)}
+                                </Link>
                               </Li>
                             ))}
                           </Ul>
