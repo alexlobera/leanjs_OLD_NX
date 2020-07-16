@@ -38,10 +38,10 @@ const renderProfile = ({
           <Col md={4}>
             <Link to={slug} className="coach-full-profile">
               <Image
-                circle
                 src={imageSrc}
                 sx={{
-                  width: '100%', // TODO DOES THE FOLLOWING WORK INSTEAD?  width: 1
+                  width: '100%',
+                  borderRadius: '50%',
                 }}
                 alt={`${fullname} ${job}`}
               />

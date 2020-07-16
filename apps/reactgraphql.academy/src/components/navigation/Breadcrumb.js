@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Ul, { Li } from '../layout/Ul';
-import Box from '../layout/Box';
+import { StyledBox } from '../layout/Box';
 import Grid, { Row, Col } from '../layout/Grid';
 import Link, { styleChildLinkColor } from './Link';
 
 import { WHITE, LIGHT_BLUE, Z_INDEX_MEDIUM } from '../../config/styles';
 import { SCREEN_XS_MAX } from '../utils';
 
-const BreadcrumbContainer = React.memo(styled(Box)`
+const BreadcrumbContainer = React.memo(styled(StyledBox)`
   position: absolute;
   left: 0;
   width: 100%;

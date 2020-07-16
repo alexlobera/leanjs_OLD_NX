@@ -11,4 +11,5 @@ export * from './Grid';
 export * from './SVG';
 export * from './Container';
 export * from './Link';
+export * from './Image';
 export * from './ThemeProvider';

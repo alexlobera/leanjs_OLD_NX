@@ -206,7 +206,7 @@ const Header = ({
             <BackgroundZigZag imageName={imageName} />
           </BackgroundCircles>
           <Grid>
-            <H1 style={{ marginTop: '120px' }}>
+            <H1 style={{ marginTop: '25px' }}>
               {titleLines.map((line, i) => (
                 <TitleBackground key={i} children={line} />
               ))}

@@ -1,6 +1,5 @@
 import React, { ReactNode, MouseEvent } from 'react';
 import { Box, LeanProps, As } from './Box';
-import { Link } from 'gatsby';
 
 interface ButtonProps {
   // variant?: keyof typeof buttonVariantProps;

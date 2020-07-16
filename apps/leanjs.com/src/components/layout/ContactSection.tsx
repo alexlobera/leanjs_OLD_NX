@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Form, { required } from '../form/Form';
 import InputField from '../form/InputField';
-import CheckboxField from '../form/CheckboxField';
+// import CheckboxField from '../form/CheckboxField';
 
 import Link, { styleChildLinkColor, MailtoLink } from '../navigation/Link';
 import Grid, { Col, Row } from './Grid';
@@ -99,7 +99,7 @@ const ContactSection = () => (
                   />
                   <InputField
                     color={WHITE}
-                    box="textarea"
+                    as="textarea"
                     label="Would you like to give more detail? Feel free!"
                     name="message"
                   />

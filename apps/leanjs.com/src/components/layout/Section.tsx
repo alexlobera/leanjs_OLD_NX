@@ -14,6 +14,7 @@ import {
   SPACING_MEDIUM,
   SPACING_LARGE,
   SPACING_XXLARGE,
+  SPACING_XXXLARGE,
   LAYOUT_SPACING_SMALL,
   LAYOUT_SPACING_MEDIUM,
   LINE_HEIGHT_STANDARD,
@@ -33,12 +34,12 @@ interface SectionProps {
 }
 
 const Section = styled(Box)<SectionProps>`
-  ${FONT_FAMILY}
-  padding-top: ${(props) => (props.top ? '0' : SPACING_XXLARGE)};
+  ${FONT_FAMILY} 
+  padding-top: ${(props) => (props.top ? SPACING_XXXLARGE : SPACING_MEDIUM)};
   padding-bottom: ${(props) =>
     props.dark && props.lastOnPage ? 0 : SPACING_LARGE};
   @media (max-width:${SCREEN_XS_MAX}) {
-  	padding-top:${SPACING_MEDIUM};
+  	padding-top:${SPACING_XXLARGE};
     padding-bottom:${SPACING_MEDIUM};
   }
   background-color: ${(props) => props.dark && EXTRADARKGREY};

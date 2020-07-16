@@ -269,9 +269,9 @@ const GraphQLPage = ({ data, path, trainings }) => {
                   <Flex sx={{ mr: 5, mb: 5, pb: 5, flexDirection: 'column' }}>
                     <Flex>
                       <Image
-                        circle
                         fluid={speakerImages[imageName]}
                         sx={{
+                          borderRadius: '50%',
                           display: 'flex',
                           width: ['80px', '120px'],
                           height: ['80px', '120px'],

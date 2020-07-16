@@ -9,30 +9,30 @@ interface UlProps {
   variants?: string[];
 }
 
-const StyledUl = styled(Box)<UlProps>`
-  ${({ variant, variants = [] }) =>
-    (variant === 'unstyled' || variants.find((v) => v === 'unstyled')) &&
-    `
-    list-style-type: none;
-  `};
-  ${({ variant, variants = [] }) =>
-    (variant === 'inline' || variants.find((v) => v === 'inline')) &&
-    `
-    display: 'inline-block'
-    > li {
-      :first-child {
-        padding-left: 0;
-      }
-      :last-child {
-        padding-right: 0;
-      }
-    }
-  `};
-`;
+// const StyledUl = styled(Box)<UlProps>`
+//   ${({ variant, variants = [] }) =>
+//     (variant === 'unstyled' || variants.find((v) => v === 'unstyled')) &&
+//     `
+//     list-style-type: none;
+//   `};
+//   ${({ variant, variants = [] }) =>
+//     (variant === 'inline' || variants.find((v) => v === 'inline')) &&
+//     `
+//     display: 'inline-block'
+//     > li {
+//       :first-child {
+//         padding-left: 0;
+//       }
+//       :last-child {
+//         padding-right: 0;
+//       }
+//     }
+//   `};
+// `;
 
 const Ul = ({ sx = {}, children, ...rest }) => (
-  <StyledUl
-    box="ul"
+  <Box
+    as="ul"
     sx={{
       ...getVariantProps(rest.variant || rest.variants, ulVariantSxProp),
       ...sx,
@@ -49,7 +49,7 @@ const Ul = ({ sx = {}, children, ...rest }) => (
   />
 );
 
-const Ol = (props) => <Ul box="ol" {...props} />;
+const Ol = (props) => <Ul as="ol" {...props} />;
 
 const ulVariantSxProp = {
   inline: {
@@ -86,7 +86,7 @@ const liVariantSxProp = {
 
 const Li = ({ sx = {}, ...rest }) => (
   <Box
-    box="li"
+    as="li"
     sx={{
       ...getVariantProps(rest.variant || rest.variants, liVariantSxProp),
       ...sx,

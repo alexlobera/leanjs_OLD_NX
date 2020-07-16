@@ -17,7 +17,7 @@ import {
   LinkedinIcon,
 } from '../icons';
 import { fontColor } from '../text';
-import Box from './Box';
+import Box, { StyledBox } from './Box';
 
 const FooterWrapper = React.memo((props) => (
   <Box
@@ -28,7 +28,7 @@ const FooterWrapper = React.memo((props) => (
   />
 ));
 
-const StyledFooter = React.memo(styled(Box)`
+const StyledFooter = React.memo(styled(StyledBox)`
   ${fontColor(WHITE)}
 `);
 

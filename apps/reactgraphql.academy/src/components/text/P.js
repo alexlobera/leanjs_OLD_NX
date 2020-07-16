@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from '../layout/Box';
+import { StyledBox } from '../layout/Box';
 
-const StyledP = styled(Box)`
+const StyledP = styled(StyledBox)`
   text-align: ${(props) => props.align || 'left'};
   ${(props) => props.small && `font-size 0.9rem`};
   > a {

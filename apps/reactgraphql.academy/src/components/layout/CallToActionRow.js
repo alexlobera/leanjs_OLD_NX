@@ -12,7 +12,7 @@ export const CallToActionRow = ({ sx = {}, ...rest }) => (
       zIndex: Z_INDEX_MEDIUM,
       ...sx,
     }}
-    box={Row}
+    as={Row}
     {...rest}
   />
 );

@@ -14,6 +14,6 @@ const RGALogo = ({ className, ...rest }) => (
   </Link>
 );
 
-const StyledLogo = (props) => <Box box={RGALogo} {...props} />;
+const StyledLogo = (props) => <Box as={RGALogo} {...props} />;
 
 export default StyledLogo;

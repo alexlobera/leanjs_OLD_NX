@@ -4,17 +4,19 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import { Link as DefaultLinkScroll, scroller } from 'react-scroll';
-import Box from '../layout/Box';
+import { StyledBox } from '../layout/Box';
 
 export const DEFAULT_SCROLL_OFFSET = -125;
 export const DEFAULT_SCROLL_DURATION = 500;
 
-const StyledLink = styled(Box)`
+const StyledLink = styled(StyledBox)`
   cursor: pointer;
   text-shadow: 0px 0px 1px
     ${({ theme = {} }) => (theme.colors ? theme.colors.text : '')};
   text-decoration: ${({ underline = true }) =>
     underline ? 'underline' : 'none'};
+  ${({ sx = {} }) =>
+    sx.textDecoration && `text-decoration: ${sx.textDecoration}; `}
 `;
 
 export const styleChildLinkColor = (color, isImportant) => {

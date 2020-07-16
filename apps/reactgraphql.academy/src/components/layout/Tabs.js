@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import Ul from './Ul';
 
 import { selectTechColor, selectBorderStyle } from '../utils';
-import Box from './Box';
+import { StyledBox } from './Box';
 import { TECH_GRAPHQL } from '../../config/data';
 
-export const StyledLi = styled(Box)`
+export const StyledLi = styled(StyledBox)`
   list-style-type: none;
   display: inline-block;
   @media (min-width: ${(props) => props.theme.breakpoints[0]}) {
@@ -43,7 +43,7 @@ export const TabList = React.memo(({ sx = {}, ...rest }) => (
 
 TabList.displayName = 'TabList';
 
-export const StyledA = styled(Box)`
+export const StyledA = styled(StyledBox)`
   cursor: pointer;
 `;
 

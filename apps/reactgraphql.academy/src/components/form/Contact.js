@@ -101,7 +101,7 @@ const ContactForm = ({
                   <Button
                     variant={variant || 'primary'}
                     type="submit"
-                    disabled={!valid}
+                    disabled={submitting}
                     className="newsletter-submit-button"
                   >
                     {submitting ? <Spinner /> : 'Submit email'}

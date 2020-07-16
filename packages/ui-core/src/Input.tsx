@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import { Box, BoxProps, SxProp, LeanProps, As } from './Box';
+import React from 'react';
+import { Box, SxProp, LeanProps, As } from './Box';
 import { Label } from './Label';
 
 interface InputFormProps {

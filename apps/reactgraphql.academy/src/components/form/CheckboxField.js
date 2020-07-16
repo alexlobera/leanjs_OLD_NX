@@ -40,7 +40,7 @@ const StyledCheckbox = styled.div`
     visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
   }
 `;
-const CheckboxSpan = ({ sx, ...rest }) => <Flex box="span" sx={sx} {...rest} />;
+const CheckboxSpan = ({ sx, ...rest }) => <Flex as="span" sx={sx} {...rest} />;
 
 const Checkbox = ({ checked, input, onChange, color, ...props }) => {
   const newOnChange = (e) => {

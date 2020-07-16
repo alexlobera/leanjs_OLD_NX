@@ -8,7 +8,7 @@ const Hr = ({ sx = {}, ...rest }) => (
       mb: 6,
       ...sx,
     }}
-    box="hr"
+    as="hr"
     {...rest}
   />
 );

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { fontColor } from '../text';
 import { DARK_BLUE, WHITE } from '../../config/styles';
 import { getVariantProps } from '../utils';
-import Box from './Box';
+import Box, { StyledBox } from './Box';
 import Grid, { Col, Row } from './Grid';
 
 export const MOB_SECTION_MARGIN_Y = 5;
@@ -29,7 +29,7 @@ const sectionVariantProps = {
   },
 };
 
-const StyledSection = styled(Box)`
+const StyledSection = styled(StyledBox)`
   ${({ sx: { color } = {} }) => color && fontColor(color)}
 
   p:last-child {

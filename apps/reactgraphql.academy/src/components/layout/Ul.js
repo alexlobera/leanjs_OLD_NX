@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Box from './Box';
+import { StyledBox } from './Box';
 import { getVariantProps } from '../utils';
 
-const StyledUl = styled(Box)`
+const StyledUl = styled(StyledBox)`
   ${({ variant, variants = [] }) =>
     (variant === 'unstyled' || variants.find((v) => v === 'unstyled')) &&
     `
@@ -80,7 +80,7 @@ const liVariantSxProp = {
 };
 
 const Li = ({ sx = {}, ...rest }) => (
-  <Box
+  <StyledBox
     box="li"
     sx={{
       mb: 2,

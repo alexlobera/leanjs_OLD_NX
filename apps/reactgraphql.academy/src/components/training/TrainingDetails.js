@@ -9,8 +9,7 @@ const CoachItem = ({ path, name, coachFluidImg }) => (
   <Li>
     {coachFluidImg && (
       <Image
-        sx={{ maxWidth: '150px' }}
-        circle
+        sx={{ maxWidth: '150px', borderRadius: '50%' }}
         fluid={coachFluidImg}
         alt={name}
       />
