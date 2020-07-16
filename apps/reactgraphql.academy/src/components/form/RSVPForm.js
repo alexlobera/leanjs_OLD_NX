@@ -61,8 +61,8 @@ const RSVPForm = ({
           />
           <CheckboxField
             color={WHITE}
-            name="signUpNewletter"
-            value="asdfasdf"
+            name="signUpNewletters"
+            value="09792B5E-7B03-4A73-8712-17BC26E332CD"
             label="Sign up to our newsletter"
           />
           <Button

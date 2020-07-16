@@ -93,7 +93,6 @@ function requireBodyEmail(request, response, next) {
 }
 
 async function postToAutopilot(endpoint, jsonBody = null) {
-  console.log('jsonBody', jsonBody);
   const res = await fetch(`https://api2.autopilothq.com/v1/${endpoint}`, {
     method: 'POST',
     headers: {
@@ -102,7 +101,6 @@ async function postToAutopilot(endpoint, jsonBody = null) {
     body: jsonBody ? JSON.stringify(jsonBody) : undefined,
   });
   const json = await res.json();
-  console.log('response:', JSON.stringify(json));
 
   return json;
 }
