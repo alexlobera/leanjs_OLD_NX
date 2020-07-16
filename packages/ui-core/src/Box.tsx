@@ -16,8 +16,8 @@ type WithAs<P, T extends As> = P &
 export type BoxProps<T extends As = 'div'> = {
   sx?: SxProp;
   variant?: string;
-  box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   children?: React.ReactNode;
+  box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   as?: T;
   ref?:
     | ((instance: unknown) => void)
@@ -37,11 +37,11 @@ export type As = React.ElementType<any>; // keyof JSX.IntrinsicElements | React.
 
 export type PropsOf<T extends As> = React.ComponentPropsWithRef<T>;
 
-export const Box: LeanComponent<
+const StyledBox: LeanComponent<
   {},
   'div'
-> = styled(({ sx, variant, box: Component = 'div', ...rest }, ref) => (
-  <Component
+> = styled(({ sx, box: Comp = 'div', variant, variants, ...rest }, ref) => (
+  <Comp
     {...rest}
     ref={
       ref && Object.prototype.hasOwnProperty.call(ref, 'current') ? ref : null
@@ -65,3 +65,8 @@ export const Box: LeanComponent<
       ...sx,
     })
 );
+
+export function Box<T extends As = 'div'>(props: LeanProps<T>) {
+  const box = props.box || props.as;
+  return <StyledBox {...props} box={box} as={null} />;
+}

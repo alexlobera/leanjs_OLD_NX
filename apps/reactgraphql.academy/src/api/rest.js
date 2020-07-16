@@ -1,8 +1,7 @@
 import trackUserBehaviour from '../components/utils/trackUserBehaviour';
 import { getCookie } from '../components/utils/store';
 
-const apiBaseUrl =
-  'https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/';
+const apiBaseUrl = 'https://api.leanjs.com/'; //'http://localhost:3335/';
 
 const defaultOptions = {
   method: 'POST',
@@ -90,4 +89,13 @@ export const contactLeanJS = (message) =>
   fetch(`${apiBaseUrl}contactLeanJS`, {
     ...defaultOptions,
     body: JSON.stringify(message),
+  });
+
+export const rsvpMeetup = (message) =>
+  fetch(`${apiBaseUrl}rsvpEvent`, {
+    ...defaultOptions,
+    body: JSON.stringify({
+      ...message,
+      slackChannel: 'C0178CW15K4',
+    }),
   });

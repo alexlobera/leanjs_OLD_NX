@@ -10,15 +10,8 @@ import { Segment } from '../components/elements';
 import Box from '../components/layout/Box';
 
 const SubSection = ({ sx = {}, ...rest }) => (
-  <Box sx={{ py: 4, ...sx }} box="section" {...rest} />
+  <Box sx={{ py: 4, ...sx }} as="section" {...rest} />
 );
-// const SubSection = styled(Box)``
-// SubSection.defaultProps = {
-//   box: 'section',
-//   sx: {
-//     py: 4,
-//   },
-// }
 
 const TermsOfService = () => (
   <React.Fragment>

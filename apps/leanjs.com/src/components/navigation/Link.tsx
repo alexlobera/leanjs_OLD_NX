@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import GatsbyLink from 'gatsby-link';
 import styled from 'styled-components';
 import { Link as LinkScroll, scroller } from 'react-scroll';
-import { Box, BoxProps } from '../layout/Box';
+import { Box, LeanProps, As } from '../layout/Box';
 
 import {
   FONT_FAMILY,
@@ -53,20 +53,16 @@ const RouterLink = styled(GatsbyLink)`
 
 interface LinkProps {
   to?: string;
-  href?: string;
   name?: string;
-  target?: string;
 }
 
-const Link: FunctionComponent<LinkProps> = ({
-  to = '',
-  children = '',
-  ...rest
-}) => {
+function Link<T extends As = 'a'>(props: LeanProps<T, LinkProps>) {
+  const { to = '', children = '' } = props;
+
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.substr(1);
-      if (hash && hash === rest.name) {
+      if (hash && hash === props.name) {
         // adds smooth scrolling to anchor links
         setTimeout(() => {
           scroller.scrollTo(hash, {
@@ -80,20 +76,24 @@ const Link: FunctionComponent<LinkProps> = ({
   });
 
   if (to && to.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
-    const { target = '_blank' } = rest;
+    const { target = '_blank' } = props;
     return (
-      <BasicLink {...rest} target={target} href={to}>
+      <Box {...props} as={BasicLink} target={target} href={to} to={null}>
         {children}
-      </BasicLink>
+      </Box>
     );
   } else if (to && to[0] === '#') {
     return (
-      <ScrollingLink to={to.substr(1)} {...rest}>
+      <Box {...props} as={ScrollingLink} to={to.substr(1)}>
         {children}
-      </ScrollingLink>
+      </Box>
     );
   } else if (!to) {
-    return <BasicLink {...rest}>{children}</BasicLink>;
+    return (
+      <Box as={BasicLink} {...props}>
+        {children}
+      </Box>
+    );
   } else {
     // The destination URLs need to have trailing slashes for the Gatsby prefetching to happen
     const dest =
@@ -102,12 +102,12 @@ const Link: FunctionComponent<LinkProps> = ({
         : to + '/';
 
     return (
-      <RouterLink {...rest} to={dest}>
+      <Box {...props} as={RouterLink} to={dest}>
         {children}
-      </RouterLink>
+      </Box>
     );
   }
-};
+}
 
 export const MailtoLink = (props) => (
   <a href={`mailto:${props.to}`}>
@@ -116,16 +116,9 @@ export const MailtoLink = (props) => (
 );
 
 export const ScrollingLink = styled((props) => {
-  return <LinkScroll {...{ smooth: true, duration: 500, ...props }} />;
+  return <Box as={LinkScroll} {...{ smooth: true, duration: 500, ...props }} />;
 })`
   ${ANCHOR_STYLE};
 `;
 
-interface LinkBoxProps extends LinkProps, BoxProps {
-  className?: string;
-}
-
-const LinkBox = ({ box = Link, ...rest }: LinkBoxProps) => (
-  <Box box={box} {...rest} />
-);
-export default LinkBox;
+export default Link;

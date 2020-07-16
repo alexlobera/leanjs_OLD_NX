@@ -150,7 +150,7 @@ const BlogPost = ({
           timeToRead={timeToRead}
         />
       </Header>
-      <GridContent as="article">
+      <GridContent box="article">
         <Row>
           <Col md={7}>
             {subtitle ? <H2>{subtitle}</H2> : null}

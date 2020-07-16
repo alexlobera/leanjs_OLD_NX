@@ -11,7 +11,7 @@ const ExternalLinkIcon = (props) => (
 );
 
 const StyledExternalLinkIcon = (props) => (
-  <Box box={ExternalLinkIcon} {...props} />
+  <Box as={ExternalLinkIcon} {...props} />
 );
 
 export default StyledExternalLinkIcon;

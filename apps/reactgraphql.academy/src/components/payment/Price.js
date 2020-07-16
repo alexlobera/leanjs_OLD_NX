@@ -11,7 +11,7 @@ export const Price = ({ sx = {}, ...rest }) => (
       fontSize: 6,
       ...sx,
     }}
-    box="span"
+    as="span"
     {...rest}
   />
 );

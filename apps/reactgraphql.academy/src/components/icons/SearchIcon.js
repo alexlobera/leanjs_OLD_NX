@@ -15,6 +15,6 @@ const SearchIconSVG = ({ colour = WHITE, size = 35, ...rest }) => (
   </svg>
 );
 
-const SearchIcon = (props) => <Box box={SearchIconSVG} {...props} />;
+const SearchIcon = (props) => <Box as={SearchIconSVG} {...props} />;
 
 export default SearchIcon;

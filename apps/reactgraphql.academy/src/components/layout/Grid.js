@@ -17,8 +17,8 @@ const Col = React.memo(({ xs, sm, md, lg, style = {}, ...rest }) => {
   return <FlexboxCol {...rest} {...sizes} style={style} />;
 });
 
-const StyledCol = (props) => <Flex box={Col} {...props} />;
-const Row = (props) => <Flex box={FlexboxRow} {...props} />;
+const StyledCol = (props) => <Flex as={Col} {...props} />;
+const Row = (props) => <Flex as={FlexboxRow} {...props} />;
 
 export { Row, StyledCol as Col, Grid };
 

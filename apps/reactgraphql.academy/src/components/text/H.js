@@ -26,7 +26,7 @@ export const H1 = ({ sx = {}, ...rest }) => (
       mt: 0,
       ...sx,
     }}
-    box="h1"
+    as="h1"
     {...rest}
   />
 );
@@ -115,7 +115,7 @@ export const H5 = ({ sx = {}, ...rest }) => (
       fontWeight: 'bold',
       ...sx,
     }}
-    box="h5"
+    as="h5"
     {...rest}
   />
 );

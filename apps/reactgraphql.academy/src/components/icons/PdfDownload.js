@@ -17,6 +17,6 @@ const PdfDownload = (props) => (
   </svg>
 );
 
-const StyledPdfDownload = (props) => <Box box={PdfDownload} {...props} />;
+const StyledPdfDownload = (props) => <Box as={PdfDownload} {...props} />;
 
 export default StyledPdfDownload;

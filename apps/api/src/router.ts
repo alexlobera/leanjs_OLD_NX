@@ -13,14 +13,10 @@ const slackBotIconUrl =
 
 const RESOURCES_SINGED_UP = 'boolean--Resources-SingedUp';
 
-function postMessageToSlack({ message, title, channel, response }) {
-  if (!message) {
-    response.status(401).send('no message');
-  }
-
+async function postMessageToSlack({ message, title, channel }) {
   const web = new WebClient(config.slackToken);
   //  See: https://api.slack.com/methods/chat.postMessage
-  web.chat.postMessage({
+  await web.chat.postMessage({
     channel,
     icon_url: slackBotIconUrl,
     text: `${title} ${Object.keys(message).map(
@@ -28,8 +24,6 @@ function postMessageToSlack({ message, title, channel, response }) {
     )}
                   `,
   });
-
-  response.status(200).send('message sent');
 }
 
 async function sendFeedback(request, response) {
@@ -84,8 +78,9 @@ async function contactLeanJS(request, response) {
     title:
       ':tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: LeanJS lead',
     channel: 'C8MTKU3NC',
-    response,
   });
+
+  response.status(200).send('message sent');
 }
 
 function requireBodyEmail(request, response, next) {
@@ -98,7 +93,6 @@ function requireBodyEmail(request, response, next) {
 }
 
 async function postToAutopilot(endpoint, jsonBody = null) {
-  console.log('jsonBody', jsonBody);
   const res = await fetch(`https://api2.autopilothq.com/v1/${endpoint}`, {
     method: 'POST',
     headers: {
@@ -107,7 +101,6 @@ async function postToAutopilot(endpoint, jsonBody = null) {
     body: jsonBody ? JSON.stringify(jsonBody) : undefined,
   });
   const json = await res.json();
-  console.log('response:', JSON.stringify(json));
 
   return json;
 }
@@ -162,12 +155,67 @@ async function status(request, response) {
   response.status(200).send('it works');
 }
 
+async function rsvpEvent(request, response) {
+  const {
+    autopilotListId,
+    signUpNewletters,
+    utm_source,
+    slackChannel,
+    ...restData
+  } = request && request.body;
+
+  const custom = Object.keys(restData).reduce((acc, key) => {
+    acc[`${typeof restData[key]}--${key}`] = restData[key];
+    return acc;
+  }, {});
+
+  // C0178CW15K4 meetups slack channel id
+  // C016TLFL695 webinars slack channel id
+
+  const autopilotData = {
+    FirstName: restData.name,
+    Email: restData.email,
+    LeadSource: utm_source,
+    company: restData.company,
+    custom,
+  };
+
+  await Promise.all([
+    postToAutopilot(`/contact`, {
+      contact: {
+        ...autopilotData,
+        _autopilot_list: `contactlist_${autopilotListId}`,
+      },
+    }),
+    postMessageToSlack({
+      message: { ...restData, signUpNewletters },
+      title:
+        ':tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: :tada: LeanJS lead',
+      channel: slackChannel,
+    }),
+  ]);
+
+  if (signUpNewletters && signUpNewletters.length) {
+    // we can't add a contact to 2 different list upon creation
+    await postToAutopilot(`/contact`, {
+      contact: {
+        ...autopilotData,
+        _autopilot_list: `contactlist_${signUpNewletters[0]}`,
+      },
+    });
+  }
+
+  response.status(200).send('it worked');
+}
+
 router.post('/contactLeanJS', contactLeanJS);
 router.post('/sendFeedback', sendFeedback);
 router.post('/requestQuote', requestQuote);
 router.post('/unsubscribe', requireBodyEmail, unsubscribe);
 router.post('/sessionSubscribe', requireBodyEmail, sessionSubscribe);
 router.post('/subscribe', requireBodyEmail, subscribe);
+router.post('/rsvpEvent', requireBodyEmail, rsvpEvent);
+
 router.get('/status', status);
 
 export default router;

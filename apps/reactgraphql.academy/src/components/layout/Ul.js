@@ -13,6 +13,9 @@ const StyledUl = styled(Box)`
     (variant === 'inline' || variants.find((v) => v === 'inline')) &&
     `
     > li {
+      padding: 8px:
+      margin: 0;
+      display: inline-block;
       :first-child {
         padding-left: 0;
       }
@@ -53,29 +56,9 @@ const ulVariantSxProp = {
   unstyled: {
     ml: 0,
     pl: 0,
-  },
-};
-
-const liVariantSxProp = {
-  inline: {
-    p: '8px',
-    m: 0,
-    display: 'inline-block',
-    // TODO the following doesn't work, should we create a styled system function?
-    // '> li': {
-    //   backgroundColor: 'red',
-    // },
-    // should we instead create a function for
-    // firstChildML : 0
-    // should we instead create a function for
-    // firstChild : { // concern this make composability more difficult
-    //     mt: 0
-    // }
-  },
-  unstyled: {
-    // TODO the following doesn't work, should we create a styled system function?
-    // listStyleType: 'none',
-    mb: '7px',
+    '> li': {
+      mb: '7px',
+    },
   },
 };
 
@@ -84,7 +67,6 @@ const Li = ({ sx = {}, ...rest }) => (
     box="li"
     sx={{
       mb: 2,
-      ...getVariantProps(rest.variant || rest.variants, liVariantSxProp),
       ...sx,
     }}
     {...rest}

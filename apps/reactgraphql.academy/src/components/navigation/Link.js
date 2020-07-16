@@ -15,6 +15,8 @@ const StyledLink = styled(Box)`
     ${({ theme = {} }) => (theme.colors ? theme.colors.text : '')};
   text-decoration: ${({ underline = true }) =>
     underline ? 'underline' : 'none'};
+  ${({ sx = {} }) =>
+    sx.textDecoration && `text-decoration: ${sx.textDecoration}; `}
 `;
 
 export const styleChildLinkColor = (color, isImportant) => {

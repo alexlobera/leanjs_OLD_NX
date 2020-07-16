@@ -73,7 +73,7 @@ const Blog = ({ data, path, trainings }) => {
         subtitle="Insights into the world of React GraphQL Academy"
         fullHeight={false}
         onThisPage={
-          <Flex box="label" sx={{ alignItems: 'center' }}>
+          <Flex as="label" sx={{ alignItems: 'center' }}>
             <SearchIcon sx={{ mr: 2 }} />
             <Span sx={{ display: ['none', 'inline-block'] }}>Search blogs</Span>
             <Input

@@ -6,6 +6,7 @@ import router from './router';
 
 const app = express();
 app.use(cors({ credentials: true, origin: config.allowedCorsOrigins }));
+app.use(express.json());
 app.use(router);
 
 const port = config.env.port;
