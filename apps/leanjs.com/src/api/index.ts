@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const apiBaseUrl =
-  'https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/';
+  // 'https://us-central1-reactgraphqlacademy.cloudfunctions.net/api/';
+  'http://localhost:3335/';
 
 // const defaultOptions = {
 //   method: 'POST',
@@ -17,7 +18,7 @@ const apiBaseUrl =
 //   });
 
 export const sendMessage = async (message) => {
-  const result = await axios({
+  await axios({
     headers: {
       'Content-Type': 'application/json',
     },
@@ -25,5 +26,20 @@ export const sendMessage = async (message) => {
     method: 'POST',
     url: `${apiBaseUrl}contactLeanJS`,
     data: message,
+  });
+};
+
+export const rsvpWebinar = async (message) => {
+  await axios({
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    responseType: 'text',
+    method: 'POST',
+    url: `${apiBaseUrl}rsvpEvent`,
+    data: {
+      ...message,
+      slackChannel: 'C016TLFL695',
+    },
   });
 };

@@ -6,12 +6,17 @@ import { H3, P } from '../text';
 import { InputField, Form, CheckboxField } from '.';
 
 import { composeValidators, required, mustBeEmail } from './validations';
-import { contactLeanJS } from '../../api/rest';
+import { rsvpMeetup } from '../../api/rest';
 
 import Spinner from './Spinner';
 
-const RSVPForm = ({ sx = {}, ...rest }) => (
-  <Form onSubmit={contactLeanJS}>
+const RSVPForm = ({
+  eventName,
+  autopilotListId = 'ea558878-d951-4a88-a510-83186dbf9aae',
+}) => (
+  <Form
+    onSubmit={(data) => rsvpMeetup({ ...data, eventName, autopilotListId })}
+  >
     {({ submitSucceeded, submitting }) =>
       submitSucceeded ? (
         <>
@@ -29,14 +34,14 @@ const RSVPForm = ({ sx = {}, ...rest }) => (
           <InputField
             color={WHITE}
             label="Full name (required)"
-            name="meetup-name"
+            name="name"
             placeholder="eg. Steve Jobs"
             validate={required}
           />
           <InputField
             color={WHITE}
             label="Email (required)"
-            name="meetup-email"
+            name="email"
             placeholder="eg. name@company.com"
             validate={composeValidators(mustBeEmail, required)}
           />
@@ -44,26 +49,27 @@ const RSVPForm = ({ sx = {}, ...rest }) => (
             color={WHITE}
             label="Job title (required)"
             placeholder="Full-stack developer"
-            name="meetup-job"
+            name="job"
             validate={required}
           />
           <InputField
             color={WHITE}
             placeholder="Where are you based?"
             label="Location (required)"
-            name="meetup-location"
+            name="location"
             validate={required}
           />
           <CheckboxField
             color={WHITE}
-            name="sign-up-newsletter"
+            name="signUpNewletter"
+            value="asdfasdf"
             label="Sign up to our newsletter"
           />
           <Button
             variant={'primary'}
             type="submit"
             disabled={submitting}
-            className="rsp-meetup-button"
+            className="rsp-button"
             sx={{ mt: 3 }}
           >
             {submitting ? <Spinner /> : 'RSVP'}

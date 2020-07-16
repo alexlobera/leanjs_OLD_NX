@@ -7,17 +7,23 @@ import InputField from './InputField';
 import Button from '../buttons/Button';
 import { Strong } from '../text';
 import Spinner from '../elements/Spinner';
-import { sendMessage } from '../../api';
+import { rsvpWebinar } from '../../api';
 import { WHITE, DARKGREY } from '../../config/styles';
 import { P } from '../text';
 import Link from '../navigation/Link';
 
 interface WebinarFormProps {
-  name: string;
+  eventName: string;
+  autopilotListId: string;
 }
 
-export const WebinarForm = ({ name }: WebinarFormProps) => (
-  <Form onSubmit={sendMessage}>
+export const WebinarForm = ({
+  eventName,
+  autopilotListId,
+}: WebinarFormProps) => (
+  <Form
+    onSubmit={(data) => rsvpWebinar({ ...data, eventName, autopilotListId })}
+  >
     {({ submitting, submitSucceeded }) =>
       submitSucceeded ? (
         <>
@@ -35,39 +41,40 @@ export const WebinarForm = ({ name }: WebinarFormProps) => (
           <InputField
             color={WHITE}
             label="Full name (required)"
-            name={`${name}-name`}
+            name={`name`}
             placeholder="eg. Steve Jobs"
             validate={required}
           />
           <InputField
             color={WHITE}
             label="Email (required)"
-            name={`${name}-email`}
+            name={`email`}
             placeholder="eg. name@company.com"
             validate={composeValidators(mustBeEmail, required)}
           />
           <InputField
             color={WHITE}
             label="City (required)"
-            name={`${name}-city`}
+            name={`city`}
             placeholder="Where are you based?"
             validate={required}
           />
           <InputField
             color={WHITE}
             label="Company (required)"
-            name={`${name}-company`}
+            name={`company`}
             validate={required}
           />
           <InputField
             color={WHITE}
             label="Job title (required)"
-            name={`${name}-job`}
+            name={`job`}
             validate={required}
           />
           <CheckboxField
             color={WHITE}
-            name="sign-up-newsletter"
+            name="signUpNewletters"
+            value="1481e8cf-7acc-48b5-a63f-45f0fd1db076"
             label="Sign up to the LeanJS newsletter"
           />
           <P sx={{ color: WHITE }}>

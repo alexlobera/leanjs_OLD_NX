@@ -157,7 +157,10 @@ const IndexPage = () => (
           </Col>
           <Col mdOffset={1} md={4}>
             <StickyBox offsetTop={120}>
-              <WebinarForm name="webinar-2" />
+              <WebinarForm
+                eventName="js-architecture-part-2"
+                autopilotListId="B3A9771E-77E5-4D8D-AE44-69FB6466C3A1"
+              />
             </StickyBox>
           </Col>
         </Row>
