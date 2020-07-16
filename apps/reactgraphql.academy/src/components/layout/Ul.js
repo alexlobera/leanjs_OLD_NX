@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledBox } from './Box';
+import Box from './Box';
 import { getVariantProps } from '../utils';
 
-const StyledUl = styled(StyledBox)`
+const StyledUl = styled(Box)`
   ${({ variant, variants = [] }) =>
     (variant === 'unstyled' || variants.find((v) => v === 'unstyled')) &&
     `
@@ -49,42 +49,48 @@ const ulVariantSxProp = {
   inline: {
     m: 0,
     p: 0,
+    '> li': {
+      p: '8px',
+      m: 0,
+      display: 'inline-block',
+    },
   },
   unstyled: {
     ml: 0,
     pl: 0,
+    '> li': {
+      mb: '7px',
+    },
   },
 };
 
-const liVariantSxProp = {
-  inline: {
-    p: '8px',
-    m: 0,
-    display: 'inline-block',
-    // TODO the following doesn't work, should we create a styled system function?
-    // '> li': {
-    //   backgroundColor: 'red',
-    // },
-    // should we instead create a function for
-    // firstChildML : 0
-    // should we instead create a function for
-    // firstChild : { // concern this make composability more difficult
-    //     mt: 0
-    // }
-  },
-  unstyled: {
-    // TODO the following doesn't work, should we create a styled system function?
-    // listStyleType: 'none',
-    mb: '7px',
-  },
-};
+// const liVariantSxProp = {
+//   inline: {
+//     p: '8px',
+//     m: 0,
+//     display: 'inline-block',
+//     // TODO the following doesn't work, should we create a styled system function?
+//     // '> li': {
+//     //   backgroundColor: 'red',
+//     // },
+//     // should we instead create a function for
+//     // firstChildML : 0
+//     // should we instead create a function for
+//     // firstChild : { // concern this make composability more difficult
+//     //     mt: 0
+//     // }
+//   },
+//   //   unstyled: {
+//   //     mb: '7px',
+//   //   },
+// };
 
 const Li = ({ sx = {}, ...rest }) => (
-  <StyledBox
+  <Box
     box="li"
     sx={{
       mb: 2,
-      ...getVariantProps(rest.variant || rest.variants, liVariantSxProp),
+      // ...getVariantProps(rest.variant || rest.variants, liVariantSxProp),
       ...sx,
     }}
     {...rest}

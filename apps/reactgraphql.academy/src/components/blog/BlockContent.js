@@ -2,7 +2,7 @@ import React from 'react';
 import { EmbedRunkit } from './Runkit';
 import styled from 'styled-components';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import { StyledBox } from '../layout/Box';
+import Box from '../layout/Box';
 import PrismCode from './PrismCode';
 
 import Image from '../elements/Image';
@@ -72,7 +72,7 @@ export const Img = styled(Image)`
   margin-bottom: 10px !important;
 `;
 
-const StyledBlockquote = styled(StyledBox)`
+const StyledBlockquote = styled(Box)`
   padding-top: 10px;
   padding-bottom: 20px;
   background: #f9f9f9;

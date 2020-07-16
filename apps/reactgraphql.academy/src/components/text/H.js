@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { StyledBox } from '../layout/Box';
+import Box from '../layout/Box';
 
 const fontSize = ({ fontSize }) => ({ theme: { fontSizes = [] } = {} }) =>
   `font-size: ${fontSizes[fontSize]};`;
@@ -19,7 +19,7 @@ const REF = `
 `;
 
 export const H1 = ({ sx = {}, ...rest }) => (
-  <StyledBox
+  <Box
     sx={{
       fontWeight: 'bold',
       fontSize: 8,
@@ -35,7 +35,7 @@ export const H1Ref = styled(H1)`
   ${REF};
 `;
 
-const StyledH2 = styled(StyledBox)`
+const StyledH2 = styled(Box)`
   :first-child {
     padding-top: 0;
   }
@@ -63,7 +63,7 @@ export const H2Ref = styled(H2)`
   ${REF};
 `;
 
-const StyledH3 = styled(StyledBox)`
+const StyledH3 = styled(Box)`
   a {
     ${fontSize({ fontSize: 4 })}
   }
@@ -83,7 +83,7 @@ export const H3Ref = styled(H3)`
   ${REF};
 `;
 
-const StyledH4 = styled(StyledBox)`
+const StyledH4 = styled(Box)`
   :first-child {
     margin-top: 0;
   }
@@ -107,7 +107,7 @@ export const H4Ref = styled(H4)`
 `;
 
 export const H5 = ({ sx = {}, ...rest }) => (
-  <StyledBox
+  <Box
     sx={{
       fontSize: 2,
       lineHeight: 1,
