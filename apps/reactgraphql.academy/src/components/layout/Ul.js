@@ -13,7 +13,7 @@ const StyledUl = styled(Box)`
     (variant === 'inline' || variants.find((v) => v === 'inline')) &&
     `
     > li {
-      padding: 8px:
+      padding: 8px;
       margin: 0;
       display: inline-block;
       :first-child {
