@@ -16,18 +16,6 @@ describe('Contact Form', () => {
     expect(input.value).toBe('');
   });
 
-  it('should keep the button disabled if email is not valid', () => {
-    const { getByLabelText, getByText } = render(
-      <Contact triggerSubscribe={triggerSubscribe} />
-    );
-    const input = getByLabelText(/Your email address:/i);
-
-    fireEvent.change(input, { target: { value: 'hello' } });
-    const button = getByText(/Submit email/i);
-
-    expect(button).toHaveAttribute('disabled', '');
-  });
-
   it(`should enable button if email is valid`, () => {
     const { getByLabelText, getByText } = render(
       <Contact triggerSubscribe={triggerSubscribe} />
