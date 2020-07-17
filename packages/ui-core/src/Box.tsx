@@ -40,14 +40,16 @@ export type PropsOf<T extends As> = React.ComponentPropsWithRef<T>;
 const StyledBox: LeanComponent<
   {},
   'div'
-> = styled(({ sx, box: Comp = 'div', variant, variants, ...rest }, ref) => (
-  <Comp
-    {...rest}
-    ref={
-      ref && Object.prototype.hasOwnProperty.call(ref, 'current') ? ref : null
-    }
-  />
-))(
+> = styled(
+  ({ sx, box: Comp = 'div', variant, variants, __themeKey, ...rest }, ref) => (
+    <Comp
+      {...rest}
+      ref={
+        ref && Object.prototype.hasOwnProperty.call(ref, 'current') ? ref : null
+      }
+    />
+  )
+)(
   ({
     sx = {},
     __themeKey = 'variants',

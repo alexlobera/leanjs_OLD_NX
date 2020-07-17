@@ -1,21 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-import { Box, BoxProps } from '../layout';
+import { Box, BoxProps, LeanComponent } from '../layout';
 
 interface SectionProps extends BoxProps {
   top?: boolean;
 }
 
-const Section: FunctionComponent<SectionProps> = ({
-  sx = {},
-  top,
-  ...rest
-}) => {
+const Section: LeanComponent<SectionProps> = (props) => {
+  const { sx = {}, top } = props;
   return (
     <Box
+      {...props}
       box="section"
       sx={{ ...(top ? { marginTop: '-50px' } : {}), ...sx }}
-      {...rest}
     />
   );
 };

@@ -9,12 +9,12 @@ const Layout: FunctionComponent = ({ children }) => (
   <React.Fragment>
     <Navbar>
       <Ul variant="inline" sx={{ ml: 'auto' }}>
-        <Li>
+        {/* <Li>
           <Link to="/online-courses">Online courses</Link>
         </Li>
         <Li>
           <Link to="/online-conferences">Online conferences</Link>
-        </Li>
+        </Li> */}
         <Li>
           <Link to="/login">Login</Link>
         </Li>

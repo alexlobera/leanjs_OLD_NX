@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
+import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container } from '../components/layout';
 import Layout from '../components/layout/Layout';

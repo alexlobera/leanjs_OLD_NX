@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import Layout from '../components/layout/Layout';
 import Link from '../components/navigation/Link';
 
 function CoursePage({ data }) {
@@ -8,7 +9,7 @@ function CoursePage({ data }) {
   const units = training.units || [];
 
   return (
-    <>
+    <Layout>
       <h1>Course: {training.title}</h1>
       <h2>Course units:</h2>
       <ul>
@@ -38,7 +39,7 @@ function CoursePage({ data }) {
           }
         }, [])}
       </ul>
-    </>
+    </Layout>
   );
 }
 
