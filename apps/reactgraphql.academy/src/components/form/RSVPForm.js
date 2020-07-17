@@ -12,7 +12,7 @@ import Spinner from './Spinner';
 
 const RSVPForm = ({
   eventName,
-  autopilotListId = 'ea558878-d951-4a88-a510-83186dbf9aae',
+  autopilotListId = '32363e51-2826-4c51-9d1a-95cca08c3e00',
 }) => (
   <Form
     onSubmit={(data) => rsvpMeetup({ ...data, eventName, autopilotListId })}
