@@ -4,10 +4,14 @@ import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
 import * as Hls from 'hls.js';
 import 'plyr/dist/plyr.css';
 import { createGlobalStyle } from 'styled-components';
+import { Box } from '@leanjs/ui-core';
 
 const GlobalStyle = createGlobalStyle`
 :root {
     --plyr-color-main: rgba(97,218,251,1);
+}
+.plyr {
+    min-width:150px;
 }
 .plyr--video {
     height: auto;
@@ -141,6 +145,7 @@ export const VideoPlayer = (
     muted = true,
     showControls = true,
     sx = {},
+    className = null,
     url,
     ...rest
   },
@@ -162,13 +167,14 @@ export const VideoPlayer = (
       <video
         // TODO add forward ref to Box so we can add the sx prop to this <video> using <Box> instead
         // sx={{ width: '100%', cursor: "pointer", ...sx }}
-        style={{ width: '100%' }}
+        // style={{ width: '100%' }}
         onClick={handleVideoClick}
         controls={loadingStarted}
         muted={autoplay || muted}
         autoPlay={autoplay}
         ref={videoRef}
         poster={posterUrl}
+        className={className}
         {...rest}
       />
       {error && <p>There was an error loading this video ({error}).</p>}

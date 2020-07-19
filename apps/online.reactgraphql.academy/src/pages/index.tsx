@@ -6,6 +6,9 @@ import Layout from '../components/layout/Layout';
 import Section from '../components/layout/Section';
 import { Container, Grid, Box, Card } from '../components/layout';
 import Header from '../components/layout/Header';
+import ReactHeaderBg from '../components/layout/Header/ReactBg';
+import GraphQLHeaderBg from '../components/layout/Header/GraphQLBg';
+
 import Link from '../components/navigation/Link';
 import { H3, P } from '../components/display';
 import { Image } from '../components/display';
@@ -27,12 +30,6 @@ function CourseCard({
   },
   isAvailable = true,
 }: CourseCardProps) {
-  const image = (
-    <Image
-      src="https://reactgraphql.academy/static/13db5a93e9bf9e56ec7a820511569d97/0f3a1/6681c0c80cbeef496e576694938428589bffd319-1920x1654.jpg"
-      sx={{ mb: 0 }}
-    />
-  );
   return (
     <Card sx={{ mb: 5 }}>
       <Link to={`/${slug}-course`} className="articles-summary">
@@ -55,14 +52,22 @@ function CourseCard({
     </Card>
   );
 }
-
+//
 function Page({ data }: PageProps) {
   return (
     <Layout>
-      <Header />
+      <ReactHeaderBg>
+        <GraphQLHeaderBg>
+          <Header
+            title="Online React and GraphQL Courses"
+            subtitle="Learn React and GraphQL online at your own pace with the React GraphQL Academy teaching method"
+            bgColors={['#DF0098', '#267280', 'rgba(256,256,256, 0.9)']}
+          />
+        </GraphQLHeaderBg>
+      </ReactHeaderBg>
       <Section sx={{ marginTop: '-50px' }}>
         <Container>
-          <Grid columns={3}>
+          <Grid columns={{ minWidth: '300px' }}>
             {data &&
               data.upmentoring &&
               data.upmentoring.trainings &&

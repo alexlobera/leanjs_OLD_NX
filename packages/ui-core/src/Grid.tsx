@@ -32,6 +32,7 @@ export const Grid = <T extends As>(props: LeanProps<T, GridProps>, ref) => {
     <Box
       ref={ref}
       {...props}
+      columns={null}
       sx={{
         display: 'grid',
         gridGap: gap,

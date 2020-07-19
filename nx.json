@@ -63,6 +63,9 @@
     },
     "leanui-docz": {
       "tags": []
+    },
+    "ui-page": {
+      "tags": []
     }
   }
 }

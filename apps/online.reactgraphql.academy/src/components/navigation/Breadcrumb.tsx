@@ -1,5 +1,5 @@
 import React from 'react';
-import { Ul, Li, Box, Container } from '../layout';
+import { Ul, Li, Box, LeanProps, As } from '../layout';
 import Link from './Link';
 
 export interface BreadcrumbPath {
@@ -8,33 +8,60 @@ export interface BreadcrumbPath {
 }
 export interface BreadcrumbProps {
   paths: BreadcrumbPath[];
-  className?: string;
+  divider?: string | JSX.Element;
 }
 
-const Breadcrumb: React.FunctionComponent<BreadcrumbProps> = ({
+function Breadcrumb<T extends As = 'div'>({
   paths,
+  sx = {},
+  divider = '>',
   className = 'breadcrumb',
-}: BreadcrumbProps) =>
-  paths && paths.length ? (
-    <Container as="nav" sx={{ bg: 'blue' }} ariaLabel="Breadcrumb">
-      <Ul variant="inline">
-        {paths.map(({ path, text }) => {
-          // const formatedLabel = label.replace(/(<([^>]+)>)/gi, ' ');
+}: LeanProps<T, BreadcrumbProps>) {
+  return paths && paths.length ? (
+    <Box
+      sx={{
+        bg: 'rgba(0,41,56,0.75)',
+        ...sx,
+      }}
+    >
+      <Ul
+        variant="inline"
+        sx={{
+          '> li:first-child': { pl: 0 },
+          '> li:last-child': { pr: 0 },
+          pb: 1,
+        }}
+      >
+        {paths.map(({ path, text }, i) => {
+          const sxLi = {
+            'a:visited,a:link,a:hover,a:active,&': {
+              color: 'white',
+              fontSize: 2,
+            },
+            px: 1,
+            display: 'inline',
+          };
 
           return (
-            <Li key={path}>
-              {path ? (
-                <Link className={className} to={path}>
-                  {text}
-                </Link>
-              ) : (
-                text
+            <>
+              <Li key={path} sx={sxLi}>
+                {path ? (
+                  <Link className={className} to={path}>
+                    {text}
+                  </Link>
+                ) : (
+                  text
+                )}
+              </Li>
+              {paths.length > 0 && i < paths.length - 1 && (
+                <Li sx={sxLi}>{divider}</Li>
               )}
-            </Li>
+            </>
           );
         })}
       </Ul>
-    </Container>
+    </Box>
   ) : null;
+}
 
 export default React.memo(Breadcrumb);

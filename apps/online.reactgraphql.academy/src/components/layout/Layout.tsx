@@ -11,7 +11,7 @@ interface LayoutProps {
   // breadcrumb?: React.FunctionComponent<BreadcrumbProps>;
   // TODO include in teaching material passing breadcrumbPaths (data) vs breadcrumb (data + component). How often the data changes vs the component in the entire app?
   // breadcrumb?: JSX.Element;
-  breadcrumbPaths: BreadcrumbPath[];
+  breadcrumbPaths?: BreadcrumbPath[];
 }
 
 const Layout: FunctionComponent<LayoutProps> = ({
@@ -20,14 +20,9 @@ const Layout: FunctionComponent<LayoutProps> = ({
 }) => (
   <React.Fragment>
     <Navbar
+      sx={{ p: 4 }}
       menu={
         <Ul variant="inline" sx={{ ml: 'auto' }}>
-          {/* <Li>
-          <Link to="/online-courses">Online courses</Link>
-        </Li>
-        <Li>
-          <Link to="/online-conferences">Online conferences</Link>
-        </Li> */}
           <Li>
             <Link to="/login">Login</Link>
           </Li>
@@ -37,7 +32,9 @@ const Layout: FunctionComponent<LayoutProps> = ({
         </Ul>
       }
     >
-      {breadcrumbPaths && <Breadcrumb paths={breadcrumbPaths} />}
+      {breadcrumbPaths && (
+        <Breadcrumb sx={{ px: 4, py: 1 }} paths={breadcrumbPaths} />
+      )}
     </Navbar>
     {children}
     <Footer />

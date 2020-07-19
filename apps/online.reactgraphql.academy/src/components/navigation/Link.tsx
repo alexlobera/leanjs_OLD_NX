@@ -6,8 +6,8 @@ interface Link {
   to: string;
 }
 
-function Link<T extends As = 'a'>({ to, ...rest }: LeanProps<T, Link>) {
-  return <LeanLink to={to} as={GatsbyLink} {...rest} />;
+function Link<T extends As = 'a'>(props: LeanProps<T, Link>) {
+  return <LeanLink as={GatsbyLink} {...props} />;
 }
 
 export default Link;

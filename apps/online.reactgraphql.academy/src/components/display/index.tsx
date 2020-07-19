@@ -10,4 +10,5 @@ export {
   Blockquote,
   SVG,
   Image,
+  Span,
 } from '@leanjs/ui-core';

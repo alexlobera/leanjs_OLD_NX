@@ -22,9 +22,25 @@ const Navbar: LeanComponent<HeadeProps> = ({
     <>
       <Box
         box="nav"
-        sx={{ position: 'absolute', width: '100%', zIndex: 'sticky', ...sx }}
+        sx={{
+          position: 'absolute',
+          width: '100%',
+          zIndex: 'sticky',
+          ...sx,
+          p: 0,
+        }}
       >
-        <Container sx={{ p: 4, bg: 'rgba(256,256,256, 0.9)' }}>
+        <Container
+          sx={{
+            p: sx.p,
+            bg: 'rgba(256,256,256, 0.9)',
+            borderColor: 'rgba(0, 41, 56, 0.5)',
+            borderStyle: 'solid',
+            borderWidth: 0,
+            borderLeftWidth: '1px',
+            borderRightWidth: '1px',
+          }}
+        >
           <Flex>
             <Link
               className={`navigation-logo`}
@@ -35,8 +51,8 @@ const Navbar: LeanComponent<HeadeProps> = ({
             </Link>
             {menu}
           </Flex>
-          {children}
         </Container>
+        <Container>{children}</Container>
       </Box>
     </>
   );

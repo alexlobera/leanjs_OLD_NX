@@ -18,6 +18,7 @@ export type BoxProps<T extends As = 'div'> = {
   variant?: string;
   children?: React.ReactNode;
   box?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  className?: string;
   as?: T;
   ref?:
     | ((instance: unknown) => void)
