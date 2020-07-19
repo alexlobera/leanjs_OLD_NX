@@ -3,42 +3,67 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
 import Link from '../components/navigation/Link';
+import Header from '../components/layout/Header';
+import { Container } from '../components/layout';
 
-function CoursePage({ data }) {
+function CoursePage({ data, location }) {
   const training = data.upmentoring.trainingById;
   const units = training.units || [];
 
   return (
-    <Layout>
-      <h1>Course: {training.title}</h1>
-      <h2>Course units:</h2>
-      <ul>
+    <Layout
+      breadcrumbPaths={[
+        {
+          path: '',
+          text: 'asfd',
+        },
+      ]}
+    >
+      <Header />
+
+      <Container>
+        <h1>Course: {training.title}</h1>
+        <h2>Course modules:</h2>
+
         {units.reduce((acc, unit) => {
           if (unit.published) {
             const unitPath = unit.published.slug;
+            const lessonsCount =
+              (unit.published.videos && unit.published.videos.length) || 0;
             acc.push(
-              <li>
+              <>
                 <h3>
                   <Link to={unitPath}>{unit.published.title}</Link>
                 </h3>
-                <h4>Lessons:</h4>
-                <ul>
-                  {unit.published.videos &&
-                    unit.published.videos.map((video, index) => (
-                      <li>
-                        <Link to={`${unitPath}/${index + 1}`}>
-                          {video.title}
-                        </Link>
-                      </li>
-                    ))}
-                </ul>
-              </li>
+                <h4>
+                  {lessonsCount} lessons{' '}
+                  {lessonsCount > 0 ? (
+                    <>
+                      {' - '}
+                      <Link
+                        to={`${location.pathname}/${unit.published.videos[0].slug}`}
+                      >
+                        watch
+                      </Link>
+                    </>
+                  ) : null}
+                </h4>
+
+                {/* <ul>
+                {unit.published.videos &&
+                  unit.published.videos.map((video, index) => (
+                    <li>
+                      <Link to={`${unitPath}/${index + 1}`}>{video.title}</Link>
+                    </li>
+                  ))}
+              </ul> */}
+              </>
             );
 
             return acc;
           }
         }, [])}
-      </ul>
+      </Container>
     </Layout>
   );
 }
@@ -51,12 +76,9 @@ export const query = graphql`
         units {
           published {
             title
-            slug
             videos {
               title
-              asset {
-                url
-              }
+              slug
             }
           }
         }

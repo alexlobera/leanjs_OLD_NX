@@ -3,6 +3,7 @@ const heading = {
   fontFamily: 'heading',
   lineHeight: 'heading',
   fontWeight: 'heading',
+  mt: 0,
 };
 
 export const theme = {

@@ -9,4 +9,5 @@ export {
   P,
   Blockquote,
   SVG,
+  Image,
 } from '@leanjs/ui-core';

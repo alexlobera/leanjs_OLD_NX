@@ -17,4 +17,5 @@ export {
   H5,
   H6,
   P,
+  Card,
 } from '@leanjs/ui-core';

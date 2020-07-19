@@ -140,7 +140,7 @@ const Title: LeanComponent = (props) => (
   />
 );
 
-const Header: FunctionComponent = ({ children }) => (
+const Header: FunctionComponent = () => (
   <Background height="100vh" bgColors={['#267280', 'rgba(256,256,256, 0.9)']}>
     <TechLogo tech={TECH_REACT}>
       <Container>

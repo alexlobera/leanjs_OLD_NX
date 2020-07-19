@@ -4,24 +4,40 @@ import Footer from './Footer';
 import Navbar from '../navigation/Navbar';
 import Link from '../navigation/Link';
 import { Ul, Li } from '.';
+// import { BreadcrumbProps } from '../navigation/Breadcrumb';
+// TODO include in teaching material BreadcrumbPath vs BreadcrumbProps. See comments below
+import Breadcrumb, { BreadcrumbPath } from '../navigation/Breadcrumb';
+interface LayoutProps {
+  // breadcrumb?: React.FunctionComponent<BreadcrumbProps>;
+  // TODO include in teaching material passing breadcrumbPaths (data) vs breadcrumb (data + component). How often the data changes vs the component in the entire app?
+  // breadcrumb?: JSX.Element;
+  breadcrumbPaths: BreadcrumbPath[];
+}
 
-const Layout: FunctionComponent = ({ children }) => (
+const Layout: FunctionComponent<LayoutProps> = ({
+  breadcrumbPaths,
+  children,
+}) => (
   <React.Fragment>
-    <Navbar>
-      <Ul variant="inline" sx={{ ml: 'auto' }}>
-        {/* <Li>
+    <Navbar
+      menu={
+        <Ul variant="inline" sx={{ ml: 'auto' }}>
+          {/* <Li>
           <Link to="/online-courses">Online courses</Link>
         </Li>
         <Li>
           <Link to="/online-conferences">Online conferences</Link>
         </Li> */}
-        <Li>
-          <Link to="/login">Login</Link>
-        </Li>
-        <Li>
-          <Link to="https://reactgraphql.academy/blog/">Blog</Link>
-        </Li>
-      </Ul>
+          <Li>
+            <Link to="/login">Login</Link>
+          </Li>
+          <Li>
+            <Link to="https://reactgraphql.academy/blog/">Blog</Link>
+          </Li>
+        </Ul>
+      }
+    >
+      {breadcrumbPaths && <Breadcrumb paths={breadcrumbPaths} />}
     </Navbar>
     {children}
     <Footer />
