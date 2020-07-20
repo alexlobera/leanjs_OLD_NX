@@ -34,7 +34,7 @@ const metas = {
   type: 'website',
 };
 
-const TrainingPage = ({ path, trainings, data, error }) => {
+const TrainingPage = ({ path, trainings, data }) => {
   return (
     <React.Fragment>
       <Helmet
@@ -147,7 +147,7 @@ const TrainingPage = ({ path, trainings, data, error }) => {
         <Segment>
           <FullCurriculumsReact
             trainings={trainings}
-            pageData={data && data.sanityTrainingPage}
+            pageData={data.sanityTrainingPage}
           />
         </Segment>
       </TopSection>
