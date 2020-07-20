@@ -25,6 +25,7 @@ export const theme = {
     '14rem', // 15
     '16rem', // 16
   ],
+  breakpoints: ['40em', '52em', '64em'],
   fonts: {
     body: `'Barlow', sans-serif`,
     heading: 'inherit',
@@ -81,29 +82,34 @@ export const theme = {
     },
     h1: {
       ...heading,
-      fontSize: 5,
+      fontSize: 6,
       fontWeight: 'bold',
     },
     h2: {
       ...heading,
       fontWeight: 'bold',
-      fontSize: 4,
+      fontSize: 5,
+      mb: 8,
     },
     h3: {
       ...heading,
-      fontSize: 3,
+      fontSize: 4,
+      mb: 7,
     },
     h4: {
       ...heading,
-      fontSize: 2,
+      fontSize: 3,
+      mb: 6,
     },
     h5: {
       ...heading,
-      fontSize: 1,
+      fontSize: 3,
+      mb: 5,
     },
     h6: {
       ...heading,
-      fontSize: 0,
+      fontSize: 2,
+      mb: 4,
     },
     p: {
       color: 'text',

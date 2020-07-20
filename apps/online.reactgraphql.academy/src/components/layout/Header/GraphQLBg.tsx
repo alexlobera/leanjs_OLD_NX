@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderBgImage, BackgroundImageProps } from '.';
+import HeaderBgImage, { BackgroundImageProps } from './HeaderBgImage';
 import { GRAPHQL_LOGO } from '../../../config/data';
 
 const GraphQLBg = (props: BackgroundImageProps) => (

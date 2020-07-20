@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderBgImage, BackgroundImageProps } from '.';
+import HeaderBgImage, { BackgroundImageProps } from './HeaderBgImage';
 import { REACT_LOGO } from '../../../config/data';
 
 const ReactBg = (props: BackgroundImageProps) => (

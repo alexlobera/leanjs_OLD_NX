@@ -4,12 +4,23 @@ import { Helmet } from 'react-helmet';
 import { createMetas } from '@leanjs/ui-page';
 
 import Layout from '../components/layout/Layout';
+import Section from '../components/layout/Section';
 import PageCard from '../components/layout/PageCard';
 import Link from '../components/navigation/Link';
 import Header from '../components/layout/Header';
 import { P, H2, H3, H4 } from '../components/display';
 import ReactHeaderBg from '../components/layout/Header/ReactBg';
-import { Container, Grid, Box } from '../components/layout';
+import {
+  Container,
+  Grid,
+  Box,
+  Tabs,
+  TabList,
+  TabItem,
+  TabPanel,
+  Ul,
+  Li,
+} from '../components/layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 
 const metas = {
@@ -24,6 +35,7 @@ function CoursePage({ data, location }) {
   const training = data.upmentoring.trainingById;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
+  console.log('adata', data);
 
   return (
     <Layout
@@ -49,6 +61,7 @@ function CoursePage({ data, location }) {
       <ReactHeaderBg bottom="-300px">
         <Header
           title={title}
+          subtitle="Learn React online at your own pace with our proven teaching method and curriculum"
           height="100vh"
           bgColors={['rgba(196, 196, 196, 0.6)']}
           bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
@@ -69,59 +82,94 @@ function CoursePage({ data, location }) {
           }
         />
       </ReactHeaderBg>
-      <Container sx={{ marginTop: '-50px' }}>
-        <PageCard>
-          <H2>
-            <a id="course-modules" />
-            {title} Modules
-          </H2>
-
-          {units.reduce((acc, unit) => {
-            if (unit.published) {
-              const unitPath = unit.published.slug;
-              const lessonsCount =
-                (unit.published.videos && unit.published.videos.length) || 0;
-              acc.push(
-                <Grid columns={10}>
-                  <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-                    <VideoPlayer
-                      url={'https://demo-vod.streamroot.io/index.m3u8'}
-                    />
-                  </Box>
-                  <Box sx={{ gridColumn: ['4/ -1'] }}>
-                    <H3>
-                      <Link to={unitPath}>{unit.published.title}</Link>
-                    </H3>
-                    <P>
-                      {lessonsCount} lessons{' '}
-                      {lessonsCount > 0 ? (
-                        <>
-                          {' - '}
-                          <Link
-                            to={`${location.pathname}/${unit.published.videos[0].slug}`}
-                          >
-                            watch
-                          </Link>
-                        </>
-                      ) : null}
-                    </P>
-                  </Box>
-                </Grid>
-              );
-
-              return acc;
-            }
-          }, [])}
-        </PageCard>
-        <Grid columns={12}>
-          <Box sx={{ gridColumn: ['1/ 12', '2  / -2'] }}>
+      <Section top>
+        <Container>
+          <PageCard>
             <H2>
-              <a id="course-faqs" />
-              FAQs
+              <a id="course-modules" />
+              {title} Modules
             </H2>
-          </Box>
-        </Grid>
-      </Container>
+
+            {units.reduce((acc, unit, index) => {
+              if (unit.published) {
+                const unitPath = unit.published.slug;
+                const lessonsCount =
+                  (unit.published.videos && unit.published.videos.length) || 0;
+
+                acc.push(
+                  <Grid columns={10}>
+                    <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+                      <VideoPlayer
+                        url={'https://demo-vod.streamroot.io/index.m3u8'}
+                      />
+                    </Box>
+                    <Box
+                      sx={{
+                        gridColumn: ['4/ -1'],
+                        mb: index < units.length - 1 ? 8 : 0,
+                      }}
+                    >
+                      <H3>
+                        <Link to={unitPath}>{unit.published.title}</Link>
+                      </H3>
+                      <P>
+                        {lessonsCount} lessons{' '}
+                        {lessonsCount > 0 ? (
+                          <>
+                            {' - '}
+                            <Link
+                              to={`${location.pathname}/${unit.published.videos[0].slug}`}
+                            >
+                              watch
+                            </Link>
+                          </>
+                        ) : null}
+                      </P>
+                      <P>
+                        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
+                        ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+                        Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem
+                        ipsum Lorem ipsum
+                      </P>
+                      <P>
+                        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
+                        ipsum Lorem ipsum Lorem ipsum Lorem
+                      </P>
+                      <Tabs defaultValue="learning">
+                        <TabList>
+                          <TabItem name="learning">Learning objectives</TabItem>
+                          <TabItem name="curriculum">Curriculum</TabItem>
+                        </TabList>
+                        <TabPanel name="learning">
+                          <Ul>
+                            {unit.published.objectives.map((objective) => (
+                              <Li>{objective}</Li>
+                            ))}
+                          </Ul>
+                        </TabPanel>
+                        <TabPanel name="curriculum">curriculum</TabPanel>
+                      </Tabs>
+                    </Box>
+                  </Grid>
+                );
+                return acc;
+              }
+            }, [])}
+          </PageCard>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <Grid columns={12}>
+            <Box sx={{ gridColumn: ['1/ 12', '2  / -2'] }}>
+              <H2>
+                <a id="course-faqs" />
+                FAQs
+              </H2>
+            </Box>
+          </Grid>
+        </Container>
+      </Section>
     </Layout>
   );
 }
@@ -134,6 +182,8 @@ export const query = graphql`
         units {
           published {
             title
+            objectives
+            syllabus
             videos {
               title
               slug

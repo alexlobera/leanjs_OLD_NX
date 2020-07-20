@@ -73,6 +73,7 @@ function Li<T extends As = 'li'>(props: LeanProps<T>) {
       as="li"
       {...props}
       sx={{
+        py: 1,
         ...getVariantProps(variant || variants, liVariantSxProp),
         ...props.sx,
       }}

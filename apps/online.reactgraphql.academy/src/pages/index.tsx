@@ -65,7 +65,7 @@ function Page({ data }: PageProps) {
           />
         </GraphQLHeaderBg>
       </ReactHeaderBg>
-      <Section sx={{ marginTop: '-50px' }}>
+      <Section top>
         <Container>
           <Grid columns={{ minWidth: '300px' }}>
             {data &&

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-import { Container, Box, BoxProps, Ul, Li, Grid } from '..';
+import { Container, Box, Ul, Li, Grid } from '..';
 import { H1 } from '../../display';
 import Link from '../../navigation/Link';
 
@@ -12,7 +12,7 @@ const WHITE = '#fff';
 export const TECH_REACT = 'react';
 export const TECH_GRAPHQL = 'graphql';
 
-interface BackgroundProps {
+interface SectionProps {
   height?: string;
   bgColor?: string;
   bgColors?: string[];
@@ -20,7 +20,7 @@ interface BackgroundProps {
   bgImageOpacity?: number;
 }
 
-const Section = styled<FunctionComponent<BackgroundProps>>(Box)`
+const Section = styled<FunctionComponent<SectionProps>>(Box)`
   position: relative;
   display:block;
   ${({ bgColors, bgColor }: any) => {
@@ -86,38 +86,6 @@ const Section = styled<FunctionComponent<BackgroundProps>>(Box)`
     padding-top: 160px;
     padding-bottom: 100px;
   }
-`;
-
-export interface BackgroundImageProps {
-  src?: string;
-  top?: string;
-  bottom?: string;
-  left?: string;
-  // right?: string; TODO use viewBox of the SVG for this
-  opacity?: number;
-  children?: JSX.Element;
-}
-
-export const HeaderBgImage = styled('div')<BackgroundImageProps>`
-  ${({ src, top, bottom, left = null, opacity = 0.6 }: any) =>
-    src &&
-    `
-  &:after {
-    content: '';
-    position: absolute;
-    ${top ? `top:${top};` : ''}
-    ${bottom ? `bottom:${bottom};` : ''}
-    ${left ? `left:${left};` : ''}
-    z-index: ${Z_INDEX_BG};
-    background-image: ${src};
-    opacity:${opacity};
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-    width: 100%;
-    height: 130%;
-  }
-`};
 `;
 
 const textBackgroundProps = {
@@ -194,7 +162,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 </Box>
               </>
             )}
-
+            <br />
             {links && links.map && (
               <Box
                 as="nav"
@@ -225,7 +193,7 @@ const Header: FunctionComponent<HeaderProps> = ({
           {info && (
             <Box
               sx={{
-                gridColumn: ['1 / -1', '7 / -2'],
+                gridColumn: ['1 / -1', '8 / -1'],
               }}
             >
               {info}

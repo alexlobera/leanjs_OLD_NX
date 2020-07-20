@@ -7,7 +7,15 @@ interface Link {
 }
 
 function Link<T extends As = 'a'>(props: LeanProps<T, Link>) {
-  return <LeanLink as={GatsbyLink} {...props} />;
+  const { sx = {} } = props;
+  return (
+    <LeanLink
+      as={GatsbyLink}
+      to={props.to}
+      children={props.children}
+      sx={{ ...sx, mt: 0 }}
+    />
+  );
 }
 
 export default Link;

@@ -18,4 +18,8 @@ export {
   H6,
   P,
   Card,
+  Tabs,
+  TabList,
+  TabItem,
+  TabPanel,
 } from '@leanjs/ui-core';

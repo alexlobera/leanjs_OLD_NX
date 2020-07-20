@@ -22,7 +22,14 @@ const Layout: FunctionComponent<LayoutProps> = ({
     <Navbar
       sx={{ p: 4 }}
       menu={
-        <Ul variant="inline" sx={{ ml: 'auto' }}>
+        <Ul
+          variant="inline"
+          sx={{
+            ml: 'auto',
+            display: 'flex',
+            li: { alignItems: 'center', display: 'flex' },
+          }}
+        >
           <Li>
             <Link to="/login">Login</Link>
           </Li>
