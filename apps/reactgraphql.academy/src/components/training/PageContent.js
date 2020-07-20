@@ -6,7 +6,7 @@ import { Col, Row } from '../layout/Grid';
 import Link from '../navigation/Link';
 import Box from '../layout/Box';
 import Section from '../layout/Section';
-import { H2, H3 } from '../text';
+import { H2, H3, P } from '../text';
 import { internalLinkTo } from '../utils/sanitySerializers';
 
 export function getMetaData({ defaultMetas, metaData }) {
@@ -52,13 +52,16 @@ const Answer = ({
   serializers = defaultSerializers,
 }) => {
   const [isDisplayed, setIsDisplayed] = React.useState(display);
+
   return (
     <React.Fragment>
       <H3>{faq.question}</H3>
       <Box sx={{ mb: 3 }}>
-        {isDisplayed && (
+        {isDisplayed && faq._rawAnswer ? (
           <BlockContent blocks={faq._rawAnswer} serializers={serializers} />
-        )}
+        ) : isDisplayed && faq.extendAnswer ? (
+          <P>{faq.extendAnswer}</P>
+        ) : null}
         {showToggle && (
           <Link onClick={() => setIsDisplayed((state) => !state)}>
             {isDisplayed ? 'Hide answer' : 'Show answer'}
@@ -87,6 +90,7 @@ export const FAQSection = React.memo(({ pageData }) => {
           </H2>
           {featuredFaqs.map(({ extendAnswer, faq }) => {
             let extendedFaq;
+
             if (
               extendAnswer &&
               faq._rawAnswer &&
@@ -107,9 +111,16 @@ export const FAQSection = React.memo(({ pageData }) => {
                   ],
                 })),
               };
-            }
 
-            return <Answer faq={extendedFaq} />;
+              return <Answer faq={extendedFaq} />;
+            } else if (extendAnswer && !faq._rawAnswer) {
+              extendedFaq = {
+                ...faq,
+                extendAnswer,
+              };
+
+              return <Answer faq={extendedFaq} />;
+            }
           })}
           {nofeaturedFaqs.map(({ faq }) => {
             return <Answer faq={faq} showToggle={true} display={false} />;

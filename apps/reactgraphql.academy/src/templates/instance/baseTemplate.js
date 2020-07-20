@@ -27,7 +27,6 @@ import TrialCard from 'src/components/training/TrialCard'; // DeductPriceOnPurch
 import TrialOfCard from 'src/components/training/TrialOfCard';
 import PaymentSection from 'src/components/payment/PaymentSection';
 import { Link } from 'src/components/navigation';
-import Box from 'src/components/layout/Box';
 import BlogSection from 'src/components/blog/BlogSection';
 import { TECH_GRAPHQL } from '../../config/data';
 import { createMetas, getRandom } from 'src/components/utils';
@@ -337,15 +336,7 @@ const InstancePage = ({
           </Col>
           <Col md={4} mdOffset={1} sx={{ pt: 3 }}>
             <StickyBox offsetBottom={15} offsetTop={120}>
-              {feedback ? (
-                feedback
-              ) : (
-                //   <ContactForm
-                //     variant={training ? 'default' : 'primary'}
-                //     simplified
-                //   />
-                <Feedback />
-              )}
+              {feedback ? feedback : <Feedback />}
             </StickyBox>
           </Col>
           {training && (trialTraingInstance || trialOfTraingInstance) && (
