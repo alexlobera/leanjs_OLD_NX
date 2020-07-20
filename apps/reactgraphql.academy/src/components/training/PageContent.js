@@ -6,7 +6,7 @@ import { Col, Row } from '../layout/Grid';
 import Link from '../navigation/Link';
 import Box from '../layout/Box';
 import Section from '../layout/Section';
-import { H2, H3 } from '../text';
+import { H2, H3, P } from '../text';
 import { internalLinkTo } from '../utils/sanitySerializers';
 
 export function getMetaData({ defaultMetas, metaData }) {
@@ -40,10 +40,10 @@ export const Overview = ({
   sx = {},
   serializers = defaultSerializers,
 }) => (
-  <Box sx={{ pb: 5, ...sx }}>
-    <BlockContent blocks={_rawOverview} serializers={serializers} />
-  </Box>
-);
+    <Box sx={{ pb: 5, ...sx }}>
+      <BlockContent blocks={_rawOverview} serializers={serializers} />
+    </Box>
+  );
 
 const Answer = ({
   faq,
@@ -57,9 +57,9 @@ const Answer = ({
     <React.Fragment>
       <H3>{faq.question}</H3>
       <Box sx={{ mb: 3 }}>
-        {isDisplayed && (
+        {isDisplayed && faq._rawAnswer ? (
           <BlockContent blocks={faq._rawAnswer} serializers={serializers} />
-        )}
+        ) : isDisplayed && faq.extendAnswer ? (<P>{faq.extendAnswer}</P>) : null}
         {showToggle && (
           <Link onClick={() => setIsDisplayed((state) => !state)}>
             {isDisplayed ? 'Hide answer' : 'Show answer'}
@@ -88,7 +88,7 @@ export const FAQSection = React.memo(({ pageData }) => {
           </H2>
           {featuredFaqs.map(({ extendAnswer, faq }) => {
             let extendedFaq;
-            console.log('aaaa', faq);
+
             if (
               extendAnswer &&
               faq._rawAnswer &&
@@ -111,22 +111,12 @@ export const FAQSection = React.memo(({ pageData }) => {
               };
 
               return <Answer faq={extendedFaq} />;
-            } else if (extendAnswer) {
+            } else if (extendAnswer && !faq._rawAnswer) {
               extendedFaq = {
                 ...faq,
-                _rawAnswer: [
-                  {
-                    children: [
-                      {
-                        _key: Math.random(),
-                        _type: 'span',
-                        text: ` ${extendAnswer}`,
-                      },
-                    ],
-                  },
-                ],
+                extendAnswer
               };
-              console.log('aaa', extendedFaq);
+
               return <Answer faq={extendedFaq} />;
             }
           })}
