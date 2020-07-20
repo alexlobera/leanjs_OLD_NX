@@ -45,6 +45,7 @@ const trainingInstanceTypeName = FULL_TIME;
 const trainingId = REACT_BOOTCAMP_ID;
 
 const Bootcamps = ({ path, trainings, data }) => {
+  console.log('aaa', path);
   const upcomingBootCampTrainings = selectUpcomingTrainings({
     trainingId,
     trainingInstanceTypeName,

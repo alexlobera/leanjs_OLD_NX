@@ -52,6 +52,7 @@ const Answer = ({
   serializers = defaultSerializers,
 }) => {
   const [isDisplayed, setIsDisplayed] = React.useState(display);
+
   return (
     <React.Fragment>
       <H3>{faq.question}</H3>
@@ -87,6 +88,7 @@ export const FAQSection = React.memo(({ pageData }) => {
           </H2>
           {featuredFaqs.map(({ extendAnswer, faq }) => {
             let extendedFaq;
+            console.log('aaaa', faq);
             if (
               extendAnswer &&
               faq._rawAnswer &&
@@ -107,9 +109,26 @@ export const FAQSection = React.memo(({ pageData }) => {
                   ],
                 })),
               };
-            }
 
-            return <Answer faq={extendedFaq} />;
+              return <Answer faq={extendedFaq} />;
+            } else if (extendAnswer) {
+              extendedFaq = {
+                ...faq,
+                _rawAnswer: [
+                  {
+                    children: [
+                      {
+                        _key: Math.random(),
+                        _type: 'span',
+                        text: ` ${extendAnswer}`,
+                      },
+                    ],
+                  },
+                ],
+              };
+              console.log('aaa', extendedFaq);
+              return <Answer faq={extendedFaq} />;
+            }
           })}
           {nofeaturedFaqs.map(({ faq }) => {
             return <Answer faq={faq} showToggle={true} display={false} />;
