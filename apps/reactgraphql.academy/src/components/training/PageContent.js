@@ -40,10 +40,10 @@ export const Overview = ({
   sx = {},
   serializers = defaultSerializers,
 }) => (
-    <Box sx={{ pb: 5, ...sx }}>
-      <BlockContent blocks={_rawOverview} serializers={serializers} />
-    </Box>
-  );
+  <Box sx={{ pb: 5, ...sx }}>
+    <BlockContent blocks={_rawOverview} serializers={serializers} />
+  </Box>
+);
 
 const Answer = ({
   faq,
@@ -59,7 +59,9 @@ const Answer = ({
       <Box sx={{ mb: 3 }}>
         {isDisplayed && faq._rawAnswer ? (
           <BlockContent blocks={faq._rawAnswer} serializers={serializers} />
-        ) : isDisplayed && faq.extendAnswer ? (<P>{faq.extendAnswer}</P>) : null}
+        ) : isDisplayed && faq.extendAnswer ? (
+          <P>{faq.extendAnswer}</P>
+        ) : null}
         {showToggle && (
           <Link onClick={() => setIsDisplayed((state) => !state)}>
             {isDisplayed ? 'Hide answer' : 'Show answer'}
@@ -114,7 +116,7 @@ export const FAQSection = React.memo(({ pageData }) => {
             } else if (extendAnswer && !faq._rawAnswer) {
               extendedFaq = {
                 ...faq,
-                extendAnswer
+                extendAnswer,
               };
 
               return <Answer faq={extendedFaq} />;
