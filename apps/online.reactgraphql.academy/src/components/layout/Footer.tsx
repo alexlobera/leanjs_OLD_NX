@@ -1,19 +1,177 @@
 import React from 'react';
-import { Flex, Container, Box } from '.';
+import { ThemeProvider } from '@leanjs/ui-core';
+
+import { DARK_GREY } from '../../config/theme';
+import { Grid, Container, Box, Ul, Li } from '.';
+import { H3, P, Spinner } from '../display';
 import Link from '../navigation/Link';
+import {
+  Form,
+  Field,
+  Input,
+  composeValidators,
+  mustBeEmail,
+  required,
+} from '../form';
+import { Button } from '../buttons';
+import RGALogo from '../logos/RGALogo';
 
 const Footer = () => (
-  <footer>
-    <Container>
-      <Flex sx={{ py: 3 }}>
-        <Link to="/privacy-policy">Privacy policy</Link>
-        <Box sx={{ ml: 'auto' }}>
-          Online React GraphQL Academy is part of © LeanJS{' '}
-          {new Date().getFullYear()}
-        </Box>
-      </Flex>
-    </Container>
-  </footer>
+  <ThemeProvider
+    theme={{
+      colors: {
+        text: '#fff',
+      },
+      forms: {
+        input: {
+          color: DARK_GREY,
+        },
+        error: {
+          color: DARK_GREY,
+        },
+      },
+    }}
+  >
+    <Box
+      sx={{
+        bg: ['rgba(0,41,56, 1)', 'transparent'],
+        mt: 7,
+      }}
+      as="footer"
+    >
+      <Container sx={{ pt: 9, pb: 7, bg: 'rgba(0,41,56, 1)' }}>
+        <Grid columns={12}>
+          <Box sx={{ gridColumn: '2/ -2' }}>
+            <Grid columns={10}>
+              <Box sx={{ gridColumn: '1 / 5' }}>
+                <H3>Free learning resources</H3>
+                <Form onSubmit={() => {}}>
+                  {({ formSubmitted, submitting }) =>
+                    formSubmitted ? null : (
+                      <>
+                        <Field
+                          component={Input}
+                          validate={composeValidators(mustBeEmail, required)}
+                          label="Your email address:"
+                          name="email"
+                          placeholder="eg. steve@jobs.com"
+                        />
+                        <Button
+                          variant="primary"
+                          type="submit"
+                          disabled={submitting}
+                          className="newsletter-submit-button"
+                        >
+                          {submitting ? <Spinner /> : 'Submit email'}
+                        </Button>
+                      </>
+                    )
+                  }
+                </Form>
+                <P sx={{ pt: 3 }}>
+                  We won't spam you as per our{' '}
+                  <Link className="footer-privacy-policy" to="/privacy-policy">
+                    Privacy Policy
+                  </Link>
+                  .
+                </P>
+                <P>
+                  Looking to{' '}
+                  <Link to="/unsubscribe/" className="footer-unsubscribe">
+                    unsubscribe
+                  </Link>
+                </P>
+              </Box>
+              <Box sx={{ gridColumn: '6 / -1' }}>
+                <H3>Contact us</H3>
+                <P>
+                  {' '}
+                  The best way to contact us is by emailing us at{' '}
+                  <Link
+                    to="mailto:hello@reactgraphql.academy?subject=Course%20Query&body=Hi%20RGA%20team!"
+                    className="footer-contact-us-mailto"
+                  >
+                    hello@reactgraphql.academy
+                  </Link>
+                  .
+                </P>
+                <P>
+                  Otherwise, you can contact us socially on{' '}
+                  <Link
+                    to="https://twitter.com/reactgqlacademy"
+                    className="footer-contact-us-links"
+                  >
+                    Twitter
+                  </Link>
+                  ,{' '}
+                  <Link
+                    to="https://www.instagram.com/reactgraphqlacademy/"
+                    className="footer-contact-us-links"
+                  >
+                    Instagram
+                  </Link>{' '}
+                  and{' '}
+                  <Link
+                    to="https://www.facebook.com/reactgraphqlacademy/"
+                    className="footer-contact-us-links"
+                  >
+                    Facebook
+                  </Link>
+                </P>
+                <H3>Connect with us</H3>
+                <Ul variants={['unstyled', 'inline']} sx={{ mt: 1, mb: 2 }}>
+                  {[
+                    {
+                      to: 'https://twitter.com/reactgqlacademy',
+                      title: 'React GraphQL Academy Twitter',
+                      // icon: TwitterIcon,
+                    },
+                    {
+                      to: 'https://www.instagram.com/reactgraphqlacademy/',
+                      title: 'React GraphQL Academy Instagram',
+                      // icon: InstagramIcon,
+                    },
+                    {
+                      to: 'https://www.facebook.com/reactgraphqlacademy/',
+                      title: 'React GraphQL Academy Facebook',
+                      // icon: FacebookIcon,
+                    },
+                    {
+                      to: 'https://www.linkedin.com/company/17933576/',
+                      title: 'React GraphQL Academy LinkedIn',
+                      // icon: LinkedinIcon,
+                    },
+                    {
+                      to: 'https://www.github.com/reactgraphqlacademy/',
+                      title: 'React GraphQL Academy GitHub',
+                      // icon: GitHubIcon,
+                    },
+                  ].map(({ to, title }) => (
+                    <Li key={to}>
+                      <Link title={title} to={to} className="footer-follow-us">
+                        {/*
+                        <BulletIcon social icon={icon} /> */}
+                        {title}
+                      </Link>
+                    </Li>
+                  ))}
+                </Ul>
+                <P>
+                  Copyright &copy; {`2017 - ${new Date().getFullYear()}`}, React
+                  GraphQL Academy Online is a{' '}
+                  <Link className="footer-leanjs" to="https://leanjs.com">
+                    LeanJS
+                  </Link>{' '}
+                  product
+                </P>
+                <RGALogo className="footer-rga-logo" />
+              </Box>
+            </Grid>
+          </Box>
+        </Grid>
+      </Container>
+    </Box>
+  </ThemeProvider>
 );
 
 export default Footer;

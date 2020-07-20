@@ -11,4 +11,5 @@ export {
   SVG,
   Image,
   Span,
+  Spinner,
 } from '@leanjs/ui-core';

@@ -48,8 +48,8 @@ export const StyledA = styled(Box)`
 `;
 
 const selectTabItemColorFn = ({ isSelected, tech }) =>
-  isSelected ? 'lightText' : undefined;
-// isSelected && tech === TECH_GRAPHQL ? 'lightText' : undefined;
+  isSelected ? 'inverseText' : undefined;
+// isSelected && tech === TECH_GRAPHQL ? 'inverseText' : undefined;
 
 // TODO add aria-controls and tabindex -> https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
 export const TabItem = React.memo(

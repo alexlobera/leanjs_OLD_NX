@@ -10,8 +10,8 @@ interface ButtonProps {
 }
 
 export const buttonDefaultSxProp = {
-  py: 1,
-  px: 4,
+  py: 3,
+  px: 6,
   justifyContent: 'center',
   alignItems: 'center',
   cursor: 'pointer',
@@ -24,25 +24,25 @@ export const buttonDefaultSxProp = {
 };
 
 // TODO add styles for disabled prop true
-export const buttonVariantProps = {
-  primary: {
-    color: 'lightText',
-    bg: 'primary',
-    fontWeight: 'bold',
-  },
-  secondary: {
-    color: 'lightText',
-    backgroundColor: 'secondary',
-  },
-  default: {
-    color: 'text',
-    bg: 'background',
-    boxShadow: 'thin',
-    border: '1px solid',
-    textShadow: 'bold',
-    borderColor: 'secondary',
-  },
-};
+// export const buttonVariantProps = {
+//   primary: {
+//     color: 'inverseText',
+//     bg: 'primary',
+//     fontWeight: 'bold',
+//   },
+//   secondary: {
+//     color: 'inverseText',
+//     backgroundColor: 'secondary',
+//   },
+//   default: {
+//     color: 'text',
+//     bg: 'background',
+//     boxShadow: 'thin',
+//     border: '1px solid',
+//     textShadow: 'bold',
+//     borderColor: 'secondary',
+//   },
+// };
 
 export const Button = function <T extends As = 'button'>(
   props: LeanProps<T, ButtonProps>
@@ -53,20 +53,24 @@ export const Button = function <T extends As = 'button'>(
     onClick,
     variant = 'default',
     sx = {},
-    as = 'button',
+    as,
+    type = 'button',
     ref,
     ...rest
   } = props;
   return (
     <Box
-      type="button"
-      as={as}
+      type={as ? undefined : type}
+      role={as ? 'button' : undefined}
+      as={as || 'button'}
       {...props}
-      sx={{
+      __sx={{
         ...buttonDefaultSxProp,
-        ...(buttonVariantProps[variant] || {}),
-        ...sx,
+        // ...(buttonVariantProps[variant] || {}),
+        // ...sx,
       }}
+      __themeKey="buttons"
+      variant={variant}
       onClick={rest.disabled ? undefined : onClick}
       children={loadingElement ? loadingElement : children}
     />

@@ -137,9 +137,8 @@ const Header: FunctionComponent<HeaderProps> = ({
             <H1
               sx={{
                 ...textBackgroundProps,
-                fontSize: 6,
                 fontWeight: 'bold',
-                lineHeight: 1.6,
+                lineHeight: 1.57,
                 px: 3,
                 py: 2,
               }}

@@ -4,9 +4,12 @@ import styled, { ThemeProps } from 'styled-components';
 import {
   css,
   Theme,
+  get,
   // ThemeUIExtendedCSSProperties as SxProp,
 } from '@theme-ui/css';
 export type SxProp = any;
+
+export { get };
 
 type WithAs<P, T extends As> = P &
   Omit<PropsOf<T>, 'as'> & {
@@ -25,6 +28,7 @@ export type BoxProps<T extends As = 'div'> = {
     | React.MutableRefObject<unknown>
     | React.Ref<unknown>;
   __themeKey?: string;
+  __sx?: SxProp;
 };
 
 export type LeanComponent<P = {}, TT extends As = 'div'> = <T extends As = TT>(
@@ -42,7 +46,10 @@ const StyledBox: LeanComponent<
   {},
   'div'
 > = styled(
-  ({ sx, box: Comp = 'div', variant, variants, __themeKey, ...rest }, ref) => (
+  (
+    { sx, box: Comp = 'div', variant, variants, __themeKey, __sx, ...rest },
+    ref
+  ) => (
     <Comp
       {...rest}
       ref={
@@ -54,19 +61,23 @@ const StyledBox: LeanComponent<
   ({
     sx = {},
     __themeKey = 'variants',
+    __sx = {},
     theme,
     variant,
-  }: ThemeProps<Theme> & BoxProps) =>
-    css({
+  }: ThemeProps<Theme> & BoxProps) => {
+    return css({
       fontFamily: 'body',
       fontWeight: 'normal',
       color: 'text',
       boxSizing: 'border-box',
       minWidth: 0,
       theme,
-      ...(variant && theme[__themeKey] ? theme[__themeKey][variant] || {} : {}),
+      ...__sx,
+      //...(variant && theme[__themeKey] ? theme[__themeKey][variant] || {} : {}),
+      ...(variant ? get(theme, `${__themeKey}.${variant}`) : {}),
       ...sx,
-    })
+    });
+  }
 );
 
 export function Box<T extends As = 'div'>(props: LeanProps<T>) {
