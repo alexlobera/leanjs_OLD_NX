@@ -3,12 +3,12 @@ import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { createMetas } from '@leanjs/ui-page';
 
+import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
-import Section from '../components/layout/Section';
 import PageCard from '../components/layout/PageCard';
 import Link from '../components/navigation/Link';
 import Header from '../components/layout/Header';
-import { P, H2, H3, H4 } from '../components/display';
+import { P, H2, H3 } from '../components/display';
 import ReactHeaderBg from '../components/layout/Header/ReactBg';
 import {
   Container,
@@ -20,6 +20,7 @@ import {
   TabPanel,
   Ul,
   Li,
+  Section,
 } from '../components/layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 
@@ -31,11 +32,10 @@ const metas = {
   type: 'website',
 };
 
-function CoursePage({ data, location }) {
+function CoursePage({ data, location, path }) {
   const training = data.upmentoring.trainingById;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
-  console.log('adata', data);
 
   return (
     <Layout
@@ -82,7 +82,7 @@ function CoursePage({ data, location }) {
           }
         />
       </ReactHeaderBg>
-      <Section top>
+      <Section variant="top">
         <Container>
           <PageCard>
             <H2>
@@ -158,24 +158,16 @@ function CoursePage({ data, location }) {
           </PageCard>
         </Container>
       </Section>
-      <Section>
-        <Container>
-          <Grid columns={12}>
-            <Box sx={{ gridColumn: ['1/ 12', '2  / -2'] }}>
-              <H2>
-                <a id="course-faqs" />
-                FAQs
-              </H2>
-            </Box>
-          </Grid>
-        </Container>
-      </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
     </Layout>
   );
 }
 
 export const query = graphql`
-  query getTraining($trainingId: ID!) {
+  query getTraining($trainingId: ID!, $path: String!) {
+    sanityTrainingPage(path: { eq: $path }) {
+      ...sanityTrainingPageFragment
+    }
     upmentoring {
       trainingById(id: $trainingId) {
         title

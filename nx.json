@@ -66,6 +66,9 @@
     },
     "ui-page": {
       "tags": []
+    },
+    "ui-gatsby-sanity": {
+      "tags": []
     }
   }
 }

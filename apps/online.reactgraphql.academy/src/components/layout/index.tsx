@@ -22,4 +22,5 @@ export {
   TabList,
   TabItem,
   TabPanel,
+  Section,
 } from '@leanjs/ui-core';

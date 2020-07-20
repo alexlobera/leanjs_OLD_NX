@@ -160,6 +160,12 @@ export const theme = {
       maxWidth: '100%',
     },
   },
+  sections: {
+    top: {
+      pt: 0,
+      mt: '-50px',
+    },
+  },
 };
 
 export default theme;

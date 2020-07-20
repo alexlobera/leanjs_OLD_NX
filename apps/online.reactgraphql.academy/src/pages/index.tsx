@@ -3,8 +3,7 @@ import { graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 
 import Layout from '../components/layout/Layout';
-import Section from '../components/layout/Section';
-import { Container, Grid, Box, Card } from '../components/layout';
+import { Container, Grid, Box, Card, Section } from '../components/layout';
 import Header from '../components/layout/Header';
 import ReactHeaderBg from '../components/layout/Header/ReactBg';
 import GraphQLHeaderBg from '../components/layout/Header/GraphQLBg';
@@ -65,7 +64,7 @@ function Page({ data }: PageProps) {
           />
         </GraphQLHeaderBg>
       </ReactHeaderBg>
-      <Section top>
+      <Section variant="top">
         <Container>
           <Grid columns={{ minWidth: '300px' }}>
             {data &&

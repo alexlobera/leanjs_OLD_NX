@@ -14,4 +14,5 @@ export * from './Link';
 export * from './Image';
 export * from './Card';
 export * from './Tabs';
+export * from './Section';
 export * from './ThemeProvider';
