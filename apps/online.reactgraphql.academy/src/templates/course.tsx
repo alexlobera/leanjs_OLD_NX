@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { createMetas } from '@leanjs/ui-page';
+import { PaymentSection } from '@leanjs/ui-academy';
 
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
@@ -157,6 +158,9 @@ function CoursePage({ data, location, path }) {
             }, [])}
           </Sheet>
         </Container>
+      </Section>
+      <Section>
+        <PaymentSection />
       </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
     </Layout>

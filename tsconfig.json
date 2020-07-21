@@ -23,7 +23,8 @@
       "@leanjs/ui-page": ["packages/ui-page/src/index.ts"],
       "@leanjs/ui-gatsby-sanity": ["packages/ui-gatsby-sanity/src/index.ts"],
       "@leanjs/ui-icons": ["packages/ui-icons/src/index.ts"],
-      "@leanjs/ui-link": ["packages/ui-link/src/index.ts"]
+      "@leanjs/ui-link": ["packages/ui-link/src/index.ts"],
+      "@leanjs/ui-academy": ["packages/ui-academy/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
