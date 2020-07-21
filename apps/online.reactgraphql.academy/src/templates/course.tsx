@@ -72,7 +72,7 @@ function CoursePage({ data, location, path }) {
             },
             {
               text: 'FAQs',
-              to: '#course-faqs',
+              to: '#faqs',
             },
           ]}
           info={

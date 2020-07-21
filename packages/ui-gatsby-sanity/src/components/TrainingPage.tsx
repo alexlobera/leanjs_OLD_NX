@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
+import { Link } from '@leanjs/ui-link';
 import BlockContent from '@sanity/block-content-to-react';
 import {
   Grid,
   Section,
-  Link as LeanLink,
   Box,
   H2,
   H3,
@@ -14,8 +13,6 @@ import {
 } from '@leanjs/ui-core';
 
 import { internalLinkTo } from '../utils/sanitySerializers';
-
-const Link = (props) => <LeanLink as={GatsbyLink} {...props} />;
 
 export function getMetaData({ defaultMetas, metaData }) {
   let metas = defaultMetas ? { ...defaultMetas } : {};
@@ -71,9 +68,9 @@ const Answer = ({
           <P>{faq.extendAnswer}</P>
         ) : null}
         {showToggle && (
-          <LeanLink onClick={() => setIsDisplayed((state) => !state)}>
+          <Link onClick={() => setIsDisplayed((state) => !state)}>
             {isDisplayed ? 'Hide answer' : 'Show answer'}
-          </LeanLink>
+          </Link>
         )}
       </Box>
     </React.Fragment>

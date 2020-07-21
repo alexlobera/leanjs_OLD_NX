@@ -76,14 +76,20 @@ const Footer = () => (
                 </Form>
                 <P sx={{ pt: 3 }}>
                   We won't spam you as per our{' '}
-                  <Link className="footer-privacy-policy" to="/privacy-policy">
+                  <Link
+                    className="footer-privacy-policy"
+                    to="https://reactgraphql.academy/privacy-policy/"
+                  >
                     Privacy Policy
                   </Link>
                   .
                 </P>
                 <P>
                   Looking to{' '}
-                  <Link to="/unsubscribe/" className="footer-unsubscribe">
+                  <Link
+                    to="https://reactgraphql.academy/unsubscribe/"
+                    className="footer-unsubscribe"
+                  >
                     unsubscribe
                   </Link>
                 </P>
@@ -125,7 +131,7 @@ const Footer = () => (
                   </Link>
                 </P>
                 <H3>Connect with us</H3>
-                <Ul variants={['unstyled', 'inline']} sx={{ mt: 1, mb: 2 }}>
+                <Ul variants={['unstyled', 'inline']} sx={{ mt: 0, mb: 2 }}>
                   {[
                     {
                       to: 'https://twitter.com/reactgqlacademy',

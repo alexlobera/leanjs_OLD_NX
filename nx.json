@@ -72,6 +72,9 @@
     },
     "ui-icons": {
       "tags": []
+    },
+    "ui-link": {
+      "tags": []
     }
   }
 }
