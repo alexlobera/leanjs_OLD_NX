@@ -73,8 +73,7 @@ const StyledBox: LeanComponent<
       minWidth: 0,
       theme,
       ...__sx,
-      //...(variant && theme[__themeKey] ? theme[__themeKey][variant] || {} : {}),
-      ...(variant ? get(theme, `${__themeKey}.${variant}`) : {}),
+      ...(get(theme, `${__themeKey}.${variant}`) || {}),
       ...sx,
     });
   }

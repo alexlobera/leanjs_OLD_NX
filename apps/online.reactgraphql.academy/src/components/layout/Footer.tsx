@@ -1,5 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from '@leanjs/ui-core';
+import {
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon,
+  GitHubIcon,
+  LinkedinIcon,
+} from '@leanjs/ui-icons';
 
 import { DARK_GREY } from '../../config/theme';
 import { Grid, Container, Box, Ul, Li } from '.';
@@ -14,7 +21,6 @@ import {
   required,
 } from '../form';
 import { Button } from '../buttons';
-import RGALogo from '../logos/RGALogo';
 
 const Footer = () => (
   <ThemeProvider
@@ -124,34 +130,32 @@ const Footer = () => (
                     {
                       to: 'https://twitter.com/reactgqlacademy',
                       title: 'React GraphQL Academy Twitter',
-                      // icon: TwitterIcon,
+                      icon: TwitterIcon,
                     },
                     {
                       to: 'https://www.instagram.com/reactgraphqlacademy/',
                       title: 'React GraphQL Academy Instagram',
-                      // icon: InstagramIcon,
+                      icon: InstagramIcon,
                     },
                     {
                       to: 'https://www.facebook.com/reactgraphqlacademy/',
                       title: 'React GraphQL Academy Facebook',
-                      // icon: FacebookIcon,
+                      icon: FacebookIcon,
                     },
                     {
                       to: 'https://www.linkedin.com/company/17933576/',
                       title: 'React GraphQL Academy LinkedIn',
-                      // icon: LinkedinIcon,
+                      icon: LinkedinIcon,
                     },
                     {
                       to: 'https://www.github.com/reactgraphqlacademy/',
                       title: 'React GraphQL Academy GitHub',
-                      // icon: GitHubIcon,
+                      icon: GitHubIcon,
                     },
-                  ].map(({ to, title }) => (
+                  ].map(({ to, title, icon: Icon }) => (
                     <Li key={to}>
                       <Link title={title} to={to} className="footer-follow-us">
-                        {/*
-                        <BulletIcon social icon={icon} /> */}
-                        {title}
+                        <Icon />
                       </Link>
                     </Li>
                   ))}
@@ -164,7 +168,6 @@ const Footer = () => (
                   </Link>{' '}
                   product
                 </P>
-                <RGALogo className="footer-rga-logo" />
               </Box>
             </Grid>
           </Box>

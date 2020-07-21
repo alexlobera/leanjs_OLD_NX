@@ -114,7 +114,7 @@ export function Input<T extends As>({
             <InputForm
               {...props}
               {...input}
-              sx={{ mt: 1, ...sx }}
+              sx={{ mt: 2, ...sx }}
               onChange={onChange}
               type={type}
               name={name}

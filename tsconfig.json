@@ -21,7 +21,8 @@
       "@leanjs/ui-twitter-embed": ["packages/ui-twitter-embed/src/index.ts"],
       "@leanjs/ui-hls": ["packages/ui-hls/src/index.ts"],
       "@leanjs/ui-page": ["packages/ui-page/src/index.ts"],
-      "@leanjs/ui-gatsby-sanity": ["packages/ui-gatsby-sanity/src/index.ts"]
+      "@leanjs/ui-gatsby-sanity": ["packages/ui-gatsby-sanity/src/index.ts"],
+      "@leanjs/ui-icons": ["packages/ui-icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

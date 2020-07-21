@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, LeanProps, As } from './Box';
 
 export function Label<T extends As = 'label'>(props: LeanProps<T>) {
-  return <Box as="label" {...props} />;
+  return <Box as="label" variant="label" {...props} __themeKey="forms" />;
 }
 
 export default Label;

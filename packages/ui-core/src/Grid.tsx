@@ -22,7 +22,7 @@ interface GridProps {
 }
 
 export const Grid = <T extends As>(props: LeanProps<T, GridProps>, ref) => {
-  const { columns = 3, gap = 3, sx = {} } = props;
+  const { columns = 3, gap = 3 } = props;
   const gridTemplateColumns =
     typeof columns === 'object'
       ? widthToColumns((columns as ColumnWidth).minWidth)
@@ -33,11 +33,12 @@ export const Grid = <T extends As>(props: LeanProps<T, GridProps>, ref) => {
       ref={ref}
       {...props}
       columns={null}
-      sx={{
+      gap={null}
+      __themeKey="grids"
+      __sx={{
         display: 'grid',
         gridGap: gap,
         gridTemplateColumns,
-        ...sx,
       }}
     />
   );

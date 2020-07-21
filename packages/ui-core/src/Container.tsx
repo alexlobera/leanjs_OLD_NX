@@ -5,19 +5,17 @@ export const Container = React.forwardRef(function <T extends As>(
   props: LeanProps<T>,
   ref
 ) {
-  const { sx = {}, variant } = props;
-
   return (
     <Box
       ref={ref}
+      variant="container"
       {...props}
-      sx={{
-        ...(variant ? { variant: `containers.${variant}` } : {}),
+      __sx={{
         width: '100%',
         maxWidth: 'container',
         mx: 'auto',
-        ...(sx || {}),
       }}
+      __themeKey="layout"
     />
   );
 });
