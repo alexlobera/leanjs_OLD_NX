@@ -5,7 +5,7 @@ import { createMetas } from '@leanjs/ui-page';
 
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
-import PageCard from '../components/layout/PageCard';
+import Sheet from '../components/layout/Sheet';
 import Link from '../components/navigation/Link';
 import Header from '../components/layout/Header';
 import { P, H2, H3 } from '../components/display';
@@ -84,7 +84,7 @@ function CoursePage({ data, location, path }) {
       </ReactHeaderBg>
       <Section variant="top">
         <Container>
-          <PageCard>
+          <Sheet>
             <H2>
               <a id="course-modules" />
               {title} Modules
@@ -98,14 +98,14 @@ function CoursePage({ data, location, path }) {
 
                 acc.push(
                   <Grid columns={10}>
-                    <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+                    <Box sx={{ gridColumn: ['2/ -2', '1/ 3'], mb: 5 }}>
                       <VideoPlayer
                         url={'https://demo-vod.streamroot.io/index.m3u8'}
                       />
                     </Box>
                     <Box
                       sx={{
-                        gridColumn: ['4/ -1'],
+                        gridColumn: ['1/ -1', '4/ -1'],
                         mb: index < units.length - 1 ? 8 : 0,
                       }}
                     >
@@ -155,7 +155,7 @@ function CoursePage({ data, location, path }) {
                 return acc;
               }
             }, [])}
-          </PageCard>
+          </Sheet>
         </Container>
       </Section>
       <FAQSection pageData={data.sanityTrainingPage} />

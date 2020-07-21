@@ -34,7 +34,7 @@ function Breadcrumb<T extends As = 'div'>({
       >
         {paths.map(({ path, text }, i) => {
           const sxLi = {
-            'a:visited,a:link,a:hover,a:active,&': {
+            'li,a:visited,a:link,a:hover,a:active,&': {
               color: 'inverseText',
               fontSize: 1,
             },

@@ -10,7 +10,7 @@ export function Link(props) {
     if (typeof window === 'undefined') return;
 
     const hash = location.hash.substr(1);
-    const key = props.name | props.id;
+    const key = props.name || props.id;
     console.log('aaaa', key, hash);
     if (hash && hash === key) {
       // adds smooth scrolling to anchor links
@@ -26,20 +26,15 @@ export function Link(props) {
     }
   });
 
-  const { to = '', children = '', ...rest } = props;
+  const { to = '', ...rest } = props;
   const toHref = to || rest.href || '';
 
   if (toHref && toHref.match(/^(https:\/\/*|http:\/\/*|mailto:*)/)) {
     const { target = '_blank' } = rest;
     rest.rel = target === '_blank' ? 'noopener' : undefined;
-    return (
-      <LeanLink target={target} href={toHref} {...rest}>
-        {children}
-      </LeanLink>
-    );
+    return <LeanLink target={target} href={toHref} {...rest} />;
   } else if (toHref && toHref[0] === '#') {
     const { onClick, ...restLinkScrollProps } = rest;
-
     return (
       <LeanLink
         onClick={(e) => {
@@ -48,10 +43,11 @@ export function Link(props) {
         to={toHref.substr(1)}
         href={toHref}
         as={LinkScroll}
+        duration={duration}
+        offset={offset}
+        smooth
         {...restLinkScrollProps}
-      >
-        {children}
-      </LeanLink>
+      />
     );
   } else if (!toHref) {
     return <LeanLink {...rest} />;
@@ -64,10 +60,6 @@ export function Link(props) {
         ? toHref
         : toHref + '/';
 
-    return (
-      <LeanLink to={dest} as={GatsbyLink} {...rest}>
-        {children}
-      </LeanLink>
-    );
+    return <LeanLink to={dest} as={GatsbyLink} {...rest} />;
   }
 }

@@ -59,10 +59,10 @@ export const TabItem = React.memo(function <T extends As = 'li'>(
         mb: 2,
         ml: 2,
         ':last-child': {
-          mr: 0,
+          mr: [2, 0],
         },
         ':first-child': {
-          ml: 0,
+          ml: [2, 0],
         },
         color,
         p: 3,
@@ -71,7 +71,7 @@ export const TabItem = React.memo(function <T extends As = 'li'>(
         borderBottom: `3px solid rgb(97, 218, 251);`,
         backgroundColor: isSelected ? 'rgb(97, 218, 251);' : undefined,
         position: isSelected ? ['relative', 'relative', 'unset'] : undefined,
-        textAlign: isSelected ? ['center', 'unset'] : undefined,
+        textAlign: 'center',
         cursor: 'pointer',
         ...sx,
       }}

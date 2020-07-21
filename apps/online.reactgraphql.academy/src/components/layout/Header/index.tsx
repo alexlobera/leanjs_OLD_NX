@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-import { Container, Box, Ul, Li, Grid } from '..';
+import { Container, Box, Ul, Li, Grid, Section } from '..';
 import { H1 } from '../../display';
 import Link from '../../navigation/Link';
 
@@ -20,9 +20,10 @@ interface SectionProps {
   bgImageOpacity?: number;
 }
 
-const Section = styled<FunctionComponent<SectionProps>>(Box)`
+const HeaderSection = styled<FunctionComponent<SectionProps>>(Section)`
   position: relative;
   display:block;
+  padding-bottom:75px;
   ${({ bgColors, bgColor }: any) => {
     const bgc =
       bgColors && bgColors.length ? bgColors : bgColor ? [bgColor] : [];
@@ -121,7 +122,7 @@ const Header: FunctionComponent<HeaderProps> = ({
   info,
 }) => {
   return (
-    <Section
+    <HeaderSection
       height={height}
       bgColors={bgColors}
       bgImageOpacity={bgImageOpacity}
@@ -132,6 +133,7 @@ const Header: FunctionComponent<HeaderProps> = ({
           <Box
             sx={{
               gridColumn: ['1 / -1', '1 / 7'],
+              overflow: 'hidden',
             }}
           >
             <H1
@@ -168,7 +170,9 @@ const Header: FunctionComponent<HeaderProps> = ({
                 sx={{
                   bg: 'rgba(0, 41, 56, 0.75)',
                   mt: 2,
-                  'li,a:hover,a:link,a:visited,a:active': { color: WHITE },
+                  "li,a:not([role='button']):hover,a:not([role='button']):link,a:not([role='button']):visited,a:not([role='button']):active": {
+                    color: WHITE,
+                  },
                   display: 'inline-block',
                 }}
               >
@@ -200,7 +204,7 @@ const Header: FunctionComponent<HeaderProps> = ({
           )}
         </Grid>
       </Container>
-    </Section>
+    </HeaderSection>
   );
 };
 

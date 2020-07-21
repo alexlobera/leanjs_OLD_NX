@@ -138,22 +138,22 @@ export const theme = {
     },
     a: {
       cursor: 'pointer',
-      "a:not([role='button'])": {
-        textShadow: '0px 0px 1px',
+      ":not([role='button'])": {
         textDecoration: 'underline',
+      },
+      textShadow: '0px 0px 1px',
+      color: 'text',
+      '&:link': {
         color: 'text',
-        '&:link': {
-          color: 'text',
-        },
-        '&:visited': {
-          color: 'text',
-        },
-        '&:active': {
-          color: 'text',
-        },
-        '&:hover': {
-          color: 'text',
-        },
+      },
+      '&:visited': {
+        color: 'text',
+      },
+      '&:active': {
+        color: 'text',
+      },
+      '&:hover': {
+        color: 'text',
       },
     },
     pre: {
