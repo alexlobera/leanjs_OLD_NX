@@ -133,7 +133,7 @@ const Header: FunctionComponent<HeaderProps> = ({
           <Box
             sx={{
               gridColumn: ['1 / -1', '1 / 7'],
-              overflow: 'hidden',
+              overflow: ['hidden', 'initial'],
             }}
           >
             <H1

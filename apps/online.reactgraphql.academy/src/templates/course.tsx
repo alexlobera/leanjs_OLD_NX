@@ -24,6 +24,7 @@ import {
   Section,
 } from '../components/layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
+import Markdown from '../components/display/Markdown';
 
 const metas = {
   title: 'Online React and GraphQL Courses | React GraphQL Academy',
@@ -126,16 +127,7 @@ function CoursePage({ data, location, path }) {
                           </>
                         ) : null}
                       </P>
-                      <P>
-                        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-                        ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                        Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem
-                        ipsum Lorem ipsum
-                      </P>
-                      <P>
-                        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem
-                        ipsum Lorem ipsum Lorem ipsum Lorem
-                      </P>
+                      <Markdown>{unit.published.description}</Markdown>
                       <Tabs defaultValue="learning">
                         <TabList>
                           <TabItem name="learning">Learning objectives</TabItem>
@@ -148,7 +140,9 @@ function CoursePage({ data, location, path }) {
                             ))}
                           </Ul>
                         </TabPanel>
-                        <TabPanel name="curriculum">curriculum</TabPanel>
+                        <TabPanel name="curriculum">
+                          <Markdown>{unit.published.syllabus}</Markdown>
+                        </TabPanel>
                       </Tabs>
                     </Box>
                   </Grid>
@@ -180,6 +174,7 @@ export const query = graphql`
             title
             objectives
             syllabus
+            description
             videos {
               title
               slug
