@@ -125,7 +125,7 @@ const GraphQLApolloClientWorkshop = ({ path, trainings, data }) => {
             <NextTrainingButton type="workshop" training={nextTraining} />
           </Col>
         </Row>
-      </Section>{' '}
+      </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
