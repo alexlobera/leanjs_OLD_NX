@@ -12,6 +12,7 @@ interface ButtonProps {
 export const buttonDefaultSxProp = {
   py: 3,
   px: 6,
+  display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',
   cursor: 'pointer',
@@ -52,7 +53,6 @@ export const Button = function <T extends As = 'button'>(
     loadingElement,
     onClick,
     variant = 'default',
-    sx = {},
     as,
     type = 'button',
     ref,

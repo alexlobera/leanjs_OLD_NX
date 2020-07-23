@@ -8,3 +8,5 @@ export { PdfDownload } from './icons/PdfDownload';
 export { SearchIcon } from './icons/SearchIcon';
 export { TwitterIcon } from './icons/TwitterIcon';
 export { WebsiteIcon } from './icons/WebsiteIcon';
+export { PlayMedia } from './icons/PlayMedia';
+export { PauseMedia } from './icons/PauseMedia';

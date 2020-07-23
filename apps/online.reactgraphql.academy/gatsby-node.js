@@ -63,13 +63,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
     training.units.forEach((unit) => {
       unit.published.videos.forEach((video) => {
-        const lessonPath = `${coursePath}/${video.slug}`;
+        const lessonPath = `${coursePath}${video.slug}`;
 
         createPage({
           path: lessonPath,
           component: lessonTemplate,
           context: {
             videoId: video.id,
+            unitId: unit.id,
+            trainingId: training.id,
           },
         });
       });

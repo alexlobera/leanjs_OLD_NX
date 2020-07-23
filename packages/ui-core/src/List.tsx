@@ -39,6 +39,8 @@ const ulVariantSxProp = {
   },
   unstyled: {
     ml: 0,
+    listStyle: 'none',
+    pl: 0,
   },
 };
 

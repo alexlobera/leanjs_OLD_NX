@@ -7,7 +7,7 @@ import { PaymentSection } from '@leanjs/ui-academy';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
-import Link from '../components/navigation/Link';
+import Link, { LinkButton } from '../components/navigation/Link';
 import Header from '../components/layout/Header';
 import { P, H2, H3 } from '../components/display';
 import ReactHeaderBg from '../components/layout/Header/ReactBg';
@@ -34,8 +34,9 @@ const metas = {
   type: 'website',
 };
 
-function CoursePage({ data, location, path }) {
+function CoursePage({ data, location }) {
   const training = data.upmentoring.trainingById;
+  const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
   const trainingPreviewVideoUrl =
@@ -70,7 +71,7 @@ function CoursePage({ data, location, path }) {
           subtitle="Learn React online at your own pace with our proven teaching method and curriculum"
           height="100vh"
           bgColors={['rgba(196, 196, 196, 0.6)']}
-          bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+          //bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
           links={[
             {
               text: 'Modules',
@@ -79,6 +80,10 @@ function CoursePage({ data, location, path }) {
             {
               text: 'FAQs',
               to: '#faqs',
+            },
+            {
+              text: 'Pricing',
+              to: '#pricing',
             },
           ]}
           info={
@@ -125,19 +130,28 @@ function CoursePage({ data, location, path }) {
                       <H3>
                         <Link to={unitPath}>{published.title}</Link>
                       </H3>
-                      <P>
-                        {lessonsCount} lessons{' '}
-                        {lessonsCount > 0 ? (
-                          <>
-                            {' - '}
-                            <Link
-                              to={`${location.pathname}/${published.videos[0].slug}`}
-                            >
-                              watch
-                            </Link>
-                          </>
-                        ) : null}
-                      </P>
+                      <Ul variant="inline">
+                        <Li sx={{ pl: 0 }}>
+                          {lessonsCount} lessons
+                          {lessonsCount > 0 ? (
+                            <>
+                              {', '}
+                              <Link
+                                to={`${trainingPath}/${published.videos[0].slug}`}
+                              >
+                                watch
+                              </Link>
+                            </>
+                          ) : null}
+                        </Li>
+                        <Li>/</Li>
+                        <Li>
+                          See{' '}
+                          <Link to="#pricing" sx={{ mt: 3 }}>
+                            pricing
+                          </Link>
+                        </Li>
+                      </Ul>
                       <Markdown>{published.description}</Markdown>
                       <Tabs defaultValue="learning">
                         <TabList>
@@ -180,6 +194,7 @@ export const query = graphql`
     upmentoring {
       trainingById(id: $trainingId) {
         title
+        slug
         previewVideo {
           asset {
             url

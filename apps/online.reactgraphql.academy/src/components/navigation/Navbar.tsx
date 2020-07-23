@@ -23,16 +23,13 @@ const Navbar: LeanComponent<HeadeProps> = ({
       <Box
         box="nav"
         sx={{
-          position: 'absolute',
           width: '100%',
-          zIndex: 'sticky',
           ...sx,
-          p: 0,
         }}
       >
         <Container
           sx={{
-            p: sx.p,
+            p: sx.p || 4,
             bg: 'rgba(256,256,256, 0.9)',
             borderColor: 'rgba(0, 41, 56, 0.5)',
             borderStyle: 'solid',

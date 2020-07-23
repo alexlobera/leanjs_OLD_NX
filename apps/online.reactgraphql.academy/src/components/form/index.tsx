@@ -1,4 +1,4 @@
-export { Input } from '@leanjs/ui-core';
+export { Input, Button } from '@leanjs/ui-core';
 export {
   Form,
   Field,

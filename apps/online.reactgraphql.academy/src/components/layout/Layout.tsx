@@ -12,15 +12,27 @@ interface LayoutProps {
   // TODO include in teaching material passing breadcrumbPaths (data) vs breadcrumb (data + component). How often the data changes vs the component in the entire app?
   // breadcrumb?: JSX.Element;
   breadcrumbPaths?: BreadcrumbPath[];
+  variant?: string;
 }
+
+const variantLayoutProps = {
+  stack: {
+    position: 'relative',
+  },
+  absolute: {
+    position: 'absolute',
+    zIndex: 'sticky',
+  },
+};
 
 const Layout: FunctionComponent<LayoutProps> = ({
   breadcrumbPaths,
   children,
+  variant = 'absolute',
 }) => (
   <React.Fragment>
     <Navbar
-      sx={{ p: 4 }}
+      sx={{ ...(variantLayoutProps[variant] || {}) }}
       menu={
         <Ul
           variant="inline"

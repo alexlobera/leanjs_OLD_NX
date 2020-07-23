@@ -28,7 +28,8 @@ function Breadcrumb<T extends As = 'div'>({
         variant="inline"
         sx={{
           '> li:first-child': { pl: 0 },
-          '> li:last-child': { pr: 0 },
+          '> li:last-child': { pr: 0, display: ['none', 'inline'] },
+          // '> li:nth-last-child(-n + 2)': { display: ['none', 'inline'] },
           pb: 1,
         }}
       >

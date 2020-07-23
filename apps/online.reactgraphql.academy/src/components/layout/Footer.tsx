@@ -16,11 +16,11 @@ import {
   Form,
   Field,
   Input,
+  Button,
   composeValidators,
   mustBeEmail,
   required,
 } from '../form';
-import { Button } from '../buttons';
 
 const Footer = () => (
   <ThemeProvider
