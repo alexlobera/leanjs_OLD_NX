@@ -23,8 +23,9 @@ import { TECH_GRAPHQL } from 'src/config/data';
 import { LIGHT_PINK } from 'src/config/styles';
 import { getPostsFromNodes } from 'src/components/blog/utils';
 import BlogSection from 'src/components/blog/BlogSection';
+import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 
-const metas = {
+const defaultMetas = {
   title: 'GraphQL Corporte Training | React GraphQL Academy',
   description:
     'Interested in GraphQL corporate training? We offer corporate GraphQL team training, located in your offices anywhere in the world. Contact us now!',
@@ -37,19 +38,14 @@ const CorporateGraphQLTraining = ({ path, trainings, data }) => {
     sanityNodes: data.allSanityPost.nodes,
   }).slice(0, 3);
 
+  const metas = getMetaData({
+    defaultMetas,
+    metaData: data.sanityTrainingPage,
+  });
+
   return (
     <React.Fragment>
-      <Helmet
-        title={metas.title}
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         tech={TECH_GRAPHQL}
         breadcrumbBgColor={LIGHT_PINK}
@@ -118,6 +114,7 @@ const CorporateGraphQLTraining = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection type="contact" showContent />
       <BlogSection title="From our blog" posts={posts} />
       <UpcomingTrainingSection trainings={trainings} />

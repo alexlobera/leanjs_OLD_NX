@@ -27,8 +27,9 @@ import {
 } from 'src/config/data';
 import header from 'src/components/layout/Header.json';
 import { createMetas } from 'src/components/utils';
+import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 
-const metas = {
+const defaultMetas = {
   title: 'GraphQL API Training | React GraphQL Academy',
   description:
     'Looking for a GraphQL API training? Build real-world GraphQL APIs. In-person GraphQL API training from industry experts Contact us now!',
@@ -47,19 +48,14 @@ const GraphQL = ({ path, trainings, data }) => {
     trainings,
   });
 
+  const metas = getMetaData({
+    defaultMetas,
+    metaData: data.sanityTrainingPage,
+  });
+
   return (
     <React.Fragment>
-      <Helmet
-        title={metas.title}
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         tech={TECH_GRAPHQL}
         breadcrumbBgColor={LIGHT_PINK}
@@ -133,7 +129,7 @@ const GraphQL = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
-
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>

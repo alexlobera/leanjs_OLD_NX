@@ -28,8 +28,9 @@ import { createMetas } from 'src/components/utils';
 import { breadcrumbTrainingName } from './config.json';
 import NextTrainingButton from 'src/components/training/NextTrainingButton';
 import { LIGHT_PINK } from 'src/config/styles';
+import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 
-const metas = {
+const defaultMetas = {
   title: 'GraphQL Training Trial | React GraphQL Academy',
   description:
     'Are you not sure yet about buying our GraphQL training? With this trial of our GraphQL training, you will be able to make an informed decision before purchasing the full training',
@@ -49,19 +50,14 @@ const Page = ({ path, trainings, training, data }) => {
     trainings: upcomingTrials,
   });
 
+  const metas = getMetaData({
+    defaultMetas,
+    metaData: data.sanityTrainingPage,
+  });
+
   return (
     <React.Fragment>
-      <Helmet
-        title={metas.title}
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -132,7 +128,7 @@ const Page = ({ path, trainings, training, data }) => {
           </Col>
         </Row>
       </Section>
-
+      <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   );

@@ -26,10 +26,11 @@ import { createMetas } from 'src/components/utils';
 import { breadcrumbWorkshopName } from './config.json';
 import NextTrainingButton from 'src/components/training/NextTrainingButton';
 import { LIGHT_PINK } from 'src/config/styles';
+import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 
 const trainingId = GRAPHQL_WORKSHOP_APOLLO_CLIENT_ID;
 
-const metas = {
+const defaultMetas = {
   title: 'GraphQL Apollo Client Training | React GraphQL Academy',
   description:
     'Looking for a GraphQL Client training? Consume real-world GraphQL APIs. In-person GraphQL Apollo Client training from industry experts Contact us now!',
@@ -43,19 +44,14 @@ const GraphQLApolloClientWorkshop = ({ path, trainings, data }) => {
     trainingId,
   });
 
+  const metas = getMetaData({
+    defaultMetas,
+    metaData: data.sanityTrainingPage,
+  });
+
   return (
     <React.Fragment>
-      <Helmet
-        title={metas.title}
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -89,7 +85,6 @@ const GraphQLApolloClientWorkshop = ({ path, trainings, data }) => {
           />
         </Segment>
       </TopSection>
-
       <Section>
         <Row>
           <Col md={5} mdOffset={1}>
@@ -131,7 +126,7 @@ const GraphQLApolloClientWorkshop = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
-
+      <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
     </React.Fragment>
   );

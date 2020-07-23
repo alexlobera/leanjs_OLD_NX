@@ -25,8 +25,9 @@ import { TECH_GRAPHQL } from 'src/config/data';
 import BlogSection from 'src/components/blog/BlogSection';
 import { WHY_REACTJS_ACADEMY } from 'src/config/images.js';
 import { createMetas } from 'src/components/utils';
+import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 
-const metas = {
+const defaultMetas = {
   title: 'GraphQL Workshops | React GraphQL Academy',
   description:
     'Interested in GraphQL workshops? React GraphQL Academy offers specialist GraphQL workshops, focussing on one specific part of the GraphQL ecosystem. Contact us now!',
@@ -44,19 +45,14 @@ const Bootcamps = ({ path, trainings, data }) => {
     trainings: allGraphQLWorkshops,
   });
 
+  const metas = getMetaData({
+    defaultMetas,
+    metaData: data.sanityTrainingPage,
+  });
+
   return (
     <React.Fragment>
-      <Helmet
-        title={metas.title}
-        meta={[
-          {
-            name: 'description',
-            content: metas.description,
-          },
-        ]}
-      >
-        {createMetas(metas)}
-      </Helmet>
+      <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
           { to: '/', label: 'Home' },
@@ -152,6 +148,7 @@ const Bootcamps = ({ path, trainings, data }) => {
           </Col>
         </Row>
       </Section>
+      <FAQSection pageData={data.sanityTrainingPage} />
       <TrustedBySection />
       <BlogSection tags={['graphql']} />
       <UpcomingTrainingSection trainings={trainings} />
