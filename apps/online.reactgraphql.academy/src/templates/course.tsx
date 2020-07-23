@@ -38,6 +38,10 @@ function CoursePage({ data, location, path }) {
   const training = data.upmentoring.trainingById;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
+  const trainingPreviewVideoUrl =
+    training.previewVideo && training.previewVideo.asset
+      ? training.previewVideo.asset.url
+      : null;
 
   return (
     <Layout
@@ -78,9 +82,11 @@ function CoursePage({ data, location, path }) {
             },
           ]}
           info={
-            <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-              <VideoPlayer url={'https://demo-vod.streamroot.io/index.m3u8'} />
-            </Box>
+            trainingPreviewVideoUrl && (
+              <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+                <VideoPlayer url={trainingPreviewVideoUrl} />
+              </Box>
+            )
           }
         />
       </ReactHeaderBg>
@@ -93,26 +99,31 @@ function CoursePage({ data, location, path }) {
             </H2>
 
             {units.reduce((acc, unit, index) => {
-              if (unit.published) {
-                const unitPath = unit.published.slug;
+              const { published } = unit;
+              if (published) {
+                const unitPath = published.slug;
                 const lessonsCount =
-                  (unit.published.videos && unit.published.videos.length) || 0;
+                  (published.videos && published.videos.length) || 0;
+                const unitPreviewVideoUrl =
+                  published.previewVideo && published.previewVideo.asset
+                    ? published.previewVideo.asset.url
+                    : null;
 
                 acc.push(
                   <Grid columns={10}>
-                    <Box sx={{ gridColumn: ['2/ -2', '1/ 3'], mb: 5 }}>
-                      <VideoPlayer
-                        url={'https://demo-vod.streamroot.io/index.m3u8'}
-                      />
+                    <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
+                      {unitPreviewVideoUrl && (
+                        <VideoPlayer url={unitPreviewVideoUrl} />
+                      )}
                     </Box>
                     <Box
                       sx={{
-                        gridColumn: ['1/ -1', '4/ -1'],
+                        gridColumn: ['1/ -1', '5/ -1'],
                         mb: index < units.length - 1 ? 8 : 0,
                       }}
                     >
                       <H3>
-                        <Link to={unitPath}>{unit.published.title}</Link>
+                        <Link to={unitPath}>{published.title}</Link>
                       </H3>
                       <P>
                         {lessonsCount} lessons{' '}
@@ -120,14 +131,14 @@ function CoursePage({ data, location, path }) {
                           <>
                             {' - '}
                             <Link
-                              to={`${location.pathname}/${unit.published.videos[0].slug}`}
+                              to={`${location.pathname}/${published.videos[0].slug}`}
                             >
                               watch
                             </Link>
                           </>
                         ) : null}
                       </P>
-                      <Markdown>{unit.published.description}</Markdown>
+                      <Markdown>{published.description}</Markdown>
                       <Tabs defaultValue="learning">
                         <TabList>
                           <TabItem name="learning">Learning objectives</TabItem>
@@ -135,13 +146,13 @@ function CoursePage({ data, location, path }) {
                         </TabList>
                         <TabPanel name="learning">
                           <Ul>
-                            {unit.published.objectives.map((objective) => (
+                            {published.objectives.map((objective) => (
                               <Li>{objective}</Li>
                             ))}
                           </Ul>
                         </TabPanel>
                         <TabPanel name="curriculum">
-                          <Markdown>{unit.published.syllabus}</Markdown>
+                          <Markdown>{published.syllabus}</Markdown>
                         </TabPanel>
                       </Tabs>
                     </Box>
@@ -169,12 +180,28 @@ export const query = graphql`
     upmentoring {
       trainingById(id: $trainingId) {
         title
+        previewVideo {
+          asset {
+            url
+            playback {
+              id
+            }
+          }
+        }
         units {
           published {
             title
             objectives
             syllabus
             description
+            previewVideo {
+              asset {
+                url
+                playback {
+                  id
+                }
+              }
+            }
             videos {
               title
               slug
