@@ -2,12 +2,17 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import { createMetas } from '@leanjs/ui-page';
-import { PaymentSection } from '@leanjs/ui-academy';
+import {
+  PaymentSection,
+  formatTraining,
+  TrainingItem,
+  getTrainingTimings,
+} from '@leanjs/ui-academy';
 
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
-import Link, { LinkButton } from '../components/navigation/Link';
+import Link from '../components/navigation/Link';
 import Header from '../components/layout/Header';
 import { P, H2, H3 } from '../components/display';
 import ReactHeaderBg from '../components/layout/Header/ReactBg';
@@ -34,7 +39,7 @@ const metas = {
   type: 'website',
 };
 
-function CoursePage({ data, location }) {
+function CoursePage({ data }) {
   const training = data.upmentoring.trainingById;
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
@@ -43,6 +48,13 @@ function CoursePage({ data, location }) {
     training.previewVideo && training.previewVideo.asset
       ? training.previewVideo.asset.url
       : null;
+  const trainingInstances =
+    data.upmentoring.trainingInstances &&
+    data.upmentoring.trainingInstances.edges
+      ? data.upmentoring.trainingInstances.edges
+          .map(formatTraining())
+          .slice(0, 3)
+      : [];
 
   return (
     <Layout
@@ -68,10 +80,10 @@ function CoursePage({ data, location }) {
       <ReactHeaderBg bottom="-300px">
         <Header
           title={title}
-          subtitle="Learn React online at your own pace with our proven teaching method and curriculum"
+          subtitle={training.subtitle}
           height="100vh"
           bgColors={['rgba(196, 196, 196, 0.6)']}
-          //bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+          bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
           links={[
             {
               text: 'Modules',
@@ -82,7 +94,7 @@ function CoursePage({ data, location }) {
               to: '#faqs',
             },
             {
-              text: 'Pricing',
+              text: 'Price',
               to: '#pricing',
             },
           ]}
@@ -178,10 +190,51 @@ function CoursePage({ data, location }) {
           </Sheet>
         </Container>
       </Section>
-      <Section>
-        <PaymentSection />
-      </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
+      <Section variant="secondary">
+        <Container>
+          <Sheet variant="transparent">
+            <Grid columns={10}>
+              <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
+                <PaymentSection item={training} />
+              </Box>
+            </Grid>
+          </Sheet>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <Sheet variant="transparent">
+            <H2>You can also attend this course live</H2>
+            <P>
+              Alternatively to this online course, you can also join a cohort
+              and attend a React Redux Fundamentals live training. Discuss
+              real-world problems with experts and work with other devs in any
+              of the following training:
+            </P>
+            <Grid columns={{ minWidth: '300px' }} sx={{ mt: 7 }}>
+              {trainingInstances.map((training) => {
+                const { dayMonth, duration } = getTrainingTimings({ training });
+                return (
+                  <TrainingItem
+                    key={training.id}
+                    isOnline={training.isOnline}
+                    cityCountry={training.cityCountry}
+                    startDay={dayMonth[0]}
+                    startMonth={dayMonth[1]}
+                    duration={duration}
+                    tech={training.tech}
+                    trainingType={training.trainingType}
+                    title={training.title}
+                    path={training.toPath}
+                    className={'alternative-live-training'}
+                  />
+                );
+              })}
+            </Grid>
+          </Sheet>
+        </Container>
+      </Section>
     </Layout>
   );
 }
@@ -194,7 +247,12 @@ export const query = graphql`
     upmentoring {
       trainingById(id: $trainingId) {
         title
+        subtitle
+        standardPrice
+        currency
         slug
+        id
+        onDemand
         previewVideo {
           asset {
             url
@@ -220,6 +278,50 @@ export const query = graphql`
             videos {
               title
               slug
+            }
+          }
+        }
+      }
+      trainingInstances(
+        filter: {
+          ownerId: "5aaa9b07f146e5cfafad189e"
+          startDate: future
+          trainingIds: [
+            "@VFJBOjVkMDExNGI3MDYwNTFiN2QzYmNiMGNmOQ"
+            "@VFJBOjVlMzg1NGQ2NmJmZDIzMDAwMjM4NjQ3Zg=="
+          ]
+        }
+        orderBy: { sort: startDate, direction: ASC }
+      ) {
+        edges {
+          node {
+            __typename
+            id
+            startDate
+            utcOffset
+            endDate
+            isOnline
+            city
+            cityCountry
+            daysOfTheWeek
+            address
+            venueName
+            mapUrl
+            standardPrice
+            currency
+            title
+            training {
+              id
+              slug
+              customFieldsValues {
+                values
+                fieldId
+              }
+            }
+            trainingInstanceType {
+              name
+              title
+              id
             }
           }
         }

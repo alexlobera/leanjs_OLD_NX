@@ -50,9 +50,6 @@ const liVariantSxProp = {
     m: 0,
     display: 'inline-block',
     // TODO the following doesn't work, should we create a styled system function?
-    '> li': {
-      backgroundColor: 'red',
-    },
     // should we instead create a function for
     // firstChildML : 0
     // should we instead create a function for

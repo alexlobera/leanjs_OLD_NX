@@ -150,7 +150,7 @@ class PaymentSection extends React.Component {
       currentDiscountPrice,
       trainingType,
       notSoldOut = true;
-
+    //debugger;
     if (errors) {
       title = 'There was an error';
     } else if (loading) {
@@ -218,105 +218,73 @@ class PaymentSection extends React.Component {
 
     return (
       <React.Fragment>
-        <React.Fragment>
-          <H2>
-            Prices
-            <a to="#pricing" name="pricing" />
-          </H2>
-          {/* <H2>
-            {isNominalFee ? 'Nominal Fee' : 'Prices'}{' '}
-            <a to="#pricing" name="pricing" />
-          </H2>
-          {isNominalFee && (
+        <H2 sx={{ color: 'inverseText' }}>
+          Price
+          <a to="#pricing" name="pricing" />
+        </H2>
+        <Card>
+          <H3>
+            <strong>{notSoldOut ? title : 'Sold out!'}</strong>
+          </H3>
+          {notSoldOut && (
             <React.Fragment>
-              <P>
-                <strong>Why do we charge a nominal fee?</strong>
-              </P>
-              <P>
-                We charge a nominal fee for community events in order to confirm
-                attendance to ensure we have an accurate RSVP list. Our meetups
-                are always over-subscribed so when people don't show it stops
-                somone else attending.
-              </P>
-              <P>
-                <strong>What do we do with the fee?</strong>
-              </P>
-              <P>
-                By paying for the nominal fee you're supporting minorities in
-                tech. You can read more about it in this{' '}
-                <Link to="/blog/join-our-meetups-and-support-minorities-in-tech#why_we_charge_a_nominal_fee">
-                  link
-                </Link>
-                .
-              </P>
-              <P>The payment confirmation email is your ticket.</P>
-            </React.Fragment> */}
-          <Card variant="secondary">
-            <H3>
-              <strong>{notSoldOut ? title : 'Sold out!'}</strong>
-            </H3>
-            {notSoldOut && (
-              <React.Fragment>
-                {currentDiscountPrice ? (
-                  <Ribbon>
-                    <strong>
-                      SAVE{' '}
-                      {formatPrice(
-                        currency,
-                        priceQuantity - currentPriceQuantity,
-                        vatRate
-                      )}
-                    </strong>
-                  </Ribbon>
-                ) : null}
-                {priceGoesUpOn > Date.now() ? (
-                  <React.Fragment>
-                    <P>This price is only available for...</P>
-                    <Countdown date={priceGoesUpOn} />
-                  </React.Fragment>
-                ) : null}
-                {isNaN(price) === false && price > 0 && (
-                  <Checkout
-                    {...this.props}
-                    trialTraingInstance={trialTraingInstance}
-                    isDonationTicket={isDonationTicket}
-                    city={city}
-                    navigate={navigate}
-                    trainingInstanceId={trainingInstanceId}
-                    eventId={eventId}
-                    vatRate={vatRate}
-                    updateVatRate={this.updateVatRate}
-                    price={price}
-                    discountPrice={currentDiscountPrice}
-                    currency={currency}
-                    quantity={this.state.quantity}
-                    removeCourse={this.removeCourse}
-                    addCourse={this.addCourse}
-                    priceQuantity={priceQuantity}
-                    currentPriceQuantity={currentPriceQuantity}
-                    validateVoucher={this.validateVoucher}
-                    resetVoucher={this.resetVoucher}
-                    voucher={voucher}
-                    isVoucherValid={isVoucherValid}
-                    triggerSubscribe={triggerSubscribe}
-                    isVoucherValidationInProgress={
-                      isVoucherValidationInProgress
-                    }
-                    paymentApi={paymentApi}
-                    showSubscribeToNewsletter={showSubscribeToNewsletter}
-                  />
-                )}
-              </React.Fragment>
-            )}
-          </Card>
-          {trainingType !== MEETUP && !isOnline && (
-            <P sx={{ pt: 4 }}>
-              Please be aware that the ticket only covers the cost of the
-              {trainingInstanceId ? 'training' : 'event'}, it does not include
-              travel expenses.
-            </P>
+              {currentDiscountPrice ? (
+                <Ribbon>
+                  <strong>
+                    SAVE{' '}
+                    {formatPrice(
+                      currency,
+                      priceQuantity - currentPriceQuantity,
+                      vatRate
+                    )}
+                  </strong>
+                </Ribbon>
+              ) : null}
+              {priceGoesUpOn > Date.now() ? (
+                <React.Fragment>
+                  <P>This price is only available for...</P>
+                  <Countdown date={priceGoesUpOn} />
+                </React.Fragment>
+              ) : null}
+              {isNaN(price) === false && price > 0 && (
+                <Checkout
+                  {...this.props}
+                  trialTraingInstance={trialTraingInstance}
+                  isDonationTicket={isDonationTicket}
+                  city={city}
+                  navigate={navigate}
+                  trainingInstanceId={trainingInstanceId}
+                  eventId={eventId}
+                  vatRate={vatRate}
+                  updateVatRate={this.updateVatRate}
+                  price={price}
+                  discountPrice={currentDiscountPrice}
+                  currency={currency}
+                  quantity={this.state.quantity}
+                  removeCourse={this.removeCourse}
+                  addCourse={this.addCourse}
+                  priceQuantity={priceQuantity}
+                  currentPriceQuantity={currentPriceQuantity}
+                  validateVoucher={this.validateVoucher}
+                  resetVoucher={this.resetVoucher}
+                  voucher={voucher}
+                  isVoucherValid={isVoucherValid}
+                  triggerSubscribe={triggerSubscribe}
+                  isVoucherValidationInProgress={isVoucherValidationInProgress}
+                  paymentApi={paymentApi}
+                  showSubscribeToNewsletter={showSubscribeToNewsletter}
+                />
+              )}
+            </React.Fragment>
           )}
-        </React.Fragment>
+        </Card>
+        {!item.onDemand && (
+          <P sx={{ pt: 4 }}>
+            Please be aware that the ticket only covers the cost of the
+            {trainingInstanceId ? 'training' : 'event'}, it does not include
+            travel expenses.
+          </P>
+        )}
       </React.Fragment>
     );
   }

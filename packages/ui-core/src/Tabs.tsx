@@ -55,14 +55,14 @@ export const TabItem = React.memo(function <T extends As = 'li'>(
         listStyleType: 'none',
         display: ['block', 'inline-block'],
         mt: 0,
-        mr: 2,
+        //mr: [0, 2],
+        mx: [0, 1],
         mb: 2,
-        ml: 2,
         ':last-child': {
-          mr: [2, 0],
+          mr: 0,
         },
         ':first-child': {
-          ml: [2, 0],
+          ml: 0,
         },
         color,
         p: 3,

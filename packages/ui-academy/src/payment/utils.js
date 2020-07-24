@@ -1,3 +1,4 @@
+import React from 'react';
 import Payment from 'payment';
 
 export const getMonthFromCardDate = (cardDate) =>

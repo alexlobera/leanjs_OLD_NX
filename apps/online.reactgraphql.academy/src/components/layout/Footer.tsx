@@ -40,17 +40,17 @@ const Footer = () => (
   >
     <Section
       sx={{
-        bg: ['rgba(0,41,56, 1)', 'rgba(0,41,56, 1)', 'transparent'],
-        mt: 7,
+        bg: ['secondary', 'secondary', 'transparent'],
+        mb: 0,
         pb: 0,
       }}
       as="footer"
     >
-      <Container sx={{ pt: 9, pb: 7, bg: 'rgba(0,41,56, 1)' }}>
+      <Container sx={{ pt: 9, pb: 7, bg: 'secondary' }}>
         <Grid columns={12}>
           <Box sx={{ gridColumn: ['1/ -1', '1/ -1', '2/ -2'] }}>
             <Grid columns={10}>
-              <Box sx={{ gridColumn: ['1/ -1', '1 / 5'] }}>
+              <Box sx={{ gridColumn: ['1/ -1', '1 / 6'] }}>
                 <H3>Free learning resources</H3>
                 <Form onSubmit={() => {}}>
                   {({ formSubmitted, submitting }) =>
@@ -95,7 +95,7 @@ const Footer = () => (
                   </Link>
                 </P>
               </Box>
-              <Box sx={{ gridColumn: ['1/ -1', '6 / -1'] }}>
+              <Box sx={{ gridColumn: ['1/ -1', '7 / -1'] }}>
                 <H3>Contact us</H3>
                 <P>
                   {' '}

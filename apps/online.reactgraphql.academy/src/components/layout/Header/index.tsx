@@ -1,13 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-import { Container, Box, Ul, Li, Grid, Section } from '..';
+import { Container, Box, Ul, Li, Grid } from '..';
 import { H1 } from '../../display';
 import Link from '../../navigation/Link';
 
 const Z_INDEX_BG = -2;
 const SCREEN_SM_MIN = '768px';
-const SCREEN_XS_MAX = '767px';
 const WHITE = '#fff';
 export const TECH_REACT = 'react';
 export const TECH_GRAPHQL = 'graphql';
@@ -20,10 +19,9 @@ interface SectionProps {
   bgImageOpacity?: number;
 }
 
-const HeaderSection = styled<FunctionComponent<SectionProps>>(Section)`
+const HeaderSection = styled('header')<SectionProps>`
   position: relative;
   display:block;
-  padding-bottom:75px;
   ${({ bgColors, bgColor }: any) => {
     const bgc =
       bgColors && bgColors.length ? bgColors : bgColor ? [bgColor] : [];
@@ -81,11 +79,6 @@ const HeaderSection = styled<FunctionComponent<SectionProps>>(Section)`
   
   @media (min-width: ${SCREEN_SM_MIN}) {
     min-height: ${({ height }) => (height ? height : '100vh')};
-    padding-top: 200px ;
-  }
-  @media (max-width: ${SCREEN_XS_MAX}) {
-    padding-top: 160px;
-    padding-bottom: 100px;
   }
 `;
 
@@ -128,12 +121,18 @@ const Header: FunctionComponent<HeaderProps> = ({
       bgImageOpacity={bgImageOpacity}
       bgImage={bgImage}
     >
-      <Container>
-        <Grid columns={12}>
+      <Container
+        sx={{
+          pb: ['100px', '75px'],
+          pt: ['160px', '200px'],
+        }}
+      >
+        <Grid columns={12} sx={{ px: 2 }}>
           <Box
             sx={{
               gridColumn: ['1 / -1', '1 / 7'],
               overflow: ['hidden', 'initial'],
+              mb: 5,
             }}
           >
             <H1

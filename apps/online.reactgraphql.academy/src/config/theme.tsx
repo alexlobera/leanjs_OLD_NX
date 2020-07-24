@@ -186,9 +186,9 @@ export const theme = {
   },
   sections: {
     top: {
-      pt: 0,
       mt: '-50px',
     },
+    secondary: { bg: 'secondary', py: 9 },
   },
   buttons: {
     primary: {

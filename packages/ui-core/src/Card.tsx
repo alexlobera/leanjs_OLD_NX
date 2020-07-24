@@ -4,6 +4,13 @@ import React from 'react';
 import { getVariantProps } from './utils';
 import { Box, LeanProps, As } from './Box';
 
+const defaultPadding = {
+  pl: [1, 4],
+  pr: [1, 4],
+  pt: [1, 4],
+  pb: [1, 4],
+};
+
 const cardVariants = ({
   borderColor = 'react',
   borderStyle = 'solid',
@@ -11,10 +18,7 @@ const cardVariants = ({
   primary: {
     border: `3px ${borderStyle}`,
     borderColor: borderColor,
-    pl: [1, 4],
-    pr: [1, 4],
-    pt: [1, 4],
-    pb: [1, 4],
+    ...defaultPadding,
   },
   secondary: {
     borderLeft: `3px ${borderStyle}`,
@@ -23,11 +27,8 @@ const cardVariants = ({
   },
   default: {
     boxShadow: 'box',
-    pl: [1, 4],
-    pr: [1, 4],
-    pt: [1, 4],
-    pb: [1, 4],
     backgroundColor: 'background',
+    ...defaultPadding,
   },
 });
 

@@ -13,6 +13,7 @@ import CheckoutContainer from './CheckoutContainer';
 const PurchaseWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   margin: 12px 0;
 `;
 
@@ -91,15 +92,14 @@ const Checkout = (props) => {
                 <Price sx={{ textAlign: 'center', pt: 1, pb: 1 }}>
                   {formatPrice(currency, currentPriceQuantity, vatRate)}
                 </Price>
-                <P>
-                  {' '}
-                  {priceQuantity !== currentPriceQuantity ? (
+                {priceQuantity !== currentPriceQuantity && (
+                  <P>
                     <Span sx={{ textDecoration: 'line-through' }}>
-                      (Full prices:{' '}
+                      (Full price:{' '}
                       {formatPrice(currency, priceQuantity, vatRate)})
                     </Span>
-                  ) : null}
-                </P>
+                  </P>
+                )}
               </PriceAndDiscount>
             ) : (
               <Price>{formatPrice(currency, priceQuantity, vatRate)}</Price>

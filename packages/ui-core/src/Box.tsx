@@ -71,7 +71,6 @@ const StyledBox: LeanComponent<
       color: 'text',
       boxSizing: 'border-box',
       minWidth: 0,
-      theme,
       ...__sx,
       ...(get(theme, `${__themeKey}.${variant}`) || {}),
       ...sx,

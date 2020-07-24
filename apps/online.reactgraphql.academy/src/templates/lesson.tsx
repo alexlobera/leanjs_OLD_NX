@@ -7,7 +7,7 @@ import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link from '../components/navigation/Link';
-import { H1, H2, H4, P } from '../components/display';
+import { H1, H2, H3, P } from '../components/display';
 
 interface LessonPageProps {
   data: any;
@@ -54,7 +54,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
             <H1 as="h1" variant="h2">
               {video.title}
             </H1>
-            <H4>Code</H4>
+            <H3>Code</H3>
             <Ul variant="unstyled" sx={{ mb: 7 }}>
               <Li>
                 <Icon comp={GitHubIcon} />
@@ -65,7 +65,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
                 <Link to={linkToSolution}>Link to SOLUTION</Link>
               </Li>
             </Ul>
-            <H4>Transcript</H4>
+            <H3>Transcript</H3>
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
@@ -78,8 +78,10 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug }) => (
                   <Li>
-                    <Icon comp={PlayMedia} />
-                    <Link to={`${trainingPath}${slug}/`}>{title}</Link>
+                    <Link to={`${trainingPath}${slug}/`}>
+                      <Icon comp={PlayMedia} />
+                      {title}
+                    </Link>
                   </Li>
                 ))}
               </Ul>

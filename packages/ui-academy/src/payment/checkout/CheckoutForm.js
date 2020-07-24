@@ -141,6 +141,7 @@ const TotalPrice = styled(Span)`
 
 const RowNumTickets = styled.div`
   display: flex;
+  padding-top: 8px;
 `;
 
 // const CheckoutH4 = styled(H4)``
@@ -272,18 +273,16 @@ class CheckoutForm extends React.Component {
             <TotalPrice>
               {isDonationTicket ? 'Donation amount' : 'Price'}
             </TotalPrice>
-            <P sx={{ textAlign: 'center' }}>
-              <Price sx={{ mr: 1, mt: 1 }}>
-                {formatPrice(currency, currentPriceQuantity, vatRate)}
-              </Price>
-              <br />
+            <Price sx={{ mr: 1, mt: 1, display: 'block' }}>
+              {formatPrice(currency, currentPriceQuantity, vatRate)}
+            </Price>
 
-              {currentPriceQuantity < priceQuantity ? (
-                <Span sx={{ textDecoration: 'line-through' }}>
-                  (Full price: {formatPrice(currency, priceQuantity, vatRate)})
-                </Span>
-              ) : null}
-            </P>
+            {currentPriceQuantity < priceQuantity ? (
+              <Span sx={{ textDecoration: 'line-through' }}>
+                <br />
+                (Full price: {formatPrice(currency, priceQuantity, vatRate)})
+              </Span>
+            ) : null}
           </Box>
         </Flex>
         {isDonationTicket && (
@@ -416,7 +415,7 @@ class CheckoutForm extends React.Component {
                   validate={composeValidators(mustBeCardNumber, required)}
                 />
                 <Flex>
-                  <Box sx={{ flex: 1 }}>
+                  <Box sx={{ flex: 1, mr: 2 }}>
                     <CCExpiryInput
                       label="Expiry date:"
                       name="CCexpiry"
@@ -426,7 +425,7 @@ class CheckoutForm extends React.Component {
                       validate={composeValidators(mustBeCardDate, required)}
                     />
                   </Box>
-                  <Box sx={{ flex: 1 }}>
+                  <Box sx={{ flex: 1, ml: 2 }}>
                     <CCCVCInput
                       label="CVC:"
                       name="CCcvc"
@@ -502,103 +501,83 @@ class CheckoutForm extends React.Component {
                     ''
                   )}
                 </RibbonBottomContainer>
-                <Flex>
-                  <Box sx={{ flex: 5 }}>
-                    <Span>Full ticket price:</Span>
-                  </Box>
+                <Flex sx={{ py: 1 }}>
+                  <Box sx={{ flex: 5 }}>Full ticket price:</Box>
                   <Box sx={{ flex: 7 }}>
-                    <Span>{formatPrice(currency, priceQuantity, 0)}</Span>
+                    {formatPrice(currency, priceQuantity, 0)}
                   </Box>
                 </Flex>
                 {priceQuantity !== currentPriceQuantity ? (
-                  <Flex>
-                    <Box sx={{ flex: 5 }}>
-                      <Span>Your ticket price:</Span>
-                    </Box>
+                  <Flex sx={{ py: 1 }}>
+                    <Box sx={{ flex: 5 }}>Your ticket price:</Box>
                     <Box sx={{ flex: 7 }}>
-                      <Span>
-                        {formatPrice(currency, currentPriceQuantity, 0)}
-                      </Span>
+                      {formatPrice(currency, currentPriceQuantity, 0)}
                     </Box>
                   </Flex>
                 ) : null}
-                <Flex>
+                <Flex sx={{ py: 1 }}>
                   <Box sx={{ flex: 5 }}>
-                    <Span>
-                      {`VAT (${
-                        vatRate ? Math.round((vatRate - 1) * 100) : 0
-                      }%):`}
-                    </Span>
+                    VAT ({vatRate ? Math.round((vatRate - 1) * 100) : 0}%)
                   </Box>
-
                   <Box sx={{ flex: 7 }}>
-                    <Span>
-                      +{formatPrice(currency, Math.abs(ticketVat), 0)}
-                    </Span>
+                    +{formatPrice(currency, Math.abs(ticketVat), 0)}
                   </Box>
                 </Flex>
                 {discount ? (
-                  <Flex>
-                    <Box sx={{ flex: 5 }}>
-                      <Span>Discounts:</Span>
-                    </Box>
+                  <Flex sx={{ py: 1 }}>
+                    <Box sx={{ flex: 5 }}>Discounts:</Box>
                     <Box sx={{ flex: 7 }}>
-                      <Span>-{formatPrice(currency, discount, vatRate)}</Span>
+                      -{formatPrice(currency, discount, vatRate)}
                     </Box>
                   </Flex>
                 ) : null}
-                <Flex>
-                  <Box sx={{ flex: 5 }}>
-                    <Span>Total payable:</Span>
-                  </Box>
+                <Flex sx={{ py: 1 }}>
+                  <Box sx={{ flex: 5 }}>Total payable:</Box>
                   <Box sx={{ flex: 7 }}>
-                    {' '}
                     <TotalPayablePrice>
                       {formatPrice(currency, currentPriceQuantity, vatRate)}
                     </TotalPayablePrice>
                   </Box>
                 </Flex>
-                <Box sx={{ py: 8 }}>
-                  <P>
-                    By purchasing a training, you agree to our{' '}
-                    <Link target="_blank" to="/terms-of-service">
-                      Terms of Service
-                    </Link>{' '}
-                    &{' '}
-                    <Link target="_blank" to="/code-of-conduct">
-                      Code of conduct
-                    </Link>
-                  </P>
-                  {submitFailed && !valid ? (
-                    <Alert test-id="danger-alert" variant="danger">
-                      Please fix the errors above
-                    </Alert>
-                  ) : null}
+                <P>
+                  By placing the order, you agree to our{' '}
+                  <Link target="_blank" to="/terms-of-service">
+                    Terms of Service
+                  </Link>{' '}
+                  &{' '}
+                  <Link target="_blank" to="/code-of-conduct">
+                    Code of conduct
+                  </Link>
+                </P>
+                {submitFailed && !valid ? (
+                  <Alert test-id="danger-alert" variant="danger">
+                    Please fix the errors above
+                  </Alert>
+                ) : null}
 
-                  {paymentErrorMessage ? (
-                    <Alert data-testid="danger-alert" variant="danger">
-                      There was an error processing your credit card. Please
-                      check your credit card with your bank. If the problem
-                      persists contact{' '}
-                      <Link to="mailto:hello@reactgraphql.academy">
-                        hello@reactgraphql.academy
-                      </Link>
-                    </Alert>
-                  ) : null}
-                  <SubmitPaymentFormButton
-                    type="submit"
-                    variant="primary"
-                    sx={{ width: '100%' }}
-                    onClick={this.onSubmitClicked}
-                    disabled={submitting || isPaymentInProgress}
-                  >
-                    {submitting || isPaymentInProgress ? (
-                      <Spinner />
-                    ) : (
-                      'Place Order'
-                    )}
-                  </SubmitPaymentFormButton>
-                </Box>
+                {paymentErrorMessage ? (
+                  <Alert data-testid="danger-alert" variant="danger">
+                    There was an error processing your credit card. Please check
+                    your credit card with your bank. If the problem persists
+                    contact{' '}
+                    <Link to="mailto:hello@reactgraphql.academy">
+                      hello@reactgraphql.academy
+                    </Link>
+                  </Alert>
+                ) : null}
+                <SubmitPaymentFormButton
+                  type="submit"
+                  variant="primary"
+                  sx={{ width: '100%' }}
+                  onClick={this.onSubmitClicked}
+                  disabled={submitting || isPaymentInProgress}
+                >
+                  {submitting || isPaymentInProgress ? (
+                    <Spinner />
+                  ) : (
+                    'Place Order'
+                  )}
+                </SubmitPaymentFormButton>
               </>
             );
           }}
