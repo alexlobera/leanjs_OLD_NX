@@ -1,3 +1,5 @@
+import UpMentoringVideoInput from '../../components/UpMentoringVideoInput';
+
 export const VIDEO_TYPE_TRAINING = 'VIDEO_TYPE_TRAINING';
 export const VIDEO_TYPE_TESTIMONIAL = 'VIDEO_TYPE_TESTIMONIAL';
 export const VIDEO_TYPE_PRODUCT_EXPLAINER = 'VIDEO_TYPE_PRODUCT_EXPLAINER';
@@ -47,9 +49,20 @@ export default {
       },
     },
     {
+      name: 'umVideoId',
+      title: 'UpMentoring video id',
+      type: 'string',
+      inputComponent: UpMentoringVideoInput,
+    },
+    {
       title: 'Video file',
       name: 'video',
       type: 'mux.video',
+    },
+    {
+      name: 'transcript',
+      title: 'Transcript',
+      type: 'blockContent',
     },
   ],
   preview: {
