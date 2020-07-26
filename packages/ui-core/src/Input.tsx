@@ -131,7 +131,7 @@ export function Input<T extends As>({
           type={type}
         />
       )}
-      {(invalid && !pristine) || (submitFailed && !submitSucceeded) ? (
+      {(invalid && !pristine) || (submitFailed && error) ? (
         <ErrorMessage>{error}</ErrorMessage>
       ) : null}
     </FormGroup>

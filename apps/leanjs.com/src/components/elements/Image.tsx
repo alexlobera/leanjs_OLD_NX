@@ -10,7 +10,7 @@ export default function Image<T extends As>(props: LeanProps<T>) {
   return (
     <LeanImage
       {...props}
-      as={props.fluid || props.fixed ? GatsbyImage : props.as}
+      as={props.fluid || props.fixed ? GatsbyImage : props.as || 'img'}
     />
   );
 }
