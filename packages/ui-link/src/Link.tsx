@@ -9,12 +9,11 @@ export function Link(props) {
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const hash = location.hash.substr(1);
+    const hash = window.location.hash.substr(1);
     const key = props.name || props.id;
-    console.log('aaaa', key, hash);
+
     if (hash && hash === key) {
       // adds smooth scrolling to anchor links
-      debugger;
       setTimeout(() => {
         // window && window.scrollTo && window.scrollTo(0, 0);
         scroller.scrollTo(hash, {
