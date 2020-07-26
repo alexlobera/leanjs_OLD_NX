@@ -74,7 +74,7 @@ export const createTrainingPath = ({
 export function formatMeetup({ node }) {
   return {
     ...node,
-    shoppingItemEnum: 'event',
+    // shoppingItemEnum: 'event',
     // type: MEETUP,
     toPath: `/community/meetups/${node.id}`,
   };
@@ -83,7 +83,7 @@ export function formatMeetup({ node }) {
 export function formatConf({ node }) {
   return {
     ...node,
-    shoppingItemEnum: 'event',
+    // shoppingItemEnum: 'event',
     // TODO TYPE SHOULD NOT BE HARDCODED
     // type: GRAPHQL_MINI_CONF,
     toPath: '/graphql/mini-conference/',

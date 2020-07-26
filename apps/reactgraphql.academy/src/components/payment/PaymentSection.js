@@ -20,13 +20,11 @@ import Countdown from './Countdown';
 export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
     $itemId: ID!
-    $shoppingItemEnum: ShoppingItemEnum!
     $voucherCode: String!
     $quantity: Int!
   ) {
     redeemVoucher(
       itemId: $itemId
-      shoppingItemEnum: $shoppingItemEnum
       quantity: $quantity
       voucherCode: $voucherCode
     ) {
@@ -58,7 +56,7 @@ class PaymentSection extends React.Component {
   validateVoucher = (voucher) => {
     const {
       statelessClient,
-      item: { id: itemId, shoppingItemEnum },
+      item: { id: itemId },
       trackUserBehaviour,
     } = this.props;
     const { isVoucherValidationInProgress, quantity } = this.state;
@@ -79,7 +77,6 @@ class PaymentSection extends React.Component {
         variables: {
           voucherCode: voucher,
           itemId,
-          shoppingItemEnum,
           quantity,
         },
       })
@@ -141,9 +138,10 @@ class PaymentSection extends React.Component {
       trialTraingInstance,
     } = this.props;
 
-    let trainingInstanceId,
-      eventId,
-      price = 0,
+    // let trainingInstanceId,
+    //   eventId,
+
+    let price = 0,
       currency,
       title,
       priceGoesUpOn,
@@ -164,12 +162,12 @@ class PaymentSection extends React.Component {
       title =
         trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket';
       let ticketsLeft;
-      if (item.shoppingItemEnum === 'event') {
-        eventId = item.id;
-        ticketsLeft = item.ticketsLeft;
-      } else {
-        trainingInstanceId = item.id;
-      }
+      //   if (item.shoppingItemEnum === 'event') {
+      //     eventId = item.id;
+      //     ticketsLeft = item.ticketsLeft;
+      //   } else {
+      //     trainingInstanceId = item.id;
+      //   }
 
       notSoldOut = !(
         ticketsLeft !== undefined &&
@@ -282,8 +280,9 @@ class PaymentSection extends React.Component {
                     isDonationTicket={isDonationTicket}
                     city={city}
                     navigate={navigate}
-                    trainingInstanceId={trainingInstanceId}
-                    eventId={eventId}
+                    itemId={item.id}
+                    // trainingInstanceId={trainingInstanceId}
+                    // eventId={eventId}
                     vatRate={vatRate}
                     updateVatRate={this.updateVatRate}
                     price={price}
@@ -356,7 +355,8 @@ const memoizedTrainingOptions = memoize((item) => ({
 
 const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
   options: ({ item }) => memoizedTrainingOptions(item),
-  skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
+  // skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
+  skip: ({ item }) => !item || item.__typename !== 'TrainingInstance',
 });
 
 const memoizedEventOptions = memoize((item) => ({
@@ -365,7 +365,8 @@ const memoizedEventOptions = memoize((item) => ({
 
 const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
   options: ({ item }) => memoizedEventOptions(item),
-  skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
+  // skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
+  skip: ({ item }) => !item || item.__typename !== 'Event',
 });
 
 export default withUpcomingTrainingVouchers(

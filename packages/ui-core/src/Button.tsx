@@ -63,13 +63,13 @@ export const Button = function <T extends As = 'button'>(
       type={as ? undefined : type}
       role={as ? 'button' : undefined}
       as={as || 'button'}
-      {...props}
       __sx={{
         ...buttonDefaultSxProp,
         // ...(buttonVariantProps[variant] || {}),
         // ...sx,
       }}
       __themeKey="buttons"
+      {...props}
       variant={variant}
       onClick={rest.disabled ? undefined : onClick}
       children={loadingElement ? loadingElement : children}

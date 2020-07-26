@@ -165,7 +165,6 @@ const Layout = ({ children }) => {
     return {
       ...node,
       trainingInstanceTypeName,
-      shoppingItemEnum: 'training',
       title,
       trainingType,
       tech,

@@ -57,8 +57,9 @@ const Checkout = (props) => {
   };
 
   const {
-    trainingInstanceId,
-    eventId,
+    // trainingInstanceId,
+    // eventId,
+    itemId,
     price,
     discountPrice,
     currency,
@@ -125,8 +126,9 @@ const Checkout = (props) => {
           trialTraingInstance={trialTraingInstance}
           city={city}
           navigate={navigate}
-          trainingInstanceId={trainingInstanceId}
-          eventId={eventId}
+          itemId={itemId}
+          //   trainingInstanceId={trainingInstanceId}
+          //   eventId={eventId}
           vatRate={vatRate}
           updateVatRate={updateVatRate}
           currency={currency}
