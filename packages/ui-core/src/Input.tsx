@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, SxProp, LeanProps, As } from './Box';
+import { Box, SxProp, LeanProps, As, get } from './Box';
 import { Label } from './Label';
+import { useTheme } from './ThemeProvider';
 
 interface InputFormProps {
   onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
@@ -14,8 +15,14 @@ function InputForm<T extends As = 'input'>(
 ) {
   return (
     <Box
+      variant="input"
+      as="input"
       {...props}
-      sx={{
+      __sx={{
+        fontSize: 2,
+        lineHeight: 2,
+        p: 2,
+        maxWidth: '100%',
         backgroundColor: 'background',
         display: 'block',
         width: '100%',
@@ -23,45 +30,39 @@ function InputForm<T extends As = 'input'>(
         backgroundClip: 'padding-box',
         border: '1px solid',
         borderColor: 'secondary',
-        ...(props.sx || {}),
       }}
-      as={props.as || 'input'}
+      __themeKey="forms"
     />
   );
 }
 
-const defaultInputSxProp = {
-  fontSize: 2,
-  lineHeight: 2,
-  p: 1,
-  maxWidth: '100%',
+export const ErrorMessage = (props) => {
+  return (
+    <Box
+      variant="error"
+      {...props}
+      __sx={{
+        m: 0,
+        fontWeight: 'bold',
+        backgroundColor: 'danger',
+        py: 1,
+        px: 2,
+        fontSize: 0,
+      }}
+      __themeKey="forms"
+    />
+  );
 };
 
-export const ErrorMessage = ({ sx = {}, ...rest }) => (
+export const FormGroup = (props) => (
   <Box
-    sx={{
-      m: 0,
-      fontWeight: 'bold',
-      backgroundColor: 'danger',
-      color: 'secondary',
-      py: 0,
-      px: 1,
-      fontSize: 0,
-      ...sx,
-    }}
-    {...rest}
-  />
-);
-
-export const FormGroup = ({ sx = {}, ...rest }) => (
-  <Box
-    sx={{
-      py: 1,
+    {...props}
+    __sx={{
+      py: 2,
       display: 'block',
       maxWidth: '100%',
-      ...sx,
     }}
-    {...rest}
+    __themeKey="forms"
   />
 );
 
@@ -103,7 +104,6 @@ export function Input<T extends As>({
     input.onChange && input.onChange(e);
     props.onChange && props.onChange(e);
   };
-  const extendedSx = { ...defaultInputSxProp, ...sx };
 
   return (
     <FormGroup sx={formGroupSx}>
@@ -114,7 +114,7 @@ export function Input<T extends As>({
             <InputForm
               {...props}
               {...input}
-              sx={{ mt: 1, ...extendedSx }}
+              sx={{ mt: 2, ...sx }}
               onChange={onChange}
               type={type}
               name={name}
@@ -126,7 +126,7 @@ export function Input<T extends As>({
         <InputForm
           {...props}
           {...input}
-          sx={extendedSx}
+          sx={sx}
           onChange={onChange}
           type={type}
         />

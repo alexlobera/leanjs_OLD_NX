@@ -1,8 +1,11 @@
+export const DARK_BLUE = 'rgba(0,41,56, 1)';
+export const DARK_GREY = '#4a4a4a';
+
 const heading = {
   color: 'text',
   fontFamily: 'heading',
   lineHeight: 'heading',
-  fontWeight: 'heading',
+  mt: 0,
 };
 
 export const theme = {
@@ -25,27 +28,43 @@ export const theme = {
     '14rem', // 15
     '16rem', // 16
   ],
+  breakpoints: ['40em', '52em', '64em'],
   fonts: {
     body: `'Barlow', sans-serif`,
     heading: 'inherit',
     monospace: 'Courier New,Courier,monospace;',
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
+
+  // fontSizes: [12, 14, 16,18, 20, 24, 32, 48, 64, 96],
+  fontSizes: [
+    '0.8rem', // 0
+    '0.9rem', // 1
+    '1rem', // 2
+    '1.15rem', // 3
+    '1.25rem', // 4
+    '1.563rem', // 5
+    '1.953rem', // 6
+    '2.441rem', // 7
+    '2.77rem', // 8
+  ],
   fontWeights: {
     body: 400,
-    heading: 700,
-    bold: 700,
+    bold: 800,
   },
   lineHeights: {
     body: 1.5,
     heading: 1.125,
   },
   colors: {
-    text: '#4a4a4a',
+    text: DARK_GREY,
+    // lightText: '#fff',
+    inverseText: '#fff',
+    // darkBackground: 'rgba(0,41,56, 1)',
     background: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
-    muted: '#f6f6f6',
+    inverseBackground: 'rgba(0,41,56, 1)',
+    primary: '#C0392B',
+    secondary: 'rgba(0,41,56, 1)',
+    danger: 'rgb(243, 136, 162)',
   },
   sizes: {
     container: '64rem',
@@ -82,27 +101,34 @@ export const theme = {
     },
     h1: {
       ...heading,
-      fontSize: 5,
+      fontSize: 8,
+      fontWeight: 'bold',
     },
     h2: {
       ...heading,
-      fontSize: 4,
+      fontWeight: 'bold',
+      fontSize: 6,
+      mb: 8,
     },
     h3: {
       ...heading,
-      fontSize: 3,
+      fontSize: 5,
+      mb: 7,
     },
     h4: {
       ...heading,
-      fontSize: 2,
+      fontSize: 4,
+      mb: 6,
     },
     h5: {
       ...heading,
-      fontSize: 1,
+      fontSize: 3,
+      mb: 5,
     },
     h6: {
       ...heading,
-      fontSize: 0,
+      fontSize: 2,
+      mb: 4,
     },
     p: {
       color: 'text',
@@ -111,6 +137,11 @@ export const theme = {
       lineHeight: 'body',
     },
     a: {
+      cursor: 'pointer',
+      ":not([role='button'])": {
+        textDecoration: 'underline',
+      },
+      textShadow: '0px 0px 1px',
       color: 'text',
       '&:link': {
         color: 'text',
@@ -151,6 +182,31 @@ export const theme = {
     },
     img: {
       maxWidth: '100%',
+    },
+  },
+  sections: {
+    top: {
+      mt: '-50px',
+    },
+    secondary: { bg: 'secondary', py: 9 },
+  },
+  buttons: {
+    primary: {
+      color: 'inverseText',
+      bg: 'primary',
+      fontWeight: 'bold',
+    },
+    secondary: {
+      color: 'inverseText',
+      backgroundColor: 'secondary',
+    },
+    default: {
+      color: 'text',
+      bg: 'background',
+      boxShadow: 'thin',
+      border: '1px solid',
+      textShadow: 'bold',
+      borderColor: 'secondary',
     },
   },
 };

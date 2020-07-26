@@ -3,13 +3,7 @@ import { Box, LeanProps, As } from './Box';
 
 export function Link<T extends As = 'a'>(props: LeanProps<T>) {
   return (
-    <Box
-      {...props}
-      as={props.as || 'a'}
-      sx={{ mt: 1 }}
-      variant="a"
-      __themeKey="styles"
-    />
+    <Box as="a" variant="a" {...props} __sx={{ mt: 1 }} __themeKey="styles" />
   );
 }
 

@@ -4,7 +4,6 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
-import { MEETUP } from '../../config/data';
 import Root from '../../../test/utils/Root';
 import {
   PAY_MUTATION,
@@ -13,6 +12,7 @@ import {
 import {
   QUERY_UPCOMING_TRAINING_VOUCHERS,
   VALIDATE_VOUCHER_QUERY,
+  QUERY_UPCOMING_EVENT_VOUCHERS,
 } from './PaymentSection';
 import PaymentSection from './PaymentSection';
 
@@ -29,12 +29,11 @@ const defaultItemData = {
     city: 'London',
     country: 'UK',
     endDate: '2039-05-23T20:00:00.000Z',
-    id: '5aa2acda7dcc782348ea1234',
+    id: '@VElOOjVlZjllYWE3MmJjZjNlNjUzYmFiNDRiMg==', //training instance
     mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
     standardPrice: 995,
     startDate: '2039-04-23T17:00:00.000Z',
-    type: 'Part-time',
-    shoppingItemEnum: 'training',
+    __typename: 'UpMentoring_TrainingInstance',
   },
 };
 
@@ -56,6 +55,16 @@ const defaultAutoVoucherQuery = {
   },
 };
 
+interface MountPaymentSection {
+  itemData?: any;
+  paymentMutation?: any;
+  autoVoucherQuery?: any;
+  validateVoucherQuery?: any;
+  validateVatQuery?: any;
+  navigate?: any;
+  triggerSubscribe?: any;
+}
+
 const mountPaymentSection = ({
   itemData = defaultItemData,
   paymentMutation = null,
@@ -64,7 +73,7 @@ const mountPaymentSection = ({
   validateVatQuery = null,
   navigate = () => {},
   triggerSubscribe = () => {},
-}) => {
+}: MountPaymentSection) => {
   const mocks = [
     paymentMutation,
     autoVoucherQuery,
@@ -90,8 +99,8 @@ describe('<PaymentSection />', () => {
     variables: {
       voucherCode: '',
       quantity: 1,
-      itemId: '5aa2acda7dcc782348ea1234',
-      shoppingItemEnum: 'training',
+      itemId: '@VElOOjVlZjllYWE3MmJjZjNlNjUzYmFiNDRiMg==',
+      // shoppingItemEnum: 'training',
       email: 'test@example.com',
       name: 'Joe Bloggs',
       token: 2,
@@ -155,28 +164,27 @@ describe('<PaymentSection />', () => {
           email: 'test@example.com',
           makePayment: result.data.makePayment,
           itemId: request.variables.itemId,
-          shoppingItemEnum: request.variables.shoppingItemEnum,
+          // shoppingItemEnum: request.variables.shoppingItemEnum,
         });
       });
     });
 
-    it('should not show the checkout if the event has endend', async () => {
+    it('should not show the checkout if the training instance has endend', async () => {
       const navigate = jest.fn(() => {});
       const { getByText } = mountPaymentSection({
         paymentMutation: { request, result },
         navigate,
         itemData: {
           item: {
-            shoppingItemEnum: 'training',
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
             city: 'London',
             country: 'UK',
             endDate: '2019-05-23T20:00:00.000Z',
-            id: '5aa2acda7dcc782348ea1234',
+            id: '@VElOOjVlZjllYWE3MmJjZjNlNjUzYmFiNDRiMg==',
             mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
             standardPrice: 995,
             startDate: '2019-04-23T17:00:00.000Z',
-            type: MEETUP,
+            __typename: 'UpMentoring_TrainingInstance',
           },
         },
       });
@@ -191,19 +199,35 @@ describe('<PaymentSection />', () => {
 
       const { getByText, getByLabelText } = mountPaymentSection({
         paymentMutation: { request, result },
+        autoVoucherQuery: {
+          request: {
+            query: QUERY_UPCOMING_EVENT_VOUCHERS,
+            variables: {
+              eventId: '@RVZFOjVmMGNjMmRlM2JiMmM1MzMwNDE5NWIzNA==',
+            },
+          },
+          result: {
+            data: {
+              events: {
+                upcomingAutomaticDiscounts: {
+                  edges: [],
+                },
+              },
+            },
+          },
+        },
         triggerSubscribe,
         itemData: {
           item: {
-            shoppingItemEnum: 'training',
             address: 'Publicis Sapient - Eden House, 8 Spital Square',
             city: 'London',
             country: 'UK',
             endDate: '2039-05-23T20:00:00.000Z',
-            id: '5aa2acda7dcc782348ea1234',
+            id: '@RVZFOjVmMGNjMmRlM2JiMmM1MzMwNDE5NWIzNA==',
             mapUrl: 'https://goo.gl/maps/jjX9zs5Ags32',
             standardPrice: 995,
             startDate: '2039-04-23T17:00:00.000Z',
-            type: MEETUP,
+            __typename: 'UpMentoring_Event',
           },
         },
       });

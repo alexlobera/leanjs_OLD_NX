@@ -8,13 +8,14 @@ export const Container = React.forwardRef(function <T extends As>(
   return (
     <Box
       ref={ref}
+      variant="container"
       {...props}
-      sx={{
+      __sx={{
         width: '100%',
         maxWidth: 'container',
         mx: 'auto',
-        ...(props.sx || {}),
       }}
+      __themeKey="layout"
     />
   );
 });

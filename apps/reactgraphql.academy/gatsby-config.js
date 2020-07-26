@@ -32,6 +32,7 @@ module.exports = {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
         url: 'https://api2.upmentoring.com/graphql',
+        // url: 'http://localhost:3334/graphql',
         // url:
         //  'https://europe-west1-upmentoring-api.cloudfunctions.net/api/graphql',
       },

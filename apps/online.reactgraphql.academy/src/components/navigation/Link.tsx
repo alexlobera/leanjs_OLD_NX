@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
-import { Link as LeanLink, LeanProps, As } from '@leanjs/ui-core';
+import { Link } from '@leanjs/ui-link';
+import { Button } from '../form';
 
-interface Link {
-  to: string;
-}
-
-function Link<T extends As = 'a'>({ to, ...rest }: LeanProps<T, Link>) {
-  return <LeanLink to={to} as={GatsbyLink} {...rest} />;
-}
+export const LinkButton = (props) => (
+  <Button
+    as={Link}
+    {...props}
+    sx={{ ...(props.sx || {}), textDecoration: 'none' }}
+  />
+);
 
 export default Link;

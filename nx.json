@@ -63,6 +63,21 @@
     },
     "leanui-docz": {
       "tags": []
+    },
+    "ui-page": {
+      "tags": []
+    },
+    "ui-gatsby-sanity": {
+      "tags": []
+    },
+    "ui-icons": {
+      "tags": []
+    },
+    "ui-link": {
+      "tags": []
+    },
+    "ui-academy": {
+      "tags": []
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from './Box';
+import { Box, LeanProps, As } from './Box';
 import { getVariantProps } from './utils';
 
 interface UlProps {
@@ -7,24 +7,28 @@ interface UlProps {
   variants?: string[];
 }
 
-const Ul = ({ sx = {}, children, ...rest }) => (
-  <Box
-    as="ul"
-    sx={{
-      ...getVariantProps(rest.variant || rest.variants, ulVariantSxProp),
-      ...sx,
-    }}
-    {...rest}
-    children={React.Children.map(children, (child) =>
-      child && typeof child === 'object'
-        ? React.cloneElement(child, {
-            variant: rest.variant,
-            variants: rest.variants,
-          })
-        : child
-    )}
-  />
-);
+// interface UlContext {
+//     variant?: string;
+//     variants?: string[];
+//   }
+const UlContext = React.createContext({ variant: '', variants: [] });
+
+function Ul<T extends As = 'ul'>(props: LeanProps<T, UlProps>) {
+  return (
+    <UlContext.Provider
+      value={{ variant: props.variant, variants: props.variants }}
+    >
+      <Box
+        as="ul"
+        {...props}
+        sx={{
+          ...getVariantProps(props.variant || props.variants, ulVariantSxProp),
+          ...props.sx,
+        }}
+      />
+    </UlContext.Provider>
+  );
+}
 
 const Ol = (props) => <Ul as="ol" {...props} />;
 
@@ -35,6 +39,8 @@ const ulVariantSxProp = {
   },
   unstyled: {
     ml: 0,
+    listStyle: 'none',
+    pl: 0,
   },
 };
 
@@ -44,9 +50,6 @@ const liVariantSxProp = {
     m: 0,
     display: 'inline-block',
     // TODO the following doesn't work, should we create a styled system function?
-    '> li': {
-      backgroundColor: 'red',
-    },
     // should we instead create a function for
     // firstChildML : 0
     // should we instead create a function for
@@ -61,15 +64,20 @@ const liVariantSxProp = {
   },
 };
 
-const Li = ({ sx = {}, ...rest }) => (
-  <Box
-    as="li"
-    sx={{
-      ...getVariantProps(rest.variant || rest.variants, liVariantSxProp),
-      ...sx,
-    }}
-    {...rest}
-  />
-);
+function Li<T extends As = 'li'>(props: LeanProps<T>) {
+  const { variant, variants } = React.useContext(UlContext);
+
+  return (
+    <Box
+      as="li"
+      {...props}
+      sx={{
+        py: 1,
+        ...getVariantProps(variant || variants, liVariantSxProp),
+        ...props.sx,
+      }}
+    />
+  );
+}
 
 export { Ul, Ol, Li };

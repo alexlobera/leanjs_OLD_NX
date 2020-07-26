@@ -33,7 +33,6 @@ export const VALIDATE_VIES_QUERY = `
 export const PAY_MUTATION = `
 mutation pay(
   $itemId: ID!
-  $shoppingItemEnum: ShoppingItemEnum!
   $quantity: Int!
   $voucherCode: String
   $email: String!
@@ -44,7 +43,6 @@ mutation pay(
 ) {
   makePayment(
     payment: {
-      shoppingItemEnum: $shoppingItemEnum
       itemId: $itemId
       quantity: $quantity
       voucherCode: $voucherCode
@@ -134,8 +132,9 @@ export class CheckoutContainer extends React.Component {
       quantity,
       trackUserBehaviour,
       statelessClient,
-      trainingInstanceId,
-      eventId,
+      //   trainingInstanceId,
+      //   eventId,
+      itemId,
       paymentApi = Stripe,
       voucher,
       navigate,
@@ -166,7 +165,7 @@ export class CheckoutContainer extends React.Component {
 
     trackUserBehaviour({
       event: CHECKOUT_PAYMENT_REQUEST,
-      payload: { email, trainingInstanceId, eventId },
+      payload: { email, itemId },
     });
 
     paymentApi.setPublishableKey(STRIPE_PUBLIC_KEY);
@@ -179,13 +178,13 @@ export class CheckoutContainer extends React.Component {
           vatNumber = companyVat.substring(2, companyVat.length);
           vatCountry = companyVat.substring(0, 2);
         }
-        const shoppingItemEnum = trainingInstanceId ? 'training' : 'event';
-        const itemId = trainingInstanceId || eventId;
+        // const shoppingItemEnum = trainingInstanceId ? 'training' : 'event';
+        // const itemId = trainingInstanceId || eventId;
         const variables = {
           voucherCode: voucher,
           quantity,
           itemId,
-          shoppingItemEnum,
+          // shoppingItemEnum,
           email,
           name,
           token: response.id,
@@ -205,7 +204,7 @@ export class CheckoutContainer extends React.Component {
                 email,
                 makePayment: data.makePayment,
                 itemId,
-                shoppingItemEnum,
+                // shoppingItemEnum,
               });
             } else {
               this.processPaymentError(error);

@@ -30,4 +30,5 @@ export const H6 = createTypography('h6');
 export const Heading = H2;
 
 export const P = createTypography('p');
+export const Span = createTypography('span');
 export const Blockquote = createTypography('blockquote');

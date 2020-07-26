@@ -6,7 +6,7 @@ import memoize from '../../api/graphql/memoize';
 import { H2, H3, P } from '../text';
 import { Ribbon } from '../elements';
 import Card from '../elements/Card';
-import Link from '../navigation/Link';
+// import Link from '../navigation/Link';
 import Checkout from './checkout/';
 import formatPrice from '../utils/currency';
 import { DEFAULT_VAT_RATE } from '../../config';
@@ -14,19 +14,17 @@ import { getVoucherByPathname } from '../utils/store';
 import trackUserBehaviour, {
   VOUCHER_VALIDATE,
 } from '../utils/trackUserBehaviour';
-import { MEETUP } from '../../config/data';
+// import { MEETUP } from '../../config/data';
 import Countdown from './Countdown';
 
 export const VALIDATE_VOUCHER_QUERY = `
   query validateVoucher(
     $itemId: ID!
-    $shoppingItemEnum: ShoppingItemEnum!
     $voucherCode: String!
     $quantity: Int!
   ) {
     redeemVoucher(
       itemId: $itemId
-      shoppingItemEnum: $shoppingItemEnum
       quantity: $quantity
       voucherCode: $voucherCode
     ) {
@@ -58,7 +56,7 @@ class PaymentSection extends React.Component {
   validateVoucher = (voucher) => {
     const {
       statelessClient,
-      item: { id: itemId, shoppingItemEnum },
+      item: { id: itemId },
       trackUserBehaviour,
     } = this.props;
     const { isVoucherValidationInProgress, quantity } = this.state;
@@ -79,7 +77,6 @@ class PaymentSection extends React.Component {
         variables: {
           voucherCode: voucher,
           itemId,
-          shoppingItemEnum,
           quantity,
         },
       })
@@ -141,14 +138,15 @@ class PaymentSection extends React.Component {
       trialTraingInstance,
     } = this.props;
 
-    let trainingInstanceId,
-      eventId,
-      price = 0,
+    // let trainingInstanceId,
+    //   eventId,
+
+    let price = 0,
       currency,
       title,
       priceGoesUpOn,
       currentDiscountPrice,
-      trainingType,
+      isMeetup = false,
       notSoldOut = true;
 
     if (errors) {
@@ -160,16 +158,15 @@ class PaymentSection extends React.Component {
     } else if (new Date(item.endDate) < new Date()) {
       title = 'The event has ended';
     } else {
-      trainingType = item.type;
-      title =
-        trainingType === MEETUP ? 'Donation ticket' : 'Standard price ticket';
+      isMeetup = item.__typename === 'UpMentoring_Event';
+      title = isMeetup ? 'Donation ticket' : 'Standard price ticket';
       let ticketsLeft;
-      if (item.shoppingItemEnum === 'event') {
-        eventId = item.id;
-        ticketsLeft = item.ticketsLeft;
-      } else {
-        trainingInstanceId = item.id;
-      }
+      //   if (item.shoppingItemEnum === 'event') {
+      //     eventId = item.id;
+      //     ticketsLeft = item.ticketsLeft;
+      //   } else {
+      //     trainingInstanceId = item.id;
+      //   }
 
       notSoldOut = !(
         ticketsLeft !== undefined &&
@@ -212,9 +209,8 @@ class PaymentSection extends React.Component {
       ? currentDiscountPrice * quantity
       : priceQuantity;
 
-    const showSubscribeToNewsletter = trainingType === MEETUP;
-    // const isNominalFee = trainingType === MEETUP
-    const isDonationTicket = trainingType === MEETUP;
+    const showSubscribeToNewsletter = isMeetup;
+    const isDonationTicket = isMeetup;
 
     return (
       <React.Fragment>
@@ -282,8 +278,9 @@ class PaymentSection extends React.Component {
                     isDonationTicket={isDonationTicket}
                     city={city}
                     navigate={navigate}
-                    trainingInstanceId={trainingInstanceId}
-                    eventId={eventId}
+                    itemId={item.id}
+                    // trainingInstanceId={trainingInstanceId}
+                    // eventId={eventId}
                     vatRate={vatRate}
                     updateVatRate={this.updateVatRate}
                     price={price}
@@ -309,11 +306,10 @@ class PaymentSection extends React.Component {
               </React.Fragment>
             )}
           </Card>
-          {trainingType !== MEETUP && !isOnline && (
+          {!isMeetup && !isOnline && (
             <P sx={{ pt: 4 }}>
               Please be aware that the ticket only covers the cost of the
-              {trainingInstanceId ? 'training' : 'event'}, it does not include
-              travel expenses.
+              training, it does not include travel expenses.
             </P>
           )}
         </React.Fragment>
@@ -356,7 +352,9 @@ const memoizedTrainingOptions = memoize((item) => ({
 
 const withUpcomingTrainingVouchers = graphql(QUERY_UPCOMING_TRAINING_VOUCHERS, {
   options: ({ item }) => memoizedTrainingOptions(item),
-  skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
+  // skip: ({ item }) => !item || item.shoppingItemEnum !== 'training',
+  skip: ({ item }) =>
+    !item || item.__typename !== 'UpMentoring_TrainingInstance',
 });
 
 const memoizedEventOptions = memoize((item) => ({
@@ -365,7 +363,8 @@ const memoizedEventOptions = memoize((item) => ({
 
 const withUpcomingEventVouchers = graphql(QUERY_UPCOMING_EVENT_VOUCHERS, {
   options: ({ item }) => memoizedEventOptions(item),
-  skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
+  // skip: ({ item }) => !item || item.shoppingItemEnum !== 'event',
+  skip: ({ item }) => !item || item.__typename !== 'UpMentoring_Event',
 });
 
 export default withUpcomingTrainingVouchers(
