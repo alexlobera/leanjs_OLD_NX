@@ -82,72 +82,65 @@ const Checkout = (props) => {
     trialTraingInstance,
   } = props;
 
-  return (
-    <Fragment>
-      {!isCheckoutOpen ? (
-        <PurchaseWrapper className="gtm-purchase-box">
-          <Fragment>
-            {currentPriceQuantity ? (
-              <PriceAndDiscount>
-                <Price sx={{ textAlign: 'center', pt: 1, pb: 1 }}>
-                  {formatPrice(currency, currentPriceQuantity, vatRate)}
-                </Price>
-                {priceQuantity !== currentPriceQuantity && (
-                  <P>
-                    <Span sx={{ textDecoration: 'line-through' }}>
-                      (Full price:{' '}
-                      {formatPrice(currency, priceQuantity, vatRate)})
-                    </Span>
-                  </P>
-                )}
-              </PriceAndDiscount>
-            ) : (
-              <Price>{formatPrice(currency, priceQuantity, vatRate)}</Price>
+  return !isCheckoutOpen ? (
+    <PurchaseWrapper className="gtm-purchase-box">
+      <Fragment>
+        {currentPriceQuantity ? (
+          <PriceAndDiscount>
+            <Price sx={{ textAlign: 'center', pt: 1, pb: 1 }}>
+              {formatPrice(currency, currentPriceQuantity, vatRate)}
+            </Price>
+            {priceQuantity !== currentPriceQuantity && (
+              <P>
+                <Span sx={{ textDecoration: 'line-through' }}>
+                  (Full price: {formatPrice(currency, priceQuantity, vatRate)})
+                </Span>
+              </P>
             )}
-            <BuyButton
-              onClick={openCheckout}
-              sx={{
-                ml: 'auto',
-              }}
-              children="Buy now"
-              variant="primary"
-              className={
-                showSubscribeToNewsletter
-                  ? `meetup-details-cta`
-                  : `pricing-clicks`
-              }
-            />
-          </Fragment>
-        </PurchaseWrapper>
-      ) : (
-        <CheckoutContainer
-          trialTraingInstance={trialTraingInstance}
-          city={city}
-          navigate={navigate}
-          trainingInstanceId={trainingInstanceId}
-          eventId={eventId}
-          vatRate={vatRate}
-          updateVatRate={updateVatRate}
-          currency={currency}
-          price={price}
-          discountPrice={discountPrice}
-          quantity={quantity}
-          priceQuantity={priceQuantity}
-          currentPriceQuantity={currentPriceQuantity}
-          removeCourse={removeCourse}
-          addCourse={addCourse}
-          resetVoucher={resetVoucher}
-          validateVoucher={validateVoucher}
-          voucher={voucher}
-          isVoucherValid={isVoucherValid}
-          isVoucherValidationInProgress={isVoucherValidationInProgress}
-          paymentApi={paymentApi}
-          triggerSubscribe={triggerSubscribe}
-          showSubscribeToNewsletter={showSubscribeToNewsletter}
-          {...props}
+          </PriceAndDiscount>
+        ) : (
+          <Price>{formatPrice(currency, priceQuantity, vatRate)}</Price>
+        )}
+        <BuyButton
+          onClick={openCheckout}
+          sx={{
+            ml: 'auto',
+          }}
+          children="Buy now"
+          variant="primary"
+          className={
+            showSubscribeToNewsletter ? `meetup-details-cta` : `pricing-clicks`
+          }
         />
-      )}
-    </Fragment>
+      </Fragment>
+    </PurchaseWrapper>
+  ) : (
+    <CheckoutContainer
+      trialTraingInstance={trialTraingInstance}
+      city={city}
+      navigate={navigate}
+      trainingInstanceId={trainingInstanceId}
+      eventId={eventId}
+      vatRate={vatRate}
+      updateVatRate={updateVatRate}
+      currency={currency}
+      price={price}
+      discountPrice={discountPrice}
+      quantity={quantity}
+      priceQuantity={priceQuantity}
+      currentPriceQuantity={currentPriceQuantity}
+      removeCourse={removeCourse}
+      addCourse={addCourse}
+      resetVoucher={resetVoucher}
+      validateVoucher={validateVoucher}
+      voucher={voucher}
+      isVoucherValid={isVoucherValid}
+      isVoucherValidationInProgress={isVoucherValidationInProgress}
+      paymentApi={paymentApi}
+      triggerSubscribe={triggerSubscribe}
+      showSubscribeToNewsletter={showSubscribeToNewsletter}
+      {...props}
+    />
   );
 };
 

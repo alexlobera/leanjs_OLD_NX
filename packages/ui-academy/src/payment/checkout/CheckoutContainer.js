@@ -1,4 +1,6 @@
 /* eslint no-undef: 0 */
+/* eslint-disable @typescript-eslint/camelcase */
+
 import React from 'react';
 
 // import { withStatelessClient } from '../../../api/graphql/client';

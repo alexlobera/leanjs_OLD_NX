@@ -52,7 +52,11 @@ const Footer = () => (
             <Grid columns={10}>
               <Box sx={{ gridColumn: ['1/ -1', '1 / 6'] }}>
                 <H3>Free learning resources</H3>
-                <Form onSubmit={() => {}}>
+                <Form
+                  onSubmit={() => {
+                    // TODO
+                  }}
+                >
                   {({ formSubmitted, submitting }) =>
                     formSubmitted ? null : (
                       <>

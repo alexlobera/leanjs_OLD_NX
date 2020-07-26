@@ -135,7 +135,6 @@ class PaymentSection extends React.Component {
       data,
       errors,
       loading,
-      isOnline,
       city,
       triggerSubscribe,
       trialTraingInstance,
@@ -220,7 +219,7 @@ class PaymentSection extends React.Component {
       <React.Fragment>
         <H2 sx={{ color: 'inverseText' }}>
           Price
-          <a to="#pricing" name="pricing" />
+          <a to="#pricing" id="pricing" />
         </H2>
         <Card>
           <H3>

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-
+///
 const path = require(`path`);
 const fs = require('fs');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { capitalize } = require('./src/components/utils/text');
 const { getPostsFromNodes } = require('./src/components/blog/utils');
 const { removeTrailingSlash } = require('./src/components/utils/text');
-//
+
 exports.onPostBuild = () => {
   const dir = path.join(__dirname, '../../dist/reactgraphql.academy');
 
