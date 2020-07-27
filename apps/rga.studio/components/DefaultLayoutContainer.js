@@ -8,8 +8,8 @@ import { ApolloProvider } from '@apollo/react-hooks';
 
 const link = ApolloLink.from([
   new BatchHttpLink({
-    // uri: 'https://api2.upmentoring.com/graphql',
-    uri: 'http://localhost:3334/graphql',
+    uri: 'https://api2.upmentoring.com/graphql',
+    // uri: 'http://localhost:3334/graphql',
     credentials: 'include',
   }),
 ]);

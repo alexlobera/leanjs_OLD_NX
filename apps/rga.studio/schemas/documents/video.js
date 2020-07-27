@@ -1,5 +1,5 @@
 import UpMentoringVideoInput from '../../components/UpMentoringVideoInput';
-import withConditionalField from '../../plugins/withConditionalField.js';
+import withConditionalField from '../../plugins/withConditionalField';
 import ConditionalField from '../../plugins/conditionalField.js';
 
 export const VIDEO_TYPE_TRAINING = 'VIDEO_TYPE_TRAINING';

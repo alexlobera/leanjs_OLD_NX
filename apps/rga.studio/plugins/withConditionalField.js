@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import ConditionalField from './conditionalField';
 
 const withConditionalField = (Component) => (props) => (

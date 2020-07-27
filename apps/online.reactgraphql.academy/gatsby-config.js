@@ -3,6 +3,9 @@
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
 } = require('../rga.studio/sanity.json');
+// const {
+//     api: { projectId: sanityProjectId, dataset: sanityDataset },
+//   } = use local to develop
 
 module.exports = {
   siteMetadata: {
@@ -58,7 +61,8 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: sanityProjectId,
-        dataset: sanityDataset,
+        dataset: process.env.SANITY_DATASET || sanityDataset,
+        token: process.env.SANITY_TOKEN,
       },
     },
   ],
