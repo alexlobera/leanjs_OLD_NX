@@ -22,6 +22,7 @@ import richNoBulletPoints from './arrays/richNoBulletPoints';
 import tedvideo from './objects/tedvideo';
 import form from './objects/form';
 import formType from './objects/formType';
+import videoTranscript from './arrays/videoTranscript';
 //
 export default createSchema({
   name: 'default',
@@ -46,5 +47,6 @@ export default createSchema({
     tedvideo,
     form,
     formType,
+    videoTranscript,
   ]),
 });

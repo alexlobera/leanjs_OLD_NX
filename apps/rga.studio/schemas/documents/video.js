@@ -1,4 +1,6 @@
 import UpMentoringVideoInput from '../../components/UpMentoringVideoInput';
+import withConditionalField from '../../plugins/withConditionalField.js';
+import ConditionalField from '../../plugins/conditionalField.js';
 
 export const VIDEO_TYPE_TRAINING = 'VIDEO_TYPE_TRAINING';
 export const VIDEO_TYPE_TESTIMONIAL = 'VIDEO_TYPE_TESTIMONIAL';
@@ -15,16 +17,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'defaultStartSecond',
-      title: 'Default start second',
-      type: 'number',
-    },
-    {
-      name: 'defaultThumbnailSecond',
-      title: 'Default thumbnail second',
-      type: 'number',
-    },
-    {
       name: 'privateDescription',
       title: 'Private description',
       type: 'string',
@@ -34,6 +26,11 @@ export default {
       name: 'publicDescription',
       title: 'Public description',
       type: 'string',
+    },
+    {
+      name: 'transcript',
+      title: 'Transcript',
+      type: 'videoTranscript',
     },
     {
       name: 'type',
@@ -50,19 +47,50 @@ export default {
     },
     {
       name: 'umVideoId',
-      title: 'UpMentoring video id',
+      title: 'UpMentoring video',
       type: 'string',
-      inputComponent: UpMentoringVideoInput,
+      inputComponent: withConditionalField(UpMentoringVideoInput),
+      options: {
+        condition: (_, parent) => parent.type === VIDEO_TYPE_TRAINING,
+      },
+    },
+    {
+      name: 'thumbnailImage',
+      title: 'Thumbnail image',
+      type: 'image',
+      inputComponent: ConditionalField,
+      options: {
+        condition: (_, parent) => parent.type === VIDEO_TYPE_TRAINING,
+        hotspot: false,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'defaultThumbnailSecond',
+      title: 'Default thumbnail second',
+      type: 'number',
+      inputComponent: ConditionalField,
+      options: {
+        condition: (_, parent) => parent.type !== VIDEO_TYPE_TRAINING,
+      },
+    },
+    {
+      name: 'defaultStartSecond',
+      title: 'Default start second',
+      type: 'number',
+      inputComponent: ConditionalField,
+      options: {
+        condition: (_, parent) => parent.type !== VIDEO_TYPE_TRAINING,
+      },
     },
     {
       title: 'Video file',
       name: 'video',
       type: 'mux.video',
-    },
-    {
-      name: 'transcript',
-      title: 'Transcript',
-      type: 'blockContent',
+      inputComponent: ConditionalField,
+      options: {
+        condition: (_, parent) => parent.type !== VIDEO_TYPE_TRAINING,
+      },
     },
   ],
   preview: {
