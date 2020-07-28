@@ -139,6 +139,7 @@ export const VideoPlayer = (
     playbackId = null,
     thumbnailSecond = 1,
     thumbnailWidth = 640,
+    posterUrl = null,
     startSecond = 1,
     autoplay = false,
     autoload = false,
@@ -153,7 +154,11 @@ export const VideoPlayer = (
 ) => {
   // TODO implement startSecond in useHls
 
-  const posterUrl = `https://image.mux.com/${playbackId}/thumbnail.png?width=${thumbnailWidth}&amp;fit_mode=preserve&amp;time=${thumbnailSecond}`;
+  //   const poster = posterUrl
+  //     ? posterUrl
+  //     : playbackId
+  //     ? `https://image.mux.com/${playbackId}/thumbnail.png?width=${thumbnailWidth}&amp;fit_mode=preserve&amp;time=${thumbnailSecond}`
+  //     : null;
   const { videoRef, error, handleVideoClick, loadingStarted } = useHls({
     url,
     autoplay,
