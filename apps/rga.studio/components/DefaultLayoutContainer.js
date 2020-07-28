@@ -6,9 +6,14 @@ import { ApolloLink } from 'apollo-link';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from '@apollo/react-hooks';
 
+const devApiUrl = 'http://localhost:3334/graphql';
+
 const link = ApolloLink.from([
   new BatchHttpLink({
-    uri: 'https://api0.upmentoring.com/api/graphql',
+    uri:
+      process.env.NODE_ENV !== `development`
+        ? 'https://api2.upmentoring.com/graphql'
+        : devApiUrl,
     credentials: 'include',
   }),
 ]);

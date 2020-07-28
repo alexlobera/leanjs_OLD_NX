@@ -2,12 +2,20 @@ import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 import StickyBox from 'react-sticky-box';
 import { GitHubIcon, PlayMedia } from '@leanjs/ui-icons';
+import BlockContent from '@sanity/block-content-to-react';
+import { OkaidiaRGA } from '@leanjs/ui-academy';
+import {
+  removeCarriageReturn,
+  // Code,
+  getImagePublicURLs,
+} from '@leanjs/ui-academy';
 
 import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link from '../components/navigation/Link';
-import { H1, H2, H3, P } from '../components/display';
+import { H1, H2, H3, H4, H5, H6, P, Span, Image } from '../components/display';
+import Code from '../components/display/Code';
 
 interface LessonPageProps {
   data: any;
@@ -31,6 +39,60 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
     ({ fieldId }) => fieldId === EXERCISE_FIELD_ID
   ).values[0];
   const trainingPath = `/${training.slug}-course/`;
+  const { _rawTranscript } = video.sanityVideo;
+  const transcriptImagePublicURLs = getImagePublicURLs(data.transcriptImages);
+  const serializers = {
+    marks: {
+      link: ({ mark: { href }, children }) => (
+        <Link to={href} children={children} />
+      ),
+    },
+    list: ({ children }) => <Ul children={children} />,
+    listItem: ({ children = {} }) => <Li children={children} />,
+    hardBreak: null,
+    types: {
+      block: ({ children, node }) => {
+        const style = node.style || 'normal';
+        switch (style) {
+          case 'h4':
+            return <H4 children={children} />;
+          case 'h5':
+            return <H5 children={children} />;
+          case 'h6':
+            return <H6 children={children} />;
+          default:
+            const formatedChildren =
+              children &&
+              children.reduce &&
+              children.reduce((acc, curr) => {
+                const element = removeCarriageReturn(curr);
+                if (element) {
+                  acc.push(element);
+                }
+
+                return acc;
+              }, []);
+
+            return formatedChildren && formatedChildren.length ? (
+              <P children={formatedChildren} />
+            ) : null;
+        }
+      },
+      code: ({ node }) => (
+        <Code language={node.language} className={node.language}>
+          {node.code}
+        </Code>
+      ),
+      span: Span,
+      image: (props) => (
+        <Image src={transcriptImagePublicURLs[props.node.asset.id]} />
+      ),
+    },
+  };
+
+  const transcript = (
+    <BlockContent blocks={_rawTranscript} serializers={serializers} />
+  );
 
   return (
     <Layout
@@ -47,6 +109,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
         { text: video.title },
       ]}
     >
+      <OkaidiaRGA />
       <Container>
         <VideoPlayer url={video.asset.url} />
         <Grid columns={12} sx={{ mt: 7 }}>
@@ -66,6 +129,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
               </Li>
             </Ul>
             <H3>Transcript</H3>
+            {transcript}
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
@@ -81,7 +145,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
               </P>
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug }) => (
-                  <Li>
+                  <Li key={slug}>
                     <Link to={`${trainingPath}${slug}/`}>
                       <Icon comp={PlayMedia} />
                       {title}
@@ -98,12 +162,32 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
 };
 
 export const query = graphql`
-  query getVideo($videoId: ID!, $unitId: ID!, $trainingId: ID!) {
+  query getVideo(
+    $videoId: ID!
+    $unitId: ID!
+    $trainingId: ID!
+    $sanityTranscriptImageAssetIds: [String] = []
+  ) {
+    transcriptImages: allSanityImageAsset(
+      filter: { id: { in: $sanityTranscriptImageAssetIds } }
+    ) {
+      nodes {
+        id
+        localFile(width: 650) {
+          publicURL
+        }
+      }
+    }
     upmentoring {
       video(id: $videoId) {
+        id
         title
         asset {
           url
+        }
+        sanityVideo {
+          _id
+          _rawTranscript(resolveReferences: { maxDepth: 10 })
         }
       }
       trainingUnit(id: $unitId) {

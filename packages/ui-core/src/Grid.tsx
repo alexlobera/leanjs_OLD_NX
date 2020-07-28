@@ -21,7 +21,7 @@ interface GridProps {
   gap?: number;
 }
 
-export const Grid = <T extends As>(props: LeanProps<T, GridProps>, ref) => {
+export const Grid = <T extends As>(props: LeanProps<T, GridProps>) => {
   const { columns = 3, gap = 3 } = props;
   const gridTemplateColumns =
     typeof columns === 'object'
@@ -30,7 +30,6 @@ export const Grid = <T extends As>(props: LeanProps<T, GridProps>, ref) => {
 
   return (
     <Box
-      ref={ref}
       {...props}
       columns={null}
       gap={null}

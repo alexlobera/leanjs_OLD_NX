@@ -1,4 +1,4 @@
-import TrainingInput from '../../components/TrainingInput';
+import UpMentoringTrainingInput from '../../components/UpMentoringTrainingInput';
 import { VIDEO_TYPE_TRAINING } from './video';
 
 export default {
@@ -20,7 +20,7 @@ export default {
       name: 'trainingId',
       title: 'Training',
       type: 'string',
-      inputComponent: TrainingInput,
+      inputComponent: UpMentoringTrainingInput,
       validation: (Rule) => Rule.required(),
     },
     {

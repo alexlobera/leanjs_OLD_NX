@@ -1,0 +1,15 @@
+{
+  "name": "@leanjs/um-sanity-video",
+  "version": "0.0.1-alfa.0",
+  "author": "LeanJS <hello@leanjs.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leanjsorg/leanjs"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "styled-components": "*"
+  }
+}

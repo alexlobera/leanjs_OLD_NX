@@ -31,10 +31,9 @@ module.exports = {
       options: {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
-        url: 'https://api2.upmentoring.com/graphql',
-        // url: 'http://localhost:3334/graphql',
-        // url:
-        //  'https://europe-west1-upmentoring-api.cloudfunctions.net/api/graphql',
+        url:
+          process.env.GATSBY_UPMENTORING_API_URL ||
+          'https://api2.upmentoring.com/graphql',
       },
     },
     'gatsby-plugin-sitemap',
@@ -86,7 +85,8 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: sanityProjectId,
-        dataset: sanityDataset,
+        dataset: process.env.GATSBY_SANITY_DATASET || sanityDataset,
+        token: process.env.GATSBY_SANITY_TOKEN,
       },
     },
     {

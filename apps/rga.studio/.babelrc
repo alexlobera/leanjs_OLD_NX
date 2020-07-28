@@ -1,5 +1,9 @@
 {
-  "presets": ["@nrwl/react/babel", "@babel/preset-typescript"],
+  "presets": [
+    "@nrwl/react/babel",
+    "@babel/preset-env",
+    "@babel/preset-typescript"
+  ],
   "plugins": [
     [
       "module-resolver",
