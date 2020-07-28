@@ -47,8 +47,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
         <Link to={href} children={children} />
       ),
     },
-    list: Ul, //({ children }) => <Ul children={children} />,
-    listItem: Li, //({ children = {} }) => Li,
+    list: ({ children }) => <Ul children={children} />,
+    listItem: ({ children = {} }) => <Li children={children} />,
     hardBreak: null,
     types: {
       block: ({ children, node }) => {

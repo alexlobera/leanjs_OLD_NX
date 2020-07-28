@@ -3,9 +3,6 @@
 const {
   api: { projectId: sanityProjectId, dataset: sanityDataset },
 } = require('../rga.studio/sanity.json');
-// const {
-//     api: { projectId: sanityProjectId, dataset: sanityDataset },
-//   } = use local to develop
 
 module.exports = {
   siteMetadata: {
@@ -53,7 +50,6 @@ module.exports = {
       options: {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
-        // url: 'https://api2.upmentoring.com/graphql',
         url:
           process.env.GATSBY_UPMENTORING_API_URL ||
           'https://api2.upmentoring.com/graphql',
