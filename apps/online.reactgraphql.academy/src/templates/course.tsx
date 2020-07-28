@@ -139,9 +139,7 @@ function CoursePage({ data }) {
                         mb: index < units.length - 1 ? 8 : 0,
                       }}
                     >
-                      <H3>
-                        <Link to={unitPath}>{published.title}</Link>
-                      </H3>
+                      <H3>{published.title}</H3>
                       <Ul variant="inline">
                         <Li sx={{ pl: 0 }}>
                           {lessonsCount} lessons
