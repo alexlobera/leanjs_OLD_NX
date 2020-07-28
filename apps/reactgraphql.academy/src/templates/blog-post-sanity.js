@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
+import { OkaidiaRGA } from '@leanjs/ui-academy';
 
 import {
   Code,
@@ -204,7 +205,12 @@ const Page = ({ data, location, ...rest }) => {
     breadcrumbBgColor,
     ...rest,
   };
-  return <BlogPost {...blogPostProps} />;
+  return (
+    <>
+      <OkaidiaRGA />
+      <BlogPost {...blogPostProps} />
+    </>
+  );
 };
 
 export const query = graphql`

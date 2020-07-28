@@ -79,6 +79,7 @@ class UpMentoringVideoInput extends React.Component {
           label="Select a video"
           placeholder="A video is required"
           onChange={(event) => {
+            console.log('aaaa event.id', event.id);
             onChange(createPatchFrom(event.id));
           }}
           items={items}

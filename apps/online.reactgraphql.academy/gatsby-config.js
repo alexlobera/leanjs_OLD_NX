@@ -54,16 +54,20 @@ module.exports = {
         typeName: 'UpMentoring',
         fieldName: 'upmentoring',
         // url: 'https://api2.upmentoring.com/graphql',
-        url: 'http://localhost:3334/graphql',
+        url:
+          process.env.GATSBY_UPMENTORING_API_URL ||
+          'https://api2.upmentoring.com/graphql',
       },
     },
     {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: sanityProjectId,
-        dataset: process.env.SANITY_DATASET || sanityDataset,
-        token: process.env.SANITY_TOKEN,
+        dataset: process.env.GATSBY_SANITY_DATASET || sanityDataset,
+        token: process.env.GATSBY_SANITY_TOKEN,
       },
     },
+    'um-sanity-video',
+    'gatsby-source-sanity-transform-images',
   ],
 };

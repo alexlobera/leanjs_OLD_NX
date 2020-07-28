@@ -44,8 +44,8 @@ function Breadcrumb<T extends As = 'div'>({
           };
 
           return (
-            <>
-              <Li key={path} sx={sxLi}>
+            <React.Fragment key={path + text}>
+              <Li sx={sxLi}>
                 {path ? (
                   <Link className={className} to={path}>
                     {text}
@@ -57,7 +57,7 @@ function Breadcrumb<T extends As = 'div'>({
               {paths.length > 0 && i < paths.length - 1 && (
                 <Li sx={sxLi}>{divider}</Li>
               )}
-            </>
+            </React.Fragment>
           );
         })}
       </Ul>
