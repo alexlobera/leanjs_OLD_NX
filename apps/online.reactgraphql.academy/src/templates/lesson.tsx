@@ -53,6 +53,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
     types: {
       block: ({ children, node }) => {
         const style = node.style || 'normal';
+        let formatedChildren;
         switch (style) {
           case 'h4':
             return <H4 children={children} />;
@@ -61,7 +62,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
           case 'h6':
             return <H6 children={children} />;
           default:
-            const formatedChildren =
+            formatedChildren =
               children &&
               children.reduce &&
               children.reduce((acc, curr) => {
