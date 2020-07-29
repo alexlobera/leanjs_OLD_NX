@@ -95,7 +95,7 @@ const ContactForm = ({
                     validate={composeValidators(mustBeEmail, required)}
                     label="Your email address:"
                     name="email"
-                    placeholder="eg. steve@jobs.com"
+                    placeholder="eg. steve@wozniak.com"
                     color={WHITE}
                   />
                   <Button

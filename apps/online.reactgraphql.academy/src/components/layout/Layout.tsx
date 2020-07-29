@@ -3,6 +3,7 @@ import React, { FunctionComponent } from 'react';
 import Footer from './Footer';
 import Navbar from '../navigation/Navbar';
 import Link from '../navigation/Link';
+import AuthLink from '../auth/AuthLink';
 import { Ul, Li } from '.';
 // import { BreadcrumbProps } from '../navigation/Breadcrumb';
 // TODO include in teaching material BreadcrumbPath vs BreadcrumbProps. See comments below
@@ -43,7 +44,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
           }}
         >
           <Li>
-            <Link to="/login">Login</Link>
+            <AuthLink />
           </Li>
           <Li>
             <Link to="https://reactgraphql.academy/blog/">Blog</Link>

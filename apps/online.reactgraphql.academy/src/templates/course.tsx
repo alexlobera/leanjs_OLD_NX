@@ -126,10 +126,6 @@ function CoursePage({ data }) {
                 const lessonsCount =
                   (published.videos && published.videos.length) || 0;
                 const { previewVideo } = published;
-                // const unitPreviewVideoUrl =
-                //   previewVideo && previewVideo.asset
-                //     ? previewVideo.asset.url
-                //     : null;
                 const { posterUrl, url: unitPreviewVideoUrl } = getVideoInfo(
                   previewVideo
                 );

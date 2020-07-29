@@ -4,7 +4,10 @@ import 'normalize.css';
 
 import theme from './src/config/theme';
 import './src/config/site.css';
+import UserProvider from './src/components/auth/UserProvider';
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+  <UserProvider>
+    <ThemeProvider theme={theme}>{element}</ThemeProvider>
+  </UserProvider>
 );
