@@ -31,6 +31,7 @@ import {
 } from '../components/layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import Markdown from '../components/display/Markdown';
+import { useQuery } from '../api/graphql/Provider';
 
 const metas = {
   title: 'Online React and GraphQL Courses | React GraphQL Academy',
@@ -57,6 +58,14 @@ function CoursePage({ data }) {
           .map(formatTraining())
           .slice(0, 3)
       : [];
+
+  useQuery(`
+    {
+        viewer {
+            id
+        }
+    }
+  `);
 
   return (
     <Layout

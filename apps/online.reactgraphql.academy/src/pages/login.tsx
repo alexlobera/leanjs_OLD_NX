@@ -11,13 +11,14 @@ import {
   required,
 } from '../components/form';
 import Link from '../components/navigation/Link';
-import { useUser } from '../components/auth/UserProvider';
+import { useMagic } from '../components/auth/MagicProvider';
 import RGALogoDarkBg from '../components/logos/RGALogoDarkBg';
+import { useQuery } from '../api/graphql/Provider';
 
 const TEN_MINUTES = 600000;
 
 function LoginPage({ navigate }) {
-  const { login, loggedIn, signupsRequired, clearSignupsRequired } = useUser();
+  const { login, loggedIn, signupsRequired, clearSignupsRequired } = useMagic();
 
   React.useEffect(() => {
     const intervalId = setInterval(clearSignupsRequired, TEN_MINUTES);
@@ -51,7 +52,15 @@ function LoginPage({ navigate }) {
         <Card sx={{ maxWidth: '500px', mt: 7 }}>
           <H1 sx={{ textAlign: 'center' }}>Login</H1>
           <Form
-            onSubmit={login}
+            onSubmit={async ({ email }: any) => {
+              const didToken = await login({ email });
+              //   console.log('aaa token', didToken);
+              //   fetch('http://localhost:3334/auth/magic', {
+              //     headers: new Headers({
+              //       Authorization: 'Bearer ' + didToken,
+              //     }),
+              //   });
+            }}
             validate={({ email }: any) => {
               if (signupsRequired[email]) {
                 return { email: "You haven't bought a course" };
