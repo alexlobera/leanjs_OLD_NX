@@ -73,8 +73,8 @@ const Bootcamps = ({ path, trainings, data }) => {
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['1-Week React Bootcamp']}
-        subtitle="For a week, expert coaches and developers will work alongside you to master the React ecosystem so you return to work as a React specialist"
+        titleLines={['React Bootcamp', ['Immersive Training']]}
+        subtitle="Learn React fast in our one-week Bootcamp. The complete curriculum with practice will prepare you for the next projects"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
         trainingType={trainingType}
@@ -103,7 +103,23 @@ const Bootcamps = ({ path, trainings, data }) => {
               <Link to="#target-audience" name="target-audience" />
               Is this React bootcamp right for me?
             </H2>
-            <Ul>
+            <P>
+              If you're a big supporter of the learning-by-doing method, this is
+              the right place for you.
+            </P>
+            <P>
+              This training is intense and you'll be coding most of the time,
+              which will help you achieve the expertise in React and be able to
+              take real projects, in only one week.
+            </P>
+            <P>
+              We suggest you read{' '}
+              <Link to="/react/how-to-choose-our-react-training-combination-that-suits-you-best/">
+                here
+              </Link>{' '}
+              first to understand if this is the right training for your level!"
+            </P>
+            {/* <Ul>
               <Li>Extremely rapid, intense learning</Li>
               <Li>
                 Ideal for experienced programmers familiar with good practices.
@@ -118,7 +134,7 @@ const Bootcamps = ({ path, trainings, data }) => {
                 Join a growing network of alumni for advice, knowledge and
                 social fun!
               </Li>
-            </Ul>
+            </Ul> */}
             <P>
               {nextTraining && (
                 <LinkButton variant="primary" to={nextTraining.toPath}>

@@ -1,6 +1,6 @@
 ---
 coaches: ['alex-lobera']
-subtitle: For 3 days, expert coaches and developers will work alongside you in London on real-world React problems so you return to work as a Senior React developer
+subtitle: Do you want to learn fast the advanced React patterns? Check out our Advanced React training program in London
 videoOneTime: ''
 videoOneId: blg40SCle7I
 videoOneQuote: ''

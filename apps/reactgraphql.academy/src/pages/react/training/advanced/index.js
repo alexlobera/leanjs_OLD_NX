@@ -6,6 +6,7 @@ import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 import { BOOTCAMP } from 'src/../images/imageNames';
 import { formatUTC } from 'src/components/utils';
 import { LinkButton } from 'src/components/buttons';
+import Link from 'src/components/navigation/Link';
 import Section, { TopSection } from 'src/components/layout/Section';
 import { Col, Row } from 'src/components/layout/Grid';
 import { H2, P } from 'src/components/text';
@@ -72,8 +73,8 @@ const AdvancedTraining = ({ path, trainings, data }) => {
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['Advanced React Training']}
-        subtitle="For 3 days, expert coaches and developers will work<br />alongside you to master the React ecosystem so<br />you return to work as a Senior React developer"
+        titleLines={['Advanced React Intensive Training']}
+        subtitle="In-person or remote training with expert coaches will help you master the advanced React patterns."
         bgImageName={BOOTCAMP}
         trainingType={trainingType}
         links={header.landingPageLinks.links}
@@ -90,22 +91,35 @@ const AdvancedTraining = ({ path, trainings, data }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="Most of the software my company does is legacy, it's been there for a while. Coming from PHP, React seemed a good way to do that."
+              quote="It's nice to have people there who know that stuff, whom you can ask questions. It's definitely important and I feel like it's improved my career."
               fullname="Charlie Wilson"
               job="Software Engineer"
               company="ESG PLC"
-              youtubeId="yG3H27y9F08"
+              youtubeId="tYhT8F82-z8"
             />
           </Col>
           <Col md={4} mdOffset={1}>
             <H2>Is this advanced React training right for me?</H2>
-            <Ul>
+            <P>
+              If you have 1 or 2 years experience working with react and you're
+              ready to take a step forward to become a senior React developer,
+              here's your place.
+            </P>
+            <P>
+              We'll work on real-world React projects, it's going to be
+              exciting! For more info about the requirements, read this{' '}
+              <Link to="/react/how-to-choose-our-react-training-combination-that-suits-you-best/">
+                article
+              </Link>
+              .
+            </P>
+            {/* <Ul>
               <TargetAudienceList />
               <Li>
                 Join a growing network of alumni for advice, knowledge and
                 social fun!
               </Li>
-            </Ul>
+            </Ul> */}
             {nextTraining ? (
               <P>
                 <LinkButton variant="primary" to={nextTraining.toPath}>

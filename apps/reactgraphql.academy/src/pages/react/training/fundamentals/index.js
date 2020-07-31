@@ -6,7 +6,7 @@ import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 import { BOOTCAMP } from 'src/../images/imageNames';
 import { formatUTC } from 'src/components/utils';
 import { LinkButton } from 'src/components/buttons';
-import { Link } from 'src/components/navigation';
+import Link from 'src/components/navigation/Link';
 import Section, { TopSection } from 'src/components/layout/Section';
 import { Col, Row } from 'src/components/layout/Grid';
 import { H2, P } from 'src/components/text';
@@ -68,7 +68,7 @@ const ReactFundamentals = ({ path, trainings, data }) => {
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['React Redux Fundamentals']}
+        titleLines={['React Fundamentals Immersive Training']}
         subtitle="In 3 days, our coaches will work with you to help you learn the React fundamentals needed to develop React apps the right way"
         bgImageName={BOOTCAMP}
         links={header.landingPageLinks.links}
@@ -86,11 +86,11 @@ const ReactFundamentals = ({ path, trainings, data }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="The most complicated thing in React is set up, I learnt that and now it's easy for me to create an app very quickly."
+              quote="It's a fantastic experience, we did pair programming so we shared the knowledge, and the coaches are always there with you. It was very intense and very professional"
               fullname="Rafa Fraga"
               job="Software Engineer"
               // need to get the company name!
-              youtubeId="-13ktI9oXIY"
+              youtubeId="hZZksRcqtkc"
             />
           </Col>
 
@@ -99,7 +99,21 @@ const ReactFundamentals = ({ path, trainings, data }) => {
               <Link to="#target-audience" name="target-audience" />
               Is the React Fundamentals training right for me?
             </H2>
-            <Ul>
+            <P>
+              Not for beginners! This training is ideal for experienced
+              programmers with at least 1 year of experience with JavaScript The
+              learning pace is going to be extremely rapid and intense, as this
+              program is developed during 3 days.
+            </P>
+            <P>
+              Are you unsure if this is the right training for you? Check out
+              the required experience{' '}
+              <Link to="/react/how-to-choose-our-react-training-combination-that-suits-you-best/">
+                here
+              </Link>
+              .
+            </P>
+            {/* <Ul>
               <Li>
                 <strong>Not for beginners!</strong> Ideal for experienced
                 programmers with at least 1 year's experience with JavaScript
@@ -110,7 +124,7 @@ const ReactFundamentals = ({ path, trainings, data }) => {
                 Hands-on project-based training - most of the time you'll be
                 coding.
               </Li>
-            </Ul>
+            </Ul> */}
             <P>
               {nextTraining && (
                 <LinkButton variant="primary" to={nextTraining.toPath}>

@@ -7,7 +7,7 @@ import { Link } from 'src/components/navigation';
 import NextTrainingButton from 'src/components/training/NextTrainingButton';
 import Section, { TopSection } from 'src/components/layout/Section';
 import { Col, Row } from 'src/components/layout/Grid';
-import { H2 } from 'src/components/text';
+import { H2, P } from 'src/components/text';
 import Ul, { Li } from 'src/components/layout/Ul';
 import {
   AttendeeQuote,
@@ -67,8 +67,8 @@ const PartTime = ({ trainings, path, data }) => {
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['React Redux Fundamentals', 'Part-time Training']}
-        subtitle="Expert coaches work with you to help you master React<br />without having to cut into valuable work"
+        titleLines={['React Fundamentals', 'Part-time Training']}
+        subtitle="Learn the fundamentals of React without leaving work behind, in our part-time training"
         trainingType={TRAINING_TYPE_HALF_CURRICULUM}
         links={header.landingPageLinks.links}
       />
@@ -84,17 +84,17 @@ const PartTime = ({ trainings, path, data }) => {
         <Row>
           <Col md={5} mdOffset={1}>
             <AttendeeQuote
-              quote="Whatever business you're in, [the training will] enhance your work. It helped my confidence and boosted me to be in line for a promotion!"
-              fullname="Lara Ramey"
-              job="Software Developer"
-              company="Meredith Corporation"
-              youtubeId="4NY7HCRPhWA"
+              quote="The point is to make mistakes and Richard and Alex were good at setting that sort of atmosphere where actually you’ll learn more by not doing it right first time"
+              fullname="Georgina Hodgkinson"
+              job="Developer and trainer"
+              company="Bletchley Park Coding Club for Girls"
+              youtubeId="lG50I6KmzsQ"
             />
           </Col>
           <Col md={4} mdOffset={1}>
             <Link to="#target-audience" name="target-audience" />
             <H2>Is this React part-time training right for me?</H2>
-            <Ul>
+            {/* <Ul>
               <Li>Meaningful, collaborative learning</Li>
               <Li>
                 Personal mentoring rather than massive online open courses
@@ -103,7 +103,22 @@ const PartTime = ({ trainings, path, data }) => {
               <Li>Not for beginners!</Li>
               <Li>Discuss real-world projects to learn best practices</Li>
               <Li>Expert coaches with extensive React experience</Li>
-            </Ul>
+            </Ul> */}
+            <P>
+              You're applying for some meaningful, collaborative learning. This
+              training is hands-on, which means you'll be coding more than
+              listening to theory lectures.
+            </P>
+            <P>
+              With this training you can learn React fundamentals without
+              missing work, as it's going to take place only a few times per
+              week, 3 hours per session. Before enrolling, make sure you meet
+              the{' '}
+              <Link to="/react/how-to-choose-our-react-training-combination-that-suits-you-best/">
+                requirements
+              </Link>
+              .
+            </P>
             <NextTrainingButton
               type="part-time course"
               training={nextTraining}
