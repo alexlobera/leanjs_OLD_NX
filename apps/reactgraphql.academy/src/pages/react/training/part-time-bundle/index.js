@@ -6,7 +6,7 @@ import Link from 'src/components/navigation/Link';
 import NextTrainingButton from 'src/components/training/NextTrainingButton';
 import Section, { TopSection } from 'src/components/layout/Section';
 import { Col, Row } from 'src/components/layout/Grid';
-import { H2 } from 'src/components/text';
+import { H2, P } from 'src/components/text';
 import Ul, { Li } from 'src/components/layout/Ul';
 import {
   AttendeeQuote,
@@ -70,7 +70,7 @@ const CompletePartTime = ({ trainings, path, data }) => {
           },
         ]}
         tech={TECH_REACT}
-        titleLines={['React Part-time Bundle', 'Fundamentals + Advanced']}
+        titleLines={['React Part-time Bundle Training', 'In-person or Remote']}
         subtitle="Master the React ecosystem by working with industry experts without having to cut into valuable work"
         trainingType={trainingType}
         links={header.landingPageLinks.links}
@@ -97,7 +97,20 @@ const CompletePartTime = ({ trainings, path, data }) => {
           <Col md={4} mdOffset={1}>
             <Link to="#target-audience" name="target-audience" />
             <H2>Is this React part-time training right for me?</H2>
-            <Ul>
+            <P>
+              If you're ready for a complete React training but don't want to
+              miss work or projects, this is the training that suits you. It's
+              not for beginners, so make sure you meet the{' '}
+              <Link to="/react/how-to-choose-our-react-training-combination-that-suits-you-best/">
+                requirements
+              </Link>{' '}
+              before enrolling.
+            </P>
+            <P>
+              It's a personal mentoring type of training, where experts work
+              alongside you and help you understand React step by step.
+            </P>
+            {/* <Ul>
               <Li>Meaningful, collaborative learning</Li>
               <Li>
                 Personal mentoring rather than massive online open courses
@@ -106,7 +119,7 @@ const CompletePartTime = ({ trainings, path, data }) => {
               <Li>Not for beginners!</Li>
               <Li>Discuss real-world projects to learn best practices</Li>
               <Li>Expert coaches with extensive React experience</Li>
-            </Ul>
+            </Ul> */}
             <NextTrainingButton
               type="part-time course"
               training={nextTraining}

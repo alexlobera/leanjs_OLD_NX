@@ -8,9 +8,9 @@ videoOneFullname: ''
 videoOneJob: ''
 videoOneCompany: ''
 videoTwoTime: ''
-videoTwoId: gc4Hnb7zD5I
-videoTwoQuote: I've had my eyes opened a lot. It has definitely [the training] changed the way how I'm gonna approach things... The coaches here helped us to learn 'why' more than, just learn it
-videoTwoFullname: Jim Plimmer
-videoTwoJob: Developer
-videoTwoCompany: Conversion.com
+videoTwoId: EWL06LCD7Bk
+videoTwoQuote: I could message them [the coaches] anytime and they would come ans answer my questions or any doubt I had, if I was goind the right direction or if I was using the pattern right...
+videoTwoFullname: Lara Ramey
+videoTwoJob: Software Developer
+videoTwoCompany: Meredith Corporation
 ---
