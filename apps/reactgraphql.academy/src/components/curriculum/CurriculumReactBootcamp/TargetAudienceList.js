@@ -1,26 +1,21 @@
 import React from 'react';
 import { Li } from '../../layout/Ul';
+import Link from '../../navigation/Link';
 
 const TargetAudienceList = () => (
   <React.Fragment>
+    <Li>You know JavaScript, HTML, git, and a bit of React</Li>
     <Li>
-      A{' '}
-      <strong>
-        developer interested in becoming quickly a productive React developer
-      </strong>{' '}
-      capable to work on real-world React projects.
+      Intense training for extremely rapid learning by focusing on one thing
+      during one week.
     </Li>
+    <Li>You are interested in code reviews and pair programming.</Li>
     <Li>
-      You are interested in intense training for extremely rapid learning by
-      focusing on one thing during one week.
-    </Li>
-    <Li>
-      Ideal for experienced programmers familiar with good practices, code
-      reviews and pair programming. Not for beginner devs!
-    </Li>
-    <Li>
-      You learn by doing. This is a hands-on project-based training - most of
-      the time you'll be coding.
+      You agree to our{' '}
+      <Link to="/blog/react-graphql-academy-teaching-method/">
+        teaching method
+      </Link>
+      .
     </Li>
   </React.Fragment>
 );

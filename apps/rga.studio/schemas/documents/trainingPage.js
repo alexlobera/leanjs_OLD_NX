@@ -32,6 +32,54 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'subHeader',
+      title: 'Sub-header',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'rightForMe',
+      title: 'Right for me',
+      type: 'richBulletPoints',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'testimonialYoutubeId',
+      title: 'Testimonial Youtube Id',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.custom((value) =>
+          !value
+            ? 'Video Id is required'
+            : value.includes('youtube.com') || value.startsWith('http')
+            ? 'Only the video Id, not the full URL'
+            : true
+        ),
+    },
+    {
+      name: 'testimonialQuote',
+      title: 'Testimonial quote',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'testimonialJob',
+      title: 'Testimonial job',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'testimonialFullname',
+      title: 'Testimonial fullname',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'testimonialCompany',
+      title: 'Testimonial company',
+      type: 'string',
+    },
+    {
       name: 'overview',
       title: 'Overview',
       type: 'richNoBulletPoints',

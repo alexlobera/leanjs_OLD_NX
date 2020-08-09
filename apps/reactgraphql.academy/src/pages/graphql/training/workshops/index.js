@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { BOOTCAMP } from 'src/../images/imageNames';
 import { formatUTC } from 'src/components/utils';
@@ -12,7 +13,7 @@ import { H2, P } from 'src/components/text';
 import Ul, { Li } from 'src/components/layout/Ul';
 import CurriculumGraphQLWorkshops from 'src/components/curriculum/CurriculumGraphQLWorkshops';
 import Header from 'src/components/layout/Header';
-import { LIGHT_PINK } from 'src/config/styles';
+import { LIGHT_PINK, GRAPHQL_PINK } from 'src/config/styles';
 import {
   TrustedBySection,
   UpcomingTrainingSection,
@@ -51,7 +52,13 @@ const Bootcamps = ({ path, trainings, data }) => {
   });
 
   return (
-    <React.Fragment>
+    <ThemeProvider
+      theme={{
+        colors: {
+          tech: GRAPHQL_PINK,
+        },
+      }}
+    >
       <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
@@ -152,7 +159,7 @@ const Bootcamps = ({ path, trainings, data }) => {
       <TrustedBySection />
       <BlogSection tags={['graphql']} />
       <UpcomingTrainingSection trainings={trainings} />
-    </React.Fragment>
+    </ThemeProvider>
   );
 };
 

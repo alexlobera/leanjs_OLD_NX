@@ -47,10 +47,8 @@ export const UpcomingTrainingSection = ({ trainings, limit = 15 }) => (
     <Row>
       <Col md={11} mdOffset={1}>
         <H2Ref>
+          <Link to="#upcoming" name="upcoming" />
           Upcoming Training
-          <Link to="#upcoming" name="upcoming">
-            #
-          </Link>
         </H2Ref>
         <UpcomingTrainingTabs trainings={trainings} limit={limit} />
       </Col>

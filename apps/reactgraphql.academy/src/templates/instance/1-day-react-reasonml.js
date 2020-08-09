@@ -23,7 +23,6 @@ const Page = (props) => (
     curriculum={Curriculum}
     trainingType={TRAINING_TYPE_WORKSHOP}
     typeOfTraining="1-day ReasonML workshop"
-    perfectStudentLink={false}
     curriculumProps={{
       section: { isOpen: true },
     }}

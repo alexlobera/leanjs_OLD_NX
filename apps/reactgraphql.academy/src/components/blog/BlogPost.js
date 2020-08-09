@@ -17,6 +17,8 @@ import BlogNewsletter from './BlogNewsletter';
 import { Segment } from '../elements';
 import ShareButtons from './ShareButtons';
 import { createMetas } from '../utils';
+import Feedback from 'src/components/training/Feedback';
+import Section from 'src/components/layout/Section';
 
 export const formatPostTitle = (title) =>
   title ? title.replace(/(<([^>]+)>)/gi, ' ') : '';
@@ -193,17 +195,6 @@ const BlogPost = ({
           <Col md={6} sx={{ mt: 4 }}>
             <P>Share this on: </P>
             <ShareButtons path={location.pathname} />
-            <Hr />
-            <P>
-              This website is built using Gatsbyjs. Curious about how this blog
-              is implemented? It's open source so you can{' '}
-              <Link
-                to="https://github.com/reactgraphqlacademy/reactgraphqlacademy"
-                className="blog-article"
-              >
-                check the source code
-              </Link>
-            </P>
           </Col>
         </Row>
 
@@ -223,6 +214,13 @@ const BlogPost = ({
           </Col>
         </Row>
       </GridContent>
+      <Section variant="dark">
+        <Row>
+          <Col md={5} mdOffset={1}>
+            <Feedback />
+          </Col>
+        </Row>
+      </Section>
       <UpcomingTrainingSection trainings={trainings} />
     </RunkitProvider>
   );

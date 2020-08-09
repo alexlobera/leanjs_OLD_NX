@@ -1,5 +1,6 @@
 import React from 'react';
 import { Element, scroller } from 'react-scroll';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { Table, Thead, Tbody, Tr, Th, Td } from 'src/components/table';
 import Section, { TopSection } from 'src/components/layout/Section';
@@ -93,7 +94,13 @@ class GraphQLCurriculum extends React.Component {
     });
 
     return (
-      <React.Fragment>
+      <ThemeProvider
+        theme={{
+          colors: {
+            tech: GRAPHQL_PINK,
+          },
+        }}
+      >
         <Header
           breadcrumbPath={[
             { to: '/', label: 'Home' },
@@ -124,10 +131,8 @@ class GraphQLCurriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <H2Ref>
-                  Our GraphQL training - what are the differences?{' '}
-                  <Link to="#differences" name="differences">
-                    #
-                  </Link>
+                  <Link to="#differences" name="differences" />
+                  Our GraphQL training - what are the differences?
                 </H2Ref>
               </Col>
             </Row>
@@ -156,30 +161,30 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Schema Design</Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
                     <Tr>
                       <Td>Security & Error Handling</Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
                     <Tr>
                       <Td>Apollo Federation</Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
@@ -187,41 +192,41 @@ class GraphQLCurriculum extends React.Component {
                     <Tr>
                       <Td>Hasura</Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
                     <Tr>
                       <Td>Tooling and best practices</Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
                     <Tr>
                       <Td>Apollo Client</Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td />
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                     </Tr>
                     <Tr>
                       <Td>Caching and performance</Td>
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                       <Td />
                       <Td>
-                        <Tick tech={TECH_GRAPHQL} />
+                        <Tick />
                       </Td>
                     </Tr>
                     <Tr>
@@ -465,7 +470,7 @@ class GraphQLCurriculum extends React.Component {
           </Row>
         </Section>
         <UpcomingTrainingSection trainings={trainings} />
-      </React.Fragment>
+      </ThemeProvider>
     );
   }
 }

@@ -21,13 +21,13 @@ const TargetAudienceSection = () => (
         </Col>
         <Col md={4} lgOffset={1}>
           <H2Ref>
-            Is this React part-time training right for me? Are you...{' '}
-            <Link to="#target-audience" name="target-audience">
-              #
-            </Link>
+            <Link to="#target-audience" name="target-audience" />
+            Is this React part-time training right for me?
           </H2Ref>
           <Ul>
-            <Li>A developer with ~1 year of development under your belt?</Li>
+            <Li>
+              Are you a developer with ~1 year of development under your belt?
+            </Li>
             <Li>
               Familiar with front-end technologies like JavaScript, CSS, and
               HTML?

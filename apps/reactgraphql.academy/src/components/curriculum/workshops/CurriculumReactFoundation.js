@@ -44,12 +44,12 @@ export const TargetAudienceList = () => (
       React that work, but you are not sure how and why they work.
     </Li>
     <Li>
-      Want to build a single-page app in React with navigation between different
-      pages and you are not sure of the right approach.
+      You want to build a single-page app in React with navigation between
+      different pages and you are not sure of the right approach.
     </Li>
     <Li>
-      Want to pull data from an API into a React app but you are confused with
-      the different approaches you find on the Internet.
+      You want to pull data from an API into a React app but you are confused
+      with the different approaches you find on the Internet.
     </Li>
   </React.Fragment>
 );

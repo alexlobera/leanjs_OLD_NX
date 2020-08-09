@@ -16,10 +16,8 @@ const Curriculum = ({
   const curriculumTitle =
     title && showTitle ? (
       <H2Ref>
-        {title}{' '}
-        <Link to="#curriculum" name="curriculum">
-          #
-        </Link>
+        <Link to="#curriculum" name="curriculum" />
+        {title}
       </H2Ref>
     ) : null;
 

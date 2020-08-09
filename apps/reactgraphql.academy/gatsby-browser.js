@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { theme } from 'src/config/styles';
 import GraphQLProvider from './src/api/graphql/Provider';

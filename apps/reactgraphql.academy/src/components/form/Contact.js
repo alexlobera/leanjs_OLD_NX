@@ -44,16 +44,15 @@ const ContactForm = ({
             Contact us
           </H3>
           <P>
-            The best way to contact us is by emailing us at{' '}
+            You can call us during working hours on: +44 20 8123 8184, or email
+            us at:{' '}
             <Link
               to="mailto:hello@reactgraphql.academy?subject=Training%20Query&body=Hi%20RGA%20team!"
               className="footer-contact-us-mailto"
             >
               hello@reactgraphql.academy
             </Link>
-            .{' '}
           </P>
-          <P>You can call us during working hours on: +44 20 8123 8184</P>
           <P>
             Otherwise, you can contact us socially on{' '}
             <Link
@@ -75,12 +74,8 @@ const ContactForm = ({
               className="footer-contact-us-links"
             >
               Facebook
-            </Link>{' '}
-            or visit our{' '}
-            <Link to="/about-us" className="footer-contact-us-links">
-              About Us page
-            </Link>{' '}
-            and directly contact one of our coaches.{' '}
+            </Link>
+            .
           </P>
         </React.Fragment>
       )}

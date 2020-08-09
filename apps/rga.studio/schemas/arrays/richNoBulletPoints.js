@@ -7,6 +7,7 @@ export default {
       title: 'Block',
       type: 'block',
       styles: [],
+      lists: [],
       marks: {
         annotations: [
           {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { LONDON_BOOTCAMP } from 'src/../images/imageNames';
 import Section, { TopSection } from 'src/components/layout/Section';
@@ -25,7 +26,7 @@ import {
 import { createMetas } from 'src/components/utils';
 import { breadcrumbWorkshopName } from './config.json';
 import NextTrainingButton from 'src/components/training/NextTrainingButton';
-import { LIGHT_PINK } from 'src/config/styles';
+import { LIGHT_PINK, GRAPHQL_PINK } from 'src/config/styles';
 import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 
 const trainingId = GRAPHQL_WORKSHOP_APOLLO_CLIENT_ID;
@@ -50,7 +51,13 @@ const GraphQLApolloClientWorkshop = ({ path, trainings, data }) => {
   });
 
   return (
-    <React.Fragment>
+    <ThemeProvider
+      theme={{
+        colors: {
+          tech: GRAPHQL_PINK,
+        },
+      }}
+    >
       <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
@@ -98,23 +105,22 @@ const GraphQLApolloClientWorkshop = ({ path, trainings, data }) => {
           </Col>
           <Col md={4} lgOffset={1}>
             <H2Ref>
-              Is this one day workshop right for me? Are you...{' '}
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
+              <Link to="#target-audience" name="target-audience" />
+              Is this one day workshop right for me?
             </H2Ref>
             <Ul>
               <Li>
-                A developer with some experience developing React applications?
+                Are you a developer with some experience developing React
+                applications?
               </Li>
               <Li>
-                Familiar with front-end technologies like React, JavaScript,
-                CSS, and HTML?
+                You know front-end technologies like React, JavaScript, CSS, and
+                HTML.
               </Li>
               <Li>
-                Taking a step forward to become a GraphQL Specialist able to
-                make critical decisions about the architecture of an
-                application.
+                Do you want to take a step forward to become a GraphQL
+                Specialist able to make critical decisions about the
+                architecture of an application.
               </Li>
             </Ul>
             <P>
@@ -128,7 +134,7 @@ const GraphQLApolloClientWorkshop = ({ path, trainings, data }) => {
       </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
-    </React.Fragment>
+    </ThemeProvider>
   );
 };
 
