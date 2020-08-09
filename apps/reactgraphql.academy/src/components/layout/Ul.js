@@ -66,7 +66,7 @@ const Li = ({ sx = {}, ...rest }) => (
   <Box
     box="li"
     sx={{
-      mb: 2,
+      my: 1,
       ...sx,
     }}
     {...rest}

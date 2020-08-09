@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import Section, { TopSection } from 'src/components/layout/Section';
 import { Col, Row } from 'src/components/layout/Grid';
@@ -27,7 +28,7 @@ import {
 import { createMetas } from 'src/components/utils';
 import { breadcrumbTrainingName } from './config.json';
 import NextTrainingButton from 'src/components/training/NextTrainingButton';
-import { LIGHT_PINK } from 'src/config/styles';
+import { LIGHT_PINK, GRAPHQL_PINK } from 'src/config/styles';
 import { FAQSection, getMetaData } from 'src/components/training/PageContent';
 
 const defaultMetas = {
@@ -56,7 +57,13 @@ const Page = ({ path, trainings, training, data }) => {
   });
 
   return (
-    <React.Fragment>
+    <ThemeProvider
+      theme={{
+        colors: {
+          tech: GRAPHQL_PINK,
+        },
+      }}
+    >
       <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         breadcrumbPath={[
@@ -104,22 +111,17 @@ const Page = ({ path, trainings, training, data }) => {
           </Col>
           <Col md={4} lgOffset={1}>
             <H2Ref>
-              Is this 3-hour trial right for me? Are you...{' '}
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
+              <Link to="#target-audience" name="target-audience" />
+              Is this 3-hour trial right for me?
             </H2Ref>
             <Ul>
               <Li>
-                A developer with some experience developing Nodes.js APIs?
+                Are you a developer with some experience developing Nodes.js
+                APIs?
               </Li>
-              {/* <Li>
-                Familiar with front-end technologies like React (used during the
-                GraphQL part-time training) and JavaScript?
-              </Li> */}
               <Li>
-                Taking a step forward to become a GraphQL Specialist to build
-                modern and efficient APIs?
+                Do you want to take a step forward to become a GraphQL
+                Specialist to build modern and efficient APIs?
               </Li>
             </Ul>
             <P>If you've said 'yes' to these, this trial could be for you!</P>
@@ -130,7 +132,7 @@ const Page = ({ path, trainings, training, data }) => {
       </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
       <UpcomingTrainingSection trainings={trainings} />
-    </React.Fragment>
+    </ThemeProvider>
   );
 };
 

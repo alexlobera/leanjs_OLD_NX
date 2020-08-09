@@ -6,7 +6,6 @@ import ThinkingInReactSession, {
   LearningObjectives as ThinkingInLearningObjectives,
 } from '../sessions/ThinkingInReactSession';
 import TargetAudienceList from '../CurriculumReactFundamentals/TargetAudienceList';
-import Ul from '../../layout/Ul';
 
 const CurriculumReactTrial = ({ showTitle = true, section = {}, ...rest }) => (
   <Curriculum

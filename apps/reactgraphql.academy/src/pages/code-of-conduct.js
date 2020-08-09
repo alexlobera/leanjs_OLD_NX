@@ -32,10 +32,8 @@ const CodeOfConduct = ({ data, trainings }) => {
               <Row>
                 <Col md={5}>
                   <H2Ref>
+                    <Link to="#key-takeaways" name="key-takeaways" />
                     Key takeways
-                    <Link to="#key-takeaways" name="key-takeaways">
-                      #
-                    </Link>
                   </H2Ref>
                   <Ul>
                     <Li>

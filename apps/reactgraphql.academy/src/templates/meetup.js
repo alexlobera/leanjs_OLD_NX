@@ -24,10 +24,8 @@ const OldLayout = ({ description, isOnline, meetup, city }) => (
       <Row>
         <Col md={6} lg={4} lgOffset={1}>
           <H2Ref>
+            <Link to="#details" name="details" />
             Meetup details
-            <Link to="#details" name="details">
-              #
-            </Link>
           </H2Ref>
           <Markdown
             options={{

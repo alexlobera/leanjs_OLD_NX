@@ -96,10 +96,8 @@ const AdvancedReactWorkshop = ({ path, trainings, data }) => {
           </Col>
           <Col md={4} lgOffset={1}>
             <H2Ref>
-              Is this one day workshop right for me? Are you...{' '}
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
+              <Link to="#target-audience" name="target-audience" />
+              Is this one day workshop right for me?
             </H2Ref>
             <Ul>
               <TargetAudienceList />

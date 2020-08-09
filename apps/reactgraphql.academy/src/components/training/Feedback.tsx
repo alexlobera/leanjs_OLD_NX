@@ -22,11 +22,11 @@ function Feedback() {
   ) : (
     <Form
       onSubmit={handleFormSubmit}
-      render={({ pristine, handleSubmit, submitting, ...rest }) => {
+      render={({ pristine, handleSubmit, submitting }) => {
         return (
           <>
-            <H3>Tell us about yourself</H3>
-            <P>What are your main interests in a React training?</P>
+            <H3>Help us help you learn :)</H3>
+            <P>What are your main interests in a training?</P>
             <form onSubmit={handleSubmit}>
               <Ul variant="unstyled">
                 <Li>
@@ -54,7 +54,7 @@ function Feedback() {
                   <CheckboxField
                     color={WHITE}
                     name="certification"
-                    label="To become a certified React Developer"
+                    label="Getting certified in a given tech"
                     elementOnChecked={
                       <InputField
                         name="certification.expand"
@@ -67,13 +67,14 @@ function Feedback() {
                   <CheckboxField
                     color={WHITE}
                     name="upToDateStructuredCurriculum"
-                    label="Structured curriculum and up-to-date program"
+                    label="Structured curriculum and up-to-date material"
                   />
                 </Li>
                 <Li>
                   <Button
                     type="submit"
                     disabled={submitting || pristine}
+                    variant="primary"
                     sx={{ mt: 3 }}
                   >
                     {submitting ? (

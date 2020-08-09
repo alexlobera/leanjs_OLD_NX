@@ -147,13 +147,11 @@ const AboutUs = ({ data, trainings }) => {
           </Col>
           <Col md={6} mdOffset={1}>
             <H2Ref>
-              How we continuously improve{' '}
               <Link
                 to="#continuous-coach-development"
                 name="continuous-coach-development"
-              >
-                #
-              </Link>
+              />
+              How we continuously improve
             </H2Ref>
             <P>
               React GraphQL Academy is made up of a{' '}

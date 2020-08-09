@@ -157,10 +157,8 @@ class ReactCurriculum extends React.Component {
             <Row>
               <Col lg={10} lgOffset={1}>
                 <H2Ref>
-                  Our React training - what are the differences?{' '}
-                  <Link to="#differences" name="differences">
-                    #
-                  </Link>
+                  <Link to="#differences" name="differences" />
+                  Our React training - what are the differences?
                 </H2Ref>
               </Col>
             </Row>
@@ -194,80 +192,80 @@ class ReactCurriculum extends React.Component {
                     <Tr>
                       <Td>Modern JavaScript</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td />
                       <Td>
-                        <Tick type={REACT_FUNDAMENTALS} />
+                        <Tick />
                       </Td>
                     </Tr>
                     <Tr>
                       <Td>Routing and Forms</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td />
                       <Td>
-                        <Tick type={REACT_FUNDAMENTALS} />
+                        <Tick />
                       </Td>
                     </Tr>
                     <Tr>
                       <Td>Redux</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td />
                       <Td>
-                        <Tick type={REACT_FUNDAMENTALS} />
+                        <Tick />
                       </Td>
                     </Tr>
                     <Tr>
                       <Td>Basic Hooks</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td />
                       <Td>
-                        <Tick type={REACT_FUNDAMENTALS} />
+                        <Tick />
                       </Td>
                     </Tr>
                     <Tr>
                       <Td>Advanced Hooks</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick type={ADVANCED_REACT} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
                     <Tr>
                       <Td>Testing</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick type={ADVANCED_REACT} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
                     <Tr>
                       <Td>Patterns and Performance</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick type={ADVANCED_REACT} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>
                     <Tr>
                       <Td>Design Systems</Td>
                       <Td>
-                        <Tick type={REACT_BOOTCAMP} />
+                        <Tick />
                       </Td>
                       <Td>
-                        <Tick type={ADVANCED_REACT} />
+                        <Tick />
                       </Td>
                       <Td />
                     </Tr>

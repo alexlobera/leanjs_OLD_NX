@@ -145,14 +145,12 @@ const TeamMember = ({ data, trainings }) => {
             </Col>
             <Col md={5} mdOffset={1}>
               <H2Ref>
-                {fullname}
                 <Link
                   name={linkName}
                   to={`#${linkName}`}
                   className="coach-profiles"
-                >
-                  #
-                </Link>
+                />
+                {fullname}
               </H2Ref>
               <H3 sx={{ pt: 0 }}>
                 {jobs && jobs.map(renderJob({ enableLink: true }))}

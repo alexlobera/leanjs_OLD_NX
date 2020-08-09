@@ -92,11 +92,6 @@ const Subtitle = styled(H2Header)`
   max-width: ${PARAGRAPH_CHARACTER_WIDTH_VERYNARROW};
 `;
 
-const Intro = styled.div`
-  ${WHITE_TEXT};
-  padding: ${SPACING_STANDARD};
-`;
-
 const Links = styled.div`
   ${TITLE_BACKGROUND};
   ${WHITE_TEXT};
@@ -105,28 +100,6 @@ const Links = styled.div`
 const LinksDescription = styled.span`
   padding-right: ${SPACING_STANDARD};
 `;
-
-const BulletPointsWrapper = styled.div`
-  ${WHITE_TEXT};
-`;
-
-const BulletPointsDiv = ({
-  points,
-  includeButton = true,
-  includeSentence = true,
-  namespace = 'bulletpoints',
-}) => (
-  <div>
-    {points.map((point, i) => (
-      <BulletPoint
-        key={`header-bullet-${namespace}-${i}`}
-        {...point}
-        includeButton={includeButton}
-        includeSentence={includeSentence}
-      />
-    ))}
-  </div>
-);
 
 const SupportingText = styled.div`
   font-size: 22px;
@@ -240,62 +213,15 @@ const Header = ({
               )}
 
               {supportingText}
-              {/* TODO:WV:20190924:Remove pointless components and props - this was overengineered and is now simpler but needs more work*/}
-              {/* {bulletPoints ? ( 
-                <BulletPointsWrapper>
-                  <BulletPointsDiv
-                    includeButton={true}
-                    includeSentence={true}
-                    points={bulletPoints}
-                  />
-                </BulletPointsWrapper>
-              ) : null} */}
 
               <Dots />
             </Col>
           </Row>
         </Grid>
       </HeaderSection>
-      {/* {props.showCookieNotification ? ( */}
       <CookiesNotification />
-      {/* ) : null} */}
     </React.Fragment>
   );
 };
-
-// const cookieNotificationCookieName = 'cookie-notification-dismissed';
-
-// class HeaderContainer extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     const { cookies } = props;
-
-//     this.state = {
-//       showCookieNotification: !cookies.get(cookieNotificationCookieName),
-//     };
-//   }
-
-//   handleDismissCookieNotification = () => {
-//     const { cookies } = this.props;
-
-//     const tenYearsInMs = 311040000000;
-//     cookies.set(cookieNotificationCookieName, 1, {
-//       path: '/',
-//       expires: new Date(Date.now() + tenYearsInMs),
-//     });
-//     this.setState({ showCookieNotification: false });
-//   };
-
-//   render() {
-//     return (
-//       <Header
-//         {...this.props}
-//         showCookieNotification={this.state.showCookieNotification}
-//         handleDismissCookieNotification={this.handleDismissCookieNotification}
-//       />
-//     );
-//   }
-// }
 
 export default Header;

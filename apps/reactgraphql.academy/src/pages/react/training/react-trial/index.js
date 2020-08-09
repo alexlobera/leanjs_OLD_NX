@@ -100,10 +100,8 @@ const Page = ({ path, trainings, data }) => {
           </Col>
           <Col md={4} lgOffset={1}>
             <H2Ref>
-              Is this 3-hour trial right for me? Are you...{' '}
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
+              <Link to="#target-audience" name="target-audience" />
+              Is this 3-hour trial right for me?
             </H2Ref>
             <Ul>
               <TargetAudienceList />
