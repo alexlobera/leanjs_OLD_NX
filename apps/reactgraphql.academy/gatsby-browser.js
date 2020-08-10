@@ -1,12 +1,12 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { theme } from 'src/config/styles';
 import GraphQLProvider from './src/api/graphql/Provider';
 import { createClient } from './src/api/graphql/client';
 import Layout from './src/components/layout';
 
-// init GTM for Google Ads
+/// init GTM for Google Ads
 export const onRouteUpdate = ({ location }) => {
   window.dataLayer = window.dataLayer || [];
   function gtag(...args) {

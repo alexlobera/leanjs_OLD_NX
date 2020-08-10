@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { CORP_TRAINING } from 'src/../images/imageNames';
 import { LinkButton } from 'src/components/buttons';
@@ -20,7 +21,7 @@ import CurriculumCorporateGraphQL from 'src/components/curriculum/CurriculumCorp
 import { createMetas } from 'src/components/utils';
 import { BOOTCAMP_COLLAB } from 'src/config/images';
 import { TECH_GRAPHQL } from 'src/config/data';
-import { LIGHT_PINK } from 'src/config/styles';
+import { LIGHT_PINK, GRAPHQL_PINK } from 'src/config/styles';
 import { getPostsFromNodes } from 'src/components/blog/utils';
 import BlogSection from 'src/components/blog/BlogSection';
 import { FAQSection, getMetaData } from 'src/components/training/PageContent';
@@ -44,7 +45,13 @@ const CorporateGraphQLTraining = ({ path, trainings, data }) => {
   });
 
   return (
-    <React.Fragment>
+    <ThemeProvider
+      theme={{
+        colors: {
+          tech: GRAPHQL_PINK,
+        },
+      }}
+    >
       <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
       <Header
         tech={TECH_GRAPHQL}
@@ -118,7 +125,7 @@ const CorporateGraphQLTraining = ({ path, trainings, data }) => {
       <TrustedBySection type="contact" showContent />
       <BlogSection title="From our blog" posts={posts} />
       <UpcomingTrainingSection trainings={trainings} />
-    </React.Fragment>
+    </ThemeProvider>
   );
 };
 

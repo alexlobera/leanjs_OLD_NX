@@ -51,6 +51,8 @@ export const theme = {
     secondary: DARK_BLUE,
     danger: PINK,
     react: BLUE,
+    graphql: GRAPHQL_PINK,
+    tech: BLUE,
   },
   space: [
     '0rem', // 0

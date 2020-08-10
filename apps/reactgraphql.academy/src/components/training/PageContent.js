@@ -2,9 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
+import Tick from '../icons/Tick';
 import { Col, Row } from '../layout/Grid';
 import Link from '../navigation/Link';
 import Box from '../layout/Box';
+import { Ul, Li } from '../layout/Ul';
 import Section from '../layout/Section';
 import { H2, H3, P } from '../text';
 import { internalLinkTo } from '../utils/sanitySerializers';
@@ -24,7 +26,7 @@ export function getMetaData({ defaultMetas, metaData }) {
   return metas;
 }
 
-const defaultSerializers = {
+export const defaultSerializers = {
   marks: {
     link: ({ mark: { href }, children }) => (
       <Link to={href} children={children} />
@@ -33,6 +35,18 @@ const defaultSerializers = {
       return <Link to={internalLinkTo({ mark })}>{children}</Link>;
     },
   },
+  list: ({ children }) => (
+    <Ul variant="unstyled" sx={{ ml: 5 }} children={children} />
+  ),
+  listItem: ({ children = {} }) => (
+    <Li sx={{ position: 'relative' }}>
+      <Tick
+        width={20}
+        sx={{ position: 'absolute', left: '-30px', top: '8px' }}
+      />
+      {children}
+    </Li>
+  ),
 };
 
 export const Overview = ({
@@ -137,6 +151,13 @@ export const query = graphql`
     _rawOverview(resolveReferences: { maxDepth: 5 })
     metaTitle
     metaDescription
+    subHeader
+    _rawRightForMe(resolveReferences: { maxDepth: 5 })
+    testimonialYoutubeId
+    testimonialQuote
+    testimonialJob
+    testimonialFullname
+    testimonialCompany
     faqs {
       extendAnswer
       featured

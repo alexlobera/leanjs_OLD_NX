@@ -4,10 +4,17 @@ import React, { useRef, useEffect, useState, useImperativeHandle } from 'react';
 import * as Hls from 'hls.js';
 import 'plyr/dist/plyr.css';
 import { createGlobalStyle } from 'styled-components';
+import { useTheme } from '@leanjs/ui-core';
 
 const GlobalStyle = createGlobalStyle`
 :root {
-    --plyr-color-main: rgba(97,218,251,1);
+    --plyr-color-main: ${() => {
+      const {
+        colors: { tech },
+      } = useTheme();
+
+      return tech;
+    }};
 }
 .plyr--video {
     height: auto;

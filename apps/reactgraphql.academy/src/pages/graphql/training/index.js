@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { BOOTCAMP } from 'src/../images/imageNames';
 import { LinkButton } from 'src/components/buttons';
@@ -32,7 +33,13 @@ const metas = {
 };
 
 const TrainingPage = ({ path, trainings, data }) => (
-  <React.Fragment>
+  <ThemeProvider
+    theme={{
+      colors: {
+        tech: GRAPHQL_PINK,
+      },
+    }}
+  >
     <Helmet
       title={metas.title}
       meta={[
@@ -189,7 +196,7 @@ const TrainingPage = ({ path, trainings, data }) => (
     <TrustedBySection showContent />
 
     <UpcomingTrainingSection trainings={trainings} />
-  </React.Fragment>
+  </ThemeProvider>
 );
 
 export const query = graphql`

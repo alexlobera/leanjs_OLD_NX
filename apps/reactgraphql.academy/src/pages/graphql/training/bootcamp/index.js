@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
+import { ThemeProvider } from '@leanjs/ui-core';
 
 import { BOOTCAMP } from 'src/../images/imageNames';
 import { LinkButton } from 'src/components/buttons';
@@ -12,7 +13,7 @@ import { P, H2Ref } from 'src/components/text';
 import Ul, { Li } from 'src/components/layout/Ul';
 import CurriculumGraphQLBootcamp from 'src/components/curriculum/CurriculumGraphQLBootcamp';
 import Header from 'src/components/layout/Header';
-import { LIGHT_PINK } from 'src/config/styles';
+import { LIGHT_PINK, GRAPHQL_PINK } from 'src/config/styles';
 import {
   TrustedBySection,
   UpcomingTrainingSection,
@@ -61,7 +62,13 @@ const GraphQL = ({ path, trainings, data }) => {
   });
 
   return (
-    <React.Fragment>
+    <ThemeProvider
+      theme={{
+        colors: {
+          tech: GRAPHQL_PINK,
+        },
+      }}
+    >
       <Helmet title={metas.title}>{createMetas(metas)}</Helmet>
 
       <Header
@@ -107,10 +114,8 @@ const GraphQL = ({ path, trainings, data }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <H2Ref>
+              <Link to="#target-audience" name="target-audience" />
               Is this GraphQL bootcamp right for me?
-              <Link to="#target-audience" name="target-audience">
-                #
-              </Link>
             </H2Ref>
             <Ul>
               <Li>
@@ -148,7 +153,7 @@ const GraphQL = ({ path, trainings, data }) => {
       <TrustedBySection />
       <BlogSection tags={['graphql', 'beginner']} />
       <UpcomingTrainingSection trainings={trainings} />
-    </React.Fragment>
+    </ThemeProvider>
   );
 };
 

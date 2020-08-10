@@ -3,12 +3,10 @@ import { Li } from '../../../layout/Ul';
 
 const TargetAudienceList = () => (
   <React.Fragment>
-    <Li>A developer with previous experience building React apps?</Li>
+    <Li>Are you a developer with previous experience building React apps?</Li>
     <Li>
-      A developer who wants to upskill or specialise in advanced React skills?
-    </Li>
-    <Li>
-      A developer who is frustrated with slow performancce of your creations?
+      Are you a developer who wants to upskill or specialise in advanced React
+      skills?
     </Li>
   </React.Fragment>
 );

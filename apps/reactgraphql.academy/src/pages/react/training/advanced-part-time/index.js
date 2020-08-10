@@ -10,6 +10,7 @@ import Section, { TopSection } from 'src/components/layout/Section';
 import { Col, Row } from 'src/components/layout/Grid';
 import { H2, P } from 'src/components/text';
 import Ul, { Li } from 'src/components/layout/Ul';
+import Link from 'src/components/navigation/Link';
 import CurriculumAdvancedReactPartTime from 'src/components/curriculum/CurriculumAdvancedReactPartTime';
 import TargetAudienceList from 'src/components/curriculum/CurriculumAdvancedReact/TargetAudienceList';
 import Header from 'src/components/layout/Header';
@@ -73,7 +74,7 @@ const AdvancedTraining = ({ path, trainings, data }) => {
         ]}
         tech={TECH_REACT}
         titleLines={['Advanced React', 'Part-Time Training']}
-        subtitle="For two and a half weeks, expert coaches and developers will work alongside you to master the React ecosystem without cutting into valuable work"
+        subtitle="If you're looking for an advanced React training, we've got it covered."
         bgImageName={BOOTCAMP}
         trainingType={trainingType}
         links={header.landingPageLinks.links}
@@ -99,13 +100,25 @@ const AdvancedTraining = ({ path, trainings, data }) => {
           </Col>
           <Col md={4} mdOffset={1}>
             <H2>Is this advanced React training right for me?</H2>
-            <Ul>
+            {/* <Ul>
               <TargetAudienceList />
               <Li>
                 Join a growing network of alumni for advice, knowledge and
                 social fun!
               </Li>
-            </Ul>
+            </Ul> */}
+            <P>
+              If you're ready to make a step further in React without putting
+              all your time in it, this is the right advanced training for you.
+            </P>
+            <P>
+              Make sure you read the requirements for attending this{' '}
+              <Link to="/react/how-to-choose-our-react-training-combination-that-suits-you-best/">
+                training
+              </Link>{' '}
+              before applying, as this is the advanced curriculum and you'll
+              need to already know React to attend.
+            </P>
             {nextTraining ? (
               <P>
                 <LinkButton variant="primary" to={nextTraining.toPath}>
