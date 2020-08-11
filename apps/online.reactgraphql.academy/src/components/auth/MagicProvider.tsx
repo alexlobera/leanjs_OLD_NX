@@ -24,7 +24,7 @@ let currentToken = null;
 const tokenSema = new Sema(1);
 
 function setToken(token, lifespan = ONE_MINUTE * 15) {
-  return {
+  currentToken = {
     token,
     expiredAt: Date.now() + lifespan - ONE_MINUTE,
   };
@@ -81,6 +81,7 @@ export default function MagicProvider({ children, requirePreSignup }) {
 
       const token = await magic.user.getIdToken();
       setToken(token);
+
       return token;
     } finally {
       tokenSema.release();

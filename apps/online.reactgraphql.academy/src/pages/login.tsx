@@ -13,7 +13,6 @@ import {
 import Link from '../components/navigation/Link';
 import { useMagic } from '../components/auth/MagicProvider';
 import RGALogoDarkBg from '../components/logos/RGALogoDarkBg';
-import { useQuery } from '../api/graphql/Provider';
 
 const TEN_MINUTES = 600000;
 
