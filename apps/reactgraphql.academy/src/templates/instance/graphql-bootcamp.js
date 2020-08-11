@@ -9,6 +9,7 @@ import {
   GRAPHQL_WORKSHOP,
   GRAPHQL_API,
   GRAPHQL_BOOTCAMP,
+  GRAPHQL_TRIAL_ID,
 } from 'src/config/data';
 
 export const crossSellTypes = [GRAPHQL_WORKSHOP, GRAPHQL_API];
@@ -21,6 +22,7 @@ const Page = (props) => (
     crossSellTypes={crossSellTypes}
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
+    trialTrainingId={GRAPHQL_TRIAL_ID}
   />
 );
 

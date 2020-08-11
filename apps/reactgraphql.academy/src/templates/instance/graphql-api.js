@@ -5,7 +5,11 @@ import BaseTemplate from './baseTemplate';
 import Curriculum, {
   TargetAudienceList,
 } from 'src/components/curriculum/CurriculumGraphQLAPI';
-import { GRAPHQL_API_ID, TECH_GRAPHQL } from 'src/config/data';
+import {
+  GRAPHQL_API_ID,
+  TECH_GRAPHQL,
+  GRAPHQL_TRIAL_ID,
+} from 'src/config/data';
 
 const Page = (props) => (
   <BaseTemplate
@@ -15,6 +19,7 @@ const Page = (props) => (
     typeOfTraining="GraphQL API training"
     targetAudienceList={TargetAudienceList}
     curriculum={Curriculum}
+    trialTrainingId={GRAPHQL_TRIAL_ID}
   />
 );
 
