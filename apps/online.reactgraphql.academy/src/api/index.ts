@@ -24,3 +24,17 @@ export const requireSignup = (email) =>
     }
     return response.json() as Promise<RequireSignupResponse>;
   });
+
+export const login = (token) =>
+  fetch(`${umApiBaseUrl}/auth`, {
+    credentials: 'include',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     }
+//     return response.json() as Promise<RequireSignupResponse>;
+//   });

@@ -51,15 +51,7 @@ function LoginPage({ navigate }) {
         <Card sx={{ maxWidth: '500px', mt: 7 }}>
           <H1 sx={{ textAlign: 'center' }}>Login</H1>
           <Form
-            onSubmit={async ({ email }: any) => {
-              const didToken = await login({ email });
-              //   console.log('aaa token', didToken);
-              //   fetch('http://localhost:3334/auth/magic', {
-              //     headers: new Headers({
-              //       Authorization: 'Bearer ' + didToken,
-              //     }),
-              //   });
-            }}
+            onSubmit={login}
             validate={({ email }: any) => {
               if (signupsRequired[email]) {
                 return { email: "You haven't bought a course" };

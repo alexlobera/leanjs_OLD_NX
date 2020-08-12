@@ -58,7 +58,11 @@ function magicReducer(state, action) {
   }
 }
 
-export default function MagicProvider({ children, requirePreSignup }) {
+export default function MagicProvider({
+  children,
+  requirePreSignup,
+  login: myLogin,
+}) {
   const [user, dispatch] = React.useReducer(magicReducer, initialState);
 
   React.useEffect(() => {
@@ -88,7 +92,13 @@ export default function MagicProvider({ children, requirePreSignup }) {
     }
   }
 
-  const contextValue = { ...user, dispatch, requirePreSignup, getToken };
+  const contextValue = {
+    ...user,
+    dispatch,
+    requirePreSignup,
+    getToken,
+    myLogin,
+  };
 
   return (
     <MagicContext.Provider value={contextValue}>
@@ -110,6 +120,7 @@ export function useMagic() {
     signupsRequired,
     requirePreSignup,
     getToken,
+    myLogin,
   } = context;
 
   const clearSignupsRequired = () => {
@@ -126,6 +137,9 @@ export function useMagic() {
     } else {
       const token = await magic.auth.loginWithMagicLink({ email });
       if (token) {
+        if (myLogin) {
+          await myLogin(token);
+        }
         setToken(token);
         dispatch({ type: RECEIVE_LOGIN_RESPONSE, loggedIn: !!token });
       }

@@ -48,6 +48,7 @@ export const createClient = ({ getToken } = {}) => {
       let opts = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ query, variables }),
       };
 

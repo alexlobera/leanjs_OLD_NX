@@ -63,6 +63,13 @@ function CoursePage({ data }) {
     {
         viewer {
             id
+            purchasedTrainings {
+                edges {
+                    node {
+                        title
+                    }
+                }
+            }
         }
     }
   `);
