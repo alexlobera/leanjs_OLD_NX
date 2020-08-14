@@ -40,7 +40,7 @@ const Navbar: LeanComponent<HeadeProps> = ({
         >
           <Flex>
             <Link
-              className="avigation-logo"
+              className="navigation-logo"
               to="/"
               title="React GraphQL Academy Online"
             >
