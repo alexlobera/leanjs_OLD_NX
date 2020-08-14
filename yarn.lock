@@ -4108,7 +4108,7 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/cypress@~6.0.0":
+"@testing-library/cypress@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-6.0.0.tgz#935f7716e0e495f02fd753a42621e4d350097dce"
   integrity sha512-vWPQtPsIDk5STOH2XdJbJoYq9gxOSAItP0ail+MlylK230zNkf3ODKd6eqWnDdruuqrhTF3CyqvPNMA8Xks/UQ==
