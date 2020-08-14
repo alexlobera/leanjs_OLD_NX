@@ -41,7 +41,11 @@ async function postQuery({ query, variables }) {
   const body = JSON.stringify({ query, variables });
   const response = await fetch(UPMENTORING_API_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-um-orgid': '@VVNFOjVhYWE5YjA3ZjE0NmU1Y2ZhZmFkMTg5ZQ==',
+    },
+    credentials: 'include',
     body,
   });
 
