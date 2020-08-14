@@ -54,8 +54,8 @@ export const WebinarForm = ({
           />
           <InputField
             color={WHITE}
-            label="City (required)"
-            name={`city`}
+            label="Country (required)"
+            name={`country`}
             placeholder="Where are you based?"
             validate={required}
           />
