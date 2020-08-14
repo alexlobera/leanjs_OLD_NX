@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SVG } from './SVG';
 
 export const Spinner = (props) => (
   <StyledSpinner viewBox="0 0 50 50" {...props}>
@@ -14,7 +15,7 @@ export const Spinner = (props) => (
   </StyledSpinner>
 );
 
-const StyledSpinner = styled.svg`
+const StyledSpinner = styled(SVG)`
   animation: rotate 1s linear infinite;
   width: ${({ width = '20px' }) => width};
   height: ${({ width = '20px' }) => width};

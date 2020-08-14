@@ -116,7 +116,7 @@ const SessionInterest = ({ path, trainings }) => {
                             validate={composeValidators(mustBeEmail, required)}
                             label="Your best email address"
                             name="email"
-                            placeholder="eg. steve@jobs.com"
+                            placeholder="eg. steve@wozniak.com"
                           />
                         </Col>
                       </Row>

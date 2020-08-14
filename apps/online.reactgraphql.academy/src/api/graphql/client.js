@@ -1,6 +1,6 @@
 import React from 'react';
 import { useClient, useQuery } from './Provider';
-import { UPMENTORING_API_URL } from '../../config/apps';
+// import { UPMENTORING_API_URL } from '../../config/apps';
 import memoize from './memoize';
 
 const computeProps = (config, props) => {
@@ -37,28 +37,32 @@ export function graphql(query, config = {}) {
   };
 }
 
-async function postQuery({ query, variables }) {
-  const body = JSON.stringify({ query, variables });
-  const response = await fetch(UPMENTORING_API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-um-orgid': '@VVNFOjVhYWE5YjA3ZjE0NmU1Y2ZhZmFkMTg5ZQ==',
-    },
-    credentials: 'include',
-    body,
-  });
-
-  return response.json();
-}
-
 export const withStatelessClient = (Component) => (props) => {
   const { client } = useClient();
   return <Component {...props} statelessClient={client} />;
 };
 
-export const createClient = ({ post = postQuery } = {}) => {
+export const createClient = ({ getToken } = {}) => {
   return {
-    query: post,
+    query: async function postQuery({ query, variables }) {
+      let opts = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ query, variables }),
+      };
+
+      const token = getToken && (await getToken());
+      if (token) {
+        opts.headers.Authorization = `Bearer ${token}`;
+      }
+
+      const response = await fetch(
+        process.env.GATSBY_UPMENTORING_API_URL,
+        opts
+      );
+
+      return response.json();
+    },
   };
 };

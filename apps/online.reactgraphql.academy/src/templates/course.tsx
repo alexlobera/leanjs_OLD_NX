@@ -7,6 +7,7 @@ import {
   formatTraining,
   TrainingItem,
   getTrainingTimings,
+  getVideoInfo,
 } from '@leanjs/ui-academy';
 
 import { FAQSection } from '../components/display/TrainingPage';
@@ -30,6 +31,7 @@ import {
 } from '../components/layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import Markdown from '../components/display/Markdown';
+import { useQuery } from '../api/graphql/Provider';
 
 const metas = {
   title: 'Online React and GraphQL Courses | React GraphQL Academy',
@@ -44,10 +46,11 @@ function CoursePage({ data }) {
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
-  const trainingPreviewVideoUrl =
-    training.previewVideo && training.previewVideo.asset
-      ? training.previewVideo.asset.url
-      : null;
+  const {
+    url: trainingPreviewVideoUrl,
+    posterUrl: trainingPreviewVideoPoserUrl,
+  } = getVideoInfo(training.previewVideo);
+
   const trainingInstances =
     data.upmentoring.trainingInstances &&
     data.upmentoring.trainingInstances.edges
@@ -55,6 +58,21 @@ function CoursePage({ data }) {
           .map(formatTraining())
           .slice(0, 3)
       : [];
+
+  useQuery(`
+    {
+        viewer {
+            id
+            purchasedTrainings {
+                edges {
+                    node {
+                        title
+                    }
+                }
+            }
+        }
+    }
+  `);
 
   return (
     <Layout
@@ -101,7 +119,10 @@ function CoursePage({ data }) {
           info={
             trainingPreviewVideoUrl && (
               <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-                <VideoPlayer url={trainingPreviewVideoUrl} />
+                <VideoPlayer
+                  poster={trainingPreviewVideoPoserUrl}
+                  url={trainingPreviewVideoUrl}
+                />
               </Box>
             )
           }
@@ -118,19 +139,21 @@ function CoursePage({ data }) {
             {units.reduce((acc, unit, index) => {
               const { published } = unit;
               if (published) {
-                const unitPath = published.slug;
                 const lessonsCount =
                   (published.videos && published.videos.length) || 0;
-                const unitPreviewVideoUrl =
-                  published.previewVideo && published.previewVideo.asset
-                    ? published.previewVideo.asset.url
-                    : null;
+                const { previewVideo } = published;
+                const { posterUrl, url: unitPreviewVideoUrl } = getVideoInfo(
+                  previewVideo
+                );
 
                 acc.push(
                   <Grid columns={10}>
                     <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
                       {unitPreviewVideoUrl && (
-                        <VideoPlayer url={unitPreviewVideoUrl} />
+                        <VideoPlayer
+                          posterUrl={posterUrl}
+                          url={unitPreviewVideoUrl}
+                        />
                       )}
                     </Box>
                     <Box

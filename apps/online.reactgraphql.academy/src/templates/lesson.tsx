@@ -6,8 +6,8 @@ import BlockContent from '@sanity/block-content-to-react';
 import { OkaidiaRGA } from '@leanjs/ui-academy';
 import {
   removeCarriageReturn,
-  // Code,
   getImagePublicURLs,
+  getVideoInfo,
 } from '@leanjs/ui-academy';
 
 import Layout from '../components/layout/Layout';
@@ -95,6 +95,8 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
     <BlockContent blocks={_rawTranscript} serializers={serializers} />
   );
 
+  const { url: videoUrl, posterUrl: videoPoserUrl } = getVideoInfo(video);
+
   return (
     <Layout
       variant="stack"
@@ -112,7 +114,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
     >
       <OkaidiaRGA />
       <Container>
-        <VideoPlayer url={video.asset.url} />
+        <VideoPlayer posterUrl={videoPoserUrl} url={videoUrl} />
         <Grid columns={12} sx={{ mt: 7 }}>
           <Box sx={{ gridColumn: '1/ 8' }}>
             <H1 as="h1" variant="h2">
@@ -134,7 +136,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>
-              <H2 as="h1" variant="h3">
+              <H2 as="h1" variant="h3" sx={{ pt: 2 }}>
                 {trainingUnit.published.title} lessons
               </H2>
               <P>
@@ -187,7 +189,13 @@ export const query = graphql`
           url
         }
         sanityVideo {
-          _id
+          thumbnailImage {
+            asset {
+              localFile(width: 1150) {
+                publicURL
+              }
+            }
+          }
           _rawTranscript(resolveReferences: { maxDepth: 10 })
         }
       }
