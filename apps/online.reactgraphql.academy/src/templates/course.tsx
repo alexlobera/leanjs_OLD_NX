@@ -192,11 +192,7 @@ function CoursePage({ data }) {
                           <TabItem name="curriculum">Curriculum</TabItem>
                         </TabList>
                         <TabPanel name="learning">
-                          <Ul>
-                            {published.objectives.map((objective) => (
-                              <Li>{objective}</Li>
-                            ))}
-                          </Ul>
+                          <Markdown>{published.objectives}</Markdown>
                         </TabPanel>
                         <TabPanel name="curriculum">
                           <Markdown>{published.syllabus}</Markdown>

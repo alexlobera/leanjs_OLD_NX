@@ -53,6 +53,9 @@ module.exports = {
         url:
           process.env.GATSBY_UPMENTORING_API_URL ||
           'https://api2.upmentoring.com/graphql',
+        headers: {
+          'x-um-orgid': '@VVNFOjVhYWE5YjA3ZjE0NmU1Y2ZhZmFkMTg5ZQ==',
+        },
       },
     },
     {
