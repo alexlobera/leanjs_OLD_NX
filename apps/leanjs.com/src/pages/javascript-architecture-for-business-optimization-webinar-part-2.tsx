@@ -51,7 +51,7 @@ const IndexPage = () => (
                 PART 2
               </Box>
             </H1>
-            <SupportingText>August 20, 2020</SupportingText>
+            <SupportingText>Sep 22, 2020</SupportingText>
             <SupportingText>10:00 - 11:00 CEST</SupportingText>
             <SupportingText>This event is remote & free</SupportingText>
             <P>
