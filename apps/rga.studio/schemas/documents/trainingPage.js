@@ -49,7 +49,7 @@ export default {
       type: 'string',
       validation: (Rule) =>
         Rule.custom((value) =>
-          (value && value.includes('youtube.com')) || value.startsWith('http')
+          value && (value.includes('youtube.com') || value.startsWith('http'))
             ? 'Only the video Id, not the full URL'
             : true
         ),
