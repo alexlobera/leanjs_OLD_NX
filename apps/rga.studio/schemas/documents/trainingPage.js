@@ -49,9 +49,7 @@ export default {
       type: 'string',
       validation: (Rule) =>
         Rule.custom((value) =>
-          !value
-            ? 'Video Id is required'
-            : value.includes('youtube.com') || value.startsWith('http')
+          (value && value.includes('youtube.com')) || value.startsWith('http')
             ? 'Only the video Id, not the full URL'
             : true
         ),
@@ -60,19 +58,16 @@ export default {
       name: 'testimonialQuote',
       title: 'Testimonial quote',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'testimonialJob',
       title: 'Testimonial job',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'testimonialFullname',
       title: 'Testimonial fullname',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'testimonialCompany',
@@ -93,7 +88,7 @@ export default {
     },
     {
       name: 'trainingVideo',
-      title: 'Training video',
+      title: 'Video',
       type: 'reference',
       to: { type: 'video' },
     },
