@@ -1,7 +1,3 @@
-// import UpMentoringVideoInput from '../../components/UpMentoringVideoInput';
-// import withConditionalField from '../../plugins/withConditionalField';
-// import ConditionalField from '../../plugins/conditionalField.js';
-
 export const VIDEO_TYPE_TRAINING = 'VIDEO_TYPE_TRAINING';
 export const VIDEO_TYPE_TESTIMONIAL = 'VIDEO_TYPE_TESTIMONIAL';
 export const VIDEO_TYPE_PRODUCT_EXPLAINER = 'VIDEO_TYPE_PRODUCT_EXPLAINER';
@@ -27,11 +23,6 @@ export default {
       title: 'Public description',
       type: 'string',
     },
-    // {
-    //   name: 'transcript',
-    //   title: 'Transcript',
-    //   type: 'videoTranscript',
-    // },
     {
       name: 'type',
       title: 'Type',

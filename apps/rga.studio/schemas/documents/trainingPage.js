@@ -47,14 +47,6 @@ export default {
       name: 'testimonialYoutubeId',
       title: 'Testimonial Youtube Id',
       type: 'string',
-      //   validation: (Rule) =>
-      //     Rule.custom((value) =>
-      //       !value
-      //         ? 'Video Id is required'
-      //         : value.includes('youtube.com') || value.startsWith('http')
-      //         ? 'Only the video Id, not the full URL'
-      //         : true
-      //     ),
       validation: (Rule) =>
         Rule.custom((value) =>
           (value && value.includes('youtube.com')) || value.startsWith('http')

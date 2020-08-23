@@ -10,7 +10,6 @@ import partner from './documents/partner';
 import faq from './documents/faq';
 import trainingPage from './documents/trainingPage';
 import video from './documents/video';
-// import training from './documents/training';
 import job from './objects/job';
 import youtube from './objects/youtube';
 import faqPage from './objects/faqPage';
@@ -33,7 +32,6 @@ export default createSchema({
     tag,
     trainingPage,
     faq,
-    // training,
     video,
     job,
     youtube,
