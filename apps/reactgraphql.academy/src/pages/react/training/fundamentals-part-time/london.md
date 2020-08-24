@@ -1,5 +1,5 @@
 ---
-coaches: ['eva-hoffmann', 'alex-lobera', 'will-voelcker', 'francisco-gomes']
+coaches: ['alex-lobera']
 subtitle: Learn React fundamentals in London in a part-time training with experienced React coaches and experts
 videoOneTime: ''
 videoOneId: E_4eQQHjc7A
