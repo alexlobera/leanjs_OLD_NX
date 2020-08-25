@@ -5,7 +5,13 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-styled-components',
-
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: 'GTM-MJZKQ28',
+        includeInDevelopment: false,
+      },
+    },
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
