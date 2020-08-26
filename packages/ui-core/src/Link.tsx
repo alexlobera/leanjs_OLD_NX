@@ -11,3 +11,6 @@ export function Link<T extends As = 'a'>(props: LeanProps<T>) {
 // const B = (props) => <Link fff />;
 // ❌ this doesn't work since it doesnt fail when spreading {...props}
 // const B = (props) => <Link {...props} fff />;
+// const B = <T extends As>({ removeProps, ...rest }: LeanProps<T>) => (
+//   <Link {...rest} sx={{ m: 1 }} />
+// );
