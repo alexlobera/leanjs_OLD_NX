@@ -111,7 +111,7 @@ const IndexPage = () => (
             <Flex sx={{ mr: 5, mb: 4, flexDirection: 'column' }}>
               <Flex>
                 <Image
-                  src="https://media-exp1.licdn.com/dms/image/C4E03AQFT2RQ6m75u9w/profile-displayphoto-shrink_400_400/0?e=1598486400&v=beta&t=o7_Xkn6mFy9VzusPMZA9iPqY7I3Fi7rGSZlJWuxJAa4"
+                  src="https://pbs.twimg.com/profile_images/1208906846313934848/6h0aRCgw_400x400.jpg"
                   sx={{
                     borderRadius: '50%',
                     display: 'flex',
