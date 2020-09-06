@@ -6,12 +6,14 @@ import { GitHubIcon, PlayMedia } from '@leanjs/ui-icons';
 import Markdown from '../components/display/Markdown';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
 
+import { useMagic } from '../components/auth/MagicProvider';
 import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
 import { Box, Grid, Container, Ul, Li } from '../components/layout';
 import Link from '../components/navigation/Link';
 import { H1, H2, H3, H4, H5, H6, P, Span, Image } from '../components/display';
 // import Code from '../components/display/Code';
+import { useQuery } from '../api/graphql/Provider';
 
 interface LessonPageProps {
   data: any;
@@ -25,14 +27,36 @@ const Icon = ({ comp: Comp }) => (
   <Comp sx={{ mb: '-7px', mr: 2 }} fill={GITHUB_COLOR} />
 );
 
-const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
+const LessonPage: FunctionComponent<LessonPageProps> = ({ data, pageContext }) => {
+  const { loading, error, privateData } = useQuery(`
+  query videoLesson($videoId: ID!) {
+    video(id:$videoId) {
+      transcript
+      asset {
+        url
+      }
+    }
+  }
+  `, {
+    variables: { videoId: pageContext.videoId }
+  });
+
   const { trainingById: training, video, trainingUnit } = data.upmentoring;
   const relatedResources = trainingUnit.published.customFieldsValues.find(
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   ).values[0];
-
+  const { loggedIn } = useMagic();
   const trainingPath = `/${training.slug}-course/`;
-  let videoUrl
+  let transcriptPreview
+
+  if (!loggedIn) {
+    const transcriptBlock = video.transcript.split('\n')
+    transcriptPreview = transcriptBlock.length > 0 ?
+      transcriptBlock.slice(0, 2).join('\n') :
+      transcriptBlock.length === 1 ?
+        transcriptBlock[0].slice(0, 200) :
+        ''
+  }
 
   return (
     <Layout
@@ -53,7 +77,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
       <Container>
         <VideoPlayer
           posterUrl={video.asset?.posterImageUrl}
-          url={videoUrl}
+          url={privateData?.video?.asset?.url}
         />
         <Grid columns={12} sx={{ mt: 7 }}>
           <Box sx={{ gridColumn: '1/ 8' }}>
@@ -63,7 +87,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
             <H3>Related resources</H3>
             <Markdown>{relatedResources}</Markdown>
             <H3>Transcript</H3>
-            <Markdown>{video.transcript}</Markdown>
+            <Markdown>{privateData?.video?.transcript || transcriptPreview}</Markdown>
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>
             <StickyBox offsetTop={0}>

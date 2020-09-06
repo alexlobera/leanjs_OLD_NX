@@ -65,18 +65,6 @@ exports.createPages = async ({ graphql, actions }) => {
     training.units.forEach((unit) => {
       unit.published.videos.forEach((video) => {
         const lessonPath = `${coursePath}${video.slug}`;
-        const _rawTranscript = video.sanityVideo
-          ? video.sanityVideo._rawTranscript || []
-          : [];
-        const sanityTranscriptImageAssetIds = _rawTranscript.reduce(
-          (images, { _type, asset = {} }) => {
-            if (_type === 'image' && asset._id) {
-              return [...images, asset._id];
-            }
-            return images;
-          },
-          []
-        );
 
         createPage({
           path: lessonPath,
@@ -85,7 +73,6 @@ exports.createPages = async ({ graphql, actions }) => {
             videoId: video.id,
             unitId: unit.id,
             trainingId: training.id,
-            sanityTranscriptImageAssetIds,
           },
         });
       });

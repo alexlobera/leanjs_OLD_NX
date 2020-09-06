@@ -31,37 +31,37 @@ const Layout: FunctionComponent<LayoutProps> = ({
   children,
   variant = 'absolute',
 }) => (
-  <React.Fragment>
-    <Navbar
-      sx={{ ...(variantLayoutProps[variant] || {}) }}
-      menu={
-        <Ul
-          variant="inline"
-          sx={{
-            ml: 'auto',
-            display: 'flex',
-            li: { alignItems: 'center', display: 'flex' },
-          }}
-        >
-          <Li>
-            <AuthLink />
-          </Li>
-          <Li>
-            <Link to="https://reactgraphql.academy/blog/">Blog</Link>
-          </Li>
-        </Ul>
-      }
-    >
-      {breadcrumbPaths && (
-        <Breadcrumb sx={{ px: 4, py: 1 }} paths={breadcrumbPaths} />
-      )}
-    </Navbar>
-    {children}
-    <Footer />
+    <React.Fragment>
+      <Navbar
+        sx={{ ...(variantLayoutProps[variant] || {}) }}
+        menu={
+          <Ul
+            variant="inline"
+            sx={{
+              ml: 'auto',
+              display: 'flex',
+              li: { alignItems: 'center', display: 'flex' },
+            }}
+          >
+            <Li>
+              <AuthLink />
+            </Li>
+            <Li>
+              <Link to="https://reactgraphql.academy/blog/">Blog</Link>
+            </Li>
+          </Ul>
+        }
+      >
+        {breadcrumbPaths && (
+          <Breadcrumb sx={{ px: 4, py: 1 }} paths={breadcrumbPaths} />
+        )}
+      </Navbar>
+      {children}
+      <Footer />
 
-    {/*
+      {/*
       <AcceptCookies /> */}
-  </React.Fragment>
-);
+    </React.Fragment>
+  );
 
 export default Layout;

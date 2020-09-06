@@ -40,7 +40,7 @@ const metas = {
   type: 'website',
 };
 
-function CoursePage({ data }) {
+function CoursePage({ data, pageContext }) {
   const training = data.upmentoring.trainingById;
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
@@ -55,20 +55,18 @@ function CoursePage({ data }) {
         .slice(0, 3)
       : [];
 
-  useQuery(`
-    {
-        viewer {
-            id
-            purchasedTrainings {
-                edges {
-                    node {
-                        title
-                    }
-                }
-            }
-        }
-    }
-  `);
+  const { loading, error, privateData } = useQuery(`
+      query purchasedTraining($trainingId: ID!) {
+          viewer {
+              id
+              purchasedTraining(trainingId: $trainingId ) { 
+                id
+              }
+          }
+      }
+    `, {
+    variables: { trainingId: pageContext.trainingId }
+  });
 
   return (
     <Layout
