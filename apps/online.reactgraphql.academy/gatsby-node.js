@@ -35,9 +35,6 @@ exports.createPages = async ({ graphql, actions }) => {
                     videos {
                       slug
                       id
-                      sanityVideo {
-                        _rawTranscript(resolveReferences: { maxDepth: 10 })
-                      }
                     }
                   }
                 }

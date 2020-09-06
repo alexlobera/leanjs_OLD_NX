@@ -127,7 +127,7 @@ const Header: FunctionComponent<HeaderProps> = ({
           pt: ['160px', '200px'],
         }}
       >
-        <Grid columns={12} sx={{ px: 2 }}>
+        <Grid columns={12}>
           <Box
             sx={{
               gridColumn: ['1 / -1', '1 / 7'],

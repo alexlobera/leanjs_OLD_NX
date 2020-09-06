@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-function useHls({ url, autoplay = false, autoload = true, onClick, ref }) {
+function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
   const videoRef = useRef();
   const controllerRef = useRef({});
   const [error, setError] = useState(null);
@@ -42,17 +42,19 @@ function useHls({ url, autoplay = false, autoload = true, onClick, ref }) {
         const Plyr = require('plyr');
         const plyr = new Plyr(videoRef.current, {
           autoplay,
-          controls: [
-            'play-large',
-            'play',
-            'progress',
-            'current-time',
-            'mute',
-            'volume',
-            'settings',
-            'airplay',
-            'fullscreen',
-          ],
+          controls: url
+            ? [
+                'play-large',
+                'play',
+                'progress',
+                'current-time',
+                'mute',
+                'volume',
+                'settings',
+                'airplay',
+                'fullscreen',
+              ]
+            : [],
         });
 
         plyr.on('play', startLoad);

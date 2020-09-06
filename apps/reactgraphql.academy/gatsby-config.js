@@ -89,7 +89,7 @@ module.exports = {
       options: {
         projectId: sanityProjectId,
         dataset: process.env.GATSBY_SANITY_DATASET || sanityDataset,
-        token: process.env.GATSBY_SANITY_TOKEN,
+        token: process.env.SANITY_TOKEN,
       },
     },
     {

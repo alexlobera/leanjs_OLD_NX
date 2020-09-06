@@ -7,9 +7,10 @@ import {
   formatTraining,
   TrainingItem,
   getTrainingTimings,
-  getVideoInfo,
+  // getVideoInfo, remove this from @leanjs/ui-academy
 } from '@leanjs/ui-academy';
 
+import { useMagic } from '../components/auth/MagicProvider';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
@@ -46,10 +47,11 @@ function CoursePage({ data }) {
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
-  const {
-    url: trainingPreviewVideoUrl,
-    posterUrl: trainingPreviewVideoPoserUrl,
-  } = getVideoInfo(training.previewVideo);
+  //   const {
+  //     url: trainingPreviewVideoUrl,
+  //     posterUrl: trainingPreviewVideoPoserUrl,
+  //   } = getVideoInfo(training.previewVideo);
+  const { loggedIn } = useMagic();
 
   const trainingInstances =
     data.upmentoring.trainingInstances &&
@@ -117,11 +119,11 @@ function CoursePage({ data }) {
             },
           ]}
           info={
-            trainingPreviewVideoUrl && (
+            training.previewVideo && (
               <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
                 <VideoPlayer
-                  poster={trainingPreviewVideoPoserUrl}
-                  url={trainingPreviewVideoUrl}
+                  poster={training.previewVideo.asset?.posterImageUrl}
+                  url={training.previewVideo.asset?.url}
                 />
               </Box>
             )
@@ -133,7 +135,7 @@ function CoursePage({ data }) {
           <Sheet>
             <H2>
               <a id="course-modules" />
-              {title} Modules
+              {training.title} Modules
             </H2>
 
             {units.reduce((acc, unit, index) => {
@@ -142,17 +144,14 @@ function CoursePage({ data }) {
                 const lessonsCount =
                   (published.videos && published.videos.length) || 0;
                 const { previewVideo } = published;
-                const { posterUrl, url: unitPreviewVideoUrl } = getVideoInfo(
-                  previewVideo
-                );
 
                 acc.push(
                   <Grid columns={10}>
                     <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
-                      {unitPreviewVideoUrl && (
+                      {previewVideo && (
                         <VideoPlayer
-                          posterUrl={posterUrl}
-                          url={unitPreviewVideoUrl}
+                          posterUrl={previewVideo.asset?.posterImageUrl}
+                          url={previewVideo.asset?.unitPreviewVideoUrl}
                         />
                       )}
                     </Box>
@@ -177,13 +176,17 @@ function CoursePage({ data }) {
                             </>
                           ) : null}
                         </Li>
-                        <Li>/</Li>
-                        <Li>
-                          See{' '}
-                          <Link to="#pricing" sx={{ mt: 3 }}>
-                            pricing
-                          </Link>
-                        </Li>
+                        {!loggedIn && (
+                          <>
+                            <Li>/</Li>
+                            <Li>
+                              See{' '}
+                              <Link to="#pricing" sx={{ mt: 3 }}>
+                                pricing
+                              </Link>
+                            </Li>
+                          </>
+                        )}
                       </Ul>
                       <Markdown>{published.description}</Markdown>
                       <Tabs defaultValue="learning">
@@ -208,17 +211,19 @@ function CoursePage({ data }) {
         </Container>
       </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
-      <Section variant="secondary">
-        <Container>
-          <Sheet variant="transparent">
-            <Grid columns={10}>
-              <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
-                <PaymentSection item={training} />
-              </Box>
-            </Grid>
-          </Sheet>
-        </Container>
-      </Section>
+      {!loggedIn && (
+        <Section variant="secondary">
+          <Container>
+            <Sheet variant="transparent">
+              <Grid columns={10}>
+                <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
+                  <PaymentSection item={training} />
+                </Box>
+              </Grid>
+            </Sheet>
+          </Container>
+        </Section>
+      )}
       <Section>
         <Container>
           <Sheet variant="transparent">
@@ -273,9 +278,10 @@ export const query = graphql`
         previewVideo {
           asset {
             url
-            playback {
-              id
-            }
+            posterImageUrl
+            # playback {
+            #   id
+            # }
           }
         }
         units {
@@ -287,9 +293,10 @@ export const query = graphql`
             previewVideo {
               asset {
                 url
-                playback {
-                  id
-                }
+                posterImageUrl
+                # playback {
+                #   id
+                # }
               }
             }
             videos {
