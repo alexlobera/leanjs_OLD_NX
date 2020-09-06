@@ -5,11 +5,6 @@ import { GitHubIcon, PlayMedia } from '@leanjs/ui-icons';
 // import BlockContent from '@sanity/block-content-to-react';
 import Markdown from '../components/display/Markdown';
 // import { OkaidiaRGA } from '@leanjs/ui-academy';
-import {
-  //   removeCarriageReturn,
-  //   getImagePublicURLs,
-  getVideoInfo,
-} from '@leanjs/ui-academy';
 
 import Layout from '../components/layout/Layout';
 import { VideoPlayer } from '../components/display/VideoPlayer';
@@ -37,7 +32,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
   ).values[0];
 
   const trainingPath = `/${training.slug}-course/`;
-  const { url: videoUrl } = getVideoInfo(video);
+  let videoUrl
 
   return (
     <Layout
@@ -58,7 +53,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
       <Container>
         <VideoPlayer
           posterUrl={video.asset?.posterImageUrl}
-          url={video.asset?.url}
+          url={videoUrl}
         />
         <Grid columns={12} sx={{ mt: 7 }}>
           <Box sx={{ gridColumn: '1/ 8' }}>
@@ -68,7 +63,6 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data }) => {
             <H3>Related resources</H3>
             <Markdown>{relatedResources}</Markdown>
             <H3>Transcript</H3>
-            {/* TODO SHOW 1/3 IF THE USE IS NOT LOGGED IN */}
             <Markdown>{video.transcript}</Markdown>
           </Box>
           <Box sx={{ gridColumn: ' 9/ -1' }}>

@@ -7,7 +7,6 @@ import {
   formatTraining,
   TrainingItem,
   getTrainingTimings,
-  // getVideoInfo, remove this from @leanjs/ui-academy
 } from '@leanjs/ui-academy';
 
 import { useMagic } from '../components/auth/MagicProvider';
@@ -38,7 +37,6 @@ const metas = {
   title: 'Online React and GraphQL Courses | React GraphQL Academy',
   description:
     'Looking for React and GraphQL online courses? React GraphQL Academy Online offers online courses following our proven teaching method. Enrol now!',
-  // image: WHY_REACTJS_ACADEMY,
   type: 'website',
 };
 
@@ -47,18 +45,14 @@ function CoursePage({ data }) {
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
-  //   const {
-  //     url: trainingPreviewVideoUrl,
-  //     posterUrl: trainingPreviewVideoPoserUrl,
-  //   } = getVideoInfo(training.previewVideo);
   const { loggedIn } = useMagic();
 
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-    data.upmentoring.trainingInstances.edges
+      data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-          .map(formatTraining())
-          .slice(0, 3)
+        .map(formatTraining())
+        .slice(0, 3)
       : [];
 
   useQuery(`
