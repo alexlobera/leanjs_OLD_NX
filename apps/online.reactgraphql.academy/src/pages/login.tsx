@@ -13,23 +13,24 @@ import {
 import Link from '../components/navigation/Link';
 import { useMagic } from '../components/auth/MagicProvider';
 import RGALogoDarkBg from '../components/logos/RGALogoDarkBg';
+import CheckboxField from '../components/form/CheckboxField';
 
-const TEN_MINUTES = 600000;
+// const TEN_MINUTES = 600000;
 
 function LoginPage({ navigate }) {
-  const { login, loggedIn, signupsRequired, clearSignupsRequired } = useMagic();
+  const { login, loggedIn } = useMagic();
 
-  React.useEffect(() => {
-    const intervalId = setInterval(clearSignupsRequired, TEN_MINUTES);
+  //   React.useEffect(() => {
+  //     const intervalId = setInterval(clearSignupsRequired, TEN_MINUTES);
 
-    return () => {
-      clearInterval(intervalId);
-      clearSignupsRequired();
-    };
-  }, []);
+  //     return () => {
+  //       clearInterval(intervalId);
+  //       clearSignupsRequired();
+  //     };
+  //   }, []);
 
   if (loggedIn) {
-    navigate('/react-redux-fundamentals-course');
+    navigate('/react-foundation-course/');
 
     return null;
   }
@@ -52,11 +53,11 @@ function LoginPage({ navigate }) {
           <H1 sx={{ textAlign: 'center' }}>Login</H1>
           <Form
             onSubmit={login}
-            validate={({ email }: any) => {
-              if (signupsRequired[email]) {
-                return { email: "You haven't bought a course" };
-              }
-            }}
+            // validate={({ email }: any) => {
+            //   if (signupsRequired[email]) {
+            //     return { email: "You haven't bought a course" };
+            //   }
+            // }}
           >
             {({ formSubmitted, submitting }) =>
               formSubmitted ? null : (
@@ -68,25 +69,35 @@ function LoginPage({ navigate }) {
                     name="email"
                     placeholder="eg. steve@wozniak.com"
                   />
+                  <CheckboxField
+                    name="sign-up-newsletter"
+                    label="Sign up to our newsletter (unsubscribe anytime)"
+                    validate={required}
+                  />
                   <Button
                     variant="primary"
                     type="submit"
                     disabled={submitting}
                     className="login-submit-button"
+                    sx={{ mt: 4 }}
                   >
                     {submitting ? <Spinner /> : 'Submit'}
                   </Button>
+                  <P>
+                    We won't spam you as per our{' '}
+                    <Link
+                      className="footer-privacy-policy"
+                      to="https://reactgraphql.academy/privacy-policy/"
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
+                  </P>
                 </>
               )
             }
           </Form>
-          <P sx={{ pt: 3 }}>
-            Do you need to register an email?{` `}
-            <Link className="login-form" to="/react-redux-fundamentals-course">
-              Purchase a course
-            </Link>
-            .
-          </P>
+
           <P>
             Do you have problems logging in with your registered email? Please
             contact us at{` `}

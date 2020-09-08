@@ -1,4 +1,6 @@
 import React from 'react';
+import Cookies from 'js-cookie';
+
 import Link from '../navigation/Link';
 import { useMagic } from './MagicProvider';
 import { useGraphQLCache } from '../../api/graphql/Provider';
@@ -14,6 +16,7 @@ export default function AuthLink({ to = '/login' }) {
     <Link
       onClick={() => {
         logout();
+        Cookies.remove('__session');
         clearCache();
       }}
     >

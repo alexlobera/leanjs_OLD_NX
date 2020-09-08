@@ -15,7 +15,7 @@ import Layout from '../components/layout/Layout';
 import Sheet from '../components/layout/Sheet';
 import Link from '../components/navigation/Link';
 import Header from '../components/layout/Header';
-import { P, H2, H3 } from '../components/display';
+import { P, H2, H3, H4 } from '../components/display';
 import ReactHeaderBg from '../components/layout/Header/ReactBg';
 import {
   Container,
@@ -40,33 +40,42 @@ const metas = {
   type: 'website',
 };
 
-function CoursePage({ data, pageContext }) {
+function CoursePage({ data, pageContext: { trainingId } }) {
+  const { loggedIn } = useMagic();
   const training = data.upmentoring.trainingById;
   const trainingPath = `/${training.slug}-course`;
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
-  const { loggedIn } = useMagic();
+
+  console.log(`aaa`, training);
 
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-      data.upmentoring.trainingInstances.edges
+    data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-        .map(formatTraining())
-        .slice(0, 3)
+          .map(formatTraining())
+          .slice(0, 3)
       : [];
 
-  const { loading, error, privateData } = useQuery(`
+  // TODO useMemo variables inside useQuery
+  const options = React.useMemo(() => {
+    return { variables: { trainingId }, skip: !loggedIn };
+  }, [trainingId, loggedIn]);
+
+  const { data: privateData } = useQuery(
+    `
       query purchasedTraining($trainingId: ID!) {
           viewer {
-              id
               purchasedTraining(trainingId: $trainingId ) { 
                 id
               }
           }
       }
-    `, {
-    variables: { trainingId: pageContext.trainingId }
-  });
+    `,
+    options
+  );
+
+  const purchased = privateData?.viewer?.purchasedTraining?.id === trainingId;
 
   return (
     <Layout
@@ -98,15 +107,19 @@ function CoursePage({ data, pageContext }) {
           bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
           links={[
             {
-              text: 'Modules',
+              text: 'Course layout',
               to: '#course-modules',
+            },
+            {
+              text: 'Is it right for me?',
+              to: '#target-audience',
             },
             {
               text: 'FAQs',
               to: '#faqs',
             },
             {
-              text: 'Price',
+              text: purchased ? 'Thanks' : 'Price',
               to: '#pricing',
             },
           ]}
@@ -125,101 +138,134 @@ function CoursePage({ data, pageContext }) {
       <Section variant="top">
         <Container>
           <Sheet>
-            <H2>
+            <H2 sx={{ mt: 0 }}>
               <a id="course-modules" />
               {training.title} Modules
             </H2>
 
-            {units.reduce((acc, unit, index) => {
-              const { published } = unit;
-              if (published) {
-                const lessonsCount =
-                  (published.videos && published.videos.length) || 0;
-                const { previewVideo } = published;
+            <Grid columns={10}>
+              {units.reduce((acc, unit, index) => {
+                const { published } = unit;
+                if (published) {
+                  const lessonsCount =
+                    (published.videos && published.videos.length) || 0;
+                  const { previewVideo } = published;
 
-                acc.push(
-                  <Grid columns={10}>
-                    <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
-                      {previewVideo && (
-                        <VideoPlayer
-                          posterUrl={previewVideo.asset?.posterImageUrl}
-                          url={previewVideo.asset?.unitPreviewVideoUrl}
-                        />
-                      )}
-                    </Box>
-                    <Box
-                      sx={{
-                        gridColumn: ['1/ -1', '5/ -1'],
-                        mb: index < units.length - 1 ? 8 : 0,
-                      }}
-                    >
-                      <H3>{published.title}</H3>
-                      <Ul variant="inline">
-                        <Li sx={{ pl: 0 }}>
-                          {lessonsCount} lessons
-                          {lessonsCount > 0 ? (
+                  acc.push(
+                    <>
+                      <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
+                        {previewVideo && (
+                          <VideoPlayer
+                            posterUrl={previewVideo.asset?.posterImageUrl}
+                            url={previewVideo.asset?.unitPreviewVideoUrl}
+                          />
+                        )}
+                      </Box>
+                      <Box
+                        sx={{
+                          gridColumn: ['1/ -1', '5/ -1'],
+                          mb: index < units.length - 1 ? 8 : 0,
+                        }}
+                      >
+                        <H3 sx={{ mt: 0 }}>{published.title}</H3>
+                        <Ul variant="inline" sx={{ mb: 4 }}>
+                          <Li sx={{ pl: 0 }}>
+                            {lessonsCount} lessons
+                            {lessonsCount > 0 ? (
+                              <>
+                                {', '}
+                                <Link
+                                  to={`${trainingPath}/${published.videos[0].slug}`}
+                                >
+                                  (ADD PLAY ICON) Start watch
+                                </Link>
+                              </>
+                            ) : null}
+                          </Li>
+                          {!purchased && (
                             <>
-                              {', '}
-                              <Link
-                                to={`${trainingPath}/${published.videos[0].slug}`}
-                              >
-                                watch
-                              </Link>
+                              <Li>/</Li>
+                              <Li>
+                                See{' '}
+                                <Link to="#pricing" sx={{ mt: 3 }}>
+                                  pricing
+                                </Link>
+                              </Li>
                             </>
-                          ) : null}
-                        </Li>
-                        {!loggedIn && (
+                          )}
+                        </Ul>
+                        <Markdown>{published.description}</Markdown>
+                        {published.objectives && published.syllabus ? (
+                          <Tabs defaultValue="learning" sx={{ mt: 6 }}>
+                            <TabList>
+                              <TabItem name="learning">
+                                Learning objectives
+                              </TabItem>
+                              <TabItem name="curriculum">Curriculum</TabItem>
+                            </TabList>
+                            <TabPanel name="learning"></TabPanel>
+                            <TabPanel name="curriculum">
+                              <Markdown>{published.syllabus}</Markdown>
+                            </TabPanel>
+                          </Tabs>
+                        ) : (
                           <>
-                            <Li>/</Li>
-                            <Li>
-                              See{' '}
-                              <Link to="#pricing" sx={{ mt: 3 }}>
-                                pricing
-                              </Link>
-                            </Li>
+                            <H4>Learning objectives</H4>
+                            <Markdown>{published.objectives}</Markdown>
                           </>
                         )}
-                      </Ul>
-                      <Markdown>{published.description}</Markdown>
-                      <Tabs defaultValue="learning">
-                        <TabList>
-                          <TabItem name="learning">Learning objectives</TabItem>
-                          <TabItem name="curriculum">Curriculum</TabItem>
-                        </TabList>
-                        <TabPanel name="learning">
-                          <Markdown>{published.objectives}</Markdown>
-                        </TabPanel>
-                        <TabPanel name="curriculum">
-                          <Markdown>{published.syllabus}</Markdown>
-                        </TabPanel>
-                      </Tabs>
-                    </Box>
-                  </Grid>
-                );
-                return acc;
-              }
-            }, [])}
+                      </Box>
+                    </>
+                  );
+                  return acc;
+                }
+              }, [])}
+            </Grid>
+            <H2>{training.title} Curriculum</H2>
+            <Grid columns={10}>
+              <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>VIDEO</Box>
+              <Box
+                sx={{
+                  gridColumn: ['1/ -1', '5/ -1'],
+                  mb: 0,
+                }}
+              >
+                <Markdown>{training?.description?.syllabus}</Markdown>
+              </Box>
+            </Grid>
+
+            <H2>
+              <a id="target-audience" />
+              Is this {training.title} course right for me?
+            </H2>
           </Sheet>
         </Container>
       </Section>
       <FAQSection pageData={data.sanityTrainingPage} />
-      {!loggedIn && (
-        <Section variant="secondary">
-          <Container>
-            <Sheet variant="transparent">
-              <Grid columns={10}>
-                <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
+
+      <Section variant="secondary">
+        <Container>
+          <Sheet variant="transparent">
+            <Grid columns={10}>
+              <Box sx={{ gridColumn: ['1/ -1', '1/ 6'] }}>
+                {!purchased ? (
                   <PaymentSection item={training} />
-                </Box>
-              </Grid>
-            </Sheet>
-          </Container>
-        </Section>
-      )}
+                ) : (
+                  <H2 sx={{ color: 'inverseText' }}>
+                    <a id="pricing" />
+                    Thank you for purchasing this course :)
+                  </H2>
+                )}
+              </Box>
+            </Grid>
+          </Sheet>
+        </Container>
+      </Section>
+
       <Section>
         <Container>
           <Sheet variant="transparent">
-            <H2>You can also attend this course live</H2>
+            <H2 sx={{ mt: 0 }}>You can also attend this course live</H2>
             <P>
               Alternatively to this online course, you can also join a cohort
               and attend a React Redux Fundamentals live training. Discuss
@@ -267,13 +313,14 @@ export const query = graphql`
         slug
         id
         onDemand
+        description {
+          objectives
+          syllabus
+        }
         previewVideo {
           asset {
             url
             posterImageUrl
-            # playback {
-            #   id
-            # }
           }
         }
         units {
@@ -286,9 +333,6 @@ export const query = graphql`
               asset {
                 url
                 posterImageUrl
-                # playback {
-                #   id
-                # }
               }
             }
             videos {

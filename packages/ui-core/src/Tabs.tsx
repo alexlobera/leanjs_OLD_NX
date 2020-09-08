@@ -129,6 +129,7 @@ export const Tabs = React.memo(function ({
   defaultValue,
   onChange: onChangeProp,
   children,
+  ...rest
 }: TabsProps) {
   const [value, setValue] = useState(defaultValue);
 
@@ -144,7 +145,9 @@ export const Tabs = React.memo(function ({
         onChange,
         value: valueProp || value,
       }}
-      children={children}
+      children={React.Children.map(children, (child) =>
+        React.cloneElement(child, rest)
+      )}
     />
   );
 });

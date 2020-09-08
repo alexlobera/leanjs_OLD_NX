@@ -12,18 +12,18 @@ interface RequireSignupResponse {
   signup: boolean;
 }
 
-export const requireSignup = (email) =>
-  fetch(`${umApiBaseUrl}/auth/require-signup`, {
-    ...defaultOptions,
-    body: JSON.stringify({
-      email,
-    }),
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    return response.json() as Promise<RequireSignupResponse>;
-  });
+// export const requireSignup = (email) =>
+//   fetch(`${umApiBaseUrl}/auth/require-signup`, {
+//     ...defaultOptions,
+//     body: JSON.stringify({
+//       email,
+//     }),
+//   }).then((response) => {
+//     if (!response.ok) {
+//       throw new Error(response.statusText);
+//     }
+//     return response.json() as Promise<RequireSignupResponse>;
+//   });
 
 export const login = (token) =>
   fetch(`${umApiBaseUrl}/auth`, {

@@ -4,6 +4,7 @@ import memoize from './memoize';
 const RECEIVE_DATA = 'RECEIVE_DATA';
 const SET_ERROR = 'SET_ERROR';
 const CLEAR_CACHE = 'CLEAR_CACHE';
+const SET_LOADING = 'SET_LOADING';
 
 export const receiveData = (data) => ({
   type: RECEIVE_DATA,
@@ -29,6 +30,8 @@ const reducer = (state, action) => {
       };
     case SET_ERROR:
       return { ...state, loading: false, error: action.error };
+    case SET_LOADING:
+      return { ...state, loading: action.payload };
     case CLEAR_CACHE:
       // TODO NOT WORKING
       return action.initialState;
@@ -43,7 +46,7 @@ const GraphQLProvider = ({
   initialState = {
     data: {},
     error: null,
-    loading: true,
+    loading: false,
   },
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -68,7 +71,7 @@ function hashGql(query, variables, options) {
 
 const memoizedHashGql = memoize(hashGql);
 
-export const useQuery = (query, { variables } = {}) => {
+export const useQuery = (query, { variables, skip } = {}) => {
   const { client } = useClient();
   const { loggedIn } = useMagic();
   const [state, dispatch] = useContext(StoreContext);
@@ -77,10 +80,13 @@ export const useQuery = (query, { variables } = {}) => {
   const data = cache && cache[cacheKey];
 
   useEffect(() => {
-    if (data) {
+    if (data || loading || skip) {
       return;
     }
-
+    dispatch({
+      type: SET_LOADING,
+      payload: true,
+    });
     client
       .query({ query, variables })
       .then(({ data, error }) => {
@@ -95,7 +101,7 @@ export const useQuery = (query, { variables } = {}) => {
           error,
         });
       });
-  }, [query, cacheKey, variables, dispatch, data]); // do I need dispatch here if it comes from useReducer?
+  }, [query, cacheKey, variables, skip, dispatch]);
 
   return { data, loading, error };
 };

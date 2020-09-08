@@ -78,7 +78,7 @@
     "gatsby-transformer-sharp": "~2.5.11",
     "graphql-tag": "~2.10.3",
     "hls.js": "~0.14.5",
-    "js-cookie": "~2.2.1",
+    "js-cookie": "^2.2.1",
     "lodash.isequal": "~4.5.0",
     "magic-sdk": "~2.4.6",
     "markdown-to-jsx": "~6.11.4",

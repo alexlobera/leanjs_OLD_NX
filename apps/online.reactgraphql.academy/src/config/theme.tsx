@@ -108,26 +108,32 @@ export const theme = {
       ...heading,
       fontWeight: 'bold',
       fontSize: 6,
+      // my: 8,
+      mt: 8,
       mb: 8,
     },
     h3: {
       ...heading,
       fontSize: 5,
+      mt: 7,
       mb: 7,
     },
     h4: {
       ...heading,
       fontSize: 4,
+      mt: 6,
       mb: 6,
     },
     h5: {
       ...heading,
       fontSize: 3,
+      mt: 5,
       mb: 5,
     },
     h6: {
       ...heading,
       fontSize: 2,
+      mt: 4,
       mb: 4,
     },
     p: {

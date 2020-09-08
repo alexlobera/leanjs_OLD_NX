@@ -14,7 +14,7 @@ const CLEAR_REQUIRE_SIGNUP = 'CLEAR_REQUIRE_SIGNUP';
 
 const initialState = {
   loading: true,
-  signupsRequired: {},
+  // signupsRequired: {},
   loggedIn: false,
 };
 
@@ -36,12 +36,12 @@ function magicReducer(state, action) {
       return {
         ...state,
         loading: false,
-        signupsRequired: { ...state.signupsRequired, [action.email]: true },
+        // signupsRequired: { ...state.signupsRequired, [action.email]: true },
       };
     case CLEAR_REQUIRE_SIGNUP:
       return {
         ...state,
-        signupsRequired: {},
+        // signupsRequired: {},
       };
     case LOGGED_OUT:
       return { ...initialState, loading: false };
@@ -117,15 +117,15 @@ export function useMagic() {
     loggedIn,
     dispatch,
     loading,
-    signupsRequired,
+    // signupsRequired,
     requirePreSignup,
     getToken,
     myLogin,
   } = context;
 
-  const clearSignupsRequired = () => {
-    dispatch({ type: CLEAR_REQUIRE_SIGNUP });
-  };
+  //   const clearSignupsRequired = () => {
+  //     dispatch({ type: CLEAR_REQUIRE_SIGNUP });
+  //   };
 
   const login = async ({ email }) => {
     dispatch({ type: SET_LOADING, loading: true });
@@ -161,7 +161,7 @@ export function useMagic() {
     loading,
     login,
     logout,
-    clearSignupsRequired,
-    signupsRequired,
+    // clearSignupsRequired,
+    // signupsRequired,
   };
 }

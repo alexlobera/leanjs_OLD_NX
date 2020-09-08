@@ -217,7 +217,7 @@ class PaymentSection extends React.Component {
 
     return (
       <React.Fragment>
-        <H2 sx={{ color: 'inverseText' }}>
+        <H2 sx={{ color: 'inverseText', mt: 0 }}>
           Price
           <a to="#pricing" id="pricing" />
         </H2>
