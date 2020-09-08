@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 
 import { Ul } from './List';
-import { Box, LeanProps, As } from './Box';
+import { Box, SxProp, LeanProps, As } from './Box';
 
 export const TabList = React.memo(function <T extends As = 'ul'>(
   props: LeanProps<T>
@@ -123,6 +123,7 @@ interface TabsProps {
   defaultValue?: string;
   onChange?: (value: string) => void;
   children: JSX.Element[];
+  sx?: SxProp
 }
 export const Tabs = React.memo(function ({
   value: valueProp,

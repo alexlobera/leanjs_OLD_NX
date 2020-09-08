@@ -98,9 +98,9 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({ data, pageContext }) =
                 Completed 0 out of {trainingUnit.published.videos.length}{' '}
                 lessons
               </P>
-              <P>
+              {/* <P>
                 Where is the video <Link>autoplay?</Link>
-              </P>
+              </P> */}
               <Ul variant="unstyled" sx={{ pl: 0 }}>
                 {trainingUnit.published.videos.map(({ title, slug }) => (
                   <Li key={slug}>

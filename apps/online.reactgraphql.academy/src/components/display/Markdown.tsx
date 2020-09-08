@@ -3,6 +3,7 @@ import React from 'react';
 
 import { P } from '.';
 import { Ul, Li } from '../layout';
+import Link from '../navigation/Link';
 
 export default function Markdown({ children }) {
   if (!children || typeof children !== 'string') {
@@ -21,6 +22,9 @@ export default function Markdown({ children }) {
           li: {
             component: Li,
           },
+          a: {
+            component: Link
+          }
         },
       }}
       children={children}

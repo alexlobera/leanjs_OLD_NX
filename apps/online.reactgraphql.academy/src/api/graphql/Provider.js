@@ -71,7 +71,7 @@ function hashGql(query, variables, options) {
 
 const memoizedHashGql = memoize(hashGql);
 
-export const useQuery = (query, { variables, skip } = {}) => {
+export const useQuery = (query, { variables, skip = false } = {}) => {
   const { client } = useClient();
   const { loggedIn } = useMagic();
   const [state, dispatch] = useContext(StoreContext);
