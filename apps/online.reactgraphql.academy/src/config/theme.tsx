@@ -1,5 +1,6 @@
 export const DARK_BLUE = 'rgba(0,41,56, 1)';
 export const DARK_GREY = '#4a4a4a';
+export const REACT = 'rgba(97, 218, 251, 1)';
 
 const heading = {
   color: 'text',
@@ -65,7 +66,8 @@ export const theme = {
     primary: '#C0392B',
     secondary: 'rgba(0,41,56, 1)',
     danger: 'rgb(243, 136, 162)',
-    react: 'rgba(97, 218, 251, 1)'
+    react: REACT,
+    tech: REACT,
   },
   sizes: {
     container: '64rem',
@@ -217,5 +219,7 @@ export const theme = {
     },
   },
 };
+
+export type Theme = typeof theme;
 
 export default theme;

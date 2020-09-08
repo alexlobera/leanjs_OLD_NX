@@ -82,7 +82,7 @@ const HeaderSection = styled('header')<SectionProps>`
   }
 `;
 
-const textBackgroundProps = {
+export const textBackgroundProps = {
   color: WHITE,
   bg: 'rgba(0, 41, 56, 0.75)',
   boxDecorationBreak: 'clone',

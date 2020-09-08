@@ -38,23 +38,29 @@ function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
   useEffect(() => {
     function initPlayer() {
       if (Hls.isSupported()) {
+        if (!url) {
+          return;
+        }
+        let { plyr } = controllerRef.current;
+        if (plyr) {
+          plyr.destroy();
+        }
+
         // import Plyr from 'plyr' breaks on SSR, to we require it on the client
         const Plyr = require('plyr');
-        const plyr = new Plyr(videoRef.current, {
+        plyr = new Plyr(videoRef.current, {
           autoplay,
-          controls: url
-            ? [
-                'play-large',
-                'play',
-                'progress',
-                'current-time',
-                'mute',
-                'volume',
-                'settings',
-                'airplay',
-                'fullscreen',
-              ]
-            : [],
+          controls: [
+            'play-large',
+            'play',
+            'progress',
+            'current-time',
+            'mute',
+            'volume',
+            'settings',
+            'airplay',
+            'fullscreen',
+          ],
         });
 
         plyr.on('play', startLoad);
@@ -66,7 +72,7 @@ function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
 
         const hls = new Hls({ autoStartLoad: autoload });
 
-        controllerRef.current = { player: hls, videoElement: videoRef };
+        controllerRef.current = { player: hls, videoElement: videoRef, plyr };
         hls.attachMedia(videoRef.current);
         hls.on(Hls.Events.MEDIA_ATTACHED, () => {
           hls.loadSource(url);
@@ -101,7 +107,10 @@ function useHls({ url = '', autoplay = false, autoload = true, onClick, ref }) {
     initPlayer();
 
     return () => {
-      const { player } = controllerRef.current;
+      const { player, plyr } = controllerRef.current;
+      if (plyr) {
+        plyr.destroy();
+      }
       if (player) {
         player.destroy();
       }
@@ -168,20 +177,26 @@ export const VideoPlayer = (
     ref,
   });
 
+  const urlProps = url
+    ? {
+        onClick: handleVideoClick,
+        controls: loadingStarted,
+        muted: autoplay || muted,
+        autoPlay: autoplay,
+      }
+    : {};
+
   return (
     <>
       <GlobalStyle />
       <video
         // TODO add forward ref to Box so we can add the sx prop to this <video> using <Box> instead
-        // sx={{ width: '100%', cursor: "pointer", ...sx }}
-        // style={{ width: '100%' }}
-        onClick={handleVideoClick}
-        controls={loadingStarted}
-        muted={autoplay || muted}
-        autoPlay={autoplay}
+        // sx={{ maxWidth: '100%', cursor: "pointer", ...sx }}
+        {...urlProps}
         ref={videoRef}
         poster={posterUrl}
         className={className}
+        style={{ maxWidth: '100%' }}
         {...rest}
       />
       {error && <p>There was an error loading this video ({error}).</p>}

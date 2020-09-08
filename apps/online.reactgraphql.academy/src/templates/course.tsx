@@ -10,6 +10,7 @@ import {
 } from '@leanjs/ui-academy';
 import { PlayMedia } from '@leanjs/ui-icons';
 
+import Tick from '../components/icons/Tick';
 import { useMagic } from '../components/auth/MagicProvider';
 import { FAQSection } from '../components/display/TrainingPage';
 import Layout from '../components/layout/Layout';
@@ -49,14 +50,12 @@ function CoursePage({ data, pageContext: { trainingId } }) {
   const units = training.units || [];
   const title = `Online ${training.title} Course`;
 
-  console.log(`aaa`, training);
-
   const trainingInstances =
     data.upmentoring.trainingInstances &&
-      data.upmentoring.trainingInstances.edges
+    data.upmentoring.trainingInstances.edges
       ? data.upmentoring.trainingInstances.edges
-        .map(formatTraining())
-        .slice(0, 3)
+          .map(formatTraining())
+          .slice(0, 3)
       : [];
 
   // TODO useMemo variables inside useQuery
@@ -86,7 +85,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           path: '/',
           text: 'Home',
         },
-        { text: title },
+        { text: training.title },
       ]}
     >
       <Helmet
@@ -152,14 +151,13 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                   const lessonsCount =
                     (published.videos && published.videos.length) || 0;
                   const { previewVideo } = published;
-                  console.log('aaa 11', unit)
                   acc.push(
                     <>
                       <Box sx={{ gridColumn: ['2/ -2', '1/ 4'], mb: 5 }}>
                         {previewVideo && (
                           <VideoPlayer
                             posterUrl={previewVideo.asset?.posterImageUrl}
-                            url={previewVideo.asset?.unitPreviewVideoUrl}
+                            url={previewVideo.asset?.url}
                           />
                         )}
                       </Box>
@@ -171,25 +169,28 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                       >
                         <H3 sx={{ mt: 0 }}>{published.title}</H3>
                         <Ul variant="inline" sx={{ mb: 4 }}>
-                          <Li sx={{ pl: 0 }}>
-                            {lessonsCount} lessons
-
-                          </Li>
+                          <Li sx={{ pl: 0 }}>{lessonsCount} lessons</Li>
                           <Li>|</Li>
-                          <Li> {lessonsCount > 0 ? (
-                            <>
-                              <Link
-                                to={`${trainingPath}/${published.videos[0].slug}`}
-                              >
-                                <PlayMedia fill="#1B1F23" sx={{ mb: '-7px', mx: 1, width: "16px" }} /> Start watching
+                          <Li>
+                            {' '}
+                            {lessonsCount > 0 ? (
+                              <>
+                                <Link
+                                  to={`${trainingPath}/${published.videos[0].slug}`}
+                                >
+                                  <PlayMedia
+                                    fill="#1B1F23"
+                                    sx={{ mb: '-7px', mx: 1, width: '16px' }}
+                                  />{' '}
+                                  Start watching
                                 </Link>
-                            </>
-                          ) : null}</Li>
+                              </>
+                            ) : null}
+                          </Li>
                           {!purchased && (
                             <>
                               <Li>|</Li>
                               <Li>
-
                                 <Link to="#pricing" sx={{ mt: 3 }}>
                                   Buy
                                 </Link>
@@ -212,11 +213,32 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                             </TabPanel>
                           </Tabs>
                         ) : (
-                            <>
-                              <H4>Learning objectives</H4>
-                              <Markdown>{published.objectives}</Markdown>
-                            </>
-                          )}
+                          <>
+                            <H4>Learning objectives</H4>
+                            <Markdown
+                              li={({ children = null }) => (
+                                <Li
+                                  sx={{
+                                    position: 'relative',
+                                    listStyle: 'none',
+                                  }}
+                                >
+                                  <Tick
+                                    width={20}
+                                    sx={{
+                                      position: 'absolute',
+                                      left: '-30px',
+                                      top: '8px',
+                                    }}
+                                  />
+                                  {children}
+                                </Li>
+                              )}
+                            >
+                              {published.objectives}
+                            </Markdown>
+                          </>
+                        )}
                       </Box>
                     </>
                   );
@@ -225,9 +247,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
               }, [])}
             </Grid>
             <H2>{training.title} Curriculum</H2>
-            <Card
-              variant="secondary"
-            >
+            <Card variant="secondary">
               <Markdown>{training?.description?.syllabus}</Markdown>
             </Card>
             {/* <H2>
@@ -247,11 +267,11 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                 {!purchased ? (
                   <PaymentSection item={training} />
                 ) : (
-                    <H2 sx={{ color: 'inverseText' }}>
-                      <a id="pricing" />
+                  <H2 sx={{ color: 'inverseText' }}>
+                    <a id="pricing" />
                     Thank you for purchasing this course :)
-                    </H2>
-                  )}
+                  </H2>
+                )}
               </Box>
             </Grid>
           </Sheet>
@@ -261,7 +281,9 @@ function CoursePage({ data, pageContext: { trainingId } }) {
       <Section>
         <Container>
           <Sheet variant="transparent">
-            <H2 sx={{ mt: 0 }}>You can also learn this course in a live training</H2>
+            <H2 sx={{ mt: 0 }}>
+              You can also learn this curriculum in a live training
+            </H2>
             <P>
               Alternatively to this online course, you can also join a cohort
               and attend a React Redux Fundamentals live training. Discuss
@@ -291,7 +313,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
           </Sheet>
         </Container>
       </Section>
-    </Layout >
+    </Layout>
   );
 }
 

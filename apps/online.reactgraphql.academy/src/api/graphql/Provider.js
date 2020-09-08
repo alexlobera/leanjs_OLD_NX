@@ -11,9 +11,9 @@ export const receiveData = (data) => ({
   data,
 });
 
-export const setErrors = (error) => ({
+export const setErrors = (errors) => ({
   type: SET_ERROR,
-  error,
+  errors,
 });
 
 const StoreContext = React.createContext();
@@ -25,11 +25,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        error: action.error,
+        errors: action.errors,
         data: { ...state.data, ...action.payload },
       };
     case SET_ERROR:
-      return { ...state, loading: false, error: action.error };
+      return { ...state, loading: false, errors: action.errors };
     case SET_LOADING:
       return { ...state, loading: action.payload };
     case CLEAR_CACHE:
@@ -45,8 +45,8 @@ const GraphQLProvider = ({
   client,
   initialState = {
     data: {},
-    error: null,
-    loading: false,
+    errors: null,
+    loading: true,
   },
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -75,35 +75,40 @@ export const useQuery = (query, { variables, skip = false } = {}) => {
   const { client } = useClient();
   const { loggedIn } = useMagic();
   const [state, dispatch] = useContext(StoreContext);
-  const { loading, error, data: cache } = state;
+  const { loading, errors, data: cache } = state;
   const cacheKey = memoizedHashGql(query, variables, loggedIn);
   const data = cache && cache[cacheKey];
 
   useEffect(() => {
-    if (data || loading || skip) {
+    if (data || skip) {
+      dispatch({
+        type: SET_LOADING,
+        payload: false,
+      });
       return;
     }
+
     dispatch({
       type: SET_LOADING,
       payload: true,
     });
     client
       .query({ query, variables })
-      .then(({ data, error }) => {
+      .then(({ data, errors }) => {
         dispatch({
           type: RECEIVE_DATA,
-          payload: { [cacheKey]: data, error },
+          payload: { [cacheKey]: data, errors },
         });
       })
       .catch((error) => {
         dispatch({
           type: SET_ERROR,
-          error,
+          errors: [error.message],
         });
       });
   }, [query, cacheKey, variables, skip, dispatch]);
 
-  return { data, loading, error };
+  return { data, loading, errors: errors?.length ? errors : null };
 };
 
 export const useClient = () => {

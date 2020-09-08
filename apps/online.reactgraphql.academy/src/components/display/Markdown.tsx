@@ -5,7 +5,7 @@ import { P } from '.';
 import { Ul, Li } from '../layout';
 import Link from '../navigation/Link';
 
-export default function Markdown({ children }) {
+export default function Markdown({ children, li = Li }) {
   if (!children || typeof children !== 'string') {
     return null;
   }
@@ -19,12 +19,10 @@ export default function Markdown({ children }) {
           ul: {
             component: Ul,
           },
-          li: {
-            component: Li,
-          },
+          li,
           a: {
-            component: Link
-          }
+            component: Link,
+          },
         },
       }}
       children={children}
