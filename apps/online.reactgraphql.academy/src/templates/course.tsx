@@ -18,7 +18,6 @@ import Sheet from '../components/layout/Sheet';
 import Link from '../components/navigation/Link';
 import Header from '../components/layout/Header';
 import { P, H2, H3, H4 } from '../components/display';
-import ReactHeaderBg from '../components/layout/Header/ReactBg';
 import {
   Card,
   Container,
@@ -77,6 +76,8 @@ function CoursePage({ data, pageContext: { trainingId } }) {
   );
 
   const purchased = privateData?.viewer?.purchasedTraining?.id === trainingId;
+  const coverImage =
+    data.courseThumbnailImages.nodes[0].childImageSharp.fixed.src;
 
   return (
     <Layout
@@ -99,43 +100,44 @@ function CoursePage({ data, pageContext: { trainingId } }) {
       >
         {createMetas(metas)}
       </Helmet>
-      <ReactHeaderBg bottom="-300px">
-        <Header
-          title={title}
-          subtitle={training.subtitle}
-          height="100vh"
-          bgColors={['rgba(196, 196, 196, 0.6)']}
-          bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          links={[
-            {
-              text: 'Course layout',
-              to: '#course-modules',
-            },
-            // {
-            //   text: 'Is it right for me?',
-            //   to: '#target-audience',
-            // },
-            {
-              text: 'FAQs',
-              to: '#faqs',
-            },
-            {
-              text: purchased ? 'Thanks' : 'Price',
-              to: '#pricing',
-            },
-          ]}
-          info={
-            training.previewVideo && (
-              <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
-                <VideoPlayer
-                  poster={training.previewVideo.asset?.posterImageUrl}
-                  url={training.previewVideo.asset?.url}
-                />
-              </Box>
-            )
-          }
-        />
-      </ReactHeaderBg>
+
+      <Header
+        title={title}
+        subtitle={training.subtitle}
+        height="100vh"
+        bgColors={['rgba(196, 196, 196, 0.6)']}
+        bgImageOpacity={1}
+        bgImage={coverImage}
+        links={[
+          {
+            text: 'Course layout',
+            to: '#course-modules',
+          },
+          // {
+          //   text: 'Is it right for me?',
+          //   to: '#target-audience',
+          // },
+          {
+            text: 'FAQs',
+            to: '#faqs',
+          },
+          {
+            text: purchased ? 'Thanks' : 'Price',
+            to: '#pricing',
+          },
+        ]}
+        info={
+          training.previewVideo && (
+            <Box sx={{ gridColumn: ['1 / 3'], mb: 5 }}>
+              <VideoPlayer
+                poster={training.previewVideo.asset?.posterImageUrl}
+                url={training.previewVideo.asset?.url}
+              />
+            </Box>
+          )
+        }
+      />
+
       <Section variant="top">
         <Container>
           <Sheet>
@@ -192,7 +194,7 @@ function CoursePage({ data, pageContext: { trainingId } }) {
                               <Li>|</Li>
                               <Li>
                                 <Link to="#pricing" sx={{ mt: 3 }}>
-                                  Buy
+                                  Buy course
                                 </Link>
                               </Li>
                             </>
@@ -318,7 +320,27 @@ function CoursePage({ data, pageContext: { trainingId } }) {
 }
 
 export const query = graphql`
-  query getTraining($trainingId: ID!, $path: String!) {
+  query getTraining(
+    $trainingId: ID!
+    $path: String!
+    $coverImageRegex: String!
+  ) {
+    courseThumbnailImages: allFile(
+      filter: {
+        absolutePath: { regex: $coverImageRegex }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+    ) {
+      nodes {
+        publicURL
+        name
+        childImageSharp {
+          fixed(width: 1200) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
     sanityTrainingPage(path: { eq: $path }) {
       ...sanityTrainingPageFragment
     }

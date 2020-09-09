@@ -19,7 +19,7 @@ const metas = {
 export default function PaymentConfirmation({ data, location }) {
   const title = 'Coming soon';
   const coverImage = data.coverImage.nodes[0].childImageSharp.fixed.src;
-  const { email } = location.state || {};
+  const { email, referrer } = location.state || {};
 
   return (
     <Layout
@@ -53,7 +53,10 @@ export default function PaymentConfirmation({ data, location }) {
         <Container>
           <Sheet>
             <H2 sx={{ mt: 0 }}>What happens now?</H2>
-            <P>We've given {email || 'you'} access to the course 🎉</P>
+            <P>
+              We've given {email || 'you'} access to the{' '}
+              {referrer ? <Link to={referrer}>course</Link> : 'course'} 🎉
+            </P>
             <P>
               You should shortly receive an order confirmation and receipt in
               your email {email}. Just check your inbox soon (be sure to check

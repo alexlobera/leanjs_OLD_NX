@@ -80,6 +80,7 @@ const Checkout = (props) => {
     city,
     triggerSubscribe,
     trialTraingInstance,
+    sessionEmail,
   } = props;
 
   return !isCheckoutOpen ? (
@@ -116,6 +117,7 @@ const Checkout = (props) => {
     </PurchaseWrapper>
   ) : (
     <CheckoutContainer
+      sessionEmail={sessionEmail}
       trialTraingInstance={trialTraingInstance}
       city={city}
       navigate={navigate}

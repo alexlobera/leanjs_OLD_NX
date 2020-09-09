@@ -16,10 +16,11 @@ import RGALogoDarkBg from '../components/logos/RGALogoDarkBg';
 import CheckboxField from '../components/form/CheckboxField';
 import { triggerSubscribe } from '../api';
 
-function LoginPage({ navigate }) {
+function LoginPage({ navigate, location }) {
   const { login, loggedIn } = useMagic();
+  console.log('aaa', location.state);
   if (loggedIn) {
-    navigate('/react-foundation-course/');
+    navigate(location.state?.referrer || '/react-foundation-course/');
 
     return null;
   }

@@ -65,6 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: courseTemplate,
       context: {
         trainingId: training.id,
+        coverImageRegex: `/courses/cover_${training.slug}/`,
       },
     });
 

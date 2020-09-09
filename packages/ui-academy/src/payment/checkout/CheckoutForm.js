@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import { withMagic } from '@leanjs/magic-link';
 import {
   Button,
   Span,
@@ -174,11 +173,11 @@ class CheckoutForm extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.magic.user.getMetadata().then((metaData) => {
-      metaData?.email && this.setState({ email: metaData.email });
-    });
-  }
+  //   componentDidMount() {
+  //     this.props.magic.user.getMetadata().then((metaData) => {
+  //       metaData?.email && this.setState({ email: metaData.email });
+  //     });
+  //   }
 
   toggleDisplayVoucherSection = () => {
     this.setState({ isVoucherDisplayed: !this.state.isVoucherDisplayed });
@@ -219,6 +218,7 @@ class CheckoutForm extends React.Component {
       showSubscribeToNewsletter,
       trialTraingInstance,
       isDonationTicket,
+      sessionEmail,
     } = this.props;
     const { isVoucherDisplayed, isCompanyDetailsDisplayed } = this.state;
     const discount = priceQuantity - currentPriceQuantity;
@@ -226,7 +226,7 @@ class CheckoutForm extends React.Component {
       ? 0
       : currentPriceQuantity - currentPriceQuantity * vatRate;
 
-    const initialValues = { email: this.state.email };
+    const initialValues = { email: sessionEmail };
 
     return (
       <Fragment>
@@ -579,4 +579,4 @@ class CheckoutForm extends React.Component {
   }
 }
 
-export default withMagic(CheckoutForm);
+export default CheckoutForm;

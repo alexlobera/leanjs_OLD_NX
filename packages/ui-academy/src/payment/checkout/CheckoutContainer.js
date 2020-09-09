@@ -196,6 +196,7 @@ export class CheckoutContainer extends React.Component {
             if (!errors) {
               navigate('/payment-confirmation', {
                 email,
+                referrer: location.pathname,
                 makePayment: data.makePayment,
                 itemId,
                 shoppingItemEnum,
@@ -226,6 +227,7 @@ export class CheckoutContainer extends React.Component {
       showSubscribeToNewsletter,
       trialTraingInstance,
       isDonationTicket,
+      sessionEmail,
     } = this.props;
     const {
       isViesValidationInProgress,
@@ -242,6 +244,7 @@ export class CheckoutContainer extends React.Component {
 
     return (
       <CheckoutForm
+        sessionEmail={sessionEmail}
         isDonationTicket={isDonationTicket}
         trialTraingInstance={trialTraingInstance}
         quantity={quantity}

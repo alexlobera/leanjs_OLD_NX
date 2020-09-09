@@ -70,7 +70,7 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
     ({ fieldId }) => fieldId === RELATED_RESOURCES_FIELD_ID
   )?.values[0];
   const trainingPath = `/${training.slug}-course/`;
-
+  // console.log('aaaaa', location);
   return (
     <Layout
       variant="stack"
@@ -129,17 +129,42 @@ const LessonPage: FunctionComponent<LessonPageProps> = ({
                           lineHeight: 1.5,
                         }}
                       >
-                        You have to{' '}
-                        <Link to={trainingPath}>purchase this course</Link> to
-                        watch this video.
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <>
+                            You have to{' '}
+                            <Link
+                              to="/login"
+                              state={{ referrer: location.pathname }}
+                            >
+                              log in to
+                            </Link>{' '}
+                            to watch this video.
+                          </>
+                        ) : (
+                          <>
+                            You have to{' '}
+                            <Link to={trainingPath}>purchase this course</Link>{' '}
+                            to watch this video.
+                          </>
+                        )}
                       </H3>
                       <P sx={{ textAlign: 'center', mt: 6 }}>
-                        <LinkButton
-                          variant="primary"
-                          to={`${trainingPath}#pricing`}
-                        >
-                          Buy now
-                        </LinkButton>
+                        {pageContext.isPublicVideo && !loggedIn ? (
+                          <LinkButton
+                            variant="primary"
+                            to="/login"
+                            state={{ referrer: location.pathname }}
+                          >
+                            Log in now
+                          </LinkButton>
+                        ) : (
+                          <LinkButton
+                            variant="primary"
+                            to={`${trainingPath}#pricing`}
+                          >
+                            Buy now
+                          </LinkButton>
+                        )}
                       </P>
                     </>
                   )}

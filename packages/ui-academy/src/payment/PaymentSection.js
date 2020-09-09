@@ -1,15 +1,10 @@
 import React from 'react';
 import { navigate } from 'gatsby';
 import { H2, H3, P, Card } from '@leanjs/ui-core';
+import { withMagic } from '@leanjs/magic-link';
 
-// import { graphql, withStatelessClient } from '../../api/graphql/client';
-// import memoize from '../../api/graphql/memoize';
-// import { H2, H3, P } from '../text';
 import Ribbon from '.';
-
 import Checkout from './checkout/';
-// import formatPrice from '../utils/currency';
-// import { getVoucherByPathname } from '../utils/store';
 import Countdown from './Countdown';
 import { DEFAULT_VAT_RATE, formatPrice } from './utils';
 
@@ -53,6 +48,10 @@ class PaymentSection extends React.Component {
       this.setState({ voucher });
       this.validateVoucher(voucher);
     }
+
+    this.props.magic.user.getMetadata().then((metaData) => {
+      metaData?.email && this.setState({ sessionEmail: metaData.email });
+    });
   }
 
   validateVoucher = (voucher) => {
@@ -197,6 +196,7 @@ class PaymentSection extends React.Component {
       voucher,
       isVoucherValid,
       isVoucherValidationInProgress,
+      sessionEmail,
     } = this.state;
     const priceQuantity = price * quantity;
     const currentPriceQuantity = discountCodePrice
@@ -216,7 +216,7 @@ class PaymentSection extends React.Component {
           <a to="#pricing" id="pricing" />
         </H2>
         <Card>
-          <H3>
+          <H3 sx={{ mt: 2 }}>
             <strong>{notSoldOut ? title : 'Sold out!'}</strong>
           </H3>
           {notSoldOut && (
@@ -266,6 +266,7 @@ class PaymentSection extends React.Component {
                   isVoucherValidationInProgress={isVoucherValidationInProgress}
                   paymentApi={paymentApi}
                   showSubscribeToNewsletter={showSubscribeToNewsletter}
+                  sessionEmail={sessionEmail}
                 />
               )}
             </React.Fragment>
@@ -310,4 +311,4 @@ query eventDiscountPrice($eventId: ID!) {
 }
 `;
 
-export default PaymentSection;
+export default withMagic(PaymentSection);
